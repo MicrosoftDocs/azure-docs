@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 02/14/2020
 ---
 
 # Connect to on-premises data sources from Azure Logic Apps
@@ -56,12 +56,13 @@ Azure Logic Apps supports read and write operations through the data gateway. Ho
 
   When you create a gateway resource in the Azure portal, you select a gateway installation, which links to your gateway resource and only that gateway resource. In Azure Logic Apps, on-premises triggers and actions then use the gateway resource for connecting to on-premises data sources. In these triggers and actions, you select your Azure subscription and the associated gateway resource that you want to use. Each gateway resource links to only one gateway installation, which links to only one Azure account.
 
+  > [!NOTE]
+  > Only the gateway administrator can create the gateway resource in the Azure portal. 
+  > Currently, service principals aren't supported. 
+
 <a name="create-gateway-resource"></a>
 
 ## Create Azure gateway resource
-
-> [!NOTE]
-> Only an admin of the gateway can create this resource. You can Manage Admins of a Gateway from [PowerBI](/data-integration/gateway/service-gateway-manage#manage-gateway-admins) or the [Power Platform Admin Center](/power-platform/admin/onpremises-data-gateway-management). Service Principals are currently not supported.
 
 After you install the gateway on a local computer, create the Azure resource for your gateway.
 
