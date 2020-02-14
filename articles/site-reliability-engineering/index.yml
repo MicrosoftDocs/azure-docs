@@ -21,15 +21,15 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: "Introduction to Site Reliability Engineering"
+    - title: "Intro to SRE (1): What is SRE?"
       itemType: "video"
       url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-1/player
     # Card
-    - title: "Intro to SRE: Core Principles and Practices"
+    - title: "Intro to SRE (2): Core Principles and Practices"
       itemType: "video"
       url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-2/player
     # Card
-    - title: "Intro to SRE: How to Get Started"
+    - title: "Intro to SRE (3): How to Get Started"
       itemType: "video"
       url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-3/player
 
@@ -68,3 +68,100 @@ productDirectory:
            text: events
          - url: resources/links.md
            text: links
+# conceptualContent section (optional)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  title: SRE on Azure # < 60 chars (optional)
+  summary: Documentation for SREs # < 160 chars (optional)
+  items:
+    # Card
+    - title: Architecture
+      links:
+        - url: https://docs.microsoft.com/azure/architecture/framework/
+          itemType: reference
+          text: Azure Architecture Framework
+          
+        - url: https://docs.microsoft.com/azure/architecture/guide
+          itemType: reference
+          text: Azure Application Architecture Guide
+
+        - url: https://docs.microsoft.com/azure/architecture/architectures/?filter=reference-architecture
+          itemType: reference
+          text: Reference Architectures
+
+        - url: https://docs.microsoft.com/azure/architecture/cloud-adoption/
+          itemType: reference
+          text: Microsoft Cloud Adoption Framework for Azure
+
+        - url: https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload
+          itemType: reference
+          text: Example Workloads
+
+        - url: https://docs.microsoft.com/azure/architecture/microservices
+          itemType: reference
+          text: Building Microservices on Azure
+
+        - url: https://docs.microsoft.com/azure/architecture/data-guide/
+          itemType: reference
+          text: Azure Data Architecture Guide
+
+        - url: https://docs.microsoft.com/azure/architecture/best-practices/
+          itemType: reference
+          text: Cloud Best Practices
+
+        - url: https://docs.microsoft.com/azure/architecture/framework/resiliency/overview
+          itemType: reference
+          text: Designing Reliable Azure applications
+
+        - url: https://docs.microsoft.com/azure/architecture/patterns
+          itemType: reference
+          text: Cloud Design Patterns   
+
+        - url: https://docs.microsoft.com/eazure/architecture/aws-professionals
+          itemType: reference
+          text: Azure for AWS Professionals   
+
+        - url: https://docs.microsoft.com/en-us/azure/architecture/performance
+          itemType: reference
+          text: Performance tuning   
+      # footerLink (optional)
+      footerLink:
+        url: https://docs.microsoft.com/azure/architecture/
+        text: See more in the Azure Architecture Center
+    # Card
+    - title: Monitoring
+      links:
+        - url: https://docs.microsoft.com/azure/azure-monitor/overview
+          itemType: get-started
+          text: Azure Monitor overview
+
+        - url: https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics
+          itemType: get-started
+          text: Metrics with Azure Monitor
+
+        - url: https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs
+          itemType: get-started
+          text: Logs with Azure Monitor
+
+        - url: https://docs.microsoft.com/azure/azure-monitor/azure-monitor-app-hub
+          itemType: get-started
+          text: Application Performance Management with Application Insights
+
+        - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
+          itemType: get-started
+          text: Distributed Tracing with Azure Monitor
+
+      # footerLink (optional)
+      footerLink:
+        url: https://docs.microsoft.com/en-us/azure/azure-monitor/
+        text: See more about Azure Monitor
+    # Card
+    - title: Delivery
+      links:
+        - url: https://help.github.com/actions
+          itemType: get-started
+          text: GitHub Actions
+
+        - url:  https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops
+          itemType: get-started
+          text: Azure Pipelines
