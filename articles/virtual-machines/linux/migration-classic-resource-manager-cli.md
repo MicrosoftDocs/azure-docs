@@ -18,6 +18,9 @@ ms.date: 02/06/2020
 ms.author: tagore
 
 ---
+> [!IMPORTANT]
+> Classic VMs will be retiring on March 1, 2023. [Learn more](https://aks.ms/classicdeprecation). Start planning your migration today! Learn more about [ARM VMs](https://docs.microsoft.com/azure/virtual-machines/).
+
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI
 These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure classic CLI](../../cli-install-nodejs.md). Since Azure CLI is only applicable for Azure Resource Manager resources, it cannot be used for this migration.
 
