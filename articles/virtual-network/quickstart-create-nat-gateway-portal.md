@@ -67,7 +67,7 @@ We'll now create a VM to use the NAT service. This VM has a public IP to use as 
 3. In the **Networking** tab make sure the following are selected:
    - **Virtual network**: **myVnet**
    - **Subnet**: **mySubnet**
-   - **Public IP** > Select **Create new**.  In the **Create public IP address** window, type **myPublicIPVM** in the **Name** field.  Leave the rest at the defaults and click **OK**.
+   - **Public IP** > Select **Create new**.  In the **Create public IP address** window, type **myPublicIPVM** in the **Name** field, and choose **Standard** for the **SKU**.  Click **OK**.
    - **NIC network security group**: Select **Basic**.
    - **Public inbound ports**: Select **Allow selected ports**.
    - **Select inbound ports**: Confirm **SSH** is selected.
