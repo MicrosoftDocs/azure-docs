@@ -1,14 +1,12 @@
 ---
 title: Understand and work with Azure Cost Management scopes
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: micflan
+ms.reviewer: micflan
 ms.custom:
 ---
 

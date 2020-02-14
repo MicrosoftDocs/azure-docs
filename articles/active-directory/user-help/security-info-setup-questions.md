@@ -2,7 +2,7 @@
 title: Set up security questions as your verification method - Azure AD
 description: How to set up your Security info (preview) page to verify your identity using pre-defined security questions as your verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 
@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
 # Set up security questions as your verification method

@@ -49,7 +49,7 @@ Network security groups (NSGs) are supported on Application Gateway. But there a
 - Outbound internet connectivity can't be blocked. Default outbound rules in the NSG allow internet connectivity. We recommend that you:
 
   - Don't remove the default outbound rules.
-  - Don't create other outbound rules that deny outbound internet connectivity.
+  - Don't create other outbound rules that deny any outbound connectivity.
 
 - Traffic from the **AzureLoadBalancer** tag must be allowed.
 

@@ -4,16 +4,13 @@
   items:
   - name: What is authentication?
     href: overview-authentication.md
-- name: Quickstart
-  items:
-  - name: Configure password reset
-    href: quickstart-sspr.md
 - name: Tutorials
+  expanded: true
   items:
-  - name: 1 Enable MFA for Applications
-    href: tutorial-mfa-applications.md
-  - name: 2 Enable a SSPR pilot
-    href: tutorial-sspr-pilot.md
+  - name: Enable self-service password reset
+    href: tutorial-enable-sspr.md
+  - name: Enable Azure Multi-Factor Authentication
+    href: tutorial-enable-azure-mfa.md
   - name: Enable SSPR on-premises integration
     href: tutorial-enable-writeback.md
   - name: Integrate Azure Identity Protection
@@ -67,7 +64,7 @@
   items:
   - name: Self-service password reset
     items:
-    - name: Deploy self-service password reset
+    - name: Deployment guide
       href: howto-sspr-deployment.md
     - name: Pre-register authentication data
       href: howto-sspr-authenticationdata.md
@@ -77,7 +74,7 @@
       href: howto-sspr-windows.md
   - name: Cloud-based MFA
     items:
-    - name: Deploy cloud-based MFA
+    - name: Deployment guide
       href: howto-mfa-getstarted.md
     - name: Per user MFA
       href: howto-mfa-userstates.md

@@ -1,6 +1,6 @@
 ---
 title: Classroom labs in Azure Lab Services — FAQ | Microsoft Docs
-description: Find answers to common questions about classroom labs in Azure Lab Services.
+description: This article provides answers to frequently asked questions (FAQ) about classroom labs in Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 02/14/2020
 ms.author: spelluru
 
 ---
@@ -28,7 +28,7 @@ The quota you set for a lab is for each student for entire duration of the lab. 
 ## Schedules
 
 ### Do all VMs in the lab start automatically when a schedule is set? 
-No. Not all the VMs. Only the VMs that are assigned to users on a schedule. The VMs that aren't assigned to a user are not automatically started. It's by design. 
+No. Not all the VMs. Only the VMs that are assigned to users on a schedule. The VMs that aren't assigned to a user aren't automatically started. It's by design. 
 
 ## Lab accounts
 
@@ -43,6 +43,12 @@ The ports are: 49152–65535. Classroom labs sit behind a load balancer, so all 
 
 ### What public IP address range should I open on my organization's firewall settings to connect to Lab virtual machines via RDP/SSH?
 See [Azure IP Ranges and Service Tags — Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519), which provides the public IP address range for data centers in Azure. You can open the IP addresses for the regions where your lab accounts are in.
+
+## Virtual machine images
+
+### As a lab creator, why can't I enable additional image options in the virtual machine images dropdown when creating a new lab?
+
+When an administrator adds you as a lab creator to a lab account, you're given the permissions to create labs. But, you don't have the permissions to edit any settings inside the lab account, including the list of enabled virtual machine images. To enable additional images, contact your lab account administrator to do it for you, or ask the administrator to add you as a Contributor role to the lab account. The Contributor role will give you the permissions to edit the virtual machine image list in the lab account.
 
 ## Users
 

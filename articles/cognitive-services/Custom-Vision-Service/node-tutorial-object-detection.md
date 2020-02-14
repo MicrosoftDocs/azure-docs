@@ -64,6 +64,15 @@ const publishIterationName = "detectModel";
 
 const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
+/* Helper function to let us use await inside a forEach loop.
+ * This lets us insert delays between image uploads to accommodate the rate limit.
+ */
+async function asyncForEach (array, callback) {
+    for (let i = 0; i < array.length; i++) {
+        await callback(array[i], i, array);
+    }
+}
+
 (async () => {
     console.log("Creating project...");
     const domains = await trainer.getDomains()
@@ -141,43 +150,25 @@ let fileUploadPromises = [];
 
 const forkDir = `${sampleDataRoot}/Fork`;
 const forkFiles = fs.readdirSync(forkDir);
-forkFiles.forEach(file => {
-    const region = new TrainingApi.TrainingAPIModels.Region();
-    region.tagId = forkTag.id;
-    region.left = forkImageRegions[file][0];
-    region.top = forkImageRegions[file][1];
-    region.width = forkImageRegions[file][2];
-    region.height = forkImageRegions[file][3];
 
-    const entry = new TrainingApi.TrainingAPIModels.ImageFileCreateEntry();
-    entry.name = file;
-    entry.contents = fs.readFileSync(`${forkDir}/${file}`);
-    entry.regions = [region];
-
-    const batch = new TrainingApi.TrainingAPIModels.ImageFileCreateBatch();
-    batch.images = [entry];
-
+await asyncForEach(forkFiles, async (file) => {
+    const region = { tagId : forkTag.id, left : forkImageRegions[file][0], top : forkImageRegions[file][1], width : forkImageRegions[file][2], height : forkImageRegions[file][3] };
+    const entry = { name : file, contents : fs.readFileSync(`${forkDir}/${file}`), regions : [region] };
+    const batch = { images : [entry] };
+    // Wait one second to accommodate rate limit.
+    await setTimeoutPromise(1000, null);
     fileUploadPromises.push(trainer.createImagesFromFiles(sampleProject.id, batch));
 });
 
 const scissorsDir = `${sampleDataRoot}/Scissors`;
 const scissorsFiles = fs.readdirSync(scissorsDir);
-scissorsFiles.forEach(file => {
-    const region = new TrainingApi.TrainingAPIModels.Region();
-    region.tagId = scissorsTag.id;
-    region.left = scissorsImageRegions[file][0];
-    region.top = scissorsImageRegions[file][1];
-    region.width = scissorsImageRegions[file][2];
-    region.height = scissorsImageRegions[file][3];
 
-    const entry = new TrainingApi.TrainingAPIModels.ImageFileCreateEntry();
-    entry.name = file;
-    entry.contents = fs.readFileSync(`${scissorsDir}/${file}`);
-    entry.regions = [region];
-
-    const batch = new TrainingApi.TrainingAPIModels.ImageFileCreateBatch();
-    batch.images = [entry];
-
+await asyncForEach(scissorsFiles, async (file) => {
+    const region = { tagId : scissorsTag.id, left : scissorsImageRegions[file][0], top : scissorsImageRegions[file][1], width : scissorsImageRegions[file][2], height : scissorsImageRegions[file][3] };
+    const entry = { name : file, contents : fs.readFileSync(`${scissorsDir}/${file}`), regions : [region] };
+    const batch = { images : [entry] };
+    // Wait one second to accommodate rate limit.
+    await setTimeoutPromise(1000, null);
     fileUploadPromises.push(trainer.createImagesFromFiles(sampleProject.id, batch));
 });
 
