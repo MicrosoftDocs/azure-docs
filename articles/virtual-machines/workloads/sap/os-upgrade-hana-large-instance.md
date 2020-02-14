@@ -59,7 +59,7 @@ Operating system configuration can drift from the recommended settings over time
   |---------------|-------------------------|---------------|--------------|
   |   SuSE        |  SLES 12 SP2            |   2.3.0.40    |   1.6.0.34   |
   |   SuSE        |  SLES 12 SP3            |   2.3.0.44    |   1.6.0.36   |
-  |   Red Het     |  RHEL 7.2               |   2.3.0.39    |   1.6.0.34   |
+  |   Red Hat     |  RHEL 7.2               |   2.3.0.39    |   1.6.0.34   |
  
 
 ### Commands for driver upgrade and to clean old rpm packages
