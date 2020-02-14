@@ -192,6 +192,12 @@ In the previous example, the cached page data remains in the cache for 60 second
 
 Once these steps are performed, your application is configured to use the Redis Output Cache Provider.
 
+## Third-Party Output cache providers
+
+* [NCache](https://www.alachisoft.com/blogs/how-to-use-a-distributed-cache-for-asp-net-output-cache/)
+* [Apache Ignite](https://apacheignite-net.readme.io/docs/aspnet-output-caching)
+
+
 ## Next steps
 
 Check out the [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md).
