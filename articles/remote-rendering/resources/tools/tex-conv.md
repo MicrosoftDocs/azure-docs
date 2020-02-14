@@ -1,14 +1,10 @@
 ---
 title: TexConv - Texture conversion tool
 description: User manual for the TexConv command-line tool
-author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
-ms.author: flborn
-ms.date: 12/11/2019
-ms.topic: conceptual
-ms.service: azure-remote-rendering
+author: jakrams
+ms.author: jakras
+ms.date: 02/11/2020
+ms.topic: article
 ---
 
 # TexConv - Texture conversion tool

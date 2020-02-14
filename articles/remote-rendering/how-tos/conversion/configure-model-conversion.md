@@ -121,6 +121,7 @@ This parameter can be set to false when ray-cast support is not required.
 This paragraph is for advanced use cases, where changing the vertex format is necessary to meet memory constraints. While there is some potential to save valuable GPU memory by tweaking the vertex format, there is a high risk to degrade the visual quality or even compromise stability of the server when the format is not appropriate.
 
 The config file allows for modifying the output vertex structure:
+
 * specific input data streams can be explicitly included or excluded
 * the floating point accuracy of vertex components can be decreased to reduce the memory footprint
 
@@ -128,19 +129,18 @@ The following `vertex` section in the `.json` file is optional. For each portion
 
 ```json
 {
-    "ez": {
-        ...
-        "vertex" : {
-            "position"  : "32_32_32_FLOAT",
-            "color0"    : "NONE",
-            "color1"    : "NONE",
-            "normal"    : "NONE",
-            "tangent"   : "NONE",
-            "binormal"  : "NONE",
-            "texcoord0" : "32_32_FLOAT",
-            "texcoord1" : "NONE"
-        },
-        ...
+    ...
+    "vertex" : {
+        "position"  : "32_32_32_FLOAT",
+        "color0"    : "NONE",
+        "color1"    : "NONE",
+        "normal"    : "NONE",
+        "tangent"   : "NONE",
+        "binormal"  : "NONE",
+        "texcoord0" : "32_32_FLOAT",
+        "texcoord1" : "NONE"
+    },
+    ...
 ```
 
 By forcing a component to `NONE`, it is guaranteed that the output mesh does not have the respective stream.
@@ -152,7 +152,7 @@ The following formats are supported per vertex input component:
 | Vertex component | supported formats (default format is bold) |
 |:-----------------|:------------------|
 |position| **32_32_32_FLOAT**, 16_16_16_16_FLOAT |
-|color0| **8_8_8_8_UNSIGNED_NORMALIZED**, NONE | 
+|color0| **8_8_8_8_UNSIGNED_NORMALIZED**, NONE |
 |color1| 8_8_8_8_UNSIGNED_NORMALIZED, **NONE**|
 |normal| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE |
 |tangent| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE |
@@ -174,6 +174,7 @@ The respective memory footprints of the distinct formats are as follows:
 |8_8_8_8_SIGNED_NORMALIZED|four-component byte, normalized to -1..1 range|4
 
 Here are some notes regarding best practices for component format changes:
+
 * `position` : There are rare cases where reduced floating point accuracy is sufficient. **16_16_16_16_FLOAT** introduces noticeable quantization of the position, even for small models. Position format should always be left to **32_32_32_FLOAT**.
 * `normal`, `tangent`, `binormal` : Typically these values are changed together. Unless there are noticeable lighting artifacts that result from normal quantization, there is no reason to use increased accuracy through format **16_16_16_16_FLOAT**. There are many use cases where these components can be set to **NONE**:
   * A normal, tangent, and binormal vector is only required when the material is lit. That is, when any material in the mesh is using [PBR materials](../../overview/features/pbr-materials.md).

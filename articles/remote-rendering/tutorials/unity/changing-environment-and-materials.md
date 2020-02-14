@@ -2,13 +2,9 @@
 title: Changing the environment and materials
 description: Tutorial that shows how to modify the sky map and object materials in a Unity scene.
 author: jakrams
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: jakras
 ms.date: 02/03/2020
 ms.topic: tutorial
-ms.service: azure-remote-rendering
 ---
 
 # Tutorial: Changing the environment and materials

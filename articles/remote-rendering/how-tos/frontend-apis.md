@@ -2,13 +2,9 @@
 title: Azure Frontend APIs for authentication
 description: Explains how to use the C# frontend API for authentication
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 02/12/2019
-ms.topic: conceptual
-ms.service: azure-remote-rendering
+ms.date: 02/12/2010
+ms.topic: how-to
 ---
 
 # Azure Frontend APIs for authentication
@@ -41,8 +37,6 @@ The important fields are:
 ```
 
 The account information can be obtained from the portal as described in the [retrieve account information](create-an-account.md#retrieve-the-account-information) paragraph.
-
-
 
 ## Azure Frontend
 

@@ -2,13 +2,9 @@
 title: Authentication
 description: Explains how authentication works
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 02/12/2019
 ms.topic: conceptual
-ms.service: azure-remote-rendering
 ---
 
 # Authentication
