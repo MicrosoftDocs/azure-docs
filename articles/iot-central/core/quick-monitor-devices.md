@@ -3,7 +3,7 @@ title: Quickstart - Monitor your devices in Azure IoT Central
 description: As an operator, learn how to use your Azure IoT Central application to monitor your devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -36,8 +36,6 @@ The **Overview** view for the simulated device you created in the previous quick
 ## Investigate an issue
 
 As an operator, you can view information about the device on the **Overview**, **About**, and **Commands** views. The builder created a **Manage device** view for you to edit device information and set device properties.
-
-Choose the **Overview** view to see information about the device.
 
 The chart on the dashboard shows a plot of the device temperature. You decide that the device temperature is too high.
 

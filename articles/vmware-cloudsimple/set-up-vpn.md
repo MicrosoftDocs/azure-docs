@@ -92,7 +92,7 @@ A Point-to-Site VPN connection resolves the DNS names of the first AVS Private C
 
     ![Edit VPN Connection](media/viscosity-edit-connection.png)
 
-7. Click the **Networking** tab and enter the AVS Private Cloud DNS server IP addresses separated by a comma or space and the domain as ```AVS.io```. Select **Ignore DNS settings sent by VPN server**.
+7. Click the **Networking** tab and enter the AVS Private Cloud DNS server IP addresses separated by a comma or space and the domain as ```az.cloudsimple.io```. Select **Ignore DNS settings sent by VPN server**.
 
     ![VPN Networking](media/viscosity-edit-connection-networking.png)
 
@@ -112,4 +112,4 @@ To set up your on-premises VPN gateway in high-availability mode, see [Configure
 
 > [!IMPORTANT]
 >    1. Set TCP MSS Clamping at 1200 on your VPN device. Or if your VPN devices do not support MSS clamping, you can alternatively set the MTU on the tunnel interface to 1240 bytes instead.
-> 2. After Site-to-Site VPN is set up, forward the DNS requests for *.AVS.io to the AVS Private Cloud DNS servers. Follow the instructions in [On-Premises DNS Setup](on-premises-dns-setup.md).
+> 2. After Site-to-Site VPN is set up, forward the DNS requests for *.cloudsimple.io to the AVS Private Cloud DNS servers. Follow the instructions in [On-Premises DNS Setup](on-premises-dns-setup.md).

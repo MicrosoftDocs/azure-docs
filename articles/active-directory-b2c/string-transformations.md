@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/04/2020
+ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -77,7 +77,7 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 - Input claims:
   - **inputClaim1**: someone@contoso.com
   - **inputClaim2**: someone@outlook.com
-    - Input parameters:
+- Input parameters:
   - **stringComparison**:  ordinalIgnoreCase
 - Result: Error thrown
 
@@ -87,7 +87,7 @@ Changes the case of the provided claim to lower or upper case depending on the o
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | The ClaimType that be changed. |
+| InputClaim | inputClaim1 | string | The ClaimType to be changed. |
 | InputParameter | toCase | string | One of the following values: `LOWER` or `UPPER`. |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
 
@@ -322,7 +322,7 @@ Use this claims transformation to format any string with one parameter {0}. The 
 
 ## FormatStringMultipleClaims
 
-Format two claims according to the provided format string. This transformation uses the C# **String.Format** method.
+Format two claims according to the provided format string. This transformation uses the C# `String.Format` method.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -357,6 +357,76 @@ Use this claims transformation to format any string with two parameters, {0} and
     - **stringFormat**: {0} {1}
 - Output claims:
     - **outputClaim**: Joe Fernando
+
+## GetLocalizedStringsTransformation 
+
+Copies localized strings into claims.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| OutputClaim | The name of the localized string | string | List of claim types that is produced after this claims transformation has been invoked. |
+
+To use the GetLocalizedStringsTransformation claims transformation:
+
+1. Define a [localization string](localization.md) and associate it with a [self-asserted-technical-profile](self-asserted-technical-profile.md).
+1. The `ElementType` of the `LocalizedString` element must set to `GetLocalizedStringsTransformationClaimType`.
+1. The `StringId` is a unique identifier that you define, and use it later in your claims transformation.
+1. In the claims transformation, specify the list of claims to be set with the localized string. The `ClaimTypeReferenceId` is a reference to a ClaimType already defined in the ClaimsSchema section in the policy. The `TransformationClaimType` is the name of the localized string as defined in the `StringId` of the `LocalizedString` element.
+1. In a [self-asserted technical profile](self-asserted-technical-profile.md), or a [display control](display-controls.md) input or output claims transformation, make a reference to your claims transformation.
+
+![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
+
+The following example looks up the email subject, body, your code message, and the signature of the email, from localized strings. These claims later used by custom email verification template.
+
+Define localized strings for English (default) and Spanish.
+
+```XML
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for verifying your account!</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+     </LocalizedStrings>
+   </LocalizedResources>
+   <LocalizedResources Id="api.localaccountsignup.es">
+     <LocalizedStrings>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Atentamente</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+The claims transformation sets the value of the claim type *subject* with the value of the `StringId` *email_subject*.
+
+```XML
+<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+   </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Output claims:
+  - **subject**: Contoso account email verification code
+  - **message**: Thanks for verifying your account! 
+  - **codeIntro**: Your code is 
+  - **signature**: Sincerely  
+
 
 ## GetMappedValueFromLocalizedCollection
 
@@ -410,7 +480,7 @@ Look up a claim value from a list of values based on the value of another claim.
 | InputClaim | inputParameterId | string | The claim that contains the lookup value |
 | InputParameter | |string | Collection of inputParameters. |
 | InputParameter | errorOnFailedLookup | boolean | Controlling whether an error is returned when no matching lookup. |
-| OutputClaim | inputParameterId | string | The ClaimTypes that will be produced after this claims transformation has been invoked. The value of the matching Id. |
+| OutputClaim | inputParameterId | string | The ClaimTypes that will be produced after this claims transformation has been invoked. The value of the matching `Id`. |
 
 The following example looks up the domain name in one of the inputParameters collections. The claims transformation looks up the domain name in the identifier and returns its value (an application ID).
 
@@ -475,7 +545,7 @@ Gets the domain portion of an email address.
 | InputClaim | emailAddress | string | The ClaimType that contains the email address. |
 | OutputClaim | domain | string | The ClaimType that is produced after this claims transformation has been invoked - the domain. |
 
-Use this claims transformation to parse the domain name after the @ symbol of the user. This can be helpful in removing Personally identifiable information (PII) from audit data. The following claims transformation demonstrates how to parse the domain name from an **email** claim.
+Use this claims transformation to parse the domain name after the @ symbol of the user. The following claims transformation demonstrates how to parse the domain name from an **email** claim.
 
 ```XML
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
@@ -677,7 +747,7 @@ Extracts parts of a string claim type, beginning at the character at the specifi
 | InputClaim | inputClaim | string | The claim type, which contains the string. |
 | InputParameter | startIndex | int | The zero-based starting character position of a substring in this instance. |
 | InputParameter | length | int | The number of characters in the substring. |
-| OutputClaim | outputClaim | boolean | A string that is equivalent to the substring of length length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
+| OutputClaim | outputClaim | boolean | A string that is equivalent to the substring of length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
 
 For example, get the phone number country prefix.  
 
@@ -754,7 +824,7 @@ Concatenates the elements of a specified string collection claim type, using the
 | InputParameter | delimiter | string | The string to use as a separator, such as comma `,`. |
 | OutputClaim | outputClaim | string | A string that consists of the members of the `inputClaim` string collection, delimited by the `delimiter` input parameter. |
   
-The following example takes a string collection of user roles, and convert it to a comma delimiter string. You can user this method to store a string collection in Azure AD user account. Later, when you read the account from the directory, use the `StringSplit` to convert the comma delimiter string back to string collection.
+The following example takes a string collection of user roles, and converts it to a comma delimiter string. You can use this method to store a string collection in Azure AD user account. Later, when you read the account from the directory, use the `StringSplit` to convert the comma delimiter string back to string collection.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
@@ -790,7 +860,7 @@ Returns a string array that contains the substrings in this instance that are de
 | InputParameter | delimiter | string | The string to use as a separator, such as comma `,`. |
 | OutputClaim | outputClaim | stringCollection | A string collection whose elements contain the substrings in this string that are delimited by the `delimiter` input parameter. |
   
-The following example takes a comma delimiter string of user roles, and convert it to a string collection.
+The following example takes a comma delimiter string of user roles, and converts it to a string collection.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">

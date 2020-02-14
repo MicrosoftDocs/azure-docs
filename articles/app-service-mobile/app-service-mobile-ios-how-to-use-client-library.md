@@ -969,6 +969,6 @@ Google SDK in the future.
 [5]: https://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ../app-service/configure-authentication-provider-aad.md
-[8]:../active-directory/develop/quickstart-v1-ios.md
+[8]:../active-directory/develop/quickstart-v2-ios.md
 [9]: ../app-service/configure-authentication-provider-facebook.md
 [10]: https://developers.facebook.com/docs/ios/getting-started

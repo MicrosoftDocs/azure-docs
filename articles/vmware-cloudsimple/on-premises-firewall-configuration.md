@@ -22,7 +22,7 @@ To access your AVS Private Cloud vCenter and NSX-T manager, ports defined in the
 
 | Port       | Source                           | Destination                      | Purpose                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| 53 (UDP)   | On-premises DNS servers          | AVS Private Cloud DNS servers        | Required for forwarding DNS lookup of *az.AVS.io* to AVS Private Cloud DNS servers from on-premises network.     |
+| 53 (UDP)   | On-premises DNS servers          | AVS Private Cloud DNS servers        | Required for forwarding DNS lookup of *az.cloudsimple.io* to AVS Private Cloud DNS servers from on-premises network.     |
 | 53 (UDP)   | AVS Private Cloud DNS servers        | On-premises DNS servers          | Required for forwarding DNS look up of on-premises domain names from AVS Private Cloud vCenter to on-premises DNS servers. |
 | 80 (TCP)   | On-premises network              | AVS Private Cloud management network | Required for redirecting vCenter URL from *http* to *https*.                                                         |
 | 443 (TCP)  | On-premises network              | AVS Private Cloud management network | Required for accessing vCenter and NSX-T manager from on-premises network.                                           |

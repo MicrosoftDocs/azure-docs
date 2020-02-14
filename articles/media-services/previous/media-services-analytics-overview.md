@@ -22,12 +22,8 @@ ms.reviewer: milanga; johndeu
 ## Retirement plans
 
 > [!IMPORTANT]
-> The following legacy media processor is going to be retired in 2020, see details in the following table. 
+> Some media processors are being retired. For the retirement dates and more information, see the [legacy components](legacy-components.md) topic. 
 
-|Media processor name|Retirement date|Additional notes|
-|---|---|
-|[Azure Media Indexer](media-services-index-content.md)|October 1st of 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). For more information, see [Migrate from Azure Media Indexer to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md)
- 
 ## Overview
 
 More organizations are using video as the preferred medium to train their employees, engage their customers, and document business functions. Cloud computing provides a way to store, stream, and access these large media files. But as a company's library of video content grows, it needs an equally effective means of extracting insights from the content. 

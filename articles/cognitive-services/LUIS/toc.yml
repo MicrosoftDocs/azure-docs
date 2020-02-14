@@ -304,7 +304,9 @@
     href: reference-pattern-syntax.md
   - name: Sentiment
     href: luis-reference-prebuilt-sentiment.md
-  - name: Developer resources
+- name: Developer reference
+  items:
+  - name: Overview
     href: developer-reference-resource.md
     displayName: SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot
   - name: Azure CLI
@@ -418,5 +420,7 @@
     href: https://blog.botframework.com/category/luis/
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
+- name: Videos
+  href: whats-new.md#videos
 - name: LUIS portal
   href: https://www.luis.ai

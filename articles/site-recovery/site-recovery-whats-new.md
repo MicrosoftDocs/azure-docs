@@ -11,8 +11,6 @@ The [Azure Site Recovery](site-recovery-overview.md) service is updated and impr
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates](https://azure.microsoft.com/updates/?product=site-recovery) channel.
 
-
-
 ## Supported updates
 
 For Site Recovery components, we support N-4 versions, where N is the latest released version. These are summarized in the following table.
@@ -25,18 +23,18 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 [Rollup 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Rollup 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
-
-
 [Learn more](service-updates-how-to.md) about update installation and support.
 
 ## Updates (January 2020)
 
 ### Update rollup 44
+
 [Update rollup 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) provides the following updates.
 
 **Update** | **Details**
 --- | ---
-**Issue fixes/improvements** | A number of updates to Site Recovery agents and providers (as detailed in the rollup).
+**Providers and agents** | There were no updates for the Site Recovery providers and agents.
+**Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup.
 
 ### Azure VMware disaster recovery
 

@@ -2,8 +2,8 @@
 title: Persist job and task output to a data store - Azure Batch
 description: Learn about different options for persisting output data from Batch tasks and jobs. You can persist data to Azure Storage, or to another data store.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 
 ---

@@ -4,7 +4,7 @@ description: List of metrics available for each resource type with Azure Monitor
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/20/2019
+ms.date: 02/10/2020
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
@@ -18,6 +18,19 @@ You can export the platform metrics from the Azure monitor pipeline to other loc
 2. Use the [metrics REST API](https://docs.microsoft.com/rest/api/monitor/metrics/list)
 
 Because of intricacies in the Azure Monitor backend, not all metrics are exportable using diagnostic settings. The table below lists which can and cannot be exported using diagnostic settings.
+
+## Change to behavior for NULLs and Zero values 
+ 
+For the platform metrics that can be exported via diagnostic settings, there are a few metrics for which Azure Monitor interprets '0s' as 'Nulls'. This has caused some confusion between real '0s' (emitted by resource) and interpreted '0s' (Nulls). Starting **April 1, 2020** platform metrics exported via diagnostic settings will no longer export '0s' unless they have truly been emitted by the underlying resource. Please note:
+
+1.	If you delete a resource group or a specific resource, metric data from the effected resources will no longer be sent to diagnostic setting export destinations. That is, it will no longer appear in Event Hubs, Storage Accounts and Log Analytics Workspaces.
+2.	This improvement will be available in all public and private clouds.
+3.	This change will not impact the behavior of any of the following experiences: 
+-   Platform Resource Logs exported via Diagnostic Settings
+-   Metrics charting in Metrics Explorer
+-   Alerting on platform metrics
+ 
+## Metrics exportable table 
 
 The table contains the following columns. 
 - Exportable via Diagnostic Settings? 
