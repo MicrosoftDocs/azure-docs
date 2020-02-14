@@ -10,32 +10,40 @@
  ms.custom: include file
 ---
 
-Save on your Azure Premium SSD usage. With reserved capacity and Azure Reserved Virtual Machine Instances, you can decrease your total virtual machine costs. Because the reservation discount is applied automatically to the matching disks in the selected reservation scope, you don't need to assign a reservation to a managed disk to get the discounts. Discounts are applied hourly depending on the disk usage. Unused reserved capacity doesn't carry over. Azure Managed Disk Reservation discounts do not apply to Unmanaged Disks, Ultra Disks, or Page-Blob consumption.
+Save on your Azure Premium SSD usage. With reserved capacity and Azure Reserved Virtual Machine Instances, you can lower your total virtual machine costs.
+
+The reservation discount is applied automatically to the matching disks in the selected reservation scope. Because of this automatic application, you don't need to assign a reservation to a managed disk to get the discounts.
+
+Discounts are applied hourly depending on the disk usage. Unused reserved capacity doesn't carry over. Azure-Managed Disk Reservation discounts don't apply to Unmanaged Disks, Ultra Disks, or Page-Blob consumption.
 
 ## Determine your storage needs
 
-Before you purchase a reservation, determine your storage needs. Currently, Azure Managed Disk Reservation is available only for select Azure Premium SSD SKUs. The SKU of a premium SSD determines the disk's size and performance. When determining your storage needs, don't think of disks based on just total capacity. For example, you can't have a reservation for a P40 disk and use that to pay for two smaller P30 disks. When you purchase a reservation, you only purchase the total number of disks per SKU.
+Before you purchase a reservation, determine your storage needs. Currently, Azure Managed Disk Reservation is available only for select Azure Premium SSD SKUs. The SKU of a premium SSD determines the disk's size and performance.
 
-A disk reservation is made per Premium SSD SKU. Hence, the reservation consumption is based on the unit of the Premium SSD SKUs instead of the provided size. For example, if you reserve one P40 disk that has 2 TiB of provisioned storage capacity but allocate only two P30 disks, the P40 reservation won't account for P30 consumption. In that case, you pay the pay-as-you-go rate.
+When determining your storage needs, don't think of disks based on just capacity. For example, you can't have a reservation for a P40 disk and use that to pay for two smaller P30 disks. When you purchase a reservation, you only purchase the total number of disks per SKU.
+
+A disk reservation is made per Premium SSD SKU. As a result, the reservation consumption is based on the unit of the Premium SSD SKUs instead of the provided size.
+
+For example, assume you reserve one P40 disk that has 2 TiB of provisioned storage capacity. Also assume you allocate only two P30 disks. The P40 reservation in that case doesn't account for P30 consumption, and you pay the pay-as-you-go rate.
 
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 ## Purchase considerations
 
-We recommend the following best practices when considering disk reservation purchase:
+We recommend the following practices when considering disk reservation purchase:
 
 - Analyze your usage information to help determine which reservations you should purchase. Make sure you track the usage in Premium SSD SKUs instead of provisioned or used disk capacity.
-- Examine your disk reservation along with your VM reservation. We highly recommend making reservations for both VM usage and disk usage for maximum savings. You can start with determining the right VM reservation, then evaluate the disk reservation accordingly.
+- Examine your disk reservation along with your VM reservation. We highly recommend making reservations for both VM usage and disk usage for maximum savings. You can start with determining the right VM reservation, then evaluate the disk reservation.
 
   Generally, you'll have a standard configuration for each of your workloads. For example, a SQL Server server might have two P40 data disks and one P30 operating system disk.
   
-  This kind of pattern can help you determine the reserved amount you might purchase. This approach can simplify the evaluation process and ensure that you have an aligned plan for both your VM and disks in terms of considerations like subscriptions or regions.
+  This kind of pattern can help you determine the reserved amount you might purchase. This approach can simplify the evaluation process and ensure that you have an aligned plan for both your VM and disks. The plan contains considerations like subscriptions or regions.
 
 ## Purchase restrictions
 
 Reservation discounts are currently unavailable for the following disk types:
 
-- Azure Unmanaged Disks or Azure Page Blobs.
+- Azure-Unmanaged Disks or Azure Page Blobs.
 - Azure Standard SSD or Azure Standard HDD.
 - Azure Premium SSD SKUs smaller than P30: P1, P2, P3, P4, P6, P10, P15, and P20 Premium SSD SKUs.
 - Disks in Azure Government, Azure Germany, or Azure China regions.
@@ -58,7 +66,7 @@ Follow these steps to purchase reserved capacity:
 
    |Element  |Description  |
    |---------|---------|
-   |**Scope**   |  How many subscriptions can use the billing benefit associated with the reservation. This value also specifies how the reservation is applied to specific subscriptions. <br/><br/> If you select **Shared**, the reservation discount is applied to Azure Storage capacity in every subscription within your billing context. The billing context is based on how you signed up for Azure. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For pay-as-you-go customers, the shared scope includes all individual subscriptions with pay-as-you-go rates created by the account administrator.  <br/><br/>  If you select **Single subscription**, the reservation discount is applied to Azure Storage capacity in the selected subscription. <br/><br/> If you select **Single resource group**, the reservation discount is applied to Azure Storage capacity in the selected subscription and the selected resource group within that subscription. <br/><br/> You can change the reservation scope after you purchase the reservation.  |
+   |**Scope**   |  How many subscriptions can use the billing benefit associated with the reservation. This value also specifies how the reservation is applied to specific subscriptions. <br/><br/> If you select **Shared**, the reservation discount is applied to Azure Storage capacity in every subscription within your billing context. The billing context is based on how you signed up for Azure. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For pay-as-you-go customers, the shared scope includes all individual subscriptions with pay-as-you-go rates created by the account administrator.  <br/><br/>  If you select **Single subscription**, the reservation discount is applied to Azure Storage capacity in the selected subscription. <br/><br/> If you select **Single resource group**, the reservation discount is applied to Azure Storage capacity in the selected subscription and in that subscription's selected resource group. <br/><br/> You can change the reservation scope after you purchase the reservation.  |
    |**Subscription**  | The subscription you use to pay for the Azure Storage reservation. The payment method on the selected subscription is used in charging the costs. The subscription must be one of the following types:<br/><ul><li> Enterprise Agreement (offer numbers MS-AZR-0017P and MS-AZR-0148P). For an Enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage.</li><br/><li>Individual subscription with pay-as-you-go rates (offer numbers MS-AZR-0003P and MS-AZR-0023P). For an individual subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription.</li></ul>    |
    | **Disks** | The SKU you want to create. |
    | **Region** | The region where the reservation is in effect. |
@@ -66,7 +74,7 @@ Follow these steps to purchase reserved capacity:
 
     ![Pane for selecting the product you want to purchase.png](media/disks-reserved-capacity/premium-ssd-reserved-purchase-selection.png)
 
-1. After you specify the values for your reservation, the Azure portal displays the cost. The portal also shows the discount percentage over pay-as-you-go billing. Select **Next** to proceed to the **Purchase reservations** pane.
+1. After you specify the values for your reservation, the Azure portal displays the cost. The portal also shows the discount percentage over pay-as-you-go billing. Select **Next** to continue to the **Purchase reservations** pane.
 
 1. On the **Purchase reservations** pane, you can name your reservation and select the total quantity of reservations you want to make. The number of reservations maps to the number of disks. For example, if you want to reserve a hundred disks, enter the **Quantity** value **100**.
 
@@ -74,13 +82,13 @@ Follow these steps to purchase reserved capacity:
 
     ![The Purchase reservations pane](media/disks-reserved-capacity/premium-ssd-reserved-selecting-sku-total-purchase.png)
 
-After you purchase a reservation, it is automatically applied to any existing Disk Storage resources that match the reservation terms. If you haven't created any Disk Storage resources yet, the reservation applies whenever you create a resource that matches the reservation terms. In either case, the reservation term begins immediately after a successful purchase.
+After you purchase a reservation, it's automatically applied to any existing Disk Storage resources that match the reservation terms. If you haven't created any Disk Storage resources yet, the reservation applies whenever you create a resource that matches the reservation terms. In either case, the reservation term begins immediately after a successful purchase.
 
 ## Exchange or refund a reservation
 
 Within certain limitations, you can exchange or refund a reservation.
 
-To exchange or refund a reservation, go to the reservation details in the Azure portal. Select **Exchange or Refund**, and follow the instructions to submit a support request. After we process the request, we will send you an email to confirm completion of the request.
+To exchange or refund a reservation, go to the reservation details in the Azure portal. Select **Exchange or Refund**, and follow the instructions to submit a support request. After we process the request, we'll send you an email to confirm completion of the request.
 
 For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
@@ -88,21 +96,21 @@ For more information about Azure Reservations policies, see [Self-service exchan
 
 Exchanging a reservation lets you receive a prorated refund based on the unused portion of the reservation. You can then apply the refund to the purchase price of a new Disk Storage reservation.
 
-There's no limit to the number of exchanges you can make. Additionally, there's no fee associated with an exchange. The new reservation that you purchase must be of equal or greater cost than the prorated credit from the original reservation.
+There's no limit to the number of exchanges you can make. Additionally, no fee is associated with an exchange. The new reservation that you purchase must be at least the cost of the original reservation's prorated credit.
 
-A Disk Storage reservation can be exchanged only for another Disk Storage reservation and not for a reservation for any other Azure service.
+A Disk Storage reservation can be exchanged only for another Disk Storage reservation. It can't be exchanged for a reservation for any other Azure service.
 
 ### Refund a reservation
 
-You can cancel a Disk Storage reservation at any time. If you cancel, you'll receive a prorated refund based on the remaining term of the reservation minus a 12% early termination fee.
+You can cancel a Disk Storage reservation at any time. If you cancel, you'll receive a prorated refund. The refund is based on the remaining term of the reservation minus a 12% early termination fee.
 
-Cancelling a reservation immediately terminates the reservation and returns the remaining months to Microsoft. The remaining prorated balance minus the fee is refunded to your original form of purchase.
+Cancelling a reservation immediately ends the reservation and returns the remaining months to Microsoft. The remaining prorated balance minus the fee is refunded to your original form of purchase.
 
 ## Expiration of a reservation
 
 When a reservation expires, any Disk Storage capacity that you use under that reservation is billed at the pay-as-you-go rate. Reservations don't renew automatically.
 
-You receive an email notification 30 days before the expiration of the reservation and again on the expiration date. To continue taking advantage of the cost savings that a reservation provides, renew it no later than the expiration date.
+You receive an email notification 30 days before the expiration of the reservation and again on the expiration date. To take advantage of the cost savings that a reservation provides, renew it no later than the expiration date.
 
 ## Need help? Contact us
 

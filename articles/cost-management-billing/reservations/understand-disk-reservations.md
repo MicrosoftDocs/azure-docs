@@ -15,7 +15,7 @@ ms.author: rogarana
 
 After you purchase Azure Managed Disks reserved capacity, a reservation discount is automatically applied to disk resources that match the terms of your reservation. The reservation discount applies to disk capacity only. Disk snapshots are charged at pay-as-you-go rates.
 
-For more information about Azure-Managed Disks Reservation, see [Save costs with Azure Managed Disks reservation](../../virtual-machines/linux/disks-reserved-capacity.md).
+For more information about Azure Managed Disks Reservation, see [Save costs with Azure Managed Disks Reservation](../../virtual-machines/linux/disks-reserved-capacity.md).
 For information about Managed Disks Reservation pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## How the reservation discount is applied
@@ -30,15 +30,15 @@ The following examples show how the Managed Disks Reservation discount applies d
 
 Suppose you purchase and reserve 100 P30 Azure Premium Storage disks in the US West 2 region for a one-year term. Each disk has approximately 1 TiB of storage. Assume the cost of this sample reservation is $140,100‬. You can choose to pay the full amount up front. You can also choose to pay fixed monthly installments of $11,675 for the next 12 months.
 
-For the following examples, assume you've signed up for a monthly reservation-payment plan. The following scenarios describe what happens if you underuse, overuse, or tier your reserved capacity.
+For these examples, assume you've signed up for a monthly reservation-payment plan. The following scenarios describe what happens if you underuse, overuse, or tier your reserved capacity.
 
 ### Underusing your capacity
 
-Suppose you deploy only 99 of your 100 reserved P30 disks for an hour within the reservation period. The remaining P30 disk isn't applied during that hour. It also doesn't carry over.
+Suppose you deploy only 99 of your 100 reserved Azure Premium SSD P30 disks for an hour within the reservation period. The remaining P30 disk isn't applied during that hour. It also doesn't carry over.
 
 ### Overusing your capacity
 
-Suppose that for an hour within the reservation period, you use 101 Azure Premium SSD P30 disks.
+Suppose that for an hour within the reservation period, you use 101 Premium SSD P30 disks.
 
 The reservation discount applies only to 100 P30 disks. The remaining P30 disk is charged at pay-as-you-go rates for that hour.
 
