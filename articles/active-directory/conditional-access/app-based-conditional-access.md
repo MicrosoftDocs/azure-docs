@@ -36,9 +36,9 @@ You can use [Intune app protection policies](/intune/app-protection-policy) to h
 
 Azure Active Directory Conditional Access enables you to limit access to your cloud apps to client apps that support Intune app protection policies. Like restricting access to Exchange Online to the Outlook app.
 
-In Conditional Access, this functionality is known as requiring an approved client app. For a list of approved client apps, see [approved client app requirement](concept-conditional-access-grant.md).
+In Conditional Access, this functionality is known as requiring an approved client app. For a list of approved client apps, see [approved client app requirement](concept-conditional-access-grant.md#require-approved-client-app).
 
-![Conditional Access](./media/app-based-conditional-access/05.png)
+![Conditional Access require an approved client app setting](./media/app-based-conditional-access/require-approved-client-app.png)
 
 ## Scenario 1: Exchange Online require approved client app
 
