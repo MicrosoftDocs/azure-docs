@@ -1,6 +1,6 @@
 ## Intro
 
-I'm writing this to expose you to the bare minimum amount of information you need in order to contribute documentation.
+Welcome to the Project Spool Contributor Quickstart!  I'm writing this to expose you to the bare minimum amount of information you need in order to contribute documentation.
 
 If you have any questions or feedback along the way, feel free to ping/email any time.  My alias is **mikben**.
 

@@ -1,6 +1,6 @@
 - name: Spatial Anchors Documentation
   href: index.yml
-- name: Contribute Documentation
+- name: Contributor Quickstart
   href: contribute.md
 - name: Overview
   items:
