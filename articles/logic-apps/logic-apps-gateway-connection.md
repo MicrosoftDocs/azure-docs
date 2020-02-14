@@ -60,6 +60,9 @@ Azure Logic Apps supports read and write operations through the data gateway. Ho
 
 ## Create Azure gateway resource
 
+> [!NOTE]
+> Only an admin of the gateway can create this resource. You can Manage Admins of a Gateway from [PowerBI](/data-integration/gateway/service-gateway-manage#manage-gateway-admins) or the [Power Platform Admin Center](/power-platform/admin/onpremises-data-gateway-management). Service Principals are currently not supported.
+
 After you install the gateway on a local computer, create the Azure resource for your gateway.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with the same Azure account that was used to install the gateway.
