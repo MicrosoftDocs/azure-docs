@@ -15,6 +15,8 @@
   items:
   - name: Overview
     items:
+    - name: Landing page
+      href: index-speech-to-text.yml
     - name: What is speech-to-text?
       href: speech-to-text.md
   - name: Quickstart
