@@ -68,7 +68,7 @@ rpm -U driverpackage.rpm
 rpm -e olddriverpackage.rpm
 ```
 
-#### Commands to confirm:
+#### Commands to confirm
 ```
 modinfo enic
 modinfo fnic
