@@ -4,9 +4,15 @@ description: Understand the components, specifications, and capabilities of the 
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
-ms.date: 06/26/2019
+ms.date: 02/13/2020
 ms.topic: article
 keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, IMU, microphone, array, depth
+ms.custom: 
+- CI 114092
+- CSSTroubleshooting
+audience: ITPro
+manager: dcscontentpm
+ms.localizationpriority: high
 ---
 
 # Azure Kinect DK hardware specifications 
@@ -229,7 +235,7 @@ Device firmware can be reset to original firmware using button underneath the lo
 
 ![Azure Kinect DK recovery button](./media/resources/hardware-specs-media/recovery.png)
 
-To recover the device, see [instructions here](https://support.microsoft.com/help/4494277).
+To recover the device, see [instructions here](reset-azure-kinect-dk.md).
 
 ## Next steps
 
