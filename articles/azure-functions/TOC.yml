@@ -350,8 +350,6 @@
           href: functions-bindings-event-grid.md
         - name: Trigger
           href: functions-bindings-event-grid-trigger.md
-        - name: Input
-          href: functions-bindings-event-grid-input.md
         - name: Output
           href: functions-bindings-event-grid-output.md
     - name: Event Hubs
