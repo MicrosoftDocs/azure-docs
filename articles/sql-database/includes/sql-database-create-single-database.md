@@ -59,7 +59,7 @@ Create your resource group and single database using the Azure portal.
      - Optionally, you can also select **Change configuration** to change the hardware generation.
    - Select **Apply**.
 
-6. Select the **Networking** tab and decide if you want to **Allow Azure services and resources to access this server**, or add a [private endpoint](../../private-link/private-endpoint-overview.md).
+6. Select the **Networking** tab and decide if you want to [**Allow Azure services and resources to access this server**](../sql-database-networkaccess-overview.md), or add a [private endpoint](../../private-link/private-endpoint-overview.md).
 
    ![Networking Tab](../media/sql-database-get-started-portal/create-database-networking.png)
 
