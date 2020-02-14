@@ -116,12 +116,12 @@ az group deployment create \
 
 # [Azure portal](#tab/azure-portal)
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fget-started-with-templates%2Fquickstart-template%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fget-started-with-templates%2Fquickstart-template%2Fazuredeploy.json"><img src="./media/deployment-tutorial-options/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 The HTML for the previous button is:
 
 ```html
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fget-started-with-templates%2Fquickstart-template%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fget-started-with-templates%2Fquickstart-template%2Fazuredeploy.json"><img src="./media/deployment-tutorial-options/deploy-to-azure.png" alt="deploy to azure"/></a>
 ```
 
 ---
