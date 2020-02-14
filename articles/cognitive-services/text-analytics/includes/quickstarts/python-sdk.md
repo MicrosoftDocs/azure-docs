@@ -88,6 +88,8 @@ These code snippets show you how to do the following tasks with the Text Analyti
 
 ## Authenticate the client
 
+#### [Version 3.0-preview](#tab/version-3)
+
 Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. 
 
 ```python
@@ -101,6 +103,16 @@ def authenticate_client():
 
 client = authenticate_client()
 ```
+
+#### [Version 2.1](#tab/version-2)
+
+[!code-python[imports statements](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=imports)]
+
+Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. 
+
+[!code-python[version 2 authentication](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=authentication)]
+
+--- 
 
 ## Sentiment analysis
 
