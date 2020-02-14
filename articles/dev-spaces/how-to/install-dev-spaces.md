@@ -20,13 +20,13 @@ Before you can install Dev Spaces using the CLI, you need:
 
 Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts.
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
 ```
 
 The above command enables Dev Spaces on the *myAKSCluster* cluster in the *myResourceGroup* group and creates a *default* dev space.
 
-```cmd
+```azurecli
 $ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
 
 'An Azure Dev Spaces Controller' will be created that targets resource 'myAKSCluster' in resource group 'myResourceGroup'. Continue? (y/N): y

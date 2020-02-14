@@ -204,10 +204,13 @@ For the **Docker registry URL** value, supply the URL by using the format https:
 ### For Azure App Service on Linux
 
 1. To verify your web app, run the following command in the Azure CLI:
-    ```CLI
+    
+    ```azurecli
     az acr repository list -n <myRegistry> -o json
     ```
+    
     The following message is displayed:
+    
     ```CLI
     ["calculator"]
     ```
