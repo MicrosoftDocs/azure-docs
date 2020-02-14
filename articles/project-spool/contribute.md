@@ -15,7 +15,7 @@ If you have any questions or feedback along the way, feel free to ping/email any
 2. This is the private repository that internal contributors and partners use to submit changes.
 3. **[1]** and **[2]** are synchronized and used to generate the Azure content you see on docs.microsoft.com.
 4. This is the branch that has been created for our project.  We will rename this branch to reflect the branding of our product once it becomes official.  This branch can be viewed [here](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-project-spool).  This is what's used to generate the staged documentation [here](https://review.docs.microsoft.com/en-us/azure/active-directory/?branch=release-project-spool).  Note that this repository is locked down as a matter of policy - only members of the PR review team have the ability to approve pull requests here.
-5. I've forked from our org's private repository to facilitate contributions from this team.  Since we're working with a small number of people, I've opted to minimize process complexity by using a single fork that we can all own together.  This means you don't have to submit pull requests - you can just push your commits directly into our branch (**[6]**).
+5. I've forked from our org's private repository to facilitate contributions from this team.  Since we're working with a small number of people, I've opted to minimize process complexity by using **a single fork** that we can all own together.  This means you don't have to submit pull requests - you can just push your commits directly into our branch (**[6]**).
 6. This is our branch.  This is where our changes will be pushed.  We won't ever directly contribute to the "root".  When we push to this branch, changes will automatically be built and staged [here](https://review.docs.microsoft.com/en-us/azure/project-spool/?branch=pr-en-us-104477).
 7. When you clone **[5]**, you're pulling the entire Azure-docs-pr repository down onto your local machine.
 8. Our local changes will be tracked against our local Spool branch.
@@ -34,8 +34,7 @@ To begin contributing:
 2. [Set up a GitHub account](https://review.docs.microsoft.com/en-us/help/contribute/contribute-get-started-setup-github?branch=master) if you don't already have one.
 3. [Link your Microsoft and GitHub accounts](https://review.docs.microsoft.com/en-us/help/contribute/contribute-get-started-setup-github?branch=master#link-your-github-and-microsoft-accounts).
 4. [Join the Azure Docs GitHub organization](https://review.docs.microsoft.com/en-us/help/contribute/contribute-get-started-setup-github?branch=master#link-your-github-and-microsoft-accounts).
-
-I'll have to provide you with write permissions to my fork (**[5]** above).  Feel free to ping your **GitHub username** to me.  My Microsoft alias is **mikben**).
+5. I'll have to provide you with write permissions to my fork (**[5]** above).  Feel free to ping your **GitHub username** to me.  My Microsoft alias is **mikben**).
 
 Using Command Prompt, navigate to a directory on your local machine where you want the Azure documentation repository to live.  Then, clone our repository (`mikben/azure-docs-pr`) to that directory with the following command:
 
