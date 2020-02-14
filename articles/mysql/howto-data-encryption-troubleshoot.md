@@ -29,7 +29,7 @@ No permissions to access the key vault or the key doesn't exist
 
 * The key was accidentally deleted, disabled or the key expired.
 * The Azure Database for MySQL instance-managed identity was accidentally deleted.
-* Permissions granted to the Azure Database for  MySQL server’s managed identity for the keys aren't sufficient (they don't include Get, Wrap, and Unwrap).
+* Permissions granted to the Azure Database for MySQL server managed identity for the keys aren't sufficient (they don't include Get, Wrap, and Unwrap).
 * Permissions for the Azure Database for MySQL server instance-managed identity were revoked.
 
 ## Identify and resolve common errors
@@ -50,4 +50,4 @@ No permissions to access the key vault or the key doesn't exist
 
 
 ## Next steps
-Learn how to [set up data encryption with a customer-managed key for your Azure database for MySQL by using the Azure portal](howto-data-encryption-portal.md).
+[Set up data encryption with a customer-managed key for your Azure database for MySQL by using the Azure portal](howto-data-encryption-portal.md).
