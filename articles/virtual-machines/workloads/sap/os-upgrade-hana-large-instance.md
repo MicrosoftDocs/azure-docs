@@ -47,7 +47,7 @@ The following are the few common known issues during the upgrade:
 - On SKU Type II class SKU, the software foundation software (SFS) is removed after the OS upgrade. You need to reinstall the compatible SFS after the OS upgrade.
 - Ethernet card drivers (ENIC and FNIC) rolled back to older version. You need to reinstall the compatible version of the drivers after the upgrade.
 
-## SAP HANA Large Instance (Type I) Recommended SuSE Configuration
+## SAP HANA Large Instance (Type I) Recommended Configuration
 
 Operating system configuration can drift from the recommended settings over time due to patching, system upgrades, and changes made by customers. Additionally, Microsoft identifies updates needed for existing systems to ensure they are optimally configured for the best performance and resiliency. Following instructions outline recommendations that address network performance, system stability, and optimal HANA performance.
 
