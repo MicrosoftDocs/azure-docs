@@ -104,7 +104,7 @@ For information about authenticating with Azure AD, see [Authorize to Microsoft 
 
 ### Code sample: Move from paid add-ins to paid web apps with free add-ins
 
-> [!VIDEO https://youtu.be/lnn-X4QfdXU]
+> [!VIDEO https://www.youtube.com/watch?v=lnn-X4QfdXU&feature=youtu.be]
 
 The [Office Add-in SaaS monetization code sample](https://github.com/OfficeDev/office-add-in-saas-monetization-sample) demonstrates how you can create a simple license management system to manage add-ins sold in Microsoft AppSource. This code sample package includes a Microsoft AppSource mock web app, a SaaS sample, a SharePoint add-in, an Outlook add-in, and a licensing management tool.
 
