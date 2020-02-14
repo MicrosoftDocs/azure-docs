@@ -4,7 +4,7 @@ description: In this quickstart, you deploy a sample application to Azure Spring
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/15/2020
 ms.author: brendm
 
 ---
@@ -49,7 +49,7 @@ az extension add --name spring-cloud
 
 ## Provision a service instance on the Azure CLI
 
-1. Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
+* Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
 
     ```azurecli
         az login
@@ -57,16 +57,16 @@ az extension add --name spring-cloud
         az account set --subscription <Name or ID of subscription from the last step>
     ```
 
-2. Prepare a name for your Azure Spring Cloud service.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
+* Prepare a name for your Azure Spring Cloud service.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
 
-3. Create a resource group to contain your Azure Spring Cloud service.
+* Create a resource group to contain your Azure Spring Cloud service.
 
     ```azurecli
         az group create --location eastus --name <resource group name>
     ```
     Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
 
-4. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud.
+* Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud.
 
     ```azurecli
         az spring-cloud create -n <service name> -g <resource group name>
@@ -74,7 +74,7 @@ az extension add --name spring-cloud
 
     The service instance will take around five minutes to deploy.
 
-5. Set your default resource group name and cluster name using the following commands:
+* Set your default resource group name and cluster name using the following commands:
 
     ```azurecli
         az configure --defaults group=<service group name>
@@ -97,14 +97,14 @@ az spring-cloud config-server git set -n <your-service-name> --uri https://githu
 
 ## Build the microservices applications locally
 
-1. Create a new folder and clone the sample app repository to your Azure Cloud account.  
+* Create a new folder and clone the sample app repository to your Azure Cloud account.  
 
     ```azurecli
         mkdir source-code
         git clone https://github.com/Azure-Samples/piggymetrics
     ```
 
-2. Change directory and build the project.
+* Change directory and build the project.
 
     ```azurecli
         cd piggymetrics
@@ -140,31 +140,30 @@ az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth
 
 We need a way to access the application via a web browser. Our gateway application needs a public facing endpoint, which can be assigned using the following command:
 
-Linux:
 ```azurecli
 az spring-cloud app update -n gateway --is-public true
+```
+Finally, query the **gateway** application for its public IP so you can verify that the application is running:
+
+Linux:
+```azurecli
+az spring-cloud app show --name gateway | grep url
 ```
 Windows:
 ```azurecli
 az spring-cloud app show --name gateway | findstr url
 ```
-
-Finally, query the **gateway** application for its public IP so you can verify that the application is running:
-
-```azurecli
-az spring-cloud app show --name gateway | grep url
-```
-
 Navigate to the URL provided by the previous command to run the PiggyMetrics application.
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 You can also navigate the Azure portal to find the URL. 
-1. Navigate to the service
-1. Select **Apps**
-1. Select **gateway**
+* Navigate to the service
+* Select **Apps**
+* Select **gateway**
 
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
-1. Find the URL on the **gateway Overview** page
+    
+* Find the URL on the **gateway Overview** page
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]
