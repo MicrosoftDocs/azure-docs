@@ -13,9 +13,9 @@ ms.date: 02/14/2020
 
 # Plan for capacity in Azure Cognitive Search
 
-Before [provisioning a search service](search-create-service-portal.md) and locking in a specific pricing tier, take a few minutes to understand the role of replicas and partitions in a service, whether you need proportionally larger partitions, and how you might configure the service for expected load.
+Before [provisioning a search service](search-create-service-portal.md) and locking in a specific pricing tier, take a few minutes to understand the role of replicas and partitions in a service, whether you need proportionally larger or faster partitions, and how you might configure the service for expected load.
 
-Capacity is a function of the [tier you choose](search-sku-tier.md) (tiers determine characteristics of the underlying hardware), and the replica and partition combination you decide on. This article focuses on replica and partition combinations and interactions.
+Capacity is a function of the [tier you choose](search-sku-tier.md) (tiers determine hardware characteristics), and the replica and partition combination necessary for projected workloads. This article focuses on replica and partition combinations and interactions.
 
 ## Terminology: replicas and partitions
 
@@ -23,10 +23,6 @@ Capacity is a function of the [tier you choose](search-sku-tier.md) (tiers deter
 |-|-|
 |*Partitions* | Provides index storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). Each partition has a share of the total index. If you allocate three partitions, your index is divided into thirds. |
 |*Replicas* | Instances of the search service, used primarily to load balance query operations. Each replica is one copy of an index. If you allocate three replicas, you'll have three copies of an index available for servicing query requests.|
-
-> [!NOTE]
-> Partitions and replicas are managed exclusively and internally by the service. There is no concept of processor affinity, or pegging a workload to a specific node.
->
 
 ## How to allocate replicas and partitions
 
@@ -64,6 +60,8 @@ As a general rule, search applications tend to need more replicas than partition
 
 > [!NOTE]
 > After a service is provisioned, it cannot be upgraded to a higher tier. You must create a search service at the new tier and reload your indexes. See [Create an Azure Cognitive Search service in the portal](search-create-service-portal.md) for help with service provisioning.
+>
+> Additionally, partitions and replicas are managed exclusively and internally by the service. There is no concept of processor affinity, or assigning a workload to a specific node.
 >
 
 <a id="chart"></a>
@@ -119,6 +117,8 @@ We do not provide guidelines on how many replicas are needed to accommodate quer
 For guidance in estimating QPS for your solution, see [Scale for performance](search-performance-optimization.md)and [Monitor queries](search-monitor-queries.md)
 
 ## Estimate partitions
+
+The [tier you choose](search-sku-tier.md) determines partition size and speed, and each tier is optimized around a set of characteristics that fit various scenarios. If you choose a higher-end tier, you might need fewer partitions than if you go with S1.
 
 Search applications that require near real-time data refresh will need proportionally more partitions than replicas. Adding partitions spreads read/write operations across a larger number of compute resources. It also gives you more disk space for storing additional indexes and documents.
 

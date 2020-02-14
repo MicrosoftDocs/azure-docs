@@ -19,8 +19,6 @@ A *rebuild* refers to dropping and recreating the physical data structures assoc
 
 It's common to rebuild indexes during development, but you might also need to rebuild a production-level index to accommodate structural changes, such as adding complex types or adding fields to suggesters.
 
-In contrast with rebuilds that take an index offline, *data refresh* runs as a background task. You can add, remove, and replace documents with minimal disruption to query workloads, although queries typically take longer to complete. For more information on updating index content, see [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
-
 ## Rebuild conditions
 
 Drop and recreate an index if any of the following conditions are true. 
@@ -34,7 +32,9 @@ Drop and recreate an index if any of the following conditions are true.
 | Delete a field | To physically remove all traces of a field, you have to rebuild the index. When an immediate rebuild is not practical, you can modify application code to disable access to the "deleted" field. Physically, the field definition and contents remain in the index until the next rebuild, when you apply a schema that omits the field in question. |
 | Switch tiers | If you require more capacity, there is no in-place upgrade in the Azure portal. A new service must be created, and indexes must be built from scratch on the new service. To help automate this process, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). This app will backup your index to a series of JSON files, and then recreate the index in a search service you specify.|
 
-Any other modification can be made without impacting existing physical structures. Specifically, the following changes do *not* require an index rebuild:
+## Update conditions
+
+Many other modification scan be made without impacting existing physical structures. Specifically, the following changes do *not* require an index rebuild. For these changes, you can [update an index definition](https://docs.microsoft.com/rest/api/searchservice/update-index) with your changes.
 
 + Add a new field
 + Set the **retrievable** attribute on an existing field
@@ -46,33 +46,19 @@ Any other modification can be made without impacting existing physical structure
 
 When you add a new field, existing indexed documents are given a null value for the new field. On a future data refresh, values from external source data replace the nulls added by Azure Cognitive Search. For more information on updating index content, see [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-## Partial indexing
-
-In Azure Cognitive Search, you cannot control indexing on a per-field basis, choosing to delete or recreate specific fields. Similarly, there is no built-in mechanism for [indexing documents based on criteria](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Any requirements you have for criteria-driven indexing have to be met through custom code.
-
-What you can do easily, however, is *refresh documents* in an index. For many search solutions, external source data is volatile, and synchronization between source data and a search index is a common practice. In code, call the [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operation or the [.NET equivalent](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet) to update index content, or to add values for a new field.
-
-## Partial indexing with indexers
-
-[Indexers](search-indexer-overview.md) simplify the data refresh task. An indexer can only index one table or view in the external data source. To index multiple tables, the simplest approach is to create a view that joins tables and projects the columns you want to index. 
-
-When using indexers that crawl external data sources, check for a "high water mark" column in the source data. If one exists, you can use it for incremental change detection by picking up just those rows containing new or revised content. For [Azure Blob storage](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), a `lastModified` field is used. On [Azure Table storage](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), `timestamp` serves the same purpose. Similarly, both [Azure SQL Database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) and  [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md#indexing-changed-documents) have fields for flagging row updates. 
-
-For more information about indexers, see [Indexer overview](search-indexer-overview.md) and [Reset Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
-
 ## How to rebuild an index
 
 During development, the index schema changes frequently. You can plan for it by creating indexes that can be deleted, recreated, and reloaded quickly with a small representative data set. 
 
-For applications already in production, we recommend creating a new index that runs side by side an existing index to avoid query downtime.
+For applications already in production, we recommend creating a new index that runs side by side an existing index to avoid query downtime. Your application code provides redirection to the new index.
 
-1. Determine whether a rebuild is required. If you are just adding fields, or changing some part of the index that is unrelated to fields, you might be able to simply [update the definition](https://docs.microsoft.com/rest/api/searchservice/update-index) without rebuilding.
+1. Determine whether a rebuild is required. If you are just adding fields, or changing some part of the index that is unrelated to fields, you might be able to simply [update the definition](https://docs.microsoft.com/rest/api/searchservice/update-index) without deleting, recreating, and fully reloading it.
 
 1. [Get an index definition](https://docs.microsoft.com/rest/api/searchservice/get-index) in case you need it for future reference.
 
 1. [Drop the existing index](https://docs.microsoft.com/rest/api/searchservice/delete-index), assuming you are not running new and old indexes side by side. 
 
-   Any queries targeting that index are immediately dropped. Remember that deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Make sure you are clear on the implications before you dropping it. 
+   Any queries targeting that index are immediately dropped. Remember that deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Pause to think about the implications before dropping it. 
 
 1. [Create a revised index](https://docs.microsoft.com/rest/api/searchservice/create-index), where the body of the request includes changed or modified field definitions.
 
