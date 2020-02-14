@@ -202,11 +202,6 @@ SQL authentication refers to the authentication of a user when connecting to Azu
 - As a server admin, create logins and users. Unless using contained database users with passwords, all passwords are stored in master database.
   - See the article, [Controlling and granting database access to SQL Database and SQL Data Warehouse](sql-database-manage-logins.md).
 
-- Follow password management best practices:
-  - Provide a complex password, composed of Latin upper and lowercase letters, digits (0-9), and non-alphanumeric characters (like $, !, #, or %).
-  - Use longer passphrases instead of shorter randomly selected characters.
-  - Enforce manual password change at least every 90 days.
-
 ## Access management
 
 Access management is the process of controlling and managing authorized users' access and privileges to Azure SQL Database.
@@ -703,7 +698,7 @@ Proactively improve your database security by discovering and remediating potent
 
 ### Identify and tag sensitive data 
 
-Discover columns that potentially contain sensitive data. Sensitive data heavily depend on the customer, compliance regulation, etc., and needs to be evaluated by the end user. Classify the columns to use advanced sensitivity-based auditing and protection scenarios. 
+Discover columns that potentially contain sensitive data. What is considered sensitive data heavily depends on the customer, compliance regulation, etc., and needs to be evaluated by the users in charge of that data. Classify the columns to use advanced sensitivity-based auditing and protection scenarios. 
 
 **How to implement**:
 
