@@ -10,7 +10,7 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 02/12/2020
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -134,6 +134,9 @@ Following is a guide for setting up an Azure Pipelines release, which automates 
 
    ![Select Create release](media/continuous-integration-deployment/continuous-integration-image10.png)
 
+> [!IMPORTANT]
+> In CI/CD scenarios, the integration runtime (IR) type in different environments must be the same. For example, if you have a self-hosted IR in the development environment, the same IR must also be of type self-hosted in other environments, such as test and production. Similarly, if you're sharing integration runtimes across multiple stages, you have to configure the integration runtimes as linked self-hosted in all environments, such as development, test, and production.
+
 ### Get secrets from Azure Key Vault
 
 If you have secrets to pass in an Azure Resource Manager template, we recommend that you use Azure Key Vault with the Azure Pipelines release.
@@ -179,11 +182,11 @@ There are two ways to handle secrets:
 
 Deployment can fail if you try to update active triggers. To update active triggers, you need to manually stop them and then restart them after the deployment. You can do this by using an Azure PowerShell task:
 
-1.  On the **Tasks** tab of the release, add an **Azure PowerShell** task.
+1.  On the **Tasks** tab of the release, add an **Azure PowerShell** task. Choose task version 4.*. 
 
-1.  Select **Azure Resource Manager** as the connection type, and then select your subscription.
+1.  Select the subscription your factory is in.
 
-1.  Select **Inline Script** as the script type, and then provide your code. The following code stops the triggers:
+1.  Select **Script File Path** as the script type. This requires you to save your PowerShell script in your repository. The following PowerShell script can be used to stop triggers:
 
     ```powershell
     $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -191,21 +194,28 @@ Deployment can fail if you try to update active triggers. To update active trigg
     $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
-    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
-
 You can complete similar steps (with the `Start-AzDataFactoryV2Trigger` function) to restart the triggers after deployment.
 
-> [!IMPORTANT]
-> In CI/CD scenarios, the integration runtime (IR) type in different environments must be the same. For example, if you have a self-hosted IR in the development environment, the same IR must also be of type self-hosted in other environments, such as test and production. Similarly, if you're sharing integration runtimes across multiple stages, you have to configure the integration runtimes as linked self-hosted in all environments, such as development, test, and production.
+### Sample pre- and post-deployment script
 
-#### Sample pre- and post-deployment script
+The following sample script can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. Save the script in an Azure DevOps  git repository and reference it via an Azure PowerShell task using version 4.*.
 
-The following sample script shows how to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. To install the latest version of Azure PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps).
+When running a pre-deployment script, you will need to specify a variation of the following parameters in the **Script Arguments** field.
+
+`-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
+
+
+When running a post-deployment script, you will need to specify a variation of the following parameters in the **Script Arguments** field.
+
+`-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
+
+    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+
+Here is the script that can be used for pre- and post-deployment. It accounts for deleted resources and resource references.
 
 ```powershell
 param
 (
-    [parameter(Mandatory = $false)] [String] $rootFolder,
     [parameter(Mandatory = $false)] [String] $armTemplate,
     [parameter(Mandatory = $false)] [String] $ResourceGroupName,
     [parameter(Mandatory = $false)] [String] $DataFactoryName,

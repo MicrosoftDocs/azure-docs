@@ -12,7 +12,7 @@ ms.subservice: files
 
 # Enable and create large file shares
 
-Originally, standard file shares could only scale up to 5 TiB. Now, with large file shares, they can scale up to 100 TiB. You can enable this scaling on your existing storage accounts for your existing file shares. Premium file shares scale up to 100 TiB by default.
+When you enable large file shares on your storage account, your file shares can scale up to 100 TiB. You can enable this scaling on your existing storage accounts for your existing file shares.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Originally, standard file shares could only scale up to 5 TiB. Now, with large f
 
 ## Restrictions
 
-For now, you can only use LRS or ZRS on large file share–enabled accounts. You can't use GZRS, GRS, or RA-GRS.
+For now, you can only use locally-redundant storage (LRS) or zone-redundant storage (ZRS) on large file share–enabled accounts. You can't use geo-zone-redundant storage (GZRS), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS).
 Enabling large file shares on an account is an irreversible process. After you enable it, you won't be able to convert your account to GZRS, GRS, or RA-GRS.
 
 ## Create a new storage account
