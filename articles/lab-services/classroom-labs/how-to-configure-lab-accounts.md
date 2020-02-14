@@ -19,21 +19,6 @@ ms.author: spelluru
 # Configure lab accounts in Azure Lab Services 
 In Azure Lab Services, a lab account is a container for managed lab types such as classroom labs. An administrator sets up a lab account with Azure Lab Services and provides access to lab owners who can create labs in the account. This article describes how to create a lab account, view all lab accounts, or delete a lab account.
 
-## Connect with a peer virtual network
-To connect a virtual network as a peer network to the lab's virtual network, follow these steps:
-
-1. On the **Lab Account** page, select **Labs configuration** on the left menu.
-
-    ![Labs Configuration page](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
-1. For **Peer virtual network**, select **Enabled** or **Disabled**. The default value is **Disabled**. To enable the peer virtual network, do the following steps: 
-    1. Select **Enabled**.
-    2. Select the **VNet** from the drop-down list. 
-3. Select **Save** on the toolbar. 
-
-Labs created in this account are connected to the selected virtual network. They can access to the resources in the selected virtual network. For more information, see [Connect your lab's network with a peer virtual network in Azure Lab Services](how-to-connect-peer-virtual-network.md).
-
-When you select a virtual network for the **Peer virtual network** field, the **Allow lab creator to pick lab location** option is disabled. It's because labs in the lab account must be in the same region as the lab account for them to connect with resources in the peer virtual network. 
-
 ## Specify an address range for VMs in the lab
 The following procedure has steps to specify an address range for VMs in the lab. If you update the range that you previously specified, the modified address range applies only to VMs that are created after the change was made. 
 
