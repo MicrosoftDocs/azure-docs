@@ -103,25 +103,24 @@ This table describes the ports in your Azure virtual network that your ISE uses 
 | Purpose | Direction | Destination ports | Source service tag | Destination service tag | Notes |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
 | Intersubnet communication within your virtual network | Inbound & Outbound | * | The address space for the virtual network that has your ISE's subnets | The address space for the virtual network that has your ISE's subnets | Required for traffic to flow *between* the subnets in your virtual network. <p><p>**Important**: For traffic to flow between the *components* in each subnet, make sure that you open all the ports within each subnet. |
-| Communication from Azure Logic Apps | Outbound | 80, 443 | VirtualNetwork | The tag for the destination service | The destination service is the external service with which your logic app needs to communicate. |
-| Azure Active Directory | Outbound | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Azure Storage dependency | Outbound | 80, 443, 445 | VirtualNetwork | Storage | |
-| Communication to Azure Logic Apps | Inbound | 443 | Internal ISE: <br>VirtualNetwork <p><p>External ISE: <br>Internet | VirtualNetwork | The source IP address for the computer or service that calls any request triggers or webhooks in your logic app. <p><p>**Important**: Closing or blocking this port prevents HTTP calls to logic apps that have request triggers. |
+| Communication to your logic app | Inbound | 443 | Internal ISE: <br>VirtualNetwork <p><p>External ISE: <br>Internet | VirtualNetwork | The source IP address for the computer or service that calls any request triggers or webhooks in your logic app. <p><p>**Important**: Closing or blocking this port prevents HTTP calls to logic apps that have request triggers. |
 | Logic app run history | Inbound | 443 | Internal ISE: <br>VirtualNetwork <p><p>External ISE: <br>Internet | VirtualNetwork | The source IP address for the computer or service from where you want to view your logic app's run history. <p><p>**Important**: Although closing or blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in that run history. |
-| Connection management | Outbound | 443 | VirtualNetwork  | AppService | |
-| Publish Diagnostic Logs & Metrics | Outbound | 443 | VirtualNetwork  | AzureMonitor | |
-| Communication from Azure Traffic Manager | Inbound | Internal ISE: 454 <p><p>External ISE: 443 | AzureTrafficManager | VirtualNetwork | |
 | Logic Apps Designer - dynamic properties | Inbound | 454 | See **Notes** column for IP addresses to allow | VirtualNetwork | Requests come from the Logic Apps access endpoint [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) IP addresses for that region. |
+| Connector deployment | Inbound | 454 | AzureConnectors | VirtualNetwork | Required for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
 | Network health check | Inbound | 454 | See **Notes** column for IP addresses to allow | VirtualNetwork | Requests come from the Logic Apps access endpoint for both [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses for that region. |
 | App Service Management dependency | Inbound | 454, 455 | AppServiceManagement | VirtualNetwork | |
-| Connector deployment | Inbound | 454 | AzureConnectors | VirtualNetwork | Required for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
+| Communication from Azure Traffic Manager | Inbound | Internal ISE: 454 <p><p>External ISE: 443 | AzureTrafficManager | VirtualNetwork | |
+| API Management - management endpoint | Inbound | 3443 | APIManagement | VirtualNetwork | |
 | Connector policy deployment | Inbound | 3443 | APIManagement | VirtualNetwork | Required for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
+| Communication from your logic app | Outbound | 80, 443 | VirtualNetwork | The tag for the destination service | The destination service is the external service with which your logic app needs to communicate. |
+| Azure Active Directory | Outbound | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
+| Connection management | Outbound | 443 | VirtualNetwork  | AppService | |
+| Publish Diagnostic Logs & Metrics | Outbound | 443 | VirtualNetwork  | AzureMonitor | |
+| Azure Storage dependency | Outbound | 80, 443, 445 | VirtualNetwork | Storage | |
 | Azure SQL dependency | Outbound | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Outbound | 1886 | VirtualNetwork | AzureMonitor | Required for publishing health status to Resource Health |
-| API Management - management endpoint | Inbound | 3443 | APIManagement | VirtualNetwork | |
 | Dependency from Log to Event Hub policy and monitoring agent | Outbound | 5672 | VirtualNetwork | EventHub | |
-| Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | 6379-6383 | VirtualNetwork | VirtualNetwork | Also, for ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described in the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Azure Load Balancer | Inbound | * | AzureLoadBalancer | VirtualNetwork | |
+| Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | 6379 - 6383 | VirtualNetwork | VirtualNetwork | Also, for ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described in the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 ||||||
 
 <a name="create-environment"></a>
