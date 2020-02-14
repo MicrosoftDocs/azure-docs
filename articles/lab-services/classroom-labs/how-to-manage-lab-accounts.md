@@ -44,7 +44,7 @@ The following steps illustrate how to use the Azure portal to create a lab accou
     8. Specify an **address range** for VMs in the lab. The address range should be in the classless inter-domain routing (CIDR) notation (example: 10.20.0.0/23). Virtual machines in the lab will be created in this address range. For more information, see [Specify an address range for VMs in the lab](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab)  
 
         ![Create lab account -> Advanced](../media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
-6. Select **Next: Tags** at the bottom of the page to switch to the **Tags** tab. Add any tags you want to associate with the lab account. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. For more information, see [Use tags to organize your Azure resources](azure-resource-manager/management/tag-resources.md).
+6. Select **Next: Tags** at the bottom of the page to switch to the **Tags** tab. Add any tags you want to associate with the lab account. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. For more information, see [Use tags to organize your Azure resources](../../azure-resource-manager/management/tag-resources.md).
 
     ![Create lab account -> Tags](../media/how-to-manage-lab-accounts/create-lab-account-tags.png)
 7. Select **Review + create** at the bottom of this page to switch to the **Review + create** tab. 
