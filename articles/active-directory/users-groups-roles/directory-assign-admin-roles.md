@@ -190,7 +190,7 @@ Do not use. This role is automatically assigned to the Azure AD Connect service,
 
 ### [Directory Writers](#directory-writers-permissions)
 
-This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). It should not be assigned to any users.
+This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-register-app.md). It should not be assigned to any users.
 
 ### [Dynamics 365 administrator / CRM Administrator](#crm-service-administrator-permissions)
 
@@ -215,7 +215,7 @@ This administrator manages federation between Azure Active Directory tenants and
 
 ### [Global Administrator / Company Administrator](#company-administrator-permissions)
 
-Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
+Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).

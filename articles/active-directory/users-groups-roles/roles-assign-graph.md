@@ -36,10 +36,10 @@ Content-type: application/json
 Body
 
 ``` HTTP
-{ 
-    "principalId":"a98eb769-7bd4-4489-86f6-ad96e1d58b62",
-    "roleDefinitionId":"b0f54661-2d74-4c50-afa3-1ec803f12efe",
-    "resourceScope":"/"
+{
+    "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+    "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
+    "resourceScopes":["/"]
 }
 ```
 
@@ -179,7 +179,7 @@ Response
 ``` HTTP
 HTTP/1.1 200 OK
 { 
-    "id":"lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1"
+    "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1",
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
     "resourceScopes":["/"]
