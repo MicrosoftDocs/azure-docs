@@ -12,29 +12,82 @@ metadata:
   ms.topic: hub-page
   author: cynthn 
   ms.author: cynthn 
-  ms.date: 02/12/2020 
+  ms.date: 02/14/2020 
 
 
 highlightedContent:
   items:
-    - title: Linux virtual machines
-      itemType: get-started
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/
-    - title: Windows virtual machines
-      itemType: get-started
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/
-    - title: Virtual machine scale sets
-      itemType: get-started
-      url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/
+    - title: Create a Linux virtual machine using the Azure CLI
+      itemType: quickstart
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli
+    - title: Create a Windows virtual machine using PowerShell
+      itemType: quickstart
+      url: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell
+    - title: Create a virtual machine scale set in the portal
+      itemType: quickstart
+      url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-portal
     - title: Spot VMs
       itemType: whats-new
       url: https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms
     - title: Dedicated hosts
       itemType: whats-new
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts
+      url: https://docs.microsoft.com/azure/virtual-machines//dedicated-hosts
     - title: Proximity placement groups
       itemType: whats-new
       url: https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups
+
+
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  title: 
+  summary: 
+  items:
+    - title: Linux virtual machines
+      links:
+        - url: https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros
+          itemType: concept
+          text: Endorsed distros
+        - url: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks
+          itemType: tutorial
+          text: Create and manage disks
+        - url: https://docs.microsoft.com/azure/virtual-machines/linux/image-builder
+          itemType: how-to-guide
+          text: Azure Image Builder
+      footerLink:
+        url: https://docs.microsoft.com/azure/virtual-machines/linux/
+        text: See more
+    # Card
+    - title: Windows virtual machines
+      links:
+        - url: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell
+          itemType: how-to-guide
+          text: Create a VM using PowerShell
+        - url: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-data-disk
+          itemType: tutorial
+          text: Create and manage disks
+        - url: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+          itemType: how-to-guide
+          text: Configure managed identities
+      # footerLink (optional)
+      footerLink:
+        url: https://docs.microsoft.com/azure/virtual-machines/linux/
+        text: See more
+    # Card
+    - title: Virtual machine scale sets
+      links:
+        - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-powershell
+          itemType: how-to-guide
+          text: Create a scale set using PowerShell
+        - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/orchestration-modes
+          itemType: concept
+          text: Orchestration modes
+        - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot
+          itemType: how-to-guide
+          text: Use Spot instances
+      # footerLink (optional)
+      footerLink:
+        url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/
+        text: See more
 
 tools:
   title: Tools
@@ -53,8 +106,8 @@ tools:
 
 additionalContent:
   sections:
-    - title: Other resources # < 60 chars (optional)
-      summary: Additional resources for working with Azure virtual machines # < 160 chars (optional)
+    - title: Other resources 
+      summary: Additional resources for working with Azure virtual machines.
       items:
         - title: Learn
           links:
