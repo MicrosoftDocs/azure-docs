@@ -21,7 +21,7 @@ I'm new to both content (and git), so we'll be learning the docs contribution pr
 8. Our local changes will be tracked against our local Spool branch.
 9. We'll pull from the remote Spool branch before pushing to make sure that others' changes are incorporated into ours.
 10. We'll then push our local changes to the remote Spool branch.
-11. While we're developing our content, I'll periodically issue a pull requests from **[6]** to **[4]**.  This will validate that our content passes various validations, and it will provide us with a staging link.  I'll send this out to the team whenever I issue a PR.
+11. I've [issued a pull request](https://github.com/MicrosoftDocs/azure-docs-pr/pull/104477) from **[6]** to **[4]**.  This will continuously validate our changes as we commit our changes to **[6]**.  If you view that pull request after committing, you'll be able to see the validations and staging status.
 
 *Note: PRs from **[6]** to **[4]** will always be built and validated, but they won't be passed off to the Azure docs editorial team until we sign off on them with a comment that says "#sign-off".  This will tell our merge bot ("PR Merger") to pass the baton along.  We will only do this when our content is mature.*
 
