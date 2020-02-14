@@ -41,7 +41,7 @@ No permissions to access the key vault or the key doesn't exist
 
 #### Missing key vault permissions
 * AzureKeyVaultMissingPermissionsMessage
-* The server does not have the requires Get, Wrap, and Unwrap permissions to the Azure Key Vault permissions. Grant any missing permissions to the service principal with ID.
+* The server does not have the required Get, Wrap, and Unwrap permissions to the Azure Key Vault permissions. Grant any missing permissions to the service principal with ID.
 
 ### Mitigation
 * Confirm that the customer-managed key is present in Key Vault:
