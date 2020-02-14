@@ -8,18 +8,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/14/2020
 ---
 
 # How to rebuild an index in Azure Cognitive Search
 
 This article explains how to rebuild an Azure Cognitive Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests.
 
-A *rebuild* refers to dropping and recreating the physical data structures associated with an index, including all field-based inverted indexes. In Azure Cognitive Search, you cannot drop and recreate individual fields. To rebuild an index, all field storage must be deleted, recreated based on an existing or revised index schema, and then repopulated with data pushed to the index or pulled from external sources. It's common to rebuild indexes during development, but you might also need to rebuild a production-level index to accommodate structural changes, such as adding complex types or adding fields to suggesters.
+A *rebuild* refers to dropping and recreating the physical data structures associated with an index, including all field-based inverted indexes. In Azure Cognitive Search, you cannot drop and recreate individual fields. To rebuild an index, all field storage must be deleted, recreated based on an existing or revised index schema, and then repopulated with data pushed to the index or pulled from external sources. 
+
+It's common to rebuild indexes during development, but you might also need to rebuild a production-level index to accommodate structural changes, such as adding complex types or adding fields to suggesters.
 
 In contrast with rebuilds that take an index offline, *data refresh* runs as a background task. You can add, remove, and replace documents with minimal disruption to query workloads, although queries typically take longer to complete. For more information on updating index content, see [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## Rebuild conditions
+
+Drop and recreate an index if any of the following conditions are true. 
 
 | Condition | Description |
 |-----------|-------------|
@@ -58,25 +62,21 @@ For more information about indexers, see [Indexer overview](search-indexer-overv
 
 ## How to rebuild an index
 
-Plan on frequent, full rebuilds during active development, when index schemas are in a state of flux. For applications already in production, we recommend creating a new index that runs side by side an existing index to avoid query downtime.
+During development, the index schema changes frequently. You can plan for it by creating indexes that can be deleted, recreated, and reloaded quickly with a small representative data set. 
 
-Read-write permissions at the service-level are required for index updates. 
+For applications already in production, we recommend creating a new index that runs side by side an existing index to avoid query downtime.
 
-You cannot rebuild an index in the portal. Programmatically, you can call [Update Index REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) or [equivalent .NET APIs](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexesoperations.createorupdatewithhttpmessagesasync?view=azure-dotnet) for a full rebuild. An update index request is identical to [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), but has a different context.
+1. Determine whether a rebuild is required. If you are just adding fields, or changing some part of the index that is unrelated to fields, you might be able to simply [update the definition](https://docs.microsoft.com/rest/api/searchservice/update-index) without rebuilding.
 
-The following workflow is biased towards the REST API, but applies equally to the .NET SDK.
+1. [Get an index definition](https://docs.microsoft.com/rest/api/searchservice/get-index) in case you need it for future reference.
 
-1. When reusing an index name, [drop the existing index](https://docs.microsoft.com/rest/api/searchservice/delete-index). 
+1. [Drop the existing index](https://docs.microsoft.com/rest/api/searchservice/delete-index), assuming you are not running new and old indexes side by side. 
 
-   Any queries targeting that index are immediately dropped. Deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Make sure you are clear on the implications of deleting an index before you drop it. 
+   Any queries targeting that index are immediately dropped. Remember that deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Make sure you are clear on the implications before you dropping it. 
 
-2. Formulate an [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) request with your service endpoint, API-key, and an [admin key](https://docs.microsoft.com/azure/search/search-security-api-keys). An admin key is required for write operations.
+1. [Create a revised index](https://docs.microsoft.com/rest/api/searchservice/create-index), where the body of the request includes changed or modified field definitions.
 
-3. In the body of the request, provide an index schema with the changed or modified field definitions. The request body contains the index schema, as well as constructs for scoring profiles, analyzers, suggesters, and CORS options. Schema requirements are documented in [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
-
-4. Send an [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) request to rebuild the physical expression of the index on Azure Cognitive Search. 
-
-5. [Load the index with documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) from an external source.
+1. [Load the index with documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) from an external source.
 
 When you create the index, physical storage is allocated for each field in the index schema, with an inverted index created for each searchable field. Fields that are not searchable can be used in filters or expressions, but do not have inverted indexes and are not full-text or fuzzy searchable. On an index rebuild, these inverted indexes are deleted and recreated based on the index schema you provide.
 
@@ -85,7 +85,7 @@ When you load the index, each field's inverted index is populated with all of th
 > [!NOTE]
 > If you have stringent SLA requirements, you might consider provisioning a new service specifically for this work, with development and indexing occurring in full isolation from a production index. A separate service runs on its own hardware, eliminating any possibility of resource contention. When development is complete, you would either leave the new index in place, redirecting queries to the new endpoint and index, or you would run finished code to publish a revised index on your original Azure Cognitive Search service. There is currently no mechanism for moving a ready-to-use index to another service.
 
-## View updates
+## Check for updates
 
 You can begin querying an index as soon as the first document is loaded. If you know a document's ID, the [Lookup Document REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) returns the specific document. For broader testing, you should wait until the index is fully loaded, and then use queries to verify the context you expect to see.
 

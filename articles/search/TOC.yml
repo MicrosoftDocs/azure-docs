@@ -107,7 +107,7 @@
       href: search-limits-quotas-capacity.md
     - name: Scale partitions and replicas
       href: search-capacity-planning.md
-    - name: Deployment strategies and best practices
+    - name: Scale for performance
       href: search-performance-optimization.md
     - name: Multitenant architecture
       href: search-modeling-multitenant-saas-applications.md
