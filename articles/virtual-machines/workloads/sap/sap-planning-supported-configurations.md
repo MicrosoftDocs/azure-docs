@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 ---
 
 # SAP workload on Azure virtual machine supported scenarios
-Designing SAP NetWeaver, Business one, `Hybris` or S/4HANA systems architecture in Azure opens a lot of different opportunities for various architectures and tools to use to get to a scalable, efficient, and highly available deployment. Though dependent on the operating system or DBMS used, there are restrictions. Also, not all scenarios that are supported on-premises are supported in the same way in Azure. This document will lead through the supported configuration and architectures using Azure VMs exclusively. For scenarios supported with [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), check the article [Supported scenarios for HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario).
+Designing SAP NetWeaver, Business one, `Hybris` or S/4HANA systems architecture in Azure opens a lot of different opportunities for various architectures and tools to use to get to a scalable, efficient, and highly available deployment. Though dependent on the operating system or DBMS used, there are restrictions. Also, not all scenarios that are supported on-premises are supported in the same way in Azure. This document will lead through the supported non-high-availability configurations and high-availability configurations and architectures using Azure VMs exclusively. For scenarios supported with [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), check the article [Supported scenarios for HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario). Disaster Recovery scenarios will be added at a later point.
 
 
 ## 2-Tier configuration
@@ -55,7 +55,7 @@ In this configuration type, you host multiple DBMS instances per Azure VM or HAN
 
 A configuration like that could look like:
 
-![Multiple DBMS instances in one unit](./media/sap-planning-supported-configurations/multiple-dbms-instances.png)
+![Multiple DBMS instances in one unit](./media/sap-planning-supported-configurations/multiple-database-instances.png)
 
 This type of DBMS deployment is supported for SQL Server on Windows for production and non-production systems. For SAP HANA, only non-production deployments are supported. For all the other DBMS, it is recommended not to deploy multiple instances for now.
 
@@ -68,7 +68,7 @@ In a lot of cases, multiple dialog instances got deployed on bare metal servers 
 
 At 3-Tier configuration where multiple SAP dialog instances are run within Azure VMs can look like:
 
-![Multiple DBMS instances in one unit](./media/sap-planning-supported-configurations/multi-dialog-3-tier.png)
+![Multiple DBMS instances in one unit](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
 
 For simplification, we did not distinguish between SAP Central Services and SAP dialog instances in the SAP application layer. In this simple 3-Tier configuration, there would be no high availability protection for SAP Central Services. For production systems, it is not recommended to leave SAP Central Services unprotected. For specifics on so called multi-SID configurations around SAP Central Instances and high-availability of such multi-SID configurations, see later sections of this document.
 
@@ -106,7 +106,7 @@ For Azure VMs, the following high availability configurations are supported on D
 > For none of the scenarios described above, we support configurations of multiple DBMS instances in one VM. Means in each of the cases, only one database instance can be deployed per VM and protected with the described high availability methods. Protecting multiple DBMS instances under the same Windows or Pacemaker failover cluster is **NOT** supported at this point in time. Also Oracle Data Guard is supported for single instance per VM deployment cases only. 
 
 
-![DBMS HA configuration](./media/sap-planning-supported-configurations/dbms-ha-in-3-tier-configuration.png)
+![DBMS HA configuration](./media/sap-planning-supported-configurations/database-high-availability-configuration.png)
 
 Dependent on the DBMS an/or operating systems, components like Azure load balancer might or might not be required as part of the solution architecture. 
 
@@ -146,7 +146,7 @@ Of the listed solutions, you need a support relationship with SIOS to support th
 
 The configuration can as well be displayed like:
 
-![DBMS and ASCS HA configuration](./media/sap-planning-supported-configurations/dbms-ascs-ha-3-tier-configuration.png)
+![DBMS and ASCS HA configuration](./media/sap-planning-supported-configurations/high-available-3-tier-configuration.png)
 
 On the right hand side of the graphics, the highly available SAP Central Services is shown. Besides having the SAP Central services protected with a failover cluster framework that can fail over in case of an issue, there is a necessity for a highly available NFS or SMB share, or a Windows shared disk to make sure the sapmnt and global transport directory are available independent of the existence of a single VM. Additional some of the solutions, like Windows Failover Cluster Server and Pacemaker are going to require an Azure load balancer to direct or re-direct traffic to a healthy node.
 
@@ -186,7 +186,7 @@ The configuration is documented in [High availability for SAP NetWeaver on Azure
 
 A multi-SID cluster with Enqueue Replication server schematically looks like
 
-![DBMS and ASCS HA configuration](./media/sap-planning-supported-configurations/dbms-ascs-ha-multi-sid-configuration.png)
+![DBMS and ASCS HA configuration](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
 
 
 ## SAP HANA scale-out scenarios
@@ -230,7 +230,7 @@ Other scenarios, which are not supported are scenarios like:
 Scenario(s) that we did not test and therefore have no experience with list like:
 
 - Azure Site Recovery replicating DBMS layer VMs. As a result, we recommend leveraging the database native asynchronous replication functionality for potential disaster recovery configuration
-- 
+ 
 
 ## Next Steps
 Read next steps in the [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
