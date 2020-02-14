@@ -36,11 +36,11 @@ When the **Deployment succeeded** message appears, select the container registry
 
 ![Container registry Overview in the Azure portal][qs-portal-05]
 
-Take note of the value of the **Login server**. You use this value in the following steps while working with your registry with the Azure CLI and Docker.
+Take note of the value of the **Login server**. You use this value in the following steps when you push and pull images with Docker.
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the ACR instance. Open a command shell in your operating system, and use the [az acr login][az-acr-login] command in the Azure CLI. (Specify only the registry name. Don't include the 'azurecr.io' suffix.)
+Before pushing and pulling container images, you must log in to the ACR instance. Open a command shell in your operating system, and use the [az acr login][az-acr-login] command in the Azure CLI. (Specify only the registry name when logging in. Don't include the 'azurecr.io' suffix.)
 
 ```azurecli
 az acr login --name <acrName>
@@ -54,7 +54,7 @@ The command returns `Login Succeeded` once completed.
 
 To list the images in your registry, navigate to your registry in the portal and select **Repositories**, then select the repository you created with `docker push`.
 
-In this example, we select the **hello-world** repository, and we can see the `v1`-tagged image under **TAGS**.
+In this example, we select the **hello-world** repository, and we can see the `v1`-tagged image under **Tags**.
 
 ![List container images in the Azure portal][qs-portal-09]
 
