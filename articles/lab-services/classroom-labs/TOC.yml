@@ -52,6 +52,8 @@
       href: how-to-manage-lab-accounts.md
     - name: Configure lab accounts
       href: how-to-configure-lab-accounts.md
+    - name: Add a lab creator
+      href: add-lab-creator.md
     - name: Allow lab creator to pick lab location
       href: allow-lab-creator-pick-lab-location.md
     - name: Connect your labs to a peer virtual network
