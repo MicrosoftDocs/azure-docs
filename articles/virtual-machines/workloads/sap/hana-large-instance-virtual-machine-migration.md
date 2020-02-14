@@ -3,7 +3,7 @@ title: Migrating SAP HANA on Azure (Large Instances) to Azure virtual machines| 
 description: How to migrate SAP HANA on Azure (Large Instances) to Azure virtual machines
 services: virtual-machines-linux
 documentationcenter:
-author: saghorpa, bentrin
+author: saghorpa
 manager: gwallace
 editor:
 
@@ -30,7 +30,7 @@ This article makes the following assumptions:
 - All updates/upgrades activities need to be done before or after the migration.  For example, SAP HANA MCOS converting to MDC deployment. 
 - The migration approach that would offer the least downtime is SAP HANA System Replication. Other migration methods aren't part of the scope of this document.
 - This guidance is applicable for both Rev3 and Rev4 SKUs of HLI.
-- HANA deployment architecture remains primarily unchanged during the migration.  That is, a system with one single instance DR will stay the same way at the destination.
+- HANA deployment architecture remains primarily unchanged during the migration.  That is, a system with single instance DR will stay the same way at the destination.
 - Customers have reviewed and understood the Service Level Agreement (SLA) of the target (to-be) architecture. 
 - Commercial terms between HLIs and VMs are different. Customers should monitor the usage of their VMs for cost management.
 - Customers understand that HLI is a dedicated compute platform while VMs run on shared yet isolated infrastructure.
@@ -39,7 +39,7 @@ This article makes the following assumptions:
 - Plan for disaster recovery VM along with the primary site.  Customers can't use the HLI as the DR node for the primary site running on VMs after the migration.
 - Customers copied the required backup files to target VMs, based on business recoverability and compliance requirements. With VM accessible backups, it allows for point-in-time recovery during the transition period.
 - For HSR HA, customers need to set up and configure the STONITH device per SAP HANA HA guides for [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) and [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker).  It’s not preconfigured like the HLI case.
-- This migration approach doesn't cover the HLI SKUs with Octane configuration.
+- This migration approach doesn't cover the HLI SKUs with Optane configuration.
 
 ## Deployment scenarios
 Common deployment models with HLI customers are summarized in the following table.  Migration to Azure VMs for all HLI scenarios is possible.  To benefit from complementary Azure services available, minor architectural changes may be required.
@@ -66,13 +66,13 @@ Common deployment models with HLI customers are summarized in the following tabl
 ## Source (HLI) planning
 When onboarding an HLI server, both Microsoft Service Management and customers went through the planning of the compute, network, storage, and OS-specific settings for running the SAP HANA database.  Similar planning needs to take place for the migration to Azure VM.
 
-### SAP HANA Housekeeping 
+### SAP HANA housekeeping 
 It’s a good operational practice to tidy up the database content so unwanted, outdated data, or stale logs aren't migrated to the new database.  Housekeeping generally involves deleting or archiving of old, expired, or inactive data.  These ‘data hygiene’ actions should be tested in non-production systems to validate their data trim validity before production usage.
 
 ### Allow network connectivity for new VMs and, or virtual network 
 In a customer’s HLI deployment, the network has been set up based on the information described in the article [SAP HANA (Large Instances) network architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Also, network traffic routing is done in the manner outlined in the section ‘Routing in Azure’.
 1. In setting up a new VM as the migration target, If it's placed in the existing virtual network with IP address ranges already permitted to connect to the HLI, no further connectivity update is required.
-2. If the new Azure VM is placed in a new Microsoft Azure Virtual Network, may be in another region, and peered with the existing virtual network, the ExpressRoute service key and Resource ID from the original HLI provisioning are usable to allow access to this new virtual network IP range.  Coordinate with Microsoft Service Management to enable the virtual network to HLI connectivity.  Note: To minimize network latency between the application and database layers, both the application and database layers must be on the same virtual network.  
+2. If the new Azure VM is placed in a new Microsoft Azure Virtual Network, may be in another region, and peered with the existing virtual network, the ExpressRoute service key and Resource ID from the original HLI provisioning are usable to allow access for this new virtual network IP range.  Coordinate with Microsoft Service Management to enable the virtual network to HLI connectivity.  Note: To minimize network latency between the application and database layers, both the application and database layers must be on the same virtual network.  
 
 ### Existing app layer Availability Set, Availability Zones, and Proximity Placement Group (PPG)
 The current deployment model is done to satisfy certain service level objectives.  In this move, ensure the target infrastructure will meet or exceed the set goals.  
@@ -91,10 +91,10 @@ In addition to backing up the HLI content, it’s prudent to have full backups o
 ### Adjusting system monitoring 
 Customers use many different tools to monitor and send alert notifications for systems within their SAP landscape.  This item is just a call-out for appropriate action to incorporate changes for monitoring and update the alert notification recipients if needed.
 
-### Microsoft Operations Team involvement 
+### Microsoft Operations team involvement 
 Open a ticket from the Azure portal based on the existing HLI instance.  After the support ticket is created, a support engineer will contact you via email.  
 
-### Engage Microsoft Account team
+### Engage Microsoft account team
 Plan migration close to the anniversary renewal time of the HLI contract to minimize unnecessary over expense on compute resource. To decommission the HLI blade, it’s required to coordinate contract termination and actual shut-down of the unit.
 
 ## Destination planning
@@ -138,7 +138,7 @@ This DR replica will be configured after the primary HLI to VM migration is comp
 The HSR migration results in a new HANA DB host and hence a new DB hostname for the application layer, SAP profiles need to be modified to reflect the new hostname.  If the switching is done by name resolution preserving the hostname, no profile change is required.
 
 ### Operating system
-The operating system images for HLI and VM, despite being on the same release level, SLES 11 SP4 for example, aren't identical. Customers must validate the required packages, hot fixes, patches, kernel, and security fixes on the HLI to install the same packages on the target.  It's supported to use HSR to replicate from an older OS onto a VM with a newer OS version.  Verify the specific supported versions by reviewing [SAP note 2763388](https://launchpad.support.sap.com/#/notes/2763388).
+The operating system images for HLI and VM, despite being on the same release level, SLES 12 SP4 for example, aren't identical. Customers must validate the required packages, hot fixes, patches, kernel, and security fixes on the HLI to install the same packages on the target.  It's supported to use HSR to replicate from an older OS onto a VM with a newer OS version.  Verify the specific supported versions by reviewing [SAP note 2763388](https://launchpad.support.sap.com/#/notes/2763388).
 
 ### New SAP license request
 A simple call-out to request a new SAP license for the new HANA system now that it’s been migrated to VMs.
@@ -176,7 +176,7 @@ Although this migration is straight forward, it however involves the decommissio
 
 
 ## Post migration
-The migration job is not done until we have safely decoupled any HLI-dependent services or connectivity to ensure data integrity is preserved.  Also, shutdown unnecessary services.  This section calls out a few top-of-mind items.
+The migration job is not done until we have safely decoupled any HLI-dependent services or connectivity to ensure data integrity is preserved.  Also, shut down unnecessary services.  This section calls out a few top-of-mind items.
 
 ### Decommissioning the HLI
 After a successful migration of the HANA DB to Azure VM, ensure no productive business transactions run on the HLI DB.  However, keeping the HLI running for a period of time equals to its local backup retention window is a safe practice ensuring speedier recovery if needed.  Only then should the HLI blade be decommissioned.  Customers should contractually conclude their HLI commitments with Microsoft by contacting their Microsoft representatives.
