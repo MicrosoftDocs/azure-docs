@@ -117,7 +117,7 @@ The following template has one resource defined with the `Microsoft.Resources/de
 > [!NOTE]
 > Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be enclosed in single quotes instead. The escape character for PowerShell is **&#92;**. You can also consider using string substitution as it is shown in the previous JSON sample. See the default value of the name parameter.
 
-The script takes one parameter, and output the parameter value. **DeploymentScriptOutputs** is used for storing outputs.  In the outputs section, the **value** line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Debug deployment scripts](#debug-deployment-scripts).  For the property descriptions, see [Resource schema](#resource-schema).
+The script takes one parameter, and output the parameter value. **DeploymentScriptOutputs** is used for storing outputs.  In the outputs section, the **value** line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Debug deployment scripts](#debug-deployment-scripts).  For the property descriptions, see [Sample template](#sample-template).
 
 To run the script, select **Try it** to open the Cloud shell, and then paste the following code into the shell pane.
 
