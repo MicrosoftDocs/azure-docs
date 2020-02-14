@@ -87,6 +87,7 @@ const { TextAnalyticsClient, TextAnalyticsApiKeyCredential } = require("@azure/a
 
 const { TextAnalyticsClient, CognitiveServicesCredential } = require("@azure/cognitiveservices-textanalytics");
 ```
+---
 
 Create variables for your resource's Azure endpoint and key.
 
