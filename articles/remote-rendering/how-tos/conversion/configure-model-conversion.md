@@ -129,19 +129,18 @@ The following `vertex` section in the `.json` file is optional. For each portion
 
 ```json
 {
-    "ez": {
-        ...
-        "vertex" : {
-            "position"  : "32_32_32_FLOAT",
-            "color0"    : "NONE",
-            "color1"    : "NONE",
-            "normal"    : "NONE",
-            "tangent"   : "NONE",
-            "binormal"  : "NONE",
-            "texcoord0" : "32_32_FLOAT",
-            "texcoord1" : "NONE"
-        },
-        ...
+    ...
+    "vertex" : {
+        "position"  : "32_32_32_FLOAT",
+        "color0"    : "NONE",
+        "color1"    : "NONE",
+        "normal"    : "NONE",
+        "tangent"   : "NONE",
+        "binormal"  : "NONE",
+        "texcoord0" : "32_32_FLOAT",
+        "texcoord1" : "NONE"
+    },
+    ...
 ```
 
 By forcing a component to `NONE`, it is guaranteed that the output mesh does not have the respective stream.
