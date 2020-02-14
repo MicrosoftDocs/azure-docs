@@ -10,7 +10,7 @@ ms.subservice: load-data
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse-analytics
 ---
 
 # Tutorial: Load data to Azure SQL Data Warehouse
