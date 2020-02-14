@@ -125,6 +125,9 @@ These instructions are for building the sample on Windows. For other environment
 
 ### Edit the send telemetry sample to enable distributed tracing
 
+> [!div class="button"]
+> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">Get the sample on Github</a>
+
 1. Use an editor to open the `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` source file.
 
 1. Find the declaration of the `connectionString` constant:
