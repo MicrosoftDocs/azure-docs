@@ -22,7 +22,6 @@ In Azure Lab Services, a lab account is a container for managed lab types such a
 This article shows how to perform the following tasks: 
 
 - Specify an address range for VMs in the lab
-- Specify Marketplace images available to lab creators
 - Configure automatic shutdown of VMs on disconnect
 
 ## Specify an address range for VMs in the lab
@@ -38,27 +37,6 @@ Here are some restrictions when specifying the address range that you should kee
 3. Select **Save** on the toolbar. 
 
     ![Configure address range](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
-
-
-## Specify Marketplace images available to lab creators
-As a lab account owner, you can specify the Marketplace images that lab creators can use to create labs in the lab account. 
-
-1. Select **Marketplace images** on the menu to the left. By default, you see the full list of images (both enabled and disabled). You can filter the list to see only enabled/disabled images by selecting the **Enabled only**/**Disabled only** option from the drop-down list at the top. 
-    
-    ![Marketplace images page](../media/tutorial-setup-lab-account/marketplace-images-page.png)
-
-    The Marketplace images that are displayed in the list are only the ones that satisfy the following conditions:
-        
-    - Creates a single VM.
-    - Uses Azure Resource Manager to provision VMs
-    - Doesn't require purchasing an extra licensing plan
-2. To **disable** a Marketplace image that has been enabled, do one of the following actions: 
-    1. Select **... (ellipsis)** in the last column, and select **Disable image**. Alternatively, you can select the image in the list, and select **Disable selected images** on the toolbar. To disable multiple images at one time, select them from the list by selecting checkboxes before the image names in the list. 
-
-        ![Disable one image](../media/tutorial-setup-lab-account/disable-one-image.png) 
-1. Similarly, to **enable** a Marketplace image, do one of the following actions: 
-    1. Select **... (ellipsis)** in the last column, and select **Enable image**. 
-    2. Select one or more images from the list by selecting the checkboxes before the image names in the list, and select **Enable selected images**. 
 
 
 ## Automatic shutdown of VMs on disconnect
