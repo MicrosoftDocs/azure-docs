@@ -86,63 +86,63 @@ productDirectory:
     # Card
     - title: Bing Autosuggest
       summary: Give your app intelligent autosuggest options for searches
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      imageSrc: ./media/index/API_Bing_AutoSuggest.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/bing-autosuggest/get-suggested-search-terms.md
     # Card
     - title: Bing Custom Search
       summary: An easy-to-use, ad-free, commercial-grade search tool that lets you deliver the results you want
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      imageSrc: ./media/index/API_Bing_Custom_Search.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/bing-custom-search/overview.md
     # Card
     - title: Bing Entity Search
       summary: Enrich your experiences by identifying and augmenting entity information from the web
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      imageSrc: ./media/index/API_Bing_Entity_Search.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/bing-entities-search/overview.md
     # Card
     - title: Bing Image Search
       summary: Search for images and get comprehensive results
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      imageSrc: ./media/index/API_Bing_Image_Search.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/bing-image-search/overview.md
     # Card
     - title: Bing News Search
       summary: Search for news and get comprehensive results
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      imageSrc: ./media/index/API_Bing_News_Search.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/bing-news-search/search-the-web.md
     # Card
     - title: Bing Spell Check
       summary: Detect and correct spelling mistakes in your app
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      imageSrc: ./media/index/API_Bing_Spell_Check.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/bing-spell-check/overview.md
     # Card
     - title: Bing Video Search
       summary: Search for videos and get comprehensive results
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      imageSrc: ./media/index/API_Bing_Video_Search.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/bing-video-search/overview.md
     # Card
     - title: Bing Visual Search
       summary: Get rich insights to help build compelling image applications on the device of your choice
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      imageSrc: ./media/index/API_Bing_Visual_Search.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/bing-visual-search/overview.md
     # Card
     - title: Bing Web Search
       summary: Get enhanced search details from billions of web documents
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      imageSrc: ./media/index/API_Bing_Web_Search.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/bing-web-search/overview.md
