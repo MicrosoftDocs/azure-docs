@@ -21,6 +21,8 @@ For information on setup and configuration details, see the [overview](./functio
 > [!IMPORTANT]
 > The Event Grid output binding is only available for Functions 2.x and higher.
 
+## Example
+
 # [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that writes a message to an Event Grid custom topic, using the method return value as the output:
@@ -181,7 +183,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-For a complete example, see [Output - C# example](#output).
+For a complete example, see [example](#example).
 
 # [C# Script](#tab/csharp-script)
 
@@ -244,6 +246,6 @@ The Event Grid output binding is not available for Java.
 
 ---
 
-# Next steps
+## Next steps
 
 * [Dispatch an Event Grid event](./functions-bindings-event-grid-trigger.md)

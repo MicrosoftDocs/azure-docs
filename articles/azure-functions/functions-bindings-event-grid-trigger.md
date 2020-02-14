@@ -45,7 +45,7 @@ namespace Company.Function
 }
 ```
 
-For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
+For more information, see Packages, [Attributes](#attributes-and-annotations), [Configuration](#configuration), and [Usage](#usage).
 
 ### Version 1.x
 
@@ -106,7 +106,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
+For more information, see Packages, [Attributes](#attributes-and-annotations), [Configuration](#configuration), and [Usage](#usage).
 
 ### Version 1.x
 
