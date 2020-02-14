@@ -136,6 +136,9 @@ NAT is currently available in these regions:
 
 Subscriptions must be registered to allow participation in the Public Preview.  Participation requires a two-step process and instructions are provided below for Azure CLI and Azure PowerShell.  The activation may take several minutes to complete.
 
+> [!IMPORTANT]
+> During the preview period, the NAT gateway portal can be accessed by going to https://aka.ms/natportal after the preview is [enabled](./nat-overview.md#enable-preview) in your subscription.
+
 ### Azure CLI
 
 1. register subscription for Public Preview
