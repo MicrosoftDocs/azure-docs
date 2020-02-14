@@ -32,6 +32,9 @@ NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and pro
 >[!NOTE] 
 >Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
 
+> [!IMPORTANT]
+> During the preview period, the NAT gateway portal can be accessed by going to https://aka.ms/natportal after the preview is [enabled](./nat-overview.md#enable-preview) in your subscription.
+
 ## How to deploy NAT
 
 Configuring and using NAT gateway is intentionally made simple:  

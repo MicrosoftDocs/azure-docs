@@ -31,6 +31,9 @@ You can complete this tutorial using Azure cloud shell or run the commands local
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+> [!IMPORTANT]
+> During the preview period, the NAT gateway portal can be accessed by going to https://aka.ms/natportal after the preview is [enabled](./nat-overview.md#enable-preview) in your subscription.
+
 ## Create a resource group
 
 Create a resource group with [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=latest). An Azure resource group is a logical container into which Azure resources are deployed and managed.

@@ -28,6 +28,9 @@ This quickstart shows you how to use Azure NAT service and create a NAT gateway 
 You can complete this tutorial using Azure cloud shell or run the respective commands locally.  If you have never used Azure cloud shell, [sign in now](https://shell.azure.com) to go through the initial setup.
 If you choose to run these commands locally, you need to install CLI.  This tutorial requires that you're running a version of the Azure CLI version 2.0.71 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
+> [!IMPORTANT]
+> During the preview period, the NAT gateway portal can be accessed by going to https://aka.ms/natportal after the preview is [enabled](./nat-overview.md#enable-preview) in your subscription.
+
 ## Create a resource group
 
 Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
