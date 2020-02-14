@@ -703,7 +703,7 @@ Proactively improve your database security by discovering and remediating potent
 
 ### Identify and tag sensitive data 
 
-Discover columns that potentially contain sensitive data. Sensitive data heavily depend on the customer, compliance regulation, etc, and needs to be evaluated by the end user. Classify the columns to use advanced sensitivity-based auditing and protection scenarios. 
+Discover columns that potentially contain sensitive data. Sensitive data heavily depend on the customer, compliance regulation, etc., and needs to be evaluated by the end user. Classify the columns to use advanced sensitivity-based auditing and protection scenarios. 
 
 **How to implement**:
 
