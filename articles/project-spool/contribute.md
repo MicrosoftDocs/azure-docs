@@ -1,6 +1,6 @@
 ## Intro
 
-My goal is to minimize process complexity so that you can start dumping content as easily as possible.
+I'm writing this to expose you to the bare minimum amount of information you need in order to contribute documentation.
 
 If you have any questions or feedback along the way, feel free to ping/email any time.  My alias is **mikben**.
 
