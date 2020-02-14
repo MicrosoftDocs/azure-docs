@@ -38,7 +38,7 @@ We'll guide you through configuration of a full test environment and the executi
 
 Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network.
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**, or seach for **Virtual Network** in the marketplace search.
+1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**, or search for **Virtual Network** in the marketplace search.
 
 2. In **Create virtual network**, enter or select this information:
 
