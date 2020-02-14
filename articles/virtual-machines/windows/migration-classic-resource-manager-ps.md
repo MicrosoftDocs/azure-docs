@@ -18,7 +18,12 @@ ms.date: 02/06/2020
 ms.author: tagore
 
 ---
+
 # Migrate IaaS resources from classic to Azure Resource Manager by using PowerShell
+
+> [!IMPORTANT]
+> Classic VMs will be retiring on March 1, 2023. [Learn more](https://aka.ms/classicvmretirement). Start planning your migration today! Learn more about [ARM VMs](https://docs.microsoft.com/azure/virtual-machines/).
+
 These steps show you how to use Azure PowerShell commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model.
 
 If you want, you can also migrate resources by using the [Azure CLI](../linux/migration-classic-resource-manager-cli.md).
