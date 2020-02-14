@@ -71,6 +71,7 @@ Your app's `package.json` file will be updated with the dependencies.
 
 Create a file named `index.js` and add the following libraries:
 
+---
 #### [Version 3.0-preview](#tab/version-3)
 
 ```javascript
