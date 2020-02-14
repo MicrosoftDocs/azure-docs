@@ -143,7 +143,7 @@ Consider the following JSON:
   "data_flow" : 1.76435072345733643
 }
 ```
-In the example above, the flattened `data_flow` property would present a naming collision with the `data_flow` property. In this case, the *latest* property value would overwrite the earlier one. If this behavior presents a challenge for your business scenarios please contact the TSI team.
+In the example above, the flattened `data_flow` property would present a naming collision with the `data_flow` property. In this case, the *latest* property value would overwrite the earlier one. If this behavior presents a challenge for your business scenarios, please contact the TSI team.
 
 > [!WARNING] 
 > In cases where duplicate properties are present in the same event payload due to flattening or
