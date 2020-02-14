@@ -45,8 +45,8 @@ Once you have an API key, add the following **app setting** to your function app
 
 This article explains the following functions in the sample app:
 
-* `E3_Monitor`: An orchestrator function that calls `E3_GetIsClear` periodically. It calls `E3_SendGoodWeatherAlert` if `E3_GetIsClear` returns true.
-* `E3_GetIsClear`: An activity function that checks the current weather conditions for a location.
+* `E3_Monitor`: An [orchestrator function](durable-functions-bindings.md#orchestration-trigger) that calls `E3_GetIsClear` periodically. It calls `E3_SendGoodWeatherAlert` if `E3_GetIsClear` returns true.
+* `E3_GetIsClear`: An [activity function](durable-functions-bindings.md#activity-trigger) that checks the current weather conditions for a location.
 * `E3_SendGoodWeatherAlert`: An activity function that sends an SMS message via Twilio.
 
 ### E3_Monitor orchestrator function

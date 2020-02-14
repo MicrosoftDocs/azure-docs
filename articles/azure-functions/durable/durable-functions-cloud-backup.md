@@ -26,8 +26,8 @@ A Durable Functions approach gives you all of the mentioned benefits with very l
 
 This article explains the following functions in the sample app:
 
-* `E2_BackupSiteContent`: An orchestrator function that calls `E2_GetFileList` to obtain a list of files to back up, then calls `E2_CopyFileToBlob` to back up each file.
-* `E2_GetFileList`: An activity function that returns a list of files in a directory.
+* `E2_BackupSiteContent`: An [orchestrator function](durable-functions-bindings.md#orchestration-trigger) that calls `E2_GetFileList` to obtain a list of files to back up, then calls `E2_CopyFileToBlob` to back up each file.
+* `E2_GetFileList`: An [activity function](durable-functions-bindings.md#activity-trigger) that returns a list of files in a directory.
 * `E2_CopyFileToBlob`: An activity function that backs up a single file to Azure Blob Storage.
 
 ### E2_BackupSiteContent orchestrator function

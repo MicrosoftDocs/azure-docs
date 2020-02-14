@@ -17,8 +17,8 @@ Function chaining refers to the pattern of executing a sequence of functions in 
 
 This article explains the following functions in the sample app:
 
-* `E1_HelloSequence`: An orchestrator function that calls `E1_SayHello` multiple times in a sequence. It stores the outputs from the `E1_SayHello` calls and records the results.
-* `E1_SayHello`: An activity function that prepends a string with "Hello".
+* `E1_HelloSequence`: An [orchestrator function](durable-functions-bindings.md#orchestration-trigger) that calls `E1_SayHello` multiple times in a sequence. It stores the outputs from the `E1_SayHello` calls and records the results.
+* `E1_SayHello`: An [activity function](durable-functions-bindings.md#activity-trigger) that prepends a string with "Hello".
 * `HttpStart`: An HTTP triggered function that starts an instance of the orchestrator.
 
 ### E1_HelloSequence orchestrator function
