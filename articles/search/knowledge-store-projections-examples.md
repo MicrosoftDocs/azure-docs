@@ -286,7 +286,7 @@ In this example, the custom shape combines metadata and identified entities and 
 }
 ```
 
-Add the above Shaper skill to skills list in the skillset. 
+Add the above Shaper skill to the skillset. 
 
 ```json
     "name": "azureblob-skillset",
@@ -301,7 +301,7 @@ Add the above Shaper skill to skills list in the skillset.
 }  
 ```
 
-Now that we have all the data needed to project to tables, update the knowledgeStore object with the table definitions. 
+Now that we have all the data needed to project to tables, update the knowledgeStore object with the table definitions. In this example, we have three tables, defined by setting the `tableName`, `source`` and `generatedKeyName` properties.
 
 ```json
 "knowledgeStore" : {
@@ -332,11 +332,13 @@ Now that we have all the data needed to project to tables, update the knowledgeS
 }
 ```
 
-Set the ```storageConnectionString``` property to a valid V2 general purpose storage account connection string. In this scenario we define three tables in the projection object by setting the ```tableName```, ```source``` and ```generatedKeyName``` properties. 
+You can process your work by following these steps:
 
-You can now update the skillset by issuing the PUT request.
+1. Set the ```storageConnectionString``` property to a valid V2 general purpose storage account connection string.  
 
-After updating the skillset, run the indexer. 
+1. Update the skillset by issuing the PUT request.
+
+1. After updating the skillset, run the indexer. 
 
 You now have a working projection with three tables. Importing these tables into Power BI should result in Power BI auto-discovering the relationships.
 
@@ -458,7 +460,7 @@ These changes are reflected in the knowledgeStore definition further down.
 
 ### Shape data for cross-projection
 
-To get the shapes we need for these tables, start by adding a new Shaper skill to the skills array that creates a shaped object called `crossProjection`. 
+To get the shapes we need for these projections, start by adding a new Shaper skill that creates a shaped object called `crossProjection`. 
 
 ```json
 {
