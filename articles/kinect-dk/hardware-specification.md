@@ -1,5 +1,4 @@
-﻿---
-title: Azure Kinect DK hardware specification
+﻿title: Azure Kinect DK hardware specification
 description: Understand the components, specifications, and capabilities of the Azure Kinect DK.
 author: tesych
 ms.author: tesych
