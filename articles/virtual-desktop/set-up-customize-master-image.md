@@ -17,7 +17,7 @@ This article tells you how to prepare a master virtual hard disk (VHD) image for
 
 Windows 10 Enterprise multi-session is available in the Azure Image Gallery. There are two options for customizing this image.
 
-The first option is to provision a virtual machine (VM) in Azure by following the instructions in [Create a VM from a managed image](../virtual-machines/windows/create-vm-generalized-managed/), and then skip ahead to [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
+The first option is to provision a virtual machine (VM) in Azure by following the instructions in [Create a VM from a managed image](../virtual-machines/windows/create-vm-generalized-managed.md), and then skip ahead to [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
 
 The second option is to create the image locally by downloading the image, provisioning a Hyper-V VM, and customizing it to suit your needs, which we cover in the following section.
 
