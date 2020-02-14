@@ -2,13 +2,9 @@
 title: Working with remote entities in Unity
 description: Tutorial that shows how to work with ARR entities.
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 02/01/2020
 ms.topic: tutorial
-ms.service: azure-remote-rendering
 ---
 
 # Tutorial: Working with remote entities in Unity

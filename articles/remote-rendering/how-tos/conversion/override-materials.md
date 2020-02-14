@@ -2,13 +2,9 @@
 title: Override materials during model conversion
 description: Explains the material overriding workflow at conversion time
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
-ms.topic: conceptual
-ms.service: azure-remote-rendering
+ms.date: 02/13/2020
+ms.topic: how-to
 ---
 
 # Override materials during model conversion

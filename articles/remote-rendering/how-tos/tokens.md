@@ -2,13 +2,9 @@
 title: Get service access tokens
 description: Describes how to create tokens for accessing the ARR REST APIs
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
-ms.topic: tutorial
-ms.service: azure-remote-rendering
+ms.date: 02/11/2020
+ms.topic: how-to
 ---
 
 # Get service access tokens

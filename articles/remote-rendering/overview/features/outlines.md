@@ -2,13 +2,9 @@
 title: Outline rendering
 description: Explains how to do selection outline rendering
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
-ms.service: azure-remote-rendering
 ---
 
 # Outline rendering
