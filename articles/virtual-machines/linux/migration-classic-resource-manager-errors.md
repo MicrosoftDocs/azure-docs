@@ -19,7 +19,7 @@ ms.author: tagore
 
 ---
 > [!IMPORTANT]
-> Classic VMs will be retiring on March 1, 2023. [Learn more](http://aka.ms/classicvmretirement). Start planning your migration today! Learn more about [ARM VMs](https://docs.microsoft.com/azure/virtual-machines/).
+> Classic VMs will be retiring on March 1, 2023. [Learn more](https://aka.ms/classicvmretirement). Start planning your migration today! Learn more about [ARM VMs](https://docs.microsoft.com/azure/virtual-machines/).
 
 # Common errors during Classic to Azure Resource Manager migration
 [!INCLUDE [virtual-machines-common-migration-errors](../../../includes/virtual-machines-common-classic-resource-manager-migration-common-errors.md)]
