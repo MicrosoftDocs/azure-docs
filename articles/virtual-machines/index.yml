@@ -26,13 +26,13 @@ highlightedContent:
     - title: Create a virtual machine scale set in the portal
       itemType: quickstart
       url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-portal
-    - title: Spot VMs
+    - title: Spot VMs - take advantage of our unused capacity at a significant cost savings.
       itemType: whats-new
       url: https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms
-    - title: Dedicated hosts
+    - title: Dedicated hosts - physical servers to host one or more virtual machines.
       itemType: whats-new
-      url: https://docs.microsoft.com/azure/virtual-machines//dedicated-hosts
-    - title: Proximity placement groups
+      url: https://docs.microsoft.com/azure/virtual-machines/linx/dedicated-hosts
+    - title: Proximity placement groups - get VMs as close as possible for lower latency.
       itemType: whats-new
       url: https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups
 
