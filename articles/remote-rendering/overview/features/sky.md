@@ -89,19 +89,22 @@ Use `AzureSession.Actions.LoadTextureAsync` with `TextureType.Texture2D` to load
 
 Azure Remote Rendering provides a few built-in environment maps that are always available. All built-in environment maps are cubemaps.
 
-|Identifier                         | Description                                             | Illustration                                                      |
-|-----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------:|
-|builtin://GreenPointPark           | Sunny day with slowly varying surfaces                  | ![GreenPointPark](media/green-point-park.png)
-|builtin://SataraNight              | Dark night sky and ground with many surrounding lights  | ![SataraNight](media/satara-night.png)
-|builtin://SnowyForestPath          | Mostly uniformly distributed white-blue light           | ![SnowyForestPath](media/snowy-forest-path.png)
-|builtin://SunnyVondelpark          | Bright sunlight and shadow contrast                     | ![SunnyVondelpark](media/sunny-vondelpark.png)
-|builtin://Syferfontein             | Clear sky light with moderate ground lighting           | ![Syferfontein](media/syferfontein.png)
-|builtin://TearsOfSteelBridge       | Moderately varying sun and shade                        | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
-|builtin://VeniceSunset             | Evening sunset light approaching dusk                   | ![VeniceSunset](media/venice-sunset.png)
+|Identifier                         | Description                                              | Illustration                                                      |
+|-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
+|builtin://Autoshop                 | Variety of stripe lights, bright indoor base lighting    | ![Autoshop](media/autoshop.png)
+|builtin://BoilerRoom               | Bright indoor light setting, multiple window lights      | ![BoilerRoom](media/boiler-room.png)
+|builtin://ColorfulStudio           | Varyingly colored lights in medium light indoor setting  | ![ColorfulStudio](media/colorful-studio.png)
+|builtin://Hangar                   | Moderately bright ambient hall light                     | ![SmallHangar](media/hangar.png)
+|builtin://IndustrialPipeAndValve   | Dim indoor setting with light-dark contrast              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
+|builtin://Lebombo                  | Daytime ambient room light, bright window area light     | ![Lebombo](media/lebombo.png)
+|builtin://SataraNight              | Dark night sky and ground with many surrounding lights   | ![SataraNight](media/satara-night.png)
+|builtin://SunnyVondelpark          | Bright sunlight and shadow contrast                      | ![SunnyVondelpark](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | Clear sky light with moderate ground lighting            | ![Syferfontein](media/syferfontein.png)
+|builtin://TearsOfSteelBridge       | Moderately varying sun and shade                         | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | Evening sunset light approaching dusk                    | ![VeniceSunset](media/venice-sunset.png)
 |builtin://WhippleCreekRegionalPark | Bright, lush-green, and white light tones, dimmed ground | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
-|builtin://WinterEvening            | Localized Gray, yellow, pink light sources              | ![WinterEvening](media/winter-evening.png)
-|builtin://WinterRiver              | Daytime with bright ambient ground light                | ![WinterRiver](media/winter-river.png)
-|builtin://DefaultSky               | Same as TearsOfSteelBridge                              | ![DefaultSky](media/tears-of-steel-bridge.png)
+|builtin://WinterRiver              | Daytime with bright ambient ground light                 | ![WinterRiver](media/winter-river.png)
+|builtin://DefaultSky               | Same as TearsOfSteelBridge                               | ![DefaultSky](media/tears-of-steel-bridge.png)
 
 ## Next steps
 
