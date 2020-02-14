@@ -57,6 +57,6 @@ Next, open Visual Studio Code and **open the folder** that you just cloned to be
 
 You should be able to push your commits to our team's branch now!
 
-If you aren't familiar with git, let me know and I can expand accordingly.
-
-If you ever want to stage the latest version of our branch to preview your changes, let me know and I can process a PR from **[6]** to **[4]**.
+- **If you aren't familiar with git**, let me know and I can expand accordingly.
+- **If you are familiar with git** and have any feedback regarding this process, I'm completely open to suggestions, as I'm learning it as I go.  One concern that I have is that as of right now, we're all working from a single branch, and I don't know if that will get messy.
+- **If you ever want to stage the latest version of our branch to preview your changes**, let me know and I can process a PR from **[6]** to **[4]**.
