@@ -98,7 +98,7 @@ At this point, the application is using an in-memory H2 database. Click "admin" 
 
 To provision a Postgres database server, open a terminal and use the [az postgres server create](https://docs.microsoft.com/cli/azure/postgres/server) command, as shown in the following example. Replace the placeholders (including the angle brackets) with values of your choosing, using the same resource group that you provided earlier for your App Service instance. The administrator credentials you provide will enable future access, so be sure to keep a note of them for later use.
 
-```bash
+```azurecli
 az postgres server create \
     --name <server name> \
     --resource-group <resource group> \
@@ -192,7 +192,7 @@ Congratulations! Your application is now using a Postgres database and any recor
 
 If you don't need these resources for another tutorial (see Next steps), you can delete them by running the following command:
 
-```bash
+```azurecli
 az group delete --name <your-resource-group>
 ```
 

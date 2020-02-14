@@ -109,7 +109,7 @@ For Service Fabric to pull the container images from Azure Container Registry, w
 
 Sign in to your ACR instance. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -117,7 +117,7 @@ The command returns a **Login Succeeded** message once completed.
 
 Next, run the following command to get the password of your container registry. This password is used by Service Fabric to authenticate with ACR to pull the container images.
 
-```bash
+```azurecli
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 

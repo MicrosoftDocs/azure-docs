@@ -48,13 +48,13 @@ The following steps create the necessary resources required to deploy your appli
 
 2. Sign in to your Azure account
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 3. Set your Azure subscription that you want to use to create the resources
 
-    ```bash
+    ```azurecli
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
@@ -76,7 +76,7 @@ The following steps create the necessary resources required to deploy your appli
 
 5. Create a resource group for the storage account that stores your logs
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name teststorageaccountrg
@@ -84,7 +84,7 @@ The following steps create the necessary resources required to deploy your appli
 
 6. Create a storage account which will be used to store the logs that will be produced
 
-    ```bash
+    ```azurecli
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
 
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
@@ -102,7 +102,7 @@ The following steps create the necessary resources required to deploy your appli
 
 9. Create a resource group that contains the Event Hub resources. Event Hubs is used to send messages from Service Fabric to the server running the ELK resources.
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name testeventhubsrg
@@ -110,7 +110,7 @@ The following steps create the necessary resources required to deploy your appli
 
 10. Create an Event Hubs resource using the following command. Follow the prompts to enter details for the namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule, and receiveAuthorizationRule.
 
-    ```bash
+    ```azurecli
     az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
@@ -181,7 +181,7 @@ The following steps create the necessary resources required to deploy your appli
 
 14. Run the following command to create your Service Fabric cluster
 
-    ```bash
+    ```azurecli
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
     ```
 
