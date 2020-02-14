@@ -30,13 +30,13 @@ The following Azure services and functionality will **NOT** be impacted by this 
 
 ## What actions should I take? 
 
-Start planning for the migration to ARM, today. Learn more about migrating your classic Linux and Windows VMs to Azure Resource Manager.
+Start planning for the migration to ARM, today. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) about migrating your classic Linux and Windows VMs to Azure Resource Manager.
 
 For additional information, refer to the [Frequently asked questions about classic to Azure Resource Manager migration](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq)
 
 If you need Microsoft provided technical assistance on migration, please enroll in the Fast Track Program.
 
-For technical issues and additional questions, please open a [Support Request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+For other technical issues and additional questions, please open a [Support Request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 
 ## Next steps
