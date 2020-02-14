@@ -550,7 +550,7 @@
   items:
   - name: Overview
     items:
-    - name: Devices documentation
+    - name: Speech devices documentation
       href: index-devices.yml
     - name: About the Speech Devices SDK
       href: speech-devices-sdk.md
