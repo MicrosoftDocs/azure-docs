@@ -24,7 +24,7 @@ Entity linking is the ability to identify and disambiguate the identity of an en
 
 ### Named Entity Recognition (NER)
 
-Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types. For example: people, places and organizations.
+Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as person, location, event, product and organization.  In addition, it can also identify personal and sensitive information types such as phone number, Social Security Number, email address, and bank account number.  Knowing these entities exist within the text can help in the sensitivity classification of documents as well as in the redaction of sensitive personal information entities contained within.
 
 ## Named Entity Recognition versions and features
 
