@@ -55,7 +55,7 @@ Now you can create an Azure virtual machine that can be joined to your Windows V
 
 You can create a virtual machine in multiple ways:
 
-- [Create a virtual machine from an Azure Gallery image](../virtual-machines/windows/quick-create-portal#create-virtual-machine.md)
+- [Create a virtual machine from an Azure Gallery image](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Create a virtual machine from a managed image](../virtual-machines/windows/create-vm-generalized-managed.md)
 - [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image.md)
 
@@ -73,7 +73,7 @@ You need to do the following things to prepare your virtual machines before you 
 
 To successfully domain-join, do the following things on each virtual machine:
 
-1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal#connect-to-virtual-machine.md) with the credentials you provided when creating the virtual machine.
+1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. On the virtual machine, launch **Control Panel** and select **System**.
 3. Select **Computer name**, select **Change settings**, and then select **Change…**
 4. Select **Domain** and then enter the Active Directory domain on the virtual network.
@@ -88,7 +88,7 @@ Registering the virtual machines to a Windows Virtual Desktop host pool is as si
 
 To register the Windows Virtual Desktop agents, do the following on each virtual machine:
 
-1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal#connect-to-virtual-machine.md) with the credentials you provided when creating the virtual machine.
+1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Download and install the Windows Virtual Desktop Agent.
    - Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
    - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
