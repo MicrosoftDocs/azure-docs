@@ -77,8 +77,8 @@ When you trigger a reprotect job, and the target VM and disks don't exist, the f
 In most cases, Azure Site Recovery doesn’t replicate the complete data to the source region.
 The following conditions determine how much data is replicated:
 
-1.	If the source VM data is deleted, corrupted, or inaccessible for some reason, such as a resource group change/delete, then during reprotection a complete initial replication will happen because there's no data available on the source region to use.
-1.	If the source VM data is accessible, then only differentials are computed by comparing both the disks and then transferred. Check the table below to get the estimated time.
+1. If the source VM data is deleted, corrupted, or inaccessible for some reason, such as a resource group change/delete, then during reprotection a complete initial replication will happen because there's no data available on the source region to use.
+1. If the source VM data is accessible, then only differentials are computed by comparing both the disks and then transferred. Check the table below to get the estimated time.
 
 |Example situation | Time taken to reprotect |
 |---|---|
