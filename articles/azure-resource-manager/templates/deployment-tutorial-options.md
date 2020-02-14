@@ -34,7 +34,7 @@ Templates are JSON files. To review/edit templates, you need a good JSON editor.
 
 The template used in this tutorial is the sample template used in the [tutorial about Quickstart templates](template-tutorial-quickstart-template.md). If you are interested in creating the template, you can go through that tutorial. However it's not required for completing this tutorial.
 
-At the end of the quickstart tutorial, your template had the following JSON, which deployed a storage account, app Service plan, and web app.
+At the end of the quickstart tutorial, your template had the following JSON, which deployed a storage account, app service plan, and web app.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
@@ -82,19 +82,18 @@ az group create \
 
 # [Azure portal](#tab/azure-portal)
 
-N/A
+You will create a resource group from the portal in the next section.
 
 ---
 
 ## Deploy template
 
-Use either Azure CLI or Azure PowerShell to deploy a template.
-
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+Use one or multiple deployment options to deploy the template.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
+$templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name addwebapp `
   -ResourceGroupName myResourceGroup `
@@ -107,6 +106,7 @@ New-AzResourceGroupDeployment `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+templateFile="{provide-the-path-to-the-template-file}"
 az group deployment create \
   --name addwebapp \
   --resource-group myResourceGroup \
@@ -116,9 +116,11 @@ az group deployment create \
 
 # [Azure portal](#tab/azure-portal)
 
+Select the following button, and then follow instructions:
+
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fget-started-with-templates%2Fquickstart-template%2Fazuredeploy.json"><img src="./media/deployment-tutorial-options/deploy-to-azure.png" alt="deploy to azure"/></a>
 
-The HTML for the previous button is:
+The HTML syntax for the previous button is:
 
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fget-started-with-templates%2Fquickstart-template%2Fazuredeploy.json"><img src="./media/deployment-tutorial-options/deploy-to-azure.png" alt="deploy to azure"/></a>
