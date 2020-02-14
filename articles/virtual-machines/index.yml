@@ -33,7 +33,7 @@ highlightedContent:
       itemType: concept
       url: https://docs.microsoft.com/azure/virtual-machines/linux/dedicated-hosts
     - title: Proximity placement groups - get VMs as close as possible for lower latency.
-      itemType: concept
+      itemType: how-to-guide
       url: https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups
 
 
