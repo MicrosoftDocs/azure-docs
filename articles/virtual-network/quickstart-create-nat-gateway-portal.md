@@ -25,7 +25,10 @@ This quickstart shows you how to use Azure NAT service and create a NAT gateway 
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+> [!IMPORTANT]
+> During the preview period, the NAT gateway portal can be accessed by going to https://aka.ms/natportal after the preview is [enabled](./nat-overview#enable-preview) in your subscription.
+
+Sign in to the [Azure portal](https://aka.ms/natportal).
 
 
 ### Create a virtual network
@@ -52,7 +55,7 @@ Before you deploy a VM and can use your NAT gateway, we need to create the resou
 
 We'll now create a VM to use the NAT service. This VM has a public IP to use as an instance-level Public IP to allow you to access the VM. NAT service is flow direction aware and will replace the default Internet destination in your subnet. The VM's public IP address won't be used for outbound connections.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server**. 
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**. 
 
 2. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**.

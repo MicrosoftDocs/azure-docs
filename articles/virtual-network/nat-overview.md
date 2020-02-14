@@ -132,7 +132,7 @@ NAT is currently available in these regions:
 - US West 2
 - US West Central
 
-## Public Preview participation
+## <a name = "enable-preview"></a>Public Preview participation
 
 Subscriptions must be registered to allow participation in the Public Preview.  Participation requires a two-step process and instructions are provided below for Azure CLI and Azure PowerShell.  The activation may take several minutes to complete.
 
