@@ -29,7 +29,7 @@ An SAP 2-Tier configuration is considered to be built up out of a combined layer
 
 A graphical representation of such a configuration can look like:
 
-![Simple 2-Tier configuration](./media/sap-planning-supported-configurations/simple-2-tier-configuration.png)
+![Simple 2-Tier configuration](./media/sap-planning-supported-configurations/two-tier-simple-configuration.png)
 
 Such configurations are supported with Windows, Red Hat, SUSE, and Oracle Linux for the DBMS systems of SQL Server, Oracle, Db2, maxDB, and SAP ASE for production and non-production cases. For SAP HANA as DBMS, such type of configurations is supported for non-production cases only. This includes the deployment case of [Azure HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) as well.
 
@@ -42,7 +42,7 @@ In such configurations, you separate the SAP application layer and the DBMS laye
 
 The graphical representation looks like:
 
-![Simple 2-Tier configuration](./media/sap-planning-supported-configurations/simple-3-tier-configuration.png)
+![Simple 2-Tier configuration](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
 
 This type of configuration is supported on Windows, Red Hat, SUSE, and Oracle Linux for the DBMS systems of SQL Server, Oracle, Db2, SAP HANA, maxDB, and SAP ASE for production and non-production cases. This is the default deployment configuration for [Azure HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). For simplification, we did not distinguish between SAP Central Services and SAP dialog instances in the SAP application layer. In this simple 3-Tier configuration, there would be no high availability protection for SAP Central Services.
 
