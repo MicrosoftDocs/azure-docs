@@ -630,7 +630,7 @@ The following steps explain the requirements for connecting your existing App Se
 
     **PostgreSQL:**
 
-    ```bash
+    ```azurecli
     az webapp config appsettings set \
         --resource-group <resource group> \
         --name <webapp name> \
@@ -642,7 +642,7 @@ The following steps explain the requirements for connecting your existing App Se
 
     **MySQL:**
 
-    ```bash
+    ```azurecli
     az webapp config appsettings set \
         --resource-group <resource group> \
         --name <webapp name> \
@@ -654,7 +654,7 @@ The following steps explain the requirements for connecting your existing App Se
 
     **SQL Server:**
 
-    ```bash
+    ```azurecli
     az webapp config appsettings set \
         --resource-group <resource group> \
         --name <webapp name> \

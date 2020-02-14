@@ -37,7 +37,7 @@ To complete this article, you need:
 * Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
 * To increase security, use a generated password for the VM administrator account. Here's a sample for generating a password:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
     Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).

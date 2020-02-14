@@ -110,13 +110,13 @@ ACR supports Docker Registry HTTP API V2. The APIs can be accessed at
 
 If you are on bash:
 
-```bash
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
 For Powershell:
 
-```powershell
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
@@ -147,13 +147,13 @@ docker push myregistry.azurecr.io/1gb:latest
 
 You should be able to see that the storage usage has increased in the Azure portal, or you can query usage using the CLI.
 
-```bash
+```azurecli
 az acr show-usage -n myregistry
 ```
 
 Delete the image using the Azure CLI or portal and check the updated usage in a few minutes.
 
-```bash
+```azurecli
 az acr repository delete -n myregistry --image 1gb
 ```
 

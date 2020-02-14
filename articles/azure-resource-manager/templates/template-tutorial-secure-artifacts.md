@@ -34,7 +34,7 @@ To complete this article, you need:
 * Review [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md). The template used in this tutorial is the one developed in that tutorial. A download link of the completed template is provided in this article.
 * To increase security, use a generated password for the SQL Server administrator account. Here's a sample you can use to generate a password:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 
