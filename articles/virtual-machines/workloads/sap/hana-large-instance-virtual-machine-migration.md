@@ -3,7 +3,7 @@ title: Migrating SAP HANA on Azure (Large Instances) to Azure virtual machines| 
 description: How to migrate SAP HANA on Azure (Large Instances) to Azure virtual machines
 services: virtual-machines-linux
 documentationcenter:
-author: saghorpa
+author: bqtrinh
 manager: gwallace
 editor:
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/11/2020
-ms.author: saghorpa
+ms.author: bqtrinh
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -71,8 +71,8 @@ It’s a good operational practice to tidy up the database content so unwanted, 
 
 ### Allow network connectivity for new VMs and, or virtual network 
 In a customer’s HLI deployment, the network has been set up based on the information described in the article [SAP HANA (Large Instances) network architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Also, network traffic routing is done in the manner outlined in the section ‘Routing in Azure’.
-1. In setting up a new VM as the migration target, If it's placed in the existing virtual network with IP address ranges already permitted to connect to the HLI, no further connectivity update is required.
-2. If the new Azure VM is placed in a new Microsoft Azure Virtual Network, may be in another region, and peered with the existing virtual network, the ExpressRoute service key and Resource ID from the original HLI provisioning are usable to allow access for this new virtual network IP range.  Coordinate with Microsoft Service Management to enable the virtual network to HLI connectivity.  Note: To minimize network latency between the application and database layers, both the application and database layers must be on the same virtual network.  
+- In setting up a new VM as the migration target, If it's placed in the existing virtual network with IP address ranges already permitted to connect to the HLI, no further connectivity update is required.
+- If the new Azure VM is placed in a new Microsoft Azure Virtual Network, may be in another region, and peered with the existing virtual network, the ExpressRoute service key and Resource ID from the original HLI provisioning are usable to allow access for this new virtual network IP range.  Coordinate with Microsoft Service Management to enable the virtual network to HLI connectivity.  Note: To minimize network latency between the application and database layers, both the application and database layers must be on the same virtual network.  
 
 ### Existing app layer Availability Set, Availability Zones, and Proximity Placement Group (PPG)
 The current deployment model is done to satisfy certain service level objectives.  In this move, ensure the target infrastructure will meet or exceed the set goals.  
@@ -156,7 +156,7 @@ For VMs that are deployed with premium or ultra-disks, the standard SAP HANA sys
 ### VM with ANF for data and log volumes
 At a high level, the latest HLI storage snapshots of the full data and log volumes need to be copied to Azure Storage where they are accessible and recoverable by the target HANA VM.  The copy process can be done with any native Linux copy tools.  
 
->[Important]
+><strong>Important</strong>
 > Copying and data transfer can take hours depends on the HANA database size and network bandwidth.  The bulk of the copy process should be done in advance of the primary HANA DB downtime.
 
 ### MCOS to MDC Conversion
