@@ -27,13 +27,13 @@ highlightedContent:
       itemType: quickstart
       url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-portal
     - title: Spot VMs - take advantage of our unused capacity at a significant cost savings.
-      itemType: whats-new
+      itemType: concept
       url: https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms
     - title: Dedicated hosts - physical servers to host one or more virtual machines.
-      itemType: whats-new
-      url: https://docs.microsoft.com/azure/virtual-machines/linx/dedicated-hosts
+      itemType: concept
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/dedicated-hosts
     - title: Proximity placement groups - get VMs as close as possible for lower latency.
-      itemType: whats-new
+      itemType: concept
       url: https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups
 
 
