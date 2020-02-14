@@ -592,49 +592,49 @@ if ($SomeVariable.someproperty -eq ....
 
 The sections below list other common errors in addition to supporting documentation to help you resolve your issue.
 
-## Hybrid runbook worker doesn't run jobs or isn't responding
+### Hybrid runbook worker doesn't run jobs or isn't responding
 
 If you are running jobs using a hybrid worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
 
-## Runbook fails with "No permission" or some variation
+### Runbook fails with "No permission" or some variation
 
 Run As accounts might not have the same permissions against Azure resources as your current account. Ensure that your Run As account has [permissions to access any resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) used in your script.
 
-## Runbooks were working, but suddenly stopped
+### Runbooks were working, but suddenly stopped
 
 * If runbooks were previously executing but stopped, ensure that the [Run As account](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal) has not expired.
 * If you are using webhooks to start runbooks, ensure that a [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook) has not expired.
 
-## Issues passing parameters into webhooks
+### Issues passing parameters into webhooks
 
 For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## Issues using Az modules
+### Issues using Az modules
 
 Using Az modules and AzureRM modules in the same Automation account is not supported. For more information, see [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules) for more details.
 
-## Inconsistent behavior in runbooks
+### Inconsistent behavior in runbooks
 
 Follow the guidance in [Runbook execution](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) to avoid issues with concurrent jobs, resources getting created multiple times, or other timing-sensitive logic in runbooks.
 
-## Runbook fails with the error No permission, Forbidden (403), or some variation
+### Runbook fails with the error No permission, Forbidden (403), or some variation
 
 Run As accounts might not have the same permissions against Azure resources as your current account. Ensure that your Run As account has [permissions to access any resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) used in your script.
 
-## Runbooks were working, but suddenly stopped
+### Runbooks were working, but suddenly stopped
 
 * If runbooks were previously executing but stopped, ensure that the Run As account has not expired. See [certification renewal](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
 * If you are using webhooks to start runbooks, ensure that the webhook [has not expired](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
 
-## Passing parameters into webhooks
+### Passing parameters into webhooks
 
 For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## Using Az modules
+### Using Az modules
 
 Using Az modules and AzureRM modules in the same Automation account is not supported. See [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules).
 
-## Using self-signed certificates
+### Using self-signed certificates
 
 To use Self-Signed certificates, see [Creating a new certificate](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
 
