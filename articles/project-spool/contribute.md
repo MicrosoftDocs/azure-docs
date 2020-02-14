@@ -11,7 +11,7 @@ If you have any questions or feedback along the way, feel free to ping/email any
 
 ![Cross Platform](./media/process.png)
 
-1. This is the public repository that public contributors use to submit changes.  The purpose of this branch is to facilitate public contributions.
+1. This is the public repository that public contributors use to submit changes.  The purpose of this repository is to facilitate public contributions.
 2. This is the private repository that internal contributors and partners use to submit changes.
 3. **[1]** and **[2]** are synchronized and used to generate the Azure content you see on docs.microsoft.com.
 4. This is the branch that has been created for our project.  We will rename this branch to reflect the branding of our product once it becomes official.  This branch can be viewed [here](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-project-spool).  This is what's used to generate the staged documentation [here](https://review.docs.microsoft.com/en-us/azure/active-directory/?branch=release-project-spool).  Note that this repository is locked down as a matter of policy - only members of the PR review team have the ability to approve pull requests here.
