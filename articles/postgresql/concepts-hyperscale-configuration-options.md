@@ -37,21 +37,25 @@ node.
 Hyperscale (Citus) server groups are available in the following Azure regions:
 
 * Americas:
-	* Canada Central *
+	* Canada Central
+	* Central US
 	* East US
 	* East US 2
-	* North Central US *
+	* North Central US
 	* West US 2
 * Asia Pacific:
-	* Australia East *
+	* Australia East
+	* Japan East
+	* Korea Central
 	* Southeast Asia
 * Europe:
 	* North Europe
 	* UK South
 	* West Europe
 
-Regions with an asterisk (\*) do not yet support [high
-availability](concepts-hyperscale-high-availability.md).
+To create a Hyperscale (Citus) server group in a region not on this list,
+please open a [support
+request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Pricing
 For the most up-to-date pricing information, see the service
