@@ -9,7 +9,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/01/2019
 ---
 # What is Azure Database Migration Service?
 
