@@ -61,6 +61,9 @@ az extension add --name spring-cloud
 
 1. Verify your specifications, and click **Create**.
 
+>[!Note]
+> If the template validation takes more than 3 minutes to complete, please try disable the tracing and retry.
+
 It takes about 5 minutes for the service to deploy.  Once it is deployed, the **Overview** page for the service instance will appear.
 
 > [!div class="nextstepaction"]
@@ -71,9 +74,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. Go to the service **Overview** page and select **Config Server**.
 
-1. In the **Default repository** section, set **URI** to "https\://github.com/Azure-Samples/piggymetrics".
-
-1. Set **LABEL** to "config".
+1. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics-config".
 
 1. Select **Apply** to save your changes.
 
