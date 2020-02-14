@@ -10,7 +10,7 @@ ms.date: 2/12/2020
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Hyperscale (Citus)
 
-This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on [monitoring metrics](concepts-hyperscale-monitoring) for your Azure services.
+This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on [monitoring metrics](concepts-hyperscale-monitoring.md) for your Azure services.
 
 We'll set up an alert to trigger when the value of a specified metric crosses a threshold. The alert triggers when the condition is first met, and continues to trigger afterwards.
 
@@ -95,8 +95,8 @@ Disk space usage alerts provide the advance warning needed to correct the proble
 As the disk approaches its space limit, try these techniques to get more free space:
 
 * Review data retention policy. Move older data to cold storage if feasible.
-* Consider [adding nodes](howto-hyperscale-scaling#add-worker-nodes) to the server group and rebalancing shards. Rebalancing distributes the data across more computers.
-* Consider [growing the capacity](howto-hyperscale-scaling#increase-vcores) of worker nodes. Each worker can have up to 2 TiB of storage. However adding nodes should be attempted before resizing nodes because adding nodes completes faster.
+* Consider [adding nodes](howto-hyperscale-scaling.md#add-worker-nodes) to the server group and rebalancing shards. Rebalancing distributes the data across more computers.
+* Consider [growing the capacity](howto-hyperscale-scaling.md#increase-vcores) of worker nodes. Each worker can have up to 2 TiB of storage. However adding nodes should be attempted before resizing nodes because adding nodes completes faster.
 
 ### CPU usage
 
