@@ -161,29 +161,28 @@ The following table provides an overview of our samples repository and the scena
    :::column span="":::
       [Create a directory client](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L31)
    :::column-end:::
-:::row-end:::
-:::row:::
    :::column span="":::
       [Create a parent directory](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L37)
    :::column-end:::
-   :::column span="":::
-      [Create a child directory](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L44)
-   :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
+      [Create a child directory](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L44)
+   :::column-end:::
+   :::column span="":::
       [Create a file in a child directory](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L52)
    :::column-end:::
+:::row-end:::
 :::row:::
    :::column span="":::
       [Get directory properties](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L68)
    :::column-end:::
-:::row-end:::
-:::row:::
    :::column span="":::
       [Delete a child directory](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L83)
    :::column-end:::
-   :::column span="":::
+:::row-end:::
+:::row:::
+   :::column span="2":::
       [Delete a parent folder](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L90)
    :::column-end:::
 :::row-end:::
@@ -194,8 +193,6 @@ The following table provides an overview of our samples repository and the scena
    :::column span="":::
       [Create a file using a file client](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L93)
    :::column-end:::
-:::row-end:::
-:::row:::
    :::column span="":::
       [Delete a file](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L137)
    :::column-end:::
@@ -208,7 +205,6 @@ The following table provides an overview of our samples repository and the scena
       [Get access controls on a file](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L104)
    :::column-end:::
 :::row-end:::
-:::row:::
 :::row:::
    :::column span="":::
       [Create a file using a Data Lake file client](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L67)
