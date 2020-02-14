@@ -30,13 +30,13 @@ The following Azure services and functionality will **NOT** be impacted by this 
 
 ## What actions should I take? 
 
-Start to migrate your existing VMs from classic (Azure Service Manager) to the Azure Resource Manager deployment model using our platform supported migration.  
-
-Learn more about migrating your classic [Linux](./linux/migration-classic-resource-manager-overview.md) and [Windows](./windows/migration-classic-resource-manager-overview.md) VMs to Azure Resource Manager. 
+Start planning for the migration to ARM, today. Learn more about migrating your classic Linux and Windows VMs to Azure Resource Manager.
 
 For additional information, refer to the [Frequently asked questions about classic to Azure Resource Manager migration](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq)
 
-ADDITIONAL INFORMATION TO BE ADDED HERE
+If you need Microsoft provided technical assistance on migration, please enroll in the Fast Track Program.
+
+For technical issues and additional questions, please open a [Support Request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 
 ## Next steps
