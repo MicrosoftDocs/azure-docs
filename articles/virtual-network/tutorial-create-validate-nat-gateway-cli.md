@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create and test a NAT gateway - Azure CLI'
-titlesuffix: Azure NAT service
+titlesuffix: Azure Virtual Network NAT
 description: This tutorial shows how to create a NAT gateway using the Azure CLI and test the NAT service
 services: virtual-network
 documentationcenter: na
@@ -11,7 +11,7 @@ ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 11/04/2019
+ms.date: 02/18/2020
 ms.author: allensu
 ---
 # Tutorial: Create a NAT gateway using Azure CLI and test the NAT service
@@ -27,6 +27,9 @@ This tutorial shows you how to use Azure NAT service and create a NAT gateway to
 You can complete this tutorial using Azure cloud shell or run the respective commands locally.  If you haven't used Azure cloud shell, you should [sign in now](https://shell.azure.com).
 
 If you choose to run these commands locally, you need to install CLI.  This tutorial requires that you're running a version of the Azure CLI version 2.0.71 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+
+> [!IMPORTANT]
+> During the preview period, the NAT gateway portal can be accessed by going to https://aka.ms/natportal after the preview is [enabled](./nat-overview.md#enable-preview) in your subscription.
 
 ## Create a resource group
 
