@@ -28,8 +28,8 @@ This claim validates the format of the phone number. If it is in a valid format,
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumberString | string |  The string claim for the phone number. The phone number has to be in international format, complete with a leading "+" and country code. If input claim `country` is provided, the phone number is in local format, without the country code. |
-| InputClaim | country | string | [Optional] The string claim for the country code of the phone number in ISO3166 (the two-letter ISO-3166 country code) format. |
+| InputClaim | phoneNumberString | string |  The string claim for the phone number. The phone number has to be in international format, complete with a leading "+" and country code. If input claim `country` is provided, the phone number is in local format (without the country code). |
+| InputClaim | country | string | [Optional] The string claim for the country code of the phone number in ISO3166 format (the two-letter ISO-3166 country code). |
 | OutputClaim | outputClaim | phoneNumber | The result of this claims transformation. |
 
 The **ConvertStringToPhoneNumberClaim** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md) or [display control](display-controls.md). The **UserMessageIfClaimsTransformationInvalidPhoneNumber** self-asserted technical profile metadata controls the error message that is presented to the user.
