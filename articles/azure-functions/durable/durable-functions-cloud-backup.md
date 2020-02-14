@@ -94,7 +94,7 @@ The function uses the `readdirp` module to recursively read the directory struct
 ---
 
 > [!NOTE]
-> You might be wondering why you couldn't just put this code directly into the orchestrator function. You could, but this would break one of the fundamental rules of orchestrator functions, which is that they should never do I/O, including local file system access.
+> You might be wondering why you couldn't just put this code directly into the orchestrator function. You could, but this would break one of the fundamental rules of orchestrator functions, which is that they should never do I/O, including local file system access. For more information, see [Orchestrator function code constraints](durable-functions-code-constraints.md).
 
 #### E2_CopyFileToBlob activity function
 
