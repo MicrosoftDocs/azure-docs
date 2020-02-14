@@ -101,7 +101,7 @@
         href: user-flow-self-service-password-reset.md
     - name: UX customization
       items:
-      - name: User interface customization
+      - name: Customize the UI
         href: customize-ui-overview.md
       - name: JavaScript and page layouts
         href: user-flow-javascript-overview.md
