@@ -20,6 +20,10 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 Learn what's new with QnA Maker.
 
+### February 2020
+
+* [NPM package](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) with GenerateAnswer API
+
 ### November 2019
 
 * [US Government cloud support](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) for QnA Maker
