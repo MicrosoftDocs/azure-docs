@@ -3,7 +3,7 @@ title: Automate Mobility Service for disaster recovery of installation in Azure 
 description: How to automatically install the Mobility Service for VMware /physical server disaster recovery with Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.topic: how-to
-ms.date: 12/22/2019
+ms.date: 2/5/2020
 ms.author: ramamill
 ---
 
@@ -15,7 +15,7 @@ When you deploy Site Recovery for disaster recovery of on-premises VMware VMs an
 
 - **Push installation**: Let Site Recovery install  the Mobility service agent when you enable replication for a machine in the Azure portal.
 - **Manual installation**: Install the Mobility service manually on each machine. [Learn more](/vmware-physical-mobility-service-overview.md) about push and manual installation.
-- **Automated deployment**: Automate installation with software deployment tools such as Microsoft Endpoint Configuration Manager, or third-party tools such as Intigua JetPatch.
+- **Automated deployment**: Automate installation with software deployment tools such as Microsoft Endpoint Configuration Manager, or third-party tools such as JetPatch.
 
 Automated installation and updating provides a solution if:
 
