@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a NAT gateway - Azure CLI'
-titlesuffix: Azure NAT service
+titlesuffix: Azure Virtual Network NAT
 description: This quickstart shows how to create a NAT gateway using the Azure CLI
 services: virtual-network
 documentationcenter: na
@@ -11,7 +11,7 @@ ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 11/04/2019
+ms.date: 02/18/2020
 ms.author: allensu
 ---
 
