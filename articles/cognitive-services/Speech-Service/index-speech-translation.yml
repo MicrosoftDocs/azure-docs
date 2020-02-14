@@ -47,3 +47,5 @@ landingContent:
           url: language-support.md#speech-translation
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+        - text: Speech translation FAQ
+          url: https://www.microsoft.com/translator/business/faq/

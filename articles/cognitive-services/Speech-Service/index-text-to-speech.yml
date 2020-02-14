@@ -35,8 +35,6 @@ landingContent:
       links:
         - text: Improve synthesis with SSML
           url: speech-synthesis-markup.md
-        - text: Improve synthesis with Audio Content creation
-          url: how-to-audio-content-creation.md
         - text: Improve synthesis with Custom Voice
           url: how-to-custom-voice.md
         - text: Synthesize speech with Long Audio API
@@ -45,14 +43,8 @@ landingContent:
           url: quickstart-python-get-text-to-speech-voices.md
         - text: Convert text-to-speech with REST (Python)
           url: quickstart-python-text-to-speech.md
-        - text: Gating of Custom Voice
-          url: concepts-gating-overview.md
-        - text: Deployment of synthetic technology
-          url: concepts-guidelines-responsible-deployment-synthetic.md
-        - text: Disclosure design guidelines
-          url: concepts-disclosure-guidelines.md
-        - text: Disclosure design patterns
-          url: concepts-disclosure-patterns.md
+        - text: Improve synthesis with Audio Content creation
+          url: how-to-audio-content-creation.md
     - linkListType: concept
       links:
         - text: Get started with Custom Voice
@@ -67,6 +59,14 @@ landingContent:
           url: speech-devices-sdk-kws-guidelines.md
         - text: Custom keyword spotting
           url: speech-devices-sdk-create-kws.md
+        - text: Gating of Custom Voice
+          url: concepts-gating-overview.md
+        - text: Deployment of synthetic technology
+          url: concepts-guidelines-responsible-deployment-synthetic.md
+        - text: Disclosure design guidelines
+          url: concepts-disclosure-guidelines.md
+        - text: Disclosure design patterns
+          url: concepts-disclosure-patterns.md
 - title: Reference
   linkLists:
     - linkListType: reference

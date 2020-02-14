@@ -49,24 +49,18 @@
       href: how-to-use-codec-compressed-audio-input-streams-android.md
   - name: Customization
     items:
-    - name: Custom Speech portal
-      items:
-      - name: Prepare data
-        href: how-to-custom-speech-test-data.md
-      - name: Inspect data
-        href: how-to-custom-speech-inspect-data.md
-      - name: Evaluate accuracy
-        href: how-to-custom-speech-evaluate-data.md
-      - name: Train a custom model
-        href: how-to-custom-speech-train-model.md
-      - name: Deploy a custom model
-        href: how-to-custom-speech-deploy-model.md
-      - name: Create human-labeled transcriptions
-        href: how-to-custom-speech-human-labeled-transcriptions.md
-    - name: Tenant models
-      items:
-      - name: Create, publish, and use a model
-        href: tutorial-tenant-model.md
+    - name: Prepare data
+      href: how-to-custom-speech-test-data.md
+    - name: Inspect data
+      href: how-to-custom-speech-inspect-data.md
+    - name: Evaluate accuracy
+      href: how-to-custom-speech-evaluate-data.md
+    - name: Train a custom model
+      href: how-to-custom-speech-train-model.md
+    - name: Deploy a custom model
+      href: how-to-custom-speech-deploy-model.md
+    - name: Create human-labeled transcriptions
+      href: how-to-custom-speech-human-labeled-transcriptions.md
   - name: Reference
     items:
     - name: Speech SDK APIs

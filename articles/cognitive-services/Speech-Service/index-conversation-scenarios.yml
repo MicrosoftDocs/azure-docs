@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Conversation scenarios documentation
-summary: Explore the various conversation scenarios, Conversation transcription or multi-device conversation.
+summary: Explore the various conversation scenarios, Conversation Transcription or multi-device conversation.
 metadata:
   title: Conversation scenarios documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -15,7 +15,7 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title:  Conversation transcription
+- title:  Conversation Transcription
   linkLists:
     - linkListType: overview
       links:

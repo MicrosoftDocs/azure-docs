@@ -31,7 +31,7 @@ landingContent:
           url: quickstarts/from-blob.md
 - title: Step-by-step guides
   linkLists:
-    - linkListType: concept
+    - linkListType: how-to-guide
       links:
         - text: Change speech recognition source language
           url: how-to-specify-source-language.md
@@ -45,8 +45,6 @@ landingContent:
           url: how-to-custom-speech.md
         - text: Select a specific microphone input device
           url: how-to-select-audio-input-devices.md
-    - linkListType: how-to-guide
-      links:
         - text: Use automatic source language detection
           url: how-to-automatic-language-detection.md
         - text: Use compressed audio input formats
@@ -55,6 +53,8 @@ landingContent:
           url: how-to-use-codec-compressed-audio-input-streams-ios.md
         - text: Use compressed audio input formats (Android)
           url: how-to-use-codec-compressed-audio-input-streams-android.md
+    - linkListType: concept
+      links:
         - text: Prepare Custom Speech data
           url: how-to-custom-speech-test-data.md
         - text: Inspect Custom Speech data

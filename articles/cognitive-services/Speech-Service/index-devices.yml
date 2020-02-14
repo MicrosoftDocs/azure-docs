@@ -33,9 +33,9 @@ landingContent:
   linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Microphone array recommendations
+        - text: Design a microphone array
           url: speech-devices-sdk-microphone.md
-        - text: Roobo v1 kit
+        - text: Setup the Roobo v1 Kit
           url: speech-devices-sdk-roobo-v1.md
 - title: Reference
   linkLists:
