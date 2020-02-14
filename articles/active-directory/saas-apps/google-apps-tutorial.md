@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 02/14/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -133,6 +133,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://google.com` |
 	| `https://google.com/a/<yourdomain.com>` |
 
+    c. In the **Reply URL** textbox, type a URL using the following pattern: 
+
+    | |
+	|--|
+	| `https://google.com` |
+	| `https://google.com/a/<yourdomain.com>` |
+
+
 1. On the **Basic SAML Configuration** section, if you want to configure for the **Google Cloud Platform** perform the following steps:
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
@@ -146,6 +154,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://google.com` |
 	| `https://google.com/a/<yourdomain.com>` |
     
+    c. In the **Reply URL** textbox, type a URL using the following pattern: 
+    | |
+	|--|
+	| `https://google.com` |
+	| `https://google.com/a/<yourdomain.com>` |
+
     > [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. G Suite doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you uncheck the **domain specific issuer** option the Identifier value will be `google.com`. If you check the **domain specific issuer** option it will be `google.com/a/<yourdomainname.com>`. To check/uncheck the **domain specific issuer** option you need to go to the **Configure G Suite SSO** section which is explained later in the tutorial. For more information contact [G Suite Client support team](https://www.google.com/contact/).
 
