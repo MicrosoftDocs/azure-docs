@@ -310,8 +310,8 @@ The following table provides an overview of our samples repository and the scena
 To view the complete .NET sample libraries, go to:
 
 * [Azure blob code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
-* [Azure file DataLake code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
-* [Azure file share code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples)
+* [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
+* [Azure Files code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples)
 * [Azure queue code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
 
 You can browse and clone the GitHub repository for each library.
@@ -330,6 +330,6 @@ Check out the following guides if you are looking for instructions on how to ins
 For information on samples for other languages:
 
 * Java: [Azure Storage samples using Java](storage-samples-java.md)
-* JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 * Python: [Azure Storage samples using Python](storage-samples-python.md)
+* JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 * All other languages: [Azure Storage samples](storage-samples.md)
