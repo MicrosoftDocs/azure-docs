@@ -37,7 +37,7 @@ Here's a list of tools that you can use to ingest ad hoc data.
 
 | Data Source | Ingest it using |
 | --- | --- |
-| Local computer |[Azure PowerShell](data-lake-store-get-started-powershell.md)<br><br>[Azure CLI](data-lake-store-get-started-cli-2.0.md)<br><br>[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)<br><br>[AzCopy tool](../common/storage-use-azcopy-v10.md)|
+| Local computer |[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)<br><br>[Azure CLI](data-lake-storage-directory-file-acl-cli.md)<br><br>[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)<br><br>[AzCopy tool](../common/storage-use-azcopy-v10.md)|
 | Azure Storage Blob |[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)<br><br>[AzCopy tool](../common/storage-use-azcopy-v10.md)<br><br>[DistCp running on HDInsight cluster](data-lake-storage-use-distcp.md)|
 
 ### Streamed data
@@ -70,8 +70,8 @@ Here's a list of tools that you can use to ingest Web server log data.
 |Tool | Guidance |
 |---|--|
 |Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
-|Azure CLI|[Azure CLI](data-lake-store-get-started-cli-2.0.md)|
-|Azure PowerShell|[Azure PowerShell](data-lake-store-get-started-powershell.md)|
+|Azure CLI|[Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
+|Azure PowerShell|[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)|
 
 For uploading web server log data, and also for uploading other kinds of data (e.g. social sentiments data), it is a good approach to write your own custom scripts/applications because it gives you the flexibility to include your data uploading component as part of your larger big data application. In some cases this code may take the form of a script or simple command line utility. In other cases, the code may be used to integrate big data processing into a business application or solution.
 
