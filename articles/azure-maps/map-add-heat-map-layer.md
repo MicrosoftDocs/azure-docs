@@ -1,6 +1,6 @@
 ---
 title: Add a heat map layer to a map | Microsoft Azure Maps
-description: In this article, you will learn about how to add a heat map layer to a map using the Microsoft Azure Maps Web SDK.
+description: In this article, you'll learn about how to add a heat map layer to a map using the Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -74,10 +74,10 @@ The previous example customized the heat map by setting the radius and opacity o
   | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'red'<br/>\] |	
 
 - `opacity`: Specifies how opaque or transparent the heat map layer is.
-- `intensity`: Applies a multiplier to the weight of each data point to increase the overall intensity of the heatmap. This helps make a difference in the weight of data points, making it easier to visualize.
+- `intensity`: Applies a multiplier to the weight of each data point to increase the overall intensity of the heatmap. It causes a difference in the weight of data points, making it easier to visualize.
 - `weight`: By default, all data points have a weight of 1, and are weighted equally. The weight option acts as a multiplier, and you can set it as a number or an expression. If a number is set as the weight, it's the equivalence of placing each data point on the map twice. For instance, if the weight is 2, then the density doubles. Setting the weight option to a number renders the heat map in a similar way to using the intensity option. 
 
-  However, if you use an expression, the weight of each data point can be based on the properties of each data point. For example, suppose each data point represents an earthquake. An important metric each earthquake data point has been a magnitude value. Earthquakes happen all the time, but most have a low magnitude, and aren't noticed. By using the magnitude value in an expression to assign the weight to each data point, you get a better representation of the significance of earthquakes within the heat map.
+  However, if you use an expression, the weight of each data point can be based on the properties of each data point. For example, suppose each data point represents an earthquake. The magnitude value has been an important metric for each earthquake data point. Earthquakes happen all the time, but most have a low magnitude, and aren't noticed. Use the magnitude value in an expression to assign the weight to each data point. By using the magnitude value to assign the weight, you get a better representation of the significance of earthquakes within the heat map.
 - `source` and `source-layer`: Enable you to update the data source.
 
 Here's a tool to test out the different heat map layer options.
