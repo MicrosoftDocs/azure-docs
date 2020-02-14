@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Load data using Azure portal & SSMS'
-description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to a data warehouse in Azure Synapse Analytics.
+description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to a data warehouse in Azure Synapse Analytics Sql pool.
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
@@ -15,10 +15,10 @@ ms.custom: seo-lt-2019, synapse-analytics
 
 # Tutorial: Load data to Azure SQL Data Warehouse
 
-This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to your data warehouse in Azure Synapse Analytics. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to:
+This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to your data warehouse in Azure Synapse Analytics SQL pool. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to:
 
 > [!div class="checklist"]
-> * Create a data warehouse in the Azure portal
+> * Create a data warehouse using SQL pool in the Azure portal
 > * Set up a server-level firewall rule in the Azure portal
 > * Connect to the data warehouse with SSMS
 > * Create a user designated for loading data
@@ -38,11 +38,11 @@ Before you begin this tutorial, download and install the newest version of [SQL 
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create a blank SQL Data Warehouse
+## Create a blank data warehouse in SQL pool
 
-An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
+An Sql pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The SQL pool is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
 
-Follow these steps to create a blank SQL Data Warehouse. 
+Follow these steps to create a blank SQL pool. 
 
 1. Select **Create a resource** in the the Azure portal.
 
@@ -53,14 +53,15 @@ Follow these steps to create a blank SQL Data Warehouse.
 1. Fill out the **Project Details** section with the following information:   
 
    | Setting | Example | Description | 
-   | ------- | --------------- | ----------- | 
+   | ------- | --------------- | ----------- |
    | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
 
-1. Under **SQL pool details**, either select an existing server from the drop down, or select **Create new** under the **Server** settings to create a new server. Fill out the form with the following information: 
+1. Under **SQL pool details**, provide a name for your SQL pool. Next, either select an existing server from the drop down, or select **Create new** under the **Server** settings to create a new server. Fill out the form with the following information: 
 
     | Setting | Suggested value | Description | 
     | ------- | --------------- | ----------- |
+    |**SQL pool name**|SampleDW| For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). | 
     | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). | 
     | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
@@ -68,7 +69,7 @@ Follow these steps to create a blank SQL Data Warehouse.
 
     ![create database server](media/load-data-wideworldimportersdw/create-database-server.png)
 
-1. Provide a name for your SQL pool, and select the desired performance tier. The slider by default is set to **DW1000c**. Move the slider up and down to choose the desired performance scale. 
+1. **Select performance level**. The slider by default is set to **DW1000c**. Move the slider up and down to choose the desired performance scale. 
 
     ![create database server](media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
@@ -88,12 +89,12 @@ The Azure Synapse Analytics service creates a firewall at the server-level that 
 >
 
 
-1. After the deployment completes, search for your pool name in the search box in the navigation menu, and select the data warehouse resource. 
+1. After the deployment completes, search for your pool name in the search box in the navigation menu, and select the SQL pool resource. 
 
     ![go to your resource](media/load-data-wideworldimportersdw/search-for-sql-pool.png) 
 
 
-1. Select **Show firewall settings**. The **Firewall settings** page for the data warehouse server opens. 
+1. Select **Show firewall settings**. The **Firewall settings** page for the Sql pool server opens. 
 
     ![server settings](media/load-data-wideworldimportersdw/server-settings.png) 
 
