@@ -52,7 +52,7 @@ The following are the few common known issues during the upgrade:
 Operating system configuration can drift from the recommended settings over time due to patching, system upgrades, and changes made by customers. Additionally, Microsoft identifies updates needed for existing systems to ensure they are optimally configured for the best performance and resiliency. Following instructions outline recommendations that address network performance, system stability, and optimal HANA performance.
 
 ### Compatible eNIC/fNIC driver versions
-  In order to have proper network performance and system stability, it is advised to ensure that the OS specific appropriate version of eNIC and fNIC drivers are installed as depicted in following compatibility table. Servers are delivered to customers with compatible versions. Note that, in some cases, during OS/Kernel patching, drivers can get rolled back to the default driver versions. Ensure that appropriate driver version is running post OS/Kernel patching operations.
+  In order to have proper network performance and system stability, it is advised to ensure that the OS-specific appropriate version of eNIC and fNIC drivers are installed as depicted in following compatibility table. Servers are delivered to customers with compatible versions. Note that, in some cases, during OS/Kernel patching, drivers can get rolled back to the default driver versions. Ensure that appropriate driver version is running post OS/Kernel patching operations.
        
       
   |  OS Vendor    |  OS Package Version     |  eNIC Driver	|  fNIC Driver |
@@ -80,7 +80,7 @@ SAP on Azure HANA Large Instances (Type I) can be in a non-bootable state after 
 
 
 *	Execute `multipath -ll` command.
-*	Get the LUN ID whose size is approximately 50G or use the command : `fdisk -l | grep mapper`
+*	Get the LUN ID whose size is approximately 50G or use the command: `fdisk -l | grep mapper`
 *	Update `/etc/default/grub_installdevice` file with line `/dev/mapper/<LUN ID>`. Example: /dev/mapper/3600a09803830372f483f495242534a56
 *	Please note that LUN ID varies from server to server.
 
