@@ -63,7 +63,7 @@ To fix a durability mismatch, which is indicated by any of the above error messa
 
 ## Seed Node Deletion 
 ### Overview
-A Service Fabric cluster has a [reliability tier](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) property which is used to determine the number of replicas of system services that run on the primary node type of the cluster. The number of replicas determines the minimum number of nodes that must be maintained in the primary node type of the cluster. If the number of nodes in this primary node type goes below this minimum the cluster will become unstable.  
+A Service Fabric cluster has a [reliability tier](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) property which is used to determine the number of replicas of system services that run on the primary node type of the cluster. The number of required replicas will determine the minimum number of nodes that must be maintained in the primary node type of the cluster. If the number of nodes in the primary node type goes below the required minimum for the reliability tier, the cluster will become unstable.  
 
 ### Error Messages 
 Seed node removal operation has been detected, and will be rejected. 
@@ -71,9 +71,9 @@ Seed node removal operation has been detected, and will be rejected.
 * Removing {0} seed nodes out of {1} would result in the cluster going down due to loss of seed node quorum. Maximum number of seed nodes that can be removed at a time is {2}.
  
 ### Mitigation 
-Ensure that your primary node type has enough virtual machines for the reliability tier that is specified on your cluster. You will not be able to remove a Virtual Machine if it will bring the Virtual Machine Scale Set below the minimum number nodes required for the given reliability tier.
-* If the reliability tier is correctly specified, make sure that you have enough Virtual Machines as needed for the reliability tier. 
-* If the reliability tier is incorrect, initiate a change on the Service Fabric resource to lower reliability level first before initiating any Virtual Machine Scale Set operations, and let it complete.
+Ensure that your primary node type has enough Virtual Machines for the reliability specified on your cluster. You will not be able to remove a Virtual Machine if it will bring the Virtual Machine Scale Set below the minimum number of nodes for the given reliability tier.
+* If the reliability tier is correctly specified, make sure that you have enough nodes in the primary node type as needed for the reliability tier. 
+* If the reliability tier is incorrect, initiate a change on the Service Fabric resource to lower the reliability level first before initiating any Virtual Machine Scale Set operations, and wait for it to complete.
 * If the reliability tier is Bronze, please follow these [steps](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) to scale down your cluster gracefully.
 
 ## Next steps
