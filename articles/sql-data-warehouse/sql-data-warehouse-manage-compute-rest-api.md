@@ -1,6 +1,6 @@
 ---
 title: Pause, resume, scale with REST APIs
-description: Manage compute power in Azure SQL Data Warehouse through REST APIs.
+description: Manage compute power in Azure Synapse Analytics data warehouse through REST APIs.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,11 +10,11 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # REST APIs for Azure SQL Data Warehouse
-REST APIs for managing compute in Azure SQL Data Warehouse.
+REST APIs for managing compute in Azure Synapse Analytics data warehouse.
 
 ## Scale compute
 To change the data warehouse units, use the [Create or Update Database](/rest/api/sql/databases/createorupdate) REST API. The following example sets the data warehouse units to DW1000 for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
