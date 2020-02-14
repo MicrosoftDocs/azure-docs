@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/31/2020
+ms.date: 02/15/2020
 #Customer intent: As a professional data scientist, I want to learn how to get started with the Azure Machine Learning Visual Studio Code Extension.
 ---
 
@@ -46,7 +46,7 @@ The rest of the steps in this tutorial have been tested with **version 0.6.8** o
 In order to provision resources and run workloads on Azure, you have to sign in with your Azure account credentials. To assist with account management, Azure Machine Learning automatically installs the Azure Account extension. Visit the following site to [learn more about the Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 1. Open the command palette by selecting **View > Command Palette** from the menu bar. 
-1. Enter the command "Azure: Sign In" into the text box to start the sign in process.
+1. Enter the command "Azure: Sign In" into the command palette to start the sign in process.
 
 ## Run a machine learning model training script in Azure
 
@@ -97,7 +97,13 @@ Now that you have signed into Azure with your account credentials, Use the steps
     }
     ```
 
-1. Select **Submit experiment** to run your experiment in Azure. This sends the `train.py` and configuration file to your Azure Machine Learning workspace. The training job is then started on a compute resource in Azure.
+1. Once you're satisfied with your configuration, submit your experiment by opening the command palette and entering the following command:
+
+    ```text
+    Azure ML: Submit Experiment
+    ```
+
+This sends the `train.py` and configuration file to your Azure Machine Learning workspace. The training job is then started on a compute resource in Azure.
 
 ### Track the progress of the training script
 
