@@ -47,7 +47,7 @@ The following are the few common known issues during the upgrade:
 - On SKU Type II class SKU, the software foundation software (SFS) is removed after the OS upgrade. You need to reinstall the compatible SFS after the OS upgrade.
 - Ethernet card drivers (ENIC and FNIC) rolled back to older version. You need to reinstall the compatible version of the drivers after the upgrade.
 
-## SAP HANA Large Instance (Type I) Recommended Configuration
+## SAP HANA Large Instance (Type I) recommended configuration
 
 Operating system configuration can drift from the recommended settings over time due to patching, system upgrades, and changes made by customers. Additionally, Microsoft identifies updates needed for existing systems to ensure they are optimally configured for the best performance and resiliency. Following instructions outline recommendations that address network performance, system stability, and optimal HANA performance.
 
@@ -68,13 +68,13 @@ rpm -U driverpackage.rpm
 rpm -e olddriverpackage.rpm
 ```
 
-####Commands to confirm:
+#### Commands to confirm:
 ```
 modinfo enic
 modinfo fnic
 ```
 
-### SuSE HLIs GRUB Update Failure
+### SuSE HLIs GRUB update failure
 SAP on Azure HANA Large Instances (Type I) can be in a non-bootable state after upgrade. The below procedure fixes this issue.
 #### Execution Steps
 
@@ -85,7 +85,7 @@ SAP on Azure HANA Large Instances (Type I) can be in a non-bootable state after 
 *	Please note that LUN ID varies from server to server.
 
 
-### Disable EDAC (The Error Detection And Correction):
+### Disable EDAC 
    The Error Detection And Correction (EDAC) module helps in detecting and correcting memory errors. However, the underlying hardware for SAP HANA on Azure Large Instances (Type I) is already performing the same function. Having the same feature enabled at the hardware and operating system (OS) levels can cause conflicts and can lead to occasional, unplanned shutdowns of the server. Therefore, it is recommended to disable the module from the OS.
 
 #### Execution Steps
@@ -105,13 +105,12 @@ A reboot is required to take changes in place. Execute `lsmod` command and verif
 ### Kernel parameters
    Make sure the correct setting for `transparent_hugepage`, `numa_balancing`, `processor.max_cstate`, `ignore_ce` and `intel_idle.max_cstate` are applied.
 
-```         
-intel_idle.max_cstate =1
-processor.max_cstate=1
-transparent_hugepage=never
-numa_balancing=disable
-mce=ignore_ce
-```
+* intel_idle.max_cstate=1
+* processor.max_cstate=1
+* transparent_hugepage=never
+* numa_balancing=disable
+* mce=ignore_ce
+
 
 #### Execution Steps
 
