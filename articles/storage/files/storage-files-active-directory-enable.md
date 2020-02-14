@@ -129,7 +129,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-You have now successfully enabled Azure AD DS authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in the [Assign access permissions](../../../includes/storage-files-aad-permissions-and-mounting.md#assign-access-permissions-to-an-identity) to an identity and [Configure NTFS permissions over SMB sections](../../../includes/storage-files-aad-permissions-and-mounting.md#configure-ntfs-permissions-over-smb).
+You have now successfully enabled Azure AD DS authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in the [Assign access permissions](#assign-access-permissions-to-an-identity) to an identity and [Configure NTFS permissions over SMB sections](#configure-ntfs-permissions-over-smb).
 
 ## Next steps
 
