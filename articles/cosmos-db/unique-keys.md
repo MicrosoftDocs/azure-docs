@@ -1,17 +1,17 @@
 ---
 title: Use unique keys in Azure Cosmos DB
-description: Learn how to use unique keys in your Azure Cosmos database
-author: rimman
-ms.author: rimman
+description: Learn how to define and use unique keys for an Azure Cosmos database. This article also describes how unique keys add a layer of data integrity.
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 12/02/2019
 ms.reviewer: sngun
 ---
 
 # Unique key constraints in Azure Cosmos DB
 
-Unique keys add a layer of data integrity to an Azure Cosmos container. You create a unique key policy when you create an Azure Cosmos container. With unique keys, you make sure that one or more values within a logical partition is unique. You also can guarantee uniqueness per [partition key](partition-data.md). 
+Unique keys add a layer of data integrity to an Azure Cosmos container. You create a unique key policy when you create an Azure Cosmos container. With unique keys, you make sure that one or more values within a logical partition is unique. You also can guarantee uniqueness per [partition key](partition-data.md).
 
 After you create a container with a unique key policy, the creation of a new or an update of an existing item resulting in a duplicate within a logical partition is prevented, as specified by the unique key constraint. The partition key combined with the unique key guarantees the uniqueness of an item within the scope of the container.
 
@@ -50,4 +50,5 @@ You can define unique keys only when you create an Azure Cosmos container. A uni
 
 ## Next steps
 
-* Learn more about [logical partitions](partition-data.md).
+* Learn more about [logical partitions](partition-data.md)
+* Explore [how to define unique keys](how-to-define-unique-keys.md) when creating a container

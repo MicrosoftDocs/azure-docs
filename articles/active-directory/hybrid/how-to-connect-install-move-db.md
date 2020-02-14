@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -20,19 +20,19 @@ This document describes how to move the Azure AD Connect database from the local
 ## About this scenario
 The following is some brief information about this scenario.  In this scenario, Azure AD Connect version (1.1.819.0) is installed on a single Windows Server 2016 domain controller.  It is using the built-in SQL Server 2012 Express Edition for its database.  The database will be moved to a SQL Server 2017 server.
 
-![](media/how-to-connect-install-move-db/move1.png)
+![scenario architecture](media/how-to-connect-install-move-db/move1.png)
 
 ## Move the Azure AD Connect database
 Use the following steps to move the Azure AD Connect database to a remote SQL Server.
 
 1. On the Azure AD Connect server, go to **Services** and stop the **Microsoft Azure AD Sync** service.
-2. Locate the **%Program Files%\Microsoft Azure AD Sync/Data/** folder and copy the **ADSync.mdf** and **ADSync_log.ldf** files to the remote SQL Server.
+2. Locate the **%ProgramFiles%\Microsoft Azure AD Sync\Data** folder and copy the **ADSync.mdf** and **ADSync_log.ldf** files to the remote SQL Server.
 3. Restart the **Microsoft Azure AD Sync** service on the Azure AD Connect server.
 4. Un-install Azure AD Connect by going to Control Panel - - Programs - Programs and Features.  Select Microsoft Azure AD Connect and click uninstall at the top.
 5. On the remote SQL server, open SQL Server Management Studio.
 6. On Databases, right-click and select Attach.
 7. On the **Attach Databases** screen, click **Add** and navigate to the ADSync.mdf file.  Click **OK**.
-   ![](media/how-to-connect-install-move-db/move2.png)
+   ![attach database](media/how-to-connect-install-move-db/move2.png)
 
 8. Once the database is attached, go back to the Azure AD Connect server and install Azure AD Connect.
 9. Once the MSI installation completes, the Azure AD Connect wizard starts with the Express mode setup. Close the screen by clicking the Exit icon.

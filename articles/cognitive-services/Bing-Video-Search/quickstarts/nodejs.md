@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Search for videos using the Bing Video Search REST API and Node.js"
-titlesuffix: Azure Cognitive Services
+title: "Quickstart: Search for videos using the REST API and Node.js - Bing Video Search"
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using JavaScript.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ---
 # Quickstart: Search for videos using the Bing Video Search REST API and Node.js
@@ -34,7 +34,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
     let https = require('https');
     ```
 
-2. Create variables for your API endpoint, subscription key, and your search term.
+2. Create variables for your API endpoint, subscription key, and your search term. `host` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -70,7 +70,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
        });
        ```
 
-# Create and send the search request
+## Create and send the search request
 
 1. Create a function called `bing_video_search()`. Add the parameters for your request including your host name, and headers. Encode your search term and append it to your path parameter with the `?q=` parameter. Then send the request with `req.end()`.
 

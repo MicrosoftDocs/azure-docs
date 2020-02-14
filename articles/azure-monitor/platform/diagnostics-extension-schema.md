@@ -1,15 +1,15 @@
 ---
 title: Azure Diagnostics extension configuration schema version history
 description: Relevant to collecting perf counters in Azure Virtual Machines, VM Scale Sets, Service Fabric, and Cloud Services.
-services: azure-monitor
-author: rboucher
-ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: reference
-ms.date: 09/20/2018
-ms.author: robb
+ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
+ms.topic: reference
+author: bwren
+ms.author: bwren
+ms.date: 09/04/2019
+
 ---
+
 # Azure Diagnostics extension configuration schema versions and history
 This page indexes Azure Diagnostics extension schema versions shipped as part of the Microsoft Azure SDK.  
 
@@ -48,13 +48,7 @@ The Azure Diagnostics extension is used with other Microsoft diagnostics product
  Starting with SDK 2.5 (diagnostics version 1.2), Azure diagnostics went to an extension model. The tools to utilize new features were only available in newer Azure SDKs, but any service using Azure diagnostics would pick up the latest shipping version directly from Azure. For example, anyone still using SDK 2.5 would be loading the latest version shown in the previous table, regardless if they are using the newer features.  
 
 ## Schemas index  
-Different versions of Azure diagnostics use different configuration schemas.
-
-[Diagnostics 1.0 Configuration Schema](diagnostics-extension-schema-1dot0.md)  
-
-[Diagnostics 1.2 Configuration Schema](diagnostics-extension-schema-1dot2.md)  
-
-[Diagnostics 1.3 and later Configuration Schema](diagnostics-extension-schema-1dot3.md)  
+Different versions of Azure diagnostics use different configuration schemas. Schema 1.0 and 1.2 have been deprecated. For more information on version 1.3 and later, see [Diagnostics 1.3 and later Configuration Schema](diagnostics-extension-schema-1dot3.md)  
 
 ## Version history
 

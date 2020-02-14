@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Sample - Create a VM with a VHD  | Microsoft Docs
+title: Azure CLI Script Sample - Create a VM with a VHD  
 description: Azure CLI Script Sample - Create a VM using a virtual hard disk.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: allclark
-manager: douge
+author: cynthn
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/09/2017
-ms.author: allclark
+ms.author: cynthn
 ms.custom: mvc
 ---
 

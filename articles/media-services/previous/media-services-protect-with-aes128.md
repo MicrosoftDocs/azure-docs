@@ -1,6 +1,6 @@
 ---
 title: Use AES-128 dynamic encryption and the key delivery service | Microsoft Docs
-description: Deliver your content encrypted with AES 128-bit encryption keys by using Microsoft Azure Media Services. Media Services also provides the key delivery service that delivers encryption keys to authorized users. This topic shows how to dynamically encrypt with AES-128 and use the key delivery service.
+description: This topic shows how to dynamically encrypt with AES-128 and use the key delivery service.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -131,7 +131,7 @@ Get a test token based on the token restriction that was used for the key author
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-You can use the [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) to test your stream.
+You can use the [Azure Media Services Player](https://aka.ms/azuremediaplayer) to test your stream.
 
 ## <a id="client_request"></a>How can your client request a key from the key delivery service?
 In the previous step, you constructed the URL that points to a manifest file. Your client needs to extract the necessary information from the streaming manifest files to make a request to the key delivery service.

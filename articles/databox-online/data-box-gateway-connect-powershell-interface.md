@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 08/02/2019
 ms.author: alkohli
 ---
 # Manage an Azure Data Box Gateway device via Windows PowerShell
@@ -19,7 +19,6 @@ This article focuses on the tasks you do using the PowerShell interface.
 This article includes the following procedures:
 
 - Connect to the PowerShell interface
-- Start a support session
 - Create a support package
 - Upload certificate
 - Boot up in non-DHCP environment

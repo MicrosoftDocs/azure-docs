@@ -1,5 +1,5 @@
 ---
-title: "Run cross-tenant analytics using extracted data| Microsoft Docs"
+title: Cross-tenant analytics using extracted data
 description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases in a single tenant app."
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Cross-tenant analytics using extracted data - single-tenant app
@@ -235,5 +234,5 @@ Congratulations!
 ## Additional resources
 
 - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Elastic Jobs](sql-database-elastic-jobs-overview.md).
+- [Elastic Jobs](elastic-jobs-overview.md).
 - [Cross-tenant analytics using extracted data - multi-tenant app](saas-multitenantdb-tenant-analytics.md)

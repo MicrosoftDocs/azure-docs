@@ -1,23 +1,21 @@
 ---
-title: SQL Data Warehouse Classification | Microsoft Docs
+title: Workload classification 
 description: Guidance for using classification to manage concurrency, importance, and compute resources for queries in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
-ms.date: 03/13/2019
+ms.subservice: workload-management
+ms.date: 01/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
+ms.custom: seo-lt-2019
 ---
 
-# SQL Data Warehouse workload classification (Preview)
+# Azure SQL Data Warehouse workload classification
 
 This article explains the SQL Data Warehouse workload classification process of assigning a resource class and importance to incoming requests.
-
-> [!Note]
-> Workload classification is available for preview on SQL Data Warehouse Gen2. Workload Management Classification and Importance preview is for builds with a release date of April 9th, 2019 or later.  Users should avoid using builds earlier than this date for workload management testing.  To determine if your build is workload management capable, run select @@version when connected to your SQL Data Warehouse instance.
 
 ## Classification
 
@@ -33,14 +31,24 @@ Not all statements are classified as they do not require resources or need impor
 
 ## Classification process
 
-Classification in SQL Data Warehouse is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) syntax.  With this syntax, SQL Data Warehouse users can assign importance and a resource class to requests.  
+Classification in SQL Data Warehouse is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) syntax.  With this syntax, SQL Data Warehouse users can assign importance and how much system resources are assigned to a request via the `workload_group` parameter. 
 
 > [!NOTE]
 > Classification is evaluated on a per request basis. Multiple requests in a single session can be classified differently.
 
-## Classification precedence
+## Classification weighting
 
-As part of the classification process, precedence is in place to determine which resource class is assigned. Classification based on a database user takes precedence over role membership. If you create a classifier that maps the UserA database user to the mediumrc resource class. Then, map the RoleA database role (of which UserA is a member) to the largerc resource class. The classifier that maps the database user to the mediumrc resource class will take precedence over the classifier that maps the RoleA database role to the largerc resource class.
+As part of the classification process, weighting is in place to determine which workload group is assigned.  The weighting goes as follows:
+
+|Classifier Parameter |Weight   |
+|---------------------|---------|
+|MEMBERNAME:USER      |64       |
+|MEMBERNAME:ROLE      |32       |
+|WLM_LABEL            |16       |
+|WLM_CONTEXT          |8        |
+|START_TIME/END_TIME  |4        |
+
+The `membername` parameter is mandatory.  However, if the membername specified is a database user instead of a database role, the weighting for user is higher and thus that classifier is chosen.
 
 If a user is a member of multiple roles with different resource classes assigned or matched in multiple classifiers, the user is given the highest resource class assignment.  This behavior is consistent with existing resource class assignment behavior.
 
@@ -58,10 +66,10 @@ System classifiers created on your behalf provide an easy path to migrate to wor
 
 Consider the following scenario:
 
-•An existing data warehouse has a database user DBAUser assigned to the largerc resource class role. The resource class assignment was done with sp_addrolemember.
-•The data warehouse is now updated with workload management.
-•To test the new classification syntax, the database role DBARole (which DBAUser is a member of), has a classifier created for them mapping them to mediumrc and high importance.
-•When DBAUser logs in and runs a query, the query will be assigned to largerc. Because a user takes precedence over a role membership.
+- An existing data warehouse has a database user DBAUser assigned to the largerc resource class role. The resource class assignment was done with sp_addrolemember.
+- The data warehouse is now updated with workload management.
+- To test the new classification syntax, the database role DBARole (which DBAUser is a member of), has a classifier created for them mapping them to mediumrc and high importance.
+- When DBAUser logs in and runs a query, the query will be assigned to largerc. Because a user takes precedence over a role membership.
 
 To simplify troubleshooting misclassification, we recommended you remove resource class role mappings as you create workload classifiers.  The code below returns existing resource class role memberships.  Run [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) for each member name returned from the corresponding resource class.
 
@@ -79,4 +87,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## Next steps
 
-For more information about SQL Data Warehouse workload classification, and importance, see [Create a workload classifier](quickstart-create-a-workload-classifier-tsql.md) and [SQL Data Warehouse Importance](sql-data-warehouse-workload-importance.md). See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
+- For more information on creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- See the Quickstart on how to create a workload classifier [Create a workload classifier](quickstart-create-a-workload-classifier-tsql.md).
+- See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.

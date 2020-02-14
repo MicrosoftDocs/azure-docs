@@ -1,14 +1,14 @@
 ---
-title: Troubleshoot Mobility Service push installation failures when enabling replication for disaster recovery | Microsoft Docs
-description: Troubleshoot Mobility Services installation errors when enabling replication for disaster recovery
+title: Troubleshoot Mobility Service push installation with Azure Site Recovery f
+description: Troubleshoot Mobility Services installation errors when enabling replication for disaster recovery with Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/27/2019
+ms.date: 09/11/2019
 ---
-# Troubleshoot Mobility Service push installation issues
+# Troubleshoot Mobility Service push installation 
 
 Installation of Mobility service is a key step during Enable Replication. The success of this step depends solely on meeting prerequisites and working with supported configurations. The most common failures you face during Mobility service installation are due to:
 
@@ -229,15 +229,17 @@ This is a runtime error and is caused due to insufficient memory to install VSS.
 
 ### VSS error -2147023824 [0x80070430] - exit code 517
 
-This error occurs when Azure Site Recovery VSS Provider service is [marked for deletion](https://msdn.microsoft.com/en-us/library/ms838153.aspx). Try to install VSS manually on the source machine by running the following command line
+This error occurs when Azure Site Recovery VSS Provider service is [marked for deletion](https://msdn.microsoft.com/library/ms838153.aspx). Try to install VSS manually on the source machine by running the following command line
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ### VSS error -2147023841 [0x8007041F] - exit code 512
 
-This error occurs when Azure Site Recovery VSS Provider service database is [locked](https://msdn.microsoft.com/en-us/library/ms833798.aspx).Try to install VSS manually on the source machine by running the following command line
+This error occurs when Azure Site Recovery VSS Provider service database is [locked](https://msdn.microsoft.com/library/ms833798.aspx).Try to install VSS manually on the source machine by running the following command line
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+In case of failure, check if any antivirus program or other services are stuck in "Starting" state. This could retain the lock on database services. It will lead to failures in installing VSS provider. Ensure that no service is in a "Starting" state and then retry the above operation.
 
 ### VSS exit code 806
 

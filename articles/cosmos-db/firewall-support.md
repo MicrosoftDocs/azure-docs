@@ -4,7 +4,7 @@ description: Learn how to secure Azure Cosmos DB data by using IP access control
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: govindk
 
 ---

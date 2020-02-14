@@ -1,6 +1,6 @@
 ---
-title: Render coverage in Azure Maps | Microsoft Docs
-description: Learn about Render coverage in Azure Maps
+title: Render coverage | Microsoft Azure Maps
+description: In this article, learn about regions with Microsoft Azure Maps render coverage along with their level of rendered details.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -13,9 +13,9 @@ manager:
 
 # Azure Maps render coverage
 
-Azure Maps uses both raster tiles and vector tiles to create maps. At its lowest resolution, the entire world fits on a single tile. At its highest resolution, a single tile represents 38 square meters. As you zoom in on a map, therefore, you can see increasingly more details about continents, regions, cities, and individual streets. For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
+Azure Maps uses both raster tiles and vector tiles to create maps. At the lowest resolution, the entire world fits in a single tile. At the highest resolution, a single tile represents 38 square meters. You'll see more details about continents, regions, cities, and individual streets as you zoom in the map. For more information about tiles, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 
-However, Maps does not have the same level of information and accuracy for all regions. The following tables provide information about what level of rendered detail you can expect from each region.
+However, Maps doesn't have the same level of information and accuracy for all regions. The following tables detail the level of information you can render for each region.
 
 ## Legend
 
@@ -41,7 +41,6 @@ However, Maps does not have the same level of information and accuracy for all r
 | Central African Republic         | ✓ | Ø |
 | Chad                             | ✓ | Ø |
 | Comoros                          | ✓ | Ø |
-| Congo                            | ✓ | ✓ |
 | Democratic Republic of the Congo | ✓ | ✓ |
 | Côte d'Ivoire                    | ✓ | Ø |
 | Djibouti                         | ✓ | Ø |
@@ -72,7 +71,7 @@ However, Maps does not have the same level of information and accuracy for all r
 | Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
 | Saint Helena, Ascension and Tristan da Cunha | ✓ | Ø |
-| Sao Tome and Principe            | ✓ | Ø |
+| São Tomé and Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     | ✓ | ✓ |
 | Somalia                          | ✓ | ✓ |
@@ -105,7 +104,6 @@ However, Maps does not have the same level of information and accuracy for all r
 | Canada                    | ✓ | ✓ |
 | Cayman Islands            | ✓ | ✓ |
 | Chile                     | ✓ | ✓ |
-| Clipperton Island         | ✓ | ✓ |
 | Colombia                  | ✓ | ✓ |
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |
@@ -164,8 +162,7 @@ However, Maps does not have the same level of information and accuracy for all r
 | China                     |   | Ø |
 | Cocos (Keeling) Islands   |   | Ø |
 | Democratic People's Republic of Korea |   | Ø |
-| Dokdo and Takeshima       |   | Ø |
-| Hong Kong                 | ✓ | ✓ |
+| Hong Kong SAR             | ✓ | ✓ |
 | India                     | Ø | ✓ | 
 | Indonesia                 | ✓ | ✓ |
 | Iran                      |   | Ø |
@@ -178,7 +175,7 @@ However, Maps does not have the same level of information and accuracy for all r
 | Kyrgyzstan                |   | Ø |
 | Lao People's Democratic Republic |   | Ø |
 | Lebanon                   | ✓ | ✓ |
-| Macao                     | ✓ | ✓ |
+| Macao SAR                 | ✓ | ✓ |
 | Malaysia                  | ✓ | ✓ |
 | Maldives                  |   | Ø |
 | Mongolia                  |   | Ø |
@@ -272,7 +269,7 @@ However, Maps does not have the same level of information and accuracy for all r
 | Liechtenstein             | ✓ | ✓ |
 | Lithuania                 | ✓ | ✓ |
 | Luxembourg                | ✓ | ✓ |
-| Macedonia                 | ✓ | ✓ |
+| North Macedonia           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Monaco                    | ✓ | ✓ |

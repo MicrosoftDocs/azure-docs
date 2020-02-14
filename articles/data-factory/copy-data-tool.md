@@ -1,10 +1,10 @@
 ---
-title: Copy Data tool Azure Data Factory | Microsoft Docs
+title: Copy Data tool Azure Data Factory 
 description: 'Provides information about the Copy Data tool in Azure Data Factory UI'
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 
 ms.service: data-factory
@@ -91,7 +91,7 @@ Then, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{
 
 ![Filter file or folder](./media/copy-data-tool/filter-file-or-folder.png)
 
-The Copy Data tool generates parameters with expressions, functions, and system variables that can be used to represent {year}, {month}, {day}, {hour}, and {minute} when creating pipeline. For more information, see the [How to read or write partitioned data](how-to-read-write-partitioned-data.md) article.
+The Copy Data tool generates parameters with expressions, functions, and system variables that can be used to represent {year}, {month}, {day}, {hour}, and {minute} when creating pipeline.
 
 ## Scheduling options
 You can run the copy operation once or on a schedule (hourly, daily, and so on). These options can be used for the connectors across different environments, including on-premises, cloud, and local desktop. 

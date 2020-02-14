@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Design an Azure Database for MariaDB by using the Azure portal'
+title: 'Tutorial: Design an Azure Database for MariaDB - Azure portal'
 description: This tutorial explains how to create and manage an Azure Database for MariaDB server and database by using the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 12/02/2019
 ms.custom: mvc
 ---
 
@@ -58,6 +58,9 @@ You create an Azure Database for MariaDB server with a defined set of [compute a
     Pricing tier | See description. | The compute, storage, and backup configurations for your new server. Select **Pricing tier** > **General Purpose**. Keep the default values for the following settings:<br><ul><li>**Compute Generation** (Gen 5)</li><li>**vCore** (4 vCores)</li><li>**Storage** (100 GB)</li><li>**Backup Retention Period** (7 days)</li></ul><br>To enable your server backups in geo-redundant storage, for **Backup Redundancy Options**, select **Geographically Redundant**. <br><br>To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
     
    ![Pricing tier](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+
+   > [!TIP]
+   > With **auto-growth** enabled your server increases storage when you are approaching the allocated limit, without impacting your workload.
 
 4. Select **Create**. In a minute or two, a new Azure Database for MariaDB server is running in the cloud. To monitor the deployment process, select **Notifications** on the toolbar.
 

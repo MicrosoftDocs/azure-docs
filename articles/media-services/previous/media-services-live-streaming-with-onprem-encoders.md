@@ -1,6 +1,6 @@
 ---
 title: Stream live with on-premises encoders that create multi-bitrate streams - Azure | Microsoft Docs
-description: 'This topic describes how to set up a channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more streaming endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Streaming, DASH.'
+description: This topic describes how to set up a channel that receives a multi-bitrate live stream from an on-premises encoder. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkd;juliako
+ms.author: juliako
 
 ---
 # Working with Channels that receive multi-bitrate live stream from on-premises encoders
@@ -227,7 +227,7 @@ Here are other considerations related to working with channels and related compo
 ## Related topics
 [Recommended on premises encoders](media-services-recommended-encoders.md)
 
-[Azure Media Services fragmented MP4 lives ingest specification](media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services fragmented MP4 lives ingest specification](../media-services-fmp4-live-ingest-overview.md)
 
 [Azure Media Services overview and common scenarios](media-services-overview.md)
 

@@ -1,15 +1,15 @@
 ---
 title: Azure Diagnostics extension 1.3 and later configuration schema
 description: Schema version 1.3 and later Azure diagnostics shipped as part of the Microsoft Azure SDK 2.4 and later.
-services: azure-monitor
-author: rboucher
-ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: reference
-ms.date: 09/20/2018
-ms.author: robb
+ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
+ms.topic: reference
+author: bwren
+ms.author: bwren
+ms.date: 09/20/2018
+
 ---
+
 # Azure Diagnostics 1.3 and later configuration schema
 > [!NOTE]
 > The Azure Diagnostics extension is the component used to collect performance counters and other statistics from:
@@ -21,13 +21,11 @@ ms.subservice: diagnostic-extension
 >
 > This page is only relevant if you are using one of these services.
 
-This page is valid for versions 1.3 and newer (Azure SDK 2.4 and newer). Newer configuration sections are commented to show in what version they were added.  
+This page is valid for versions 1.3 and newer (Azure SDK 2.4 and newer). Newer configuration sections are commented to show in what version they were added. Version 1.0 and 1.2 of the schema have been archived and no longer available. 
 
 The configuration file described here is used to set diagnostic configuration settings when the diagnostics monitor starts.  
 
 The extension is used in conjunction with other Microsoft diagnostics products like Azure Monitor, which includes Application Insights and Log Analytics.
-
-
 
 Download the public configuration file schema definition by executing the following PowerShell command:  
 
@@ -410,7 +408,7 @@ Added in version 1.3.
 The top-level element of the diagnostics configuration file.  
 
 **Attribute**  xmlns - The XML namespace for the diagnostics configuration file is:  
-http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
+`http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration`
 
 
 |Child Elements|Description|  

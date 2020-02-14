@@ -37,7 +37,7 @@ During installation, you can select the server to be in **staging mode**. This a
 
 You can still force an export by using the synchronization service manager.
 
-A server in staging mode continues to receive changes from Active Directory and Azure AD. It always has a copy of the latest changes and can very fast take over the responsibilities of another server. If you make configuration changes to your primary server, it is your responsibility to make the same changes to the server in staging mode.
+A server in staging mode continues to receive changes from Active Directory and Azure AD and can quickly take over the responsibilities of another server in the event of a failure. If you make configuration changes to your primary server, it is your responsibility to make the same changes to the server in staging mode.
 
 For those of you with knowledge of older sync technologies, the staging mode is different since the server has its own SQL database. This architecture allows the staging mode server to be located in a different datacenter.
 

@@ -1,13 +1,13 @@
 ---
-title: Device connectivity and telemetry ingress with Azure Digital Twins | Microsoft Docs
-description: Overview of how to bring a device onboard with Azure Digital Twins
+title: 'Device connectivity and telemetry ingress - Azure Digital Twins | Microsoft Docs'
+description: Learn how to connect, onboard, and send telemetry from an IoT device in Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
-ms.author: alinast
+ms.date: 01/03/2020
 ---
 
 # Device connectivity and telemetry ingress
@@ -16,7 +16,7 @@ The telemetry data sent by devices and sensors form the backbone of any IoT solu
 
 To get started, create an Azure IoT Hub resource at the root of the spatial graph. The IoT Hub resource allows all devices beneath the root space to send messages. After the IoT Hub is created, register devices with sensors within the Digital Twins instance. The devices can send data to a Digital Twins service via the [Azure IoT device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
-For a step-by-step guide on how to bring devices onboard, see the [Tutorial to deploy and configure Digital Twins](tutorial-facilities-setup.md). At a glance, the steps are:
+For a step-by-step guide on how to bring devices onboard, read the [Tutorial to deploy and configure Digital Twins](tutorial-facilities-setup.md). At a glance, the steps are:
 
 - Deploy a Digital Twins instance from the [Azure portal](https://portal.azure.com).
 - Create spaces in your graph.
@@ -45,7 +45,7 @@ YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 | *YOUR_DEVICE_GUID* | The device ID |
 
 ```plaintext
-YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
 | Parameter value | Replace with |
@@ -56,7 +56,7 @@ In the response payload, copy the device's **connectionString** property. You us
 
 ## Device-to-cloud message
 
-You can customize your device's message format and payload to fit your solution's needs. Use any data contract that can be serialized into a byte array or stream that's supported by the [Azure IoT Device Client Message class, Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). The message can be a custom binary format of your choice, as long as you decode the data contract in a corresponding user-defined function. There's only one requirement for a device-to-cloud message. You must maintain a set of properties to make sure your message is routed appropriately to the processing engine.
+You can customize your device's message format and payload to fit your solution's needs. Use any data contract that can be serialized into a byte array or stream that's supported by the [Azure IoT Device Client Message class, Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). The message can be a custom binary format of your choice, as long as you decode the data contract in a corresponding user-defined function. There's only one requirement for a device-to-cloud message. Maintain a set of properties to make sure your message is routed appropriately to the processing engine.
 
 ### Telemetry properties
 
@@ -66,7 +66,7 @@ You can customize your device's message format and payload to fit your solution'
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | Yes | A constant value that identifies a message to the system. |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | Yes | A unique identifier of the sensor that sends the **Message**. This value must match an object's **HardwareId** property for the system to process it. For example, `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | No | An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted date string that identifies the sampling time of the payload. For example, `2018-09-20T07:35:00.8587882-07:00`. |
+| **CreationTimeUtc** | `string` | No | An [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) formatted date string that identifies the sampling time of the payload. For example, `2018-09-20T07:35:00.8587882-07:00`. |
 | **CorrelationId** | `string` | No | A UUID that's used to trace events across the system. For example, `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
 ### Send your message to Digital Twins

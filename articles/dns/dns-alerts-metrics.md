@@ -1,20 +1,18 @@
 ---
-title: Azure DNS metrics and alerts | Microsoft Docs
-description: Learn about Azure DNS metrics and alerts.
+title: Metrics and alerts - Azure DNS
+description: With this learning path, get started with Azure DNS metrics and alerts.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jennoc
-editor: ''
+author: rohinkoul
+manager: kumudD
 
-ms.assetid: 
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Azure DNS metrics and alerts
@@ -33,7 +31,7 @@ You can also see the [definition of these metrics](../azure-monitor/platform/met
 >[!NOTE]
 > At this time, these metrics are only available for Public DNS zones hosted in Azure DNS. If you have Private Zones hosted in Azure DNS, these metrics will not provide data for those zones. In addition, the metrics and alerting feature is only supported in Azure Public cloud. Support for sovereign clouds will follow at a later time. 
 
-The granular level of dimension for these metrics is DNS Zone.
+The most granular element that you can see metrics for is a DNS zone. You cannot currently see metrics for individual resource records within a zone.
 
 ### Query volume
 

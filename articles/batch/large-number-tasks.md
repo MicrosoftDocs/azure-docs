@@ -3,18 +3,17 @@ title: Submit a large number of tasks - Azure Batch | Microsoft Docs
 description: How to efficiently submit a very large number of tasks in a single Azure Batch job
 services: batch
 documentationcenter: 
-author: laurenhughes
-manager: jeconnoc
+author: LauraBrenner
+manager: evansma
 editor: ''
 
 ms.assetid: 
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 08/24/2018
-ms.author: lahugh
+ms.author: labrenne
 ms.custom: 
 
 ---
@@ -34,7 +33,7 @@ The maximum size of the task collection that you can add in a single call depend
 
     * [REST API](/rest/api/batchservice/task/addcollection)
     * [Python API](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
-    * [Node.js API](/javascript/api/azure-batch/task?view=azure-node-latest)
+    * [Node.js API](/javascript/api/@azure/batch/task?view=azure-node-latest)
 
   When using these APIs, you need to provide logic to divide the number of tasks to meet the collection limit, and to handle errors and retries in case addition of tasks fails. If a task collection is too large to add, the request generates an error and should be retried again with fewer tasks.
 
@@ -137,7 +136,8 @@ Set up a `BatchExtensionsClient` that uses the SDK extension:
 
 ```python
 
-client = batch.BatchExtensionsClient(base_url=BATCH_ACCOUNT_URL, resource_group=RESOURCE_GROUP_NAME, batch_account=BATCH_ACCOUNT_NAME)
+client = batch.BatchExtensionsClient(
+    base_url=BATCH_ACCOUNT_URL, resource_group=RESOURCE_GROUP_NAME, batch_account=BATCH_ACCOUNT_NAME)
 ...
 ```
 
@@ -145,10 +145,9 @@ Create a collection of tasks to add to a job. For example:
 
 
 ```python
-tasks=list()
+tasks = list()
 # Populate the list with your tasks
 ...
-
 ```
 
 Add the task collection using [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Set the `threads` parameter to increase the number of concurrent operations:
@@ -184,7 +183,7 @@ parameter_sweep = {
                 "repeatTask": {
                     "commandLine": "/bin/bash -c 'echo Hello world from task {0}'",
                     "constraints": {
-                        "retentionTime":"PT1H"
+                        "retentionTime": "PT1H"
                     }
                 }
             },

@@ -1,20 +1,9 @@
 ---
-title: Scale a Service Fabric cluster in Azure | Microsoft Docs
-description: In this tutorial, you learn how to scale a Service Fabric cluster in Azure.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
+title: Scale a Service Fabric cluster in Azure 
+description: In this tutorial, you learn how to scale an Service Fabric cluster in Azure out and in, and how to clean up leftover resources.
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/19/2019
-ms.author: aljo
+ms.date: 07/22/2019
 ms.custom: mvc
 ---
 # Tutorial: Scale a Service Fabric cluster in Azure
@@ -885,7 +874,7 @@ Next, advance to the following tutorial to learn how to upgrade the runtime of a
 [reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-nd scale in)
+
 > * Add and remove node types (scale out and scale in)
 > * Increase node resources (scale up)
 

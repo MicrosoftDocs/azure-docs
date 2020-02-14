@@ -1,16 +1,12 @@
 ---
-title: Discover what software is installed on your machines with Azure Automation | Microsoft Docs 
+title: Discover what software is installed on your machines with Azure Automation | Microsoft Docs
 description: Use Inventory to discover what software is installed on the machines across your environment.
 services: automation
 keywords: inventory, automation, change, tracking
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 04/11/2018
 ms.topic: tutorial
-ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
-manager: carmonm
 ---
 # Discover what software is installed on your Azure and non-Azure machines
 

@@ -1,25 +1,22 @@
 ---
-title: Deprecated cognitive skills - Azure Search
-description: This page contains a list of cognitive search skills that are considered deprecated and will not be supported in the near future.
-services: search
-manager: pablocas
-author: luiscabrer
+title: Deprecated cognitive skills
+titleSuffix: Azure Cognitive Search
+description: This page contains a list of cognitive skills that are considered deprecated and will not be supported in the near future in Azure Cognitive Search skillsets.
 
-ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: conceptual
-ms.date: 02/25/2019
+manager: nitinme
+author: luiscabrer
 ms.author: luisca
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Deprecated Cognitive Search Skills
+# Deprecated cognitive skills in Azure Cognitive Search
 
 This document describes cognitive skills that are considered deprecated. Use the following guide for the contents:
 
 * Skill Name: The name of the skill that will be deprecated, it maps to the @odata.type attribute.
-* Last available api version: The last version of the Azure search public API through which skillsets containing the corresponding deprecated skill can be created/updated.
+* Last available api version: The last version of the Azure Cognitive Search public API through which skillsets containing the corresponding deprecated skill can be created/updated.
 * End of support: The last day after which the corresponding skill is considered unsupported. Previously created skillsets should still continue to function, but users are recommended to migrate away from a deprecated skill.
 * Recommendations: Migration path forward to use a supported skill. Users are advised to follow the recommendations to continue to receive support.
 
@@ -27,7 +24,7 @@ This document describes cognitive skills that are considered deprecated. Use the
 
 ### Last available api version
 
-2017-11-11-preview
+2017-11-11-Preview
 
 ### End of support
 
@@ -39,7 +36,8 @@ Use [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity
 
 To migrate to the [Entity Recognition Skill](cognitive-search-skill-entity-recognition.md), you will have to perform one or more of the following changes to your skill definition. You can update the skill definition using the [Update Skillset API](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Note_: Currently, confidence score as a concept is not supported. It will be supported in the near future. The `minimumPrecision` parameter exists on the `EntityRecognitionSkill` for future use and for backwards compatibility.
+> [!NOTE]
+> Currently, confidence score as a concept is not supported. The `minimumPrecision` parameter exists on the `EntityRecognitionSkill` for future use and for backwards compatibility.
 
 1. *(Required)* Change the `@odata.type` from `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` to `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 
@@ -145,6 +143,6 @@ _Note_: Currently, confidence score as a concept is not supported. It will be su
 
 ## See also
 
-+ [Predefined skills](cognitive-search-predefined-skills.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Entity Recognition Skill](cognitive-search-skill-entity-recognition.md)

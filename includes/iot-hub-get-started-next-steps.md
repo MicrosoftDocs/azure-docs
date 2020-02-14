@@ -12,15 +12,15 @@
 
 To continue to get started with Azure IoT Hub and to explore all extended IoT scenarios, see the following:
 
-- [Manage cloud device messaging with Azure IoT Hub Toolkit extension for Visual Studio Code](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
+- [Manage cloud device messaging with Azure IoT Hub extension for Visual Studio Code](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
 
-- [Manage devices with Azure IoT Hub Toolkit extension for Visual Studio Code](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)
+- [Manage devices with Azure IoT Hub extension for Visual Studio Code](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)
 
 - [Set up message routing](../articles/iot-hub/tutorial-routing.md)
 
 - [Use Power BI to visualize real-time sensor data from your IoT hub](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 
-- [Use the Web Apps feature of Azure App Service to visualize real-time sensor data from your IoT hub](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
+- [Use a web app to visualize real-time sensor data from your IoT hub](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
 
 - [Forecast weather by using the sensor data from your IoT hub in Azure Machine Learning](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
 

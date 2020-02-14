@@ -1,7 +1,7 @@
 ---
-title: Export & delete data
+title: Export & delete data - LUIS
 titleSuffix: Azure Cognitive Services 
-description: Delete customer data to ensure privacy and compliance. 
+description: You have full control over viewing, exporting, and deleting their data. Delete customer data to ensure privacy and compliance.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -53,7 +53,7 @@ To enable [active learning](luis-how-to-review-endpoint-utterances.md#enable-act
 * [Australia](#australia)
 * [United States](#united-states)
 
-With the exception of active learning data (detailed below), LUIS follows the [data storage practices for regional services](http://azuredatacentermap.azurewebsites.net/). 
+With the exception of active learning data (detailed below), LUIS follows the [data storage practices for regional services](https://azuredatacentermap.azurewebsites.net/). 
 
 ### Europe
 

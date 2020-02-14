@@ -1,6 +1,6 @@
 ---
 title: Protect your content with Azure Media Services | Microsoft Docs
-description: This articles give an overview of content protection with Media Services.
+description: This article gives an overview of content protection with Azure Media Services v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -83,6 +83,10 @@ The following considerations apply:
   * **cenc**: For PlayReady or Widevine (common encryption)
   * **cbcs-aapl**: For FairPlay (AES CBC encryption)
   * **cbc**: For AES envelope encryption
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 The following articles describe next steps to help you get started with content protection:

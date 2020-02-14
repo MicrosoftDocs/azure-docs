@@ -1,11 +1,11 @@
 ---
-title: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB
+title: Azure Cosmos DB consistency, availability, and performance tradeoffs 
 description: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: rimman
+ms.date: 07/23/2019
 ms.reviewer: sngun
 ---
 
@@ -50,13 +50,17 @@ The table below defines the relationship between consistency model and data dura
 |1|Single or Multi-Master|Any Consistency Level|< 240 Minutes|<1 Week|
 |>1|Single Master|Session, Consistent Prefix, Eventual|< 15 minutes|< 15 minutes|
 |>1|Single Master|Bounded Staleness|*K* & *T*|< 15 minutes|
+|>1|Single Master|Strong|0|< 15 minutes|
 |>1|Multi-Master|Session, Consistent Prefix, Eventual|< 15 minutes|0|
 |>1|Multi-Master|Bounded Staleness|*K* & *T*|0|
-|>1|Single or Multi-Master|Strong|0|< 15 minutes|
 
 *K* = The number of *"K"* versions (i.e., updates) of an item.
 
 *T* = The time interval *"T"* since the last update.
+
+## Strong consistency and multi-master
+
+Cosmos accounts configured for multi-master cannot be configured for strong consistency as it is not possible for a distributed system to provide an RPO of zero and an RTO of zero. Additionally, there are no write latency benefits for using strong consistency with multi-master as any write into any region must be replicated and committed to all configured regions within the account. This results in the same write latency as a single master account.
 
 ## Next steps
 

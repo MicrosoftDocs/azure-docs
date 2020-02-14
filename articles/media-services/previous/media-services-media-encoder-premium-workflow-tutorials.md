@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: christoc;xpouyat;juliako
+ms.author: christoc
+ms.reviewer: xpouyat; juliako
 
 ---
 # Advanced Media Encoder Premium Workflow tutorials

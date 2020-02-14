@@ -2,21 +2,15 @@
 title: Azure IoT Edge Modules 
 description: The IoT Edge Module Offer in the Azure Marketplace for app and service publishers.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, IoT Edge module offer
-documentationcenter:
 author: qianw211
 manager: pabutler
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/22/2018
-ms.author: qianw211
-
+ms.author: pabutler
 ---
+
 # IoT Edge modules
 
 The [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) platform is backed by Azure Cloud.  This platform enables users to deploy cloud workloads to run directly on IoT devices.  An IoT Edge module can run offline workloads and do data analysis locally. This offer type helps to save bandwidth, safeguard local and sensitive data, and offers low-latency response time.  You now have the options to take advantage of these pre-built workloads. Until now, only a handful of first-party solutions from Microsoft were available.  You had to invest the time and resources into building your own custom IoT solutions.
@@ -78,15 +72,13 @@ The primary technical requirements for an IoT Edge Module, in order for it to ge
 
 ## Documentation and Resources
 
-[Create an IoT Edge module offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -– The steps for publishing a new IoT Edge module offer with the Cloud Publishing Portal.
+[Create an IoT Edge module offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -- The steps for publishing a new IoT Edge module offer with the Cloud Publishing Portal.
 
 ## Next steps
 
-If you haven’t already done so,
+If you haven't already done so,
 
-- Register in the [Microsoft Partner Network](https://partner.microsoft.com/membership).
-- Create a [Microsoft Account](https://account.microsoft.com/account/) (required for Azure Marketplace transact offers; recommended for others).
-- Submit the [Marketplace Registration Form](https://azuremarketplace.microsoft.com/sell/signup).
+- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
 
 If you're registered and are creating a new offer or working on an existing one,
 

@@ -1,14 +1,13 @@
 ---
-title: Configure SSL policy on Azure Application Gateway - PowerShell
+title: Configure SSL policy using PowerShell
+titleSuffix: Azure Application Gateway
 description: This article provides instructions to configure SSL Policy on Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/3/2018
+ms.date: 11/14/2019
 ms.author: victorh
-
 ---
 
 # Configure SSL policy versions and cipher suites on Application Gateway
@@ -112,14 +111,7 @@ The following example sets a custom SSL policy on an application gateway. It set
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> At least one cipher suite from the following list must be selected when configuring a custom SSL policy. Application gateway uses RSA SHA256 cipher suites for backend management.
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-> * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_RSA_WITH_AES_256_CBC_SHA256
-> * TLS_RSA_WITH_AES_128_CBC_SHA256
+> TLS_RSA_WITH_AES_256_CBC_SHA256 must be selected when configuring a custom SSL policy. Application gateway uses this cipher suite for backend management. You can use this in combination with any other suites, but this one must be selected as well. 
 
 ```powershell
 # get an application gateway resource

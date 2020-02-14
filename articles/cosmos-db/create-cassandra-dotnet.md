@@ -29,7 +29,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 In addition, you need: 
-* If you don't already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+* If you don't already have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 * Install [Git](https://www.git-scm.com/) to clone the example.
 
 <a id="create-account"></a>
@@ -118,7 +118,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy an access key in the Azure portal, Connection String page](./media/create-cassandra-dotnet/keys.png)
 
-2. In Visual Studio 2017, open the Program.cs file. 
+2. In Visual Studio, open the Program.cs file. 
 
 3. Paste the USERNAME value from the portal over `<FILLME>` on line 13.
 

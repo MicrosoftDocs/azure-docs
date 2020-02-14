@@ -1,10 +1,10 @@
 ---
-title: Configure private IP addresses for VMs - Azure CLI | Microsoft Docs
+title: Configure private IP addresses for VMs - Azure CLI
 description: Learn how to configure private IP addresses for virtual machines using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
-ms.author: jdial
-ms.custom: H1Hack27Feb2017
+ms.author: kumud
 
 ---
 # Configure private IP addresses for a virtual machine using the Azure CLI
@@ -248,7 +247,7 @@ To change the NIC for the VM used in the previous commands, complete the followi
 2. Run the **azure vm set** command to change the NIC used by the VM.
    
     ```azurecli
-    azure vm set -g TestRG -n DNS01 -N TestNIC2
+   az vm nic set --resource-group TestRG --vm-name DNS01 --nics TestNIC2
     ```
 
     Expected output:

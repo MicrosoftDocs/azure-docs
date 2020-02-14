@@ -1,10 +1,7 @@
 ---
 title: (DEPRECATED) Load balance containers in Azure DC/OS cluster
 description: Load balance across multiple containers in an Azure Container Service DC/OS cluster.
-services: container-service
 author: rgardler
-manager: jeconnoc
-
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 06/02/2017

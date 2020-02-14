@@ -17,6 +17,9 @@ ms.author: juliako
 ---
 # Scenarios and availability of Media Services features across datacenters
 
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+
 Microsoft Azure Media Services (AMS) enables you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
 AMS operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). 
@@ -200,14 +203,11 @@ Media Analytics is a collection of speech and vision components that makes it ea
 |Media processor name|Status|Datacenters
 |---|---|---|
 |Azure Media Face Detector|Preview|All|
-|Azure Media Hyperlapse|Preview|All|
 |Azure Media Indexer|GA|All|
 |Azure Media Motion Detector|Preview|All|
 |Azure Media OCR|Preview|All|
-|Azure Media Redactor|Preview|All|
-|Azure Media Stabilizer|Preview|All|
+|Azure Media Redactor|GA|All|
 |Azure Media Video Thumbnails|Preview|All|
-|Azure Media Indexer 2|Preview|All except China and Federal Government region|
 
 ### Protection
 
@@ -246,6 +246,10 @@ For more information, see the [scaling](#scaling) section.
 |S1|GA|All|
 |S2|GA|All except Brazil South, and India West|
 |S3|GA|All except India West|
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

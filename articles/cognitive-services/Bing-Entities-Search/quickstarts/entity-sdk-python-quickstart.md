@@ -1,16 +1,16 @@
 ---
-title: "Quickstart: Bing Entity Search SDK, Python"
-titlesuffix: Azure Cognitive Services
-description: Setup for Bing Entity search SDK console application.
+title: "Quickstart: Search for entities with the SDK for Python - Bing Entity Search"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to search for entities with the Bing Entity Search SDK for Python.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
-ms.author: v-gedod
+ms.date: 02/11/2020
+ms.author: aahi
 ---
 # Quickstart: Bing Entity Search SDK with Python
 
@@ -22,7 +22,7 @@ Use this quickstart to begin searching for entities with the Bing Entity Search 
 
 * The [Bing Entity Search SDK for Python](https://pypi.org/project/azure-cognitiveservices-search-entitysearch/)
 
-It is recommended that you use a python virtual environment. You can install and initialize a virtual environment with the venv module. You can install virtualenv for Python 2.7 with:
+It is recommended that you use a python virtual environment. You can install and initialize a virtual environment with the venv module. You can install virtualenv with:
 
 ```Console
 python -m venv mytestenv
@@ -42,16 +42,17 @@ python -m pip install azure-cognitiveservices-search-entitysearch
 1. Create a new Python file in your favorite IDE or editor, and add the following import statements. 
 
     ```python
-    from azure.cognitiveservices.search.entitysearch import EntitySearchAPI
+    from azure.cognitiveservices.search.entitysearch import EntitySearchClient
     from azure.cognitiveservices.search.entitysearch.models import Place, ErrorResponseException
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
-2. Create a variable for your subscription key, and instantiate the client by creating a new `CognitiveServicesCredentials` object with it.
+2. Create a variable for your subscription key and endpoint. Instantiate the client by creating a new `CognitiveServicesCredentials` object with your key.
     
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
-    client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
+    endpoint = "YOUR-ENDPOINT"
+    client = EntitySearchclient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 ## Send a search request and receive a response

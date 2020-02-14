@@ -1,6 +1,6 @@
 ---
-title: Comparison of Video Indexer and Azure Media Services v3 presets | Microsoft Docs
-description: This topic compares Video Indexer and Azure Media Services v3 presets.
+title: Comparison of Video Indexer and Azure Media Services v3 presets
+description: This article compares Video Indexer capabilities and Azure Media Services v3 presets.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -8,11 +8,12 @@ manager: femila
 editor: ''
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2019
+ms.date: 05/15/2019
 ms.author: juliako
 
 ---

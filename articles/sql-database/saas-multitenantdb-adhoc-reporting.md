@@ -1,5 +1,5 @@
 ---
-title: Run ad hoc reporting queries across multiple Azure SQL databases | Microsoft Docs
+title: Ad hoc reporting queries across multiple databases
 description: "Run ad hoc reporting queries across multiple SQL databases in a multi-tenant app example."
 services: sql-database
 ms.service: sql-database
@@ -8,9 +8,8 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: AyoOlubeko
-ms.author: ayolubek
+ms.author: craigg
 ms.reviewer: sstein
-manager: craigg
 ms.date: 10/30/2018
 ---
 # Run ad hoc analytics queries across multiple Azure SQL databases

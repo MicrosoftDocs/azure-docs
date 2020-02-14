@@ -1,5 +1,5 @@
 ---
-title: Detect domain-specific content - Computer Vision
+title: Domain-specific content - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Learn how to specify an image categorization domain to return more detailed information about an image.
 services: cognitive-services
@@ -26,7 +26,7 @@ You can analyze an image using only the chosen domain-specific model by calling 
 
 The following is a sample JSON response returned by the **models/celebrities/analyze** API for the given image:
 
-![Satya Nadella standing](./images/satya.jpeg)
+![Satya Nadella standing, smiling](./images/satya.jpeg)
 
 ```json
 {

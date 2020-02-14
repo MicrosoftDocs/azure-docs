@@ -1,16 +1,15 @@
 ---
-title: "Saas app: Monitor performance of many Azure SQL databases | Microsoft Docs"
+title: "Saas app: Monitor performance of many databases"
 description: "Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app"
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app

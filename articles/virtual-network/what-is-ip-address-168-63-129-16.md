@@ -4,7 +4,7 @@ description: Learn about IP address 168.63.129.16 and how it works with your res
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
+ms.date: 05/15/2019
 ms.author: genli
 
 ---
@@ -25,14 +25,19 @@ IP address 168.63.129.16 is a virtual public IP address that is used to facilita
 
 - Enables the VM Agent to communicate with the Azure platform to signal that it is in a "Ready" state.
 - Enables communication with the DNS virtual server to provide filtered name resolution to the resources (such as VM) that do not have a custom DNS server. This filtering makes sure that customers can resolve only the hostnames of their resources.
-- Enables health probes from the load balancer to determine the health state of VMs in a load-balanced set.
+- Enables [health probes from Azure load balancer](../load-balancer/load-balancer-custom-probe-overview.md) to determine the health state of VMs.
+- Enables the VM to obtain a dynamic IP address from the DHCP service in Azure.
 - Enables Guest Agent heartbeat messages for the PaaS role.
 
 ## Scope of IP address 168.63.129.16
 
-Virtual public IP address 168.63.129.16 is used in all regions and all national clouds. This special public IP address will not change. It is allowed by the default network security group rule. We recommend that you allow this IP address in any local firewall policies. The communication between this special IP address and the resources is safe because only the internal Azure platform can source a message from this IP address. If this address is blocked, unexpected behavior can occur in a variety of scenarios.
+The public IP address 168.63.129.16 is used in all regions and all national clouds. This special public IP address is owned by Microsoft and will not change. We recommend that you allow this IP address in any local (in the VM) firewall policies (outbound direction). The communication between this special IP address and the resources is safe because only the internal Azure platform can source a message from this IP address. If this address is blocked, unexpected behavior can occur in a variety of scenarios. 168.63.129.16 is a [virtual IP of the host node](../virtual-network/security-overview.md#azure-platform-considerations) and as such it is not subject to user defined routes.
 
-Additionally, you can expect that traffic to flow from virtual public IP address 168.63.129.16 to the endpoint that is configured for a [Load Balancer health probe](../load-balancer/load-balancer-custom-probe-overview.md). In a non-virtual network scenario, the health probe is sourced from a private IP. 
+- The VM Agent requires outbound communication over ports 80, 443, 32526 with WireServer (168.63.129.16). These should be open in the local firewall on the VM. The communication on these ports with 168.63.129.16 is not subject to the configured network security groups.
+- 168.63.129.16 can provide DNS services to the VM. If this is not desired, this traffic can be blocked in the local firewall on the VM. By default DNS communication is not subject to the configured network security groups unless specifically targeted leveraging the [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) service tag.
+- When the VM is part of a load balancer backend pool, [health probe](../load-balancer/load-balancer-custom-probe-overview.md) communication should be allowed to originate from 168.63.129.16. The default network security group configuration has a rule that allows this communication. This rule leverages the [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags) service tag. If desired this traffic can be blocked by configuring the network security group however this will result in probes that fail.
+
+In a non-virtual network scenario (Classic), the health probe is sourced from a private IP and 168.63.129.16 is not used.
 
 ## Next steps
 

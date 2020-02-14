@@ -1,483 +1,460 @@
 ---
+title: "Quickstart: Using Python to call the Text Analytics API"
+titleSuffix: Azure Cognitive Services
+description: This quickstart shows how to get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
+services: cognitive-services
 author: aahill
+manager: nitinme
+
 ms.service: cognitive-services
-ms.topic: include
-ms.date: 02/14/2019
+ms.subservice: text-analytics
+ms.topic: quickstart
+ms.date: 12/17/2019
 ms.author: aahi
 ---
 
+# Quickstart: Using the Python REST API to call the Text Analytics Cognitive Service 
 <a name="HOLTop"></a>
 
-#### [Version 3.0-preview](#tab/version-3)
+Use this quickstart to begin analyzing language with the Text Analytics REST API and Python. This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities).
 
-[v3 Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b2/azure.ai.textanalytics.html) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
-
-#### [Version 2.1](#tab/version-2)
-
-[v2 Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [v2 Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-
----
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* [Python 3.x](https://www.python.org/)
+* [Python 3.x](https://python.org)
 
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+* The Python requests library
+    
+    You can install the library with this command:
 
-## Setting up
+    ```console
+    pip install --upgrade requests
+    ```
 
-### Install the client library
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-After installing Python, you can install the client library with:
 
-#### [Version 3.0-preview](#tab/version-3)
+## Create a new Python application
 
-```console
-pip install azure-ai-textanalytics
-```
-
-#### [Version 2.1](#tab/version-2)
-
-```console
-pip install --upgrade azure-cognitiveservices-language-textanalytics
-```
-
----
-
-### Create a new python application
-
-Create a new Python file and create variables for your resource's Azure endpoint and subscription key.
-
-[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
+Create a new Python application in your favorite editor or IDE. Add the following imports to your file.
 
 ```python
-key = "<paste-your-text-analytics-key-here>"
+import requests
+# pprint is used to format the JSON response
+from pprint import pprint
+```
+
+Create variables for your resource's Azure endpoint and subscription key.
+    
+```python
+import os
+
+subscription_key = "<paste-your-text-analytics-key-here>"
 endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
+The following sections describe how to call each of the API's features.
 
-## Object model
+<a name="Detect"></a>
 
-#### [Version 3.0-preview](#tab/version-3)
+## Detect languages
 
-The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key. The client provides several methods for analyzing text as a batch. 
+Append `/text/analytics/v2.1/languages` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
+    
+```python
+language_api_url = endpoint + "/text/analytics/v2.1/languages"
+```
 
-When batch processing text is sent to the API as a list of `documents`, which are `dictionary` objects containing a combination of `id`, `text`, and `language` attributes depending on the method used. The `text` attribute stores the text to be analyzed in the origin `language`, and the `id` can be any value. 
-
-The response object is a list containing the analysis information for each document. 
-
-#### [Version 2.1](#tab/version-2)
-
-The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch. 
-
-Text is sent to the API as a list of `documents`, which are `dictionary` objects containing a combination of `id`, `text`, and `language` attributes depending on the method used. The `text` attribute stores the text to be analyzed in the origin `language`, and the `id` can be any value. 
-
----
-
-## Code examples
-
-These code snippets show you how to do the following tasks with the Text Analytics client library for Python:
-
-* [Authenticate the client](#authenticate-the-client)
-* [Sentiment Analysis](#sentiment-analysis)
-* [Language detection](#language-detection)
-* [Named Entity recognition](#named-entity-recognition-ner) 
-* [Entity linking](#entity-linking)
-* [Key phrase extraction](#key-phrase-extraction)
-
-## Authenticate the client
-
-Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. 
+The payload to the API consists of a list of `documents`, which are tuples containing an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
 
 ```python
-from azure.ai.textanalytics import TextAnalyticsClient, TextAnalyticsApiKeyCredential
-
-def authenticate_client():
-    ta_credential = TextAnalyticsApiKeyCredential(key)
-    text_analytics_client = TextAnalyticsClient(
-            endpoint=endpoint, credential=ta_credential)
-    return text_analytics_client
-
-client = authenticate_client()
+documents = {"documents": [
+    {"id": "1", "text": "This is a document written in English."},
+    {"id": "2", "text": "Este es un document escrito en Español."},
+    {"id": "3", "text": "这是一个用中文写的文件"}
+]}
 ```
 
-## Sentiment analysis
-
-#### [Version 3.0-preview](#tab/version-3)
-
-Create a new function called `sentiment_analysis_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
-
+Use the Requests library to send the documents to the API. Add your subscription key to the `Ocp-Apim-Subscription-Key` header, and send the request with `requests.post()`. 
 
 ```python
-def sentiment_analysis_example(client):
-
-    document = ["I had the best day of my life. I wish you were there with me."]
-    response = client.analyze_sentiment(inputs=document)[0]
-    print("Document Sentiment: {}".format(response.sentiment))
-    print("Overall scores: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f} \n".format(
-        response.sentiment_scores.positive,
-        response.sentiment_scores.neutral,
-        response.sentiment_scores.negative,
-    ))
-    for idx, sentence in enumerate(response.sentences):
-        print("[Offset: {}, Length: {}]".format(sentence.offset, sentence.length))
-        print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
-        print("Sentence score:\nPositive={0:.3f}\nNeutral={1:.3f}\nNegative={2:.3f}\n".format(
-            sentence.sentiment_scores.positive,
-            sentence.sentiment_scores.neutral,
-            sentence.sentiment_scores.negative,
-        ))
-
-            
-sentiment_analysis_example(client)
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+response = requests.post(language_api_url, headers=headers, json=documents)
+languages = response.json()
+pprint(languages)
 ```
 
 ### Output
 
-```console
-Document Sentiment: positive
-Overall scores: positive=1.000; neutral=0.000; negative=0.000 
-
-[Offset: 0, Length: 30]
-Sentence 1 sentiment: positive
-Sentence score:
-Positive=1.000
-Neutral=0.000
-Negative=0.000
-
-[Offset: 31, Length: 30]
-Sentence 2 sentiment: neutral
-Sentence score:
-Positive=0.210
-Neutral=0.770
-Negative=0.020
+```json
+{
+"documents":[
+    {
+        "detectedLanguages":[
+        {
+            "iso6391Name":"en",
+            "name":"English",
+            "score":1.0
+        }
+        ],
+        "id":"1"
+    },
+    {
+        "detectedLanguages":[
+        {
+            "iso6391Name":"es",
+            "name":"Spanish",
+            "score":1.0
+        }
+        ],
+        "id":"2"
+    },
+    {
+        "detectedLanguages":[
+        {
+            "iso6391Name":"zh_chs",
+            "name":"Chinese_Simplified",
+            "score":1.0
+        }
+        ],
+        "id":"3"
+    }
+],
+"errors":[]
+}
 ```
 
-#### [Version 2.1](#tab/version-2)
+<a name="SentimentAnalysis"></a>
 
-Authenticate a client object, and call the [sentiment()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function. Iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
+## Analyze sentiment
 
-[!code-python[sentiment analysis](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=sentimentAnalysis)]
-
-### Output
-
-```console
-Document ID: 1 , Sentiment Score: 0.87
-Document ID: 2 , Sentiment Score: 0.11
-Document ID: 3 , Sentiment Score: 0.44
-Document ID: 4 , Sentiment Score: 1.00
+To detect the sentiment (which ranges between positive or negative) of a set of documents, append `/text/analytics/v2.1/sentiment` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
+    
+```python
+sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
 ```
 
----
-
-## Language detection
-
-#### [Version 3.0-preview](#tab/version-3)
-
-Create a new function called `language_detection_example()` that takes the client as an argument, then calls the `detect_language()` function. The returned response object will contain the detected language in `primary_language` if successful, and an `error` if not.
-
-> [!Tip]
-> In some cases it may be hard to disambiguate languages based on the input. You can use the `country_hint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `country_hint : ""`. 
+As with the language detection example, create a dictionary with a `documents` key that consists of a list of documents. Each document is a tuple consisting of the `id`, the `text` to be analyzed and the `language` of the text. 
 
 ```python
-def language_detection_example(client):
-    try:
-        document = ["Ce document est rédigé en Français."]
-        response = client.detect_language(inputs = document, country_hint = 'us')[0]
-        print("Language: ", response.primary_language.name)
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-language_detection_example(client)
+documents = {"documents": [
+    {"id": "1", "language": "en",
+        "text": "I had a wonderful experience! The rooms were wonderful and the staff was helpful."},
+    {"id": "2", "language": "en",
+        "text": "I had a terrible time at the hotel. The staff was rude and the food was awful."},
+    {"id": "3", "language": "es",
+        "text": "Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos."},
+    {"id": "4", "language": "es",
+     "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."}
+]}
 ```
 
-
-### Output
-
-```console
-Language:  French
-```
-
-#### [Version 2.1](#tab/version-2)
-
-Using the client created earlier, call [detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
-
-[!code-python[language detection](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=languageDetection)]
-
-
-### Output
-
-```console
-Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
-```
-
----
-
-## Named Entity recognition (NER)
-
-#### [Version 3.0-preview](#tab/version-3)
-
-> [!NOTE]
-> In version `3.0-preview`:
-> * NER includes separate methods for detecting personal information. 
-> * Entity linking is a separate request than NER.
-
-Create a new function called `entity_recognition_example` that takes the client as an argument, then calls the `recognize_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
+Use the Requests library to send the documents to the API. Add your subscription key to the `Ocp-Apim-Subscription-Key` header, and send the request with `requests.post()`. 
 
 ```python
-def entity_recognition_example(client):
-
-    try:
-        document = ["I had a wonderful trip to Seattle last week."]
-        result = client.recognize_entities(inputs= document)[0]
-
-        print("Named Entities:\n")
-        for entity in result.entities:
-                print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
-                      "\n\tOffset: \t", entity.offset, "\tLength: \t", entity.offset, 
-                      "\tConfidence Score: \t", round(entity.score, 3), "\n")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-entity_recognition_example(client)
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+response = requests.post(sentiment_url, headers=headers, json=documents)
+sentiments = response.json()
+pprint(sentiments)
 ```
 
 ### Output
 
-```console
-Named Entities:
+The sentiment score for a document is between 0.0 and 1.0, with a higher score indicating a more positive sentiment.
 
-    Text:    Seattle    Category:    Location   SubCategory:     GPE 
-    Offset:      26     Length:      26     Confidence Score:    0.92 
-
-    Text:    last week  Category:    DateTime   SubCategory:     DateRange 
-    Offset:      34     Length:      34     Confidence Score:    0.8 
+```json
+{
+  "documents":[
+    {
+      "id":"1",
+      "score":0.9708490371704102
+    },
+    {
+      "id":"2",
+      "score":0.0019068121910095215
+    },
+    {
+      "id":"3",
+      "score":0.7456425428390503
+    },
+    {
+      "id":"4",
+      "score":0.334433376789093
+    }
+  ],
+  "errors":[]
+}
 ```
 
-## Using NER to detect personal information
+<a name="KeyPhraseExtraction"></a>
 
-Create a new function called `entity_pii_example()` that takes the client as an argument, then calls the `recognize_pii_entities()` function and gets the result. Then iterate through the results and print the entities.
+## Extract key phrases
+ 
+To extract the key phrases from a set of documents, append `/text/analytics/v2.1/keyPhrases` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
+    
+```python
+keyphrase_url = endpoint + "/text/analytics/v2.1/keyphrases"
+```
+
+This collection of documents is the same used for the sentiment analysis example.
 
 ```python
-def entity_pii_example(client):
-
-        document = ["Insurance policy for SSN on file 123-12-1234 is here by approved."]
-
-
-        result = client.recognize_pii_entities(inputs= document)[0]
-        
-        print("Personally Identifiable Information Entities: ")
-        for entity in result.entities:
-            print("\tText: ",entity.text,"\tCategory: ", entity.category,"\tSubCategory: ", entity.subcategory)
-            print("\t\tOffset: ", entity.offset, "\tLength: ", entity.length, "\tScore: {0:.3f}".format(entity.score), "\n")
-        
-entity_pii_example(client)
+documents = {"documents": [
+    {"id": "1", "language": "en",
+        "text": "I had a wonderful experience! The rooms were wonderful and the staff was helpful."},
+    {"id": "2", "language": "en",
+        "text": "I had a terrible time at the hotel. The staff was rude and the food was awful."},
+    {"id": "3", "language": "es",
+        "text": "Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos."},
+    {"id": "4", "language": "es",
+     "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."}
+]}
 ```
 
-### Output
-
-```console
-Personally Identifiable Information Entities: 
-    Text:  123-12-1234  Category:  U.S. Social Security Number (SSN)    SubCategory:  None
-        Offset:  33     Length:  11     Score: 0.850 
-```
-
-
-## Entity Linking
-
-Create a new function called `entity_linking_example()` that takes the client as an argument, then calls the `recognize_linked_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
+Use the Requests library to send the documents to the API. Add your subscription key to the `Ocp-Apim-Subscription-Key` header, and send the request with `requests.post()`. 
 
 ```python
-def entity_linking_example(client):
-
-    try:
-        document = ["""Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, 
-        to develop and sell BASIC interpreters for the Altair 8800. 
-        During his career at Microsoft, Gates held the positions of chairman,
-        chief executive officer, president and chief software architect, 
-        while also being the largest individual shareholder until May 2014."""]
-        result = client.recognize_linked_entities(inputs= document)[0]
-
-        print("Linked Entities:\n")
-        for entity in result.entities:
-            print("\tName: ", entity.name, "\tId: ", entity.id, "\tUrl: ", entity.url,
-            "\n\tData Source: ", entity.data_source)
-            print("\tMatches:")
-            for match in entity.matches:
-                print("\t\tText:", match.text)
-                print("\t\tScore: {0:.3f}".format(match.score), "\tOffset: ", match.offset, 
-                      "\tLength: {}\n".format(match.length))
-            
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-entity_linking_example(client)
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+response = requests.post(keyphrase_url, headers=headers, json=documents)
+key_phrases = response.json()
+pprint(key_phrases)
 ```
 
 ### Output
 
-```console
-Linked Entities:
-
-    Name:  Altair 8800  Id:  Altair 8800    Url:  https://en.wikipedia.org/wiki/Altair_8800 
-    Data Source:  Wikipedia
-    Matches:
-        Text: Altair 8800
-        Score: 0.777    Offset:  125    Length: 11
-
-    Name:  Bill Gates   Id:  Bill Gates     Url:  https://en.wikipedia.org/wiki/Bill_Gates 
-    Data Source:  Wikipedia
-    Matches:
-        Text: Bill Gates
-        Score: 0.555    Offset:  25     Length: 10
-
-        Text: Gates
-        Score: 0.555    Offset:  179    Length: 5
-
-    Name:  Paul Allen   Id:  Paul Allen     Url:  https://en.wikipedia.org/wiki/Paul_Allen 
-    Data Source:  Wikipedia
-    Matches:
-        Text: Paul Allen
-        Score: 0.533    Offset:  40     Length: 10
-
-    Name:  Microsoft    Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft 
-    Data Source:  Wikipedia
-    Matches:
-        Text: Microsoft
-        Score: 0.469    Offset:  0  Length: 9
-
-        Text: Microsoft
-        Score: 0.469    Offset:  168    Length: 9
-
-    Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4 
-    Data Source:  Wikipedia
-    Matches:
-        Text: April 4
-        Score: 0.248    Offset:  54     Length: 7
-
-    Name:  BASIC    Id:  BASIC  Url:  https://en.wikipedia.org/wiki/BASIC 
-    Data Source:  Wikipedia
-    Matches:
-        Text: BASIC
-        Score: 0.281    Offset:  98     Length: 5
-
+```json
+{
+  "documents":[
+    {
+      "keyPhrases":[
+        "wonderful experience",
+        "staff",
+        "rooms"
+      ],
+      "id":"1"
+    },
+    {
+      "keyPhrases":[
+        "food",
+        "terrible time",
+        "hotel",
+        "staff"
+      ],
+      "id":"2"
+    },
+    {
+      "keyPhrases":[
+        "Monte Rainier",
+        "caminos"
+      ],
+      "id":"3"
+    },
+    {
+      "keyPhrases":[
+        "carretera",
+        "tráfico",
+        "día"
+      ],
+      "id":"4"
+    }
+  ],
+  "errors":[]
+}
 ```
 
-#### [Version 2.1](#tab/version-2)
+<a name="Entities"></a>
 
-> [!NOTE]
-> In version 2.1, entity linking is included in the NER response.
+## Identify Entities
 
-Using the client created earlier, call the [entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
-
-[!code-python[Entity recognition](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=entityRecognition)]
-
-### Output
-
-```console
-Document ID: 1
-        Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-        Offset: 0, Length: 9,   Score: 1.0
-
-        Name: Bill Gates,       Type: Person,   Sub-Type: N/A
-        Offset: 25, Length: 10, Score: 0.999847412109375
-
-        Name: Paul Allen,       Type: Person,   Sub-Type: N/A
-        Offset: 40, Length: 10, Score: 0.9988409876823425
-
-        Name: April 4,  Type: Other,    Sub-Type: N/A
-        Offset: 54, Length: 7,  Score: 0.8
-
-        Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
-        Offset: 54, Length: 13, Score: 0.8
-
-        Name: BASIC,    Type: Other,    Sub-Type: N/A
-        Offset: 89, Length: 5,  Score: 0.8
-
-        Name: Altair 8800,      Type: Other,    Sub-Type: N/A
-        Offset: 116, Length: 11,        Score: 0.8
-
-Document ID: 2
-        Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-        Offset: 21, Length: 9,  Score: 0.999755859375
-
-        Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-        Offset: 60, Length: 7,  Score: 0.9911284446716309
-
-        Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-        Offset: 71, Length: 13, Score: 0.8
-
-        Name: Seattle,  Type: Location, Sub-Type: N/A
-        Offset: 88, Length: 7,  Score: 0.9998779296875
+To identify well-known entities (people, places, and things) in text documents, append `/text/analytics/v2.1/entities` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+    
+```python
+entities_url = endpoint + "/text/analytics/v2.1/entities"
 ```
 
----
-
-## Key phrase extraction
-
-
-#### [Version 3.0-preview](#tab/version-3)
-
-Create a new function called `key_phrase_extraction_example()` that takes the client as an argument, then calls the `extract_key_phrases()` function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
+Create a collection of documents, like in the previous examples. 
 
 ```python
-def key_phrase_extraction_example(client):
-
-    try:
-        document = ["My cat might need to see a veterinarian."]
-
-        response = client.extract_key_phrases(inputs= document)[0]
-
-        if not response.is_error:
-            print("\tKey Phrases:")
-            for phrase in response.key_phrases:
-                print("\t\t", phrase)
-        else:
-            print(response.id, response.error)
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-        
-key_phrase_extraction_example(client)
+documents = {"documents": [
+    {"id": "1", "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."}
+]}
 ```
 
+Use the Requests library to send the documents to the API. Add your subscription key to the `Ocp-Apim-Subscription-Key` header, and send the request with `requests.post()`.
+
+```python
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+response = requests.post(entities_url, headers=headers, json=documents)
+entities = response.json()
+pprint(entities)
+```
 
 ### Output
 
-```console
-    Key Phrases:
-         cat
-         veterinarian
+```json
+{
+   "documents" : [
+      {
+         "id" : "1",
+         "entities" : [
+            {
+               "name" : "Microsoft",
+               "matches" : [
+                  {
+                     "wikipediaScore" : 0.49897989655674446,
+                     "entityTypeScore" : 1.0,
+                     "text" : "Microsoft",
+                     "offset" : 0,
+                     "length" : 9
+                  }
+               ],
+               "wikipediaLanguage" : "en",
+               "wikipediaId" : "Microsoft",
+               "wikipediaUrl" : "https://en.wikipedia.org/wiki/Microsoft",
+               "bingId" : "a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
+               "type" : "Organization"
+            },
+            {
+               "name" : "Bill Gates",
+               "matches" : [
+                  {
+                     "wikipediaScore" : 0.58357497243368983,
+                     "entityTypeScore" : 0.999847412109375,
+                     "text" : "Bill Gates",
+                     "offset" : 25,
+                     "length" : 10
+                  }
+               ],
+               "wikipediaLanguage" : "en",
+               "wikipediaId" : "Bill Gates",
+               "wikipediaUrl" : "https://en.wikipedia.org/wiki/Bill_Gates",
+               "bingId" : "0d47c987-0042-5576-15e8-97af601614fa",
+               "type" : "Person"
+            },
+            {
+               "name" : "Paul Allen",
+               "matches" : [
+                  {
+                     "wikipediaScore" : 0.52977533244176866,
+                     "entityTypeScore" : 0.99884098768234253,
+                     "text" : "Paul Allen",
+                     "offset" : 40,
+                     "length" : 10
+                  }
+               ],
+               "wikipediaLanguage" : "en",
+               "wikipediaId" : "Paul Allen",
+               "wikipediaUrl" : "https://en.wikipedia.org/wiki/Paul_Allen",
+               "bingId" : "df2c4376-9923-6a54-893f-2ee5a5badbc7",
+               "type" : "Person"
+            },
+            {
+               "name" : "April 4",
+               "matches" : [
+                  {
+                     "wikipediaScore" : 0.37220990924571939,
+                     "entityTypeScore" : 0.8,
+                     "text" : "April 4",
+                     "offset" : 54,
+                     "length" : 7
+                  }
+               ],
+               "wikipediaLanguage" : "en",
+               "wikipediaId" : "April 4",
+               "wikipediaUrl" : "https://en.wikipedia.org/wiki/April_4",
+               "bingId" : "52535f87-235e-b513-54fe-c03e4233ac6e",
+               "type" : "Other"
+            },
+            {
+               "name" : "April 4, 1975",
+               "matches" : [
+                  {
+                     "entityTypeScore" : 0.8,
+                     "text" : "April 4, 1975",
+                     "offset" : 54,
+                     "length" : 13
+                  }
+               ],
+               "type" : "DateTime",
+               "subType" : "Date"
+            },
+            {
+               "name" : "BASIC",
+               "matches" : [
+                  {
+                     "wikipediaScore" : 0.35686239324548041,
+                     "entityTypeScore" : 0.8,
+                     "text" : "BASIC",
+                     "offset" : 89,
+                     "length" : 5
+                  }
+               ],
+               "wikipediaLanguage" : "en",
+               "wikipediaId" : "BASIC",
+               "wikipediaUrl" : "https://en.wikipedia.org/wiki/BASIC",
+               "bingId" : "5b16443d-501c-58f3-352e-611bbe75aa6e",
+               "type" : "Other"
+            },
+            {
+               "name" : "Altair 8800",
+               "matches" : [
+                  {
+                     "wikipediaScore" : 0.868324676465041,
+                     "entityTypeScore" : 0.8,
+                     "text" : "Altair 8800",
+                     "offset" : 116,
+                     "length" : 11
+                  }
+               ],
+               "wikipediaLanguage" : "en",
+               "wikipediaId" : "Altair 8800",
+               "wikipediaUrl" : "https://en.wikipedia.org/wiki/Altair_8800",
+               "bingId" : "7216c654-3779-68a2-c7b7-12ff3dad5606",
+               "type" : "Other"
+            },
+            {
+               "name" : "Altair",
+               "matches" : [
+                  {
+                     "entityTypeScore" : 0.52505272626876831,
+                     "text" : "Altair",
+                     "offset" : 116,
+                     "length" : 6
+                  }
+               ],
+               "type" : "Organization"
+            },
+            {
+               "name" : "8800",
+               "matches" : [
+                  {
+                     "entityTypeScore" : 0.8,
+                     "text" : "8800",
+                     "offset" : 123,
+                     "length" : 4
+                  }
+               ],
+               "type" : "Quantity",
+               "subType" : "Number"
+            }
+         ]
+      }
+   ],
+   "errors" : []
+}
 ```
 
-#### [Version 2.1](#tab/version-2)
+## Next steps
 
-Using the client created earlier, call the [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the key phrases contained in it.
+> [!div class="nextstepaction"]
+> [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-[!code-python[key phrase extraction](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=keyPhrases)]
+## See also 
 
-
-### Output
-
-```console
-Document ID: 1
-         Key phrases:
-                幸せ
-Document ID: 2
-         Key phrases:
-                Stuttgart
-                Hotel
-                Fahrt
-                Fu
-Document ID: 3
-         Key phrases:
-                cat
-                veterinarian
-Document ID: 4
-         Key phrases:
-                fútbol
-```
-
----
+ [Text Analytics overview](../overview.md)  
+ [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)

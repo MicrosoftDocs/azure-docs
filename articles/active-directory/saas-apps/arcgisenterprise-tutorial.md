@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 24809e9d-a4aa-4504-95a9-e4fcf484f431
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -225,5 +226,5 @@ When you click the ArcGIS Enterprise tile in the Access Panel, you should be aut
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

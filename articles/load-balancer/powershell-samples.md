@@ -1,10 +1,9 @@
 ---
-title: Azure PowerShell Samples
-titlesuffix: Azure Load Balancer
-description: Azure PowerShell Samples
+title: Azure PowerShell Samples - Azure Load Balancer
+description: With these samples, load balance traffic to multiple websites on VMs and traffic to VMs for HA with Azure Load Balancer.
 services: virtual-network
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 12/10/2018
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Azure PowerShell Samples for Load Balancer

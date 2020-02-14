@@ -2,13 +2,13 @@
 title: Troubleshoot disks attached to Azure VMs | Microsoft Docs
 description: Provides links to troubleshooting resources for Azure virtual machine virtual hard disks (VHDs).  
 services: storage
-author: genlin
+author: roygara
 
 ms.service: storage
 ms.topic: article
 ms.date: 10/31/2018
-ms.author: genli
-
+ms.author: rogarana
+ms.reviewer: wmgries
 ---
 
 # Troubleshoot disks attached to Azure VMs 

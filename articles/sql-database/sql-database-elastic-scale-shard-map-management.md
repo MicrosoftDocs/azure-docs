@@ -1,5 +1,5 @@
 ---
-title: Scale out an Azure SQL database | Microsoft Docs
+title: Scale out a database
 description: How to use the ShardMapManager, elastic database client library
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Scale out databases with the shard map manager

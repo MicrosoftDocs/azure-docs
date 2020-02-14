@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Media Services v3 API - Java
-description: Learn how to connect to Media Services v3 API with Java.
+description: This article describes how to connect to Azure Media Services v3 API with Java.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 09/18/2019
 ms.author: juliako
 
 ---
@@ -38,6 +38,9 @@ Also review:
 - [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java)
 - [Java Project Management in VS Code](https://code.visualstudio.com/docs/java/java-project)
 
+> [!IMPORTANT]
+> Review [naming conventions](media-services-apis-overview.md#naming-conventions).
+
 ## Create a Maven project
 
 Open a command-line tool and `cd` to a directory where  you want to create the project.
@@ -55,21 +58,21 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
 1. Add the needed dependencies
 
     ```xml
-    <dependency>
-      <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
-      <artifactId>azure-mgmt-media</artifactId>
-      <version>1.0.0-beta</version>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.rest</groupId>
-      <artifactId>client-runtime</artifactId>
-      <version>1.6.5</version>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-client-authentication</artifactId>
-      <version>1.6.5</version>
-    </dependency>
+   <dependency>
+     <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
+     <artifactId>azure-mgmt-media</artifactId>
+     <version>1.0.0-beta-3</version>
+   </dependency>
+   <dependency>
+     <groupId>com.microsoft.rest</groupId>
+     <artifactId>client-runtime</artifactId>
+     <version>1.6.6</version>
+   </dependency>
+   <dependency>
+     <groupId>com.microsoft.azure</groupId>
+     <artifactId>azure-client-authentication</artifactId>
+     <version>1.6.6</version>
+   </dependency>
     ```
 
 ## Connect to the Java client
@@ -122,3 +125,5 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
 ## Next steps
 
 You can now include `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` and start manipulating entities.
+
+For more code examples, see the [Java SDK samples](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) repo.

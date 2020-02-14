@@ -1,21 +1,10 @@
 ---
-title: Create an Azure Service Fabric container for Apache Tomcat server on Linux | Microsoft Docs
+title: Create a container for Apache Tomcat on Linux 
 description: Create Linux container to expose an application running on Apache Tomcat server on Azure Service Fabric. Build a Docker image with your application and Apache Tomcat server, push the image to a container registry, build and deploy a Service Fabric container application.
-services: service-fabric
-documentationcenter: .net
-author: JimacoMS2
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/08/2018
-ms.author: v-jamebr
-
+ms.author: pepogors
 ---
 
 # Create Service Fabric container running Apache Tomcat server on Linux
@@ -108,9 +97,9 @@ Follow the steps in this section to build a Docker image based on an Apache Tomc
 ## Push the Tomcat image to your container registry
 Now that you've verified that the Tomcat image runs in a container on your development computer, push it to a repository in a container registry. This article uses Azure Container Registry to store the image, but, with some modification of steps, you can use any container registry you choose. In this article the registry name is assumed to be *myregistry* and the full registry name is myregistry.azurecr.io. Change these appropriately for your scenario. 
 
-1. Run `docker login` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
+1. Run `docker login` to sign in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
 
-   The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could log in using your registry username and password.
+   The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could sign in using your registry username and password.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -159,7 +148,7 @@ Now that you've pushed the Tomcat image to a container registry, you can build a
    </Resources>
    ```
 
-11. In the application manifest (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), under the **ServiceManifestImport** tag, add the following XML. Replace the **AccountName** and **Password** in the **RepositoryCredentials** tag with the name of your container registry and the password required to log in to it.
+11. In the application manifest (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), under the **ServiceManifestImport** tag, add the following XML. Replace the **AccountName** and **Password** in the **RepositoryCredentials** tag with the name of your container registry and the password required to sign in to it.
 
    ```xml
    <Policies>

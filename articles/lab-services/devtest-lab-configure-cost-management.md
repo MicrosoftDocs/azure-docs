@@ -1,6 +1,6 @@
 ---
-title: View the monthly estimated lab cost trend in Azure DevTest Labs | Microsoft Docs
-description: Learn about the Azure DevTest Labs monthly estimated cost trend chart.
+title: View the monthly estimated lab cost trend in Azure DevTest Labs
+description: This article provides information on how to track the cost of your lab (monthly estimated cost trend chart) in Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 01/23/2020
 ms.author: spelluru
 
 ---
@@ -46,7 +46,7 @@ To view the Monthly Estimated Cost Trend chart, follow these steps:
 
      The following costs are *not* included in the cost calculation:
 
-   * CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../billing/billing-usage-rate-card-overview.md) to calculate the lab cost, which does not support CSP or Dreamspark subscriptions.
+   * CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../cost-management-billing/manage/usage-rate-card-overview.md) to calculate the lab cost, which does not support CSP or Dreamspark subscriptions.
    * Your offer rates. Currently, you can't use the offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. Only Pay-As-You-Go rates are used.
    * Your taxes
    * Your discounts
@@ -92,7 +92,7 @@ The monthly cost trend feature in labs allows you to see how much you have spent
 
 This feature helps you to easily identify the resources that cost the most so that you can take actions to reduce the lab spending. For example, the cost of a VM is based on the size of the VM. The larger the size of the VM, more is the cost. You can easily find the size of a VM and the owner, so that you can talk to the VM owner to understand why such VM size is needed and whether there is a chance to lower the size.
 
-[Auto-shutdown policy](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) helps you to reduce the cost by shutting down lab VMs at a particular time of the day. However, a lab user can opt out of the shutdown policy, which increases the cost of running the VM. You can select a VM in the table to see if it has been opted-out of the auto-shutdown policy. If that's the case, you can talk to the VM owner to find why the VM has been opted-out of the policy.
+[Auto-shutdown policy](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) helps you to reduce the cost by shutting down lab VMs at a particular time of the day. However, a lab user can opt out of the shutdown policy, which increases the cost of running the VM. You can select a VM in the table to see if it has been opted-out of the auto-shutdown policy. If that's the case, you can talk to the VM owner to find why the VM has been opted-out of the policy.
  
 ## Next steps
 Here are some things to try next:

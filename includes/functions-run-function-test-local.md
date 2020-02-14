@@ -1,9 +1,7 @@
 ---
 title: include file
 description: include file
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 10/20/2018
@@ -13,15 +11,28 @@ ms.custom: include file
 
 ## Run the function locally
 
-The following command starts the function app. The app runs using the same Azure Functions runtime that is in Azure.
+The following command starts the function app. The app runs using the same Azure Functions runtime that is in Azure. The start command varies, depending on your project language.
 
-```bash
-func host start --build
+### C\#
+
+```command
+func start --build
 ```
 
-The `--build` option is required to compile C# projects. You don't need this option for a JavaScript project.
+### JavaScript
 
-When the Functions host starts, it write something like the following output, which has been truncated for readability:
+```command
+func start
+```
+
+### TypeScript
+
+```command
+npm install
+npm start     
+```
+
+When the Functions host starts, it writes something like the following output, which has been truncated for readability:
 
 ```output
 

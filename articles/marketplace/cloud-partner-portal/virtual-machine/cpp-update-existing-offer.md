@@ -1,20 +1,13 @@
 ---
-title: Update an existing VM offer in the Azure Marketplace | Microsoft Docs
+title: Update an existing VM offer in the Azure Marketplace 
 description: Explains how to update an existing VM offer on Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
+author: MaggiePucciEvans
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: Ankit.Sud
+ms.author: evansma
 ---
 
 # Update an existing VM offer on Azure Marketplace

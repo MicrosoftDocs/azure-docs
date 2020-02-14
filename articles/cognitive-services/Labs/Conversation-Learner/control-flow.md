@@ -3,16 +3,17 @@ title: Conversation Learner control flow - Microsoft Cognitive Services | Micros
 titleSuffix: Azure
 description: Learn about the Conversation Learner control flow.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
+ROBOTS: NOINDEX
 ---
 
-## Control flow
+# Control flow
 
 This document describes the control flow of the Conversation Learner (CL) as displayed in the below diagram.
 

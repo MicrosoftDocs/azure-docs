@@ -6,12 +6,11 @@ ms.technology: devops-cicd
 services: azure-devops-project
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid:
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
@@ -40,51 +39,45 @@ DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new A
 
 ## Select a sample application and Azure service
 
-1. Select the .NET sample application. The .NET samples include a choice of either the open-source ASP.NET framework or the cross-platform .NET Core framework.
+1. Select the **.NET** sample application. The .NET samples include a choice of either the open-source ASP.NET framework or the cross-platform .NET Core framework.
 
-   	![.NET framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
+   ![.NET framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
-1. Select the .NET Core application framework.  
-	This sample is an ASP.NET Core MVC application.
+2. This sample is an ASP.NET Core MVC application. Select the **.NET Core** application framework, then select **Next**.	
 	
-2. Select **Next**.  
-	Web App on Windows is the default deployment target.  Optionally, you can choose Web App on Linux or Web App for Containers.  The application framework, which you chose previously, dictates the type of Azure service deployment target available here.  
-	
-3. Leave the default service, and then select **Next**.
+3. Select **Windows Web App** as a deployment target, then select **Next**. Optionally, you can choose other Azure services for your deployment. The application framework, which you chose previously, dictates the type of Azure service deployment target's available here.
 
 ## Configure Azure DevOps and an Azure subscription 
 
-1. Create a new free Azure DevOps organization or choose an existing organization.
+1. Enter a **Project name**.
 
-	a. Choose a name for your project. 
+2. Create a new free **Azure DevOps Organization** or choose an existing organization from the dropdown.
 
-	b. Select your Azure subscription and location, choose a name for your application, and then select **Done**.  
-	After a few minutes, the DevOps Projects dashboard is displayed  in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application is deployed to Azure. This dashboard provides visibility into your code repository, the  CI/CD pipeline, and your application in Azure.
-	
+3. Select your **Azure Subscription**, enter a name for your **Web app** or take the default, then select **Done**. After a few minutes, the DevOps Projects Deployment Overview is displayed in the Azure portal. 
 
-2. On the right of the dashboard, select **Browse** to view your running application.
+4. Select **Go to resource** to view the DevOps Project dashboard. In the upper right corner, pin the **Project** to your dashboard for quick access. A sample app is set up in a repo in your **Azure DevOps Organization**. A build is executed, and your app is deployed to Azure.
 
-   	![Dashboard view](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
+5. The dashboard provides visibility into your code repo, your CI/CD pipeline, and your app in Azure. At the right under Azure resources, select **Browse** to view your running app.
+
+   ![Dashboard view](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
 
 ## Commit code changes and execute CI/CD
 
- DevOps Projects created a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, do the following:
+DevOps Projects created a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, do the following:
 
-1. On the left of the DevOps Projects dashboard, select the link for your **master** branch.  
-This link opens a view to the newly created Git repository.
+1. On the left of the DevOps Projects dashboard, select the link for your **master** branch. This link opens a view to the newly created Git repository.
 
-1. To view the repository clone URL, select **Clone** from the top right of the browser.  
-You can clone your Git repository in your favorite IDE.  In the next few steps, you can use the web browser to make and commit code changes directly to the master branch.
+2. In the next few steps, you can use the web browser to make and commit code changes directly to the **master** branch. You can also clone your Git repository in your favorite IDE by selecting **Clone** from the top right of the repository page. 
 
-1. On the left of the browser, go to the **Views/Home/index.cshtml** file.
+3. On the left, navigate the application file structure to **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 
-1. Select **Edit**, and then make a change to the h2 heading. For example, type **Get started right away with the Azure DevOps Projects** or make some other change.
+4. Select **Edit**, and then make a change to the h2 heading. For example, type **Get started right away with the Azure DevOps Projects** or make some other change.
 
-    ![Code edits](_img/azure-devops-project-aspnet-core/codechange.png)
+      ![Code edits](_img/azure-devops-project-aspnet-core/codechange.png)
 
-1. Select **Commit**, and then save your changes.
+5. Select **Commit**, leave a comment and select **Commit** again.
 
-1. In your browser, go to the Azure DevOps Project dashboard.  You should now see a build is in progress. The changes you made are automatically built and deployed via a CI/CD pipeline.
+6. In your browser, go to the Azure DevOps Project dashboard.  You should now see a build is in progress. The changes you made are automatically built and deployed via a CI/CD pipeline.
 
 ## Examine the CI/CD pipeline
 

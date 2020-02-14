@@ -1,11 +1,11 @@
 ---
 title: Request Units and throughput in Azure Cosmos DB
 description: Learn about how to specify and estimate Request Unit requirements in Azure Cosmos DB
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
-ms.author: rimman
+ms.date: 07/23/2019
 
 ---
 # Request Units in Azure Cosmos DB
@@ -16,7 +16,7 @@ Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, an
 
 The cost of all database operations is normalized by Azure Cosmos DB and is expressed by *Request Units* (or RUs, for short). You can think of RUs per second as the currency for throughput. RUs per second is a rate-based currency. It abstracts the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. 
 
-The cost to read a 1 KB item is 1 Request Unit (or 1 RU). All other database operations are similarly assigned a cost using RUs. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, read, or query, costs are always measured in RUs.
+The cost to read a 1 KB item is 1 Request Unit (or 1 RU). A minimum of 10 RU/s is required to store each 1 GB of data. All other database operations are similarly assigned a cost using RUs. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, read, or query, costs are always measured in RUs.
 
 The following image shows the high-level idea of RUs:
 
@@ -70,3 +70,4 @@ While you estimate the number of RUs per second to provision, consider the follo
 * Learn how to [optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md).
 * Learn how to [optimize reads and writes cost in Azure Cosmos DB](optimize-cost-reads-writes.md).
 * Learn how to [optimize query cost in Azure Cosmos DB](optimize-cost-queries.md).
+* Learn how to [use metrics to monitor throughput](use-metrics.md).

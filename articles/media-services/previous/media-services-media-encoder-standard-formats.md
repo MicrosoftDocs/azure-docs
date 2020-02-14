@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard formats and codecs - Azure
-description: This topic gives an overview of Media Encoder Standard formats and codecs.
+description: This article provides an overview of Media Encoder Standard formats and codecs.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,7 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;anilmur
+ms.author: juliako
+ms.reviewer: anilmur
 
 ---
 # Media Encoder Standard Formats and Codecs

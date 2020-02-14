@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: a9e132a4-29e7-48bf-beb9-4148e617c8a9
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -220,7 +221,7 @@ In the case of ArcGIS Online, provisioning is a manual task.
    
      ![Add and review](./media/arcgis-tutorial/ic784749.png "Add and review")
     
-	 a. Enter the **Email**, **First Name**, and **Last Name** of a valid AAD account you want to provision.
+	 a. Enter the **Email**, **First Name**, and **Last Name** of a valid Azure AD account you want to provision.
   
      b. Click **ADD AND REVIEW**.
 5. Review the data you have entered, and then click **ADD MEMBERS**.
@@ -242,5 +243,5 @@ When you click the ArcGIS Online tile in the Access Panel, you should be automat
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

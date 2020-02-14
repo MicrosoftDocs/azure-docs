@@ -1,6 +1,6 @@
 ---
 title: Azure Government Identity | Microsoft Docs
-description: Provides Planning Guidance for Identity in Azure Government
+description: Microsoft Azure Government provides the same ways to build applications and manage identities as Azure Public. This article provides Planning Guidance for Identity in Azure Government.
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -28,7 +28,7 @@ Before determining the identity approach for your application, you need to know 
 |On-Premises Identity|Cloud Identity|Hybrid Identity
 |---|---|---|
 |On-Premises Identities belong to on-premises Active Directory environments that most customers use today.|Cloud identities originate, only exist, and are managed in Azure AD.|Hybrid identities originate as on-premises identities, but become hybrid through directory synchronization to Azure AD. After directory synchronization they exist both on-premises and in the cloud, hence hybrid.|
-
+ 
 >[!NOTE]
 >Hybrid comes with deployment options (Synchronized Identity, Federated Identity, etc.) that all rely on directory synchronization and mostly define how identities are authenticated as discussed in [Choose a Hybrid Identity Solution](../active-directory/choose-hybrid-identity-solution.md).
 >
@@ -78,7 +78,7 @@ Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authenticati
 >The preceding figure is a simple connectivity example, using site-to-site VPN. Azure ExpressRoute is another and more preferred connectivity option.
 >
 
-The type of domain controller to place in Azure is also a consideration based on application requirements for directory access. If applications require directory write access, deploy a standard domain controller with a writable copy of the Active Directory database. If applications only require directory read access, we recommend deploying a RODC (Read-Only Domain Controller) to Azure instead. Specifically, for RODCs we recommend following the guidance available at [Deployment Decisions and Factors for Read-Only DCs](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100#BKMK_RODC).
+The type of domain controller to place in Azure is also a consideration based on application requirements for directory access. If applications require directory write access, deploy a standard domain controller with a writable copy of the Active Directory database. If applications only require directory read access, we recommend deploying a RODC (Read-Only Domain Controller) to Azure instead. Specifically, for RODCs we recommend following the guidance available at [Deployment Decisions and Factors for Read-Only DCs](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100).
 
 We have documentation covering the guidelines for deploying AD Domain Controllers and ADFS (AD Federation Services) at these links:
 
