@@ -64,8 +64,8 @@ To configure and test Azure AD SSO with Beekeeper Azure AD SSO, complete the fol
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Beekeeper Azure AD SSO SSO](#configure-beekeeper-azure-ad-data-connector-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Beekeeper Azure AD SSO test user](#create-beekeeper-azure-ad-data-connector-test-user)** - to have a counterpart of B.Simon in Beekeeper Azure AD SSO that is linked to the Azure AD representation of user.
+1. **[Configure Beekeeper Azure AD SSO](#configure-beekeeper-azure-ad-sso)** - to configure the single sign-on settings on application side.
+    * **[Create Beekeeper Azure AD SSO test user](#create-beekeeper-azure-ad-sso-test-user)** - to have a counterpart of B.Simon in Beekeeper Azure AD SSO that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -155,7 +155,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Beekeeper Azure AD SSO SSO
+## Configure Beekeeper Azure AD SSO
 
 To configure single sign-on on **Beekeeper Azure AD SSO** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Beekeeper Azure AD SSO support team](mailto:support@beekeeper.io). They set this setting to have the SAML SSO connection set properly on both sides.
 
