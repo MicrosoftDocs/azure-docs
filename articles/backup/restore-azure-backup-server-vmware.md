@@ -67,7 +67,7 @@ You can restore individual files from a protected VM recovery point. This featur
 7. On the **Select Recovery Type** screen, click **Next**. You can only recover your file(s) or folder(s) to a network folder.
 8. On the **Specify Destination** screen, click **Browse** to find a network location for your files or folders. MABS creates a folder where all recovered items are copied. The folder name has the prefix, MABS_day-month-year. When you select a location for the recovered files or folder, the details for that location (Destination, Destination path, and available space) are provided.
 
-       ![Specify location to recover files](./media/restore-azure-backup-server-vmware/specify-destination.png)
+    ![Specify location to recover files](./media/restore-azure-backup-server-vmware/specify-destination.png)
 
 9. On the **Specify Recovery Options** screen, choose which security setting to apply. You can opt to modify the network bandwidth usage throttling, but throttling is disabled by default. Also, **SAN Recovery** and **Notification** are not enabled.
 10. On the **Summary** screen, review your settings and click **Recover** to start the recovery process. The **Recovery status** screen shows the progression of the recovery operation.
