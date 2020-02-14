@@ -48,11 +48,11 @@ Next, move over to our branch:
 
 Now, you're working on **[8]** from the above diagram.
 
-Next, open Visual Studio Code and **open the folder** that you just cloned to begin contributing.  You can see that you're working in the correct branch here:
+Next, open Visual Studio Code and **open the folder** that you just cloned to begin contributing.  You'll know that you're working in the correct branch if you see `release-project-spool` here:
 
 ![Cross Platform](./media/branch-validation.png)
 
-You can now make changes and push your commits to our team's branch!
+You can now make changes and push your commits to these docs!
 
 - **If you aren't familiar with git**, let me know and I can expand accordingly.
 - **If you are familiar with git** and have any feedback regarding this process, I'm completely open to suggestions, as I'm learning git as I go.
