@@ -42,7 +42,7 @@ You can create App Configuration values that reference secrets stored in Key Vau
 
 ## Does App Configuration encrypt my data?
 
-Yes. App Configuration encrypts all key values it holds, and it encrypts network communication. Key names are used as indexes for retrieving configuration data and aren't encrypted.
+Yes. App Configuration encrypts all key values it holds, and it encrypts network communication. Key names and labels are used as indexes for retrieving configuration data and aren't encrypted.
 
 ## How is App Configuration different from Azure App Service settings?
 
@@ -68,7 +68,7 @@ See [best practices](./howto-best-practices.md).
 
 The service is free to use during the public preview.
 
-Once the service reaches general availability on February 19, 2020, there will be two service tiers: 1) a free tier, and 2) a standard tier. Existing stores will move to the free tier upon general availability.
+Once the service reaches general availability on February 19, 2020, there will be two pricing tiers: 1) a free tier, and 2) a standard tier. Stores created prior to the introduction of the Standard tier will move to the Free tier upon general availability.
 
 ## Which App Configuration tier should I use?
 
@@ -77,7 +77,7 @@ Both App Configuration tiers offer core functionality, including config settings
 The following are considerations for choosing a tier.
 
 - **Resources per subscription**: A resource consists of a single configuration store. Each subscription is limited to one configuration store in the free tier. Subscriptions can have an unlimited number of configuration stores in the standard tier.
-- **Keys per resource**: In the free tier, the configuration store is limited to 1,000 keys or 10 MB. In the standard tier, each configuration store can have up to 20,000 keys or 1 GB.
+- **Keys per resource**: In the free tier, the configuration store is limited to 10 MB of storage. In the standard tier, each configuration store can use up to 1 GB of storage.
 - **Key history**: App Configuration stores a history of all changes made to keys. In the free tier, this history is stored for seven days. In the standard tier, this history is stored for 30 days.
 - **Requests per day**: Free tier stores are limited to 1,000 requests per day. Once a store reaches 1,000 requests, it will return HTTP status code 429 for all requests until midnight UTC.
 
