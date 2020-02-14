@@ -47,15 +47,18 @@ public class RemoteSky : MonoBehaviour
 
     private LoadTextureParams[] builtIns =
     {
-        new LoadTextureParams("builtin://GreenPointPark", TextureType.CubeMap),
+        new LoadTextureParams("builtin://Autoshop", TextureType.CubeMap),
+        new LoadTextureParams("builtin://BoilerRoom", TextureType.CubeMap),
+        new LoadTextureParams("builtin://ColorfulStudio", TextureType.CubeMap),
+        new LoadTextureParams("builtin://Hangar", TextureType.CubeMap),
+        new LoadTextureParams("builtin://IndustrialPipeAndValve", TextureType.CubeMap),
+        new LoadTextureParams("builtin://Lebombo", TextureType.CubeMap),
         new LoadTextureParams("builtin://SataraNight", TextureType.CubeMap),
-        new LoadTextureParams("builtin://SnowyForestPath", TextureType.CubeMap),
         new LoadTextureParams("builtin://SunnyVondelpark", TextureType.CubeMap),
         new LoadTextureParams("builtin://Syferfontein", TextureType.CubeMap),
         new LoadTextureParams("builtin://TearsOfSteelBridge", TextureType.CubeMap),
         new LoadTextureParams("builtin://VeniceSunset", TextureType.CubeMap),
         new LoadTextureParams("builtin://WhippleCreekRegionalPark", TextureType.CubeMap),
-        new LoadTextureParams("builtin://WinterEvening", TextureType.CubeMap),
         new LoadTextureParams("builtin://WinterRiver", TextureType.CubeMap),
         new LoadTextureParams("builtin://DefaultSky", TextureType.CubeMap)
     };
