@@ -53,7 +53,7 @@ Azure Functions deployed to a Premium plan takes advantage of [new VNet integrat
 
 When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
 
-Fore more information, see [integrate your function app with a VNet](functions-create-vnet.md).
+For more information, see [integrate your function app with a VNet](functions-create-vnet.md).
 
 ### Rapid elastic scale
 
@@ -89,6 +89,11 @@ When creating or scaling your plan, you can choose between three instance sizes.
 |EP1|1|3.5GB|250GB|
 |EP2|2|7GB|250GB|
 |EP3|4|14GB|250GB|
+
+### Memory utilization considerations
+Running on a machine with more memory does not always mean that your function app will use all available memory.
+
+For example, a JavaScript function app is constrained by the default memory limit in Node.js. To increase this fixed memory limit, add the app setting `languageWorkers:node:arguments` with a value of `--max-old-space-size=<max memory in MB>`.
 
 ## Regions
 
