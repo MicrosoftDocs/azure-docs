@@ -4,7 +4,7 @@ description: This article provides an overview of IT Service Management Connecto
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 

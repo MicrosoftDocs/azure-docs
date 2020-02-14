@@ -37,7 +37,6 @@ To view the current secondary region of your geo-redundant storage or read-acces
 
 ![Storage account overview](./media/documentation-government-services-storage-accountoverview.png)
 
-
 ### Storage service and feature availability by Azure Government region
 
 | Service or feature | USGov Virginia | USGov Iowa | USGov Arizona | USGov Texas | USDoD East | USDoD Central| 
@@ -47,9 +46,9 @@ To view the current secondary region of your geo-redundant storage or read-acces
 | [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
 | [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
 | [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |GA |- |GA |GA |- |- |
-| [Locally redundant storage](../storage/common/storage-redundancy-lrs.md) |GA |GA |GA |GA |GA |GA |
-| [Geo-redundant storage](../storage/common/storage-redundancy-grs.md) |GA |GA |GA |GA |GA |GA |
-| [Read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) |GA |GA |GA |GA |GA |GA |
+| [Locally redundant storage](../storage/common/storage-redundancy.md) |GA |GA |GA |GA |GA |GA |
+| [Geo-redundant storage](../storage/common/storage-redundancy.md) |GA |GA |GA |GA |GA |GA |
+| [Read-access geo-redundant storage](../storage/common/storage-redundancy.md) |GA |GA |GA |GA |GA |GA |
 | [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |GA |GA |GA |GA |
 | [Premium Storage](../virtual-machines/windows/disks-types.md) |GA |- |GA |GA |GA |GA | 
 | [StorSimple](../storsimple/storsimple-ova-overview.md) |GA |GA |GA |GA |GA |GA |

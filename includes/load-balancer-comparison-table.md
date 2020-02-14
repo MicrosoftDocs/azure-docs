@@ -12,7 +12,7 @@
 
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
-| Backend pool size | Supports up to 1000 instances. | Supports up to 100 instances. |
+| Backend pool size | Supports up to 1000 instances. | Supports up to 300 instances. |
 | Backend pool endpoints | Any virtual machine in a single virtual network, including blends of virtual machines, availability sets, and virtual machine scale sets. | Virtual machines in a single availability set or virtual machine scale set. |
 | [Health probes](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Health probe down behavior](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | TCP connections stay alive on an instance probe down __and__ on all probes down. | TCP connections stay alive on an instance probe down. All TCP connections terminate when all probes are down. |

@@ -3,7 +3,7 @@ title: "Quickstart: Language Understanding (LUIS) authoring client library"
 description: Get started with the LUIS client library with this quickstart. Follow these steps to install the package and try out the example code for basic tasks.
 ms.topic: quickstart
 ms.date: 01/14/2020
-zone_pivot_groups: programming-languages-set-six
+zone_pivot_groups: programming-languages-set-diberry-3core
 ---
 # Quickstart: Language Understanding (LUIS) authoring client library
 

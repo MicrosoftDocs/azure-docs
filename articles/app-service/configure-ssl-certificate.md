@@ -33,6 +33,9 @@ To follow this how-to guide:
 
 ## Private certificate requirements
 
+> [!NOTE]
+> Azure Web Apps does **not** support AES256 and all pfx files should be encrypted with TrippleDES.
+
 The [free App Service Managed Certificate](#create-a-free-certificate-preview) or the [App Service certificate](#import-an-app-service-certificate) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
 
 * Exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)
@@ -56,6 +59,7 @@ The free App Service Managed Certificate is a turn-key solution for securing you
 - Does not support wildcard certificates.
 - Does not support naked domains.
 - Is not exportable.
+- Does not support DNS A-records.
 
 > [!NOTE]
 > The free certificate is issued by DigiCert. For some top-level domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.

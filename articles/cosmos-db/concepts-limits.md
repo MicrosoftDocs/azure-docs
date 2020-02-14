@@ -1,8 +1,8 @@
 ---
 title: Azure Cosmos DB service quotas
 description: Azure Cosmos DB service quotas and default limits on different resource types.
-author: jasonwhowell
-ms.author: jasonh
+author: abhijitpai
+ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
@@ -72,7 +72,7 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 | Resource | Default limit |
 | --- | --- |
 | Maximum number of databases | Unlimited |
-| Maximum number of containers per database (or account) | Unlimited |
+| Maximum number of containers that can be provisioned in a database with shared throughput |25 |
 | Maximum number of regions | No limit (All Azure regions) |
 
 ## Per-container limits

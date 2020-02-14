@@ -9,10 +9,9 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer components and limitations and how it will affect my environment.
 ms.devlang: na
 ms.topic: overview
-ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/14/2019
+ms.date: 01/14/2020
 ms.author: allensu
 
 ---

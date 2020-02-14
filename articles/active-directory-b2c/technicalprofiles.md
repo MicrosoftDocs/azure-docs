@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 01/29/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -80,7 +80,7 @@ The **TechnicalProfile** contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Domain | 0:1 | The domain name for the technical profile. For example, if your technical profile specifies the Facebook identity provider, the domain name is Facebook.com. |
-| DisplayName | 0:1 | The name of the technical profile that can be displayed to users. |
+| DisplayName | 1:1 | The name of the technical profile that can be displayed to users. |
 | Description | 0:1 | The description of the technical profile that can be displayed to users. |
 | Protocol | 0:1 | The protocol used for the communication with the other party. |
 | Metadata | 0:1 | A collection of key/value pairs that are utilized by the protocol for communicating with the endpoint in the course of a transaction. |
@@ -95,7 +95,7 @@ The **TechnicalProfile** contains the following elements:
 | OutputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed after the claims are received from the claims provider. |
 | ValidationTechnicalProfiles | 0:n | A list of references to other technical profiles that the technical profile uses for validation purposes. For more information, see [validation technical profile](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Controls the production of the subject name in tokens where the subject name is specified separately from claims. For example, OAuth or SAML.  |
-| IncludeInSso | 0:1 |  Whether usage of this technical profile should apply single sign-on (SSO) behavior for the session, or instead require explicit interaction. Possible values: `true` (default), or `false`. |
+| IncludeInSso | 0:1 |  Whether usage of this technical profile should apply single sign-on (SSO) behavior for the session, or instead require explicit interaction. This element is valid only in SelfAsserted profiles used within a Validation technical profile. Possible values: `true` (default), or `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | An identifier of a technical profile from which you want all of the input and output claims to be added to this technical profile. The referenced technical profile must be defined in the same policy file. |
 | IncludeTechnicalProfile |0:1 | An identifier of a technical profile from which you want all data to be added to this technical profile. The referenced technical profile must exist in the same policy file. |
 | UseTechnicalProfileForSessionManagement | 0:1 | A different technical profile to be used for session management. |

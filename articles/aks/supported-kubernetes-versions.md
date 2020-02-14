@@ -99,7 +99,7 @@ New Supported Version List
 * For new **minor** versions of Kubernetes
   * All users are notified publicly of the new version and what version will be removed.
   * When a new patch version is released, the oldest patch release is removed at the same time.
-  * Customers have **60 days** from the public notification date to upgrade to a supported minor version release.
+  * Customers have **30 days** from the public notification date to upgrade to a supported minor version release.
 * For new **patch** versions of Kubernetes
   * All users are notified of the new patch version being released and to upgrade to the latest patch release.
   * Users have **30 days** to upgrade to a newer, supported patch release. Users have **30 days** to upgrade to

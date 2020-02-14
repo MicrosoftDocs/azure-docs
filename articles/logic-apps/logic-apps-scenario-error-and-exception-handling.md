@@ -509,5 +509,5 @@ The source code for the Logic Apps exception management API application is avail
 ## Next steps
 
 * [View more logic app examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Learn about monitoring logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Monitor logic apps](../logic-apps/monitor-logic-apps.md)
 * [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

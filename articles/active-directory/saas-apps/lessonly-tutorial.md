@@ -80,17 +80,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+     a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<companyname>.lessonly.com/signin`
 
 	> [!NOTE]
 	> When referencing a generic name that **companyname** needs to be replaced by an actual name.
+	
+     b. In the **Reply URL (Assertion Customer Service URL)** text box, type a URL using the following pattern:
+    `https://<companyname>.lessonly.com/auth/saml/callback`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+     c. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<companyname>.lessonly.com/auth/saml/metadata`
-
+    
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Lessonly.com Client support team](mailto:support@lessonly.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Reply URL, and Identifier. Contact [Lessonly.com Client support team](mailto:support@lessonly.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Lesson.ly application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 

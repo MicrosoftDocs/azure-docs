@@ -22,7 +22,7 @@ Event Grid provides durable delivery. It tries to deliver each message at least 
 
 Event Grid waits up to 60 seconds for a response after delivering a message. If the subscriber's endpoint doesn't ACK the response, then the message will be enqueued in one of our back off queues for subsequent retries.
 
-There are two pre-configured back off queues that determine the schedule on which a retry will be attempted. They are:-
+There are two pre-configured back off queues that determine the schedule on which a retry will be attempted. They are:
 
 | Schedule | Description |
 | ---------| ------------ |
@@ -38,7 +38,7 @@ There are two pre-configured back off queues that determine the schedule on whic
 
 ## Retry policy limits
 
-There are two configurations that determine retry policy. They are:-
+There are two configurations that determine retry policy. They are:
 
 * Maximum number of attempts
 * Event time-to-live (TTL)
@@ -47,12 +47,12 @@ An event will be dropped if either of the limits of the retry policy is reached.
 
 ## Configuring defaults for all subscribers
 
-There are two properties: `brokers:defaultMaxDeliveryAttempts` and `broker:defaultEventTimeToLiveInSeconds` that can be configured as part of the Event Grid deployment, which controls retry policy defaults for all subscribers.
+There are two properties: `brokers__defaultMaxDeliveryAttempts` and `broker__defaultEventTimeToLiveInSeconds` that can be configured as part of the Event Grid deployment, which controls retry policy defaults for all subscribers.
 
 | Property Name | Description |
 | ---------------- | ------------ |
-| `broker:defaultMaxDeliveryAttempts` | Maximum number of attempts to deliver an event. Default value: 30.
-| `broker:defaultEventTimeToLiveInSeconds` | Event TTL in seconds after which an event will be dropped if not delivered. Default value: **7200** seconds
+| `broker__defaultMaxDeliveryAttempts` | Maximum number of attempts to deliver an event. Default value: 30.
+| `broker__defaultEventTimeToLiveInSeconds` | Event TTL in seconds after which an event will be dropped if not delivered. Default value: **7200** seconds
 
 ## Configuring defaults per subscriber
 
@@ -66,8 +66,8 @@ The following example sets up retry policy in the Event Grid module with maxNumb
 ```json
 {
   "Env": [
-    "broker:defaultMaxDeliveryAttempts=3",
-    "broker:defaultEventTimeToLiveInSeconds=1800"
+    "broker__defaultMaxDeliveryAttempts=3",
+    "broker__defaultEventTimeToLiveInSeconds=1800"
   ],
   "HostConfig": {
     "PortBindings": {
