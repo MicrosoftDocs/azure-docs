@@ -23,7 +23,6 @@ ms.author: diberry
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
-
 ## Change model programmatically
 
 1. Create a new file named `model.py`. Add the following code:
