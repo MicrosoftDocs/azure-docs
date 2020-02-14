@@ -15,7 +15,7 @@
   items:
   - name: Overview
     items:
-    - name: Landing page
+    - name: Speech-to-text documentation
       href: index-speech-to-text.yml
     - name: What is speech-to-text?
       href: speech-to-text.md
@@ -104,6 +104,8 @@
   items:
   - name: Overview
     items:
+    - name: Text-to-speech documentation
+      href: index-text-to-speech.yml
     - name: What is text-to-speech?
       href: text-to-speech.md
   - name: Quickstart
@@ -201,6 +203,8 @@
   items:
   - name: Overview
     items:
+    - name: Speech translation documentation
+      href: index-speech-translation.yml
     - name: What is speech translation?
       href: speech-translation.md
   - name: Quickstart
@@ -247,6 +251,10 @@
 - name: Intent recognition
   expanded: false
   items:
+  - name: Overview
+    items:
+    - name: Intent recognition documentation
+      href: index-intent-recognition.yml
   - name: Quickstart
     items:
     - name: Recognize speech, intents, and entities
@@ -288,6 +296,10 @@
 - name: Conversation scenarios
   expanded: false
   items:
+  - name: Overview
+    items:
+    - name: Conversation scenarios documentation
+      href: index-conversation-scenarios.yml
   - name: Conversation transcription
     items:
     - name: Overview
@@ -355,6 +367,8 @@
   items:
   - name: Overview
     items:
+    - name: Voice assistants documentation
+      href: index-voice-assistants.yml
     - name: About voice assistants
       href: voice-assistants.md
   - name: Custom Commands (preview)
@@ -464,6 +478,10 @@
 - name: Speech service
   expanded: false
   items:
+    - name: Overview
+      items:
+      - name: Hosting documentation
+        href: index-hosting.yml
     - name: How-to guides
       items:
         - name: Install and run containers
@@ -532,6 +550,8 @@
   items:
   - name: Overview
     items:
+    - name: Devices documentation
+      href: index-devices.yml
     - name: About the Speech Devices SDK
       href: speech-devices-sdk.md
     - name: Get the Speech Devices SDK
