@@ -150,9 +150,9 @@ In this section, you grant B.Simon access to Jamf Pro.
 
 	![The Single Sign-On page in Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-  a. Select **Edit**.
+	a. Select **Edit**.
 
-  b. Select the **Enable Single Sign-On Authentication** check box.
+	b. Select the **Enable Single Sign-On Authentication** check box.
 
 	c. Select **Azure** as an option from the **Identity Provider** drop-down menu.
 
