@@ -52,7 +52,7 @@ Currently the following dependencies are supported:
 - Azure SQL
 
 ### Enablement
-"Microsoft.ChangeAnalysis" resource provider needs to be registered with a subscription for the Azure Resource Manager tracked properties and proxied settings change data to be available. As you enter the Web App diagnose and solve problems tool or bring up the Change Analysis standalone tab, this resource provider is automatically registered. It does not have any performance and cost implementations for your subscription. When you enable Change Analysis for web apps(or enabling in the Diagnose and Solve problems tool), it will have negligible performance impact on the web app and no billing cost.
+"Microsoft.ChangeAnalysis" resource provider needs to be registered with a subscription for the Azure Resource Manager tracked properties and proxied settings change data to be available. As you enter the Web App diagnose and solve problems tool or bring up the Change Analysis standalone tab, this resource provider is automatically registered. It does not have any performance and cost implementations for your subscription. When you enable Change Analysis for web apps (or enabling in the Diagnose and Solve problems tool), it will have negligible performance impact on the web app and no billing cost.
 For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Enable Change Analysis in the Diagnose and solve problems tool](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#enable-change-analysis-in-the-diagnose-and-solve-problems-tool) section later in this article for more details.
 
 
