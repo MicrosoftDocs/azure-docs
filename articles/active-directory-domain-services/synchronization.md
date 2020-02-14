@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 10/31/2019
 ms.author: iainfou
 
 ---
@@ -93,7 +93,7 @@ The following table illustrates how specific attributes for group objects in Azu
 
 ## Synchronization from on-premises AD DS to Azure AD and Azure AD DS
 
-Azure AD Connect is used to synchronize user accounts, group memberships, and credential hashes from an on-premises AD DS environment to Azure AD. Attributes of user accounts such as the UPN and on-premises security identifier (SID) are synchronized. To sign in using Azure AD DS, legacy password hashes required for NTLM and Kerberos authentication are also synchronized to Azure AD.
+Azure AD Connect is used to synchronize user accounts, group memberships, and credential hashes from an on-premises AD DS environment to Azure AD. Attributes of user accounts such as the UPN and on-premises security identifier (SID) are synchronized. To sign in using Azure AD Domain Services, legacy password hashes required for NTLM and Kerberos authentication are also synchronized to Azure AD.
 
 > [!IMPORTANT]
 > Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
@@ -124,13 +124,9 @@ The following objects or attributes aren't synchronized from an on-premises AD D
 
 ## Password hash synchronization and security considerations
 
-When you enable Azure AD DS, legacy password hashes for NTLM + Kerberos authentication are required. Azure AD doesn't store clear-text passwords, so these hashes can't be automatically generated for existing user accounts. Once generated and stored, NTLM and Kerberos compatible password hashes are always stored in an encrypted manner in Azure AD.
+When you enable Azure AD DS, legacy password hashes for NTLM + Kerberos authentication are required. Azure AD doesn't store clear-text passwords, so these hashes can't automatically be generated for existing user accounts. Once generated and stored, NTLM and Kerberos compatible password hashes are always stored in an encrypted manner in Azure AD. The encryption keys are unique to each Azure AD tenant. These hashes are encrypted such that only Azure AD DS has access to the decryption keys. No other service or component in Azure AD has access to the decryption keys. Legacy password hashes are then synchronized from Azure AD into the domain controllers for an Azure AD DS managed domain. The disks for these managed domain controllers in Azure AD DS are encrypted at rest. These password hashes are stored and secured on these domain controllers similar to how passwords are stored and secured in an on-premises AD DS environment.
 
-The encryption keys are unique to each Azure AD tenant. These hashes are encrypted such that only Azure AD DS has access to the decryption keys. No other service or component in Azure AD has access to the decryption keys.
-
-Legacy password hashes are then synchronized from Azure AD into the domain controllers for an Azure AD DS managed domain. The disks for these managed domain controllers in Azure AD DS are encrypted at rest. These password hashes are stored and secured on these domain controllers similar to how passwords are stored and secured in an on-premises AD DS environment.
-
-For cloud-only Azure AD environments, [users must reset/change their password](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in order for the required password hashes to be generated and stored in Azure AD. For any cloud user account created in Azure AD after enabling Azure AD Domain Services, the password hashes are generated and stored in the NTLM and Kerberos compatible formats. Those new accounts don't need to reset or change their password generate the legacy password hashes.
+For cloud-only Azure AD environments, [users must reset/change their password](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in order for the required password hashes to be generated and stored in Azure AD. For any cloud user account created in Azure AD after enabling Azure AD Domain Services, the password hashes are generated and stored in the NTLM and Kerberos compatible formats. Those new accounts don't need to reset/change their password generate the legacy password hashes.
 
 For hybrid user accounts synced from on-premises AD DS environment using Azure AD Connect, you must [configure Azure AD Connect to synchronize password hashes in the NTLM and Kerberos compatible formats](tutorial-configure-password-hash-sync.md).
 
