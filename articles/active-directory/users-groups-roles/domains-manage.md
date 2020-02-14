@@ -104,7 +104,7 @@ If you find that any of the conditions haven’t been met, manually clean up the
 Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using the Microsoft Graph API.
 
 * [Using PowerShell to manage domain names in Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
-* [Domain resource type](https://docs.microsoft.com/en-us/graph/api/resources/domain?view=graph-rest-1.0)
+* [Domain resource type](https://docs.microsoft.com/graph/api/resources/domain?view=graph-rest-1.0)
 
 ## Next steps
 
