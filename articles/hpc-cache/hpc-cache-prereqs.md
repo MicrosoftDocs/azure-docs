@@ -108,7 +108,7 @@ If using an NFS storage system (for example, an on-premises hardware NAS system)
 
     | Protocol | Port  | Service  |
     |----------|-------|----------|
-    | TCP/UDP  | 111   | rcpbind  |
+    | TCP/UDP  | 111   | rpcbind  |
     | TCP/UDP  | 2049  | NFS      |
     | TCP/UDP  | 4045  | nlockmgr |
     | TCP/UDP  | 4046  | mountd   |
