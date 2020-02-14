@@ -816,7 +816,7 @@ No, the solution does not maintain a cache of user profiles. The Azure AD provis
 
 #### Does the solution support assigning on-premises AD groups to the user?
 
-This functionality is not supported currently. Recommended workaround is to deploy a PowerShell script that queries the Azure AD Graph API endpoint for audit log data and use that to trigger scenarios such as group assignment. This PowerShell script can be attached to a task scheduler and deployed on the same box running the provisioning agent.  
+This functionality is not supported currently. Recommended workaround is to deploy a PowerShell script that queries the Microsoft Graph API endpoint for [audit log data](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) and use that to trigger scenarios such as group assignment. This PowerShell script can be attached to a task scheduler and deployed on the same box running the provisioning agent.  
 
 #### Which Workday APIs does the solution use to query and update Workday worker profiles?
 
