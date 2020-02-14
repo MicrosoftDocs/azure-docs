@@ -76,7 +76,7 @@ Now it is assumed you have a storage account. Navigate to the storage account in
 
  Ensure you have owner permissions over this storage account to ensure that you can add role assignments. If you don’t have access, the **Add a role assignment** option will be disabled.
 
- You need to add three distinct roles as described in the next steps. If you do not provide all 3 levels of access, there will be permission issues while trying to access the storage account.
+ You need to add three distinct roles as described in the next steps. If you do not provide all three levels of access, there will be permission issues while trying to access the storage account.
 
  Click on the **Add** button in the "Add a role assignment" tile to add the first role:
 
