@@ -1,5 +1,5 @@
 ---
-title:  Scale capacity for query and index workloads
+title:  Adjust capacity for query and index workloads
 titleSuffix: Azure Cognitive Search
 description: Adjust partition and replica computer resources in Azure Cognitive Search, where each resource is priced in billable search units.
 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ---
 
-# Plan for capacity in Azure Cognitive Search
+# Adjust capacity in Azure Cognitive Search
 
 Before [provisioning a search service](search-create-service-portal.md) and locking in a specific pricing tier, take a few minutes to understand the role of replicas and partitions in a service, whether you need proportionally larger or faster partitions, and how you might configure the service for expected load.
 
