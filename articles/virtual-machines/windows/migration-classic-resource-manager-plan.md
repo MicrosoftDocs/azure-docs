@@ -18,10 +18,12 @@ ms.date: 02/06/2020
 ms.author: tagore
 
 ---
+
+# Planning for migration of IaaS resources from classic to Azure Resource Manager
+
 > [!IMPORTANT]
 > Classic VMs will be retiring on March 1, 2023. [Learn more](https://aka.ms/classicvmretirement). Start planning your migration today! Learn more about [ARM VMs](https://docs.microsoft.com/azure/virtual-machines/).
 
-# Planning for migration of IaaS resources from classic to Azure Resource Manager
 While Azure Resource Manager offers many amazing features, it is critical to plan out your migration journey to make sure things go smoothly. Spending time on planning will ensure that you do not encounter issues while executing migration activities.
 
 There are four general phases of the migration journey:<br>
