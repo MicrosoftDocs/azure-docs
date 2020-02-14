@@ -1,13 +1,13 @@
 ## Intro
 
-I'm writing this to expose you to the bare minimum amount of information you need in order to contribute documentation. 
+My goal is to minimize process complexity so that you can start dumping content as easily as possible.
 
-If you have any questions or feedback along the way, feel free to ping/email any time.  My alias is mikben.
+If you have any questions or feedback along the way, feel free to ping/email any time.  My alias is **mikben**.
 
-*Note: I'm new to both content (and git), so we'll be learning the docs contribution process together.  I've copied the documentation structure of the Spatial Anchors service to get started; we'll use that as scaffolding for our content set.*
+*Note: I'm a new content developer, so we'll be learning the Azure docs contribution process together.  I've copied the documentation structure of the Spatial Anchors service to get started; we'll use that as scaffolding for our content set.*
 
 
-## Process Overview
+## Our Azure Docs Contribution Process
 
 ![Cross Platform](./media/process.png)
 
@@ -53,7 +53,7 @@ Next, open Visual Studio Code and **open the folder** that you just cloned to be
 
 ![Cross Platform](./media/branch-validation.png)
 
-You should be able to push your commits to our team's branch now!
+You can now make changes and push your commits to our team's branch!
 
 - **If you aren't familiar with git**, let me know and I can expand accordingly.
 - **If you are familiar with git** and have any feedback regarding this process, I'm completely open to suggestions, as I'm learning git as I go.
