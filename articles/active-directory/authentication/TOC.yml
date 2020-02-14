@@ -11,8 +11,8 @@
     href: tutorial-enable-sspr.md
   - name: Enable Azure Multi-Factor Authentication
     href: tutorial-enable-azure-mfa.md
-  - name: Enable SSPR on-premises integration
-    href: tutorial-enable-writeback.md
+  - name: Enable on-premises password writeback
+    href: tutorial-enable-sspr-writeback.md
   - name: Integrate Azure Identity Protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
