@@ -60,7 +60,10 @@ The following procedure shows you how to install HDInsight applications to an ex
 You can see the installation status from the portal notifications (select the bell icon on the top of the portal). After the application is installed, the application  appears on the Installed Apps list.
 
 ## Install applications during cluster creation
-You have the option to install HDInsight applications when you create a cluster. During the process, HDInsight applications are installed after the cluster is created and is in the running state. To install applications during cluster creation using the Azure portal, you use the **Custom** option instead of the default **Quick create** option.
+
+You have the option to install HDInsight applications when you create a cluster. During the process, HDInsight applications are installed after the cluster is created and is in the running state. To install applications during cluster creation using the Azure portal, from the **Configuration + pricing** tab, select **+ Add application**.
+
+![Azure portal cluster configuration applications](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
 
 ## List installed HDInsight apps and properties
 The portal shows a list of the installed HDInsight applications for a cluster, and the properties of each installed application.

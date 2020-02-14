@@ -105,9 +105,9 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Scale partitions and replicas
+    - name: Adjust capacity
       href: search-capacity-planning.md
-    - name: Deployment strategies and best practices
+    - name: Scale for performance
       href: search-performance-optimization.md
     - name: Multitenant architecture
       href: search-modeling-multitenant-saas-applications.md
@@ -270,7 +270,9 @@
       - name: View with Storage Explorer
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
-        href: knowledge-store-connect-power-bi.md    
+        href: knowledge-store-connect-power-bi.md  
+      - name: Projection examples
+        href: knowledge-store-projections-examples.md  
   - name: Query documents
     items:
     - name: Query types and composition
@@ -311,14 +313,20 @@
       href: search-pagination-page-layout.md
     - name: Relevance tuning (scoring profiles)
       href: index-add-scoring-profiles.md
-  - name: Manage and monitor
+  - name: Manage a service
     items:
-    - name: Portal administration
+    - name: Portal
       href: search-manage.md
-    - name: PowerShell administration
+    - name: PowerShell
       href: search-manage-powershell.md
-    - name: Monitor activity and logging
+  - name: Monitor and logging
+    items:
+    - name: Fundamentals
       href: search-monitor-usage.md
+    - name: Monitor query activity
+      href: search-monitor-queries.md 
+    - name: Diagnostic logging
+      href: search-monitor-logs.md   
     - name: Search traffic analytics
       href: search-traffic-analytics.md
   - name: Troubleshoot
@@ -345,8 +353,8 @@
     items:
     - name: Search 2019-05-06
       href: /rest/api/searchservice
-    - name: Reset Skills (api-version=2019-05-06-Preview)
-      href: preview-api-resetskills.md
+    - name: Search 2019-05-06-Preview
+      href: /rest/api/searchservice/index-2019-05-06-preview
     - name: Management 2015-08-15
       href: /rest/api/searchmanagement
     - name: Management 2019-10-01-Preview
@@ -389,6 +397,8 @@
         href: cognitive-search-predefined-skills.md
       - name: Conditional
         href: cognitive-search-skill-conditional.md
+      - name: Custom Entity Lookup
+        href: cognitive-search-skill-custom-entity-lookup.md 
       - name: Document Extraction
         href: cognitive-search-skill-document-extraction.md
       - name: Entity Recognition

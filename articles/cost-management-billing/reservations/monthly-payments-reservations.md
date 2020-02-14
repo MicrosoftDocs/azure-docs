@@ -1,12 +1,11 @@
 ---
 title: Purchase Azure reservations with up front or monthly payments
 description: Learn how you can purchase Azure reservations with up front or monthly payments.
-services: billing
 author: bandersmsft
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 02/12/2020
 ms.author: banders
 ---
 
@@ -20,10 +19,15 @@ Monthly payments are available for:
 
 - Virtual machines
 - Azure Storage
-- SQL Database
+- SQL Databases
 - SQL Data Warehouse
 - Cosmos DB
 - App Service stamp fee
+- Managed Disk
+- Azure Data Explorer
+- Azure Database for MariaDB, MySQL and PostgreSQL
+- Azure VMware Solution by CloudSimple
+
 
 Purchase reservations in the [Azure portal](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).
 

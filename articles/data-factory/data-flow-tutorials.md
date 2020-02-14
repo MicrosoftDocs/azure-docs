@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/14/2020
+ms.date: 02/06/2020
 ---
 
 # Mapping data flow video tutorials
@@ -37,6 +37,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Derived Column transformation](https://www.youtube.com/watch?v=FFCbU4ujCiY)
 
 [Join transformation](https://www.youtube.com/watch?v=zukwayEXRtg)
+
+[Self-join pattern](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
 
 [Lookup transformation](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
@@ -125,3 +127,7 @@ As updates are constantly made to the product, some features have added or diffe
 [Logical Models vs. Physical Models](http://youtu.be/K5tgzLjEE9Q)
 
 [Detect source data changes](http://youtu.be/CaxIlI7oXfI?hd=1)
+
+## Data flow expressions
+
+[Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)

@@ -38,7 +38,9 @@
     - name: Apache Hadoop components on HDInsight
       href: ./hdinsight-component-versioning.md
     - name: High availability components
-      href: ./hdinsight-high-availability-components.md     
+      href: ./hdinsight-high-availability-components.md   
+    - name: Apache Ambari in Azure HDInsight
+      href: ./apache-ambari-usage.md  
     - name: Machine learning in HDInsight
       href: ./hdinsight-machine-learning-overview.md
     - name: Streaming at scale in HDInsight
@@ -344,6 +346,8 @@
         href: ./spark/apache-azure-spark-history-server.md
       - name: Enable caching with IO Cache
         href: ./spark/apache-spark-improve-performance-iocache.md
+      - name: Manage Jar dependencies
+        href: ./spark/manage-jar-dependency.md
       - name: Use notebooks with Apache Spark
         items: 
         - name: Use a local Jupyter notebook
@@ -368,6 +372,8 @@
           href: ./spark/apache-spark-run-machine-learning-automl.md
     - name: Troubleshoot
       items:
+      - name: Can't create Jupyter notebook
+        href: ./spark/troubleshoot-jupyter-notebook-convert.md
       - name: OutOfMemoryError exception
         href: ./spark/apache-spark-troubleshoot-outofmemory.md
       - name: Apache Spark job fails - NoClassDefFoundError
@@ -392,6 +398,8 @@
         href: ./spark/apache-spark-troubleshoot-event-log-requestbodytoolarge.md
       - name: Debug Apache Spark jobs
         href: ./spark/apache-spark-job-debugging.md
+      - name: Debug WASB file operations
+        href: ./spark/troubleshoot-debug-wasb.md
       - name: Use IntelliJ to debug Apache Spark job
         href: ./spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md
       - name: Apache Spark troubleshooting
@@ -517,6 +525,10 @@
         href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
       - name: Port conflict when starting services
         href: ./hadoop/troubleshoot-port-conflict.md
+      - name: Lost Key Vault access
+        href: ./hadoop/troubleshoot-lost-key-vault-access.md
+      - name: WASBS storage exception
+        href: ./hadoop/troubleshoot-wasbs-storage-exception.md
 - name: Apache Kafka
   items:
   - name: Overview

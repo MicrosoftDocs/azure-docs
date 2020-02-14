@@ -494,6 +494,8 @@
           href: javascript-query-api.md
     - name: Optimize your Azure Cosmos DB cost
       items:
+        - name: Plan and manage costs
+          href: plan-manage-costs.md
         - name: Pricing model
           href: how-pricing-works.md
         - name: Total Cost of Ownership (TCO) 
@@ -552,6 +554,8 @@
         href: cassandra-introduction.md
       - name: Wire protocol support
         href: cassandra-support.md
+      - name: Elastic scale
+        href: manage-scale-cassandra.md      
       - name: Quickstarts
         items:
         - name: .NET
@@ -1048,6 +1052,9 @@
       - name: Use Spring Boot Starter
         href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
         maintainContext: true
+      - name: Spring Data developer guide
+        href: /java/azure/spring-framework/how-to-guides-spring-data-cosmosdb
+        maintainContext: true
       - name: ODBC driver 
         href: odbc-driver.md
     - name: Migrate data to Cosmos DB
@@ -1066,6 +1073,8 @@
         href: migrate-cosmosdb-data.md
       - name: Migrate one-to-few relational data
         href: migrate-relational-to-cosmos-db-sql-api.md 
+      - name: Migrate - Couchbase to SQL API
+        href: couchbase-cosmos-migration.md 
     - name: Bulk executor library
       items: 
       - name: About bulk executor library

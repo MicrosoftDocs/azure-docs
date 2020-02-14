@@ -6,7 +6,7 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 01/21/2020
+ms.date: 02/04/2020
 
 ---
 
@@ -49,6 +49,9 @@ The following column have been added:
 - Authorization_d
 - Claims_d
 - Properties_d
+
+> [!IMPORTANT]
+> In some cases, the values in these columns may be in all uppercase. If you have a query that includes these columns, you should use the [=~ operator](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) to do a case insensitive comparison.
 
 ## Work with legacy settings
 Legacy settings for collecting the Activity log will continue to work if you don't choose to replace with a diagnostic setting. Use the following method to manage the log profile for a subscription.

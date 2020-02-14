@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Create a geofence and track devices on a map | Microsoft Azure Maps'
 description: Learn how to set up a geofence and track devices relative to the geofence using Microsoft Azure Maps Spatial Service.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
@@ -189,7 +189,7 @@ We make two [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handl
 
 ## Create an Azure Maps Events subscription
 
-Azure Maps supports three event types. You can have a look at the Azure Maps supported event types [here](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps. We need two different event subscriptions, one for the enter event and one for the exit events.
+Azure Maps supports three event types. You can have a look at the Azure Maps supported event types [here](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). We need two different event subscriptions, one for the enter event and one for the exit events.
 
 Follow the steps below to create an event subscription for the geofence enter events. You can subscribe to geofence exit events in a similar manner.
 

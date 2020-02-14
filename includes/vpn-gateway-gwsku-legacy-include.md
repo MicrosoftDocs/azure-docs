@@ -7,7 +7,7 @@ ms.author: cherylmc
 ---
 The legacy (old) VPN gateway SKUs are:
 
-* Basic
+* Default (Basic)
 * Standard
 * HighPerformance
 

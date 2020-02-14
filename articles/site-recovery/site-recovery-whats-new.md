@@ -2,7 +2,7 @@
 title: What's new in Azure Site Recovery
 description: Provides a summary of new features and the latest updates in the Azure Site Recovery service.
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 01/31/2020
 ---
 
 # What's new in Site Recovery
@@ -10,8 +10,6 @@ ms.date: 01/07/2020
 The [Azure Site Recovery](site-recovery-overview.md) service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest releases, new features, and new content. This page is updated on a regular basis.
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates](https://azure.microsoft.com/updates/?product=site-recovery) channel.
-
-
 
 ## Supported updates
 
@@ -25,11 +23,23 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 [Rollup 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Rollup 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
-
-
 [Learn more](service-updates-how-to.md) about update installation and support.
 
 ## Updates (January 2020)
+
+### Update rollup 44
+
+[Update rollup 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | There were no updates for the Site Recovery providers and agents.
+**Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup.
+
+### Azure VMware disaster recovery
+
+Azure virtual machines now support VMs enable for encryption-at-rest with customer-managed keys. [Learn more](azure-to-azure-how-to-enable-replication-cmk-disks.md).
+
 
 ### Update rollup 43
 
@@ -53,7 +63,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
 
 
-## Azure VM disaster recovery
+### Azure VM disaster recovery
 
 New features for Azure VM disaster recovery are summarized in the table.
 

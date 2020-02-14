@@ -5,7 +5,7 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/29/2019
+ms.date: 2/5/2019
 ms.author: absha
 
 ---
@@ -90,7 +90,7 @@ For Application Gateway, the following metrics are available:
 
 - **Current connections**
 
-   Count of current connections established with Application Gateway
+   The total number of concurrent connections active from clients to the Application Gateway
 
 - **Failed Requests**
 
@@ -128,6 +128,10 @@ For Application Gateway, the following metrics are available:
 - **Unhealthy host count**
 
   The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.
+  
+- **Requests per minute per Healthy Host**
+  The average number of requests received by each healthy member in a backend pool in a minute. You must specify the backend pool using the *BackendPool HttpSettings* dimension.  
+  
 
 ## Metrics supported by Application Gateway V1 SKU
 
