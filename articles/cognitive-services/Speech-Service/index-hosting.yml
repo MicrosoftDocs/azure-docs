@@ -17,7 +17,7 @@ metadata:
 landingContent:
 - title: Get started
   linkLists:
-    - linkListType: conceptual
+    - linkListType: concept
       links:
         - text: Speech service containers
           url: speech-container-howto.md

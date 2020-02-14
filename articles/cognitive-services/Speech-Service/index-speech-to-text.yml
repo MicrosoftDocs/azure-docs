@@ -31,7 +31,7 @@ landingContent:
           url: quickstarts/from-blob.md
 - title: Step-by-step guides
   linkLists:
-    - linkListType: how-to-guide
+    - linkListType: concept
       links:
         - text: Change speech recognition source language
           url: how-to-specify-source-language.md
@@ -45,6 +45,8 @@ landingContent:
           url: how-to-custom-speech.md
         - text: Select a specific microphone input device
           url: how-to-select-audio-input-devices.md
+    - linkListType: how-to-guide
+      links:
         - text: Use automatic source language detection
           url: how-to-automatic-language-detection.md
         - text: Use compressed audio input formats

@@ -49,17 +49,15 @@ landingContent:
           url: concepts-gating-overview.md
         - text: Deployment of synthetic technology
           url: concepts-guidelines-responsible-deployment-synthetic.md
-        - text: Disclosure for voice talent
-          url: https://aka.ms/disclosure-voice-talent
         - text: Disclosure design guidelines
           url: concepts-disclosure-guidelines.md
         - text: Disclosure design patterns
           url: concepts-disclosure-patterns.md
-        - text: Code of conduct
-          url: https://aka.ms/custom-neural-code-of-conduct
+    - linkListType: concept
+      links:
         - text: Get started with Custom Voice
           url: how-to-custom-voice.md
-        - text: Prepare data
+        - text: Prepare Custom Voice data
           url: how-to-custom-voice-prepare-data.md
         - text: Create and use Custom Voice models
           url: how-to-custom-voice-create-voice.md
@@ -77,3 +75,7 @@ landingContent:
           url: language-support.md#text-to-speech
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+        - text: Code of conduct
+          url: https://aka.ms/custom-neural-code-of-conduct
+        - text: Disclosure for voice talent
+          url: https://aka.ms/disclosure-voice-talent
