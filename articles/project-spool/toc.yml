@@ -1,5 +1,7 @@
 - name: Spatial Anchors Documentation
   href: index.yml
+- name: Contribute Documentation
+  href: contribute.md
 - name: Overview
   items:
   - name: About Spatial Anchors

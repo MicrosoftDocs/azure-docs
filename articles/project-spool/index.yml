@@ -1,19 +1,19 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Spatial Anchors Documentation
+title: Project Spool Documentation
 metadata:
-  title: Azure Spatial Anchors Documentation
-  meta.description: Learn how to use Azure Spatial Anchors to build apps with durable spatial anchors.
-  services: azure-spatial-anchors
-  author: craigktreasure
-  manager: aliemami
-  ms.service: azure-spatial-anchors
+  title: Project Spool Documentation
+  meta.description: Learn how to use Azure Communication Services to add voice, video, and chat to your applications.
+  services: azure-communication-services
+  author: mickbengtson
+  manager: jken
+  ms.service: azure-communication-services
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 02/24/2019
-  ms.author: crtreasu
+  ms.date: 02/14/2020
+  ms.author: mikben
 abstract:
-  description: Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time.
+  description: TODO... Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time.
 sections:
 - title: Concepts
   items:
