@@ -26,7 +26,7 @@ To set up this lab, you need an Azure subscription and lab account to get starte
 
 ### Lab Account Settings
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [specify marketplace images available to lab creators](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators).
+Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [specify marketplace images available to lab creators](specify-marketplace-images.md).
 
 | Lab account setting | Instructions |
 | ------------------- | ------------ |
