@@ -59,6 +59,8 @@
   items:
     - name: Key-value store
       href: concept-key-value.md
+    - name: Encrypt using customer-managed keys
+      href: concept-customer-managed-keys.md
     - name: Point-in-time snapshot
       href: concept-point-time-snapshot.md
     - name: Feature management
