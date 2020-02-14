@@ -10,7 +10,7 @@ ms.date: 01/06/2020
 This article describes how assessments are calculated in [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool). You run assessments on groups of on-premises machines, to figure out whether they're ready for migration to Azure Migrate.
 
 ## How do I run an assessment?
-You can run an assessment using Azure Migrate: Server Assessment, or another Azure or third-party tool. After creating an Azure Migrate project, you add the tool you need. [Learn more](how-to-add-tool-first-time.md
+You can run an assessment using Azure Migrate: Server Assessment, or another Azure or third-party tool. After creating an Azure Migrate project, you add the tool you need. [Learn more](how-to-add-tool-first-time.md)
 
 ### Collect compute data
 

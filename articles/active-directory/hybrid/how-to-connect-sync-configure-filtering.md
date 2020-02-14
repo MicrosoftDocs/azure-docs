@@ -293,7 +293,7 @@ Do the following steps:
 
 After the synchronization, all changes are staged to be exported. Before you actually make the changes in Azure AD, you want to verify that all these changes are correct.
 
-1. Start a command prompt, and go to `%Program Files%\Microsoft Azure AD Sync\bin`.
+1. Start a command prompt, and go to `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Run `csexport "Name of Connector" %temp%\export.xml /f:x`.  
    The name of the Connector is in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
 3. Run `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.

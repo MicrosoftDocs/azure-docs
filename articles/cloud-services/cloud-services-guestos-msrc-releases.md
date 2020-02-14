@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/24/2020
+ms.date: 02/07/2020
 ms.author: raiye
 ---
 # Azure Guest OS
@@ -36,9 +36,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 20-01  |  [4494174]  |  Microcode v4  | [6.15] | Aug 29, 2019 |
 |  Rel 20-01  |  [4532947]  |  Windows Security  | [6.15] | Jan 14, 2020 |
 |  Rel 20-01  |  [4534273]  |  LCU  | [6.15] | Jan 14, 2020 |
-|  Rel 20-01  |  [4530734]  |  Non-Security  | [2.94] | Dec 10, 2019 |
-|  Rel 20-01  |  [4530691]  |  Non-Security   | [3.81] | Dec 10, 2019 |
-|  Rel 20-01  |  [4530702]  |  Non-Security  | [4.74] | Dec 10, 2019 |
+|  Rel 20-01  |  [4530734]  |  Monthly Rollup  | [2.94] | Dec 10, 2019 |
+|  Rel 20-01  |  [4530691]  |  Monthly Rollup   | [3.81] | Dec 10, 2019 |
+|  Rel 20-01  |  [4530702]  |  Monthly Rollup  | [4.74] | Dec 10, 2019 |
 
 [4532960]: https://support.microsoft.com/kb/4532960
 [4534251]: https://support.microsoft.com/kb/4534251

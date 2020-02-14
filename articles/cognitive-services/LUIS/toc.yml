@@ -68,21 +68,11 @@
   - name: Use with bot
     items:
     - name: With C#
-      items:
-      - name: 1. Create basic bot
-        href: luis-csharp-tutorial-bf-v4.md
-        displayName: bot framework, framework, sdk, abs
-      - name: 2. Add telemetry to Application Insights
-        href: luis-tutorial-bot-csharp-appinsights.md
-        displayName: Application insight, kusto
+      href: luis-csharp-tutorial-bf-v4.md
+      displayName: bot framework, framework, sdk, abs
     - name: With Node.js
-      items:
-      - name: 1. Create basic bot
-        displayName: bot framework, framework, sdk, abs
-        href: luis-nodejs-tutorial-bf-v4.md
-      - name: 2. Add telemetry to Application Insights
-        displayName: Application insight, kusto
-        href: luis-tutorial-bot-nodejs-appinsights.md
+      displayName: bot framework, framework, sdk, abs
+      href: luis-nodejs-tutorial-bf-v4.md
 - name: Concepts
   items:
   - name: Development lifecycle
@@ -314,7 +304,9 @@
     href: reference-pattern-syntax.md
   - name: Sentiment
     href: luis-reference-prebuilt-sentiment.md
-  - name: Developer resources
+- name: Developer reference
+  items:
+  - name: Overview
     href: developer-reference-resource.md
     displayName: SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot
   - name: Azure CLI
@@ -428,5 +420,7 @@
     href: https://blog.botframework.com/category/luis/
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
+- name: Videos
+  href: whats-new.md#videos
 - name: LUIS portal
   href: https://www.luis.ai

@@ -65,7 +65,7 @@ Now let's deploy your first template.
    ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment6.png)
 7. When the deployment finishes, the Resource group pane opens.
    ![Screenshot of the resource group pane](./media/create-website/TemplateDeployment7.png)  
-8. To use the application, navigate to the web app URL (in the example above, the URL would be http://mydemodocdbwebapp.azurewebsites.net).  You'll see the following web application:
+8. To use the application, navigate to the web app URL (in the example above, the URL would be `http://mydemodocdbwebapp.azurewebsites.net`).  You'll see the following web application:
    
    ![Sample Todo application](./media/create-website/image2.png)
 9. Go ahead and create a couple of tasks in the web app and then return to the Resource group pane in the Azure portal. Click the Azure Cosmos DB account resource in the Resources list and then click **Data Explorer**.

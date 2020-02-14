@@ -6,7 +6,7 @@ author: heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 02/08/2020
 ms.author: helohr
 ---
 # Connect with the iOS client
@@ -42,4 +42,4 @@ Once subscribed to a feed, the feed's content will update automatically on a reg
 
 ## Next steps
 
-To learn more about how to use the iOS Beta client, check out the [Get started with the iOS client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios) documentation.
+To learn more about how to use the iOS client, check out the [Get started with the iOS client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios) documentation.

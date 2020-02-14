@@ -32,7 +32,7 @@ This article provides information that helps you:
 ## Cloud security advantages
 It’s important to understand the [division of responsibility](shared-responsibility.md) between you and Microsoft. On-premises, you own the whole stack but as you move to the cloud some responsibilities transfer to Microsoft.
 
-There are [security advantages to being in the cloud](shared-responsibility.md#cloud security advantages). In an on-premises environment, organizations likely have unmet responsibilities and limited resources available to invest in security, which creates an environment where attackers are able to exploit vulnerabilities at all layers.
+There are [security advantages to being in the cloud](shared-responsibility.md#cloud-security-advantages). In an on-premises environment, organizations likely have unmet responsibilities and limited resources available to invest in security, which creates an environment where attackers are able to exploit vulnerabilities at all layers.
 
 Organizations are able to improve their threat detection and response times by using a provider’s cloud-based security capabilities and cloud intelligence.  By shifting responsibilities to the cloud provider, organizations can get more security coverage, which enables them to reallocate security resources and budget to other business priorities.
 

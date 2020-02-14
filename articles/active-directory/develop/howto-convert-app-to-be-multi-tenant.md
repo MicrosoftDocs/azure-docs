@@ -172,7 +172,7 @@ In this article, you learned how to build an application that can sign in a user
 
 ## Related content
 
-* [Multi-tenant application samples](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)
+* [Multi-tenant application sample](https://github.com/mspnp/multitenant-saas-guidance)
 * [Branding guidelines for applications][AAD-App-Branding]
 * [Application objects and service principal objects][AAD-App-SP-Objects]
 * [Integrating applications with Azure Active Directory][AAD-Integrating-Apps]
