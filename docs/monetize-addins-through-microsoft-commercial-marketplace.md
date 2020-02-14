@@ -102,23 +102,18 @@ Your add-in should have three states:
 
 For information about authenticating with Azure AD, see [Authorize to Microsoft Graph](https://docs.microsoft.com/office/dev/add-ins/develop/authorize-to-microsoft-graph-without-sso).
 
-## Testing your SaaS offer
+### Code sample: Move from paid add-ins to paid web apps with free add-ins
 
-To test your integration, you can submit an offer for $0 to ensure that the end-to-end process is working. On the preview tab, your offer will be visible to a restricted audience that you select, before it goes live.
-When you have verified that your solution is working, submit the offer again with the correct price, this time to prepare to go live. After you test and get feedback, select **Go live** on the Preview tab to publish your offer to the marketplace public audience. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be in preview mode again.
+> [!VIDEO https://www.youtube.com/embed/lnn-X4QfdXU]
 
-For more information about preview audiences, see [Preview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#preview) in the Create a SaaS offer documentation.
+The [Office Add-in SaaS monetization code sample](https://github.com/OfficeDev/office-add-in-saas-monetization-sample) demonstrates how you can create a simple license management system to manage add-ins sold in Microsoft AppSource. This code sample package includes a Microsoft AppSource mock web app, a SaaS sample, a SharePoint add-in, an Outlook add-in, and a licensing management tool.
 
 ## Submission process for SaaS offer + add-in
-Submit your SaaS offer to Partner Center as a private plan first. This ensures that customers don't purchase your SaaS app before the add-in is available. After your SaaS offer is approved, it will be assigned a GUID. Next, submit your add-in and include this GUID in the test notes, as well as test accounts (admin + non-admin). After your add-in has been approved and is in the store, you can update your plan to be available to a public audience.
-
-![Diagram showing the process for submitting an add-in and associated SaaS offer](images/monetization-submission-diagram.png)
+Submit your SaaS offer to Partner Center. After your SaaS offer is approved, it will be assigned a GUID. Next, submit your add-in and include this GUID in the test notes, as well as test accounts (admin + non-admin). After your add-in has been approved and is in the store, you can update your plan to be available to a public audience.
 
 ## Customer experience
 
-A customer discovers your SaaS service in Microsoft AppSource and purchases licenses, providing their payment details to Microsoft. The customer is then redirected to your website, where they finish setting up their account. The licenses are provisioned and the customer is billed. Your customer is then able to download your free add-in and sign in using the details provided. Your add-in checks the licensing database to verify that the cusotmer has a license. The following illustration shows the user workflow.
-
-![Diagram of the user workflow to acquire a SaaS app with an associated free add-in](images/monetization-customer-flow-diagram.png)
+A customer discovers your SaaS service in Microsoft AppSource and purchases licenses, providing their payment details to Microsoft. The customer is then redirected to your website, where they finish setting up their account. The licenses are provisioned and the customer is billed. Your customer is then able to download your free add-in and sign in using the details provided. Your add-in checks the licensing database to verify that the cusotmer has a license. 
 
 ## FAQs
 

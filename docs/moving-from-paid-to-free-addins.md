@@ -9,11 +9,9 @@ localization_priority: Priority
 
 The licensing framework for Office and SharePoint Add-ins is in the process of being retired. For more information about the licensing framework, see [License your add-ins](license-your-add-ins.md).
 
-Starting July 29th 2019, we will no longer accept new paid add-ins to Microsoft AppSource. Existing paid add-ins (that do not move to an alternate SaaS/billing model) will be purchasable until January 2020. They will then be hidden from Microsoft AppSource, but still be available for existing users. If these add-ins have not been migrated by July 2020, they will be removed both for existing users and removed from Microsoft AppSource. You will be able to change paid add-ins pricing models – including transitioning them to free add-ins - via Seller Dashboard until July 2020.
+Starting July 29th, 2019, we no longer accept new paid add-ins to Microsoft AppSource and by February 28, 2020, all paid add-ins in AppSource will be hidden and no longer be available to new customers. Your paid add-ins will remain available to existing subscribers until June 30th, 2020 when we will cancel all paid add-in subscription. Before then, we’re offering code samples and technical guidance to help you convert your paid add-ins to paid SaaS offers and continue selling on AppSource. 
 
-After the move from paid to free, the add-in will still be sent licensing tokens containing the information about the user’s license, and those tokens will still need to be parsed. 
-
-The user experience can depend on whether the license is for a new or existing user and whether the payment option was previously a subscription or one-time purchase.
+If you're interested in engaging with Microsoft for guidance on moving paid add-ins to paid SaaS offers, please [contact us](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1QsbGOr2ktItoKI5VaSnf5UMDYxVVVKQU42SlY4VElaQUdHQ0lVVU9NRS4u). 
 
 For details about how to monetize add-ins going forward, see [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md).
 
