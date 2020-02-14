@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Intent and product brand in a unique string of 43-59 chars including spaces. Do not include site identifier (it is auto-generated).
-description: 115-145 characters including spaces. This abstract displays in the search result.
+title: Securing digital twin solutions
+description: Understand security best practices with Azure Digital Twins.
 author: philmea
 ms.author: philmea # Microsoft employees only
 ms.date: 2/12/2020
-ms.topic: quickstart
+ms.topic: conceptual
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -13,4 +13,6 @@ ms.service: digital-twins
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
-# Heading 1
+# Understand security best practices
+
+## Here is an info dump.
