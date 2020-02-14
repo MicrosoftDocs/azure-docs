@@ -29,7 +29,7 @@ The return type of the Azure function has to be a valid `JObject`. (Keep in mind
 | --- | --- | --- |
 | type   | The type property must be set to: **AzureFunction** | yes |
 | function app url | URL for the Azure Function App. Format is `https://<accountname>.azurewebsites.net`. This URL is the value under **URL** section when viewing your Function App in the Azure portal  | yes |
-| function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | yes |
+| function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | yes |
 |   |   |   |
 
 ## Azure Function activity
