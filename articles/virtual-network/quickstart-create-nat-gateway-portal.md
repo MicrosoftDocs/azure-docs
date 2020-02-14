@@ -80,7 +80,7 @@ We'll now create a VM to use the NAT service. This VM has a public IP to use as 
 
 ## Create the NAT Gateway
 
-You can use one or more public IP address resources, public IP prefixes, or both with NAT gateway. We'll add a public IP resource, public IP prefix, and a NAT gateway resource.
+You can use one or more public IP address resources, public IP prefixes, or both. We'll add a public IP resource, public IP prefix, and a NAT gateway resource.
 
 This section details how you can create and configure the following components of the NAT service using the NAT gateway resource:
   - A public IP pool and public IP prefix to use for outbound flows translated by the NAT gateway resource.
@@ -168,9 +168,9 @@ When no longer needed, delete the resource group, NAT gateway, and all related r
 
 ## Next steps
 
-In this tutorial, you created a NAT gateway and a VM to use the NAT service. To learn more about Azure NAT service, continue to other tutorials for Azure NAT service.
+In this tutorial, you created a NAT gateway and a VM to use the NAT service. 
 
-You can also review metrics in Azure Monitor to see your NAT service operating. You can diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+Review metrics in Azure Monitor to see your NAT service operating. Diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
 
 
 - Learn about [Virtual Network NAT](./nat-overview.md)
