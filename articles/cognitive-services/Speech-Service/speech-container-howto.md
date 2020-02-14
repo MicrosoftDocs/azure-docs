@@ -262,7 +262,7 @@ The *Custom Speech-to-text* container relies on a custom speech model. The custo
 > The Custom Speech model needs to be trained from one of the following model versions:
 > * **20181201 (v3.3 Unified)**
 > * **20190520 (v4.14 Unified)**
-> * **20190701 (v4.17 Unified)**
+> * **20190701 (v4.17 Unified)**<br>
 > ![Custom Speech train container model](media/custom-speech/custom-speech-train-model-container-scoped.png)
 
 The custom speech **Model ID** is required to run the container. It can be found on the **Training** page of the custom speech portal. From the custom speech portal, navigate to the **Training** page and select the model.
