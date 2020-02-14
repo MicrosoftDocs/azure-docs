@@ -95,8 +95,7 @@ To make sure that your ISE is accessible and that the logic apps in that ISE can
 This table describes the ports in your Azure virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
 
 > [!IMPORTANT]
-> Source ports are ephemeral, so make sure that you set them to `*` for all rules. 
-> Where noted, internal ISE and external ISE refer to the 
+> Source ports are ephemeral, so make sure that you set them to `*` for all rules. Where noted, internal ISE and external ISE refer to the 
 > [endpoint that's selected at ISE creation](connect-virtual-network-vnet-isolated-environment.md#create-environment). 
 > For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
@@ -112,7 +111,7 @@ This table describes the ports in your Azure virtual network that your ISE uses 
 | Communication from Azure Traffic Manager | Inbound | Internal ISE: 454 <p><p>External ISE: 443 | AzureTrafficManager | VirtualNetwork | |
 | API Management - management endpoint | Inbound | 3443 | APIManagement | VirtualNetwork | |
 | Connector policy deployment | Inbound | 3443 | APIManagement | VirtualNetwork | Required for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
-| Communication from your logic app | Outbound | 80, 443 | VirtualNetwork | The tag for the destination service | The destination service is the external service with which your logic app needs to communicate. |
+| Communication from your logic app | Outbound | 80, 443 | VirtualNetwork | Varies based on destination | The endpoints for the external service with which your logic app needs to communicate. |
 | Azure Active Directory | Outbound | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
 | Connection management | Outbound | 443 | VirtualNetwork  | AppService | |
 | Publish Diagnostic Logs & Metrics | Outbound | 443 | VirtualNetwork  | AzureMonitor | |
