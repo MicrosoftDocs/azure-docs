@@ -35,7 +35,7 @@ We'll guide you through configuration of a full test environment and the executi
 
 Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network.
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
+1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**, or seach for **Virtual Network** in the marketplace search.
 
 2. In **Create virtual network**, enter or select this information:
 
@@ -59,13 +59,13 @@ To test the NAT gateway, we'll assign a public IP address resource as an instanc
 
 You could also create this VM without a public IP and create another VM to use as a jumpbox without a public IP as an exercise.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server**. 
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**, or search for **Ubuntu Server 18.04 LTS** in the marketplace search.
 
-2. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
+2. In **Create a virtual machine**, enter or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**.
-   - **Instance Details** > **Virtual machine name**: Type **myVMsource**.
+   - **Instance Details** > **Virtual machine name**: enter **myVMsource**.
    - **Instance Details** > **Region** > select **East US 2**.
-   - **Administrator account** > **Authentication type**: Select **Password**.
+   - **Administrator account** > **Authentication enter**: Select **Password**.
    - **Administrator account** > Enter the **Username**, **Password**, and **Confirm password** information.
    - **Inbound port rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound port rules** > **Select inbound ports**: Select **SSH (22)**
@@ -74,7 +74,7 @@ You could also create this VM without a public IP and create another VM to use a
 3. In the **Networking** tab make sure the following are selected:
    - **Virtual network**: **myVnetsource**
    - **Subnet**: **mySubnetsource**
-   - **Public IP** > Select **Create new**.  In the **Create public IP address** window, type **myPublicIPsourceVM** in the **Name** field.  Leave the rest at the defaults and click **OK**.
+   - **Public IP** > Select **Create new**.  In the **Create public IP address** window, enter **myPublicIPsourceVM** in the **Name** field. Select **Standard** for the **SKU**. Leave the rest at the defaults and click **OK**.
    - **NIC network security group**: Select **Basic**.
    - **Public inbound ports**: Select **Allow selected ports**.
    - **Select inbound ports**: Confirm **SSH** is selected.
@@ -95,7 +95,7 @@ This section details how you can create and configure the following components o
 
 ### Create a public IP address
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP address**. 
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP address**, or search for **Public IP address** in the marketplace search. 
 
 2. In **Create public IP address**, enter or select this information:
 
@@ -112,11 +112,11 @@ This section details how you can create and configure the following components o
 
 ### Create a public IP prefix
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP prefix**. 
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP prefix**, or search for **Public IP prefix** in the marketplace search.
 
-2. In **Create a public IP prefix**, type or select the following values in the **Basics** tab:
+2. In **Create a public IP prefix**, enter or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**>
-   - **Instance details** > **Name**: Type **myPublicIPprefixsource**.
+   - **Instance details** > **Name**: enter **myPublicIPprefixsource**.
    - **Instance details** > **Region**: Select **East US 2**.
    - **Instance details** > **Prefix size**: Select **/31 (2 addresses)**
 
@@ -127,21 +127,21 @@ This section details how you can create and configure the following components o
 
 ### Create a NAT gateway resource
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **NAT gateway**.
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **NAT gateway**, or search for **NAT gateway** in the marketplace search.
 
-2. In **Create network address translation (NAT) gateway**, type or select the following values in the **Basics** tab:
+2. In **Create network address translation (NAT) gateway**, enter or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**.
-   - **Instance details** > **NAT gateway name**: Type **myNATgateway**.
+   - **Instance details** > **NAT gateway name**: enter **myNATgateway**.
    - **Instance details** > **Region**: Select **East US 2**.
-   - **Instance details** > **Idle timeout (minutes)**: Type **10**.
+   - **Instance details** > **Idle timeout (minutes)**: enter **10**.
    - Select the **Public IP** tab, or select **Next: Public IP**.
 
-3. In the **Public IP** tab, type or select the following values:
+3. In the **Public IP** tab, enter or select the following values:
    - **Public IP addresses**: Select **myPublicIPsource**.
    - **Public IP Prefixes**: Select **myPublicIPprefixsource**.
    - Select the **Subnet** tab, or select **Next: Subnet**.
 
-4. In the **Subnet** tab, type or select the following values:
+4. In the **Subnet** tab, enter or select the following values:
    - **Virtual Network**: Select **myResourceGroupNAT** > **myVnetsource**.
    - **Subnet name**: Select the box next to **mySubnetsource**.
 
@@ -176,13 +176,13 @@ Before you deploy a VM for the destination, we need to create a virtual network 
 
 ### Create destination virtual machine
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server**. 
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**, or search for **Ubuntu Server 18.04 LTS** in the marketplace search.
 
-2. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
+2. In **Create a virtual machine**, enter or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**.
-   - **Instance Details** > **Virtual machine name**: Type **myVMdestination**.
+   - **Instance Details** > **Virtual machine name**: enter **myVMdestination**.
    - **Instance Details** > **Region** > select **East US 2**.
-   - **Administrator account** > **Authentication type**: Select **Password**.
+   - **Administrator account** > **Authentication enter**: Select **Password**.
    - **Administrator account** > Enter the **Username**, **Password**, and **Confirm password** information.
    - **Inbound port rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound port rules** > **Select inbound ports**: Select **SSH (22)** and **HTTP (80)**.
@@ -191,7 +191,7 @@ Before you deploy a VM for the destination, we need to create a virtual network 
 3. In the **Networking** tab make sure the following are selected:
    - **Virtual network**: **myVnetdestination**
    - **Subnet**: **mySubnetdestination**
-   - **Public IP** > Select **Create new**.  In the **Create public IP address** window, type **myPublicIPdestinationVM** in the **Name** field.  Leave the rest at the defaults and click **OK**.
+   - **Public IP** > Select **Create new**.  In the **Create public IP address** window, enter **myPublicIPdestinationVM** in the **Name** field. Select **Standard** for **SKU**. Leave the rest at the defaults and click **OK**.
    - **NIC network security group**: Select **Basic**.
    - **Public inbound ports**: Select **Allow selected ports**.
    - **Select inbound ports**: Confirm **SSH** and **HTTP** is selected.
@@ -301,12 +301,22 @@ This command will generate 100 requests, 10 concurrently, with a timeout of 30 s
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, NAT gateway, and all related resources. Select the resource group (**myResourceGroupNAT**) that contains the NAT gateway, and then select **Delete**.
+When no longer needed, delete the resource group, NAT gateway, and all related resources. Select the resource group **myResourceGroupNAT** that contains the NAT gateway, and then select **Delete**.
 
 ## Next steps
 In this tutorial, you created a NAT gateway,  created a source and destination VM, and then tested the NAT gateway. To learn more about Azure NAT service, continue to other tutorials for Azure NAT service.
 
-You can also review metrics in Azure Monitor to see how your NAT service is operating.  You can diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+Review metrics in Azure Monitor to see your NAT service operating. Diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+
+
+- Learn about [Virtual Network NAT](./nat-overview.md)
+- Learn about [NAT gateway resource](./nat-gateway-resource.md).
+- Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
+- Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
+- Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
+- [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
+> [!div class="nextstepaction"]
+
 
 > [!div class="nextstepaction"]
 
