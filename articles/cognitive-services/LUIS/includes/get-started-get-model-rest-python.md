@@ -28,7 +28,7 @@ ms.author: diberry
 
 1. Create a new file named `model.py`. Add the following code:
 
-    [!code-pyhon[Add example utterances to Language Understanding in python](~/cognitive-services-language-understanding/documentation-samples/authoring-api-samples/python/3.x/add-utterances-3-6.py)]
+    [!code-pyhon[Add example utterances to Language Understanding in python](~/samples-luis/documentation-samples/authoring-api-samples/python/3.x/add-utterances-3-6.py)]
 
 1. Replace the values starting with `YOUR-` with your own values.
 
