@@ -193,6 +193,28 @@ Verify cable:
   - RGB Camera: 2160p
   - Microphones and IMU enabled
 
+## What does the light mean?
+
+The power indicator is an LED on the back of your Azure Kinect DK. The color of the LED changes depending on the status of your device.
+
+![The image shows the back of the Azure Kinect DK. There are three numbered callouts: one for an LED indicator, and below it, two for cables.](./media/quickstarts/azure-kinect-dk-power-indicator.png)
+
+This figure labels the following components:
+
+1. Power indicator
+1. Power cable (connected to the power source)
+1. USB-C data cable (connected to the PC)
+
+Make sure that the cables are connected as shown. Then check the following table to learn what the various states of the power light indicate.
+
+|When the light is: |It means that: |And you should: |
+| ---| --- | --- |
+|Solid white |The device is powered on and working correctly. |Use the device. |
+|Not lit |The device is not connected to the PC. |Make sure that the round power connector cable is connected to the device and to the USB power adapter.<br /><br />Make sure that the USB-C cable is connected to the device and to your PC. |
+|Flashing white |The device is powered on but doesn't have a USB 3.0 data connection. |Make sure that the round power connector cable is connected to the device and to the USB power adapter.<br /><br />Make sure that the USB-C cable is connected to the device and to a USB 3.0 port on your PC.<br /><br />Connect the device to a different USB 3.0 port on the PC.<br /><br />On your PC, open Device Manager (**Start** > **Control Panel** > **Device Manager**), and verify that your PC has a supported USB 3.0 host controller. |
+|Flashing amber |The device doesn't have enough power to operate. |Make sure that the round power connector cable is connected to the device and to the USB power adapter.<br /><br />Make sure that the USB-C cable is connected to the device and to your PC. |
+|Amber, then flashing white |The device is powered on and is receiving a firmware update, or the device is restoring the factory settings. |Wait for the power indicator light to become solid white. For more information, see [Reset Azure Kinect DK](reset-azure-kinect-dk.md). |
+
 ## Power consumption
 
 Azure Kinect DK consumes up to 5.9 W; specific power consumption is use-case dependent.
