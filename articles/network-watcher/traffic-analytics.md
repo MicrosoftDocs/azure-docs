@@ -178,7 +178,7 @@ Select the following options, as shown in the picture:
 
 1. Select *On* for **Status**
 2. Select *Version 2* for **Flow Logs version**. Version 2 contains flow-session statistics (Bytes and Packets)
-3. Select an existing storage account to store the flow logs in. If you want to store the data forever, set the value to *0*. You incur Azure Storage fees for the storage account. Ensure that your storage does not have "Data Lake Storage Gen2 Hierarchical Namespace Enabled" set to true. Also, NSG Flow Logs cannot be stored in a Storage Account with a Firewall. 
+3. Select an existing storage account to store the flow logs in. If you want to store the data forever, set the value to *0*. You incur Azure Storage fees for the storage account. Ensure that your storage does not have "Data Lake Storage Gen2 Hierarchical Namespace Enabled" set to true.
 4. Set **Retention** to the number of days you want to store data for.
 > [!IMPORTANT]
 > Currently, there’s an issue where [network security group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) for Network Watcher are not automatically deleted from Blob storage based on retention policy settings. If you have an existing non-zero retention policy, we recommend that you periodically delete the storage blobs that are past their retention period to avoid any incurring charges. For more information about how to delete the NSG flow log storage blog, see [Delete NSG flow log storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
