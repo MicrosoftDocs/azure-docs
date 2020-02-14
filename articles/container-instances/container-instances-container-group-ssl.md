@@ -215,8 +215,7 @@ app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-
 
 ## Verify SSL connection
 
-Navigate to the public IP address in your browser. For example, the IP address shown in this example is `52.157.22.76`. For this example, the URL is **https://52.157.22.76**.
-You must use HTTPS to see the running application, because of the Nginx server configuration. Attempts to connect over HTTP fail.
+Use your browser to navigate to the public IP address of the container group. The IP address shown in this example is `52.157.22.76`, so the URL is **https://52.157.22.76**. You must use HTTPS to see the running application, because of the Nginx server configuration. Attempts to connect over HTTP fail.
 
 ![Browser screenshot showing application running in an Azure container instance](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
