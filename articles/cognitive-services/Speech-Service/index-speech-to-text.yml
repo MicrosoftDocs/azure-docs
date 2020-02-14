@@ -76,4 +76,4 @@ landingContent:
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
         - text: Speech-to-text FAQ
-          url: stt-faq.md
+          url: faq-stt.md

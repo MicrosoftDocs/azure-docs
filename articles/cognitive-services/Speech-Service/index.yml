@@ -62,20 +62,6 @@ conceptualContent:
       footerLink:
         text: See more
         url: index-text-to-speech.yml
-    - title: Intent recognition
-      links:
-        - itemType: quickstart
-          text: Recognize speech, intents, and entities
-          url: quickstarts/intent-recognition.md
-        - itemType: how-to-guide
-          text: Recognize speech intents with LUIS and C#
-          url: how-to-recognize-intents-from-speech-csharp.md
-        - itemType: reference
-          text: Language Understanding (LUIS) portal
-          url: https://www.luis.ai
-      footerLink:
-        text: See more
-        url: index-intent-recognition.yml
     - title: Speech translation
       links:
       - itemType: quickstart
@@ -90,6 +76,20 @@ conceptualContent:
       footerLink:
         text: See more
         url: index-speech-translation.yml
+    - title: Intent recognition
+      links:
+        - itemType: quickstart
+          text: Recognize speech, intents, and entities
+          url: quickstarts/intent-recognition.md
+        - itemType: how-to-guide
+          text: Recognize speech intents with LUIS and C#
+          url: how-to-recognize-intents-from-speech-csharp.md
+        - itemType: reference
+          text: Language Understanding (LUIS) portal
+          url: https://www.luis.ai
+      footerLink:
+        text: See more
+        url: index-intent-recognition.yml
     - title: Conversation scenarios
       links:
         - itemType: overview

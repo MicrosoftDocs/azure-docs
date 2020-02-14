@@ -196,47 +196,6 @@
     - name: Text-to-speech FAQ
       href: faq-text-to-speech.md
       displayName: "FAQ,TTS FAQ,SS FAQ,frequently asked questions"
-- name: Intent recognition
-  expanded: false
-  items:
-  - name: Quickstart
-    items:
-    - name: Recognize speech, intents, and entities
-      href: quickstarts/intent-recognition.md
-      displayName: Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains
-  - name: How-to guides
-    items:
-    - name: Recognize speech intents with LUIS, C#
-      href: how-to-recognize-intents-from-speech-csharp.md
-  - name: Reference
-    items:
-    - name: Speech SDK
-      items:
-      - name: C++
-        href: https://aka.ms/csspeech/cppref
-        displayName: "C++ SDK,C++ dev kit,reference,reference docs,ref documentation"
-      - name: C#
-        href: https://aka.ms/csspeech/csharpref
-        displayName: "CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation"
-      - name: Java
-        href: https://aka.ms/csspeech/javaref
-        displayName: "Java SDK,Java dev kit,reference,reference docs,ref documentation"
-      - name: JavaScript
-        href: https://aka.ms/csspeech/javascriptref
-        displayName: "JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation"
-      - name: Objective-C
-        href: https://aka.ms/csspeech/objectivecref
-        displayName: "Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation"
-      - name: Python
-        href: https://aka.ms/csspeech/pythonref
-        displayName: "Python SDK,Python dev kit,reference,reference docs,ref documentation"
-      - name: Release notes
-        href: releasenotes.md
-        displayName: "release notes,updates,what's new,what is new,changes"
-    - name: LUIS service
-      items:
-      - name: LUIS developer resources
-        href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
 - name: Speech translation
   expanded: false
   items:
@@ -285,6 +244,47 @@
     items:
     - name: Speech translation FAQ
       href: https://www.microsoft.com/translator/faq.aspx
+- name: Intent recognition
+  expanded: false
+  items:
+  - name: Quickstart
+    items:
+    - name: Recognize speech, intents, and entities
+      href: quickstarts/intent-recognition.md
+      displayName: Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains
+  - name: How-to guides
+    items:
+    - name: Recognize speech intents with LUIS, C#
+      href: how-to-recognize-intents-from-speech-csharp.md
+  - name: Reference
+    items:
+    - name: Speech SDK
+      items:
+      - name: C++
+        href: https://aka.ms/csspeech/cppref
+        displayName: "C++ SDK,C++ dev kit,reference,reference docs,ref documentation"
+      - name: C#
+        href: https://aka.ms/csspeech/csharpref
+        displayName: "CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation"
+      - name: Java
+        href: https://aka.ms/csspeech/javaref
+        displayName: "Java SDK,Java dev kit,reference,reference docs,ref documentation"
+      - name: JavaScript
+        href: https://aka.ms/csspeech/javascriptref
+        displayName: "JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation"
+      - name: Objective-C
+        href: https://aka.ms/csspeech/objectivecref
+        displayName: "Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation"
+      - name: Python
+        href: https://aka.ms/csspeech/pythonref
+        displayName: "Python SDK,Python dev kit,reference,reference docs,ref documentation"
+      - name: Release notes
+        href: releasenotes.md
+        displayName: "release notes,updates,what's new,what is new,changes"
+    - name: LUIS service
+      items:
+      - name: LUIS developer resources
+        href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
 - name: Conversation scenarios
   expanded: false
   items:
