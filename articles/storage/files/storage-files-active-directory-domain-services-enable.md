@@ -19,7 +19,7 @@ ms.author: rogarana
 > 
 > AD authentication does not support authentication against Computer accounts created in Azure AD DS. 
 > 
-> AD authentication can only be supported against one AD forest where the storage account is registered to. You can only access Azure file shares with the AD credentials from the single AD forest.  
+> AD authentication can only be supported against one AD forest where the storage account is registered to. You can only access Azure file shares with the AD credentials from a single AD forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured.  
 > 
 > AD authentication for SMB access and NTFS DACL persistence is not supported for Azure file shares managed by Azure File Sync.
 
