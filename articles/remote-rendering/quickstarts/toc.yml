@@ -1,6 +1,6 @@
 - name: Render a model with Unity
   href: render-model.md
-- name: Convert a model for rendering
-  href: convert-model.md
 - name: Deploy Unity sample to HoloLens
   href: deploy-to-hololens.md
+- name: Convert a model for rendering
+  href: convert-model.md

@@ -2,13 +2,9 @@
 title: Render a model with Unity
 description: Quickstart that guides the user through the steps to render a model
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.service: azure-remote-rendering
 ---
 
 # Quickstart: Render a model with Unity
@@ -155,4 +151,4 @@ To synchronize transforms, either click **Sync now** or check the **Sync every f
 Advance to the next article to learn how to...
 
 > [!div class="nextstepaction"]
-> [Convert a model for rendering](convert-model.md)
+> [Quickstart: Deploy Unity sample to HoloLens](deploy-to-hololens.md)

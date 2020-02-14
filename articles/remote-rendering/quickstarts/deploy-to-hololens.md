@@ -73,5 +73,7 @@ An example connect.xml will look like:
 
 ## Next steps
 
-* [Unity SDK concepts](unity-concepts.md)
-* [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md)
+Advance to the next article to learn how to...
+
+> [!div class="nextstepaction"]
+> [Quickstart: Convert a model for rendering](convert-model.md)

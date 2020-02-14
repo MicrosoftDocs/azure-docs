@@ -196,4 +196,4 @@ Now that you know the basics, have a look at our tutorials to gain more in-depth
 If you want to learn the details of model conversion, check out [the model conversion REST API](../how-tos/conversion/conversion-rest-api.md).
 
 > [!div class="nextstepaction"]
-> [Setting up a Unity project](../tutorials/unity/project-setup.md)
+> [Tutorial: Setting up a Unity project from scratch](../tutorials/unity/project-setup.md)
