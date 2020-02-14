@@ -61,6 +61,9 @@ az extension add --name spring-cloud
 
 1. Verify your specifications, and click **Create**.
 
+>[!Note]
+> If the template validation takes more than 3 minutes to complete, please try disable the tracing and retry.
+
 It takes about 5 minutes for the service to deploy.  Once it is deployed, the **Overview** page for the service instance will appear.
 
 > [!div class="nextstepaction"]
