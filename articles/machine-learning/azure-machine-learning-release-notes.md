@@ -55,6 +55,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Pipeline batch scoring notebook now uses ParallelRunStep
   + **azureml-pipeline-steps**
     + Moved the `AutoMLStep` in the `azureml-pipeline-steps` package. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
+  + **azureml-contrib-pipeline-steps**
+    + Optional parameter side_inputs added to ParallelRunStep. This parameter can be used to mount folder on the container. Currently supported types are DataReference and PipelineData.
   + **azureml-tensorboard**
     + updated azureml-tensorboard to support tensorflow 2.0
   + **azureml-train-automl-client**
