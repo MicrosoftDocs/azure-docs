@@ -14,7 +14,7 @@ By using the page UI customization feature, you can customize the look and feel 
 
 Azure AD B2C runs code in your customer's browser by using [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). At runtime, content is loaded from a URL you specify in your user flow or custom policy. Each page in the user experience loads its content from the URL you specify for that page. After content is loaded from your URL, it's merged with an HTML fragment inserted by Azure AD B2C, and then the page is displayed to your customer.
 
-![Custom page content margin](https://raw.githubusercontent.com/wiki/azure-ad-b2c/ief-wiki/media/ui-customization.png)
+![Custom page content margin](./media/active-directory-b2c-html-templates/html-content-merging.png)
 
 ## Custom HTML page content
 
@@ -59,7 +59,7 @@ When using your own HTML and CSS files to customize the UI, host your UI content
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
-- We recommend that you start with the [default page content](#azure-ad-b2c-custom-page-contents) and build on top of it.
+- We recommend that you start with the default page content and build on top of it.
 - You can include JavaScript in your custom content for both [user flows](../articles/active-directory-b2c/user-flow-javascript-overview.md) and [custom policies](../articles/active-directory-b2c/javascript-samples.md).
 - Supported browser versions are:
   - Internet Explorer 11, 10, and Microsoft Edge
