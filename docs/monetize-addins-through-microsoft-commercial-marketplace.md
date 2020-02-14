@@ -111,8 +111,6 @@ The [Office Add-in SaaS monetization code sample](https://github.com/OfficeDev/o
 ## Submission process for SaaS offer + add-in
 Submit your SaaS offer to Partner Center. After your SaaS offer is approved, it will be assigned a GUID. Next, submit your add-in and include this GUID in the test notes, as well as test accounts (admin + non-admin). After your add-in has been approved and is in the store, you can update your plan to be available to a public audience.
 
-![Diagram showing the process for submitting an add-in and associated SaaS offer](images/monetization-submission-diagram.png)
-
 ## Customer experience
 
 A customer discovers your SaaS service in Microsoft AppSource and purchases licenses, providing their payment details to Microsoft. The customer is then redirected to your website, where they finish setting up their account. The licenses are provisioned and the customer is billed. Your customer is then able to download your free add-in and sign in using the details provided. Your add-in checks the licensing database to verify that the cusotmer has a license. 
