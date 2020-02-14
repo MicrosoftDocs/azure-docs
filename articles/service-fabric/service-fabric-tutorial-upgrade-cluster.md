@@ -103,7 +103,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $endpoint `
                              -StoreLocation CurrentUser -StoreName My
 ```
 
-```azurecli
+```console
 sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
@@ -145,7 +145,7 @@ MaxPercentUpgradeDomainDeltaUnhealthyNodes : 0
 ApplicationHealthPolicyMap                 : {}
 ```
 
-```azurecli
+```console
 sfctl cluster upgrade-status
 
 {

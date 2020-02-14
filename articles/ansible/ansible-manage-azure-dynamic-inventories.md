@@ -86,19 +86,19 @@ Ansible provides a Python script named [azure_rm.py](https://github.com/ansible/
 
 1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
 
-    ```azurecli-interactive
+    ```python
     wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
     ```
 
 1. Use the `chmod` command to change the access permissions to the `azure_rm.py` script. The following command uses the `+x` parameter to allow for execution (running) of the specified file (`azure_rm.py`):
 
-    ```azurecli-interactive
+    ```python
     chmod +x azure_rm.py
     ```
 
 1. Use the [ansible command](https://docs.ansible.com/ansible/2.4/ansible.html) to connect to your resource group: 
 
-    ```azurecli-interactive
+    ```python
     ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
     ```
 
@@ -165,7 +165,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in]
 
 - Once you've set a tag, you need to "enable" that tag. One way to enable a tag is by exporting the tag to an environment variable  `AZURE_TAGS` via the `export` command:
 
-    ```azurecli-interactive
+    ```console
     export AZURE_TAGS=nginx
     ```
     
@@ -210,7 +210,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 1. Create a file named `nginx.yml`:
 
-   ```azurecli-interactive
+   ```console
    code nginx.yml
    ```
 
@@ -280,7 +280,7 @@ This section illustrates one technique to test that Nginx is installed on your v
 
 1. While connected to the `ansible-inventory-test-vm1` virtual machine, run the [nginx -v](https://nginx.org/en/docs/switches.html) command to determine if Nginx is installed.
 
-    ```azurecli-interactive
+    ```console
     nginx -v
     ```
 

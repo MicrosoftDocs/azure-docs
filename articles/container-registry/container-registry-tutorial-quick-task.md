@@ -50,13 +50,13 @@ Once you've forked the repo, clone your fork and enter the directory containing 
 
 Clone the repo with `git`, replace **\<your-github-username\>** with your GitHub username:
 
-```azurecli-interactive
+```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
 ```
 
 Enter the directory containing the source code:
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
@@ -70,7 +70,9 @@ Now that you've pulled the source code down to your machine, follow these steps 
 
 To make executing the sample commands easier, the tutorials in this series use shell environment variables. Execute the following command to set the `ACR_NAME` variable. Replace **\<registry-name\>** with a unique name for your new container registry. The registry name must be unique within Azure, contain only lower case letters, and contain 5-50 alphanumeric characters. The other resources you create in the tutorial are based on this name, so you should need to modify only this first variable.
 
-```azurecli-interactive
+[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>
 ```
 

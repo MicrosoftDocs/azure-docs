@@ -152,9 +152,13 @@ ansible-playbook mysql_firewall.yml
 
 In this section, you use the Azure cloud shell to connect to the server you created previously.
 
-1. Select the **Try It** button in the following code:
+1. Open shell.azure.com by selecting below.
 
-    ```azurecli-interactive
+   [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+
+1. Enter the following code:
+
+    ```sql
     mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     ```
 

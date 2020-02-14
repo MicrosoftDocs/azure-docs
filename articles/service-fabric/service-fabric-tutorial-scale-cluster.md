@@ -88,7 +88,7 @@ Save any changes to the *template.json* and *parameters.json* files.  To deploy 
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 Or the following Azure CLI command:
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
@@ -794,7 +794,7 @@ Save any changes to the *template.json* and *parameters.json* files.  To deploy 
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 Or the following Azure CLI command:
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
@@ -853,7 +853,7 @@ Save any changes to the *template.json* and *parameters.json* files.  To deploy 
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 Or the following Azure CLI command:
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 

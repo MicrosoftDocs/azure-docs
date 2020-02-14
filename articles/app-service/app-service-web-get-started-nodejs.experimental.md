@@ -30,7 +30,7 @@ You can follow the steps here using a Mac, Windows, or Linux machine. It takes a
 
 In the Cloud Shell, create a quickstart directory and then change to it.
 
-```azurecli-interactive
+```console
 mkdir quickstart
 
 cd $HOME/quickstart
@@ -38,13 +38,13 @@ cd $HOME/quickstart
 
 Next, run the following command to clone the sample app repository to your quickstart directory.
 
-```azurecli-interactive
+```console
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
 While running, it displays information similar to the following example:
 
-```bash
+```output
 Cloning into 'nodejs-docs-hello-world'...
 remote: Counting objects: 40, done.
 remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
@@ -109,7 +109,7 @@ Here is what your new web app should look like:
 
 In the Cloud Shell, navigate to your application's root directory, create a new ZIP file for your sample project.
 
-```azurecli-interactive
+```console
 cd nodejs-docs-hello-world  
 
 zip -r myUpdatedAppFiles.zip *.*

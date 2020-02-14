@@ -56,7 +56,7 @@ Start your favorite client and connect to port 21382
 
 Open an SSH session with your container with the client of your choice, using the local port. The following example uses the default [ssh](https://ss64.com/bash/ssh.html) command:
 
-```azurecli-interactive
+```bash
 ssh root@127.0.0.1 -p <port>
 ```
 

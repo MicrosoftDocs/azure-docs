@@ -62,7 +62,7 @@ For PowerShell, use:
 
 For Azure CLI, use:
 
-```azurecli
+```bash
 ./sideload-createuidef.sh \
   -l southcentralus \
   -a .\100-Marketplace-Sample
@@ -78,7 +78,7 @@ For PowerShell, use:
 
 For Azure CLI, use:
 
-```azurecli
+```bash
 ./sideload-createuidef.sh
 ```
 

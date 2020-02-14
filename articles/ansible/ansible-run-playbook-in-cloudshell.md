@@ -30,7 +30,7 @@ az account list
 
 Using your Azure subscription ID, set the `AZURE_SUBSCRIPTION_ID` as follows:
 
-```azurecli-interactive
+```console
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
 
