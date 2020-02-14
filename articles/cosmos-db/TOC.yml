@@ -1040,8 +1040,7 @@
           href: /azure/azure-functions/functions-bindings-cosmosdb
           maintainContext: true 
       - name: Azure Data Factory
-        href: /azure/data-factory/connector-azure-cosmos-db
-        maintainContext: true 
+        href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Azure Stream Analytics
         href: /azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db
         maintainContext: true 
