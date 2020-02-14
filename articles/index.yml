@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: 
   ms.author: 
-  ms.date: 02/06/2020
+  ms.date: 02/14/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample tutorial | video | whats-new
@@ -575,7 +575,7 @@ productDirectory:
     # Card
     - title: SQL Server on Virtual Machines
       summary: Host enterprise SQL Server apps in the cloud
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/sql-server-vm.svg
       azureCategories:
         - compute
         - databases
@@ -853,7 +853,7 @@ productDirectory:
     # Card
     - title: Azure ExpressRoute
       summary: Dedicated private network fiber connections to Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/expressroute.svg
       azureCategories:
         - hybrid
         - networking
@@ -1316,7 +1316,7 @@ productDirectory:
     # Card
     - title: Web Application Firewall
       summary: A cloud-native web application firewall (WAF) service that provides powerful protection for web apps
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/frontdoor-waf-policies.svg
       azureCategories:
         - networking
       url: web-application-firewall/index.yml
@@ -1393,7 +1393,7 @@ productDirectory:
     # Card
     - title: Managed Disks
       summary: Persistent, secured disk storage for Azure virtual machines
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/disk.svg
       azureCategories:
         - storage
       url: virtual-machines/windows/managed-disks-overview.md
