@@ -21,10 +21,10 @@ ms.custom: mvc
 
 # Allowed certificate authorities for enabling custom HTTPS on Azure CDN
 
-For an Azure Content Delivery Network (CDN) custom domain on an **Azure CDN Standard from Microsoft** endpoint, when you [enable the HTTPS feature by using your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates), you must use an allowed certificate authority (CA) to create your SSL certificate. Otherwise, if you use a non-allowed CA or a self-signed certificate, your request will be rejected.
+For an Azure Content Delivery Network (CDN) custom domain on **Azure CDN from Microsoft** or **Azure CDN from Verizon** endpoints, when you [enable the HTTPS feature by using your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates), you must use an allowed certificate authority (CA) to create your SSL certificate. Otherwise, if you use a non-allowed CA or a self-signed certificate, your request will be rejected.
 
 > [!NOTE]
-> The option of using your own certificate to enable custom HTTPS is available only with **Azure CDN Standard from Microsoft** profiles. 
+> The option of using your own certificate to enable custom HTTPS is available only with **Azure CDN from Microsoft** and **Azure CDN from Verizon** profiles. 
 >
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]
