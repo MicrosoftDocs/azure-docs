@@ -164,7 +164,7 @@ productDirectory:
     # Card
     - title: Content Moderator
       summary: Automated image, text, and video moderation
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/content-moderator/index.yml
@@ -216,7 +216,7 @@ productDirectory:
     # Card
     - title: Kinect DK
       summary: Build computer vision and speech models using a developer kit with advanced AI sensors
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: ./media/index/kinect-viewer.svg
       azureCategories:
         - ai-machine-learning
         - iot
@@ -475,14 +475,14 @@ productDirectory:
     # Card
     - title: Azure CycleCloud
       summary: Create, manage, operate, and optimize HPC and big compute clusters of any scale
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: ./media/index/logo_cyclecloud.svg
       azureCategories:
         - compute
       url: https://docs.microsoft.com/azure/cyclecloud/index
     # Card
     - title: Azure Dedicated Host
       summary: A dedicated physical server to host your Azure VMs for Windows and Linux
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       azureCategories:
         - compute
       url: virtual-machines/windows/dedicated-hosts.md
@@ -514,7 +514,7 @@ productDirectory:
     # Card
     - title: Azure VMware Solution by CloudSimple
       summary: Run your VMware workloads natively on Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: ./media/index/cs_dedicatedcloudnode.svg
       azureCategories:
         - compute
       url: vmware-cloudsimple/index.md
@@ -550,7 +550,7 @@ productDirectory:
     # Card
     - title: Mobile Apps
       summary: Build and host the backend for any mobile app
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/common/i_mobileapp.svg
       azureCategories:
         - compute
         - containers
@@ -590,7 +590,7 @@ productDirectory:
     # Card
     - title: Web Apps
       summary: Quickly create and deploy mission critical web apps at scale
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/app-service.svg
       azureCategories:
         - compute
         - containers
@@ -615,7 +615,7 @@ productDirectory:
     # Card
     - title: Azure Dev Spaces
       summary: Test and iteratively develop your microservices app in Azure AKS
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: ./media/index/AzureDevSpaceController_50x.svg
       azureCategories:
         - containers
         - developer-tools
@@ -755,7 +755,7 @@ productDirectory:
     # Card
     - title: Developer tool integrations
       summary: Use the development tools you know—including Eclipse, IntelliJ, and Maven—with Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/common/i_extensions.svg
       azureCategories:
         - developer-tools
         - devops
@@ -763,7 +763,7 @@ productDirectory:
     # Card
     - title: SDKs
       summary: Get the SDKs and command-line tools you need
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/common/i_tools.svg
       azureCategories:
         - developer-tools
       url: sdks/index.yml
@@ -964,7 +964,7 @@ productDirectory:
     # Card
     - title: Azure IoT solution accelerators
       summary: Create fully customizable solutions with templates for common IoT scenarios
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: ./media/index/iot-solution-accelerators.svg
       azureCategories:
         - iot
       url: iot-accelerators/index.yml
@@ -1033,7 +1033,7 @@ productDirectory:
     # Card
     - title: Azure Backup
       summary: Simplify data protection and protect against ransomware
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/recovery-services-vaults.svg
       azureCategories:
         - management-and-governance
         - storage
@@ -1161,7 +1161,7 @@ productDirectory:
     # Card
     - title: Content Protection
       summary: Securely deliver content using AES, PlayReady, Widevine, and Fairplay
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: ./media/index/media-protection.svg
       azureCategories:
         - media
       url: media-services/latest/content-protection-overview.md
@@ -1205,7 +1205,7 @@ productDirectory:
     # Card
     - title: Visual Studio App Center
       summary: Continuously build, test, release, and monitor your mobile and desktop apps
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg
       azureCategories:
         - mobile
       url: https://docs.microsoft.com/appcenter/
@@ -1227,7 +1227,7 @@ productDirectory:
     # Card
     - title: Azure Bastion
       summary: Private and fully managed RDP and SSH access to your virtual machines
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: ./media/index/web_connect.svg
       azureCategories:
         - networking
       url: bastion/index.yml
@@ -1323,7 +1323,7 @@ productDirectory:
     # Card
     - title: Azure Dedicated HSM
       summary: Manage hardware security modules that you use in the cloud
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: ./media/index/dedicated-hsm.svg
       azureCategories:
         - security
       url: dedicated-hsm/index.yml
@@ -1344,7 +1344,7 @@ productDirectory:
     # Card
     - title: Avere vFXT for Azure
       summary: Run high-performance, file-based workloads in the cloud
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: ./media/index/avere.svg
       azureCategories:
         - storage
       url: avere-vfxt/index.yml
@@ -1438,51 +1438,51 @@ tools:
   items:
     # Card
     - title: Node.js
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
       url: https://docs.microsoft.com/azure/javascript/
     # Card
     - title: Go
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
       url: https://docs.microsoft.com/azure/go/
     # Card
     - title: .NET
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
       url: https://docs.microsoft.com/dotnet/azure/
     # Card
     - title: Python
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
       url: https://docs.microsoft.com/azure/python/
     # Card
     - title: Java
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
       url: https://docs.microsoft.com/azure/java/
     # Card
     - title: Azure REST API
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
       url: https://docs.microsoft.com/rest/api/
     # Card
     - title: Azure CLI
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
       url: https://docs.microsoft.com/cli/azure/
     # Card
     - title: Azure PowerShell
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_powershell.svg
       url: https://docs.microsoft.com/powershell/azure/
     # Card
     - title: Ansible on Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: ./media/index/ansible.svg
       url: ansible/index.yml
     # Card
     - title: Chef Software on Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: ./chef/media/Chef_Regular.svg
       url: chef/index.yml
     # Card
     - title: Jenkins on Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
       url: jenkins/index.yml
     # Card
     - title: Terraform on Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_terraform.svg
       url: terraform/index.yml
 
 additionalContent:
