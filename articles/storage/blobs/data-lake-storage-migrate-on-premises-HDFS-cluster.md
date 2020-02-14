@@ -3,7 +3,7 @@ title: 'Migrate from on-prem HDFS store to Azure Storage with Azure Data Box'
 description: Migrate data from an on-premises HDFS store to Azure Storage
 author: normesta
 ms.service: storage
-ms.date: 11/19/2019
+ms.date: 02/14/2019
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
