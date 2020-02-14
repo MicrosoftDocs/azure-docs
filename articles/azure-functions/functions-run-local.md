@@ -323,6 +323,12 @@ func start --build
 func start
 ```
 
+# [Python](#tab/python)
+
+```
+func start
+```
+
 # [TypeScript](#tab/ts)
 
 ```
