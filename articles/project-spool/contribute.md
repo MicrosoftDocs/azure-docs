@@ -15,6 +15,8 @@ Before we pull code down, I think it's important to understand the overall devop
 
 ![Cross Platform](./media/pr-process.png)
 
+The numbers in the above diagram correspond to the following numbered annotations:
+
 1. This is the public repository that public contributors use to submit changes.  The purpose of this repository is to facilitate public contributions.
 2. This is the private repository that internal contributors and partners use to submit changes.
 3. **[1]** and **[2]** are synchronized and used to generate the Azure content you see on docs.microsoft.com.
