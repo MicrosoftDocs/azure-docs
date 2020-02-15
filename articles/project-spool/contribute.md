@@ -11,7 +11,7 @@ If you have any questions or feedback along the way, feel free to ping/email any
 
 ## Our Azure Docs Contribution Process
 
-Before we pull code down, I think it's important to understand the overall devops process:
+Before we begin, I think it's important to understand the overall content devops process we're pushing our contributions into.
 
 ![Cross Platform](./media/pr-process.png)
 
