@@ -69,10 +69,10 @@ The following sample *host.json* file for version 2.x+ has all possible options 
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
               "maxSamplingPercentage": 0.1,
-              "movingAverageRatio": 1.0
+              "movingAverageRatio": 1.0,
+              "excludedTypes" : "Dependency;Event",
+              "includedTypes" : "PageView;Trace"
             },
-            "samplingExcludedTypes" : "Dependency;Event",
-            "samplingIncludedTypes" : "PageView;Trace",
             "enableLiveMetrics": true,
             "enableDependencyTracking": true,
             "enablePerformanceCountersCollection": true,            
@@ -273,7 +273,7 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 
 ## http
 
-Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook.md#hostjson-settings).
+Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook-output.md#hostjson-settings).
 
 ## logging
 

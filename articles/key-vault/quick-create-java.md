@@ -164,7 +164,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 The Azure Key Vault client library for Java allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
 
-The entire console app is available at https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+The entire console app is [below](#sample-code).
 
 ## Code examples
 

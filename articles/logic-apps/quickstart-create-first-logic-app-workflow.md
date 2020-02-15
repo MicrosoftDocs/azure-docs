@@ -113,8 +113,8 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
    > [!NOTE]
    > In this specific example, you manually authenticate your identity. However, connectors that require authentication differ in 
    > the authentication types that they support. You also have options to set up the way that you want to handle authentication. 
-   > For example, when you use Azure Resource Manager templates for deployment, you can parameterize and secure inputs that 
-   > you want to change often or easily, such as connection information. For more information, see these topics:
+   > For example, when you use Azure Resource Manager templates for deployment, you can parameterize and improve security on inputs 
+   > that you want to change often or easily, such as connection information. For more information, see these topics:
    >
    > * [Template parameters for deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
    > * [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)

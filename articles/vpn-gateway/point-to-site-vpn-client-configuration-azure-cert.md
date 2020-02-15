@@ -41,7 +41,6 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 ### <a name="zipps"></a>Generate files using PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. When generating VPN client configuration files, the value for '-AuthenticationMethod' is 'EapTls'. Generate the VPN client configuration files using the following command:
 
