@@ -4,7 +4,7 @@ description: Learn how to buy Azure Cosmos DB reserved capacity to save on your 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: tisande
 ms.reviewer: sngun
 ---
@@ -47,7 +47,7 @@ Here's an example recommendation:
 
 ![Reserved Capacity recommendations](./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png)
 
-This recommendation to purchase a 3 Million RU/s reservation indicates that, among 3 year reservations, a 3 Million RU/s reservation size will maximize savings. In this case, the recommendation is calculated based on the past 30 days of Azure Cosmos DB usage. If this customer expects that the past 30 days of Azure Cosmos DB usage is representative of future use, they would maximize savings by purchasing a 3 Million RU/s reservation.
+This recommendation to purchase a 30,000 RU/s reservation indicates that, among 3 year reservations, a 30,000 RU/s reservation size will maximize savings. In this case, the recommendation is calculated based on the past 30 days of Azure Cosmos DB usage. If this customer expects that the past 30 days of Azure Cosmos DB usage is representative of future use, they would maximize savings by purchasing a 30,000 RU/s reservation.
 
 ## Buy Azure Cosmos DB reserved capacity
 
