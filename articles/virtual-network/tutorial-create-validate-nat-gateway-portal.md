@@ -18,7 +18,7 @@ ms.author: allensu
 ---
 # Tutorial: Create a NAT Gateway using the Azure portal and test the NAT service
 
-This tutorial shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for virtual machines  in Azure. To test the NAT gateway, you deploy a source and destination virtual machine.  You'll test the NAT gateway by making outbound connections to a public IP address from the source to the destination virtual machine.  This tutorial deploys source and destination in two different virtual networks in the same resource group for simplicity only.
+This tutorial shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for virtual machines in Azure. To test the NAT gateway, you deploy a source and destination virtual machine.  You'll test the NAT gateway by making outbound connections to a public IP address from the source to the destination virtual machine.  This tutorial deploys source and destination in two different virtual networks in the same resource group for simplicity only.
 
 >[!NOTE] 
 >Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](./nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
@@ -38,7 +38,7 @@ We'll guide you through configuration of a full test environment and the executi
 
 Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network.
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**, or search for **Virtual Network** in the marketplace search.
+1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**, or search for **Virtual Network** in the Marketplace search.
 
 2. In **Create virtual network**, enter or select this information:
 
@@ -62,7 +62,7 @@ To test the NAT gateway, we'll assign a public IP address resource as an instanc
 
 You could also create this VM without a public IP and create another VM to use as a jumpbox without a public IP as an exercise.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**, or search for **Ubuntu Server 18.04 LTS** in the marketplace search.
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**, or search for **Ubuntu Server 18.04 LTS** in the Marketplace search.
 
 2. In **Create a virtual machine**, enter or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**.
@@ -98,7 +98,7 @@ This section details how you can create and configure the following components o
 
 ### Create a public IP address
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP address**, or search for **Public IP address** in the marketplace search. 
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP address**, or search for **Public IP address** in the Marketplace search. 
 
 2. In **Create public IP address**, enter or select this information:
 
@@ -115,7 +115,7 @@ This section details how you can create and configure the following components o
 
 ### Create a public IP prefix
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP prefix**, or search for **Public IP prefix** in the marketplace search.
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP prefix**, or search for **Public IP prefix** in the Marketplace search.
 
 2. In **Create a public IP prefix**, enter or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**>
@@ -130,7 +130,7 @@ This section details how you can create and configure the following components o
 
 ### Create a NAT gateway resource
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **NAT gateway**, or search for **NAT gateway** in the marketplace search.
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **NAT gateway**, or search for **NAT gateway** in the Marketplace search.
 
 2. In **Create network address translation (NAT) gateway**, enter or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**.
@@ -179,7 +179,7 @@ Before you deploy a VM for the destination, we need to create a virtual network 
 
 ### Create destination virtual machine
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**, or search for **Ubuntu Server 18.04 LTS** in the marketplace search.
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**, or search for **Ubuntu Server 18.04 LTS** in the Marketplace search.
 
 2. In **Create a virtual machine**, enter or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**.
