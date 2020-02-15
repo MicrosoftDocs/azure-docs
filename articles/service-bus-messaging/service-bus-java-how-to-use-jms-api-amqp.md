@@ -354,7 +354,7 @@ The following restrictions exist when using JMS over AMQP 1.0 with Service Bus, 
 * Only one **MessageProducer** or **MessageConsumer** is allowed per **Session**. If you need to create multiple **MessageProducers** or **MessageConsumers** in an application, create a dedicated **Session** for each of them.
 * Volatile topic subscriptions are not currently supported.
 * **MessageSelectors** are not currently supported.
-* Transacted sessions and distributed transactions are not supported.
+* Distributed transactions are not supported (but transacted sessions are supported )
 
 Additionally, Azure Service Bus splits the control plane from the data plane and therefore does not support several of
 JMS's dynamic topology functions:
