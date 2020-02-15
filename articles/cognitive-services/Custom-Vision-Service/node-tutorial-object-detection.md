@@ -9,13 +9,13 @@ manager: daauld
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: areddish
 ---
 
 # Quickstart: Create an object detection project with the Custom Vision Node.js SDK
 
-This article provides information and sample code to help you get started using the Custom Vision SDK with Node.js to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Node.js application.
+This article shows you how to get started using the Custom Vision SDK with Node.js to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Node.js application.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Create a new file called *sample.js* in your preferred project directory.
 
 ### Create the Custom Vision service project
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions and set the sampleDataRoot path value to your image folder path. Make sure the endPoint value matches the training and prediction endpoints you have created at [Customvision.ai](https://www.customvision.ai/). Note that the difference between creating an object detection and image classification project is the domain specified in the **create_project** call.
+Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions and set the sampleDataRoot path value to your image folder path. Make sure the endPoint value matches the training and prediction endpoints you have created at [Customvision.ai](https://www.customvision.ai/). Note that the difference between creating an object detection and image classification project is the domain specified in the **createProject** call.
 
 ```javascript
 const fs = require('fs');
@@ -64,6 +64,15 @@ const publishIterationName = "detectModel";
 
 const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
+/* Helper function to let us use await inside a forEach loop.
+ * This lets us insert delays between image uploads to accommodate the rate limit.
+ */
+async function asyncForEach (array, callback) {
+    for (let i = 0; i < array.length; i++) {
+        await callback(array[i], i, array);
+    }
+}
+
 (async () => {
     console.log("Creating project...");
     const domains = await trainer.getDomains()
@@ -82,7 +91,10 @@ To create classification tags to your project, add the following code to the end
 
 ### Upload and tag images
 
-When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates.
+When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates. 
+
+> [!NOTE]
+> If you don't have a click-and-drag utility to mark the coordinates of regions, you can use the web UI at [Customvision.ai](https://www.customvision.ai/). In this example, the coordinates are already provided.
 
 To add the images, tags, and regions to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height. You can upload up to 64 images in a single batch.
 
@@ -138,43 +150,25 @@ let fileUploadPromises = [];
 
 const forkDir = `${sampleDataRoot}/Fork`;
 const forkFiles = fs.readdirSync(forkDir);
-forkFiles.forEach(file => {
-    const region = new TrainingApi.TrainingAPIModels.Region();
-    region.tagId = forkTag.id;
-    region.left = forkImageRegions[file][0];
-    region.top = forkImageRegions[file][1];
-    region.width = forkImageRegions[file][2];
-    region.height = forkImageRegions[file][3];
 
-    const entry = new TrainingApi.TrainingAPIModels.ImageFileCreateEntry();
-    entry.name = file;
-    entry.contents = fs.readFileSync(`${forkDir}/${file}`);
-    entry.regions = [region];
-
-    const batch = new TrainingApi.TrainingAPIModels.ImageFileCreateBatch();
-    batch.images = [entry];
-
+await asyncForEach(forkFiles, async (file) => {
+    const region = { tagId : forkTag.id, left : forkImageRegions[file][0], top : forkImageRegions[file][1], width : forkImageRegions[file][2], height : forkImageRegions[file][3] };
+    const entry = { name : file, contents : fs.readFileSync(`${forkDir}/${file}`), regions : [region] };
+    const batch = { images : [entry] };
+    // Wait one second to accommodate rate limit.
+    await setTimeoutPromise(1000, null);
     fileUploadPromises.push(trainer.createImagesFromFiles(sampleProject.id, batch));
 });
 
 const scissorsDir = `${sampleDataRoot}/Scissors`;
 const scissorsFiles = fs.readdirSync(scissorsDir);
-scissorsFiles.forEach(file => {
-    const region = new TrainingApi.TrainingAPIModels.Region();
-    region.tagId = scissorsTag.id;
-    region.left = scissorsImageRegions[file][0];
-    region.top = scissorsImageRegions[file][1];
-    region.width = scissorsImageRegions[file][2];
-    region.height = scissorsImageRegions[file][3];
 
-    const entry = new TrainingApi.TrainingAPIModels.ImageFileCreateEntry();
-    entry.name = file;
-    entry.contents = fs.readFileSync(`${scissorsDir}/${file}`);
-    entry.regions = [region];
-
-    const batch = new TrainingApi.TrainingAPIModels.ImageFileCreateBatch();
-    batch.images = [entry];
-
+await asyncForEach(scissorsFiles, async (file) => {
+    const region = { tagId : scissorsTag.id, left : scissorsImageRegions[file][0], top : scissorsImageRegions[file][1], width : scissorsImageRegions[file][2], height : scissorsImageRegions[file][3] };
+    const entry = { name : file, contents : fs.readFileSync(`${scissorsDir}/${file}`), regions : [region] };
+    const batch = { images : [entry] };
+    // Wait one second to accommodate rate limit.
+    await setTimeoutPromise(1000, null);
     fileUploadPromises.push(trainer.createImagesFromFiles(sampleProject.id, batch));
 });
 
@@ -183,7 +177,7 @@ await Promise.all(fileUploadPromises);
 
 ### Train the project and publish
 
-This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
+This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 ```javascript
 console.log("Training...");
@@ -193,6 +187,7 @@ let trainingIteration = await trainer.trainProject(sampleProject.id);
 console.log("Training started...");
 while (trainingIteration.status == "Training") {
     console.log("Training status: " + trainingIteration.status);
+    // wait for one second
     await setTimeoutPromise(1000, null);
     trainingIteration = await trainer.getIteration(sampleProject.id, trainingIteration.id)
 }

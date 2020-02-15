@@ -56,6 +56,10 @@ Protecting data is important for meeting organizational security and compliance 
 
 Both data stores for HDInsight clusters, Azure Blob storage and Azure Data Lake Storage Gen1/Gen2, support transparent server-side [encryption of data](../../storage/common/storage-service-encryption.md) at rest. Secure HDInsight clusters will seamlessly work with this capability of server-side encryption of data at rest.
 
+### Compliance
+
+Azure compliance offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight compliance information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
+
 ## Shared responsibility model
 
 The following image summarizes the major system security areas and the security solutions that are available to you in each. It also highlights which security areas are your responsibility as a customer and which areas are the responsibility of HDInsight as the service provider.
@@ -79,7 +83,7 @@ The following table provides links to resources for each type of security soluti
 |  | Ensure [OS Patching](../hdinsight-os-patching.md) on regular intervals | Customer |
 | Network security | Configure a [virtual network](../hdinsight-plan-virtual-network-deployment.md) |
 |  | Configure [Inbound network security group (NSG) rules](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Customer |
-|  | Configure [Outbound traffic restriction](../hdinsight-restrict-outbound-traffic.md) with Firewall (preview) | Customer |
+|  | Configure [Outbound traffic restriction](../hdinsight-restrict-outbound-traffic.md) with Firewall | Customer |
 | Virtualized infrastructure | N/A | HDInsight (Cloud provider) |
 | Physical infrastructure security | N/A | HDInsight (cloud provider) |
 

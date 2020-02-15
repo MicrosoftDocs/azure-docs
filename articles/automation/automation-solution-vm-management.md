@@ -2,17 +2,13 @@
 title: Start/Stop VMs during off-hours solution
 description: This VM management solution starts and stops your Azure Resource Manager virtual machines on a schedule and proactively monitors from Azure Monitor logs.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 05/21/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Start/Stop VMs during off-hours solution in Azure Automation
 
-The Start/Stop VMs during off-hours solution starts and stops your Azure virtual machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). It supports both Azure Resource Manager and classic VMs for most scenarios.
+The Start/Stop VMs during off-hours solution start and stops your Azure virtual machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). It supports both Azure Resource Manager and classic VMs for most scenarios. To use this solution with Classic VMs, you need a Classic RunAs account, which is not created by default. For instructions on creating a Classic RunAs account, see [Classic Run-As Accounts](automation-create-standalone-account.md#classic-run-as-accounts).
 
 > [!NOTE]
 > The Start/Stop VMs during off-hours solution has been tested with the Azure modules that are imported into your Automation Account when you deploy the solution. The solution does currently not work with newer versions of the Azure module. This only affects the Automation Account that you use to run the Start/Stop VMs during off-hours solution. You can still use newer versions of the Azure module in your other Automation Accounts, as described in [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md)
@@ -23,15 +19,15 @@ This solution provides a decentralized low-cost automation option for users who 
 - Schedule VMs to start and stop in ascending order by using Azure Tags (not supported for classic VMs).
 - Autostop VMs based on low CPU usage.
 
-The following are limitations to the current solution:
+The following are limitations with the current solution:
 
 - This solution manages VMs in any region, but can only be used in the same subscription as your Azure Automation account.
 - This solution is available in Azure and AzureGov to any region that supports a Log Analytics workspace, an Azure Automation account, and Alerts. AzureGov regions currently do not support email functionality.
 
 > [!NOTE]
-> If you are using the solution for classic VMs, then all your VMs will be processed sequentially per cloud service. Virtual machines are still processed in parallel across different cloud services.
+> If you are using the solution for classic VMs, then all your VMs will be processed sequentially per cloud service. Virtual machines are still processed in parallel across different cloud services. If you have more than 20 VMs per cloud service, we recommend creating multiple schedules with the parent runbook **ScheduledStartStop_Parent** and specify 20 VMs per schedule. In the schedule properties, specify as a comma-separated list, VM names in the **VMList** parameter. Otherwise, if the Automation job for this solution runs more than three hours it is temporarily unloaded or stopped per the [fair share](automation-runbook-execution.md#fair-share) limit.
 >
-> Azure Cloud Solution Provider (Azure CSP) subscriptions support only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When the Start/Stop solution runs you may receive errors as it has cmdlets to manage classic resources. To learn more about CSP, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). If you use a CSP subscription, you should modify the [**External_EnableClassicVMs**](#variables) variable to **False** after deployment.
+> Azure Cloud Solution Provider (Azure CSP) subscriptions support only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When the Start/Stop solution runs you may receive errors as it has cmdlets to manage classic resources. To learn more about CSP, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). If you use a CSP subscription, you should modify the [**External_EnableClassicVMs**](#variables) variable to **False** after deployment.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -39,15 +35,15 @@ The following are limitations to the current solution:
 
 The runbooks for this solution work with an [Azure Run As account](automation-create-runas-account.md). The Run As account is the preferred authentication method, because it uses certificate authentication instead of a password that might expire or change frequently.
 
-It is recommended to use a separate Automation Account for the Start/Stop VM solution. This is because Azure module versions are frequently upgraded, and their parameters may change. The Start/Stop VM solution is not upgraded on the same cadence so it may not work with newer versions of the cmdlets that it uses. It is recommended to test module updates in a test Automation Account prior to importing them in your production Automation Account.
+We recommend you use a separate Automation Account for the Start/Stop VM solution. This is because Azure module versions are frequently upgraded, and their parameters may change. The Start/Stop VM solution is not upgraded on the same cadence so it may not work with newer versions of the cmdlets that it uses. We also recommend you test module updates in a test Automation Account prior to importing them in your production Automation Account(s).
 
 ### Permissions needed to deploy
 
 There are certain permissions that a user must have to deploy the Start/Stop VMs during off hours solution. These permissions are different if using a pre-created Automation Account and Log Analytics workspace or creating new ones during deployment. If you are a Contributor on the subscription and a Global Administrator in your Azure Active Directory tenant, you do not need to configure the following permissions. If you do not have those rights or need to configure a custom role, see the permissions required below.
 
-#### Pre-existing Automation Account and Log Analytics account
+#### Pre-existing Automation Account and Log Analytics workspace
 
-To deploy the Start/Stop VMs during off hours solution to an Automation Account and Log Analytics the user deploying the solution requires the following permissions on the **Resource Group**. To learn more about roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
+To deploy the Start/Stop VMs during off hours solution to an existing Automation Account and Log Analytics workspace, the user deploying the solution requires the following permissions on the **Resource Group**. To learn more about roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
 
 | Permission | Scope|
 | --- | --- |
@@ -72,10 +68,10 @@ To deploy the Start/Stop VMs during off hours solution to an Automation Account 
 
 #### New Automation Account and a new Log Analytics workspace
 
-To deploy the Start/Stop VMs during off hours solution to a new Automation Account and Log Analytics workspace the user deploying the solution needs the permissions defined in the preceding section as well as the following permissions:
+To deploy the Start/Stop VMs during off hours solution to a new Automation Account and Log Analytics workspace, the user deploying the solution needs the permissions defined in the preceding section as well as the following permissions:
 
-- Co-administrator on subscription - This is only needed to create the Classic Run As Account
-- Be part of the [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **Application Developer** role. For more details on configuring Run As Accounts, see [Permissions to configure Run As accounts](manage-runas-account.md#permissions).
+- Co-administrator on subscription - It is only needed to create the Classic Run As Account if you are going to manage Classic VMs. [Classic RunAs Accounts](automation-create-standalone-account.md#classic-run-as-accounts) are no longer created by default.
+- A member of the [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **Application Developer** role. For more information on configuring Run As Accounts, see [Permissions to configure Run As accounts](manage-runas-account.md#permissions).
 - Contributor on the subscription or the following permissions.
 
 | Permission |Scope|
@@ -113,8 +109,8 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    - Specify a name for the new **Log Analytics workspace**, such as "ContosoLAWorkspace".
    - Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
    - For **Resource Group**, you can create a new resource group or select an existing one.
-   - Select a **Location**. Currently, the only locations available are **Australia Southeast**, **Canada Central**, **Central India**, **East US**, **Japan East**, **Southeast Asia**, **UK South**, **West Europe**, and **West US 2**.
-   - Select a **Pricing tier**. Choose the **Per GB (Standalone)** option. Azure Monitor logs has updated [pricing](https://azure.microsoft.com/pricing/details/log-analytics/) and the Per GB tier is the only option.
+   - Select a **Location**.
+   - Select a **Pricing tier**. Choose the **Per GB (Standalone)** option. Azure Monitor logs have updated [pricing](https://azure.microsoft.com/pricing/details/log-analytics/) and the Per GB tier is the only option.
 
    > [!NOTE]
    > When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
@@ -264,8 +260,8 @@ The following table lists the variables created in your Automation account. Only
 |External_AutoStop_Threshold | The threshold for the Azure Alert rule specified in the variable _External_AutoStop_MetricName_. Percentage values can range from 1 to 100.|
 |External_AutoStop_TimeAggregationOperator | The time aggregation operator, which is applied to the selected window size to evaluate the condition. Acceptable values are **Average**, **Minimum**, **Maximum**, **Total**, and **Last**.|
 |External_AutoStop_TimeWindow | The window size during which Azure analyzes selected metrics for triggering an alert. This parameter accepts input in timespan format. Possible values are from 5 minutes to 6 hours.|
-|External_EnableClassicVMs| Specifies whether Classic VMs are targeted by the solution. The default value is True. This should be set to False for CSP subscriptions.|
-|External_ExcludeVMNames | Enter VM names to be excluded, separating names by using a comma with no spaces. This is limited to 140 VMs. If you add more than 140 VMs to this comma separated list, VMs that are set to be excluded may be inadvertently started or stopped.|
+|External_EnableClassicVMs| Specifies whether Classic VMs are targeted by the solution. The default value is True. This should be set to False for CSP subscriptions. Classic VMs require a [Classic Run-As Account](automation-create-standalone-account.md#classic-run-as-accounts).|
+|External_ExcludeVMNames | Enter VM names to be excluded, separating names by using a comma with no spaces. This is limited to 140 VMs. If you add more than 140 VMs to this comma-separated list, VMs that are set to be excluded may be inadvertently started or stopped.|
 |External_Start_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for start actions.|
 |External_Stop_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for stop actions.|
 |Internal_AutomationAccountName | Specifies the name of the Automation account.|
@@ -383,13 +379,13 @@ The solution provides the ability to add VMs to be targeted by the solution or s
 
 There are a couple options that you can use to make sure that a VM is included in the Start/Stop solution when it runs.
 
-* Each of the parent [runbooks](#runbooks) of the solution have a **VMList** parameter. You can pass a comma separated list of VM names to this parameter when scheduling the appropriate parent runbook for your situation and these VMs will be included when the solution runs.
+* Each of the parent [runbooks](#runbooks) of the solution has a **VMList** parameter. You can pass a comma-separated list of VM names to this parameter when scheduling the appropriate parent runbook for your situation and these VMs will be included when the solution runs.
 
 * To select multiple VMs, set the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** with the resource group names that contain the VMs you want to start or stop. You can also set this value to `*`, to have the solution run against all resource groups in the subscription.
 
 ### Exclude a VM
 
-To exclude a VM from the solution, you can add it to the **External_ExcludeVMNames** variable. This variable is a comma separated list of specific VMs to exclude from the Start/Stop solution. This list is limited to 140 VMs. If you add more than 140 VMs to this comma separated list, VMs that are set to be excluded may be inadvertently started or stopped.
+To exclude a VM from the solution, you can add it to the **External_ExcludeVMNames** variable. This variable is a comma-separated list of specific VMs to exclude from the Start/Stop solution. This list is limited to 140 VMs. If you add more than 140 VMs to this comma-separated list, VMs that are set to be excluded may be inadvertently started or stopped.
 
 ## Modify the startup and shutdown schedules
 
@@ -422,7 +418,7 @@ To delete the solution, perform the following steps:
 
 The Automation account and Log Analytics workspace are not deleted as part of this process. If you do not want to retain the Log Analytics workspace, you need to manually delete it. This can be accomplished from the Azure portal:
 
-1. From the  Azure portal home screen, select **Log Analytics workspaces**.
+1. In Azure portal, search for and select **Log Analytics workspaces**.
 1. On the **Log Analytics workspaces** page, select the workspace.
 1. Select **Delete** from the menu on the workspace settings page.
 

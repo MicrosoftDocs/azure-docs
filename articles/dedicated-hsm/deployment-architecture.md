@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 02/05/2020
 ms.author: mbaldwin
 
 ---
@@ -31,6 +31,10 @@ The HSMs are distributed across Microsoft’s data centers and can be easily pro
 * South Central US
 * Southeast Asia
 * East Asia
+* India Central
+* India South
+* Japan East
+* Japan West
 * North Europe
 * West Europe
 * UK South

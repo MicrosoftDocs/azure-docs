@@ -1,11 +1,8 @@
 ---
 title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/09/2019
-ms.topic: conceptual
-ms.service: azure-policy
+ms.topic: how-to
 ---
 # Remediate non-compliant resources with Azure Policy
 
@@ -244,5 +241,5 @@ module.
 - Review the [Azure Policy definition structure](../concepts/definition-structure.md).
 - Review [Understanding policy effects](../concepts/effects.md).
 - Understand how to [programmatically create policies](programmatically-create.md).
-- Learn how to [get compliance data](getting-compliance-data.md).
+- Learn how to [get compliance data](get-compliance-data.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

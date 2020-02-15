@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Load data to Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Tutorial: Load data using Azure portal & SSMS'
 description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo 
@@ -10,6 +10,7 @@ ms.subservice: load-data
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Tutorial: Load data to Azure SQL Data Warehouse
@@ -39,7 +40,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank SQL Data Warehouse
 
-An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
+An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
 
 Follow these steps to create a blank SQL Data Warehouse. 
 
@@ -55,7 +56,7 @@ Follow these steps to create a blank SQL Data Warehouse.
    | ------- | --------------- | ----------- | 
    | **Database name** | SampleDW | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). | 
    | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | SampleRG | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Resource group** | SampleRG | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
    | **Select source** | Blank database | Specifies to create a blank database. Note, a data warehouse is one type of database.|
 
     ![create data warehouse](media/load-data-wideworldimportersdw/create-data-warehouse.png)
@@ -64,7 +65,7 @@ Follow these steps to create a blank SQL Data Warehouse.
 
     | Setting | Suggested value | Description | 
     | ------- | --------------- | ----------- |
-    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
+    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). | 
     | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
     | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |

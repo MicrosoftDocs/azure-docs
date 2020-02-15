@@ -1,11 +1,11 @@
 ---
-title: Read replicas in Azure Database for MariaDB
+title: Read replicas - Azure Database for MariaDB
 description: 'Learn about read replicas in Azure Database for MariaDB: choosing regions, creating replicas, connecting to replicas, monitoring replication, and stopping replication.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 01/16/2020
 ---
 
 # Read replicas in Azure Database for MariaDB
@@ -40,7 +40,9 @@ You can have a master server in any [Azure Database for MariaDB region](https://
 ### Universal replica regions
 You can create a read replica in any of the following regions, regardless of where your master server is located. The supported universal replica regions include:
 
-Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2.
+Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US.
+
+*West US 2 is temporarily unavailable as a cross region replica location.
 
 
 ### Paired regions
@@ -69,7 +71,7 @@ Learn how to [create a read replica in the Azure portal](howto-read-replicas-por
 
 ## Connect to a replica
 
-When you create a replica, it doesn't inherit the firewall rules or VNet service endpoint of the master server. These rules must be set up independently for the replica.
+At creation, a replica inherits the firewall rules or VNet service endpoint of the master server. Afterwards, these rules are independent from the the master server.
 
 The replica inherits the admin account from the master server. All user accounts on the master server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the master server.
 
@@ -122,13 +124,15 @@ A replica is created by using the same server configuration as the master. After
 > [!IMPORTANT]
 > Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
 
+Firewall rules, virtual network rules, and parameter settings are inherited from the master server to the replica when the replica is created. Afterwards, the replica's rules are independent.
+
 ### Stopped replicas
 
 If you stop replication between a master server and a read replica, the stopped replica becomes a standalone server that accepts both reads and writes. The standalone server can't be made into a replica again.
 
 ### Deleted master and standalone servers
 
-When a master server is deleted, replication is stopped to all read replicas. These replicas become standalone servers. The master server itself is deleted.
+When a master server is deleted, replication is stopped to all read replicas. These replicas automatically become standalone servers and can accept both reads and writes. The master server itself is deleted.
 
 ### User accounts
 

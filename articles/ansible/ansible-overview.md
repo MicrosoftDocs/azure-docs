@@ -3,10 +3,6 @@ title: Using Ansible with Azure
 description: Introduction to using Ansible to automates cloud provisioning, configuration management, and application deployments.
 keywords: ansible, azure, devops, overview, cloud provision, configuration management, application deployment, ansible modules, ansible playbooks
 ms.topic: overview
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
 ---
 
@@ -56,4 +52,4 @@ Ansible includes a suite of modules for use in provisioning and configuring Azur
 ## Next steps
 
 - [Quickstart: Deploy the Ansible solution template for Azure to CentOS](./ansible-deploy-solution-template.md)
-- [Quickstart: Configure Linux virtual machines in Azure using Ansible](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fazure%2Fansible%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)
+- [Quickstart: Configure Linux virtual machines in Azure using Ansible](./ansible-install-configure.md)

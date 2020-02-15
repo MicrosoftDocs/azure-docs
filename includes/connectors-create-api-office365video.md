@@ -1,11 +1,13 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
+ms.date: 11/03/2016
 ---
-### Prerequisites
+
+## Prerequisites
+
 * A [Office 365 Video](https://support.office.com/article/Meet-Office-365-Video-ca1cc1a9-a615-46e1-b6a3-40dbd99939a6) account  
 
 Before you can use your Office 365 Video account in a Logic app, you must authorize the Logic app to connect to your Office 365 Video account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/06/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
@@ -83,6 +83,8 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 1. Select **Assign**.
 
     The user is added to the list of licensed users and has access to the included Azure AD services.
+    > [!NOTE]
+    > Licenses can also be assigned directly to a user from the user's **Licenses** page. If a user has a license assigned through a group membership and you want to assign the same license to the user directly, it can be done only from the **Products** page mentioned in step 1 only.
 
 ### To assign a license to a group
 

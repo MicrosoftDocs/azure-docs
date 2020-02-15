@@ -5,8 +5,8 @@ keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
@@ -15,7 +15,7 @@ manager: carmonm
 
 Azure Automation State Configuration is an Azure service that allows you to write, manage, and
 compile PowerShell Desired State Configuration (DSC)
-[configurations](/powershell/dsc/configurations), import [DSC Resources](/powershell/dsc/resources),
+[configurations](/powershell/scripting/dsc/configurations/configurations), import [DSC Resources](/powershell/scripting/dsc/resources/resources),
 and assign configurations to target nodes, all in the cloud.
 
 ## Why use Azure Automation State Configuration
@@ -25,7 +25,7 @@ Azure Automation State Configuration provides several advantages over using DSC 
 ### Built-in pull server
 
 Azure Automation State Configuration provides a DSC pull server similar to the
-[Windows Feature DSC-Service](/powershell/dsc/pullserver) so that target nodes automatically receive
+[Windows Feature DSC-Service](/powershell/scripting/dsc/pull-server/pullserver) so that target nodes automatically receive
 configurations, conform to the desired state, and report back on their compliance. The built-in pull
 server in Azure Automation eliminates the need to set up and maintain your own pull server. Azure
 Automation can target virtual or physical Windows or Linux machines, in the cloud or on-premises.
@@ -33,7 +33,7 @@ Automation can target virtual or physical Windows or Linux machines, in the clou
 ### Management of all your DSC artifacts
 
 Azure Automation State Configuration brings the same management layer to
-[PowerShell Desired State Configuration](/powershell/dsc/overview) as Azure Automation offers for PowerShell scripting.
+[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) as Azure Automation offers for PowerShell scripting.
 
 From the Azure portal, or from PowerShell, you can manage all your DSC configurations, resources,
 and target nodes.
@@ -75,9 +75,9 @@ The DSC Linux extension supports all the Linux distributions listed under [Suppo
 ### DSC requirements
 
 For all Windows nodes running in Azure,
-[WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure)
+[WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure)
 will be installed during onboarding.  For nodes running Windows Server 2012 and Windows 7,
-[WinRM will be enabled](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+[WinRM will be enabled](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 For all Linux nodes running in Azure,
 [PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)
@@ -95,7 +95,7 @@ the following port and URLs are required for State Configuration (DSC) to commun
 
 This provides network connectivity for the managed node to communicate with Azure Automation.
 If you are using DSC resources that communicate between nodes,
-such as the [WaitFor* resources](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource),
+such as the [WaitFor* resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource),
 you will also need to allow traffic between nodes.
 See the documentation for each DSC resource to understand those network requirements.
 

@@ -1,11 +1,10 @@
 ---
-title: 'Common questions about VMware to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
+title: Common questions about VMware disaster recovery with Azure Site Recovery 
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
-ms.date: 06/27/2019
+ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
 ---
@@ -96,7 +95,7 @@ On each VM that you want to replicate, install the service by one of several met
 
 - [Push installation](vmware-physical-mobility-service-overview.md#push-installation)
 - [Manual installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) from the UI or PowerShell
-- Deployment by using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
+- Deployment by using a deployment tool such as [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
 ## Managed disks
 
@@ -171,7 +170,7 @@ Yes, you can add new VMs to an existing replication group when you enable replic
 
 ### Can I modify VMs that are replicating by adding or resizing disks?
 
-For VMware replication to Azure, you can modify disk size. If you want to add new disks, you must add the disk and reenable protection for the VM.
+For VMware replication to Azure, you can modify disk size of source VMs. If you want to add new disks, you must add the disk and reenable protection for the VM.
 
 ### Can I migrate on-premises machines to a new vCenter Server without impacting ongoing replication?
 
@@ -285,7 +284,7 @@ In the Recovery Services vault, select **Configuration Servers** in **Site Recov
 
 ### Can a single configuration server be used to protect multiple vCenter instances?
 
-Yes, a single configuration server can protect VMs accross multiple vCenters.  There is not limit on how many vCenter instances can be added to the configuration server, however the limits for how many VMs a single configuration server can protect do apply.
+Yes, a single configuration server can protect VMs across multiple vCenters.  There is not limit on how many vCenter instances can be added to the configuration server, however the limits for how many VMs a single configuration server can protect do apply.
 
 ### Can a single configuration server protect multiple clusters within vCenter?
 
@@ -339,9 +338,6 @@ Yes. If you failed over to Azure, you can fail back to a different location if t
 
 When you fail back from Azure, data from Azure is copied back to your on-premises VM, and private access is required.
 
-### Can I resize the Azure VM after failover?
-
-No, you can't change the size or type of the target VM after the failover.
 
 ## Automation and scripting
 

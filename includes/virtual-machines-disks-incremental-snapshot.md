@@ -5,24 +5,20 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/23/2019
+ ms.date: 12/06/2019
  ms.author: rogarana
  ms.custom: include file
 ---
 
-# Creating an incremental snapshot (preview) for managed disks
-
 Incremental snapshots (preview) are point in time backups for managed disks that, when taken, consist only of all the changes since the last snapshot. When you attempt to download or otherwise use an incremental snapshot, the full VHD is used. This new capability for managed disk snapshots can potentially allow them to be more cost effective, since you are no longer required to store the entire disk with each individual snapshot, unless you choose to. Just like regular snapshots, incremental snapshots can be used to create a full managed disk or, to make a regular snapshot.
 
-There are a few differences between an incremental snapshot and a regular snapshot. Incremental snapshots will always use standard HDDs storage, irrespective of the storage type of the disk, whereas regular snapshots can use premium SSDs. If you are using regular snapshots on Premium Storage to scale up VM deployments, we recommend you to use custom images on standard storage in the [Shared Image Gallery](../articles/virtual-machines/linux/shared-image-galleries.md). It will help you to achieve a more massive scale with lower cost. Additionally, incremental snapshots potentially offer better reliability with [zone-redundant storage](../articles/storage/common/storage-redundancy-zrs.md) (ZRS). If ZRS is available in the selected region, an incremental snapshot will use ZRS automatically. If ZRS is not available in the region, then the snapshot will default to [locally-redundant storage](../articles/storage/common/storage-redundancy-lrs.md) (LRS). You can override this behavior and select one manually but, we do not recommend that.
+There are a few differences between an incremental snapshot and a regular snapshot. Incremental snapshots will always use standard HDDs storage, irrespective of the storage type of the disk, whereas regular snapshots can use premium SSDs. If you are using regular snapshots on Premium Storage to scale up VM deployments, we recommend you use custom images on standard storage in the [Shared Image Gallery](../articles/virtual-machines/linux/shared-image-galleries.md). It will help you to achieve a more massive scale with lower cost. Additionally, incremental snapshots potentially offer better reliability with [zone-redundant storage](../articles/storage/common/storage-redundancy-zrs.md) (ZRS). If ZRS is available in the selected region, an incremental snapshot will use ZRS automatically. If ZRS is not available in the region, then the snapshot will default to [locally-redundant storage](../articles/storage/common/storage-redundancy-lrs.md) (LRS). You can override this behavior and select one manually but, we do not recommend that.
 
 Incremental snapshots also offer a differential capability, which is uniquely available to managed disks. They enable you to get the changes between two incremental snapshots of the same managed disks, down to the block level. You can use this capability to reduce your data footprint when copying snapshots across regions.
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview.
-
 ## Restrictions
 
-- Incremental snapshots are currently only available in West Central US.
+- Incremental snapshots are currently only available in East US, East US 2, Central US, West Central US, Canada East, Canada Central, and North Europe.
 - Incremental snapshots currently cannot be created after you've changed the size of a disk.
 - Incremental snapshots currently cannot be moved between subscriptions.
 - You can currently only generate SAS URIs of up to five snapshots of a particular snapshot family at any given time.
@@ -40,7 +36,7 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 Once that is installed, login to your PowerShell session with `az login`.
 
-To create an incremental snapshot with Azure PowerShell, set the configuration with [New-AzSnapShotConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) with the `-Incremental` parameter and then pass that as a variable to [New-AzSnapshot](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) through the `-Snapshot` parameter.
+To create an incremental snapshot with Azure PowerShell, set the configuration with [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) with the `-Incremental` parameter and then pass that as a variable to [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) through the `-Snapshot` parameter.
 
 Replace `<yourDiskNameHere>`, `<yourResourceGroupNameHere>`, and `<yourDesiredSnapShotNameHere>` with your values, then you can use the following script to create an incremental snapshot:
 
@@ -75,11 +71,13 @@ $incrementalSnapshots
 
 ## CLI
 
-You can create an incremental snapshot with the Azure CLI, you will need the latest version of Azure CLI. The following command will either install or update your existing installation to the latest version:
+You can create an incremental snapshot with the Azure CLI, you will need the latest version of Azure CLI. 
 
+On Windows, the following command will either install or update your existing installation to the latest version:
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
+On Linux, the CLI installation will vary depending on operating system version.  See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for your particular Linux version.
 
 To create an incremental snapshot, use [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) with the `--incremental` parameter.
 
@@ -151,4 +149,4 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Next steps
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview.
+If you'd like to see sample code demonstrating the differential capability of incremental snapshots, using .NET, see [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

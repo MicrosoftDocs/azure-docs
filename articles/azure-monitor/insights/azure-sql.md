@@ -1,15 +1,14 @@
 ---
 title: Azure SQL Analytics solution in Azure Monitor | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
-services: log-analytics
-ms.service: log-analytics
-ms.custom: 
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
+ms.date: 12/04/2019
+
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 12/17/2018
 ---
 
 # Monitor Azure SQL Database using Azure SQL Analytics (Preview)
@@ -31,11 +30,26 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Azure Diagnostics](../platform/collect-azure-metrics-logs.md) | **Yes** | Azure metric and log data are sent to Azure Monitor Logs directly by Azure. |
+| [Diagnostics settings](../platform/diagnostic-settings.md) | **Yes** | Azure metric and log data are sent to Azure Monitor Logs directly by Azure. |
 | [Azure storage account](../platform/collect-azure-metrics-logs.md) | No | Azure Monitor doesn't read the data from a storage account. |
 | [Windows agents](../platform/agent-windows.md) | No | Direct Windows agents aren't used by the solution. |
 | [Linux agents](../learn/quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by the solution. |
 | [System Center Operations Manager management group](../platform/om-agents.md) | No | A direct connection from the Operations Manager agent to Azure Monitor is not used by the solution. |
+
+## Azure SQL Analytics options
+
+The below table outlines supported options for two versions of the Azure SQL Analytics dashboard, one for Azure SQL database and elastic pools, and the other one for Managed Instance.
+
+| Azure SQL Analytics option | Description | SQL Database and elastic pools support | Managed Instance support |
+| --- | ------- | ----- | ----- |
+| Resource by type | Perspective that counts all the resources monitored. | Yes | Yes |
+| Insights | Provides hierarchical drill-down into Intelligent Insights into performance. | Yes | Yes |
+| Errors | Provides hierarchical drill-down into SQL errors that happened on the databases. | Yes | Yes |
+| Timeouts | Provides hierarchical drill-down into SQL timeouts that happened on the databases. | Yes | No |
+| Blockings | Provides hierarchical drill-down into SQL blockings that happened on the databases. | Yes | No |
+| Database waits | Provides hierarchical drill-down into SQL wait statistics on the database level. Includes summaries of total waiting time and the waiting time per wait type. |Yes | No |
+| Query duration | Provides hierarchical drill-down into the query execution statistics such as query duration, CPU usage, Data IO usage, Log IO usage. | Yes | Yes |
+| Query waits | Provides hierarchical drill-down into the query wait statistics by wait category. | Yes | Yes |
 
 ## Configuration
 Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md) to add the Azure SQL Analytics (Preview) solution to your Log Analytics workspace.
@@ -91,21 +105,6 @@ Selecting any of the tiles, opens a drill-down report into the specific perspect
 Selecting Managed Instance view, shows details on the Managed Instance utilization, databases it contains, and telemetry on the queries executed across the instance.
 
 ![Azure SQL Analytics Timeouts](./media/azure-sql/azure-sql-sol-metrics-mi.png)
-
-### Perspectives
-
-The below table outlines perspectives supported for two versions of the dashboard, one for Azure SQL database and elastic pools, and the other one for Managed Instance.
-
-| Perspective | Description | SQL Database and elastic pools support | Managed Instance support |
-| --- | ------- | ----- | ----- |
-| Resource by type | Perspective that counts all the resources monitored. | Yes | Yes |
-| Insights | Provides hierarchical drill-down into Intelligent Insights into performance. | Yes | Yes |
-| Errors | Provides hierarchical drill-down into SQL errors that happened on the databases. | Yes | Yes |
-| Timeouts | Provides hierarchical drill-down into SQL timeouts that happened on the databases. | Yes | No |
-| Blockings | Provides hierarchical drill-down into SQL blockings that happened on the databases. | Yes | No |
-| Database waits | Provides hierarchical drill-down into SQL wait statistics on the database level. Includes summaries of total waiting time and the waiting time per wait type. |Yes | Yes |
-| Query duration | Provides hierarchical drill-down into the query execution statistics such as query duration, CPU usage, Data IO usage, Log IO usage. | Yes | Yes |
-| Query waits | Provides hierarchical drill-down into the query wait statistics by wait category. | Yes | Yes |
 
 ### Intelligent Insights report
 

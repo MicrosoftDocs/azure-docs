@@ -1,11 +1,11 @@
 ---
 title: Azure Firewall FAQ
-description: FAQ for Azure Firewall
+description: FAQ for Azure Firewall. A managed, cloud-based network security service that protects your Azure Virtual Network resources.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 01/29/2020
 ms.author: victorh
 ---
 
@@ -49,7 +49,7 @@ There are three types of rule collections:
 
 ## Does Azure Firewall support inbound traffic filtering?
 
-Azure Firewall supports inbound and outbound filtering. Inbound protection is for non-HTTP/S protocols. For example RDP, SSH, and FTP protocols.
+Azure Firewall supports inbound and outbound filtering. Inbound protection is typically used for non-HTTP/S protocols. For example RDP, SSH, and FTP protocols. For best inbound HTTP/S protection, use a web application firewall such as [Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
 
 ## Which logging and analytics services are supported by the Azure Firewall?
 
@@ -108,7 +108,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## What are the known service limits?
 
-For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#azure-firewall-limits).
+For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
 ## Can Azure Firewall in a hub virtual network forward and filter network traffic between two spoke virtual networks?
 
@@ -149,7 +149,7 @@ Azure Firewall consists of several backend nodes in an active-active configurati
 
 ## Is there a character limit for a firewall name?
 
-Yes. There is a 50 character limit for a firewall name.
+Yes. There's a 50 character limit for a firewall name.
 
 ## Why does Azure Firewall need a /26 subnet size?
 
@@ -157,7 +157,15 @@ Azure Firewall must provision more virtual machine instances as it scales. A /26
 
 ## Does the firewall subnet size need to change as the service scales?
 
-No. Azure Firewall does not need a subnet bigger than /26.
+No. Azure Firewall doesn't need a subnet bigger than /26.
+
+## How can I increase my firewall throughput?
+
+Azure Firewall's initial throughput capacity is 2.5 - 3 Gbps. Currently, scale out is based on CPU usage only. In some cases, a firewall with network rules only won't scale up to increase throughput because the network rules don't significantly impact CPU usage. If you need higher throughput for your firewall, contact Support to increase your firewall's initial throughput capacity.
+
+## How long does it take for Azure Firewall to scale out?
+
+Currently, it takes from five to seven minutes for Azure Firewall to scale out. If you have bursts that require a faster autoscale, contact Support to increase your firewall's initial throughput capacity.
 
 ## Does Azure Firewall allow access to Active Directory by default?
 

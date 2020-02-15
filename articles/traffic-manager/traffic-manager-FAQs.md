@@ -3,14 +3,14 @@ title: Azure Traffic Manager - FAQs
 description: This article provides answers to frequently asked questions about Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: allensu
+ms.author: rohink
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)
@@ -24,7 +24,7 @@ As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-h
 Therefore, Traffic Manager does not provide an endpoint or IP address for clients to connect to. If you want static IP address for your service, that must be configured at the service, not in Traffic Manager.
 
 ### What types of traffic can be routed using Traffic Manager?
-As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), a Traffic Manager endpoint can be any internet facing service hosted inside or outside of Azure. Hence, Traffic Manager can route traffic that originates from the public internet to a set of endpoints that are also internet facing. If you have endpoints that are inside a private network (for example, an internal version of [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) or have users making DNS requests from such internal networks, then you cannot use Traffic Manager to route this traffic.
+As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), a Traffic Manager endpoint can be any internet facing service hosted inside or outside of Azure. Hence, Traffic Manager can route traffic that originates from the public internet to a set of endpoints that are also internet facing. If you have endpoints that are inside a private network (for example, an internal version of [Azure Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer)) or have users making DNS requests from such internal networks, then you cannot use Traffic Manager to route this traffic.
 
 ### Does Traffic Manager support "sticky" sessions?
 
@@ -413,7 +413,10 @@ Yes. You can specify TCP as the monitoring protocol and Traffic Manager can init
 
 ### What specific responses are required from the endpoint when using TCP monitoring?
 
-When TCP monitoring is used, Traffic Manager starts a three-way TCP handshake by sending a SYN request to endpoint at the specified port. It then waits for a period of time (as specified in the timeout settings) for a response from the endpoint. If the endpoint responds to the SYN request with a SYN-ACK response within the timeout period specified in the monitoring settings, then that endpoint is considered healthy. If the SYN-ACK response is received, the Traffic Manager resets the connection by responding back with a RST.
+When TCP monitoring is used, Traffic Manager starts a three-way TCP handshake by sending a SYN request to endpoint at the specified port. It then waits for a SYN-ACK response from the endpoint for a period of time (specified in the timeout settings).
+
+- If a SYN-ACK response is received within the timeout period specified in the monitoring settings, then that endpoint is considered healthy. A FIN or FIN-ACK is the expected response from the Traffic Manager when it regularly terminates a socket.
+- If a SYN-ACK response is received after the specified timeout, the Traffic Manager will respond with an RST to reset the connection.
 
 ### How fast does Traffic Manager move my users away from an unhealthy endpoint?
 

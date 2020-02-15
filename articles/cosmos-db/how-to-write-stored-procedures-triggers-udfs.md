@@ -1,10 +1,10 @@
 ---
-title: How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB
+title: Write stored procedures, triggers, and UDFs in Azure Cosmos DB
 description: Learn how to define stored procedures, triggers, and user-defined functions in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
 ---
 
@@ -16,6 +16,9 @@ To call a stored procedure, trigger, and user-defined function, you need to regi
 
 > [!NOTE]
 > For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value will not be visible to the stored procedure. This also applied to triggers as well.
+
+> [!Tip]
+> Cosmos supports deploying containers with stored procedures, triggers and user-defined functions. For more information see [Create an Azure Cosmos DB container with server-side functionality.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a id="stored-procedures"></a>How to write stored procedures
 
@@ -43,11 +46,11 @@ Once written, the stored procedure must be registered with a collection. To lear
 
 ### <a id="create-an-item"></a>Create an item using stored procedure
 
-When you create an item by using stored procedure, the item is inserted into the Azure Cosmos container and an id for the newly created item is returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters - one for the error object in case the operation fails and another for a return value; in this case, the created object. Inside the callback, you can either handle the exception or throw an error. In case a callback is not provided and there is an error, the Azure Cosmos DB runtime will throw an error. 
+When you create an item by using stored procedure, the item is inserted into the Azure Cosmos container and an ID for the newly created item is returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters - one for the error object in case the operation fails and another for a return value; in this case, the created object. Inside the callback, you can either handle the exception or throw an error. In case a callback is not provided and there is an error, the Azure Cosmos DB runtime will throw an error. 
 
 The stored procedure also includes a parameter to set the description, it's a boolean value. When the parameter is set to true and the description is missing, the stored procedure will throw an exception. Otherwise, the rest of the stored procedure continues to run.
 
-The following example stored procedure takes a new Azure Cosmos item as input, inserts it into the Azure Cosmos container and returns the id for the newly created item. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET SQL API](create-sql-api-dotnet.md)
+The following example stored procedure takes a new Azure Cosmos item as input, inserts it into the Azure Cosmos container and returns the ID for the newly created item. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET SQL API](create-sql-api-dotnet.md)
 
 ```javascript
 function createToDoItem(itemToCreate) {
@@ -308,6 +311,17 @@ function tax(income) {
 ```
 
 For examples of how to register and use a user-defined function, see [How to use user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs) article.
+
+## Logging 
+
+When using stored procedure, triggers or user-defined functions, you can log the steps using the `console.log()` command. This command will concentrate a string for debugging when `EnableScriptLogging` is set to true as shown in the following example:
+
+```javascript
+var response = await client.ExecuteStoredProcedureAsync(
+document.SelfLink,
+new RequestOptions { EnableScriptLogging = true } );
+Console.WriteLine(response.ScriptLog);
+```
 
 ## Next steps
 

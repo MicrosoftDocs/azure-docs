@@ -1,13 +1,13 @@
 ---
 title: 'Create and manage role assignments - Azure Digital Twins | Microsoft Docs'
-description: Learn about creating and managing role assignments in Azure Digital Twins.
+description: Learn about creating and managing role assignments within Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
 ---
 
@@ -55,7 +55,7 @@ Previously, the **objectIdType** attribute was introduced.
 
 Azure Digital Twins supports full *CREATE*, *READ*, and *DELETE* operations for role assignments. *UPDATE* operations are handled by adding role assignments, removing role assignments, or modifying the [Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md) nodes that role assignments give access to.
 
-[![Role assignment endpoints](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
+[![Role assignment endpoints](media/security-roles/role-assignments.png)](media/security-roles/role-assignments.png#lightbox)
 
 The supplied Swagger reference documentation contains further information about all available API endpoints, request operations, and definitions.
 
@@ -89,7 +89,7 @@ Get-AzADServicePrincipal -ApplicationId <ApplicationId>
 
 A user with the **Admin** role can then assign the Space Administrator role to a user by making an authenticated HTTP POST request to the URL:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
@@ -107,11 +107,11 @@ With the following JSON body:
 
 ### Retrieve all roles
 
-[![System roles](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
+[![System roles](media/security-roles/system-api.png)](media/security-roles/system-api.png#lightbox)
 
 To list all available roles (role definitions), make an authenticated HTTP GET request to:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/system/roles
 ```
 
@@ -152,7 +152,7 @@ A successful request will return a JSON array with entries for each role that ma
 
 To check a specific role assignment, make an authenticated HTTP GET request to:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
@@ -169,7 +169,7 @@ A successful request will return a boolean `true` or `false` to indicate whether
 
 To get all role assignments for a path, make an authenticated HTTP GET request to:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
@@ -195,7 +195,7 @@ A successful request will return a JSON array with each role assignment associat
 
 To revoke a permission from a recipient, delete the role assignment by making an authenticated HTTP DELETE request:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 ```
 
@@ -209,7 +209,7 @@ A successful DELETE request will return a 204 response status. Verify the remova
 
 To create a role assignment, make an authenticated HTTP POST request to the URL:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 

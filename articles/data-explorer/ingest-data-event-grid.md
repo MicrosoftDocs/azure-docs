@@ -17,6 +17,7 @@ ms.date: 06/03/2019
 > * [Portal](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
+> * [Azure Resource Manager template](data-connection-event-grid-resource-manager.md)
 
 Azure Data Explorer is a fast and scalable data exploration service for log and telemetry data. It offers continuous ingestion (data loading) from blobs written to blob containers. 
 
@@ -50,7 +51,7 @@ In this article, you learn how to set an [Azure Event Grid](/azure/event-grid/ov
     | Endpoint | *test-hub* | The event hub you created. |
     | | |
 
-1. Select the **Additional Features** tab if you want to track files from a specific container. Set the filters for the notifications as follows:
+1. Select the **Filters** tab if you want to track files from a specific container. Set the filters for the notifications as follows:
     * **Subject Begins With** field is the *literal* prefix of the blob container. As the pattern applied is *startswith*, it can span multiple containers. No wildcards are allowed.
      It *must* be set as follows: *`/blobServices/default/containers/`*[container prefix]
     * **Subject Ends With** field is the *literal* suffix of the blob. No wildcards are allowed.

@@ -4,6 +4,7 @@ description: Here's how to onboard to the Business Applications ISV Connect Prog
 services: Azure Marketplace, Cloud Partner Portal
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
 ms.author: evansma

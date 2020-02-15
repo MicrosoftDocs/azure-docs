@@ -1,18 +1,11 @@
 ---
-title: Networking for Azure virtual machine scale sets | Microsoft Docs
-description: Configuration networking properties for Azure virtual machine scale sets.
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Networking for Azure virtual machine scale sets
+description: How to configuration some of the more advanced networking properties for Azure virtual machine scale sets.
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
@@ -234,7 +227,7 @@ Example output from the [Azure Resource Explorer](https://resources.azure.com) a
 ```
 
 ## Multiple IP addresses per NIC
-Every NIC attached to a VM in a scale set can have one or more IP configurations associated with it. Each configuration is assigned one private IP address. Each configuration may also have one public IP address resource associated with it. To understand how many IP addresses can be assigned to a NIC, and how many public IP addresses you can use in an Azure subscription, refer to [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Every NIC attached to a VM in a scale set can have one or more IP configurations associated with it. Each configuration is assigned one private IP address. Each configuration may also have one public IP address resource associated with it. To understand how many IP addresses can be assigned to a NIC, and how many public IP addresses you can use in an Azure subscription, refer to [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Multiple NICs per virtual machine
 You can have up to 8 NICs per virtual machine, depending on machine size. The maximum number of NICs per machine is available in the [VM size article](../virtual-machines/windows/sizes.md). All NICs connected to a VM instance must connect to the same virtual network. The NICs can connect to different subnets, but all subnets must be part of the same virtual network.

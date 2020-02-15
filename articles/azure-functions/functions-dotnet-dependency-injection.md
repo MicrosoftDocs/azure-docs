@@ -1,14 +1,8 @@
 ---
 title: Use dependency injection in .NET Azure Functions
 description: Learn how to use dependency injection for registering and using services in .NET functions
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, functions, serverless architecture
 
-ms.service: azure-functions
-ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
@@ -65,7 +59,7 @@ namespace MyNamespace
 
 ### Caveats
 
-A series of registration steps run before and after the runtime processes the startup class. Therefore, the keep in mind the following items:
+A series of registration steps run before and after the runtime processes the startup class. Therefore, keep in mind the following items:
 
 - *The startup class is meant for only setup and registration.* Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After the `Configure` method is run, the Functions runtime continues to register additional dependencies, which can affect how your services operate.
 
@@ -154,12 +148,22 @@ Values defined in [app settings](./functions-how-to-use-azure-function-app-setti
 
 You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Settings read into the configuration instance must be simple key/value pairs.
 
-Consider the following class that includes a property named consistent with an app setting.
+Consider the following class that includes a property named consistent with an app setting:
 
 ```csharp
 public class MyOptions
 {
     public string MyCustomSetting { get; set; }
+}
+```
+
+And a `local.settings.json` file that might structure the custom setting as follows:
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "MyOptions:MyCustomSetting": "Foobar"
+  }
 }
 ```
 
@@ -169,7 +173,7 @@ From inside the `Startup.Configure` method, you can extract values from the `ICo
 builder.Services.AddOptions<MyOptions>()
                 .Configure<IConfiguration>((settings, configuration) =>
                                            {
-                                                configuration.Bind(settings);
+                                                configuration.GetSection("MyOptions").Bind(settings);
                                            });
 ```
 
@@ -187,7 +191,6 @@ public class HttpTrigger
 
     public HttpTrigger(IOptions<MyOptions> options)
     {
-        _service = service;
         _settings = options.Value;
     }
 }

@@ -1,6 +1,6 @@
 ---
 title: ASIN in Azure Cosmos DB query language
-description: Learn about SQL system function ASIN in Azure Cosmos DB.
+description: Learn about how the Arcsine (ASIN) SQL system function in Azure Cosmos DB returns the angle, in radians, whose sine is the specified numeric expression
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

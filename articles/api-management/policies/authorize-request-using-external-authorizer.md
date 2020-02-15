@@ -1,5 +1,6 @@
 ---
-title: Azure API management policy sample - Authorize request using external authorizer | Microsoft Docs
+title: Sample API management policy - Authorize request using external authorizer
+titleSuffix: Azure API Management
 description: Azure API management policy sample - Demonstrates how authorize requests using external authorizer encapsulating a custom or legacy authentication/authorization logic.
 services: api-management
 documentationcenter: ''

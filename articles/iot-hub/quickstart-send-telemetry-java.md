@@ -29,7 +29,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 The two sample applications you run in this quickstart are written using Java. You need Java SE 8 on your development machine.
 
-You can download Java SE Development Kit 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
+You can download Java SE Development Kit 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
 You can verify the current version of Java on your development machine using the following command:
 
@@ -52,6 +52,8 @@ az extension add --name azure-cli-iot-ext
 ```
 
 Download the sample Java project from https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip and extract the ZIP archive.
+
+Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 

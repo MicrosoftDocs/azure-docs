@@ -1,19 +1,17 @@
 ---
-title: Fix dynamic membership problems for groups - Azure Active Directory | Microsoft Docs
-description: Troubleshooting tips for dynamic membership for groups in Azure AD.
+title: Fix problems with dynamic group memberships - Azure AD | Microsoft Docs
+description: Troubleshooting tips for dynamic group membership in Azure Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 # Troubleshoot and resolve groups issues

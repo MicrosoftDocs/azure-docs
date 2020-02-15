@@ -1,5 +1,5 @@
 ---
-title: Connection strings for Azure SQL Data Warehouse | Microsoft Docs
+title: Connection strings
 description: Connection strings for SQL Data Warehouse
 services: sql-data-warehouse
 author: XiaoyuMSFT 
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Connection strings for Azure SQL Data Warehouse

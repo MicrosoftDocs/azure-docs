@@ -2,12 +2,11 @@
 documentType: LandingData
 title: Building in Unity with Azure Spatial Anchors
 metadata:
-  document_id: 
-  title: Azure Spatial Anchors Unity overview | Microsoft Docs
+  title: Azure Spatial Anchors Unity overview
   meta.description: Learn how Azure Spatial Anchors can be used within Unity Apps.
   services: azure-spatial-anchors
   author: rgarcia
-  manager: vicenterivera
+  manager: vriveras
   ms.service: azure-spatial-anchors
   ms.tgt_pltfrm: na
   ms.topic: landing-page
@@ -20,16 +19,16 @@ sections:
     text: 'Developers can choose Unity for creating and deploying mixed reality applications that use Azure Spatial Anchors. The following platforms are supported:'
   - type: list
     style: icon48
-    items: 
-    - image: 
+    items:
+    - image:
         src: https://docs.microsoft.com/media/logos/logo_Windows.svg
       text: HoloLens
       href: https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-hololens
-    - image: 
+    - image:
         src: https://docs.microsoft.com/media/logos/logo_android.svg
       text: Android
       href: https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-android
-    - image: 
+    - image:
         src: https://docs.microsoft.com/media/logos/logo_ios.svg
       text: iOS
       href: https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-ios

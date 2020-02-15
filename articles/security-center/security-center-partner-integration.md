@@ -90,8 +90,6 @@ Security Center automatically discovers security solutions running in Azure but 
 
 Select **CONNECT** under a solution to integrate with Security Center and be notified of security alerts.
 
-![Discovered solutions](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
 ### Add data sources
 
 The **Add data sources** section includes other available data sources that can be connected. For instructions on adding data from any of these sources, click **ADD**.
@@ -99,6 +97,10 @@ The **Add data sources** section includes other available data sources that can 
 ![Data sources](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 ## Exporting data to a SIEM
+
+> [!NOTE]
+> For details of a simpler method (currently in preview) for exporting data to a SIEM, see [Export security alerts and recommendations (Preview)](continuous-export.md). The new method does not use Activity Log as an intermediator and allows direct export from Security Center to Event Hubs (and then on to your SIEM), it also supports the export of Security Recommendations.
+
 
 You can configure your SIEMs or other monitoring tools to receive Azure Security Center events.
 
@@ -128,7 +130,7 @@ See the following article [stream activity log to Event Hubs](../azure-monitor/p
 
 Routing your monitoring data to an Event Hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools.
 
-See the following article for the list of [supported SIEMs](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
+See the following article for the list of [supported SIEMs](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-platform-logs-sent-to-an-event-hub)
 
 ### Example for Querying data 
 

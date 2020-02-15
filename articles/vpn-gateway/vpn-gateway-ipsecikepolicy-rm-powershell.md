@@ -1,19 +1,12 @@
 ﻿---
-title: 'Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'IPsec/IKE policy for S2S VPN & VNet-to-VNet connections'
+titleSuffix: Azure VPN Gateway
 description: Configure IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using Azure Resource Manager and PowerShell.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
 
@@ -22,7 +15,7 @@ ms.author: yushwang
 
 This article walks you through the steps to configure IPsec/IKE policy for Site-to-Site VPN or VNet-to-VNet connections using the Resource Manager deployment model and PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about"></a>About IPsec and IKE policy parameters for Azure VPN gateways
 IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensuring cross-premises and VNet-to-VNet connectivity satisfy your compliance or security requirements.
@@ -350,7 +343,7 @@ DhGroup             : DHGroup24
 PfsGroup            : PFS24
 ```
 
-If there is no IPsec/IKE policy configured, the command (PS> $connection6.policy) gets an empty return. It does not mean IPsec/IKE is not configured on the connection, but that there is no custom IPsec/IKE policy. The actual connection uses the default policy negotiated between your on-premises VPN device and the Azure VPN gateway.
+If there is no IPsec/IKE policy configured, the command (PS> $connection6.IpsecPolicies) gets an empty return. It does not mean IPsec/IKE is not configured on the connection, but that there is no custom IPsec/IKE policy. The actual connection uses the default policy negotiated between your on-premises VPN device and the Azure VPN gateway.
 
 #### 2. Add or update an IPsec/IKE policy for a connection
 

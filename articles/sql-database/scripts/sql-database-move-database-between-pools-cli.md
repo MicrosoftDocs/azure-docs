@@ -1,5 +1,5 @@
 ---
-title: CLI example-move Azure SQL database-SQL elastic pool | Microsoft Docs
+title: CLI example-move Azure SQL database-SQL elastic pool 
 description: Azure CLI example script to move a SQL database in a SQL elastic pool 
 services: sql-database
 ms.service: sql-database

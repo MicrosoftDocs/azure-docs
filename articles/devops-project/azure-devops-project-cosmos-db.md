@@ -164,6 +164,6 @@ You can modify these build and release pipelines to meet the needs of your team.
 > * Commit changes to Git and automatically deploy them to Azure
 > * Clean up resources
 
-See [Define your multi-stage continuous deployment (CD) pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) for more information and next steps.
+See [Define your multi-stage continuous deployment (CD) pipeline](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) for more information and next steps.
 
 

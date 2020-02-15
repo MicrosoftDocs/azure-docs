@@ -38,7 +38,7 @@ You will need the following to use the Blob service with your Hudson CI solution
   
     If you currently don't have a Hudson CI solution, you can run a Hudson CI solution using the following technique:
   
-  1. On a Java-enabled machine, download the Hudson WAR from <http://hudson-ci.org/>.
+  1. On a Java-enabled machine, [download the Hudson WAR file](https://www.eclipse.org/hudson/download.php).
   2. At a command prompt that is opened to the folder that contains the Hudson WAR, run the Hudson WAR. For example, if you have downloaded version 3.1.2:
      
       `java -jar hudson-3.1.2.war`
@@ -49,7 +49,7 @@ You will need the following to use the Blob service with your Hudson CI solution
      
       While a typical Hudson CI solution would be set up to run as a service, running the Hudson war at the command line will be sufficient for this tutorial.
 * An Azure account. You can sign up for an Azure account at <https://www.azure.com>.
-* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-quickstart-create-account.md).
+* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-account-create.md).
 * Familiarity with the Hudson CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Hudson CI build artifacts.
 
 ## How to use the Blob service with Hudson CI
@@ -156,7 +156,7 @@ The following provides an overview of the Blob service components.
 ## Next steps
 * [Meet Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
-* [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure Storage Client SDK Reference](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
 

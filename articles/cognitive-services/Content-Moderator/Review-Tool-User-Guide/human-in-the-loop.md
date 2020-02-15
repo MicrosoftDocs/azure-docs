@@ -3,14 +3,14 @@ title: Learn Review tool concepts - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Learn about the Content Moderator Review tool, a website that coordinates a combined AI and human review moderation effort.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 
 ms.date: 03/15/2019
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.author: sajagtap
+ms.author: pafarley
 #Conceptual on the Review tool. Includes settings and dashboard
 ---
 
@@ -28,7 +28,7 @@ The [Review tool](https://contentmoderator.cognitive.microsoft.com), when used i
 - Automate the creation of human [reviews](../review-api.md#reviews) when moderation API results come in.
 - Assign or escalate content reviews to multiple review teams, organized by content category or experience level.
 - Use default or custom logic filters ([workflows](../review-api.md#workflows)) to sort and track content, without writing any code.
-- Use [connectors](./configure.md#connectors) to process content with Microsoft PhotoDNA, Text Analytics, and Face APIs in addition to the Content Moderator APIs.
+- Use [connectors](./configure.md#connectors) to process content with Microsoft PhotoDNA, Text Analytics, and Face services in addition to the Content Moderator APIs.
 - Build your own connector to create workflows for any API or business process.
 - Get key performance metrics on your content moderation processes.
 

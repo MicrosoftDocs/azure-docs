@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Check spelling with the Bing Spell Check REST API and Java"
+title: "Quickstart: Check spelling with the REST API and Java - Bing Spell Check"
 titleSuffix: Azure Cognitive Services
 description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/11/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ---
 
@@ -36,7 +36,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. Create variables for the API endpoint's host, path, and your subscription key. Then create variables for your market, the text you want to spell check, and a string for the spell check mode.
+2. Create variables for the API endpoint's host, path, and your subscription key. Then create variables for your market, the text you want to spell check, and a string for the spell check mode. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";

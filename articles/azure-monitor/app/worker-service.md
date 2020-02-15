@@ -1,17 +1,13 @@
 ---
-title: Application Insights for Worker Service apps (non-HTTP apps) | Microsoft Docs
-description: Monitoring .NET Core/.NET Framework non-HTTP apps with Application Insights.
-services: application-insights
-documentationcenter: .net
-author: cijothomas
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Application Insights for Worker Service apps (non-HTTP apps)
+description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monitor Application Insights.
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/15/2019
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 12/16/2019
+
 ---
 
 # Application Insights for Worker Service applications (non-HTTP applications)
@@ -35,7 +31,7 @@ A valid Application Insights instrumentation key. This key is required to send a
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.12.0" />
     </ItemGroup>
 ```
 
@@ -137,6 +133,7 @@ Typically, `APPINSIGHTS_INSTRUMENTATIONKEY` specifies the instrumentation key fo
 > An instrumentation key specified in code wins over the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
 
 ## ASP.NET Core background tasks with hosted services
+
 [This](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&tabs=visual-studio) document describes how to create backgrounds tasks in ASP.NET Core 2.1/2.2 application.
 
 Full example is shared [here](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
@@ -251,7 +248,8 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-H
                 IServiceCollection services = new ServiceCollection();
 
                 // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
-                // Hence instrumentation key must be specified here.
+                // Hence instrumentation key and any changes to default logging level must be specified here.
+                services.AddLogging(loggingBuilder => loggingBuilder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("Category", LogLevel.Information));
                 services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
 
                 // Build ServiceProvider.
@@ -361,7 +359,7 @@ Commonly used settings in `ApplicationInsightsServiceOptions`
 |EnableHeartbeat | Enable/Disable Heartbeats feature, which periodically (15-min default) sends a custom metric named 'HeartBeatState' with information about the runtime like .NET Version, Azure Environment information, if applicable, etc. | true
 |AddAutoCollectedMetricExtractor | Enable/Disable AutoCollectedMetrics extractor, which is a TelemetryProcessor that sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | true
 
-See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
+See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
 
 ### Sampling
 
@@ -369,7 +367,7 @@ The Application Insights SDK for Worker Service supports both fixed-rate and ada
 
 ### Adding TelemetryInitializers
 
-Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) when you want to define properties that are sent with all telemetry.
+Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) when you want to define properties that are sent with all telemetry.
 
 Add any new `TelemetryInitializer` to the `DependencyInjection` container and SDK will automatically add them to the `TelemetryConfiguration`.
 
@@ -407,7 +405,7 @@ Telemetry initializers are present by default. To remove all or specific telemet
 
 ### Adding telemetry processors
 
-You can add custom telemetry processors to `TelemetryConfiguration` by using the extension method `AddApplicationInsightsTelemetryProcessor` on `IServiceCollection`. You use telemetry processors in [advanced filtering scenarios](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor) to allow for more direct control over what's included or excluded from the telemetry you send to the Application Insights service. Use the following example.
+You can add custom telemetry processors to `TelemetryConfiguration` by using the extension method `AddApplicationInsightsTelemetryProcessor` on `IServiceCollection`. You use telemetry processors in [advanced filtering scenarios](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#itelemetryprocessor-and-itelemetryinitializer) to allow for more direct control over what's included or excluded from the telemetry you send to the Application Insights service. Use the following example.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)

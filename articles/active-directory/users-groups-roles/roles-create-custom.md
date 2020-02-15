@@ -1,19 +1,17 @@
 ﻿---
-title: Create and assign a custom role in Azure AD role-based access control - Azure Active Directory | Microsoft Docs
+title: Create custom roles in Azure AD role-based access control | Microsoft Docs
 description: Create and assign custom Azure AD roles with resource scope on Azure Active Directory resources.
 services: active-directory
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 # Create and assign a custom role in Azure Active Directory

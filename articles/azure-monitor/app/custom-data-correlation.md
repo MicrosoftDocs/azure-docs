@@ -1,19 +1,14 @@
 ---
 title: Azure Application Insights | Microsoft Docs
 description: 
-services: application-insights
-documentationcenter: ''
-author: eternovsky
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/08/2018
-ms.reviewer: mbullwin
+author: eternovsky
 ms.author: evternov
+ms.date: 08/08/2018
 
+ms.reviewer: mbullwin
 ---
 
 # Correlating Application Insights data with custom data sources

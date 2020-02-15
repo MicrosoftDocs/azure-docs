@@ -1,13 +1,9 @@
 ---
 title: Deploy to Azure Kubernetes Service using Jenkins and the blue/green deployment pattern
 description: Learn how to deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern.
-ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, continuous delivery, cd
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/09/2019
+ms.date: 10/23/2019
 ---
 
 # Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern
@@ -213,7 +209,7 @@ In this section, you see how to prepare the Jenkins server to run a build, which
     1. Select **Manage Jenkins > Manage Plugins > Available**.
     1. Search for and install the Azure Container Service plug-in.
 
-1. Add credentials to manage resources in Azure. If you don’t already have the plug-in, install the **Azure Credential** plugin.
+1. Add credentials to manage resources in Azure. If you don’t already have the plug-in, install the **Azure Credential** plug-in.
 
 1. Add your Azure Service Principal credential as the type **Microsoft Azure Service Principal**.
 

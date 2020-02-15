@@ -17,6 +17,8 @@ ms.author: diberry
 
 LUIS provides a programmatic API that does everything that the [LUIS](luis-reference-regions.md) website does. This can save time when you have pre-existing data and it would be faster to create a LUIS app programmatically than by entering information by hand. 
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 ## Prerequisites
 
 * Sign in to the [LUIS](luis-reference-regions.md) website and find your [authoring key](luis-concept-keys.md#authoring-key) in Account Settings. You use this key to call the Authoring APIs.

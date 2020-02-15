@@ -7,130 +7,91 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 01/29/2020
 ---
 # Release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
+## Summary
+
+Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
+
+## Release date: 01/09/2020
+
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, please wait for the release being live in your region in several days.
+
 > [!IMPORTANT]  
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
-## Summary
-
-Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure.
-
 ## New features
+### TLS 1.2 enforcement
+Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network. Learn more about [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight uses TLS 1.2 on public HTTPs endpoints but TLS 1.1 is still supported for backward compatibility. 
 
-For more information on important changes with HDInsight 4.0., see [What's new in HDI 4.0?](../hdinsight/hdinsight-version-release.md).
+With this release, customers can opt into TLS 1.2 only for all connections through the public cluster endpoint. To support this, the new property **minSupportedTlsVersion** is introduced and can be specified during cluster creation. If the property is not set, the cluster still supports TLS 1.0, 1.1 and 1.2, which is the same as today's behavior. Customers can set the value for this property to "1.2", which means that the cluster only supports TLS 1.2 and above. For more information, see [Plan a virtual network - Transport Layer Security](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#transport-layer-security).
 
-## Component versions
+### Bring your own key for disk encryption
+All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). Data on those disks is encrypted by Microsoft-managed keys by default. Starting from this release, you can Bring Your Own Key (BYOK) for disk encryption and manage it using Azure Key Vault. BYOK encryption is a one-step configuration during cluster creation with no additional cost. Just register HDInsight as a managed identity with Azure Key Vault and add the encryption key when you create your cluster. For more information, see [Customer-managed key disk encryption](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
 
-The official Apache versions of all HDInsight 4.0 components are given below. The components listed are releases of the most recent stable versions available.
+## Deprecation
+No deprecations for this release. To get ready for upcoming deprecations, see [Upcoming changes](#upcoming-changes).
 
-- Apache Ambari 2.7.1
-- Apache Hadoop 3.1.1
-- Apache HBase 2.0.0
-- Apache Hive 3.1.0
-- Apache Kafka 1.1.1, 2.1.0
-- Apache Mahout 0.9.0+
-- Apache Oozie 4.2.0
-- Apache Phoenix 4.7.0
-- Apache Pig 0.16.0
-- Apache Ranger 0.7.0
-- Apache Slider 0.92.0
-- Apache Spark 2.3.1, 2.4.0
-- Apache Sqoop 1.4.7
-- Apache TEZ 0.9.1
-- Apache Zeppelin 0.8.0
-- Apache ZooKeeper 3.4.6
+## Behavior changes
+No behavior changes for this release. To get ready for upcoming changes, see [Upcoming changes](#upcoming-changes).
 
-Later versions of Apache components are sometimes bundled in the HDP distribution in addition to the versions listed above. In this case, these later versions are listed in the Technical Previews table and should not substitute for the Apache component versions of the above list in a production environment.
+## Upcoming changes
+The following changes will happen in upcoming releases. 
 
-## Apache patch information
+### A minimum 4-core VM is required for Head Node 
+A minimum 4-core VM is required for Head Node to ensure the high availability and reliability of HDInsight clusters. Starting from April 6th 2020, customers can only choose 4-core or above VM as Head Node for the new HDInsight clusters. Existing clusters will continue to run as expected. 
 
-For more information on patches available in HDInsight 4.0, see the patch listing for each product in the table below.
+### ESP Spark cluster node size change 
+In the upcoming release, the minimum allowed node size for ESP Spark cluster will be changed to Standard_D13_V2. 
+A-series VMs could cause ESP cluster issues because of relatively low CPU and memory capacity. A-series VMs will be deprecated for creating new ESP clusters.
 
-| Product name | Patch information |
-|---|---|
-| Ambari | [Ambari patch information](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.1.0/bk_ambari-release-notes/content/ambari_relnotes-2.7.1.0-patch-information.html) |
-| Hadoop | [Hadoop patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hadoop.html) |
-| HBase | [HBase patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hbase.html) |
-| Hive  | This release provides Hive 3.1.0 with no additional Apache patches.  |
-| Kafka | This release provides Kafka 1.1.1 with no additional Apache patches. |
-| Oozie | [Oozie patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_oozie.html) |
-| Phoenix | [Phoenix patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_phoenix.html) |
-| Pig | [Pig patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_pig.html) |
-| Ranger | [Ranger patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_ranger.html) |
-| Spark | [Spark patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_spark.html) |
-| Sqoop | This release provides Sqoop 1.4.7 with no additional Apache patches. |
-| Tez | This release provides Tez 0.9.1 with no additional Apache patches. |
-| Zeppelin | This release provides Zeppelin 0.8.0 with no additional Apache patches. |
-| Zookeeper | [Zookeeper patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_zookeeper.html) |
+### Moving to Azure virtual machine scale sets
+HDInsight now uses Azure virtual machines to provision the cluster. In the upcoming release, HDInsight will use Azure virtual machine scale sets instead. See more about Azure virtual machine scale sets.
 
-## Fixed Common Vulnerabilities and Exposures
+### HBase 2.0 to 2.1
+In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.
 
-For more information on security issues resolved in this release, see Hortonworks' [Fixed Common Vulnerabilities and Exposures for HDP 3.0.1](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/cve.html).
+## Bug fixes
+HDInsight continues to make cluster reliability and performance improvements. 
+
+## Component version change
+No component version change for this release. You could find the current component versions for HDInsight 4.0 ad HDInsight 3.6 here.
 
 ## Known issues
 
-### Replication is broken for Secure HBase with default installation
+As of January 29, 2020, there is an active issue in which you may receive an error when attempting to use a Jupyter notebook. Use the steps below to fix the issue. You can also refer to this [MSDN post](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) or this [StackOverflow post](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) for up-to-date information, or to ask additional questions. This page will be updated when the issue is fixed.
 
-For HDInsight 4.0, do the following steps:
+**Errors**
 
-1. Enable inter-cluster communication.
-1. Sign in to the active headnode.
-1. Download a script to enable replication with the following command:
+* ValueError: Cannot convert notebook to v5 because that version doesn't exist
+* Error loading notebook An unknown error occurred while loading this notebook. This version can load notebook formats v4 or earlier
 
-    ```
-    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
-    ```
-1. Type the command `sudo kinit <domainuser>`.
-1. Type the following command to run the script:
+**Cause** 
 
-    ```
-    sudo bash hdi_enable_replication.sh -m <hn0> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
-    ```
-For HDInsight 3.6, do the following:
+The _version.py file on the cluster was updated to 5.x.x instead of 4.4.x.## or Ambari needs to be restarted.
 
-1. Sign in to active HMaster ZK.
-1. Download a script to enable replication with the following command:
-    ```
-    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
-    ```
-1. Type the command `sudo kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<FQDN>@<DOMAIN>`.
-1. Type the following command:
+**Solution**
 
-    ```bash
-    sudo bash hdi_enable_replication.sh -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
-    ```
+If you create a new Jupyter notebook and receive one of the errors listed above, perform the following steps to fix the issue.
 
-### Phoenix Sqlline stops working after migrating HBase cluster to HDInsight 4.0
+1. Open Ambari in a web browser by going to `https://CLUSTERNAME.azurehdinsight.net`, where CLUSTERNAME is the name of your cluster.
+1. In Ambari, on the left menu, click **Jupyter**, then on **Service Actions**, click **Stop**.
+1. ssh into the cluster headnode where the Jupyter service is running.
+1. Open the following file /usr/bin/anaconda/lib/python2.7/site-packages/nbformat/_version.py in sudo mode.
+1. Check the value of version_info.
+1. If the value of version_info is set to: 
 
-Do the following steps:
+    version_info = (5, 0, 3)
 
-1. Drop the following Phoenix tables:
-    1. `SYSTEM.FUNCTION`
-    1. `SYSTEM.SEQUENCE`
-    1. `SYSTEM.STATS`
-    1. `SYSTEM.MUTEX`
-    1. `SYSTEM.CATALOG`
-1. If you can't delete any of the tables, restart HBase to clear any connections to the tables.
-1. Run `sqlline.py` again. Phoenix will re-create all of the tables that were deleted in step 1.
-1. Regenerate Phoenix tables and views for your HBase data.
+    Then modify the entry to: 
+    
+    version_info = (4, 4, 0)
 
-### Phoenix Sqlline stops working after replicating HBase Phoenix metadata from HDInsight 3.6 to 4.0
+    And save the file. 
 
-Do the following steps:
-
-1. Before doing the replication, go to the destination 4.0 cluster and execute `sqlline.py`. This command will generate Phoenix tables like `SYSTEM.MUTEX` and `SYSTEM.LOG` that only exist in 4.0.
-1. Drop the following tables:
-    1. `SYSTEM.FUNCTION`
-    1. `SYSTEM.SEQUENCE`
-    1. `SYSTEM.STATS`
-    1. `SYSTEM.CATALOG`
-1. Start the HBase replication
-
-## Deprecation
-
-Apache Storm and ML services aren't available in HDInsight 4.0.
+    If version_info is already set to (4, 4, 0), then continue to the next step as only Ambari needs to be restarted, no additional changes are needed.
+1. Go back to Ambari, and in **Service Actions**, click **Restart All**.

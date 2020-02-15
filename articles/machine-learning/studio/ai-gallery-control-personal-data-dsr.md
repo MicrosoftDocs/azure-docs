@@ -1,14 +1,14 @@
 ---
-title: Manage data from Azure AI Gallery
-titleSuffix: Azure Machine Learning Studio
+title: Manage Azure AI Gallery data
+titleSuffix: ML Studio (classic) - Azure
 description: You can export and delete your in-product user data from Azure AI Gallery using the interface or AI Gallery Catalog API. This article shows you how.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom:  seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs

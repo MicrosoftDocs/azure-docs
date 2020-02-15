@@ -131,3 +131,9 @@ landingContent:
             url: /powershell/module/az.network#expressroute
           - text: REST
             url: /rest/api/expressroute
+      - linkListType: architecture
+        links:
+          - text: Reference Architecutre for Hybrid Networking
+            url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute
+          - text: Reference Architecture for Hybrid Networking with VPN Failover
+            url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover

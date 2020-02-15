@@ -1,20 +1,18 @@
 ---
-title: Connect to IBM DB2 - Azure Logic Apps
-description: Manage resources with IBM DB2 REST APIs and Azure Logic Apps
+title: Access and manage IBM DB2 resources
+description: Read, edit, update, and manage IBM DB2 resources by building automated workflows using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: plarsen, LADocs
+ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ---
 
-# Manage IBM DB2 resources with Azure Logic Apps
+# Access and manage IBM DB2 resources by using Azure Logic Apps
 
-With Azure Logic Apps and the IBM DB2 connector, you can create automated 
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the 
+[IBM DB2 connector](/connectors/db2/), you can create automated 
 tasks and workflows based on the resources stored in your DB2 database. 
 Your workflows can connect to the resources in your database, read and 
 list your database tables, add rows, change rows, delete rows, and more. 
