@@ -412,7 +412,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 ```
 
 ## Next steps
-In this tutorial, you created a NAT gateway, created a source and destination VM, and then tested the NAT gateway. To learn more about Azure NAT service, continue to other tutorials for Azure NAT service.
+In this tutorial, you created a NAT gateway, created a source and destination VM, and then tested the NAT gateway. To learn more about Azure Virtual Network NAT, continue to other tutorials for Azure Virtual Network NAT.
 
 Review metrics in Azure Monitor to see your NAT service operating. Diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
 
