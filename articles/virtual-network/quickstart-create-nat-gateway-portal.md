@@ -26,7 +26,7 @@ This quickstart shows you how to use Azure NAT service and create a NAT gateway 
 ## Sign in to Azure
 
 > [!IMPORTANT]
-> During the preview period, the NAT gateway portal can be accessed by going to https://aka.ms/natportal after the preview is [enabled](./nat-overview.md#enable-preview) in your subscription.
+> After Virtual Network NAT [preview is enabled](./nat-overview.md#enable-preview) on your subscription, use https://aka.ms/natportal to access the portal.
 
 Sign in to the [Azure portal](https://aka.ms/natportal).
 
