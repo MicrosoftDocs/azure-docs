@@ -11,10 +11,10 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 02/13/2020
+ms.date: 02/17/2020
 ---
 
-# Tutorial: Migrate RDS PostgreSQL to Azure DB for PostgreSQL - Single server online using DMS
+# Tutorial: Migrate RDS PostgreSQL to Azure DB for PostgreSQL online using DMS
 
 You can use Azure Database Migration Service to migrate databases from an RDS PostgreSQL instance to [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) while the source database remains online during migration. In other words, migration can be achieved with minimal downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an instance of RDS PostgreSQL 9.6 to Azure Database for PostgreSQL by using the online migration activity in Azure Database Migration Service.
 
@@ -26,6 +26,7 @@ In this tutorial, you learn how to:
 > * Create a migration project by using Azure Database Migration Service.
 > * Run the migration.
 > * Monitor the migration.
+> * Perform migration cutover.
 
 > [!NOTE]
 > Using the Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier. For more information, see the Azure Database Migration Service [pricing](https://azure.microsoft.com/pricing/details/database-migration/) page.
@@ -170,7 +171,7 @@ To complete this tutorial, you need to:
 
 6. Select a pricing tier; for this online migration, be sure to select the Premium: 4vCores pricing tier.
 
-    ![Configure Azure Database Migration Service instance settings](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings4.png)
+    ![Configure Azure Database Migration Service instance settings](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings5.png)
 
 7. Select **Create** to create the service.
 
@@ -207,21 +208,21 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 ## Specify source details
 
-* On the **Migration source detail** screen, specify the connection details for the source PostgreSQL instance.
+* On the **Add Source Details** screen, specify the connection details for the source PostgreSQL instance.
 
-   ![Source Details](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-source-details4.png)
+   ![Source Details](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-source-details5.png)
 
 ## Specify target details
 
 1. Select **Save**, and then on the **Target details** screen, specify the connection details for the target Azure Database for PostgreSQL server, which is pre-provisioned and has the **DVD Rentals** schema deployed using pg_dump.
 
-    ![Select Target](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-select-target4.png)
+    ![Target details](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-target-details.png)
 
 2. Select **Save**, and then on the **Map to target databases** screen, map the source and the target database for migration.
 
     If the target database contains the same database name as the source database, Azure Database Migration Service selects the target database by default.
 
-    ![Map to target databases](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-map-targets-activity5.png)
+    ![Map to target databases](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-map-target-databases.png)
 
 3. Select **Save**, on the **Migration summary** screen, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
 
@@ -253,13 +254,13 @@ After the initial Full load is completed, the databases are marked **Ready to Cu
 
 1. When you're ready to complete the database migration, select **Start Cutover**.
 
-    ![Start cut over](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-inventory-start-cutover.png)
+2. Wait until the **Pending changes** counter shows **0** to ensure that all incoming transactions to the source database are stopped, select the **Confirm** checkbox, and then select **Apply**.
 
-2. Make sure to stop all the incoming transactions to the source database; wait until the **Pending changes** counter shows **0**.
-3. Select **Confirm**, and the select **Apply**.
-4. When the database migration status shows **Completed**, connect your applications to the new target Azure Database for PostgreSQL database.
+    ![Complete cutover screen](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-complete-cutover.png)
 
-Your online migration of an on-premises instance of PostgreSQL to Azure Database for PostgreSQL is now complete.
+3. When the database migration status shows **Completed**, connect your applications to the new target Azure Database for PostgreSQL database.
+
+Your online migration of an on-premises instance of RDS PostgreSQL to Azure Database for PostgreSQL is now complete.
 
 ## Next steps
 

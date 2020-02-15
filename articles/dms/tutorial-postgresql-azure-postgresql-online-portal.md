@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 02/13/2020
+ms.date: 02/17/2020
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online using DMS via the Azure portal
@@ -184,9 +184,9 @@ To complete all the database objects like table schemas, indexes and stored proc
 
     For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
 
-    ![Configure Azure Database Migration Service instance settings](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-settings3.png)
+    ![Configure Azure Database Migration Service instance settings](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-settings4.png)
 
-6. Select **Create** to create the service.
+6. Select **Review + create** to create the service.
 
    Service creation will complete within about 10 to 15 minutes.
 
@@ -274,7 +274,7 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 
     ![Complete cutover screen](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-3. When the database migration status shows **Completed**, connect your applications to the new target instance of Hyperscale (Citus).
+3. When the database migration status shows **Completed**, connect your applications to the new target instance of Azure Database for PostgreSQL.
 
 ## Next steps
 
