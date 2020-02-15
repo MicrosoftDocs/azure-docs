@@ -26,7 +26,7 @@ Indexers can run into a number of issues when indexing data into Azure Cognitive
 >
 > You can find out the IP address of your search service by pinging its fully qualified domain name (eg., `<your-search-service-name>.search.windows.net`).
 >
-> You can find out the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) for the particular region in which your Azure Cognitive Search service is present by either using [Downloadable JSON files](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). The IP address range is updated weekly.
+> You can find out the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) by either using [Downloadable JSON files](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). The IP address range is updated weekly.
 
 ### Configure firewall rules
 
@@ -108,6 +108,6 @@ Indexers find documents from a [data source](https://docs.microsoft.com/rest/api
 
 * The document hasn't been indexed. Check the portal for a successful indexer run.
 * The document was updated after the indexer run. If your indexer is on a [schedule](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), it will eventually rerun and pick up the document.
-* The [query](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) specified in the data source excludes the document. Indexers can't index documents that aren't part of the data source.
+* The [query](/rest/api/searchservice/create-data-source) specified in the data source excludes the document. Indexers can't index documents that aren't part of the data source.
 * [Field mappings](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) or [AI enrichment](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) have changed the document and it looks different than you expect.
 * Use the [lookup document API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) to find your document.

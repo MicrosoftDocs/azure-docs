@@ -244,7 +244,7 @@ You can customize an action's "run after" behavior so that the action runs when 
 
 ## Evaluate actions with scopes and their results
 
-Similar to running steps after individual actions with the `runAfter` property, you can group actions together inside a [scope](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). You can use scopes when you want to logically group actions together, assess the scope's aggregate status, and perform actions based on that status. After all the actions in a scope finish running, the scope itself gets its own status. 
+Similar to running steps after individual actions with the `runAfter` property, you can group actions together inside a [scope](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). You can use scopes when you want to logically group actions together, assess the scope's aggregate status, and perform actions based on that status. After all the actions in a scope finish running, the scope itself gets its own status.
 
 To check a scope's status, you can use the same criteria that you use to check a logic app's run status, such as `Succeeded`, `Failed`, and so on.
 
@@ -262,7 +262,7 @@ Although catching failures from a scope is useful, you might also want context t
 
 The [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) function provides context about the results from all the actions in a scope. The `result()` function accepts a single parameter, which is the scope's name, and returns an array that contains all the action results from within that scope. These action objects include the same attributes as the `actions()` object, such as the action's start time, end time, status, inputs, correlation IDs, and outputs. To send context for any actions that failed within a scope, you can easily pair a `@result()` expression with the `runAfter` property.
 
-To run an action for each action in a scope that has a `Failed` result, and to filter the array of results down to the failed actions, you can pair a `@result()` expression with a [**Filter Array**](../connectors/connectors-native-query.md) action and a [**For each**](../logic-apps/logic-apps-control-flow-loops.md) loop. You can take the filtered result array and perform an action for each failure using the `For_each` loop.
+To run an action for each action in a scope that has a `Failed` result, and to filter the array of results down to the failed actions, you can pair a `@result()` expression with a [**Filter Array**](logic-apps-perform-data-operations.md#filter-array-action) action and a [**For each**](../logic-apps/logic-apps-control-flow-loops.md) loop. You can take the filtered result array and perform an action for each failure using the `For_each` loop.
 
 Here's an example, followed by a detailed explanation, that sends an HTTP POST request with the response body for any actions that failed within the scope "My_Scope":
 
@@ -355,9 +355,9 @@ For reference, here's an example of a single `@result()` item, showing the `name
 
 To perform different exception handling patterns, you can use the expressions previously described in this article. You might choose to execute a single exception handling action outside the scope that accepts the entire filtered array of failures, and remove the `For_each` action. You can also include other useful properties from the `\@result()` response as previously described.
 
-## Azure Diagnostics and metrics
+## Set up Azure Monitor logs
 
-The previous patterns are great way to handle errors and exceptions within a run, but you can also identify and respond to errors independent of the run itself. [Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) provides a simple way to send all workflow events, including all run and action statuses, to an Azure Storage account or an event hub created with [Azure Event Hubs](../event-hubs/event-hubs-about.md).
+The previous patterns are great way to handle errors and exceptions within a run, but you can also identify and respond to errors independent of the run itself. [Azure Monitor](../azure-monitor/overview.md) provides a simple way to send all workflow events, including all run and action statuses, to a [Log Analytics workspace](../azure-monitor/platform/data-platform-logs.md), [Azure storage account](../storage/blobs/storage-blobs-overview.md), or [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 To evaluate run statuses, you can monitor the logs and metrics, or publish them into any monitoring tool that you prefer. One potential option is to stream all the events through Event Hubs into [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). In Stream Analytics, you can write live queries based on any anomalies, averages, or failures from the diagnostic logs. You can use Stream Analytics to send information to other data sources, such as queues, topics, SQL, Azure Cosmos DB, or Power BI.
 

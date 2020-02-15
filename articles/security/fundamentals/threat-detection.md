@@ -7,7 +7,7 @@ author: UnifyCloud
 manager: barbkess
 editor: TomSh
 
-ms.assetid: 
+ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
@@ -132,7 +132,7 @@ You can create and manage DSC resources that are hosted in Azure and apply them 
 
 ## Azure Security Center
 
-Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service, you can define polices against both your Azure subscriptions and [resource groups](../../azure-resource-manager/manage-resources-portal.md) for greater granularity.
+Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service, you can define polices against both your Azure subscriptions and [resource groups](../../azure-resource-manager/management/manage-resources-portal.md) for greater granularity.
 
 ![Azure Security Center diagram](./media/threat-detection/azure-threat-detection-fig8.png)
 

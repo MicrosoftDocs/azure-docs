@@ -1,6 +1,6 @@
 ---
-title: Querying Parquet files
-description: In this section, we will show how to query Parquet files.
+title: Query Parquet files using SQL on-demand
+description: In this article, you'll learn how to query Parquet files using SQL on-demand.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -11,10 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Querying Parquet files 
+# Quickstart: Query Parquet files using SQL on-demand in Azure Synapse Analytics
 
-In this article, you will learn how to write a query in SQL Analytics on-demand that will read Parquet files.
-
+In this article, you'll learn how to write a query using SQL on-demand that will read Parquet files.
 
 ## Prerequisites
 
@@ -23,14 +22,14 @@ Before reading rest of this article, review the following articles:
 - [Prerequisites](query-data-storage.md#prerequisites)
 
 
-## Read Parquet files
+## Dataset
 
-You can query Parquet files the same way you read CSV files. The only difference is that the FILEFORMAT parameter should be set to PARQUET. Examples in this section show the specifics of reading Parquet files.
+You can query Parquet files the same way you read CSV files. The only difference is that the FILEFORMAT parameter should be set to PARQUET. Examples in this article show the specifics of reading Parquet files.
 
 > [!NOTE]
-> You do not have to specify columns in the OPENROWSET WITH clause when reading parquet files. In that case, SQL on-demand Query service will utilize metadata in parquet file and bind columns by name.  
+> You do not have to specify columns in the OPENROWSET WITH clause when reading parquet files. SQL on-demand will utilize metadata in the Parquet file and bind columns by name.  
 
-You will use the folder *parquet/taxi* for the sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016. to June 2018.
+You'll use the folder *parquet/taxi* for the sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016. to June 2018.
 
 Data is partitioned by year and month and the folder structure is as follows:
 
@@ -49,9 +48,9 @@ Data is partitioned by year and month and the folder structure is as follows:
 
 
 
-### Read particular columns in Parquet files
+## Query set of parquet files
 
-You can specify only columns of interest when you query Parquet files.
+You can specify only the columns of interest when you query Parquet files.
 
 ```sql
 SELECT 
@@ -74,11 +73,9 @@ ORDER BY
 	passenger_count
 ```
 
+## Automatic schema inference
 
-
-### Read Parquet files without specifying schema
-
-You don't need to use the OPENROWSET WITH clause when reading Parquet files. Column names and data types will be automatically read from Parquet files. 
+You don't need to use the OPENROWSET WITH clause when reading Parquet files. Column names and data types are automatically read from Parquet files. 
 
 The sample below shows the automatic schema inference capabilities for Parquet files. It returns the number of rows in September 2017 without specifying a schema. 
 
@@ -97,9 +94,9 @@ FROM
 
 
 
-### Target specific partitions using filepath function
+### Query partitioned data
 
-You can target specific partitions using the filepath function. This example shows fare amounts by year, month, and payment_type for the first three months of 2017.
+The data set provided in this sample is divided (paritioned) into separate subfolders. You can target specific partitions using the filepath function. This example shows fare amounts by year, month, and payment_type for the first three months of 2017.
 
 > [!NOTE]
 > The SQL on-demand Query is compatible with Hive/Hadoop partitioning scheme.
@@ -131,6 +128,4 @@ ORDER BY
 
 ## Next steps
 
-Advance to the next article to learn how to query Parquet nested types.
-> [!div class="nextstepaction"]
-> [Querying Parquet nested types](query-parquet-nested-types.md)
+Advance to the next article to learn how to [Query Parquet nested types](query-parquet-nested-types.md).

@@ -28,7 +28,7 @@ When one resource is a child to another resource, the parent resource must exist
   ...
 ```
 
-If you deploy both the server and the database in the same template, but don't specify a dependency on the server, the database deployment might start before the server has deployed. 
+If you deploy both the server and the database in the same template, but don't specify a dependency on the server, the database deployment might start before the server has deployed.
 
 If the parent resource already exists and isn't deployed in the same template, you get this error when Resource Manager can't associate the child resource with parent. This error might happen when the child resource isn't in the correct format, or the child resource is deployed to a resource group that is different than the resource group for parent resource.
 
@@ -38,7 +38,7 @@ To resolve this error when parent and child resources are deployed in the same t
 
 ```json
 "dependsOn": [
-    "[variables('databaseServerName')]"
+  "[variables('databaseServerName')]"
 ]
 ```
 
@@ -46,29 +46,29 @@ To resolve this error when the parent resource was previously deployed in a diff
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sqlServerName": {
-            "type": "string"
-        },
-        "databaseName": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sqlServerName": {
+      "type": "string"
     },
-    "resources": [
-        {
-            "apiVersion": "2014-04-01",
-            "type": "Microsoft.Sql/servers/databases",
-            "location": "[resourceGroup().location]",
-            "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
-            "properties": {
-                "collation": "SQL_Latin1_General_CP1_CI_AS",
-                "edition": "Basic"
-            }
-        }
-    ],
-    "outputs": {}
+    "databaseName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "edition": "Basic"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 

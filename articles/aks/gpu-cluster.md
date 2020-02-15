@@ -3,8 +3,6 @@ title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft
-manager: jeconnoc
-
 ms.service: container-service
 ms.topic: article
 ms.date: 05/16/2019

@@ -1,6 +1,6 @@
 ---
 title: Coarse relocalization in Java
-description: In-depth explanation of how to create and locate anchors using on-device sensors in Java.
+description: In-depth explanation of how to create and locate anchors using coarse relocalization in Java.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -10,7 +10,7 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
-# How to create and locate anchors using on-device sensors in Java
+# How to create and locate anchors using coarse relocalization in Java
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)

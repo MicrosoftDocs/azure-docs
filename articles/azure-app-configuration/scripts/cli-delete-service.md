@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: Azure CLI Script Sample - Delete an Azure App Configuration store
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: balans
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: azure-app-configuration
 ms.date: 02/24/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
 ---
 

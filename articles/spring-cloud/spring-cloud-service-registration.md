@@ -1,12 +1,11 @@
 ---
 title:  Automate service registry and discovery 
 description: Learn how to automate service discovery and registration using Spring Cloud Service Registry
-author:  jpconnock
-
+author:  bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/05/2019
-ms.author: jeconnoc
+ms.author: brendm
 ---
 # Discover and register your Spring Cloud services
 

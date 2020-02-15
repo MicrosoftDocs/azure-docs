@@ -60,6 +60,9 @@ namespace helloworld
 Before you can initialize a `SpeechSynthesizer` object, you need to create a configuration that uses your subscription key and subscription region. Insert this code in the `SynthesisToAudioFileAsync()` method.
 
 ````C#
+// Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+// from here: https://aka.ms/speech/sdkregion).
+// The default language is "en-us".
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ````
 
@@ -180,7 +183,7 @@ namespace helloworld
 
 Now you're ready to build your app and test our speech synthesis using the Speech service.
 
-1. **Compile the code** - From the menu bar of Visual Stuio, choose **Build** > **Build Solution**.
+1. **Compile the code** - From the menu bar of Visual Studio, choose **Build** > **Build Solution**.
 2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press **F5**.
 3. **Start synthesis** - Your text is converted to speech, and saved in the audio data specified.
 

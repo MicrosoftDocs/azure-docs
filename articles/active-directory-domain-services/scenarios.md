@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
 
 ---
@@ -61,7 +61,7 @@ The following deployment considerations apply to this example use case:
 
 Like the previous example scenario, let's assume Contoso has an on-premises line-of-business (LOB) application that was developed almost a decade ago. This application is directory aware and was designed to use LDAP to read information/attributes about users from AD DS. The application doesn't modify attributes or otherwise write to the directory.
 
-Contoso wants to migrate this application to Azure and retire the aging on-premises hardware currently hosting this application. The application can't be rewritten to use modern directory APIs such as the REST-based Azure AD Graph API. A lift-and-shift option is desired where the application can be migrated to run in the cloud, without modifying code or rewriting the application.
+Contoso wants to migrate this application to Azure and retire the aging on-premises hardware currently hosting this application. The application can't be rewritten to use modern directory APIs such as the REST-based Microsoft Graph API. A lift-and-shift option is desired where the application can be migrated to run in the cloud, without modifying code or rewriting the application.
 
 To help with this scenario, Azure AD DS lets applications perform LDAP reads against the managed domain to get the attribute information it needs. The application doesn't need to be rewritten, so a lift-and-shift into Azure lets users continue to use the app without realizing there's a change in where it runs.
 
@@ -86,7 +86,7 @@ For this scenario, the servers hosting the web front end, SQL server, and the FT
 
 The following deployment considerations apply to this example use case:
 
-* Make sure that the applications use a username + password for authentication. Certificate or smartcard-based authentication isn't supported by Azure AD DS.
+* Make sure that the applications use a username and password for authentication. Certificate or smartcard-based authentication isn't supported by Azure AD DS.
 * You can't change passwords directly against an Azure AD DS managed domain. End users can change their password either using Azure AD's self-service password change mechanism or against the on-premises directory. These changes are then automatically synchronized and available in the Azure AD DS managed domain.
 
 ## Windows Server remote desktop services deployments in Azure

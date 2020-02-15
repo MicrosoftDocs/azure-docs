@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/22/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -30,9 +30,12 @@ Azure AD entitlement management enables you to collaborate with people outside y
 
 A connected organization is an external Azure AD directory or domain that you have a relationship with.
 
-For example, suppose you work at Woodgrove Bank and you want to collaborate with two external organizations: Graphic Design Institute and Contoso. You've been told by your contact at Graphic Design Institute that they use Azure AD, and that Graphic Design Institute's users have a user principal name that ends with `graphicdesigninstitute.com`. And you've been told by your contact at Contoso that they do not yet use Azure AD, but that Contoso's users have a user principal name that ends with `contoso.com`.
+For example, suppose you work at Woodgrove Bank and you want to collaborate with two external organizations. These two organizations have different configurations:
 
-You can configure two connected organizations -- one for Graphic Design Institute with the domain `graphicdesigninstitute.com`, and one for Contoso with the domain `contoso.com`. If you then add those two connected organizations to a policy, users from each organization that have a user principal name that matches the policy can request access packages. Furthermore, because Graphic Design Institute has been identified as using Azure AD, then if Graphic Design Institute subsequently has subdomains, such as `graphicdesigninstitute.example`, then users with that user principal name will also be able to request access packages using the same policy.
+- Graphic Design Institute uses Azure AD and their users have a user principal name that ends with `graphicdesigninstitute.com`
+- Contoso does not yet use Azure AD. Contoso users have a user principal name that ends with `contoso.com`.
+
+In this case, you can configure two connected organizations. You would create one connected organization for Graphic Design Institute and one for Contoso. If you then add those two connected organizations to a policy, users from each organization with a user principal name matching the policy can request access packages. Users with a user principal name that has a domain of graphicdesigninstitute.com would match the Graphic Design Institute connected organization and be allowed to submit requests, while users with a user principal name that has a domain of contoso.com would match the Contoso connected organization and would also be allowed to request packages. Furthermore, because Graphic Design Institute uses Azure AD, any users with a principal name matching a [verified domain](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) added to their tenant, such as graphicdesigninstitute.example will also be able to request access packages using the same policy.
 
 ![Connected organization example](./media/entitlement-management-organization/connected-organization-example.png)
 

@@ -5,7 +5,7 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 1/13/2020
+ms.date: 1/14/2020
 ms.author: harelbr
 ms.subservice: alerts
 ---
@@ -23,7 +23,7 @@ The basic steps are as follows:
 1. Use one of the templates below as a JSON file that describes how to create the alert.
 2. Edit and use the corresponding parameters file as a JSON to customize the alert.
 3. For the `metricName` parameter, see the available metrics in [Azure Monitor supported metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
-4. Deploy the template using [any deployment method](../../azure-resource-manager/resource-group-template-deploy.md).
+4. Deploy the template using [any deployment method](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Template for a simple static threshold metric alert
 
@@ -101,8 +101,8 @@ Save the json below as simplestaticmetricalert.json for the purpose of this walk
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -372,6 +372,13 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
+	"ignoreDataBefore": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format, e.g. '2019-12-31T22:00:00Z')."
+            }
+        },
         "timeAggregation": {
             "type": "string",
             "defaultValue": "Average",
@@ -449,6 +456,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                                 "numberOfEvaluationPeriods": "[parameters('numberOfEvaluationPeriods')]",
                                 "minFailingPeriodsToAlert": "[parameters('minFailingPeriodsToAlert')]"
                             },
+			    "ignoreDataBefore": "[parameters('ignoreDataBefore')]",
                             "timeAggregation": "[parameters('timeAggregation')]"
                         }
                     ]
@@ -505,6 +513,9 @@ Save the json below as simpledynamicmetricalert.parameters.json and modify it as
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
+	"ignoreDataBefore": {
+            "value": ""
+        },
         "timeAggregation": {
             "value": "Average"
         },
@@ -553,7 +564,7 @@ Please note the following constraints when using dimensions in an alert rule tha
 - You can only select one value per dimension within each criterion.
 - You cannot use "\*" as a dimension value.
 - When metrics that are configured in different criterions support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics (in the relevant criterions).
-	- In the example below, because both the **Transactions** and **SuccessE2ELatency** metrics have an **API Name** dimension, and *criterion1* specifies the *"GetBlob"* value for the **API Name** dimension, then *criterion2* must also set a *"GetBlob"* value for the **API Name** dimension.
+	- In the example below, because both the **Transactions** and **SuccessE2ELatency** metrics have an **ApiName** dimension, and *criterion1* specifies the *"GetBlob"* value for the **ApiName** dimension, then *criterion2* must also set a *"GetBlob"* value for the **ApiName** dimension.
 
 
 Save the json below as advancedstaticmetricalert.json for the purpose of this walkthrough.
@@ -1640,8 +1651,8 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2287,8 +2298,8 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2929,8 +2940,8 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }

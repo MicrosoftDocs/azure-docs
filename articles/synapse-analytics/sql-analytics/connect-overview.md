@@ -26,8 +26,14 @@ The server name in the following example is samplesvr.database.windows.net. To f
 2. Click on **SQL Analytics**.
 3. Click on the Analytics you want to connect to.
 4. Locate the full server name.
-   
-    ![Full server name][1]
+
+4.1. **SQL Analytics pool**
+
+![Full server name][1]
+
+4.2. **SQL Analytics on-demand**
+
+![Full server name SQL on-demand][2]
 
 ## Supported drivers and connection strings
 Azure SQL Analytics supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
@@ -94,5 +100,6 @@ To connect and query with Visual Studio, see [Query with Visual Studio][Query wi
 
 <!--Image references-->
 [1]: media/sql-analytics-connect-overview/server-connect-example.png
+[2]: media/sql-analytics-connect-overview/server-connect-example-sqlod.png
 
 

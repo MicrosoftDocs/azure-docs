@@ -1,11 +1,11 @@
 ---
 title: "Quickstart - Launch an application using Maven with Azure Spring Cloud"
 description: In this quickstart, launch a sample application using Maven
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 
@@ -59,7 +59,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 ## Set up your configuration server
 
 1. On the service **Overview** page, select **Config Server**.
-1. In the **Default repository** section, set **URI** to **https://github.com/Azure-Samples/piggymetrics**, set **Label** to **config**, and then select **Apply** to save your changes.
+1. In the **Default repository** section, set **URI** to **https://github.com/Azure-Samples/piggymetrics-config**, and then select **Apply** to save your changes.
 
     > [!div class="mx-imgBorder"]
     > ![Define and apply config settings](media/maven-qs-apply-config.jpg)

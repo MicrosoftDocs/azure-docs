@@ -38,7 +38,9 @@
     - name: Apache Hadoop components on HDInsight
       href: ./hdinsight-component-versioning.md
     - name: High availability components
-      href: ./hdinsight-high-availability-components.md     
+      href: ./hdinsight-high-availability-components.md   
+    - name: Apache Ambari in Azure HDInsight
+      href: ./apache-ambari-usage.md  
     - name: Machine learning in HDInsight
       href: ./hdinsight-machine-learning-overview.md
     - name: Streaming at scale in HDInsight
@@ -100,8 +102,6 @@
         href: hdinsight-hadoop-script-actions-linux.md
       - name: Add Apache Hive libraries
         href: hdinsight-hadoop-add-hive-libraries.md
-      - name: Use Apache Giraph
-        href: hdinsight-hadoop-giraph-install-linux.md
       - name: Use Hue
         href: hdinsight-hadoop-hue-linux.md
       - name: Build HDInsight applications
@@ -348,6 +348,8 @@
         href: ./spark/apache-azure-spark-history-server.md
       - name: Enable caching with IO Cache
         href: ./spark/apache-spark-improve-performance-iocache.md
+      - name: Manage Jar dependencies
+        href: ./spark/manage-jar-dependency.md
       - name: Use notebooks with Apache Spark
         items: 
         - name: Use a local Jupyter notebook
@@ -372,6 +374,8 @@
           href: ./spark/apache-spark-run-machine-learning-automl.md
     - name: Troubleshoot
       items:
+      - name: Can't create Jupyter notebook
+        href: ./spark/troubleshoot-jupyter-notebook-convert.md
       - name: OutOfMemoryError exception
         href: ./spark/apache-spark-troubleshoot-outofmemory.md
       - name: Apache Spark job fails - NoClassDefFoundError
@@ -396,6 +400,8 @@
         href: ./spark/apache-spark-troubleshoot-event-log-requestbodytoolarge.md
       - name: Debug Apache Spark jobs
         href: ./spark/apache-spark-job-debugging.md
+      - name: Debug WASB file operations
+        href: ./spark/troubleshoot-debug-wasb.md
       - name: Use IntelliJ to debug Apache Spark job
         href: ./spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md
       - name: Apache Spark troubleshooting
@@ -505,16 +511,26 @@
         href: ./hadoop/apache-ambari-troubleshoot-fivezerotwo-error.md
       - name: Apache Ambari shows down hosts and services
         href: ./hadoop/apache-ambari-troubleshoot-down-hosts-services.md
+      - name: Apache Ambari stale alerts
+        href: ./hadoop/apache-ambari-troubleshoot-stale-alerts.md
+      - name: Apache Ambari directory alerts
+        href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
       - name: Troubleshoot a slow or failing HDInsight cluster
         href: ./hdinsight-troubleshoot-failed-cluster.md
       - name: Apache Hadoop HDFS troubleshooting
         href: ./hdinsight-troubleshoot-hdfs.md
       - name: Apache Hadoop YARN troubleshooting
         href: ./hdinsight-troubleshoot-yarn.md
-      - name: Analyze Apache Hadoop logs
-        href: ./hadoop/apache-hadoop-debug-jobs.md
+      - name: Invalid BCFile error from Yarn log
+        href: ./hadoop/troubleshoot-yarn-log-invalid-bcfile.md
       - name: Troubleshoot Data Lake Store files
         href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
+      - name: Port conflict when starting services
+        href: ./hadoop/troubleshoot-port-conflict.md
+      - name: Lost Key Vault access
+        href: ./hadoop/troubleshoot-lost-key-vault-access.md
+      - name: WASBS storage exception
+        href: ./hadoop/troubleshoot-wasbs-storage-exception.md
 - name: Apache Kafka
   items:
   - name: Overview
@@ -786,6 +802,8 @@
       href: ./storm/apache-storm-write-data-lake-store.md
   - name: How to
     items:
+    - name: Migrate Storm to Spark
+      href: ./storm/migrate-storm-to-spark.md
     - name: Develop
       items:
       - name: Topologies
@@ -870,6 +888,5 @@
       items:
       - name: ESP Authentication issues
         href: ./domain-joined/domain-joined-authentication-issues.md
-      - name: Unable to sign in to Zeppelin with ESP
-        href: ./domain-joined/domain-joined-zeppelin-signin.md
-
+      - name: Cluster creation fails with DomainNotFound
+        href: ./domain-joined/troubleshoot-domainnotfound.md

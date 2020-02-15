@@ -35,6 +35,13 @@ You learn how to:
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
+
+## Enable
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
 ## Grant access  
  
 This section shows how to grant your VM access to a Secret stored in a Key Vault. Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use the VM's managed identity to access Key Vault to retrieve the credentials. 
@@ -62,7 +69,7 @@ Next, add a secret to the Key Vault, so that later you can retrieve the secret u
 5. Leave the activation date and expiration date clear, and leave **Enabled** as **Yes**. 
 6. Click **Create** to create the secret. 
  
-## Get an access token  
+## Access data  
 
 This section shows how to get an access token using the VM identity and use it to retrieve the secret from the Key Vault. If you don’t have PowerShell 4.3.1 or greater installed, you'll need to [download and install the latest version](https://docs.microsoft.com/powershell/azure/overview).
 
@@ -104,6 +111,13 @@ First, we use the VM’s system-assigned managed identity to get an access token
     ```
     
 Once you’ve retrieved the secret from the Key Vault, you can use it to authenticate to a service that requires a name and password. 
+
+
+## Disable
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## Next steps
 

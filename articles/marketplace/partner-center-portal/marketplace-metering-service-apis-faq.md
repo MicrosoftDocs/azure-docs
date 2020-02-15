@@ -1,9 +1,9 @@
 ---
 title: Marketplace metering service APIs - FAQ | Azure Marketplace
 description: Emit usage of a SaaS offer in the Azure Marketplace. 
-author: qianw211 
+author: MaggiePucciEvans 
 manager: evansma
-ms.author: v-qiwe 
+ms.author: evansma 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
