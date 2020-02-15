@@ -49,7 +49,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
 1. For this article, accept the default choices, and then select **Next: Tags** to move to the next screen.
 
-    Tags are name/value pairs. You can assign the same tag to multiple resources and resource groups to categorize resources and consolidate billing.
+    Tags are name/value pairs. You can assign the same tag to multiple resources and resource groups to categorize resources and consolidate billing. for more information, see [Use tags to organize your Azure resources](../articles/azure-resource-manager/management/tag-resources.md).
 
    ![Set the size and scale for a new hub using the Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
 
