@@ -13,7 +13,7 @@ If you have any questions or feedback along the way, feel free to ping/email any
 
 Before we pull code down, I think it's important to understand the overall devops process:
 
-![Cross Platform](./media/process.png)
+![Cross Platform](./media/pr-process.png)
 
 1. This is the public repository that public contributors use to submit changes.  The purpose of this repository is to facilitate public contributions.
 2. This is the private repository that internal contributors and partners use to submit changes.
