@@ -22,7 +22,7 @@ You might need to migrate an existing user store to a B2C tenant. You may want t
 For B2C tenants, there are two primary modes of communicating with the Graph API:
 
 * For **interactive**, run-once tasks, you should act as an administrator account in the B2C tenant when you perform the tasks. This mode requires an administrator to sign in with credentials before that admin can perform any calls to the Graph API.
-* For **automated**, continuous tasks, you should use some type of service account that you provide with the necessary privileges to perform management tasks. In Azure AD, you can do this by registering an application and authenticating to Azure AD. This is done by using an *Application ID* that uses the [OAuth 2.0 client credentials grant](../active-directory/develop/service-to-service.md). In this case, the application acts as itself, not as a user, to call the Graph API.
+* For **automated**, continuous tasks, you should use some type of service account that you provide with the necessary privileges to perform management tasks. In Azure AD, you can do this by registering an application and authenticating to Azure AD. This is done by using an *Application ID* that uses the [OAuth 2.0 client credentials grant](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). In this case, the application acts as itself, not as a user, to call the Graph API.
 
 In this article, you learn how to perform the automated use case. You'll build a .NET 4.5 `B2CGraphClient` that performs user create, read, update, and delete (CRUD) operations. The client will have a Windows command-line interface (CLI) that allows you to invoke various methods. However, the code is written to behave in a non-interactive, automated fashion.
 
@@ -69,7 +69,7 @@ Your Azure AD B2C application now has the additional permissions required to del
 
 ## Get the sample code
 
-The code sample is a .NET console application that uses the [Active Directory Authentication Library (ADAL)](../active-directory/develop/active-directory-authentication-libraries.md) to interact with Azure AD Graph API. Its code demonstrates how to call the API to programmatically manage users in an Azure AD B2C tenant.
+The code sample is a .NET console application that uses the [Active Directory Authentication Library (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md) to interact with Azure AD Graph API. Its code demonstrates how to call the API to programmatically manage users in an Azure AD B2C tenant.
 
 You can [download the sample archive](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip) (\*.zip) or clone the GitHub repository:
 

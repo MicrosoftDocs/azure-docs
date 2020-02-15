@@ -37,7 +37,7 @@ Before you can initialize an `IntentRecognizer` object, you need to create a con
 Insert this code in the try / catch block in `main()`. Make sure you update these values:
 
 * Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key.
-* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location.
+* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. Use "Speech SDK Parameter" from [region](https://aka.ms/speech/sdkregion)
 
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).

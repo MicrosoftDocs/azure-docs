@@ -162,6 +162,9 @@ The secondary region restore user experience will be similar to the primary regi
 - To restore and create a VM, refer to [Create a VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm).
 - To restore as a disk, refer to [Restore disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks).
 
+>[!NOTE]
+>After the restore is triggered and in the data transfer phase, the restore job cannot be cancelled.
+
 ### Monitoring secondary region restore jobs
 
 1. From the portal, go to **Recovery Services vault** > **Backup Jobs**

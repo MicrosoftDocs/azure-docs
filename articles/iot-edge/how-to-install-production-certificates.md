@@ -4,7 +4,7 @@ description: Create test certificates and learn how to install them on an Azure 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/03/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -84,6 +84,12 @@ For example, if you used the sample scripts to [Create demo certificates](how-to
       ```
 
 4. On Linux devices, make sure that the user **iotedge** has read permissions for the directory holding the certificates.
+
+5. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
+
+   * Windows: `C:\ProgramData\iotedge\hsm\certs` and `C:\ProgramData\iotedge\hsm\cert_keys`
+
+   * Linux: `/var/lib/iotedge/hsm/certs` and `/var/lib/iotedge/hsm/cert_keys`
 
 ## Next steps
 

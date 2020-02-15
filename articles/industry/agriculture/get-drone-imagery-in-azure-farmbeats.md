@@ -86,4 +86,4 @@ Files and images uploaded by the drone provider appear in the **Maps** section. 
 
 ## Next steps
 
-Learn how to use FarmBeats Datahub [APIs](references-for-azure-farmbeats.md#rest-api) to get your drone imagery.
+Learn how to use FarmBeats Datahub [APIs](rest-api-in-azure-farmbeats.md) to get your drone imagery.

@@ -1733,6 +1733,8 @@
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
         href: peakon-provisioning-tutorial.md
+      - name: PureCloud by Genesys
+        href: purecloud-by-genesys-provisioning-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
