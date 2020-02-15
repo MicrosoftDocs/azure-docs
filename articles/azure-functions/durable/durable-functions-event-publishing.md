@@ -25,10 +25,7 @@ Following are some scenarios where this feature is useful:
 
 ## Create a custom Event Grid topic
 
-Create an Event Grid topic for sending events from Durable Functions. The following instructions show how to create a topic by using Azure CLI. For information about how to do it by using PowerShell or the Azure portal, refer to the following articles:
-
-* [Event Grid Quickstarts: Create custom event - PowerShell](../../event-grid/custom-event-quickstart-powershell.md)
-* [Event Grid Quickstarts: Create custom event - Azure portal](../../event-grid/custom-event-quickstart-portal.md)
+Create an Event Grid topic for sending events from Durable Functions. The following instructions show how to create a topic by using Azure CLI. You can also do this by [using PowerShell](../../event-grid/custom-event-quickstart-powershell.md) or by [using the Azure portal](../../event-grid/custom-event-quickstart-portal.md).
 
 ### Create a resource group
 
