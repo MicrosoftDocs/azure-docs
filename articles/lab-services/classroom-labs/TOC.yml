@@ -60,7 +60,7 @@
       href: how-to-connect-peer-virtual-network.md
     - name: Attach or detach a shared image gallery
       href: how-to-attach-detach-shared-image-gallery.md
-    - name: Add user as an owner to a classroom lab
+    - name: Add additional owners to a classroom lab
       href: how-to-add-user-lab-owner.md
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
