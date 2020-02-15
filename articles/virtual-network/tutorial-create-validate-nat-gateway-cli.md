@@ -88,13 +88,13 @@ At this point, the NAT gateway is functional and all that is missing is to confi
 
 ## Prepare the source for outbound traffic
 
-We'll guide you through setup of a full test environment. You'll set up a test using open source tools to verify the NAT gateway. We'll start with the source, which will use the NAT gateway we created previously.
+We'll guide you through setup of a full test environment. You'll set up a test using open-source tools to verify the NAT gateway. We'll start with the source, which will use the NAT gateway we created previously.
 
 ### Configure virtual network for source
 
 Before you deploy a VM and can test your NAT gateway, we need to create the virtual network.
 
-Create a virtual network named **myVnetsource** with a subnet named **mySubnetsource** in the **myResourceGroupNAT** using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.
+Create a virtual network named **myVnetsource** with a subnet named **mySubnetsource** in the **myResourceGroupNAT** using [az network Microsoft Azure Virtual Network create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -108,7 +108,7 @@ Create a virtual network named **myVnetsource** with a subnet named **mySubnetso
 
 ### Configure NAT service for source subnet
 
-Configure the source subnet **mySubnetsource** in virtual network **myVnetsource** to use a specific NAT gateway resource **myNATgateway** with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet). This command will activate the NAT service on the specified subnet.
+Configure the source subnet **mySubnetsource** in virtual network **myVnetsource** to use a specific NAT gateway resource **myNATgateway** with [az network Microsoft Azure Virtual Network subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet). This command will activate the NAT service on the specified subnet.
 
 ```azurecli-interactive
     az network vnet subnet update \
@@ -200,7 +200,7 @@ We'll now create a destination for the outbound traffic translated by the NAT se
 
  We need to create a virtual network where the destination virtual machine will be.  These commands are the same steps as for the source VM with small changes to expose the destination endpoint.
 
-Create a virtual network named **myVnetdestination** with a subnet named **mySubnetdestination** in the **myResourceGroupNAT** using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.
+Create a virtual network named **myVnetdestination** with a subnet named **mySubnetdestination** in the **myResourceGroupNAT** using [az network Microsoft Azure Virtual Network create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -412,7 +412,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 ```
 
 ## Next steps
-In this tutorial, you created a NAT gateway, created a source and destination VM, and then tested the NAT gateway. To learn more about Azure Virtual Network NAT, continue to other tutorials for Azure Virtual Network NAT.
+In this tutorial, you created a NAT gateway, created a source and destination VM, and then tested the NAT gateway. To learn more about Azure Virtual Network NAT, continue to the other tutorials and quickstarts.
 
 Review metrics in Azure Monitor to see your NAT service operating. Diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
 
