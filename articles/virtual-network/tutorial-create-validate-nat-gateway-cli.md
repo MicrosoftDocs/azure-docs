@@ -88,13 +88,13 @@ At this point, the NAT gateway is functional and all that is missing is to confi
 
 ## Prepare the source for outbound traffic
 
-We'll guide you through setup of a full test environment. You'll set up a test using open source tools to verify the NAT gateway. We'll start with the source, which will use the NAT gateway we created previously.
+We'll guide you through setup of a full test environment. You'll set up a test using open-source tools to verify the NAT gateway. We'll start with the source, which will use the NAT gateway we created previously.
 
 ### Configure virtual network for source
 
 Before you deploy a VM and can test your NAT gateway, we need to create the virtual network.
 
-Create a virtual network named **myVnetsource** with a subnet named **mySubnetsource** in the **myResourceGroupNAT** using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.
+Create a virtual network named **myVnetsource** with a subnet named **mySubnetsource** in the **myResourceGroupNAT** using [az network Microsoft Azure Virtual Network create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -108,11 +108,11 @@ Create a virtual network named **myVnetsource** with a subnet named **mySubnetso
 
 ### Configure NAT service for source subnet
 
-Configure the source subnet **mySubnetsource** in virtual network **myVnetsource** to use a specific NAT gateway resource **myNATgateway** with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet). This command will activate the NAT service on the specified subnet.
+Configure the source subnet **mySubnetsource** in virtual network **myVnetsource** to use a specific NAT gateway resource **myNATgateway** with [az network Microsoft Azure Virtual Network subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet). This command will activate the NAT service on the specified subnet.
 
 ```azurecli-interactive
     az network vnet subnet update \
-    --resource-group myResourceGroupNAT
+    --resource-group myResourceGroupNAT \
     --vnet-name myVnetsource \
     --name mySubnetsource \
     --nat-gateway myNATgateway
@@ -131,7 +131,7 @@ We create a public IP to be used to access the source VM. Use [az network public
 ```azurecli-interactive
   az network public-ip create \
     --resource-group myResourceGroupNAT \
-    --name myPublicIPsourceVM
+    --name myPublicIPsourceVM \
     --sku standard
 ```
 
@@ -156,7 +156,7 @@ We create a rule in the NSG for SSH access to the source vm. Use [az network nsg
     --priority 100 \
     --name ssh \
     --description "SSH access" \
-    --access allow 
+    --access allow \
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 22
@@ -172,7 +172,7 @@ Create a network interface with [az network nic create](/cli/azure/network/nic#a
     --name myNicsource \
     --vnet-name myVnetsource \
     --subnet mySubnetsource \
-    --public-ip-address myPublicIPSourceVM
+    --public-ip-address myPublicIPSourceVM \
     --network-security-group myNSGsource
 ```
 
@@ -200,7 +200,7 @@ We'll now create a destination for the outbound traffic translated by the NAT se
 
  We need to create a virtual network where the destination virtual machine will be.  These commands are the same steps as for the source VM with small changes to expose the destination endpoint.
 
-Create a virtual network named **myVnetdestination** with a subnet named **mySubnetdestination** in the **myResourceGroupNAT** using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.
+Create a virtual network named **myVnetdestination** with a subnet named **mySubnetdestination** in the **myResourceGroupNAT** using [az network Microsoft Azure Virtual Network create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -219,8 +219,8 @@ We create a public IP to be used to access the source VM. Use [az network public
 ```azurecli-interactive
   az network public-ip create \
   --resource-group myResourceGroupNAT \
-  --name myPublicIPdestinationVM
-  --sku standard
+  --name myPublicIPdestinationVM \
+  --sku standard \
   --location westus
 ```
 
@@ -231,7 +231,7 @@ Standard Public IP addresses are 'secure by default', you'll need to create an N
 ```azurecli-interactive
     az network nsg create \
     --resource-group myResourceGroupNAT \
-    --name myNSGdestination
+    --name myNSGdestination \
     --location westus
 ```
 
@@ -246,7 +246,7 @@ We create a rule in the NSG for SSH access to the destination vm. Use [az networ
     --priority 100 \
     --name ssh \
     --description "SSH access" \
-    --access allow 
+    --access allow \
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 22
@@ -263,7 +263,7 @@ We create a rule in the NSG for HTTP access to the destination vm. Use [az netwo
     --priority 101 \
     --name http \
     --description "HTTP access" \
-    --access allow 
+    --access allow \
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 80
@@ -279,8 +279,8 @@ Create a network interface with [az network nic create](/cli/azure/network/nic#a
     --name myNicdestination \
     --vnet-name myVnetdestination \
     --subnet mySubnetdestination \
-    --public-ip-address myPublicIPdestinationVM
-    --network-security-group myNSGdestination
+    --public-ip-address myPublicIPdestinationVM \
+    --network-security-group myNSGdestination \
     --location westus
 ```
 
@@ -295,7 +295,7 @@ Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).  We 
     --nics myNicdestination \
     --image UbuntuLTS \
     --generate-ssh-keys \
-    --no-wait
+    --no-wait \
     --location westus
 ```
 While the command will return immediately, it may take a few minutes for the VM to get deployed.
@@ -412,9 +412,16 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 ```
 
 ## Next steps
-In this tutorial, you created a NAT gateway, a source and destination VM, and tested the NAT gateway. To learn more about Azure NAT service, continue to other tutorials for Azure NAT service.
+In this tutorial, you created a NAT gateway, created a source and destination VM, and then tested the NAT gateway. To learn more about Azure Virtual Network NAT, continue to the other tutorials and quickstarts.
 
-You can also review metrics in Azure Monitor to see your NAT service is operating. You can diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+Review metrics in Azure Monitor to see your NAT service operating. Diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+
+- Learn about [Virtual Network NAT](./nat-overview.md)
+- Learn about [NAT gateway resource](./nat-gateway-resource.md).
+- Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
+- Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
+- Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
+- [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
 
 > [!div class="nextstepaction"]
 
