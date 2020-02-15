@@ -29,7 +29,7 @@ You can complete this tutorial using Azure cloud shell or run the respective com
 If you choose to run these commands locally, you need to install CLI.  This tutorial requires that you're running a version of the Azure CLI version 2.0.71 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 > [!IMPORTANT]
-> During the preview period, the NAT gateway portal can be accessed by going to https://aka.ms/natportal after the preview is [enabled](./nat-overview.md#enable-preview) in your subscription.
+> After Virtual Network NAT [preview is enabled](./nat-overview.md#enable-preview) on your subscription, use https://aka.ms/natportal to access the portal.
 
 ## Create a resource group
 
@@ -52,7 +52,7 @@ To access the public Internet, you need one or more public IP addresses for the 
 ```azurecli-interactive
   az network public-ip create \
     --resource-group myResourceGroupNAT \
-    --name myPublicIPVM \
+    --name myPublicIP \
     --sku standard
 ```
 
@@ -225,7 +225,14 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 
 In this tutorial, you created a NAT gateway and a VM to use the NAT service. To learn more about Azure NAT service, continue to other tutorials for Azure NAT service.
 
-You can also review metrics in Azure Monitor to see your NAT service operating. You can diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+Review metrics in Azure Monitor to see your NAT service operating. Diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+
+- Learn about [Virtual Network NAT](./nat-overview.md)
+- Learn about [NAT gateway resource](./nat-gateway-resource.md).
+- Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
+- Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
+- Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
+- [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
 
 > [!div class="nextstepaction"]
 
