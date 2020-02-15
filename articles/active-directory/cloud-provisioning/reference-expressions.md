@@ -601,7 +601,7 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 
    | Name | Required/ Repeating | Type | Notes |
    | --- | --- | --- | --- |
-   | **source** |Required |String |**Source** value to update. |
+   | **source** |Required |String |**Source** value to check. |
    | **defaultValue** |Optional |String |Default value to be used when source doesn't match any keys. Can be empty string (""). |
    | **key** |Required |String |**Key** to compare **source** value with. |
    | **value** |Required |String |Replacement value for the **source** matching the key. |
