@@ -55,11 +55,11 @@ Next, open Visual Studio Code and **open the folder** (`File`> `Open Folder`) th
  
 ![Cross Platform](./media/branch-validation.png)
 
+In the above image, there's a "refresh" icon below the cursor.  This is the "sync" function that performs the pull-push illustrated as item **[9]** in the above diagram.  We'll use this in a moment.
+
 Next, navigate to our folder, which is located in `azure-docs-pr/articles/project-spool`:
 
 ![Our Directory](./media/project-spool-directory.png)
-
-In the above image, there's a "refresh" icon below the cursor.  This is the "sync" function that performs the pull-push illustrated as item **[9]** in the above diagram.
 
 Once you've made changes, you can navigate to the Source Control tab within VS Code to review them:
 
