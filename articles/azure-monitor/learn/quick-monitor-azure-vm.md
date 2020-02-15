@@ -29,13 +29,62 @@ While metrics and activity logs will be collected for the host VM, you need an a
 
     ![Overview page](media/quick-monitor-azure-vm/overview-insights.png)
 
-3. If Azure Monitor for VMs has not yet been enabled for the virtual machine, click **Enable**. This will take a few minutes as extensions are enabled and agents are installed on your virtual machine. When that'scom
+3. If Azure Monitor for VMs has not yet been enabled for the virtual machine, click **Enable**. 
 
     ![Enable insights](media/quick-monitor-azure-vm/enable-insights.png)
 
+4. If the virtual machine isn't already attached to a Log Analytics workspace, you will be prompted to select an existing workspace or create a new one. Select the default which is a workspace with a unique name in the same region as your virtual machine.
+
+    ![Select workspace](media/quick-monitor-azure-vm/select-workspace.png)
+
+5. Onboarding will take a few minutes as extensions are enabled and agents are installed on your virtual machine. When it's complete, you get a message that insights have been successfully deployed. Click **Azure Monitor** to open Azure Monitor for VMs.
+
+    ![Open Azure Monitor](media/quick-monitor-azure-vm/azure-monitor.png)
+
+6. You'll see your VM with any other VMs in your subscription that are onboarded. Select the **Not monitored** tab if you want to view virtual machines in your subscription that aren't onboarded.
+
+    ![Get started](media/quick-monitor-azure-vm/get-started.png)
+
+
+## Configure workspace
+When you create a new Log Analytics workspace, it needs to be configured to collect logs. This configuration only needs to be performed once since configuration is sent to any virtual machines that connect to it.
+
+1. Select **Workspace configuration** and then select your workspace.
+
+2. Select **Advanced settings**
 
 
 
+
+
+
+
+
+7. Click on your virtual machine and then select the **Performance** tab. This shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles at different times.
+
+    ![Performance](media/quick-monitor-azure-vm/performance.png)
+
+9. Select **Map** to open the maps feature which shows the processes running on the virtual machine and their dependencies. Select **Properties** to open the property pane if it isn't already open.
+
+    ![Map](media/quick-monitor-azure-vm/map.png)
+
+10. Click through the different options in the details pane to see the **Log Events**, **Alerts**, and **Connections** for the virtual machine.
+
+    ![Details pane](media/quick-monitor-azure-vm/details-pane.png)
+
+11. Expand the processes for your virtual machine. Select one of the processes to view its details and to highlight its dependencies.
+
+    ![Processes](media/quick-monitor-azure-vm/processes.png)
+
+12. Select your virtual machine again and then select **Log Events**. 
+
+
+
+13. You see a list of tables that are stored in the Log Analytics workspace for the virtual machine. This list will be different depending whether you're using a Windows or Linux virtual machine.
+
+
+
+14. 
 
 ## Next steps
 In this quickstart, you viewed the Activity log and metrics for an Azure resource which are automatically collected by Azure Monitor. Resource logs provide insight into the detailed operation of the resource but must be configured in order to be collected. Continue to the tutorial for collecting resource logs into a Log Analytics workspace where they can be analyzed using log queries.
