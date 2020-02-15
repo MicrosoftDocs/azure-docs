@@ -16,7 +16,7 @@ ms.author: ambapat
 # Import HSM-protected keys to Key Vault (preview)
 
 > [!NOTE]
-> This feature is currently in preview and only available in **East US 2 EUAP** and **Central US EUAP** regions. 
+> This feature is in preview and only available in **East US 2 EUAP** and **Central US EUAP** regions. 
 
 For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. Azure Key Vault uses nCipher nShield family of HSMs (FIPS 140-2 Level 2 validated) to protect your keys.
 
