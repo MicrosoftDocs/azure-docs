@@ -18,17 +18,16 @@ ms.author: ambapat
 > [!NOTE]
 > This feature is in preview and only available in **East US 2 EUAP** and **Central US EUAP** regions. 
 
-For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. Azure Key Vault uses nCipher nShield family of HSMs (FIPS 140-2 Level 2 validated) to protect your keys.
+For added assurance when using Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. Azure Key Vault uses nCipher nShield family of HSMs (FIPS 140-2 Level 2 validated) to protect your keys.
 
 Use the information in this topic to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
 
-This functionality is not available for Azure China 21Vianet.
-This import method is only available for [supported HSMs](#supported-hsms). 
-
-
 > [!NOTE]
-> For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-overview.md)  
-> For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [What is Azure Key Vault?](key-vault-overview.md).
+> This functionality is not available for Azure China 21Vianet. 
+> 
+> This import method is only available for [supported HSMs](#supported-hsms). 
+
+For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-overview.md)  For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [What is Azure Key Vault?](key-vault-overview.md).
 
 ## Overview
 
@@ -72,7 +71,7 @@ You will use the following steps to generate and transfer your key to an Azure K
 * [Step 3: Generate and prepare your key for transfer](#step-3-generate-and-prepare-your-key-for-transfer)
 * [Step 4: Transfer your key to Azure Key Vault](#step-4-transfer-your-key-to-azure-key-vault)
 
-## Step 1: Generate a KEK
+### Step 1: Generate a KEK
 
 The KEK (Key Exchange Key) is an RSA key generated in Key Vault's HSM. This key is used to encrypt the key to be imported (target key).
 
@@ -88,8 +87,7 @@ Use the [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#a
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
 ```
 
-
-## Step 2: Download KEK public key
+### Step 2: Download KEK public key
 
 Use the [az keyvault key download](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download) to download the KEK public key into a .pem file. The target key you import is encrypted using the KEK public key.
 
@@ -99,7 +97,7 @@ az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --fil
 
 Transfer the KEKforBYOK.publickey.pem file to your offline workstation. You will need this file during next step.
 
-## Step 3: Generate and prepare your key for transfer
+### Step 3: Generate and prepare your key for transfer
 
 Please refer to your HSM vendor's documentation to download and install the BYOK tool. Follow instruction from your HSM vendor to generate a target key and then create a Key Transfer Package (a BYOK file). The BYOK tool will use the key identifier from [Step 1](#step-1-generate-a-kek) and KEKforBYOK.publickey.pem file you downloaded in [Step 2](#step-2-download-kek-public-key) to generate an encrypted target key in a BYOK file.
 
@@ -109,7 +107,7 @@ Transfer the BYOK file to your connected workstation.
 > Target key must be an RSA key of size 2048-bit or 3072-bit or 4096-bit. Importing Elliptic Curve keys is not supported at this time.
 > <br/><strong>Known issue:</strong> Importing RSA 4K target key from SafeNet Luna HSMs fails. When the issue is resolved this document will be updated.
 
-## Step 4: Transfer your key to Azure Key Vault
+### Step 4: Transfer your key to Azure Key Vault
 
 For this final step, transfer the Key Transfer Package (a BYOK file) from your disconnected workstation to the Internet-connected workstation and then use the [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) command to upload the BYOK file the Azure Key Vault HSM, to complete the key import.
 
