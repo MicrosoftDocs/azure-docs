@@ -1,6 +1,6 @@
 ---
 title: PowerShell & REST APIs 
-description: Find the top PowerShell cmdlets for Azure Synapse Analytics data warehouse including how to pause and resume a database.
+description: Find the top PowerShell cmdlets for Azure Synapse Analytics SQL pool including how to pause and resume a database.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -13,12 +13,14 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# PowerShell & REST APIs for Azure Synapse Analytics data warehouse
-Many Azure Synapse Analytics data warehouse administration tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your data warehouse.  For some good REST examples, see the article [Manage scalability with REST](sql-data-warehouse-manage-compute-rest-api.md).
+# PowerShell & REST APIs for Azure Synapse Analytics SQL pool
+
+Many Azure Synapse Analytics SQL pool administrative tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your SQL pool.  For some good REST examples, see the article [Manage scalability with REST](sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Get started with Azure PowerShell cmdlets
+
 1. Open Windows PowerShell.
 2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
    

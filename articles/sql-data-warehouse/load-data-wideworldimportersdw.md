@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Load data using Azure portal & SSMS'
-description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to a data warehouse in Azure Synapse Analytics Sql pool.
+description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to an Azure Synapse Analytics Sql pool.
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
@@ -13,14 +13,14 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
 ---
 
-# Tutorial: Load data to Azure SQL Data Warehouse
+# Tutorial: Load data to  Azure Synapse Analytics Sql pool
 
 This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to your data warehouse in Azure Synapse Analytics SQL pool. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to:
 
 > [!div class="checklist"]
 > * Create a data warehouse using SQL pool in the Azure portal
 > * Set up a server-level firewall rule in the Azure portal
-> * Connect to the data warehouse with SSMS
+> * Connect to the SQL pool with SSMS
 > * Create a user designated for loading data
 > * Create external tables that use Azure blob as the data source
 > * Use the CTAS T-SQL statement to load data into your data warehouse
@@ -48,7 +48,7 @@ Follow these steps to create a blank SQL pool.
 
 1. Select **Databases** from the **New** page, and select **Azure Synapse Analytics** under **Featured** on the **New** page.
 
-    ![create data warehouse](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
+    ![create SQL pool](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
 1. Fill out the **Project Details** section with the following information:   
 
@@ -79,20 +79,21 @@ Follow these steps to create a blank SQL pool.
 
      ![notification](media/load-data-wideworldimportersdw/notification.png)
 
-
 ## Create a server-level firewall rule
 
 The Azure Synapse Analytics service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses.  Follow these steps to create a [server-level firewall rule](../sql-database/sql-database-firewall-configure.md) for your client's IP address. 
 
 > [!NOTE]
-> The Azure Synapse Analytics data warehouse  communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
+> The Azure Synapse Analytics SQL pool communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
 
-1. After the deployment completes, search for your pool name in the search box in the navigation menu, and select the SQL pool resource. 
+1. After the deployment completes, search for your pool name in the search box in the navigation menu, and select the SQL pool resource. Select the server name. 
 
     ![go to your resource](media/load-data-wideworldimportersdw/search-for-sql-pool.png) 
 
+1. Select the server name. 
+    ![server name](media/load-data-wideworldimportersdw/find-server-name.png) 
 
 1. Select **Show firewall settings**. The **Firewall settings** page for the Sql pool server opens. 
 
@@ -104,16 +105,16 @@ The Azure Synapse Analytics service creates a firewall at the server-level that 
 
 1. Select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
-You can now connect to the SQL server and its data warehouses using your client IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the serveradmin account you created previously.  
+You can now connect to the SQL server using your client IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the serveradmin account you created previously.  
 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page and then click **Save** to disable the firewall for all Azure services.
 
 ## Get the fully qualified server name
 
-The fully qualified server name is what is used to connect to the server. Go to your data warehouse resource in the Azure portal and view the fully qualified name under **Server name**: 
+The fully qualified server name is what is used to connect to the server. Go to your SQL pool resource  in the Azure portal and view the fully qualified name under **Server name**.
 
-    ![connection information](media/load-data-wideworldimportersdw/find-server-name.png)  
+![server name](media/load-data-wideworldimportersdw/find-server-name.png) 
 
 ## Connect to the server as server admin
 
@@ -141,7 +142,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 ## Create a user for loading data
 
-The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. Memory maximums are defined according to the Generation of SQL Data Warehouse you're using, [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md), and [resource class](resource-classes-for-workload-management.md). 
+The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. Memory maximums are defined according to the Generation of SQL pool you're using, [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md), and [resource class](resource-classes-for-workload-management.md). 
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
@@ -192,7 +193,7 @@ The first step toward loading data is to login as LoaderRC60.
 
 ## Create external tables and objects
 
-You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure Blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
+You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure Blob storage or to load it directly from your source into SQL pool, see the [loading overview](sql-data-warehouse-overview-load.md).
 
 Run the following SQL scripts to specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. The data is located in a global Azure Blob.
 
@@ -242,7 +243,7 @@ Run the following SQL scripts to specify information about the data you wish to 
     CREATE SCHEMA wwi;
     ```
 
-7. Create the external tables. The table definitions are stored in SQL Data Warehouse, but the tables reference data that is stored in Azure blob storage. Run the following T-SQL commands to create several external tables that all point to the Azure blob you defined previously in the external data source.
+7. Create the external tables. The table definitions are stored in the database, but the tables reference data that is stored in Azure blob storage. Run the following T-SQL commands to create several external tables that all point to the Azure blob you defined previously in the external data source.
 
     ```sql
     CREATE EXTERNAL TABLE [ext].[dimension_City](
@@ -521,15 +522,15 @@ Run the following SQL scripts to specify information about the data you wish to 
 
     ![View external tables](media/load-data-wideworldimportersdw/view-external-tables.png)
 
-## Load the data into your data warehouse
+## Load the data into SQL pool
 
-This section uses the external tables you defined to load the sample data from Azure Blob to SQL Data Warehouse.  
+This section uses the external tables you defined to load the sample data from Azure Blob to SQL pool.  
 
 > [!NOTE]
 > This tutorial loads the data directly into the final table. In a production environment, you will usually use CREATE TABLE AS SELECT to load into a staging table. While data is in the staging table you can perform any necessary transformations. To append the data in the staging table to a production table, you can use the INSERT...SELECT statement. For more information, see [Inserting data into a production table](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL statement to load the data from Azure Storage Blob into new tables in your data warehouse. CTAS creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement. When the select statement selects from an external table, SQL Data Warehouse imports the data into a relational table in the data warehouse. 
+The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL statement to load the data from Azure Storage Blob into new tables in your data warehouse. CTAS creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement. When the select statement selects from an external table,  the data is imported into a relational table in the data warehouse. 
 
 This script does not load data into the wwi.dimension_Date and wwi.fact_Sale tables. These tables are generated in a later step in order to make the tables have a sizeable number of rows.
 
@@ -680,7 +681,7 @@ This script does not load data into the wwi.dimension_Date and wwi.fact_Sale tab
     ;
     ```
 
-2. View your data as it loads. You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Open a new query window on SampleDW, and run the following query to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+2. View your data as it loads. You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Open a new query window on SampleDW, and run the following query to show the status of the load. After starting the query, grab a coffee and a snack while SQL pool does some heavy lifting.
 
     ```sql
     SELECT
@@ -953,7 +954,8 @@ Use the stored procedures you created to generate millions of rows in the wwi.fa
     ```
 
 ## Populate the replicated table cache
-SQL Data Warehouse replicates a table by caching the data to each Compute node. The cache gets populated when a query runs against the table. Therefore, the first query on a replicated table might require extra time to populate the cache. After the cache is populated, queries on replicated tables run faster.
+
+SQL pool replicates a table by caching the data to each Compute node. The cache gets populated when a query runs against the table. Therefore, the first query on a replicated table might require extra time to populate the cache. After the cache is populated, queries on replicated tables run faster.
 
 Run these SQL queries to populate the replicated table cache on the Compute nodes. 
 
@@ -1088,16 +1090,16 @@ In this tutorial, you learned how to create a data warehouse and create a user f
 
 You did these things:
 > [!div class="checklist"]
-> * Created a data warehouse in the Azure portal
+> * Created a data warehouse using SQL pool in the Azure portal
 > * Set up a server-level firewall rule in the Azure portal
-> * Connected to the data warehouse with SSMS
+> * Connected to the SQL pool with SSMS
 > * Created a user designated for loading data
 > * Created external tables for data in Azure Storage Blob
 > * Used the CTAS T-SQL statement to load data into your data warehouse
 > * Viewed the progress of data as it is loading
 > * Created statistics on the newly loaded data
 
-Advance to the development overview to learn how to migrate an existing database to SQL Data Warehouse.
+Advance to the development overview to learn how to migrate an existing database to Azure Synapse SQL pool.
 
 > [!div class="nextstepaction"]
->[Design decisions to migrate an existing database to SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+>[Design decisions to migrate an existing database to SQL pool](sql-data-warehouse-overview-develop.md)
