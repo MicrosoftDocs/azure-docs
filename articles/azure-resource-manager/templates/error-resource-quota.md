@@ -46,7 +46,7 @@ az vm list-usage --location "South Central US"
 
 Which returns:
 
-```azurecli
+```output
 [
   {
     "currentValue": 0,
