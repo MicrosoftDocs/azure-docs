@@ -156,7 +156,7 @@ For VMs that are deployed with premium or ultra-disks, the standard SAP HANA sys
 ### VM with ANF for data and log volumes
 At a high level, the latest HLI storage snapshots of the full data and log volumes need to be copied to Azure Storage where they are accessible and recoverable by the target HANA VM.  The copy process can be done with any native Linux copy tools.  
 
-><strong>Important</strong>
+> [!IMPORTANT]
 > Copying and data transfer can take hours depends on the HANA database size and network bandwidth.  The bulk of the copy process should be done in advance of the primary HANA DB downtime.
 
 ### MCOS to MDC Conversion
