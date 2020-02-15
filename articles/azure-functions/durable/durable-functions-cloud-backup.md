@@ -89,7 +89,7 @@ And here is the implementation:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
-The function uses the `readdirp` module to recursively read the directory structure.
+The function uses the `readdirp` module (version 2.x) to recursively read the directory structure.
 
 ---
 
