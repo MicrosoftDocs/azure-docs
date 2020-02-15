@@ -162,7 +162,7 @@ $vmConfig = New-AzVMConfig -VMName "myVM" -VMSize "Standard_D1"
 
 Set-AzVMOperatingSystem -VM $vmConfig -Linux -ComputerName "myVM" -Credential $cred -DisablePasswordAuthentication
 
-Set-AzVMSourceImage -VM $vmConfig -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS" -Version "latest"
+Set-AzVMSourceImage -VM $vmConfig -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "18.04-LTS" -Version "latest"
 
 Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
