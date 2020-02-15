@@ -206,6 +206,8 @@ The following table lists Resource Manager template parameters for existing or r
 | resizeOSDisk | Should the OS partition be resized to occupy full OS VHD before splitting system volume. |
 | location | Location for all resources. |
 
+To have more details about the Linux VM disk encryption template configuration refer to [Azure Disk Encryption for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/azure-disk-enc-linux).
+
 
 ## Use EncryptFormatAll feature for data disks on Linux VMs
 
