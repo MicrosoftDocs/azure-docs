@@ -70,6 +70,6 @@ Finally, click the sync button to push your changes up and kick off the staging:
 ![Confirm Sync](./media/confirm-sync.png)
 
 
-- **If you aren't familiar with Markdown**, here's a great resource.
+- **If you aren't familiar with Markdown**, [here's a great resource](https://review.docs.microsoft.com/en-us/help/contribute/markdown-reference?branch=master).
 - **If you aren't familiar with git**, let me know and I can expand accordingly.
 - **If you are familiar with git** and have any feedback regarding this process, I'm completely open to suggestions, as I'm learning git as I go.
