@@ -83,12 +83,12 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Migrate to Azure DB for PostgreSQL-Single server online via the CLI
+          - text: Migrate to Azure DB for PostgreSQL online via the portal
+            url: tutorial-postgresql-azure-postgresql-online-portal.md
+          - text: Migrate to Azure DB for PostgreSQL online via the CLI
             url: tutorial-postgresql-azure-postgresql-online.md
-          - text: Migrate RDS PostgreSQL to Azure DB for PostgreSQL - Single server
+          - text: Migrate RDS PostgreSQL to Azure DB for PostgreSQL
             url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
-          - text: Migrate PostgreSQL to Azure DB for PostgreSQL - Hyperscale (Citus)
-            url: tutorial-postgresql-azure-db-for-postgresql-online-portal.md
           - text: Migrate to Azure DB for MySQL - online
             url: tutorial-mysql-azure-mysql-online.md
           - text: Migrate RDS MySQL to Azure DB for MySQL - online
