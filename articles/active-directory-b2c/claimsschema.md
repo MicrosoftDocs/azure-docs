@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -47,13 +47,30 @@ The **ClaimType** element contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | The title that's displayed to users on various screens. The value can be [localized](localization.md). |
-| DataType | 1:1 | The type of the claim. The data types of boolean, date, dateTime, int, long, string, stringCollection and phoneNumber can be used. Primitive data type represents the equivalent of C# variable data type. stringCollection represents a collection of strings. For more information see [C# Types and variables](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). Date follows ISO 8601 convention. |
+| DataType | 1:1 | The type of the claim. |
 | DefaultPartnerClaimTypes | 0:1 | The partner default claim types to use for a specified protocol. The value can be overwritten in the **PartnerClaimType** specified in the **InputClaim** or **OutputClaim** elements. Use this element to specify the default name for a protocol.  |
 | Mask | 0:1 | An optional string of masking characters that can be applied when displaying the claim. For example, the phone number 324-232-4343 can be masked as XXX-XXX-4343. |
 | UserHelpText | 0:1 | A description of the claim type that can be helpful for users to understand its purpose. The value can be [localized](localization.md). |
 | UserInputType | 0:1 | The type of input control that should be available to the user when manually entering the claim data for the claim type. See the user input types defined later in this page. |
 | Restriction | 0:1 | The value restrictions for this claim, such as a regular expression (Regex) or a list of acceptable values. The value can be [localized](localization.md). |
 PredicateValidationReference| 0:1 | A reference to a **PredicateValidationsInput** element. The **PredicateValidationReference** elements enable you to perform a validation process to ensure that only properly formed data is entered. For more information, see [Predicates](predicates.md). |
+
+
+The **DataType** element supports the following values:
+
+| Type | Description |
+| ------- | ----------- | 
+|boolean|Represents a Boolean (`true` or `false`) value.|
+|date| Represents an instant in time, typically expressed as a date of a day. The value of the date follows ISO 8601 convention.|
+|dateTime|Represents an instant in time, typically expressed as a date and time of day. The value of the date follows ISO 8601 convention.|
+|duration|Represents a time interval in years, months, days, hours, minutes, and seconds. The format of is `P&#124;NnYnMnDTnHnMnS`, where `P` indicates positive, and `N` negative. `nY` is the number of years followed by a literal `Y`. `nMo` is the number of months followed by a literal `Mo`. `nD` is the number of days followed by a literal `D`. Examples: `P21Y` represents 21 years. `P1Y2Mo` represents one year, and two months. `P1Y2Mo5D` represents one year, two months, and five days.  `P1Y2M5DT8H5M620S` represents one year, two months, five days, eight hours, five minutes, and twenty seconds.  |
+|phoneNumber|Represents a phone number. |
+|int| Represents number between -2,147,483,648 and 2,147,483,647|
+|long| Represents number between -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
+|string| Represents text as a sequence of UTF-16 code units.|
+|stringCollection|Represents a collection of `string`.|
+|userIdentity| Represents a user identity.|
+|userIdentityCollection|Represents a collection of `userIdentity`.|
 
 ### DefaultPartnerClaimTypes
 
@@ -212,7 +229,21 @@ The Identity Experience Framework renders the email address claim with email for
 
 ## UserInputType
 
-Azure AD B2C supports a variety of user input types, such as a textbox, password, and dropdown list that can be used when manually entering claim data for the claim type. You must specify the **UserInputType** when you collect information from the user by using a [self-asserted technical profile](self-asserted-technical-profile.md).
+Azure AD B2C supports a variety of user input types, such as a textbox, password, and dropdown list that can be used when manually entering claim data for the claim type. You must specify the **UserInputType** when you collect information from the user by using a [self-asserted technical profile](self-asserted-technical-profile.md) and [display controls](display-controls.md).
+
+The **UserInputType** element available user input types:
+| UserInputType | Supported ClaimType | Description |
+| --------- | -------- | ----------- |
+|CheckboxMultiSelect| `string` |Multi select drop-down box. The claim value is represented in a comma delimiter string of the selected values. |
+|DateTimeDropdown | `date`, `dateTime` |Drop-downs to select a day, month, and year. |
+|DropdownSingleSelect |`string` |Single select drop-down box. The claim value is the selected value.|
+|EmailBox | `string` |Email input field. |
+|Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`,  `stringCollection`|A field that shows text only in a paragraph tag. |
+|Password | `string` |Password text box.|
+|RadioSingleSelect |`string` | Collection of radio buttons. The claim value is the selected value.|
+|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`,  `stringCollection`| Read only text box. |
+|TextBox |`boolean`, `int`, `string` |Single-line text box. |
+
 
 ### TextBox
 
