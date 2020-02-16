@@ -324,6 +324,11 @@ You can [use Power BI](app/export-power-bi.md ) to display your request telemetr
 ### <a name="data"></a>How long is data retained in the portal? Is it secure?
 Take a look at [Data Retention and Privacy][data].
 
+### What happens to Application Insight's telemetry when a server or device loses connection with Azure?
+
+All of our SDKs, including the web SDK, includes "reliable transport" or "robust transport". When the server or device loses connection with Azure, telemetry is [stored locally on the file system](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (Server SDKs) or in HTML5 Session Storage (Web SDK). The SDK will periodically retry to send this telemetry until our ingestion service considers it "stale" (48-hours for logs, 30 minutes for metrics). Stale telemetry will be dropped. In some cases, such as when local storage is full, retry will not occur.
+
+
 ### Could personal data be sent in the telemetry?
 
 This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](app/data-retention-privacy.md).

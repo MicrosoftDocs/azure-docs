@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 01/18/2020
+ms.date: 02/10/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -84,7 +84,7 @@ Here are the limits for a single logic app run:
 | Foreach array items | 100,000 | This limit describes the highest number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](logic-apps-perform-data-operations.md#filter-array-action). |
 | Foreach concurrency | 20 is the default limit when the concurrency control is turned off. You can change the default to a value between 1 and 50 inclusively. | This limit is highest number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
 | SplitOn items | - 100,000 without trigger concurrency <p><p>- 100 with trigger concurrency | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items. |
-| Until iterations | 5,000 | |
+| Until iterations | - Default: 60 <p><p>- Maximum: 5,000 | |
 ||||
 
 <a name="throughput-limits"></a>
@@ -187,8 +187,9 @@ Here are the limits for custom connectors that you can create from web APIs.
 ## Managed identities
 
 | Name | Limit |
-| ---- | ----- |
-| Number of logic apps that have the system-assigned identity in an Azure subscription per region | 100 |
+|------|-------|
+| Managed identities per logic app | Either the system-assigned identity or 1 user-assigned identity |
+| Number of logic apps that have a managed identity in an Azure subscription per region | 100 |
 |||
 
 <a name="integration-account-limits"></a>

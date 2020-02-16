@@ -11,6 +11,9 @@ This article explains how to restore an entire file share, or specific files, fr
 
 You can restore an entire file share or specific files on the share. You can restore to the original location, or to an alternate location.
 
+> [!WARNING]
+> Make sure the PS version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups. For more details, refer to [the section](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) outlining the requirement for this change.
+
 ## Fetch recovery points
 
 Use [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) to list all recovery points for the backed-up item.

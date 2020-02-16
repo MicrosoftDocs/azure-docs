@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Configure tokens in Azure Active Directory B2C
 
-In this article, you learn how to configure the [lifetime and compatibility of a token](active-directory-b2c-reference-tokens.md) in Azure Active Directory B2C (Azure AD B2C).
+In this article, you learn how to configure the [lifetime and compatibility of a token](tokens-overview.md) in Azure Active Directory B2C (Azure AD B2C).
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ You can configure the token lifetime on any user flow.
 
 ## Next steps
 
-Learn more about how to [use access tokens](active-directory-b2c-access-tokens.md).
+Learn more about how to [use access tokens](access-tokens.md).
 
 
 

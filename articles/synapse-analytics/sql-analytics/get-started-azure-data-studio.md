@@ -69,7 +69,7 @@ After successful login, you should see a dashboard like this:
 
 ## Query
 
-Once connected, you can query SQL Analytics using supported [Transact-SQL (T-SQL)](/sql/t-sql/language-reference) statements against the instance. Select **New query** from the dashboard view to get started.
+Once connected, you can query SQL Analytics using supported [Transact-SQL (T-SQL)](https://docs.microsoft.com/sql/t-sql/language-reference) statements against the instance. Select **New query** from the dashboard view to get started.
 
 ![New Query](media/sql-analytics-query-ads/5-new-query.png)
 

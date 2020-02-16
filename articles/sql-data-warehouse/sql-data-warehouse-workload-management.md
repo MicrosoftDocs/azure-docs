@@ -29,8 +29,8 @@ The performance capacity of a data warehouse is determined by the [data warehous
 - To view the resources allocated for all the performance profiles, see [Memory and concurrency limits]memory-concurrency-limits.md).
 - To adjust capacity, you can [scale up or down](quickstart-scale-compute-portal.md).
 
-
 ## Workload management concepts
+
 In the past, you managed the query performance on SQL Data Warehouse through [resource classes](resource-classes-for-workload-management.md).  Resource classes allowed for assigning memory to a query based on role membership.  The primary challenge with resources classes is that, once configured, there was no governance or ability to control the workload.  
 
 For example, granting an ad-hoc user role membership to smallrc allowed that user to consume 100% of the memory on the system.  With resource classes, there is no way to reserve and ensure resources are available for critical workloads.

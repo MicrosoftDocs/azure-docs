@@ -108,6 +108,20 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+- id: programming-languages-set-functions
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell 
+  - id: programming-language-python
+    title: Python 
+  - id: programming-language-typescript
+    title: TypeScript
 - id: URL-test-interface
   title: URL Test tool
   prompt: Choose one of the following
@@ -132,6 +146,20 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+- id: programming-languages-text-analytics
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: javascript
+  - id: programming-language-java
+    title: Java 
+  - id: programming-language-other
+    title: Other languages...
 - id: programming-languages-set-ten
 # Owner: aahill
   title: Programming languages

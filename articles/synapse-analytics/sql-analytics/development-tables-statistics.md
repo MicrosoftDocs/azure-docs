@@ -530,7 +530,7 @@ For further improve query performance, see [Monitor your workload](../../sql-dat
 
 
 ## Statistics in SQL on-demand
-Statistics are created per particular column for particular dataset (OPENROWSET path).
+Statistics are created per particular column for particular dataset (storage path).
 
 ### Why use statistics
 
@@ -584,7 +584,7 @@ The following guiding principles are provided for updating your statistics:
 
 For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
-### Examples: Create statistics
+### Examples: Create statistics for column in OPENROWSET path
 
 The following examples show you how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
 
@@ -705,6 +705,65 @@ FROM OPENROWSET(
 	) AS [nyc] 
 	TABLESAMPLE(5 PERCENT)
 '
+```
+
+### Examples: Create statistics for external table column
+
+The following examples show you how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
+
+> [!NOTE]
+> You can create single-column statistics only at this moment.
+
+To create statistics on a column, provide a name for the statistics object and the name of the column.
+
+```sql
+CREATE STATISTICS statistics_name   
+ON { external_table } ( column )   
+    WITH   
+        { FULLSCAN 
+          | [ SAMPLE number PERCENT ] }
+        , { NORECOMPUTE }      
+```
+
+Arguments:
+external_table
+Specifies external table that statistics should be created.
+
+FULLSCAN
+Compute statistics by scanning all rows. FULLSCAN and SAMPLE 100 PERCENT have the same results. FULLSCAN cannot be used with the SAMPLE option.
+
+SAMPLE number PERCENT
+Specifies the approximate percentage or number of rows in the table or indexed view for the query optimizer to use when it creates statistics. Number can be from 0 through 100. 
+
+SAMPLE cannot be used with the FULLSCAN option.
+
+> [!NOTE]
+> CSV sampling does not work at this time, only FULLSCAN is supported for CSV.
+
+#### Create single-column statistics by examining every row
+
+```sql
+CREATE STATISTICS sState on census_external_table (STATENAME) WITH FULLSCAN, NORECOMPUTE
+```
+
+#### Create single-column statistics by specifying the sample size
+
+```sql
+-- following sample creates statistics with sampling 20%
+CREATE STATISTICS sState on census_external_table (STATENAME) WITH SAMPLE 5 percent, NORECOMPUTE
+```
+
+### Examples: Update statistics
+
+To update statistics, you need to drop and create statistics. Drop statistics first:
+```sql
+DROP STATISTICS census_external_table.sState
+```
+
+And create statistics:
+
+```sql
+CREATE STATISTICS sState on census_external_table (STATENAME) WITH FULLSCAN, NORECOMPUTE
 ```
 
 ## Next steps

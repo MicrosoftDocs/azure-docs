@@ -252,12 +252,18 @@
       href: backup-azure-backup-cloud-as-tape.md
   - name: Offline backup
     items:
-     - name: Configure offline-backup
-       href: backup-azure-backup-import-export.md
-     - name: Offline backup for DPM and Azure Backup Server
-       href: backup-azure-backup-server-import-export-.md
+    - name: Overview
+      href: offline-backup-overview.md
+    - name: Offline Backup with Azure Data Box 
+      href: offline-backup-azure-data-box.md
+    - name: Offline Backup with Import/Export (MARS) 
+      href: backup-azure-backup-import-export.md
+    - name: Offline Backup with Import/Export (DPM/MABS)
+      href: backup-azure-backup-server-import-export-.md
   - name: Monitor and Alerts
     items:
+    - name: Using Backup Explorer
+      href: monitor-azure-backup-with-backup-explorer.md
     - name: Using the Azure portal
       href: backup-azure-monitoring-built-in-monitor.md
     - name: Using Azure Monitor
