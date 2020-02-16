@@ -80,7 +80,7 @@ Central identity management offers the following benefits:
 
 - Create an Azure AD tenant and [create users](../active-directory/fundamentals/add-users-azure-active-directory.md) to represent human users and create [service principals](../active-directory/develop/app-objects-and-service-principals.md) to represent apps, services, and automation tools. Service principals are equivalent to service accounts in Windows and Linux. 
 
-- Assign access rights to resources to Azure AD principals via group assignment: Create Azure AD groups, grant access to groups, and add individual members to the groups. In your database, create contained database users that map your Azure AD groups. 
+- Assign access rights to resources to Azure AD principals via group assignment: Create Azure AD groups, grant access to groups, and add individual members to the groups. In your database, create contained database users that map your Azure AD groups. To assign permissions inside the database, put users in database roles with the appropriate permissions.
   - See the articles, [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md) and [Use Azure AD for authentication with SQL](sql-database-aad-authentication.md).
   > [!NOTE]
   > In a managed instance, you can also create logins that map to Azure AD principals in the master database. See [CREATE LOGIN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
@@ -243,9 +243,7 @@ The following best practices are optional but will result in better manageabilit
 
 - Refrain from assigning permissions to individual users. Use roles (database or server roles) consistently instead. Roles helps greatly with reporting and troubleshooting permissions. (Azure RBAC only supports permission assignment via roles.) 
 
-- Use built-in roles when the permissions of the roles match exactly the needed permissions for the user. You can assign users to multiple roles. 
-
-- Create and use custom roles when built-in roles grant too many or insufficient permissions. Typical roles that are used in practice: 
+- Create and use custom roles with the exact permissions needed. Typical roles that are used in practice: 
   - Security deployment 
   - Administrator 
   - Developer 
@@ -253,14 +251,17 @@ The following best practices are optional but will result in better manageabilit
   - Auditor 
   - Automated processes 
   - End user 
+  
+- Use built-in roles only when the permissions of the roles match exactly the needed permissions for the user. You can assign users to multiple roles. 
 
 - Remember that permissions in SQL Server Database Engine can be applied on the following scopes. The smaller the scope, the smaller the impact of the granted permissions: 
   - Azure SQL Database server (special roles in master database) 
   - Database 
-  - Schema (also see: [Schema-design for SQL Server: recommendations for Schema design with security in mind](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
+  - Schema
+      - It is a best practice to use schemas to grant permissions inside a database. (also see: [Schema-design for SQL Server: recommendations for Schema design with security in mind](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Object (table, view, procedure, etc.) 
   > [!NOTE]
-  > It is not recommended to apply permissions on the object level because this level adds unnecessary complexity to the overall implementation. If you decide to use object-level permissions, those should be clearly documented. The same applies to column-level-permissions, which are even less recommendable for the same reasons. The standard rules for [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) don't apply for columns.
+  > It is not recommended to apply permissions on the object level because this level adds unnecessary complexity to the overall implementation. If you decide to use object-level permissions, those should be clearly documented. The same applies to column-level-permissions, which are even less recommendable for the same reasons. Also be aware that by default a table-level [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) does not override a column-level GRANT. This would require the common criteria compliance Server Configuration to be activated.
 
 - Perform regular checks using [Vulnerability Assessment (VA)](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment) to test for too many permissions.
 
