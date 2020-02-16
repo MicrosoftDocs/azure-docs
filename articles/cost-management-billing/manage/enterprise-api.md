@@ -2,11 +2,10 @@
 title: Azure Billing Enterprise APIs | Microsoft Docs
 description: Learn about the Reporting APIs that enable Enterprise Azure customers to pull consumption data programmatically.
 author: mumami
-manager: mumami
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: banders
 
 ---
