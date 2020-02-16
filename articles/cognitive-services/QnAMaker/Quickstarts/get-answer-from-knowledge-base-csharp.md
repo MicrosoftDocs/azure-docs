@@ -2,7 +2,7 @@
 title: "Quickstart: Get answer from knowledge base - REST, C# - QnA Maker"
 description: This C# REST-based quickstart walks you through getting an answer from a knowledge base, programmatically.
 ms.topic: quickstart
-ms.date: 01/28/2020
+ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCHANGE-20200128
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically get an answer a knowledge base using C#.

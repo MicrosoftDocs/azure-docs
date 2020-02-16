@@ -43,7 +43,7 @@ Verify that the following are in place before deploying and configuring the solu
 * The version of the standalone NSX-T Edge appliance is compatible with the NSX-T Manager version (NSX-T 2.3.0) used in your AVS Private Cloud environment.
 * A trunk port group has been created in the on-premises vCenter with forged transmits enabled.
 * A public IP address has been reserved to use for the NSX-T standalone client uplink IP  address, and 1:1 NAT is in place for translation between the two addresses.
-* DNS forwarding is set on the on-premises DNS servers for the az.AVS.io domain to point to the AVS Private Cloud DNS servers.
+* DNS forwarding is set on the on-premises DNS servers for the az.cloudsimple.io domain to point to the AVS Private Cloud DNS servers.
 * RTT latency is less than or equal to 150 ms, as required for vMotion to work across the two sites.
 
 ## Limitations and considerations

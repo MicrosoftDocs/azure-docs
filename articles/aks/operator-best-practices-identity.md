@@ -118,7 +118,7 @@ This best practices article focused on authentication and authorization for your
 
 For more information about cluster operations in AKS, see the following best practices:
 
-* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler]
+* [Multi-tenancy and cluster isolation][aks-best-practices-cluster-isolation]
 * [Basic Kubernetes scheduler features][aks-best-practices-scheduler]
 * [Advanced Kubernetes scheduler features][aks-best-practices-advanced-scheduler]
 
