@@ -168,4 +168,4 @@ Use a Log Analytics workspace for monitoring and alerting at scale for all your 
 
 ## Next steps
 
-To create custom queries, see [Log Analytics data model](backup-azure-log-analytics-data-model.md).
+To create custom queries, see [Log Analytics data model](backup-azure-reports-data-model.md).
