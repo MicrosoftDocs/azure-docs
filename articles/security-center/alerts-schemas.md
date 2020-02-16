@@ -21,9 +21,9 @@ Azure Security Center's advanced threat detection mechanisms generate security a
 
 These alerts are only available to users of the standard tier.  
 
-Security alerts can be seen in Azure Security Center's Threat Protection pages. They can also be exported to Azure Sentinel (or any other SIEM) through Azure Event Hubs, accessed via the REST API, or exported to a Log Analytics workspace. If you're using any programmatic methods to consume the alerts, you'll need the schema to find the fields that are relevant to you. In addition, when exporting to an Event Hub or when triggering Workflow automation with generic HTTP connectors, you could use the schemas to properly parse the JSON objects.
+Security alerts can be seen in Azure Security Center's Threat Protection pages. They can also be exported to Azure Sentinel (or any other SIEM) through Azure Event Hubs, accessed via the REST API, or exported to a Log Analytics workspace. If you're using any programmatic methods to consume the alerts, you'll need the correct schema to find the fields that are relevant to you. In addition, when exporting to an Event Hub or when triggering Workflow Automation with generic HTTP connectors, you could use the schemas to properly parse the JSON objects.
 
-If you're using the REST API to access alerts, see the [online Alerts API documentation](https://docs.microsoft.com/rest/api/securitycenter/alerts).
+If you're using the REST API to access alerts, see the [online Alerts API documentation](../../rest/api/securitycenter/alerts).
 
 
 >[!IMPORTANT]
@@ -181,27 +181,27 @@ You can easily view the security alerts events in Activity log by searching for 
 
 |Field|Description|
 |----|----|
-|channels|Constant, "Operation"|
-|correlationId|The Azure Security Center alert ID|
-|description|Description of the alert|
-|eventDataId|See correlationId|
-|eventName|The value and localizedValue sub-fields contain the alert display name|
-|category|The value and localizedValue sub-fields are constant - "Security"|
-|eventTimestamp|UTC timestamp for when the alert was generated|
-|id|The fully qualified alert ID|
-|level|Constant, "Informational"|
-|operationId|See correlationId|
-|operationName|The value field is constant - "Microsoft.Security/locations/alerts/activate/action", and the localized value will be "Activate Alert" (can potentially be localized par the user locale)|
-|resourceGroupName|Will include the resource group name|
-|resourceProviderName|The value and localizedValue sub-fields are constant - "Microsoft.Security"|
-|resourceType|The value and localizedValue sub-fields are constant - "Microsoft.Security/locations/alerts"|
-|resourceId|The fully qualified Azure resource ID|
-|status|The value and localizedValue sub-fields are constant - "Active"|
-|subStatus|The value and localizedValue sub-fields are empty|
-|submissionTimestamp|The UTC timestamp of event submission to Activity Log|
-|subscriptionId|The subscription ID of the compromised resource|
-|properties|A JSON bag of additional properties pertaining to the alert. These can change from one alert to the other, however, the following fields will appear in all alerts:<br>- severity: The severity of the attack<br>- compromisedEntity: The name of the comrpomised resource<br>- remediationSteps: Array of remediation steps to be taken<br>- intent: The kill-chain intent of the alert. Possible intents are documented in the [Intentions table](alerts-reference.md#intentions)|
-|relatedEvents|Constnt - empty array|
+|**channels**|Constant, "Operation"|
+|**correlationId**|The Azure Security Center alert ID|
+|**description**|Description of the alert|
+|**eventDataId**|See correlationId|
+|**eventName**|The value and localizedValue sub-fields contain the alert display name|
+|**category**|The value and localizedValue sub-fields are constant - "Security"|
+|**eventTimestamp**|UTC timestamp for when the alert was generated|
+|**id**|The fully qualified alert ID|
+|**level**|Constant, "Informational"|
+|**operationId**|See correlationId|
+|**operationName**|The value field is constant - "Microsoft.Security/locations/alerts/activate/action", and the localized value will be "Activate Alert" (can potentially be localized par the user locale)|
+|**resourceGroupName**|Will include the resource group name|
+|**resourceProviderName**|The value and localizedValue sub-fields are constant - "Microsoft.Security"|
+|**resourceType**|The value and localizedValue sub-fields are constant - "Microsoft.Security/locations/alerts"|
+|**resourceId**|The fully qualified Azure resource ID|
+|**status**|The value and localizedValue sub-fields are constant - "Active"|
+|**subStatus**|The value and localizedValue sub-fields are empty|
+|**submissionTimestamp**|The UTC timestamp of event submission to Activity Log|
+|**subscriptionId**|The subscription ID of the compromised resource|
+|**properties**|A JSON bag of additional properties pertaining to the alert. These can change from one alert to the other, however, the following fields will appear in all alerts:<br>- severity: The severity of the attack<br>- compromisedEntity: The name of the comrpomised resource<br>- remediationSteps: Array of remediation steps to be taken<br>- intent: The kill-chain intent of the alert. Possible intents are documented in the [Intentions table](alerts-reference.md#intentions)|
+|**relatedEvents**|Constnt - empty array|
 |||
 
 
@@ -211,35 +211,35 @@ You can easily view the security alerts events in Activity log by searching for 
 
 |Field|Description|
 |----|----|
-| AlertName | Alert display name|
-| Severity | The alert severity (High/Medium/Low/Informational)|
-| AlertType | unique alert identifier|
-| ConfidenceLevel | (Optional) The confidence level of this alert (High/Low)|
-| ConfidenceScore | (Optional) Numeric confidence indicator of the security alert|
-| Description | Description text for the alert|
-| DisplayName | The alert's display name|
-| EndTime | The impact end time of the alert (the time of the last event contributing to the alert)|
-| Entities | A list of entities related to the alert. This list can hold a mixture of entities of diverse types|
-| ExtendedLinks | (Optional) A bag for all links related to the alert. This bag can hold a mixture of links for diverse types|
-| ExtendedProperties | A bag of additional fields which are relevant to the alert|
-| IsIncident | Determines if the alert is an incident or a regular alert. An incident is a security alert that aggregates multiple alerts into one security incident|
-| ProcessingEndTime | UTC timestamp in which the alert was created|
-| ProductComponentName | (Optional) The name of a component inside the product which generated the alert.|
-| ProductName | constant ('Azure Security Center')|
-| ProviderName | unused|
-| RemediationSteps | Manual action items to take to remediate the security threat|
-| ResourceId | Full identifier of the affected resource|
-| SourceComputerId | a unique GUID for the affected server (if the alert is generated on the server)|
-| SourceSystem | unused|
-| StartTime | The impact start time of the alert (the time of the first event contributing to the alert)|
-| SystemAlertId | Unique identifier of this security alert instance|
-| TenantId | the identifier of the parent Azure Active directory tenant of the subscription under which the scanned resource resides|
-| TimeGenerated | UTC timestamp on which the assessment took place (Security Center's scan time) (identical to DiscoveredTimeUTC)|
-| Type | constant ('SecurityAlert')|
-| VendorName | The name of the vendor that provided the alert (e.g. 'Microsoft')|
-| VendorOriginalId | unused|
-| WorkspaceResourceGroup | in case the alert is generated on a VM, Server, VMSS or App Service instance that reports to a workspace, contains that workspace resource group name|
-| WorkspaceSubscriptionId | in case the alert is generated on a VM, Server, VMSS or App Service instance that reports to a workspace, contains that workspace subscriptionId|
+|**AlertName**|Alert display name|
+|**Severity**|The alert severity (High/Medium/Low/Informational)|
+|**AlertType**|unique alert identifier|
+|**ConfidenceLevel**|(Optional) The confidence level of this alert (High/Low)|
+|**ConfidenceScore**|(Optional) Numeric confidence indicator of the security alert|
+|**Description**|Description text for the alert|
+|**DisplayName**|The alert's display name|
+|**EndTime**|The impact end time of the alert (the time of the last event contributing to the alert)|
+|**Entities**|A list of entities related to the alert. This list can hold a mixture of entities of diverse types|
+|**ExtendedLinks**|(Optional) A bag for all links related to the alert. This bag can hold a mixture of links for diverse types|
+|**ExtendedProperties**|A bag of additional fields which are relevant to the alert|
+|**IsIncident**|Determines if the alert is an incident or a regular alert. An incident is a security alert that aggregates multiple alerts into one security incident|
+|**ProcessingEndTime**|UTC timestamp in which the alert was created|
+|**ProductComponentName**|(Optional) The name of a component inside the product which generated the alert.|
+|**ProductName**|constant ('Azure Security Center')|
+|**ProviderName**|unused|
+|**RemediationSteps**|Manual action items to take to remediate the security threat|
+|**ResourceId**|Full identifier of the affected resource|
+|**SourceComputerId**|a unique GUID for the affected server (if the alert is generated on the server)|
+|**SourceSystem**|unused|
+|**StartTime**|The impact start time of the alert (the time of the first event contributing to the alert)|
+|**SystemAlertId**|Unique identifier of this security alert instance|
+|**TenantId**|the identifier of the parent Azure Active directory tenant of the subscription under which the scanned resource resides|
+|**TimeGenerated**|UTC timestamp on which the assessment took place (Security Center's scan time) (identical to DiscoveredTimeUTC)|
+|**Type**|constant ('SecurityAlert')|
+|**VendorName**|The name of the vendor that provided the alert (e.g. 'Microsoft')|
+|**VendorOriginalId**|unused|
+|**WorkspaceResourceGroup**|in case the alert is generated on a VM, Server, Virtual Machine Scale Set or App Service instance that reports to a workspace, contains that workspace resource group name|
+|**WorkspaceSubscriptionId**|in case the alert is generated on a VM, Server, Virtual Machine Scale Set or App Service instance that reports to a workspace, contains that workspace subscriptionId|
 |||
 
 
@@ -248,6 +248,6 @@ You can easily view the security alerts events in Activity log by searching for 
 
 Microsoft Graph is the gateway to data and intelligence in Microsoft 365. It provides a unified programmability model that you can use to access the tremendous amount of data in Office 365, Windows 10, and Enterprise Mobility + Security. Use the wealth of data in Microsoft Graph to build apps for organizations and consumers that interact with millions of users.
 
-The schema for security alerts sent to MS Graph, and a JSON representation, are both available on [this page of the Microsoft Graph documentation](../../graph/api/resources/alert?view=graph-rest-1.0).
+The schema and a JSON representation for security alerts sent to MS Graph, are available in [the Microsoft Graph documentation](../../graph/api/resources/alert?view=graph-rest-1.0).
 
 --- 
