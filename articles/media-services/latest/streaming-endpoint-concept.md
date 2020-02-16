@@ -128,50 +128,16 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
 - `scaleUnits`: Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
 
-## Working with CDN
+## Scaling streaming with CDN
 
-In most cases, you should have CDN enabled. However, if you're anticipating max concurrency lower than 500 viewers, then it's recommended to disable CDN since CDN scales best with concurrency.
+See the following articles:
 
-### Considerations
-
-* The Streaming Endpoint `hostname` and the streaming URL remain the same whether or not you enable CDN.
-* If you need the ability to test your content with or without CDN, create another Streaming Endpoint that isn't CDN enabled.
-
-### Detailed explanation of how caching works
-
-There's no specific bandwidth value when adding the CDN because the amount of bandwidth that's needed for a CDN enabled streaming endpoint varies. A lot depends on the type of content, how popular it is, the bitrates, and the protocols. The CDN is only caching what's being requested. That means that popular content will be served directly from the CDN–as long as the video fragment is cached. Live content is likely to be cached because you typically have many people watching the exact same thing. On-demand content can be a bit trickier because you could have some content that's popular and some that isn't. If you have millions of video assets where none of them are popular (only one or two viewers a week) but you have thousands of people watching all different videos, the CDN becomes much less effective. With this cache misses, you increase the load on the streaming endpoint.
-
-You also need to consider how adaptive streaming works. Each individual video fragment is cached as it's own entity. For example, imagine the first time a certain video is watched. If the viewer skips around watching only a few seconds here and there, only the video fragments associated with what the person watched get cached in the CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they're each cached separately in the CDN. Even if two people are watching the same bitrate, they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
-
-### Enable Azure CDN integration
-
-> [!IMPORTANT]
-> You cannot enable CDN for trial or student Azure accounts.
->
-> CDN integration is enabled in all the Azure data centers except Federal Government and China regions.
-
-After a Streaming Endpoint is provisioned with CDN enabled, there's a defined wait time on Media Services before DNS update is done to map the Streaming Endpoint to CDN endpoint.
-
-If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to two hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, you can start your streaming endpoint and stream without interruptions from the streaming endpoint and once the integration is complete, the stream is delivered from the CDN. During the provisioning period, your streaming endpoint will be in the **starting** state and you might observe degraded performance.
-
-When the Standard streaming endpoint is created, it's configured by default with Standard Verizon. You can configure Premium Verizon or Standard Akamai providers using REST APIs.
-
-Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon** for standard streaming endpoints. Premium streaming endpoints can be configured using all **Azure CDN pricing tiers and providers**. 
-
-> [!NOTE]
-> For details about Azure CDN, see the [CDN overview](../../cdn/cdn-overview.md).
-
-### Determine if DNS change was made
-
-You can determine if DNS change was made on a Streaming Endpoint (the traffic is being directed to the Azure CDN) by using https://www.digwebinterface.com. If the results has azureedge.net domain names in the results, the traffic is now being pointed to the CDN.
+- [CDN overview](../../cdn/cdn-overview.md)
+- [Scaling Streaming with CDN](scaling-streaming-cdn.md)
 
 ## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
-
-## See also
-
-[CDN overview](../../cdn/cdn-overview.md)
 
 ## Next steps
 
