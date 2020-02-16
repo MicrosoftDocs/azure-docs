@@ -154,6 +154,8 @@ Save the data into a file and upload it with this script:
 
     echo "Done"
 ```
+> [!NOTE]
+> Azure Data Explorer will not delete the blobs post ingestion. Retain the blobs for 3-5 days and use [Azure Blob storage lifecycle](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) to manage blob deletion. 
 
 ## Review the data flow
 
