@@ -600,8 +600,6 @@
       items:
       - name: Hackerone
         href: hackerone-tutorial.md
-      - name: Halogen Software
-        href: halogen-software-tutorial.md
       - name: Halosys
         href: halosys-tutorial.md
       - name: HappyFox
@@ -1182,6 +1180,8 @@
         href: runmyprocess-tutorial.md
     - name: S
       items:
+      - name: Saba TalentSpace
+        href: halogen-software-tutorial.md
       - name: SafeConnect
         href: safeconnect-tutorial.md
       - name: SafetyNet
