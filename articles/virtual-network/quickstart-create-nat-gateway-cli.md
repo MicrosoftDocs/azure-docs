@@ -73,7 +73,7 @@ This section details how you can create and configure the following components o
   - A public IP pool and public IP prefix to use for outbound flows translated by the NAT gateway resource.
   - Change the idle timeout from the default of 4 minutes to 10 minutes.
 
-Create a global Azure NAT gateway with [az network nat gateway create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest) named **myNATgateway**. The command uses both the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix**. The command also changes the idle timeout to 10 minutes.
+Create a global Azure NAT gateway with [az network nat gateway create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest) named **myNATgateway**. The command uses both the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix**. The command changes the idle timeout to **10** minutes.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -182,7 +182,7 @@ Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).  We 
     --name myVM \
     --nics myNic \
     --image UbuntuLTS \
-    --generate-ssh-keys \
+    --generate-ssh-keys
 ```
 
 Wait for the VM to deploy then continue with the rest of the steps.
