@@ -199,8 +199,8 @@ You can also call a REST API technical profile with your business logic, overwri
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
 Note2:
-1. Available for content definition [DataUri](contentdefinitions.nd#datauri) type of `unifiedssp`, or `unifiedssd`.
-1. Available for content definition [DataUri](contentdefinitions.nd#datauri) type of `unifiedssp`, or `unifiedssd`, [page layout version](page-layout.md) 1.1.0 and above.
+1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`.
+1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`, [page layout version](page-layout.md) 1.1.0 and above.
 
 ## Cryptographic keys
 
