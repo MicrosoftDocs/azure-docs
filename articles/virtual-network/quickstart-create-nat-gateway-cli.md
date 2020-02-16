@@ -182,7 +182,7 @@ Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).  We 
     --name myVM \
     --nics myNic \
     --image UbuntuLTS \
-    --generate-ssh-keys \
+    --generate-ssh-keys
 ```
 
 Wait for the VM to deploy then continue with the rest of the steps.
