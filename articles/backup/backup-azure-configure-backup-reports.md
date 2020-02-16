@@ -41,14 +41,16 @@ Azure Backup also provides a built-in Azure Policy, which automates the configur
 
 3. **View Reports on the Azure portal:**
 
-> [!NOTE]
-> Currently, the initial load of the report may take up to 1 minute.
-
 Once you have configured your vaults to send data to LA, you can view your backup reports by navigating to any vault’s blade and clicking on the **Backup Reports** menu item. 
 
 ![Vault Dashboard](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
-Clicking this link opens up the Backup Report Workbook. Below is a description of the various tabs that the report contains:
+Clicking this link opens up the Backup Report Workbook. 
+
+> [!NOTE]
+> Currently, the initial load of the report may take up to 1 minute.
+
+Below is a description of the various tabs that the report contains:
 
 1. **Summary** - The Summary tab provides a high-level overview of your backup estate. Under the Summary tab, you can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances and the job success rate per workload type. For more detailed information around a specific backup artifact type, you can navigate to the respective tabs.
 
@@ -78,9 +80,9 @@ Clicking on the down arrow button at the top right of any widget (table/chart) e
 
 You can click the Pin Icon at the top of each widget to pin the widget to your Azure portal dashboard. This helps you create customized dashboards tailored to display the most important information that you need.
 
-## Cross-Tenant Views
+## Cross-Tenant Reports
 
-If you are an Azure Lighthouse user with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter (by clicking on the filter icon in the top right of the Azure portal) to choose all the subscriptions you wish to see data for. Doing so will let you select LA Workspaces across your tenants to view multi-tenanted reports.
+If you are an [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) user with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter (by clicking on the filter icon in the top right of the Azure portal) to choose all the subscriptions you wish to see data for. Doing so will let you select LA Workspaces across your tenants to view multi-tenanted reports.
 
 ## Conventions used in Backup Reports
 
