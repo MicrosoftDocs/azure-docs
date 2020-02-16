@@ -66,10 +66,10 @@ To access the Internet, you need one or more public IP addresses for the NAT gat
   $rsg = 'myResourceGroupNAT'
   $loc = 'eastus2'
   $sku = 'Standard'
-  $name = 'myPublicIP'
+  $pbnm = 'myPublicIP'
   
   $publicIP = 
-  New-AzPublicIpAddress -Name $name -ResourceGroupName $rsg -AllocationMethod Static -Location $loc -Sku $sku
+  New-AzPublicIpAddress -Name $pbnm -ResourceGroupName $rsg -AllocationMethod Static -Location $loc -Sku $sku
 ```
 
 ### Create a public IP prefix
@@ -79,10 +79,10 @@ To access the Internet, you need one or more public IP addresses for the NAT gat
 ```azurepowershell-interactive
   $rsg = 'myResourceGroupNAT'
   $loc = 'eastus2'
-  $name = 'myPublicIPprefix'
+  $pxnm = 'myPublicIPprefix'
 
   $publicIPPrefix = 
-  New-AzPublicIpPrefix -Name $name -ResourceGroupName $rsg -Location $loc -PrefixLength 31
+  New-AzPublicIpPrefix -Name $pxnm -ResourceGroupName $rsg -Location $loc -PrefixLength 31
 ```
 
 ### Create a NAT gateway resource
@@ -97,10 +97,10 @@ Create a global Azure NAT gateway with [New-AzNatGateway](https://docs.microsoft
   $rsg = 'myResourceGroupNAT'
   $loc = 'eastus2'
   $sku = 'Standard'
-  $name = 'myNATgateway'
+  $gnm = 'myNATgateway'
 
   $natGateway = 
-  New-AzNatGateway -Name $name -ResourceGroupName $rsg -PublicIpAddress $publicIP -PublicIpPrefix $publicIPPrefix -Location $loc -Sku $sku -IdleTimeoutInMinutes 10
+  New-AzNatGateway -Name $gnm -ResourceGroupName $rsg -PublicIpAddress $publicIP -PublicIpPrefix $publicIPPrefix -Location $loc -Sku $sku -IdleTimeoutInMinutes 10
   ```
 
 At this point, the NAT gateway is functional and all that is missing is to configure which subnets of a virtual network should use it.
