@@ -17,10 +17,10 @@ ms.author: allensu
 
 # Quickstart: Create a NAT gateway using Azure CLI
 
-This quickstart shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
+This quickstart shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
 >[!NOTE] 
->Azure NAT service is available as Public preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
+>Azure Virtual Network NAT is available as Public preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -73,7 +73,7 @@ This section details how you can create and configure the following components o
   - A public IP pool and public IP prefix to use for outbound flows translated by the NAT gateway resource.
   - Change the idle timeout from the default of 4 minutes to 10 minutes.
 
-Create a global Azure NAT Gateway with [az network nat gateway create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest) named **myNATgateway**. The command uses both the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix**. The command also changes the idle timeout to 10 minutes.
+Create a global Azure NAT gateway with [az network nat gateway create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest) named **myNATgateway**. The command uses both the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix**. The command also changes the idle timeout to 10 minutes.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -104,7 +104,7 @@ Create a virtual network named **myVnet** with a subnet named **mySubnet** in th
 
 ### Configure NAT service for source subnet
 
-We'll configure the source subnet **mySubnet** in virtual network **myVnet** to use a specific NAT gateway resource **myNAT** with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet).  This command will activate the NAT service on the specified subnet.
+We'll configure the source subnet **mySubnet** in virtual network **myVnet** to use a specific NAT gateway resource **myNATgateway** with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet).  This command will activate the NAT service on the specified subnet.
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -114,7 +114,7 @@ We'll configure the source subnet **mySubnet** in virtual network **myVnet** to 
     --nat-gateway myNATgateway
 ```
 
-All outbound traffic to Internet destinations is now using the NAT service.  It's not necessary to configure a UDR.
+All outbound traffic to Internet destinations is now using the NAT gateway.  It's not necessary to configure a UDR.
 
 ## Create a VM to use the NAT service
 
@@ -127,7 +127,7 @@ We create a public IP to be used to access the VM.  Use [az network public-ip cr
 ```azurecli-interactive
   az network public-ip create \
     --resource-group myResourceGroupNAT \
-    --name myPublicIPVM
+    --name myPublicIPVM \
     --sku standard
 ```
 
@@ -152,7 +152,7 @@ We create a rule in the NSG for SSH access to the source vm. Use [az network nsg
     --priority 100 \
     --name ssh \
     --description "SSH access" \
-    --access allow 
+    --access allow \
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 22
@@ -185,7 +185,7 @@ Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).  We 
     --generate-ssh-keys \
 ```
 
-Wait for the VM to finish deploying then continue with the rest of the steps.
+Wait for the VM to deploy then continue with the rest of the steps.
 
 ## Discover the IP address of the VM
 
@@ -223,16 +223,16 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 
 ## Next steps
 
-In this tutorial, you created a NAT gateway and a VM to use the NAT service. 
+In this tutorial, you created a NAT gateway and a VM to use it. 
 
-Review metrics in Azure Monitor to see your NAT service operating. Diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+Review metrics in Azure Monitor to see your NAT service operating. Diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is addressed by adding additional public IP address resources or public IP prefix resources or both.
 
-- Learn about [Virtual Network NAT](./nat-overview.md)
+
+- Learn about [Azure Virtual Network NAT](./nat-overview.md)
 - Learn about [NAT gateway resource](./nat-gateway-resource.md).
 - Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
 - Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
 - [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
-
 > [!div class="nextstepaction"]
 
