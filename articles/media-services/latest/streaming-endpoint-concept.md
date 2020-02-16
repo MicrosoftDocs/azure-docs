@@ -133,7 +133,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 See the following articles:
 
 - [CDN overview](../../cdn/cdn-overview.md)
-- [Scaling Streaming with CDN](scaling-streaming-cdn.md)
+- [Scaling streaming with CDN](scaling-streaming-cdn.md)
 
 ## Ask questions, give feedback, get updates
 
