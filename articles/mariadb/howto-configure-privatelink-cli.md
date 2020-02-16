@@ -127,7 +127,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
 
-1. Open the downloaded.rdp* file.
+1. Open the *downloaded.rdp* file.
 
     1. If prompted, select **Connect**.
 
