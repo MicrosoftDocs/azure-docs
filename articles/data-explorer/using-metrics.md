@@ -61,8 +61,8 @@ Export health and performance metrics track the general health and performance o
 |---|---|---|---|---|
 Continuous export number of exported records	| Count	| Sum |	The number of exported records in all continuous export jobs. | None |
 Continuous export max lateness |	Count	| Max	| The lateness (in minutes) reported by the continuous export jobs in the cluster. | None |
-Continuous export pending count	| Count	| Max	| The number of pending continuous export jobs. A pending continuous export is a job that is ready to run, but is waiting in a queue (which may be due to insufficient capacity). 
-Continuous export result	| Count |	Count	| The result (“Failure” or “Success”) of each continuous export run. | ContinuousExportName |
+Continuous export pending count	| Count	| Max	| The number of pending continuous export jobs. These jobs are ready to run but waiting in a queue, possibly due to insufficient capacity). 
+Continuous export result	| Count |	Count	| The Failure/Success result of each continuous export run. | ContinuousExportName |
 Export utilization |	Percent	| Max	| Export capacity used, out of the total export capacity in the cluster (between 0 and 100). | None |
 | | | | |
 
