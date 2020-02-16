@@ -1,8 +1,8 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Streaming Endpoints (Origin)
+title: Scaling streaming with cdn
 titleSuffix: Azure Media Services
-description: Learn about Streaming Endpoints (Origin), a dynamic packaging and streaming service that delivers content directly to a client player app or to a Content Delivery Network (CDN). 
+description: Learn about a streaming service that delivers content directly to a client player app or to a Content Delivery Network (CDN). 
 services: media-services
 documentationcenter: ''
 author: Juliako
