@@ -185,7 +185,7 @@ Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).  We 
     --generate-ssh-keys \
 ```
 
-Wait for the VM to finish deploying then continue with the rest of the steps.
+Wait for the VM to deploy then continue with the rest of the steps.
 
 ## Discover the IP address of the VM
 
