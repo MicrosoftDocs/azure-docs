@@ -12,7 +12,7 @@ ms.reviewer: euang
 ---
 # Introduction
 
-The Spark SQL Analytics Connector is designed to efficiently transfer data between the Apache Spark pools and SQL Analytics pools in Azure Synapse. The Spark SQL Analytics Connector works on SQL pools only, it does not work with SQL Analytics On-Demand. 
+The Spark SQL Analytics Connector is designed to efficiently transfer data between the Apache Spark pools and SQL pools in Azure Synapse. The Spark SQL Analytics Connector works on SQL pools only, it does not work with SQL on-Demand.
 
 ## Design
 
@@ -51,17 +51,17 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 The import statements do not need to be provided, they are pre-imported for the notebook experience.
 
+### Transferring data to or from a SQL pool in the Logical Server (DW Instance) attached with the workspace
 
-### If you are transferring data to or from  a SQL pool in the Logical Server (DW Instance) attached with the workspace
 > [!NOTE]
 > **Imports not needed in notebook experience**
 
 ```Scala
- import com.microsoft.spark.sqlanalytics.utils.Constants 
+ import com.microsoft.spark.sqlanalytics.utils.Constants
  import org.apache.spark.sql.SqlAnalyticsConnector._
 ```
 
-Read API
+#### Read API
 
 ```Scala
 val df = spark.read.sqlanalytics("[DBName].[Schema].[TableName]")
@@ -69,7 +69,7 @@ val df = spark.read.sqlanalytics("[DBName].[Schema].[TableName]")
 
 The above API will work for both Internal (Managed) as well as External Tables in the SQL pool.
 
-Write API
+#### Write API
 
 ```Scala
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
@@ -82,7 +82,7 @@ df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.INTERNAL)
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 ```
 
-The authentication to Storage and the SQL Server is done 
+The authentication to Storage and the SQL Server is done
 
 ### If you are transferring data to or from a SQL pool or database in a Logical Server outside the workspace
 
@@ -90,11 +90,11 @@ The authentication to Storage and the SQL Server is done
 > Imports not needed in notebook experience
 
 ```Scala
- import com.microsoft.spark.sqlanalytics.utils.Constants 
+ import com.microsoft.spark.sqlanalytics.utils.Constants
  import org.apache.spark.sql.SqlAnalyticsConnector._
 ```
 
-Read API
+#### Read API
 
 ```Scala
 val df = spark.read.
@@ -102,7 +102,7 @@ option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```
 
-Write API
+#### Write API
 
 ```Scala
 df.write.
@@ -110,8 +110,11 @@ option(Constants.SERVER, "[samplews].[database.windows.net]").
 sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 ```
 
-### If you want to use SQL Auth instead of AAD
-Read API (Currently the connector does not support token-based auth to a SQL pool that is outside of the workspace. We need to use SQL Auth)
+### Using SQL Auth instead of AAD
+
+#### Read API 
+
+Currently the connector does not support token-based auth to a SQL pool that is outside of the workspace. You need to use SQL Auth.
 
 ```Scala
 val df = spark.read.
@@ -121,7 +124,7 @@ option(Constants.PASSWORD, [SQLServer Login Password]).
 sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```
 
-Write API
+#### Write API
 
 ```Scala
 df.write.
@@ -131,7 +134,7 @@ option(Constants.PASSWORD, [SQLServer Login Password]).
 sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 ```
 
-### If you need to use the connector in PySpark
+### Using the PySpark connector
 
 > [!NOTE]
 > This example is given with only the notebook experience kept in mind.
