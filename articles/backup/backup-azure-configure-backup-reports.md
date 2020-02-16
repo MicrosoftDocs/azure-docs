@@ -12,7 +12,7 @@ Today, Azure Backup provides a reporting solution that leverages [Azure Monitor 
 
 ## Supported scenarios
 
-* Backup Reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA/ASE in Azure VMs, Azure Backup Agent (MARS) , Azure Backup Server (MABS) and System Center DPM.
+* Backup Reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA/ASE in Azure VMs, Azure Backup Agent (MARS), Azure Backup Server (MABS) and System Center DPM.
 * For DPM workloads, Backup Reports are supported for DPM Version 5.1.363.0 and above, and Agent Version 2.0.9127.0 and above.
 * For MABS workloads, Backup Reports are supported for MABS Version 13.0.415.0 and above, and Agent Version 2.0.9170.0 and above.
 * Backup Reports can be viewed across all backup items, vaults, subscriptions, regions as long as their data is being sent to a Log Analytics (LA) Workspace that the user has access to. 
@@ -48,7 +48,7 @@ Once you have configured your vaults to send data to LA, you can view your backu
 
 ![Vault Dashboard](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
-Clicking this link redirects you to the Backup Report Workbook which opens up in Azure Monitor context. Below is a description of the various tabs that the report contains:
+Clicking this link opens up the Backup Report Workbook. Below is a description of the various tabs that the report contains:
 
 1. **Summary** - The Summary tab provides a high-level overview of your backup estate. Under the Summary tab, you can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances and the job success rate per workload type. For more detailed information around a specific backup artifact type, you can navigate to the respective tabs.
 
@@ -84,25 +84,25 @@ If you are an Azure Lighthouse user with delegated access to subscriptions acros
 
 ## Conventions used in Backup Reports
 
-* Filters work from left to right and top to bottom on each tab, i.e., any filter only applies to all those widgets that are positioned either to the right of that filter or below that filter. 
-* Clicking on a coloured tile filters the widgets below the tile for records pertaining to the value of that tile. For example, clicking on the *Protection Stopped* tile in the Backup Items tab filters the grids and charts below to show data for backup items in 'Protection Stopped' state.
-* Tiles which are not coloured are not clickable.
+* Filters work from left to right and top to bottom on each tab, that is, any filter only applies to all those widgets that are positioned either to the right of that filter or below that filter. 
+* Clicking on a colored tile filters the widgets below the tile for records pertaining to the value of that tile. For example, clicking on the *Protection Stopped* tile in the Backup Items tab filters the grids and charts below to show data for backup items in 'Protection Stopped' state.
+* Tiles that are not colored are not clickable.
 * Data for the current partial day is not shown in the reports. Thus, when the selected value of Time Range is, say, 'Last 7 days', the report shows records for the last 7 completed days (which does not include the current day).
 * The report shows details of Jobs (apart from log jobs) that were **triggered** in the selected time range. 
 * The values shown for Cloud Storage and Protected Instances, are as of the **end** of the selected time range.
-* The Backup Items displayed in the reports are those that exist as of the **end** of the selected time range. Backup Items which were deleted in the middle of the selected time range are not displayed. The same convention applies for Backup Policies as well.
+* The Backup Items displayed in the reports are those items that exist as of the **end** of the selected time range. Backup Items which were deleted in the middle of the selected time range are not displayed. The same convention applies for Backup Policies as well.
 
 ## Query Load Times
 
-The widgets in the Backup Report are powered by Kusto queries which run on the user's LA Workspaces. As these queries typically involve the processing of large amounts of data, with multiple joins to enable richer insights, the widgets may not load instantaneously when the user is viewing reports across a large backup estate. Below is a table which provides a rough estimate of the time that different widgets can take to load, based on the number of backup items and the time range for which the report is being viewed:
+The widgets in the Backup Report are powered by Kusto queries, which run on the user's LA Workspaces. As these queries typically involve the processing of large amounts of data, with multiple joins to enable richer insights, the widgets may not load instantaneously when the user is viewing reports across a large backup estate. Below is a table which provides a rough estimate of the time that different widgets can take to load, based on the number of backup items and the time range for which the report is being viewed:
 
 | **# Datasources**                         | **Time Horizon** | **Load Times (approx)**                                              |
 | --------------------------------- | ------------- | ------------------------------------------------------------ |
-| ~5K                       | 1 month          | Tiles: 5-10 secs <br> Grids: 5-10 secs <br> Charts: 5-10 secs <br> Report-level filters: 5-10 secs|
-| ~5K                       | 3 months          | Tiles: 5-10 secs <br> Grids: 5-10 secs <br> Charts: 5-10 secs <br> Report-level filters: 5-10 secs|
-| ~10K                       | 3 months          | Tiles: 15-20 secs <br> Grids: 15-20 secs <br> Charts: 40-45 secs <br> Report-level filters: 25-30 secs|
-| ~15K                       | 1 month          | Tiles: 15-20 secs <br> Grids: 15-20 secs <br> Charts: 30-40 secs <br> Report-level filters: 20-25 secs|
-| ~15K                       | 3 months          | Tiles: 20-30 secs <br> Grids: 20-30 secs <br> Charts: 2-3 mins (in case the query throws an error, please refresh the workbook) <br> Report-level filters: 50-60 secs |
+| ~5 K                       | 1 month          | Tiles: 5-10 secs <br> Grids: 5-10 secs <br> Charts: 5-10 secs <br> Report-level filters: 5-10 secs|
+| ~5 K                       | 3 months          | Tiles: 5-10 secs <br> Grids: 5-10 secs <br> Charts: 5-10 secs <br> Report-level filters: 5-10 secs|
+| ~10 K                       | 3 months          | Tiles: 15-20 secs <br> Grids: 15-20 secs <br> Charts: 40-45 secs <br> Report-level filters: 25-30 secs|
+| ~15 K                       | 1 month          | Tiles: 15-20 secs <br> Grids: 15-20 secs <br> Charts: 30-40 secs <br> Report-level filters: 20-25 secs|
+| ~15 K                       | 3 months          | Tiles: 20-30 secs <br> Grids: 20-30 secs <br> Charts: 2-3 mins (in case the query throws an error, please refresh the workbook) <br> Report-level filters: 50-60 secs |
 
 ## What happened to the Power BI Reports?
 * Our earlier Power BI template app for reporting (which sourced data from an Azure Storage Account) is on deprecation path. It is recommended to start sending vault diagnostic data to Log Analytics as described above, to view reports.

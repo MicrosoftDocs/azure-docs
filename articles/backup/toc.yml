@@ -279,9 +279,9 @@
       - name: Using Diagnostics Settings for Recovery Services Vaults
         href: backup-azure-diagnostic-events.md
       - name: Log Analytics Data Model for Resource Specific Diagnostics Events
-        href: backup-azure-log-analytics-new-data-model.md
+        href: backup-azure-reports-data-model.md
       - name: Log Analytics Data Model for Azure Backup (Azure Diagnostics mode)
-        href: backup-azure-log-analytics-data-model.md
+        href: backup-azure-diagnostics-mode-data-model.md
   - name: Automation
     items:
     - name: Built-in Azure Policy for Azure Backup

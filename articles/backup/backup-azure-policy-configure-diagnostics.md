@@ -24,7 +24,7 @@ To simplify the creation of diagnostics settings at scale (with LA as the destin
 
 ## Assigning the built-in policy to a scope
 
-To assign the policy for vaults in the required scope, please follow the below steps:
+To assign the policy for vaults in the required scope, follow the below steps:
 
 1. Sign in to the Azure portal and navigate to the **Policy** Dashboard.
 2. Select **Definitions** in the left menu to get a list of all built-in policies across Azure Resources.
@@ -61,7 +61,7 @@ To assign the policy for vaults in the required scope, please follow the below s
 The remediation task applied to vaults that are non-compliant as per the definition of the policy. A vault is non-compliant if it satisfies either of the following conditions:
 
 * No diagnostics setting is present for the vault.
-* Diagnostic settings are present for the vault but neither of the settings has **all of** the Resource specific events enabled with LA as destination, and **Resource specific** selected in the toggle. Hence, even if a user has a vault with AzureBackupReport event enabled in AzureDiagnostics mode (which is supported by Backup Reports), the remediation task will still apply to this vault, since the Resource specific mode is the recommended way of creating diagnostics settings, [going forward](http://aka.ms/AzureBackupDiagnosticsDocs#legacy-event). Also, if a user has a vault with only a subset of the 6 Resource specific events enabled, the remediation task will apply for this vault, since Backup Reports will work as expected only if all of the 6 Resource specific events are enabled.
+* Diagnostic settings are present for the vault but neither of the settings has **all of** the Resource specific events enabled with LA as destination, and **Resource specific** selected in the toggle. Hence, even if a user has a vault with AzureBackupReport event enabled in AzureDiagnostics mode (which is supported by Backup Reports), the remediation task will still apply to this vault, since the Resource specific mode is the recommended way of creating diagnostics settings, [going forward](https://aka.ms/AzureBackupDiagnosticsDocs#legacy-event). Also, if a user has a vault with only a subset of the six Resource specific events enabled, the remediation task will apply for this vault, since Backup Reports will work as expected only if all of the six Resource specific events are enabled.
 
 > [!NOTE]
 > If a vault has an existing diagnostics setting with a **subset of Resource specific** categories enabled, configured to send data to a particular LA Workspace, say 'Workspace X', then the remediation task will fail (for that vault alone) if the destination LA Workspace provided in the Policy assignment is the **same** 'Workspace X'. If the events enabled by two different diagnostics settings on the same resource **overlap** in some form, then the settings cannot have the same LA Workspace as the destination. You will have to manually resolve this failure, by navigating to the relevant vault and configuring a diagnostics setting with a different LA Workspace as the destination.
