@@ -32,9 +32,10 @@ If you're using the REST API to access alerts, see the [online Alerts API docume
 
 ## The schemas 
 
+
 ### [Workflow, Event Hub, Azure Sentinel, 3rd-party SIEMs](#tab/schema-sentinel)
 
-### Sample JSON for an alert sent to Workflow Automation, Event Hub, Azure Sentinel or a 3rd-party SIEM
+### Sample JSON for alerts sent to Workflow Automation, Event Hub, Azure Sentinel or other SIEMs
 
 
 ```json
@@ -104,7 +105,7 @@ If you're using the REST API to access alerts, see the [online Alerts API docume
 |**ResourceIdentifiers**|List (Resource Identifiers)|The resource identifiers for this alert which can be used to direct the alert to the right product exposure group (tenant, workspace, subscription etc.). There can be multiple identifiers of different type per alert.|
 |||
 
-```
+
 
 ### [Azure Activity Log](#tab/schema-activitylog)
 
@@ -114,7 +115,7 @@ You can easily view the security alerts events in Activity log by searching for 
 
 [![Searching the Activity log for the Activate Alert event](media//alerts-schemas/SampleActivityLogAlert.png)](media//alerts-schemas/SampleActivityLogAlert.png#lightbox)
 
-### Sample JSON for an alert sent to Azure Activity Log
+### Sample JSON for alerts sent to Azure Activity Log
 
 
 ```json
