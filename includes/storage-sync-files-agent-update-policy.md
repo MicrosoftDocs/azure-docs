@@ -1,9 +1,9 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
-ms.author: tamram
+ms.author: rogarana
 ---
 The Azure File Sync agent is updated on a regular basis to add new functionality and to address issues. We recommend you configure Microsoft Update to get updates for the Azure File Sync agent as they're available.
 
@@ -31,19 +31,23 @@ With agent version 6, the file sync team has introduced an agent auto-upgrade fe
 
 The following instructions describe how to change the settings after you've completed the installer, if you need to make changes.
 
-Open a shell and navigate to the directory where you installed the sync agent then import the server cmdlets, by default this would look something like this:
+Open a PowerShell console and navigate to the directory where you installed the sync agent then import the server cmdlets. By default this would look something like this:
 ```powershell
-cd C:\Program Files\Azure\StorageSyncAgent
-
-ipmo .\StorageSync.Management.ServerCmdlets.dll
+cd 'C:\Program Files\Azure\StorageSyncAgent'
+Import-Module -Name .\StorageSync.Management.ServerCmdlets.dll
 ```
 
 You can run `Get-StorageSyncAgentAutoUpdatePolicy` to check the current policy setting and determine if you want to change it.
 
-To change the current policy setting to the delayed update track, you can use: `Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration`
+To change the current policy setting to the delayed update track, you can use:
+```powershell
+Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration
+```
 
 To change the current policy setting to the immediate update track, you can use:
-`Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest`
+```powershell
+Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest
+```
 
 #### Agent lifecycle and change management guarantees
 Azure File Sync is a cloud service, which continuously introduces new features and improvements. This means that a specific Azure File Sync agent version can only be supported for a limited time. To facilitate your deployment, the following rules guarantee you have enough time and notification to accommodate agent updates/upgrades in your change management process:

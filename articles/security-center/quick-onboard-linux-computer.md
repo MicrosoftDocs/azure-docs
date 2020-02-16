@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center Quickstart - Onboard your Linux computers to Security Center | Microsoft Docs
+title: Onboard Linux computers to Azure Security Center | Microsoft Docs
 description: This quickstart shows you how to onboard your Linux computers to Security Center.
 services: security-center
 documentationcenter: na

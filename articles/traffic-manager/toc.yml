@@ -89,6 +89,12 @@
     href: traffic-manager-powershell-arm.md
   - name: Point your Internet domain to Traffic Manager
     href: traffic-manager-point-internet-domain.md
+  - name: Subnet override
+    items:
+    - name: Configure subnet override - Azure CLI
+      href: traffic-manager-subnet-override-cli.md
+    - name: Configure subnet override - PowerShell
+      href: traffic-manager-subnet-override-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot degraded state on Azure Traffic Manager
@@ -134,7 +140,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service Limits
-    href: ../azure-subscription-service-limits.md#traffic-manager-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=traffic-manager
   - name: SLA

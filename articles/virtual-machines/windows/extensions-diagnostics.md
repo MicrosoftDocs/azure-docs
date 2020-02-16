@@ -1,5 +1,5 @@
 ---
-title: Azure Diagnostics Extension for Windows | Microsoft Docs
+title: Azure Diagnostics Extension for Windows 
 description: Monitor Azure Windows VMs using the Azure Diagnostics Extension
 services: virtual-machines-windows
 documentationcenter: ''
@@ -57,7 +57,7 @@ az vm extension set \
 
 The `Set-AzVMDiagnosticsExtension` command can be used to add the Azure Diagnostics extension to an existing virtual machine. See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](ps-extensions-diagnostics.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 
 ```powershell

@@ -1,17 +1,17 @@
 ---
-title: Transform data with Databricks Python - Azure | Microsoft Docs
+title: Transform data with Databricks Python 
 description: Learn how to process or transform data by running a Databricks Python.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 03/15/2018
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
-manager: craigg
+manager: anandsub
 ---
 # Transform data by running a Python activity in Azure Databricks
 

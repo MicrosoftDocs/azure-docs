@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script - Update an Azure Cosmos account
+title: PowerShell script to update an Azure Cosmos account
 description: Azure PowerShell script sample - Update an Azure Cosmos account or modify regions
 author: markjbrown
 ms.service: cosmos-db
@@ -8,7 +8,7 @@ ms.date: 09/20/2019
 ms.author: mjbrown
 ---
 
-# Update an Azure Cosmos account or add modify regions using PowerShell
+# Update an Azure Cosmos account or modify regions using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

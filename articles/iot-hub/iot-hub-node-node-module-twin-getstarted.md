@@ -1,5 +1,5 @@
----
-title: Get started with Azure IoT Hub module identity and module twin (Node.js) | Microsoft Docs
+﻿---
+title: Start with Azure IoT Hub module identity & module twin (Node.js)
 description: Learn how to create module identity and update module twin using IoT SDKs for Node.js.
 author: wesmc7777
 manager: philmea
@@ -49,12 +49,12 @@ In this section, you create a Node.js app that creates a device identity and a m
 
 1. Create a directory to hold your code.
 
-2. Inside of that directory, first run **npm init -y** to create an empty package.json with defaults. This is the project file for your code.
+2. Inside of that directory, first run **npm init -y** to create an empty package.json with defaults. This is the project file for your code.
 
-3. Run **npm install -S azure-iothub\@modules-preview** to install the service SDK inside the **node_modules** subdirectory.
+3. Run **npm install -S azure-iothub\@modules-preview** to install the service SDK inside the **node_modules** subdirectory.
 
     > [!NOTE]
-    > The subdirectory name node_modules uses the word module to mean "a node library". The term here has nothing to do with IoT Hub modules.
+    > The subdirectory name node_modules uses the word module to mean "a node library". The term here has nothing to do with IoT Hub modules.
 
 4. Create the following .js file in your directory. Call it **add.js**. Copy and paste your hub connection string and hub name.
 
@@ -131,10 +131,10 @@ In this section, you create a Node.js app on your simulated device that updates 
 2. Similar to you did in the step above, create a directory for your device code and use NPM to initialize it and install the device SDK (**npm install -S azure-iot-device-amqp\@modules-preview**).
 
    > [!NOTE]
-   > The npm install command may feel slow. Be patient, it's pulling down lots of code from the package repository.
+   > The npm install command may feel slow. Be patient, it's pulling down lots of code from the package repository.
 
    > [!NOTE]
-   > If you see an error that says npm ERR! registry error parsing json, this is safe to ignore. If you see an error that says npm ERR! registry error parsing json, this is safe to ignore.
+   > If you see an error that says npm ERR! registry error parsing json, this is safe to ignore. If you see an error that says npm ERR! registry error parsing json, this is safe to ignore.
 
 3. Create a file called twin.js. Copy and paste your module identity string.
 
@@ -187,7 +187,7 @@ In this section, you create a Node.js app on your simulated device that updates 
     });
     ```
 
-4. Now, run this using the command **node twin.js**.
+4. Now, run this using the command **node twin.js**.
 
    ```cmd/sh
    F:\temp\module_twin>node twin.js

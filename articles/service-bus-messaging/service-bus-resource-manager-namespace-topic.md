@@ -1,6 +1,6 @@
 ---
-title: Create Azure Service Bus namespace topic subscription using Azure Resource Manager template | Microsoft Docs
-description: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template
+title: Create Azure Service Bus namespace topic using a template
+description: 'Quickstart: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -10,14 +10,14 @@ editor: ''
 ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/16/2020
 ms.author: spelluru
 
 ---
-# Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
+# Quickstart: Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
 
 This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace and a topic and subscription within that namespace. The article explains how to specify which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
@@ -150,7 +150,7 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 * [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md

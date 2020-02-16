@@ -1,7 +1,7 @@
 ---
 title: How to filter search results - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Learn how to filter and display search results from the Bing Web Search API.
+description: You can filter the types of answers that Bing includes in the response (for example images, videos, and news) by using the 'responseFilter' query parameter.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme

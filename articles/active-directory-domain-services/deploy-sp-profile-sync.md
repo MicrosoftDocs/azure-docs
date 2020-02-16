@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 01/21/2020 
 ms.author: iainfou
 
 ---
 # Configure Azure Active Directory Domain Services to support user profile synchronization for SharePoint Server
 
-SharePoint Server includes a service to synchronize user profiles. This feature lets user profiles be stored in a central location and accessible across multiple SharePoint sites and farms. To configure the SharePoint Server user profile service, the appropriate permissions must be granted in an Azure Active Directory Domain Services (Azure AD DS) managed domain. For more information, see [user profile synchronization in SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx).
+SharePoint Server includes a service to synchronize user profiles. This feature allows user profiles to be stored in a central location and accessible across multiple SharePoint sites and farms. To configure the SharePoint Server user profile service, the appropriate permissions must be granted in an Azure Active Directory Domain Services (Azure AD DS) managed domain. For more information, see [user profile synchronization in SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx).
 
 This article shows you how to configure Azure AD DS to allow the SharePoint Server user profile sync service.
 
@@ -58,7 +58,7 @@ From your Azure AD DS management VM, complete the following steps:
 
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown that were installed in the tutorial to [create a management VM][tutorial-create-management-vm].
 1. To manage group membership, select **Active Directory Administrative Center** from the list of administrative tools.
-1. In the left pane, choose your Azure AD DS managed domain, such as *contoso.com*. A list of existing OUs and resources is shown.
+1. In the left pane, choose your Azure AD DS managed domain, such as *aadds.contoso.com*. A list of existing OUs and resources is shown.
 1. Select the **Users** OU, then choose the *AAD DC Service Accounts* security group.
 1. Select **Members**, then choose **Add...**.
 1. Enter the name of the SharePoint service account, then select **OK**. In the following example, the SharePoint service account is named *spadmin*:

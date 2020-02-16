@@ -1,21 +1,11 @@
 ---
-title: Reliable Actors timers and reminders | Microsoft Docs
-description: Introduction to timers and reminders for Service Fabric Reliable Actors.
-services: service-fabric
-documentationcenter: .net
+title: Reliable Actors timers and reminders 
+description: Introduction to timers and reminders for Service Fabric Reliable Actors, including guidance on when to use each.
 author: vturecek
-manager: chackdan
-editor: amanbha
 
-ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-
 ---
 # Actor timers and reminders
 Actors can schedule periodic work on themselves by registering either timers or reminders. This article shows how to use timers and reminders and explains the differences between them.

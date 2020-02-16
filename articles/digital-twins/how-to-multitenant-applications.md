@@ -1,13 +1,13 @@
 ---
-title: 'Enable multitenant applications with Azure Digital Twins | Microsoft Docs'
+title: 'Enable multitenant applications - Azure Digital Twins | Microsoft Docs'
 description: How to configure multitenant Azure Active Directory applications for Azure Digital Twins.
-author: mavoge
+ms.author: alinast
+author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: mavoge
+ms.date: 01/17/2020
 ---
 
 # Enable multitenant applications with Azure Digital Twins
@@ -49,23 +49,19 @@ To solve the previous problem scenario, the following actions are needed to crea
 
 - On the [Azure portal](https://portal.azure.com), **CUSTOMER**'s Azure Active Directory tenant admin takes the following steps:
 
-  1. Open **Subscriptions**.
+  1. Search for **Subscriptions** in the top Azure search field. Select **Subscriptions**.
   1. Select the subscription that has the Azure Active Directory tenant to be used in **DEVELOPER**'s application.
 
-     ![Azure Active Directory subscriptions][1]
+     [![Azure Active Directory subscriptions](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. Select **Resource Providers**.
   1. Search for **Microsoft.IoTSpaces**.
   1. Select **Register**.
 
-     ![Azure Active Directory resource providers][2]
+     [![Azure Active Directory resource providers](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
 ## Next steps
 
 - To learn more about how to use user-defined functions with Azure Digital Twins, read [How to create Azure Digital Twins user-defined functions](./how-to-user-defined-functions.md).
 
 - To learn how to use role-based access control to further secure the application with role assignments, read [How to create and manage Azure Digital Twins role-based access control](./security-create-manage-role-assignments.md).
-
-<!-- Images -->
-[1]: media/multitenant/ad-subscriptions.png
-[2]: media/multitenant/ad-resource-providers.png

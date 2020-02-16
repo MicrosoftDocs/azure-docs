@@ -1,18 +1,16 @@
 ---
 title: Enable Snapshot Debugger for .NET apps in Azure App Service | Microsoft Docs
-description: Enable Snapshot Debugger for .NET apps in Azure App Service 
-services: application-insights
-documentationcenter: ''
-author: brahmnes
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+description: Enable Snapshot Debugger for .NET apps in Azure App Service
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 03/07/2019
+author: brahmnes
 ms.author: bfung
+ms.date: 03/07/2019
+
+ms.reviewer: mbullwin
 ---
+
 # Enable Snapshot Debugger for .NET apps in Azure App Service
 
 Snapshot Debugger currently works for ASP.NET and ASP.NET Core apps that are running on Azure App Service on Windows service plans.

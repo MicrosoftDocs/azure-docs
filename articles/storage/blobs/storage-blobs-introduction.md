@@ -1,12 +1,12 @@
 ---
-title: Introduction to Blob storage - Object storage in Azure
+title: Introduction to Blob (object) storage - Azure Storage
 description: Azure Blob storage stores massive amounts of unstructured object data, such as text or binary data. Azure Blob storage is highly scalable and available. Clients can access data objects in Blob storage from PowerShell or Azure CLI, programmatically via Azure Storage client libraries, or using REST.  
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 05/24/2019
+ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -37,7 +37,7 @@ For example, if your storage account is named *mystorageaccount*, then the defau
 http://mystorageaccount.blob.core.windows.net 
 ```
 
-To create a storage account, see [Create a storage account](../common/storage-quickstart-create-account.md). To learn more about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To create a storage account, see [Create a storage account](../common/storage-account-create.md). To learn more about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### Containers
 
@@ -69,5 +69,5 @@ A number of solutions exist for migrating existing data to Blob storage:
 
 ## Next steps
 
-* [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Azure Storage scalability and performance targets](../common/storage-scalability-targets.md)
+- [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Scalability and performance targets for Blob storage](scalability-targets.md)

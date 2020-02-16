@@ -58,6 +58,9 @@ The URLs for Power BI are different in US Government:
 | --- | --- | --- |
 | Power BI URL | app.powerbi.com | app.powerbigov.us |
 
+> [!NOTE]
+> The content pack that typically makes activity logs and such available is not intended for use on Government tenants. The intention is to use Log Analytics for the purpose of the logs that aren't available through the content pack. 
+
 ## Power BI Embedded 
 For details on this service and how to use it, see [Azure Power BI Embedded Documentation](../power-bi-embedded/index.md).
 

@@ -3,11 +3,11 @@ title: Handle Cloud Service lifecycle events | Microsoft Docs
 description: Learn how the lifecycle methods of a Cloud Service role can be used in .NET
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
+ms.author: tagore
 
 ---
 # Customize the Lifecycle of a Web or Worker role in .NET
@@ -71,4 +71,7 @@ You can use the ASP.NET lifecycle methods, in addition to those provided by the 
 
 ## Next steps
 Learn how to [create a cloud service package](cloud-services-model-and-package.md).
+
+
+
 

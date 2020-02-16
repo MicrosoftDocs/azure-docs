@@ -33,7 +33,7 @@ Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 | ---------- | ---------- | ------------- |
 | [Device-to-cloud telemetry](iot-hub-devguide-messaging.md) | Yes | Yes |
 | [Per-device identity](iot-hub-devguide-identity-registry.md) | Yes | Yes |
-| [Message routing](iot-hub-devguide-messages-read-custom.md) and [Event Grid integration](iot-hub-event-grid.md) | Yes | Yes |
+| [Message routing](iot-hub-devguide-messages-read-custom.md), [message enrichments](iot-hub-message-enrichments-overview.md), and [Event Grid integration](iot-hub-event-grid.md) | Yes | Yes |
 | [HTTP, AMQP, and MQTT protocols](iot-hub-devguide-protocols.md) | Yes | Yes |
 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) | Yes | Yes |
 | [Monitoring and diagnostics](iot-hub-monitor-resource-health.md) | Yes | Yes |

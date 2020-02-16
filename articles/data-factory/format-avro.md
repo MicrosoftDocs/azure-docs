@@ -1,8 +1,8 @@
 ---
-title: Avro format in Azure Data Factory | Microsoft Docs
+title: Avro format in Azure Data Factory 
 description: 'This topic describes how to deal with Avro format in Azure Data Factory.'
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 
 ms.service: data-factory

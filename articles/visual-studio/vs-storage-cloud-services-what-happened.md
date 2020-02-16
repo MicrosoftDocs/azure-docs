@@ -1,5 +1,5 @@
 ---
-title: What happened to my cloud service project? | Microsoft Docs
+title: What happened to my cloud service project? 
 description: Describes what happens in a cloud services project after connecting to an Azure storage account using Visual Studio connected services
 services: storage
 author: ghogen
@@ -12,6 +12,7 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # What happened to my cloud services project (Visual Studio Azure Storage connected service)?
 ## References added

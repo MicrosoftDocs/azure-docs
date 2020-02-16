@@ -1,20 +1,11 @@
 ﻿---
-title: Azure PowerShell Script Sample - Connect an app to a storage account | Microsoft Docs
-description: Azure PowerShell Script Sample - Connect an App Service app to a storage account
-services: app-service\web
-documentationcenter: 
-author: syntaxc4
-manager: erikre
-editor: 
+title: 'PowerShell: Connect to a storage account'
+description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to connect an app to a storage account.
 tags: azure-service-management
 
 ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
 ---
 

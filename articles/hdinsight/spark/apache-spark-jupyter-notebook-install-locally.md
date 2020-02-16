@@ -1,13 +1,13 @@
 ---
 title: Install Jupyter locally and connect to Spark in Azure HDInsight
 description: Learn how to install Jupyter notebook locally on your computer and connect it to an Apache Spark cluster.
-ms.service: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.author: hrasheed
+ms.date: 11/07/2019
 ---
 
 # Install Jupyter notebook on your computer and connect to Apache Spark on HDInsight
@@ -25,9 +25,9 @@ For more information about the custom kernels and the Spark magic available for 
 
 ## Prerequisites
 
-The prerequisites listed here are not for installing Jupyter. These are for connecting the Jupyter notebook to an HDInsight cluster once the notebook is installed.
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md). This is a prerequisite for connecting the Jupyter notebook to an HDInsight cluster once the notebook is installed.
 
-* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Familiarity with using Jupyter Notebooks with Spark on HDInsight.
 
 ## Install Jupyter notebook on your computer
 
@@ -41,7 +41,7 @@ Download the [Anaconda installer](https://www.anaconda.com/download/) for your p
 
     |Cluster version | Install command |
     |---|---|
-    |v3.6 and v3.5 |`pip install sparkmagic==0.12.7`|
+    |v3.6 and v3.5 |`pip install sparkmagic==0.13.1`|
     |v3.4|`pip install sparkmagic==0.2.3`|
 
 1. Ensure `ipywidgets` is properly installed by running the following command:
@@ -111,6 +111,10 @@ In this section, you configure the Spark magic that you installed earlier to con
         "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
       },
 
+      "custom_headers" : {
+        "X-Requested-By": "livy"
+      },
+
       "heartbeat_refresh_seconds": 5,
       "livy_server_heartbeat_timeout_seconds": 60,
       "heartbeat_retry_seconds": 1
@@ -141,7 +145,7 @@ In this section, you configure the Spark magic that you installed earlier to con
 
 	a. Create a new notebook. From the right-hand corner, select **New**. You should see the default kernel **Python 2** or **Python 3** and the kernels you installed. The actual values may vary depending on your installation choices.  Select **PySpark**.
 
-	![Kernels in Jupyter notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels in Jupyter notebook")
+	![Available kernels in Jupyter notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels in Jupyter notebook")
 
     > [!IMPORTANT]  
     > After selecting **New** review your shell for any errors.  If you see the error `TypeError: __init__() got an unexpected keyword argument 'io_loop'` you may be experiencing a known issue with certain versions of Tornado.  If so, stop the kernel and then downgrade your Tornado installation with the following command: `pip install tornado==4.5.3`.
@@ -165,7 +169,7 @@ There can be a number of reasons why you might want to install Jupyter on your c
 * With the notebooks available locally, you can connect to different Spark clusters based on your application requirement.
 * You can use GitHub to implement a source control system and have version control for the notebooks. You can also have a collaborative environment where multiple users can work with the same notebook.
 * You can work with notebooks locally without even having a cluster up. You only need a cluster to test your notebooks against, not to manually manage your notebooks or a development environment.
-* It may be easier to configure your own local development environment than it is to configure the Jupyter installation on the cluster.  You can take advantage of all the software you have installed locally without configuring one or more remote clusters.
+* It may be easier to configure your own local development environment than it's to configure the Jupyter installation on the cluster.  You can take advantage of all the software you've installed locally without configuring one or more remote clusters.
 
 > [!WARNING]  
 > With Jupyter installed on your local computer, multiple users can run the same notebook on the same Spark cluster at the same time. In such a situation, multiple Livy sessions are created. If you run into an issue and want to debug that, it will be a complex task to track which Livy session belongs to which user.  

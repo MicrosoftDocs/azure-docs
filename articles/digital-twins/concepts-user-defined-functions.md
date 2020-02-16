@@ -1,13 +1,13 @@
 ---
-title: 'Data processing and user-defined functions with Azure Digital Twins| Microsoft Docs'
+title: Data processing and user-defined functions - Azure Digital Twins| Microsoft Docs
 description: Overview of data processing, matchers, and user-defined functions with Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.author: alinast
+ms.date: 01/03/2020
 ---
 
 # Data processing and user-defined functions
@@ -37,35 +37,40 @@ Matchers define a set of conditions that evaluate what actions take place based 
 
 - All sensors of datatype **Temperature** represented by the escaped String value `\"Temperature\"`
 - Having `01` in their port
-- Which belong to devices with the extended property key **Manufacturer** set to the escaped String value `\"GoodCorp\"`
+- Which belong to devices with the extended property key **Manufacturer** set to the escaped String value `\"Contoso\"`
 - Which belong to spaces of the type specified by the escaped String `\"Venue\"`
 - Which are descendants of parent **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
 {
-  "SpaceId": "DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
-  "Name": "My custom matcher",
-  "Description": "All sensors of datatype Temperature with 01 in their port that belong to devices with the extended property key Manufacturer set to the value GoodCorp and that belong to spaces of type Venue that are somewhere below space Id DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
-  "Conditions": [
+  "id": "23535afafd-f39b-46c0-9b0c-0dd3892a1c30",
+  "name": "My custom matcher",
+  "spaceId": "DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
+  "description": "All sensors of datatype Temperature with 01 in their port that belong to devices with the extended property key Manufacturer set to the value Contoso and that belong to spaces of type Venue that are somewhere below space Id DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
+  "conditions": [
     {
+      "id": "43898sg43-e15a-4e9c-abb8-2gw464364",
       "target": "Sensor",
       "path": "$.dataType",
       "value": "\"Temperature\"",
       "comparison": "Equals"
     },
     {
+      "id": "wt3th44-e15a-35sg-seg3-235wf3ga463",
       "target": "Sensor",
       "path": "$.port",
       "value": "01",
       "comparison": "Contains"
     },
     {
+      "id": "735hs33-e15a-37jj-23532-db901d550af5",
       "target": "SensorDevice",
       "path": "$.properties[?(@.name == 'Manufacturer')].value",
-      "value": "\"GoodCorp\"",
+      "value": "\"Contoso\"",
       "comparison": "Equals"
     },
     {
+      "id": "222325-e15a-49fg-5744-463643644",
       "target": "SensorSpace",
       "path": "$.type",
       "value": "\"Venue\"",
@@ -94,7 +99,7 @@ User-defined functions can be written in JavaScript. Helper methods interact wit
 - Create a notification when certain conditions are met for an incoming sensor reading.
 - Attach graph metadata to the sensor reading before sending out a notification.
 
-For more information, see [How to use user-defined functions](./how-to-user-defined-functions.md).
+For more information, read [How to use user-defined functions](./how-to-user-defined-functions.md).
 
 #### Examples
 
@@ -104,7 +109,7 @@ The [GitHub repo for the Digital Twins C# sample](https://github.com/Azure-Sampl
 
 ### Role assignment
 
-A user-defined function's actions are subject to Azure Digital Twins [role-based access control](./security-role-based-access-control.md) to secure data within the service. Role assignments define which user-defined functions have the proper permissions to interact with the spatial graph and its entities. For example, a user-defined function might have the ability and permission to *CREATE*, *READ*, *UPDATE*, or *DELETE* graph data under a given space. A user-defined function's level of access is checked when the user-defined function asks the graph for data or attempts an action. For more information, see [Role-based access control](./security-create-manage-role-assignments.md).
+A user-defined function's actions are subject to Azure Digital Twins [role-based access control](./security-role-based-access-control.md) to secure data within the service. Role assignments define which user-defined functions have the proper permissions to interact with the spatial graph and its entities. For example, a user-defined function might have the ability and permission to *CREATE*, *READ*, *UPDATE*, or *DELETE* graph data under a given space. A user-defined function's level of access is checked when the user-defined function asks the graph for data or attempts an action. For more information, read [Role-based access control](./security-create-manage-role-assignments.md).
 
 It's possible for a matcher to trigger a user-defined function that has no role assignments. In this case, the user-defined function fails to read any data from the graph.
 

@@ -63,6 +63,14 @@ Customers often wonder whether they should use AES encryption or a DRM system. T
 
 DRM systems like PlayReady, Widevine, and FairPlay all provide an additional level of encryption on the key used to decrypt the content compared to an AES-128 clear key. The content key is encrypted to a key protected by the DRM runtime in additional to any transport level encryption provided by TLS. Additionally, decryption is handled in a secure environment at the operating system level, where it's more difficult for a malicious user to attack. DRM is recommended for use cases where the viewer might not be a trusted party and you require the highest level of security.
 
+### How to show a video only to users who have a specific permission, without using Azure AD?
+
+You don't have to use any specific token provider (such as Azure AD). You can create your own [JWT](https://jwt.io/) provider (so-called STS, Secure Token Service), using asymmetric key encryption. In your custom STS, you can add claims based on your business logic.
+
+Make sure the issuer, audience and claims all match up exactly between what is in JWT and the ContentKeyPolicyRestriction used in ContentKeyPolicy.
+
+For more information, see [Protect your content by using Media Services dynamic encryption](content-protection-overview.md).
+
 ### How and where to get JWT token before using it to request license or key?
 
 1. For production, you need to have a Secure Token Services (STS) (web service) which issues JWT token upon an HTTPS request. For test, you could use the code shown in **GetTokenAsync** method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
@@ -107,6 +115,9 @@ Often, customers invested in a license server farm either in their own data cent
 
 * STS needs to issue tokens that are acceptable and can be verified by the license server farm. For example, the Widevine license servers provided by Axinom require a specific JWT that contains an entitlement message. Therefore, you need to have an STS to issue such a JWT. 
 * You no longer need to configure license delivery service in Media Services. You need to provide the license acquisition URLs (for PlayReady, Widevine, and FairPlay) when you configure ContentKeyPolicies.
+
+> [!NOTE]
+> Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Media Services v2 vs v3 
 

@@ -1,7 +1,7 @@
 ---
 title: Bing Web Search API response structure and answer types 
 titleSuffix: Azure Cognitive Services
-description: Learn about the answer types and responses used by the Bing Web Search API.
+description: When you send Bing Web Search a search request, it returns a `SearchResponse` object in the response body.
 services: cognitive-services
 author: aahill
 manager: nitinme

@@ -1,15 +1,15 @@
 ---
-title: Run a disaster recovery drill to Azure using Azure Site Recovery 
-description: Learn about running a disaster recovery drill from on-premises to Azure, using the Azure Site Recovery service.
+title: Run a test failover (disaster recovery drill) to Azure in Azure Site Recovery 
+description: Learn about running a test failover from on-premises to Azure, using the Azure Site Recovery service.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 
 ---
-# Run a disaster recovery drill to Azure 
+# Run a test failover (disaster recovery drill) to Azure 
 
 
 This article describes how to run a disaster recovery drill to Azure, using a Site Recovery test failover.  

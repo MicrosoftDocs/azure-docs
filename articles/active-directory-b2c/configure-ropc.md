@@ -1,6 +1,7 @@
 ---
-title: Configure the resource owner password credentials flow in Azure Active Directory B2C | Microsoft Docs
-description: Learn how to configure the resource owner password credentials flow in Azure AD B2C.
+title: Configure the resource owner password credentials flow
+titleSuffix: Azure AD B2C
+description: Learn how to configure the ROPC flow in Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -21,7 +22,7 @@ The resource owner password credentials (ROPC) flow is an OAuth standard authent
 
 In Azure Active Directory B2C (Azure AD B2C), the following options are supported:
 
-- **Native Client**: User interaction during authentication happens when code runs on a user-side device. The device can be a mobile application that's running in a native operating system, such as Android, or running in a browser, such as JavaScript.
+- **Native Client**: User interaction during authentication happens when code runs on a user-side device. The device can be a mobile application that's running in a native operating system, such as Android and iOS.
 - **Public client flow**: Only user credentials, gathered by an application, are sent in the API call. The credentials of the application are not sent.
 - **Add new claims**: The ID token contents can be changed to add new claims.
 
@@ -49,11 +50,7 @@ The following flows are not supported:
 
 ## Register an application
 
-1. In the B2C settings, select **Applications**, and then select **Add**.
-2. Enter a name for the application, such as *ROPC_Auth_app*.
-3. Select **No** for **Web App/Web API**, and then select **Yes** for **Native client**.
-4. Leave all other values as they are, and then select **Create**.
-5. Select the new application, and note the Application ID for later use.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ## Test the user flow
 

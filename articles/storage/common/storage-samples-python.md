@@ -12,9 +12,12 @@ ms.topic: sample
 
 # Azure Storage samples using Python
 
-The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in GitHub.
+The following tables provide an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in GitHub.
 
-## Blob samples
+> [!NOTE]
+> These samples use the Azure Storage Python v2.1 library. For v12 code, see [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples) in the GitHub repository.
+
+## Blob samples (v2.1)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -35,7 +38,7 @@ The following table provides an overview of our samples repository and the scena
 | Service Properties | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L540) |
 | Snapshot Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L214) |
 
-## File samples
+## File samples (v2.1)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -49,7 +52,7 @@ The following table provides an overview of our samples repository and the scena
 | List Shares | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L82) |
 | Share Properties/Metadata/Stats | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L144) |
 
-## Queue samples
+## Queue samples (v2.1)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -62,7 +65,7 @@ The following table provides an overview of our samples repository and the scena
 | Queue Service Properties | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_advanced_samples.py#L128) |
 | Update Message | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L120) |
 
-## Table samples
+## Table samples (v2.1)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -95,4 +98,5 @@ For information on samples for other languages:
 
 * .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md)
 * Java: [Azure Storage samples using Java](storage-samples-java.md)
+* JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 * All other languages: [Azure Storage samples](storage-samples.md)

@@ -61,20 +61,8 @@ To get started, you need the following items:
 As of now, following versions of Confluence are supported:
 
 - Confluence: 5.0 to 5.10
-- Confluence: 6.0.1
-- Confluence: 6.1.1
-- Confluence: 6.2.1
-- Confluence: 6.3.4
-- Confluence: 6.4.0
-- Confluence: 6.5.0
-- Confluence: 6.6.2
-- Confluence: 6.7.0
-- Confluence: 6.8.1
-- Confluence: 6.9.0
-- Confluence: 6.10.0
-- Confluence: 6.11.0
-- Confluence: 6.12.0
-- Confluence: 6.15.3
+- Confluence: 6.0.1 to 6.15.9
+- Confluence: 7.0.1 to 7.1.0
 
 > [!NOTE]
 > Please note that our Confluence Plugin also works on Ubuntu Version 16.04
@@ -196,11 +184,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon13.png)
+	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. Perform following steps on configuration page:
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon53.png)
+	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon54.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, admin gets an error upon resolving the metadata.
@@ -210,6 +198,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	1. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **Basic SAML Configuration** section on Azure portal.
 
 	1. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
+	
+	1. In **Login Button Description** type the description of button your organization wants the users to see on login screen.
 
 	1. In **SAML User ID Locations**, select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the Confluence user ID. If the user ID is not matched, then system will not allow users to sign in. 
 

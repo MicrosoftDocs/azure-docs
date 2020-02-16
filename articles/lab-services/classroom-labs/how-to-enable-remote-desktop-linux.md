@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 10/31/2019
 ms.author: spelluru
 
 ---
@@ -34,7 +34,8 @@ On the **Enabling Remote Desktop Connection** message box, select **Continue wit
 
 > [!IMPORTANT] 
 > Enabling **remote desktop connection** only opens the **RDP** port on Linux machines. If RDP is already installed and configured on the virtual machine image (for example: Ubuntu Data Science Virtual Machine image), you/students can connect to VMs via RDP without following any additional steps.
-> If the VM image doesn't have RDP installed and configured, you need to connect to the Linux machine using SSH for the first time, and install RDP and GUI packages so that you/students can connect to the Linux machine using RDP later. Then, you publish the image so that students can RDP in to the student Linux VMs.
+> 
+> If the VM image doesn't have RDP installed and configured, you need to connect to the Linux machine using SSH for the first time, and install RDP and GUI packages so that you/students can connect to the Linux machine using RDP later. For more information, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../../virtual-machines/linux/use-remote-desktop.md). Then, you publish the image so that students can RDP in to the student Linux VMs. 
 
 ## Supported operating systems
 Currently, the remote desktop connection is supported for the following operating systems:
@@ -44,34 +45,20 @@ Currently, the remote desktop connection is supported for the following operatin
 - Debian 9 "Stretch"
 - Ubuntu Server 16.04 LTS
 
-## Teachers connecting to the template VM using RDP
-Teachers must connect to the template VM using SSH first, and install RDP and GUI packages on it. Then, the teachers can use the following steps to connect to the Linux VMs using RDP: 
+## Connect to the template VM 
+Teachers must connect to the template VM using SSH first, and install RDP and GUI packages on it. Then, the teachers can use RDP to connect to the template VM: 
 
-You see the **Remote Desktop** option to connect to the template VM at the time of creating the lab. 
+1. If you see **Customize template** on the toolbar, select it. Then, select **Continue** on the **Customize template** dialog box. This action starts the template VM.  
 
-![Connect to template via RDP at the time of creation](../media/how-to-enable-remote-desktop-linux/connect-at-creation.png)
+    ![Customize template](../media/how-to-enable-remote-desktop-linux/customize-template.png)
+2. After the template VM is started, you can select **Connect template** and then **Connect via SSH** on the toolbar. 
 
-You see the **Remote Desktop** option on the lab's home page after the lab is created and the template VM is started. Start the template VM if it's not started already. 
-
-![Connect to template via RDP after the lab is created](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
-
-For more information on connecting to the VM using SSH or RDP, see [Connect using SSH or RDP]((#connect-using-ssh-or-rdp). 
-
-## Teachers connecting to a student VM using RDP
-A teacher/professor can connect to a student VM by switching to the **Virtual Machines** view, and selecting the **connect** icon. Before that, teachers must **publish** the template image with RDP and GUI packages installed on it. 
-
-![Teachers connecting to the student VM](../media/how-to-enable-remote-desktop-linux/teacher-connect-to-student-vm.png)
-
-For more information on connecting to the VM using SSH or RDP, see [Connect using SSH or RDP]((#connect-using-ssh-or-rdp). 
-
-## Connect using SSH or RDP
-If you select the **SSH** option, you see the following **Connect to your virtual machine** dialog box:  
-
-![SSH connection string](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
-
-Select the **Copy** button next to the text box to copy it to the clipboard. Save the SSH connection string. Use this connection string from an SSH terminal (like [Putty](https://www.putty.org/)) to connect to the virtual machine.
-
-If you select the **RDP** option, an RDP file is downloaded on to your machine. Save it and open it to connect to the machine. 
+    ![Connect to template via RDP after the lab is created](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
+3. You see the following **Connect to your virtual machine** dialog box. Select the **Copy** button next to the text box to copy it to the clipboard. Save the SSH connection string. Use this connection string from an SSH terminal (like [Putty](https://www.putty.org/)) to connect to the virtual machine.
+ 
+    ![SSH connection string](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
+4. Install RDP and GUI packages so that you/students can connect to the Linux machine using RDP later. For more information, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../../virtual-machines/linux/use-remote-desktop.md). Then, you publish the image so that students can RDP in to the student Linux VMs.
+5. After these packages are installed, you can use the **Connect to template** on the toolbar and then select **Connect via RDP** to connect to the template VM via RDP. Save the RDP file and use it to connect to the template VM via RDP. 
 
 ## Next steps
 After an instructor enabled the remote desktop connection feature, students can connect to their VMs via RDP/SSH. For more information, see [Use remote desktop for Linux VMs in a classroom lab](how-to-use-remote-desktop-linux-student.md). 

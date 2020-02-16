@@ -1,22 +1,18 @@
 ---
-title: Create identity for Azure app in portal | Microsoft Docs
-description: Describes how to create a new Azure Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
+title: Create an Azure AD app & service principal in the portal
+titleSuffix: Microsoft identity platform
+description: Create a new Azure Active Directory app & service principal to manage access to resources with role-based access control in Azure Resource Manager.
 services: active-directory
-documentationcenter: na
 author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/17/2019
+ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Use the portal to create an Azure AD application and service principal that can access resources
@@ -46,7 +42,7 @@ To access resources in your subscription, you must assign the application to a r
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
 
-1. Navigate to the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, select **All services** and **Subscriptions**.
+1. In the Azure portal, select the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, search for and select **Subscriptions**, or select **Subscriptions** on the **Home** page.
 
    ![For example, assign a role at the subscription scope](./media/howto-create-service-principal-portal/select-subscription.png)
 
@@ -58,7 +54,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 1. Select **Access control (IAM)**.
 1. Select **Add role assignment**.
-1. Select the role you wish to assign to the application. To allow the application to execute actions like **reboot**, **start** and **stop** instances, select the **Contributor** role. By default, Azure AD applications aren't displayed in the available options. To find your application, search for the name and select it.
+1. Select the role you wish to assign to the application. For example, to allow the application to execute actions like **reboot**, **start** and **stop** instances, select the **Contributor** role.  Read more about the [available roles](../../role-based-access-control/built-in-roles.md) By default, Azure AD applications aren't displayed in the available options. To find your application, search for the name and select it.
 
    ![Select the role to assign to the application](./media/howto-create-service-principal-portal/select-role.png)
 
@@ -85,7 +81,13 @@ Daemon applications can use two forms of credentials to authenticate with Azure 
 
 ### Upload a certificate
 
-You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for testing purposes. Open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create a self-signed certificate in the user certificate store on your computer: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Export this certificate using the [Manage User Certificate](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC snap-in accessible from the Windows Control Panel.
+You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for testing purposes. Open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create a self-signed certificate in the user certificate store on your computer: 
+
+```powershell
+$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
+```
+
+Export this certificate to a file using the [Manage User Certificate](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC snap-in accessible from the Windows Control Panel.
 
 To upload the certificate:
 
@@ -110,6 +112,14 @@ If you choose not to use a certificate, you can create a new application secret.
 
    ![Copy the secret value because you can't retrieve this later](./media/howto-create-service-principal-portal/copy-secret.png)
 
+## Configure access policies on resources
+Keep in mind, you might need to configure addition permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.  
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your key vault and select **Access policies**.  
+1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.
+1. Select **Add** to add the access policy, then **Save** to commit your changes.
+    ![Add access policy](./media/howto-create-service-principal-portal/add-access-policy.png)
+
 ## Required permissions
 
 You must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription.
@@ -121,7 +131,7 @@ You must have sufficient permissions to register an application with your Azure 
 
    ![Find your role. If you're a User, ensure non-admins can register apps](./media/howto-create-service-principal-portal/view-user-info.png)
 
-1. Select **User settings**.
+1. In the left pane, select **User settings**.
 1. Check the **App registrations** setting. This value can only be set by an administrator. If set to **Yes**, any user in the Azure AD tenant can register an app.
 
 If the app registrations setting is set to **No**, only users with an administrator role may register these types of applications. See [available roles](../users-groups-roles/directory-assign-admin-roles.md#available-roles) and [role permissions](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) to learn about available administrator roles and the specific permissions in Azure AD that are given to each role. If your account is assigned to the User role, but the app registration setting is limited to admin users, ask your administrator to either assign you to one of the administrator roles that can create and manage all aspects of app registrations, or to enable users to register apps.
@@ -146,6 +156,5 @@ To check your subscription permissions:
 
 ## Next steps
 
-* To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](../../azure-resource-manager/resource-manager-api-authentication.md).
 * To learn about specifying security policies, see [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).  
 * For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md).

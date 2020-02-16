@@ -1,16 +1,16 @@
 ---
 title: Text Moderation - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Use text moderation for possible unwanted text, PII, and custom lists of terms.
+description: Use text moderation for possible unwanted text, personal data, and custom lists of terms.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
+ms.author: pafarley
 
 ---
 
@@ -75,7 +75,7 @@ The following extract in the JSON extract shows an example output:
 
 ## Personal data
 
-The PII feature detects the potential presence of this information:
+The personal data feature detects the potential presence of this information:
 
 - Email address
 - US Mailing address
@@ -86,51 +86,68 @@ The PII feature detects the potential presence of this information:
 
 The following example shows a sample response:
 
-	"PII": {
-    	"Email": [{
-      		"Detected": "abcdef@abcd.com",
-      		"SubType": "Regular",
-      		"Text": "abcdef@abcd.com",
-      		"Index": 32
-    		}],
-    	"IPA": [{
-      		"SubType": "IPV4",
-      		"Text": "255.255.255.255",
-      		"Index": 72
-    		}],
-    	"Phone": [{
-      		"CountryCode": "US",
-      		"Text": "6657789887",
-      		"Index": 56
-    		}, {
-      		"CountryCode": "US",
-      		"Text": "870 608 4000",
-      		"Index": 212
-    		}, {
-      		"CountryCode": "UK",
-      		"Text": "+44 870 608 4000",
-      		"Index": 208
-    		}, {
-      		"CountryCode": "UK",
-      		"Text": "0344 800 2400",
-      		"Index": 228
-    		}, {
-      		"CountryCode": "UK",
-      		"Text": "0800 820 3300",
-      		"Index": 245
-    		}],
-    	"Address": [{
-      		"Text": "1 Microsoft Way, Redmond, WA 98052",
-      		"Index": 89
-    		}],
-    	"SSN": [{
-      		"Text": "999999999",
-      		"Index": 56
-    		}, {
-      		"Text": "999-99-9999",
-      		"Index": 267
-    		}]
-		}
+```json
+"PII":{ 
+  "Email":[ 
+    { 
+      "Detected":"abcdef@abcd.com",
+      "SubType":"Regular",
+      "Text":"abcdef@abcd.com",
+      "Index":32
+    }
+  ],
+  "IPA":[ 
+    { 
+      "SubType":"IPV4",
+      "Text":"255.255.255.255",
+      "Index":72
+    }
+  ],
+  "Phone":[ 
+    { 
+      "CountryCode":"US",
+      "Text":"4255550111",
+      "Index":56
+    },
+    { 
+      "CountryCode":"US",
+      "Text":"425 555 0111",
+      "Index":212
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"+123 456 7890",
+      "Index":208
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0234 567 8901",
+      "Index":228
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0456 789 0123",
+      "Index":245
+    }
+  ],
+  "Address":[ 
+    { 
+      "Text":"1234 Main Boulevard, Panapolis WA 96555",
+      "Index":89
+    }
+  ],
+  "SSN":[ 
+    { 
+      "Text":"999999999",
+      "Index":56
+    },
+    { 
+      "Text":"999-99-9999",
+      "Index":267
+    }
+  ]
+}
+```
 
 ## Auto-correction
 
@@ -164,4 +181,4 @@ The Content Moderator provides a [Term List API](https://westus.dev.cognitive.mi
 
 ## Next steps
 
-Test drive the [Text moderation API console](try-text-api.md) and use the REST API code samples. Also check out the [Text moderation .NET quickstart](text-moderation-quickstart-dotnet.md) if you're familiar with Visual Studio and C#.
+Test drive the [Text moderation API console](try-text-api.md) and use the REST API code samples. Also check out the Text moderation section of the [.NET SDK quickstart](dotnet-sdk-quickstart.md) if you're familiar with Visual Studio and C#.

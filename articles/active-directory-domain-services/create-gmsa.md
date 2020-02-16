@@ -10,15 +10,17 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/26/2019
 ms.author: iainfou
 
 ---
 # Create a group managed service account (gMSA) in Azure AD Domain Services
 
-Applications and services often need an identity to authenticate themselves with other resources. For example, a web service may need to authenticate with a database service. If an application or service has multiple instances, such as a web server farm, manually creating and configuring the identities for those resources gets time consuming. Instead, a group managed service account (gMSA) can be created in the Azure Active Directory Domain Services (Azure AD DS) managed domain. The Windows OS automatically manages the credentials for a gMSA, which simplifies the management of large groups of resources.
+Applications and services often need an identity to authenticate themselves with other resources. For example, a web service may need to authenticate with a database service. If an application or service has multiple instances, such as a web server farm, manually creating and configuring the identities for those resources gets time consuming.
 
-This article shows you how to create a gMSA in an Azure AD DS managed domain.
+Instead, a group managed service account (gMSA) can be created in the Azure Active Directory Domain Services (Azure AD DS) managed domain. The Windows OS automatically manages the credentials for a gMSA, which simplifies the management of large groups of resources.
+
+This article shows you how to create a gMSA in an Azure AD DS managed domain using Azure PowerShell.
 
 ## Before you begin
 
@@ -56,7 +58,10 @@ As Azure AD DS managed domains are locked down and managed by Microsoft, there a
 
 First, create a custom OU using the [New-ADOrganizationalUnit][New-AdOrganizationalUnit] cmdlet. For more information on creating and managing custom OUs, see [Custom OUs in Azure AD DS][create-custom-ou].
 
-The following example creates a custom OU named *myNewOU* in the Azure AD DS managed domain named *contoso.com*. Use your own OU and managed domain name:
+> [!TIP]
+> To complete these steps to create a gMSA, [use your management VM][tutorial-create-management-vm]. This management VM should already have the required AD PowerShell cmdlets and connection to the managed domain.
+
+The following example creates a custom OU named *myNewOU* in the Azure AD DS managed domain named *aadds.contoso.com*. Use your own OU and managed domain name:
 
 ```powershell
 New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=contoso,DC=COM"
@@ -66,20 +71,20 @@ Now create a gMSA using the [New-ADServiceAccount][New-ADServiceAccount] cmdlet.
 
 * **-Name** is set to *WebFarmSvc*
 * **-Path** parameter specifies the custom OU for the gMSA created in the previous step.
-* DNS entries and service principal names are set for *WebFarmSvc.contoso.com*
+* DNS entries and service principal names are set for *WebFarmSvc.aadds.contoso.com*
 * Principals in *CONTOSO-SERVER$* are allowed to retrieve the password use the identity.
 
 Specify your own names and domain names.
 
 ```powershell
 New-ADServiceAccount -Name WebFarmSvc `
-    -DNSHostName WebFarmSvc.contoso.com `
+    -DNSHostName WebFarmSvc.aadds.contoso.com `
     -Path "OU=MYNEWOU,DC=contoso,DC=com" `
     -KerberosEncryptionType AES128, AES256 `
     -ManagedPasswordIntervalInDays 30 `
-    -ServicePrincipalNames http/WebFarmSvc.contoso.com/contoso.com, `
-        http/WebFarmSvc.contoso.com/contoso, `
-        http/WebFarmSvc/contoso.com, `
+    -ServicePrincipalNames http/WebFarmSvc.aadds.contoso.com/aadds.contoso.com, `
+        http/WebFarmSvc.aadds.contoso.com/contoso, `
+        http/WebFarmSvc/aadds.contoso.com, `
         http/WebFarmSvc/contoso `
     -PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
 ```

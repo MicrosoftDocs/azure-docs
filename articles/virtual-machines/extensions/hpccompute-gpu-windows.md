@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU Driver Extension - Azure Windows VMs | Microsoft Docs
+title: NVIDIA GPU Driver Extension - Azure Windows VMs 
 description: Microsoft Azure extension for installing NVIDIA GPU Drivers on N-series compute VMs running Windows.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -35,7 +35,7 @@ This extension supports the following OSs:
 |---|---|
 | Windows 10 | Core |
 | Windows Server 2016 | Core |
-| Windows Server 2012R2 | Core |
+| Windows Server 2012 R2 | Core |
 
 ### Internet connectivity
 

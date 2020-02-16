@@ -79,6 +79,10 @@ Using the personas explained in the previous diagram, the following RBAC would b
 
 * Resource Group Owner/Contributor
 
+**Ellen (CISO/CIO)**
+
+* Subscription Owner/Contributor or Security Admin
+
 **David (IT Security)**
 
 * Subscription Owner/Contributor or Security Admin
@@ -199,7 +203,7 @@ You should also regularly monitor existing resources for configuration changes t
 
 ### Hardening access and applications
 
-As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications that are running on VMs. By locking down inbound traffic to your Azure VMs, you are reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [Just in Time VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) access feature to hardening access to your VMs.
+As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications that are running on VMs. By locking down inbound traffic to your Azure VMs, you are reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) access feature to hardening access to your VMs.
 
 You can use [Adaptive Application Controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) to limit which applications can run on your VMs located in Azure. Among other benefits, this helps harden your VMs against malware. Using machine learning, Security Center analyzes processes running in the VM to help you create whitelisting rules.
 
@@ -231,7 +235,7 @@ This page shows the details regarding the time that the attack took place, the s
 
 From this page, you can also start an [investigation](https://docs.microsoft.com/azure/security-center/security-center-investigation) to better understand the timeline of the attack, how the attack took place, which systems were potentially compromised, which credentials were used, and see a graphical representation of the entire attack chain.
 
-Once you identify the compromised system, you can run security [playbooks](https://docs.microsoft.com/azure/security-center/security-center-playbooks) that were previously created. Security playbook is a collection of procedures that can be executed from Security Center once a certain playbook is triggered from selected alert.
+Once you identify the compromised system, you can run a [Workflow Automation](workflow-automation.md) that was previously created. These are a collection of procedures that can be executed from Security Center once triggered by an alert.
 
 In the [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video, you can see some demonstrations that can help you to understand how Security Center can be used in each one of those stages.
 

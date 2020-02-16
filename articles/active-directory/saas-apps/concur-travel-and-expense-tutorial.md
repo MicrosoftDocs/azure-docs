@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Concur Travel and Expense | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Concur Travel and Expense.
 services: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 03/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -35,16 +35,18 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Concur Travel and Expense single sign-on (SSO) enabled subscription.
+* Concur Travel and Expense subscription.
+* A "Company Administrator" role under your Concur user account. You can test if you have the right access by going to [Concur SSO Self-Service Tool](https://www.concursolutions.com/nui/authadmin/ssoadmin). If you do not have the access, please contact Concur support or implementation project manager. 
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Azure AD SSO.
 
-* Concur Travel and Expense supports **IDP** initiated SSO
+* Concur Travel and Expense supports **IDP** and **SP** initiated SSO
+* Concur Travel and Expense supports testing SSO in both production and implementation environment 
 
 > [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+> Identifier of this application is a fixed string value for each of the three regions: US, EMEA, and China. So only one instance can be configured for each region in one tenant. 
 
 ## Adding Concur Travel and Expense from the gallery
 
@@ -80,15 +82,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+    > [!NOTE]
+    > Identifier (Entity ID) and Reply URL (Assertion Consumer Service URL) are region specific. Please select based on the datacenter of your Concur entity. If you do not know the datacenter of your Concur entity, please contact Concur support. 
+
+5. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **User Attribute** to edit the settings. The Unique User Identifier needs to match Concur user login_id. Usually, you should change **user.userprincipalname** to **user.mail**.
+
+    ![Edit User Attribute](common/edit-attribute.png)
+
+6. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the metadata and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
-
-1. On the **Set up Concur Travel and Expense** section, copy the appropriate URL(s) based on your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -122,11 +127,31 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Concur Travel and Expense SSO
 
-To configure single sign-on on **Concur Travel and Expense** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Concur Travel and Expense support team](https://www.concur.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **Concur Travel and Expense** side, you need to upload the downloaded **Federation Metadata XML** to [Concur SSO Self-Service Tool](https://www.concursolutions.com/nui/authadmin/ssoadmin) and login with an account with "Company Administrator" role. 
+
+1. Click **Add**.
+1. Enter a custom name for your IdP, for example "Azure AD (US)". 
+1. Click **Upload XML File** and attach **Federation Metadata XML** you downloaded previously.
+1. Click **Add Metadata** to save the change.
+
+    ![Concur SSO self-service tool screenshot](./media/concur-travel-and-expense-tutorial/add-metadata-concur-self-service-tool.png)
 
 ### Create Concur Travel and Expense test user
 
-In this section, you create a user called B.Simon in Concur Travel and Expense. Work with [Concur Travel and Expense support team](https://www.concur.com/support) to add the users in the Concur Travel and Expense platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Concur Travel and Expense. Work with Concur support team to add the users in the Concur Travel and Expense platform. Users must be created and activated before you use single sign-on. 
+
+> [!NOTE]
+> B.Simon's Concur login id needs to match B.Simon's unique identifier at Azure AD. For example, if B.Simon's Azure AD unique identifer is `B.Simon@contoso.com`. B.Simon's Concur login id needs to be `B.Simon@contoso.com` as well. 
+
+## Configure Concur Mobile SSO
+To enable Concur mobile SSO, you need to give Concur support team **User access URL**. Follow steps below to get **User access URL** from Azure AD:
+1. Go to **Enterprise applications**
+1. Click **Concur Travel and Expense**
+1. Click **Properties**
+1. Copy **User access URL** and give this URL to Concur support
+
+> [!NOTE]
+> Self-Service option to configure SSO is not available so work with Concur support team to enable mobile SSO. 
 
 ## Test SSO 
 

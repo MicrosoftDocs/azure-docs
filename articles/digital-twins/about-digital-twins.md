@@ -1,13 +1,13 @@
 ---
-title: Overview of Azure Digital Twins | Microsoft Docs
+title: Overview - Azure Digital Twins | Microsoft Docs
 description: Learn more about Azure Digital Twins, an Azure IoT solution for spatial intelligence.
-author: julieseto
-ms.author: jseto
-ms.date: 09/17/2019
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
+ms.date: 12/30/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
-manager: bertvanhoof
 ms.custom: mvc
 #Customer intent: As an Azure enterprise customer, I want to know what capabilities Digital Twins has so that I can build next-generation IoT services. 
 ---
@@ -91,7 +91,7 @@ Azure Digital Twins uses Azure IoT Hub to connect the IoT devices and sensors th
 
 [![Azure Digital Twins is a service built on top of Azure IoT Hub](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
 
-For more information about IoT, see [Azure IoT technologies and solutions](../iot-fundamentals/iot-services-and-technologies.md).
+For more information about IoT, read [Azure IoT technologies and solutions](../iot-fundamentals/iot-services-and-technologies.md).
 
 ## Next steps
 

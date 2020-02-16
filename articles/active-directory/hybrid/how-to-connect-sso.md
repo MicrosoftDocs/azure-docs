@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -30,7 +30,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 ![Seamless Single Sign-On](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->Seamless SSO needs the user's device to be **domain-joined**, but doesn't need for the device to be [Azure AD Joined](../active-directory-azureadjoin-overview.md).
+>Seamless SSO needs the user's device to be **domain-joined** only, but it is not used on [Azure AD Joined](../active-directory-azureadjoin-overview.md) or [Hybrid Azure AD joined] (../active-directory-azureadjoin-overview.md) devices. SSO pn Azure AD joined and Hybrid Azure AD joined works based on the [Primary refresh token] (../active-directory/devices/concept-primary-refresh-token.md)
 
 ## Key benefits
 
@@ -57,7 +57,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Yes\*|No|Yes|Yes\*\*\*|N/A
+|Windows 10|Yes\*|Yes|Yes|Yes\*\*\*|N/A
 |Windows 8.1|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows 8|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows 7|Yes\*|N/A|Yes|Yes\*\*\*|N/A

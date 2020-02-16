@@ -1,5 +1,5 @@
 ---
-title: Create and Manage an Azure Virtual Machine Using C# | Microsoft Docs
+title: Create and Manage an Azure Virtual Machine Using C# 
 description: Use C# and Azure Resource Manager to deploy a virtual machine and all its supporting resources.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -108,7 +108,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 ### Create the resource group
 
-All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).
+All resources must be contained in a [Resource group](../../azure-resource-manager/management/overview.md).
 
 To specify values for the application and create the resource group, add this code to the Main method:
 

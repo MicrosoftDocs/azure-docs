@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Samples | Microsoft Docs
+title: Azure CLI Samples 
 description: Azure CLI Samples
 services: virtual-machines-linux
 documentationcenter: virtual-machines

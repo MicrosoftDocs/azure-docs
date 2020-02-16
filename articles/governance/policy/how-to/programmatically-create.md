@@ -1,12 +1,8 @@
 ---
 title: Programmatically create policies
-description: This article walks you through programmatically creating and managing policies for Azure Policy.
-author: DCtheGeek
-ms.author: dacoulte
+description: This article walks you through programmatically creating and managing policies for Azure Policy with Azure CLI, Azure PowerShell, and REST API.
 ms.date: 01/31/2019
-ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
+ms.topic: how-to
 ---
 # Programmatically create policies
 
@@ -14,7 +10,7 @@ This article walks you through programmatically creating and managing policies. 
 definitions enforce different rules and effects over your resources. Enforcement makes sure that
 resources stay compliant with your corporate standards and service level agreements.
 
-For information about compliance, see [getting compliance data](getting-compliance-data.md).
+For information about compliance, see [getting compliance data](get-compliance-data.md).
 
 ## Prerequisites
 
@@ -37,7 +33,7 @@ Before you begin, make sure that the following prerequisites are met:
    ```
 
    For more information about registering and viewing resource providers, see
-   [Resource Providers and Types](../../../azure-resource-manager/resource-manager-supported-services.md).
+   [Resource Providers and Types](../../../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. If you haven't already, install Azure CLI. You can get the latest version at [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows).
 

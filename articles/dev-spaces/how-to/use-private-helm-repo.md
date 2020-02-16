@@ -1,8 +1,7 @@
 ---
 title: "How to use a private Helm repository in Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
+
 author: "zr-msft"
 ms.author: "zarhoads"
 ms.date: "08/22/2019"
@@ -31,6 +30,9 @@ Navigate to your project's directory and run `azds prep`.
 ```cmd
 azds prep --public
 ```
+
+> [!TIP]
+> The `prep` command attempts to generate [a Dockerfile and Helm chart](../how-dev-spaces-works.md#prepare-your-code) for your project. Azure Dev Spaces uses these files to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 Create a [requirements.yaml][helm-requirements] file with your chart in your application's chart directory. For example, if your application is named *app1*, you would create *charts/app1/requirements.yaml*.
 
@@ -73,8 +75,8 @@ Service 'app1' port 80 (http) is available at http://localhost:54256
 Learn more about [Helm and how it works][helm].
 
 [helm]: https://docs.helm.sh
-[helm-chart]: https://helm.sh/docs/developing_charts/
-[helm-dependency-update]: https://helm.sh/docs/helm/#helm-dependency-update
-[helm-repo-add]: https://helm.sh/docs/helm/#helm-repo-add
-[helm-repo-update]: https://helm.sh/docs/helm/#helm-repo-update
-[helm-requirements]: https://helm.sh/docs/developing_charts/#chart-dependencies
+[helm-chart]: https://helm.sh/docs/topics/charts/
+[helm-dependency-update]: https://helm.sh/docs/topics/charts/#managing-dependencies-with-the-dependencies-field
+[helm-repo-add]: https://helm.sh/docs/intro/using_helm/#helm-repo-working-with-repositories
+[helm-repo-update]: https://helm.sh/docs/intro/using_helm/#helm-repo-working-with-repositories
+[helm-requirements]: https://helm.sh/docs/topics/charts/#chart-dependencies

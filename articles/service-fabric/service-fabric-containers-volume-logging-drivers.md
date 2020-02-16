@@ -1,23 +1,16 @@
 ---
-title: Service Fabric Azure Files Volume Driver (GA) | Microsoft Docs
-description: Service Fabric supports using Azure Files to backup volumes from your container. This is currently in preview.
-services: service-fabric
-author: athinanthny
-manager: chackdan
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
+title: Azure Files volume driver for Service Fabric
+description: Service Fabric supports using Azure Files to backup volumes from your container.
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.author: atsenthi
 ---
 
-# Service Fabric Azure Files Volume Driver
-The Azure Files volume plugin, a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](/azure/storage/files/storage-files-introduction) based volumes for Docker containers is now **GA (Generally Available)**.
+# Azure Files volume driver for Service Fabric
 
-This Docker volume plugin is packaged as a Service Fabric application that can be deployed to Service Fabric clusters. Its purpose is to provide Azure Files based volumes for other Service Fabric container applications that are deployed to the cluster.
+The Azure Files volume driver is a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](/azure/storage/files/storage-files-introduction) based volumes for Docker containers. It is packaged as a Service Fabric application that can be deployed to a Service Fabric cluster to provide volumes for other Service Fabric container applications within the cluster.
 
 > [!NOTE]
-> Version 6.5.661.9590 of the Azure Files volume plugin is a GA(Generally available) release. 
+> Version 6.5.661.9590 of the Azure Files volume plugin has been released for general availability.
 >
 
 ## Prerequisites
@@ -57,8 +50,7 @@ In the fabricSettings section in your Azure Resource Manager template (for Azure
 ]
 ```
 
-
-## Deploy the Service Fabric Azure Files application
+## Deploy a sample application using Service Fabric Azure Files volume driver
 
 ### Using Azure Resource Manager via the provided Powershell script (recommended)
 
@@ -80,7 +72,7 @@ Once you've successfully run the script, you can skip to the [configuring your a
 
 ### Manual deployment for standalone clusters
 
-The Service Fabric application that provides the volumes for your containers can be downloaded from the [Service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip). The application can be deployed to the cluster via [PowerShell](./service-fabric-deploy-remove-applications.md), [CLI](./service-fabric-application-lifecycle-sfctl.md) or [FabricClient APIs](./service-fabric-deploy-remove-applications-fabricclient.md).
+The Service Fabric application that provides the volumes for your containers can be downloaded from the [Service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.661.9590.zip). The application can be deployed to the cluster via [PowerShell](./service-fabric-deploy-remove-applications.md), [CLI](./service-fabric-application-lifecycle-sfctl.md) or [FabricClient APIs](./service-fabric-deploy-remove-applications-fabricclient.md).
 
 1. Using the command line, change directory to the root directory of the downloaded application package.
 

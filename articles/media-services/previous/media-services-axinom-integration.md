@@ -173,6 +173,7 @@ Of course, there are multiple ways to get hold of key ID. For example, one may s
     }
 
 ## Summary
+
 With latest addition of Widevine support in both Azure Media Services Content Protection and Azure Media Player, we are able to implement streaming of DASH + Multi-native-DRM (PlayReady + Widevine) with both PlayReady license service in AMS and Widevine license server from Axinom for the following modern browsers:
 
 * Chrome
@@ -189,6 +190,10 @@ The following parameters are required in the mini-solution leveraging Axinom Wid
 | Key seed |Must be used to generate content key with any given content key ID (see  [this](media-services-axinom-integration.md#content-protection) section). |
 | Widevine License acquisition URL |Must be used in configuring asset delivery policy for DASH streaming (see  [this](media-services-axinom-integration.md#content-protection) section). |
 | Content Key ID |Must be included as part of the value of Entitlement Message claim of JWT token (see [this](media-services-axinom-integration.md#jwt-token-generation) section). |
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

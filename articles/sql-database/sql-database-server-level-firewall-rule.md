@@ -1,5 +1,5 @@
 ---
-title: 'Create a server-level firewall rule - Azure SQL Database| Microsoft Docs'
+title: Create a server-level firewall rule
 description: Create a SQL Database server-level firewall rule for single and pooled databases
 services: sql-database
 ms.service: sql-database

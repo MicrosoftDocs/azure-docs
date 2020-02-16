@@ -1,5 +1,5 @@
 ---
-title: "Run analytics queries against Azure SQL databases | Microsoft Docs"
+title: Run analytics queries
 description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases in a multi-tenant app."
 services: sql-database
 ms.service: sql-database
