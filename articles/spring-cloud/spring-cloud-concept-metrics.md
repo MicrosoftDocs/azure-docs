@@ -81,12 +81,13 @@ YOu can also use the **Apply splitting** option, which will draw multiple lines 
 The following tables show the available metrics and details.
 
 ### Error
->[!div class="mx-tdBreakAll"]>| Name | Spring Actuator Metric Name | Unit | Details |
+>[!div class="mx-tdCol2BreakAll"]
+>| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
 >| Tomcat Global Error | tomcat.global.error | Count | Number of errors occurs of processed requests |
 
 ### Performance
->[!div class="mx-tdBreakAll"]
+>[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
 >|System CPU Usage Percentage | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
@@ -102,7 +103,7 @@ The following tables show the available metrics and details.
 >| GC Pause Total Time | jvm.gc.pause (total-time) | Milliseconds | Total GC time consumed after this JMV started, including Young and Old GC. |
 
 ### Request
->[!div class="mx-tdBreakAll"]
+>[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
 >| Tomcat Total Sent Bytes | tomcat.global.sent | Bytes | Amount of data Tomcat web server sent |
@@ -112,7 +113,7 @@ The following tables show the available metrics and details.
 >| Tomcat Request Max Time | tomcat.global.request.max | Milliseconds | Maximum time of Tomcat web server to process a request |
 
 ### Session
->[!div class="mx-tdBreakAll"]
+>[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
 >| Tomcat Session Max Active Count | tomcat.sessions.active.max | Count | Maximum number of sessions that have been active at the same time |
