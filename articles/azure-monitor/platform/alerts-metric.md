@@ -10,7 +10,7 @@ ms.subservice: alerts
 ---
 # Create, view, and manage metric alerts using Azure Monitor
 
-Metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Metric alerts work on a range of multi-dimensional platform metrics, custom metrics, Application Insights standard and custom metrics. In this article, we will describe how to create, view and manage metric alert rules through Azure portal and Azure CLI. You can also create metric alert rules using Azure Resource Manager templates which is described in [a separate article](alerts-metric-create-templates.md).
+Metric alerts in Azure Monitor provide a way to get notified when one of your metrics crosses a threshold. Metric alerts work on a range of multi-dimensional platform metrics, custom metrics, Application Insights standard and custom metrics. In this article, we will describe how to create, view, and manage metric alert rules through Azure portal and Azure CLI. You can also create metric alert rules using Azure Resource Manager templates, which are described in [a separate article](alerts-metric-create-templates.md).
 
 You can learn more about how metric alerts work from [metric alerts overview](alerts-metric-overview.md).
 
@@ -33,16 +33,16 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 6. You will see a list of signals supported for the resource, select the metric you want to create an alert on.
 
-7. You will see a chart for the metric for the last 6 hours. Use the **Chart period** dropdown to select to see longer history for the metric.
+7. You will see a chart for the metric for the last six hours. Use the **Chart period** dropdown to select to see longer history for the metric.
 
 8. If the metric has dimensions, you will see a dimensions table presented. Select one or more values per dimension.
-    - The displayed dimension values are based on metric data from the last 3 days.
+    - The displayed dimension values are based on metric data from the last three days.
     - If the dimension value you're looking for isn't displayed, click "+" to add a custom value.
     - You can also **Select \*** for any of the dimensions. **Select \*** will dynamically scale the selection to all current and future values for a dimension.
 
     The metric alert rule will evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](alerts-metric-overview.md).
 
-9. Select the **Threshold** type, **Operator** and **Aggregation type**. This will determine the logic which the metric alert rule will evaluate.
+9. Select the **Threshold** type, **Operator**, and **Aggregation type**. This will determine the logic that the metric alert rule will evaluate.
     - If you are using a **Static** threshold, continue to define a **Threshold value**. The metric chart can help determine what might be a reasonable threshold.
     - If you are using a **Dynamic** threshold, continue to define the **Threshold sensitivity**. The metric chart will display the calculated thresholds based on recent data. [Learn more about Dynamic Thresholds condition type and sensitivity options](alerts-dynamic-thresholds.md).
 
@@ -52,7 +52,7 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 12. Optionally, add another criteria if you want to monitor a complex alert rule. Currently users can have alert rules with Dynamic Thresholds criteria as a single criterion.
 
-13. Fill in **Alert details** like **Alert rule name**, **Description** and **Severity**.
+13. Fill in **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 
 14. Add an action group to the alert either by selecting an existing action group or creating a new action group.
 
@@ -85,11 +85,11 @@ You can view and manage metric alert rules using the Manage Rules blade under Al
 
 ## With Azure CLI
 
-The previous sections described how to create, view and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). For this article, we will use Cloud shell.
+The previous sections described how to create, view, and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). For this article, we will use Cloud shell.
 
 1. Go to Azure portal, click on **Cloud shell**.
 
-2. At the prompt, you can use commands with ``--help`` option to learn more about the command and how to use it. For example, the following command shows you the list of commands available for creating, viewing and managing metric alerts
+2. At the prompt, you can use commands with ``--help`` option to learn more about the command and how to use it. For example, the following command shows you the list of commands available for creating, viewing, and managing metric alerts
 
     ```azurecli
     az monitor metrics alert --help
