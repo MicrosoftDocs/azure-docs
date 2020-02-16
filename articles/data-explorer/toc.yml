@@ -25,7 +25,11 @@
     href: ingest-data-no-code.md  
   - name: Visualize data in Power BI
     href: visualize-power-bi.md  
-- name: Concepts
+- name: Kusto Query Language
+  items:
+  - name: Quick reference guide
+    href: quick-reference-guide.md
+  - name: Concepts
   items:
   - name: Data ingestion
     items:  
