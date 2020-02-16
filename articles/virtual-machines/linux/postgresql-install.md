@@ -23,7 +23,6 @@ PostgreSQL is an advanced open-source database similar to Oracle and DB2. It inc
 
 In this article, you will learn how to install and configure PostgreSQL on an Azure virtual machine running Linux.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Install PostgreSQL
 > [!NOTE]
@@ -62,7 +61,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. If  you want to build everything that can be built, including the documentation (HTML and man pages) and additional modules (contrib), run the following command instead:
+5. If  you want to build everything that can be built, including the documentation (HTML and man pages) and additional modules (`contrib`), run the following command instead:
    
         # gmake install-world
    

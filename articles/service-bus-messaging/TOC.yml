@@ -205,7 +205,7 @@
         href: service-bus-resource-manager-namespace-topic-with-rule.md
   - name: Secure
     items:
-    - name: Configure customer-managed keys for encryption at rest (Preview)
+    - name: Configure customer-managed keys for encryption at rest
       href: configure-customer-managed-key.md
   - name: Troubleshoot
     items:

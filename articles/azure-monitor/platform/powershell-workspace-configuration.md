@@ -173,6 +173,10 @@ New-AzOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroupName 
 New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
+
+> [!NOTE]
+> The format for the **CustomLogRawJson** parameter which defines the configuration for a custom log can be complex. Use [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) to retrieve the configuration for an existing Custom Log. The **Properties** property is the configuration required for the **CustomLogRawJson** parameter.
+
 In the above example regexDelimiter was defined as "\\n" for newline. The log delimiter may also be a timestamp.  These are the supported formats:
 
 | Format | Json RegEx format uses two \\ for every \ in a standard RegEx so if testing in a RegEx app reduce \\ to \ | | |

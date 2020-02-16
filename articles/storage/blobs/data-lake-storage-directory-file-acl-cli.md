@@ -197,6 +197,9 @@ az storage blob delete -c my-file-system -b my-file.txt --account-name mystorage
 
 You can get, set, and update access permissions of directories and files.
 
+> [!NOTE]
+> If you're using Azure Active Directory (Azure AD) to authorize commands, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+
 ### Get directory and file permissions
 
 Get the ACL of a **directory** by using the `az storage blob directory access show` command.

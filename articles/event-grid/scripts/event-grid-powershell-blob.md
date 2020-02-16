@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell - subscribe to Blob storage account
-description: Azure Event Grid & Azure PowerShell script sample - subscribe to Blob storage account
+description: This article provides a sample Azure PowerShell script that shows how to subscribe to Event Grid events for a Blob Storage account. 
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -10,7 +10,7 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
 ---
 

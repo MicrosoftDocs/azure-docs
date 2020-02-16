@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
 
 ---
@@ -52,4 +52,6 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
 In this document, you learned how to connect F5 BIG-IP to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+
 

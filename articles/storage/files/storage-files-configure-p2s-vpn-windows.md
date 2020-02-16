@@ -156,7 +156,7 @@ foreach($ipconfig in $internalNic.Properties.ipConfigurations) {
         $recordName = $fqdn.split('.', 2)[0]
         $dnsZone = $fqdn.split('.', 2)[1]
         New-AzPrivateDnsRecordSet `
-            -ResourceGroupName $resourceGroupName ` 
+            -ResourceGroupName $resourceGroupName `
             -Name $recordName `
             -RecordType A `
             -ZoneName $zone.Name `

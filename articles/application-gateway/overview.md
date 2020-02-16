@@ -136,7 +136,7 @@ Application Gateway Standard_v2 and WAF_v2 SKU can be configured for autoscaling
 
 The Application Gateway Standard and WAF SKU is currently offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
 
-For a complete list of application gateway limits, see [Application Gateway service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+For a complete list of application gateway limits, see [Application Gateway service limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 The following table shows an average performance throughput for each application gateway v1 instance with SSL offload enabled:
 

@@ -39,6 +39,15 @@ Premium Storage caching:  Supported
 
 <sup>1</sup> Fsv2-series VMs feature Intel® Hyper-Threading Technology.
 
-<sup>2</sup> The use of more than 64 vCPU require one of these supported guest operating systems: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux, CentOS 7.3, or Oracle Linux 7.3 with LIS 4.2.1.
+<sup>2</sup> The use of more than 64 vCPU require one of these supported guest operating systems:
+- Windows Server 2016 or later
+- Ubuntu 16.04 LTS or later, with Azure tuned kernel (4.15 kernel or later)
+- SLES 12 SP2 or later
+- RHEL or CentOS version 6.7 through 6.10, with Microsoft-provided LIS package 4.3.1 (or later) installed
+- RHEL or CentOS version 7.3, with Microsoft-provided LIS package 4.2.1 (or later) installed
+- RHEL or CentOS version 7.6 or later
+- Oracle Linux with UEK4 or later
+- Debian 9 with the backports kernel, Debian 10 or later
+- CoreOS with a 4.14 kernel or later
 
 <sup>3</sup> Instance is isolated to hardware dedicated to a single customer.

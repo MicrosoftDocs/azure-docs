@@ -111,7 +111,7 @@ Once a job is completed, the information about the job is persisted in the Spark
 * [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
 * [Website log analysis using Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Application Insight telemetry data analysis using Apache Spark in HDInsight](apache-spark-analyze-application-insight-logs.md)
-* [Use Caffe on Azure HDInsight Spark for distributed deep learning](apache-spark-deep-learning-caffe.md)
+
 
 ### For Spark developers
 

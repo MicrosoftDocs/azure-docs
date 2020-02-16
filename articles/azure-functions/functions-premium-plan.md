@@ -33,7 +33,7 @@ The following features are available to function apps deployed to a Premium plan
 
 ### Pre-warmed instances
 
-If no events and executions occur today in the Consumption plan, your app may scale down to zero instances. When new events come in, a new instance needs to be specialized with your app running on it.  Specializing new instances may take some time depending on the app.  This additional latency on the first call is often called app cold start.
+If no events and executions occur today in the Consumption plan, your app may scale in to zero instances. When new events come in, a new instance needs to be specialized with your app running on it.  Specializing new instances may take some time depending on the app.  This additional latency on the first call is often called app cold start.
 
 In the Premium plan, you can have your app pre-warmed on a specified number of instances, up to your minimum plan size.  Pre-warmed instances also let you pre-scale an app before high load. As the app scales out, it first scales into the pre-warmed instances. Additional instances continue to buffer out and warm immediately in preparation for the next scale operation. By having a buffer of pre-warmed instances, you can effectively avoid cold start latencies.  Pre-warmed instances is a feature of the Premium plan, and you need to keep at least one instance running and available at all times the plan is active.
 
@@ -41,7 +41,7 @@ You can configure the number of pre-warmed instances in the Azure portal by sele
 
 ![Elastic Scale Settings](./media/functions-premium-plan/scale-out.png)
 
-You can also configure pre-warmed instances for an app with the Azure CLI
+You can also configure pre-warmed instances for an app with the Azure CLI.
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
@@ -53,7 +53,7 @@ Azure Functions deployed to a Premium plan takes advantage of [new VNet integrat
 
 When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
 
-Fore more information, see [integrate your function app with a VNet](functions-create-vnet.md).
+For more information, see [integrate your function app with a VNet](functions-create-vnet.md).
 
 ### Rapid elastic scale
 
@@ -72,7 +72,7 @@ When you create the plan, you configure two settings: the minimum number of inst
 
 If your app requires instances beyond your plan size, it can continue to scale out until the number of instances hits the maximum burst limit.  You are billed for instances beyond your plan size only while they are running and rented to you.  We will make a best effort at scaling your app out to its defined maximum limit, whereas the minimum plan instances are guaranteed for your app.
 
-You can configure the plan size and maximums in the Azure portal by selected the **Scale Out** options in the plan or a function app deployed to that plan (under **Platform Features**).
+You can configure the plan size and maximums in the Azure portal by selecting the **Scale Out** options in the plan or a function app deployed to that plan (under **Platform Features**).
 
 You can also increase the maximum burst limit from the Azure CLI:
 
@@ -89,6 +89,11 @@ When creating or scaling your plan, you can choose between three instance sizes.
 |EP1|1|3.5GB|250GB|
 |EP2|2|7GB|250GB|
 |EP3|4|14GB|250GB|
+
+### Memory utilization considerations
+Running on a machine with more memory does not always mean that your function app will use all available memory.
+
+For example, a JavaScript function app is constrained by the default memory limit in Node.js. To increase this fixed memory limit, add the app setting `languageWorkers:node:arguments` with a value of `--max-old-space-size=<max memory in MB>`.
 
 ## Regions
 

@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
 ---
 
@@ -84,11 +84,7 @@ For more information about the theoretical framework for this algorithm and its 
 
 After training is complete:
 
-+ To see the tree that was created on each iteration, right-click the output of the training module, and select **Visualize**.
-
-+ To see the rules for each node, click each tree and drill down into the splits.
-
-+ To save a snapshot of the trained model, right-click the output of the training module, and select **Save As Trained Model**. This copy of the model is not updated on successive runs of the pipeline. 
++ To save a snapshot of the trained model, select the training module, then switch to **Outputs** tab in the right panel. Click on the icon **Register model**.  You can find the saved model as a module in the module tree. 
 
 ## Next steps
 

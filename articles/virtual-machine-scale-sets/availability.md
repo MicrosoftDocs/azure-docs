@@ -1,19 +1,13 @@
 ---
-title: Availability options for Azure virtual machine scale sets | Microsoft Docs
+title: Availability options for Azure virtual machine scale sets
 description: Learn about the availability features for running Windows virtual machine scale sets in Azure
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
-
+ms.author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/05/2019
-ms.author: cynthn
 ---
 
 # Availability options for virtual machines in Azure

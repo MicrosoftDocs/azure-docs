@@ -20,11 +20,13 @@ In this tutorial, you learn how to:
 > - Configure a Managed Instance as a replication Distributor. 
 > - Configure a SQL Server as a subscriber. 
 
+![Replication between a SQL MI pub, SQL MI Dist, and a SQL Server sub](media/sql-database-managed-instance-failover-group-tutorial/sqlmi-to-sql-replication.png)
+
 This tutorial is intended for an experienced audience and assumes that the user is familiar with deploying and connecting to both managed instances, and SQL Server VMs within Azure. As such, certain steps in this tutorial are glossed over. 
 
 To learn more, see the [Azure SQL Database managed instance overview](sql-database-managed-instance-index.yml), [capabilities](sql-database-managed-instance.md), and [SQL Transactional Replication](sql-database-managed-instance-transactional-replication.md) articles.
 
-To configure replication between a managed instance publisher and a managed instance subscriber, see the [Configure transactional replication between two managed instances tutorial](replication-with-sql-database-managed-instance.md). 
+To configure replication between a managed instance publisher and a managed instance subscriber, see [Configure transactional replication between two managed instances](replication-with-sql-database-managed-instance.md). 
 
 ## Prerequisites
 
@@ -33,7 +35,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 - An [Azure subscription](https://azure.microsoft.com/free/). 
 - Experience with deploying two managed instances within the same virtual network. 
 - A SQL Server subscriber, either on-premises or an Azure VM. This tutorial uses an Azure VM.  
-- [SQL Server Management Studio (SSMS) 18.0 or greater](/ssms/download-sql-server-management-studio-ssms).
+- [SQL Server Management Studio (SSMS) 18.0 or greater](/sql/ssms/download-sql-server-management-studio-ssms).
 - The latest version of [Azure Powershell](/powershell/azure/install-az-ps?view=azps-1.7.0).
 - Port 445, and 1433 allow SQL traffic on both the Azure Firewall and the Windows Firewall. 
 
@@ -193,7 +195,7 @@ USE [master]
 GO
 
 -- Drop database if it exists
-IF EXISTS (SELECT *FROM sys.sysdatabases WHERE name = 'ReplTutorial')
+IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
     DROP DATABASE ReplTutorial
 END
@@ -330,6 +332,14 @@ Use ReplTutorial
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
+## Clean up resources
+
+1. Navigate to your resource group in the [Azure portal](https://portal.azure.com). 
+1. Select the managed instance(s) and then select **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. This process may take some time to complete in the background, and until it"s done, you will not be able to delete the *Virtual cluster* or any other dependent resources. Monitor the delete in the Activity tab to confirm your managed instance has been deleted. 
+1. Once the managed instance is deleted, delete the *Virtual cluster* by selecting it in your resource group, and then choosing **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
+1. Delete any remaining resources. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
+1. Delete the resource group by selecting **Delete resource group**, typing in the name of the resource group, `myResourceGroup`, and then selecting **Delete**. 
+
 ## Known errors
 
 ### Windows logins are not supported
@@ -375,18 +385,10 @@ Possible solutions:
 
 When adding a new subscription using the **New Subscription** wizard, on the **Publication** page, you may find that there are no databases and publications listed as available options, and you might see the following error message:
 
-`There are no publications to which yuo can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
+`There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
  
 While it's possible that this error message is accurate, and there really aren't publications available on the publisher you connected to, or you're lacking sufficient permissions, this error could also be caused by an older version of SQL Server Management Studio. Try upgrading to SQL Server Management Studio 18.0 or greater to rule this out as a root cause. 
 
-
-## Clean up resources
-
-1. Navigate to your resource group in the [Azure portal](https://portal.azure.com). 
-1. Select the managed instance(s) and then select **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. This process may take some time to complete in the background, and until it"s done, you will not be able to delete the *Virtual cluster* or any other dependent resources. Monitor the delete in the Activity tab to confirm your managed instance has been deleted. 
-1. Once the managed instance is deleted, delete the *Virtual cluster* by selecting it in your resource group, and then choosing **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
-1. Delete any remaining resources. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
-1. Delete the resource group by selecting **Delete resource group**, typing in the name of the resource group, `myResourceGroup`, and then selecting **Delete**. 
 
 ## Next steps
 

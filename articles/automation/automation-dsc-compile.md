@@ -35,31 +35,31 @@ determine when to use which method based on the characteristics of each:
 
 ### Azure PowerShell
 
-You can use [`Start-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/start-azurermautomationdsccompilationjob)
+You can use [`Start-AzAutomationDscCompilationJob`](/powershell/module/az.automation/start-azautomationdsccompilationjob)
 to start compiling with Windows PowerShell. The following sample code starts compilation of a DSC configuration called **SampleConfig**.
 
 ```powershell
-Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
+Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 ```
 
-`Start-AzureRmAutomationDscCompilationJob` returns a compilation job object that you can use to
+`Start-AzAutomationDscCompilationJob` returns a compilation job object that you can use to
 track its status. You can then use this compilation job object with
-[`Get-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob)
+[`Get-AzAutomationDscCompilationJob`](/powershell/module/az.automation/get-azautomationdsccompilationjob)
 to determine the status of the compilation job, and
-[`Get-AzureRmAutomationDscCompilationJobOutput`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput)
+[`Get-AzAutomationDscCompilationJobOutput`](/powershell/module/az.automation/get-azautomationdscconfiguration)
 to view its streams (output). The following sample code starts compilation of the **SampleConfig**
 configuration, waits until it has completed, and then displays its streams.
 
 ```powershell
-$CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
+$CompilationJob = Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 
 while($null -eq $CompilationJob.EndTime -and $null -eq $CompilationJob.Exception)
 {
-    $CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
+    $CompilationJob = $CompilationJob | Get-AzAutomationDscCompilationJob
     Start-Sleep -Seconds 3
 }
 
-$CompilationJob | Get-AzureRmAutomationDscCompilationJobOutput –Stream Any
+$CompilationJob | Get-AzAutomationDscCompilationJobOutput –Stream Any
 ```
 
 ###  Basic Parameters
@@ -120,7 +120,7 @@ $Parameters = @{
     'IsPresent' = $False
 }
 
-Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'ParametersExample' -Parameters $Parameters
+Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'ParametersExample' -Parameters $Parameters
 ```
 
 For information about passing PSCredentials as parameters, see [Credential Assets](#credential-assets) below.
@@ -197,7 +197,7 @@ $ConfigData = @{
     }
 }
 
-Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'ConfigurationDataSample' -ConfigurationData $ConfigData
+Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'ConfigurationDataSample' -ConfigurationData $ConfigData
 ```
 
 ### Working with Assets in Azure Automation during compilation
@@ -271,7 +271,7 @@ $ConfigData = @{
     )
 }
 
-Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'CredentialSample' -ConfigurationData $ConfigData
+Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'CredentialSample' -ConfigurationData $ConfigData
 ```
 
 > [!NOTE]
@@ -315,17 +315,17 @@ in to the Azure State Configuration service.
 
 ### Importing a node configuration with Azure PowerShell
 
-You can use the [Import-AzureRmAutomationDscNodeConfiguration](/powershell/module/azurerm.automation/import-azurermautomationdscnodeconfiguration)
+You can use the [Import-AzAutomationDscNodeConfiguration](/powershell/module/az.automation/import-azautomationdscnodeconfiguration)
 cmdlet to import a node configuration into your automation account.
 
 ```powershell
-Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAccount' -ResourceGroupName 'MyResourceGroup' -ConfigurationName 'MyNodeConfiguration' -Path 'C:\MyConfigurations\TestVM1.mof'
+Import-AzAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAccount' -ResourceGroupName 'MyResourceGroup' -ConfigurationName 'MyNodeConfiguration' -Path 'C:\MyConfigurations\TestVM1.mof'
 ```
 
 ## Next steps
 
 - To get started, see [Getting started with Azure Automation State Configuration](automation-dsc-getting-started.md)
 - To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compiling configurations in Azure Automation State Configuration](automation-dsc-compile.md)
-- For PowerShell cmdlet reference, see [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation)
+- For PowerShell cmdlet reference, see [Azure Automation State Configuration cmdlets](/powershell/module/az.automation)
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/)
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Continuous Deployment Using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md)

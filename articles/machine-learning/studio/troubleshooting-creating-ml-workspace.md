@@ -1,14 +1,14 @@
 ---
 title: Troubleshooting a workspace
 titleSuffix: ML Studio (classic) - Azure
-description: This guide provides solutions for some frequently encountered challenges when you are setting up the classic version of Azure Machine Learning Studio workspaces.
+description: This guide provides solutions for some frequently encountered challenges when you are setting up Azure Machine Learning Studio (classic) workspaces.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ---

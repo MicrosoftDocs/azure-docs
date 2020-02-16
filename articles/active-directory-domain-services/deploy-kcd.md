@@ -16,7 +16,7 @@ ms.author: iainfou
 ---
 # Configure Kerberos constrained delegation (KCD) in Azure Active Directory Domain Services
 
-As you run applications, there may be a need for those applications to access resources in the context of a different user. Active Directory Domain Services (AD DS) supports a mechanism called *Kerberos delegation* that enables this use-case. Kerberos *constrained* delegation (KCD) then builds on this mechanism to define specific resources that can be accessed in the context of the user. Azure Active Directory Domain Services (Azure AD DS) managed domains are more securely locked down that traditional on-premises AD DS environments, so use a more secure *resource-based* KCD.
+As you run applications, there may be a need for those applications to access resources in the context of a different user. Active Directory Domain Services (AD DS) supports a mechanism called *Kerberos delegation* that enables this use-case. Kerberos *constrained* delegation (KCD) then builds on this mechanism to define specific resources that can be accessed in the context of the user. Azure Active Directory Domain Services (Azure AD DS) managed domains are more securely locked down than traditional on-premises AD DS environments, so use a more secure *resource-based* KCD.
 
 This article shows you how to configure resource-based Kerberos constrained delegation in an Azure AD DS managed domain.
 

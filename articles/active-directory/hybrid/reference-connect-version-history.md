@@ -33,6 +33,17 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 While we go through this process, the version number of the release will be shown with an "X" in the minor release number position, as in "1.3.X.0" - this indicates that the release notes in this document are valid for all versions beginning with "1.3.". As soon as we have finalized the release process the release version number will be updated to the most recently released version and the release status will be updated to "Released for download and auto upgrade".
 Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](how-to-connect-install-automatic-upgrade.md)
 
+>[!IMPORTANT]
+> Starting on November 1st, 2020, we will begin implementing a deprecation process whereby versions of Azure AD Connect that were released more than 18 months ago will be deprecated. At that time we will begin this process by deprecating all releases of Azure AD Connect with version 1.3.20.0 (which was released on 4/24/2019) and older, and we will proceed to evaluate the deprecation of older versions of Azure AD Connect every time a new version releases.
+>
+> You need to make sure you are running a recent version of Azure AD Connect to receive an optimal support experience. 
+>
+>If you run a deprecated version of Azure AD Connect you may not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools and service enhancements, and if you require support we may not be able to provide you with the level of service your organization needs.
+>
+>If you have enabled Azure AD Connect for sync you will soon automatically begin receiving Health notifications that warn you about upcoming deprecations when you are running one of the older versions.
+>
+>Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
+
 ## 1.4.38.0
 ### Release status
 12/9/2019: Release for download. Not available through auto-upgrade.
@@ -44,7 +55,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 - We added the ability to target specific agent from cloud to test for agent connectivity.
 
 ### Fixed issues
-- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login windows credentials instead of the admin credentialss provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the AADConnect user interface. 
+- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login windows credentials instead of the admin credentials provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the AADConnect user interface. 
 - A fix was made to enable DSSO simultaneously in all forest through the AADConnect user interface
 
 ## 1.4.32.0
@@ -68,6 +79,8 @@ This version fixes a bug where some servers that were auto-upgraded from a previ
 ### Fixed issues
 
 Under certain circumstances, servers that were auto upgraded to version 1.4.18.0 did not re-enable Self-service password reset and Password Writeback after the upgrade was completed. This auto upgrade release fixes that issue and re-enables Self-service password reset and Password Writeback.
+
+We fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly.
 
 ## 1.4.18.0
 

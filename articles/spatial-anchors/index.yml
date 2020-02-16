@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure Spatial Anchors Documentation
 metadata:
-  document_id: 8ba93ac8-1984-48d5-8944-329e6653e39d
   title: Azure Spatial Anchors Documentation
   meta.description: Learn how to use Azure Spatial Anchors to build apps with durable spatial anchors.
   services: azure-spatial-anchors

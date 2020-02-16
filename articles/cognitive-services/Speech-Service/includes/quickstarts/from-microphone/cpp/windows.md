@@ -8,11 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-<<<<<<< HEAD
 ms.date: 12/17/2019
-=======
-ms.date: 08/19/2019
->>>>>>> 34375507a6a9dabc49d422608c19b7fe54779f45
 ms.author: wolfma
 ---
 
@@ -36,7 +32,7 @@ Before you get started:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the "Speech SDK Parameter" from [region](https://aka.ms/speech/sdkregion) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. From the menu bar, choose **File** > **Save All**.
 

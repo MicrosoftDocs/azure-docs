@@ -32,7 +32,7 @@ landingContent:
           - text: What is Application Insights?
             url: app/app-insights-overview.md
           - text: Application Insights content hub page
-            url: azure-monitor-app-hub.md
+            url: azure-monitor-app-hub.yml
 
   # Card 
   - title: About monitoring data   
@@ -74,7 +74,7 @@ landingContent:
           - text: Node.js
             url: learn/nodejs-quick-start.md
           - text: Mobile
-            url: azure-monitor-app-hub.md
+            url: learn/mobile-center-quickstart.md
           - text: Website
             url: app/website-monitoring.md
 

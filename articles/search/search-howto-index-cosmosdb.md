@@ -1,7 +1,7 @@
 ---
 title: Search over Azure Cosmos DB data
 titleSuffix: Azure Cognitive Search
-description: Crawl an Azure Cosmos DB data source and ingest data in a full text searchable index in Azure Cognitive Search. Indexers automate data ingestion for selected data sources like Azure Cosmos DB.
+description: Import data from Azure Cosmos DB into a searchable index in Azure Cognitive Search. Indexers automate data ingestion for selected data sources like Azure Cosmos DB.
 
 author: mgottein 
 manager: nitinme
@@ -9,7 +9,7 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/02/2020
 ---
 
 # How to index Cosmos DB data using an indexer in Azure Cognitive Search 

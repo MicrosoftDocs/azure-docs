@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure delegated resource management
 description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
-ms.date: 12/17/2019
+ms.date: 01/20/2020
 ms.topic: conceptual
 ---
 
@@ -27,9 +27,12 @@ To onboard a customer's tenant, it must have an active Azure subscription. You'l
 
 - The tenant ID of the service provider's tenant (where you will be managing the customer's resources)
 - The tenant ID of the customer's tenant (which will have resources managed by the service provider)
-- The subscription IDs for each specific subscription in the customer's tenant that will be managed by the service provider (or that contains the resource group(s) that will be managed by the service provider)
+- The subscription IDs for each specific subscription in the customer's tenant that will be managed by the service provider (or that contains the resource group(s) that will be managed by the service provider).
 
-If you don't have this info already, you can retrieve it in one of the following ways. Be sure and use these exact values in your deployment.
+> [!NOTE]
+> Even if you only wish to onboard one or more resource groups within a subscription, the deployment must be done at the subscription level, so you'll need the subscription ID.
+
+If you don't have these ID values already, you can retrieve them in one of the following ways. Be sure and use these exact values in your deployment.
 
 ### Azure portal
 
@@ -108,9 +111,9 @@ To onboard your customer, you'll need to create an [Azure Resource Manager](../.
 |Field  |Definition  |
 |---------|---------|
 |**mspOfferName**     |A name describing this definition. This value is displayed to the customer as the title of the offer.         |
-|**mspOfferDescription**     |A brief description of your offer (for example, "Contoso VM management offer"),      |
+|**mspOfferDescription**     |A brief description of your offer (for example, "Contoso VM management offer").      |
 |**managedByTenantId**     |Your tenant ID.          |
-|**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each with a **principalIdDisplayName** to help your customer understand the purpose of the authorization, and mapped to a built-in **roleDefinitionId** value to specify the level of access,         |
+|**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each with a **principalIdDisplayName** to help your customer understand the purpose of the authorization, and mapped to a built-in **roleDefinitionId** value to specify the level of access.      |
 
 > [!TIP]
 > Be sure that your **managedByTenantID**, **principalIdDisplayName**, and **roleDefinitionId** entries are identical to the values used by Azure. Do not use any capital letters in these values.
@@ -127,7 +130,7 @@ The template you choose will depend on whether you are onboarding an entire subs
 |Subscription (when using an offer published to Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> The process described here requires a separate deployment for each subscription being onboarded, even if they are in the same customer tenant. Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions in the same customer tenant. However, onboarding multiple resource groups within a single subscription can be done in one deployment.
+> The process described here requires a separate subscription-level deployment for each subscription being onboarded, even if you are onboarding subscriptions in the same customer tenant. Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions in the same customer tenant. However, onboarding multiple resource groups within a single subscription can be done in one subscription-level deployment.
 >
 > Separate deployments are also required for multiple offers being applied to the same subscription (or resource groups within a subscription). Each offer applied must use a different **mspOfferName**.
 
@@ -193,7 +196,7 @@ Once you have updated your parameter file, a user in the customer's tenant must 
 Because this is a subscription-level deployment, it cannot be initiated in the Azure portal. The deployment may be done by using PowerShell or Azure CLI, as shown below.
 
 > [!IMPORTANT]
-> This deployment must be done by a non-guest account in the customer’s tenant who has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, [list all roles](../../role-based-access-control/role-definitions-list.md#list-all-roles), then select **Owner** to see all users with that role.
+> This subscription-level deployment must be done by a non-guest account in the customer’s tenant who has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 ### PowerShell
 
@@ -221,15 +224,15 @@ New-AzDeployment -Name <deploymentName> `
 # Log in first with az login if you're not using Cloud Shell
 
 # Deploy Azure Resource Manager template using template and parameter file locally
-az deployment create –-name <deploymentName> \
+az deployment create --name <deploymentName> \
                      --location <AzureRegion> \
                      --template-file <pathToTemplateFile> \
                      --parameters <parameters/parameterFile> \
                      --verbose
 
 # Deploy external Azure Resource Manager template, with local parameter file
-az deployment create –-name <deploymentName \
-                     –-location <AzureRegion> \
+az deployment create --name <deploymentName> \
+                     --location <AzureRegion> \
                      --template-uri <templateUri> \
                      --parameters <parameterFile> \
                      --verbose
@@ -294,6 +297,12 @@ The example below shows an assignment granting the **Managed Services Registrati
 ```
 
 A user with this permission can remove a delegation in one of the following ways.
+
+### Azure portal
+
+1. Navigate to the [My customers page](view-manage-customers.md).
+2. Select **Delegations**.
+3. Find the delegation you want to remove, then select the trash can icon that appears in its row.
 
 ### PowerShell
 

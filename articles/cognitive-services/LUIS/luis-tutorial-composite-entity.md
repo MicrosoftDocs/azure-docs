@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 12/17/2019
 ms.author: diberry
 ---
 
@@ -23,8 +23,6 @@ The composite entity is a good fit for this type of data because the data:
 * Are related to each other.
 * Use a variety of entity types.
 * Need to be grouped and processed by client app as a unit of information.
-
-[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **In this tutorial, you learn how to:**
 
@@ -44,7 +42,7 @@ The composite entity is a good fit for this type of data because the data:
 1.  Download and save the [app JSON file](
 https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json?raw=true) from the List entity tutorial.
 
-2. Import the JSON into a new app.
+2. Import the JSON into a new app using the [LUIS portal](https://www.luis.ai).
 
 3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `composite`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 

@@ -82,7 +82,7 @@ Rich features like Kubernetes debugging are available for .NET Core and Node.js 
 In this section, you'll create a Node.js web app and get it running in a container in Kubernetes.
 
 ### Create a Node.js Web App
-Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
+Download code from GitHub by navigating to [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
 
 ## Prepare code for Docker and Kubernetes development
 So far, you have a basic web app that can run locally. You'll now containerize it by creating assets that define the app's container and how it will deploy to Kubernetes. This task is easy to do with Azure Dev Spaces: 
@@ -98,6 +98,9 @@ So far, you have a basic web app that can run locally. You'll now containerize i
 The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with default settings:
 * `./Dockerfile` describes the app's container image, and how the source code is built and runs within the container.
 * A [Helm chart](https://docs.helm.sh) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
+
+> [!TIP]
+> The [Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 For now, it isn't necessary to understand the full content of these files. It's worth pointing out, however, that **the same Kubernetes and Docker configuration-as-code assets can be used from development through to production, thus providing better consistency across different environments.**
  
@@ -275,4 +278,4 @@ In this configuration, the container is configured to start *nodemon*. When serv
 > [Learn about multi-service development](multi-service-nodejs.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

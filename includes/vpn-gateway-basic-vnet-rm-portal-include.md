@@ -36,7 +36,7 @@ You can create a VNet with the Resource Manager deployment model and the Azure p
 
    - **Subscription**: Verify that the subscription listed is the correct one. You can change subscriptions by using the drop-down.
 
-   - **Resource group**: Select an existing resource group, or create a new one by entering a name for your new resource group. If you're creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+   - **Resource group**: Select an existing resource group, or create a new one by entering a name for your new resource group. If you're creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/management/overview.md#resource-groups).
 
    - **Location**: Select the location for your VNet. The location determines where the resources that you deploy to this VNet will live.
 

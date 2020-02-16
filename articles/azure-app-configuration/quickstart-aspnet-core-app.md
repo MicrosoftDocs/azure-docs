@@ -2,13 +2,13 @@
 title: Quickstart for Azure App Configuration with ASP.NET Core | Microsoft Docs
 description: Quickstart for using Azure App Configuration with ASP.NET Core apps
 services: azure-app-configuration
-author: yegu-ms
+author: lisaguthrie
 
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 12/03/2019
-ms.author: yegu
+ms.date: 01/21/2020
+ms.author: lcozzens
 
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---
@@ -47,18 +47,23 @@ Use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotn
 
 1. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
 
-    ```CLI
-        dotnet new mvc --no-https
-    ```
+```dotnetcli
+dotnet new mvc --no-https
+```
 
 ## Add Secret Manager
 
 To use Secret Manager, add a `UserSecretsId` element to your *.csproj* file.
 
-- Open the *.csproj* file. Add a `UserSecretsId` element as shown here. You can use the same GUID, or you can replace this value with your own. Save the file.
+Open the *.csproj* file. Add a `UserSecretsId` element as shown here. You can use the same GUID, or you can replace this value with your own. Save the file.
 
-    ```xml
-    <Project Sdk="Microsoft.NET.Sdk.Web">
+> [!IMPORTANT]
+> `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
+
+#### [.NET Core 2.x](#tab/core2x)
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -70,8 +75,22 @@ To use Secret Manager, add a `UserSecretsId` element to your *.csproj* file.
         <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     </ItemGroup>
 
-    </Project>
-    ```
+</Project>
+```
+
+#### [.NET Core 3.x](#tab/core3x)
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+    </PropertyGroup>
+
+</Project>
+```
+---
 
 The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code. For more information on Secret Manager, please see [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
 
@@ -79,22 +98,24 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
-    ```CLI
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
     ```
-2. Run the following command to restore packages for your project:
 
-    ```CLI
-        dotnet restore
+1. Run the following command to restore packages for your project:
+
+    ```dotnetcli
+    dotnet restore
     ```
-3. Add a secret named *ConnectionStrings:AppConfig* to Secret Manager.
+
+1. Add a secret named *ConnectionStrings:AppConfig* to Secret Manager.
 
     This secret contains the connection string to access your App Configuration store. Replace the value in the following command with the connection string for your App Configuration store.
 
     This command must be executed in the same directory as the *.csproj* file.
 
-    ```CLI
-        dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    ```dotnetcli
+    dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
     > [!IMPORTANT]
@@ -104,18 +125,18 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
     Access this secret using the configuration API. A colon (:) works in the configuration name with the configuration API on all supported platforms. See [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Open *Program.cs*, and add a reference to the .NET Core App Configuration provider.
+1. Open *Program.cs*, and add a reference to the .NET Core App Configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-5. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
-    
+1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
+
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
 
-    ### Update `CreateWebHostBuilder` for .NET Core 2.x
+    #### [.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -128,7 +149,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
             .UseStartup<Startup>();
     ```
 
-    ### Update `CreateHostBuilder` for .NET Core 3.x
+    #### [.NET Core 3.x](#tab/core3x)
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -142,7 +163,9 @@ The Secret Manager tool stores sensitive data for development work outside of yo
         .UseStartup<Startup>());
     ```
 
-6. Navigate to *<app root>/Views/Home* and open *Index.cshtml*. Replace its content with the following code:
+    ---
+
+1. Navigate to *<app root>/Views/Home* and open *Index.cshtml*. Replace its content with the following code:
 
     ```HTML
     @using Microsoft.Extensions.Configuration
@@ -161,7 +184,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
-7. Navigate to *<app root>/Views/Shared* and open *_Layout.cshtml*. Replace its content with the following code:
+1. Navigate to *<app root>/Views/Shared* and open *_Layout.cshtml*. Replace its content with the following code:
 
     ```HTML
     <!DOCTYPE html>
@@ -192,17 +215,17 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 1. To build the app using the .NET Core CLI, navigate to the root directory of your application and run the following command in the command shell:
 
-    ```CLI
-       dotnet build
+    ```dotnetcli
+    dotnet build
     ```
 
-2. After the build successfully completes, run the following command to run the web app locally:
+1. After the build successfully completes, run the following command to run the web app locally:
 
-    ```CLI
-        dotnet run
+    ```dotnetcli
+    dotnet run
     ```
 
-3. If you're working on your local machine, use a browser to navigate to `http://localhost:5000`. This is the default URL for the web app hosted locally.  
+1. If you're working on your local machine, use a browser to navigate to `http://localhost:5000`. This is the default URL for the web app hosted locally.  
 
 If you're working in the Azure Cloud Shell, select the *Web Preview* button followed by *Configure*.  
 
