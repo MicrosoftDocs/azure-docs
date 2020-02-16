@@ -4,7 +4,7 @@ description: Learn how to use Azure portal or CLI to create, view and manage met
 author: harelbr
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 02/16/2020
 ms.author: harelbr
 ms.subservice: alerts
 ---
@@ -33,21 +33,30 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 6. You will see a list of signals supported for the resource, select the metric you want to create an alert on.
 
-7. Optionally, refine the metric by adjusting **Period** and **Aggregation**. If the metric has dimensions, you will see **Dimensions** table presented. Select one or more values per dimension. The metric alert will run evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](alerts-metric-overview.md). You can also **Select \*** for any of the dimensions. **Select \*** will dynamically scale the selection to all current and future values for a dimension.
+7. You will see a chart for the metric for the last 6 hours. Use the **Chart period** dropdown to select to see longer history for the metric.
 
-8. You will see a chart for the metric for the last 6 hours. Define the alert parameters; **Condition Type**, **Frequency**, **Operator** and **Threshold** or **Sensitivity**, this will determine the logic which the metric alert rule will evaluate. [Learn more about Dynamic Thresholds condition type and sensitivity options](alerts-dynamic-thresholds.md).
+8. If the metric has dimensions, you will see a dimensions table presented. Select one or more values per dimension.
+    - The displayed dimension values are based on metric data from the last 3 days.
+    - If the dimension value you're looking for isn't displayed, click "+" to add a custom value.
+    - You can also **Select \*** for any of the dimensions. **Select \*** will dynamically scale the selection to all current and future values for a dimension.
 
-9. If you are using a static threshold, the metric chart can help determine what might be a reasonable threshold. If you are using a Dynamic Thresholds, the metric chart will display the calculated thresholds based on recent data.
+    The metric alert rule will evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](alerts-metric-overview.md).
 
-10. Click **Done**
+9. Select the **Threshold** type, **Operator** and **Aggregation type**. This will determine the logic which the metric alert rule will evaluate.
+    - If you are using a **Static** threshold, continue to define a **Threshold value**. The metric chart can help determine what might be a reasonable threshold.
+    - If you are using a **Dynamic** threshold, continue to define the **Threshold sensitivity**. The metric chart will display the calculated thresholds based on recent data. [Learn more about Dynamic Thresholds condition type and sensitivity options](alerts-dynamic-thresholds.md).
 
-11. Optionally, add another criteria if you want to monitor a complex alert rule. Currently users can have alert rules with Dynamic Thresholds criteria as a single criterion.
+10. Optionally, refine the condition by adjusting **Aggregation granularity** and **Frequency of evaluation**. 
 
-12. Fill in **Alert details** like **Alert Rule Name**, **Description** and **Severity**
+11. Click **Done**.
 
-13. Add an action group to the alert either by selecting an existing action group or creating a new action group.
+12. Optionally, add another criteria if you want to monitor a complex alert rule. Currently users can have alert rules with Dynamic Thresholds criteria as a single criterion.
 
-14. Click **Done** to save the metric alert rule.
+13. Fill in **Alert details** like **Alert rule name**, **Description** and **Severity**.
+
+14. Add an action group to the alert either by selecting an existing action group or creating a new action group.
+
+15. Click **Done** to save the metric alert rule.
 
 > [!NOTE]
 > Metric alert rules created through portal are created in the same resource group as the target resource.
