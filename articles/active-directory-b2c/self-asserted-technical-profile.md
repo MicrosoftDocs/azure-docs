@@ -198,9 +198,9 @@ You can also call a REST API technical profile with your business logic, overwri
 | setting.forgotPasswordLinkLocation <sup>2</sup>| No| Displays the forgot password link. Possible values: `AfterInput` (default) the link is displayed at the bottom of the page, or `None` removes the forgot password link.| 
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
-Note2:
+Notes:
 1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`.
-1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`, [page layout version](page-layout.md) 1.1.0 and above.
+1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`. [Page layout version](page-layout.md) 1.1.0 and above.
 
 ## Cryptographic keys
 
