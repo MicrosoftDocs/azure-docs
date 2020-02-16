@@ -55,6 +55,7 @@ The **ClaimType** element contains the following elements:
 | Restriction | 0:1 | The value restrictions for this claim, such as a regular expression (Regex) or a list of acceptable values. The value can be [localized](localization.md). |
 PredicateValidationReference| 0:1 | A reference to a **PredicateValidationsInput** element. The **PredicateValidationReference** elements enable you to perform a validation process to ensure that only properly formed data is entered. For more information, see [Predicates](predicates.md). |
 
+### DataType
 
 The **DataType** element supports the following values:
 
@@ -168,7 +169,7 @@ The **Restriction** element contains the following elements:
 | Enumeration | 1:n | The available options in the user interface for the user to select for a claim, such as a value in a dropdown. |
 | Pattern | 1:1 | The regular expression to use. |
 
-### Enumeration
+#### Enumeration
 
 The **Enumeration** element contains the following attributes:
 
@@ -227,25 +228,26 @@ The Identity Experience Framework renders the email address claim with email for
 
 ![TextBox showing error message triggered by regex restriction](./media/claimsschema/pattern.png)
 
-## UserInputType
+### UserInputType
 
 Azure AD B2C supports a variety of user input types, such as a textbox, password, and dropdown list that can be used when manually entering claim data for the claim type. You must specify the **UserInputType** when you collect information from the user by using a [self-asserted technical profile](self-asserted-technical-profile.md) and [display controls](display-controls.md).
 
 The **UserInputType** element available user input types:
+
 | UserInputType | Supported ClaimType | Description |
 | --------- | -------- | ----------- |
 |CheckboxMultiSelect| `string` |Multi select drop-down box. The claim value is represented in a comma delimiter string of the selected values. |
 |DateTimeDropdown | `date`, `dateTime` |Drop-downs to select a day, month, and year. |
 |DropdownSingleSelect |`string` |Single select drop-down box. The claim value is the selected value.|
 |EmailBox | `string` |Email input field. |
-|Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`,  `stringCollection`|A field that shows text only in a paragraph tag. |
+|Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|A field that shows text only in a paragraph tag. |
 |Password | `string` |Password text box.|
 |RadioSingleSelect |`string` | Collection of radio buttons. The claim value is the selected value.|
-|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`,  `stringCollection`| Read only text box. |
+|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Read only text box. |
 |TextBox |`boolean`, `int`, `string` |Single-line text box. |
 
 
-### TextBox
+#### TextBox
 
 The **TextBox** user input type is used to provide a single-line text box.
 
@@ -260,7 +262,7 @@ The **TextBox** user input type is used to provide a single-line text box.
 </ClaimType>
 ```
 
-### EmailBox
+#### EmailBox
 
 The **EmailBox** user input type is used to provide a basic email input field.
 
@@ -278,7 +280,7 @@ The **EmailBox** user input type is used to provide a basic email input field.
 </ClaimType>
 ```
 
-### Password
+#### Password
 
 The **Password** user input type is used to record a password entered by the user.
 
@@ -293,7 +295,7 @@ The **Password** user input type is used to record a password entered by the use
 </ClaimType>
 ```
 
-### DateTimeDropdown
+#### DateTimeDropdown
 
 The **DateTimeDropdown** user input type is used to provide a set of drop-downs to select a day, month, and year. You can use Predicates and PredicateValidations elements to control the minimum and maximum date values. For more information, see the **Configure a date range** section of [Predicates and PredicateValidations](predicates.md).
 
@@ -308,7 +310,7 @@ The **DateTimeDropdown** user input type is used to provide a set of drop-downs 
 </ClaimType>
 ```
 
-### RadioSingleSelect
+#### RadioSingleSelect
 
 The **RadioSingleSelect** user input type is used to provide a collection of radio buttons that allows the user to select one option.
 
@@ -327,7 +329,7 @@ The **RadioSingleSelect** user input type is used to provide a collection of rad
 </ClaimType>
 ```
 
-### DropdownSingleSelect
+#### DropdownSingleSelect
 
 The **DropdownSingleSelect** user input type is used to provide a drop-down box that allows the user to select one option.
 
@@ -346,7 +348,7 @@ The **DropdownSingleSelect** user input type is used to provide a drop-down box 
 </ClaimType>
 ```
 
-### CheckboxMultiSelect
+#### CheckboxMultiSelect
 
 The **CheckboxMultiSelect** user input type is used to provide a collection of checkboxes that allows the user to select multiple options.
 
@@ -365,7 +367,7 @@ The **CheckboxMultiSelect** user input type is used to provide a collection of c
 </ClaimType>
 ```
 
-### Readonly
+#### Readonly
 
 The **Readonly** user input type is used to provide a readonly field to display the claim and value.
 
@@ -381,7 +383,7 @@ The **Readonly** user input type is used to provide a readonly field to display 
 ```
 
 
-### Paragraph
+#### Paragraph
 
 The **Paragraph** user input type is used to provide a field that shows text only in a paragraph tag.  For example, &lt;p&gt;text&lt;/p&gt;. A **Paragraph** user input type `OutputClaim` of self-asserted technical profile, must set the `Required` attribute `false` (default).
 
