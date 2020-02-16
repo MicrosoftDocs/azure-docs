@@ -41,7 +41,10 @@ Create a resource group with [New-AzResourceGroup](https://docs.microsoft.com/po
 The following example creates a resource group named **myResourceGroupNAT** in the **eastus2** location:
 
 ```azurepowershell-interactive
-  New-AzResourceGroup -Name myResourceGroupNAT -Location eastus2
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  
+  New-AzResourceGroup -Name $rsg -Location $loc
 ```
 
 ## Create the NAT gateway
@@ -60,7 +63,13 @@ We'll add a public IP address and a public IP prefix to this scenario to demonst
 To access the Internet, you need one or more public IP addresses for the NAT gateway. Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) to create a public IP address resource named **myPublicIP** in **myResourceGroupNAT**. The result of this command will be stored in a variable **$publicIP** for later use.
 
 ```azurepowershell-interactive
-  $publicIP = New-AzPublicIpAddress -Name myPublicIP -ResourceGroupName myResourceGroupNAT -AllocationMethod Static -Location eastus2 -Sku Standard
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  $sku = 'Standard'
+  $name = 'myPublicIP'
+  
+  $publicIP = 
+  New-AzPublicIpAddress -Name $name -ResourceGroupName $rsg -AllocationMethod Static -Location $loc -Sku $sku
 ```
 
 ### Create a public IP prefix
@@ -68,7 +77,12 @@ To access the Internet, you need one or more public IP addresses for the NAT gat
  Use [New-AzPublicIpPrefix](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipprefix?view=latest) to create a public IP prefix resource named **myPublicIPprefix** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIPPrefix** for later use.
 
 ```azurepowershell-interactive
-  $publicIPPrefix = New-AzPublicIpPrefix -Name myPublicIPprefix -ResourceGroupName myResourceGroupNAT -Location eastus2 -PrefixLength 31
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  $name = 'myPublicIPprefix'
+
+  $publicIPPrefix = 
+  New-AzPublicIpPrefix -Name $name -ResourceGroupName $rsg -Location $loc -PrefixLength 31
 ```
 
 ### Create a NAT gateway resource
@@ -80,7 +94,13 @@ This section details how you can create and configure the following components o
 Create a global Azure NAT gateway with [New-AzNatGateway](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway). The result of this command will create a gateway resource named **myNATgateway** that uses the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix**. The idle timeout is set to 10 minutes.  The result of this command will be stored in a variable named **$natGateway** for later use.
 
 ```azurepowershell-interactive
-  $natGateway = New-AzNatGateway -Name myNATgateway -ResourceGroupName myResourceGroupNAT -PublicIpAddress $publicIP -PublicIpPrefix $publicIPPrefix -Location eastus2 -Sku Standard -IdleTimeoutInMinutes 10
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  $sku = 'Standard'
+  $name = 'myNATgateway'
+
+  $natGateway = 
+  New-AzNatGateway -Name $name -ResourceGroupName $rsg -PublicIpAddress $publicIP -PublicIpPrefix $publicIPPrefix -Location $loc -Sku $sku -IdleTimeoutInMinutes 10
   ```
 
 At this point, the NAT gateway is functional and all that is missing is to configure which subnets of a virtual network should use it.
@@ -89,12 +109,21 @@ At this point, the NAT gateway is functional and all that is missing is to confi
 
 Create the virtual network and associate the subnet to the gateway.
 
-Create a virtual network named **myVnet** with a subnet named **mySubnet** using [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) in the **myResourceGroup** using [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.  The result of the commands will be stored in variables named **$subnet** and **$virtualnetwork** for later use.
+Create a virtual network named **myVnet** with a subnet named **mySubnet** using [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) in the **myResourceGroup** using [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.  The result of the commands will be stored in variables named **$subnet** and **$vnet** for later use.
 
 ```azurepowershell-interactive
-  $subnet = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix "192.168.0.0/24" -NatGateway $natGateway
+  $sbnm = 'mySubnet'
+  $vnnm = 'myVnet'
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  $pfxsub = '192.168.0.0/24'
+  $pfxvn = '192.168.0.0/16'
 
-  $virtualnetwork = New-AzVirtualNetwork -Name myVnet -ResourceGroupName myResourceGroupNAT -Location eastus2 -AddressPrefix "192.168.0.0/16" -Subnet $subnet
+  $subnet = 
+  New-AzVirtualNetworkSubnetConfig -Name $sbnm -AddressPrefix $pfxsub -NatGateway $natGateway
+
+  $vnet = 
+  New-AzVirtualNetwork -Name $vnnm -ResourceGroupName $rsg -Location $loc -AddressPrefix $pfxvn -Subnet $subnet
 ```
 
 All outbound traffic to Internet destinations is now using the NAT service.  It isn't necessary to configure a UDR.
@@ -126,7 +155,7 @@ Standard public IP addresses are 'secure by default', we need to create an NSG t
 Create a network interface with [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0) named **myNic**. This command associates the Public IP address and the network security group. The result of this command will be stored in a variable named **$nic** for later use.
 
 ```azurepowershell-interactive
-  $nic = New-AzNetworkInterface -ResourceGroupName myResourceGroupNAT -Name myNic -NetworkSecurityGroupID $nsg.Id -PublicIPAddressID $publicIPVM.Id -SubnetID $virtualnetwork.Subnets[0].Id -Location eastus2
+  $nic = New-AzNetworkInterface -ResourceGroupName myResourceGroupNAT -Name myNic -NetworkSecurityGroupID $nsg.Id -PublicIPAddressID $publicIPVM.Id -SubnetID $vnet.Subnets[0].Id -Location eastus2
 ```
 
 ### Create VM
