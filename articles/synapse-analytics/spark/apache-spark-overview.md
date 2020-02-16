@@ -13,11 +13,7 @@ ms.reviewer: euang
 
 # What is Apache Spark in Azure Synapse Analytics?
 
-<<<<<<< HEAD
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure a Spark pool in Azure. Spark pools in Azure Synapse are compatible with Azure Storage and Azure Data Lake Generation 2 Storage. So you can use Azure Synapse Spark pools to process your data stored in Azure.
-=======
-Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark in Azure Synapse Analytics is one of Microsoft's implementations of Spark in the cloud. Azure Synapse Analytics makes it easy to create and configure a Spark pool in Azure. Spark pools in Synapse Analytics are compatible with Azure Storage and Azure Data Lake Generation 2 Storage, so you can use Synapse Analytics Spark pools to process your data stored in Azure.
->>>>>>> 876cdd15297bffaddba0d4f268f5dbcb048bb6b8
 
 ![Spark: a unified framework](./media/apache-spark-overview/spark-overview.png)
 
@@ -27,11 +23,7 @@ Apache Spark provides primitives for in-memory cluster computing. A Spark job ca
 
 ![Traditional MapReduce vs. Spark](./media/apache-spark-overview/map-reduce-vs-spark.png)
 
-<<<<<<< HEAD
 Spark pools in Azure Synapse offer a fully managed Spark service. The benefits of creating a Spark pool in Synapse Analytics are listed here.
-=======
-Spark pools in Synapse Analytics offer a fully managed Spark service. The benefits of creating a Spark pool in Synapse Analytics are listed in the table below.
->>>>>>> 876cdd15297bffaddba0d4f268f5dbcb048bb6b8
 
 | Feature | Description |
 | --- | --- |
@@ -44,11 +36,7 @@ Spark pools in Synapse Analytics offer a fully managed Spark service. The benefi
 | Pre-loaded Anaconda libraries |Spark pools in Azure Synapse come with Anaconda libraries pre-installed. [Anaconda](https://docs.continuum.io/anaconda/) provides close to 200 libraries for machine learning, data analysis, visualization, etc. |
 | Scalability | Apache Spark in Azure Synapse pools can have Auto-Scale enabled, so that pools scale up and down as needed. Also, Spark pools can be shut down with no loss of data since all the data is stored in Azure Storage or Data Lake Storage. |
 
-<<<<<<< HEAD
 Apache Spark pools in Azure Synapse include the following components that are available on the pools by default.
-=======
-Apache Spark pools in Synapse Analytics include the following components that are available on the pools by default:
->>>>>>> 876cdd15297bffaddba0d4f268f5dbcb048bb6b8
 
 * [Spark Core](https://spark.apache.org/docs/latest/). Includes Spark Core, Spark SQL, Spark streaming APIs, GraphX, and MLlib.
 * [Anaconda](https://docs.continuum.io/anaconda/)
