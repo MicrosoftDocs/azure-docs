@@ -1,6 +1,6 @@
 ---
-title: "Create, view and manage Metric Alerts Using Azure Monitor"
-description: Learn how to use Azure portal or CLI to create, view and manage metric alert rules.
+title: "Create, view, and manage Metric Alerts Using Azure Monitor"
+description: Learn how to use Azure portal or CLI to create, view, and manage metric alert rules.
 author: harelbr
 ms.service: azure-monitor
 ms.topic: conceptual
@@ -69,7 +69,7 @@ You can view and manage metric alert rules using the Manage Rules blade under Al
 
 2. Click on **Alerts** and **Manage rules**
 
-3. In the **Manage rules** blade, you can view all your alert rules across subscriptions. You can further filter the rules using  **Resource group**,  **Resource type** and **Resource**. If you want to see only metric alerts, select **Signal type** as Metrics.
+3. In the **Manage rules** blade, you can view all your alert rules across subscriptions. You can further filter the rules using  **Resource group**, **Resource type**, and **Resource**. If you want to see only metric alerts, select **Signal type** as Metrics.
 
     > [!TIP]
     > In the **Manage rules** blade, you can select multiple alert rules and enable/disable them. This might be useful when certain target resources need to be put under maintenance
@@ -85,9 +85,9 @@ You can view and manage metric alert rules using the Manage Rules blade under Al
 
 ## With Azure CLI
 
-The previous sections described how to create, view, and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). For this article, we will use Cloud shell.
+The previous sections described how to create, view, and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). For this article, we will use Cloud Shell.
 
-1. Go to Azure portal, click on **Cloud shell**.
+1. Go to Azure portal, click on **Cloud Shell**.
 
 2. At the prompt, you can use commands with ``--help`` option to learn more about the command and how to use it. For example, the following command shows you the list of commands available for creating, viewing, and managing metric alerts
 
