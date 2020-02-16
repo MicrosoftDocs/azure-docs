@@ -155,6 +155,7 @@ Connect to the VM *myVm* from the internet as follows:
     Non-authoritative answer:
     Name:    mydemoserver.privatelink.mariadb.database.azure.com
     Address:  10.1.3.4
+    ```
 
 3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
 
