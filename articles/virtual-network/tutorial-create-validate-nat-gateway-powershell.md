@@ -40,7 +40,10 @@ The following example creates a resource group named **myResourceGroupNAT** in t
 
 
 ```azurepowershell-interactive
-  New-AzResourceGroup -Name myResourceGroupNAT -Location eastus2
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+
+  New-AzResourceGroup -Name $rsg -Location $loc
 ```
 
 ## Create the NAT gateway
@@ -50,7 +53,14 @@ The following example creates a resource group named **myResourceGroupNAT** in t
 To access the Internet, you need one or more public IP addresses for the NAT gateway. Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) to create a public IP address resource named **myPublicIPsource** in **myResourceGroupNAT**. The result of this command will be stored in a variable named **$publicIP** for later use.
 
 ```azurepowershell-interactive
-  $publicIPsource = New-AzPublicIpAddress -Name myPublicIPsource -ResourceGroupName myResourceGroupNAT -AllocationMethod Static -Location eastus2 -Sku Standard
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  $pips = 'myPublicIPsource'
+  $alm = 'Static'
+  $sku = 'Standard'
+
+  $publicIPsource = 
+  New-AzPublicIpAddress -Name $pips -ResourceGroupName $rsg -AllocationMethod $alm -Location $loc -Sku $sku
 ```
 
 ### Create a public IP prefix
