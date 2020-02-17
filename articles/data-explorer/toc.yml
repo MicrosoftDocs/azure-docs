@@ -35,7 +35,7 @@
     - name: Kusto Query Language
     items:
       - name: Quick reference guide
-        href: quick-reference-guide.md
+        href: kql-quick-reference.md
   - name: Data visualization overview
     href: viz-overview.md
   - name: Security overview
