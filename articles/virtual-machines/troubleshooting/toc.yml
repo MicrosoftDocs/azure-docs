@@ -48,14 +48,22 @@
   items:
   - name: Start/Stop VMs using Azure Automation
     href: ../../automation/troubleshoot/start-stop-vm.md
+  - name: Restarting or resizing a VM
+    href: restart-resize-error-troubleshooting.md
+  - name: Allocation failures for classic deployments
+    href: allocation-failure-classic.md
+  - name: VM startup is stuck
+    href: troubleshoot-vm-boot-configure-update.md
+  - name: VM lifecycle and states
+    href: ../windows/states-lifecycle.md
 - name: VM is not booting
   items:
-  - name: Boot errors Linux
+  - name: Linux
     href: boot-error-troubleshoot-linux.md
     items:
     - name: Grub Rescue
       href: troubleshoot-vm-boot-error.md
-  - name: Boot errors Windows
+  - name: Windows
     href: boot-error-troubleshoot.md
     items:
     - name: Boot diagnostics
@@ -161,6 +169,10 @@
       href: troubleshoot-device-names-problems.md
 - name: Virtual Disk Management issues
   items:
+  - name: Overview
+    href: ../windows/managed-disks-overview.md
+  - name: FAQ
+    href: ../windows/faq-for-disks.md
   - name: Errors when deleting storage resources
     href: storage-resource-deletion-errors.md
   - name: Errors when deleting classic storage resources
