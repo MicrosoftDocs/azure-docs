@@ -330,16 +330,27 @@ Define the SSH credentials, OS information, and VM size. In this example, the SS
 ```azurepowershell-interactive
 # Define a credential object
 
-$securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
+$securePassword = 
+ConvertTo-SecureString ' ' -AsPlainText -Force
+$cred = 
+New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
 # Create a virtual machine configuration
 
-$vmConfigdestination = New-AzVMConfig -VMName "myVMdestination" -VMSize "Standard_D1"
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+$vmd = 'myVMdestination'
+$vms = 'Standard_D1'
+$pub = 'Canonical'
+$off = 'UbuntuServer'
+$skus = '18.04-LTS'
+$ver = 'latest'
 
-Set-AzVMOperatingSystem -VM $vmConfigdestination -Linux -ComputerName "myVMdestination" -Credential $cred -DisablePasswordAuthentication
+$vmConfigdestination = New-AzVMConfig -VMName $vmd -VMSize $vms
 
-Set-AzVMSourceImage -VM $vmConfigdestination -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "18.04-LTS" -Version "latest"
+Set-AzVMOperatingSystem -VM $vmConfigdestination -Linux -ComputerName $vmd -Credential $cred -DisablePasswordAuthentication
+
+Set-AzVMSourceImage -VM $vmConfigdestination -PublisherName $pub -Offer $off -Skus $skus -Version $ver
 
 Add-AzVMNetworkInterface -VM $vmConfigdestination -Id $nicdestination.Id
 
@@ -353,7 +364,10 @@ Add-AzVMSshPublicKey -VM $vmConfigdestination -KeyData $sshPublicKey -Path "/hom
 Combine the configuration definitions to create a VM named **myVMdestination** with [New-AzVM]((https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-2.8.0)) in **myResourceGroupNAT**.
 
 ```azurepowershell-interactive
-New-AzVM -ResourceGroupName myResourceGroupNAT -Location eastus2 -VM $vmConfigdestination
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+
+New-AzVM -ResourceGroupName $rsg -Location $loc -VM $vmConfigdestination
 ```
 
 While the command will return immediately, it may take a few minutes for the VM to get deployed.
@@ -363,7 +377,10 @@ While the command will return immediately, it may take a few minutes for the VM 
 First we need to discover the IP address of the destination VM.  To get the public IP address of the VM, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest). 
 
 ```azurepowershell-interactive
-  Get-AzPublicIpAddress -ResourceGroupName myResourceGroupNAT -Name myPublicIPdestinationVM | select IpAddress
+  $rsg = 'myResourceGroupNAT'
+  $pipn = 'myPublicIPdestinationVM'
+  
+  Get-AzPublicIpAddress -ResourceGroupName $rsg -Name $pipn | select IpAddress
 ``` 
 
 >[!IMPORTANT]
@@ -401,7 +418,10 @@ Close the SSH session with the destination VM.
 First we need to discover the IP address of the source VM.  To get the public IP address of the VM, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest). 
 
 ```azurepowershell-interactive
-  Get-AzPublicIpAddress -ResourceGroupName myResourceGroupNAT -Name myPublicIPsourceVM | select IpAddress
+  $rsg = 'myResourceGroupNAT'
+  $pipn = 'myPublicIPsourceVM'
+
+  Get-AzPublicIpAddress -ResourceGroupName $rsg -Name $pipn | select IpAddress
 ``` 
 
 >[!IMPORTANT]
