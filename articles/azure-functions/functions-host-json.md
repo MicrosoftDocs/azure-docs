@@ -64,11 +64,11 @@ The following sample *host.json* file for version 2.x+ has all possible options 
               "isEnabled": true,
               "maxTelemetryItemsPerSecond" : 20,
               "evaluationInterval": "01:00:00",
-              "initialSamplingPercentage": 1.0, 
+              "initialSamplingPercentage": 100.0, 
               "samplingPercentageIncreaseTimeout" : "00:00:01",
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
-              "maxSamplingPercentage": 0.1,
+              "maxSamplingPercentage": 100.0,
               "movingAverageRatio": 1.0,
               "excludedTypes" : "Dependency;Event",
               "includedTypes" : "PageView;Trace"
