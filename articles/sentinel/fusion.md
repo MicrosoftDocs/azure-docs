@@ -3,8 +3,7 @@ title: Advanced multistage attack detection in Azure Sentinel
 description: Use Fusion technology in Azure Sentinel to reduce alert fatigue and create actionable incidents that are based on advanced multistage attack detection.
 services: sentinel
 documentationcenter: na
-author: cabailey
-manager: rkarlin
+author: rkarlin
 
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -12,8 +11,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/24/2019
-ms.author: cabailey
+ms.date: 02/12/2020
+ms.author: rkarlin
 
 ---
 # Advanced multistage attack detection in Azure Sentinel
@@ -21,8 +20,6 @@ ms.author: cabailey
 By using Fusion technology that’s based on machine learning, Azure Sentinel can automatically detect multistage attacks by combining anomalous behaviors and suspicious activities that are observed at various stages of the kill-chain. Azure Sentinel then generates incidents that would otherwise be very difficult to catch. These incidents encase two or more alerts or activities. By design, these incidents are low volume, high fidelity, and high severity.
 
 Customized for your environment, this detection not only reduces false positive rates but can also detect attacks with limited or missing information.
-
-For details about the alerts for the scenarios supported, see the [Scenarios supported for multistage attack detection](#scenarios-supported-for-advanced-multistage-attack-detection) section on this page.
 
 ## Configuration for advanced multistage attack detection
 
@@ -40,7 +37,17 @@ This detection is enabled by default in Azure Sentinel. To check the status, or 
 
 Rule templates are not applicable for the advanced multistage attack detection.
 
-## Scenarios supported for advanced multistage attack detection
+## Fusion using Palo Alto Networks and Microsoft Defender ATP
+
+- Network request to TOR anonymization service followed by anomalous traffic flagged by Palo Alto Networks firewall​
+
+- PowerShell made a suspicious network connection followed by anomalous traffic flagged by Palo Alto Networks firewall​
+
+- Outbound connection to IP with a history of unauthorized access attempts followed by anomalous traffic flagged by Palo Alto Networks firewall​
+
+
+
+## Fusion using Identity Protection and Microsoft Cloud App Security
 
 Using advanced multistage attack detection, Azure Sentinel supports the following scenarios that combine anomaly events from Azure Active Directory Identity Protection and Microsoft Cloud App Security:
 
