@@ -2,7 +2,7 @@
 title: Common questions about the Azure Migrate appliance
 description: Get answers to common questions about the Azure Migrate appliance
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/17/2020
 ---
 
 # Azure Migrate appliance: Common questions
@@ -73,7 +73,7 @@ Yes, for both.
 1. The appliance connects to vCenter Server (port 443), using the credentials you provided when you set up the appliance.
 2. The appliance uses VMware PowerCLI to query vCenter Server, to collect metadata about the VMs managed by vCenter Server.
 3. The appliance collects configuration data about VMs (cores, memory, disks, NICs) and the performance history of each VM for the past month.
-4. The collected metadata is ent to Azure Migrate: Server Assessment (over the internet via HTTPS) for assessment.
+4. The collected metadata is sent to Azure Migrate: Server Assessment (over the internet via HTTPS) for assessment.
 
 ## Can I connect the appliance to multiple vCenter Servers?
 

@@ -1,24 +1,29 @@
 ---
 title: Common questions about Azure Migrate Server Migration
-description: Get answers to common questions about Azure Migrate Server Migration
+description: Get answers to common questions about migrating machines with Azure Migrate Server Migration
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 02/17/2020
 ---
 
 # Azure Migrate Server Migration: Common questions
 
-This article answers common questions about the Azure Migrate: Server Migration. If you have further queries after reading this article, post them on the [Azure Migrate forum](https://aka.ms/AzureMigrateForum). If you have other questions, review these articles:
+This article answers common questions about the Azure Migrate:Server Migration. If you have further queries after reading this article, review these articles:
 
 - [General questions](resources-faq.md) about Azure Migrate.
 - [Questions](common-questions-appliance.md) about the Azure Migrate appliance.
 - [Questions](common-questions-discovery-assessment.md) about the discovery, assessment, and dependency visualization.
+- Post quesitons on the Azure Migrate forum](https://aka.ms/AzureMigrateForum).
 
 
 ## How does agentless VMware replication work?
 
-The agentless replication method for VMware uses VMware snapshots, and VMware changed block tracking (CBT). An initial replication cycle is scheduled when the user starts replication. In the initial replication cycle, a snapshot of the VM is taken, and this snapshot is used to replicate the VMs VMDKs (disks). 
-After the initial replication cycle is completed, delta replication cycles are scheduled periodically. In the delta replication cycle, a snapshot is taken, and data blocks that have changed since the previous replication cycle are replicated. VMware changed block tracking is used to determine blocks that have changed since the last cycle.
-The frequency of the periodic replication cycles is automatically managed by the service depending on how many other VMs/disks are concurrently replicating off the same datastore and in ideal conditions will eventually converge to 1 cycle per hour per VM.
+The agentless replication method for VMware uses VMware snapshots, and VMware changed block tracking (CBT).
+
+1. An initial replication cycle is scheduled when the user starts replication. In the initial replication cycle, a snapshot of the VM is taken, and this snapshot is used to replicate the VMs VMDKs (disks). 
+2. After the initial replication cycle is completed, delta replication cycles are scheduled periodically.
+    - In the delta replication cycle, a snapshot is taken, and data blocks that have changed since the previous replication cycle are replicated.
+    - VMware change block tracking is used to determine blocks that have changed since the last cycle.
+    - The frequency of the periodic replication cycles is automatically managed by the service depending on how many other VMs/disks are concurrently replicating off the same datastore. In ideal conditions it will eventually converge to 1 cycle per hour per VM.
 
 When you migrate, an on-demand replication cycle is scheduled for the VM to capture any remaining data. You can choose to Shut down the VM as part of the migration to ensure zero data loss and application consistency.
 

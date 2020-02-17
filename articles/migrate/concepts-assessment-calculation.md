@@ -2,7 +2,7 @@
 title: Assessments in Azure Migrate 
 description: Learn about assessments in Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 02/17/2020
 ---
 
 # About assessments in Azure Migrate
