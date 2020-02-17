@@ -13,7 +13,7 @@ ms.author: raynew
 
 This article provides an overview of the architecture and processes used for agent-based replication of VMware VMs with the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool.
 
-Using Azure Migrate:Server Migration, you can replicate VMware VMs with a couple of options:
+Using Azure Migrate: Server Migration, you can replicate VMware VMs with a couple of options:
 
 - Migrate VMs using agent-based replication, as described in this article.
 - Migrate VMware VMs using agentless replication. This migrates VMs without needing to install anything on them.
