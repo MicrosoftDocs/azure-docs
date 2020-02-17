@@ -200,16 +200,25 @@ Define the SSH credentials, OS information, and VM size. In this example, the SS
 ```azurepowershell-interactive
 # Define a credential object
 
-$securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
+$securePassword = 
+ConvertTo-SecureString ' ' -AsPlainText -Force
+$cred = 
+New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
 # Create a virtual machine configuration
+$vmn = 'myVMsource'
+$vms = 'Standard_D1'
+$pub = 'Canonical'
+$off = 'UbuntuServer'
+$skus = '18.04-LTS'
+$ver = 'latest'
 
-$vmConfigsource = New-AzVMConfig -VMName "myVMsource" -VMSize "Standard_D1"
+$vmConfigsource = 
+New-AzVMConfig -VMName $vmn -VMSize $vms
 
-Set-AzVMOperatingSystem -VM $vmConfigsource -Linux -ComputerName "myVMsource" -Credential $cred -DisablePasswordAuthentication
+Set-AzVMOperatingSystem -VM $vmConfigsource -Linux -ComputerName $vmn -Credential $cred -DisablePasswordAuthentication
 
-Set-AzVMSourceImage -VM $vmConfigsource -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "18.04-LTS" -Version "latest"
+Set-AzVMSourceImage -VM $vmConfigsource -PublisherName $pub -Offer $off -Skus $skus -Version $ver
 
 Add-AzVMNetworkInterface -VM $vmConfigsource -Id $nicsource.Id
 
@@ -223,7 +232,10 @@ Add-AzVMSshPublicKey -VM $vmConfigsource -KeyData $sshPublicKey -Path "/home/azu
 Combine the configuration definitions to create a VM named **myVMsource** with [New-AzVM]((https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-2.8.0)) in **myResourceGroupNAT**.
 
 ```azurepowershell-interactive
-New-AzVM -ResourceGroupName myResourceGroupNAT -Location eastus2 -VM $vmConfigsource
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+
+New-AzVM -ResourceGroupName $rsg -Location $loc -VM $vmConfigsource
 ```
 
 While the command will return immediately, it may take a few minutes for the VM to get deployed.
