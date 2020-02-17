@@ -158,13 +158,13 @@ Subscriptions must be registered to allow participation in the Public Preview.  
 1. register subscription for Public Preview
 
     ```azurepowershell-interactive
-      Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowNatGateway
+      Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowNatGateway
     ```
 
 2. activate registration
 
     ```azurepowershell-interactive
-      Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+      Register-AzProviderFeature -ProviderNamespace Microsoft.Network
     ```
 
 ## Pricing
