@@ -25,7 +25,7 @@ In this tutorial, you'll create a NAT gateway to provide outbound connectivity f
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can complete this tutorial using Azure cloud shell or run the respective commands locally.  If you have never used Azure cloud shell, you should [sign in now](https://shell.azure.com).
+You can complete this tutorial using Azure Cloud Shell or run the respective commands locally.  If you have never used Azure Cloud Shell, you should [sign in now](https://shell.azure.com).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -147,20 +147,20 @@ New-AzPublicIpAddress -Name $pipvm -ResourceGroupName $rsg -AllocationMethod $al
 Because Standard Public IP addresses are 'secure by default', we create an NSG to allow inbound access for ssh. NAT service is flow direction aware. This NSG won't be used for outbound once NAT gateway is configured on the same subnet. Use [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=latest) to create an NSG resource named **myNSGsource**. Use [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create an NSG rule for SSH access named **ssh** in **myResourceGroupNAT**. The result of this command will be stored in variable named **$nsgsource** for later use.
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $loc = 'eastus2'
-  $rnm = 'ssh'
-  $rdsc = 'SSH access'
-  $acc = 'Allow'
-  $prt = 'Tcp'
-  $dir = 'Inbound'
-  $nsnm = 'myNSGsource'
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+$rnm = 'ssh'
+$rdsc = 'SSH access'
+$acc = 'Allow'
+$prt = 'Tcp'
+$dir = 'Inbound'
+$nsnm = 'myNSGsource'
 
-  $sshrule = 
-  New-AzNetworkSecurityRuleConfig -Name $rnm -Description $rdsc -Access $acc -Protocol $prt -Direction $dir -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
+$sshrule = 
+New-AzNetworkSecurityRuleConfig -Name $rnm -Description $rdsc -Access $acc -Protocol $prt -Direction $dir -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
 
-  $nsgsource = 
-  New-AzNetworkSecurityGroup -ResourceGroupName $rsg -Name $nsnm -Location $loc -SecurityRules $sshrule 
+$nsgsource = 
+New-AzNetworkSecurityGroup -ResourceGroupName $rsg -Name $nsnm -Location $loc -SecurityRules $sshrule 
 ```
 
 ### Create NIC for source VM
@@ -168,12 +168,12 @@ Because Standard Public IP addresses are 'secure by default', we create an NSG t
 Create a network interface with [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0) named **myNicsource**. This command will associate the Public IP address and the network security group. The result of this command will be stored in a variable named **$nicsource** for later use.
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $loc = 'eastus2'
-  $nin = 'myNicsource'
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+$nin = 'myNicsource'
 
-  $nicsource = 
-  New-AzNetworkInterface -ResourceGroupName $rsg -Name $nin -NetworkSecurityGroupID $nsgsource.Id -PublicIPAddressID $publicIPVMsource.Id -SubnetID $vnetsource.Subnets[0].Id -Location $loc
+$nicsource = 
+New-AzNetworkInterface -ResourceGroupName $rsg -Name $nin -NetworkSecurityGroupID $nsgsource.Id -PublicIPAddressID $publicIPVMsource.Id -SubnetID $vnetsource.Subnets[0].Id -Location $loc
 ```
 
 ### Create a source VM
@@ -251,18 +251,18 @@ We need to create a virtual network where the destination virtual machine will b
 Create a virtual network named **myVnetdestination** with a subnet named **mySubnetdestination** using [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) in the **myResourceGroupNAT** using [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.  The result of the commands will be stored in variables named **$subnetdestination** and **$vnetdestination** for later use.
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $loc = 'eastus2'
-  $sbdn = 'mySubnetdestination'
-  $spfx = '192.168.0.0/24'
-  $vdn = 'myVnetdestination'
-  $vpfx = '192.168.0.0/16'
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+$sbdn = 'mySubnetdestination'
+$spfx = '192.168.0.0/24'
+$vdn = 'myVnetdestination'
+$vpfx = '192.168.0.0/16'
 
-  $subnetdestination = 
-  New-AzVirtualNetworkSubnetConfig -Name $sbdn -AddressPrefix $spfx
+$subnetdestination = 
+New-AzVirtualNetworkSubnetConfig -Name $sbdn -AddressPrefix $spfx
 
-  $vnetdestination = 
-  New-AzVirtualNetwork -Name $vdn -ResourceGroupName $rsg -Location $loc -AddressPrefix $vpfx -Subnet $subnetdestination
+$vnetdestination = 
+New-AzVirtualNetwork -Name $vdn -ResourceGroupName $rsg -Location $loc -AddressPrefix $vpfx -Subnet $subnetdestination
 ```
 
 ### Create public IP for destination VM
@@ -270,14 +270,14 @@ Create a virtual network named **myVnetdestination** with a subnet named **mySub
 We create a public IP to be used to access the source VM.  Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) to create a public IP address resource named **myPublicIPdestinationVM** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIpdestinationVM** for later use.
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $loc = 'eastus2'
-  $sku = 'Standard'
-  $all = 'Static'
-  $pipd = 'myPublicIPdestinationVM'
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+$sku = 'Standard'
+$all = 'Static'
+$pipd = 'myPublicIPdestinationVM'
 
-  $publicIpdestinationVM = 
-  New-AzPublicIpAddress -Name $pipd -ResourceGroupName $rsg -AllocationMethod $all -Location $loc -Sku $sku
+$publicIpdestinationVM = 
+New-AzPublicIpAddress -Name $pipd -ResourceGroupName $rsg -AllocationMethod $all -Location $loc -Sku $sku
 ```
 
 ### Create an NSG and expose SSH and HTTP endpoint for VM
@@ -285,25 +285,25 @@ We create a public IP to be used to access the source VM.  Use [New-AzPublicIpAd
 Standard Public IP addresses are 'secure by default', we create an NSG to allow inbound access for ssh. Use [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=latest) to create an NSG resource named **myNSGdestination**. Use [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create an NSG rule for SSH access named **ssh**.  Use [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create an NSG rule for HTTP access named **http**. Both rules will be created in **myResourceGroupNAT**. The result of this command will be stored in a variable named **$nsgdestination** for later use.
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $loc = 'eastus2'
-  $snm = 'ssh'
-  $sdsc = 'SSH access'
-  $acc = 'Allow'
-  $prt = 'Tcp'
-  $dir = 'Inbound'
-  $hnm = 'http'
-  $hdsc = 'HTTP access'
-  $nsnm = 'myNSGdestination'
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+$snm = 'ssh'
+$sdsc = 'SSH access'
+$acc = 'Allow'
+$prt = 'Tcp'
+$dir = 'Inbound'
+$hnm = 'http'
+$hdsc = 'HTTP access'
+$nsnm = 'myNSGdestination'
 
-  $sshrule = 
-  New-AzNetworkSecurityRuleConfig -Name $snm -Description $sdsc -Access $acc -Protocol $prt -Direction $dir -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
+$sshrule = 
+New-AzNetworkSecurityRuleConfig -Name $snm -Description $sdsc -Access $acc -Protocol $prt -Direction $dir -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
 
-  $httprule = 
-  New-AzNetworkSecurityRuleConfig -Name $hnm -Description $hdsc -Access $acc -Protocol $prt -Direction $dir -Priority 101 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
+$httprule = 
+New-AzNetworkSecurityRuleConfig -Name $hnm -Description $hdsc -Access $acc -Protocol $prt -Direction $dir -Priority 101 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
 
-  $nsgdestination = 
-  New-AzNetworkSecurityGroup -ResourceGroupName $rsg -Name $nsnm -Location $loc -SecurityRules $sshrule,$httprule
+$nsgdestination = 
+New-AzNetworkSecurityGroup -ResourceGroupName $rsg -Name $nsnm -Location $loc -SecurityRules $sshrule,$httprule
 ```
 
 ### Create NIC for destination VM
@@ -311,12 +311,12 @@ Standard Public IP addresses are 'secure by default', we create an NSG to allow 
 Create a network interface with [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0) named **myNicdestination**. This command will associate with the Public IP address and the network security group. The result of this command will be stored in a variable named **$nicdestination** for later use.
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $loc = 'eastus2'
-  $nnm = 'myNicdestination'
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+$nnm = 'myNicdestination'
 
-  $nicdestination = 
-  New-AzNetworkInterface -ResourceGroupName $rsg -Name $nnm -NetworkSecurityGroupID $nsgdestination.Id -PublicIPAddressID $publicIPdestinationVM.Id -SubnetID $vnetdestination.Subnets[0].Id -Location $loc
+$nicdestination = 
+New-AzNetworkInterface -ResourceGroupName $rsg -Name $nnm -NetworkSecurityGroupID $nsgdestination.Id -PublicIPAddressID $publicIPdestinationVM.Id -SubnetID $vnetdestination.Subnets[0].Id -Location $loc
 ```
 
 ### Create a destination VM
@@ -377,10 +377,10 @@ While the command will return immediately, it may take a few minutes for the VM 
 First we need to discover the IP address of the destination VM.  To get the public IP address of the VM, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest). 
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $pipn = 'myPublicIPdestinationVM'
+$rsg = 'myResourceGroupNAT'
+$pipn = 'myPublicIPdestinationVM'
   
-  Get-AzPublicIpAddress -ResourceGroupName $rsg -Name $pipn | select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName $rsg -Name $pipn | select IpAddress
 ``` 
 
 >[!IMPORTANT]
@@ -388,7 +388,7 @@ First we need to discover the IP address of the destination VM.  To get the publ
 
 ### Sign in to destination VM
 
-The SSH credentials should be stored in your cloud shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine. 
+The SSH credentials should be stored in your Cloud Shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 
 ```bash
 ssh azureuser@<ip-address-destination>
@@ -418,10 +418,10 @@ Close the SSH session with the destination VM.
 First we need to discover the IP address of the source VM.  To get the public IP address of the VM, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest). 
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $pipn = 'myPublicIPsourceVM'
+$rsg = 'myResourceGroupNAT'
+$pipn = 'myPublicIPsourceVM'
 
-  Get-AzPublicIpAddress -ResourceGroupName $rsg -Name $pipn | select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName $rsg -Name $pipn | select IpAddress
 ``` 
 
 >[!IMPORTANT]
@@ -429,7 +429,7 @@ First we need to discover the IP address of the source VM.  To get the public IP
 
 ### Log into source VM
 
-Again, the SSH credentials are stored in cloud shell. Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. 
+Again, the SSH credentials are stored in Cloud Shell. Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 
 ```bash
 ssh azureuser@<ip-address-source>
@@ -478,7 +478,7 @@ This command will generate 100 requests, 10 concurrently, with a timeout of 30 s
 When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) command to remove the resource group and all resources contained within.
 
 ```azurepowershell-interactive 
-  Remove-AzResourceGroup -Name myResourceGroupNAT
+Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
 ## Next steps
