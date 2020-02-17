@@ -132,7 +132,14 @@ You could also create this VM without a public IP and create another VM to use a
 We create a public IP to be used to access the VM.  Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) to create a public IP address resource named **myPublicIPVM** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIpsourceVM** for later use.
 
 ```azurepowershell-interactive
-   $publicIpsourceVM = New-AzPublicIpAddress -Name myPublicIpsourceVM -ResourceGroupName myResourceGroupNAT -AllocationMethod Static -Location eastus2 -sku Standard
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  $sku = 'Standard'
+  $pipvm = 'myPublicIpsourceVM'
+  $alm = 'Static'
+
+  $publicIpsourceVM = 
+  New-AzPublicIpAddress -Name $pipvm -ResourceGroupName $rsg -AllocationMethod $alm -Location $loc -sku $sku
 ```
 
 ### Create an NSG and expose SSH endpoint for VM
@@ -140,9 +147,20 @@ We create a public IP to be used to access the VM.  Use [New-AzPublicIpAddress](
 Because Standard Public IP addresses are 'secure by default', we create an NSG to allow inbound access for ssh. NAT service is flow direction aware. This NSG won't be used for outbound once NAT gateway is configured on the same subnet. Use [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=latest) to create an NSG resource named **myNSGsource**. Use [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create an NSG rule for SSH access named **ssh** in **myResourceGroupNAT**. The result of this command will be stored in variable named **$nsgsource** for later use.
 
 ```azurepowershell-interactive
-  $sshrule = New-AzNetworkSecurityRuleConfig -Name ssh -Description "SSH access" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  $rnm = 'ssh'
+  $rdsc = 'SSH access'
+  $acc = 'Allow'
+  $prt = 'Tcp'
+  $dir = 'Inbound'
+  $nsnm = 'myNSGsource'
 
-  $nsgsource = New-AzNetworkSecurityGroup -ResourceGroupName myResourceGroupNAT -Name myNSGsource -Location eastus2 -SecurityRules $sshrule 
+  $sshrule = 
+  New-AzNetworkSecurityRuleConfig -Name $rnm -Description $rdsc -Access $acc -Protocol $prt -Direction $dir -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
+
+  $nsgsource = 
+  New-AzNetworkSecurityGroup -ResourceGroupName $rsg -Name $nsnm -Location $loc -SecurityRules $sshrule 
 ```
 
 ### Create NIC for source VM
@@ -150,7 +168,12 @@ Because Standard Public IP addresses are 'secure by default', we create an NSG t
 Create a network interface with [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0) named **myNicsource**. This command will associate the Public IP address and the network security group. The result of this command will be stored in a variable named **$nicsource** for later use.
 
 ```azurepowershell-interactive
-  $nicsource = New-AzNetworkInterface -ResourceGroupName myResourceGroupNAT -Name myNicsource -NetworkSecurityGroupID $nsgsource.Id -PublicIPAddressID $publicIPVMsource.Id -SubnetID $vnetsource.Subnets[0].Id -Location eastus2
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  $nin = 'myNicsource'
+
+  $nicsource = 
+  New-AzNetworkInterface -ResourceGroupName $rsg -Name $nin -NetworkSecurityGroupID $nsgsource.Id -PublicIPAddressID $publicIPVMsource.Id -SubnetID $vnetsource.Subnets[0].Id -Location $loc
 ```
 
 ### Create a source VM
