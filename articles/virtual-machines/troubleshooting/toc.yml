@@ -8,18 +8,8 @@
     href: troubleshoot-deploy-vm-windows.md
   - name: Linux
     href: troubleshoot-deploy-vm-linux.md
-  - name: Allocation failures
-    href: allocation-failure.md
-  - name: Allocation failures for classic deployments
-    href: allocation-failure-classic.md
   - name: Availability sets
     href: virtual-machines-availability-set-supportability.md
-- name: VM restart issues 
-  items:
-  - name: Restarting or resizing a VM
-    href: restart-resize-error-troubleshooting.md
-  - name: Restarting, Shutting Down, or Stopping services
-    href: boot-error-troubleshoot-windows.md
 - name: VM deployment guidance
   items:
   - name: New VM deployments
@@ -35,7 +25,55 @@
     - name: Windows
       href: redeploy-to-new-node-windows.md
   - name: Reset NIC
-    href: reset-network-interface.md    
+    href: reset-network-interface.md
+- name: Troubleshoot allocation failures
+  items:
+  - name: Allocation failures
+    href: allocation-failure.md
+  - name: Classic deployment model
+    href: allocation-failure-classic.md
+- name: VM restart issues
+  items:
+  - name: Restarting or resizing a VM
+    href: restart-resize-error-troubleshooting.md
+  - name: Restarting, Shutting Down, or Stopping services
+    href: boot-error-troubleshoot-windows.md
+- name: Unexpected restart
+  items:
+  - name: Unexpected reboots of VMs with attached VHDs
+    href: unexpected-reboots-attached-vhds.md
+  - name: Understand a system reboot
+    href: understand-vm-reboot.md
+- name: Cannot start or stop VM
+  items:
+  - name: Start/Stop VMs using Azure Automation
+    href: ../../automation/troubleshoot/start-stop-vm.md
+- name: VM is not booting
+  items:
+  - name: Boot errors Linux
+    href: boot-error-troubleshoot-linux.md
+    items:
+    - name: Grub Rescue
+      href: troubleshoot-vm-boot-error.md
+  - name: Boot errors Windows
+    href: boot-error-troubleshoot.md
+    items:
+    - name: Boot diagnostics
+      href: boot-diagnostics.md
+    - name: BitLocker errors
+      href: troubleshoot-bitlocker-boot-error.md
+    - name: Checking file system errors
+      href: troubleshoot-check-disk-boot-error.md
+    - name: Blue screen errors
+      href: troubleshoot-common-blue-screen-error.md
+    - name: VM startup is stuck
+      href: troubleshoot-vm-boot-configure-update.md
+    - name: Critical service failed
+      href: troubleshoot-critical-service-failed-boot-error.md
+    - name: Reboot loop
+      href: troubleshoot-reboot-loop.md
+    - name: Stuck at Windows update
+      href: troubleshoot-stuck-updating-boot-error.md
 - name: Cannot connect to my VM
   items:
   - name: RDP
@@ -105,32 +143,6 @@
     href: reset-local-password-without-agent.md
   - name: Linux
     href: reset-password.md
-- name: VM is not booting
-  items:
-  - name: Boot errors Linux
-    href: boot-error-troubleshoot-linux.md
-    items:
-    - name: Grub Rescue
-      href: troubleshoot-vm-boot-error.md
-  - name: Boot errors Windows
-    href: boot-error-troubleshoot.md
-    items:
-    - name: Boot diagnostics
-      href: boot-diagnostics.md
-    - name: BitLocker errors
-      href: troubleshoot-bitlocker-boot-error.md
-    - name: Checking file system errors
-      href: troubleshoot-check-disk-boot-error.md
-    - name: Blue screen errors
-      href: troubleshoot-common-blue-screen-error.md
-    - name: VM startup is stuck
-      href: troubleshoot-vm-boot-configure-update.md
-    - name: Critical service failed
-      href: troubleshoot-critical-service-failed-boot-error.md
-    - name: Reboot loop
-      href: troubleshoot-reboot-loop.md
-    - name: Stuck at Windows update
-      href: troubleshoot-stuck-updating-boot-error.md
   - name: VM recovery access
     items:
     - name: Windows
@@ -147,12 +159,6 @@
         href: troubleshoot-recovery-disks-portal-linux.md
     - name: Device names are changed
       href: troubleshoot-device-names-problems.md
-- name: Unexpected Restart
-  items:
-  - name: Unexpected reboots of VMs with attached VHDs
-    href: unexpected-reboots-attached-vhds.md
-  - name: Understand a system reboot
-    href: understand-vm-reboot.md
 - name: Virtual Disk Management issues
   items:
   - name: Errors when deleting storage resources
@@ -184,16 +190,20 @@
 - name: VM extension issues
   items:
   - name: Azure extension overview
-    href: /azure/virtual-machines/extensions/overview
+    href: ../extensions/overview.md
   - name: Troubleshoot extension issues
-    href: /azure/virtual-machines/extensions/troubleshoot
+    href: ../extensions/troubleshoot.md
   - name: Install Windows VM agent offline
     href: install-vm-agent-offline.md
-- name: Backup and Restore
+- Backup and restore
   items:
-  - name: Repair a Windows VM using commands
+  - name: Troubleshoot backup failures on Azure VM
+    href: /azure/backup/backup-azure-vms-troubleshoot
+- name: Repair a VM using commands
+  items:
+  - name: Windows
     href: repair-windows-vm-using-azure-virtual-machine-repair-commands.md
-  - name: Repair a Linux VM using commands
+  - name: Linux
     href: repair-linux-vm-using-azure-virtual-machine-repair-commands.md
 - name: Windows Activation issues
   items:
@@ -228,32 +238,48 @@
       href: serial-console-power-options.md
     - name: Common Serial Console errors
       href: serial-console-errors.md
-- name: Cannot start or stop VM
+- name: Azure Disk Encryption issues
   items:
-  - name: Start/Stop VMs using Azure Automation
-    href: /azure/automation/troubleshoot/start-stop-vm
-- name: Azure Disk Encryption Issues
-  items:
+  - name: Windows
+    items:
+    - name: Overview
+      href: ../windows/disk-encryption-overview.md
+    - name: Troubleshoot
+      href: ../windows/disk-encryption-troubleshooting.md
+    - name: FAQ
+      href: ../windows/disk-encryption-faq.md
+  - name: Linux
+    items:
+    - name: Overview
+      href: ../linux/disk-encryption-overview.md
+    - name: Troubleshoot
+      href: ../linux/disk-encryption-troubleshooting.md
+    - name: FAQ
+      href: ../linux/disk-encryption-faq.md
 - name: Quota increases
   items:
-  - name: Resource Manager deployment model 
-    items: 
-    - name: Increase VM series vCPU limit
-      href: /azure/azure-portal/supportability/per-vm-quota-requests
-    - name: Increase total regional vCPU limit
-      href: /azure/azure-portal/supportability/regional-quota-requests
-    - name: Increase spot quota limit
-      href: /azure/azure-portal/supportability/low-priority-quota
-  - name: Classic deployment model
-    href:  /azure/azure-portal/supportability/classic-deployment-model-quota-increase-requests
-  - name: Increase networking limit
-    href:  /azure/azure-portal/supportability/networking-quota-requests
+  - name: Increase compute vCPU limits
+    items:
+    - name: Resource Manager deployment model
+      items:
+      - name: Increase VM series vCPU limit
+        href: ../../azure-portal/supportability/per-vm-quota-requests.md
+      - name: Increase total regional vCPU limit
+        href: ../../azure-portal/supportability/regional-quota-requests.md
+      - name: Increase spot quota limit
+        href: ../../azure-portal/supportability/low-priority-quota.md
+    - name: Classic deployment model
+      href: ../../azure-portal/supportability/classic-deployment-model-quota-increase-requests.md
+  - name: Increase networking limits
+    href: ../../azure-portal/supportability/networking-quota-requests.md
 - name: Migration and Move issues
   items:
+  - name: Azure Resource Manager migration (ASM to ARM) FAQ
+    items: ../windows/migration-classic-resource-manager-overview.md
 - name: Planned Maintenance
   items:
   - name: Overview
-    href: /azure/virtual-machines/maintenance-notifications
+    href: ../maintenance-notifications.md
 - name: Common error messages
   href: error-messages.md
   items:
