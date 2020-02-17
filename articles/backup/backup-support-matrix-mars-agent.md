@@ -127,6 +127,7 @@ Encrypted and sparse |Not supported. Skipped.
 Compressed stream| Not supported. Skipped.
 Sparse stream| Not supported. Skipped.
 OneDrive (synced files are sparse streams)| Not supported.
+Folders with DFS Replication enabled | Not supported.
 
 ## Supported drives or volumes for backup
 
