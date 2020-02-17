@@ -25,7 +25,7 @@ In this tutorial, you'll create a NAT gateway to provide outbound connectivity f
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can complete this tutorial using Azure cloud shell or run the respective commands locally.  If you have never used Azure cloud shell, you should [sign in now](https://shell.azure.com).
+You can complete this tutorial using Azure Cloud Shell or run the respective commands locally.  If you have never used Azure Cloud Shell, you should [sign in now](https://shell.azure.com).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -388,7 +388,7 @@ Get-AzPublicIpAddress -ResourceGroupName $rsg -Name $pipn | select IpAddress
 
 ### Sign in to destination VM
 
-The SSH credentials should be stored in your cloud shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine. 
+The SSH credentials should be stored in your Cloud Shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 
 ```bash
 ssh azureuser@<ip-address-destination>
@@ -429,7 +429,7 @@ Get-AzPublicIpAddress -ResourceGroupName $rsg -Name $pipn | select IpAddress
 
 ### Log into source VM
 
-Again, the SSH credentials are stored in cloud shell. Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. 
+Again, the SSH credentials are stored in Cloud Shell. Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 
 ```bash
 ssh azureuser@<ip-address-source>
