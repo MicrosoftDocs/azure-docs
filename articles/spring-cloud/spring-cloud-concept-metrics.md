@@ -48,16 +48,18 @@ First, select metrics to view:
 
 ![Select Metric View](media/metrics/metrics-4.png)
 
+Details of all metrics option can be found in the [section](#user-metrics-options) below.
+
 Next, select aggregation type for each metric:
 
 ![Metric Aggregation](media/metrics/metrics-5.png)
 
-The aggregation type indicates how to aggregate time. There is one metric point every minute.
-* Total: Sum all metrics as target output.
+The aggregation type indicates how to aggregate metric points in the chart by time. There is one raw metric point every minute, and the pre-aggregation type within a minutes is pre-defined by metrics type.
+* Sum: Sum all values as target output.
 * Average: Use the Average value in the period as target output.
 * Max/Min: Use the Max/Min value in the period as target output.
 
-Time range to show can also be modified.  The time range can be chosen from last 30 minutes to last 30 days, or a custom time range.
+Time range to show can also be modified. The time range can be chosen from last 30 minutes to last 30 days, or a custom time range.
 
 ![Metric Modification](media/metrics/metrics-6.png)
 
@@ -69,14 +71,14 @@ You can use two kinds of filters (properties):
 
 ![Metric Filters](media/metrics/metrics-7.png)
 
-YOu can also use the **Apply splitting** option, which will draw multiple lines for one app:
+You can also use the **Apply splitting** option, which will draw multiple lines for one app:
 
 ![Metric Splitting](media/metrics/metrics-8.png)
 
 >[!TIP]
 > You can build your own charts in metrics page and pin them to your **Dashboard**. Start by naming your chart.  Next, select **Pin to dashboard in the top right corner**. You can now check on your application at your Portal **Dashboard**.
 
-## User portal metrics options
+## User metrics options
 
 The following tables show the available metrics and details.
 
