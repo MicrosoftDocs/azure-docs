@@ -118,7 +118,7 @@
         href: key-vault-hsm-protected-keys.md
       - name: Import HSM-protected keys to Key Vault (preview)
         href: hsm-protected-keys-vendor-agnostic-byok.md
-      - name: Import HSM-protected keys to Key Vault (Legacy)
+      - name: Import HSM-protected keys to Key Vault (legacy)
         href: hsm-protected-keys-legacy.md
   - name: Route key vault notifications with Event Grid
     href: event-grid-tutorial.md      
