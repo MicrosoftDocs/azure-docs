@@ -24,7 +24,7 @@ In this tutorial, you'll create a NAT gateway to provide outbound connectivity f
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can complete this tutorial using Azure cloud shell or run the respective commands locally.  If you haven't used Azure cloud shell, you should [sign in now](https://shell.azure.com).
+You can complete this tutorial using Azure Cloud Shell or run the respective commands locally.  If you haven't used Azure Cloud Shell, you should [sign in now](https://shell.azure.com).
 
 If you choose to run these commands locally, you need to install CLI.  This tutorial requires that you're running a version of the Azure CLI version 2.0.71 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -317,7 +317,7 @@ First we need to discover the IP address of the destination VM.  To get the publ
 
 ### Sign in to destination VM
 
-The SSH credentials should be stored in your cloud shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine. 
+The SSH credentials should be stored in your Cloud Shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 
 ```bash
 ssh <ip-address-destination>
@@ -359,7 +359,7 @@ First we need to discover the IP address of the source VM.  To get the public IP
 
 ### Sign in to source VM
 
-Again, the SSH credentials are stored in cloud shell. Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. 
+Again, the SSH credentials are stored in Cloud Shell. Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 
 ```bash
 ssh <ip-address-source>
