@@ -43,8 +43,6 @@ This topic describes how to install and configure the Azure Data Explorer Spark 
 
 ## How to build the Spark connector
 
-Build the Spark Connector from [sources](https://github.com/Azure/azure-kusto-spark), as detailed below.
-
 > [!NOTE]
 > This step is optional. If you are using pre-built libraries go to [Spark cluster setup](#spark-cluster-setup).
 
@@ -225,7 +223,7 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
     // val storageSas = dbutils.secrets.get(scope = "KustoDemos", key = "blobStorageSasUrl")
     ```
 
-    In the example above, the Key Vault is not accessed using the connector interface; a simpler method of using the Databricks secrets is used.
+    In the example above, the Key Vault isn't accessed using the connector interface; a simpler method of using the Databricks secrets is used.
 
 1. Read from Azure Data Explorer:
 
