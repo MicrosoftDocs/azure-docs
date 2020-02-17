@@ -60,7 +60,7 @@ This step is optional. If you're interested in learning how the Azure Cosmos dat
 
 If you're familiar with the previous version of the SQL JavaScript SDK, you may be used to seeing the terms _collection_ and _document_. Because Azure Cosmos DB supports [multiple API models](introduction.md), [version 2.0+ of the JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) uses the generic terms _container_, which may be a collection, graph, or table, and _item_ to describe the content of the container.
 
-The following snippets are all taken from the _ItemService.js_ file.
+The following snippets are all taken from the _app.js_ file.
 
 - The `CosmosClient` object is initialized.
 
@@ -71,13 +71,13 @@ The following snippets are all taken from the _ItemService.js_ file.
 - Select the "Tasks" database.
 
   ```javascript
-  this.database = await client.databases("Tasks");
+  const database = await client.databases(databaseId);
   ```
 
 - Select the "Items" container/collection.
 
   ```javascript
-  this.container = await client.databases("Items");
+  const container = await client.databases(containerId);
   ```
 
 - Select all the items in the "Items" container.
@@ -88,7 +88,7 @@ The following snippets are all taken from the _ItemService.js_ file.
     query: "SELECT * from c"
   };
 
-  const { resources: results } = await this.container.items
+  const { resources: results } = await container.items
     .query(querySpec)
     .fetchAll();
 
@@ -98,40 +98,30 @@ The following snippets are all taken from the _ItemService.js_ file.
 - Create a new item
 
   ```javascript
-  async create(itemToCreate) {
-    const { resource: result } = await this.container.items.create(
-        itemToCreate
-    );
-    return result;
-  }
+  const { resource: createdItem } = await container.items.create(newItem);
   ```
 
 - Update an item
 
   ```javascript
-  async update(itemToUpdate) {
-    const { id, category } = itemToUpdate;
-    const { resource: result } = await this.container
-      .item(id, category)
-      .replace(itemToUpdate);
+  const { id, category } = createdItem;
 
-    return result;
-  }
+  createdItem.isComplete = true;
+  const { resource: itemToUpdate } = await container
+    .item(id, category)
+    .replace(itemToUpdate);
+
+  return result;
   ```
 
 - Delete an item
 
   ```javascript
-   async delete(itemToDelete) {
-    const { id, category } = itemToDelete;
-    const { resource: result } = await this.container
-      .item(id, category)
-      .delete();
-  }
+  const { resource: result } = await this.container.item(id, category).delete();
   ```
 
 > [!IMPORTANT]
-> Note that in both the "update" and "delete" methods, the item to work with has to be selected by calling `conatiner.item()`. The two parameters passed in are the id of the item to get, and it's partition key. In this case, that's the category. The parition key is the value of the category field.
+> Note that in both the "update" and "delete" methods, the item has to be selected from the database by calling `conatiner.item()`. The two parameters passed in are the id of the item and the item's partition key. In this case, the parition key is the value of the "category" field.
 
 ## Update your connection string
 
@@ -141,15 +131,15 @@ Now go back to the Azure portal to get the connection string details of your Azu
 
    ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
 
-2. In Open the _app.js_ file.
+2. In Open the _config.js_ file.
 
 3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in _config.js_.
 
-   `const endpoint = "<Your Azure Cosmos account URI>"`
+   `endpoint: "<Your Azure Cosmos account URI>"`
 
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.key` in _config.js_. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB.
 
-   `const key = "<Your Azure Cosmos account key>"`
+   `key: "<Your Azure Cosmos account key>"`
 
 ## Run the app
 
