@@ -1,30 +1,24 @@
 ---
-title: Process Azure blob data with advanced analytics | Microsoft Docs
-description: Process Data in Azure Blob storage.
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
-manager: cgronlun
-editor: cgronlun
-
-ms.assetid: d8a59078-91d3-4440-b85c-430363c3f4d1
+title: Process Azure blob data with advanced analytics - Team Data Science Process
+description: Explore data and generate features from data stored in Azure Blob storage using advanced analytics.
+services: machine-learning
+author: marktab
+manager: marktab
+editor: marktab
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
-ms.author: deguhath
-
+ms.date: 01/10/2020
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # <a name="heading"></a>Process Azure blob data with advanced analytics
 This document covers exploring data and generating features from data stored in Azure Blob storage. 
 
 ## Load the data into a Pandas data frame
-In order to explore and manipulate a dataset, it must be downloaded from the blob source to a local file which can then be loaded in a Pandas data frame. Here are the steps to follow for this procedure:
+In order to explore and manipulate a dataset, it must be downloaded from the blob source to a local file that can then be loaded in a Pandas data frame. Here are the steps to follow for this procedure:
 
-1. Download the data from Azure blob with the following sample Python code using blob service. Replace the variable in the code below with your specific values: 
+1. Download the data from Azure blob with the following sample Python code using Blob service. Replace the variable in the code below with your specific values: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -75,12 +69,12 @@ Here are a few examples of ways to explore data using Pandas:
         print miss_num
 7. If you have missing values for a specific column in the data, you can drop them as follows:
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-     dataframe_blobdata_noNA.shape
+        dataframe_blobdata_noNA = dataframe_blobdata.dropna()
+        dataframe_blobdata_noNA.shape
    
    Another way to replace missing values is with the mode function:
    
-     dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
+        dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
 8. Create a histogram plot using variable number of bins to plot the distribution of a variable    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
@@ -97,7 +91,7 @@ Here are a few examples of ways to explore data using Pandas:
 ## <a name="blob-featuregen"></a>Feature Generation
 We can generate features using Python as follows:
 
-### <a name="blob-countfeature"></a>Indicator value based Feature Generation
+### <a name="blob-countfeature"></a>Indicator value-based Feature Generation
 Categorical features can be created as follows:
 
 1. Inspect the distribution of the categorical column:
@@ -132,7 +126,7 @@ For generating binned features, we proceed as follows:
 
 ## <a name="sql-featuregen"></a>Writing data back to Azure blob and consuming in Azure Machine Learning
 After you have explored the data and created the necessary features, you can upload the data (sampled or featurized) to an Azure blob and consume it in Azure Machine Learning using the following steps:
-Note that additional features can be created in the Azure Machine Learning Studio as well. 
+Additional features can be created in the Azure Machine Learning Studio (classic) as well. 
 
 1. Write the data frame to local file
    

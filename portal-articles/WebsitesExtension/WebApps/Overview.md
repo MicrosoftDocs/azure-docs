@@ -15,7 +15,7 @@ ms.author: sewatson
 Azure App Service enables you to build and host web applications in the programming language of your choice without managing infrastructure nor the language or web framework runtime. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps Services, or any Git repo. Learn how to use Azure App Service with our quickstarts, tutorials, and samples.
 
 ## Windows, Linux, and Docker
-[Web Apps](/app-service/app-service-web-overview) is App Service's main offering for building and hosting web applications using Windows environments. Developers who prefer a Linux environment may choose [App Service for Linux](/app-service/containers/app-service-linux-intro). Developers can also deploy Docker images directly into App Service for Linux to deploy custom runtimes/frameworks.
+[Web Apps](/app-service/overview) is App Service's main offering for building and hosting web applications using Windows environments. Developers who prefer a Linux environment may choose [App Service for Linux](/app-service/containers/app-service-linux-intro). Developers can also deploy Docker images directly into App Service for Linux to deploy custom runtimes/frameworks.
 
 ## 5-Minute Quickstarts
 
@@ -38,7 +38,7 @@ Learn how to deploy, manage, and monitor secure web applications on Azure.
   - [Java with MySQL](/app-service/app-service-web-tutorial-java-mysql)
   - [Python with PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
 - [Map an existing custom domain to your application](/azure/app-service/app-service-web-tutorial-custom-domain)
-- [Bind an existing SSL certificate to your application](/azure/app-service/app-service-web-tutorial-custom-SSL)
+- [Bind an SSL certificate to your application](/azure/app-service/configure-ssl-bindings)
 
 ## Free Pluralsight Video Training
 
@@ -50,7 +50,7 @@ Learn how to deploy, manage, and monitor secure web applications on Azure.
 Find scripts to manage common tasks.
 
 - [Azure CLI](/azure/app-service/app-service-cli-sample)
-- [Azure Powershell](/azure/app-service/app-service-powershell-samples)
+- [Azure Powershell](/azure/app-service/samples-powershell)
 
 ## More
 

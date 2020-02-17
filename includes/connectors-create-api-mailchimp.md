@@ -1,4 +1,13 @@
-### Prerequisites
+---
+ms.service: logic-apps
+ms.topic: include
+author: ecfan
+ms.author: estfan
+ms.date: 11/03/2016
+---
+
+## Prerequisites
+
 * A [MailChimp](https://www.MailChimp.com/) account 
 
 Before you can use your MailChimp account in a Logic app, you must authorize the Logic app to connect to your MailChimp account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 

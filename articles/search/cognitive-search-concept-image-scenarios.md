@@ -1,22 +1,20 @@
 ---
-title: Process and extract text from images in Azure Search | Microsoft Docs
-description: Process and extract text and other information from images in cognitive search pipelines in Azure Search.
-services: search
-manager: pablocas
-author: luiscabrer
+title: Extract text from images
+titleSuffix: Azure Cognitive Search
+description: Process and extract text and other information from images in Azure Cognitive Search pipelines.
 
-ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/01/2018
+manager: nitinme
+author: LuisCabrer
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-#  How to process and extract information from images in cognitive search scenarios
+# How to process and extract information from images in AI enrichment scenarios
 
-Cognitive search has several capabilities for working with images and image files. During document cracking, you can use the *imageAction* parameter to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Other scenarios include generating a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
+Azure Cognitive Search has several capabilities for working with images and image files. During document cracking, you can use the *imageAction* parameter to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Other scenarios include generating a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
 
-This article covers image processing in more detail and provides guidance for working with images in a cognitive search pipeline.
+This article covers image processing in more detail and provides guidance for working with images in an AI enrichment pipeline.
 
 <a name="get-normalized-images"></a>
 
@@ -24,21 +22,20 @@ This article covers image processing in more detail and provides guidance for wo
 
 As part of document cracking, there are a new set of indexer configuration parameters for handling image files or images embedded in files. These parameters are used to normalize images for further downstream processing. Normalizing images makes them more uniform. Large images are resized to a maximum height and width to make them consumable. For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image. 
 
-You cannot turn off image normalization. Skills that iterate over images expect normalized images.
+You cannot turn off image normalization. Skills that iterate over images expect normalized images. Enabling image normalization on an indexer requires that a skillset be attached to that indexer.
 
 | Configuration Parameter | Description |
 |--------------------|-------------|
-| imageAction	| Set to "none" if no action should be taken when embedded images or image files are encountered. <br/>Set to "generateNormalizedImages" to generate an array of normalized images as part of document cracking. These images will be exposed in the *normalized_images* field. <br/>The default is "none." This configuration is only pertinent to blob data sources, when "dataToExtract" is set to "contentAndMetadata." |
-|  normalizedImageMaxWidth | The maximum width (in pixels) for normalized images generated. The default is 2000.|
-|  normalizedImageMaxHeight | The maximum height (in pixels) for normalized images generated. The default is 2000.|
+| imageAction	| Set to "none" if no action should be taken when embedded images or image files are encountered. <br/>Set to "generateNormalizedImages" to generate an array of normalized images as part of document cracking.<br/>Set to "generateNormalizedImagePerPage" to generate an array of normalized images where, for PDFs in your data source, each page is rendered to one output image.  The functionality is the same as "generateNormalizedImages" for non-PDF file types.<br/>For any option that is not "none", the images will be exposed in the *normalized_images* field. <br/>The default is "none." This configuration is only pertinent to blob data sources, when "dataToExtract" is set to "contentAndMetadata." <br/>A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated. |
+|  normalizedImageMaxWidth | The maximum width (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000. | 
+|  normalizedImageMaxHeight | The maximum height (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000.|
 
 > [!NOTE]
-> If you set the *imageAction* property to anything other than "none", you will not be able to set the *parsingMode* property to anything other than "default".  You may only set one of these two properties to a non-default value in your indexer configuration.
+> If you set the *imageAction* property to anything other than "none", you'll not be able to set the *parsingMode* property to anything other than "default".  You may only set one of these two properties to a non-default value in your indexer configuration.
 
 Set the **parsingMode** parameter to `json` (to index each blob as a single document) or `jsonArray` (if your blobs contain JSON arrays and you need each element of an array to be treated as a separate document).
 
-The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). If you increase the maximum limits, processing could fail on the larger images.
-
+The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). The [OCR skill](cognitive-search-skill-ocr.md) supports a maximum width and height of 4200 for non-English languages, and 10000 for English.  If you increase the maximum limits, processing could fail on larger images depending on your skillset definition and the language of the documents. 
 
 You specify the imageAction in your [indexer definition](https://docs.microsoft.com/rest/api/searchservice/create-indexer) as follows:
 
@@ -56,7 +53,7 @@ You specify the imageAction in your [indexer definition](https://docs.microsoft.
 }
 ```
 
-When the *imageAction* is set to "generateNormalizedImages", the new *normalized_images* field will contain an array of images. Each  image is a complex type that has the following members:
+When the *imageAction* is set to a value other then "none", the new *normalized_images* field will contain an array of images. Each  image is a complex type that has the following members:
 
 | Image member       | Description                             |
 |--------------------|-----------------------------------------|
@@ -66,7 +63,8 @@ When the *imageAction* is set to "generateNormalizedImages", the new *normalized
 | originalWidth      | The original width of the image before normalization. |
 | originalHeight      | The original height of the image before normalization. |
 | rotationFromOriginal |  Counter-clockwise rotation in degrees that occurred to create the normalized image. A value between 0 degrees and 360 degrees. This step reads the metadata from the image that is generated by a camera or scanner. Usually a multiple of 90 degrees. |
-| contentOffset |The character offset within the content field where the image was extracted from. This field is only applicable for files with embedded images. |
+| contentOffset | The character offset within the content field where the image was extracted from. This field is only applicable for files with embedded images. |
+| pageNumber | If the image was extracted or rendered from a PDF, this field contains the page number in the PDF it was extracted or rendered from, starting from 1.  If the image was not from a PDF, this field will be 0.  |
 
  Sample value of *normalized_images*:
 ```json
@@ -78,7 +76,8 @@ When the *imageAction* is set to "generateNormalizedImages", the new *normalized
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```
@@ -97,8 +96,6 @@ The [Image Analysis skill](cognitive-search-skill-image-analysis.md) extracts a 
 
 The [OCR skill](cognitive-search-skill-ocr.md) extracts text from image files such as JPGs, PNGs, and bitmaps. It can extract text as well as layout information. The layout  information provides bounding boxes for each of the strings identified.
 
-The OCR skill allows you to select the algorithm to use for detecting text in your images. Currently it supports two algorithms, one for printed text and another for handwritten text.
-
 ## Embedded image scenario
 
 A common scenario involves creating a single string containing all file contents, both text and image-origin text, by performing the following steps:  
@@ -116,7 +113,6 @@ The following example skillset creates a *merged_text* field containing the text
   "skills":
   [
     {
-        "name": "OCR skill",
         "description": "Extract text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
@@ -153,7 +149,7 @@ The following example skillset creates a *merged_text* field containing the text
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetname" : "merged_text"
+          "name": "mergedText", "targetName" : "merged_text"
         }
       ]
     }
@@ -214,7 +210,7 @@ As a helper, if you need to transform normalized coordinates to the original coo
 
 ## See also
 + [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Analyze image skill](cognitive-search-skill-image-analysis.md)
++ [Image Analysis skill](cognitive-search-skill-image-analysis.md)
 + [OCR skill](cognitive-search-skill-ocr.md)
 + [Text merge skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

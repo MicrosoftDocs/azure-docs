@@ -5,7 +5,7 @@ author: aditidugar
 ms.author: adugar
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/11/2018
+ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
 
@@ -37,7 +37,7 @@ To select which connected devices display on the **Dashboard** page, use filters
 
 [![Filter for trucks on the dashboard](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
 
-When you apply a filter, only those devices that match the filter conditions are displayed on the map and in the telemetry panel on the **Dashboard** page. You can see that there are two trucks connected to the solution accelerator, including **truck-02**.
+When you apply a filter, only those devices that match the filter conditions are displayed on the map and in the telemetry panel on the **Dashboard**. You can see that there are two trucks connected to the solution accelerator, including **truck-02**.
 
 ## View real-time telemetry
 
@@ -59,25 +59,25 @@ When the explorer launches, you see all of your devices listed:
 
 [![TSI Explorer initial view](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-expanded.png#lightbox)
 
-Filter the devices by typing **delivery-truck** in the filter box, and select **temperature** as the **Measure** in the left hand panel:
+Filter the devices by typing **delivery-truck** in the filter box, and select **temperature** as the **Measure** in the left-hand panel:
 
 [![TSI Explorer truck temperature](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
 
-You see the same view that you saw in the Remote Monitoring dashboard and can now zoom in closer to the time frame that the alert was triggered within:
+You see the same view that you saw in the Remote Monitoring dashboard. Also, you can now zoom in closer to the time frame that the alert was triggered within:
 
 [![TSI Explorer zoom](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
 
-You can also add in other telemetry streams coming from the trucks. Click the **Add** button in the top left hand corner. A new pane appears:
+You can also add in other telemetry streams coming from the trucks. Click the **Add** button in the top left-hand corner. A new pane appears:
 
 [![TSI Explorer with new pane](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-expanded.png#lightbox)
 
-In the new pane, change the name of the new label to **Devices** so that it matches the previous one. Select **altitute** as the **Measure** and **iothub-connection-device-id** as the **Split By** value to add the altitude telemetry into your view:
+In the new pane, change the name of the new label to **Devices** so that it matches the previous one. Select **altitude** as the **Measure** and **iothub-connection-device-id** as the **Split By** value to add the altitude telemetry into your view:
 
 [![TSI Explorer with temperature and altitude](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-expanded.png#lightbox)
 
 ## Diagnose the alert
 
-When you look at the streams in the current view, you can see that the altitude profiles for the two trucks are very different. Also, the temperature drop in **delivery-truck-02** happens when the truck reaches a high altitude. You are surprised by the finding, because the trucks were scheduled to take the same route.
+When you look at the streams in the current view, you can see that the altitude profiles for the two trucks are different. Also, the temperature drop in **delivery-truck-02** happens when the truck reaches a high altitude. You are surprised by the finding, because the trucks were scheduled to take the same route.
 
 To confirm your suspicion that the trucks took different journey paths, add in another pane to the side panel using the **Add** button. In the new pane, change the name of the new label to **Devices** so that it matches the previous one. Select **longitude** as the **Measure** and **iothub-connection-device-id** as the **Split By** value to add the longitude telemetry into your view. You can see that the trucks did take different journeys by looking at the difference between **longitude** streams:
 
@@ -85,7 +85,7 @@ To confirm your suspicion that the trucks took different journey paths, add in a
 
 ## Create a new rule
 
-While truck routes are typically optimized in advance, you realize that traffic patterns, weather, and other unpredictable events can cause delays and leave last minute route decisions to truck drivers based on their best judgement. However, since the temperature of your assets inside the vehicle is critical, you should create an additional rule in your Remote Monitoring solution to ensure you receive a warning if the average altitude over a 1-minute interval goes above 350 feet:
+While truck routes are typically optimized in advance, you realize that traffic patterns, weather, and other unpredictable events can cause delays and leave last minute route decisions to truck drivers based on their best judgment. However, since the temperature of your assets inside the vehicle is critical, you should create an additional rule in your Remote Monitoring solution. This rule is to ensure you receive a warning if the average altitude over a 1-minute interval goes above 350 feet:
 
 [![Remote Monitoring rules tab set altitude rule](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 

@@ -3,16 +3,18 @@ title: How to Choose Bing Speech Recognition Mode | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: How to choose the best recognition mode in Bing Speech.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
-ROBOTS: NOINDEX
+ms.author: nitinme
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Bing Speech recognition modes
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 The Bing Speech to Text APIs support multiple modes of speech recognition. Choose the mode that produces the best recognition results for your application.
 

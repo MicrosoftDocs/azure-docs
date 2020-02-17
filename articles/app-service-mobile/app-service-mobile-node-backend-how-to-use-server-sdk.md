@@ -1,24 +1,21 @@
 ---
-title: How to work with the Node.js back-end Server SDK for Mobile Apps | Microsoft Docs
+title: Work with the Node.js back-end Server SDK
 description: Learn how to work with the Node.js back-end Server SDK for Azure App Service Mobile Apps.
-services: app-service\mobile
-documentationcenter: ''
-author: elamalani
-manager: elamalani
-editor: ''
 
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: crdun
 ---
 # How to use the Mobile Apps Node.js SDK
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
+
+> [!NOTE]
+> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
+>
+>  If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
 
 This article provides detailed information and examples that show how to work with a Node.js back end in the Mobile Apps feature of Azure App Service.
 
@@ -141,7 +138,7 @@ an Express 4.x application:
 
     Save the file.
 
-1. Either run the application locally (the API is served on http://localhost:3000) or publish to Azure.
+1. Either run the application locally (the API is served on `http://localhost:3000`) or publish to Azure.
 
 ### <a name="create-node-backend-portal"></a>Create a Node.js back end by using the Azure portal
 
@@ -166,19 +163,19 @@ can add or modify tables and APIs, and then republish the project. For more info
 The following procedure uses a Git repository to download the quickstart
 project code:
 
-1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. For operating system-specific distributions and installation guidance, see [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-1. See [Prepare your repository](../app-service/app-service-deploy-local-git.md#prepare-your-repository) to enable the Git repository for your back-end site. Make a note of the deployment username and password.
-1. In the pane for your Mobile Apps back end, make a note of the **Git clone URL** setting.
-1. Execute the `git clone` command by using the Git clone URL. Enter your password when required, as in the
+1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. For operating system-specific distributions and installation guidance, see [Installing Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
+2. See [Prepare your repository](../app-service/deploy-local-git.md#prepare-your-repository) to enable the Git repository for your back-end site. Make a note of the deployment username and password.
+3. In the pane for your Mobile Apps back end, make a note of the **Git clone URL** setting.
+4. Execute the `git clone` command by using the Git clone URL. Enter your password when required, as in the
    following example:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
-1. Browse to the local directory (`/todolist` in the preceding example), and notice that project files have been
+5. Browse to the local directory (`/todolist` in the preceding example), and notice that project files have been
    downloaded. Locate the todoitem.json file in the `/tables` directory. This file defines permissions on the
    table. Also find the todoitem.js file in the same directory. It defines the CRUD operation scripts for
    the table.
-1. After you make changes to project files, run the following commands to add, commit, and then upload the
+6. After you make changes to project files, run the following commands to add, commit, and then upload the
    changes to the site:
 
         $ git commit -m "updated the table script"
@@ -992,7 +989,7 @@ api.get.access = 'authenticated';
 module.exports = api;
 ```
 
-## <a name="Debugging"></a>Debugging, Easy Tables, and Easy APIs
+## <a name="Debugging"></a>Debugging
 
 ### <a name="howto-diagnostic-logs"></a>Debug, diagnose, and troubleshoot Mobile Apps
 
@@ -1006,55 +1003,6 @@ To get started in troubleshooting your Node.js Mobile Apps back end, see the fol
 Node.js applications have access to a wide range of diagnostic log tools. Internally, the Mobile Apps
 Node.js SDK uses [Winston] for diagnostic logging. Logging is automatically enabled when you enable debug mode or set the `MS_DebugMode` app setting to true in the [Azure portal]. Generated logs appear in the diagnostic
 logs in the [Azure portal].
-
-### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Work with Easy Tables in the Azure portal
-
-You can use Easy Tables to create and work with tables right in the portal. You can upload dataset to Easy Tables
-in CSV format. Note that you cannot use property names (in your CSV dataset) that conflict with system property names
-of the Mobile Apps back end. The system property names are:
-* createdAt
-* updatedAt
-* deleted
-* version
-
-You can even edit table operations by using App Service Editor. When you select **Easy tables** in your back-end site
-settings, you can add, modify, or delete a table. You can also see data in the table.
-
-![Work with Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
-
-The following commands are available on the command bar for a table:
-
-* **Change permissions**: Modify the permission for read, insert, update, and delete operations on the table.
- Options are to allow anonymous access, to require authentication, or to disable all access to the operation.
-* **Edit script**: The script file for the table is opened in App Service Editor.
-* **Manage schema**: Add or delete columns, or change the table index.
-* **Clear table**: Truncate an existing table by deleting all data rows but leaving the schema unchanged.
-* **Delete rows**: Delete individual rows of data.
-* **View streaming logs**: Connect to the streaming log service for your site.
-
-### <a name="work-easy-apis"></a>Work with Easy APIs in the Azure portal
-
-You can use Easy APIs to create and work with custom APIs right in the portal. You can edit API
-scripts by using App Service Editor.
-
-When you select **Easy APIs** in your back-end site settings, you can add, modify, or delete a custom API
-endpoint.
-
-![Work with Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
-
-In the portal, you can change the access permissions for an HTTP action, edit the API script file in
-App Service Editor, or view the streaming logs.
-
-### <a name="online-editor"></a>Edit code in App Service Editor
-
-By using the Azure portal, you can edit your Node.js back-end script files in App Service Editor without having to
-download the project to your local computer. To edit script files in the online editor:
-
-1. In pane for your Mobile Apps back end, select **All settings** > either **Easy tables** or **Easy APIs**. Select a
- table or API, and then select **Edit script**. The script file opens in App Service Editor.
-
-   ![App Service Editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-1. Make your changes to the code file in the online editor. Changes are saved automatically as you type.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -1074,24 +1022,24 @@ download the project to your local computer. To edit script files in the online 
 [Xamarin.Forms Client quickstart]: app-service-mobile-xamarin-forms-get-started.md
 [Windows Store Client quickstart]: app-service-mobile-windows-store-dotnet-get-started.md
 [offline data sync]: app-service-mobile-offline-data-sync.md
-[Configure Azure Active Directory authentication]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Configure Facebook authentication]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Configure Google authentication]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Configure Microsoft authentication]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Configure Twitter authentication]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure App Service deployment guide]: ../app-service/app-service-deploy-local-git.md
+[Configure Azure Active Directory authentication]: ../app-service/configure-authentication-provider-aad.md
+[Configure Facebook authentication]: ../app-service/configure-authentication-provider-facebook.md
+[Configure Google authentication]: ../app-service/configure-authentication-provider-google.md
+[Configure Microsoft authentication]: ../app-service/configure-authentication-provider-microsoft.md
+[Configure Twitter authentication]: ../app-service/configure-authentication-provider-twitter.md
+[Azure App Service deployment guide]: ../app-service/deploy-local-git.md
 [Monitoring Azure App Service]: ../app-service/web-sites-monitor.md
-[Enable diagnostic logging in Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
-[Troubleshoot Azure App Service in Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[Enable diagnostic logging in Azure App Service]: ../app-service/troubleshoot-diagnostic-logs.md
+[Troubleshoot Azure App Service in Visual Studio]: ../app-service/troubleshoot-dotnet-visual-studio.md
 [specify the Node version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
-[Express]: http://expressjs.com/
-[Swagger]: http://swagger.io/
+[Express]: https://expressjs.com/
+[Swagger]: https://swagger.io/
 
 [Azure portal]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
@@ -1100,6 +1048,6 @@ download the project to your local computer. To edit script files in the online 
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js package]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS middleware]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

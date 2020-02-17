@@ -1,10 +1,8 @@
 ---
 title: include file
 description: include file
-services: functions
 author: ggailey777
-manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 08/15/2018
 ms.author: glenga

@@ -2,16 +2,17 @@
 title: Azure Active Directory Application Proxy and Tableau | Microsoft Docs
 description: Learn how to use Azure Active Directory (Azure AD) Application Proxy to provide remote access for your Tableau deployment.
 services: active-directory
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Application Proxy and Tableau 
@@ -24,7 +25,7 @@ The scenario in this article assumes that you have:
 
 - [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure) configured. 
 
-- An [Application Proxy connector](application-proxy-enable.md) installed. 
+- An [Application Proxy connector](application-proxy-add-on-premises-application.md) installed. 
 
  
 ## Enabling Application Proxy for Tableau 
@@ -38,13 +39,13 @@ To publish Tableau, you need to publish an application in the Azure Portal.
 
 For:
 
-- Detailed instructions of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
+- Detailed instructions of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md). 
 - Information about how to find Tableau values for the App Proxy fields, please see the Tableau documentation.  
 
 **To publish your app**: 
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as an application administrator. 
 
 2. Select **Azure Active Directory > Enterprise applications**. 
 

@@ -1,20 +1,21 @@
-﻿---
-title: Use a Windows VM system-assigned managed identity to access Azure Key Vault
+---
+title: Tutorial`:` Use a managed identity to access Azure Key Vault - Windows - Azure AD
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Key Vault. 
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: daveba
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
-ms.author: daveba
+ms.date: 01/10/2020
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Key Vault 
@@ -32,19 +33,18 @@ You learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-- [Sign in to Azure portal](https://portal.azure.com)
 
-- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
+## Enable
 
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
 
-## Grant your VM access to a Secret stored in a Key Vault 
+
+
+## Grant access  
  
-Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use the VM's managed identity to access Key Vault to retrieve the credentials. 
+This section shows how to grant your VM access to a Secret stored in a Key Vault. Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use the VM's managed identity to access Key Vault to retrieve the credentials. 
 
 First, we need to create a Key Vault and grant our VM’s system-assigned managed identity access to the Key Vault.   
 
@@ -69,9 +69,9 @@ Next, add a secret to the Key Vault, so that later you can retrieve the secret u
 5. Leave the activation date and expiration date clear, and leave **Enabled** as **Yes**. 
 6. Click **Create** to create the secret. 
  
-## Get an access token using the VM identity and use it to retrieve the secret from the Key Vault  
+## Access data  
 
-If you don’t have PowerShell 4.3.1 or greater installed, you'll need to [download and install the latest version](https://docs.microsoft.com/powershell/azure/overview).
+This section shows how to get an access token using the VM identity and use it to retrieve the secret from the Key Vault. If you don’t have PowerShell 4.3.1 or greater installed, you'll need to [download and install the latest version](https://docs.microsoft.com/powershell/azure/overview).
 
 First, we use the VM’s system-assigned managed identity to get an access token to authenticate to Key Vault:
  
@@ -112,9 +112,16 @@ First, we use the VM’s system-assigned managed identity to get an access token
     
 Once you’ve retrieved the secret from the Key Vault, you can use it to authenticate to a service that requires a name and password. 
 
+
+## Disable
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
+
 ## Next steps
 
 In this tutorial, you learned how use a Windows VM system-assigned managed identity to access Azure Key Vault.  To learn more about Azure Key Vault see:
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](/azure/key-vault/key-vault-whatis)
+>[Azure Key Vault](/azure/key-vault/key-vault-overview)

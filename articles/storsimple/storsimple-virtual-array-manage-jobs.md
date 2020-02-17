@@ -54,7 +54,7 @@ Perform the following steps to view the details of any job.
 #### Job failures when the virtual machine is paused in the hypervisor
 When a job is in progress on your StorSimple Virtual Array and the device (virtual machine provisioned in hypervisor) is paused for greater than 15 minutes, the job fails. This is due to your StorSimple Virtual Array time being out of sync with the Microsoft Azure time. 
 
-You will see the following error: "Your device time is out of sync with the Microsoft Azure time by more than 15 minutes. Ensure that the hypervisor and the device times are synchronized with an NTP servier. Verify that there are no connectivity issues. To troubleshoot connectivity issues, run diagnostic tests from the local web UI of your virtual device."
+You will see the following error: "Your device time is out of sync with the Microsoft Azure time by more than 15 minutes. Ensure that the hypervisor and the device times are synchronized with an NTP server. Verify that there are no connectivity issues. To troubleshoot connectivity issues, run diagnostic tests from the local web UI of your virtual device."
 
 These failures apply to backup, restore, update, and failover jobs. If your virtual machine is provisioned in Hyper-V, the machine eventually synchronizes time with your hypervisor. Once that happens, you can restart your job.
 

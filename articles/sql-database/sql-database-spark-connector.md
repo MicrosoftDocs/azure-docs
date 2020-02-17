@@ -1,5 +1,5 @@
 ---
-title: Spark Connector with Azure SQL Database and SQL Server| Microsoft Docs
+title: Spark Connector with Azure SQL Database and SQL Server
 description: Learn how to use the Spark Connector for Azure SQL Database and SQL Server
 services: sql-database
 ms.service: sql-database
@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 04/23/2018
+ms.date: 09/25/2018
 ---
 # Accelerate real-time big data analytics with Spark connector for Azure SQL Database and SQL Server
 
@@ -60,7 +59,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"            -> "mysqlserver.database.windows.net",
   "databaseName"   -> "MyDatabase",
-  "dbTable"        -> "dbo.Clients"
+  "dbTable"        -> "dbo.Clients",
   "user"           -> "username",
   "password"       -> "*********",
   "connectTimeout" -> "5", //seconds
@@ -98,7 +97,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"          -> "mysqlserver.database.windows.net",
   "databaseName" -> "MyDatabase",
-  "dbTable"      -> "dbo.Clients"
+  "dbTable"      -> "dbo.Clients",
   "user"         -> "username",
   "password"     -> "*********"
 ))
@@ -125,7 +124,7 @@ val config = Config(Map(
   "queryCustom"  -> query
 ))
 
-sqlContext.SqlDBQuery(config)
+sqlContext.sqlDBQuery(config)
 ```
 
 ## Connect Spark to Azure SQL Database using AAD authentication
@@ -155,7 +154,7 @@ collection.show()
 #### Setup Requirement
 If you are using the access token-based authentication mode, you need to download [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) and its dependencies, and include them in the Java build path.
 
-See [Use Azure Active Directory Authentication for authentication with SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) to learn how to get access token to your Azure SQL database.
+See [Use Azure Active Directory Authentication for authentication with SQL Database](sql-database-aad-authentication.md) to learn how to get access token to your Azure SQL database.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -196,7 +195,6 @@ val bulkCopyConfig = Config(Map(
   "databaseName"      -> "MyDatabase",
   "user"              -> "username",
   "password"          -> "*********",
-  "databaseName"      -> "zeqisql",
   "dbTable"           -> "dbo.Clients",
   "bulkCopyBatchSize" -> "2500",
   "bulkCopyTableLock" -> "true",
@@ -213,5 +211,5 @@ If you haven't already, download the Spark connector for Azure SQL Database and 
 -	[Sample Azure Databricks notebooks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Sample scripts (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Azure Databricks documentation](https://docs.microsoft.com/azure/azure-databricks/).
+You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Azure Databricks documentation](https://docs.microsoft.com/azure/azure-databricks/).
 

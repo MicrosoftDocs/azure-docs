@@ -1,34 +1,27 @@
 ---
-title: Explore data in Hive tables with Hive queries | Microsoft Docs
-description: Explore data in Hive tables using Hive queries.
+title: Explore data in Hive tables with Hive queries - Team Data Science Process
+description: Use sample Hive scripts that are used to explore data in Hive tables in an HDInsight Hadoop cluster.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: cgronlun
-editor: cgronlun
-
-ms.assetid: 0d46cea5-2b4c-4384-9bfa-fa20f6f75148
+author: marktab
+manager: marktab
+editor: marktab
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
-ms.author: deguhath
-
+ms.date: 01/10/2020
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Explore data in Hive tables with Hive queries
-This document provides sample Hive scripts that are used to explore data in Hive tables in an HDInsight Hadoop cluster.
 
-The following **menu** links to topics that describe how to use tools to explore data from various storage environments.
+This article provides sample Hive scripts that are used to explore data in Hive tables in an HDInsight Hadoop cluster.
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+This task is a step in the [Team Data Science Process](overview.md).
 
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-quickstart-create-account.md)
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-account-create.md)
 * Provisioned a customized Hadoop cluster with the HDInsight service. If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](customize-hadoop-cluster.md).
 * The data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, follow the instructions in [Create and load data to Hive tables](move-hive-tables.md) to upload data to Hive tables first.
 * Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).
@@ -73,5 +66,5 @@ This article assumes that you have:
             ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
 
 ## Additional query scripts for taxi trip data scenarios
-Examples of queries that are specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.
+Examples of queries that are specific to [NYC Taxi Trip Data](https://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.
 

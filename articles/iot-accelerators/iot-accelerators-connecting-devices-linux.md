@@ -14,9 +14,11 @@ ms.author: dobett
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the Remote Monitoring solution accelerator.
+This tutorial shows you how to connect a real device to the Remote Monitoring solution accelerator.
 
 As with most embedded applications that run on constrained devices, the client code for the device application is written in C. In this tutorial, you build the application on a machine running Ubuntu (Linux).
+
+If you prefer to simulate a device, see [Create and test a new simulated device](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ## Prerequisites
 
@@ -24,15 +26,15 @@ To complete the steps in this how-to guide, you need a device running Ubuntu ver
 
 ## View the code
 
-The [sample code](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring) used in this guide is available in the Azure IoT C SDKs GitHub repository.
+The [sample code](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) used in this guide is available in the Azure IoT C SDKs GitHub repository.
 
 ### Download the source code and prepare the project
 
 To prepare the project, clone or download the [Azure IoT C SDKs repository](https://github.com/Azure/azure-iot-sdk-c) from GitHub.
 
-The sample is located in the **samples/solutions/remote_monitoring** folder.
+The sample is located in the **samples/solutions/remote_monitoring_client** folder.
 
-Open the **remote_monitoring.c** file in the **samples/solutions/remote_monitoring** folder in a text editor.
+Open the **remote_monitoring.c** file in the **samples/solutions/remote_monitoring_client** folder in a text editor.
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
@@ -54,7 +56,7 @@ The following steps describe how to use *CMake* to build the client application.
 1. Run the client application and send telemetry to IoT Hub:
 
     ```sh
-    ./samples/solutions/remote_monitoring/remote_monitoring_client
+    ./samples/solutions/remote_monitoring_client/remote_monitoring_client
     ```
 
     The console displays messages as:

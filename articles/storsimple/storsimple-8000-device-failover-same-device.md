@@ -57,7 +57,7 @@ Perform the following steps if you need to fail over to the same device.
 
     ![Failover summary](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev11.png)
 
-    For detailed instructions, refer to [Fail over to another physical device](#fail-over-to-another-physical-device).
+    For detailed instructions, refer to Fail over to another physical device.
 
 7. A device restore job is created that you can monitor from the **Jobs** blade.
 

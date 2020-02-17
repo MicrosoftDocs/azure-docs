@@ -1,24 +1,18 @@
 ---
-title: Modeling stage of the Team Data Science Process lifecycle - Azure | Microsoft Docs
+title: Modeling stage of the Team Data Science Process lifecycle
 description: The goals, tasks, and deliverables for the modeling stage of your data-science projects
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: cgronlun
-editor: cgronlun
-
-ms.assetid: 
+author: marktab
+manager: marktab
+editor: marktab
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
-ms.author: deguhath
-
+ms.date: 01/10/2020
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
-# Modeling
+# Modeling stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the modeling stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that you can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
@@ -72,9 +66,9 @@ We provide an [automated modeling and reporting tool](https://github.com/Azure/A
 ## Artifacts
 The artifacts produced in this stage include:
 
-   * [Feature sets](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): The features developed for the modeling are described in the **Feature sets** section of the **Data definition** report. It contains pointers to the code to generate the features and a description of how the feature was generated.
+   * [Feature sets](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): The features developed for the modeling are described in the **Feature sets** section of the **Data definition** report. It contains pointers to the code to generate the features and a description of how the feature was generated.
    * [Model report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): For each model that's tried, a standard, template-based report that provides details on each experiment is produced.
-   * **Checkpoint decision**: Evaluate whether the model performs well enough to deploy it to a production system. Some key questions to ask are:
+   * **Checkpoint decision**: Evaluate whether the model performs sufficiently for production. Some key questions to ask are:
      * Does the model answer the question with sufficient confidence given the test data? 
      * Should you try any alternative approaches? Should you collect additional data, do more feature engineering, or experiment with other algorithms?
 
@@ -90,4 +84,4 @@ Here are links to each step in the lifecycle of the TDSP:
 
 We provide full end-to-end walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
-For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](http://aka.ms/datascienceprocess). 
+For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 

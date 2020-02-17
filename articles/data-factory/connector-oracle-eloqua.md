@@ -1,21 +1,18 @@
 ---
-title: Copy data from Oracle Eloqua using Azure Data Factory (Preview) | Microsoft Docs
+title: Copy data from Oracle Eloqua (Preview)
 description: Learn how to copy data from Oracle Eloqua to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
-ms.author: jingwang
-
+ms.custom: seo-lt-2019
+ms.date: 08/01/2019
 ---
+
 # Copy data from Oracle Eloqua using Azure Data Factory (Preview)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Oracle Eloqua. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
@@ -24,6 +21,11 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > This connector is currently in preview. You can try it out and provide feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
+
+This Oracle Eloqua connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from Oracle Eloqua to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -72,7 +74,12 @@ The following properties are supported for Oracle Eloqua linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Oracle Eloqua dataset.
 
-To copy data from Oracle Eloqua, set the type property of the dataset to **EloquaObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Oracle Eloqua, set the type property of the dataset to **EloquaObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **EloquaObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -81,6 +88,8 @@ To copy data from Oracle Eloqua, set the type property of the dataset to **Eloqu
     "name": "EloquaDataset",
     "properties": {
         "type": "EloquaObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Eloqua linked service name>",
             "type": "LinkedServiceReference"
@@ -93,14 +102,14 @@ To copy data from Oracle Eloqua, set the type property of the dataset to **Eloqu
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Oracle Eloqua source.
 
-### EloquaSource as source
+### Eloqua as source
 
 To copy data from Oracle Eloqua, set the source type in the copy activity to **EloquaSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **EloquaSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Accounts"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Accounts"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -133,6 +142,11 @@ To copy data from Oracle Eloqua, set the source type in the copy activity to **E
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Next steps
 For a list of supported data stored by Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

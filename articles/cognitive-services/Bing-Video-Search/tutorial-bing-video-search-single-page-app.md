@@ -1,16 +1,16 @@
 ---
 title: "Tutorial: Build a single-page Bing Video Search app"
-titlesuffix: Azure Cognitive Services
-description: Explains how to use the Bing Video Search API in a single-page Web application.
+titleSuffix: Azure Cognitive Services
+description: This tutorial explains how to use the Bing Video Search API in a single-page Web application.
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 11/01/2017
-ms.author: rosh
+ms.date: 02/03/2020
+ms.author: aahi
 ---
 # Tutorial: Single-page Video Search app
 The Bing Video Search API lets you search the Web and get video results relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing search API to display search results on the page. The application includes HTML, CSS, and JavaScript components.
@@ -115,7 +115,7 @@ function bingSearchOptions(form) {
 
     var options = [];
     options.push("mkt=" + form.where.value);
-    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "moderate"));
 
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
@@ -133,10 +133,10 @@ function bingSearchOptions(form) {
 }
 ```
 
-For example, the `SafeSearch` parameter in an actual API call can be `strict`, `moderate`, or `off`, with `moderate` being the default. Our form, however, uses a checkbox, which has only two states. The JavaScript code converts this setting to either `strict` or `off` (`moderate` is not used).
+For example, the `SafeSearch` parameter in an actual API call can be `strict`, or `moderate`, with `moderate` being the default.
 
 ## Performing the request
-Given the query, the options string, and the API key, the `BingWebSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Search endpoint.
+Given the query, the options string, and the API key, the `BingWebSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Search endpoint. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -276,7 +276,7 @@ function renderSearchResults(results) {
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
 
-    // Render the resuts to the mainline section
+    // Render the results to the mainline section
     for (section in { mainline: 0 }) {
          showDiv(section, renderResultsItems(section, results));
     }
@@ -369,7 +369,7 @@ The renderer function:
 > * Builds the HTML `<a>` tags that link to the image and the page that contains it.
 > * Builds the description that displays information about the image and the site it's on.
 
-The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The [Bing thumbnail service](resize-and-crop-thumbnails.md) then delivers a thumbnail of exactly that size.
+The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. Bing will return a [thumbnail](../bing-web-search/resize-and-crop-thumbnails.md) of exactly that size.
 
 ## Persisting client ID
 Responses from the Bing search APIs may include an `X-MSEdge-ClientID` header that should be sent back to the API with successive requests. If multiple Bing Search APIs are being used, the same client ID should be used with all of them, if possible.
@@ -385,7 +385,7 @@ Browser security policies (CORS) may prevent the `X-MSEdge-ClientID` header from
 > [!NOTE]
 > In a production Web application, you should perform the request server-side. Otherwise, your Bing Search API key must be included in the Web page, where it is available to anyone who views source. You are billed for all usage under your API subscription key, even requests made by unauthorized parties, so it is important not to expose your key.
 
-For development purposes, you can make the Bing Web Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+For development purposes, you can make the Bing Web Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that allows response headers and makes them available to JavaScript.
 
 It's easy to install a CORS proxy to allow our tutorial app to access the client ID header. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then issue the following command in a command window:
 

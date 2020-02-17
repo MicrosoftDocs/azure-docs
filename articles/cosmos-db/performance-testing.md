@@ -1,17 +1,12 @@
 ---
-title: Azure Cosmos DB scale and performance testing | Microsoft Docs
-description: Learn how to perform scale and performance testing with Azure Cosmos DB
-keywords: performance testing
-services: cosmos-db
+title: Performance and scale testing with Azure Cosmos DB
+description: Learn how to do scale and performance testing with Azure Cosmos DB. You can then evaluate the functionality of Azure Cosmos DB for high-performance application scenarios.
 author: SnehaGunda
-manager: kfile
-editor: ''
-
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2017
+ms.date: 05/23/2019
 ms.author: sngun
+ms.custom: seodec18
 
 ---
 # Performance and scale testing with Azure Cosmos DB
@@ -42,7 +37,7 @@ The quickest way to get started is to compile and run the .NET sample, as descri
 **Step 2:** Modify the settings for EndpointUrl, AuthorizationKey, CollectionThroughput, and DocumentTemplate (optional) in App.config.
 
 > [!NOTE]
-> Before you provision collections with high throughput, refer to the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to estimate the costs per collection. Azure Cosmos DB bills storage and throughput independently on an hourly basis. You can save costs by deleting or lowering the throughput of your Azure Cosmos DB collections after testing.
+> Before you provision collections with high throughput, refer to the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to estimate the costs per collection. Azure Cosmos DB bills storage and throughput independently on an hourly basis. You can save costs by deleting or lowering the throughput of your Azure Cosmos containers after testing.
 > 
 > 
 
@@ -89,9 +84,9 @@ The quickest way to get started is to compile and run the .NET sample, as descri
     Press any key to exit...
 
 
-**Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same or higher than the provisioned throughput of the collection or a set of collections. If it's not, increasing the DegreeOfParallelism in small increments might help you reach the limit. If the throughput from your client app plateaus, start multiple instances of the app on additional client machines. If you need help with this step, email askcosmosdb@microsoft.com or file a support ticket from the [Azure portal](https://portal.azure.com).
+**Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same or higher than the provisioned throughput of the collection or a set of collections. If it's not, increasing the DegreeOfParallelism in small increments might help you reach the limit. If the throughput from your client app plateaus, start multiple instances of the app on additional client machines. If you need help with this step file a support ticket from the [Azure portal](https://portal.azure.com).
 
-After you have the app running, you can try different [indexing policies](indexing-policies.md) and [consistency levels](consistency-levels.md) to understand their impact on throughput and latency. You can also review the source code and implement similar configurations to your own test suites or production applications.
+After you have the app running, you can try different [indexing policies](index-policy.md) and [consistency levels](consistency-levels.md) to understand their impact on throughput and latency. You can also review the source code and implement similar configurations to your own test suites or production applications.
 
 ## Next steps
 In this article, we looked at how you can perform performance and scale testing with Azure Cosmos DB by using a .NET console app. For more information, see the following articles:

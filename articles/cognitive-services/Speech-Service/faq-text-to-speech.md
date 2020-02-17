@@ -1,13 +1,14 @@
 ---
-title: Frequently asked questions about the Text to Speech service in Azure
-description: Get answers to the most popular questions about the Text to Speech service.
-titleSuffix: "Azure Cognitive Services"
+title: Text to Speech frequently asked questions
+titleSuffix: Azure Cognitive Services
+description: Get answers to the frequently asked questions about the Text to Speech service.
 services: cognitive-services
 author: PanosPeriorellis
+manager: nitinme
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
-ms.date: 06/11/2018
+ms.subservice: speech-service
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: panosper
 ---
 
@@ -19,15 +20,15 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: What is the difference between a standard voice model and a custom voice model?**
 
-**A**: The standard voice model (also called a *voice font*) has been trained by using Microsoft-owned data and is already deployed in the cloud. You can use a custom voice model either to adapt an average model and transfer the timbre and expression of the speaker’s voice style or train a full, new model based on the training data prepared by the user. Today, more and more customers want a one-of-a-kind, branded voice for their bots. The custom voice-building platform is the right choice for that option.
+**A**: The standard voice model (also called a _voice font_) has been trained by using Microsoft-owned data and is already deployed in the cloud. You can use a custom voice model either to adapt an average model and transfer the timbre and expression of the speaker’s voice style or train a full, new model based on the training data prepared by the user. Today, more and more customers want a one-of-a-kind, branded voice for their bots. The custom voice-building platform is the right choice for that option.
 
 **Q: Where do I start if I want to use a standard voice model?**
 
-**A**: More than 80 standard voice models in over 45 languages are available through HTTP requests. First, get a [subscription key](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). To make REST calls to the predeployed voice models, see the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+**A**: More than 80 standard voice models in over 45 languages are available through HTTP requests. First, get a [subscription key](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). To make REST calls to the predeployed voice models, see the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 **Q: If I want to use a customized voice model, is the API the same as the one that's used for standard voices?**
 
-**A**: When a custom voice model is created and deployed, you get a unique endpoint for your model. To use the voice to speak in your apps, you must specify the endpoint in your HTTP requests. The same functionality that's available in the REST API for the Text to Speech service is available for your custom endpoint. Learn how to [create and use your custom endpoint](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**A**: When a custom voice model is created and deployed, you get a unique endpoint for your model. To use the voice to speak in your apps, you must specify the endpoint in your HTTP requests. The same functionality that's available in the REST API for the Text to Speech service is available for your custom endpoint. Learn how to [create and use your custom endpoint](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint).
 
 **Q: Do I need to prepare the training data to create custom voice models on my own?**
 
@@ -35,7 +36,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 A collection of speech data is required to create a customized voice model. This collection consists of a set of audio files of speech recordings and a text file of the transcription of each audio file. The result of your digital voice relies heavily on the quality of your training data. To produce a good text-to-speech voice, it's important that the recordings are made in a quiet room with a high-quality, standing microphone. A consistent volume, speaking rate, and speaking pitch, and even consistency in expressive mannerisms of speech are essential for building a great digital voice. We highly recommend recording the voices in a recording studio.
 
-Currently, we don't provide online recording support or have any recording studio recommendations. For the format requirement, see [how to prepare recordings and transcripts](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
+Currently, we don't provide online recording support or have any recording studio recommendations. For the format requirement, see [how to prepare recordings and transcripts](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
 
 **Q: What scripts should I use to record the speech data for custom voice training?**
 
@@ -53,9 +54,9 @@ We provide additional services to help you prepare scripts for recording. Contac
 
 **Q: Are my requests throttled?**
 
-**A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Text to Speech](text-to-speech.md). 
+**A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Text to Speech](text-to-speech.md).
 
 ## Next steps
 
-* [Troubleshooting](troubleshooting.md)
-* [Release notes](releasenotes.md)
+- [Troubleshooting](troubleshooting.md)
+- [Release notes](releasenotes.md)

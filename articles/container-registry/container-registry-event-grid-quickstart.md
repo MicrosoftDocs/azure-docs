@@ -1,20 +1,15 @@
 ---
-title: Quickstart - Send Azure Container Registry events to Event Grid
+title: Quickstart - Send events to Event Grid
 description: In this quickstart, you enable Event Grid events for your container registry, then send container image push and delete events to a sample application.
-services: container-registry
-author: mmacy
-manager: jeconnoc
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
-ms.author: marsma
+ms.custom: seodec18
 # Customer intent: As a container registry owner, I want to send events to Event Grid
 # when container images are pushed to or deleted from my container registry so that
 # downstream applications can react to those events.
 ---
 
-# Quickstart: Send container registry events to Event Grid
+# Quickstart: Send events from private container registry to Event Grid
 
 Azure Event Grid is a fully managed event routing service that provides uniform event consumption using a publish-subscribe model. In this quickstart, you use the Azure CLI to create a container registry, subscribe to registry events, then deploy a sample web application to receive the events. Finally, you trigger container image `push` and `delete` events and view the event payload in the sample application.
 
@@ -107,11 +102,11 @@ APP_ENDPOINT=https://$SITE_NAME.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
     --name event-sub-acr \
-    --resource-id $ACR_REGISTRY_ID \
+    --source-resource-id $ACR_REGISTRY_ID \
     --endpoint $APP_ENDPOINT
 ```
 
-When the subscription is completed, you should output similar to the following:
+When the subscription is completed, you should see output similar to the following:
 
 ```JSON
 {
@@ -241,7 +236,7 @@ In this quickstart, you deployed a container registry, built an image with ACR T
 [sample-app]: https://github.com/dbarkol/azure-event-grid-viewer
 
 <!-- LINKS - Internal -->
-[az-acr-create]: /cli/azure/acr/repository#az-acr-create
+[az-acr-create]: /cli/azure/acr/repository
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
 [az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create
 [az-group-create]: /cli/azure/group#az-group-create

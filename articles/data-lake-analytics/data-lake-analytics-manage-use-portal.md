@@ -106,7 +106,7 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 ### Add users or security groups to a Data Lake Analytics account
 
 1. In the Azure portal, go to your Data Lake Analytics account.
-2. Click **Access control (IAM)** > **Add**.
+2. Click **Access control (IAM)** > **Add role assignment**.
 3. Select a role.
 4. Add a user.
 5. Click **OK**.
@@ -160,4 +160,4 @@ To view a list of U-SQL jobs that are recurring:
 
 * [Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Manage Azure Data Lake Analytics by using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Manage Azure Data Lake Analytics using policies](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-policies)
+* [Manage Azure Data Lake Analytics using policies](data-lake-analytics-account-policies.md)

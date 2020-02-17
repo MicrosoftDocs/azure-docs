@@ -1,13 +1,11 @@
 ---
-title: Server concepts in Azure Database for MariaDB
+title: Servers - Azure Database for MariaDB
 description: This topic provides considerations and guidelines for working with Azure Database for MariaDB servers.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/02/2019
 ---
 # Server concepts in Azure Database for MariaDB
 This article provides considerations and guidelines for working with Azure Database for MariaDB servers.
@@ -32,13 +30,14 @@ Within an Azure Database for MariaDB server, you can create one or multiple data
 ## How do I secure an Azure Database for MariaDB server?
 
 The following elements help ensure safe access to your database.
+
 |||
 | :--| :--|
 | **Authentication and authorization** | Azure Database for MariaDB server supports native MySQL authentication. You can connect and authenticate to a server with the server's admin login. |
 | **Protocol** | The service supports a message-based protocol used by MySQL. |
 | **TCP/IP** | The protocol is supported over TCP/IP and over Unix-domain sockets. |
 | **Firewall** | To help protect your data, a firewall rule prevents all access to your database server, until you specify which computers have permission. See [Azure Database for MariaDB Server firewall rules](./concepts-firewall-rules.md). |
-| **SSL** | The service supports enforcing SSL connections between your applications and your database server.  <!--See [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).--> |
+| **SSL** | The service supports enforcing SSL connections between your applications and your database server. See [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md). |
 
 ## How do I manage a server?
 You can manage Azure Database for MariaDB servers by using the Azure portal or the Azure CLI.
@@ -46,4 +45,5 @@ You can manage Azure Database for MariaDB servers by using the Azure portal or t
 ## Next steps
 - For an overview of the service, see [Azure Database for MariaDB Overview](./overview.md)
 - For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](./concepts-pricing-tiers.md)
+
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->

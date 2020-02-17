@@ -5,7 +5,6 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-
 ms.reviewer: jasonwhowell
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.topic: conceptual
@@ -44,7 +43,7 @@ npm install azure-arm-datalake-analytics
 ## Create the Data Lake Analytics client
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
-var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
+var accountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
 var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azuredatalakeanalytics.net');
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```
@@ -126,5 +125,3 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 
 ## See also
 * [Microsoft Azure SDK for Node.js](https://github.com/azure/azure-sdk-for-node)
-* [Microsoft Azure SDK for Node.js - Data Lake Store Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-

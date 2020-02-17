@@ -1,75 +1,110 @@
 ---
-title: Use Python to query Azure SQL Database | Microsoft Docs
-description: This topic shows you how to use Python to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
+title: Use Python to query a database
+description: This topic shows you how to use Python to create a program that connects to an Azure SQL database and query it using Transact-SQL statements.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
+ms.custom: seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
-ms.date: 07/02/2018
+ms.date: 03/25/2019
 ---
-# Use Python to query an Azure SQL database
+# Quickstart: Use Python to query an Azure SQL database
 
- This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure SQL database and use Transact-SQL statements to query data. For further sdk details, checkout our [reference](https://docs.microsoft.com/python/api/overview/azure/sql) documentation, a pyodbc [sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started), and the [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub repository.
+In this quickstart, you use Python to connect to an Azure SQL database and use T-SQL statements to query data.
 
 ## Prerequisites
 
-To complete this quickstart, make sure you have the following:
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An [Azure SQL database](sql-database-single-database-get-started.md)
+- [Python](https://python.org/downloads) 3 and related software
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+  # [macOS](#tab/macos)
 
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
+  To install Homebrew and Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server, use steps **1.2**, **1.3**, and **2.1** in [create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
 
-- You have installed Python and related software for your operating system:
+  For further information, see [Microsoft ODBC Driver on macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-    - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python Driver for SQL Server. See [Steps 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
-    - **Ubuntu**:  Install Python and other required packages, and then install the Python Driver for SQL Server. See [Steps 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/).
-    - **Windows**: Install the newest version of Python (environment variable is now configured for you), install the ODBC driver and SQLCMD, and then install the Python Driver for SQL Server. See [Step 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/windows/). 
+  # [Ubuntu](#tab/ubuntu)
 
-## SQL server connection information
+  To install Python and other required packages, use `sudo apt-get install python python-pip gcc g++ build-essential`.
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
-    
-## Insert code to query SQL database 
+  To install the ODBC driver, SQLCMD, and the Python driver for SQL Server, see [configure an environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
 
-1. In your favorite text editor, create a new file, **sqltest.py**.  
+  For further information, see [Microsoft ODBC Driver on Linux](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-2. Replace the contents with the following code and add the appropriate values for your server, database, user, and password.
+  # [Windows](#tab/windows)
 
-```Python
-import pyodbc
-server = 'your_server.database.windows.net'
-database = 'your_database'
-username = 'your_username'
-password = 'your_password'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
-row = cursor.fetchone()
-while row:
-    print (str(row[0]) + " " + str(row[1]))
-    row = cursor.fetchone()
-```
+  To install Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server, see [configure an environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
+
+  For further information, see [Microsoft ODBC Driver](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server).
+
+---
+
+> [!IMPORTANT]
+> The scripts in this article are written to use the **Adventure Works** database.
+
+> [!NOTE]
+> You can optionally choose to use an Azure SQL managed instance.
+>
+> To create and configure, use the [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), then setup [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity.
+>
+> To load data, see [restore with BACPAC](sql-database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
+
+To further explore Python and the Azure SQL database, see [Azure SQL database libraries for Python](/python/api/overview/azure/sql), the [pyodbc repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
+
+## Get SQL server connection information
+
+Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Go to the **SQL databases**  or **SQL managed instances** page.
+
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon.
+
+## Create code to query your SQL database 
+
+1. In a text editor, create a new file named *sqltest.py*.  
+   
+1. Add the following code. Substitute your own values for \<server>, \<database>, \<username>, and \<password>.
+   
+   >[!IMPORTANT]
+   >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
+   
+   ```python
+   import pyodbc
+   server = '<server>.database.windows.net'
+   database = '<database>'
+   username = '<username>'
+   password = '<password>'
+   driver= '{ODBC Driver 17 for SQL Server}'
+   cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
+   cursor = cnxn.cursor()
+   cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
+   row = cursor.fetchone()
+   while row:
+       print (str(row[0]) + " " + str(row[1]))
+       row = cursor.fetchone()
+   ```
+   
 
 ## Run the code
 
-1. At the command prompt, run the following commands:
+1. At a command prompt, run the following command:
 
-   ```Python
+   ```cmd
    python sqltest.py
    ```
 
-2. Verify that the top 20 rows are returned and then close the application window.
+1. Verify that the top 20 Category/Product rows are returned, then close the command window.
 
 ## Next steps
 
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
-- [Microsoft Python Drivers for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
-- [Python Developer Center](https://azure.microsoft.com/develop/python/?v=17.23h)
+- [Microsoft Python drivers for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
+- [Python developer center](https://azure.microsoft.com/develop/python/?v=17.23h)
 

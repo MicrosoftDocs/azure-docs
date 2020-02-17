@@ -1,32 +1,28 @@
 ﻿---
-title: Configure geographic traffic routing method using Azure Traffic Manager | Microsoft Docs
-description: This article explains how to configure the geographic traffic routing method using Azure Traffic Manager
+title: Tutorial - Configure geographic traffic routing with Azure Traffic Manager
+description: This tutorial explains how to configure the geographic traffic routing method using Azure Traffic Manager
 services: traffic-manager
-documentationcenter: ''
-author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid:
+author: rohinkoul
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: kumud
+ms.author: rohink
 ---
 
-# Configure the geographic traffic routing method using Traffic Manager
+# Tutorial: Configure the geographic traffic routing method using Traffic Manager
 
 The Geographic traffic routing method allows you to direct traffic to specific endpoints based on the geographic location where the requests originate. This tutorial shows you how to create a Traffic Manager profile with this routing method and configure the endpoints to receive traffic from specific geographies.
 
 ## Create a Traffic Manager Profile
 
-1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free/).
+1. From a browser, sign in to the [Azure portal](https://portal.azure.com). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free/).
 2. Click **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 4. In the **Create Traffic Manager profile**:
-    1. Provide a name for your profile. This name needs to be unique within the trafficmanager.net zone. To access your Traffic Manager profile, you use the DNS name <profilename>.trafficmanager.net.
+    1. Provide a name for your profile. This name needs to be unique within the trafficmanager.net zone. To access your Traffic Manager profile, you use the DNS name `<profilename>.trafficmanager.net`.
     2. Select the **Geographic** routing method.
     3. Select the subscription you want to create this profile under.
     4. Use an existing resource group or create a new resource group to place this profile under. If you choose to create a new resource group, use the **Resource Group location** dropdown to specify the location of the resource group. This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that's deployed globally.

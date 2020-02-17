@@ -1,3 +1,10 @@
+---
+author: genlin
+ms.service: virtual-network
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: genli
+---
 ## Scenario
 To better illustrate how to configure a static IP address for a VM, this document will use the scenario below.
 

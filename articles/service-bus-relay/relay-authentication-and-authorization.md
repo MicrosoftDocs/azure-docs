@@ -1,6 +1,6 @@
 ---
 title: Azure Relay authentication and authorization | Microsoft Docs
-description: Overview of Shared Access Signature (SAS) authentication in Azure Relay
+description: This article provides an overview of Shared Access Signature (SAS) authentication with the Azure Relay service.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 01/21/2020
 ms.author: spelluru
 
 ---
@@ -25,7 +25,7 @@ Applications can authenticate to Azure Relay using Shared Access Signature (SAS)
 
 [SAS authentication](../service-bus-messaging/service-bus-sas.md) enables you to grant a user access to Azure Relay resources with specific rights. SAS authentication involves the configuration of a cryptographic key with associated rights on a resource. Clients can then gain access to that resource by presenting a SAS token, which consists of the resource URI being accessed and an expiry signed with the configured key.
 
-You can configure keys for SAS on a Relay namespace. Unlike Service Bus messaging, [Relay Hybrid Connections](relay-hybrid-connections-protocol.md) supports unauthorized or anonymous senders. You can enable anonymous access for the entity when you create it, as shown in the following screen shot from the portal:
+You can configure keys for SAS on a Relay namespace. Unlike Service Bus messaging, [Relay Hybrid Connections](relay-hybrid-connections-protocol.md) supports unauthorized or anonymous senders. You can enable anonymous access for the entity when you create it, as shown in the following screenshot from the portal:
 
 ![][0]
 

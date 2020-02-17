@@ -1,3 +1,10 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
 ## What is Table storage
 Azure Table storage stores large amounts of structured data. The service is a NoSQL datastore which accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data. Common uses of Table storage include:
 
@@ -19,7 +26,7 @@ Table storage  contains the following components:
   `http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
   You can address Azure tables directly using this address with the OData protocol. For more information, see [OData.org][OData.org].
-* **Accounts:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) for details about storage account capacity. 
+* **Accounts:** All access to Azure Storage is done through a storage account. For more information about storage accounts, see [Storage account overview](../articles/storage/common/storage-account-overview.md).
 
     All access to Azure Cosmos DB is done through a Table API account. See [Create a Table API account](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) for details creating a Table API account.
 * **Table**: A table is a collection of entities. Tables don't enforce a schema on entities, which means a single table can contain entities that have different sets of properties.  

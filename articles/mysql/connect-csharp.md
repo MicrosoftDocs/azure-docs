@@ -1,16 +1,13 @@
 ---
-title: 'Connect to Azure Database for MySQL from C#'
+title: 'Connect using C# - Azure Database for MySQL'
 description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for MySQL.
-services: MySQL
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 12/02/2019
 ---
 
 # Azure Database for MySQL: Use .NET (C#) to connect and query data

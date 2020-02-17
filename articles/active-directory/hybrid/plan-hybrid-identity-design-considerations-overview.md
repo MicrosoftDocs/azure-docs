@@ -4,19 +4,20 @@ description: Overview and content map of Hybrid Identity design considerations g
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Hybrid Identity Design Considerations
 Consumer-based devices are proliferating the corporate world, and cloud-based software-as-a-service (SaaS) applications are easy to adopt. As a result, maintaining control of users’ application access across internal datacenters and cloud platforms is challenging.  
@@ -58,6 +59,6 @@ You will arrive at the design that best meets your requirements only after itera
 | Plan for enhancing data security through strong identity solution |[Determine data protection requirements](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Determine content management requirements](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Determine access control requirements](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Determine incident response requirements](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Define data protection strategy](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
 | Plan for hybrid identity lifecycle |[Determine hybrid identity management tasks](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Synchronization Management](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Determine hybrid identity management adoption strategy](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
-## Download this guide
-You can download a pdf version of the Hybrid Identity Design Considerations guide from the [Technet gallery](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
+## Next Steps
+[Determine identity requirements](plan-hybrid-identity-design-considerations-business-needs.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "PowerShell script: Add an external user to a lab in Azure DevTest Labs | Microsoft Docs"
-description: This PowerShell script adds an external user to a lab in Azure DevTest Labs.  
+title: PowerShell - Add an external user to a lab in Azure DevTest Labs
+description: This article provides an Azure PowerShell script that adds an external user to a lab in Azure DevTest Labs.  
 services: lab-services
 author: spelluru
 manager: 
@@ -11,13 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/24/2020
 ms.author: spelluru
 ---
 
 # Use PowerShell to add an external user to a lab in Azure DevTest Labs
 
 This sample PowerShell script adds an external user to a lab in Azure DevTest Labs. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -34,8 +36,8 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) | Retries the user object from Azure active directory. |
-| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Assigns the specified role to the specified principal, at the specified scope. |
+| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Retries the user object from Azure active directory. |
+| [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Assigns the specified role to the specified principal, at the specified scope. |
 
 ## Next steps
 

@@ -1,23 +1,19 @@
 ---
-title: About Mobile Apps in Azure App Service
+title: About Mobile Apps
 description: Learn about the advantages that App Service brings to your enterprise mobile apps.
-services: app-service\mobile
-documentationcenter: ''
-author: conceptdev
-manager: yochayk
-editor: ''
 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
-ms.service: app-service-mobile
-ms.workload: na
 ms.tgt_pltfrm: mobile-multiple
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 10/01/2016
-ms.author: crdun
-
+ms.topic: conceptual
+ms.date: 06/25/2019
 ---
 # <a name="getting-started"> </a>About Mobile Apps in Azure App Service
+
+> [!NOTE]
+> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
+>
+> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
+
 Azure App Service is a fully managed [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers. The service brings a rich set of capabilities to web, mobile, and integration scenarios. 
 
 The Mobile Apps feature of Azure App Service gives enterprise developers and system integrators a mobile-application development platform that's highly scalable and globally available.
@@ -64,7 +60,7 @@ The following platform features are useful for mobile production sites:
 
 * **Continuous deployment**: App Service can integrate with common _source control management_ (SCM) systems, allowing you to easily deploy a new version of your back end.
 
-  Discover more about [deployment options](../app-service/app-service-deploy-local-git.md).
+  Discover more about [deployment options](../app-service/deploy-local-git.md).
 
 * **Virtual networking**: App Service can connect to on-premises resources by using virtual network, Azure ExpressRoute, or hybrid connections.
 
@@ -96,10 +92,11 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [Xamarin.iOS and Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[autoscaling]: ../app-service/web-sites-scale.md
-[staging environments]: ../app-service/web-sites-staged-publishing.md
+[autoscaling]: ../app-service/manage-scale-up.md
+[staging environments]: ../app-service/deploy-staging-slots.md
 [hybrid connections]: ../biztalk-services/integration-hybrid-connection-overview.md
 [virtual networks]: ../app-service/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
 [App Service environments]: ../app-service/environment/intro.md
 [learning map]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
+[Azure App Service]: ../app-service/overview.md

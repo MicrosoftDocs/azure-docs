@@ -1,20 +1,21 @@
 ---
-title: Azure Container Service tutorial - Prepare ACR
+title: (DEPRECATED) Azure Container Service tutorial - Prepare ACR
 description: Azure Container Service tutorial - Prepare ACR
-services: container-service
-author: neilpeterson
-manager: jeconnoc
+author: iainfoulds
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Deploy and use Azure Container Registry
+# (DEPRECATED) Deploy and use Azure Container Registry
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Deploy and use Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Azure Container Registry (ACR) is an Azure-based, private registry, for Docker container images. This tutorial, part two of seven, walks through deploying an Azure Container Registry instance, and pushing a container image to it. Steps completed include:
 
@@ -90,7 +91,7 @@ Now, tag the `azure-vote-front` image with the loginServer of the container regi
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Once tagged, run [docker images] (https://docs.docker.com/engine/reference/commandline/images/) to verify the operation.
+Once tagged, run [docker images](https://docs.docker.com/engine/reference/commandline/images/) to verify the operation.
 
 ```bash
 docker images
@@ -134,7 +135,7 @@ Result
 azure-vote-front
 ```
 
-And then to see the tags for a specific image, use the [az acr repository show-tags](/cli/azure/acr/repository#show-tags) command.
+And then to see the tags for a specific image, use the [az acr repository show-tags](/cli/azure/acr/repository) command.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table

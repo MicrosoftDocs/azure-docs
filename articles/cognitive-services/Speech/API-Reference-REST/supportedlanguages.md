@@ -1,18 +1,20 @@
 ---
-title: Language support - Speech API
-titleSuffix: Azure Cognitive Services
-description: A list of natural languages that are supported by the Speech API.
+title: Bing Speech Supported Languages | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: A list of spoken languages that are supported by Bing Speech.
 services: cognitive-services
-author: zhouwangzw
-manager: cgronlun
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
-ms.date: 09/25/2018
-ms.author: zhouwang
-ROBOTS: NOINDEX
+ms.date: 09/18/2018
+ms.author: nitinme
+ROBOTS: NOINDEX,NOFOLLOW
 ---
-# Language and region support for Speech API
+# Supported languages
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## Interactive and dictation mode
 
@@ -21,7 +23,7 @@ The Microsoft speech recognition API supports the following languages in `intera
 |Code | Language | Code | Language |
 |-----|-----|-----|-----|
 | ar-EG | Arabic (Egypt), modern standard | hi-IN | Hindi (India) |
-| ca-ES | Catalan (Spain) | it-IT | Italian (Italy)  |
+| ca-ES | Catalan | it-IT | Italian (Italy)  |
 | da-DK | Danish (Denmark) | ja-JP | Japanese (Japan) |
 | de-DE | German (Germany) |ko-KR | Korean (Korea) |
 | en-AU | English (Australia) |nb-NO | Norwegian (Bokmål) (Norway)  |
@@ -34,8 +36,7 @@ The Microsoft speech recognition API supports the following languages in `intera
 | es-MX | Spanish (Mexico) |zh-CN | Chinese (Mandarin, simplified)  |
 | fi-FI | Finnish (Finland) |zh-HK | Chinese (Hong Kong SAR) |
 | fr-CA | French (Canada) | zh-TW | Chinese (Mandarin, Taiwanese)|
-| fr-FR | French (France) | gu-IN | Gujarati (India) |
-| ta-IN |Tamil (India) | te-IN | Telugu (India) |
+| fr-FR | French (France) | ||
 
 ## Conversation mode
 

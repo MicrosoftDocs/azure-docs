@@ -2,13 +2,16 @@
 title: Using the Azure classic CLI with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure classic Command-Line Interface (CLI) with Azure Storage to create and manage storage accounts and work with Azure blobs and files.
 services: storage
-author: seguler
+author: tamram
+
 ms.service: storage
 ms.topic: article
 ms.date: 01/30/2017
-ms.author: seguler
-ms.component: common
+ms.author: tamram
+ms.reviewer: seguler
+ms.subservice: common
 ---
+
 # Using the Azure classic CLI with Azure Storage
 
 ## Overview
@@ -20,7 +23,7 @@ In this guide, we'll explore how to use [Azure classic CLI](../../cli-install-no
 This guide assumes that you understand the basic concepts of Azure Storage. The guide provides a number of scripts to demonstrate the usage of the classic CLI with Azure Storage. Be sure to update the script variables based on your configuration before running each script.
 
 > [!NOTE]
-> The guide provides the Azure classic CLI command and script examples for classic storage accounts. See [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) for Azure classic CLI commands for Resource Manager storage accounts.
+> The guide provides the Azure classic CLI command and script examples for classic storage accounts. See [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#storage-objects) for Azure classic CLI commands for Resource Manager storage accounts.
 >
 >
 
@@ -116,7 +119,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 ```
 
 ## Create and manage blobs
-Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with the Azure Blob storage concepts. For detailed information, see [Get started with Azure Blob storage using .NET](../blobs/storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with the Azure Blob storage concepts. For detailed information, see [Get started with Azure Blob storage using .NET](../blobs/storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### Create a container
 Every blob in Azure storage must be in a container. You can create a private container using the `azure storage container create` command:
@@ -131,7 +134,7 @@ azure storage container create mycontainer
 >
 
 ### Upload a blob into a container
-Azure Blob Storage supports block blobs and page blobs. For more information, see [Understanding Block Blobs, Append Blobs, and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Azure Blob Storage supports block blobs and page blobs. For more information, see [Understanding Block Blobs, Append Blobs, and Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 To upload blobs in to a container, you can use the `azure storage blob upload`. By default, this command uploads the local files to a block blob. To specify the type for the blob, you can use the `--blobtype` parameter.
 
@@ -226,7 +229,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 You can find Azure classic CLI command reference for working with Storage resources here:
 
-* [Azure classic CLI commands in Resource Manager mode](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Azure classic CLI commands in Resource Manager mode](../../virtual-machines/azure-cli-arm-commands.md#storage-objects)
 * [Azure classic CLI commands in Azure Service Management mode](../../cli-install-nodejs.md)
 
 You may also like to try the latest version of the [Azure CLI](../storage-azure-cli.md), for use with the Resource Manager deployment model.

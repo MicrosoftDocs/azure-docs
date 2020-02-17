@@ -1,16 +1,17 @@
 ---
-title: VMware/physical server replication architecture in Azure Site Recovery | Microsoft Docs
-description: This article provides an overview of components and architecture used when replicating on-premises VMware VMs or physical Windows/Linux servers to a secondary VMware site with Azure Site Recovery
+title: Architecture-VMware/physical disaster recovery to a secondary site with Azure Site Recovery
+description: This article provides an overview of components and architecture used during disaster recovery of on-premises VMware VMs or physical Windows/Linux servers to a secondary VMware site with Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/12/2019
 ms.author: raynew
 ---
 
-# VMware VM/Physical server to VMware replication architecture
+# Architecture for VMware/physical server replication to a secondary on-premises site
 
-This article describes the architecture and processes used when you replicate, fail over, and recover on-premises VMware virtual machines (VMs) or physical Windows/Linux servers to a secondary VMware site using [Azure Site Recovery](site-recovery-overview.md).
+This article describes the architecture and processes used when set up disaster recovery replication, failover, and recovery of on-premises VMware virtual machines (VMs) or physical Windows/Linux servers to a secondary VMware site using [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## Architectural components
@@ -25,7 +26,7 @@ This article describes the architecture and processes used when you replicate, f
 **VMware ESX/ESXi and vCenter server** |  VMs are hosted on ESX/ESXi hosts. Hosts are managed with a vCenter server | You need a VMware infrastructure to replicate VMware VMs.
 **VMs/physical servers** |  Unified Agent installed on VMware VMs and physical servers you want to replicate. | The agent acts as a communication provider between all of the components.
 
-### Replication process
+## Replication process
 
 1. You set up the component servers in each site (configuration, process, master target), and install the Unified Agent on machines that you want to replicate.
 2. After initial replication, the agent on each machine sends delta replication changes to the process server.

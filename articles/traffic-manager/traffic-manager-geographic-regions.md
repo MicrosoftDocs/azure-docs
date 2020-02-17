@@ -1,20 +1,17 @@
-﻿---
-title: Country/Region hierarchy used by Azure Traffic Manager Geographic routing type| Microsoft Docs
+---
+title: Country/Region hierarchy used by geographic routing - Azure Traffic Manager
 description: This article lists Country/Region hierarchy used by Azure Traffic Manager Geographic routing type
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid:
+author: rohinkoul
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: kumud
+ms.author: rohink
 ---
 
 # Country/Region hierarchy used by Azure Traffic Manager for geographic traffic routing method
@@ -97,7 +94,7 @@ This article lists the countries and regions used by the **Geographic**  traffic
 
 		- ME(Montenegro)
 
-		- MK(Macedonia, FYRO)
+		- MK(North Macedonia)
 
 		- MT(Malta)
 
@@ -126,6 +123,7 @@ This article lists the countries and regions used by the **Geographic**  traffic
 		- SM(San Marino)
 
 		- UA(Ukraine)
+			- Region of Crimea
 
 		- VA(Vatican City)
 
@@ -478,8 +476,6 @@ This article lists the countries and regions used by the **Geographic**  traffic
 		- CD(Congo (DRC))
 
 		- CF(Central African Republic)
-
-		- CG(Congo)
 
 		- CI(Côte d’Ivoire)
 

@@ -4,7 +4,7 @@ description: Troubleshoot Resource Manager deployment issues when you create a n
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
 author: JiangChen79
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
 ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
@@ -31,7 +31,7 @@ For other VM deployment issues and questions, see [Troubleshoot deploying Linux 
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 
-[View deployment operations](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[View deployment operations](../../azure-resource-manager/templates/deployment-history.md)
 
 [View activity logs to manage Azure resources](../../resource-group-audit.md)
 
@@ -49,7 +49,7 @@ To start troubleshooting, collect the activity logs to identify the error associ
 
 **Resolution:**
 
-To resolve both these errors, upload the original VHD, available on-prem, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run -deprovision first.
+To resolve both these errors, upload the original VHD, available on premises, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run -deprovision first.
 
 **Capture Errors:**
 

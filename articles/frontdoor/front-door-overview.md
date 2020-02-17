@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/29/2018
+ms.date: 11/23/2019
 ms.author: sharadag
 # customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
 ---
@@ -22,6 +22,8 @@ Front Door works at Layer 7 or HTTP/HTTPS layer and uses anycast protocol with s
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you are looking for a DNS based global routing and do **not** have requirements for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md). If you are looking for load balancing between your servers in a region, for application layer, review [Application Gateway](../application-gateway/application-gateway-introduction.md) and for network layer load balancing, review [Load Balancer](../load-balancer/load-balancer-overview.md). Your end-to-end scenarios might benefit from combining these solutions as needed.
+>
+> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 The following features are included with Front Door:
 
@@ -53,9 +55,16 @@ When you use Front Door to deliver content, a custom domain is necessary if you 
 Front Door also supports HTTPS for custom domain names. Use this feature by either choosing Front Door managed certificates for your traffic or uploading your own custom SSL certificate.
 
 ## Application layer security
-Azure Front Door allows you to author custom web application firewall (WAF) rules for access control to protect your HTTP/HTTPS workload from exploitation based on client IP addresses, country code, and http parameters. Additionally, Front Door also enables you to create rate limiting rules to battle malicious bot traffic. 
+Azure Front Door allows you to author custom Web Application Firewall (WAF) rules for access control to protect your HTTP/HTTPS workload from exploitation based on client IP addresses, country code, and http parameters. Additionally, Front Door also enables you to create rate limiting rules to battle malicious bot traffic. For more information about Web Application Firewall, see [What is Azure Web Application Firewall?](../web-application-firewall/overview.md)
 
 Front Door platform itself is protected by [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) Basic. For further protection, Azure DDoS Protection Standard may be enabled at your VNETs and safeguard resources from network layer (TCP/UDP) attacks via auto tuning and mitigation. Front Door is a layer 7 reverse proxy, it only allows web traffic to pass through to backends and block other types of traffic by default.
+
+## URL redirection
+With the strong industry push on supporting only secure communication, web applications are expected to automatically redirect any HTTP traffic to HTTPS. This ensures that all communication between the users and the application occurs over an encrypted path. 
+
+Traditionally, application owners have dealt with this requirement by creating a dedicated service, whose sole purpose was to redirect requests it receives on HTTP to HTTPS. Azure Front Door Service supports the ability to redirect traffic from HTTP to HTTPS. This simplifies application configuration, optimizes the resource usage, and supports new redirection scenarios, including global and path-based redirection. URL redirection from Azure Front Door Service is not limited to HTTP to HTTPS redirection alone, but also to redirect to a different hostname, redirecting to a different path, or even redirecting to a new query string in the URL.
+
+For more information, see [redirecting traffic](front-door-url-redirect.md) with Azure Front Door Service.
 
 ## URL rewrite
 Front Door supports [URL rewrite](front-door-url-rewrite.md) by allowing you to configure an optional Custom Forwarding Path to use when constructing the request to forward to the backend. Front Door further allows you to configure Host header to be sent when forwarding the request to your backend.

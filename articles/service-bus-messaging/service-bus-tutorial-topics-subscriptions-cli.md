@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with Azure CLI | Microsoft Docs
-description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using Azure CLI
+title: 'Tutorial: Update retail inventory assortment using publish/subscribe channels and topic filters with Azure CLI'
+description: 'Tutorial: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using Azure CLI'
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 
 ms.author: spelluru
-ms.date: 09/22/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 
 To develop a Service Bus app with Java, you must have the following installed:
 
-- [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), latest version.
+- [Java Development Kit](https://aka.ms/azure-jdks), latest version.
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
@@ -124,7 +124,7 @@ After the last command runs, copy and paste the connection string, and the queue
 
 ## Create filter rules on subscriptions
 
-After the namespace and topic/subscriptions are provisioned, and you have the necessary credentials, you are ready to create filter rules on the subscriptions, then send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/tutorial-topics-subscriptions-filters-java/src/main/java/com/microsoft/azure/).
+After the namespace and topic/subscriptions are provisioned, and you have the necessary credentials, you are ready to create filter rules on the subscriptions, then send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 ## Send and receive messages
 
@@ -146,7 +146,7 @@ After the namespace and topic/subscriptions are provisioned, and you have the ne
 4. To run the program, issue the following command. Make sure to replace the placeholders with the connection string and topic name you obtained in the previous step:
 
    ```shell
-  java -jar .\target\tutorial-topics-subscriptions-filters-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -t "myTopicName"
+   java -jar .\target\tutorial-topics-subscriptions-filters-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -t "myTopicName"
    ```
 
    Observe 10 messages being sent to the topic, and subsequently received from the individual subscriptions:
@@ -175,7 +175,7 @@ First, the code declares a set of variables, which drive the remaining execution
     static final String[] Subscriptions = {"S1","S2","S3"};
     static final String[] Store = {"Store1","Store2","Store3","Store4","Store5","Store6","Store7","Store8","Store9","Store10"};
     static final String SysField = "sys.To";
-    static final String CustomField = "StoreId";    
+    static final String CustomField = "StoreId";
     int NrOfMessagesPerStore = 1; // Send at least 1.
 ```
 
@@ -183,7 +183,7 @@ The connection string and the topic name are the only values added via command-l
 
 ```java
 public static void main(String[] args) {
-		TutorialTopicsSubscriptionsFilters app = new TutorialTopicsSubscriptionsFilters();
+    TutorialTopicsSubscriptionsFilters app = new TutorialTopicsSubscriptionsFilters();
         try {
             app.runApp(args);
             app.run();
@@ -191,15 +191,15 @@ public static void main(String[] args) {
             System.out.printf("%s", e.toString());
         }
         System.exit(0);
-	}
+    }
 }
 
 public void run() throws Exception {
-		// Send sample messages.
-        this.sendMessagesToTopic();
+    // Send sample messages.
+    this.sendMessagesToTopic();
 
-        // Receive messages from subscriptions.
-        this.receiveAllMessages();
+    // Receive messages from subscriptions.
+    this.receiveAllMessages();
 }
 ```
 
@@ -209,56 +209,56 @@ To send and receive messages, the `sendMessagesToTopic()` method creates a topic
 
 ```java
 public void sendMessagesToTopic() throws Exception, ServiceBusException {
-		 // Create client for the topic.
-        TopicClient topicClient = new TopicClient(new ConnectionStringBuilder(ConnectionString, TopicName));
+    // Create client for the topic.
+    TopicClient topicClient = new TopicClient(new ConnectionStringBuilder(ConnectionString, TopicName));
 
-        // Create a message sender from the topic client.
+    // Create a message sender from the topic client.
 
-        System.out.printf("\nSending orders to topic.\n");
+    System.out.printf("\nSending orders to topic.\n");
 
-        // Now we can start sending orders.
-        CompletableFuture.allOf(
-                SendOrders(topicClient,Store[0]),
-                SendOrders(topicClient,Store[1]),
-                SendOrders(topicClient,Store[2]),
-                SendOrders(topicClient,Store[3]),
-                SendOrders(topicClient,Store[4]),
-                SendOrders(topicClient,Store[5]),
-                SendOrders(topicClient,Store[6]),
-                SendOrders(topicClient,Store[7]),
-                SendOrders(topicClient,Store[8]),
-                SendOrders(topicClient,Store[9])                
-        ).join();
+    // Now we can start sending orders.
+    CompletableFuture.allOf(
+            SendOrders(topicClient,Store[0]),
+            SendOrders(topicClient,Store[1]),
+            SendOrders(topicClient,Store[2]),
+            SendOrders(topicClient,Store[3]),
+            SendOrders(topicClient,Store[4]),
+            SendOrders(topicClient,Store[5]),
+            SendOrders(topicClient,Store[6]),
+            SendOrders(topicClient,Store[7]),
+            SendOrders(topicClient,Store[8]),
+            SendOrders(topicClient,Store[9])
+    ).join();
 
-        System.out.printf("\nAll messages sent.\n");
-    }
+    System.out.printf("\nAll messages sent.\n");
+}
 
-     public CompletableFuture<Void> SendOrders(TopicClient topicClient, String store) throws Exception {
+    public CompletableFuture<Void> SendOrders(TopicClient topicClient, String store) throws Exception {
 
         for(int i = 0;i<NrOfMessagesPerStore;i++) {
-        	Random r = new Random();
-        	final Item item = new Item(r.nextInt(5),r.nextInt(5),r.nextInt(5));        	
-        	IMessage message = new Message(GSON.toJson(item,Item.class).getBytes(UTF_8)); 
-        	// We always set the Sent to field
-            message.setTo(store);    
+            Random r = new Random();
+            final Item item = new Item(r.nextInt(5),r.nextInt(5),r.nextInt(5));
+            IMessage message = new Message(GSON.toJson(item,Item.class).getBytes(UTF_8));
+            // We always set the Sent to field
+            message.setTo(store);
             final String StoreId = store;
             Double priceToString = item.getPrice();
             final String priceForPut = priceToString.toString();
             message.setProperties(new HashMap<String, String>() {{
-            	// Additionally we add a customer store field. In reality you would use sys.To or a customer property but not both. 
-            	// This is just for demo purposes.
+                // Additionally we add a customer store field. In reality you would use sys.To or a customer property but not both.
+                // This is just for demo purposes.
                 put("StoreId", StoreId);
                 // Adding more potential filter / rule and action able fields
                 put("Price", priceForPut);
                 put("Color", item.getColor());
                 put("Category", item.getItemCategory());
             }});
-                        
-            System.out.printf("Sent order to Store %s. Price=%f, Color=%s, Category=%s\n", StoreId, item.getPrice(), item.getColor(), item.getItemCategory());            
+
+            System.out.printf("Sent order to Store %s. Price=%f, Color=%s, Category=%s\n", StoreId, item.getPrice(), item.getColor(), item.getItemCategory());
             topicClient.sendAsync(message);
         }
-               
-		return new CompletableFuture().completedFuture(null);         
+
+        return new CompletableFuture().completedFuture(null);
     }
 ```
 
@@ -267,61 +267,64 @@ public void sendMessagesToTopic() throws Exception, ServiceBusException {
 The `receiveAllMessages()` method calls the `receiveAllMessageFromSubscription()` method, which then creates a subscription client per call and receives messages from the individual subscriptions:
 
 ```java
-public void receiveAllMessages() throws Exception {		
+public void receiveAllMessages() throws Exception {
     System.out.printf("\nStart Receiving Messages.\n");
-    
+
     CompletableFuture.allOf(
             receiveAllMessageFromSubscription(Subscriptions[0]),
             receiveAllMessageFromSubscription(Subscriptions[1]),
-            receiveAllMessageFromSubscription(Subscriptions[2]) 
+            receiveAllMessageFromSubscription(Subscriptions[2])
             ).join();
 }
 
 public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscription) throws Exception {
-		
-		int receivedMessages = 0;
 
-        // Create subscription client.
-        IMessageReceiver subscriptionClient = ClientFactory.createMessageReceiverFromConnectionStringBuilder(new ConnectionStringBuilder(ConnectionString, TopicName+"/subscriptions/"+ subscription), ReceiveMode.PEEKLOCK);
+    int receivedMessages = 0;
 
-        // Create a receiver from the subscription client and receive all messages.
-        System.out.printf("\nReceiving messages from subscription %s.\n\n", subscription);
+    // Create subscription client.
+    IMessageReceiver subscriptionClient = ClientFactory.createMessageReceiverFromConnectionStringBuilder(new ConnectionStringBuilder(ConnectionString, TopicName+"/subscriptions/"+ subscription), ReceiveMode.PEEKLOCK);
 
-        while (true)
+    // Create a receiver from the subscription client and receive all messages.
+    System.out.printf("\nReceiving messages from subscription %s.\n\n", subscription);
+
+    while (true)
+    {
+        // This will make the connection wait for N seconds if new messages are available.
+        // If no additional messages come we close the connection. This can also be used to realize long polling.
+        // In case of long polling you would obviously set it more to e.g. 60 seconds.
+        IMessage receivedMessage = subscriptionClient.receive(Duration.ofSeconds(1));
+        if (receivedMessage != null)
         {
-        	// This will make the connection wait for N seconds if new messages are available. 
-        	// If no additional messages come we close the connection. This can also be used to realize long polling.
-        	// In case of long polling you would obviously set it more to e.g. 60 seconds.
-        	IMessage receivedMessage = subscriptionClient.receive(Duration.ofSeconds(1));
-            if (receivedMessage != null)
-            {
-                if ( receivedMessage.getProperties() != null ) {                	                	                	                	
-                    System.out.printf("StoreId=%s\n", receivedMessage.getProperties().get("StoreId"));                                                	                                    	
-                	
-                    // Show the label modified by the rule action
-                    if(receivedMessage.getLabel() != null)
-                		System.out.printf("Label=%s\n", receivedMessage.getLabel());   
-                }
+            if ( receivedMessage.getProperties() != null ) {
+                System.out.printf("StoreId=%s\n", receivedMessage.getProperties().get("StoreId"));
                 
-                byte[] body = receivedMessage.getBody();
-                Item theItem = GSON.fromJson(new String(body, UTF_8), Item.class);
-                System.out.printf("Item data. Price=%f, Color=%s, Category=%s\n", theItem.getPrice(), theItem.getColor(), theItem.getItemCategory());                          
-                
-                subscriptionClient.complete(receivedMessage.getLockToken());
-                receivedMessages++;
+                // Show the label modified by the rule action
+                if(receivedMessage.getLabel() != null)
+                    System.out.printf("Label=%s\n", receivedMessage.getLabel());
             }
-            else
-            {
-                // No more messages to receive.
-            	subscriptionClient.close();
-                break;
-            }
+            
+            byte[] body = receivedMessage.getBody();
+            Item theItem = GSON.fromJson(new String(body, UTF_8), Item.class);
+            System.out.printf("Item data. Price=%f, Color=%s, Category=%s\n", theItem.getPrice(), theItem.getColor(), theItem.getItemCategory());
+            
+            subscriptionClient.complete(receivedMessage.getLockToken());
+            receivedMessages++;
         }
-        System.out.printf("\nReceived %s messages from subscription %s.\n", receivedMessages, subscription);
-		
-		return new CompletableFuture().completedFuture(null);
+        else
+        {
+            // No more messages to receive.
+            subscriptionClient.close();
+            break;
+        }
+    }
+    System.out.printf("\nReceived %s messages from subscription %s.\n", receivedMessages, subscription);
+    
+    return new CompletableFuture().completedFuture(null);
 }
 ```
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 

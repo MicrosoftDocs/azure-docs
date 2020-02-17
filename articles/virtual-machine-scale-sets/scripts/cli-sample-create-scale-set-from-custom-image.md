@@ -1,19 +1,11 @@
 ---
-title: Azure CLI Samples - Use a custom VM image | Microsoft Docs
-description: Azure CLI Samples
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Azure CLI Samples - Use a custom VM image
+description: This script creates a virtual machine scale set that uses a custom VM image as the source for the VM instances.
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machine-scale-sets
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
@@ -42,9 +34,9 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | Creates a resource group in which all resources are stored. |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | Creates the virtual machine scale set and connects it to the virtual network, subnet, and network security group. A load balancer is also created to distribute traffic to multiple VM instances. This command also specifies the VM image to be used and administrative credentials.  |
-| [az group delete](/cli/azure/ad/group#delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/ad/group) | Creates a resource group in which all resources are stored. |
+| [az vmss create](/cli/azure/vmss) | Creates the virtual machine scale set and connects it to the virtual network, subnet, and network security group. A load balancer is also created to distribute traffic to multiple VM instances. This command also specifies the VM image to be used and administrative credentials.  |
+| [az group delete](/cli/azure/ad/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).

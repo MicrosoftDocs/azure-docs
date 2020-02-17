@@ -1,20 +1,14 @@
 ---
-title: Azure ExpressRoute for Cloud Solution Providers | Microsoft Docs
-description: This article provides information for Cloud Service Providers that want to incorporate Azure services and ExpressRoute into their offerings.
-documentationcenter: na
+title: ExpressRoute for Cloud Solution Providers - Azure | Microsoft Docs
+description: This article provides information for Cloud Solution Providers that want to incorporate Azure services and ExpressRoute into their offerings.
 services: expressroute
 author: richcar
-manager: carmonm
-editor: ''
 
-ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
-ms.author: richcar
+ms.author: ricarlse
+ms.custom: seodec18
 
 ---
 # ExpressRoute for Cloud Solution Providers (CSP)
@@ -77,7 +71,7 @@ ExpressRoute supports network speeds from 50 Mb/s to 10Gb/s. This allows custome
 ExpressRoute supports the connection of multiple vNets to a single ExpressRoute circuit for better utilization of the higher-speed connections. A single ExpressRoute circuit can be shared among multiple Azure subscriptions owned by the same customer.
 
 ## Configuring ExpressRoute
-ExpressRoute can be configured to support three types of traffic ([routing domains](#ExpressRoute-routing-domains)) over a single ExpressRoute circuit. This traffic is segregated into Microsoft peering, Azure public peering and private peering. You can choose one or all types of traffic to be sent over a single ExpressRoute circuit or use multiple ExpressRoute circuits depending on the size of the ExpressRoute circuit and isolation required by your customer. The security posture of your customer may not allow public traffic and private traffic to traverse over the same circuit.
+ExpressRoute can be configured to support three types of traffic ([routing domains](#expressroute-routing-domains)) over a single ExpressRoute circuit. This traffic is segregated into Microsoft peering, Azure public peering and private peering. You can choose one or all types of traffic to be sent over a single ExpressRoute circuit or use multiple ExpressRoute circuits depending on the size of the ExpressRoute circuit and isolation required by your customer. The security posture of your customer may not allow public traffic and private traffic to traverse over the same circuit.
 
 ### Connect-through model
 In a connect-through configuration the you will be responsible for all of the networking underpinnings to connect your customers datacenter resources to the subscriptions hosted in Azure. Each of your customer's that want to use Azure capabilities will need their own ExpressRoute connection, which will be managed by the You. The you will use the same methods the customer would use to procure the ExpressRoute circuit. The you will follow the same steps outlined in the article [ExpressRoute workflows](expressroute-workflows.md) for circuit provisioning and circuit states. The you will then configure the Border Gateway Protocol (BGP) routes to control the traffic flowing between the on-premises network and Azure vNet.

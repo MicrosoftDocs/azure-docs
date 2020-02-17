@@ -11,9 +11,8 @@ ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 # Azure API Management template resources
@@ -22,6 +21,10 @@ Azure API Management provides the following types of resources for use in the de
 -   [String resources](#strings)  
   
 -   [Glyph resources](#glyphs)  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="strings"></a> String resources  
  API Management provides a comprehensive set of string resources for use in the developer portal. These resources are localized into all of the languages supported by API Management. The default set of templates uses these resources for page headers, labels, and any constant strings that are displayed in the developer portal. To use a string resource in your templates, provide the resource string prefix followed by the string name, as shown in the following example.  
@@ -38,6 +41,29 @@ Azure API Management provides the following types of resources for use in the de
   
 ```  
   
+The following localization options are supported:
+
+| Locale    | Language               |
+|-----------|------------------------|
+| "en"      | "English"              |
+| "cs"      | "Čeština"              |
+| "de"      | "Deutsch"              |
+| "es"      | "Español"              |
+| "fr"      | "Français"             |
+| "hu"      | "Magyar"               |
+| "it"      | "Italiano"             |
+| "ja-JP"   | "日本語"                |
+| "ko"      | "한국어"                |
+| "nl"      | "Nederlands"           |
+| "pl"      | "Polski"               |
+| "pt-br"   | "Português (Brasil)"   |
+| "pt-pt"   | "Português (Portugal)" |
+| "ru"      | "Русский"              |
+| "sv"      | "Svenska"              |
+| "tr"      | "Türkçe"               |
+| "zh-hans" | "中文(简体)"           |
+| "zh-hant" | "中文(繁體)"           |
+
  Refer to the following tables for the string resources available for use in your developer portal templates. Use the table name as the prefix for the string resources in that table.  
   
 -   [ApisStrings](#ApisStrings)  
@@ -101,7 +127,7 @@ Azure API Management provides the following types of resources for use in the de
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Are you sure that you want to remove application?|  
 |WebDevelopersAppNotPublished|Not published|  
-|WebDevelopersAppNotSubminted|Not submitted|  
+|WebDevelopersAppNotSubmitted|Not submitted|  
 |WebDevelopersAppTableCategoryHeader|Category|  
 |WebDevelopersAppTableNameHeader|Name|  
 |WebDevelopersAppTableStateHeader|State|  
@@ -169,7 +195,7 @@ Azure API Management provides the following types of resources for use in the de
 |WebDocumentationTemplatesDeveloperKey|Specify your subscription key|  
 |WebDocumentationTemplatesJavaApache|This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|Specify values for optional parameters, as needed|  
-|WebDocumentationTemplatesPhpPackage|This sample uses the HTTP_Request2 package. (for more information: http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|This sample uses the HTTP_Request2 package. (for more information: https://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|Specify values for path parameters (shown as {...}) and request body if needed|  
 |WebDocumentationTemplatesRequestBody|Specify request body|  
 |WebDocumentationTemplatesRequiredParams|Specify values for the following required parameters|  
@@ -268,7 +294,7 @@ Azure API Management provides the following types of resources for use in the de
 |OAuth2TokenType_ImplicitGrant_AuthorizationResponse|REQUIRED. The type of the token issued.|  
 |OAuth2TokenType_ResourceOwnerPasswordCredentialsGrant_TokenResponse|REQUIRED. The type of the token issued.|  
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|REQUIRED. The resource owner username.|  
-|OAuth2UnsupportedTokenType|Token type '{0}' is not supporetd.|  
+|OAuth2UnsupportedTokenType|Token type '{0}' is not supported.|  
 |OAuth2InvalidState|Invalid response from authorization server|  
 |OAuth2GrantType_AuthorizationCode|Authorization code|  
 |OAuth2GrantType_Implicit|Implicit|  
@@ -280,7 +306,7 @@ Azure API Management provides the following types of resources for use in the de
 |OAuth2SendingMethod_QueryParam|Query parameter|  
 |OAuth2AuthorizationServerGeneralException|An error has occurred while authorizing access via {0}|  
 |OAuth2AuthorizationServerCommunicationException|An HTTP connection to authorization server could not be established or it has been unexpectedly closed.|  
-|WebDocumentationOAuth2GeneralErrorMessage|Unexpected error occured.|  
+|WebDocumentationOAuth2GeneralErrorMessage|Unexpected error occurred.|  
 |AuthorizationServerCommunicationException|Authorization server communication exception has happened. Please contact administrator.|  
 |TextblockSubscriptionKeyHeaderDescription|Subscription key which provides access to this API. Found in your <a href='/developer'\>Profile</a\>.|  
 |TextblockOAuthHeaderDescription|OAuth 2.0 access token obtained from <i\>{0}</i\>. Supported grant types: <i\>{1}</i\>.|  
@@ -298,7 +324,7 @@ Azure API Management provides the following types of resources for use in the de
 |SectionHeadingRequestHeaders|Request headers|  
 |FormLabelSubtextOptional|optional|  
 |SectionHeadingCodeSamples|Code samples|  
-|TextblockOpenidConnectHeaderDescription|OpenID Connect id token obtained from <i\>{0}</i\>. Supported grant types: <i\>{1}</i\>.|  
+|TextblockOpenidConnectHeaderDescription|OpenID Connect ID token obtained from <i\>{0}</i\>. Supported grant types: <i\>{1}</i\>.|  
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
@@ -354,7 +380,7 @@ Azure API Management provides the following types of resources for use in the de
 |WebProductsUsageLimitsHeader|Usage limits|  
 |WebProductsYouAreNotSubscribed|You are subscribed to this product.|  
 |WebProductsYouRequestedSubscription|You requested subscription to this product.|  
-|ErrorYouNeedtoAgreeWithLegalTerms|You must agree to the Terms of Use before you can proceed.|  
+|ErrorYouNeedToAgreeWithLegalTerms|You must agree to the Terms of Use before you can proceed.|  
 |ButtonLabelAddSubscription|Add subscription|  
 |LinkLabelChangeSubscriptionName|change|  
 |ButtonLabelConfirm|Confirm|  
@@ -452,7 +478,7 @@ Azure API Management provides the following types of resources for use in the de
 |WebAuthenticationUserIsNotConfirm|Please confirm your registration before attempting to sign in.|  
 |WebAuthenticationInvalidEmailFormated|Email is invalid: {0}|  
 |WebAuthenticationUserNotFound|User not found|  
-|WebAuthenticationTenantNotRegistered|Your account belongs to a Azure Active Directory tenant which is not authorized to access this portal.|  
+|WebAuthenticationTenantNotRegistered|Your account belongs to an Azure Active Directory tenant which is not authorized to access this portal.|  
 |WebAuthenticationAuthenticationFailed|Authentication has failed.|  
 |WebAuthenticationGooglePlusNotEnabled|Authentication has failed. If you authorized the application then please contact the admin to make sure that Google authentication is configured correctly.|  
 |ValidationErrorAllowedTenantIsRequired|Allowed Tenant is required|  
@@ -510,7 +536,7 @@ Azure API Management provides the following types of resources for use in the de
 |WebDevelopersSecondaryKey|Secondary key|  
 |ButtonLabelShowKey|Show|  
 |ButtonLabelRenewSubscription|Renew|  
-|WebDevelopersSubscriptionReqested|Requested on {0}|  
+|WebDevelopersSubscriptionRequested|Requested on {0}|  
 |WebDevelopersSubscriptionRequestedState|Requested|  
 |WebDevelopersSubscriptionTableNameHeader|Name|  
 |WebDevelopersSubscriptionTableStateHeader|State|  
@@ -564,13 +590,13 @@ Azure API Management provides the following types of resources for use in the de
 |ApiManagementUserLimitReached|This service has reached the maximum number of allowed users. Please upgrade to a higher pricing tier.|  
   
 ##  <a name="glyphs"></a> Glyph resources  
- API Management developer portal templates can use the glyphs from [Glyphicons from Bootstrap](http://getbootstrap.com/components/#glyphicons). This set of glyphs includes over 250 glyphs in font format from the [Glyphicon](http://glyphicons.com/) Halflings set. To use a glyph from this set, use the following syntax.  
+ API Management developer portal templates can use the glyphs from [Glyphicons from Bootstrap](https://getbootstrap.com/components/#glyphicons). This set of glyphs includes over 250 glyphs in font format from the [Glyphicon](https://glyphicons.com/) Halflings set. To use a glyph from this set, use the following syntax.  
   
 ```html  
 <span class="glyphicon glyphicon-user">  
 ```  
   
- For the complete list of glyphs, see [Glyphicons from Bootstrap](http://getbootstrap.com/components/#glyphicons).
+ For the complete list of glyphs, see [Glyphicons from Bootstrap](https://getbootstrap.com/components/#glyphicons).
 
 ## Next steps
 For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).

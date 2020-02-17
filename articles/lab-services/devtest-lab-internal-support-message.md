@@ -1,5 +1,5 @@
 ---
-title: Add an internal support statement to a lab in Azure DevTest Labs | Microsoft Docs
+title: Add an internal support statement to a lab in Azure DevTest Labs
 description: Learn how to post an internal support statement to a lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/16/2020
 ms.author: spelluru
 
 ---
@@ -27,7 +27,7 @@ You can easily disable or edit a support statement after it is no longer applica
 
 ## Steps to add a support statement to an existing lab
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. If necessary, select **All Services**, and then select **DevTest Labs** from the list. (Your lab might already be shown on the Dashboard under **All Resources**).
 1. From the list of labs, select the lab in which you want to add a support statement.  
 1. On the lab's **Overview** area, select **Configuration and policies**.  
@@ -51,7 +51,7 @@ When you no longer want to show this support message to lab users, return to the
 
 ## Steps for users to view the support message
 
-1. From the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), select a lab.
+1. From the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), select a lab.
 
 1. On the lab's **Overview** area, select **Internal support**.  
 

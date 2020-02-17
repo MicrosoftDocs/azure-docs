@@ -8,7 +8,7 @@ manager: erikre
 editor: ''
 
 ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -115,7 +115,7 @@ The report provides the following details:
 
 The report doesn't include:
 
-* Requests that are denied due to country filtering options.
+* Requests that are denied due to country/region filtering options.
 * Requests for assets whose headers indicate that they should not be cached. For example, `Cache-Control: private`, `Cache-Control: no-cache`, or `Pragma: no-cache` headers prevent an asset from being cached.
 * Byte range requests for partially cached content.
 

@@ -8,16 +8,17 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 09/17/2018
 ---
 
 # What is Azure Scheduler?
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-> is replacing Azure Scheduler, which is being retired. 
-> To schedule jobs, [try Azure Logic Apps instead](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
+> [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
+> To continue working with the jobs that you set up in Scheduler, please 
+> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible.
 
 [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) 
 helps you create [jobs](../scheduler/scheduler-concepts-terms.md) 
@@ -49,7 +50,7 @@ create, view, update, manage, or delete jobs and
 by using scripts and in the Azure portal.
 
 Other Azure scheduling capabilities also use Scheduler in the background, 
-for example, [Azure WebJobs](../app-service/web-sites-create-web-jobs.md), 
+for example, [Azure WebJobs](../app-service/webjobs-create.md), 
 which is a [Web Apps](https://azure.microsoft.com/services/app-service/web/) 
 feature in Azure App Service. You can manage communication for these actions 
 by using the [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/). 

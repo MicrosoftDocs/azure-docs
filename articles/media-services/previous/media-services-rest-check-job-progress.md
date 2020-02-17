@@ -1,10 +1,10 @@
 ---
 title: How to check job progress using REST API | Microsoft Docs
-description: Learn how to track job progress.
+description: This article demonstrates how to check job progress using Azure Media Services v2 REST API.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
@@ -13,24 +13,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
 # How to: check job progress
-> [!div class="op_single_selector"]
-> * [Portal](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
-> * [REST](media-services-rest-check-job-progress.md)
-> 
-> 
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 When you run jobs, you often require a way to track job progress. You can find out the Job status by using the Job's State property. For more information on the State property, see [Job Entity Properties](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
 ## Connect to Media Services
 
 For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
-
 
 ## Check job progress
 
@@ -42,10 +38,8 @@ Request:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
-
-
 
 Response:
 

@@ -10,7 +10,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ms.author: sharadag
 # As a website owner, I want to enable HTTPS on the custom domain in my Front Door so that my users can use my custom domain to access their content securely.
 
@@ -38,19 +38,21 @@ In this tutorial, you learn how to:
 > - Validate the domain
 > - Disable the HTTPS protocol on your custom domain
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 Before you can complete the steps in this tutorial, you must first create a Front Door and with at least one custom domain onboarded. For more information, see [Tutorial: Add a custom domain to your Front Door](front-door-custom-domain.md).
 
----
-
 ## SSL certificates
+
 To enable the HTTPS protocol for securely delivering content on a Front Door custom domain, you must use an SSL certificate. You can choose to use a certificate that is managed by Azure Front Door Service or use your own certificate.
 
 
-# [Option 1 (default): Enable HTTPS with an AFD-managed certificate](#tab/option-1-default-enable-https-with-an-afd-managed-certificate)
+### Option 1 (default): Use a certificate managed by Front Door
 
-When you use an AFD-managed certificate, the HTTPS feature can be turned on with just a few clicks. Azure Front Door Service completely handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately. If the custom domain is already mapped to the Front Door's default frontend host (`{hostname}.azurefd.net`), no further action is required. Front Door will process the steps and complete your request automatically. However, if your custom domain is mapped elsewhere, you must use email to validate your domain ownership.
+When you use a certificate managed by Azure Front Door Service, the HTTPS feature can be turned on with just a few clicks. Azure Front Door Service completely handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately. If the custom domain is already mapped to the Front Door's default frontend host (`{hostname}.azurefd.net`), no further action is required. Front Door will process the steps and complete your request automatically. However, if your custom domain is mapped elsewhere, you must use email to validate your domain ownership.
 
 To enable HTTPS on a custom domain, follow these steps:
 
@@ -65,47 +67,52 @@ To enable HTTPS on a custom domain, follow these steps:
 5. Proceed to [Validate the domain](#validate-the-domain).
 
 
-# [Option 2: Enable HTTPS with your own certificate](#tab/option-2-enable-https-with-your-own-certificate)
+### Option 2: Use your own certificate
 
 You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure Front Door Service uses this secure mechanism to get your certificate and it requires a few additional steps. When you create your SSL certificate, you must create it with an allowed certificate authority (CA). Otherwise, if you use a non-allowed CA, your request will be rejected. For a list of allowed CAs, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door Service](front-door-troubleshoot-allowed-ca.md).
 
-### Prepare your Azure Key vault account and certificate
+#### Prepare your Azure Key vault account and certificate
  
 1. Azure Key Vault: You must have a running Azure Key Vault account under the same subscription as your Front Door that you want to enable custom HTTPS. Create an Azure Key Vault account if you don't have one.
- 
-2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner CAs that Azure Key Vault integrates with.
 
 > [!WARNING]
-> </br> - Azure Front Door Service currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
-> </br> - Azure Front Door Service currently only supports Key Vault certificates stored under the Secrets section. Your certificate import will fail if you store it under Certificates section instead of Secrets section.
-> </br> - Azure Front Door Service currently only supports certificates uploaded with a PFX **without** a password.
+> Azure Front Door Service currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
 
-### Register Azure Front Door Service
+2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner CAs that Azure Key Vault integrates with. Upload your certificate as a **certificate** object, rather than a **secret**.
+
+> [!IMPORTANT]
+> You must upload the certificate in PFX format **without** password protection.
+
+#### Register Azure Front Door Service
 
 Register the service principal for Azure Front Door Service as an app in your Azure Active Directory via PowerShell.
 
-1. If needed, install [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) in PowerShell on your local machine.
+> [!NOTE]
+> This action requires Global Administrator permissions, and needs to be performed only **once** per tenant.
+
+1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell on your local machine.
 
 2. In PowerShell, run the following command:
 
-     `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
+     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
-### Grant Azure Front Door Service access to your key vault
+#### Grant Azure Front Door Service access to your key vault
  
-Grant Azure Front Door Service permission to access the  certificates under Secrets in your Azure Key Vault account.
+Grant Azure Front Door Service permission to access the  certificates in your Azure Key Vault account.
 
 1. In your key vault account, under SETTINGS, select **Access policies**, then select **Add new** to create a new policy.
 
 2. In **Select principal**, search for **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**, and choose **Microsoft.Azure.Frontdoor**. Click **Select**.
 
+3. In **Secret permissions**, select **Get** to allow Front Door to retrieve the certificate.
 
-3. In **Secret permissions**, select **Get** to allow Front Door to perform these permissions to get and list the certificates. 
+4. In **Certificate permissions**, select **Get** to allow Front Door to retrieve the certificate.
 
-4. Select **OK**. 
+5. Select **OK**. 
 
-    Azure Front Door Service can now access this key vault and the certificates (secrets) that are stored in this key vault.
+    Azure Front Door Service can now access this Key Vault and the certificates that are stored in this Key Vault.
  
-### Select the certificate for Azure Front Door Service to deploy
+#### Select the certificate for Azure Front Door Service to deploy
  
 1. Return to your Front Door in the portal. 
 
@@ -124,8 +131,6 @@ Grant Azure Front Door Service permission to access the  certificates under Secr
  
 5. When you use your own certificate, domain validation is not required. Proceed to [Wait for propagation](#wait-for-propagation).
 
----
-
 ## Validate the domain
 
 If you already have a custom domain in use that is mapped to your custom endpoint with a CNAME record or you're using your own certificate, proceed to  
@@ -141,11 +146,11 @@ Your CNAME record should be in the following format, where *Name* is your custom
 
 | Name            | Type  | Value                 |
 |-----------------|-------|-----------------------|
-| www.contoso.com | CNAME | contoso.azurefd.net |
+| <www.contoso.com> | CNAME | contoso.azurefd.net |
 
-For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
+For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
-If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a dedicated certificate for your domain name. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
+If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a dedicated certificate for your domain name. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be autorenewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
 
 Automatic validation typically takes a few mins. If you don't see your domain validated within an hour, open a support ticket.
 
@@ -168,7 +173,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add admin@digicert.com to its whitelist. If you don't receive an email within 24 hours, contact Microsoft support.
+You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add admin@digicert.com to its allow list. If you don't receive an email within 24 hours, contact Microsoft support.
 
 When you click on the approval link, you are directed to an online approval form. Follow the instructions on the form; you have two verification options:
 
@@ -176,7 +181,7 @@ When you click on the approval link, you are directed to an online approval form
 
 - You can approve just the specific host name used in this request. Additional approval is required for subsequent requests.
 
-After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year and will be auto-renewed before it's expired.
+After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year and will be autorenewed before it's expired.
 
 ## Wait for propagation
 

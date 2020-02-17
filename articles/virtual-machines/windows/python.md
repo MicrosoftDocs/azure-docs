@@ -1,10 +1,10 @@
 ---
-title: Create and manage a Windows VM in Azure using Python | Microsoft Docs
+title: Create and manage a Windows VM in Azure using Python 
 description: Learn to use Python to create and manage a Windows VM in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
@@ -49,7 +49,7 @@ You should see in the output windows that the azure packages were successfully i
 
 ## Create credentials
 
-Before you start this step, make sure that you have an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
+Before you start this step, make sure that you have an [Active Directory service principal](../../active-directory/develop/howto-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
 1. Open *myPythonProject.py* file that was created, and then add this code to enable your application to run:
 
@@ -107,22 +107,22 @@ Management clients are needed to create and manage resources using the Python SD
 
 ```python
 resource_group_client = ResourceManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 network_client = NetworkManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 compute_client = ComputeManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 ```
 
 ### Create the VM and supporting resources
 
-All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).
+All resources must be contained in a [Resource group](../../azure-resource-manager/management/overview.md).
 
 1. To create a resource group, add this function after the variables in the .py file:
 
@@ -495,7 +495,7 @@ Many aspects of deployment should be considered when deciding on a size for your
 
 ### Add a data disk to the VM
 
-Virtual machines can have one or more [data disks](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) that are stored as VHDs.
+Virtual machines can have one or more [data disks](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) that are stored as VHDs.
 
 1. To add a data disk to the virtual machine, add this function after the variables in the .py file: 
 

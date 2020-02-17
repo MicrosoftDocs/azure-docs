@@ -1,18 +1,9 @@
 ---
-title: Overview of the lifecycle of Azure Service Fabric Reliable Services | Microsoft Docs
-description: Learn about the different lifecycle events in Service Fabric Reliable Services
-services: Service-Fabric
-documentationcenter: .net
+title: Overview of the lifecycle of Reliable Services 
+description: Learn about the lifecycle events in an Azure Service Fabric Reliable Services application for stateful and stateless services.
 author: masnider
-manager: timlt
-editor: vturecek;
 
-ms.assetid:
-ms.service: Service-Fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ---
@@ -95,7 +86,7 @@ Like stateless services, the lifecycle events during shutdown are the same as du
 3. After `StatefulServiceBase.OnCloseAsync()` finishes, the service object is destructed.
 
 ## Stateful service Primary swaps
-While a stateful service is running, only the Primary replicas of that stateful services have their communication listeners opened and their **RunAsync** method called. Secondary replicas are constructed, but see no further calls. While a stateful service is running, the replica that's currently the Primary can change. What does this mean in terms of the lifecycle events that a replica can see? The behavior the stateful replica sees depends on whether it is the replica being demoted or promoted during the swap.
+While a stateful service is running, only the Primary replicas of that stateful services have their communication listeners opened and their **RunAsync** method called. Secondary replicas are constructed, but see no further calls. While a stateful service is running, the replica that's currently the Primary can change as a result of fault or cluster balancing optimization. What does this mean in terms of the lifecycle events that a replica can see? The behavior the stateful replica sees depends on whether it is the replica being demoted or promoted during the swap.
 
 ### For the Primary that's demoted
 For the Primary replica that's demoted, Service Fabric needs this replica to stop processing messages and quit any background work it is doing. As a result, this step looks like it did when the service is shut down. One difference is that the service isn't destructed or closed because it remains as a Secondary. The following APIs are called:

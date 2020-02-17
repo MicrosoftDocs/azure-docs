@@ -14,10 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
-ms.author: vidarmsft
+ms.author: alkohli
 
 ---
 # Automated Disaster Recovery solution using Azure Site Recovery for file shares hosted on StorSimple
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Overview
 Microsoft Azure StorSimple is a hybrid cloud storage solution that addresses the complexities of unstructured data commonly associated with file shares. StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across on-premises storage and cloud storage. Integrated data protection, with local and cloud snapshots, eliminates the need for a sprawling storage infrastructure.
 
@@ -39,7 +42,7 @@ Implementing a one-click disaster recovery solution that uses Azure Site Recover
    - File shares hosted on the volumes configured on the StorSimple storage device
    - [Azure Site Recovery services vault](../site-recovery/site-recovery-vmm-to-vmm.md) created in a Microsoft Azure subscription
 
-In addition, if Azure is your recovery site, run the [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery services.
+In addition, if Azure is your recovery site, run the [Azure Virtual Machine Readiness Assessment tool](https://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery services.
 
 To avoid latency issues (which might result in higher costs), make sure that you create your StorSimple Cloud Appliance, automation account, and storage account(s) in the same region.
 
@@ -77,7 +80,7 @@ This step requires that you prepare the on-premises file server environment, cre
 
 1. Install the VM Agent on each of the file server VMs. This is required so that you can run Azure automation scripts on the failed over VMs.
    
-   1. [Download the agent](http://aka.ms/vmagentwin) to `C:\\Users\\<username>\\Downloads`.
+   1. [Download the agent](https://aka.ms/vmagentwin) to `C:\\Users\\<username>\\Downloads`.
    1. Open Windows PowerShell in Administrator mode (Run as Administrator), and then enter the following command to navigate to the download location:  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
@@ -163,19 +166,19 @@ You can create a recovery plan in ASR to automate the failover process of the fi
    
 1. In the automation account, click **Variables** &gt; **Add a variable** and add the following variables. You can choose to encrypt these assets. These variables are recovery plan specific. If your recovery plan, which you will create in the next step, name is TestPlan, then your variables should be TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, and so on.
 
-   - **BaseUrl**: The Resource Manager url for the Azure cloud. Get using **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet.
-   - *RecoveryPlanName***-ResourceGroupName**: The Resource Manager group that has the StorSimple resource.
-   - *RecoveryPlanName***-ManagerName**: The StorSimple resource that has the StorSimple device.
-   - *RecoveryPlanName***-DeviceName**: The StorSimple Device that has to be failed over.
-   - *RecoveryPlanName***-DeviceIpAddress**: The IP address of the device (this can be found in the **Devices** tab under StorSimple Device Manager section &gt; **Settings** &gt; **Network** &gt; **DNS Settings** group).
-   - *RecoveryPlanName***-VolumeContainers**: A comma-separated string of volume containers present on the device that need to be failed over; for example: volcon1, volcon2, volcon3.
-   - *RecoveryPlanName***-TargetDeviceName**: The StorSimple Cloud Appliance on which the containers are to be failed over.
-   - *RecoveryPlanName***-TargetDeviceIpAddress**: The IP address of the target device (this can be found in the **Virtual Machine** section &gt; **Settings** group &gt; **Networking** tab).
-   - *RecoveryPlanName***-StorageAccountName**: The storage account name in which the script (which has to run on the failed over VM) will be stored. This can be any storage account that has some space to store the script temporarily.
-   - *RecoveryPlanName***-StorageAccountKey**: The access key for the above storage account.
-   - *RecoveryPlanName***-VMGUIDS**: Upon protecting a VM, Azure Site Recovery assigns every VM a unique ID that gives the details of the failed over VM. To obtain the VMGUID, select the **Recovery Services** tab and click **Protected Item** &gt; **Protection Groups** &gt; **Machines** &gt; **Properties**. If you have multiple VMs, then add the GUIDs as a comma-separated string.
+   - **BaseUrl**: The Resource Manager url for the Azure cloud. Get using **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet.
+   - _RecoveryPlanName_**-ResourceGroupName**: The Resource Manager group that has the StorSimple resource.
+   - _RecoveryPlanName_**-ManagerName**: The StorSimple resource that has the StorSimple device.
+   - _RecoveryPlanName_**-DeviceName**: The StorSimple Device that has to be failed over.
+   - _RecoveryPlanName_**-DeviceIpAddress**: The IP address of the device (this can be found in the **Devices** tab under StorSimple Device Manager section &gt; **Settings** &gt; **Network** &gt; **DNS Settings** group).
+   - _RecoveryPlanName_**-VolumeContainers**: A comma-separated string of volume containers present on the device that need to be failed over; for example: volcon1, volcon2, volcon3.
+   - _RecoveryPlanName_**-TargetDeviceName**: The StorSimple Cloud Appliance on which the containers are to be failed over.
+   - _RecoveryPlanName_**-TargetDeviceIpAddress**: The IP address of the target device (this can be found in the **Virtual Machine** section &gt; **Settings** group &gt; **Networking** tab).
+   - _RecoveryPlanName_**-StorageAccountName**: The storage account name in which the script (which has to run on the failed over VM) will be stored. This can be any storage account that has some space to store the script temporarily.
+   - _RecoveryPlanName_**-StorageAccountKey**: The access key for the above storage account.
+   - _RecoveryPlanName_**-VMGUIDS**: Upon protecting a VM, Azure Site Recovery assigns every VM a unique ID that gives the details of the failed over VM. To obtain the VMGUID, select the **Recovery Services** tab and click **Protected Item** &gt; **Protection Groups** &gt; **Machines** &gt; **Properties**. If you have multiple VMs, then add the GUIDs as a comma-separated string.
 
-    For example, if the name of the recovery plan is fileServerpredayRP, then your **Variables**, **Connections** and **Certificates** tab should appear as follows after you add all the assets.
+     For example, if the name of the recovery plan is fileServerpredayRP, then your **Variables**, **Connections** and **Certificates** tab should appear as follows after you add all the assets.
 
       ![Assets](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
@@ -204,7 +207,7 @@ You can create a recovery plan in ASR to automate the failover process of the fi
       
    1. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. Use the below commands to create an Automation module zip file.
          
-      ```
+      ```powershell
             # set path variables
             $downloadDir = "C:\scripts\StorSimpleSDKTools"
             $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
@@ -262,7 +265,7 @@ You can create a recovery plan in ASR to automate the failover process of the fi
    > [!NOTE]
    > When running a test failover, you should verify everything at the manual action step because the StorSimple volumes that had been cloned on the target device will be deleted as a part of the cleanup after the manual action is completed.
        
-      ![Recoery plan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
+      ![Recovery plan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
 
 ## Perform a test failover
 Refer to the [Active Directory DR Solution](../site-recovery/site-recovery-active-directory.md) companion guide for considerations specific to Active Directory during the test failover. The on-premises setup is not disturbed at all when the test failover occurs. The StorSimple volumes that were attached to the on-premises VM are cloned to the StorSimple Cloud Appliance on Azure. A VM for test purposes is brought up in Azure and the cloned volumes are attached to the VM.
@@ -317,10 +320,10 @@ During a failback, StorSimple volume containers are failed over back to the phys
 ## Best Practices
 ### Capacity planning and readiness assessment
 #### Hyper-V site
-Use the [User Capacity planner tool](http://www.microsoft.com/download/details.aspx?id=39057) to design the server, storage, and network infrastructure for your Hyper-V replica environment.
+Use the [User Capacity planner tool](https://www.microsoft.com/download/details.aspx?id=39057) to design the server, storage, and network infrastructure for your Hyper-V replica environment.
 
 #### Azure
-You can run the [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery Services. The Readiness Assessment Tool checks VM configurations and warns when configurations are incompatible with Azure. For example, it issues a warning if a C: drive is larger than 127 GB.
+You can run the [Azure Virtual Machine Readiness Assessment tool](https://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery Services. The Readiness Assessment Tool checks VM configurations and warns when configurations are incompatible with Azure. For example, it issues a warning if a C: drive is larger than 127 GB.
 
 Capacity planning is made up of at least two important processes:
 
@@ -328,30 +331,30 @@ Capacity planning is made up of at least two important processes:
    - Determining the required Internet bandwidth.
 
 ## Limitations
-   - Currently, only 1 StorSimple device can be failed over (to a single StorSimple Cloud Appliance). The scenario of a file server that spans several StorSimple devices is not yet supported.
-   - If you get an error while enabling protection for a VM, make sure that you have disconnected the iSCSI targets.
-   - All the volume containers that have been grouped together because of backup policies spanning across volume containers will be failed over together.
-   - All the volumes in the volume containers you have chosen will be failed over.
-   - Volumes that add up to more than 64 TB can’t be failed over because the maximum capacity of a single StorSimple Cloud Appliance is 64 TB.
-   - If the planned/unplanned failover fails and the VMs are created in Azure, then do not clean up the VMs. Instead, do a failback. If you delete the VMs then the on-premises VMs cannot be turned on again.
-   - After a failover, if you are not able to see the volumes, go to the VMs, open Disk Management, rescan the disks, and then bring them online.
-   - In some instances, the drive letters in the DR site might be different than the letters on-premises. If this occurs, you will need to manually correct the problem after the failover is finished.
-   - Failover job timeout: The StorSimple script will time out if the failover of volume containers takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
-   - Backup job timeout: The StorSimple script times out if the backup of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
+- Currently, only 1 StorSimple device can be failed over (to a single StorSimple Cloud Appliance). The scenario of a file server that spans several StorSimple devices is not yet supported.
+- If you get an error while enabling protection for a VM, make sure that you have disconnected the iSCSI targets.
+- All the volume containers that have been grouped together because of backup policies spanning across volume containers will be failed over together.
+- All the volumes in the volume containers you have chosen will be failed over.
+- Volumes that add up to more than 64 TB can’t be failed over because the maximum capacity of a single StorSimple Cloud Appliance is 64 TB.
+- If the planned/unplanned failover fails and the VMs are created in Azure, then do not clean up the VMs. Instead, do a failback. If you delete the VMs then the on-premises VMs cannot be turned on again.
+- After a failover, if you are not able to see the volumes, go to the VMs, open Disk Management, rescan the disks, and then bring them online.
+- In some instances, the drive letters in the DR site might be different than the letters on-premises. If this occurs, you will need to manually correct the problem after the failover is finished.
+- Failover job timeout: The StorSimple script will time out if the failover of volume containers takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
+- Backup job timeout: The StorSimple script times out if the backup of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
    
-   > [!IMPORTANT]
-   > Run the backup manually from the Azure portal and then run the recovery plan again.
+  > [!IMPORTANT]
+  > Run the backup manually from the Azure portal and then run the recovery plan again.
    
-   - Clone job timeout: The StorSimple script times out if the cloning of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
-   - Time synchronization error: The StorSimple scripts errors out saying that the backups were unsuccessful even though the backup is successful in the portal. A possible cause for this might be that the StorSimple appliance’s time might be out of sync with the current time in the time zone.
+- Clone job timeout: The StorSimple script times out if the cloning of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
+- Time synchronization error: The StorSimple scripts errors out saying that the backups were unsuccessful even though the backup is successful in the portal. A possible cause for this might be that the StorSimple appliance’s time might be out of sync with the current time in the time zone.
    
-   > [!IMPORTANT]
-   > Sync the appliance time with the current time in the time zone.
+  > [!IMPORTANT]
+  > Sync the appliance time with the current time in the time zone.
    
-   - Appliance failover error: The StorSimple script might fail if there is an appliance failover when the recovery plan is running.
+- Appliance failover error: The StorSimple script might fail if there is an appliance failover when the recovery plan is running.
    
-   > [!IMPORTANT]
-   > Rerun the recovery plan after the appliance failover is complete.
+  > [!IMPORTANT]
+  > Rerun the recovery plan after the appliance failover is complete.
 
 
 ## Summary

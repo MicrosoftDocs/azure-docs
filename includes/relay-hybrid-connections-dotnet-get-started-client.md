@@ -1,3 +1,10 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+---
 ### Create a console application
 
 In Visual Studio, create a new **Console App (.NET Framework)** project.
@@ -128,7 +135,7 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
                 // Initiate the connection.
                 var relayConnection = await client.CreateConnectionAsync();
    
-                // Run two conucrrent loops on the connection. One 
+                // Run two concurrent loops on the connection. One 
                 // reads input from the console and then writes it to the connection 
                 // with a stream writer. The other reads lines of input from the 
                 // connection with a stream reader and then writes them to the console. 

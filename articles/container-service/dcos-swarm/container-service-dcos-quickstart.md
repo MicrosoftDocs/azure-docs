@@ -1,10 +1,7 @@
 ---
-title: Azure Container Service Quickstart - Deploy DC/OS Cluster
+title: (DEPRECATED) Azure Container Service Quickstart - Deploy DC/OS Cluster
 description: Azure Container Service Quickstart - Deploy DC/OS Cluster
-services: container-service
 author: iainfoulds
-manager: jeconnoc
-
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
@@ -12,7 +9,9 @@ ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Deploy a DC/OS cluster
+# (DEPRECATED) Deploy a DC/OS cluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details the basic steps needed to deploy a DC/OS cluster and run basic workload.
 

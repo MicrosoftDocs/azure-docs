@@ -1,25 +1,18 @@
 ---
-title: New authentication for StorSimple Virtual Arrays | Microsoft Docs
+title: New authentication for StorSimple Virtual Arrays
 description: Explains how to use AAD based authentication for your service, generate new registration key, and perform manual registration of the devices.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/28/2018
+ms.topic: conceptual
+ms.date: 07/25/2019
 ms.author: alkohli
 
 ---
 # Use the new authentication for your StorSimple
 
 ## Overview
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 The StorSimple Device Manager service runs in Microsoft Azure and connects to multiple StorSimple Virtual Arrays. To date, StorSimple Device Manager service has used an Access Control service (ACS) to authenticate the service to your StorSimple device. The ACS mechanism will be deprecated soon and replaced by an Azure Active Directory (AAD) authentication.
 

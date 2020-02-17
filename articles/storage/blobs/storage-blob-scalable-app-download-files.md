@@ -1,16 +1,12 @@
 ---
-title: Download large amounts of random data from Azure Storage  | Microsoft Docs 
+title: Download large amounts of random data from Azure Storage | Microsoft Docs 
 description: Learn how to use the Azure SDK to download large amounts of random data from an Azure Storage account 
-services: storage
 author: roygara
-
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Download large amounts of random data from Azure storage
@@ -56,7 +52,7 @@ public static void Main(string[] args)
         UploadFilesAsync().GetAwaiter().GetResult();
 
         // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
-        // initially to support the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scaleable-app-download-files.
+        // initially to support the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files.
         // DownloadFilesAsync().GetAwaiter().GetResult();
     }
     catch (Exception ex)
@@ -66,8 +62,8 @@ public static void Main(string[] args)
     }
     finally
     {
-        // The following function will delete the container and all files contained in them.  This is commented out initialy
-        // As the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scaleable-app-download-files has you upload only for one tutorial and download for the other. 
+        // The following function will delete the container and all files contained in them.  This is commented out initially
+        // As the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files has you upload only for one tutorial and download for the other. 
         if (!exception)
         {
             // DeleteExistingContainersAsync().GetAwaiter().GetResult();
@@ -94,13 +90,13 @@ Type `dotnet run` to run the application.
 dotnet run
 ```
 
-The application reads the containers located in the storage account specified in the **storageconnectionstring**. It iterates through the blobs 10 at a time using the [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method in the containers and downloads them to the local machine using the [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method.
-The following table shows the [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) that are defined for each blob as it is downloaded.
+The application reads the containers located in the storage account specified in the **storageconnectionstring**. It iterates through the blobs 10 at a time using the [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) method in the containers and downloads them to the local machine using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method.
+The following table shows the [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) that are defined for each blob as it is downloaded.
 
 |Property|Value|Description|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| This property disables checking the MD5 hash of the content uploaded. Disabling MD5 validation produces a faster transfer. But does not confirm the validity or integrity of the files being transferred. |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| This property determines if an MD5 hash is calculated and stored.   |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| This property disables checking the MD5 hash of the content uploaded. Disabling MD5 validation produces a faster transfer. But does not confirm the validity or integrity of the files being transferred. |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| This property determines if an MD5 hash is calculated and stored.   |
 
 The `DownloadFilesAsync` task is shown in the following example:
 
@@ -109,7 +105,7 @@ private static async Task DownloadFilesAsync()
 {
     CloudBlobClient blobClient = GetCloudBlobClient();
 
-    // Define the BlobRequestionOptions on the download, including disabling MD5 hash validation for this example, this improves the download speed.
+    // Define the BlobRequestOptions on the download, including disabling MD5 hash validation for this example, this improves the download speed.
     BlobRequestOptions options = new BlobRequestOptions
     {
         DisableContentMD5Validation = true,

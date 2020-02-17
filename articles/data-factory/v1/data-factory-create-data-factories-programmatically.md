@@ -1,23 +1,19 @@
 ---
-title: Create data pipelines by using Azure .NET SDK | Microsoft Docs
+title: Create data pipelines by using Azure .NET SDK 
 description: Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: b0a357be-3040-4789-831e-0d0a32a0bda5
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-dot-net.md). 
@@ -29,8 +25,11 @@ You can create, monitor, and manage Azure data factories programmatically using 
 > This article does not cover all the Data Factory .NET API. See [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) for comprehensive documentation on .NET API for Data Factory. 
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Visual Studio 2012 or 2013 or 2015
-* Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+* Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
@@ -39,18 +38,18 @@ Create an Azure Active Directory application, create a service principal for the
 1. Launch **PowerShell**.
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
-	```PowerShell
-	Connect-AzureRmAccount
+	```powershell
+	Connect-AzAccount
 	```
 3. Run the following command to view all the subscriptions for this account.
 
-	```PowerShell
-	Get-AzureRmSubscription
+	```powershell
+	Get-AzSubscription
 	```
 4. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription.
 
-	```PowerShell
-	Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+	```powershell
+	Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
 	```
 
    > [!IMPORTANT]
@@ -58,8 +57,8 @@ Create an Azure Active Directory application, create a service principal for the
 
 5. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.
 
-	```PowerShell
-	New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+	```powershell
+	New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 	```
 
     If the resource group already exists, you specify whether to update it (Y) or keep it as (N).
@@ -67,28 +66,28 @@ Create an Azure Active Directory application, create a service principal for the
     If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
 6. Create an Azure Active Directory application.
 
-	```PowerShell
-	$azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
+	```powershell
+	$azureAdApplication = New-AzADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
 	```
 
     If you get the following error, specify a different URL and run the command again.
 	
-	```PowerShell
+	```powershell
 	Another object with the same value for property identifierUris already exists.
 	```
 7. Create the AD service principal.
 
-	```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+	```powershell
+    New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 	```
 8. Add service principal to the **Data Factory Contributor** role.
 
-	```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+	```powershell
+    New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 	```
 9. Get the application ID.
 
-	```PowerShell
+	```powershell
 	$azureAdApplication	
 	```
     Note down the application ID (applicationID) from the output.
@@ -173,7 +172,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
     ```
 
    > [!IMPORTANT]
-   > Replace the value of **resourceGroupName** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet.
+   > Replace the value of **resourceGroupName** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet.
    >
    > Update name of the data factory (dataFactoryName) to be unique. Name of the data factory must be globally unique. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 7. Add the following code that creates a **data factory** to the **Main** method.

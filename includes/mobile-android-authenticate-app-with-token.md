@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+---
 
 The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the back-end Azure service every time the app starts. This method is inefficient, and you can have usage-related issues if many customers try to start your app simultaneously. A better approach is to cache the authorization token returned by the Azure service, and try to use this first before using a provider-based sign-in.
 

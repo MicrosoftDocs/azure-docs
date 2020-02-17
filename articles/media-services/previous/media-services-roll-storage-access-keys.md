@@ -4,7 +4,7 @@ description: This articles give you guidance on how to update Media Services aft
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
@@ -13,15 +13,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
-ms.author: milanga;cenkdin;juliako
-
+ms.date: 03/20/2019
+ms.author: juliako
+ms.reviewer: milanga;cenkdin
 ---
-# Update Media Services after rolling storage access keys
+# Update Media Services after rolling storage access keys 
 
 When you create a new Azure Media Services (AMS) account, you are also asked to select an Azure Storage account that is used to store your media content. You can add more than one storage accounts to your Media Services account. This article shows how to rotate storage keys. It also shows how to add storage accounts to a media account. 
 
-To perform the actions described in this article, you should be using [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  For more information, see [How to manage Azure resources with PowerShell and Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)
+To perform the actions described in this article, you should be using [Azure Resource Manager APIs](/rest/api/media/operations/azure-media-services-rest-api-reference) and [Powershell](https://docs.microsoft.com/powershell/module/az.media).  For more information, see [How to manage Azure resources with PowerShell and Resource Manager](../../azure-resource-manager/management/manage-resource-groups-powershell.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Overview
 
@@ -38,15 +40,15 @@ Media Services depends on a storage key provided to it. Specifically, the locato
 ## Steps to rotate storage keys 
  
  1. Change the storage account Primary key through the powershell cmdlet or [Azure](https://portal.azure.com/) portal.
- 2. Call Sync-AzureRmMediaServiceStorageKeys cmdlet with appropriate params to force media account to pick up storage account keys
+ 2. Call Sync-AzMediaServiceStorageKeys cmdlet with appropriate params to force media account to pick up storage account keys
  
     The following example shows how to sync keys to storage accounts.
   
-         Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+         Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
  3. Wait an hour or so. Verify the streaming scenarios are working.
  4. Change storage account secondary key through the powershell cmdlet or Azure portal.
- 5. Call Sync-AzureRmMediaServiceStorageKeys powershell with appropriate params to force media account to pick up new storage account keys. 
+ 5. Call Sync-AzMediaServiceStorageKeys powershell with appropriate params to force media account to pick up new storage account keys. 
  6. Wait an hour or so. Verify the streaming scenarios are working.
  
 ### A powershell cmdlet example 
@@ -59,7 +61,7 @@ The following example demonstrates how to get the storage account and sync it wi
 	$storageAccountName = "skystorage"
 	$storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-	Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+	Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
  
 ## Steps to add storage accounts to your AMS account

@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs diagnostic logs | Microsoft Docs
-description: Learn how to set up diagnostic logs for event hubs in Azure.
+title: Set up diagnostic logs - Azure Event Hub | Microsoft Docs
+description: Learn how to set up activity logs and diagnostic logs for event hubs in Azure.
 keywords:
 documentationcenter: ''
 services: event-hubs
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/02/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
-# Event Hubs diagnostic logs
+# Set up diagnostic logs for an Azure event hub
 
 You can view two types of logs for Azure Event Hubs:
 
-* **[Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**: These logs have information about operations performed on a job. The logs are always enabled.
-* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**: You can configure diagnostic logs for a richer view of everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
+* **[Activity logs](../azure-monitor/platform/platform-logs-overview.md)**: These logs have information about operations performed on a job. The logs are always enabled.
+* **[Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md)**: You can configure diagnostic logs for a richer view of everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
 
 ## Enable diagnostic logs
 
@@ -43,13 +44,13 @@ Diagnostic logs are disabled by default. To enable diagnostic logs, follow these
 
 	![Change the status of diagnostic logs](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.	Set the archive target that you want; for example, a storage account, an event hub, or Azure Log Analytics.
+5.	Set the archive target that you want; for example, a storage account, an event hub, or Azure Monitor logs.
 
 6.	Save the new diagnostics settings.
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, in the **Diagnostics logs** pane.
 
-For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../azure-monitor/platform/platform-logs-overview.md).
 
 ## Diagnostic logs categories
 
@@ -134,6 +135,10 @@ Example:
 ```
 
 ## Next steps
-* [Introduction to Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Event Hubs API overview](event-hubs-api-overview.md)
-* [Get started with Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)
+- [Introduction to Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Event Hubs API overview](event-hubs-api-overview.md)
+- Get started with Event Hubs
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)

@@ -1,114 +1,200 @@
 ---
 title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
-services: functions
-documentationcenter: 
-author: ggailey777
-manager: jeconnoc
-
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.author: glenga
+ms.date: 12/09/2019
 
 ---
 # Azure Functions runtime versions overview
 
- There are two major versions of the Azure Functions runtime: 1.x and 2.x. The current version where new feature work and improvements are being made is 2.x, though both are supported for production scenarios.  The following details some of the differences between the two, how you can create each version, and upgrade from 1.x to 2.x.
+The major versions of the Azure Functions runtime are related to the version of .NET on which the runtime is based. The following table indicates the current version of the runtime, the release level, and the related .NET version. 
 
-> [!NOTE] 
-> This article refers to the cloud service Azure Functions. For information about the preview product that lets you run Azure Functions on-premises, see the [Azure Functions Runtime Overview](functions-runtime-overview.md).
+| Runtime version | Release level<sup>1</sup> | .NET version | 
+| --------------- | ------------- | ------------ |
+| 3.x | GA | .NET Core 3.1 | 
+| 2.x | GA | .NET Core 2.2 |
+| 1.x | GA<sup>2</sup> | .NET Framework 4.6<sup>3</sup> |
 
-## Creating 1.x apps
+<sup>1</sup> GA releases are supported for production scenarios.   
+<sup>2</sup> Version 1.x is in maintenance mode. Enhancements are provided only in later versions.   
+<sup>3</sup> Only supports development in the Azure portal or locally on Windows computers.
 
-New apps created in the Azure Portal are set to 2.x by default as this is the most current version and where new feature investments are being made.  However you can still create v1.x apps by doing the following.
-
-1. Create an Azure Function from the Azure Portal
-1. Open the created app, and while it is blank open up the **Function Settings**
-1. Change the version from ~2 to ~1.  *This toggle will be disabled if you have functions in your app*.
-1. Click save and restart the app.  All templates should now create and run in 1.x.
-
-## Cross-platform development
-
-Runtime 1.x supports development and hosting only in the portal or on Windows. Runtime 2.x runs on .NET Core 2, which means it can run on all platforms supported by .NET Core, including macOS and Linux. This enables cross-platform development and hosting scenarios.
+This article details some of the differences between the various versions, how you can create each version, and how to change versions.
 
 ## Languages
 
-Runtime 2.x uses a new language extensibility model. In addition, to improve tooling and performance each app in 2.x is limited to only have functions in a single language. Currently supported languages in 2.x are C#, F#, JavaScript, and Java. Azure Functions 1.x experimental languages haven't been updated to use the new model, so they are not supported in 2.x. The following table indicates which programming languages are supported in each runtime version.
+Starting with version 2.x, the runtime uses a language extensibility model, and all functions in a function app must share the same language. The language of functions in a function app is chosen when creating the app and is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting. 
+
+Azure Functions 1.x experimental languages can't use the new model, so they aren't supported in 2.x. 
+The following table indicates which programming languages are currently supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 For more information, see [Supported languages](supported-languages.md).
 
-## Migrating from 1.x to 2.x
+## <a name="creating-1x-apps"></a>Run on a specific version
 
-You may wish to move an existing app written in 1.x to 2.x.  Most of the considerations required in moving between versions are related to the language runtime changes listed above (for example C# moving from .NET Framework 4.7 to .NET Core 2).  You'll need to make sure your code and libraries are compatible with the language runtimes being used.  Also be sure to note any changes in trigger, bindings, and features highlighted below.
+By default, function apps created in the Azure portal and by the Azure CLI are set to version 2.x. You can modify this version as needed. You can only change the runtime version to 1.x after you create your function app but before you add any functions.  Moving between 2.x and 3.x is allowed even with apps that have functions, but it is still recommended to test in a new app first.
 
-### Changes in triggers and bindings
+## Migrating from 1.x to later versions
 
-While most of the trigger and binding properties and configurations remain the same between versions, in 2.x you will need to install any trigger or binding to the app. The only exception for this is HTTP and Timer triggers.  See [Register and install binding extensions](./functions-triggers-bindings.md#register-binding-extensions).  Note that there may also be changes in the `function.json` or attributes of the function between versions (for example, CosmosDB `connection` property is now `ConnectionStringSetting`).  Reference the [existing binding table](#bindings) for links to documentation for each binding.
+You may choose to migrate an existing app written to use the version 1.x runtime to instead use a newer version. Most of the changes you need to make are related to changes in the language runtime, such as C# API changes between .NET Framework 4.7 and .NET Core. You'll also need to make sure your code and libraries are compatible with the language runtime you choose. Finally, be sure to note any changes in trigger, bindings, and features highlighted below. For the best migration results, you should create a new function app in a new version and port your existing version 1.x function code to the new app.  
 
-### Changes in features available
+While it's possible to do an "in-place" upgrade by manually updating the app configuration, going from 1.x to a higher version includes some breaking changes. For example, in C#, the debugging object is changed from `TraceWriter` to `ILogger`. By creating a new version 3.x project, you start off with updated functions based on the latest version 3.x templates.
 
-In addition to changes in languages and bindings, there are some features that have been removed, updated, or replaced between versions.  Below are some of the main considerations to make when starting with 2.x after using 1.x.  In v2.x the following changes were made:
+### Changes in triggers and bindings after version 1.x
 
-* Keys for calling a function will always be stored in encrypted blob storage. In 1.x by default they were in file storage and could be moved to blob if enabling features like slots.  If upgrading a 1.x app to 2.x and secrets are in file storage currently they will be reset.
-* To improve performance, "webhook" type triggers are removed and replaced with "HTTP" triggers.
-* Host configuration (`host.json`) should either be empty or contain `version` of `2.0` for one of the properties.
-* To improve monitoring and observability, the WebJobs Dashboard (`AzureWebJobsDashboard`) is replaced with [Azure Application Insights](functions-monitoring.md) (`APPINSIGHTS_INSTRUMENTATIONKEY`)
-* Application settings (`local.settings.json`) require a value for the property `FUNCTIONS_WORKER_RUNTIME` that maps to the language of the app `dotnet | node | java | python`.
-    * To improve footprint and startup time, apps are limited to a single language. You can publish multiple apps to have functions in different languages for the same solution.
-* Default timeout for functions in an app service plan is 30 minutes.  It can still be manually set to unlimited.
-* [Due to .NET core limitiations](https://github.com/Azure/azure-functions-host/issues/3414), `.fsx` scripts for F# functions have been removed. Compiled F# functions are still supported.
-* The format of webhook-based triggers (e.g. Event Grid) has changed to `https://{app}/runtime/webhooks/{triggerName}`
+Starting with version 2.x, you must install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](./functions-bindings-register.md).
 
-### Upgrading a locally developed application
+There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hub `path` property is now `eventHubName`. See the [existing binding table](#bindings) for links to documentation for each binding.
 
-If your v1.x app was developed locally, you can make changes to the app or project to make it compatible with v2.  It is recommended to create a new app and port over the code to the new app.  While there are changes that could be made to an existing app to perform an in place upgrade, there are a number of other improvements between v1 and v2 that legacy code likely is not taking advantage of (for example in C# the change from `TraceWriter` to `ILogger`).  
+### Changes in features and functionality after version 1.x
 
-The recommended path is start from one of the v2 templates and move over code into a new project or app.
+A few features were removed, updated, or replaced after version 1.x. This section details the changes you see in later versions after having used version 1.x.
+
+In version 2.x, the following changes were made:
+
+* Keys for calling HTTP endpoints are always stored encrypted in Azure Blob storage. In version 1.x, keys were stored in Azure File storage be default. When upgrading an app from version 1.x to version 2.x, existing secrets that are in file storage are reset.
+
+* The version 2.x runtime doesn't include built-in support for webhook providers. This change was made to improve performance. You can still use HTTP triggers as endpoints for webhooks.
+
+* The host configuration file (host.json) should be empty or have the string `"version": "2.0"`.
+
+* To improve monitoring, the WebJobs dashboard in the portal, which used the [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) setting is replaced with Azure Application Insights, which uses the [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) setting. For more information, see [Monitor Azure Functions](functions-monitoring.md).
+
+* All functions in a function app must share the same language. When you create a function app, you must choose a runtime stack for the app. The runtime stack is specified by the [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) value in application settings. This requirement was added to improve footprint and startup time. When developing locally, you must also include this setting in the [local.settings.json file](functions-run-local.md#local-settings-file).
+
+* The default timeout for functions in an App Service plan is changed to 30 minutes. You can manually change the timeout back to unlimited by using the [functionTimeout](functions-host-json.md#functiontimeout) setting in host.json.
+
+* HTTP concurrency throttles are implemented by default for Consumption plan functions, with a default of 100 concurrent requests per instance. You can change this in the [`maxConcurrentRequests`](functions-host-json.md#http) setting in the host.json file.
+
+* Because of [.NET Core limitations](https://github.com/Azure/azure-functions-host/issues/3414), support for F# script (.fsx) functions has been removed. Compiled F# functions (.fs) are still supported.
+
+* The URL format of Event Grid trigger webhooks has been changed to `https://{app}/runtime/webhooks/{triggerName}`.
+
+## Migrating from 2.x to 3.x
+
+Azure Functions version 3.x is highly backwards compatible to version 2.x.  Many apps should be able to safely upgrade to 3.x without any code changes.  While moving to 3.x is encouraged, be sure to run extensive tests before changing the major version in production apps.
+
+### Breaking changes between 2.x and 3.x
+
+The following are the changes to be aware of before upgrading a 2.x app to 3.x.
+
+#### JavaScript
+
+* Output bindings assigned through `context.done` or return values now behave the same as setting in `context.bindings`.
+
+* Timer trigger object is camelCase instead of PascalCase
+
+* Event Hub triggered functions with `dataType` binary will receive an array of `binary` instead of `string`.
+
+* The HTTP request payload can no longer be accessed via `context.bindingData.req`.  It can still be accessed as an input parameter, `context.req`, and in `context.bindings`.
+
+* Node.js 8 is no longer supported and will not execute in 3.x functions.
+
+#### .NET
+
+* [Synchronous server operations are disabled by default](https://docs.microsoft.com/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
+
+### Changing version of apps in Azure
+
+The version of the Functions runtime used by published apps in Azure is dictated by the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) application setting. The following major runtime version values are supported:
+
+| Value | Runtime target |
+| ------ | -------- |
+| `~3` | 3.x |
+| `~2` | 2.x |
+| `~1` | 1.x |
+
+>[!IMPORTANT]
+> Don't arbitrarily change this setting, because other app setting changes and changes to your function code may be required.
+
+### Locally developed application versions
+
+You can make the following updates to function apps to locally change the targeted versions.
 
 #### Visual Studio runtime versions
 
-In Visual Studio you select the runtime version when you create a project.  Visual Studio has the bits for both major versions and can dynamically utilize the right one for the project.  These settings are derived from the `.csproj` file.  For 1.x apps the project has the properties
+In Visual Studio, you select the runtime version when you create a project. Azure Functions tools for Visual Studio supports the three major runtime versions. The correct version is used when debugging and publishing based on project settings. The version settings are defined in the `.csproj` file in the following properties:
+
+##### Version 1.x
 
 ```xml
 <TargetFramework>net461</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 
-In v2 the project properties are
+##### Version 2.x
 
 ```xml
-<TargetFramework>netstandard2.0</TargetFramework>
+<TargetFramework>netcoreapp2.1</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
-Clicking debug or publish will correctly set the right version for the project settings.
+##### Version 3.x
+
+```xml
+<TargetFramework>netcoreapp3.1</TargetFramework>
+<AzureFunctionsVersion>v3</AzureFunctionsVersion>
+```
+
+> [!NOTE]
+> Azure Functions 3.x and .NET requires the `Microsoft.NET.Sdk.Functions` extension be at least `3.0.0`.
+
+###### Updating 2.x apps to 3.x in Visual Studio
+
+You can open an existing function targeting 2.x and move to 3.x by editing the `.csproj` file and updating the values above.  Visual Studio manages runtime versions automatically for you based on project metadata.  However, it's possible if you have never created a 3.x app before that Visual Studio doesn't yet have the templates and runtime for 3.x on your machine.  This may present itself with an error like "no Functions runtime available that matches the version specified in the project."  To fetch the latest templates and runtime, go through the experience to create a new function project.  When you get to the version and template select screen, wait for Visual Studio to complete fetching the latest templates.  Once the latest .NET Core 3 templates are available and displayed you should be able to run and debug any project configured for version 3.x.
+
+> [!IMPORTANT]
+> Version 3.x functions can only be developed in Visual Studio if using Visual Studio version 16.4 or newer.
 
 #### VS Code and Azure Functions Core Tools
 
-Other local tooling relies on the Azure Functions Core Tools.  Those tools are installed to the machine, and generally only one version is installed on a development machine at one time.  See [instructions how to install specific versions of the core tools](./functions-run-local.md).
+[Azure Functions Core Tools](functions-run-local.md) is used for command line development and also by the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. To develop against version 3.x, install version 3.x of the Core Tools. Version 2.x development requires version 2.x of the Core Tools, and so on. For more information, see [Install the Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
-For VS Code you may also need to update the user setting for the `azureFunctions.projectRuntime` to match the version of the tools installed.  This will also update the templates and languages surfaced during the creation of new apps.
+For Visual Studio Code development, you may also need to update the user setting for the `azureFunctions.projectRuntime` to match the version of the tools installed.  This setting also updates the templates and languages used during function app creation.  To create apps in `~3` you would update the `azureFunctions.projectRuntime` user setting to `~3`.
 
-### Changing version of apps in Azure
+![Azure Functions extension runtime setting](./media/functions-versions/vs-code-version-runtime.png)
 
-Published app versions are set through the application setting `FUNCTIONS_RUNTIME_VERSION`.  This is set to `~2` for v2 apps, and `~1` for v1 apps.  It is strongly discouraged to change the runtime version of an app that has existing functions published to it without also changing the code of those functions.  The recommended path is to create a new function app and set to the appropriate version, test changes, and then disable or delete the previous app.
+#### Maven and Java apps
 
-## Bindings 
+You can migrate Java apps from version 2.x to 3.x by [installing the 3.x version of the core tools](functions-run-local.md#install-the-azure-functions-core-tools) required to run locally.  After verifying that your app works correctly running locally on version 3.x, update the app's `POM.xml` file to modify the `FUNCTIONS_EXTENSION_VERSION` setting to `~3`, as in the following example:
 
-Runtime 2.x uses a new [binding extensibility model](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) that offers these advantages:
+```xml
+<configuration>
+    <resourceGroup>${functionResourceGroup}</resourceGroup>
+    <appName>${functionAppName}</appName>
+    <region>${functionAppRegion}</region>
+    <appSettings>
+        <property>
+            <name>WEBSITE_RUN_FROM_PACKAGE</name>
+            <value>1</value>
+        </property>
+        <property>
+            <name>FUNCTIONS_EXTENSION_VERSION</name>
+            <value>~3</value>
+        </property>
+    </appSettings>
+</configuration>
+```
+
+## Bindings
+
+Starting with version 2.x, the runtime uses a new [binding extensibility model](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) that offers these advantages:
 
 * Support for third-party binding extensions.
-* Decoupling of runtime and bindings. This allows binding extensions to be versioned and released independently. You can, for example, opt to upgrade to a version of an extension that relies on a newer version of an underlying SDK.
+
+* Decoupling of runtime and bindings. This change allows binding extensions to be versioned and released independently. You can, for example, opt to upgrade to a version of an extension that relies on a newer version of an underlying SDK.
+
 * A lighter execution environment, where only the bindings in use are known and loaded by the runtime.
 
-All built-in Azure Functions bindings have adopted this model and are no longer included by default, except for the Timer trigger and the HTTP trigger. Those extensions are automatically installed when you create functions through tools like Visual Studio or through the portal.
+With the exception of HTTP and timer triggers, all bindings must be explicitly added to the function app project, or registered in the portal. For more information, see [Register binding extensions](./functions-bindings-expressions-patterns.md).
 
-The following table indicates which bindings are supported in each runtime version.
+The following table shows which bindings are supported in each runtime version.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## Next steps
 

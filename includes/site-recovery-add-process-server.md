@@ -1,14 +1,21 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+---
 1. Launch the Azure Site Recovery UnifiedSetup.exe
 2. In **Before you begin**, select **Add additional process servers to scale out deployment**.
 
-  ![Add process server](./media/site-recovery-add-process-server/ps-page-1.png)
+   ![Add process server](./media/site-recovery-add-process-server/ps-page-1.png)
 
 3. In **Configuration Server Details**, specify the IP address of the Configuration Server, and the passphrase.
 
-  ![Add process server 2](./media/site-recovery-add-process-server/ps-page-2.png)
+   ![Add process server 2](./media/site-recovery-add-process-server/ps-page-2.png)
 4. In **Internet Settings**, specify how the Provider running on the Configuration Server connects to Azure Site Recovery over the Internet.
 
-  ![Add process server 3](./media/site-recovery-add-process-server/ps-page-3.png)
+   ![Add process server 3](./media/site-recovery-add-process-server/ps-page-3.png)
 
    * If you want to connect with the proxy that's currently set up on the machine, select **Connect with existing proxy settings**.
    * If you want the Provider to connect directly, select **Connect directly without a proxy**.
