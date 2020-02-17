@@ -115,7 +115,7 @@ Now connect to the Event Grid from Azure Data Explorer, so that data flowing int
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Table | *TestTable* | The table you created in **TestDatabase**. |
-    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, and TXT. Supported compression options: Zip and GZip |
+    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, RAW and TXT. Supported compression options: Zip and GZip |
     | Column mapping | *TestMapping* | The mapping you created in **TestDatabase**, which maps incoming JSON data to the column names and data types of **TestTable**.|
     | | |
     
@@ -147,13 +147,28 @@ Save the data into a file and upload it with this script:
     az storage container create --name $container_name
 
     echo "Uploading the file..."
-    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
+    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name --metadata "rawSizeBytes=1024"
 
     echo "Listing the blobs..."
     az storage blob list --container-name $container_name --output table
 
     echo "Done"
 ```
+> [!NOTE]
+> In order to achieve the best ingestion performance, it is important to let Kusto know the **uncompressed** size of the compressed blobs submitted for ingestion.
+> Since Event Grid notifications only contain the basic details, the size information needs to be communicated explicitly.
+> Uncompressed size information can be provided by setting the `rawSizeBytes` property on the blob metadata to **uncompressed** data size in bytes.
+
+### Ingestion Properties
+You can specify [Ingestion properties](https://docs.microsoft.com/en-us/azure/kusto/management/data-ingestion/#ingestion-properties) of the blob ingestion via the blob metadata.
+These follow properties can be set:
+    * `rawSizeBytes` - Size of the raw data, i.e., uncompressed. For Avro/ORC/Parquet this should be the size before the format-specific compression is applied.
+    * `kustoTable` -  Name of the existing target table. Will override the `Table` set on the connection.
+    * `kustoDataFormat` -  Data format. Will override the `Data format` set on the connection.
+    * `kustoIngestionMappingReference` -  Name of the existing ingestion mapping to be used. Will override the `Column mapping` set on the connection.
+    * `kustoIgnoreFirstRecord` - If present and set to ‘true’, Kusto will ignore the first row of the blob. Use in tabular format data (CSV, TSV, or similar) to ignore headers.
+    * `kustoExtentTags` - String representing [tags](https://docs.microsoft.com/en-us/azure/kusto/management/extents-overview#extent-tagging) that will be attached to resulting extent.
+    * `kustoCreationTime` -  Overrides the [$IngestionTime](https://docs.microsoft.com/en-us/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) for the blob, formatted as a ISO8601 string. Use for backfilling.
 
 > [!NOTE]
 > Azure Data Explorer won't delete the blobs post ingestion.
