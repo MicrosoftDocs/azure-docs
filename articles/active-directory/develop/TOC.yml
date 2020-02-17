@@ -7,6 +7,7 @@
   - name: Evolution of Microsoft identity platform
     href: about-microsoft-identity-platform.md  
 - name: Quickstarts
+  expanded: true
   items:
   - name: Set up a tenant
     href: quickstart-create-new-tenant.md
@@ -90,6 +91,7 @@
 - name: Samples
   href: sample-v2-code.md
 - name: Concepts
+  expanded: true
   items:
   - name: Authentication basics
     href: authentication-scenarios.md

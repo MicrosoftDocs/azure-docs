@@ -3732,7 +3732,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-group-create-multiple.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/create-multiple-instances.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-resources",
       "redirect_document_id": false
     },
     {
@@ -4662,7 +4667,7 @@
     },
     {
       "source_path": "articles/resource-group-create-multiple.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-resources",
       "redirect_document_id": false
     },
     {
@@ -5654,6 +5659,11 @@
       "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started-custom.md",
       "redirect_url": "/azure/active-directory-b2c/custom-policy-get-started",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-ui-customization-dynamic.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-overview-custom.md",
@@ -12037,7 +12047,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-property-copy.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-properties",
       "redirect_document_id": false
     },
     {
@@ -12047,7 +12057,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-sequential-loop.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-resources",
       "redirect_document_id": false
     },
     {
