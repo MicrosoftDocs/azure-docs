@@ -211,11 +211,11 @@ You can enable either targeting the action against a subscription and resource g
 
 1. Configure the **External_Stop_ResourceGroupNames** and **External_ExcludeVMNames** variables to specify the target VMs.
 1. Enable and update the **Schedule_AutoStop_CreateAlert_Parent** schedule.
-1. Run the **AutoStop_CreateAlert_Parent** runbook with the ACTION parameter set to **start** and the WHATIF parameter set to **True** to preview your changes.
+1. Run the **AutoStop_CreateAlert_Parent** runbook with the WHATIF parameter set to **True** to preview your changes.
 
 #### Target the start and stop action by VM list
 
-1. Run the **AutoStop_CreateAlert_Parent** runbook with the ACTION parameter set to **start**, add a comma-separated list of VMs in the *VMList* parameter, and then set the WHATIF parameter to **True**. Preview your changes.
+1. Run the **AutoStop_CreateAlert_Parent** runbook, add a comma-separated list of VMs in the *VMList* parameter, and then set the WHATIF parameter to **True**. Preview your changes.
 1. Configure the **External_ExcludeVMNames** parameter with a comma-separated list of VMs (VM1, VM2, VM3).
 1. This scenario does not honor the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupnames** variables. For this scenario, you need to create your own Automation schedule. For details, see [Scheduling a runbook in Azure Automation](../automation/automation-schedules.md).
 
