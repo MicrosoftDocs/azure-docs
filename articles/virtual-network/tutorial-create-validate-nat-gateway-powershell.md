@@ -285,11 +285,25 @@ We create a public IP to be used to access the source VM.  Use [New-AzPublicIpAd
 Standard Public IP addresses are 'secure by default', we create an NSG to allow inbound access for ssh. Use [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=latest) to create an NSG resource named **myNSGdestination**. Use [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create an NSG rule for SSH access named **ssh**.  Use [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create an NSG rule for HTTP access named **http**. Both rules will be created in **myResourceGroupNAT**. The result of this command will be stored in a variable named **$nsgdestination** for later use.
 
 ```azurepowershell-interactive
-  $sshrule = New-AzNetworkSecurityRuleConfig -Name ssh -Description "SSH access" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  $snm = 'ssh'
+  $sdsc = 'SSH access'
+  $acc = 'Allow'
+  $prt = 'Tcp'
+  $dir = 'Inbound'
+  $hnm = 'http'
+  $hdsc = 'HTTP access'
+  $nsnm = 'myNSGdestination'
 
-  $httprule = New-AzNetworkSecurityRuleConfig -Name http -Description "HTTP access" -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
+  $sshrule = 
+  New-AzNetworkSecurityRuleConfig -Name $snm -Description $sdsc -Access $acc -Protocol $prt -Direction $dir -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
 
-  $nsgdestination = New-AzNetworkSecurityGroup -ResourceGroupName myResourceGroupNAT -Name myNSGdestination -Location eastus2 -SecurityRules $sshrule,$httprule
+  $httprule = 
+  New-AzNetworkSecurityRuleConfig -Name $hnm -Description $hdsc -Access $acc -Protocol $prt -Direction $dir -Priority 101 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
+
+  $nsgdestination = 
+  New-AzNetworkSecurityGroup -ResourceGroupName $rsg -Name $nsnm -Location $loc -SecurityRules $sshrule,$httprule
 ```
 
 ### Create NIC for destination VM
@@ -297,7 +311,12 @@ Standard Public IP addresses are 'secure by default', we create an NSG to allow 
 Create a network interface with [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0) named **myNicdestination**. This command will associate with the Public IP address and the network security group. The result of this command will be stored in a variable named **$nicdestination** for later use.
 
 ```azurepowershell-interactive
-  $nicdestination = New-AzNetworkInterface -ResourceGroupName myResourceGroupNAT -Name myNicdestination -NetworkSecurityGroupID $nsgdestination.Id -PublicIPAddressID $publicIPdestinationVM.Id -SubnetID $vnetdestination.Subnets[0].Id -Location eastus2
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  $nnm = 'myNicdestination'
+
+  $nicdestination = 
+  New-AzNetworkInterface -ResourceGroupName $rsg -Name $nnm -NetworkSecurityGroupID $nsgdestination.Id -PublicIPAddressID $publicIPdestinationVM.Id -SubnetID $vnetdestination.Subnets[0].Id -Location $loc
 ```
 
 ### Create a destination VM
