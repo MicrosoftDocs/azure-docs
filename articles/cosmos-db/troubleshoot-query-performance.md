@@ -296,7 +296,7 @@ If the Retrieved Document Count is approximately equal to the Output Document Co
 
 Azure Cosmos DB uses [partitioning](partitioning-overview.md) to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container’s partition key, you will only need to check the relevant partition’s index. This optimization reduces the total number of RU’s that the query requires.
 
-If you have a large number of provisioned RU’s (over 30,000) or a large amount of data stored (over ~100 GB), you likely have a large enough container to see a significant reduction in query RU charges.
+If you have a large number of provisioned RU’s (over 30,000) or a large amount of data stored (over approximately 100 GB), you likely have a large enough container to see a significant reduction in query RU charges.
 
 For example, if we create a container with the partition key foodGroup, the following queries would only need to check a single physical partition:
 
