@@ -33,17 +33,17 @@ During agentless migration, in every delta cycle the difference between the curr
 
 ## How does churn rate impact agentless replication?
 
-Since agentless replication folds date, the chun pattern is more important that the churn rate. When a file is written again and again, the rate doesn’t have much impact. However, a pattern in which every other sector is written causes high churn in the next cycle. Since we minimize the amount of data we transfer, we allow the data to fold as much as possible before scheduling the next cycle.  
+Since agentless replication folds date, the churn pattern is more important that the churn rate. When a file is written again and again, the rate doesn’t have much impact. However, a pattern in which every other sector is written causes high churn in the next cycle. Since we minimize the amount of data we transfer, we allow the data to fold as much as possible before scheduling the next cycle.  
 
 ## How frequently is a replication cycle scheduled?
 
-The formula to schedule the next replication cycle: (Previous cycle time / 2) or 1 hourw, hichever is higher.
+The formula to schedule the next replication cycle: (Previous cycle time / 2) or 1 hour, whichever is higher.
 
 For example, if a VM takes four hours for a delta cycle, the next cycle is scheduled in two hours, and not in the next hour. This is differs immediately after initial replication, where the first delta cycle is scheduled immediately.
 
 ## How does agentless replication impact VMware servers?
 
-There is some performance mpact on vCenter Server/ESXi hosts. Since agentless replication uses snapshots, it consumes IOPs on storage, and some IOPS storage bandwidth is needed. We don’t recommend using agentless replication if there are constraints on storage/IOPs in your environment.
+There is some performance impact on vCenter Server/ESXi hosts. Since agentless replication uses snapshots, it consumes IOPs on storage, and some IOPS storage bandwidth is needed. We don’t recommend using agentless replication if there are constraints on storage/IOPs in your environment.
 
 ## Can I do agentless migration of UEFI VMs to Azure Gen 2?
 
@@ -55,7 +55,7 @@ No, Azure Availability Zones aren't supported.
 
 ## Which transport protocol is used by Azure Migrate during replication?
 
-Azure Migrate usesthe  Network Block Device (NBD) protocol with SSL encryption.
+Azure Migrate uses the Network Block Device (NBD) protocol with SSL encryption.
 
 ## What is the minimum vCenter Server version required for migration?
 
@@ -67,7 +67,7 @@ No. Azure Migrate supports migration only to managed disks (standard HDD, premiu
 
 ## How many VMs can I replicate together with agentless migration?
 
-Currently, you can nmigrate 100 VMs per vCenter Server simultaneously. Migrate in batches of 10 VMs.
+Currently, you can migrate 100 VMs per vCenter Server simultaneously. Migrate in batches of 10 VMs.
  
 
 
