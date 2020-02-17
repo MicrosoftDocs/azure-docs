@@ -81,7 +81,7 @@
       - name: Syslog
         href: connect-syslog.md
       - name: Zimperium Mobile Threat Defense
-        href: connect-zemperium-mtd.md
+        href: connect-zimperium-mtd.md
       - name: CEF-based solutions
         href: connect-common-event-format.md
         items:  
