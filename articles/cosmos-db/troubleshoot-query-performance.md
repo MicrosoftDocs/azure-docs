@@ -296,7 +296,7 @@ If the Retrieved Document Count is approximately equal to the Output Document Co
 
 Azure Cosmos DB uses [partitioning](partitioning-overview.md) to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container’s partition key, you will only need to check the relevant partition’s index. This optimization reduces the total number of RU’s that the query requires.
 
-If you have a large number of provisioned RU’s (over 30,000) or a large amount of data stored (over ~100 GB), you likely have a large enough container to see a significant reduction in query RU charges.
+If you have a large number of provisioned RU’s (over 30,000) or a large amount of data stored (over approximately 100 GB), you likely have a large enough container to see a significant reduction in query RU charges.
 
 For example, if we create a container with the partition key foodGroup, the following queries would only need to check a single physical partition:
 
@@ -377,7 +377,7 @@ Queries that are run from a different region than the Azure Cosmos DB account wi
 
 ## Increase provisioned throughput
 
-In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. For example, if you provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API sdk's will automatically retry this query after waiting a brief period. Throttled requests take a longer amount of time, so increasing provisioned throughput can improve query latency. You can observe the [total number of requests throttled requests](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) in the Metrics blade of the Azure portal.
+In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. For example, if you provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API sdk's will automatically retry this query after waiting a brief period. Throttled requests take a longer amount of time, so increasing provisioned throughput can improve query latency. You can observe the [total number of throttled requests](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) in the Metrics blade of the Azure portal.
 
 ## Increase MaxConcurrency
 

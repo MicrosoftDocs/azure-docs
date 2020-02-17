@@ -35,7 +35,7 @@ You use the [Azure portal](tutorial-customize-ui.md) to configure the UI customi
 
 If you're using [custom policies](custom-policy-overview.md) to provide sign-up or sign-in, password reset, or profile-editing in your application, use [policy files to customize the UI](custom-policy-ui-customization.md).
 
-If you need to provide dynamic content based on a customer's decision, use custom policies that can [change page content dynamically](custom-policy-ui-customization-dynamic.md) depending on a parameter that's sent in a query string. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a parameter that you pass from your web or mobile application.
+If you need to provide dynamic content based on a customer's decision, use custom policies that can [change page content dynamically](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri) depending on a parameter that's sent in a query string. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a parameter that you pass from your web or mobile application.
 
 ### JavaScript
 
