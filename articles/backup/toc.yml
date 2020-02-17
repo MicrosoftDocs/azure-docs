@@ -183,6 +183,7 @@
       - name: Manage
         href: manage-afs-powershell.md
     - name: With REST API
+      items:
       - name: Backup
         href: backup-afs-rest-api.md
   - name: SAP HANA database on Azure VM backup
