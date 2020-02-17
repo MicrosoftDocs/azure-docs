@@ -77,7 +77,7 @@ At this point, the NAT gateway is functional and all that is missing is to confi
 
 ## Prepare the source for outbound traffic
 
-We'll guide you through setup of a full test environment. You'll set up a test using open source tools to verify the NAT gateway. We'll start with the source, which will use the NAT gateway we created previously.
+We'll guide you through setup of a full test environment. You'll set up a test using open-source tools to verify the NAT gateway. We'll start with the source, which will use the NAT gateway we created previously.
 
 ### Configure virtual network for source
 
