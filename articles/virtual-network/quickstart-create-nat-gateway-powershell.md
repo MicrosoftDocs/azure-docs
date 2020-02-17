@@ -27,7 +27,7 @@ This quickstart shows you how to use Azure Virtual Network NAT service. You'll c
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can complete this tutorial using Azure cloud shell or run the commands locally.  If you haven't used Azure cloud shell, [sign in now](https://shell.azure.com).
+You can complete this tutorial using Azure Cloud Shell or run the commands locally.  If you haven't used Azure Cloud Shell, [sign in now](https://shell.azure.com).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -41,10 +41,10 @@ Create a resource group with [New-AzResourceGroup](https://docs.microsoft.com/po
 The following example creates a resource group named **myResourceGroupNAT** in the **eastus2** location:
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $loc = 'eastus2'
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
   
-  New-AzResourceGroup -Name $rsg -Location $loc
+New-AzResourceGroup -Name $rsg -Location $loc
 ```
 
 ## Create the NAT gateway
@@ -63,13 +63,13 @@ We'll add a public IP address and a public IP prefix to this scenario to demonst
 To access the Internet, you need one or more public IP addresses for the NAT gateway. Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) to create a public IP address resource named **myPublicIP** in **myResourceGroupNAT**. The result of this command will be stored in a variable **$publicIP** for later use.
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $loc = 'eastus2'
-  $sku = 'Standard'
-  $pbnm = 'myPublicIP'
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+$sku = 'Standard'
+$pbnm = 'myPublicIP'
   
-  $publicIP = 
-  New-AzPublicIpAddress -Name $pbnm -ResourceGroupName $rsg -AllocationMethod Static -Location $loc -Sku $sku
+$publicIP = 
+New-AzPublicIpAddress -Name $pbnm -ResourceGroupName $rsg -AllocationMethod Static -Location $loc -Sku $sku
 ```
 
 ### Create a public IP prefix
@@ -77,12 +77,12 @@ To access the Internet, you need one or more public IP addresses for the NAT gat
  Use [New-AzPublicIpPrefix](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipprefix?view=latest) to create a public IP prefix resource named **myPublicIPprefix** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIPPrefix** for later use.
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $loc = 'eastus2'
-  $pxnm = 'myPublicIPprefix'
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+$pxnm = 'myPublicIPprefix'
 
-  $publicIPPrefix = 
-  New-AzPublicIpPrefix -Name $pxnm -ResourceGroupName $rsg -Location $loc -PrefixLength 31
+$publicIPPrefix = 
+New-AzPublicIpPrefix -Name $pxnm -ResourceGroupName $rsg -Location $loc -PrefixLength 31
 ```
 
 ### Create a NAT gateway resource
@@ -94,13 +94,13 @@ This section details how you can create and configure the following components o
 Create a global Azure NAT gateway with [New-AzNatGateway](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway). The result of this command will create a gateway resource named **myNATgateway** that uses the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix**. The idle timeout is set to 10 minutes.  The result of this command will be stored in a variable named **$natGateway** for later use.
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $loc = 'eastus2'
-  $sku = 'Standard'
-  $gnm = 'myNATgateway'
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+$sku = 'Standard'
+$gnm = 'myNATgateway'
 
-  $natGateway = 
-  New-AzNatGateway -Name $gnm -ResourceGroupName $rsg -PublicIpAddress $publicIP -PublicIpPrefix $publicIPPrefix -Location $loc -Sku $sku -IdleTimeoutInMinutes 10
+$natGateway = 
+New-AzNatGateway -Name $gnm -ResourceGroupName $rsg -PublicIpAddress $publicIP -PublicIpPrefix $publicIPPrefix -Location $loc -Sku $sku -IdleTimeoutInMinutes 10
   ```
 
 At this point, the NAT gateway is functional and all that is missing is to configure which subnets of a virtual network should use it.
@@ -264,7 +264,7 @@ First we need to discover the IP address of the VM you've created. To get the pu
 
 ### Sign in to VM
 
-The SSH credentials should be stored in your cloud shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine.
+The SSH credentials should be stored in your Cloud Shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine.
 
 ```bash
 ssh azureuser@<ip-address-destination>
