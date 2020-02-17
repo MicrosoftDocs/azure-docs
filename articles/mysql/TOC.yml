@@ -95,8 +95,6 @@
       href: concepts-data-access-security-private-link.md
     - name: Data Encryption
       href: concepts-data-encryption-mysql.md
-    - name: Data Encryption
-      href: concepts-data-encryption-mysql.md
     - name: Azure AD authentication
       href: concepts-azure-ad-authentication.md
   - name: Business continuity
