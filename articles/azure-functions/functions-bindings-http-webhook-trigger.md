@@ -755,7 +755,7 @@ Functions lets you use keys to make it harder to access your HTTP function endpo
 
 There are two types of keys:
 
-* **Host keys**: These keys are shared by all functions within the function app. When used as an API key, these allow access to any function within the function app.
+* **Host/admin keys**: These keys are shared by all functions within the function app. When used as an API key, these allow access to any function within the function app. Sometimes called *admin* keys since they can be used with all functions in the function app.
 * **Function keys**: These keys apply only to the specific functions under which they are defined. When used as an API key, these only allow access to that function.
 
 Each key is named for reference, and there is a default key (named "default") at the function and host level. Function keys take precedence over host keys. When two keys are defined with the same name, the function key is always used.
