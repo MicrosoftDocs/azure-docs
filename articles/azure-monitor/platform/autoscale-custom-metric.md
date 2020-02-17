@@ -8,7 +8,7 @@ ms.subservice: autoscale
 # Get started with auto scale by custom metric in Azure
 This article describes how to scale your resource by a custom metric in Azure portal.
 
-Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [Azure Data Explorer Cluster](https://azure.microsoft.com/en-in/pricing/details/data-explorer/) , 	
+Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [Azure Data Explorer Cluster](https://azure.microsoft.com/en-us/services/data-explorer/) , 	
 Integration Service Environment and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## Lets get started
