@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a warehouse - Azure Powershell"
-description: Quickly create a SQL Database logical server, server-level firewall rule, and data warehouse with Azure PowerShell.
+title: "Quickstart: Create a data warehouse (PowerShell)"
+description: Quickly create an Azure Synapse Analytics data warehouse logical server, with a server-level firewall rule using Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,18 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse    
 ---
-# Quickstart: Create and query an Azure SQL Data Warehouse with Azure PowerShell
+# Quickstart: Create & query a data warehouse with Azure PowerShell
 
-Quickly create an Azure SQL Data Warehouse using Azure PowerShell.
+Create an Azure Synapse Analytics data warehouse by provisioning a SQL pool using Azure PowerShell.
+
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 > [!NOTE]
-> Creating a SQL Data Warehouse may result in a new billable service.  For more information, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Creating a warehouse may result in a new billable service.  For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -72,6 +74,7 @@ Create an [Azure resource group](../azure-resource-manager/management/overview.m
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
+
 ## Create a logical server
 
 Create an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
@@ -94,7 +97,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL Database and SQL Data Warehouse communicate over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you won't be able to connect to your Azure SQL server unless your IT department opens port 1433.
+> SQL endpoints communicate over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you won't be able to connect to your Azure SQL server unless your IT department opens port 1433.
 >
 
 
@@ -115,10 +118,10 @@ New-AzSqlDatabase `
 Required Parameters are:
 
 * **RequestedServiceObjectiveName**: The amount of [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) you're requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits](memory-concurrency-limits.md).
-* **DatabaseName**: The name of the SQL Data Warehouse that you're creating.
+* **DatabaseName**: The name of the data warehouse that you're creating.
 * **ServerName**: The name of the server that you're using for creation.
 * **ResourceGroupName**: Resource group you're using. To find available resource groups in your subscription use Get-AzureResource.
-* **Edition**: Must be "DataWarehouse" to create a SQL Data Warehouse.
+* **Edition**: Must be "DataWarehouse" to create a data warehouse.
 
 Optional Parameters are:
 
@@ -142,6 +145,6 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## Next steps
 
-You've now created a data warehouse, created a firewall rule, connected to your data warehouse, and run a few queries. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
+You've now created a data warehouse, created a firewall rule, connected to your data warehouse, and run a few queries. To learn more, continue to the tutorial for loading data.
 > [!div class="nextstepaction"]
->[Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Load data into a data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
