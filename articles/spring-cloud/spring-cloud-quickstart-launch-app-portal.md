@@ -77,7 +77,8 @@ az extension add --name spring-cloud
 
 * Click the **Tracing** tab.
 
-* You can set **Enable tracing** to *yes* or *no* according to your requirements.
+* You can set **Enable tracing** to *yes* or *no* according to your requirements.  If you set **Enable tracing** to yes,  also select an existing application insight, or create a new one. Without the **Application Insights** specification there will be a validation error.
+
 
     ![Tracing](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
 
@@ -120,7 +121,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
     cd piggymetrics
     mvn clean package -DskipTests
     ```
-1. Assign names to your resource group and your service. Be sure to substitute the placeholders below with the resource group name and service name that you provisioned earlier in this tutorial.
+* Assign names to your resource group and your service. Be sure to substitute the placeholders below with the resource group name and service name that you provisioned earlier in this tutorial.
 
     ```azurecli
     az configure --defaults group=<resource group name>
