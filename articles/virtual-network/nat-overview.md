@@ -187,7 +187,7 @@ NAT is supported through normal support channels.
 
 ## Feedback
 
-We want to know how we can improve the service. Share your [feedback on the Public Preview](https://aka.ms/natfeedback) with us.
+We want to know how we can improve the service. Share your [feedback on the Public Preview](https://aka.ms/natfeedback) with us.  And you can propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 
 ## Limitations
 
@@ -204,5 +204,5 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 - Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
 - Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
-- [Tell us what to add next in UserVoice](https://aka/natuservoice).
+- [Tell us what to build next in UserVoice](https://aka/natuservoice).
 - [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
