@@ -186,6 +186,8 @@
       items:
       - name: Backup
         href: backup-afs-rest-api.md
+      - name: Restore
+        href: restore-afs-rest-api.md
   - name: SAP HANA database on Azure VM backup
     items:
     - name: Overview
