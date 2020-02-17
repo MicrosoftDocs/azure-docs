@@ -46,7 +46,7 @@ Here are several examples of how you can structure your key names into a hierarc
 
 ### Label keys
 
-Key values in App Configuration can optionally have a label attribute. Labels are used to differentiate key values with the same key. A key *app1* with labels *A* and *B* forms two separate keys in an App Configuration store. By default, a key value has no label. To explicitly reference a key value without a label use `\0` (url encoded as `%00`).
+Key values in App Configuration can optionally have a label attribute. Labels are used to differentiate key values with the same key. A key *app1* with labels *A* and *B* forms two separate keys in an App Configuration store. By default, a key value has no label. To explicitly reference a key value without a label, use `\0` (URL encoded as `%00`).
 
 Label provides a convenient way to create variants of a key. A common use of labels is to specify multiple environments for the same key:
 
