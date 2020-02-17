@@ -5,7 +5,7 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 1/14/2020
+ms.date: 2/17/2020
 ms.author: harelbr
 ms.subservice: alerts
 ---
@@ -101,8 +101,8 @@ Save the json below as simplestaticmetricalert.json for the purpose of this walk
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -1651,8 +1651,8 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2298,8 +2298,8 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2940,8 +2940,8 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
