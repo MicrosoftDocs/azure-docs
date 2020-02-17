@@ -130,7 +130,7 @@ If your configuration requires forced tunneling to an on-premises network and yo
 
 ## Are there any firewall resource group restrictions?
 
-Yes. The firewall, subnet, VNet, and the public IP address all must be in the same resource group.
+Yes. The firewall, VNet, and the public IP address all must be in the same resource group.
 
 ## When configuring DNAT for inbound network traffic, do I also need to configure a corresponding network rule to allow that traffic?
 
