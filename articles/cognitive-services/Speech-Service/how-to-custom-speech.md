@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/17/2020
 ms.author: dapine
 ---
 
@@ -57,7 +57,7 @@ Content like data, models, tests, and endpoints are organized into **Projects** 
 To create your first project, select the **Speech-to-text/Custom speech**, then click **New Project**. Follow the instructions provided by the wizard to create your project. After you've created a project, you should see four tabs: **Data**, **Testing**, **Training**, and **Deployment**. Use the links provided in [Next steps](#next-steps) to learn how to use each tab.
 
 > [!IMPORTANT]
-> The [Custom Speech portal](https://aka.ms/custom-speech) was recently updated! If you created previous projects with data, models, tests, and published endpoints in the CRIS portal or with APIs, you need to create a new project in the new portal to connect to these old entities.
+> The [Custom Speech portal](https://aka.ms/custom-speech) was recently updated! If you created previous data, models, tests, and published endpoints in the CRIS.ai portal or with APIs, you need to create a new project in the new portal to connect to these old entities.
 
 ## Next steps
 
