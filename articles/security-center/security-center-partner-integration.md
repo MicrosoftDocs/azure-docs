@@ -124,13 +124,13 @@ Before you begin, [create an Event Hubs namespace](../event-hubs/event-hubs-crea
 
 #### Stream the Azure Activity Log to Event Hubs
 
-See the following article [stream activity log to Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+See the following article [stream activity log to Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md).
 
 #### Install a partner SIEM connector 
 
 Routing your monitoring data to an Event Hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools.
 
-See the following article for the list of [supported SIEMs](../azure-monitor/platform/stream-monitoring-data-event-hubs#partner-tools-with-azure-monitor-integration)
+See the following article for the list of [supported SIEMs](../azure-monitor/platform/stream-monitoring-data-event-hubs#partner-tools-with-azure-monitor-integration).
 
 ### Example for Querying data 
 
