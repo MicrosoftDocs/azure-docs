@@ -4,7 +4,7 @@ description: Provides an overview of agent-based VMware VM migration in Azure Mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 02/17/2020
 ms.author: raynew
 ---
 
@@ -103,9 +103,9 @@ If you need to deploy a scale-out process server, use this table to figure out s
 
 **Process server** | **Free space for data caching** | **Churn rate** | **Replication limits**
 --- | --- | --- | --- 
-4 vCPUs (2 sockets * 2 cores \@ 2.5 GHz), 8 GB memory | 300 GB | 250 GB or less | Up to 85 machines 
-8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 12 GB memory | 600 GB | 251 GB to 1 TB	| 86-150 machines.
-12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz), 24 GB memory | 1 TB | 1-2 TB | 151-225 machines.
+4 vCPUs (2 sockets * 2 cores \@ 2.5 GHz), 8-GB memory | 300 GB | 250 GB or less | Up to 85 machines 
+8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 12-GB memory | 600 GB | 251 GB to 1 TB	| 86-150 machines.
+12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz), 24-GB memory | 1 TB | 1-2 TB | 151-225 machines.
 
 ## Throttle upload bandwidth.
 
