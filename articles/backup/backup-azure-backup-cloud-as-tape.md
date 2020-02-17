@@ -37,7 +37,7 @@ The total number of “retention points” specified in this policy is 90 (daily
 ![Sample Screen](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Daily retention policy**: Backups taken daily are stored for seven days.
-2. **Weekly retention policy**: Backups taken every day at midnight and 6PM Saturday are preserved for four weeks
+2. **Weekly retention policy**: Backups taken at midnight and 6PM Saturday are preserved for four weeks
 3. **Monthly retention policy**: Backups taken at midnight and 6pm on the last Saturday of each month are preserved for 12 months
 4. **Yearly retention policy**: Backups taken at midnight on the last Saturday of every March are preserved for 10 years
 
