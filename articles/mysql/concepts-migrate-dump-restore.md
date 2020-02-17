@@ -17,7 +17,7 @@ This article explains two common ways to back up and restore databases in your A
 To step through this how-to guide, you need to have:
 - [Create Azure Database for MySQL server - Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) command-line utility installed on a machine.
-- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/), Toad, Navicat, or other third-party MySQL tool to do dump and restore commands.
+- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/), [dbForge Studio for MySQL](https://www.devart.com/dbforge/mysql/studio/download.html), Toad, Navicat, or other third-party MySQL tool to do dump and restore commands.
 
 ## Use common tools
 Use common utilities and tools such as MySQL Workbench, mysqldump, Toad, or Navicat to remotely connect and restore data into Azure Database for MySQL. Use such tools on your client machine with an internet connection to connect to the Azure Database for MySQL. Use an SSL encrypted connection for best security practices, see also [Configure SSL connectivity in Azure Database for MySQL](concepts-ssl-connection-security.md). You do not need to move the dump files to any special cloud location when migrating to Azure Database for MySQL. 
