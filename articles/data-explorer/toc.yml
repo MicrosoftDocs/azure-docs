@@ -32,10 +32,10 @@
     - name: Data ingestion overview
       displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
       href: ingest-data-overview.md
-    - name: Kusto Query Language
+  - name: Kusto Query Language
     items:
-      - name: Quick reference guide
-        href: kql-quick-reference.md
+    - name: Quick reference guide
+      href: kql-quick-reference.md
   - name: Data visualization overview
     href: viz-overview.md
   - name: Security overview
@@ -286,5 +286,3 @@
       href: pricing-reserved-capacity.md 
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-explorer
-
-    
