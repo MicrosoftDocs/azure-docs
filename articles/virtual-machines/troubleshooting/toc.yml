@@ -195,10 +195,10 @@
     href: ../extensions/troubleshoot.md
   - name: Install Windows VM agent offline
     href: install-vm-agent-offline.md
-- Backup and restore
+- name: Backup and restore
   items:
   - name: Troubleshoot backup failures on Azure VM
-    href: /azure/backup/backup-azure-vms-troubleshoot
+    href: ../../backup/backup-azure-vms-troubleshoot.md
 - name: Repair a VM using commands
   items:
   - name: Windows
