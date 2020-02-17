@@ -104,7 +104,7 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 ### SAML
 
 | Claim | Description | Example |
-| -------- | ----------- | ------- |
+| ----- | ----------- | --------|
 | {SAML:AuthnContextClassReferences} | The `AuthnContextClassRef` element value, from the SAML request. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
 | {SAML:NameIdPolicyFormat} | The `Format` attribute, from the `NameIDPolicy` element of the SAML request. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
 | {SAML:Issuer} |  The SAML `Issuer` element value of the SAML request.| https://contoso.com |
