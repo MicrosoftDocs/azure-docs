@@ -336,3 +336,5 @@ Follow [instructions to enable your subscription](nat-overview.md#public-preview
 - Learn more about [NAT gateway resource REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways).
 - Learn more about [NAT gateway resource Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest).
 - Learn more about [NAT gateway resource PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
+- [Tell us what to add next in UserVoice](https://aka/natuservoice).
+- [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
