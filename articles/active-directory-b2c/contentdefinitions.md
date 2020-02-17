@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -66,7 +66,7 @@ The **ContentDefinition** element contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | A string that contains the URL of the HTML5 page for the content definition. |
-| RecoveryUri | 0:1 | A string that contains the URL of the HTML page for displaying an error relating to the content definition. |
+| RecoveryUri | 1:1 | A string that contains the URL of the HTML page for displaying an error relating to the content definition. |
 | DataUri | 1:1 | A string that contains the relative URL of an HTML file that provides the user experience to invoke for the step. |
 | Metadata | 0:1 | A collection of key/value pairs that contains the metadata utilized by the content definition. |
 | LocalizedResourcesReferences | 0:1 | A collection of localized resources references. Use this element to customize the localization of a user interface and claims attribute. |
@@ -78,11 +78,11 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 | Page identifier | Description |
 | ----- | ----------- |
 | `globalexception` | Displays an error page when an exception or an error is encountered. |
-| `providerselection` |	Lists the identity providers that users can choose from during sign-in. |
+| `providerselection`, `idpselection` |	Lists the identity providers that users can choose from during sign-in.  |
 | `unifiedssp` | Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the “keep me sign-in functionality” and “Forgot your password?” link. |
 | `unifiedssd` | Displays a form for signing in with a local account that's based on an email address or a user name. |
 | `multifactor` | Verifies phone numbers by using text or voice during sign-up or sign-in. |
-| `selfasserted` | Displays a form that enables users to create or update their profile. |
+| `selfasserted` | Displays a form to collect data from a user. For example, enables users to create or update their profile. |
 
 ### Select a page layout
 

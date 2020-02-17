@@ -21,7 +21,7 @@ This article describes how to enable the older TLS protocols (TLS 1.0 and 1.1) a
 We understand that while we are taking steps to deprecate TLS 1.0 and TLS 1.1, our customers may need to support the older protocols and cipher suites until they can plan for their deprecation.  While we don't recommend re-enabling these legacy values, we are providing guidance to help customers. We encourage customers to evaluate the risk of regression before implementing the changes outlined in this article. 
 
 > [!NOTE]
-> Guest OS Family 6 releases enforces TLS 1.2 by disabling 1.0/1.0 ciphers. 
+> Guest OS Family 6 releases enforces TLS 1.2 by disabling 1.0/1.1 ciphers. 
 
   
 ## Dropping support for TLS 1.0, TLS 1.1 and older cipher suites 
