@@ -554,6 +554,8 @@
         href: cassandra-introduction.md
       - name: Wire protocol support
         href: cassandra-support.md
+      - name: Elastic scale
+        href: manage-scale-cassandra.md      
       - name: Quickstarts
         items:
         - name: .NET
@@ -1071,6 +1073,8 @@
         href: migrate-cosmosdb-data.md
       - name: Migrate one-to-few relational data
         href: migrate-relational-to-cosmos-db-sql-api.md 
+      - name: Migrate - Couchbase to SQL API
+        href: couchbase-cosmos-migration.md 
     - name: Bulk executor library
       items: 
       - name: About bulk executor library
