@@ -251,9 +251,18 @@ We need to create a virtual network where the destination virtual machine will b
 Create a virtual network named **myVnetdestination** with a subnet named **mySubnetdestination** using [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) in the **myResourceGroupNAT** using [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.  The result of the commands will be stored in variables named **$subnetdestination** and **$vnetdestination** for later use.
 
 ```azurepowershell-interactive
-  $subnetdestination = New-AzVirtualNetworkSubnetConfig -Name mySubnetdestination -AddressPrefix "192.168.0.0/24"
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  $sbdn = 'mySubnetdestination'
+  $spfx = '192.168.0.0/24'
+  $vdn = 'myVnetdestination'
+  $vpfx = '192.168.0.0/16'
 
-  $vnetdestination = New-AzVirtualNetwork -Name myVnetdestination -ResourceGroupName myResourceGroupNAT -Location eastus2 -AddressPrefix "192.168.0.0/16" -Subnet $subnetdestination
+  $subnetdestination = 
+  New-AzVirtualNetworkSubnetConfig -Name $sbdn -AddressPrefix $spfx
+
+  $vnetdestination = 
+  New-AzVirtualNetwork -Name $vdn -ResourceGroupName $rsg -Location $loc -AddressPrefix $vpfx -Subnet $subnetdestination
 ```
 
 ### Create public IP for destination VM
@@ -261,7 +270,14 @@ Create a virtual network named **myVnetdestination** with a subnet named **mySub
 We create a public IP to be used to access the source VM.  Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) to create a public IP address resource named **myPublicIPdestinationVM** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIpdestinationVM** for later use.
 
 ```azurepowershell-interactive
-   $publicIpdestinationVM = New-AzPublicIpAddress -Name myPublicIpdestinationVM -ResourceGroupName myResourceGroupNAT -AllocationMethod Static -Location eastus2 -Sku Standard
+  $rsg = 'myResourceGroupNAT'
+  $loc = 'eastus2'
+  $sku = 'Standard'
+  $all = 'Static'
+  $pipd = 'myPublicIPdestinationVM'
+
+  $publicIpdestinationVM = 
+  New-AzPublicIpAddress -Name $pipd -ResourceGroupName $rsg -AllocationMethod $all -Location $loc -Sku $sku
 ```
 
 ### Create an NSG and expose SSH and HTTP endpoint for VM
