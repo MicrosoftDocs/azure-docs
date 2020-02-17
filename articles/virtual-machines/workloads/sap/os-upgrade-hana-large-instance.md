@@ -82,7 +82,8 @@ SAP on Azure HANA Large Instances (Type I) can be in a non-bootable state after 
 *	Execute `multipath -ll` command.
 *	Get the LUN ID whose size is approximately 50G or use the command: `fdisk -l | grep mapper`
 *	Update `/etc/default/grub_installdevice` file with line `/dev/mapper/<LUN ID>`. Example: /dev/mapper/3600a09803830372f483f495242534a56
-*	Please note that LUN ID varies from server to server.
+>[!NOTE]
+>LUN ID varies from server to server.
 
 
 ### Disable EDAC 
@@ -94,7 +95,7 @@ SAP on Azure HANA Large Instances (Type I) can be in a non-bootable state after 
 ```
 lsmod | grep -i edac 
 ```
-* Blacklist the modules by appending the following lines to the file `/etc/modprobe.d/blacklist.conf`
+* Disable the modules by appending the following lines to the file `/etc/modprobe.d/blacklist.conf`
 ```
 blacklist sb_edac
 blacklist edac_core
