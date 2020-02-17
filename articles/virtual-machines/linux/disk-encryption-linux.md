@@ -203,7 +203,6 @@ The following table lists Resource Manager template parameters for existing or r
 |  keyEncryptionKeyURL | URL of the key encryption key that's used to encrypt the encryption key. This parameter is optional if you select **nokek** in the UseExistingKek drop-down list. If you select **kek** in the UseExistingKek drop-down list, you must enter the _keyEncryptionKeyURL_ value. |
 | volumeType | Type of volume that the encryption operation is performed on. Valid values are _OS_, _Data_, and _All_. 
 | forceUpdateTag | Pass in a unique value like a GUID every time the operation needs to be force run. |
-| resizeOSDisk | Should the OS partition be resized to occupy full OS VHD before splitting system volume. |
 | location | Location for all resources. |
 
 For more information about configuring the Linux VM disk encryption template, see [Azure disk encryption for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/azure-disk-enc-linux).
