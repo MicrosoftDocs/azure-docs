@@ -38,7 +38,7 @@ Use the Azure Dev Spaces CLI to delete a controller. It’s not possible to dele
 
 If you don't have the Azure Dev Spaces CLI installed, you can first install it using the following command then delete your controller:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -323,7 +323,7 @@ To fix this issue:
 1. Check the location %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI for `azds.exe`. If it's there, add that location to the PATH environment variable.
 2. If `azds.exe` isn't installed, run the following command:
 
-    ```cmd
+    ```azurecli
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
 
@@ -451,9 +451,12 @@ You may have an existing AKS cluster and namespace with running pods where you w
 
 To enable Azure Dev Spaces on an existing namespace in an AKS cluster, run `use-dev-spaces` and use `kubectl` to restart all pods in that namespace.
 
-```console
+```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+```
+
+```console
 kubectl -n my-namespace delete pod --all
 ```
 

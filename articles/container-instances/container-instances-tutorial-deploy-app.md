@@ -66,8 +66,7 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 ```
 
 For example:
-```console
-$ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+```output
 "aci-demo.eastus.azurecontainer.io"
 ```
 

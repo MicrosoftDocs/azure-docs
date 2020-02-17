@@ -21,7 +21,7 @@ You don't need to uninstall the previous version, just find the appropriate down
 
 Run the following command:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group> --update
 ```
 
