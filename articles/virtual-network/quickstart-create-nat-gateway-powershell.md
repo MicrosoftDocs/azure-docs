@@ -174,12 +174,12 @@ New-AzNetworkSecurityGroup -ResourceGroupName $rsg -Name $rnm -Location $loc -Se
 Create a network interface with [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0) named **myNic**. This command associates the Public IP address and the network security group. The result of this command will be stored in a variable named **$nic** for later use.
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $nmn = 'myNic'
-  $loc = 'eastus2'
+$rsg = 'myResourceGroupNAT'
+$nmn = 'myNic'
+$loc = 'eastus2'
 
-  $nic = 
-  New-AzNetworkInterface -ResourceGroupName $rsg -Name $nmn -NetworkSecurityGroupID $nsg.Id -PublicIPAddressID $publicIPVM.Id -SubnetID $vnet.Subnets[0].Id -Location $loc
+$nic = 
+New-AzNetworkInterface -ResourceGroupName $rsg -Name $nmn -NetworkSecurityGroupID $nsg.Id -PublicIPAddressID $publicIPVM.Id -SubnetID $vnet.Subnets[0].Id -Location $loc
 ```
 
 ### Create VM
@@ -204,7 +204,7 @@ To create a VM in PowerShell, you create a configuration that has settings for t
 Define the SSH credentials, OS information, and VM size. In this example, the SSH key is stored in ~/.ssh/id_rsa.pub.
 
 ```azurepowershell-interactive
-# Define a credential object
+#Define a credential object
 
 $securePassword = 
 ConvertTo-SecureString ' ' -AsPlainText -Force
@@ -253,10 +253,10 @@ Wait for the VM to prepare to deploy then continue with the rest of the steps.
 First we need to discover the IP address of the VM you've created. To get the public IP address of the VM, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest). 
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $nmn = 'myPublicIPVM'
+$rsg = 'myResourceGroupNAT'
+$nmn = 'myPublicIPVM'
 
-  Get-AzPublicIpAddress -ResourceGroupName $rsg -Name $nmn | select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName $rsg -Name $nmn | select IpAddress
 ``` 
 
 >[!IMPORTANT]
@@ -277,7 +277,7 @@ You're now ready to use the NAT service.
 When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) command to remove the resource group and all resources contained within.
 
 ```azurepowershell-interactive 
-  Remove-AzResourceGroup -Name myResourceGroupNAT
+Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
 ## Next steps
