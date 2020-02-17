@@ -1,4 +1,5 @@
 ---
+
 title: "Quickstart: Use Node.js to query from Azure Cosmos DB SQL API account"
 description: How to use Node.js to create an app that connects to Azure Cosmos DB SQL API account and queries data.
 author: deborahc
@@ -59,7 +60,7 @@ This step is optional. If you're interested in learning how the Azure Cosmos dat
 
 If you're familiar with the previous version of the SQL JavaScript SDK, you may be used to seeing the terms _collection_ and _document_. Because Azure Cosmos DB supports [multiple API models](introduction.md), [version 2.0+ of the JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) uses the generic terms _container_, which may be a collection, graph, or table, and _item_ to describe the content of the container.
 
-The following snippets are all taken from the _app.js_ file.
+The following snippets are all taken from the _ItemService.js_ file.
 
 - The `CosmosClient` object is initialized.
 
@@ -67,72 +68,88 @@ The following snippets are all taken from the _app.js_ file.
   const client = new CosmosClient({ endpoint, key });
   ```
 
-- Create a new Azure Cosmos database.
+- Select the "Tasks" database.
 
   ```javascript
-  const { database } = await client.databases.createIfNotExists({
-    id: databaseId
-  });
+  this.database = await client.databases("Tasks");
   ```
 
-- A new container (collection) is created within the database.
+- Select the "Items" container/collection.
 
   ```javascript
-  const { container } = await client
-    .database(databaseId)
-    .containers.createIfNotExists({ id: containerId });
+  this.container = await client.databases("Items");
   ```
 
-- An item (document) is created.
+- Select all the items in the "Items" container.
 
   ```javascript
-  const { item } = await client
-    .database(databaseId)
-    .container(containerId)
-    .items.create(itemBody);
+  // query to return all items
+  const querySpec = {
+    query: "SELECT * from c"
+  };
+
+  const { resources: results } = await this.container.items
+    .query(querySpec)
+    .fetchAll();
+
+  return results;
   ```
 
-- A SQL query over JSON is performed on the family database. The query returns all the children of the "Anderson" family.
+- Create a new item
 
   ```javascript
-  {
-  ,
-  [
-  {
-  ,
-  '
-  }
-  ]
-  }
-
-  t
-  )
-  )
-  )
-  )
-  {
-  )
-  )
+  async create(itemToCreate) {
+    const { resource: result } = await this.container.items.create(
+        itemToCreate
+    );
+    return result;
   }
   ```
+
+- Update an item
+
+  ```javascript
+  async update(itemToUpdate) {
+    const { id, category } = itemToUpdate;
+    const { resource: result } = await this.container
+      .item(id, category)
+      .replace(itemToUpdate);
+
+    return result;
+  }
+  ```
+
+- Delete an item
+
+  ```javascript
+   async delete(itemToDelete) {
+    const { id, category } = itemToDelete;
+    const { resource: result } = await this.container
+      .item(id, category)
+      .delete();
+  }
+  ```
+
+> [!IMPORTANT]
+> Note that in both the "update" and "delete" methods, the item to work with has to be selected by calling `conatiner.item()`. The two parameters passed in are the id of the item to get, and it's partition key. In this case, that's the category. The parition key is the value of the category field.
 
 ## Update your connection string
 
 Now go back to the Azure portal to get the connection string details of your Azure Cosmos account. Copy the connection string into the app so that it can connect to your database.
 
-1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Keys** from the left navigation, and then select **Read-write Keys**. Use the copy buttons on the right side of the screen to copy the URI and Primary Key into the _config.js_ file in the next step.
+1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Keys** from the left navigation, and then select **Read-write Keys**. Use the copy buttons on the right side of the screen to copy the URI and Primary Key into the _app.js_ file in the next step.
 
    ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
 
-2. In Open the _config.js_ file.
+2. In Open the _app.js_ file.
 
 3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in _config.js_.
 
-   `config.endpoint = "<Your Azure Cosmos account URI>"`
+   `const endpoint = "<Your Azure Cosmos account URI>"`
 
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.key` in _config.js_. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB.
 
-   `config.key = "<Your Azure Cosmos account key>"`
+   `const key = "<Your Azure Cosmos account key>"`
 
 ## Run the app
 
