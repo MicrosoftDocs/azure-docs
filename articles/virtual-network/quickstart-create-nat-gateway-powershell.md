@@ -74,7 +74,7 @@ New-AzPublicIpAddress -Name $pbnm -ResourceGroupName $rsg -AllocationMethod Stat
 
 ### Create a public IP prefix
 
- Use [New-AzPublicIpPrefix](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipprefix?view=latest) to create a public IP prefix resource named **myPublicIPprefix** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIPPrefix** for later use.
+Use [New-AzPublicIpPrefix](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipprefix?view=latest) to create a public IP prefix resource named **myPublicIPprefix** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIPPrefix** for later use.
 
 ```azurepowershell-interactive
 $rsg = 'myResourceGroupNAT'
@@ -112,18 +112,18 @@ Create the virtual network and associate the subnet to the gateway.
 Create a virtual network named **myVnet** with a subnet named **mySubnet** using [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) in the **myResourceGroup** using [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.  The result of the commands will be stored in variables named **$subnet** and **$vnet** for later use.
 
 ```azurepowershell-interactive
-  $sbnm = 'mySubnet'
-  $vnnm = 'myVnet'
-  $rsg = 'myResourceGroupNAT'
-  $loc = 'eastus2'
-  $pfxsub = '192.168.0.0/24'
-  $pfxvn = '192.168.0.0/16'
+$sbnm = 'mySubnet'
+$vnnm = 'myVnet'
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+$pfxsub = '192.168.0.0/24'
+$pfxvn = '192.168.0.0/16'
 
-  $subnet = 
-  New-AzVirtualNetworkSubnetConfig -Name $sbnm -AddressPrefix $pfxsub -NatGateway $natGateway
+$subnet = 
+New-AzVirtualNetworkSubnetConfig -Name $sbnm -AddressPrefix $pfxsub -NatGateway $natGateway
 
-  $vnet = 
-  New-AzVirtualNetwork -Name $vnnm -ResourceGroupName $rsg -Location $loc -AddressPrefix $pfxvn -Subnet $subnet
+$vnet = 
+New-AzVirtualNetwork -Name $vnnm -ResourceGroupName $rsg -Location $loc -AddressPrefix $pfxvn -Subnet $subnet
 ```
 
 All outbound traffic to Internet destinations is now using the NAT service.  It isn't necessary to configure a UDR.
@@ -137,13 +137,13 @@ We'll now create a VM to use the NAT service.  This VM has a public IP to use as
 We create a public IP to be used to access the VM.  Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) to create a public IP address resource named **myPublicIPVM** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIpVM** for later use.
 
 ```azurepowershell-interactive
-  $rsg = 'myResourceGroupNAT'
-  $loc = 'eastus2'
-  $ipnm = 'myPublicIPVM'
-  $sku = 'Standard'
+$rsg = 'myResourceGroupNAT'
+$loc = 'eastus2'
+$ipnm = 'myPublicIPVM'
+$sku = 'Standard'
 
-  $publicIpVM = 
-  New-AzPublicIpAddress -Name $ipnm -ResourceGroupName $rsg -AllocationMethod Static -Location $loc -Sku $sku
+$publicIpVM = 
+New-AzPublicIpAddress -Name $ipnm -ResourceGroupName $rsg -AllocationMethod Static -Location $loc -Sku $sku
 ```
 
 ### Create an NSG and expose SSH endpoint for VM
@@ -151,22 +151,22 @@ We create a public IP to be used to access the VM.  Use [New-AzPublicIpAddress](
 Standard public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh. Use [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=latest) to create an NSG resource named **myNSG**. Use [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create an NSG rule for SSH access named **ssh** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$nsg** for later use.
 
 ```azurepowershell-interactive
-  $rnm = 'ssh'
-  $rdesc = 'SSH access'
-  $acc = 'Allow'
-  $pro = 'Tcp'
-  $dir = 'Inbound'
-  $pri = '100'
-  $prt = '22'
-  $rsg = 'myResourceGroupNAT'
-  $rnm = 'myNSG'
-  $loc = 'eastus2'
+$rnm = 'ssh'
+$rdesc = 'SSH access'
+$acc = 'Allow'
+$pro = 'Tcp'
+$dir = 'Inbound'
+$pri = '100'
+$prt = '22'
+$rsg = 'myResourceGroupNAT'
+$rnm = 'myNSG'
+$loc = 'eastus2'
 
-  $sshrule = 
-  New-AzNetworkSecurityRuleConfig -Name $rnm -Description $rdesc -Access $acc -Protocol $pro -Direction $dir -Priority $pri -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange $prt
+$sshrule = 
+New-AzNetworkSecurityRuleConfig -Name $rnm -Description $rdesc -Access $acc -Protocol $pro -Direction $dir -Priority $pri -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange $prt
 
-  $nsg = 
-  New-AzNetworkSecurityGroup -ResourceGroupName $rsg -Name $rnm -Location $loc -SecurityRules $sshrule 
+$nsg = 
+New-AzNetworkSecurityGroup -ResourceGroupName $rsg -Name $rnm -Location $loc -SecurityRules $sshrule 
 ```
 
 ### Create NIC for VM
