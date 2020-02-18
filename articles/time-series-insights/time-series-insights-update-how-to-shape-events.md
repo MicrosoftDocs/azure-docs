@@ -41,11 +41,11 @@ During ingestion, payloads that contain nested columns (attributes) will be flat
 
    ```JSON
    "data": {
-       "temperature": ...
-   }
+        "flow": 1.0172575712203979,
+   },
    ```
 
-   Becomes: `data_temperature` when flattened.
+   Becomes: `data_flow` when flattened.
 
 > [!IMPORTANT]
 > * Azure Time Series Insights Preview uses underscores (`_`) for column delineation.
@@ -175,7 +175,7 @@ Consider the following JSON:
 }
 ```
 
-In the example above, the flattened `data_flow` property would present a naming collision with the `data_flow` property.
+In the example above, the flattened `data["flow"]` property would present a naming collision with the `data_flow` property.
 
 In this case, the *latest* property value would overwrite the earlier one. 
 
@@ -183,8 +183,8 @@ In this case, the *latest* property value would overwrite the earlier one.
 > Contact the Time Series Insights team for more assistance!
 
 > [!WARNING] 
-> In cases where duplicate properties are present in the same event payload due to flattening or
-> another mechanism, the latest property value is stored, over-writing any previous values.
+> * In cases where duplicate properties are present in the same (singular) event payload due to flattening or another mechanism, the latest > property value is stored, over-writing any previous values.
+> * Series of combined events will not override one another.
 
 ## Next steps
 
