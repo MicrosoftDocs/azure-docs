@@ -54,10 +54,10 @@ You can launch your IoT Central application by going to the URL that you or your
 
 ## Navigate your application
 
-Once you're inside your IoT application, use the left pane to access the different areas. You can expand or collapse the navigation bar by selecting the three-lined icon on top of the navigation bar:
+Once you're inside your IoT application, use the left pane to access the different areas. You can expand or collapse the left pane by selecting the three-lined icon on top of the pane:
 
 > [!NOTE]
-> The items you see on the navigation bar will depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles.md). 
+> The items you see in the left pane depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles.md). 
 
 :::row:::
   :::column span="":::
