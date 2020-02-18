@@ -342,8 +342,9 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 - Learn more about [availability zones](../availability-zones/az-overview.md).
 - Learn more about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
 - Learn more about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
-- Learn more about [NAT gateway resource REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways).
-- Learn more about [NAT gateway resource Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest).
-- Learn more about [NAT gateway resource PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
+- Learn more about NAT gateway resource API
+  * [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways),
+  * [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest),
+  * [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
 - [Tell us what to build next in UserVoice](https://aka/natuservoice).
 - [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
