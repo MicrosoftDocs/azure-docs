@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 02/10/2020
 ---
 
 # Set up a single IP address for one or more integration service environments in Azure Logic Apps

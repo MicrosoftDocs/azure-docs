@@ -103,7 +103,7 @@ Optionally, you can enable the provisioning of group objects from Azure AD to Sl
 
 This result in any group objects assigned to Slack in the **Users and Groups** section being fully synchronized from Azure AD to Slack. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Slack app.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Connector limitations
 
@@ -123,5 +123,5 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Additional Resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

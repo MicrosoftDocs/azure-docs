@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/10/2018
-ms.author: yujhong
+ms.author: femila
 ---
 
 # Develop with Storage API on Azure Government

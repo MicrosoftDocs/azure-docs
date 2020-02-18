@@ -100,7 +100,7 @@ function bingSearchOptions(form) {
     // Where option.
     options.push("mkt=" + form.where.value);
     // SafeSearch option.
-    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "moderate"));
     // Freshness option.
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
@@ -123,7 +123,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-`SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default setting for Bing Web Search. This form uses a checkbox, which has two states. In this snippet, SafeSearch is set to `strict` or `off`, `moderate` isn't used.
+`SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default setting for Bing Web Search. This form uses a checkbox, which has two states: `strict` or `moderate`.
 
 If any of the **Promote** checkboxes are selected, the `answerCount` parameter is added to the query. `answerCount` is required when using the `promote` parameter. In this snippet, the value is set to `9` to return all available result types.
 > [!NOTE]

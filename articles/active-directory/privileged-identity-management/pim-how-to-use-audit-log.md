@@ -30,6 +30,40 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 
     ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
+# [New version](#tab/new)
+
+Follow these steps to view the audit history for Azure AD roles.
+
+## View resource audit history
+
+Resource audit gives you a view of all activity associated with your Azure AD roles.
+
+1. Open **Azure AD Privileged Identity Management**.
+
+1. Select **Azure AD roles**.
+
+1. Select **Resource audit**.
+
+1. Filter the history using a predefined date or custom range.
+
+    ![Resource audit list with filters](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+
+## View my audit
+
+My audit enables you to view your personal role activity.
+
+1. Open **Azure AD Privileged Identity Management**.
+
+1. Select **Azure AD roles**.
+
+1. Select the resource you want to view audit history for.
+
+1. Select **My audit**.
+
+1. Filter the history using a predefined date or custom range.
+
+    ![Audit list for the current user](media/azure-pim-resource-rbac/my-audit-time.png)
+
 # [Previous version](#tab/previous)
 
 ## View audit history
@@ -75,40 +109,6 @@ Follow these steps to view the audit history for Azure AD roles.
     ![Update chart parameters pane](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
 1. Select **Done** to view the filtered audit history.
-
-# [New version](#tab/new)
-
-Follow these steps to view the audit history for Azure AD roles.
-
-## View resource audit history
-
-Resource audit gives you a view of all activity associated with your Azure AD roles.
-
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Select **Azure AD roles**.
-
-1. Select **Resource audit**.
-
-1. Filter the history using a predefined date or custom range.
-
-    ![Resource audit list with filters](media/azure-pim-resource-rbac/rbac-resource-audit.png)
-
-## View my audit
-
-My audit enables you to view your personal role activity.
-
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Select **Azure AD roles**.
-
-1. Select the resource you want to view audit history for.
-
-1. Select **My audit**.
-
-1. Filter the history using a predefined date or custom range.
-
-    ![Audit list for the current user](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ---
 
