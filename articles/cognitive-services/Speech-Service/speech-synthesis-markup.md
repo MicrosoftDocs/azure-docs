@@ -3,13 +3,13 @@ title: Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: erhopf
+ms.date: 02/18/2020
+ms.author: dapine
 ---
 
 # Speech Synthesis Markup Language (SSML)
@@ -52,9 +52,9 @@ Each SSML document is created with SSML elements (or tags). These elements are u
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| version | Indicates the version of the SSML specification used to interpret the document markup. The current version is 1.0. | Required |
-| xml:lang | Specifies the language of the root document. The value may contain a lowercase, two-letter language code (for example, **en**), or the language code and uppercase country/region (for example, **en-US**). | Required |
-| xmlns | Specifies the URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is https://www.w3.org/2001/10/synthesis. | Required |
+| `version` | Indicates the version of the SSML specification used to interpret the document markup. The current version is 1.0. | Required |
+| `xml:lang` | Specifies the language of the root document. The value may contain a lowercase, two-letter language code (for example, `en`), or the language code and uppercase country/region (for example, `en-US`). | Required |
+| `xmlns` | Specifies the URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is https://www.w3.org/2001/10/synthesis. | Required |
 
 ## Choose a voice for text-to-speech
 
@@ -72,7 +72,7 @@ The `voice` element is required. It is used to specify the voice that is used fo
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| name | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
+| `name` | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
 
 **Example**
 
@@ -89,13 +89,84 @@ The `voice` element is required. It is used to specify the voice that is used fo
 
 ## Use multiple voices
 
-Within the `speak` element, you can specify multiple voices for text-to-speech output. These voices can be in different languages. For each voice, the text must be wrapped in a `voice` element.
+Within the `speak` element, you can specify multiple voices for text-to-speech output. These voices can be in different languages. For each voice, the text must be wrapped in a `voice` element. 
 
 **Attributes**
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| name | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
+| `name` | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
+
+> [!IMPORTANT]
+> Multiple voices are incompatible with the word boundary feature. The word boundary feature defaults to `true` in the Speech SDK and needs to be disabled in order to use multiple voices.
+
+### Disable word boundary
+
+Depending of the Speech SDK language, you'll set the `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` property to `false` on an instance of the `SpeechConfig` object.
+
+# [C#](#tab/csharp)
+
+For more information, see <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```csharp
+speechConfig.SetProperty(
+    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
+```
+
+# [C++](#tab/cpp)
+
+For more information, see <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```cpp
+speechConfig->SetProperty(
+    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
+```
+
+# [Java](#tab/java)
+
+For more information, see <a href="https://docs.microsoft.com/en-us/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```java
+speechConfig.setProperty(
+    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
+```
+
+# [Python](#tab/python)
+
+For more information, see <a href="https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```python
+speech_config.set_property_by_name(
+    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
+```
+
+# [JavaScript](#tab/javascript)
+
+For more information, see <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```javascript
+speechConfig.setProperty(
+    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
+```
+
+# [Objective-C](#tab/objectivec)
+
+For more information, see <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```objectivec
+[speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
+```
+
+# [Swift](#tab/swift)
+
+For more information, see <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```swift
+speechConfig!.setPropertyTo(
+    "false", byName: "SpeechServiceResponse_Synthesis_WordBoundaryEnabled")
+```
+
+---
 
 **Example**
 
@@ -133,19 +204,19 @@ Changes are applied at the sentence level, and style vary by voice. If a style i
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| type | Specifies the speaking style. Currently, speaking styles are voice specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then type must be provided. If an invalid value is provided, this element will be ignored. |
+| `type` | Specifies the speaking style. Currently, speaking styles are voice specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then type must be provided. If an invalid value is provided, this element will be ignored. |
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
 | Voice | Type | Description |
 |-------|------|-------------|
-| `en-US-JessaNeural` | type=`cheerful` | Expresses an emotion that is positive and happy |
-| | type=`empathy` | Expresses a sense of caring and understanding |
-| | type=`chat` | Speak in a casual, relaxed tone |
-| | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
-| | type=`customerservice` | Speak in a friendly and patient way as customer service |
-| `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
-| | type=`sentiment` | Conveys a touching message or a story |
+| `en-US-JessaNeural` | `type="cheerful"` | Expresses an emotion that is positive and happy |
+| | `type="empathy"` | Expresses a sense of caring and understanding |
+| | `type="chat"` | Speak in a casual, relaxed tone |
+| | `type="newscast"` | Expresses a formal tone, similar to news broadcasts |
+| | `type="customerservice"` | Speak in a friendly and patient way as customer service |
+| `zh-CN-XiaoxiaoNeural` | `type="newscast"` | Expresses a formal tone, similar to news broadcasts |
+| | `type="sentiment"` | Conveys a touching message or a story |
 
 **Example**
 
@@ -356,9 +427,9 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
     </voice>
 </speak>
 ```
-## say-as element  
+## say-as element
 
-`say-as` is an optional element that indicates the content type (such as number or date) of the element's text. This provides guidance to the speech synthesis engine about how to pronounce the text. 
+`say-as` is an optional element that indicates the content type (such as number or date) of the element's text. This provides guidance to the speech synthesis engine about how to pronounce the text.
 
 **Syntax**
 
@@ -401,13 +472,13 @@ The speech synthesis engine speaks the following example as "Your first request 
 ```XML
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice  name="en-US-Jessa24kRUS">
-    <p>
-    Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
-    on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
-    </p>
+        <p>
+        Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
+        on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
+        </p>
+    </voice>
 </speak>
 ```
-
 
 ## Add recorded audio
 
@@ -432,7 +503,7 @@ Any audio included in the SSML document must meet these requirements:
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| src | Specifies the location/URL of the audio file. | Required if using the audio element in your SSML document. |
+| `src` | Specifies the location/URL of the audio file. | Required if using the audio element in your SSML document. |
 
 **Example**
 
@@ -465,10 +536,10 @@ Only one background audio file is allowed per SSML document. However, you can in
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| src | Specifies the location/URL of the background audio file. | Required if using background audio in your SSML document. |
-| volume | Specifies the volume of the background audio file. **Accepted values**: `0` to `100` inclusive. The default value is `1`. | Optional |
-| fadein | Specifies the duration of the background audio fade in in milliseconds. The default value is `0`, which is the equivalent to no fade in. **Accepted values**: `0` to `10000` inclusive.  | Optional |
-| fadeout | Specifies the duration of the background audio fade out in milliseconds. The default value is `0`, which is the equivalent to no fade out. **Accepted values**: `0` to `10000` inclusive.  | Optional |
+| `src` | Specifies the location/URL of the background audio file. | Required if using background audio in your SSML document. |
+| `volume` | Specifies the volume of the background audio file. **Accepted values**: `0` to `100` inclusive. The default value is `1`. | Optional |
+| `fadein` | Specifies the duration of the background audio fade in in milliseconds. The default value is `0`, which is the equivalent to no fade in. **Accepted values**: `0` to `10000` inclusive.  | Optional |
+| `fadeout` | Specifies the duration of the background audio fade out in milliseconds. The default value is `0`, which is the equivalent to no fade out. **Accepted values**: `0` to `10000` inclusive.  | Optional |
 
 **Example**
 
