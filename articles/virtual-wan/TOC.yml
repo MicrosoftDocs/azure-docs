@@ -34,7 +34,7 @@
     href: connect-virtual-network-gateway-vwan.md
   - name: Configure Global VNet peering
     href: global-peering-vnet.md
-  - name: Create VPN connection over ExpressRoute
+  - name: Configure ExpressRoute encryption
     href: vpn-over-expressroute.md
   - name: Upgrade a virtual WAN SKU
     href: upgrade-virtual-wan.md
