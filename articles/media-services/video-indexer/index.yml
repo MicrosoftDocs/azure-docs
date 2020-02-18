@@ -1,56 +1,85 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Media Services Video Indexer Documentation
+### YamlMime:Landing
+ 
+title: Learn about the Azure Media Services Video Indexer
+summary: Azure Media Services Video Indexer is a cloud application built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models.
+
 metadata:
-  document_id: 
-  title: Azure Media Services Video Indexer Documentation | Microsoft Docs
-  description: Learn about Video Indexer.
+  title: Azure Media Services Video Indexer documentation
+  description: Azure Media Services Video Indexer is a cloud application built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models.
   services: media-services
-  author: juliako
-  manager: femila
   ms.service: media-services
-  ms.subservice: video-indexer
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 03/11/2019
+  ms.subservice:
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: Juliako
   ms.author: juliako
-abstract:
-  description: Azure Media Services Video Indexer is a cloud application built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models.<br/>To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">comparison document</a>.
-sections:
+  ms.date: 02/18/2020 #Required; mm/dd/yyyy format.
+ 
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+ 
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Media Services
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: "What is Media Services v3?"
+            url: media-services-overview.md
+          - text: "What's new in Media Services?"
+            url: release-notes.md
+      - linkListType: concept
+        links:
+          - text: Media Services accounts
+            url: media-services-account-concept.md
+          - text: Storage accounts
+            url: storage-account-concept.md
+          - text: Packaging
+            url: dynamic-packaging-overview.md   
+          - text: Monitoring
+            url: reacting-to-media-services-events.md
+          - text: Player clients
+            url: use-azure-media-player.md  
+          - text: Developing with v3 API guidance
+            url: media-services-apis-overview.md            
 
-  - items:
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 2
-      items:
-        - href: video-indexer-overview.md
-          html: <p>Video Indexer incorporates media AI technologies to make it easier to extract insights from videos.</p>
-          image:
-            src: media/index/AMSIcons-media_servicesV3.svg
-          title: What is Azure Media Services Video Indexer?
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create an account
+            url: create-account-cli-how-to.md          
+          - text: Access API
+            url: access-api-cli-how-to.md    
+      - linkListType: download
+        links:
+          - text: .NET SDK samples
+            url: https://github.com/Azure-Samples/media-services-v3-dotnet
+          - text: Java SDK samples
+            url: https://github.com/Azure-Samples/media-services-v3-java
+          - text: REST Postman collection samples
+            url: https://github.com/Azure-Samples/media-services-v3-rest-postman            
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: https://aka.ms/ams-v3-cli-ref
+          - text: REST
+            url: https://aka.ms/ams-v3-rest-ref
+          - text: .NET
+            url: https://aka.ms/ams-v3-dotnet-ref
+          - text: Java
+            url: https://aka.ms/ams-v3-java-ref
 
-  - title: 5-Minute Quickstarts
-    items:
-    - type: paragraph
-      text: 'Sign in to the Video Indexer website and upload your first video:'
-    - type: list
-      style: icon48
-      items: 
-      - image:
-          src: media/index/AMSIcons-media_analytics.svg
-        text: Extract insights
-        href: /azure/media-services/video-indexer/video-indexer-get-started
-  - title: Step-by-Step Tutorials
-    items:
-    - type: paragraph
-      text: 'Learn how to extract insights from your videos with the Video Indexer API:'
-    - type: list
-      style: icon48
-      items: 
-      - image: 
-          src: media/index/AMSIcons-media_analytics.svg
-        text: Extract insights
-        href: /azure/media-services/video-indexer/video-indexer-use-apis
-  
+# Card
+  - title: Stream live
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Live streaming
+            url: live-streaming-overview.md           
+      - linkListType: tutorial
+        links:
+          - text: Stream live
+            url: stream-live-tutorial-with-api.md
