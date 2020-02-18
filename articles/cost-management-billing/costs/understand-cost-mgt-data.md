@@ -1,7 +1,7 @@
 ---
 title: Understand Azure Cost Management data | Microsoft Docs
 description: This article helps you better understand data that's included in Azure Cost Management and how frequently it's processed, collected, shown, and closed.
-services: cost-management
+
 keywords:
 author: bandersmsft
 ms.author: banders

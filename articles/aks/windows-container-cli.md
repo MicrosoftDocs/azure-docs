@@ -147,6 +147,10 @@ az aks create \
 > If you get a password validation error, try creating your resource group in another region.
 > Then try creating the cluster with the new resource group.
 
+> [!Note]
+> If you are unable to create the AKS cluster because the version is not supported in this region then you can use the [az aks get-versions --location eastus] command to find the supported version list for this region.
+
+
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases. 
 
 ## Add a Windows Server node pool
@@ -286,6 +290,9 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 To see the sample app in action, open a web browser to the external IP address of your service.
 
 ![Image of browsing to ASP.NET sample application](media/windows-container/asp-net-sample-app.png)
+
+> [!Note]
+> If you receive a connection timeout when trying to load the page then you should verify the sample app is ready with the following command [kubectl get pods --watch]. Sometimes the windows container will not be started by the time your external IP address is available.
 
 ## Delete cluster
 

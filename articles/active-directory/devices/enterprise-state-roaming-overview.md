@@ -1,12 +1,12 @@
 ---
-title: What is enterprise state roaming in Azure Active Directory? | Microsoft Docs
-description: Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device.
+title: What is enterprise state roaming in Azure Active Directory?
+description: Enterprise State Roaming provides users with a unified experience across their Windows devices
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 02/12/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,11 +27,11 @@ Enterprise State Roaming is available in multiple Azure regions. You can find th
 
 | Article | Description |
 | --- | --- |
-| [Enable Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming is available to any organization with a Premium Azure Active Directory (Azure AD) subscription. For more details on how to get an Azure AD subscription, see the [Azure AD product](https://azure.microsoft.com/services/active-directory) page. |
-| [Settings and data roaming FAQ](enterprise-state-roaming-faqs.md) |This topic answers some questions IT administrators might have about settings and app data sync. |
+| [Enable Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming is available to any organization with a Premium Azure Active Directory (Azure AD) subscription. For more information on how to get an Azure AD subscription, see the [Azure AD product](https://azure.microsoft.com/services/active-directory) page. |
+| [Settings and data roaming FAQ](enterprise-state-roaming-faqs.md) |This article answers some questions IT administrators might have about settings and app data sync. |
 | [Group policy and MDM settings for settings sync](enterprise-state-roaming-group-policy-settings.md) |Windows 10 provides Group Policy and mobile device management (MDM) policy settings to limit settings sync. |
-| [Windows 10 roaming settings reference](enterprise-state-roaming-windows-settings-reference.md) |The following is a complete list of all the settings that will be roamed and/or backed-up in Windows 10. |
-| [Troubleshooting](enterprise-state-roaming-troubleshooting.md) |This topic goes through some basic steps for troubleshooting, and contains a list of known issues. |
+| [Windows 10 roaming settings reference](enterprise-state-roaming-windows-settings-reference.md) |A list of settings that will be roamed and/or backed-up in Windows 10. |
+| [Troubleshooting](enterprise-state-roaming-troubleshooting.md) |This article goes through some basic steps for troubleshooting, and contains a list of known issues. |
 
 ## Next steps
 
