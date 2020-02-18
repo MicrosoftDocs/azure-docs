@@ -147,7 +147,7 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 ## Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)
 
-For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.
+For Site Recovery replication to work, outbound connectivity to specific URLs is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues. Please note that while we continue to support outbound access via URLs, whitelisting of IP ranges is no longer supported. 
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register Azure virtual machine with Site Recovery (151195) </br>
 - **Possible cause** </br>
@@ -166,8 +166,7 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 
 - **Resolution**
   - Azure Site Recovery required access to Office 365 IPs ranges for authentication.
-    If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IPranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
-	    - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
+    If you are using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, please ensure you use [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to AAD. We no longer support IP address-based NSG rules.
 
 
 ### Issue 3: Site Recovery configuration failed (151197)
@@ -175,7 +174,7 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
   - Connection cannot be established to Azure Site Recovery service endpoints.
 
 - **Resolution**
-  - Azure Site Recovery required access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) depending on the region. Make sure that required ip ranges are accessible from the virtual machine.
+  - If you are using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, please ensure you use service tags. We no longer support whitelisting of IP addresses via NSGs for ASR.
     
 
 ### Issue 4: A2A replication failed when the network traffic goes through on-premise proxy server (151072)
@@ -196,7 +195,7 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
  
 
 ### Fix the problem
-To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## Disk not found in the machine (error code 150039)
 
