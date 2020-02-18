@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -100,6 +100,18 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | The access token. | N/A |
 
+
+### SAML
+
+| Claim | Description | Example |
+| ----- | ----------- | --------|
+| {SAML:AuthnContextClassReferences} | The `AuthnContextClassRef` element value, from the SAML request. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
+| {SAML:NameIdPolicyFormat} | The `Format` attribute, from the `NameIDPolicy` element of the SAML request. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| {SAML:Issuer} |  The SAML `Issuer` element value of the SAML request.| https://contoso.com |
+| {SAML:AllowCreate} | The `AllowCreate` attribute value, from the `NameIDPolicy` element of the SAML request. | True |
+| {SAML:ForceAuthn} | The `ForceAuthN` attribute value, from the `AuthnRequest` element of the SAML request. | True |
+| {SAML:ProviderName} | The `ProviderName` attribute value, from the `AuthnRequest` element of the SAML request.| Contoso.com |
+
 ## Using claim resolvers 
 
 You can use claims resolvers with the following elements: 
@@ -156,7 +168,7 @@ Using claim resolvers, you can prepopulate the sign-in name or direct sign-in to
 
 ### Dynamic UI customization
 
-Azure AD B2C enables you to pass query string parameters to your HTML content definition endpoints to dynamically render the page content. For example, this allows the ability to modify the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization-dynamic.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
+Azure AD B2C enables you to pass query string parameters to your HTML content definition endpoints to dynamically render the page content. For example, this allows the ability to modify the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
 
 The following example passes in the query string parameter named **campaignId** with a value of `hawaii`, a **language** code of `en-US`, and **app** representing the client ID:
 

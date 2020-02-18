@@ -5661,6 +5661,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/custom-policy-ui-customization-dynamic.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-overview-custom.md",
       "redirect_url": "/azure/active-directory-b2c/custom-policy-overview",
       "redirect_document_id": true
@@ -48624,6 +48629,11 @@
     {
       "source_path": "articles/virtual-machines/linux/ansible-manage-linux-vm.md",
       "redirect_url": "/azure/ansible/ansible-manage-linux-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-java-enterprise-postgresql-app.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java",
       "redirect_document_id": false
     }
   ]
