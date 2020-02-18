@@ -14,14 +14,14 @@ The Personalizer _learning loop_ uses machine learning to build the model that p
 You send _actions with features_ and _context features_ to the Rank API. The **Rank** API decides to use either:
 
 * _Exploit_: The current model to decide the best action based on past data.
-* _Explore_: Select a different action instead of the top action.
+* _Explore_: Select a different action instead of the top action. This percentage is configured for your Personalizer resource in the Azure portal.
 
 You determine the reward score and send that score to the Reward API. The **Reward** API:
 
 * Collects data to train the model by recording the features and reward scores of each rank call.
 * Uses that data to update the model based on the configuration specified in the _Learning Policy_.
 
-## Architecture
+## Your system calling Personalizer
 
 The following image shows the architectural flow of calling the Rank and Reward calls:
 
@@ -39,7 +39,11 @@ The following image shows the architectural flow of calling the Rank and Reward 
     * The AI model is updated based on the correlation results.
     * The inference engine is updated with the new model.
 
+## Personalizer retrains your model
 
+Personalizer retrains your model based on your **Model frequency update** setting on your Personalizer resource in the Azure portal.
+
+Personalizer uses all the data currently retained, based on the **Data retention** setting in number of days on your Personalizer resource in the Azure portal.
 
 ## Research behind Personalizer
 
