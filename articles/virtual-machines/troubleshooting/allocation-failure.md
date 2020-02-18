@@ -75,7 +75,7 @@ If you are using availability zones, try another zone within the region that may
 
 If your allocation request is large (more than 500 cores), see the guidance in the following sections to break up the request into smaller deployments.
 
-If you can tolerate losing the temporary drive and waiting for the VM to redeploy, try [redeploying the VM](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows).  Redeploying the VM allocates the VM to a new cluster within the region.
+Try [redeploying the VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). Redeploying the VM allocates the VM to a new cluster within the region.
 
 ## Allocation failures for older VM sizes (Av1, Dv1, DSv1, D15v2, DS15v2, etc.)
 
