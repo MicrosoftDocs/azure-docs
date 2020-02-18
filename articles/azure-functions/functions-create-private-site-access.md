@@ -69,16 +69,16 @@ numbering.
 The first step is to create a new resource group, and then a new virtual network within the resource group. The virtual network will contain one subnet (with a name of "default"), and a new virtual machine within that subnet. The VM will be used to test invoking the function app.
 
 1. Create a new resource group
-2. Create a new virtual network
-
-   ![Browser](media/contribute-how-to-mvc-tutorial/browser.png)
-   <!---Use screenshots but be judicious to maintain a reasonable length. 
-   Make sure screenshots align to the
-   [current standards](https://review.docs.microsoft.com/help/contribute/contribute-how-to-create-screenshot?branch=master).
-   If users access your product/service via a web browser the first 
-   screenshot should always include the full browser window in Chrome or
-   Safari. This is to show users that the portal is browser-based - OS 
-   and browser agnostic.--->
+![Create a new Azure resource group](./media/functions-create-private-site-access/create-resource-group.png)
+2. Select the **Add** or **Create resources** button to create a new resource in the resource group
+![Create a new resource](./media/functions-create-private-site-access/add-resource-to-resource-group.png)
+3. Type "Virtual Network" in the Marketplace search box, and select "Virtual Network".
+![Select Virtual Network from Marketplace](./media/functions-create-private-site-access/create-virtual-network-1.png)
+4. Press the **Create** button to begin creating the virtual network.
+![Select Virtual Network from Marketplace](./media/functions-create-private-site-access/create-virtual-network-2.png)
+5. Provide a name for the virtual network, along with a desired address space.  
+![Provide a name and address space for the new virtual network](./media/functions-create-private-site-access/create-virtual-network-3.png)
+6. Press the **Create** button when finished.
 
 ## Create a Virtual Machine
 
