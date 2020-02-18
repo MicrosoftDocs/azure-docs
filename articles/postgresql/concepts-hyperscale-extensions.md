@@ -30,6 +30,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | Provides a case-insensitive character string type. |
 > | [cube](https://www.postgresql.org/docs/current/static/cube.html) | Provides a data type for multidimensional cubes. |
 > | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Provides a data type for storing sets of key-value pairs. |
+> | [hll](https://github.com/citusdata/postgresql-hll) | Provides a HyperLogLog data structure. |
 > | [isn](https://www.postgresql.org/docs/current/static/isn.html) | Provides data types for international product numbering standards. |
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Large Object maintenance. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Provides a data type for hierarchical tree-like structures. |
