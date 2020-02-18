@@ -23,7 +23,7 @@
   - name: How Personalizer works
     href: how-personalizer-works.md
     displayName: rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model
-  - name: Where can you use Personalizer?
+  - name: Where to use Personalizer
     href: where-can-you-use-personalizer.md
     displayName: checklist, considerations, effectiveness, recommendation engine
   - name: Terminology

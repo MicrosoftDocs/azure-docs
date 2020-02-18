@@ -4,7 +4,7 @@ description: Personalizer can be applied in any situation where your application
 ms.topic: conceptual
 ms.date: 02/18/2020
 ---
-# Where and how you use Personalizer?
+# Where and how you use Personalizer
 
 Use Personalizer in any situation where your application needs to select the correct action (content) to display - in order to make the experience better, achieve better business results, or improve productivity.
 
@@ -18,11 +18,8 @@ Personalizer uses machine learning to select which action (content) to show the 
 * **Notification & alert content**: decide what text to use for alerts in order to engage users more.
 * **Notification & alert timing**: have personalized learning of when to send notifications to users to engage them more.
 
-## Machine learning considerations for applying Personalizer
 
-Personalizer is based on reinforcement learning, an approach to machine learning that is taught by feedback you give it.
-
-### Checklist for applying Personalizer
+## Expectations required to use Personalizer
 
 You can apply Personalizer in situations where you meet or can implement the following guidelines.
 
@@ -41,7 +38,7 @@ You can apply Personalizer in situations where you meet or can implement the fol
 |Daily data|There's enough events to stay on top of optimal personalization if the problem drifts over time (such as preferences in news or fashion). Personalizer will adapt to continuous change in the real world, but results won't be optimal if there's not enough events and data to learn from to discover and settle on new patterns. You should choose a use case that happens often enough. Consider looking for use cases that happen at least 500 times per day.|
 |Historical data|Your application can retain data for long enough to accumulate a history of at least 100,000 interactions. This allows Personalizer to collect enough data to perform offline evaluations and policy optimization.|
 
-Don't use Personalizer where the personalized behavior isn't something that can be discovered across all users. For example, using Personalizer to suggest a first pizza order from a list of 20 possible menu items is useful, but which contact to call from the users' contact list when requiring help with childcare (such as "Grandma") is not something that is personalizable across your user base.
+**Don't use Personalizer** where the personalized behavior isn't something that can be discovered across all users. For example, using Personalizer to suggest a first pizza order from a list of 20 possible menu items is useful, but which contact to call from the users' contact list when requiring help with childcare (such as "Grandma") is not something that is personalizable across your user base.
 
 ## How to use Personalizer in a web application
 
