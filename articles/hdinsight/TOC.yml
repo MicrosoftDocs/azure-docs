@@ -852,6 +852,8 @@
       href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
   - name: Concepts
     items:
+    - name: Enterprise security general guidelines
+      href: ./domain-joined/general-guidelines.md
     - name: Plan for ESP clusters
       href: ./domain-joined/apache-domain-joined-architecture.md
     - name: HDInsight virtual network architecture
