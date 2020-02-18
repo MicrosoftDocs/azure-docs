@@ -10,7 +10,7 @@ ms.author: rogarana
 
 # Enable active directory over SMB for Azure file shares
 
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and Active Directory (AD) (preview). This article focuses on the newly introduced (preview) support of leveraging Active Directory Domain Service for authentication to Azure file shares. If you are interested in enabling Azure AD DS (GA) authentication for Azure file shares see [Enable Azure Active Directory Domain Services authentication over SMB for Azure Files](storage-files-active-directory-enable.md). 
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and Active Directory (AD) (preview). This article focuses on the newly introduced (preview) support of leveraging Active Directory Domain Service for authentication to Azure file shares. If you are interested in enabling Azure AD DS (GA) authentication for Azure file shares refer to [our article on the subject](storage-files-active-directory-enable.md). 
 
 > [!NOTE]
 > Azure file shares only support authentication against one domain service, either Azure Active Directory Domain Service (Azure AD DS) or Active Directory (AD). 
@@ -37,9 +37,9 @@ Before you enable AD authentication for Azure file shares, make sure you have co
 
     To setup an AD domain environment, refer to [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). If you have not synced your AD to your Azure AD, follow the guidance in [What is hybrid identity with Azure Active Directory?](../../active-directory/hybrid/whatis-hybrid-identity.md) in order to determine your preferred authentication method and Azure AD Connect setup option. 
 
-- Domain-join an on-premises machine or an Azure VM using AD DS. 
+- Domain-join an on-premises machine or an Azure VM using AD DS or AD. 
 
-    To access a file share by using AD credentials from a machine or VM, your device must be domain-joined to AD DS. For more information about how to domain-join to AD, refer to [Join a Computer to a Domain](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain). 
+    To access a file share by using AD credentials from a machine or VM, your device must be domain-joined to AD DS. For information about how to domain-join to AD, refer to [Join a Computer to a Domain](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain). 
 
 - Select or create an Azure storage account in [a supported region](#regional-availability). 
 
@@ -57,9 +57,7 @@ Before you enable AD authentication for Azure file shares, make sure you have co
 
 ## Regional availability
 
-AD is available in [all public regions](https://azure.microsoft.com/global-infrastructure/regions/) except for a subset of regions that it is not yet available in.
-
-AD is not yet available in:
+AD is available in [most public regions](https://azure.microsoft.com/global-infrastructure/regions/), the subset of regions that it is not yet available in is:
 
 - West US
 - West US 2
@@ -104,7 +102,7 @@ You can use the following script to perform the registration and enable the feat
 
 - [Download the AzureFilesActiveDirectoryUtilities.psm1 module](https://github.com/Azure-Samples/azure-files-samples)
 - Install and execute the module in a device that is domain joined to AD with AD credentials that have permissions to create a service logon account or a computer account in the target AD.
-- Run the script with an Azure AD credential that has either storage account owner or contributor RBAC roles.
+-  Run the script using an AD credential that is synced to your Azure AD. The AD credential must have either the storage account owner or the contributor RBAC role permissions.
 - Make sure your storage account is in a [supported region](#regional-availability).
 
 ```PowerShell 
@@ -118,11 +116,12 @@ Import-module -name .\AzureFilesActiveDirectoryUtilities.psm1 -ArgumentList Verb
 connect-AzAccount
 
 #Select the target subscription for the current session
-Select-AzureSubscription -SubscriptionId <yourSubscriptionIdHere>
+Select-AzureSubscription -SubscriptionId "<yourSubscriptionIdHere>"
 
 #Register the target storage account with your active directory environment under the target OU
-join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType <ServiceLogonAccount|ComputerAccount> -OrganizationUnitName "<ou-name-here>"
+join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationUnitName "<ou-name-here>"
 ```
+
 
 The following is a description of the actions performed when the `join-AzStorageAccountForAuth` command is used. You may perform these steps manually, if you prefer not to use the command:
 
@@ -132,7 +131,7 @@ First, it checks your environment. Specifically it checks if the [Active Directo
 
 ### Creating an identity representing the storage account in your AD manually
 
-To create this account manually, create a new kerberos key for your storage account using `New-AzStorageAccountKey`. Then, use that kerberos key as the password for your account. This key is only used during setup and cannot be used for any control or data plane operations against the storage account.
+To create this account manually, create a new kerberos key for your storage account using `New-AzStorageAccountKey -Keynam "yourKeyName"`. Then, use that kerberos key as the password for your account. This key is only used during setup and cannot be used for any control or data plane operations against the storage account.
 
 Once you have that key, create either a service or computer account under your OU. Use the following specification:
 SPN: "cifs/your-storage-account-name-here.file.core.windows.net"
@@ -140,16 +139,16 @@ Password: Kerberos key for your storage account.
 
 If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. See [Update AD account password](#update-ad-account-password) for details.
 
-Keep the SID of the newly account, you'll need it for the next step.
+Keep the SID of the newly created account, you'll need it for the next step.
 
 ### Enable the feature on your storage account
 
-The script would then enable the feature on your storage account. To do this manually provide some configuration details for the domain properties. The storage account SID required in the following script is the SID of the identity you created in AD.
+The script would then enable the feature on your storage account. To do this manually, provide some configuration details for the domain properties in the following command, then run it. The storage account SID required in the following command is the SID of the identity you created in AD.
 
 ```PowerShell
 #Set the feature flag on the target storage account and provide the required AD domain information
 
-Set-AzStorageAccount -ResourceGroupName "<your-resource-group-name-here>" -Name "<your-storage-account-name-here>" -EnableActiveDirectoryDomainServiesForFile $true -ActiveDirectoryDomainName "<your-domain-name-here>" -ActiveDirectoryNetBiosDomainName "<your-netbios-domain-name-here>" -ActiveDirectoryForestName "<your-forest-name-here>" -ActiveDirectoryDomainGuid "<your-guid-here>" -ActiveDirectoryDomainsid "your-domain-sid-here" -ActiveDirectoryAzureStirageSid "your-storage-account-sid"
+Set-AzStorageAccount -ResourceGroupName "<your-resource-group-name-here>" -Name "<your-storage-account-name-here>" -EnableActiveDirectoryDomainServiesForFile $true -ActiveDirectoryDomainName "<your-domain-name-here>" -ActiveDirectoryNetBiosDomainName "<your-netbios-domain-name-here>" -ActiveDirectoryForestName "<your-forest-name-here>" -ActiveDirectoryDomainGuid "<your-guid-here>" -ActiveDirectoryDomainsid "<your-domain-sid-here>" -ActiveDirectoryAzureStirageSid "<your-storage-account-sid>"
 ```
 
 
@@ -159,7 +158,7 @@ If you want to check whether the feature is enabled on your storage account, you
 
 ```PowerShell
 #Get the target storage account
-$storageaccount = Get-AzStorageAccount -ResourceGroupName "your-resource-group-name-here" -Name "your-storage-account-name-here"
+$storageaccount = Get-AzStorageAccount -ResourceGroupName "<your-resource-group-name-here>" -Name "<your-storage-account-name-here>"
 
 #List the directory service of the selected service account
 $storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions
@@ -172,7 +171,7 @@ You've now successfully enabled the feature on your storage account. Even though
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-You have now successfully enabled Azure AD authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in the [Assign access permissions](#assign-access-permissions-to-an-identity) to an identity and [Configure NTFS permissions over SMB sections](#configure-ntfs-permissions-over-smb)
+You have now successfully enabled Azure AD authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in the [Assign access permissions](#assign-access-permissions-to-an-identity) to use an identity and [Configure NTFS permissions over SMB sections](#configure-ntfs-permissions-over-smb)
 
 ## Update AD account password
 
