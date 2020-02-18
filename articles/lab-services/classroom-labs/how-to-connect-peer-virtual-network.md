@@ -56,5 +56,5 @@ See the following articles:
 - [Allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md)
 - [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery.md)
 - [Add a user as a lab owner](how-to-add-user-lab-owner.md)
-- [View firewall settgings for a lab](how-to-configure-firewall-settings.md)
+- [View firewall settings for a lab](how-to-configure-firewall-settings.md)
 - [Configure other settings for a lab](how-to-configure-lab-accounts.md)

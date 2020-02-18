@@ -31,7 +31,7 @@ The Marketplace images that are displayed in the list are only the ones that sat
 - Uses Azure Resource Manager to provision VMs
 - Doesn't require purchasing an extra licensing plan
 
-## Disable images for a lab. 
+## Disable images for a lab 
 To disable a single image for a lab, select **... (ellipsis)** in the last column, and select **Disable image**. 
 
 ![Disable one image](../media/tutorial-setup-lab-account/disable-one-image.png) 
