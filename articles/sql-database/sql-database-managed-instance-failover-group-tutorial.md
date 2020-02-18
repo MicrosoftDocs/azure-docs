@@ -1018,7 +1018,7 @@ Test failover using the Azure portal.
 
    ![Managed instances have switched roles after failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
-1. Select **Failover** once again to fail the primary instance back to the primary role. 
+1. Go to the new _secondary_ managed instance and select **Failover** once again to fail the primary instance back to the primary role. 
 
 
 # [PowerShell](#tab/azure-powershell)
