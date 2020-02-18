@@ -450,9 +450,9 @@
     - name: Terraform
       items:
       - name: Install and configure
-        href: terraform-install-configure.md
+        href: ../../terraform-install-configure.md
       - name: Create a complete VM
-        href: terraform-create-complete-vm.md
+        href: ../../terraform/terraform-create-complete-vm.md
     - name: Cloud-init
       items:
       - name: Cloud-init overview
