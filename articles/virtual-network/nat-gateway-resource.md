@@ -331,9 +331,14 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 ## Next steps
 
 - Learn more about [virtual network NAT](nat-overview.md).
-- Quickstart for deploying [NAT gateway resource using Azure CLI](quickstart-create-nat-gateway-cli.md).
-- Quickstart for deploying [NAT gateway resource using Azure PowerShell](quickstart-create-nat-gateway-powershell.md).
-- Quickstart for deploying [NAT gateway resource using Azure portal](quickstart-create-nat-gateway-portal.md).
+- Tutorial for validating NAT Gateway
+  * [Azure CLI](tutorial-create-validate-nat-gateway-cli.md),
+  * [PowerShell](tutorial-create-validate-nat-gateway-cli.md),
+  * [Portal](tutorial-create-validate-nat-gateway-cli.md)
+- Quickstart for deploying a NAT gateway resource
+  * [Azure CLI](./quickstart-create-nat-gateway-cli.md),
+  * [PowerShell](./quickstart-create-nat-gateway-powershell.md),
+  * [Portal)(./quickstart-create-nat-gateway-portal.md).
 - Learn more about [availability zones](../availability-zones/az-overview.md).
 - Learn more about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
 - Learn more about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
