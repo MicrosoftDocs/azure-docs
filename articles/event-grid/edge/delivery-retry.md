@@ -5,7 +5,7 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -13,7 +13,7 @@ services: event-grid
 
 # Delivery and retry
 
-Event Grid provides durable delivery. It tries to deliver each message at least once for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there is a failure, Event Grid retries delivery based on a fixed **retry schedule** and **retry policy**.  Currently Event Grid module delivers an event at a time to the subscriber. The payload is however an array with a single event.
+Event Grid provides durable delivery. It tries to deliver each message at least once for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there is a failure, Event Grid retries delivery based on a fixed **retry schedule** and **retry policy**.  By default, the Event Grid module delivers one event at a time to the subscriber. The payload is however an array with a single event. You can have the module deliver more than one event at a time by enabling the output batching feature. For details about this feature, see [output batching](delivery-output-batching.md).  
 
 > [!IMPORTANT]
 >There is no persistence support for event data. This means redeploying or restart of the Event Grid module will cause you to lose any events that aren't yet delivered.
@@ -22,7 +22,7 @@ Event Grid provides durable delivery. It tries to deliver each message at least 
 
 Event Grid waits up to 60 seconds for a response after delivering a message. If the subscriber's endpoint doesn't ACK the response, then the message will be enqueued in one of our back off queues for subsequent retries.
 
-There are two pre-configured back off queues that determine the schedule on which a retry will be attempted. They are:-
+There are two pre-configured back off queues that determine the schedule on which a retry will be attempted. They are:
 
 | Schedule | Description |
 | ---------| ------------ |
@@ -38,7 +38,7 @@ There are two pre-configured back off queues that determine the schedule on whic
 
 ## Retry policy limits
 
-There are two configurations that determine retry policy. They are:-
+There are two configurations that determine retry policy. They are:
 
 * Maximum number of attempts
 * Event time-to-live (TTL)
@@ -47,12 +47,12 @@ An event will be dropped if either of the limits of the retry policy is reached.
 
 ## Configuring defaults for all subscribers
 
-There are two properties: `brokers:defaultMaxDeliveryAttempts` and `broker:defaultEventTimeToLiveInSeconds` that can be configured as part of the Event Grid deployment, which controls retry policy defaults for all subscribers.
+There are two properties: `brokers__defaultMaxDeliveryAttempts` and `broker__defaultEventTimeToLiveInSeconds` that can be configured as part of the Event Grid deployment, which controls retry policy defaults for all subscribers.
 
 | Property Name | Description |
 | ---------------- | ------------ |
-| `broker:defaultMaxDeliveryAttempts` | Maximum number of attempts to deliver an event. Default value: 30.
-| `broker:defaultEventTimeToLiveInSeconds` | Event TTL in seconds after which an event will be dropped if not delivered. Default value: **7200** seconds
+| `broker__defaultMaxDeliveryAttempts` | Maximum number of attempts to deliver an event. Default value: 30.
+| `broker__defaultEventTimeToLiveInSeconds` | Event TTL in seconds after which an event will be dropped if not delivered. Default value: **7200** seconds
 
 ## Configuring defaults per subscriber
 
@@ -66,8 +66,8 @@ The following example sets up retry policy in the Event Grid module with maxNumb
 ```json
 {
   "Env": [
-    "broker:defaultMaxDeliveryAttempts=3",
-    "broker:defaultEventTimeToLiveInSeconds=1800"
+    "broker__defaultMaxDeliveryAttempts=3",
+    "broker__defaultEventTimeToLiveInSeconds=1800"
   ],
   "HostConfig": {
     "PortBindings": {

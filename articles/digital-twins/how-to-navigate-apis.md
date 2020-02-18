@@ -1,5 +1,5 @@
 ---
-title: Navigate Azure Digital Twins APIs | Microsoft Docs
+title: Navigate the APIs - Azure Digital Twins | Microsoft Docs
 description: Learn how to common patterns of querying the Azure Digital Twins management APIs.
 ms.author: alinast
 author: alinamstanciu
@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/27/2019
+ms.date: 12/27/2019
 ---
 
 # How to use Azure Digital Twins management APIs
@@ -105,7 +105,7 @@ The following list depicts several queries with valid OData syntax:
 - `YOUR_MANAGEMENT_API_URL/devices?$top=3&$orderby=Name desc`
 - `YOUR_MANAGEMENT_API_URL/keystores?$filter=endswith(Description,'space')`
 - `YOUR_MANAGEMENT_API_URL/devices?$filter=TypeId eq 2`
-- `YOUR_MANAGEMENT_API_URL/resources?$filter=StatusId eq 2`
+- `YOUR_MANAGEMENT_API_URL/resources?$filter=StatusId ne 1`
 - `YOUR_MANAGEMENT_API_URL/users?$top=4&$filter=endswith(LastName,'k')&$orderby=LastName`
 - `YOUR_MANAGEMENT_API_URL/spaces?$orderby=Name desc&$top=3&$filter=substringof('Floor',Name)`
  
@@ -115,4 +115,4 @@ To learn some common API query patterns, read [How to query Azure Digital Twins 
 
 To learn more about your API endpoints, read [How to use Digital Twins Swagger](./how-to-use-swagger.md).
 
-To review OData syntax and available comparison operators, read [OData comparison operators in Azure Search](../search/search-query-odata-comparison-operators.md).
+To review OData syntax and available comparison operators, read [OData comparison operators in Azure Cognitive Search](../search/search-query-odata-comparison-operators.md).

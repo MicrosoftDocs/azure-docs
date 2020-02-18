@@ -1,11 +1,11 @@
 ---
-title: Replicate data into Azure Database for MySQL
+title: Data-in replication - Azure Database for MySQL
 description: Learn about using data-in replication to synchronize from an external server into the Azure Database for MySQL service.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 12/02/2019
 ---
 
 # Replicate data into Azure Database for MySQL

@@ -1,6 +1,6 @@
 ---
 title: Array functions in Azure Cosmos DB query language
-description: Learn about array SQL system functions in Azure Cosmos DB.
+description: Learn about how the array functions let you perform operations on arrays in Azure Cosmos DB
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

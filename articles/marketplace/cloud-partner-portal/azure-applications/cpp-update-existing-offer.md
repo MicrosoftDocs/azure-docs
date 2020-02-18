@@ -4,6 +4,7 @@ description: How to update an existing Azure application offer on the Azure Mark
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pabutler

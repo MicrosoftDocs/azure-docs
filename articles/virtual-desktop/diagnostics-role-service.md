@@ -1,6 +1,6 @@
 ---
-title: Identify issues with the Windows Virtual Desktop diagnostics feature  - Azure
-description: Describes the Windows Virtual Desktop diagnostics feature and how to use it.
+title: Windows Virtual Desktop diagnose issues - Azure
+description: How to use the Windows Virtual Desktop diagnostics feature to diagnose issues.
 services: virtual-desktop
 author: Heidilohr
 
@@ -19,7 +19,7 @@ Windows Virtual Desktop offers a diagnostics feature that allows the administrat
   
 Connections that don’t reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
 
-To get started, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
+To get started, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

@@ -5,8 +5,8 @@ keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
@@ -75,9 +75,9 @@ The DSC Linux extension supports all the Linux distributions listed under [Suppo
 ### DSC requirements
 
 For all Windows nodes running in Azure,
-[WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure)
+[WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure)
 will be installed during onboarding.  For nodes running Windows Server 2012 and Windows 7,
-[WinRM will be enabled](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+[WinRM will be enabled](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 For all Linux nodes running in Azure,
 [PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)
@@ -95,7 +95,7 @@ the following port and URLs are required for State Configuration (DSC) to commun
 
 This provides network connectivity for the managed node to communicate with Azure Automation.
 If you are using DSC resources that communicate between nodes,
-such as the [WaitFor* resources](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource),
+such as the [WaitFor* resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource),
 you will also need to allow traffic between nodes.
 See the documentation for each DSC resource to understand those network requirements.
 

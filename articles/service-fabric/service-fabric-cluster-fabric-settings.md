@@ -1,21 +1,9 @@
 ---
-title: Change Azure Service Fabric cluster settings | Microsoft Docs
+title: Change Azure Service Fabric cluster settings 
 description: This article describes the fabric settings and the fabric upgrade policies that you can customize.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: reference
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/30/2019
-ms.author: atsenthi
-
 ---
 # Customize Service Fabric cluster settings
 This article describes the various fabric settings for your Service Fabric cluster that you can customize. For clusters hosted in Azure, you can customize settings through the [Azure portal](https://portal.azure.com) or by using an Azure Resource Manager template. For more information, see [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md). For standalone clusters, you customize settings by updating the *ClusterConfig.json* file and performing a configuration upgrade on your cluster. For more information, see [Upgrade the configuration of a standalone cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -96,6 +84,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |TargetReplicaSetSize |Int, default is 7 |Not Allowed|The TargetReplicaSetSize for ClusterManager. |
 |UpgradeHealthCheckInterval |Time in seconds, default is 60 |Dynamic|The frequency of health status checks during a monitored application upgrades |
 |UpgradeStatusPollInterval |Time in seconds, default is 60 |Dynamic|The frequency of polling for application upgrade status. This value determines the rate of update for any GetApplicationUpgradeProgress call |
+|CompleteClientRequest | Bool, default is false |Dynamic| Complete client request when accepted by CM. |
 
 ## Common
 
@@ -127,14 +116,14 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AppEtwTraceDeletionAgeInDays |Int, default is 3 | Dynamic |Number of days after which we delete old ETL files containing application ETW traces. |
 |ApplicationLogsFormatVersion |Int, default is 0 | Dynamic |Version for application logs format. Supported values are 0 and 1. Version 1 includes more fields from the ETW event record than version 0. |
 |AuditHttpRequests |Bool, default is false | Dynamic | Turn HTTP auditing on or off. The purpose of auditing is to see the activities that have been performed against the cluster; including who initiated the request. Note that this is a best attempt logging; and trace loss may occur. HTTP requests with "User" authentication is not recorded. |
-|CaptureHttpTelemetry|Bool, default is false | Dynamic | Turn HTTP telemetry on or off. The purpose of telemetry is for Service Fabric to be able to capture telemetry data to help plan future work and identify problem areas. Telemetry does not record any personal data or the request body. Telemetry captures all HTTP requests unless otherwise configured. |
+|CaptureHttpTelemetry|Bool, default is true | Dynamic | Turn HTTP telemetry on or off. The purpose of telemetry is for Service Fabric to be able to capture telemetry data to help plan future work and identify problem areas. Telemetry does not record any personal data or the request body. Telemetry captures all HTTP requests unless otherwise configured. |
 |ClusterId |String | Dynamic |The unique id of the cluster. This is generated when the cluster is created. |
 |ConsumerInstances |String | Dynamic |The list of DCA consumer instances. |
 |DiskFullSafetySpaceInMB |Int, default is 1024 | Dynamic |Remaining disk space in MB to protect from use by DCA. |
 |EnableCircularTraceSession |Bool, default is false | Static |Flag indicates whether circular trace sessions should be used. |
 |EnablePlatformEventsFileSink |Bool, default is false | Static |Enable/Disable platform events being written to disk |
 |EnableTelemetry |Bool, default is true | Dynamic |This is going to enable or disable telemetry. |
-|FailuresOnlyHttpTelemetry | Bool, default is true | Dynamic | If HTTP telemetry capture is enabled; capture only failed requests. This is to help cut down on the number of events generated for telemetry. |
+|FailuresOnlyHttpTelemetry | Bool, default is false | Dynamic | If HTTP telemetry capture is enabled; capture only failed requests. This is to help cut down on the number of events generated for telemetry. |
 |HttpTelemetryCapturePercentage | int, default is 50 | Dynamic | If HTTP telemetry capture is enabled; capture only a random percentage of requests. This is to help cut down on the number of events generated for telemetry. |
 |MaxDiskQuotaInMB |Int, default is 65536 | Dynamic |Disk quota in MB for Windows Fabric log files. |
 |ProducerInstances |String | Dynamic |The list of DCA producer instances. |
@@ -230,13 +219,12 @@ The following is a list of Fabric settings that you can customize, organized by 
 |QuorumLossWaitDuration |Time in seconds, default is MaxValue |Dynamic|Specify timespan in seconds. This is the max duration for which we allow a partition to be in a state of quorum loss. If the partition is still in quorum loss after this duration; the partition is recovered from quorum loss by considering the down replicas as lost. Note that this can potentially incur data loss. |
 |ReconfigurationTimeLimit|TimeSpan, default is Common::TimeSpan::FromSeconds(300)|Dynamic|Specify timespan in seconds. The time limit for reconfiguration; after which a warning health report will be initiated |
 |ReplicaRestartWaitDuration|TimeSpan, default is Common::TimeSpan::FromSeconds(60.0 \* 30)|Not Allowed|Specify timespan in seconds. This is the ReplicaRestartWaitDuration for the FMService |
+| SeedNodeQuorumAdditionalBufferNodes | int, default is 0 | Dynamic | Buffer of seed nodes that is needed to be up (together with quorum of seed nodes) FM should allow a maximum of (totalNumSeedNodes - (seedNodeQuorum + SeedNodeQuorumAdditionalBufferNodes)) seed nodes to go down. |
 |StandByReplicaKeepDuration|Timespan, default is Common::TimeSpan::FromSeconds(3600.0 \* 24 \* 7)|Not Allowed|Specify timespan in seconds. This is the StandByReplicaKeepDuration for the FMService |
 |TargetReplicaSetSize|int, default is 7|Not Allowed|This is the target number of FM replicas that Windows Fabric will maintain. A higher number results in higher reliability of the FM data; with a small performance tradeoff. |
 |UserMaxStandByReplicaCount |Int, default is 1 |Dynamic|The default max number of StandBy replicas that the system keeps for user services. |
 |UserReplicaRestartWaitDuration |Time in seconds, default is 60.0 \* 30 |Dynamic|Specify timespan in seconds. When a persisted replica goes down; Windows Fabric waits for this duration for the replica to come back up before creating new replacement replicas (which would require a copy of the state). |
 |UserStandByReplicaKeepDuration |Time in seconds, default is 3600.0 \* 24 \* 7 |Dynamic|Specify timespan in seconds. When a persisted replica come back from a down state; it may have already been replaced. This timer determines how long the FM will keep the standby replica before discarding it. |
-|WaitForInBuildReplicaSafetyCheckTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(60 * 10)|Dynamic|Specify timespan in seconds. Configuration entry for the optional WaitForInBuildReplica safety check timeout. This configuration defines the timeout for the WaitForInBuildReplica safety check for node deactivations and upgrades. This safety check fails if any of the below are true: - A primary is being created and the ft target replica set size > 1 - If the current replica is in build and is persisted - If this is the current primary and a new replica is being built This safety check will be skipped if the timeout expires even if one of the previous conditions is still true. |
-|WaitForReconfigurationSafetyCheckTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(60.0 * 10)|Dynamic|Specify timespan in seconds. Configuration entry for the optional WaitForReconfiguration safety check timeout. This configuration defines the timeout of the WaitForReconfiguration safety check for node deactivations and upgrades. This safety check fails if the replica being checked is part of a partition that is under reconfiguration. The safety check will be skipped after this timeout expires even if the partition is still under reconfiguration.|
 
 ## FaultAnalysisService
 
@@ -336,6 +324,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ActivationRetryBackoffInterval |Time in Seconds, default is 5 |Dynamic|Backoff interval on every activation failure; On every continuous activation failure, the system retries the activation for up to the MaxActivationFailureCount. The retry interval on every try is a product of continuous activation failure and the activation back-off interval. |
 |ActivationTimeout| TimeSpan, default is Common::TimeSpan::FromSeconds(180)|Dynamic| Specify timespan in seconds. The timeout for application activation; deactivation and upgrade. |
 |ApplicationHostCloseTimeout| TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic| Specify timespan in seconds. When Fabric exit is detected in a self activated processes; FabricRuntime closes all of the replicas in the user's host (applicationhost) process. This is the timeout for the close operation. |
+| CnsNetworkPluginCnmUrlPort | wstring, default is L"48080" | Static | Azure cnm api url port |
+| CnsNetworkPluginCnsUrlPort | wstring, default is L"10090" | Static | Azure cns url port |
 |ContainerServiceArguments|string, default is "-H localhost:2375 -H npipe://"|Static|Service Fabric (SF) manages docker daemon (except on windows client machines like Win10). This configuration allows user to specify custom arguments that should be passed to docker daemon when starting it. When custom arguments are specified, Service Fabric do not pass any other argument to Docker engine except '--pidfile' argument. Hence users should not specify '--pidfile' argument as part of their customer arguments. Also, the custom arguments should ensure that docker daemon listens on default name pipe on Windows (or Unix domain socket on Linux) for Service Fabric to be able to communicate with it.|
 |ContainerServiceLogFileMaxSizeInKb|int, default is 32768|Static|Maximum file size of log file generated by docker containers.  Windows only.|
 |ContainerImageDownloadTimeout|int, number of seconds, default is 1200 (20 mins)|Dynamic|Number of seconds before download of image times out.|
@@ -353,6 +343,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DisableContainers|bool, default is FALSE|Static|Config for disabling containers - used instead of DisableContainerServiceStartOnContainerActivatorOpen which is deprecated config |
 |DisableDockerRequestRetry|bool, default is FALSE |Dynamic| By default SF communicates with DD (docker dameon) with a timeout of 'DockerRequestTimeout' for each http request sent to it. If DD does not responds within this time period; SF resends the request if top level operation still has remaining time.  With hyperv container; DD sometimes take much more time to bring up the container or deactivate it. In such cases DD request times out from SF perspective and SF retries the operation. Sometimes this seems to adds more pressure on DD. This config allows to disable this retry and wait for DD to respond. |
 |DnsServerListTwoIps | Bool, default is FALSE | Static | This flags adds the local dns server twice to help alleviate intermittent resolve issues. |
+| DoNotInjectLocalDnsServer | bool, default is FALSE | Static | Prevents the runtime to injecting the local IP as DNS server for containers. |
 |EnableActivateNoWindow| bool, default is FALSE|Dynamic| The activated process is created in the background without any console. |
 |EnableContainerServiceDebugMode|bool, default is TRUE|Static|Enable/disable logging for docker containers.  Windows only.|
 |EnableDockerHealthCheckIntegration|bool, default is TRUE|Static|Enables integration of docker HEALTHCHECK events with Service Fabric system health report |
@@ -560,7 +551,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |PlacementSearchTimeout | Time in seconds, default is 0.5 |Dynamic| Specify timespan in seconds. When placing services; search for at most this long before returning a result. |
 |PLBRefreshGap | Time in seconds, default is 1 |Dynamic| Specify timespan in seconds. Defines the minimum amount of time that must pass before PLB refreshes state again. |
 |PreferredLocationConstraintPriority | Int, default is 2| Dynamic|Determines the priority of preferred location constraint: 0: Hard; 1: Soft; 2: Optimization; negative: Ignore |
-|PreferUpgradedUDs|bool,default is TRUE|Dynamic|Turns on and off logic which prefers moving to already upgraded UDs.|
+|PreferUpgradedUDs|bool,default is FALSE|Dynamic|Turns on and off logic which prefers moving to already upgraded UDs. Starting with SF 7.0, the default value for this parameter is changed from TRUE to FALSE.|
 |PreventTransientOvercommit | Bool, default is false | Dynamic|Determines should PLB immediately count on resources that will be freed up by the initiated moves. By default; PLB can initiate move out and move in on the same node which can create transient overcommit. Setting this parameter to true will prevent those kinds of overcommits and on-demand defrag (aka placementWithMove) will be disabled. |
 |ScaleoutCountConstraintPriority | Int, default is 0 |Dynamic| Determines the priority of scaleout count constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |SwapPrimaryThrottlingAssociatedMetric | string, default is ""|Static| The associated metric name for this throttling. |
@@ -573,6 +564,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ValidatePlacementConstraint | Bool, default is true |Dynamic| Specifies whether or not the PlacementConstraint expression for a service is validated when a service's ServiceDescription is updated. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, default is TRUE |Dynamic|Specifies whether or not the PlacementConstraint expression for a service is evaluated for primary preference on failover. |
 |VerboseHealthReportLimit | Int, default is 20 | Dynamic|Defines the number of times a replica has to go unplaced before a health warning is reported for it (if verbose health reporting is enabled). |
+|NodeLoadsOperationalTracingEnabled | Bool, default is true |Dynamic|Config that enables Node Load operational structural trace in the event store. |
+|NodeLoadsOperationalTracingInterval | TimeSpan, default is Common::TimeSpan::FromSeconds(20) | Dynamic|Specify timespan in seconds. The interval with which to trace node loads to event store for each service domain. |
 
 ## ReconfigurationAgent
 
@@ -673,6 +666,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DisableFirewallRuleForDomainProfile| bool, default is TRUE |Static| Indicates if firewall rule should not be enabled for domain profile |
 |DisableFirewallRuleForPrivateProfile| bool, default is TRUE |Static| Indicates if firewall rule should not be enabled for private profile | 
 |DisableFirewallRuleForPublicProfile| bool, default is TRUE | Static|Indicates if firewall rule should not be enabled for public profile |
+| EnforceLinuxMinTlsVersion | bool, default is FALSE | Dynamic | If set to true; only TLS version 1.2+ is supported.  If false; support earlier TLS versions. Applies to Linux only |
 |FabricHostSpn| string, default is "" |Static| Service principal name of FabricHost; when fabric runs as a single domain user (gMSA/domain user account) and FabricHost runs under machine account. It is the SPN of IPC listener for FabricHost; which by default should be left empty since FabricHost runs under machine account |
 |IgnoreCrlOfflineError|bool, default is FALSE|Dynamic|Whether to ignore CRL offline error when server-side verifies incoming client certificates |
 |IgnoreSvrCrlOfflineError|bool, default is TRUE|Dynamic|Whether to ignore CRL offline error when client side verifies incoming server certificates; default to true. Attacks with revoked server certificates require compromising DNS; harder than with revoked client certificates. |
@@ -832,7 +826,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, default is ""| Static |The network name to use when setting up a container network.|
-|ContainerNetworkSetup|bool, default is FALSE| Static |Whether to set up a container network.|
+|ContainerNetworkSetup|bool, default is FALSE (Linux) and default is TRUE (Windows)| Static |Whether to set up a container network.|
 |FabricDataRoot |String | Not Allowed |Service Fabric data root directory. Default for Azure is d:\svcfab |
 |FabricLogRoot |String | Not Allowed |Service fabric log root directory. This is where SF logs and traces are placed. |
 |NodesToBeRemoved|string, default is ""| Dynamic |The nodes which should be removed as part of configuration upgrade. (Only for Standalone Deployments)|

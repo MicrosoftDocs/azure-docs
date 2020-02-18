@@ -70,10 +70,6 @@ In this section, you create a Python console app that responds to a direct metho
     pip install azure-iot-device
     ```
 
-   > [!NOTE]
-   > The pip packages for azure-iothub-service-client is currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
-   >
-
 2. Using a text editor, create a new **simDevice.py** file in your working directory.
 
 3. Add the following `import` statements and variables at the start of the **simDevice.py** file. Replace `deviceConnectionString` with the connection string of the device you created above:
@@ -184,7 +180,7 @@ In this section, you create a Python console app that initiates a remote **lockD
     ```
 
    > [!NOTE]
-   > The pip packages for azure-iothub-service-client and azure-iothub-device-client are currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+   > The pip package for azure-iothub-service-client is currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) post.
    >
 
 2. Using a text editor, create a new **scheduleJobService.py** file in your working directory.

@@ -133,7 +133,7 @@ To log on to the virtual machine, follow the instructions in [Connect and log on
 
 ## Create and run a sample Python app
 
-In the next section is an example file named *Sample.py*. It uses a [requests](http://docs.python-requests.org/en/master/) library to make HTTP GET calls.
+In the next section is an example file named *Sample.py*. It uses a [requests](https://2.python-requests.org/en/master/) library to make HTTP GET calls.
 
 ## Edit Sample.py
 

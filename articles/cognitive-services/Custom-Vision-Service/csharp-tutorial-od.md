@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create an object detection project with the Custom Vision SDK for C#"
+title: "Quickstart: Create an object detection project with the SDK for C# - Custom Vision"
 titleSuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and detect objects using the .NET SDK with C#.
 services: cognitive-services
@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: areddish
 ---
 
 # Quickstart: Create an object detection project with the Custom Vision .NET SDK
 
-This article provides information and sample code to help you get started using the Custom Vision SDK with C# to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own .NET application. 
+This article shows you how to get started using the Custom Vision SDK with C# to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own .NET application. 
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ This article provides information and sample code to help you get started using 
 
 ## Get the Custom Vision SDK and sample code
 
-To write a .NET app that uses Custom Vision, you'll need the Custom Vision NuGet packages. These packages are included in the sample project you will download, but you can access them individually here.
+To write a .NET app that uses Custom Vision, you'll need the Custom Vision NuGet packages. These packages are included in the sample project you'll download, but you can access them individually here.
 
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
@@ -37,7 +37,7 @@ This Visual Studio project creates a new Custom Vision project named __My New Pr
 
 ## Understand the code
 
-Open the _Program.cs_ file and inspect the code. [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your training and prediction keys named `CUSTOM_VISION_TRAINING_KEY` and `CUSTOM_VISION_PREDICTION_KEY`, respectively. The script will look for these.
+Open the _Program.cs_ file and inspect the code. [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your training and prediction keys named `CUSTOM_VISION_TRAINING_KEY` and `CUSTOM_VISION_PREDICTION_KEY`, respectively. The script will look for these variables.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_keys)]
 
@@ -60,13 +60,16 @@ This next bit of code creates an object detection project. The created project w
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates. The following code associates each of the sample images with its tagged region.
 
+> [!NOTE]
+> If you don't have a click-and-drag utility to mark the coordinates of regions, you can use the web UI at [Customvision.ai](https://www.customvision.ai/). In this example, the coordinates are already provided.
+
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_upload_regions)]
 
 Then, this map of associations is used to upload each sample image with its region coordinates. You can upload up to 64 images in a single batch.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_upload)]
 
-At this point, all of the sample images have been uploaded, and each has a tag (**fork** or **scissors**) and an associated pixel rectangle for that tag.
+At this point, you've uploaded all the samples images and tagged each one (**fork** or **scissors**) with an associated pixel rectangle.
 
 ### Train the project
 
@@ -76,7 +79,7 @@ This code creates the first training iteration in the project.
 
 ### Publish the current iteration
 
-The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
+The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it's published.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_publish)]
 
@@ -110,7 +113,7 @@ You can then verify that the test image (found in **Images/Test/**) is tagged ap
 
 ## Next steps
 
-Now you have seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you will need to train and test your model multiple times in order to make it more accurate. The following guide deals with image classification, but its principles are similar to object detection.
+Now you've seen how to do every step of the object detection process in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate. The following guide deals with image classification, but its principles are similar to object detection.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](test-your-model.md)

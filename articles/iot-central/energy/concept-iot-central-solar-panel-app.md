@@ -12,19 +12,19 @@ manager: abjork
 
 # Azure IoT Central - solar panel app architecture
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 
 This article provides an overview of the solar panel monitoring app template architecture. The diagram below shows a commonly used architecture for solar panel app on Azure using IoT Central platform.
 
-[!div class="mx-imgBorder"]
-![smart meter architecture](media/concept-iot-central-solar-panel/solar-panel-app-architecture.png)
+> [!div class="mx-imgBorder"]
+> ![smart meter architecture](media/concept-iot-central-solar-panel/solar-panel-app-architecture.png)
 
 This architecture consists of the following components. Some applications may not require every component listed here.
 
 ## Solar panels and connectivity 
 
-Solar panels are one of the significant sources of renewable energy. Depending on the solar panel type and set up, you can connect it either via gateways or via other intermediate devices and proprietary systems. You might need to build IoT Central device bridge to connect devices, which can’t be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+Solar panels are one of the significant sources of renewable energy. Depending on the solar panel type and set up, you can connect it either using gateways or other intermediate devices and proprietary systems. You might need to build IoT Central device bridge to connect devices, which can't be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
 
 
 

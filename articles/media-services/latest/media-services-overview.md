@@ -1,6 +1,7 @@
 ---
-title: Azure Media Services v3 overview | Microsoft Docs
-description: This article provides a high-level overview of Media Services and provides links to articles for more details.
+title: Azure Media Services v3 overview
+titleSuffix: Azure Media Services
+description: A high-level overview of Azure Media Services v3 with links to quickstarts, tutorials, and code samples.
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -14,7 +15,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 09/17/2019
+ms.date: 02/03/2020
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -22,33 +23,45 @@ ms.custom: mvc
 
 # Azure Media Services v3 overview
 
-Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. Whether you are an application developer, a call center, a government agency, an entertainment company, Media Services helps you create applications that deliver media experiences of outstanding quality to large audiences on today’s most popular mobile devices and browsers. 
+Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. Whether you're an app developer, a call center, a government agency, or an entertainment company, Media Services helps you create apps that deliver media experiences of outstanding quality to large audiences on today’s most popular mobile devices and browsers.
 
 The Media Services v3 SDKs are based on [Media Services v3 OpenAPI Specification (Swagger)](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+> Currently, you can't use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+
+## Compliance, Privacy and Security
+ 
+As an important reminder, you must comply with all applicable laws, in your use of Azure Media Services, and you may not use Azure Media Services or any other Azure service in a manner that violates the rights of others or may be harmful to others. 
+
+Before uploading any videos/images, including any biometric data, to Media Services for processing and storage, you must (1) have all proper rights to the videos/images; and (2) have all appropriate consents from the individual(s) in the videos allowing the use and storage of their biometric data in Media Services. 
+
+To learn about compliance, privacy and how Microsoft protects and secures your data in Azure Media Services, please visit the Azure [Trust Center](https://www.microsoft.com/trust-center/?rtc=1). For Microsoft’s privacy obligations and handling of your data, please review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (“OST”) and the [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). Information on customer data retention and deletion is available in the DPA. By using Azure Media Services, you agree to be bound by the OST, the DPA and the Privacy Statement.
 
 ## What can I do with Media Services?
 
-Media Services enables you to build a variety of media workflows in the cloud, the following are some examples of what can be accomplished with Media Services.  
+Media Services lets you build a variety of media workflows in the cloud. Some examples of what you can do with Media Services include:
 
-* Deliver videos in various formats so they can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. To see how to deliver and stream such content, see [Quickstart: Encode and stream files](stream-files-dotnet-quickstart.md).
-* Stream live sporting events to a large online audience, such as soccer, baseball, college and high school sports, and more. 
-* Broadcast public meetings and events such as town halls, city council meetings, and legislative bodies.
+* Deliver videos in various formats so they can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, and so on), the video and audio content needs to be encoded and packaged appropriately. To see how to deliver and stream such content, see [Quickstart: Encode and stream files](stream-files-dotnet-quickstart.md).
+* Stream live sporting events to a large online audience, like soccer, baseball, college and high school sports, and more.
+* Broadcast public meetings and events, like town halls, city council meetings, and legislative bodies.
 * Analyze recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data.
 * Create a subscription video service and stream DRM protected content when a customer (for example, a movie studio) needs to restrict the access and use of proprietary copyrighted work.
 * Deliver offline content for playback on airplanes, trains, and automobiles. A customer might need to download content onto their phone or tablet for playback when they anticipate to be disconnected from the network.
-* Implement an educational e-learning video platform with Azure Media Services and [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) for speech-to-text captioning, translating to multi-languages, etc. 
+* Implement an educational e-learning video platform with Azure Media Services and [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) for speech-to-text captioning, translating to multi-languages, and so on.
 * Use Azure Media Services together with [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) to add subtitles and captions to videos to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language).
-* Enable Azure CDN to achieve large scaling to better handle instantaneous high loads (for example, the start of a product launch event). 
+* Enable Azure CDN to achieve large scaling to better handle instantaneous high loads (for example, the start of a product launch event).
 
 ## How can I get started with v3? 
 
-Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
+Learn how to encode and package content, stream videos on-demand, broadcast live, and analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
 
 > [!TIP]
-> Before you start developing, review:<br/>* [Fundamental concepts](concepts-overview.md) (incudes important concepts: packaging, encoding, protecting, etc.)<br/>* [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
+> Before you start developing, review:<br/>* [Fundamental concepts](concepts-overview.md) (incudes important concepts, like packaging, encoding, and protecting)<br/>* [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, and so on)
+
+### SDKs
+
+Start developing with [Azure Media Services v3 client SDKs](media-services-apis-overview.md#sdks).
 
 ### Quickstarts  
 
@@ -57,8 +70,8 @@ The quickstarts show fundamental day-1 instructions for new customers to quickly
 * [Stream video files - .NET](stream-files-dotnet-quickstart.md)
 * [Stream video files - CLI](stream-files-cli-quickstart.md)
 * [Stream video files - Node.js](stream-files-nodejs-quickstart.md)
-    
-### Tutorials 
+
+### Tutorials
 
 The tutorials show scenario-based procedures for some of the top Media Services tasks.
 
@@ -67,14 +80,14 @@ The tutorials show scenario-based procedures for some of the top Media Services 
 * [Stream live - .NET](stream-live-tutorial-with-api.md)
 * [Analyze your video - .NET](analyze-videos-tutorial-with-api.md)
 * [AES-128 dynamic encryption - .NET](protect-with-aes128.md)
-    
+
 ### Samples
 
 Use [this samples browser](https://docs.microsoft.com/samples/browse/?products=azure-media-services) to browse Azure Media Services code samples.
 
 ### How-to guides
 
-Articles contain code samples that demonstrate how to complete a task. In this section, you will find many examples, here are just a few of them:
+How-to guides contain code samples that demonstrate how to complete a task. In this section, you'll find many examples. Here are a few of them:
 
 * [Create an account - CLI](create-account-cli-how-to.md)
 * [Access APIs - CLI](access-api-cli-how-to.md)

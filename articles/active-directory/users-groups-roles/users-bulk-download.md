@@ -5,14 +5,14 @@ description: Download user records in bulk in the Azure admin center in Azure Ac
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 07/15/2019
+manager: daveba
+ms.date: 02/06/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
 
@@ -27,14 +27,15 @@ To download the list of users from the Azure AD admin center, you must be signed
 ## To download a list of users
 
 1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with a User administrator account in the organization.
-1. In Azure AD, select **Users** > **Download users**.
-1. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties. If there are errors, you can download and view the results file on the Bulk operation results page. The file contains the reason for each error.
+2. Navigate to Azure Active Directory > Users. Then select the users you wish to include in the download by ticking the box in the left column next to each user. Note: At this time, there is no way to select all users for export. Each one must be individually selected.
+3. In Azure AD, select **Users** > **Download users**.
+4. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties. If there are errors, you can download and view the results file on the Bulk operation results page. The file contains the reason for each error.
 
    ![Select where you want the list the users you want to download](./media/users-bulk-download/bulk-download.png)
 
    The download file will contain the filtered list of users.
 
-   The following user attributes will be included: 
+   The following user attributes are included:
 
    - userPrincipalName
    - displayName
@@ -45,7 +46,6 @@ To download the list of users from the Azure AD admin center, you must be signed
    - userType
    - jobTitle
    - department
-   - manager
    - accountEnabled
    - usageLocation
    - streetAddress

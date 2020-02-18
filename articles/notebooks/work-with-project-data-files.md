@@ -1,22 +1,15 @@
 ---
-title: Import and export data with projects with Azure Notebooks
-description: How to bring data into an Azure Notebooks project from external sources, and how to export data from a project.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
+title: Import and export data with projects with Azure Notebooks Preview
+description: Learn how to bring data into an Azure Notebooks Preview project from external sources, and how to export data from a project.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.author: kraigb
 ---
 
-# Work with data files in Azure Notebook projects
+# Work with data files in Azure Notebooks Preview projects
 
 Data is the lifeblood of many Jupyter notebooks, especially notebooks used for data science. With Azure Notebooks, you can easily  import from a variety of sources into a project, and then use that data from notebooks. You can also have notebooks generate data that's stored in the project, which you can then download for use elsewhere.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 The **Data** menu within a running notebook also provides **Upload** and **Download** commands, which work with files in the project as well as temporary files for the current notebook session.
 

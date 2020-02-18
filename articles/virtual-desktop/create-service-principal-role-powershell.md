@@ -1,5 +1,5 @@
 ---
-title: Create Windows Virtual Desktop service principals and role assignments by using PowerShell  - Azure
+title: Windows Virtual Desktop service principal role assignment - Azure
 description: How to create service principals and assign roles by using PowerShell in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -33,7 +33,7 @@ Before you can create service principals and role assignments, you need to do th
     Install-Module AzureAD
     ```
 
-2. [Download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
+2. [Download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/).
 
 3. Follow all instructions in this article in the same PowerShell session. The process might not work if you interrupt your PowerShell session by closing the window and reopening it later.
 
@@ -75,7 +75,7 @@ Here are the three credentials you should write down and the cmdlets you need to
 
 Next, you need to create a role assignment so the service principal can sign in to Windows Virtual Desktop. Make sure to sign in with an account that has permissions to create role assignments.
 
-First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+First, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already.
 
 Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and display your tenants.
 

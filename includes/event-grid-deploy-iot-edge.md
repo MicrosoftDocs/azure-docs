@@ -19,7 +19,7 @@ There are several ways to deploy modules to an IoT Edge device and all of them w
 
 >[!IMPORTANT]
 > In this tutorial, Event Grid module will be deployed with client authentication turned-off, and allow HTTP subscribers. For production workloads, we recommend that you enable only HTTPS requests and subscribers with client authentication enabled. For more information on how to configure Event Grid module securely, see [Security and authentication](../articles/event-grid/edge/security-authentication.md).
-
+ 
 ### Select your IoT Edge device
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
@@ -38,6 +38,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 1. From the types of modules in the drop-down list, select **IoT Edge Module**
 1. Provide the name, image, container create options of the container:
 
+[!INCLUDE [event-grid-edge-module-version-update](event-grid-edge-module-version-update.md)]
+
    * **Name**: eventgridmodule
    * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Container Create Options**:
@@ -45,8 +47,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     ```json
         {
           "Env": [
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+            "inbound__clientAuth:clientCert__enabled=false",
+            "outbound__webhook__httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -62,6 +64,10 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
  1. Click **Save**
  1. Click **Next** to continue to the routes section
+
+    > [!NOTE]
+    > If you are using an Azure VM as an edge device, add an inbound port rule to allow inbound traffic on the port 4438. For instructions on adding the rule, see [How to open ports to a VM](../articles/virtual-machines/windows/nsg-quickstart-portal.md).
+
 
 ### Setup routes
 

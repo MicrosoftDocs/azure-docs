@@ -1,6 +1,6 @@
 ---
-title: Manage device enrollments using Azure Device Provisioning Service SDKs | Microsoft Docs
-description: How to manage device enrollments in the IoT Hub Device Provisioning Service using the Service SDKs
+title: Manage device enrollments using Azure DPS SDKs
+description: How to manage device enrollments in the IoT Hub Device Provisioning Service (DPS) using the Service SDKs
 author: robinsh
 ms.author: robinsh
 ms.date: 04/04/2018

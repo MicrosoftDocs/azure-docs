@@ -1,7 +1,7 @@
 ---
 title: Translator Text API Translate Method
 titleSuffix: Azure Cognitive Services
-description: Use the Translator Text API Translate method.
+description: Understand the parameters, headers and body messages for the Azure Cognitive Services Translator Text API Translate method to translate text.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 11/12/2019
 ms.author: swmachan
 ---
 
@@ -29,6 +29,8 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 Request parameters passed on the query string are:
 
+### Required parameters
+
 <table width="100%">
   <th width="20%">Query parameter</th>
   <th>Description</th>
@@ -37,13 +39,20 @@ Request parameters passed on the query string are:
     <td><em>Required parameter</em>.<br/>Version of the API requested by the client. Value must be <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>from</td>
-    <td><em>Optional parameter</em>.<br/>Specifies the language of the input text. Find which languages are available to translate from by looking up <a href="./v3-0-languages.md">supported languages</a> using the <code>translation</code> scope. If the <code>from</code> parameter is not specified, automatic language detection is applied to determine the source language. <br/><br/>You must use the <code>from</code> parameter rather than autodetection when using the <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dynamic dictionary</a> feature.</td>
-  </tr>
-  <tr>
     <td>to</td>
     <td><em>Required parameter</em>.<br/>Specifies the language of the output text. The target language must be one of the <a href="./v3-0-languages.md">supported languages</a> included in the <code>translation</code> scope. For example, use <code>to=de</code> to translate to German.<br/>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use <code>to=de&to=it</code> to translate to German and Italian.</td>
   </tr>
+</table>
+
+### Optional parameters
+
+<table width="100%">
+  <th width="20%">Query parameter</th>
+  <th>Description</th>
+  <tr>
+    <td>from</td>
+    <td><em>Optional parameter</em>.<br/>Specifies the language of the input text. Find which languages are available to translate from by looking up <a href="./v3-0-languages.md">supported languages</a> using the <code>translation</code> scope. If the <code>from</code> parameter is not specified, automatic language detection is applied to determine the source language. <br/><br/>You must use the <code>from</code> parameter rather than autodetection when using the <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dynamic dictionary</a> feature.</td>
+  </tr>  
   <tr>
     <td>textType</td>
     <td><em>Optional parameter</em>.<br/>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: <code>plain</code> (default) or <code>html</code>.</td>
@@ -506,7 +515,7 @@ If you already know the translation you want to apply to a word or a phrase, you
 The markup to supply uses the following syntax.
 
 ``` 
-<mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
+<mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 ```
 
 For example, consider the English sentence "The word wordomatic is a dictionary entry." To preserve the word _wordomatic_ in the translation, send the request:
@@ -521,7 +530,7 @@ The result is:
 [
     {
         "translations":[
-            {"text":"Das Wort "wordomatic" ist ein Wörterbucheintrag.","to":"de"}
+            {"text":"Das Wort \"wordomatic\" ist ein Wörterbucheintrag.","to":"de"}
         ]
     }
 ]

@@ -1,19 +1,10 @@
 ---
-title: Configure Twitter authentication - Azure App Service
-description: Learn how to configure Twitter authentication for your App Service app.
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: syntaxc4
-editor: ''
+title: Configure Twitter authentication
+description: Learn how to configure Twitter authentication as an identity provider for your App Service app.
 
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/19/2018
-ms.author: mahender
 ms.custom: seodec18
 
 ---

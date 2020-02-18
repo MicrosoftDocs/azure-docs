@@ -1,8 +1,7 @@
 ---
-title: Customer data request features​
-description: Summary of customer data request features
+title: Customer data requests for Azure IoT Hub devices
+description: Most of the devices managed in Azure IoT Hub are not personal, but some are. This article talks about admins being able to export or delete personal data from a device.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.date: 05/16/2018
 ms.topic: conceptual
@@ -36,7 +35,7 @@ It is also possible to perform delete operations for devices using REST APIs. Fo
 
 ## Exporting customer data
 
-Tenant administrators can utilize copy and paste within the IoT devices blade of the Azure IoT Hub extension in the Azure portal to export data associated with a device.
+Tenant administrators can utilize copy and paste within the IoT devices pane of the Azure IoT Hub extension in the Azure portal to export data associated with a device.
 
 It is also possible to perform export operations for devices using REST APIs. For more information, see [Service - Get Device](/rest/api/iothub/service/getdevice).
 

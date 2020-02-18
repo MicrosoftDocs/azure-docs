@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid event sources
-description: Describes supported event sources for Azure Event Grid 
+description: This article describes supported event sources for Azure Event Grid. An event source is where the event happens. 
 services: event-grid
 author: spelluru
 
@@ -129,6 +129,9 @@ Subscribe to Service Bus events to respond to messages without an active listene
 
 Subscribe to Blob Storage events to respond to blob created and deleted events.
 
+>[!NOTE]
+> Only storage accounts of kind **StorageV2 (general purpose v2)** and **BlobStorage** support event integration. **Storage (genral purpose v1)** does *not* support integration with Event Grid.
+
 |Title  |Description  |
 |---------|---------|
 | [Quickstart: route Blob storage events to a custom web endpoint with Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send blob storage events to a WebHook. |
@@ -167,7 +170,14 @@ Subscribe to Azure SignalR Service events to respond to client connection events
 | [How to send Azure SignalR Service events to Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Shows how to send  Azure SignalR Service events to an application through Event Grid. |
 | [Event schema](event-schema-azure-signalr.md) | Shows fields in Azure SignalR Service events. |
 
+## Azure Machine Learning
 
+Subscribe to Azure Machine Learning workspace events to respond to model registration.
+
+| Title | Description |
+| ----- | ----- |
+| [Consume Azure Machine Learning events](../machine-learning/concept-event-grid-integration.md) | Overview of integrating Azure Machine Learning with Event Grid. |
+| [Azure Event Grid event schema for Azure Machine Learning](event-schema-machine-learning.md) | Shows fields in the Azure Machine Learning events. |
 
 ## Next steps
 

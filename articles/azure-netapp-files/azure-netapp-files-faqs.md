@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 02/05/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -100,15 +100,7 @@ Azure NetApp Files provides volume performance metrics. You can also use Azure M
 
 For an NFS volume to automatically mount at VM start or reboot, add an entry to the `/etc/fstab` file on the host. 
 
-For example: 
-`$ANFIP:/$FILEPATH		/$MOUNTPOINT	nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
-
-- $ANFIP  
-    The IP address of the Azure NetApp Files volume found in the volume properties blade
-- $FILEPATH  
-    The export path of the Azure NetApp Files volume
-- $MOUNTPOINT  
-    The directory created on the Linux host used to mount the NFS export
+See [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) for details.  
 
 ### Why does the DF command on NFS client not show the provisioned volume size?
 
@@ -134,7 +126,9 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 ### How many Active Directory connections are supported?
 
-Azure NetApp Files currently supports one Active Directory connection per subscription. Also, the Active Directory connection is specific to a single NetApp account; it is not shared across accounts. 
+Azure NetApp Files does not support multiple Active Directory (AD) connections in a single *region*, even if the AD connections are in different NetApp accounts. However, you can have multiple AD connections in a single *subscription*, as long as the AD connections are in different regions. If you need multiple AD connections in a single region, you can use separate subscriptions to do so. 
+
+An AD connection is configured per NetApp account; the AD connection is visible only through the NetApp account it is created in.
 
 ### Does Azure NetApp Files support Azure Active Directory? 
 
@@ -145,6 +139,10 @@ If you are using Azure NetApp Files with Azure Active Directory Domain Services,
 ### What versions of Windows Server Active Directory are supported?
 
 Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Directory Domain Services.
+
+### Why does the available space on my SMB client not show the provisioned size?
+
+The volume size reported by the SMB client is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume as shown on the SMB client is not reflective of the quota or size of the volume. You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
 
 ## Capacity management FAQs
 
@@ -198,5 +196,6 @@ No. Azure Import/Export service does not support Azure NetApp Files currently.
 
 - [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
-- [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)
+- [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)
+- [FAQs about SMB performance for Azure NetApp Files](azure-netapp-files-smb-performance.md)

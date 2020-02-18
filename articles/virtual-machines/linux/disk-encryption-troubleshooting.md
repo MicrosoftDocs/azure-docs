@@ -20,7 +20,7 @@ Before taking any of the steps below, first ensure that the VMs you are attempti
 - [Networking requirements](disk-encryption-overview.md#networking-requirements)
 - [Encryption key storage requirements](disk-encryption-overview.md#encryption-key-storage-requirements)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## Troubleshooting Linux OS disk encryption
 

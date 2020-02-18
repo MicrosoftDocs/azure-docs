@@ -1,5 +1,5 @@
 ---
-title: Move files to and from Azure Linux VMs with SCP | Microsoft Docs
+title: Move files to and from Azure Linux VMs with SCP 
 description: Securely move files to and from a Linux VM in Azure using SCP and an SSH key pair.
 services: virtual-machines-linux
 documentationcenter: virtual-machines

@@ -1,5 +1,5 @@
 ---
-title: Quickstart to learn how to use Azure SignalR Service with ASP.NET
+title: Develop with ASP.NET - Azure SignalR Service
 description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET framework.
 author: sffamily
 ms.service: signalr

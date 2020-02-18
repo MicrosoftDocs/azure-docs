@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Logs supported services and schemas
-description: Understand the supported services and event schema for Azure Diagnostic Logs.
+description: Understand the supported services and event schema for Azure resource logs.
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: reference
@@ -15,7 +15,7 @@ ms.author: robb
 > [!NOTE]
 > Resource logs were previously known as diagnostic logs.
 
-[Azure Monitor resource logs](../../azure-monitor/platform/resource-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
+[Azure Monitor resource logs](../../azure-monitor/platform/platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
 A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. This article describes the top-level schema for resource logs and links to the schemata for each service.
 
@@ -55,6 +55,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Data Explorer | [Azure Data Explorer logs](../../data-explorer/using-diagnostic-logs.md) |
 | Cognitive Services | [Logging for Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
+| Container Registry | [Logging for Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [Azure Logs for CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB Logging](../../cosmos-db/logging.md) |
 | Data Factory | [Monitor Data Factories using Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
@@ -81,6 +82,9 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Virtual Network Gateways | Schema not available. |
 
 ## Supported log categories per resource type
+
+Some categories may only be supported for specific types of resources. This is list of all that are available in some form.  For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../sql-database/sql-database-metrics-diag-logging.md). 
+
 |Resource Type|Category|Category Display Name|
 |---|---|---|
 |Microsoft.AAD/domainServices|SystemSecurity|SystemSecurity|
@@ -110,8 +114,8 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.ClassicNetwork/networksecuritygroups|Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|
 |Microsoft.CognitiveServices/accounts|Audit|Audit Logs|
 |Microsoft.CognitiveServices/accounts|RequestResponse|Request and Response Logs|
-|Microsoft.ContainerRegistry/registries|ContainerRegistryRepositoryEvents|RepositoryEvent logs|
-|Microsoft.ContainerRegistry/registries|ContainerRegistryLoginEvents|Login Events|
+|Microsoft.ContainerRegistry/registries|ContainerRegistryRepositoryEvents|RepositoryEvent logs (Preview)|
+|Microsoft.ContainerRegistry/registries|ContainerRegistryLoginEvents|Login Events (Preview)|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API Server|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes Controller Manager|
 |Microsoft.ContainerService/managedClusters|kube-scheduler|Kubernetes Scheduler|
@@ -218,8 +222,6 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway Access Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
-|Microsoft.Network/securegateways|AzureFirewallApplicationRule|Azure Firewall Application Rule|
-|Microsoft.Network/securegateways|AzureFirewallNetworkRule|Azure Firewall Network Rule|
 |Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Azure Firewall Application Rule|
 |Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Azure Firewall Network Rule|
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Gateway Diagnostic Logs|
@@ -310,7 +312,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 
 ## Next Steps
 
-* [Learn more about resource logs](../../azure-monitor/platform/resource-logs-overview.md)
+* [Learn more about resource logs](../../azure-monitor/platform/platform-logs-overview.md)
 * [Stream resource resource logs to **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 * [Change resource log diagnostic settings using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analyze logs from Azure storage with Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

@@ -1,10 +1,10 @@
 ---
 title: SQL query operators for Azure Cosmos DB
-description: Learn about SQL operators for Azure Cosmos DB.
+description: Learn about SQL operators such as equality, comparison, and logical operators supported by Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 
 ---

@@ -6,7 +6,7 @@
     tocHref: /azure/architecture/
     topicHref: /azure/machine-learning/index
     items:
-    - name: Studio
+    - name: Studio (classic)
       tocHref: /azure/architecture/data-guide/technology-choices/
       topicHref: /azure/machine-learning/studio/index
       items:

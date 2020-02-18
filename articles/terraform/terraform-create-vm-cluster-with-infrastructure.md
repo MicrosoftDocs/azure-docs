@@ -1,9 +1,6 @@
 ---
 title: Tutorial - Create an Azure VM cluster with Terraform and HCL
 description: Use Terraform and HCL to create a Linux virtual machine cluster with a load balancer in Azure
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
 ---
@@ -206,7 +203,7 @@ In this section, you create a file that contains resource definitions for your i
       disable_password_authentication = false
     }
 
-    tags {
+    tags = {
       environment = "staging"
     }
    }
@@ -258,10 +255,10 @@ By default Terraform tried to find your variables file as follows:
 - File named `terraform.tfvars`
 - File named with using the following pattern: `*.auto.tfvars`
 
-However, your variables file need not follow either of the two preceding conventions. In that case, specify your variables file name with the `-var-file` parameter. The following example illustrates this point:
+However, your variables file need not follow either of the two preceding conventions. In that case, specify your variables file name with the `-var-file` parameter where your variable file name does not carry an extension. The following example illustrates this point:
 
 ```hcl
-terraform plan -var-file <my-variables-file.tf>
+terraform plan -var-file <my-variables-file>
 ```
 
 Terraform determines the actions necessary to achieve the state specified in the configuration file.

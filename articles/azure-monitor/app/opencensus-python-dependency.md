@@ -12,7 +12,7 @@ ms.date: 10/15/2019
 
 # Track dependencies with OpenCensus Python
 
-A dependency is an external component that is called by your application. Dependency data is collected using OpenCensus Python and its various integrations. The data is then sent to Application Insights under Azure Monitor.
+A dependency is an external component that is called by your application. Dependency data is collected using OpenCensus Python and its various integrations. The data is then sent to Application Insights under Azure Monitor as `dependencies` telemetry.
 
 First, instrument your Python application with latest [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
 
@@ -97,8 +97,8 @@ Additional configuration can be provided, read [customizations](https://github.c
 OPENCENSUS = {
     'TRACE': {
         'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=1)',
-        'EXPORTER': '''opencensus.ext.ocagent.trace_exporter.TraceExporter(
-            service_name='foobar',
+        'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
+            connection_string="InstrumentationKey=<your-ikey-here>"
         )''',
     }
 }

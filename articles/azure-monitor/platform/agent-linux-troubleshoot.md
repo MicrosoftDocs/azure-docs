@@ -4,9 +4,9 @@ description: Describe the symptoms, causes, and resolution for the most common i
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 11/13/2018
+author: bwren
+ms.author: bwren
+ms.date: 11/21/2019
 
 ---
 
@@ -161,7 +161,8 @@ Below the output plugin, uncomment the following section by removing the `#` in 
     |*.ods.opinsights.azure.com | Port 443| Inbound and outbound |  
     |*.oms.opinsights.azure.com | Port 443| Inbound and outbound |  
     |*.blob.core.windows.net | Port 443| Inbound and outbound |  
-    |*.azure-automation.net | Port 443| Inbound and outbound | 
+
+    If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 ## Issue: You receive a 403 error when trying to onboard
 
@@ -393,7 +394,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
   1. Reonboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
   2. Under **Advanced Settings** in the Azure portal, ensure that the setting **Apply the following configuration to my Linux Servers** is enabled.  
 
-2. Check that the `omsconfig` agent can communicate with Azure Monitor by running the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  This command returns the configuration that agent receives from the service, including Syslog settings, Linux performance counters, and custom logs. If this command fails, run the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration.
+2. Check that the `omsconfig` agent can communicate with Azure Monitor by running the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  This command returns the configuration that agent receives from the service, including Syslog settings, Linux performance counters, and custom logs. If this command fails, run the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration.
 
 **Background:** Instead of the Log Analytics agent for Linux running as a privileged user - `root`, the agent runs as the `omsagent` user. In most cases, explicit permission must be granted to this user in order for certain files to be read. To grant permission to `omsagent` user, run the following commands:
 

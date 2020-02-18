@@ -1,13 +1,9 @@
 ---
-title: include file
-description: include file
-services: logic-apps
-author: ecfan
 ms.service: logic-apps
-ms.topic: include
+author: ecfan
 ms.author: estfan
-ms.custom: include file
-ms.date: 05/15/2018
+ms.topic: include
+ms.date: 11/08/2019
 ---
 
 * If you're using Azure SQL Database, follow the steps under [Connect to Azure SQL Database](#connect-azure-sql-db).
@@ -29,7 +25,7 @@ When the SQL trigger or action prompts you for connection information, follow th
    * `User ID=<your-user-name>`
    * `Password=<your-password>`
 
-   ![Create Azure SQL Database connection](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   ![Create connection to Azure SQL Database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
 
 1. When you're done, select **Create**.
 
@@ -39,7 +35,9 @@ When the SQL trigger or action prompts you for connection information, follow th
 
 ### Connect to SQL Server
 
-When the SQL trigger or action prompts you for connection information, follow these steps, which work for both triggers and actions. However, before you start, make sure that you've already [set up your on-premises data gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Otherwise, your gateway won't appear in the gateways list when you create your connection.
+When the SQL trigger or action prompts you for connection information, follow these steps, which work for both triggers and actions. For scenarios that require that you install the [on-premises data gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-install) on a local computer and [create the Azure data gateway resource](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection), make sure that you complete these requirements first. Otherwise, your gateway resource won't appear in the gateways list when you create your connection.
+
+Also, to use Windows authentication with the SQL Server connector in an [integration service environment (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview), use the connector's non-ISE version and the on-premises data gateway. The ISE-labeled version doesn't support Windows authentication.
 
 1. For **Connection Name**, create a name for your connection.
 
@@ -54,7 +52,7 @@ When the SQL trigger or action prompts you for connection information, follow th
    * `User ID=<your-user-name>`
    * `Password=<your-password>`
 
-   ![Create SQL Server connection](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   ![Create connection to SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
 
 1. If your SQL server uses Windows or Basic authentication, select the **Authentication Type**.
 

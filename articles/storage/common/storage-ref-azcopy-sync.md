@@ -30,6 +30,13 @@ The sync command differs from the copy command in several ways:
 2. When syncing between virtual directories, add a trailing slash to the path (refer to examples) if there's a blob with the same name as one of the virtual directories.
 3. If the 'deleteDestination' flag is set to true or prompt, then sync will delete files and blobs at the destination that are not present at the source.
 
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+
 ### Advanced
 
 If you don't specify a file extension, AzCopy automatically detects the content type of the files when uploading from the local disk, based on the file extension or content (if no extension is specified).
@@ -43,7 +50,7 @@ The built-in lookup table is small, but on Unix, it's augmented by the local sys
 On Windows, MIME types are extracted from the registry.
 
 ```azcopy
-azcopy sync [flags]
+azcopy sync <source> <destination> [flags]
 ```
 
 ## Examples
@@ -94,6 +101,7 @@ Sync a single blob:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+```
 
 Sync a virtual directory:
 
@@ -126,13 +134,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude-attributes** string   (Windows only) Exclude files whose attributes match the attribute list. For example: A;S;R
 
-**--exclude-pattern** string      Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
+**--exclude-path** string Exclude these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix(For example: myFolder;myFolder/subDirName/file.pdf). When used in combination with account traversal, paths do not include the container name.
+
+**--exclude-pattern** string      Exclude files where the name matches the pattern list. For example: \*.jpg;\*.pdf;exactName
 
 **-h, --help**                        help for sync
 
 **--include-attributes** string   (Windows only) Include only files whose attributes match the attribute list. For example: A;S;R
 
-**--include-pattern** string      Include only files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
+**--include-pattern** string      Include only files where the name matches the pattern list. For example: \*.jpg;\*.pdf;exactName
 
 **--log-level** string            Define the log verbosity for the log file, available levels: INFO(all requests and responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default INFO). (default "INFO")
 

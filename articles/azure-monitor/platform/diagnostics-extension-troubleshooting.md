@@ -4,8 +4,8 @@ description: Troubleshoot problems when using Azure diagnostics in Azure Virtual
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 05/08/2019
 
 ---
@@ -47,7 +47,7 @@ Following are the paths to some important logs and artifacts. We refer to this i
 | **MonAgentHost log file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## Metric data doesn't appear in the Azure portal
-Azure Diagnostics provides metric data that can be displayed in the Azure portal. If you have problems seeing the data in portal, check the WADMetrics\* table in the Azure Diagnostics storage account to see if the corresponding metric records are there.
+Azure Diagnostics provides metric data that can be displayed in the Azure portal. If you have problems seeing the data in portal, check the WADMetrics\* table in the Azure Diagnostics storage account to see if the corresponding metric records are there and ensure that the [resource provider](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft.Insights is registered.
 
 Here, the **PartitionKey** of the table is the resource ID, virtual machine, or virtual machine scale set. **RowKey** is the metric name (also known as the performance counter name).
 
@@ -204,15 +204,15 @@ This code generates four tables:
 
 | Event | Table name |
 | --- | --- |
-| provider=”prov1” &lt;Event id=”1” /&gt; |WADEvent+MD5(“prov1”)+”1” |
-| provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt; |WADdest1 |
-| provider=”prov1” &lt;DefaultEvents /&gt; |WADDefault+MD5(“prov1”) |
-| provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt; |WADdest2 |
+| provider="prov1" &lt;Event id="1" /&gt; |WADEvent+MD5("prov1")+"1" |
+| provider="prov1" &lt;Event id="2" eventDestination="dest1" /&gt; |WADdest1 |
+| provider="prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
+| provider="prov2" &lt;DefaultEvents eventDestination="dest2" /&gt; |WADdest2 |
 
 ## References
 
 ### How to check Diagnostics extension configuration
-The easiest way to check your extension configuration is to go to [Azure Resource Explorer](http://resources.azure.com), and then go to the virtual machine or cloud service where the Azure Diagnostics extension (IaaSDiagnostics / PaaDiagnostics) is.
+The easiest way to check your extension configuration is to go to [Azure Resource Explorer](https://resources.azure.com), and then go to the virtual machine or cloud service where the Azure Diagnostics extension (IaaSDiagnostics / PaaDiagnostics) is.
 
 Alternatively, remote desktop into the machine and look at the Azure Diagnostics Configuration file that's described in the Log artifacts path section.
 

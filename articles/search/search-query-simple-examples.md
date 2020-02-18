@@ -1,20 +1,19 @@
 ---
-title: Create a simple query - Azure Search
-description: Learn by example by running queries based on the simple syntax for full text search, filter search, geo search, faceted search against an Azure Search index.
-author: HeidiSteen
+title: Create a simple query
+titleSuffix: Azure Cognitive Search
+description: Learn by example by running queries based on the simple syntax for full text search, filter search, geo search, faceted search against an Azure Cognitive Search index.
+
 manager: nitinme
-tags: Simple query analyzer syntax
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Create a simple query in Azure Search
+# Create a simple query in Azure Cognitive Search
 
-In Azure Search, the [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invokes the default query parser for executing full text search queries against an index. This parser is fast and handles common scenarios, including full text search, filtered and faceted search, and geo-search. 
+In Azure Cognitive Search, the [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invokes the default query parser for executing full text search queries against an index. This parser is fast and handles common scenarios, including full text search, filtered and faceted search, and geo-search. 
 
 In this article, we use examples to illustrate the simple syntax.
 
@@ -22,9 +21,9 @@ An alternative query syntax is [Full Lucene](https://docs.microsoft.com/rest/api
 
 ## Formulate requests in Postman
 
-The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://nycopendata.socrata.com/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Search to try these queries.
+The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://nycopendata.socrata.com/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Cognitive Search to try these queries.
 
-What you do need is Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Quickstart: Explore Azure Search REST API using Postman](search-get-started-postman.md).
+What you do need is Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Quickstart: Explore Azure Cognitive Search REST API using Postman](search-get-started-postman.md).
 
 ### Set the request header
 
@@ -38,13 +37,13 @@ After you specify the request header, you can reuse it for all of the queries in
 
 ### Set the request URL
 
-Request is a GET command paired with a URL containing the Azure Search endpoint and search string.
+Request is a GET command paired with a URL containing the Azure Cognitive Search endpoint and search string.
 
   ![Postman request header](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 URL composition has the following elements:
 
-+ **`https://azs-playground.search.windows.net/`** is a sandbox search service maintained by the Azure Search development team. 
++ **`https://azs-playground.search.windows.net/`** is a sandbox search service maintained by the Azure Cognitive Search development team. 
 + **`indexes/nycjobs/`** is the NYC Jobs index in the indexes collection of that service. Both the service name and index are required on the request.
 + **`docs`** is the documents collection containing all searchable content. The query api-key provided in the request header only works on read operations targeting the documents collection.
 + **`api-version=2019-05-06`** sets the api-version, which is a required parameter on every request.
@@ -150,7 +149,7 @@ For more information about the function, see [search.ismatch in "Filter examples
 
 Range filtering is supported through **`$filter`** expressions for any data type. The following examples search over numeric and string fields. 
 
-Data types are important in range filters and work best when numeric data is in numeric fields, and string data in string fields. Numeric data in string fields is not suitable for ranges because numeric strings are not comparable in Azure Search. 
+Data types are important in range filters and work best when numeric data is in numeric fields, and string data in string fields. Numeric data in string fields is not suitable for ranges because numeric strings are not comparable in Azure Cognitive Search. 
 
 The following examples are in POST format for readability (numeric range, followed by text range):
 
@@ -285,13 +284,13 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## Next steps
 Try specifying queries in your code. The following links explain how to set up search queries for both .NET and the REST API using the default simple syntax.
 
-* [Query your Azure Search Index using the .NET SDK](search-query-dotnet.md)
-* [Query your Azure Search Index using the REST API](search-create-index-rest-api.md)
+* [Query your index using the .NET SDK](search-query-dotnet.md)
+* [Query your index using the REST API](search-create-index-rest-api.md)
 
 Additional syntax reference, query architecture, and examples can be found in the following links:
 
 + [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)
-+ [How full text search works in Azure Search](search-lucene-query-architecture.md)
++ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Full Lucene query](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 + [Filter and Orderby syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)

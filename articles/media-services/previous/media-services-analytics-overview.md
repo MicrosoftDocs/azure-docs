@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
 ---
@@ -22,16 +22,7 @@ ms.reviewer: milanga; johndeu
 ## Retirement plans
 
 > [!IMPORTANT]
-> The following legacy media processors are going to be retired in 2020, see details in the following table. 
-
-|Media processor name|Retirement date|Additional notes|
-|---|---|
-|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)| January 1 of 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). For more information, see [Migrate from Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).|
-|[Azure Media Indexer](media-services-index-content.md)|October 1st of 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). For more information, see [Migrate from Azure Media Indexer to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md)
-|[Azure Media Face Detector](media-services-face-and-emotion-detection.md)|February 1, 2020|This Media Analytics Preview processor  will be retired and will not be moved to general availability. We will be evaluating its scenarios and use-cases with customers for future investments.|
-|[Azure Media Motion Detector](media-services-motion-detection.md)|February 1, 2020|This Media Analytics Preview processor  will be retired and will not be moved to general availability. We will be evaluating its scenarios and use-cases with customers for future investments.|
-|[Azure Media OCR](media-services-video-optical-character-recognition.md)|February 1, 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) and the [Azure Media Services v3 API Video Analyzer Preset](../latest/analyzing-video-audio-files-concept.md).|
-|[Azure Media Video Thumbnails](media-services-video-summarization.md)|February 1, 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) and the [Azure Media Services v3 API Video Analyzer Preset](../latest/analyzing-video-audio-files-concept.md).|
+> Some media processors are being retired. For the retirement dates and more information, see the [legacy components](legacy-components.md) topic. 
 
 ## Overview
 
@@ -50,17 +41,21 @@ Media Analytics media processors produce MP4 files or JSON files. If a media pro
 ## Media Analytics services
 
 ### Indexer
-With Azure Media Indexer, you can make content searchable and generate closed-captioning tracks. Compared to the previous version, Azure Media Indexer 2 Preview has faster indexing and broader language support. Supported languages include English, Spanish, French, German, Italian, Chinese, Portuguese, and Arabic. For detailed information and examples, see [Process videos with Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
+With Azure Media Indexer, you can make content searchable and generate closed-captioning tracks. For detailed information and examples, see [Indexing Media Files with Azure Media Indexer](media-services-index-content.md).
+
 ### Motion Detector
 You can use Motion Detector to detect motion in a video with stationary backgrounds. This makes it possible to check for false positives on motion events detected by surveillance cameras. For detailed information and examples, see [Motion detection for Azure Media Analytics](media-services-motion-detection.md).
+
 ### Face Detector
 By using Face Detector, you can detect people’s faces and their emotions, including happiness, sadness, and surprise. This has several useful industry applications, described later, including aggregating and analyzing reactions of people attending an event. For detailed information and examples, see [Face and emotion detection for Azure Media Analytics](media-services-face-and-emotion-detection.md).
+
 ### Video summarization
 Video summarization can help you create summaries of long videos by automatically selecting interesting snippets from the source video. This ability is useful when you want to provide a quick overview of what to expect in a long video. For detailed information and examples, see [Use Azure Media Video Thumbnails to create video summarization](media-services-video-summarization.md).
 ### Optical character recognition
 With Azure Media OCR (optical character recognition), you can convert text content in video files into editable, searchable digital text. You can then automate the extraction of meaningful metadata from the video signal of your media.
 ### Scalable face redaction
 Azure Media Redactor is a Media Analytics media processor that offers scalable face redaction in the cloud. By using face redaction, you can modify your video to blur faces of selected individuals. You might want to use the face redaction service in news media or when public safety is involved. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this service, face redaction takes just a few simple steps. For more information, see the [Redact faces with Azure Media Analytics](media-services-face-redaction.md) article.
+
 ### Content Moderation
 Azure Content Moderator enables you to use machine-assisted moderation for your videos. For example, you might want to detect possible adult and racy content in videos and review the flagged content by your human moderation teams. Manually moderating videos for undesirable content is a time consuming and expensive task. With this service and associated review tools, you combine machine-assisted moderation with human-in-the-loop capabilities for best results  efficiently and cost-effectively. To learn more, see the [Process your videos with Azure Content Moderator](media-services-content-moderation.md) article.
 
@@ -74,7 +69,7 @@ Media Analytics can help organizations and enterprises glean new insights from v
 This section lists the Media Analytics media processors and shows how to use .NET or REST to get a media processor (MP) object.
 
 ### MP names
-* Azure Media Indexer 2 Preview
+
 * Azure Media Indexer
 * Azure Media Face Detector
 * Azure Media Motion Detector
@@ -111,7 +106,7 @@ Request:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.12
+    x-ms-version: 2.19
     Host: media.windows.net
 
 Response:

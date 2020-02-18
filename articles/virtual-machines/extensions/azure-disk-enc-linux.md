@@ -1,5 +1,5 @@
 ---
-title: Azure Disk Encryption for Linux | Microsoft Docs
+title: Azure Disk Encryption for Linux 
 description: Deploys Azure Disk Encryption for Linux to a virtual machine using a virtual machine extension.
 services: virtual-machines-linux 
 documentationcenter: ''

@@ -1,10 +1,11 @@
 ---
-title: Azure Data Factory mapping data flow Lookup Transformation
+title: Mapping data flow Lookup Transformation
 description: Azure Data Factory mapping data flow Lookup Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/03/2019
 ---
 

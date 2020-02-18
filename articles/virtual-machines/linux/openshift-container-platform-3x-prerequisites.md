@@ -1,5 +1,5 @@
 ---
-title: OpenShift Container Platform 3.11 in Azure prerequisites | Microsoft Docs
+title: OpenShift Container Platform 3.11 in Azure prerequisites 
 description: Prerequisites to deploy OpenShift Container Platform 3.11 in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines

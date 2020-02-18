@@ -4,7 +4,7 @@ description: include file
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 02/07/2020
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -44,6 +44,8 @@ A maximum of two event sources per instance is supported.
 
 * Learn how to [Add an event hub source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configure [an IoT hub source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+
+By default, [Preview environments support ingress rates](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#ingress-scale-and-preview-limitations) up to **1 megabyte per second (MB/s) per environment**. Customers may scale their Preview environments up to **16 MB/s** throughput if necessary. There is also a per-partition limit of **0.5 MB/s**. 
 
 ### API limits
 

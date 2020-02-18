@@ -1,5 +1,5 @@
 ---
-title: SQL Database managed instance - Point-in-time restore | Microsoft Docs
+title: Managed instance - Point-in-time restore
 description: Restore a SQL database in a managed instance to a previous point in time.
 services: sql-database
 ms.service: sql-database
@@ -130,7 +130,7 @@ For a detailed explanation of the available parameters, see the [CLI documentati
 
 ## Restore a deleted database
 
-Restoring a deleted database can be done only by using PowerShell. The database can be restored to the same instance or another instance.
+Restoring a deleted database can be done by using PowerShell or Azure Portal.Please use this document to do this by [Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#managed-instance-database-1). The database can be restored to the same instance or another instance.
 
 To restore a deleted database by using PowerShell, specify your values for the parameters in the following command. Then, run the command:
 
@@ -224,7 +224,7 @@ az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 Connect directly to the managed instance and start SQL Server Management Studio. Then, run the following Transact-SQL (T-SQL) query. The query will change the name of the restored database to that of the dropped database that you intend to overwrite.
 
 ```sql
-ALTER WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
+ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
 Use one of the following methods to connect to your database in the managed instance:

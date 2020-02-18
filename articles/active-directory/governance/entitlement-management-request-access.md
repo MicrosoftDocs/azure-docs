@@ -1,6 +1,6 @@
 ---
-title: Request access to an access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to use the My Access portal to request access to an access package in Azure Active Directory entitlement management (Preview).
+title: Request an access package - Azure AD entitlement management
+description: Learn how to use the My Access portal to request access to an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a requestor, I want simple steps for how to request resources I need so that I can start using the resources to perform my job.
 
 ---
-# Request access to an access package in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Request access to an access package in Azure AD entitlement management
 
 With Azure AD entitlement management, an access package enables a one-time setup of resources and policies that automatically administers access for the life of the access package. 
 
@@ -83,6 +78,30 @@ Once you have found the access package in the My Access portal, you can submit a
 If you request access to an access package that has multiple policies that apply, you might be asked to select a policy. For example, an access package manager might configure an access package with two policies for two groups of internal employees. The first policy might allow access for 60 days and require approval. The second policy might allow access for 2 days and not require approval. If you encounter this scenario, you must select the policy you want to use.
 
 ![My Access portal - Request access - multiple policies](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+## Resubmit a request
+
+When you request access to an access package, your request might be denied or your request might expire if approvers don't respond in time. If you need access, you can try again and resubmit your request. The following procedure explains how to resubmit an access request:
+
+**Prerequisite role:** Requestor
+
+1. Sign in to the **My Access** portal.
+
+1. Click **Request history** from the navigation menu to the left.
+
+1. Find the access package for which you are resubmitting a request.
+
+1. Click the check mark to select the access package.
+
+1. Click the blue **View** link to the right of the selected access package.
+    
+    ![Select access package and view link](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
+
+    A pane will open to the right with the request history for the access package.
+    
+    ![Select resubmit button](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
+
+1. Click the **Resubmit** button at the bottom of the pane.
 
 ## Cancel a request
 

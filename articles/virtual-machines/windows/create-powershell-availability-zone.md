@@ -1,5 +1,5 @@
 ﻿---
-title: Create a zoned Windows VM - Azure PowerShell | Microsoft Docs
+title: Create a zoned Windows VM - Azure PowerShell 
 description: Create a Windows virtual machine in an availability zone with Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -25,7 +25,7 @@ This article details using Azure PowerShell to create an Azure virtual machine r
 
 To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#services-support-by-region).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Sign in to Azure
 
@@ -86,7 +86,7 @@ $vnet = New-AzVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus
 
 # Create a public IP address in an availability zone and specify a DNS name
 $pip = New-AzPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus2 -Zone 2 `
-    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
+    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)" -Sku Standard
 ```
 
 ### Create a network security group and a network security group rule 

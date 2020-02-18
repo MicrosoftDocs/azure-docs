@@ -1,49 +1,55 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
+
 title: Azure API for FHIR Documentation
+summary: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+
 metadata:
-  title: Azure API for FHIR Documentation
-  meta.description: Learn how Azure API for FHIR can power healthcare iteroperability in Azure.
+  title: Azure API for FHIR Documentation - tutorials, how-to guides
+  description: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
   services: healthcare-apis
-  author: hansenms
-  manager: dougseven
-  ms.author: mihansen
   ms.service: healthcare-apis
   ms.subservice: fhir
-  ms.topic: landing-page
-  ms.date: 02/07/2019
-abstract:
-  description: Azure API for FHIR® is a fully managed, standards-based, compliant API for clinical health data that enables you to create new systems of engagement for analytics, machine learning, and actionable intelligence with your health data. 
-sections:
-- title:  
-  items:
-    - type: paragraph
-      text: FHIR&reg; is the registered trademark of HL7 and is used with the permission of HL7.
-- title: 5-Minute Quickstarts
-  items:
-    - type: paragraph
-      text: Learn how Azure API for FHIR can power healthcare interoperability in Azure by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
-    - type: table
-      style: dataMatrix
-      columns:
-        - image:
-            src: media/index/portal.svg
-          title: Azure portal
-        - image:
-            src: media/index/powershell.svg
-          title: Azure PowerShell
-        - image:
-            src: media/index/cli.svg
-          title: Azure CLI
-      rows:
-        - title: Deploy Azure API for FHIR
-          values:
-          - href: fhir-paas-portal-quickstart.md
-          - href: fhir-paas-powershell-quickstart.md
-          - href: fhir-paas-cli-quickstart.md
-        - title: Deploy Open Source FHIR Server
-          values:
-          - href: fhir-oss-portal-quickstart.md
-          - href: fhir-oss-powershell-quickstart.md
-          - href: fhir-oss-cli-quickstart.md
-          
+  ms.topic: landing-page 
+  ms.collection: collection
+  author: hansenms
+  ms.author: mihansen
+  ms.date: 11/06/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+  - title: Start with Azure API for FHIR
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure API for FHIR?
+            url: overview.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy API Server for FHIR
+            url: fhir-paas-portal-quickstart.md 
+
+  - title: Set-up tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy javascript app to read data from FHIR service
+            url: tutorial-web-app-fhir-server.md
+          - text: Access FHIR API with Postman
+            url: access-fhir-postman-tutorial.md
+          - text: SMART integration for third-party apps & medical records
+            url: use-smart-on-fhir-proxy.md
+
+  - title: Register apps for AD authentication
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Register a resource app
+            url: register-resource-azure-ad-client-app.md
+          - text: Register a confidential client app
+            url: register-confidential-azure-ad-client-app.md
+          - text: Register a public client app
+            url: register-public-azure-ad-client-app.md
+          - text: Register a service client app
+            url: register-service-azure-ad-client-app.md       

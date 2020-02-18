@@ -146,7 +146,7 @@ landingContent:
           - text: Java SDK
             url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
           - text: Node.js SDK
-            url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest
+            url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-contentmoderator
           - text: Go SDK
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
           - text: Azure PowerShell

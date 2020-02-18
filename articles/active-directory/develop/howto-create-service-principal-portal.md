@@ -1,23 +1,18 @@
 ---
-title: Create identity for Azure app in portal 
+title: Create an Azure AD app & service principal in the portal
 titleSuffix: Microsoft identity platform
-description: Describes how to create a new Azure Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
+description: Create a new Azure Active Directory app & service principal to manage access to resources with role-based access control in Azure Resource Manager.
 services: active-directory
-documentationcenter: na
 author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Use the portal to create an Azure AD application and service principal that can access resources
@@ -47,7 +42,7 @@ To access resources in your subscription, you must assign the application to a r
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
 
-1. Navigate to the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, select **All services** and **Subscriptions**.
+1. In the Azure portal, select the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, search for and select **Subscriptions**, or select **Subscriptions** on the **Home** page.
 
    ![For example, assign a role at the subscription scope](./media/howto-create-service-principal-portal/select-subscription.png)
 

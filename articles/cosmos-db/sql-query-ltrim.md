@@ -1,6 +1,6 @@
 ---
 title: LTRIM in Azure Cosmos DB query language
-description: Learn about SQL system function LTRIM in Azure Cosmos DB.
+description: Learn about the LTRIM SQL system function in Azure Cosmos DB to return a string expression after it removes leading blanks
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

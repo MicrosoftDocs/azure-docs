@@ -1,6 +1,6 @@
 ---
-title: 'Send events to an Azure Time Series Insights environment | Microsoft Docs'
-description: Learn how to configure an event hub and run a sample application to push events you can view in Azure Time Series Insights.
+title: 'Send events to an environment - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to configure an event hub, run a sample application, and send events to your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 02/11/2020
 ms.custom: seodec18
 ---
 
@@ -19,19 +19,19 @@ This article explains how to create and configure an event hub in Azure Event Hu
 
 ## Configure an event hub
 
-1. To learn how to create an event hub, see the [Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/).
+1. To learn how to create an event hub, read the [Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/).
 1. In the search box, search for **Event Hubs**. In the returned list, select **Event Hubs**.
 1. Select your event hub.
 1. When you create an event hub, you're creating an event hub namespace. If you haven't yet created an event hub within the namespace, on the menu, under **Entities**, create an event hub.  
 
-    [![List of event hubs](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
+    [![List of event hubs](media/send-events/tsi-connect-event-hub-namespace.png)](media/send-events/tsi-connect-event-hub-namespace.png#lightbox)
 
 1. After you create an event hub, select it in the list of event hubs.
 1. On the menu, under **Entities**, select **Event Hubs**.
 1. Select the name of the event hub to configure it.
 1. Under **Overview**, select **Consumer groups**, and then select **Consumer Group**.
 
-    [![Create a consumer group](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
+    [![Create a consumer group](media/send-events/add-event-hub-consumer-group.png)](media/send-events/add-event-hub-consumer-group.png#lightbox)
 
 1. Make sure you create a consumer group that's used exclusively by your Time Series Insights event source.
 
@@ -40,23 +40,23 @@ This article explains how to create and configure an event hub in Azure Event Hu
 
 1. On the menu, under **Settings**, select **Shared access policies**, and then select **Add**.
 
-    [![Select Shared access policies, and then select the Add button](media/send-events/3-shared-access-policy.png)](media/send-events/3-shared-access-policy.png#lightbox)
+    [![Select Shared access policies, and then select the Add button](media/send-events/add-shared-access-policy.png)](media/send-events/add-shared-access-policy.png#lightbox)
 
 1. In the **Add new shared access policy** pane, create a shared access named **MySendPolicy**. You use this shared access policy to send events in the C# examples later in this article.
 
-    [![In the Policy name box, enter MySendPolicy](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
+    [![In the Policy name box, enter MySendPolicy](media/send-events/configure-shared-access-policy-confirm.png)](media/send-events/configure-shared-access-policy-confirm.png#lightbox)
 
 1. Under **Claim**, select the **Send** check box.
 
 ## Add a Time Series Insights instance
 
-The Time Series Insights update uses instances to add contextual data to incoming telemetry data. The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is `id`. To learn more about Time Series Insight instances and **Time Series ID**, see [Time Series Models](./time-series-insights-update-tsm.md).
+The Time Series Insights update uses instances to add contextual data to incoming telemetry data. The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is `id`. To learn more about Time Series Insight instances and **Time Series ID**, read [Time Series Models](./time-series-insights-update-tsm.md).
 
 ### Create a Time Series Insights event source
 
 1. If you haven't created an event source, complete the steps to [create an event source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
-1. Set a value for `timeSeriesId`. To learn more about **Time Series ID**, see [Time Series Models](./time-series-insights-update-tsm.md).
+1. Set a value for `timeSeriesId`. To learn more about **Time Series ID**, read [Time Series Models](./time-series-insights-update-tsm.md).
 
 ### Push events to windmills sample
 
@@ -66,18 +66,24 @@ The Time Series Insights update uses instances to add contextual data to incomin
 
 1. Go to **Shared Access Policies** > **MySendPolicy**. Copy the value for **Connection string-primary key**.
 
-    [![Copy the value for the primary key connection string](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
+    [![Copy the value for the primary key connection string](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Go to https://tsiclientsample.azurewebsites.net/windFarmGen.html. The URL runs simulated windmill devices.
+1. Go to https://tsiclientsample.azurewebsites.net/windFarmGen.html. The URL creates and runs simulated windmill devices.
 1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in the [windmill input field](#push-events-to-windmills-sample).
   
-    [![Paste the primary key connection string in the Event Hub Connection String box](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
+    [![Paste the primary key connection string in the Event Hub Connection String box](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
-1. Select **Click to start**. The simulator generates instance JSON that you can use directly.
+1. Select **Click to start**. 
 
-1. Go back to your event hub in the Azure portal. On the **Overview** page, you see the new events that are received by the event hub.
+    > [!TIP]
+    > The windmill simulator also creates JSON you can use as a payload with the [Time Series Insights GA Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
 
-    [![An event hub Overview page that shows metrics for the event hub](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
+    > [!NOTE]
+    > The simulator will continue to send data until the browser tab is closed.
+
+1. Go back to your event hub in the Azure portal. On the **Overview** page, the new events received by the event hub are displayed.
+
+    [![An event hub Overview page that shows metrics for the event hub](media/send-events/review-windmill-telemetry.png)](media/send-events/review-windmill-telemetry.png#lightbox)
 
 ## Supported JSON shapes
 

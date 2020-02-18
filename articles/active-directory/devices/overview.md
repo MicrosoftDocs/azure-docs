@@ -29,7 +29,7 @@ To protect these assets, IT staff need to first manage the device identities. IT
 - Your users get access to your organization's assets they need. 
 - Your IT staff get the controls they need to secure your organization.
 
-Device identity management is the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access policies, you can ensure that access to resources in your environment is only possible with managed devices.
+Device identity management is the foundation for [device-based Conditional Access](../conditional-access/require-managed-devices.md). With device-based Conditional Access policies, you can ensure that access to resources in your environment is only possible with managed devices.
 
 ## Getting devices in Azure AD
 
@@ -49,15 +49,18 @@ To get a device in Azure AD, you have multiple options:
       - Windows 7, 8.1, or 10
       - Windows Server 2008 or newer
 
-![Devices displayed in Azure AD Devices blade](./media/overview/azure-ad-devices-all-devices-overview.png)
+![Devices displayed in Azure AD Devices blade](./media/overview/azure-active-directory-devices-all-devices.png)
 
 ## Device management
 
-Devices in Azure AD can be managed using Mobile Device Management (MDM) tools like Microsoft Intune, System Center Configuration Manager, Group Policy (hybrid Azure AD join), Mobile Application Management (MAM) tools, or other third-party tools.
+Devices in Azure AD can be managed using Mobile Device Management (MDM) tools like Microsoft Intune, Microsoft Endpoint Configuration Manager, Group Policy (hybrid Azure AD join), Mobile Application Management (MAM) tools, or other third-party tools.
 
 ## Resource access
 
-Registering and joining give your users Seamless Sign-on (SSO) to cloud resources and administrators the ability to apply Conditional Access policies to those resources. 
+Registering and joining devices to Azure AD gives your users Seamless Sign-on (SSO) to cloud resources. This process also allows administrators the ability to apply Conditional Access policies to resources based on the device they are accessed from. 
+
+> [!NOTE]
+> Device-based Conditional Access policies require either hybrid Azure AD joined devices or compliant Azure AD joined or Azure AD registered devices.
 
 Devices that are Azure AD joined or hybrid Azure AD joined benefit from SSO to your organization's on-premises resources as well as cloud resources. More information can be found in the article, [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
 
@@ -93,4 +96,4 @@ With device identity management in Azure AD, you can:
 - Learn more about [Azure AD joined devices](concept-azure-ad-join.md)
 - Learn more about [hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md)
 - To get an overview of how to manage device identities in the Azure portal, see [Managing device identities using the Azure portal](device-management-azure-portal.md).
-- To learn more about device-based conditional access, see [Configure Azure Active Directory device-based conditional access policies](../conditional-access/require-managed-devices.md).
+- To learn more about device-based Conditional Access, see [Configure Azure Active Directory device-based Conditional Access policies](../conditional-access/require-managed-devices.md).

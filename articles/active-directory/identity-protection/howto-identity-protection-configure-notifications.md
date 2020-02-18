@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Identity Protection notifications| Microsoft Docs
+title: Azure Active Directory Identity Protection notifications
 description: Learn how notifications support your investigation activities.
 
 services: active-directory
@@ -23,6 +23,9 @@ Azure AD Identity Protection sends two types of automated notification emails to
 - Weekly digest email
 
 This article provides you with an overview of both notification emails.
+
+>[!NOTE]
+>Email notifications are available only in the public cloud and are not currently available in the US Government cloud.
 
 ## Users at risk detected email
 

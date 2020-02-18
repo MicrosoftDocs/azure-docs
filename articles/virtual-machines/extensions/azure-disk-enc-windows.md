@@ -1,5 +1,5 @@
 ---
-title: Azure Disk Encryption for Windows | Microsoft Docs
+title: Azure Disk Encryption for Windows 
 description: Deploys Azure Disk Encryption to a Windows virtual machine using a virtual machine extension.
 services: virtual-machines-windows 
 documentationcenter: ''

@@ -1,17 +1,10 @@
 ---
-title: Introduction to App Service on Linux - Azure | Microsoft Docs
-description: Learn about Azure App Service on Linux.
+title: Run code on default Linux containers
+description: Azure App Service can run your code on pre-built Linux containers. Find out how you can run your Linux web applications on Azure.
 keywords: azure app service, linux, oss
-services: app-service
-documentationcenter: ''
 author: msangapu-msft
-manager: gwallace
-editor: ''
 
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
@@ -64,7 +57,12 @@ Based on a current limitation, for the same resource group you cannot mix Window
 
 ## Troubleshooting
 
-When your application fails to start or you want to check the logging from your app, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP. To log the `stdout` and `stderr` from your container, you need to enable **Docker Container logging** under **App Service Logs**. The setting takes effect immediately. App Service detects the change and restarts the container automatically.
+> [!NOTE]
+> There's new integrated logging capability with [Azure Monitoring (preview)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) . 
+>
+>
+
+When your application fails to start or you want to check the logging from your app, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP. To log the `stdout` and `stderr` from your container, you need to enable **Application Logging** under **App Service Logs**. The setting takes effect immediately. App Service detects the change and restarts the container automatically.
 
 You can access the SCM site from **Advanced Tools** in the **Development Tools** menu.
 

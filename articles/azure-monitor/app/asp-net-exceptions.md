@@ -1,5 +1,5 @@
 ---
-title: Diagnose failures and exceptions in web apps with Azure Application Insights | Microsoft Docs
+title: Diagnose failures and exceptions with Azure Application Insights
 description: Capture exceptions from ASP.NET apps along with request telemetry.
 ms.service:  azure-monitor
 ms.subservice: application-insights

@@ -1,22 +1,13 @@
 ---
-title: Create a function in Azure that is deployed from GitHub | Microsoft Docs 
+title: Create a function app with GitHub deployment - Azure CLI
 description: Create a function app and deploy function code from a GitHub repository using Azure Functions.
-services: functions 
-ms.service: azure-functions
-keywords: 
-ms.devlang: azurecli
-
-author: ggailey777
-ms.author: glenga
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
 ---
 # Create a function app in Azure that is deployed from GitHub
 
-This Azure Functions sample script creates a function app using the [consumption plan](../functions-scale.md#consumption-plan), along with its related resources. The script also configures your function code for  continuous deployment from a GitHub repository. 
-
-[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+This Azure Functions sample script creates a function app using the [Consumption plan](../functions-scale.md#consumption-plan), along with its related resources. The script also configures your function code for  continuous deployment from a GitHub repository. 
 
 In this sample, you need:
 
@@ -43,12 +34,12 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Creates the storage account required by the function app. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [consumption plan](../functions-scale.md#consumption-plan) and associates it with a Git or Mercurial repository. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creates the storage account required by the function app. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [Consumption plan](../functions-scale.md#consumption-plan) and associates it with a Git or Mercurial repository. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).

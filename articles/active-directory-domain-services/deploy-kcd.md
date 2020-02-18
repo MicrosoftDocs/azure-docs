@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
 
 ---
 # Configure Kerberos constrained delegation (KCD) in Azure Active Directory Domain Services
 
-As you run applications, there may be a need for those applications to access resources in the context of a different user. Active Directory Domain Services (AD DS) supports a mechanism called *Kerberos delegation* that enables this use-case. Kerberos *constrained* delegation (KCD) then builds on this mechanism to define specific resources that can be accessed in the context of the user. Azure Active Directory Domain Services (Azure AD DS) managed domains are more securely locked down that traditional on-premises AD DS environments, so use a more secure *resource-based* KCD.
+As you run applications, there may be a need for those applications to access resources in the context of a different user. Active Directory Domain Services (AD DS) supports a mechanism called *Kerberos delegation* that enables this use-case. Kerberos *constrained* delegation (KCD) then builds on this mechanism to define specific resources that can be accessed in the context of the user. Azure Active Directory Domain Services (Azure AD DS) managed domains are more securely locked down than traditional on-premises AD DS environments, so use a more secure *resource-based* KCD.
 
-This article shows you how to configure resource-basd Kerberos constrained delegation in an Azure AD DS managed domain.
+This article shows you how to configure resource-based Kerberos constrained delegation in an Azure AD DS managed domain.
 
 ## Prerequisites
 
@@ -38,7 +38,9 @@ To complete this article, you need the following resources:
 
 Kerberos delegation lets one account impersonate another account to access resources. For example, a web application that accesses a back-end web component can impersonate itself as a different user account when it makes the back-end connection. Kerberos delegation is insecure as it doesn't limit what resources the impersonating account can access.
 
-Kerberos constrained delegation (KCD) restricts the services or resources that a specified server or application can connect when impersonating another identity. Traditional KCD requires domain administrator privileges to configure a domain account for a service, and it restricts the account to run on a single domain. Traditional KCD also has a few issues. For example, in earlier operating systems, the service administrator had no useful way to know which front-end services delegated to the resource services they owned. Any front-end service that could delegate to a resource service was a potential attack point. If a server that hosted a front-end service configured to delegate to resource services was compromised, the resource services could also be compromised.
+Kerberos constrained delegation (KCD) restricts the services or resources that a specified server or application can connect when impersonating another identity. Traditional KCD requires domain administrator privileges to configure a domain account for a service, and it restricts the account to run on a single domain.
+
+Traditional KCD also has a few issues. For example, in earlier operating systems, the service administrator had no useful way to know which front-end services delegated to the resource services they owned. Any front-end service that could delegate to a resource service was a potential attack point. If a server that hosted a front-end service configured to delegate to resource services was compromised, the resource services could also be compromised.
 
 In an Azure AD DS managed domain, you don't have domain administrator privileges. As a result, traditional account-based KCD can't be configured in an Azure AD DS a managed domain. Resource-based KCD can instead be used, which is also more secure.
 
@@ -50,7 +52,7 @@ Resource-based KCD is configured using PowerShell. You use the [Set-ADComputer][
 
 ## Configure resource-based KCD for a computer account
 
-In this scenario, let's assume you have a web app that runs on the computer named *contoso-webapp.contoso.com*. The web app needs to access a web API that runs on the computer named *contoso-api.contoso.com* in the context of domain users. Complete the following steps to configure this scenario:
+In this scenario, let's assume you have a web app that runs on the computer named *contoso-webapp.aadds.contoso.com*. The web app needs to access a web API that runs on the computer named *contoso-api.aadds.contoso.com* in the context of domain users. Complete the following steps to configure this scenario:
 
 1. [Create a custom OU](create-ou.md). You can delegate permissions to manage this custom OU to users within the Azure AD DS managed domain.
 1. [Domain-join the virtual machines][create-join-windows-vm], both the one that runs the web app, and the one that runs the web API, to the Azure AD DS managed domain. Create these computer accounts in the custom OU from the previous step.
@@ -61,8 +63,8 @@ In this scenario, let's assume you have a web app that runs on the computer name
 1. Finally, configure resource-based KCD using the [Set-ADComputer][Set-ADComputer] PowerShell cmdlet. From your domain-joined management VM and logged in as user account that's a member of the *Azure AD DC administrators* group, run the following cmdlets. Provide your own computer names as needed:
     
     ```powershell
-    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.contoso.com
-    Set-ADComputer contoso-api.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aadds.contoso.com
+    Set-ADComputer contoso-api.aadds.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
     ```
 
 ## Configure resource-based KCD for a user account

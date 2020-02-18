@@ -1,5 +1,5 @@
 ---
-title: Set up Apache Kafka on HDInsight using Azure portal - Quickstart
+title: 'Quickstart: Set up Apache Kafka on HDInsight using Azure portal'
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using the Azure portal. You also learn about Kafka topics, subscribers, and consumers.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -68,7 +68,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
     |Primary storage account|Use the drop-down list to select an existing storage account, or select **Create new**. If you create a new account, the name must be between 3 and 24 characters in length, and can include numbers and lowercase letters only|
     |Container|Use the autopopulated value.|
 
-    ![HDInsight Linux get started provide cluster storage values](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Provide storage values for creating an HDInsight cluster")
+    ![HDInsight Linux get started provide cluster storage values](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "Provide storage values for creating an HDInsight cluster")
 
     Select the **Security + networking** tab.
 
@@ -76,7 +76,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
    If you would like to connect your cluster to a virtual network, select a virtual network from the **Virtual network** dropdown.
 
-   ![Add cluster to a virtual network](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vn.png)
+   ![Add cluster to a virtual network](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
 
     Select the **Configuration + pricing** tab.
 

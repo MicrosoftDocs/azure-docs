@@ -1,6 +1,6 @@
 ---
-title: SQL Data Warehouse Business Intelligence partners | Microsoft Docs
-description: Lists of third-party business intelligence partners with solutions that support SQL Data Warehouse.
+title: Business Intelligence partners 
+description: Lists of third-party business intelligence partners with solutions that support Azure SQL Data Warehouse.
 services: sql-data-warehouse
 services: sql-data-warehouse
 author: mabasile-MSFT
@@ -11,6 +11,7 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # SQL Data Warehouse business intelligence partners
@@ -82,7 +83,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 
 [birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
-[looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
+[looker_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20
 [qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
 [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 

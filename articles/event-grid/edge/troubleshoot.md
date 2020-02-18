@@ -22,7 +22,7 @@ To troubleshoot, you might need to access Event Grid module logs. To do this, on
 On Windows,
 
 ```sh
-docker -H npipe:////./pipe/notedly_moby_engine container logs eventgridmodule
+docker -H npipe:////./pipe/iotedge_moby_engine container logs eventgridmodule
 ```
 
 On Linux,

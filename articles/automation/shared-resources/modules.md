@@ -3,9 +3,9 @@ title: Manage Modules in Azure Automation
 description: This article describes how to manage modules in Azure Automation
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 06/05/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -29,6 +29,14 @@ You can use the [New-AzureRmAutomationModule](/powershell/module/azurerm.automat
 New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
 ```
 
+You can also use the same cmdlet to import a module from PowerShell Gallery directly. Make sure to grab **ModuleName** and **ModuleVersion** from [PowerShell Gallery](https://www.powershellgallery.com).
+
+```azurepowershell-interactive
+$moduleName = <ModuleName>
+$moduleVersion = <ModuleVersion>
+New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
+```
+
 ### Azure portal
 
 In the Azure portal, navigate to your Automation Account and select **Modules** under **Shared Resources**. Click **+ Add a module**. Select a **.zip** file that contains your module and click **Ok** to start to import process.
@@ -47,11 +55,11 @@ You can also import modules from the PowerShell Gallery directly from your Autom
 
 ## Delete modules
 
-If you have issues with a module or you need to roll back to a previous version of a module, you can delete it from your Automation Account. You can not delete the original version of the [default modules](#default-modules) that are imported when you create an Automation Account. If the module you want to delete is a newer version of one of the [default modules](#default-modules) installed, it will roll-back to the version that was installed with your Automation Account. Otherwise, any module you delete from your Automation Account will be removed.
+If you have issues with a module or you need to roll back to a previous version of a module, you can delete it from your Automation Account. You cannot delete the original version of the [default modules](#default-modules) that are imported when you create an Automation Account. If the module you want to delete is a newer version of one of the [default modules](#default-modules) installed, it will roll back to the version that was installed with your Automation Account. Otherwise, any module you delete from your Automation Account will be removed.
 
 ### Azure portal
 
-In the Azure portal, navigate to your Automation Account and select **Modules** under **Shared Resources**. Select the module you want to remove. On the **Module** page, clcick **Delete**. If this module is one of the [default modules](#default-modules), it will be rolled back to the version that was present when the Automation Account was created.
+In the Azure portal, navigate to your Automation Account and select **Modules** under **Shared Resources**. Select the module you want to remove. On the **Module** page, select **Delete**. If this module is one of the [default modules](#default-modules), it will be rolled back to the version that was present when the Automation Account was created.
 
 ### PowerShell
 
@@ -65,6 +73,10 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 The following is a listing of cmdlets in the internal `Orchestrator.AssetManagement.Cmdlets` module that is imported into every Automation Account. These cmdlets are accessible in your runbooks and DSC configurations and allow you to interact with your assets within your Automation Account. Additionally, the internal cmdlets allow you to retrieve secrets from encrypted **Variable** values, **Credentials**, and encrypted **Connection** fields. The Azure PowerShell cmdlets are not able to retrieve these secrets. These cmdlets do not require you to implicitly connect to Azure when using them, such as using a Run As Account to authenticate to Azure.
 
+>[!NOTE]
+>These internal cmdlets are available on a Windows Hybrid Runbook Worker, they are not available on a Linux Hybrid Runbook Worker. Use the corresponding [AzureRM.Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) or [Az modules](../az-modules.md) for runbooks running directly on the computer or against resources in your environment. 
+>
+
 |Name|Description|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
@@ -77,7 +89,7 @@ The following is a listing of cmdlets in the internal `Orchestrator.AssetManagem
 
 ## Add a connection type to your module
 
-You can provide a custom [connection type](../automation-connections.md) for you to use in your Automation Account by adding an optional file to your module. This file is a metadata file specifying an Azure Automation connection type to be used with the module's cmdlets in your Automation Account. To achieve this, you must first know how to author a PowerShell module. For more information on module authoring, see [How to Write a PowerShell Script Module](/powershell/developer/module/how-to-write-a-powershell-script-module).
+You can provide a custom [connection type](../automation-connections.md) for you to use in your Automation Account by adding an optional file to your module. This file is a metadata file specifying an Azure Automation connection type to be used with the module's cmdlets in your Automation Account. To achieve this, you must first know how to author a PowerShell module. For more information on module authoring, see [How to Write a PowerShell Script Module](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
 ![Use a custom connection in the Azure portal](../media/modules/connection-create-new.png)
 
@@ -233,7 +245,7 @@ Add `[OutputType([<MyOutputType>])]` where MyOutputType is a valid type. To lear
 
 ## Default modules
 
-The following table lists the modules that are imported by default when an Automation Account is created. The modules listed below can have newer versions of them imported, but the original version can not be removed from your Automation Account even if you delete a newer version of them.
+The following table lists the modules that are imported by default when an Automation Account is created. The modules listed below can have newer versions of them imported, but the original version cannot be removed from your Automation Account even if you delete a newer version of them.
 
 |Module name|Version|
 |---|---|

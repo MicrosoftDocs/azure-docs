@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language (SSML) - Speech Service
+title: Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
@@ -16,7 +16,7 @@ ms.author: erhopf
 
 Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech using the text-to-speech service. Compared to plain text, SSML allows developers to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output. Normal punctuation, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark are automatically handled.
 
-The Speech Services implementation of SSML is based on World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/speech-synthesis).
+The Speech service implementation of SSML is based on World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/speech-synthesis).
 
 > [!IMPORTANT]
 > Chinese, Japanese, and Korean characters count as two characters for billing. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -115,7 +115,7 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 > [!IMPORTANT]
 > This feature will only work with neural voices.
 
-By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express cheerfulness, empathy, or sentiment with the `<mstts:express-as>` element. This is an optional element unique to Azure Speech Services.
+By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express cheerfulness, empathy, or sentiment with the `<mstts:express-as>` element. This is an optional element unique to the Speech service.
 
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-JessaNeural`
@@ -142,6 +142,8 @@ Use this table to determine which speaking styles are supported for each neural 
 | `en-US-JessaNeural` | type=`cheerful` | Expresses an emotion that is positive and happy |
 | | type=`empathy` | Expresses a sense of caring and understanding |
 | | type=`chat` | Speak in a casual, relaxed tone |
+| | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
+| | type=`customerservice` | Speak in a friendly and patient way as customer service |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
 | | type=`sentiment` | Conveys a touching message or a story |
 

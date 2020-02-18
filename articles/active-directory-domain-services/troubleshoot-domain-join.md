@@ -30,7 +30,7 @@ If the VM can't find the Azure AD DS managed domain, there's usually a network c
 
 1. Ensure the VM is connected to the same, or a peered, virtual network that's enabled for Azure AD DS. If not, the VM can't find and connect to the domain in order to join.
     * If the VM isn't connected to the same virtual network, confirm that the virtual networking peering or VPN connection is *Active* or *Connected* to allow the traffic to flow correctly.
-1. Try to ping the domain using the domain name of the Azure AD DS managed domain, such as `ping contoso.com`.
+1. Try to ping the domain using the domain name of the Azure AD DS managed domain, such as `ping aadds.contoso.com`.
     * If the ping response fails, try to ping the IP addresses for the domain displayed on the overview page in the portal for your Azure AD DS managed domain, such as `ping 10.0.0.4`.
     * If you can successfully ping the IP address but not the domain, DNS may be incorrectly configured. Make sure that you've configured the Azure AD DS managed domain DNS servers for the virtual network.
 1. Try flushing the DNS resolver cache on the virtual machine, such as `ipconfig /flushdns`.

@@ -1,11 +1,10 @@
 ---
-title: Create a Node.js web app - Azure App Service
-description: How to deploy a Node.js app to Azure App Service
-author: msangapu
+title: 'Quickstart: Create a Linux Node.js app'
+description: Get started with Linux apps on Azure App Service by deploying your first Node.js app to a Linux container in App Service.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
-ms.service: app-service
 ms.devlang: javascript
 
 # NOTE: this article is nearly identical to app-service/app-service-web-get-started-nodejs.md.

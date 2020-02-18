@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory (Azure AD) Identity Protection security overview
+title: Azure Active Directory Identity Protection security overview
 description: Learn how the Security overview gives you an insight into your organization’s security posture. 
 
 services: active-directory

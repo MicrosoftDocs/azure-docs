@@ -1,11 +1,11 @@
 ---
-title: Support matrix for disaster recovery of Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery
+title: Support matrix-Hyper-V disaster recovery to a secondary VMM site with Azure Site Recovery
 description: Summarizes support for Hyper-V VM replication in VMM clouds to a secondary site with Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
 ---
 
@@ -15,9 +15,6 @@ This article summarizes what's supported when you use the [Azure Site Recovery](
 
 > [!NOTE]
 > You can only replicate to a secondary site when your Hyper-V hosts are managed in VMM clouds.
-
-> [!WARNING]
-> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
 
 
 ## Host servers

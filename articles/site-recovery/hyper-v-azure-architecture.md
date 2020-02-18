@@ -1,11 +1,11 @@
 ---
-title: Hyper-V to Azure disaster recovery architecture in Azure Site Recovery
+title: Hyper-V disaster recovery architecture in Azure Site Recovery
 description: This article provides an overview of components and architecture used when deploying disaster recovery for on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ---
 
@@ -34,9 +34,6 @@ The following table and graphic provide a high-level view of the components used
 
 ![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
-
-> [!WARNING]
-> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
 
 ## Architectural components - Hyper-V with VMM
 

@@ -1,12 +1,9 @@
 ---
 title: Run an Apache Spark job with Azure Kubernetes Service (AKS)
 description: Use Azure Kubernetes Service (AKS) to run an Apache Spark job
-services: container-service
 author: lenadroid
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
@@ -318,6 +315,7 @@ When running the job, instead of indicating a remote jar URL, the `local://` sch
     --name spark-pi \
     --class org.apache.spark.examples.SparkPi \
     --conf spark.executor.instances=3 \
+    --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```

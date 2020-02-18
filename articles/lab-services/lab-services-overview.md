@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/13/2018
+ms.date: 02/03/2020
 ms.author: spelluru
 
 ---
@@ -31,9 +31,6 @@ These services (Azure DevTest Labs and Azure Lab Services)supports the following
 - **Cost optimization and analysis**. A lab owner can set lab schedules to automatically shut down and start up virtual machines. The lab owner can set a schedule to specify the time slots when the lab’s virtual machines are accessible to users, set usage policies per user or per lab to optimize cost, and analyze usage and activity trends in a lab. For managed lab types such as classroom labs, currently a smaller subset of cost optimization and analysis options are available.
 - **Embedded security**. A lab owner can set up a private virtual networks and a subnet for a lab, and enable a shared public IP address. Lab users can securely access resources using the virtual network configured with ExpressRoute or site-to-site VPN. (currently available in DevTest Labs only)
 - **Integration into your workflows and tools**. Azure Lab Services allows you to integrate the labs into your organization’s website and management systems. You can automatically provision environments from within your continuous integration/continuous deployment (CI/CD) tools. (currently available in DevTest Labs only)
-
-> [!NOTE]
-> Currently Azure Lab Services supports only VMs created from Azure Marketplace images. If you want to use custom images or create other PaaS resources in a lab environment, use DevTest Labs. For more information, see [Create a custom image in DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) and [Create lab environments using Resource Manager templates](devtest-lab-create-environment-from-arm.md).
 
 ## Scenarios
 

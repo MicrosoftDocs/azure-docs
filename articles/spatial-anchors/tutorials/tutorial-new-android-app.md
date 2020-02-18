@@ -1,8 +1,8 @@
 ---
-title: Tutorial - Step-by-step instructions to create a new Android app using Azure Spatial Anchors | Microsoft Docs
+title: 'Tutorial: Create a new Android app'
 description: In this tutorial, you learn how to create a new Android app using Azure Spatial Anchors.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: rgarcia
@@ -58,7 +58,7 @@ Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entr
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.8.0'
+    implementation 'com.google.ar:core:1.11.0'
     ...
 }
 ```
@@ -81,7 +81,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.8.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.11.0'
     ...
 }
 ```
