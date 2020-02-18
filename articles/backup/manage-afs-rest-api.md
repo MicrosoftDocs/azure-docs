@@ -17,7 +17,7 @@ The Azure Backup service triggers jobs that run in the background. This includes
 
 An operation such as triggering backup will always return a jobID in the response.
 
-For example, the final response of a [trigger backup REST API](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-backupazurevms#example-responses-3) operation is as follows:
+For example, the final response of a [trigger backup REST API](backup-afs-rest-api.md#trigger-an-on-demand-backup-for-file-share) operation is as follows:
 
 ```json
 {
@@ -202,4 +202,8 @@ DELETE https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f4
 ### Responses
 
 Delete protection is an asynchronous operation. The operation creates another operation that needs to be tracked separately.
-It returns two responses: 202 (Accepted) when another operation is created. and 204 (NoContent) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created and 204 (NoContent) when that operation completes.
+
+## Next steps
+
+* Learn how to [troubleshoot problems while configuring backup for Azure File shares](troubleshoot-azure-files.md).

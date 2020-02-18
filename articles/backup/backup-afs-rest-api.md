@@ -9,7 +9,7 @@ ms.date: 02/16/2020
 
 This article describes how to back up an Azure File share using Azure Backup via REST API.
 
-This article assumes you've already created a recovery services vault and policy for configuring backup for your file share. If you haven’t, refer to the [create vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatevault) and [create policy](https://docs.microsoft.comazure/backup/backup-azure-arm-userestapi-createorupdatepolicy) REST API tutorials for creating new vaults and policies.
+This article assumes you've already created a recovery services vault and policy for configuring backup for your file share. If you haven’t, refer to the [create vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatevault) and [create policy](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy) REST API tutorials for creating new vaults and policies.
 
 For this article, we'll use the following resources:
 
@@ -106,8 +106,7 @@ Date   : Mon, 27 Jan 2020 10:53:04 GMT
 To confirm that “caching” is done, list all protectable storage accounts under the subscription. Then locate the desired storage account in the response. This is done using the [GET ProtectableContainers](https://docs.microsoft.com/rest/api/backup/protectablecontainers/list) operation.
 
 ```http
-GET
-https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
 ```
 
 The *GET* URI has all the required parameters. No additional request body is needed.
@@ -165,20 +164,18 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 Set the variables for the URI as follows:
 
 - {resourceGroupName} - *azurefiles*
-- ·{fabricName} - *Azure*
+- {fabricName} - *Azure*
 - {vaultName} - *azurefilesvault*
 - {containerName} - This is the name attribute in the response body of the GET ProtectableContainers operation.
    In our example, it's *StorageContainer;Storage;AzureFiles;testvault2*
 
 >[!NOTE]
-Always take the name attribute of the response and fill it in this request. Do NOT hard-code or create the container-name format. If you create or hard-code it, the API call will fail if the container-name format changes in the future.
+> Always take the name attribute of the response and fill it in this request. Do NOT hard-code or create the container-name format. If you create or hard-code it, the API call will fail if the container-name format changes in the future.
 
 <br>
 
 ```http
-PUT
-
-https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AzureFiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;AzureFiles;testvault2?api-version=2016-12-01
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AzureFiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;AzureFiles;testvault2?api-version=2016-12-01
 ```
 
 The create request body is as follows:
@@ -476,10 +473,10 @@ Request Body example
 ```json
 {
 
-  **"properties"**:{
+  "properties":{
 
-   **"objectType"**:"AzureFileShareBackupRequest",
-    **"recoveryPointExpiryTimeInUTC"**:"2020-03-07T18:29:59.000Z"
+   "objectType":"AzureFileShareBackupRequest",
+    "recoveryPointExpiryTimeInUTC":"2020-03-07T18:29:59.000Z"
 }
 
 }
@@ -517,9 +514,7 @@ Once you submit the *POST* request for an on-demand backup, the initial response
 Then track the resulting operation using the location header or Azure-AsyncOperation header with a  *GET* command.
 
 ```http
-GET
-
-https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/dc62d524-427a-4093-968d-e951c0a0726e?api-version=2016-12-01
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/dc62d524-427a-4093-968d-e951c0a0726e?api-version=2016-12-01
 ```
 
 Once the operation completes, it returns 200 (OK) with the ID of the resulting backup job in the response body.
@@ -541,3 +536,7 @@ Once the operation completes, it returns 200 (OK) with the ID of the resulting b
 ```
 
 Since the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+
+## Next steps
+
+- Learn how to [restore Azure file shares using Rest API](restore-afs-rest-api.md).

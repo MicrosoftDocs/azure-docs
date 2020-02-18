@@ -63,7 +63,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 Once the GET URI is submitted, a 200 response is returned:
 
-```json
+```http
 HTTP/1.1" 200 None
 'Cache-Control': 'no-cache'
 'Pragma': 'no-cache'
@@ -427,3 +427,7 @@ Create request body
 ```
 
 The response should be handled in the same way as explained above for [full share restores](#full-share-recovery-using-rest-api).
+
+## Next steps
+
+* Learn how to [manage Azure file shares backup using Rest API](manage-afs-rest-api.md).
