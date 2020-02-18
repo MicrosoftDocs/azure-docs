@@ -48,10 +48,10 @@ $storageAccountName = $projectNamePrefix + "store"
 $containerName = "templates" # The name of the Blob container to be created.
 
 $linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-deployment/linkedStorageAccount.json" # A completed linked template used in this tutorial.
-$fileName = "azuredeploy.json" # A file name used for downloading and uploading the template.
+$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 # Download the template
-Invoke-WebRequest -Uri $templateURL -OutFile "$home/$fileName"
+Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
 
 # Create a resource group
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -106,7 +106,6 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName myResourceGroup `
   -TemplateFile $templateFile `
   -storagePrefix "store" `
-  -storageSKU Standard_LRS `
   -webAppName demoapp
 ```
 
@@ -117,16 +116,14 @@ az group deployment create \
   --name addwebapp \
   --resource-group myResourceGroup \
   --template-file $templateFile \
-  --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp
+  --parameters storagePrefix=store webAppName=demoapp
 ```
 
 ---
 
 ## Clean up resources
 
-If you're moving on to the next tutorial, you don't need to delete the resource group.
-
-If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
+Clean up the resources you deployed by deleting the resource groups.
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.

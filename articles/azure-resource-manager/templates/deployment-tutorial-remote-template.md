@@ -101,16 +101,16 @@ az group deployment create \
   --name addwebapp \
   --resource-group myResourceGroup \
   --template-uri $templateFile \
-  --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp
+  --parameters storagePrefix=store webAppName=demoapp
 ```
 
 ---
 
 ## Clean up resources
 
-If you're moving on to the next tutorial, you don't need to delete the resource group.
+If you're moving on to the next tutorial, you don't need to delete the resource groups.
 
-If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
+If you're stopping now, you might want to clean up the resources you deployed by deleting the resource groups.
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
