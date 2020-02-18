@@ -57,9 +57,7 @@ See the [Create Routes](#create-the-routes) section in this tutorial to see how 
 >[!NOTE]
 >Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
 >
->Azure Firewall can be configured to support forced tunneling.
-
-<!---For more information, see [Azure Firewall forced tunneling](../firewall/forced-tunneling.md)--->
+>Azure Firewall can be configured to support forced tunneling. For more information, see [Azure Firewall forced tunneling](../firewall/forced-tunneling.md).
 
 >[!NOTE]
 >Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
