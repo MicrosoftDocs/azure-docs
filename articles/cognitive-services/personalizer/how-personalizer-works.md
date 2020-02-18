@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 02/18/2020
 ms.author: diberry
 ---
 
@@ -37,12 +37,12 @@ The following image shows the architectural flow of calling the Rank and Reward 
 ![alt text](./media/how-personalizer-works/personalization-how-it-works.png "How Personalization Works")
 
 1. Personalizer uses an internal AI model to determine the rank of the action.
-1. The service decides whether to exploit the current model or explore new choices for the model.  
+1. The service decides whether to exploit the current model or explore new choices for the model.
 1. The ranking result is sent to EventHub.
-1. When Personalizer receives the reward, the reward is sent to EventHub. 
+1. When Personalizer receives the reward, the reward is sent to EventHub.
 1. The rank and reward are correlated.
 1. The AI model is updated based on the correlation results.
-1. The inference engine is updated with the new model. 
+1. The inference engine is updated with the new model.
 
 ## Research behind Personalizer
 
@@ -50,30 +50,30 @@ Personalizer is based on cutting-edge science and research in the area of [Reinf
 
 ## Terminology
 
-* **Learning Loop**: You can create a learning loop for every part of your application that can benefit from personalization. If you have more than one experience to personalize, create a loop for each. 
+* **Learning Loop**: You can create a learning loop for every part of your application that can benefit from personalization. If you have more than one experience to personalize, create a loop for each.
 
 * **Actions**: Actions are the content items, such as products or promotions,  to choose from. Personalizer chooses the top action to show to your users, known as the _Reward action_, via the Rank API. Each action can have features submitted with the Rank request.
 
 * **Context**: To provide a more accurate rank, provide information about your context, for example:
     * Your user.
-    * The device they are on. 
+    * The device they are on.
     * The current time.
     * Other data about the current situation.
     * Historical data about the user or context.
 
-    Your specific application may have different context information. 
+    Your specific application may have different context information.
 
 * **[Features](concepts-features.md)**: A unit of information about a content item or a user context.
 
-* **Reward**: A measure of how the user responded to the Rank API returned action, as a score between 0 and 1. The 0 to 1 value is set by your business logic, based on how the choice helped achieve your business goals of personalization. 
+* **Reward**: A measure of how the user responded to the Rank API returned action, as a score between 0 and 1. The 0 to 1 value is set by your business logic, based on how the choice helped achieve your business goals of personalization.
 
-* **Exploration**: The Personalizer service is exploring when, instead of returning the best action, it chooses a different action for the user. The Personalizer service avoids drift, stagnation, and can adapt to ongoing user behavior by exploring. 
+* **Exploration**: The Personalizer service is exploring when, instead of returning the best action, it chooses a different action for the user. The Personalizer service avoids drift, stagnation, and can adapt to ongoing user behavior by exploring.
 
 * **Experiment Duration**: The amount of time the Personalizer service waits for a reward, starting from the moment the Rank call happened for that event.
 
 * **Inactive Events**: An inactive event is one where you called Rank, but you're not sure the user will ever see the result, due to client application decisions. Inactive events allow you to create and store personalization results, then decide to discard them later without impacting the machine learning model.
 
-* **Model**: A Personalizer model captures all data learned about user behavior, getting training data from the combination of the arguments you send to Rank and Reward calls, and with a training behavior determined by the Learning Policy. 
+* **Model**: A Personalizer model captures all data learned about user behavior, getting training data from the combination of the arguments you send to Rank and Reward calls, and with a training behavior determined by the Learning Policy.
 
 * **Learning Policy**: How Personalizer trains a model on every event will be determined by some meta-parameters that affect how the machine learning algorithms work. New Personalizer loops will start with a default Learning Policy, which can yield moderate performance. When running [Evaluations](concepts-offline-evaluation.md), Personalizer can create new Learning Policies specifically optimized to the use cases of your loop. Personalizer will perform significantly better with policies optimized for each specific loop, generated during Evaluation.
 
@@ -94,7 +94,7 @@ Adding a loop to a web application includes:
 * Call the Rank API when you are ready to personalize.
 * Store the eventId. You send a reward with the Reward API later.
 1. Call Activate for the event once you're sure the user has seen your personalized page.
-1. Wait for user selection of ranked content. 
+1. Wait for user selection of ranked content.
 1. Call Reward API to specify how well the output of the Rank API did.
 
 ## How to use Personalizer with a chat bot
@@ -102,11 +102,11 @@ Adding a loop to a web application includes:
 In this example, you will see how to use Personalization to make a default suggestion instead of sending the user down a series of menus or choices every time.
 
 * Get the [code](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/ChatbotExample) for this sample.
-* Set up your bot solution. Make sure to publish your LUIS application. 
+* Set up your bot solution. Make sure to publish your LUIS application.
 * Manage Rank and Reward API calls for bot.
     * Add code to manage LUIS intent processing. If the **None** is returned as the top intent or the top intent's score is below your business logic threshold, send the intents list to Personalizer to Rank the intents.
     * Show intent list to user as selectable links with the first intent being the top-ranked intent from Rank API response.
-    * Capture the user's selection and send this in the Reward API call. 
+    * Capture the user's selection and send this in the Reward API call.
 
 ### Recommended bot patterns
 
@@ -120,7 +120,7 @@ Use your recommendation engine to filter down a large catalog to a few items whi
 
 You can use recommendation engines with Personalizer:
 
-* Set up the [recommendation solution](https://github.com/Microsoft/Recommenders/). 
+* Set up the [recommendation solution](https://github.com/Microsoft/Recommenders/).
 * When displaying a page, invoke the Recommendation Model to get a short list of recommendations.
 * Call Personalization to Rank the Output of Recommendation Solution.
 * Send feedback about your user action with the Reward API call.

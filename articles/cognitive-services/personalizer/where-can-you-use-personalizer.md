@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 02/18/2020
 ms.author: diberry
 ---
 # Where can you use Personalizer?
 
-Use Personalizer in any situation where your application needs to select the right item, action, or product to display - in order to make the experience better, achieve better business results, or improve productivity. 
+Use Personalizer in any situation where your application needs to select the right item, action, or product to display - in order to make the experience better, achieve better business results, or improve productivity.
 
 Personalizer uses machine learning to select which action to show the user. The selection can vary drastically depending on the quantity, quality, and distribution of data sent to the service.
 
@@ -35,7 +35,7 @@ You can apply Personalizer in situations where:
 
 ## Machine learning considerations for applying Personalizer
 
-Personalizer is based on reinforcement learning, an approach to machine learning that is taught by feedback you give it. 
+Personalizer is based on reinforcement learning, an approach to machine learning that is taught by feedback you give it.
 
 Personalizer will learn best in situations where:
 
