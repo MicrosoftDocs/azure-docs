@@ -1504,15 +1504,15 @@ az group deployment create \
 
 ## Template for a metric alert that monitors multiple resources
 
-The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This feature is currently only supported in Azure public cloud and only for virtual Machines, SQL Databases, SQL Elastic Pools and Databox Edge Devices.
+The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources (of the same type) with a single metric alert rule, for resources that exist in the same Azure region. This feature is currently only supported in Azure public cloud and only for Virtual machines, SQL server databases, SQL server elastic pools and Databox edge devices. Also, this feature is only available for platform metrics, and isn't supported for custom metrics.
 
 Dynamic Thresholds alerts rule can also help create tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
 
 This section will describe Azure Resource Manager templates for three scenarios to monitor multiple resources with a single rule.
 
 - Monitoring all virtual machines (in one Azure region) in one or more resource groups.
-- Monitoring all virtual machines (in one Azure region) in a subscription
-- Monitoring a list of virtual machines (in one Azure region) in  a subscription.
+- Monitoring all virtual machines (in one Azure region) in a subscription.
+- Monitoring a list of virtual machines (in one Azure region) in a subscription.
 
 ### Static threshold alert on all virtual machines in one or more resource groups
 
