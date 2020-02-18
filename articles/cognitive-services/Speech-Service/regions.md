@@ -40,7 +40,7 @@ If you use the [Speech SDK](speech-sdk.md), regions are specified by the **Regio
 
 Available regions for **intent recognition** via the Speech SDK are the following:
 
-| Global region | Region           | Speech SDK Parameter |
+| Global region | Region           | Region identifier |
 | ------------- | ---------------- | -------------------- |
 | Asia          | East Asia        | `eastasia`           |
 | Asia          | Southeast Asia   | `southeastasia`      |
@@ -61,7 +61,7 @@ This is a subset of the publishing regions supported by the [Language Understand
 
 The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in these regions:
 
-| Region         | Speech SDK Parameter |
+| Region         | Region identifier |
 | -------------- | -------------------- |
 | West US        | `westus`             |
 | West US 2      | `westus2`            |
