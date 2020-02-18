@@ -73,3 +73,11 @@
     - name: Spring
       tocHref: /java/azure/spring-framework/
       topicHref: /azure/cosmos-db/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure Cosmos DB
+    tocHref: /azure/azure-monitor/insights
+    topicHref: /azure/cosmos-db/index

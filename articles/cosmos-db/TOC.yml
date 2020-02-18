@@ -659,8 +659,7 @@
             href: tutorial-develop-mongodb-react.md
         - name: 2 - Migrate data
           displayName: import 
-          href: /azure/dms/tutorial-mongodb-cosmos-db
-          maintainContext: true 
+          href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
         - name: 3 - Query data
           href: tutorial-query-mongodb.md
         - name: 4 - Distribute data globally
@@ -952,8 +951,7 @@
       - name: Azure Databricks Spark connector
         href: spark-connector.md
       - name: Streaming with Apache Kafka and Cosmos DB
-        href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
-        maintainContext: true 
+        href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
     - name: Built-in Jupyter notebooks
       items:
       - name: Enable notebooks
@@ -977,8 +975,7 @@
       - name: Configure access from private endpoints
         href: how-to-configure-private-endpoints.md
       - name: Connect privately to a Cosmos DB account
-        href: /azure/private-link/create-private-endpoint-cosmosdb-portal
-        maintainContext: true 
+        href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Configure Cross Origin Resource Sharing(CORS)
         href: how-to-configure-cross-origin-resource-sharing.md
       - name: Secure Azure Cosmos keys using Key Vault
@@ -1000,12 +997,11 @@
       - name: Monitor with diagnostic logs
         href: cosmosdb-monitor-resource-logs.md
       - name: Azure Monitor for Cosmos (preview) 
-        href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
+        href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: View metrics from Cosmos DB account 
         href: use-metrics.md
       - name: Application logging with Logic Apps
-        href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
-        maintainContext: true 
+        href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Monitoring data reference
         href: monitor-cosmos-db-reference.md
     - name: Develop locally
@@ -1033,20 +1029,17 @@
       - name: Azure App Service
         href: create-website.md
       - name: Azure Cognitive Search indexer
-        href: /azure/search/search-howto-index-cosmosdb
-        maintainContext: true 
+        href: ../search/search-howto-index-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Azure Functions
         items:
         - name: Serverless computing
           href: serverless-computing-database.md
         - name: Azure Function bindings
-          href: /azure/azure-functions/functions-bindings-cosmosdb
-          maintainContext: true 
+          href: ../azure-functions/functions-bindings-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Azure Data Factory
         href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Azure Stream Analytics
-        href: /azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db
-        maintainContext: true 
+        href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Azure Event Hubs and Azure Storage
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter
