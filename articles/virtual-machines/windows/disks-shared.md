@@ -15,4 +15,4 @@ ms.subservice: disks
 
 ## Next steps
 
-If you're interested in enabling and using shared disks for your managed disks, proceed to our article [Azure shared disks](disks-shared.md).
+If you're interested in enabling and using shared disks for your managed disks, proceed to our article [Azure shared disks](disks-shared-enable.md).
