@@ -21,7 +21,7 @@ Azure App Configuration encrypts sensitive information at rest using a 256-bit A
 When users enable the customer managed key capability on their Azure App Configuration instance, they control the service’s ability to access their sensitive information. The managed key serves as a root encryption key. A user can revoke their App Configuration instance’s access to their managed key by changing their key vault access policy. When this access is revoked, App Configuration will lose the ability to decrypt user data within one hour. At this point, the App Configuration instance will forbid all access attempts. This situation is recoverable by granting the service access to the managed key once again.  Within one hour, App Configuration will be able to decrypt user data and operate under normal conditions.
 
 >[!NOTE]
->Sensitive information at rest will be stored for up to 24 hours in an isolated backup. This data is not immediately available to the service or service team. In the event of an emergency restore, Azure App Configuration will re-revoke itself from the managed key data.
+>All Azure App Configuration data is stored for up to 24 hours in an isolated backup. This includes the unwrapped encryption key. This data is not immediately available to the service or service team. In the event of an emergency restore, Azure App Configuration will re-revoke itself from the managed key data.
 
 ## Requirements
 The following components are required to successfully enable the customer-managed key capability for Azure App Configuration:
