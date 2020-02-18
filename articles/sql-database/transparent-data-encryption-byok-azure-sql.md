@@ -60,6 +60,7 @@ When needed, server sends protected DEK to the key vault for decryption.
 
 Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging is enabled.
 
+[!INCLUDE [sql-database-akv-permission-delay](includes/sql-database-akv-permission-delay.md)]
 
 ## Requirements for configuring customer-managed TDE
 

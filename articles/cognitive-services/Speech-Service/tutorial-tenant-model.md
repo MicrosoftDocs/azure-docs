@@ -74,9 +74,9 @@ After your admin has enabled Tenant Model for your organization, you can create 
 
    > [!NOTE]
    > Office 365 enterprise customers in North America are eligible to create a tenant model (English). If you're a Customer Lockbox, Customer Key, or Office 365 Government customer, this feature isn't available. To determine whether you're a Customer Lockbox or Customer Key customer, see:
-   > * [Customer Lockbox](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
-   > * [Customer Key](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
-   > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
+   > * [Customer Lockbox](/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Customer Key](/microsoft-365/compliance/customer-key-overview)
+   > * [Office 365 Government](/microsoft-365/government)
 
 1. Select **Opt in**.
 

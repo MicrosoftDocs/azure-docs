@@ -43,7 +43,7 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 | azure-eventhub version 5 (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples) | 
 | azure-eventhub version 1 (legacy) | [GitHub location](https://github.com/Azure/azure-sdk-for-python/tree/release/eventhub-v1/sdk/eventhub/azure-eventhubs/examples) |
 
-## Node.js samples
+## JavaScript samples
 
 | Version | Samples location |
 | ------- | ---------------- | 
