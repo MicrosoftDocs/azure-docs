@@ -176,6 +176,9 @@
       - name: Keywords
         displayName: keywords, distinct, between, in, top
         href: sql-query-keywords.md
+      - name: Constants
+        displayName: object, number,array
+        href: sql-query-constants.md        
       - name: Operators
         displayName: operators, operator, logical operators, equality, comparison
         href: sql-query-operators.md
