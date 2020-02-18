@@ -122,7 +122,7 @@ Scenarios that don't use availability zones will be regional (no zone specified)
          {
             "name": "mySubnet1",
             "properties": {
-               "addressPrefix": “192.168.0.0/24",
+               "addressPrefix": "192.168.0.0/24",
                "natGateway": {
                   "id": "ref to myNATGateway"
                }
