@@ -39,4 +39,4 @@ Follow the same steps provided in [Run the Azure Marketplace offering to provisi
 
 ## Run the GitHub Azure Resource Manager template
 
-Follow the same steps provided in [Run the Azure Resource Manager template for provisioning a new host pool](./create-host-pools-arm-template#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *Rdsh Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you are expanding your host pool from 5 session hosts to 8 session hosts, enter 8 for this parameter.
+Follow the same steps provided in [Run the Azure Resource Manager template for provisioning a new host pool](./create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *Rdsh Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you are expanding your host pool from 5 session hosts to 8 session hosts, enter 8 for this parameter.
