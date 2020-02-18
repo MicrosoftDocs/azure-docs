@@ -103,6 +103,8 @@ New-AzResourceGroupDeployment `
   -webAppName demoapp
 ```
 
+To learn more deploying template by using Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](./deploy-powershell.md).
+
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -113,6 +115,8 @@ az group deployment create \
   --template-file $templateFile \
   --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp
 ```
+
+To learn more deploying template by using Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure CLI](./deploy-cli.md).
 
 # [Azure portal](#tab/azure-portal)
 

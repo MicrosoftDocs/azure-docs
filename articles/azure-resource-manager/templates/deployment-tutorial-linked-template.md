@@ -8,15 +8,15 @@ ms.author: jgao
 
 # Tutorial: Deploy a linked template
 
-Learn how to deploy a linked template. It takes about **12 minutes** to complete.
+In the [previous tutorial](./deployment-tutorial-options.md), you learned how to deploy a template using the Azure portal, Azure PowerShell and Azure CLI. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template and a linked template.  It takes about **12 minutes** to complete.
 
 ## Prerequisites
 
-We recommend that you complete the [first deployment tutorial](deployment-tutorial-options.md), but it's not required.
+We recommend that you complete the [first deployment tutorial](./deployment-tutorial-options.md), but it's not required.
 
 ## Review template
 
-In the previous tutorial, you deploy a template that creates a storage account, App Service plan, and web app:
+In the previous tutorial, you deploy a template that creates a storage account, App Service plan, and web app. The template used is:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
@@ -26,13 +26,13 @@ You can separate the storage account resource into a linked template:
 
 :::code language="json" source="~/resourcemanager-templates/tutorial-deployment/linkedStorageAccount.json":::
 
-The following template is the main template.  The highlighted part shows how to call a linked template. The linked template can not be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either http or https. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item.
+The following template is the main template.  The highlighted **Microsoft.Resources/deployments** object shows how to call a linked template. The linked template can not be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either http or https. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item. The URI is passed to template using a parameter. See the first highlighted section.
 
-:::code language="json" source="~/resourcemanager-templates/tutorial-deployment/azuredeploy.json" highlight="44-62":::
+:::code language="json" source="~/resourcemanager-templates/tutorial-deployment/azuredeploy.json" highlight="32-37,44-62":::
 
 ## Store the linked template
 
-The following PowerShell script creates a storage account, creates a container, copies the linked template from a github repository to the container.
+The following PowerShell script creates a storage account, creates a container, copies the linked template from a github repository to the container. At the end of the execution, the script returns the URI of the linked template. You will pass the value as a parameter when you deploy the main template.
 
 Select **Try-it** to open the cloud shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
@@ -74,16 +74,17 @@ Set-AzStorageBlobContent `
 
 Get-azStorageBlob -container $containerName -Context $context | Select Name
 
-Write-Host "The blob Uri is https://${storageAccountName}.blob.core.windows.net/${containerName}/${fileName}".
+Write-Host "The blob URI is https://${storageAccountName}.blob.core.windows.net/${containerName}/${fileName}".
 
 Write-Host "Press [ENTER] to continue ..."
 ```
 
+Make a note of the blob URI.
 ## Deploy template
 
 Use either Azure CLI or Azure PowerShell to deploy a template.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](./deployment-tutorial-options.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 
