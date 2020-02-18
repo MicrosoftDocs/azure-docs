@@ -74,7 +74,6 @@ Enter index to use:
 Define value for runtimeStack(Default: TOMCAT 8.5):
 1. TOMCAT 9.0
 2. TOMCAT 8.5 [*]
-3. WILDFLY 14
 Enter index to use:
 Please confirm webapp properties
 AppName : helloworld-1558400876966
@@ -133,9 +132,6 @@ az group delete --name <your resource group name; for example: helloworld-155840
 This command may take a minute to run.
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Tutorial: Java Enterprise app with PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configure Java app](configure-custom-container.md)
