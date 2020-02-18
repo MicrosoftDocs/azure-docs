@@ -58,7 +58,7 @@ Virtual machines scale sets allow you to specify orchestration mode.  With the v
 
 **Fault domains and update domains**
 
-Virtual machine scale sets simplify designing for high availability by aligning fault domains and update domains. You will only have to define fault domains count for the scale set. The number of fault domains available to the scale sets may vary by region. See [Number of Fault Domains per region](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#number-of-fault-domains-per-region).
+Virtual machine scale sets simplify designing for high availability by aligning fault domains and update domains. You will only have to define fault domains count for the scale set. The number of fault domains available to the scale sets may vary by region. See [Manage the availability of virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
 
 
 ## Availability sets

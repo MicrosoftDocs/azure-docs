@@ -1,6 +1,6 @@
 ---
 title: Configure lab accounts in Azure Lab Services | Microsoft Docs
-description: Learn how to configure a lab account after it's created. 
+description: This article describes how to create a lab account, view all lab accounts, or delete a lab account in Azure Lab Services. 
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 01/23/2020
 ms.author: spelluru
 
 ---
@@ -33,18 +33,6 @@ To connect a virtual network as a peer network to the lab's virtual network, fol
 Labs created in this account are connected to the selected virtual network. They can access to the resources in the selected virtual network. For more information, see [Connect your lab's network with a peer virtual network in Azure Lab Services](how-to-connect-peer-virtual-network.md).
 
 When you select a virtual network for the **Peer virtual network** field, the **Allow lab creator to pick lab location** option is disabled. It's because labs in the lab account must be in the same region as the lab account for them to connect with resources in the peer virtual network. 
-
-## Allow lab creator to pick location for the lab
-You can allow lab creator to create labs in a different location than the location of the lab account by following these steps: 
-
-1. On the **Lab Account** page, select **Labs configuration** on the left menu.
-2. For the **Allow lab creator to pick lab location**, select **Enabled** if you want the lab creator to be able to select a location for the lab. If it's disabled, the labs are automatically created in the same location in which the lab account exists. 
-    
-    This field is disabled when you select a virtual network for the **Peer virtual network** field. It's because labs in the lab account must be in the same region as the lab account for them to access resources in the peer virtual network. 
-1. Select **Save** on the toolbar. 
-
-    ![Configure lab location setting](../media/how-to-manage-lab-accounts/labs-configuration-page-lab-location.png)
-
 
 ## Specify an address range for VMs in the lab
 The following procedure has steps to specify an address range for VMs in the lab. If you update the range that you previously specified, the modified address range applies only to VMs that are created after the change was made. 

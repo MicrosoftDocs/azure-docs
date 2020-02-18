@@ -74,7 +74,7 @@ As the server completes its initial sync of the namespace, the Data Box bulk-mig
 Now you can clean up the staging share to save costs:
 
 1. On the **Server Endpoint Properties** blade, when the status is **Completed**, select **Disable offline data transfer**.
-2. Consider deleting the staging share to save costs. The staging share probably doesn't contain file and folder ACLs, so it's not very useful. For backup point-in-time purposes, create a real [snapshot of the syncing Azure file share](storage-snapshots-files.md). You can [set up Azure Backup to take snapshots]( ../../backup/backup-azure-files.md) on a schedule.
+2. Consider deleting the staging share to save costs. The staging share probably doesn't contain file and folder ACLs, so it's not very useful. For backup point-in-time purposes, create a real [snapshot of the syncing Azure file share](storage-snapshots-files.md). You can [set up Azure Backup to take snapshots]( ../../backup/backup-afs.md) on a schedule.
 
 Disable the offline data transfer mode only when the state is **Completed** or when you want to cancel because of a misconfiguration. If you disable the mode during a deployment, files will start to upload from the server even if your staging share is still available.
 

@@ -45,11 +45,13 @@ An entity operation can also create, read, update, and delete the state of the e
 
 ## Define entities
 
-Currently, the two distinct APIs for defining entities are a:
+Currently, the two distinct APIs for defining entities are:
 
 **Function-based syntax**, where entities are represented as functions and operations are explicitly dispatched by the application. This syntax works well for entities with simple state, few operations, or a dynamic set of operations like in application frameworks. This syntax can be tedious to maintain because it doesn't catch type errors at compile time.
 
-**Class-based syntax**, where entities and operations are represented by classes and methods. This syntax produces more easily readable code and allows operations to be invoked in a type-safe way. The class-based syntax is a thin layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
+**Class-based syntax (.NET only)**, where entities and operations are represented by classes and methods. This syntax produces more easily readable code and allows operations to be invoked in a type-safe way. The class-based syntax is a thin layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
+
+# [C#](#tab/csharp)
 
 ### Example: Function-based syntax - C#
 
@@ -103,11 +105,13 @@ The state of this entity is an object of type `Counter`, which contains a field 
 
 For more information on the class-based syntax and how to use it, see [Defining entity classes](durable-functions-dotnet-entities.md#defining-entity-classes).
 
+# [JavaScript](#tab/javascript)
+
 ### Example: JavaScript entity
 
 Durable entities are available in JavaScript starting with version **1.3.0** of the `durable-functions` npm package. The following code is the `Counter` entity implemented as a durable function written in JavaScript.
 
-**function.json**
+**Counter/function.json**
 ```json
 {
   "bindings": [
@@ -121,7 +125,7 @@ Durable entities are available in JavaScript starting with version **1.3.0** of 
 }
 ```
 
-**index.js**
+**Counter/index.js**
 ```javascript
 const df = require("durable-functions");
 
@@ -142,6 +146,8 @@ module.exports = df.entity(function(context) {
 });
 ```
 
+---
+
 ## Access entities
 
 Entities can be accessed using one-way or two-way communication. The following terminology distinguishes the two forms of communication: 
@@ -157,12 +163,14 @@ Entities can be accessed from within client functions, from within orchestrator 
 
 The following examples illustrate these various ways of accessing entities.
 
-> [!NOTE]
-> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, we recommend that you [access entities through interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because it provides more type checking.
-
 ### Example: Client signals an entity
 
 To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
+
+# [C#](#tab/csharp)
+
+> [!NOTE]
+> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, we recommend that you [access entities through interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because it provides more type checking.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -177,6 +185,8 @@ public static Task Run(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -187,11 +197,15 @@ module.exports = async function (context) {
 };
 ```
 
+---
+
 The term *signal* means that the entity API invocation is one-way and asynchronous. It's not possible for a client function to know when the entity has processed the operation. Also, the client function can't observe any result values or exceptions. 
 
 ### Example: Client reads an entity state
 
 Client functions can also query the state of an entity, as shown in the following example:
+
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -205,6 +219,8 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -216,11 +232,15 @@ module.exports = async function (context) {
 };
 ```
 
+---
+
 Entity state queries are sent to the Durable tracking store and return the entity's most recently persisted state. This state is always a "committed" state, that is, it's never a temporary intermediate state assumed in the middle of executing an operation. However, it's possible that this state is stale compared to the entity's in-memory state. Only orchestrations can read an entity's in-memory state, as described in the following section.
 
 ### Example: Orchestration signals and calls an entity
 
 Orchestrator functions can access entities by using APIs on the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). The following example code shows an orchestrator function calling and signaling a `Counter` entity.
+
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -239,6 +259,8 @@ public static async Task Run(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -253,6 +275,8 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > JavaScript does not currently support signaling an entity from an orchestrator. Use `callEntity` instead.
 
+---
+
 Only orchestrations are capable of calling entities and getting a response, which could be either a return value or an exception. Client functions that use the [client binding](durable-functions-bindings.md#entity-client) can only signal entities.
 
 > [!NOTE]
@@ -262,6 +286,8 @@ Only orchestrations are capable of calling entities and getting a response, whic
 
 An entity function can send signals to other entities, or even itself, while it executes an operation.
 For example, we can modify the previous `Counter` entity example so that it sends a "milestone-reached" signal to some monitor entity when the counter reaches the value 100.
+
+# [C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -276,6 +302,8 @@ For example, we can modify the previous `Counter` entity example so that it send
         break;
 ```
 
+# [JavaScript](#tab/javascript)
+
 ```javascript
     case "add":
         const amount = context.df.getInput();
@@ -287,7 +315,9 @@ For example, we can modify the previous `Counter` entity example so that it send
         break;
 ```
 
-## Entity coordination
+---
+
+## <a name="entity-coordination"></a>Entity coordination (currently .NET only)
 
 There might be times when you need to coordinate operations across multiple entities. For example, in a banking application, you might have entities that represent individual bank accounts. When you transfer funds from one account to another, you must ensure that the source account has sufficient funds. You also must ensure that updates to both the source and destination accounts are done in a transactionally consistent way.
 

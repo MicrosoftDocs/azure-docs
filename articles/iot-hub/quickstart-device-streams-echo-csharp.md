@@ -45,7 +45,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
     az extension add --name azure-cli-iot-ext
     ```
 
-* [Download the sample C# project](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive. You need it on both the device side and the service side.
+* [Download the Azure IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive. You need it on both the device side and the service side.
 
 ## Create an IoT hub
 

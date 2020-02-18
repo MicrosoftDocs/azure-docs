@@ -171,12 +171,12 @@ Azure Container Instance does not support disk encryption. If you need disk encr
 
 #### Azure Kubernetes Service
 
-You may encrypt a deployed Azure Kubernetes Service resource using customer-managed keys at any time. For more information, see [https://aka.ms/aks/byok](https://aka.ms/aks/byok). 
+You may encrypt a deployed Azure Kubernetes Service resource using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md). 
 
 This process allows you to encrypt both the Data and the OS Disk of the deployed virtual machines in the Kubernetes cluster.
 
 > [!IMPORTANT]
-> This process only works with AKS K8s version 1.16 or higher. Azure Machine Learning added support for AKS 1.16 on Jan 13, 2020.
+> This process only works with AKS K8s version 1.17 or higher. Azure Machine Learning added support for AKS 1.17 on Jan 13, 2020.
 
 #### Machine Learning Compute
 
@@ -330,7 +330,7 @@ Here are the details:
 
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
 * [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
-* [How to run batch predictions](how-to-run-batch-predictions.md)
+* [How to run batch predictions](how-to-use-parallel-run-step.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)

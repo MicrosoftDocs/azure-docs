@@ -9,15 +9,15 @@ ms.topic: guide
 ms.date: 12/12/2019
 ---
 
-# Commercial marketplace billing 
+# Commercial marketplace billing
 
 This article covers commerce-related topics for the commercial marketplace:
 
-- [Marketplace publishing options](#marketplace-publishing-options) 
+- [Marketplace publishing options](#marketplace-publishing-options)
 - [Transact general overview](#transact-general-overview)
 - [Transact billing models](#transact-billing-models)
 
-## Marketplace publishing options 
+## Marketplace publishing options
 
 Commercial marketplace offers several publishing options for publishers.
 
@@ -31,9 +31,9 @@ In addition to the list and trial publishing options, the transact publishing op
 
 ## Transact general overview
 
-When using the transact publishing option, Microsoft enables the sale of third-party software, and deployment of some offer types to the customer's Azure subscription. The publisher must consider the billing of infrastructure fees, and the publisher's own software licensing fees, when selecting a billing model and offer type. 
+When using the transact publishing option, Microsoft enables the sale of third-party software, and deployment of some offer types to the customer's Azure subscription. The publisher must consider the billing of infrastructure fees, and the publisher's own software licensing fees, when selecting a billing model and offer type.
 
-The Transact publishing option is currently supported for the following offer types: virtual machines, Azure applications, and SaaS applications. 
+The Transact publishing option is currently supported for the following offer types: virtual machines, Azure applications, and SaaS applications.
 
 ![Transact in Azure Marketplace](./media/transact-amp.png)
 

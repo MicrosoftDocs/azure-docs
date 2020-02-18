@@ -54,4 +54,4 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 - Similarly, you can script to [Enable VNet service endpoints and create a VNET rule for Azure Database for MariaDB using Azure CLI](howto-manage-vnet-cli.md).
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

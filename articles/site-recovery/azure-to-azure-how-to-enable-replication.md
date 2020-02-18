@@ -59,7 +59,7 @@ Enable replication. This procedure assumes that the primary Azure region is East
      >[!NOTE]
      >You cannot change the availability type - single instance, availability set or availability zone, after you enable replication. You need to disable and enable replication to change the availability type.
      >
-    
+
    - **Replication Policy**: It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’4 hours’ for app consistent snapshot frequency.
 
      ![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
@@ -71,7 +71,7 @@ If you add disks to an Azure VM for which replication is enabled, the following 
 -	If you enable protection for the added disks, the warning will disappear after the initial replication of the disk.
 -	If you choose not to enable replication for the disk, you can select to dismiss the warning.
 
-    
+
     ![New disk added](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
 
 To enable replication for an added disk, do the following:
@@ -85,7 +85,7 @@ To enable replication for an added disk, do the following:
 After the enable replication job runs, and the initial replication finishes, the replication health warning for the disk issue is removed.
 
 
-  
+
 ## Customize target resources
 
 You can modify the default target settings used by Site Recovery.
@@ -109,7 +109,7 @@ You can modify the default target settings used by Site Recovery.
     - Ensure there's no firewall appliance blocking the internal communication between the VMs over port 20004.
     - If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened according to guidance for the specific Linux version.
 ![Enable replication](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
-    
+
 5. Click **Create target resource** > **Enable Replication**.
 6. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
 

@@ -30,7 +30,7 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 
 After getting the key and endpoint from your resource, get the values from the Azure portal, for your new resource, on the Quickstart page.
 
-[Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication), named `QNAMAKER_AUTHORING_KEY` and `QNAMAKER_ENDPOINT`. You can copy the `[.env.sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/.env.sample)` file to `.env` and use the environment variables in that file.
+[Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication), named `QNAMAKER_AUTHORING_KEY` and `QNAMAKER_ENDPOINT`. You can copy the [.env.sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/.env.sample) file to `.env` and use the environment variables in that file.
 
 ### Create a new Node.js application
 
@@ -131,7 +131,7 @@ Publish the knowledge base using the [publish](https://docs.microsoft.com/javasc
 [!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=publishKnowledgeBase&highlight=3)]
 
 
-# Get published endpoint
+## Get published endpoint
 
 Once the knowledge base is published, access the published knowledge base via the query prediction runtime' generateAnswer API. In order to do this, you need the runtime's endpoint key. This is different than the authoring key.
 

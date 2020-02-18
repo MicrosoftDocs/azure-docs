@@ -2,12 +2,12 @@
 title: Platforms and tools for data science projects - Team Data Science Process
 description: Itemizes and discusses the data and analytics resources available to enterprises standardizing on the Team Data Science Process.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -15,17 +15,18 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # Platforms and tools for data science projects
 
-Microsoft provides a full spectrum of data and analytics services and resources for both cloud or on-premises platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.md) (TDSP).  For an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
+Microsoft provides a full spectrum of analytics resources for both cloud or on-premises platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.md) (TDSP).  For an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
-The data and analytics services available to data science teams using the TDSP include:
+The analytics resources available to data science teams using the TDSP include:
 
 - Data Science Virtual Machines (both Windows and Linux CentOS)
 - HDInsight Spark Clusters
-- SQL Data Warehouse
+- Synapse Analytics
 - Azure Data Lake
 - HDInsight Hive Clusters
 - Azure File Storage
-- SQL Server 2016 R Services
+- SQL Server 2019 R and Python Services
+- Azure Databricks
 
 In this document, we briefly describe the resources and provide links to the tutorials and walkthroughs the TDSP teams have published. They can help you learn how to use them step by step and start using them to build your intelligent applications. More information on these resources is available on their product pages. 
 
@@ -40,13 +41,13 @@ The data science virtual machine offered on both Windows and Linux by Microsoft,
 - Power BI desktop for Windows
 - SQL Server 2016 Developer Edition on Windows / Postgres on Linux
 
-It also includes **ML and AI tools** like xgboost, mxnet and Vowpal Wabbit.
+It also includes **ML and AI tools** like xgboost, mxnet, and Vowpal Wabbit.
 
 Currently DSVM is available in **Windows** and **Linux CentOS** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you are planning to execute on it. 
 
-For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) on the Azure marketplace. For the Linux edition of the DSVM, see [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) on the Azure Marketplace. For the Linux edition of the DSVM, see [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
-To learn how to execute some of the common data science tasks on the DSVM efficiently, see [Ten things you can do on the Data science Virtual Machine](../data-science-virtual-machine/vm-do-ten-things.md)
+To learn how to execute some of the common data science tasks on the DSVM efficiently, see [10 things you can do on the Data science Virtual Machine](../data-science-virtual-machine/vm-do-ten-things.md)
 
 
 ## Azure HDInsight Spark clusters
@@ -67,7 +68,7 @@ For more information on Azure SQL Data Warehouse, see the [SQL Data Warehouse](h
 
 ## Azure Data Lake
 
-Azure data lake is as an enterprise-wide repository of every type of data collected in a single location, prior to any formal requirements or schema being imposed. This flexibility allows every type of data to be kept in a data lake, regardless of its size or structure or how fast it is ingested. Organizations can then use Hadoop or advanced analytics to find patterns in these data lakes. Data lakes can also serve as a repository for lower-cost data preparation before curating the data and moving it into a data warehouse.
+Azure Data Lake is as an enterprise-wide repository of every type of data collected in a single location, prior to any formal requirements, or schema being imposed. This flexibility allows every type of data to be kept in a data lake, regardless of its size or structure or how fast it is ingested. Organizations can then use Hadoop or advanced analytics to find patterns in these data lakes. Data lakes can also serve as a repository for lower-cost data preparation before curating the data and moving it into a data warehouse.
 
 For more information on Azure Data Lake, see [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). To learn how to build a scalable end-to-end data science solution with Azure Data Lake, see [Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough](data-lake-walkthrough.md)
 
@@ -90,11 +91,11 @@ Azure File Storage is a service that offers file shares in the cloud using the s
 Especially useful for data science projects is the ability to create an Azure file store as the place to share project data with your project team members. Each of them then has access to the same copy of the data in the Azure file storage. They can also use this file storage to share feature sets generated during the execution of the project. If the project is a client engagement, your clients can create an Azure file storage under their own Azure subscription to share the project data and features with you. In this way, the client has full control of the project data assets. For more information on Azure File Storage, see [Get started with Azure File storage on Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) and [How to use Azure File Storage with Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
-## SQL Server 2016 R Services
+## SQL Server 2019 R and Python Services
 
-R Services (In-database) provide a platform for developing and deploying intelligent applications that can uncover new insights. You can use the rich and powerful R language, including the many packages provided by the R community, to create models and generate predictions from your SQL Server data. Because R Services (In-database) integrate the R language with SQL Server, analytics are kept close to the data, which eliminates the costs and security risks associated with moving data.
+R Services (In-database) provides a platform for developing and deploying intelligent applications that can uncover new insights. You can use the rich and powerful R language, including the many packages provided by the R community, to create models and generate predictions from your SQL Server data. Because R Services (In-database) integrates the R language with SQL Server, analytics are kept close to the data, which eliminates the costs and security risks associated with moving data.
 
-R Services (In-database) support the open source R language with a comprehensive set of SQL Server tools and technologies. They offer superior performance, security, reliability, and manageability. You can deploy R solutions using convenient and familiar tools. Your production applications can call the R runtime and retrieve predictions and visuals using Transact-SQL. You also use the ScaleR libraries to improve the scale and performance of your R solutions. For more information, see [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
+R Services (In-database) supports the open source R language with a comprehensive set of SQL Server tools and technologies. They offer superior performance, security, reliability, and manageability. You can deploy R solutions using convenient and familiar tools. Your production applications can call the R runtime and retrieve predictions and visuals using Transact-SQL. You also use the ScaleR libraries to improve the scale and performance of your R solutions. For more information, see [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
 
 The TDSP team from Microsoft has published two end-to-end walkthroughs that show how to build data science solutions in SQL Server 2016 R Services: one for R programmers and one for SQL developers. For **R Programmers**, see [Data Science End-to-End Walkthrough](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). For **SQL Developers**, see [In-Database Advanced Analytics for SQL Developers (Tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
@@ -131,7 +132,7 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 
 1. Copy the entire ssh key including *ssh-rsa*. 
 1. Log in to your Azure DevOps Services. 
-1. Click **<Your Name\>** at the top right corner of the page and click **security**. 
+1. Click **<Your Name\>** at the top-right corner of the page and click **security**. 
 	
    ![Click your name and then click security](./media/platforms-and-tools/resources-2-user-setting.png)
 
@@ -139,7 +140,7 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 
    ![Click SSH public keys and then click +Add](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-1. Paste the ssh key just copied into the text box and save.
+1. Paste the ssh key copied into the text box and save.
 
 
 ## Next steps

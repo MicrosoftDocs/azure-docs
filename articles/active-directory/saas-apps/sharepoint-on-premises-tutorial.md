@@ -207,7 +207,9 @@ To Grant access to the Azure Active Directory User in the on-premise SharePoint 
 
 There is no validation on the values you search for, which can lead to misspellings or users accidentally choosing the wrong claim type. This can prevent users from successfully accessing resources.
 
-**To fix the people picker** with this scenario, there is an open-source solution called [AzureCP](https://yvand.github.io/AzureCP/) that provides a custom claims provider for SharePoint 2013, 2016 and 2019. It will use the Azure AD Graph to resolve what users enter and perform validation. Learn more at [AzureCP](https://yvand.github.io/AzureCP/).
+**To fix the people picker** with this scenario, there is an open-source solution called [
+
+](https://yvand.github.io/AzureCP/) that provides a custom claims provider for SharePoint 2013, 2016 and 2019. It will use the Microsoft Graph API to resolve what users enter and perform validation. Learn more at [AzureCP](https://yvand.github.io/AzureCP/).
 
   > [!NOTE]
   > without AzureCP you can add Groups by adding the Azure AD group's ID but this is not user's friendly and reliable. There is how it looks.
@@ -286,8 +288,8 @@ The configuration works for a single web application, but needs additional confi
 	$t.UseWReplyParameter=$true
 	$t.Update()
 	```
-5. In Central Administration, go to the web application and enable the existing trusted identity provider.
 
+5. In Central Administration, go to the web application and enable the existing trusted identity provider.
 
 You might have other scenario where you want to give access to your On-Premise Sharepoint for your internal users, for this scenario you would have to deploy Microsoft Azure Active Directory Connect that will permits to sync your On-Premise users with Azure Active Directory, this setup would be part of another article. 
 

@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 01/15/2020
 ms.author: cherylmc
 
 ---
@@ -29,23 +29,15 @@ A Site-to-Site VPN gateway connection is used to connect your on-premises networ
 
 ## <a name="before"></a>Before you begin
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Verify that you have met the following criteria before beginning your configuration:
 
 * Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 * Verify that you have an externally facing public IPv4 address for your VPN device.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+### Azure PowerShell
 
-### Running PowerShell locally
-
-If you choose to install and use the PowerShell locally, install the latest version of the Azure Resource Manager PowerShell cmdlets. PowerShell cmdlets are updated frequently and you will typically need to update your PowerShell cmdlets to get the latest feature functionality. If you don't update your PowerShell cmdlets, the values specify may fail. 
-
-To find the version you are using, run 'Get-Module -ListAvailable Az'. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
-If you are running PowerShell locally, you also need to run 'Connect-AzAccount' to create a connection with Azure.
-
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example"></a>Example values
 
@@ -253,6 +245,15 @@ If the IP address prefixes that you want routed to your on-premises location cha
 ## <a name="modifygwipaddress"></a>To modify the gateway IP address for a local network gateway
 
 [!INCLUDE [Modify gateway IP address](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
+
+## <a name="deleteconnection"></a>To delete a gateway connection
+
+If you don't know the name of your connection, you can find it by using the 'Get-AzVirtualNetworkGatewayConnection' cmdlet.
+
+```azurepowershell-interactive
+Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
+-ResourceGroupName TestRG1
+```
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
 title: Understanding metrics for Azure Spring Cloud
 description: Learn how to review metrics in Azure Spring Cloud
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 

@@ -63,6 +63,8 @@
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
+    - name: Sync using GitHub Actions
+      href: concept-github-action.md
     - name: Event handling
       href: concept-app-configuration-event.md
     - name: High availability

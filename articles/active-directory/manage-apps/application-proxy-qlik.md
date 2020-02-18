@@ -47,7 +47,7 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 ### Application #2: 
 Follow the same steps as for Application #1, with the following exceptions: 
 
-**Step #5**: The Internal URL should now be the QlikSense URL with the authentication port used by the application. The default is **4244** for HTTPS, and 4248 for HTTP. Ex: **https&#58;//demo.qlik.com:4244**</br></br> 
+**Step #5**: The Internal URL should now be the QlikSense URL with the authentication port used by the application. The default is **4244** for HTTPS, and **4248** for HTTP for QlikSense releases prior to April 2018. The default for QlikSense releases after April 2018 is **443** for HTTPS and **80** for HTTP.  Ex: **https&#58;//demo.qlik.com:4244**</br></br> 
 **Step #10:** Don’t set up SSO, and leave the **Single sign-on disabled**
  
  
