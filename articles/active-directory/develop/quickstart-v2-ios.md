@@ -94,7 +94,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    ```
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kGraphEndpoint' with the following code snippet:
 >    ```swift
->    let kGraphEndpoint = "Enter_the_Graph_Endpoint_Here"
+>    let kGraphEndpoint = "Enter_the_MS_Graph_Endpoint_Host_Here"
 >    ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
