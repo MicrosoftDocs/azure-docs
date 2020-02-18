@@ -34,7 +34,7 @@ A single service must have sufficient resources to handle all workloads (indexin
 
 As a general rule, search applications tend to need more replicas than partitions, particularly when the service operations are biased toward query workloads. The section on [high availability](#HA) explains why.
 
-Adding more replicas or partitions increases your cost of running the service. Be sure to check the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the billing implications of adding more nodes. The [chart below](3chart) can help you cross-reference the number of search units required for a specific configuration.
+Adding more replicas or partitions increases your cost of running the service. Be sure to check the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the billing implications of adding more nodes. The [chart below](#chart) can help you cross-reference the number of search units required for a specific configuration.
 
 ## How to allocate replicas and partitions
 
