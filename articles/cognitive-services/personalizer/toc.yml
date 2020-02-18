@@ -26,6 +26,8 @@
   - name: Where can you use Personalizer?
     href: where-can-you-use-personalizer.md
     displayName: checklist, considerations, effectiveness, recommendation engine
+  - name: Terminology
+    href: terminology.md
   - name: Ethics & responsible use
     href: ethics-responsible-use.md
     displayName: best practice, design
