@@ -401,7 +401,7 @@ Set-AzDiagnosticSetting `
 
 ## Test the application gateway
 
-You can use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the application gateway. Then use this IP address to curl against (replace the 1.1.1.1 shown below(. 
+You can use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the application gateway. Then use this IP address to curl against (replace the 1.1.1.1 shown below). 
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
