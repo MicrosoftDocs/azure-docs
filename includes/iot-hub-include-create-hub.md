@@ -53,10 +53,10 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
     Tags are name/value pairs. You can assign the same tag to multiple resources and resource groups to categorize resources and consolidate billing. for more information, see [Use tags to organize your Azure resources](../articles/azure-resource-manager/management/tag-resources.md).
 
-   ![Assign tags for the hub using the Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
+    ![Assign tags for the hub using the Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
 
-    Select **Next: Review + create** to review your choices. You see something similar to this screen, but with the values you selected when creating the hub. 
+1.  Select **Next: Review + create** to review your choices. You see something similar to this screen, but with the values you selected when creating the hub. 
 
-   ![Review information for creating the new hub](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
+    ![Review information for creating the new hub](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
 
-1. Select **Create** to create your new hub. Creating the hub takes a few minutes.
+1.  Select **Create** to create your new hub. Creating the hub takes a few minutes.
