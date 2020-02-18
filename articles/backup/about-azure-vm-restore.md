@@ -87,7 +87,7 @@ When a VM is restored to another region, replacing the source VM is not an optio
 
 ## How restore works
 
-Before we explain how restore works, refer to the articles about [how backup works](backup-azure-vms-introduction).
+Before we explain how restore works, refer to the articles about [how backup works](backup-azure-vms-introduction.md).
 
 ### How full VM restore works
 
