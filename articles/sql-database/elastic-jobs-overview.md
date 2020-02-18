@@ -82,7 +82,7 @@ A simple tactic is to test for the existence of an object before creating it.
 
 
 ```sql
-IF NOT EXIST (some_object)
+IF NOT EXISTS (some_object)
     -- Create the object
     -- If it exists, drop the object before recreating it.
 ```

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus message sessions | Microsoft Docs
-description: Handle sequences of Azure Service Bus messages with sessions.
+description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
@@ -79,7 +79,7 @@ The session state held in a queue or in a subscription counts towards that entit
 
 ## Impact of delivery count
 
-The definition of delivery count per message in the context of sessions varies slightly from the definition in the absense of sessions. Here is a table summarizing when the delivery count is incremented.
+The definition of delivery count per message in the context of sessions varies slightly from the definition in the absence of sessions. Here is a table summarizing when the delivery count is incremented.
 
 | Scenario | Is the message's delivery count incremented |
 |----------|---------------------------------------------|

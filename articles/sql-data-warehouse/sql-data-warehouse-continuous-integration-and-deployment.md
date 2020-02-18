@@ -24,11 +24,11 @@ This simple tutorial outlines how to integrate your SQL Server Data tools (SSDT)
 
 ## Continuous integration with Visual Studio build
 
-1. Navigate to Azure Pipelines and create a new build pipeline
+1. Navigate to Azure Pipelines and create a new build pipeline.
 
       ![New Pipeline](media/sql-data-warehouse-continuous-integration-and-deployment/1-new-build-pipeline.png "New Pipeline")
 
-2. Select your source code repository (Azure Repos Git) and select the .NET Desktop app template
+2. Select your source code repository (Azure Repos Git) and select the .NET Desktop app template.
 
       ![Pipeline Setup](media/sql-data-warehouse-continuous-integration-and-deployment/2-pipeline-setup.png "Pipeline Setup") 
 
@@ -41,7 +41,7 @@ At this point, you have a simple environment where any check-in to your source c
 
 ## Continuous deployment with the Azure SQL Data Warehouse (or Database) deployment task
 
-1. Add a new task using the [Azure SQL Database deployment task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) and fill in the required fields to connect to your target data warehouse. When this task runs, the DACPAC generated from the previous build process is deployed to the target data warehouse. You can also use the [Azure SQL Datawarehouse deployment task](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment) 
+1. Add a new task using the [Azure SQL Database deployment task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) and fill in the required fields to connect to your target data warehouse. When this task runs, the DACPAC generated from the previous build process is deployed to the target data warehouse. You can also use the [Azure SQL Data Warehouse deployment task](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment). 
 
       ![Deployment Task](media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Deployment Task")
 
@@ -55,37 +55,7 @@ At this point, you have a simple environment where any check-in to your source c
 
 ## Next steps
 
-- Explore [Azure SQL Data Warehouse architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
-- Quickly [create a SQL Data Warehouse][create a SQL Data Warehouse]
-- [Load sample data][load sample data].
+- Explore [Azure SQL Data Warehouse architecture](massively-parallel-processing-mpp-architecture.md)
+- Quickly [create a SQL Data Warehouse](create-data-warehouse-portal.md)
+- [Load sample data](sql-data-warehouse-load-sample-databases.md)
 - Explore [Videos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
-
-
-
-<!--Image references-->
-
-[1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
-
-<!--Article references-->
-[Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
-[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
-[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
-[Azure glossary]: ../azure-glossary-cloud-terminology.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN forum]: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse
-[Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
-[Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

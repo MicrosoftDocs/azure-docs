@@ -28,7 +28,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 Azure [load balancer](../load-balancer/load-balancer-overview.md) distributes incoming traffic among healthy virtual machine instances. 
 
-First, create a public Basic Load Balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
+First, create a public Standard Load Balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
 
 1. In the search box, type **load balancer**. Under **Marketplace** in the search results, pick **Load balancer**.
 1. In the **Basics** tab of the **Create load balancer** page, enter or select the following information:

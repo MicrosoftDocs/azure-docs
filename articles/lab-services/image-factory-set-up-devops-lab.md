@@ -1,6 +1,6 @@
 ---
-title: Run an image factory from Azure DevOps in Azure DevTest Labs | Microsoft Docs
-description: Learn how to create a custom image factory in Azure DevTest Labs.
+title: Run an image factory from Azure DevOps in Azure DevTest Labs
+description: This article covers all the preparations needed to run the image factory from Azure DevOps (formerly Visual Studio Team Services).
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---

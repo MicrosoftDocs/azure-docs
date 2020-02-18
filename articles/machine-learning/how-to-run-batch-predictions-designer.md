@@ -1,5 +1,5 @@
 ---
-title: Run batch predictions using Azure Machine Learning designer
+title: Run batch predictions using Azure Machine Learning designer (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to train a model and set up a batch prediction pipeline using the designer. Deploy the pipeline as a parameterized web service, which can be triggered from any HTTP library.
 services: machine-learning
@@ -36,7 +36,7 @@ Your training pipeline must be run at least once to be able to create an inferen
 
 1. Go to the **Designer** tab in your workspace.
 
-1. Select the training pipeline that trains the model want to use to make prediction.
+1. Select the training pipeline that trains the model you want to use to make prediction.
 
 1. **Run** the pipeline.
 

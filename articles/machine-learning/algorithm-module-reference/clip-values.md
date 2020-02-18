@@ -14,7 +14,7 @@ ms.date: 09/09/2019
 
 # Clip Values
 
-This article describes a module of Azure Machine Learning designer.
+This article describes a module of Azure Machine Learning designer (preview).
 
 Use the Clip Values module to identify and optionally replace data values that are above or below a specified threshold with a mean, a constant, or other substitute value.  
 

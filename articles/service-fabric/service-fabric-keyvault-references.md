@@ -18,7 +18,7 @@ A common challenge when building cloud applications is how to securely store sec
 
 - Central Secrets Store (CSS).
 
-    Central Secrets Store(CSS) is service-fabric's encrypted local secrets cache, KeyVaultReference once fetched are cached in CSS.
+    Central Secrets Store (CSS) is Service Fabric's encrypted local secrets cache. CSS is a local secret store cache that keeps sensitive data, such as a password, tokens, and keys, encrypted in memory. KeyVaultReference, once fetched, are cached in CSS.
 
     Add the below to your cluster configuration under `fabricSettings` to enable all the required features for KeyVaultReference support.
 

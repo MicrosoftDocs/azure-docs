@@ -48,6 +48,23 @@ Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC p
 - Dynamics CRM Online
 - Azure portal
 
+### User sign-in frequency and device identities
+
+If you have Azure AD joined, hybrid Azure AD joined, or Azure AD registered devices, when a user unlocks their device or signs in interactively, this event will satisfy the sign in frequency policy as well. In the following 2 examples user sign-in frequency is set to 1 hour:
+
+Example 1:
+
+- At 00:00, a user signs in to their Windows 10 Azure AD joined device and starts work on a document stored on SharePoint Online.
+- The user continues working on the same document on their device for an hour.
+- At 01:00, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator.
+
+Example 2:
+
+- At 00:00, a user signs in to their Windows 10 Azure AD joined device and starts work on a document stored on SharePoint Online.
+- At 00:30, the user gets up and takes a break locking their device.
+- At 00:45, the user returns from their break and unlocks the device.
+- At 01:45, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator since the last sign-in happened at 00:45.
+
 ## Persistence of browsing sessions
 
 A persistent browser session allows users to remain signed in after closing and reopening their browser window.

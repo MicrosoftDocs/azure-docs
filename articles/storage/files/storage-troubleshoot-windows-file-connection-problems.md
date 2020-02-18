@@ -134,9 +134,8 @@ To close open handles for a file share, directory or file, use the [Close-AzStor
 > The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="noaaccessfailureportal"></a>
-## Error “No access” when browsing to an Azure file share in the portal
-
-When you browse to an Azure file share in the portal, you may receive the following error:
+## Error "No access" when you try to access or delete an Azure File Share  
+When you try to access or delete an Azure file share in the portal, you may receive the following error:
 
 No access  
 Error code: 403 

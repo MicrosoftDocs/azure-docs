@@ -370,7 +370,7 @@ If you can't resolve a patching issue, make a copy of the following log file and
 
 ### I know updates are available, but they don't show as available on my machines
 
-* This often happens if machines are configured to get updates from WSUS or System Center Configuration Manager (SCCM) but WSUS and SCCM haven't approved the updates.
+* This often happens if machines are configured to get updates from WSUS or Microsoft Endpoint Configuration Manager but WSUS and Configuration Manager haven't approved the updates.
 * You can check whether the machines are configured for WSUS and SCCM by [cross-referencing the UseWUServer registry key to the registry keys in the "Configuring Automatic Updates by Editing the Registry" section of this article](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
 * If updates aren't approved in WSUS, they won't be installed. You can check for unapproved updates in Log Analytics by running the following query:
 
