@@ -1,38 +1,28 @@
 ---
-title: Tutorial - Deploy a linked template
-description: Learn how to deploy a linked template
+title: Tutorial - Deploy a remote Azure Resource Manager template
+description: Learn how to an Azure Resource Manager template that is stored in a remote location.
 ms.date: 02/20/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Deploy a linked template
+# Tutorial: Deploy a remote Azure Resource Manager template
 
-In the previous two tutorials, [Deploy a local template](./deploy-tutorial-local-template.md) and [Deploy a remote template](./deploy-tutorial-remote-template.md), you learned how to deploy a template that is stored in your local computer and in an Azure storage account. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template and a linked template.  It takes about **12 minutes** to complete.
+In the [previous tutorial](./deployment-tutorial-options.md), you learned how to deploy a local template. Instead of storing Resource Manager templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization. In this tutorial, you learn how to deploy a template that is stored in an Azure storage account.  It takes about **12 minutes** to complete.
 
 ## Prerequisites
 
-We recommend that you complete the first two deployment tutorials, but it's not required.
+We recommend that you complete the [first deployment tutorial](./deployment-tutorial-local-template.md), but it's not required.
 
 ## Review template
 
-In the previous tutorials, you deploy a template that creates a storage account, App Service plan, and web app. The template used is:
+In the previous tutorial, you deploy a template that creates a storage account, App Service plan, and web app. The template used is:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
-## Create a linked template
+## Store and share the template
 
-You can separate the storage account resource into a linked template:
-
-:::code language="json" source="~/resourcemanager-templates/tutorial-deployment/linkedStorageAccount.json":::
-
-The following template is the main template.  The highlighted **Microsoft.Resources/deployments** object shows how to call a linked template. The linked template can not be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either http or https. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item. The URI is passed to template using a parameter. See the first highlighted section.
-
-:::code language="json" source="~/resourcemanager-templates/tutorial-deployment/azuredeploy.json" highlight="32-37,44-62":::
-
-## Store the linked template
-
-The following PowerShell script creates a storage account, creates a container, copies the linked template from a github repository to the container. At the end of the execution, the script returns the URI of the linked template. You will pass the value as a parameter when you deploy the main template.
+The following PowerShell script creates a storage account, creates a container, copies the template from a github repository to the container. At the end of the execution, the script returns the URI of the  template. You will use the URI when you deploy the template.
 
 Select **Try-it** to open the cloud shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
@@ -42,13 +32,13 @@ $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
 
 $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
-$containerName = "linkedtemplates" # The name of the Blob container to be created.
+$containerName = "templates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+$templateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json" # The template used in this tutorial.
+$fileName = "azuredeploy.json" # A file name used for downloading and uploading the template.
 
-# Download the tutorial linked template
-Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
+# Download the template
+Invoke-WebRequest -Uri $templateURL -OutFile "$home/$fileName"
 
 # Create a resource group
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -65,7 +55,7 @@ $context = $storageAccount.Context
 # Create a container
 New-AzStorageContainer -Name $containerName -Context $context -Permission Container
 
-# Upload the linked template
+# Upload the template
 Set-AzStorageBlobContent `
     -Container $containerName `
     -File "$home/$fileName" `
@@ -80,6 +70,7 @@ Write-Host "Press [ENTER] to continue ..."
 ```
 
 Make a note of the blob URI.
+
 ## Deploy template
 
 Use either Azure CLI or Azure PowerShell to deploy a template.

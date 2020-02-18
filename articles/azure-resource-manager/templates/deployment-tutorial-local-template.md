@@ -1,16 +1,16 @@
 ---
-title: Tutorial - Deploy Azure resources by using templates
-description: Learn how to deploy Azure resources by using Azure Resource Manager templates.
+title: Tutorial - Deploy a local Azure Resource Manager template
+description: Learn how to deploy a Azure Resource Manager template from your local computer
 ms.date: 02/20/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Deploy Azure resources by using Resource Manager templates
+# Tutorial: Deploy a local Azure Resource Manager template
 
-Learn how to deploy Azure resources by using Azure Resource Manager. It takes about **8 minutes** to complete.
+Learn how to deploy an Azure Resource Manager template from your local machine. It takes about **8 minutes** to complete.
 
-This tutorial is the first of a series. As you progress through the series, you modulerize the template by creating a linked template, and you learn how to secure the linked template by using SAS token. This series focuses on template deployment.  If you want to learn template development, see the [beginner tutorials](./template-tutorial-create-first-template.md).
+This tutorial is the first of a series. As you progress through the series, you deploy a remote template, you modulerize the template by creating a linked template, and you learn how to secure the linked template by using SAS token. This series focuses on template deployment.  If you want to learn template development, see the [beginner tutorials](./template-tutorial-create-first-template.md).
 
 ## Get tools
 
@@ -54,10 +54,6 @@ Connect-AzAccount
 az login
 ```
 
-# [Azure portal](#tab/azure-portal)
-
-N/A
-
 ---
 
 ## Create resource group
@@ -79,10 +75,6 @@ az group create \
   --name myResourceGroup \
   --location "Central US"
 ```
-
-# [Azure portal](#tab/azure-portal)
-
-You will create a resource group from the portal in the next section.
 
 ---
 
@@ -117,18 +109,6 @@ az group deployment create \
 ```
 
 To learn more deploying template by using Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure CLI](./deploy-cli.md).
-
-# [Azure portal](#tab/azure-portal)
-
-Select the following button, and then follow instructions:
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fget-started-with-templates%2Fquickstart-template%2Fazuredeploy.json"><img src="./media/deployment-tutorial-options/deploy-to-azure.png" alt="deploy to azure"/></a>
-
-The HTML syntax for the previous button is:
-
-```html
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fget-started-with-templates%2Fquickstart-template%2Fazuredeploy.json"><img src="./media/deployment-tutorial-options/deploy-to-azure.png" alt="deploy to azure"/></a>
-```
 
 ---
 
