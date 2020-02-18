@@ -140,6 +140,16 @@ A parameter has the following properties that are used in the policy definition:
   - `description`: The explanation of what the parameter is used for. Can be used to provide
     examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
+  - `version`: (Optional) Tracks details about the version of the contents of a policy definition.
+
+    > [!NOTE]
+    > The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey
+    > level of change to a built-in policy definition or initiative and state. The format of
+    > `version` is: `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_,
+    > are appended to the `version` property or in another property as a **boolean**.
+
+  - `category`: (Optional) Determines under which category in Azure portal the policy definition is
+    displayed.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides
     a context aware list. For more information, see [strongType](#strongtype).
   - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments
