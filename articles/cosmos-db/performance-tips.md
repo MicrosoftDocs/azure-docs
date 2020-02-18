@@ -95,7 +95,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 4. **Use Windows x64**
 
-    For the best performance for queries always run application on Windows x64 to support native ServiceInterop.dll. The native service interop is used to parse and optimize queries, and is packaged with the SDK. The SDK will go to the gateway to parse and optimize the query if the native ServiceInterop.dll is not available or a non-supported platform. The network call to the gateway is slower than processing the query locally with the native ServiceInterop.dll.
+    For the best performance for queries always run application on Windows x64 to support native ServiceInterop.dll. The ServiceInterop.dll is used to parse and optimize queries, and is packaged with the SDK. The SDK will go to the gateway to parse and optimize the query if the native ServiceInterop.dll is not available or a non-supported platform. The network call to the gateway is slower than processing the query locally with the native ServiceInterop.dll.
 
     > [!NOTE] 
     > Visual studio defaults new projects to Any CPU. It's recommend to set the project to x64 to avoid it switching to x86. Any CPU project can easily switch to x86 if any dependency is added that is x86 only. 
