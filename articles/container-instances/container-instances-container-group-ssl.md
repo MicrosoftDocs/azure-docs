@@ -12,7 +12,9 @@ You set up an example container group consisting of two containers:
 * An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image. 
 * A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use SSL. 
 
-In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports. See [Next steps](#next-steps) for other approaches to enabling SSL in a container group.
+In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports. 
+
+See [Next steps](#next-steps) for other approaches to enabling SSL in a container group.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -50,7 +52,7 @@ In this section, you create a configuration file for Nginx to use SSL. Start by 
 code nginx.conf
 ```
 
-In `location`, be sure to set `proxy_pass` with the correct port for app. In this example, we set port 80 for the `aci-helloworld` container.
+In `location`, be sure to set `proxy_pass` with the correct port for your app. In this example, we set port 80 for the `aci-helloworld` container.
 
 ```console
 # nginx Configuration File
@@ -220,7 +222,7 @@ Use your browser to navigate to the public IP address of the container group. Th
 ![Browser screenshot showing application running in an Azure container instance](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
 > [!NOTE]
-> Because this example uses a self-signed certificate and not one from a certificate authority, the browser displays a security warning when connecting to the site over HTTPS. You might need to accept the warning or adjust browser settings to proceed to the page. This behavior is expected.
+> Because this example uses a self-signed certificate and not one from a certificate authority, the browser displays a security warning when connecting to the site over HTTPS. You might need to accept the warning or adjust browser or certificate settings to proceed to the page. This behavior is expected.
 
 >
 
@@ -234,6 +236,4 @@ If you deploy your container group in an [Azure virtual network](container-insta
 
 * [Azure Functions Proxies](../azure-functions/functions-proxies.md)
 * [Azure API Management](../api-management/api-management-key-concepts.md)
-* [Azure Application Gateway](../application-gateway/overview.md)
-
-To use an application gateway, see a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).
+* [Azure Application Gateway](../application-gateway/overview.md) - see a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).
