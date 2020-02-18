@@ -4,7 +4,7 @@ description: 'This tutorial shows how to create and deploy IoT Edge modules that
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 2/14/2020
+ms.date: 2/18/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -226,14 +226,14 @@ As mentioned above, the IoT Edge runtime uses routes configured in the *deployme
 
 1. The first callback listens for messages sent to the **deviceInput** sink. From the diagram above, we see that we want to route messages from any leaf device to this input. We need to add the following input and output routes:
 
-    | Route to add | Type | Description |
+    | Route to add | Description |
     | --- | --- |
-    | leafMessagesToRouter | Input | Tells the edge hub to route any message received by the IoT Edge device, that was not sent by an IoT Edge module, into the input called "deviceInput" on the turbofanRouter module. |
-    | classiferToRouter | Input | Routes messages from the rulClassifier module into the turbofanRouter module. |
-    | SendMessageToClassifier | Output | As defined by the SendMessgeToClassifer() method in Program.cs, this route uses the module client to send a message to the RUL classifier. |
-    | SendMessageToIotHub | Output | Uses the module client to send just the RUL data for the device to the IoT Hub.|
-    | SendMessageToAvroWriter | Output | Uses the module client to send the message with the RUL data added to the avroFileWriter module. |
-    | HandleBadMessage | Output | sends failed messages upstream the IoT Hub where they can be routed for later. |
+    | leafMessagesToRouter | Tells the edge hub to route any message received by the IoT Edge device, that was not sent by an IoT Edge module, into the input called "deviceInput" on the turbofanRouter module. |
+    | classiferToRouter |Routes messages from the rulClassifier module into the turbofanRouter module. |
+    | SendMessageToClassifier | As defined by the SendMessgeToClassifer() method in Program.cs, this route uses the module client to send a message to the RUL classifier. |
+    | SendMessageToIotHub | Uses the module client to send just the RUL data for the device to the IoT Hub.|
+    | SendMessageToAvroWriter | Uses the module client to send the message with the RUL data added to the avroFileWriter module. |
+    | HandleBadMessage | sends failed messages upstream the IoT Hub where they can be routed for later. |
 
     With all the routes taken together your “$edgeHub” node should look like the following JSON:
 
@@ -242,7 +242,6 @@ As mentioned above, the IoT Edge runtime uses routes configured in the *deployme
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/* INTO $upstream",
           "leafMessagesToRouter": "FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/deviceInput\")",
           "classifierToRouter": "FROM /messages/modules/turbofanRulClassifier/outputs/amlOutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")",
           "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")",
