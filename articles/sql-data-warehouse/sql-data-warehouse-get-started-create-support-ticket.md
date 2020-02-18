@@ -20,7 +20,7 @@ If you're having any issues with Azure Synapse Analytics, create a support ticke
 1. Open the [Azure portal](https://portal.azure.com/).
 1. On the Home screen, click the **Help + support** tab.
    
-    ![Help + support](./media/sql-data-warehouse-get-started-create-support-ticket/mainpage.png)
+    ![Help + support](./media/sql-data-warehouse-get-started-create-support-ticket/main-page.png)
 
 1. Review your [Azure support plan](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/).
    
