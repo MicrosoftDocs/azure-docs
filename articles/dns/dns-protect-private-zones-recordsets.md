@@ -236,7 +236,7 @@ To prevent an existing DNS record set against modification, apply a ReadOnly loc
 
 Record set level resource locks can currently only be configured using Azure PowerShell or Azure CLI.  They aren't supported in the Azure portal.
 
-Azure Powershell
+Azure PowerShell
 
 ```azurepowershell-interactive
 # Lock a DNS record set
