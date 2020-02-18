@@ -13,6 +13,8 @@ ms.custom: cc996988-fb4f-47
 
 Azure Functions can create new Azure Queue storage messages by setting up an output binding.
 
+## Example
+
 # [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that creates a queue message for each HTTP request received.
