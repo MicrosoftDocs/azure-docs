@@ -5,7 +5,7 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 2/12/2020
+ms.date: 2/18/2020
 ---
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -90,7 +90,7 @@ Once you've created an alert, you can select it and do the following actions:
 
 Monitoring and alerting is important for every production Hyperscale (Citus) server group. The underlying PostgreSQL database requires free disk space to operate correctly. If the disk becomes full, the database server node will go offline and refuse to start until space is available. At that point, it requires a Microsoft support request to fix the situation.
 
-Disk space usage alerts provide the advance warning needed to correct the problem. We recommend setting a series of alerts at 75%, 85%, and 95% usage. The percentages to choose depend on data ingestion speed, since fast data ingestion fills up the disk faster.
+We recommend setting disk space alerts on every node in every server group, even for non-production usage. Disk space usage alerts provide the advance warning needed to intervene and keep nodes healthy. For best results, try a series of alerts at 75%, 85%, and 95% usage. The percentages to choose depend on data ingestion speed, since fast data ingestion fills up the disk faster.
 
 As the disk approaches its space limit, try these techniques to get more free space:
 
