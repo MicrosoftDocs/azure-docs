@@ -178,4 +178,4 @@ In this tutorial, you learned how to configure your Java Spring application for 
 > [!div class="nextstepaction"]
 > [Learn how to set up a Config Server instance](spring-cloud-tutorial-config-server.md)
 
-More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

@@ -47,9 +47,9 @@ A version mismatch.
 
     Save changes by entering **Ctrl + X**, **Y**, **Enter**.
 
-1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net`, where `CLUSTERNAME` is the name of your cluster.
+1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER`, where `CLUSTERNAME` is the name of your cluster.
 
-1. Select **Jupyter** and then restart the service.
+1. Restart the Jupyter service.
 
 ## Next steps
 

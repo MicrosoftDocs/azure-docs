@@ -43,7 +43,7 @@ The article shows how to upload and index your videos with these options:
 
     If it is a private URL, the access token need to be provided in the request.
 - The URL has to point to a valid media file and not to a webpage, such as a link to the `www.youtube.com` page.
-- You can upload up to 60 movies per minute.
+- In a paid account you can upload up to 50 movies per minute, and in a trial account up to 5 movies per minute.
 
 > [!Tip]
 > It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.
@@ -344,6 +344,7 @@ The status codes listed in the following table may be returned by the Upload ope
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|Same video is already in progress of being processed in the given account.|
 |400|VIDEO_ALREADY_FAILED|Same video failed to process in the given account less than 2 hours ago. API clients should wait at least 2 hours before re-uploading a video.|
+|429||Trial accounts are allowed 5 uploads per minute. Paid accounts are allowed 50 uploads per minute.|
 
 ## Next steps
 

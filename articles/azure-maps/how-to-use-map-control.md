@@ -1,8 +1,8 @@
 ---
 title: Getting started with web map control | Microsoft Azure Maps
 description: Learn how to use the Microsoft Azure Maps map control client-side Javascript library to render maps and embedded Azure Maps functionality into your web or mobile application. 
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
