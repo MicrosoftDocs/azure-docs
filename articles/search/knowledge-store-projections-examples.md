@@ -301,7 +301,7 @@ Add the above Shaper skill to the skillset.
 }  
 ```
 
-Now that we have all the data needed to project to tables, update the knowledgeStore object with the table definitions. In this example, we have three tables, defined by setting the `tableName`, `source`` and `generatedKeyName` properties.
+Now that we have all the data needed to project to tables, update the knowledgeStore object with the table definitions. In this example, we have three tables, defined by setting the `tableName`, `source` and `generatedKeyName` properties.
 
 ```json
 "knowledgeStore" : {
@@ -358,7 +358,7 @@ The ```generatedKeyName``` and ```referenceKeyName``` properties are used to rel
 
 Power BI relies on these generated keys to discover relationships within the tables. If you need the column in the child table named differently, set the ```referenceKeyName``` property on the parent table. One example would be to set the ```generatedKeyName``` as ID on the pbiDocument table and the ```referenceKeyName``` as DocumentID. This would result in the column in the pbiEntities and pbiKeyPhrases tables containing the document id being named DocumentID.
 
-## Projecting to Objects
+## Projecting to objects
 
 Object projections do not have the same limitations as table projections and are better suited for projecting large documents. In this example, we project the entire document to an object projection. Object projections are limited to a single projection in a container and cannot be sliced.
 
