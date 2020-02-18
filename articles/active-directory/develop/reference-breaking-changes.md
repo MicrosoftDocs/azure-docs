@@ -38,7 +38,7 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 None scheduled at this time.  Please see below for the changes that are in or are coming to production. 
 
-## February 2020: 
+## February 2020 
 
 ### Empty fragments will be appended to every HTTP redirect from the login endpoint. 
 
