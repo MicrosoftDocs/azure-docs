@@ -23,7 +23,7 @@ determine when to use which method based on the characteristics of each:
   - Work with node and non-node data at scale
   - Significant performance improvement
 
-For compilation details, see [Desired State Configuration extension with Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-template#details).
+For compilation details, see [Desired State Configuration extension with Azure Resource Manager templates](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details).
 
 ## Compiling a DSC Configuration in Azure State Configuration
 
