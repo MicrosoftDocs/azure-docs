@@ -1,14 +1,8 @@
 ---
 title: Troubleshooting - Personalizer
-titleSuffix: Azure Cognitive Services
 description: This article contains answers to frequently asked troubleshooting questions about Personalizer.
-author: diberry
-manager: nitinme
-services: cognitive-services
-ms.service: cognitive-services
-ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 02/18/2020
 ms.author: diberry
 ---
 # Personalizer Troubleshooting
@@ -28,34 +22,41 @@ These issues should be transparent. If they continue, contact support by selecti
 
 ## Learning loop
 
-<!--
-
-### How do I import a learning policy?
-
-
--->
-
-### The learning loop doesn't seem to learn. How do I fix this?
-
-The learning loop needs a few thousand Reward calls before Rank calls prioritize effectively.
+<details>
+<summary>
+<b>The learning loop doesn't seem to learn. How do I fix this?</b>
+</summary>
+**Answer**: The learning loop needs a few thousand Reward calls before Rank calls prioritize effectively.
 
 If you are unsure about how your learning loop is currently behaving, run an [offline evaluation](concepts-offline-evaluation.md), and apply the corrected learning policy.
+</details>
 
-### I keep getting rank results with all the same probabilities for all items. How do I know Personalizer is learning?
 
-Personalizer returns the same probabilities in a Rank API result when it has just started and has an _empty_ model, or when you reset the Personalizer Loop, and your model is still within your **Model update frequency** period.
+<details>
+<summary>
+<b>I keep getting rank results with all the same probabilities for all items. How do I know Personalizer is learning?
+</b>
+**Answer**: Personalizer returns the same probabilities in a Rank API result when it has just started and has an _empty_ model, or when you reset the Personalizer Loop, and your model is still within your **Model update frequency** period.
 
 When the new update period begins, the updated model is used, and you’ll see the probabilities change.
+</details>
 
-### The learning loop was learning but seems to not learn anymore, and the quality of the Rank results isn't that good. What should I do?
-
+<details>
+<summary>
+<b>The learning loop was learning but seems to not learn anymore, and the quality of the Rank results isn't that good. What should I do?
+</b>
+**Answer**: <br>
 * Make sure you've completed and applied one evaluation in the Azure portal for that Personalizer resource (learning loop).
 * Make sure all rewards are sent, via the Reward API, and processed.
+</details>
 
-### How do I know that the learning loop is getting updated regularly and is used to score my data?
 
-You can find the time when the model was last updated in the **Model and Learning Settings** page of the Azure portal. If you see an old timestamp, it is likely because you are not sending the Rank and Reward calls. If the service has no incoming data, it does not update the learning. If you see the learning loop is not updating frequently enough, you can edit the loop's **Model Update frequency**.
-
+<details>
+<summary>
+<b>How do I know that the learning loop is getting updated regularly and is used to score my data?
+</b>
+**Answer**: You can find the time when the model was last updated in the **Model and Learning Settings** page of the Azure portal. If you see an old timestamp, it is likely because you are not sending the Rank and Reward calls. If the service has no incoming data, it does not update the learning. If you see the learning loop is not updating frequently enough, you can edit the loop's **Model Update frequency**.
+</details>
 
 ## Offline evaluations
 
