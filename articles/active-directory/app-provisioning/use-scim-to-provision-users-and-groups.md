@@ -1479,21 +1479,13 @@ For additional authentication and authorization methods, let us know on [UserVoi
 ### Gallery go-to-market launch check list
 To help drive awareness and demand of our joint integration, we recommend you update your existing documentation and amplify the integration in your marketing channels.  The below is a set of checklist activities we recommend you complete to support the launch
 
-> [!div class="checklist"]
-> * [Support SCIM 2.0 ](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (Required)
-> * Support at least 25 requests per second per tenant (Required)
-> * Support schema discovery (Recommended)
-
-
-> [!div class="checklist"]
-> * [Support SCIM 2.0 ](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (Required)
-> * **Sales and customer support readiness.** Ensure your sales and support teams are aware and can speak to the integration capabilities. Brief your sales and support team, provide them with FAQs and include the integration into your sales materials. 
-> * **Blog post and/or press release.** Craft a blog post or press release that describes the joint integration, the benefits and how to get started. [Example: Imprivata and Azure Active Directory Press Release](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
-> * **Social media.** Leverage your social media like Twitter, Facebook or LinkedIn to promote the integration to your customers. Be sure to include @AzureAD so we can retweet your post. [Example: Imprivata Twitter Post](https://twitter.com/azuread/status/1123964502909779968)
-> * **Marketing website.** Create or update your marketing pages (e.g. integration page, partner page, pricing page, etc…) to include the availability of the joint integration. [Example: Pingboard integration Page](https://pingboard.com/org-chart-for), [Smartsheet integration page](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), [Monday.com pricing page](https://monday.com/pricing/) 
-> * **Technical documentation.** Create a help center article or technical documentation on how customers can get started. [Example: Envoy + Microsoft Azure Active Directory integration.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
+* **Sales and customer support readiness.** Ensure your sales and support teams are aware and can speak to the integration capabilities. Brief your sales and support team, provide them with FAQs and include the integration into your sales materials. 
+* **Blog post and/or press release.** Craft a blog post or press release that describes the joint integration, the benefits and how to get started. [Example: Imprivata and Azure Active Directory Press Release](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
+* **Social media.** Leverage your social media like Twitter, Facebook or LinkedIn to promote the integration to your customers. Be sure to include @AzureAD so we can retweet your post. [Example: Imprivata Twitter Post](https://twitter.com/azuread/status/1123964502909779968)
+* **Marketing website.** Create or update your marketing pages (e.g. integration page, partner page, pricing page, etc…) to include the availability of the joint integration. [Example: Pingboard integration Page](https://pingboard.com/org-chart-for), [Smartsheet integration page](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), [Monday.com pricing page](https://monday.com/pricing/) 
+* **Technical documentation.** Create a help center article or technical documentation on how customers can get started. [Example: Envoy + Microsoft Azure Active Directory integration.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
 ) 
-> * **Customer communication.** Alert customers of the new integration through your customer communication (monthly newsletters, email campaigns, product release notes). 
+* **Customer communication.** Alert customers of the new integration through your customer communication (monthly newsletters, email campaigns, product release notes). 
 
 ### Allow IP addresses used by the Azure AD provisioning service to make SCIM requests
 
