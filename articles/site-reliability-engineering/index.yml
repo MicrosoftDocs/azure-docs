@@ -43,7 +43,7 @@ productDirectory:
        imageSrc: ./media/index/video.svg
        links: 
          - url: https://myignite.techcommunity.microsoft.com/sessions/82996
-           text: "Building the foundation for modern ops: Monitoring"
+           text: "Building the foundation for modern ops: monitoring"
          - url: https://myignite.techcommunity.microsoft.com/sessions/82997  
            text: Responding to incidents
          - url: https://myignite.techcommunity.microsoft.com/sessions/82998  
@@ -51,7 +51,7 @@ productDirectory:
          - url: https://myignite.techcommunity.microsoft.com/sessions/82999  
            text: Deployment practices for greater reliability
          - url: https://myignite.techcommunity.microsoft.com/sessions/83001  
-           text: "Preparing for growth: Capacity planning and scaling"
+           text: "Preparing for growth: capacity planning and scaling"
      # Card
      - title: Introduction to SRE online course
        imageSrc: ./media/index/learn.svg
@@ -67,7 +67,7 @@ productDirectory:
          - url: resources/events.md
            text: events
          - url: resources/links.md
-           text: links
+           text: links and digests
 # conceptualContent section (optional)
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
