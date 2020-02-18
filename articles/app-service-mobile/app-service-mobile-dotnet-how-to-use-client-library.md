@@ -11,11 +11,6 @@ ms.date: 06/25/2019
 # How to use the managed client for Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-> [!NOTE]
-> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
->
-> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
-
 ## Overview
 This guide shows you how to perform common scenarios using the managed client library for Azure App Service
 Mobile Apps for Windows and Xamarin apps. If you are new to Mobile Apps, you should consider first completing

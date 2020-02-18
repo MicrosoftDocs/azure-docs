@@ -866,6 +866,8 @@
       href: ./hdinsight-service-tags.md
     - name: Customer-managed key disk encryption
       href: ./disk-encryption.md
+    - name: LDAP sync in Ranger and Apache Ambari
+      href: ./domain-joined/ldap-sync.md
   - name: How to
     items:
     - name: Use ID Broker for credential management
