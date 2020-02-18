@@ -11,7 +11,7 @@ ms.custom: cc996988-fb4f-47
 
 # Azure Queue storage trigger and bindings for Azure Functions overview
 
-This article explains how to work with Azure Queue storage bindings in Azure Functions. Azure Functions supports trigger and output bindings for queues.
+Azure Functions supports Azure Queue storage by being able to run as queue data changes as well as easily create queue messages within a function.
 
 | Action | Type |
 |---------|---------|
@@ -22,7 +22,7 @@ This article explains how to work with Azure Queue storage bindings in Azure Fun
 
 ### Functions 2.x and higher
 
-Working with the trigger and bindings requires that you reference the appropriate package. The a NuGet package is used for .NET class libraries while the extension bundle all other application types.
+Working with the trigger and bindings requires that you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
 
 | Language                                        | Add by...                                   | Remarks 
 |-------------------------------------------------|---------------------------------------------|-------------|

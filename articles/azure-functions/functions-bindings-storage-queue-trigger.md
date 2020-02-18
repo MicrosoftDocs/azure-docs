@@ -9,11 +9,12 @@ ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ---
 
-# Azure Queue storage bindings for Azure Functions
+# Azure Queue storage trigger for Azure Functions
 
-todo
+The queue storage trigger runs a function as messages are added to Azure Queue storage.
 
 ## Encoding
+
 Functions expect a *base64* encoded string. Any adjustments to the encoding type (in order to prepare data as a *base64* encoded string) need to be implemented in the calling service.
 
 ## Example
@@ -356,7 +357,7 @@ The [QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.funct
 
 ## Message metadata
 
-The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) class.
+The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. The properties are members of the [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -401,18 +402,9 @@ The queue trigger automatically prevents a function from processing a queue mess
 
 The [host.json](functions-host-json.md#queues) file contains settings that control queue trigger behavior. See the [host.json settings](#hostjson-settings) section for details regarding available settings.
 
-
 ## Next steps
 
-* [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
-
-<!--
-> [!div class="nextstepaction"]
-> [Go to a quickstart that uses a Queue storage trigger](functions-create-storage-queue-triggered-function.md)
--->
-
-> [!div class="nextstepaction"]
-> [Go to a tutorial that uses a Queue storage output binding](functions-integrate-storage-queue-output-binding.md)
+- [Write queue storage messages (Output binding)](./functions-bindings-storage-blob-output.md)
 
 <!-- LINKS -->
 

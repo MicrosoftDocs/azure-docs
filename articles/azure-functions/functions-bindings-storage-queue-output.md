@@ -9,9 +9,9 @@ ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ---
 
-# Azure Queue storage output binding for Azure Functions
+# Azure Queue storage output bindings for Azure Functions
 
-Use the Azure Queue storage output binding to write messages to a queue.
+Azure Functions can create new Azure Queue storage messages by setting up an output binding.
 
 # [C#](#tab/csharp)
 
@@ -271,7 +271,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-The `QueueOutput` annotation allows you access to write a message an output of a function. The following example shows an HTTP-triggered function that creates a queue message.
+The `QueueOutput` annotation allows you to write a message as the output of a function. The following example shows an HTTP-triggered function that creates a queue message.
 
 ```java
 package com.function;
@@ -358,9 +358,9 @@ The output queue item is available via `context.bindings.<NAME>` where `<NAME>` 
 
 There are two options for outputting an Event Hub message from a function:
 
-- **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as an Queue storage message.
+- **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as a Queue storage message.
 
-- **Imperative**: Pass a value to the [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) method of the parameter declared as an [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) type. The value passed to `set` is persisted as an Queue storage message.
+- **Imperative**: Pass a value to the [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) method of the parameter declared as an [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) type. The value passed to `set` is persisted as a Queue storage message.
 
 # [Java](#tab/java)
 
@@ -414,7 +414,7 @@ This section describes the global configuration settings available for this bind
 
 ## Next steps
 
-- [todo]
+- [Run a function as queue storage data changes (Trigger)](./functions-bindings-storage-queue-trigger.md)
 
 <!-- LINKS -->
 
