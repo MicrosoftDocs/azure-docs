@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: 
   ms.author: 
-  ms.date: 02/14/2020
+  ms.date: 02/17/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample tutorial | video | whats-new
@@ -1491,7 +1491,7 @@ additionalContent:
       items:
         # Card
         - title: Azure Government
-          summary: A dedicated cloud enabling government agencies and their partners to transform mission-critical workloads to the cloud. 
+          summary: A dedicated cloud enabling U.S. government agencies and their partners to transform mission-critical workloads to the cloud. 
           url: azure-government/index.yml
         # Card
         - title: Azure Germany
