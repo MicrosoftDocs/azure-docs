@@ -35,7 +35,7 @@ Leave out the prerequisites, clean-up resources and next steps--->
 
 The following diagram shows the architecture of the solution to be created:
 
-<!-- INSERT DIAGRAM -->
+![High-level architecture diagram for private site access solution](./media/functions-create-private-site-access/topology.png)
 
 ## Prerequisites
 
@@ -46,8 +46,6 @@ For this tutorial, it's important that you understand IP addressing and subnetti
 ## Sign in to Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
-<!---If you need to sign in to the portal to do the tutorial, this H2 and
-link are required.--->
 
 ## Create a Virtual Network
 
