@@ -479,7 +479,7 @@ az aks nodepool add \
 > [!NOTE]
 > You can also use the `--tags` parameter when using [az aks nodepool update][az-aks-nodepool-update] command as well as during cluster creation. During cluster creation, the `--tags` parameter applies the tag to the initial node pool created with the cluster. All tag names must adhere to the limitations in [Use tags to organize your Azure resources][tag-limitation]. Updating a node pool with the `--tags` parameter updates any existing tag values and appends any new tags. For example, if your node pool had *dept=IT* and *costcenter=9999* for tags and you updated it with *team=dev* and *costcenter=111* for tags, you nodepool would have *dept=IT*, *costcenter=111*, and *team=dev* for tags.
 
-The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *taggednodepool* is *Creating* nodes with the specified *tag*:
+The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *tagnodepool* is *Creating* nodes with the specified *tag*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
