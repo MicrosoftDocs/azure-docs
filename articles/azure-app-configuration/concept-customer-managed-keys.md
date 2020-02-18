@@ -85,7 +85,7 @@ To begin, you will need a properly configured Azure App Configuration instance. 
     }
     ```
 
-1. The managed identity of the Azure App Configuration instance needs access to the key to perform key validation, encryption and decryption. The specific set of actions to which it needs access includes: `GET`, `WRAP`, and `UNWRAP` for keys.  Granting the access requires the principal ID  of the App Configuration instance's managed identity. This value was obtained in the previous step. It is shown below as `contoso-principalId` Grant permission to the managed key using the command line:
+1. The managed identity of the Azure App Configuration instance needs access to the key to perform key validation, encryption and decryption. The specific set of actions to which it needs access includes: `GET`, `WRAP`, and `UNWRAP` for keys.  Granting the access requires the principal ID  of the App Configuration instance's managed identity. This value was obtained in the previous step. It is shown below as `contoso-principalId`. Grant permission to the managed key using the command line:
 
     ```azurecli
     az keyvault set-policy -n contoso-vault --object-id contoso-principalId --key-permissions get wrapKey unwrapKey
