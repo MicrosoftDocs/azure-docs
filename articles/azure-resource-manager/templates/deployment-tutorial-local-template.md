@@ -38,6 +38,8 @@ At the end of the quickstart tutorial, your template had the following JSON, whi
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
+Save a copy of the template to your local computer.
+
 ## Sign in to Azure
 
 To start working with Azure PowerShell/Azure CLI to deploy a template, sign in with your Azure credentials.

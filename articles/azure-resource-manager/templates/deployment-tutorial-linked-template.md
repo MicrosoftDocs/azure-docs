@@ -26,15 +26,17 @@ You can separate the storage account resource into a linked template:
 
 :::code language="json" source="~/resourcemanager-templates/tutorial-deployment/linkedStorageAccount.json":::
 
-The following template is the main template.  The highlighted **Microsoft.Resources/deployments** object shows how to call a linked template. The linked template can not be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either *http* or *https*. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item. The URI is passed to template using a parameter. See the highlighted parameter definition.
+The following template is the main template.  The highlighted **Microsoft.Resources/deployments** object shows how to call a linked template. The linked template cannot be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either *http* or *https*. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item. The URI is passed to template using a parameter. See the highlighted parameter definition.
 
-:::code language="json" source="~/resourcemanager-templates/tutorial-deployment/azuredeploy.json" highlight="32-37,44-62":::
+:::code language="json" source="~/resourcemanager-templates/tutorial-deployment/azuredeploy.json" highlight="32-37,43-61":::
+
+Save a copy of the main template to your local computer.
 
 ## Store the linked template
 
 The following PowerShell script creates a storage account, creates a container, copies the linked template from a github repository to the container. At the end of the execution, the script returns the URI of the linked template. You will pass the value as a parameter when you deploy the main template.
 
-Select **Try-it** to open the cloud shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
+Select **Try-it** to open the Cloud shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
 ```azurepowershell-interactive
 $projectNamePrefix = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
@@ -44,7 +46,7 @@ $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
 $containerName = "linkedtemplates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-deployment/linkedStorageAccount.json" # A completed linked template used in this tutorial.
 $fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 # Download the tutorial linked template
@@ -91,12 +93,14 @@ If you haven't created the resource group, see [Create resource group](template-
 
 ```azurepowershell
 
-$templateFile = Read-Host -Prompt "Enter the template URI"
+$templateFile = Read-Host -Prompt "Enter the main template file"
+$linkedTemplateUri = Read-Host -Prompt "Enter the linked template URI"
 
 New-AzResourceGroupDeployment `
   -Name addwebapp `
   -ResourceGroupName myResourceGroup `
   -TemplateUri $templateFile `
+  -linkedTemplateUri $linkedTemplateUri `
   -storagePrefix "store" `
   -storageSKU Standard_LRS `
   -webAppName demoapp
@@ -106,14 +110,16 @@ New-AzResourceGroupDeployment `
 
 ```azurecli
 
-echo "Enter the template URI:"
+echo "Enter the main template file:"
 read templateFile
+echo "Enter the linked template URI:"
+read linkedTemplateUri
 
 az group deployment create \
   --name addwebapp \
   --resource-group myResourceGroup \
   --template-uri $templateFile \
-  --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp
+  --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp linkedTemplateUri=$linkedTemplateUri
 ```
 
 ---

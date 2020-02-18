@@ -24,7 +24,7 @@ The linked template was:
 
 The main template was:
 
-:::code language="json" source="~/resourcemanager-templates/tutorial-deployment/azuredeploy.json" highlight="32-37,44-62":::
+:::code language="json" source="~/resourcemanager-templates/tutorial-deployment/azuredeploy.json" highlight="32-37,43-61":::
 
 The highlighted portions show how to pass the linked template URI and how to call a linked template.
 
@@ -47,7 +47,7 @@ $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
 $containerName = "templates" # The name of the Blob container to be created.
 
-$templateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json" # The template used in this tutorial.
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-deployment/linkedStorageAccount.json" # A completed linked template used in this tutorial.
 $fileName = "azuredeploy.json" # A file name used for downloading and uploading the template.
 
 # Download the template
