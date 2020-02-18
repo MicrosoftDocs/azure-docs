@@ -134,7 +134,27 @@ Scenarios that don't use availability zones will be regional (no zone specified)
 ```
 NAT gateways are defined with a property on a subnet within a virtual network. Flows created by virtual machines on subnet _mySubnet1_ of virtual network _myVNet_ will use the NAT gateway. All outbound connectivity will use the IP addresses associated with _myNatGateway_ as the source IP address.
 
-## Coexistence of inbound and outbound
+
+## Design Guidance
+
+Review this section to familiarize yourself with considerations for designing virtual networks with NAT.  
+
+1. [Cost optimization](#cost-optimization)
+1. [Coexistence of inbound and outbound](#coexistence-of-inbound-and-outbound)
+2. [Managing Basic resources](#managing-basic-resources)
+3. [Availability Zones](#availability-zones)
+
+### Cost optimization
+
+[Service endpoints](virtual-network-service-endpoints-overview.md) and [private link](../private-link/private-link-overview.md) are two options to consider for optimizing cost where NAT isn't needed.  Any traffic directed to service endpoints or private link is not processed by the virtual network's NAT.  
+
+Service endpoints tie Azure service resources to your virtual network and control access to your Azure service resources. For example, when you access Azure storage, use a service endpoint for storage to avoid data processed NAT charges. Service endpoints are free.
+
+Private link exposes Azure PaaS service (or other services hosted with private link) as a private endpoint inside a virtual network.  Private link is billed based on duration and data processed.
+
+Evaluate if either or both of these approaches are a good fit for your scenario and use as needed.
+
+### Coexistence of inbound and outbound
 
 NAT gateway is compatible with:
 
@@ -152,7 +172,7 @@ When developing a new deployment, start with standard SKUs.
 
 The Internet outbound only scenario provided by NAT gateway can be expanded with inbound from Internet functionality. Each resource is aware of the direction in which a flow is originated. On a subnet with a NAT gateway, all outbound to Internet scenarios are superseded by the NAT gateway. Inbound from Internet scenarios are provided by the respective resource.
 
-### NAT and VM with instance-level Public IP
+#### NAT and VM with instance-level Public IP
 
 <p align="center">
   <img src="media/nat-overview/flow-direction2.svg" width="300" title="Virtual Network NAT and VM with instance-level Public IP">
@@ -167,7 +187,7 @@ The Internet outbound only scenario provided by NAT gateway can be expanded with
 
 VM will use NAT gateway for outbound.  Inbound originated isn't affected.
 
-### NAT and VM with public Load Balancer
+#### NAT and VM with public Load Balancer
 
 <p align="center">
   <img src="media/nat-overview/flow-direction3.svg" width="350" title="Virtual Network NAT and VM with public Load Balancer">
@@ -182,7 +202,7 @@ VM will use NAT gateway for outbound.  Inbound originated isn't affected.
 
 Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway.  Inbound originated isn't affected.
 
-### NAT and VM with instance-level public IP and public Load Balancer
+#### NAT and VM with instance-level public IP and public Load Balancer
 
 <p align="center">
   <img src="media/nat-overview/flow-direction4.svg" width="425" title="Virtual Network NAT and VM with instance-level public IP and public Load Balancer">
@@ -197,13 +217,13 @@ Any outbound configuration from a load-balancing rule or outbound rules is super
 
 Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway.  The VM will also use NAT gateway for outbound.  Inbound originated isn't affected.
 
-## Managing Basic resources
+### Managing Basic resources
 
 Standard load balancer, public IP, and public IP prefix are compatible with NAT gateway. NAT gateways operate in the scope of a subnet. The basic SKU of these services must be deployed on a subnet without a NAT gateway. This separation allows both SKU variants to coexist in the same virtual network.
 
 NAT gateways take precedence over outbound scenarios of the subnet. Basic load balancer or public IP (and any managed service built with them) is unable to be adjusted with the correct translations. NAT gateway takes control over outbound to Internet traffic on a subnet. Inbound traffic to basic load balancer and public ip is unavailable. Inbound traffic to a basic load balancer and, or a public ip configured on a VM won't be available.
 
-## Availability Zones
+### Availability Zones
 
 Even without availability zones, NAT is resilient and can survive multiple infrastructure component failures. When availability zones are part of your scenario, you should configure NAT for a specific zone.  The control plane operations and data plane are constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Outbound traffic from virtual machines in the same zone will fail because of zone isolation.
 
