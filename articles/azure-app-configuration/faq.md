@@ -77,7 +77,7 @@ Both App Configuration tiers offer core functionality, including config settings
 The following are considerations for choosing a tier.
 
 - **Resources per subscription**: A resource consists of a single configuration store. Each subscription is limited to one configuration store in the free tier. Subscriptions can have an unlimited number of configuration stores in the standard tier.
-- **Keys per resource**: In the free tier, each resource is limited to 10 MB of storage. In the standard tier, each resource can use up to 1 GB of storage.
+- **Storage per resource**: In the free tier, each configuration store is limited to 10 MB of storage. In the standard tier, each configuration store can use up to 1 GB of storage.
 - **Key history**: App Configuration stores a history of all changes made to keys. In the free tier, this history is stored for seven days. In the standard tier, this history is stored for 30 days.
 - **Requests per day**: Free tier stores are limited to 1,000 requests per day. Once a store reaches 1,000 requests, it will return HTTP status code 429 for all requests until midnight UTC.
 
