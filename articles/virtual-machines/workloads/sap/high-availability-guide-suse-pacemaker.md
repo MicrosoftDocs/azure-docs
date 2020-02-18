@@ -59,8 +59,8 @@ Run the following commands on all **iSCSI target virtual machines**.
    <pre><code>sudo zypper update
    </code></pre>
 
-> [!NOTE]
-   > OS reboot may be needed after the OS upgrade has been completed successfully. 
+   > [!NOTE]
+   > You might need to reboot the OS after you upgrade or update the OS. 
 
 1. Remove packages
 
