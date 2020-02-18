@@ -519,9 +519,9 @@ Clean the value of a given claim.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | claim_to_null | string | The claim its value to be NULL. |
+| OutputClaim | claim_to_null | string | The claim's value is set to NULL. |
 
-Use this claim transformation to remove unnecessary data from the claims property bag. So, the session cookie will be smaller. The following example removes the value of the `TermsOfService` claim type.
+Use this claim transformation to remove unnecessary data from the claims property bag so the session cookie will be smaller. The following example removes the value of the `TermsOfService` claim type.
 
 ```XML
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">
