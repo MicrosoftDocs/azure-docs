@@ -36,9 +36,9 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
    ![Set the size and scale for a new hub using the Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
 
-    This screen allows you to set the following values:
+   In **Size and scale**, you can accept the default settings and select **Tags** at the bottom. On this screen, consider the following options:
 
-    - **Pricing and scale tier**: Your selected tier. You can choose from several tiers, depending on how many features you want and how many messages you send through your solution per day. The free tier is intended for testing and evaluation. It allows 500 devices to be connected to the hub and up to 8,000 messages per day. Each Azure subscription can create one IoT hub in the free tier.
+    - **Pricing and scale tier**: Your selected tier. You can choose from several tiers, depending on how many features you want and how many messages you send through your solution per day. The free tier is intended for testing and evaluation. It allows 500 devices to be connected to the hub and up to 8,000 messages per day. Each Azure subscription can create one IoT hub in the free tier. 
 
       If you are working through a Quickstart for IoT Hub device streams, select the free tier.
 
@@ -49,11 +49,11 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
     - **Advanced Settings** > **Device-to-cloud partitions**: This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most hubs need only four partitions.
 
-1. For this article, accept the default choices, and then select **Next: Tags** to move to the next screen.
+1.  Select **Next: Tags** to move to the next screen.
 
     Tags are name/value pairs. You can assign the same tag to multiple resources and resource groups to categorize resources and consolidate billing. for more information, see [Use tags to organize your Azure resources](../articles/azure-resource-manager/management/tag-resources.md).
 
-   ![Set the size and scale for a new hub using the Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
+   ![Assign tags for the hub using the Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
 
     Select **Next: Review + create** to review your choices. You see something similar to this screen, but with the values you selected when creating the hub. 
 
