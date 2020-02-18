@@ -48,7 +48,7 @@ Tabbed pages built into the Overview page report out on resource usage. This inf
 
 If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
 
-Alerts related to storage are not currently available; storage consumption is not aggregated or logged into the **AzureMetrics** table in Azure Monitor. You would need to build a custom solution that emits resource-related notifications, where your code checks for storage size and handles the response. For more information about storage metrics, see [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
+Alerts related to storage are not currently available; storage consumption is not aggregated or logged into the **AzureMetrics** table in Azure Monitor. You would need to [build a custom solution](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) that emits resource-related notifications, where your code checks for storage size and handles the response. For more information about storage metrics, see [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
 For visual monitoring in the portal, the **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md) imposed by the service tier. 
 
