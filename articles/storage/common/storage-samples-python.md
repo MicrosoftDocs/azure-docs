@@ -31,7 +31,7 @@ The following tables provide an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Blob client authorization from connection string blob](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L56)
+      [Blob client authorization from connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L56)
    :::column-end:::
    :::column span="":::
       [Create blob service client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L66)
@@ -61,7 +61,6 @@ The following tables provide an overview of our samples repository and the scena
       [Create blob snapshot](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_common.py#L56)
    :::column-end:::
 :::row-end:::
-
 
 ### Blob service
 

@@ -15,7 +15,7 @@ ms.topic: sample
 The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in GitHub.
 
 > [!NOTE]
-> These samples use the latest Azure Storage .NET v12 library. For legacy v8 code, see [Getting Started with Azure Blob Service in Java](https://github.com/Azure-Samples/storage-blob-java-getting-started) in the GitHub repository.
+> These samples use the latest Azure Storage Java v12 library. For legacy v8 code, see [Getting Started with Azure Blob Service in Java](https://github.com/Azure-Samples/storage-blob-java-getting-started) in the GitHub repository.
 
 ## Blob samples
 
