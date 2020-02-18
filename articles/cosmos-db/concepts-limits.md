@@ -98,7 +98,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 | --- | --- |
 | Maximum size of an item | 2 MB (UTF-8 length of JSON representation) |
 | Maximum length of partition key value | 2048 bytes |
-| Maximum length of id value | 1024 bytes |
+| Maximum length of id value | 1023 bytes |
 | Maximum number of properties per item | No practical limit |
 | Maximum nesting depth | No practical limit |
 | Maximum length of property name | No practical limit |
