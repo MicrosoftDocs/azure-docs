@@ -47,7 +47,7 @@ landingContent:
         links:
           - text: Enable self-service password reset
             url: tutorial-enable-sspr.md
-          - text: Enable on-premises password writeback
+          - text: Enable password writeback to on-premises
             url: tutorial-enable-sspr-writeback.md
       - linkListType: deploy
         links:

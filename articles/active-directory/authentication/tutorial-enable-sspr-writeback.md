@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/13/2020
+ms.date: 02/18/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -64,15 +64,18 @@ To set up the appropriate permissions for password writeback to occur, complete 
 1. From the **View** menu, make sure that **Advanced features** are turned on.
 1. In the left panel, right-select the object that represents the root of the domain and select **Properties** > **Security** > **Advanced**.
 1. From the **Permissions** tab, select **Add**.
-1. Pick the account that permissions should be applied to (the account used by Azure AD Connect).
+1. For **Principal**, select the account that permissions should be applied to (the account used by Azure AD Connect).
 1. In the **Applies to** drop-down list, select **Descendant User objects**.
-1. Under **Permissions**, select the boxes for the following options:
+1. Under *Permissions*, select the boxes for the following options:
     * **Change password**
     * **Reset password**
-1. Under **Properties**, select the boxes for the following options:
+1. Under *Properties*, select the boxes for the following options. You need to scroll through the list to find these options, which may already be set by default:
     * **Write lockoutTime**
     * **Write pwdLastSet**
-1. Select **Apply/OK** to apply the changes and exit any open dialog boxes.
+
+    [![](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png "Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect")](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
+
+1. When ready, select **Apply / OK** to apply the changes and exit any open dialog boxes.
 
 When you update permissions, it might take up to an hour or more for these permissions to replicate to all the objects in your directory.
 
