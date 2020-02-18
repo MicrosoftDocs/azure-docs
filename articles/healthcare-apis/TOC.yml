@@ -4,8 +4,6 @@
   items:
   - name: About Azure API for FHIR
     href: overview.md
-  - name: About FHIR Server for Azure
-    href: overview-open-source-server.md
 - name: Quickstarts
   expanded: true
   items:
@@ -46,7 +44,7 @@
     expanded: false
     items:
     - name: Register applications for Azure API for FHIR overview
-      href: tutorial-1-decision-flow.md
+      href: fhir-app-registration.md
     - name: Resource application
       href: register-resource-azure-ad-client-app.md
     - name: Confidential client application

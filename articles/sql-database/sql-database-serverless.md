@@ -336,7 +336,7 @@ More precisely, the compute bill in this example is calculated as follows:
 |8:00-24:00|0|0|No compute billed while paused|0 vCore seconds|
 |Total vCore seconds billed over 24 hours||||50400 vCore seconds|
 
-Suppose the compute unit price is $0.000073/vCore/second.  Then the compute billed for this 24-hour period is the product of the compute unit price and vCore seconds billed: $0.000073/vCore/second * 50400 vCore seconds = $3.68
+Suppose the compute unit price is $0.000145/vCore/second.  Then the compute billed for this 24-hour period is the product of the compute unit price and vCore seconds billed: $0.000145/vCore/second * 50400 vCore seconds ~ $7.31
 
 ### Azure Hybrid Benefit and reserved capacity
 

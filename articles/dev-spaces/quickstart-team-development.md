@@ -1,7 +1,7 @@
 ---
 title: "Team development on Kubernetes"
 services: azure-dev-spaces
-ms.date: 04/25/2019
+ms.date: 01/22/2020
 ms.topic: quickstart
 description: "This quickstart shows you how to do team Kubernetes development with containers and microservices with Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
@@ -21,7 +21,7 @@ In this guide, you will learn how to:
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Helm 2.13 - 2.16 installed][helm-installed].
+- [Helm 3 installed][helm-installed].
 
 ## Create an Azure Kubernetes Service cluster
 
@@ -76,39 +76,14 @@ The commands for running the sample application on Kubernetes are part of an exi
 
 You can use Azure Dev Spaces for team development after an application is running in a cluster regardless of the tooling used to deploy it.
 
-Use the `helm init` and `helm install` commands to set up and install the sample application on your cluster.
+Use the `helm install` command to set up and install the sample application on your cluster.
 
 ```cmd
 cd charts/
-helm init --wait
-helm install -n bikesharing . --dep-up --namespace dev --atomic 
-```
-> [!Note]
-> **If you are using an RBAC-enabled cluster**, be sure to configure [a service account for Tiller](https://helm.sh/docs/using_helm/#role-based-access-control). Otherwise, `helm` commands will fail.
-
-The `helm install` command may take several minutes to complete. The output of the command shows the status of all the services it deployed to the cluster when completed:
-
-```cmd
-$ cd charts/
-$ helm init --wait
-...
-Happy Helming!
-
-$ helm install -n bikesharing . --dep-up --namespace dev --atomic
-
-Hang tight while we grab the latest from your chart repositories...
-...
-NAME               READY  UP-TO-DATE  AVAILABLE  AGE
-bikes              1/1    1           1          4m32s
-bikesharingweb     1/1    1           1          4m32s
-billing            1/1    1           1          4m32s
-gateway            1/1    1           1          4m32s
-reservation        1/1    1           1          4m32s
-reservationengine  1/1    1           1          4m32s
-users              1/1    1           1          4m32s
+helm install bikesharing . --dependency-update --namespace dev --atomic
 ```
 
-After the sample application is installed on your cluster and since you have Dev Spaces enabled on your cluster, use the `azds list-uris` command to display the URLs for the sample application in *dev* that is currently selected.
+The `helm install` command may take several minutes to complete. After the sample application is installed on your cluster and since you have Dev Spaces enabled on your cluster, use the `azds list-uris` command to display the URLs for the sample application in *dev* that is currently selected.
 
 ```cmd
 $ azds list-uris
@@ -229,5 +204,5 @@ Learn how Azure Dev Spaces helps you develop more complex apps across multiple c
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-nodejs.md)
 
-[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
+[helm-installed]: https://helm.sh/docs/intro/install/
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

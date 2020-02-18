@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 12/02/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.reviewer: sngun
 ---
 

@@ -132,7 +132,7 @@ Learn how to use a managed identity with other Azure services:
 * [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Azure Container Registry Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
-* [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Azure Event Hubs](../../event-hubs/authenticate-managed-identity.md)
 * [Azure Functions](/azure/app-service/overview-managed-identity)
 * [Azure Kubernetes Service](/azure/aks/use-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)

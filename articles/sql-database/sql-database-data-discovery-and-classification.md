@@ -8,8 +8,8 @@ ms.custom:
 titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.devlang: 
 ms.topic: conceptual
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/22/2019
 ---

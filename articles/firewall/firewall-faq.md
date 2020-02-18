@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/29/2020
 ms.author: victorh
 ---
 
@@ -49,7 +49,7 @@ There are three types of rule collections:
 
 ## Does Azure Firewall support inbound traffic filtering?
 
-Azure Firewall supports inbound and outbound filtering. Inbound protection is for non-HTTP/S protocols. For example RDP, SSH, and FTP protocols.
+Azure Firewall supports inbound and outbound filtering. Inbound protection is typically used for non-HTTP/S protocols. For example RDP, SSH, and FTP protocols. For best inbound HTTP/S protection, use a web application firewall such as [Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
 
 ## Which logging and analytics services are supported by the Azure Firewall?
 
@@ -120,7 +120,7 @@ Yes. However, configuring the UDRs to redirect traffic between subnets in the sa
 
 ## Does Azure Firewall outbound SNAT between private networks?
 
-Azure Firewall doesn’t SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet.
+Azure Firewall doesn’t SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 
 ## Is forced tunneling/chaining to a Network Virtual Appliance supported?
 

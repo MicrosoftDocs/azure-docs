@@ -21,6 +21,18 @@ We also strongly recommend that you review the [Azure Backup service FAQ](backup
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
+## Cause: Backup job running in unoptimized mode
+
+* The MARS agent can run the backup job in **optimized mode** using USN (update sequence number) change journal or **unoptimized mode** by checking for changes in directories or files by scanning the entire volume.
+* Unoptimized mode is slow because the agent has to scan each and every file on the volume and compare against the metadata to determine the changed files.
+* To verify this, open **Job Details** from the MARS agent console  and check the status to see if it says **Transferring data (unoptimized, may take more time)** as shown below:
+
+    ![Running in unoptimized mode](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
+
+* The following conditions can cause the backup job to run in unoptimized mode:
+  * First backup (also known as Initial Replication) will always run in unoptimized mode
+  * If the previous backup job fails, then the next scheduled backup job will run as unoptimized.
+
 <a id="cause1"></a>
 
 ## Cause: Performance bottlenecks on the computer
