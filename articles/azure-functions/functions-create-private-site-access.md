@@ -71,12 +71,20 @@ The first step is to create a new resource group, and then a new virtual network
 1. Create a new resource group
 ![Create a new Azure resource group](./media/functions-create-private-site-access/create-resource-group.png)
 2. Select the **Add** or **Create resources** button to create a new resource in the resource group
+
+[!div class="mx-imgBorder"]
 ![Create a new resource](./media/functions-create-private-site-access/add-resource-to-resource-group.png)
 3. Type "Virtual Network" in the Marketplace search box, and select "Virtual Network".
+
+[!div class="mx-imgBorder"]
 ![Select Virtual Network from Marketplace](./media/functions-create-private-site-access/create-virtual-network-1.png)
 4. Press the **Create** button to begin creating the virtual network.
+
+[!div class="mx-imgBorder"]
 ![Select Virtual Network from Marketplace](./media/functions-create-private-site-access/create-virtual-network-2.png)
-5. Provide a name for the virtual network, along with a desired address space.  
+5. Provide a name for the virtual network, along with a desired address space.
+
+[!div class="mx-imgBorder"]
 ![Provide a name and address space for the new virtual network](./media/functions-create-private-site-access/create-virtual-network-3.png)
 6. Press the **Create** button when finished.
 
@@ -84,18 +92,33 @@ The first step is to create a new resource group, and then a new virtual network
 
 The next step is to create a new virtual machine within the "default" subnet of the virtual network.
 
-1. On the **Basics** tab, keep the default settings
-<!-- INSERT SCREENSHOT -->
-2. Leave the defaults in the **Disk** tab.
-<!-- INSERT SCREENSHOT -->
-3. In the **Networking** tab, select the previously created virtual network and subnet. Change the IP address setting to nto have a public IP address. Remote access to the VM will be configured via the Azure Bastion service.
-<!-- INSERT SCREENSHOT -->
-4. In the **Management** tab, leave most of the defaults in place.
-<!-- INSERT SCREENSHOT -->
-5. Leave the defaults in place for the **Advanced** and **Tags** tabs.
-<!-- INSERT SCREENSHOT -->
-6. On the **Review + create** tab, the platform will perform some basic validation.
-<!-- INSERT SCREENSHOT -->
+1. In the portal, choose **Add** at the top of the resource group view
+2. In the search field, type "Windows Server".
+3. Choose **Windows Server** in the search results.
+4. In the **Basics** tab, use the VM settings as specified in the table below the image.
+
+[!div class="mx-imgBorder"]
+![Basic settings for a Windows VM](./media/functions-create-private-site-access/create-windows-vm-3.png)
+
+| Setting      | Suggested value  | Description      |
+| ------------ | ---------------- | ---------------- |
+| **Subscription** | todo | todo |
+| **Resource group** | todo | todo |
+| **Virtual machine name** | todo | todo |
+| **Region** | todo | todo |
+| **Image** | todo | todo |
+| **Username** | todo | todo |
+| **Password** | todo | todo |
+| **Public inbound ports** | todo | todo |
+
+5. Leave the defaults in the **Disk** tab.
+6. In the **Networking** tab, select the previously created virtual network and subnet. Change the IP address setting to not have a public IP address. Remote access to the VM will be configured via the Azure Bastion service.
+
+[!div class="mx-imgBorder"]
+![Basic settings for a Windows VM](./media/functions-create-private-site-access/create-windows-vm-4.png)
+
+7. Leave the default values in place for the **Management**, **Advanced** and **Tags** tabs.
+8. Select **Review + create**. After validation completes, select **Create**. The VM create process takes a few minutes.
 
 ## Configure Azure Bastion
 
