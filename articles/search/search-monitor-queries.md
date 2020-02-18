@@ -149,6 +149,8 @@ Add the duration column to get the numbers for all queries, not just those that 
    | sort by DurationMs
    ```
 
+   ![Sort queries by duration](./media/search-monitor-usage/azurediagnostics-table-sortby-duration.png "Sort queries by duration")
+
 ## Create a metric alert
 
 A  metric alert establishes a threshold at which you will either receive a notification or trigger a corrective action that you define in advance. 

@@ -70,7 +70,7 @@ In diagnostic logs, two tables contain logs and metrics for Azure Cognitive Sear
 
    ![AzureMetrics table](./media/search-monitor-usage/azuremetrics-table.png "AzureMetrics table")
 
-1. Enter the following query to run a tabular result set.
+1. Enter the following query to return a tabular result set.
 
    ```
    AzureMetrics
