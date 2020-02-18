@@ -185,11 +185,11 @@
     - name: With REST API
       items:
       - name: Backup
-        href: backup-afs-rest-api.md
+        href: backup-azure-file-share-rest-api.md
       - name: Restore
-        href: restore-afs-rest-api.md
+        href: restore-azure-file-share-rest-api.md
       - name: Manage
-        href: manage-afs-rest-api.md
+        href: manage-azure-file-share-rest-api.md
   - name: SAP HANA database on Azure VM backup
     items:
     - name: Overview

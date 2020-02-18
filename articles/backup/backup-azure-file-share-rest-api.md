@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 02/16/2020
 ---
 
-# Backup Azure File Share using Azure Backup via Rest API
+# Backup Azure file share using Azure Backup via Rest API
 
 This article describes how to back up an Azure File share using Azure Backup via REST API.
 
@@ -23,9 +23,9 @@ For this article, we'll use the following resources:
 
 - **File Share**: *testshare*
 
-## Configure backup for an unprotected Azure File Share using REST API
+## Configure backup for an unprotected Azure file share using REST API
 
-### Discover Storage Accounts with unprotected Azure File Shares
+### Discover storage accounts with unprotected Azure file shares
 
 The vault needs to discover all Azure storage accounts in the subscription with file shares that can be backed up to the Recovery Services Vault. This is triggered using the [refresh operation](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). It's an asynchronous *POST* operation that ensures the vault gets the latest list of all unprotected Azure File shares in the current subscription and 'caches' them. Once the file share is 'cached', Recovery services can access the file share and protect it.
 
@@ -101,7 +101,7 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105304Z:d9bdb266-8349-4dbd-968
 Date   : Mon, 27 Jan 2020 10:53:04 GMT
 ```
 
-### Get List of Storage Accounts that can be protected with Recovery Services Vault
+### Get List of storage accounts that can be protected with Recovery Services vault
 
 To confirm that “caching” is done, list all protectable storage accounts under the subscription. Then locate the desired storage account in the response. This is done using the [GET ProtectableContainers](https://docs.microsoft.com/rest/api/backup/protectablecontainers/list) operation.
 
@@ -153,7 +153,7 @@ protectableContainers/StorageContainer;Storage;AzureFiles;testvault2",
 
 Since we can locate the *testvault2* storage account in the response body with the friendly name, the refresh operation performed above was successful. The recovery services vault can now successfully discover storage accounts with unprotected files shares in the same subscription.
 
-### Register Storage Account with Recovery Services Vault
+### Register storage account with Recovery Services vault
 
 This step is only needed if you didn't register the storage account with the vault earlier. You can register the vault via the [ProtectionContainers-Register operation](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register).
 
@@ -344,7 +344,7 @@ Status Code:200
 
 The response contains the list of all unprotected file shares and contains all the information required by the Azure Recovery Service to configure the backup.
 
-### Enable backup for the File share
+### Enable backup for the file share
 
 After the relevant file share is "identified" with the friendly name, select the policy to protect. To learn more about existing policies in the vault, refer to [list Policy API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Then select the [relevant policy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy).
 
@@ -458,7 +458,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;testvault2/protectedItems/AzureFileShare;testshare/backup?api-version=2017-07-01
 ```
 
-### Create Request Body
+### Create request body
 
 To trigger an on-demand backup, following are the components of the request body.
 
@@ -519,7 +519,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Once the operation completes, it returns 200 (OK) with the ID of the resulting backup job in the response body.
 
-#### Sample Response Body
+#### Sample response body
 
 ```json
 {
@@ -539,4 +539,4 @@ Since the backup job is a long running operation, it needs to be tracked as expl
 
 ## Next steps
 
-- Learn how to [restore Azure file shares using Rest API](restore-afs-rest-api.md).
+- Learn how to [restore Azure file shares using Rest API](restore-azure-file-share-rest-api.md).

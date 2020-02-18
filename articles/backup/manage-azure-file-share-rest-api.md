@@ -17,7 +17,7 @@ The Azure Backup service triggers jobs that run in the background. This includes
 
 An operation such as triggering backup will always return a jobID in the response.
 
-For example, the final response of a [trigger backup REST API](backup-afs-rest-api.md#trigger-an-on-demand-backup-for-file-share) operation is as follows:
+For example, the final response of a [trigger backup REST API](backup-azure-file-share-rest-api.md#trigger-an-on-demand-backup-for-file-share) operation is as follows:
 
 ```json
 {
@@ -122,7 +122,7 @@ For example: To change the protection policy of *testshare* from *schedule1* to 
 
 ## Stop protection but retain existing data
 
-You can remove protection on a protected file share but retain the data already backed up. To do so, remove the policy in the request body you used to[enable backup](backup-afs-rest-api.md#enable-backup-for-the-file-share) and submit the request. Once the association with the policy is removed, backups are no longer triggered, and no new recovery points are created.
+You can remove protection on a protected file share but retain the data already backed up. To do so, remove the policy in the request body you used to[enable backup](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) and submit the request. Once the association with the policy is removed, backups are no longer triggered, and no new recovery points are created.
 
 ```json
 {
@@ -191,7 +191,7 @@ To remove the protection on a protected file share and delete the backup data as
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-The parameters {containerName} and {protectedItemName} are as set [here](restore-afs-rest-api.md#fetch-containername-and-protecteditemname).
+The parameters {containerName} and {protectedItemName} are as set [here](restore-azure-file-share-rest-api.md#fetch-containername-and-protecteditemname).
 
 The following example triggers an operation to stop protection for the *testshare* file share protected with *azurefilesvault*.
 
