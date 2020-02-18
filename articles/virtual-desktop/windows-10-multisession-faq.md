@@ -23,7 +23,7 @@ How many interactive sessions that can be active at the same time relies on your
  
 ## Why does my application report Windows 10 Enterprise multi-session as a Server operating system?
 
-Windows 10 Enterprise multi-session is a virtual edition of Windows 10 Enterprise. One of the differences is that this operating system (OS) reports the [ProductType](https://docs.microsoft.com/windows/desktop/cimwin32prov/win32-operatingsystem) as having a value of 3, the same value as Windows Server. This property keeps the OS compatible with existing RDSH management tooling, RDSH multi-session-aware applications, and mostly low-level system performance optimizations for RDSH environments. Some application installers can block installation on Windows 10 multi-session depending on whether they detect the ProductType is set to Client. If your app won't install, contact your application vendor for an updated version. 
+Windows 10 Enterprise multi-session is a virtual edition of Windows 10 Enterprise. One of the differences is that this operating system (OS) reports the [ProductType](/windows/desktop/cimwin32prov/win32-operatingsystem/) as having a value of 3, the same value as Windows Server. This property keeps the OS compatible with existing RDSH management tooling, RDSH multi-session-aware applications, and mostly low-level system performance optimizations for RDSH environments. Some application installers can block installation on Windows 10 multi-session depending on whether they detect the ProductType is set to Client. If your app won't install, contact your application vendor for an updated version. 
  
 ## Can I run Windows 10 Enterprise multi-session on-premises?
 
@@ -43,7 +43,7 @@ You can use any supported configuration tool, but we recommend Configuration Man
  
 ## Can Windows 10 Enterprise multi-session be Azure Active Directory (AD)-joined?
 
-Windows 10 Enterprise multi-session is currently supported to be hybrid Azure AD-joined. After Windows 10 Enterprise multi-session is domain-joined, use the existing Group Policy Object to enable Azure AD registration. For more information, see [Plan your hybrid Azure Active Directory join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan).
+Windows 10 Enterprise multi-session is currently supported to be hybrid Azure AD-joined. After Windows 10 Enterprise multi-session is domain-joined, use the existing Group Policy Object to enable Azure AD registration. For more information, see [Plan your hybrid Azure Active Directory join implementation](../active-directory/devices/hybrid-azuread-join-plan.md).
  
 ## Where can I find the Windows 10 Enterprise multi-session image?
 

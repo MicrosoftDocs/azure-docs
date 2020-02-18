@@ -116,7 +116,7 @@ To find your Azure subscription ID:
 
 Now that you've granted the Windows Virtual Desktop service permissions to query Azure Active Directory and assigned the TenantCreator role to a user account, you can create a Windows Virtual Desktop tenant.
 
-First, [download and import the Windows Virtual Desktop module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+First, [download and import the Windows Virtual Desktop module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already.
 
 Sign in to Windows Virtual Desktop by using the TenantCreator user account with this cmdlet:
 
