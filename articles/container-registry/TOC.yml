@@ -117,6 +117,8 @@
         - name: Diagnostic and audit logs (preview)
           href: container-registry-diagnostics-audit-logs.md   
     - name: Troubleshoot
+        - name: Audit compliance using Azure Policy (preview)
+          href: container-registry-azure-policy.md
       expanded: false
       items:
         - name: Detect common issues
