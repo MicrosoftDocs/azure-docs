@@ -451,6 +451,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-arc/servers/quickstart-onboard-portal.md",
+      "redirect_url": "/azure/azure-arc/servers/onboard-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/servers/quickstart-onboard-powershell.md",
+      "redirect_url": "/azure/azure-arc/servers/onboard-service-principal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/batch-ai/quickstart-create-cluster-cli.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/quickstart-create-cluster-cli",
       "redirect_document_id": true
@@ -3722,7 +3732,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-group-create-multiple.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/create-multiple-instances.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-resources",
       "redirect_document_id": false
     },
     {
@@ -4652,7 +4667,7 @@
     },
     {
       "source_path": "articles/resource-group-create-multiple.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-resources",
       "redirect_document_id": false
     },
     {
@@ -5644,6 +5659,11 @@
       "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started-custom.md",
       "redirect_url": "/azure/active-directory-b2c/custom-policy-get-started",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-ui-customization-dynamic.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-overview-custom.md",
@@ -12027,7 +12047,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-property-copy.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-properties",
       "redirect_document_id": false
     },
     {
@@ -12037,7 +12057,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-sequential-loop.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-resources",
       "redirect_document_id": false
     },
     {
@@ -35411,6 +35431,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/conditional-access/technical-reference.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/conditions.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
       "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-javascriptspa",
       "redirect_document_id": false
@@ -48509,6 +48539,26 @@
     {
       "source_path": "articles/media-services/previous/media-services-configure-fmle-live-encoder.md",
       "redirect_url": "/azure/media-services/previous/media-services-configure-wirecast-live-encoder/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/ansible-install-configure.md",
+      "redirect_url": "/azure/ansible/ansible-install-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/ansible-create-vm.md",
+      "redirect_url": "/azure/ansible/ansible-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/ansible-manage-linux-vm.md",
+      "redirect_url": "/azure/ansible/ansible-manage-linux-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-java-enterprise-postgresql-app.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java",
       "redirect_document_id": false
     }
   ]
