@@ -46,7 +46,7 @@ To complete this tutorial, you need the following resources and privileges:
 
 Azure AD Connect lets you synchronize users, groups, and credential between an on-premises AD DS environment and Azure AD. You typically install Azure AD Connect on a Windows Server 2012 or later computer that's joined to the on-premises AD DS domain.
 
-To correctly work with SSPR writeback, the account specified in Azure AD Connect must have the following permissions and options set. If you're not sure which account is currently in use, open Azure AD Connect and select the **View current configuration** option. The account that you need to add permissions to is listed under **Synchronized Directories**.
+To correctly work with SSPR writeback, the account specified in Azure AD Connect must have the appropriate permissions and options set. If you're not sure which account is currently in use, open Azure AD Connect and select the **View current configuration** option. The account that you need to add permissions to is listed under **Synchronized Directories**. The following permissions and options must be set on the account:
 
 * **Reset password**
 * **Change password**
@@ -138,7 +138,12 @@ If you no longer want to use any password functionality, complete the following 
 
 ## Next steps
 
-In this tutorial, you have enabled password writeback for self-service password reset. Leave the Azure portal window open and continue to the next tutorial to configure additional settings related to self-service password reset before you roll out the solution in a pilot.
+In this tutorial, you enabled Azure AD SSPR writeback to an on-premises AD DS environment. You learned how to:
+
+> [!div class="checklist"]
+> * Configure the required permissions for password writeback
+> * Enable the password writeback option in Azure AD Connect
+> * Enable password writeback in Azure AD SSPR
 
 > [!div class="nextstepaction"]
 > [Evaluate risk at sign in](tutorial-risk-based-sspr-mfa.md)
