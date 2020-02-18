@@ -191,7 +191,7 @@ If you run a queries that includes the `order` property or `price($)` property, 
 SELECT * FROM c where c.order.orderid = "12345"
 ```
 ```sql
-SELECT * FROM c where c.order.price($) = "12345"
+SELECT * FROM c where c.order.price($) > 50
 ```
 The Result is:
 
