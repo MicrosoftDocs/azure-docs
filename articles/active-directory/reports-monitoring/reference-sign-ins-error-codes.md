@@ -114,7 +114,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50133|Session is invalid due to expiration or recent password change.|
 |50135|Password change is required due to account risk.|
 |50136|Redirect MSA session to application - Single MSA session detected. |
-|50140|This error occurred due to "Keep me signed in" interrupt when the user was signing-in. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details. |
+|50140|This error occurred due to "Keep me signed in" interrupt when the user was signing-in. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details, in case that the authentication fails. |
 |50143|Session mismatch - Session is invalid because user tenant does not match the domain hint due to different resource. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details.|
 |50144|User's Active Directory password has expired. Generate a new password for the user or have the end user using self-service reset tool.|
 |50146|This application is required to be configured with an application-specific signing key. It is either not configured with one, or the key has expired or is not yet valid. Contact the application owner.|
