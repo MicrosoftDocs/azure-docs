@@ -23,13 +23,13 @@ The Speech service implementation of SSML is based on World Wide Web Consortium'
 
 ## Standard, neural, and custom voices
 
-Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales. For a complete list of supported languages, locales, and voices (neural and standard), see [language support](language-support.md).
+Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in four languages and locales. For a complete list of supported languages, locales, and voices (neural and standard), see [language support](language-support.md).
 
 To learn more about standard, neural, and custom voices, see [Text-to-speech overview](text-to-speech.md).
 
 ## Special characters
 
-While using SSML to convert text-to-synthesized speech, keep in mind that just like with XML, special characters, such as quotation marks, apostrophes, and brackets must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
+While using SSML, keep in mind that special characters, such as quotation marks, apostrophes, and brackets must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
 
 ## Supported SSML elements
 
@@ -102,7 +102,7 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 
 ### Disable word boundary
 
-Depending of the Speech SDK language, you'll set the `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` property to `false` on an instance of the `SpeechConfig` object.
+Depending on the Speech SDK language, you'll set the `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` property to `false` on an instance of the `SpeechConfig` object.
 
 # [C#](#tab/csharp)
 
@@ -184,7 +184,7 @@ speechConfig!.setPropertyTo(
 ## Adjust speaking styles
 
 > [!IMPORTANT]
-> This feature will only work with neural voices.
+> The adjustment of speaking styles will only work with neural voices.
 
 By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express cheerfulness, empathy, or sentiment with the `<mstts:express-as>` element. This is an optional element unique to the Speech service.
 
@@ -204,7 +204,7 @@ Changes are applied at the sentence level, and style vary by voice. If a style i
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `type` | Specifies the speaking style. Currently, speaking styles are voice specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then type must be provided. If an invalid value is provided, this element will be ignored. |
+| `type` | Specifies the speaking style. Currently, speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then type must be provided. If an invalid value is provided, this element will be ignored. |
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
@@ -252,7 +252,7 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `strength` | Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
-| `time` | Specifies the absolute duration of a pause in seconds or milliseconds. Examples of valid values are 2s and 500 | Optional |
+| `time` | Specifies the absolute duration of a pause in seconds or milliseconds. Examples of valid values are `2s` and `500` | Optional |
 
 | Strength | Description |
 |----------|-------------|
@@ -359,12 +359,12 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `pitch` | Indicates the baseline pitch for the text. You may express the pitch as:<ul><li>An absolute value, expressed as a number followed by "Hz" (Hertz). For example, 600Hz.</li><li>A relative value, expressed as a number preceded by "+" or "-" and followed by "Hz" or "st", that specifies an amount to change the pitch. For example: +80Hz or -2st. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.</li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>. | Optional |
-| `contour` | Contour isn't supported for neural voices. Contour represents changes in pitch for speech content as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch, using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
+| `pitch` | Indicates the baseline pitch for the text. You may express the pitch as:<ul><li>An absolute value, expressed as a number followed by "Hz" (Hertz). For example, 600 Hz.</li><li>A relative value, expressed as a number preceded by "+" or "-" and followed by "Hz" or "st", that specifies an amount to change the pitch. For example: +80 Hz or -2st. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.</li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>. | Optional |
+| `contour` | Contour isn't supported for neural voices. Contour represents changes in pitch. These changes are represented as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch, using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
 | `range` | A value that represents the range of pitch for the text. You may express `range` using the same absolute values, relative values, or enumeration values used to describe `pitch`. | Optional |
-| `rate` | Indicates the speaking rate of the text. You may express `rate` as:<ul><li>A relative value, expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the rate. A value of *.5* results in a halving of the rate. A value of *3* results in a tripling of the rate.</li><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
+| `rate` | Indicates the speaking rate of the text. You may express `rate` as:<ul><li>A relative value, expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the rate. A value of *0.5* results in a halving of the rate. A value of *3* results in a tripling of the rate.</li><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
 | `duration` | The period of time that should elapse while the speech synthesis (TTS) service reads the text, in seconds or milliseconds. For example, *2s* or *1800ms*. | Optional |
-| `volume` | Indicates the volume level of the speaking voice. You may express the volume as:<ul><li>An absolute value, expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. For example, 75. The default is 100.0.</li><li>A relative value, expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. For example +10 or -5.5.</li><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
+| `volume` | Indicates the volume level of the speaking voice. You may express the volume as:<ul><li>An absolute value, expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. For example, 75. The default is 100.0.</li><li>A relative value, expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. For example, +10 or -5.5.</li><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
 
 ### Change speaking rate
 
@@ -452,7 +452,7 @@ The following are the supported content types for the `interpret-as` and `format
 
 | interpret-as | format | Interpretation |
 |--------------|--------|----------------|
-| `address` | | The text is spoken as an address. The speech synthesis engine pronounces:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />As  "I'm at 150th court north east redmond washington." |
+| `address` | | The text is spoken as an address. The speech synthesis engine pronounces:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />As "I'm at 150th court north east redmond washington." |
 | `cardinal`, `number` | | The text is spoken as a cardinal number. The speech synthesis engine pronounces:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />As "There are three alternatives." |
 | `characters`, `spell-out` | | The text is spoken as individual letters (spelled out). The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />As "T E S T." |
 | `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | The text is spoken as a date. The `format` attribute specifies the date's format (*d=day, m=month, and y=year*). The speech synthesis engine pronounces:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />As "Today is October nineteenth two thousand sixteen." |
@@ -468,7 +468,7 @@ The `say-as` element may contain only text.
 
 **Example**
 
-The speech synthesis engine speaks the following example as "Your first request was for one room on October nineteenth twenty ten with early arrival at twelve thirty five P M."
+The speech synthesis engine speaks the following example as "Your first request was for one room on October nineteenth twenty ten with early arrival at twelve thirty five PM."
  
 ```XML
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -490,7 +490,7 @@ Any audio included in the SSML document must meet these requirements:
 * The MP3 must be hosted on an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the MP3 file must present a valid, trusted SSL certificate.
 * The MP3 must be a valid MP3 file (MPEG v2).
 * The bit rate must be 48 kbps.
-* The sample rate must be 16000 Hz.
+* The sample rate must be 16,000 Hz.
 * The combined total time for all text and audio files in a single response cannot exceed ninety (90) seconds.
 * The MP3 must not contain any customer-specific or other sensitive information.
 
@@ -542,7 +542,7 @@ Only one background audio file is allowed per SSML document. However, you can in
 |-----------|-------------|---------------------|
 | `src` | Specifies the location/URL of the background audio file. | Required if using background audio in your SSML document. |
 | `volume` | Specifies the volume of the background audio file. **Accepted values**: `0` to `100` inclusive. The default value is `1`. | Optional |
-| `fadein` | Specifies the duration of the background audio fade in in milliseconds. The default value is `0`, which is the equivalent to no fade in. **Accepted values**: `0` to `10000` inclusive.  | Optional |
+| `fadein` | Specifies the duration of the background audio "fade in" as milliseconds. The default value is `0`, which is the equivalent to no fade in. **Accepted values**: `0` to `10000` inclusive.  | Optional |
 | `fadeout` | Specifies the duration of the background audio fade out in milliseconds. The default value is `0`, which is the equivalent to no fade out. **Accepted values**: `0` to `10000` inclusive.  | Optional |
 
 **Example**
