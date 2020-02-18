@@ -351,6 +351,12 @@
       href: view-usage-reports.md
     - name: Account management
       href: manage-user-accounts-graph-api.md
+    - name: Deploy with Azure Pipelines
+      href: deploy-custom-policies-devops.md
+      displayName: azure devops, ci/cd, cicd, custom policy, policies
+    - name: Manage policies with PowerShell
+      href: manage-custom-policies-powershell.md
+      displayName: scripting, scripts, psh, custom policy
   - name: Audit logs
     href: view-audit-logs.md
   - name: Manage users - Azure portal
