@@ -5,19 +5,22 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 1/29/2020
+ms.date: 2/18/2020
 ms.author: lcozzens
 
 #Customer intent: As a developer using Azure App Configuration, I want to understand how to use private endpoints to enable secure communication with my App Configuration instance.
 ---
 # Using Private Endpoints for Azure App Configuration
+Azure App Configuration offers the use of private endpoints as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use. As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please 
 
-You can use [Private Endpoints](../private-link/private-endpoint-overview.md) for your Azure App Configuration service to allow clients on a virtual network (VNet) to securely access data over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your App Configuration service. Network traffic between the clients on the VNet and the App Configuration instance account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+You can use [private endpoints](../private-link/private-endpoint-overview.md) for your Azure App Configuration service to allow clients on a virtual network (VNet) to securely access data over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your App Configuration service. Network traffic between the clients on the VNet and the App Configuration instance account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 Using private endpoints for your App Configuration service enables you to:
 - Secure your application configuration details by configuring the firewall to block all connections on the public endpoint App Configuration service.
 - Increase security for the virtual network (VNet), by enabling you to block exfiltration of data from the VNet.
 - Securely connect to the App Configuration service from on-premises networks that connect to the VNet using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
+
+Azure App Configuration offers the use of private endpoints as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use. As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please 
 
 ## Conceptual Overview
 
