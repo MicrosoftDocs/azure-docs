@@ -208,6 +208,6 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 - Quickstart for deploying a NAT gateway resource
   * [Azure CLI](./quickstart-create-nat-gateway-cli.md),
   * [PowerShell](./quickstart-create-nat-gateway-powershell.md),
-  * [Portal)(./quickstart-create-nat-gateway-portal.md).
+  * [Portal](./quickstart-create-nat-gateway-portal.md).
 - [Tell us what to build next in UserVoice](https://aka/natuservoice).
 - [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
