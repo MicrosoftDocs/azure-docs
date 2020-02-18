@@ -51,26 +51,24 @@ To begin, you will need a properly configured Azure App Configuration instance. 
     az keyvault create --name contoso-vault --resource-group contoso-resource-group
     ```
     
-1. Enable soft-delete and purge-protection for the Key Vault.
-    Substitute the names of the Key Vault (`contoso-vault`) and Resource Group (`contoso-resource-group`) created in step 1.
+1. Enable soft-delete and purge-protection for the Key Vault. Substitute the names of the Key Vault (`contoso-vault`) and Resource Group (`contoso-resource-group`) created in step 1.
 
     ```azurecli
     az keyvault update --name contoso-vault --resource-group contoso-resource-group --enable-purge-protection --enable-soft-delete
     ```
     
-1. Create an Key Vault key
-    Provide a unique `key-name` for this key, and substitute the names of the Key Vault (`contoso-vault`) created in step 1. Specify whether you prefer `RSA` or `RSA-HSM` encryption.
+1. Create a Key Vault key. Provide a unique `key-name` for this key, and substitute the names of the Key Vault (`contoso-vault`) created in step 1. Specify whether you prefer `RSA` or `RSA-HSM` encryption.
 
     ```azurecli
     az keyvault key create --name key-name --kty {RSA or RSA-HSM} --vault-name contoso-vault
     ```
     
     The output from this command shows the key ID ("kid") for the generated key.  Make a note of the key ID to use later in this exercise.  The key ID has the form: `https://{my key vault}.vault.azure.net/keys/{key-name}/{Key version}`.  The key ID has three important components:
-    a. Key Vault URI: `https://{my key vault}.vault.azure.net
-    b. Key Vault key name: {Key Name}
-    c. Key Vault key version: {Key version}
-1. Assign a Managed Identity
-    Assign a managed identity to an Azure App Configuration instance in order to access the managed key.  Create a system assigned managed identity using the Azure CLI, substituting the name of your App Configuration instance and resource group used in the previous steps.  We use `contoso-app-config` to illustrate the name of an App Configuration instance:
+    1. Key Vault URI: `https://{my key vault}.vault.azure.net
+    1. Key Vault key name: {Key Name}
+    1. Key Vault key version: {Key version}
+
+1. Create a system assigned managed identity using the Azure CLI, substituting the name of your App Configuration instance and resource group used in the previous steps. The managed identity will be used to access the managed key. We use `contoso-app-config` to illustrate the name of an App Configuration instance:
     
     ```azurecli
     az appconfig identity assign --na1. me contoso-app-config --group contoso-resource-group --identities [system]
@@ -86,17 +84,19 @@ To begin, you will need a properly configured Azure App Configuration instance. 
     "userAssignedIdentities": null
     }
     ```
-    
-1. Grant Key Vault access to App Configuration
-    The managed identity of the Azure App Configuration instance needs access to the key to perform key validation, encryption and decryption. The specific set of actions to which it needs access includes: `GET`, `WRAP`, and `UNWRAP` for keys.  Granting the access requires the principal ID  of the App Configuration instance's managed identity. This value was obtained in the previous step. It is shown below as `contoso-principalId` Grant permission to the managed key using the command line:
+
+1. The managed identity of the Azure App Configuration instance needs access to the key to perform key validation, encryption and decryption. The specific set of actions to which it needs access includes: `GET`, `WRAP`, and `UNWRAP` for keys.  Granting the access requires the principal ID  of the App Configuration instance's managed identity. This value was obtained in the previous step. It is shown below as `contoso-principalId` Grant permission to the managed key using the command line:
+
     ```azurecli
     az keyvault set-policy -n contoso-vault --object-id contoso-principalId --key-permissions get wrapKey unwrapKey
     ```
-2. Enable customer-managed key
-    Once the Azure App Configuration instance can access the managed key, we can enable the customer-managed key capability in the service using the Azure CLI. Recall the following properties recorded during the key creation steps: `key name` `key vault URI`.
+
+1. Once the Azure App Configuration instance can access the managed key, we can enable the customer-managed key capability in the service using the Azure CLI. Recall the following properties recorded during the key creation steps: `key name` `key vault URI`.
+
     ```azurecli
     az appconfig update -g contoso-resource-group -n contoso-app-config --encryption-key-name key-name --encryption-key-version key-version --encryption-key-vault key-vault-Uri
     ```
+
 Your Azure App Configuration instance is now configured to use a customer-managed key stored in Azure Key Vault.
 
 ## Next Steps
