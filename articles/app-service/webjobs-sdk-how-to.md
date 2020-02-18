@@ -450,7 +450,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Queue storage binding](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-settings) article.
+For more details, see the [Queue storage binding](../azure-functions/functions-bindings-storage-queue-output.md#hostjson-properties) article.
 
 #### Version 2.*x*
 
