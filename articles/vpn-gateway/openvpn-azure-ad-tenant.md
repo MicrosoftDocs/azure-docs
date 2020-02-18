@@ -100,7 +100,7 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
     ```
 
    > [!NOTE]
-   > Ensure that you don't miss the trailing slash at the end of the Issuer.
+   > Make sure you include a trailing slash at the end of the `AadIssuerUri` value. Otherwise, the command will fail.
 
 10. Create and download the profile by running the following commands. Change the -ResourceGroupName and -Name values to match your own.
 
