@@ -18,7 +18,6 @@ Azure Private Link enables you to access Azure PaaS Services (for example, Azure
 > [!IMPORTANT]
 > Azure Private Link is now generally available capability. Both Private Endpoint and Private Link Service (service behind Standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. Check [Availability](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview#availability) section below for accurate status of Azure PaaS on Private Link. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations). 
 
-
 ![Private endpoint overview](media/private-link-overview/private-endpoint.png)
 
 ## Key benefits
