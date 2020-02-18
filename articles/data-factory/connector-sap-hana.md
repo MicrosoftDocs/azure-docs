@@ -37,7 +37,7 @@ Specifically, this SAP HANA connector supports:
 - Copying data from any version of SAP HANA database.
 - Copying data from **HANA information models** (such as Analytic and Calculation views) and **Row/Column tables**.
 - Copying data using **Basic** or **Windows** authentication.
-- Parallel copying from a SAP HANA source. See the [Parallel copy from SAP hANA](#parallel-copy-from-sap-hana) section for details.
+- Parallel copying from a SAP HANA source. See the [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section for details.
 
 > [!TIP]
 > To copy data **into** SAP HANA data store, use generic ODBC connector. See [SAP HANA sink](connector-odbc.md#sap-hana-sink) with details. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
