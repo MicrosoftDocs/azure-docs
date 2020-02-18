@@ -122,7 +122,7 @@ Increasing look-back periods and number of violations can also allow filtering a
 
 ## Monitoring at scale using metric alerts in Azure Monitor
 
-So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources (of the same type) with one metric alert rule, for resources that exist in the same Azure region. This feature is currently supported only on virtual machines, SQL server databases, SQL server elastic pools and Data box edge devices. Also, this feature is only available for platform metrics, and isn't supported for custom metrics.
+So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources (of the same type) with one metric alert rule, for resources that exist in the same Azure region. This feature is currently supported only in Azure public cloud and only for virtual machines, SQL server databases, SQL server elastic pools and Data box edge devices. Also, this feature is only available for platform metrics, and isn't supported for custom metrics.
 
 You can specify the scope of monitoring by a single metric alert rule in one of three ways:
 
