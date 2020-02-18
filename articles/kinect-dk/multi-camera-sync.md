@@ -19,7 +19,7 @@ There are a few important things to consider before starting your multi-camera s
 
 - We recommend using a manual exposure setting if you want to control the precise timing of each device. Automatic exposure allows each color camera to dynamically change exposure, as a result it is impossible for the timing between the two devices to stay exactly the same.
 - The device timestamp reported for images changes meaning to ‘Start of Frame’ from ‘Center of Frame’ when using master or subordinate modes.
-- Avoid IR camera interference between different cameras. Use ```depth_delay_off_color_usec``` or ```subordinate_delay_off_master_usec``` to ensure each IR laser fires in its own 160us window or has a different field of view.
+- Avoid IR camera interference between different cameras. Use ```depth_delay_off_color_usec``` or ```subordinate_delay_off_master_usec``` to ensure each IR laser fires in its own 160 microsecond window or has a different field of view.
 - Do ensure you are using the most recent firmware version.
 - Do not repeatedly set the same exposure setting in the image capture loop. 
 - Do set the exposure when needed, just call the API once.
@@ -100,7 +100,7 @@ To connect more subordinate devices, do the following:
 
 ### Set up synchronized triggering 
 
-Once you've set up your hardware for synchronized triggering, you'll need to set up the software. For more info on setting this up, go to the [Azure Kinect developer documentation]()(English only). 
+Once you've set up your hardware for synchronized triggering, you'll need to set up the software. For more info on setting this up, go to the [Azure Kinect developer documentation]() (English only). 
 
 ## Synchronize multiple Azure Kinect DK devices
 
@@ -128,10 +128,11 @@ There are multiple options for cross-calibrating devices, but in the [GitHub gre
 ### USB Memory on Ubuntu
 
 If you are setting up multi-camera synchronization on Linux, by default the USB controller is only allocated 16 MB of kernel memory for handling of USB transfers. It is typically enough to support a single Azure Kinect DK, however more memory is needed to support multiple devices. To increase the memory, follow the below steps:
-- Edit /etc/default/grub
-- Replace the line that says GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" with GRUB_CMDLINE_LINUX_DEFAULT="quiet splash usbcore.usbfs_memory_mb=32". In this example, we set the USB memory to 32 MB twice that of the default, however to can be set much larger. Choose a value that is right for your solution.
-- Run sudo update-grub
-- Restart the computer
+
+1. Edit /etc/default/grub
+1. Replace the line that says GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" with GRUB_CMDLINE_LINUX_DEFAULT="quiet splash usbcore.usbfs_memory_mb=32". In this example, we set the USB memory to 32 MB twice that of the default, however to can be set much larger. Choose a value that is right for your solution.
+1. Run sudo update-grub
+1. Restart the computer
 
 ### Verify two Azure Kinect DKs' synchronization
 
