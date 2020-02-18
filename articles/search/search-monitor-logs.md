@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/18/2020
 ---
 
 # Collect and analyze log data for Azure Cognitive Search
