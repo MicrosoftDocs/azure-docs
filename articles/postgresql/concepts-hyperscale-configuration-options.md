@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 2/18/2020
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) performance options
