@@ -146,11 +146,11 @@ Review this section to familiarize yourself with considerations for designing vi
 
 ### Using service endpoints and private link for cost optimization
 
-[Service endpoints](virtual-network-service-endpoints-overview.md) and [private link](private-link-overview.md) are two options to consider for optimizing cost where NAT is not needed.
+[Service endpoints](virtual-network-service-endpoints-overview.md) and [private link](private-link-overview.md) are two options to consider for optimizing cost where NAT isn't needed.  Any traffic directed to service endpoints or private link bypass the virtual network's NAT.  
 
-Service endpoints tie Azure service resources to your virtual network and control access to your Azure service resources.  In the context of NAT, any traffic directed to service endpoints will also bypass the virtual network's NAT.  For example, when you access Azure storage, you should consider deploying a service endpoint for storage to avoid data processed NAT charges for traffic to Azure storage.
+Service endpoints tie Azure service resources to your virtual network and control access to your Azure service resources. For example, when you access Azure storage, can use a service endpoint for storage to avoid data processed NAT charges. Service endpoints are free.
 
-Private link exposes Azure PaaS service (or other services hosted with private link) as a private endpoint inside a virtual network.  Again, this traffic is not processed by NAT and no NAT data processed charges are incurred.
+Private link exposes Azure PaaS service (or other services hosted with private link) as a private endpoint inside a virtual network.  Private link is billed based on duration and data processed.
 
 Evaluate if either or both of these approaches are a good fit for your scenario and use as needed.
 
