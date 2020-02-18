@@ -10,8 +10,8 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 02/06/2020
-tags: azure-synapse
+ms.date: 02/12/2020
+ms.custom: azure-synapse
 ---
 # Azure SQL Transparent Data Encryption with customer-managed key
 
