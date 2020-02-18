@@ -70,7 +70,7 @@
     tocHref: /java/azure/
     topicHref: /azure/cosmos-db/index
     items:
-    - name: Spring
+    - name: Cosmos DB
       tocHref: /java/azure/spring-framework/
       topicHref: /azure/cosmos-db/index
 
@@ -81,3 +81,4 @@
   - name: Cosmos DB
     tocHref: /azure/azure-monitor/insights
     topicHref: /azure/cosmos-db/index
+
