@@ -164,6 +164,50 @@ The results are:
       }
     }]
 ```
+## Reserved keywords and special characters in property names
+
+Queries against documents with property names like `ORDER` or `Group` will result in syntax errors. You should explicitly include the property in `[]`.
+
+For example, here's a document with a property named `order` and a property `price($)` that contains special characters:
+
+```json
+{
+  "id": "AndersenFamily",
+  "order": [
+     {
+         "orderId": "12345",
+         "productId": "A17849",
+         "price($)": 59.33
+     }
+  ],
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
+
+If you run a queries that includes the `order` property or `price($)` property, you will receive a syntax error.
+
+```sql
+SELECT * FROM c where c.order.orderid = "12345"
+```
+```sql
+SELECT * FROM c where c.order.price($) = "12345"
+```
+The Result is:
+
+`
+Syntax error, incorrect syntax near 'order'
+`
+
+You should rewrite the same queries as below:
+
+```sql
+SELECT * FROM c WHERE c["order"].orderId = "12345"
+```
+
+```sql
+SELECT * FROM c WHERE c["order"]["price($)"] > 50
+```
 
 ## Next steps
 
