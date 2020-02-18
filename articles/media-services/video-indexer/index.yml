@@ -25,61 +25,42 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: "What is Media Services v3?"
-            url: media-services-overview.md
-          - text: "What's new in Media Services?"
+          - text: "What is Video Indexer?"
+            url: video-indexer-overview.md
+          - text: "Compare Media Services v3 presets and Video Indexer"
+            url: compare-video-indexer-with-media-services-presets.md
+          - text: "What's new in Video Indexer?"
             url: release-notes.md
-      - linkListType: concept
-        links:
-          - text: Media Services accounts
-            url: media-services-account-concept.md
-          - text: Storage accounts
-            url: storage-account-concept.md
-          - text: Packaging
-            url: dynamic-packaging-overview.md   
-          - text: Monitoring
-            url: reacting-to-media-services-events.md
-          - text: Player clients
-            url: use-azure-media-player.md  
-          - text: Developing with v3 API guidance
-            url: media-services-apis-overview.md            
-
+            
   # Card (optional)
   - title: Get started
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create an account
-            url: create-account-cli-how-to.md          
-          - text: Access API
-            url: access-api-cli-how-to.md    
+          - text: "Sign up and upload a video"
+            url: video-indexer-get-started.md 
+          - text: "Create an account connected to Azure"
+            url: connect-to-azure.md
+          - text: "Use Video Indexer API"
+            url: video-indexer-use-apis.md                 
+          - text: "Examine output produced by API"
+            url: video-indexer-output-json-v2.md
+          - text: "Embed Video Indexer widgets into apps"
+            url: video-indexer-embed-widgets.md
       - linkListType: download
         links:
-          - text: .NET SDK samples
-            url: https://github.com/Azure-Samples/media-services-v3-dotnet
-          - text: Java SDK samples
-            url: https://github.com/Azure-Samples/media-services-v3-java
-          - text: REST Postman collection samples
-            url: https://github.com/Azure-Samples/media-services-v3-rest-postman            
-      - linkListType: reference
-        links:
-          - text: Azure CLI
-            url: https://aka.ms/ams-v3-cli-ref
-          - text: REST
-            url: https://aka.ms/ams-v3-rest-ref
-          - text: .NET
-            url: https://aka.ms/ams-v3-dotnet-ref
-          - text: Java
-            url: https://aka.ms/ams-v3-java-ref
+          - text: "Video Indexer samples"
+            url: https://github.com/Azure-Samples/media-services-video-indexer               
 
 # Card
-  - title: Stream live
-    linkLists:
-      - linkListType: concept
+  - title: Customize content models
+    linkLists:        
+      - linkListType: how-to-guide
         links:
-          - text: Live streaming
-            url: live-streaming-overview.md           
-      - linkListType: tutorial
-        links:
-          - text: Stream live
-            url: stream-live-tutorial-with-api.md
+          - text: Customize a brands model 
+            url: customize-brands-model-with-website.md
+          - text: Customize a language model
+            url: customize-language-model-with-website.md
+          - text: Customize a person model
+            url: customize-person-model-with-website.md
+
