@@ -54,7 +54,9 @@
         href: connect-azure-atp.md
       - name: Azure Security Center
         href: connect-azure-security-center.md
-      - name: Domain name server
+      - name: Azure Security Center for IoT
+        href: connect-asc-iot.md
+        - name: Domain name server
         href: connect-dns.md
       - name: Microsoft web application firewall
         href: connect-microsoft-waf.md
