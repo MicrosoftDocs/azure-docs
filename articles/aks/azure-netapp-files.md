@@ -32,6 +32,7 @@ The following limitations apply when you use Azure NetApp Files:
 * Before you can use Azure NetApp Files, you must be granted access to the Azure NetApp Files service. To apply for access, you can use the [Azure NetApp Files waitlist submission form][anf-waitlist]. You can't access the Azure NetApp Files service until you receive the official confirmation email from the Azure NetApp Files team.
 * Your Azure NetApp Files service must be created in the same virtual network as your AKS cluster.
 * Only static provisioning for Azure NetApp Files is supported on AKS.
+* Dynamic provisioning is supported using [NetApp Trident](https://netapp-trident.readthedocs.io/) version 19.07 or newer
 
 ## Configure Azure NetApp Files
 
