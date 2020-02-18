@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 02/14/2020
 ---
 
 # Compatibility level for Azure Stream Analytics jobs
@@ -47,6 +47,10 @@ When you update the compatibility level, the T-compiler validates the job with t
 ## Compatibility level 1.2
 
 The following major changes are introduced in compatibility level 1.2:
+
+###  AMQP messaging protocol
+
+**1.2 level**: Azure Stream Analytics uses [Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) messaging protocol to write to Service Bus Queues and Topics. AMQP enables you to build cross-platform, hybrid applications using an open standard protocol.
 
 ### Geospatial functions
 
