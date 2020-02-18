@@ -1,12 +1,12 @@
 ---
-title: Azure DNS alias records overview
-description: Overview of support for alias records in Microsoft Azure DNS.
+title: Alias records overview - Azure DNS
+description: In this article, learn about support for alias records in Microsoft Azure DNS.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Azure DNS alias records overview

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 02/05/2020
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -51,8 +51,6 @@ A subnet must be delegated to Azure NetApp Files.
     |    NetBIOS name       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
-    |    Secure LDAP        |    636       |    TCP           |
-    |    Secure LDAP        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
 
 * The site topology for the targeted Active Directory Domain Services must adhere to best practices, in particular the Azure VNet where Azure NetApp Files is deployed.  
@@ -70,6 +68,8 @@ A subnet must be delegated to Azure NetApp Files.
     If you have domain controllers that are unreachable via the Azure NetApp Files delegated subnet, you can submit an Azure support request to alter the scope from **global** (default) to **site**.  Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space resides.
 
     See [Designing the site topology](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) about AD sites and services. 
+    
+See Azure NetApp Files [SMB FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) about additional AD information. 
 
 ## Create an Active Directory connection
 
@@ -106,6 +106,9 @@ A subnet must be delegated to Azure NetApp Files.
     The Active Directory connection you created appears.
 
     ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+
+> [!NOTE] 
+> You can edit the username and password fields after saving the Active Directory connection. No other values can be edited after saving the connection. If you need to change any other values, you must first delete any deployed SMB volumes, then delete and re-create the Active Directory connection.
 
 ## Add an SMB volume
 

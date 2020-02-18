@@ -1,14 +1,15 @@
 ---
-title: Azure Data Factory Mapping Data Flow Lookup Transformation
-description: Azure Data Factory Mapping Data Flow Lookup Transformation
+title: Mapping data flow Lookup Transformation
+description: Azure Data Factory mapping data flow Lookup Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/03/2019
 ---
 
-# Azure Data Factory Mapping Data Flow Lookup Transformation
+# Azure Data Factory mapping data flow Lookup Transformation
 
 Use Lookup to add reference data from another source to your Data Flow. The Lookup transform requires a defined source that points to your reference table and matches on key fields.
 
@@ -23,6 +24,20 @@ The Lookup transformation performs the equivalent of a left outer join. So, you'
 ## Match / No match
 
 After your Lookup transformation, you can use subsequent transformations to inspect the results of each match row by using the expression function `isMatch()` to make further choices in your logic based on whether or not the Lookup resulted in a row match or not.
+
+![Lookup pattern](media/data-flow/lookup111.png "Lookup pattern")
+
+After you use the Lookup transformation, you can add a Conditional Split transformation splitting on the ```isMatch()``` function. In the example above, matching rows go through the top stream and non-matching rows flow through the ```NoMatch``` stream.
+
+## First or last value
+
+When you have multiple matches from your Lookup, you may want to reduce the multiple matched rows by picking either the first or the last match. You can do this using an Aggregate transformation after your Lookup.
+
+In this case, an Aggregate transformation called ```PickFirst``` is used to pick the first value from the lookup matches.
+
+![Lookup aggregate](media/data-flow/lookup333.png "Lookup aggregate")
+
+![Lookup first](media/data-flow/lookup444.png "Lookup first")
 
 ## Optimizations
 
@@ -40,4 +55,5 @@ You can also specify partitioning of your data by selecting "Set Partitioning" o
 
 ## Next steps
 
-[Join](data-flow-join.md) and [Exists](data-flow-exists.md) transformations perform similar tasks in ADF Mapping Data Flows. Take a look at those transformations next.
+* [Join](data-flow-join.md) and [Exists](data-flow-exists.md) transformations perform similar tasks in ADF mapping data flows. Take a look at those transformations next.
+* Use a [Conditional Split](data-flow-conditional-split.md) with ```isMatch()``` to split rows on matching and non-matching values

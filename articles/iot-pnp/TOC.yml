@@ -7,14 +7,34 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Use a device capability model to create a device
-    href: quickstart-create-pnp-device.md
+  - name: Create a device
+    items:
+      - name: C Linux
+        href: quickstart-create-pnp-device-linux.md
+      - name: C Windows
+        href: quickstart-create-pnp-device-windows.md
   - name: Connect a device to IoT Hub
-    href: quickstart-connect-pnp-device.md
+    items:
+      - name: C Linux
+        href: quickstart-connect-pnp-device-c-linux.md
+      - name: C Windows
+        href: quickstart-connect-pnp-device-c-windows.md
+      - name: C#
+        href: quickstart-connect-pnp-device-csharp.md
+      - name: Java
+        href: quickstart-connect-pnp-device-java.md
+      - name: Node.js
+        href: quickstart-connect-pnp-device-node.md
   - name: Connect a device to IoT Central
-    href: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    href: ../iot-central/core/tutorial-connect-pnp-device.md
   - name: Connect to a device in your solution
-    href: quickstart-connect-pnp-device-solution.md
+    items:
+      - name: C#
+        href: quickstart-connect-pnp-device-solution-csharp.md
+      - name: Java
+        href: quickstart-connect-pnp-device-solution-java.md
+      - name: Node.js
+        href: quickstart-connect-pnp-device-solution-node.md
 - name: Tutorials
   items:
   - name: Create a device using VS Code
@@ -51,10 +71,18 @@
     href: howto-develop-solution.md
 - name: Reference
   items:
-  - name: REST
-    href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/createorupdatemodel
-  - name: Generate a REST security token
-    href: howto-generate-sas-token.md
+  - name: Libraries and SDKs
+    href: libraries-sdks.md
+  - name: REST API
+    items:
+    - name: Digital Twin
+      href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin
+    - name: Digital Twin service
+      href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service
+    - name: Digital Twin model repository
+      href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel
+    - name: Generate a REST security token
+      href: howto-generate-sas-token.md
 - name: Related
   items:
   - name: Solutions
@@ -77,9 +105,13 @@
       href: /azure/azure-maps
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: IoT Edge
+  - name: Edge solutions
     items:
     - name: Azure IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+- name: Resources
+  items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help

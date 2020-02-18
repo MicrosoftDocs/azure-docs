@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This exercise requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
-For this exercise, you can type the commands into a regular PowerShell window, or you can use the [Windows PowerShell Integrated Scripting Environment (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) and type the commands into an editor, then test one or more commands at a time as you go through the examples. You can highlight the rows you want to execute and click Run Selected to just run those commands.
+For this exercise, you can type the commands into a regular PowerShell window, or you can use the [Windows PowerShell Integrated Scripting Environment (ISE)](/powershell/scripting/components/ise/exploring-the-windows-powershell-ise) and type the commands into an editor, then test one or more commands at a time as you go through the examples. You can highlight the rows you want to execute and click Run Selected to just run those commands.
 
 For more information about storage accounts, see [Introduction to Storage](storage-introduction.md) and [About Azure storage accounts](storage-create-storage-account.md).
 
@@ -157,7 +157,7 @@ To regenerate the other key, use `key2` as the key  name instead of `key1`.
 Regenerate one of your keys and then retrieve it again to see the new value.
 
 > [!NOTE]
-> You should perform careful planning before regenerating the key for a production storage account. Regenerating one or both keys will invalidate the access for any application using the key that was regenerated. For more information, see [Access keys](storage-account-manage.md#access-keys).
+> You should perform careful planning before regenerating the key for a production storage account. Regenerating one or both keys will invalidate the access for any application using the key that was regenerated. For more information, see [Manage storage account access keys](storage-account-keys-manage.md).
 
 
 ### Delete a storage account
@@ -181,7 +181,7 @@ The article shows how to manage these settings using the following PowerShell cm
 * [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
 * [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
-## Use storage analytics  
+## Use storage analytics
 
 [Azure Storage Analytics](storage-analytics.md) consists of [Storage Analytics Metrics](/rest/api/storageservices/about-storage-analytics-metrics) and [Storage Analytics Logging](/rest/api/storageservices/about-storage-analytics-logging).
 
@@ -248,4 +248,4 @@ This article also provided references to several other articles, such as how to 
 
 * [Azure Storage control plane PowerShell cmdlets](/powershell/module/az.storage/)
 * [Azure Storage data plane PowerShell cmdlets](/powershell/module/azure.storage/)
-* [Windows PowerShell Reference](https://msdn.microsoft.com/library/ms714469.aspx)
+* [Windows PowerShell Reference](/powershell/scripting/overview)

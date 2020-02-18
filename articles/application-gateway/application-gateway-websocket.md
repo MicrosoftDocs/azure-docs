@@ -1,13 +1,14 @@
 ---
-title: WebSocket support in Azure Application Gateway | Microsoft Docs
-description: This page provides an overview of the Application Gateway WebSocket support.
+title: WebSocket support in Azure Application Gateway
+description: Application Gateway provides native support for WebSocket across all gateway sizes. There are no user-configurable settings.
 author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
+services: application-gateway
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 03/18/2019
+ms.date: 11/16/2019
 ---
+
 # Overview of WebSocket support in Application Gateway
 
 Application Gateway provides native support for WebSocket across all gateway sizes. There is no user-configurable setting to selectively enable or disable WebSocket support. 

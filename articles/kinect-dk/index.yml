@@ -13,7 +13,7 @@ abstract:
   description: 
 sections:
 - items:
-    html: <img src="./media/index/device-image.jpg" style="max-width:100%" alt="Azure Kinect device">
+  - html: <img src="./media/index/device-image.jpg" style="max-width:100%" alt="Azure Kinect device">
 - items:
   - type: paragraph
     text: Azure Kinect DK is a developer kit with advanced AI sensors that provide sophisticated computer vision and speech models.

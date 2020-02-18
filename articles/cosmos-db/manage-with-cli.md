@@ -4,7 +4,7 @@ description: Use Azure CLI to manage your Azure Cosmos DB account, database and 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 01/21/2020
 ms.author: mjbrown
 
 ---
@@ -151,9 +151,10 @@ Get read-only keys for a Cosmos account.
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 
-az cosmosdb list-read-only-keys \
-   -n $accountName \
-   -g $resourceGroupName
+az cosmosdb keys list \
+    -n $accountName \
+    -g $resourceGroupName \
+    --type read-only-keys
 ```
 
 ## List connection strings
@@ -165,9 +166,10 @@ Get the connection strings for a Cosmos account.
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 
-az cosmosdb list-connection-strings \
+az cosmosdb keys list \
     -n $accountName \
-    -g $resourceGroupName
+    -g $resourceGroupName \
+    --type connection-strings
 ```
 
 ## Regenerate account key
@@ -177,7 +179,7 @@ Regenerate a new key for a Cosmos account.
 ```azurecli-interactive
 # Regenerate secondary account keys
 # key-kind values: primary, primaryReadonly, secondary, secondaryReadonly
-az cosmosdb regenerate-key \
+az cosmosdb keys regenerate \
     -n $accountName \
     -g $resourceGroupName \
     --key-kind secondary
@@ -223,13 +225,16 @@ Increase the throughput of a Cosmos database by 1000 RU/s.
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 databaseName='database1'
-increaseRU=1000
+newRU=1000
 
-originalRU=$(az cosmosdb sql database throughput show \
+# Get minimum throughput to make sure newRU is not lower than minRU
+minRU=$(az cosmosdb sql database throughput show \
     -g $resourceGroupName -a $accountName -n $databaseName \
-    --query throughput -o tsv)
+    --query resource.minimumThroughput -o tsv)
 
-newRU=$((originalRU + increaseRU))
+if [ $minRU -gt $newRU ]; then
+    newRU=$minRU
+fi
 
 az cosmosdb sql database throughput update \
     -a $accountName \
@@ -337,13 +342,16 @@ resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 databaseName='database1'
 containerName='container1'
-increaseRU=1000
+newRU=1000
 
-originalRU=$(az cosmosdb sql container throughput show \
+# Get minimum throughput to make sure newRU is not lower than minRU
+minRU=$(az cosmosdb sql container throughput show \
     -g $resourceGroupName -a $accountName -d $databaseName \
-    -n $containerName --query throughput -o tsv)
+    -n $containerName --query resource.minimumThroughput -o tsv)
 
-newRU=$((originalRU + increaseRU))
+if [ $minRU -gt $newRU ]; then
+    newRU=$minRU
+fi
 
 az cosmosdb sql container throughput update \
     -a $accountName \

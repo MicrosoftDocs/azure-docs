@@ -1,6 +1,6 @@
 ---
 title: GPUs on Azure Government | Microsoft Docs
-description: Getting Started with GPUs on Azure Government
+description: This article provides information on how to get started with GPUs on Azure Government.
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/31/2017
-ms.author: yujhong
+ms.author: femila
 
 ---
 

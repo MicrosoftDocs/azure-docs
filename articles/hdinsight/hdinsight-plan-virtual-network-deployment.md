@@ -216,7 +216,7 @@ If you plan on using **network security groups** to control network traffic, per
 
 1. Identify the Azure region that you plan to use for HDInsight.
 
-2. Identify the IP addresses required by HDInsight. For more information, see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
+2. Identify the service tags required by HDInsight for your region. For more information, see [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md).
 
 3. Create or modify the network security groups for the subnet that you plan to install HDInsight into.
 
@@ -228,7 +228,7 @@ For more information on network security groups, see the [overview of network se
 
 For more information on controlling outbound traffic from HDInsight clusters, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
 
-#### Forced tunneling to on-premise
+#### Forced tunneling to on-premises
 
 Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling of traffic to on-premises networks. 
 
@@ -243,6 +243,16 @@ If you plan on using a **firewall** and access the cluster from outside on certa
 For a list of ports for specific services, see the [Ports used by Apache Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
 
 For more information on firewall rules for virtual appliances, see the [virtual appliance scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) document.
+
+## Load balancing
+
+When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/concepts-limitations.md#skus) which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), for more information.
+
+## Transport Layer Security
+
+Connections to the cluster via the public cluster endpoint `https://<clustername>.azurehdinsight.net` are proxied through cluster gateway nodes. These connections are secured using a protocol called TLS. Enforcing higher versions of TLS on gateways improves the security for these connections. For more information on why you should use newer versions of TLS, see [Solving the TLS 1.0 Problem](https://docs.microsoft.com/security/solving-tls1-problem).
+
+You can control the minimum TLS version(s) supported on the gateway nodes for your HDInsight cluster by using the *minSupportedTlsVersion* property in a resource manager template at deployment time. For a sample template, see [HDInsight minimum TLS 1.2 Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). This property supports three values: “1.0”, “1.1” and “1.2”, which correspond to TLS 1.0+, TLS 1.1+ and TLS 1.2+ respectively. By default, without specifying this property, Azure HDInsight clusters accept TLS 1.2 connections on public HTTPS endpoints, as well as older versions for backward compatibility. Eventually, HDInsight will enforce TLS 1.2 or later on all gateway node connections.
 
 ## Next steps
 

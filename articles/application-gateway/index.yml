@@ -65,6 +65,19 @@ landingContent:
             url: tutorial-autoscale-ps.md
 
 # Card
+  - title: Ingress Controller for AKS
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Ingress Controller for AKS
+            url: ingress-controller-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Create an Ingress Controller for AKS 
+            url: ingress-controller-install-new.md
+
+
+# Card
   - title: Troubleshoot Application Gateway
     linkLists:
       - linkListType: overview

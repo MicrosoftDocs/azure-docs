@@ -1,6 +1,6 @@
 ---
-title: Create a new image version from an existing image version using Azure Image Builder (preview)
-description: Create a new image version from an existing image version using Azure Image Builder.
+title: Create a new VM image version from an existing image version using Azure Image Builder (preview)
+description: Create a new VM image version from an existing image version using Azure Image Builder.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
@@ -8,7 +8,7 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
 ---
-# Preview: Create a new image version from an existing image version using Azure Image Builder
+# Preview: Create a new VM image version from an existing image version using Azure Image Builder
 
 This article shows you how to take an existing image version in a [Shared Image Gallery](shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 

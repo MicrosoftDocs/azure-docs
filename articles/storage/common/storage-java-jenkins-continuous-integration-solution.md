@@ -45,7 +45,7 @@ Benefits of using the Blob service to host your agile development build artifact
      
       While a typical Jenkins CI solution would be set up to run as a service, running the Jenkins war at the command line will be sufficient for this tutorial.
 * An Azure account. You can sign up for an Azure account at <https://www.azure.com>.
-* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-quickstart-create-account.md).
+* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-account-create.md).
 * Familiarity with the Jenkins CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Jenkins CI build artifacts.
 
 ## How to use the Blob service with Jenkins CI
@@ -144,7 +144,7 @@ If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkin
 ## Next steps
 * [Meet Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 * [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
-* [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure Storage Client SDK Reference](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
 

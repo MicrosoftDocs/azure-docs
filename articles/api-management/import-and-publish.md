@@ -71,7 +71,7 @@ This section shows how to import and publish an OpenAPI specification backend AP
 > [!TIP]
 > If you are experiencing problems with import of your own API definition, [see the list of known issues and restrictions](api-management-api-import-restrictions.md).
 
-## Test the new APIM API in the Azure portal
+## Test the new API in the Azure portal
 
 ![Test API map](./media/api-management-get-started/01-import-first-api-01.png)
 
@@ -84,23 +84,6 @@ Operations can be called directly from the Azure portal, which provides a conven
 
     Backend responds with **200 OK** and some data.
 
-## <a name="call-operation"> </a>Call an operation from the developer portal
-
-Operations can also be called from the **Developer portal** to test APIs.
-
-1. Navigate to the **Developer portal**.
-
-    ![Developer portal](./media/api-management-get-started/developer-portal.png)
-
-2. Select **APIS**, click on **Demo Conference API** and then **GetSpeakers**.
-
-    The page displays fields for query parameters, in this case none, and headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically.
-
-3. Press **Try it**.
-4. Press **Send**.
-
-    After an operation is invoked, the developer portal shows the responses.  
-
 ## <a name="next-steps"> </a>Next steps
 
 In this tutorial, you learned how to:
@@ -108,7 +91,6 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Import your first API
 > * Test the API in the Azure portal
-> * Test the API in the Developer portal
 
 Advance to the next tutorial:
 

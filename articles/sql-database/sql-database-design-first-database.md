@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Design your first relational database in Azure SQL Database using SSMS | Microsoft Docs"
+title: "Tutorial: Design your first relational database using SSMS"
 description: Learn to design your first relational database in a single database in Azure SQL Database using SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -42,11 +42,11 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank single database
 
-A single database in Azure SQL Database is created with a defined set of compute and storage resources. The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and is managed using an [database server](sql-database-servers.md).
+A single database in Azure SQL Database is created with a defined set of compute and storage resources. The database is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and is managed using an [database server](sql-database-servers.md).
 
 Follow these steps to create a blank single database.
 
-1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. On the **New** page, select **Databases** in the Azure Marketplace section, and then click **SQL Database** in the **Featured** section.
 
    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
@@ -57,14 +57,14 @@ Follow these steps to create a blank single database.
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Database name** | *yourDatabase* | For valid database names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers). |
     | **Subscription** | *yourSubscription*  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-    | **Resource group** | *yourResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
+    | **Resource group** | *yourResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
     | **Select source** | Blank database | Specifies that a blank database should be created. |
 
 4. Click **Server** to use an existing database server or create and configure a new database server. Either select an existing server or click **Create a new server** and fill out the **New server** form with the following information:
 
     | Setting       | Suggested value | Description |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
+    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
     | **Server admin login** | Any valid name | For valid login names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers). |
     | **Password** | Any valid password | Your password must have at least eight characters and must use characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
     | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
@@ -91,21 +91,23 @@ The SQL Database service creates an IP firewall at the server-level. This firewa
 > [!IMPORTANT]
 > The SQL Database service communicates over port 1433. If you are trying to connect to this service from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your single database unless your administrator opens port 1433.
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click *yourDatabase* on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified **Server name** (such as *yourserver.database.windows.net*) and provides options for further configuration.
+1. After the deployment completes, select **SQL databases** from the Azure portal menu or search for and select *SQL databases* from any page.  
 
-2. Copy this fully qualified server name for use to connect to your server and databases from SQL Server Management Studio.
+1. Select *yourDatabase* on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified **Server name** (such as `contosodatabaseserver01.database.windows.net`) and provides options for further configuration.
 
    ![server name](./media/sql-database-design-first-database/server-name.png)
 
-3. Click **Set server firewall** on the toolbar. The **Firewall settings** page for the SQL Database server opens.
+1. Copy this fully qualified server name for use to connect to your server and databases from SQL Server Management Studio.
+
+1. Click **Set server firewall** on the toolbar. The **Firewall settings** page for the SQL Database server opens.
 
    ![server-level IP firewall rule](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Click **Add client IP** on the toolbar to add your current IP address to a new IP firewall rule. An IP firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+1. Click **Add client IP** on the toolbar to add your current IP address to a new IP firewall rule. An IP firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-5. Click **Save**. A server-level IP firewall rule is created for your current IP address opening port 1433 on the SQL Database server.
+1. Click **Save**. A server-level IP firewall rule is created for your current IP address opening port 1433 on the SQL Database server.
 
-6. Click **OK** and then close the **Firewall settings** page.
+1. Click **OK** and then close the **Firewall settings** page.
 
 Your IP address can now pass through the IP firewall. You can now connect to your single database using SQL Server Management Studio or another tool of your choice. Be sure to use the server admin account you created previously.
 

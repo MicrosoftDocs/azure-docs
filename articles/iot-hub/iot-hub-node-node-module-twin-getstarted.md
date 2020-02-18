@@ -1,5 +1,5 @@
 ﻿---
-title: Get started with Azure IoT Hub module identity and module twin (Node.js) | Microsoft Docs
+title: Start with Azure IoT Hub module identity & module twin (Node.js)
 description: Learn how to create module identity and update module twin using IoT SDKs for Node.js.
 author: wesmc7777
 manager: philmea

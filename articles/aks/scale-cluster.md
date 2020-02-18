@@ -70,7 +70,7 @@ The following example output shows the cluster has successfully scaled to one no
 
 ## Next steps
 
-In this article, you manually scaled an AKS cluster to increase or decrease the number of nodes. You can also use the [cluster autoscaler][cluster-autoscaler] (currently in preview in AKS) to automatically scale your cluster.
+In this article, you manually scaled an AKS cluster to increase or decrease the number of nodes. You can also use the [cluster autoscaler][cluster-autoscaler] to automatically scale your cluster.
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

@@ -1,7 +1,7 @@
 ---
 title: Create an internal Basic Load Balancer - Azure CLI
-titlesuffix: Azure Load Balancer
-description: Learn how to create an internal load balancer using the Azure CLI
+titleSuffix: Azure Load Balancer
+description: In this article, learn how to create an internal load balancer using Azure CLI
 services: load-balancer
 documentationcenter: na
 author: asudbring

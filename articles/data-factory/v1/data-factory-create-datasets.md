@@ -1,5 +1,5 @@
 ---
-title: Create datasets in Azure Data Factory | Microsoft Docs
+title: Create datasets in Azure Data Factory 
 description: Learn how to create datasets in Azure Data Factory, with examples that use properties such as offset and anchorDateTime.
 services: data-factory
 documentationcenter: ''

@@ -1,11 +1,11 @@
 ---
-title: Deploy Azure Firewall with multiple public IP addresses using Azure PowerShell
+title: Deploy Azure Firewall with multiple public IP addresses using PowerShell
 description: In this article, you learn how to deploy an Azure Firewall with multiple public IP addresses using the Azure PowerShell. 
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 11/19/2019
 ms.author: victorh
 ---
 

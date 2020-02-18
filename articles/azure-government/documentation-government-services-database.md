@@ -1,6 +1,6 @@
 ---
 title: Azure Government Databases | Microsoft Docs
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+description: This provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -47,7 +47,7 @@ For details on this service and how to use it, see [Azure SQL Server Stretch Dat
 For details on this service and how to use it, see [Azure Cosmos DB documentation](../cosmos-db/index.yml).
 
 ### Variations
-Azure Cosmos DB is generally available in Azure Government. The **Add Azure Search** function currently isn't available in Cosmos DB for Azure Government because Azure Search is not yet deployed in Azure Government.
+Azure Cosmos DB is generally available in Azure Government with parity to the public version. One exception is the **Add Azure Cognitive Search** function currently, which isn't available in Cosmos DB for Azure Government.
 
 Also, the URLs for accessing Cosmos DB in Azure Government are different:
 
@@ -65,7 +65,7 @@ The following information identifies the Azure Government boundary for Azure Cos
 
 
 ## Azure Cache for Redis
-For details on this service and how to use it, see [Azure Cache for Redis documentation](../azure-cache-for-redis/index.md).
+For details on this service and how to use it, see [Azure Cache for Redis documentation](../azure-cache-for-redis/index.yml).
 
 ### Variations
 The URLs for accessing and managing Azure Cache for Redis in Azure Government are different:
@@ -75,7 +75,7 @@ The URLs for accessing and managing Azure Cache for Redis in Azure Government ar
 | Cache endpoint |*.redis.cache.windows.net |*.redis.cache.usgovcloudapi.net |
 
 > [!NOTE]
-> All scripts and code need to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../azure-cache-for-redis/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+> All scripts and code need to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 >
 >
 

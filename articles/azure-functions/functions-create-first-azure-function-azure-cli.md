@@ -1,17 +1,13 @@
 ---
 title: Create your first function using the Azure CLI
 description: Learn how to create your first Azure Function for serverless execution using the Azure CLI and Azure Functions Core Tools.
-author: ggailey777
-ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 11/13/2018
 ms.topic: quickstart
-ms.service: azure-functions
 ms.custom: mvc
-manager: gwallace
 ---
 
-# Create your first function from the command line
+# Quickstart: Create your first function from the command line using Azure CLI
 
 This quickstart topic walks you through how to create your first function from the command line or terminal. You use the Azure CLI to create a function app, which is the [serverless](https://azure.microsoft.com/solutions/serverless/) infrastructure that hosts your function. The function code project is generated from a template by using the [Azure Functions Core Tools](functions-run-local.md), which is also used to deploy the function app project to Azure.
 
@@ -23,7 +19,7 @@ Before running this sample, you must have the following:
 
 + Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or later.
 
-+ Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
++ Install the [Azure CLI](/cli/azure/install-azure-cli). This     article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 + An active Azure subscription.
 
@@ -45,7 +41,7 @@ Before running this sample, you must have the following:
 
 ## Create a function app
 
-You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. 
+You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command.
 
 In the following command, substitute a unique function app name where you see the `<APP_NAME>` placeholder and the storage account name for  `<STORAGE_NAME>`. The `<APP_NAME>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. You should also set the `<language>` runtime for your function app, from `dotnet` (C#) or `node` (JavaScript).
 

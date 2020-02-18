@@ -4,6 +4,7 @@ description: How to publish a new Azure application offer on the Azure Marketpla
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: pabutler

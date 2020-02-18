@@ -1,5 +1,5 @@
 ---
-title: Configure a failover group for Azure SQL Database
+title: Configure a failover group
 description: Learn how to configure an auto-failover group for an Azure SQL Database single database, elastic pool, and managed instance using the Azure portal, the Az CLI, and PowerShell. 
 services: sql-database
 ms.service: sql-database
@@ -29,6 +29,7 @@ Consider the following prerequisites:
 
 # [Portal](#tab/azure-portal)
 Create your failover group and add your single database to it using the Azure portal.
+
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the single database you want to add to the failover group. 
@@ -177,6 +178,9 @@ Revert failover group back to the primary server:
 
 ---
 
+> [!IMPORTANT]
+> If you need to delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
+
 ## Elastic pool
 Create the failover group and add an elastic pool to it using the Azure portal, or PowerShell.  
 
@@ -322,11 +326,14 @@ Fail over to the secondary server:
 
 ---
 
+> [!IMPORTANT]
+> If you need to delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
+
 ## Managed instance
 
 Create a failover group between two managed instances using the Azure portal, or PowerShell. 
 
-You will need to create a gateway for the virtual network of each managed instance, connect the two gateways, and then create the failover group.
+You will either need to configure [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) or to create a gateway for the virtual network of each managed instance, connect the two gateways, and then create the failover group. 
 
 ### Prerequisites
 Consider the following prerequisites:
@@ -338,7 +345,7 @@ Consider the following prerequisites:
 
 ### Create primary virtual network gateway 
 
-Create the primary virtual network gateway with the Azure portal, or PowerShell. 
+If you have not configured [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md), you can create the primary virtual network gateway with the Azure portal, or PowerShell. 
 
 # [Portal](#tab/azure-portal)
 
@@ -478,20 +485,24 @@ The shared key used for both connections should be the same for each connection.
 # [Portal](#tab/azure-portal)
 Create connections between the two gateways using the Azure portal. 
 
-1. Navigate to your resource group in the [Azure portal](https://portal.azure.com) and select the primary gateway you created in Step 4. 
-1. Select **Connections** under **Settings** and then select **Add** to create a new connection. 
+1. Select **Create a resource** from the [Azure portal](https://portal.azure.com).
+1. Type `connection` in the search box and then press enter to search, which takes you to the **Connection** resource, published by Microsoft.
+1. Select **Create** to create your connection. 
+1. On the **Basics** tab, select the following values and then select **OK**. 
+    1. Select `VNet-to-VNet` for the **Connection type**. 
+    1. Select your subscription from the drop-down. 
+    1. Select the resource group for your managed instance in the drop-down. 
+    1. Select the location of your primary managed instance from the drop-down 
+1. On the **Settings** tab, select or enter the following values and then select **OK**:
+    1. Choose the primary network gateway for the **First virtual network gateway**, such as `Primary-Gateway`.  
+    1. Choose the secondary network gateway for the **Second virtual network gateway**, such as `Secondary-Gateway`. 
+    1. Select the checkbox next to **Establish bidirectional connectivity**. 
+    1. Either leave the default primary connection name, or rename it to a value of your choice. 
+    1. Provide a **Shared key (PSK)** for the connection, such as `mi1m2psk`. 
 
-   ![Add connection to primary gateway](media/sql-database-managed-instance-failover-group-tutorial/add-primary-gateway-connection.png)
+   ![Create gateway connection](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
 
-1. Enter a name for your connection, and type in a value for the **Shared Key**. 
-1. Select the **Second virtual network gateway** and then select the gateway for the secondary managed instance. 
-
-   ![Create primary to secondary connection](media/sql-database-managed-instance-failover-group-tutorial/create-primary-to-secondary-connection.png)
-
-1. Select **OK** to add your new primary-to-secondary gateway connection.
-1. Repeat these steps to create a connection from the gateway of the secondary managed instance to the gateway of the primary managed instance. 
-
-   ![Create secondary to primary connection](media/sql-database-managed-instance-failover-group-tutorial/create-secondary-to-primary-connection.png)
+1. On the **Summary** tab, review the settings for your bidirectional connection and then select **OK** to create your connection. 
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -637,7 +648,7 @@ The listener endpoint is in the form of `fog-name.database.windows.net`, and is 
 
 ## Remarks
 
-- Removing a failover group for a single or pooled database does not stop replication, and it does not delete the replicated database. You will need to manually stop geo-replication and delete the database from the secondary server if you want to add a single or pooled database back to a failover group after its been removed. Failing to do either thing may result in an error similar to `The operation cannot be performed due to multiple errors` when attempting to add the database to the failover group. 
+- Removing a failover group for a single or pooled database does not stop replication, and it does not delete the replicated database. You will need to manually stop geo-replication and delete the database from the secondary server if you want to add a single or pooled database back to a failover group after it's been removed. Failing to do either thing may result in an error similar to `The operation cannot be performed due to multiple errors` when attempting to add the database to the failover group. 
 
 
 ## Next steps

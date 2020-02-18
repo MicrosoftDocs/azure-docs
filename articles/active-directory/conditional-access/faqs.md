@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 ## Which applications work with Conditional Access policies?
 
-For information about applications that work with Conditional Access policies, see [Applications and browsers that use Conditional Access rules in Azure Active Directory](technical-reference.md).
+For information about applications that work with Conditional Access policies, see [Applications and browsers that use Conditional Access rules in Azure Active Directory](concept-conditional-access-cloud-apps.md).
 
 ## Are Conditional Access policies enforced for B2B collaboration and guest users?
 
@@ -29,7 +29,7 @@ Policies are enforced for business-to-business (B2B) collaboration users. Howeve
 
 Yes. A SharePoint Online policy also applies to OneDrive for Business.
 
-## Why can’t I set a policy on client apps, like Word or Outlook?
+## Why can’t I set a policy directly on client apps, like Word or Outlook?
 
 A Conditional Access policy sets requirements for accessing a service. It's enforced when authentication to that service occurs. The policy is not set directly on a client application. Instead, it is applied when a client calls a service. For example, a policy set on SharePoint applies to clients calling SharePoint. A policy set on Exchange applies to Outlook.
 
@@ -37,7 +37,7 @@ A Conditional Access policy sets requirements for accessing a service. It's enfo
 
 Conditional Access policies apply to all user accounts. This includes user accounts that are used as service accounts. Often, a service account that runs unattended can't satisfy the requirements of a Conditional Access policy. For example, multi-factor authentication might be required. Service accounts can be excluded from a policy by using Conditional Access policy management settings. 
 
-## Are Graph APIs available for configuring Conditional Access policies?
+## Are Microsoft Graph APIs available for configuring Conditional Access policies?
 
 Currently, no. 
 
