@@ -90,7 +90,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    ```
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kAuthority' with the following code snippet:
 >    ```swift
->    let kAuthority = "https://Enter_the_Cloud_Instance_Id_hereEnter_the_Tenant_Info_Here"
+>    let kAuthority = "https://Enter_the_Authority_Endpoint_Host_HereEnter_the_Tenant_Info_Here"
 >    ```
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kGraphEndpoint' with the following code snippet:
 >    ```swift
