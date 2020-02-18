@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a remote Azure Resource Manager template
 description: Learn how to an Azure Resource Manager template that is stored in a remote location.
-ms.date: 02/20/2020
+ms.date: 02/18/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -22,7 +22,7 @@ In the previous tutorial, you deploy a template that creates a storage account, 
 
 ## Store and share the template
 
-The following PowerShell script creates a storage account, creates a container, copies the template from a github repository to the container (to simplify the tutorial, the same template is shared in a github repository). At the end of the execution, the script returns the URI of the template. You will use the URI when you deploy the template.
+There are several methods that you can use to store and share the template. The following PowerShell script creates a storage account, creates a container, copies the template from a github repository to the container (To simplify the tutorial, the same template is shared in a github repository). At the end of the execution, the script returns the URI of the template. You need the URI when you deploy the template.
 
 Select **Try-it** to open the cloud shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
@@ -69,7 +69,7 @@ Write-Host "The blob URI is https://${storageAccountName}.blob.core.windows.net/
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-Make a note of the blob URI.
+Write down the blob URI.
 
 ## Deploy template
 
@@ -80,7 +80,6 @@ If you haven't created the resource group, see [Create resource group](template-
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-
 $templateFile = Read-Host -Prompt "Enter the template URI"
 
 New-AzResourceGroupDeployment `
@@ -93,7 +92,6 @@ New-AzResourceGroupDeployment `
 ```
 
 # [Azure CLI](#tab/azure-cli)
-
 ```azurecli
 
 echo "Enter the template URI:"

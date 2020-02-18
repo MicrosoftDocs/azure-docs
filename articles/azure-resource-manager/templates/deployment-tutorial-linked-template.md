@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a linked template
 description: Learn how to deploy a linked template
-ms.date: 02/20/2020
+ms.date: 02/18/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -74,7 +74,7 @@ Set-AzStorageBlobContent `
 
 Get-azStorageBlob -container $containerName -Context $context | Select Name
 
-Write-Host "The blob URI is https://${storageAccountName}.blob.core.windows.net/${containerName}/${fileName}".
+Write-Host "The linked template URI is https://${storageAccountName}.blob.core.windows.net/${containerName}/${fileName}".
 
 Write-Host "Press [ENTER] to continue ..."
 ```
@@ -83,7 +83,7 @@ Make a note of the blob URI.
 
 ## Deploy template
 
-Use either Azure CLI or Azure PowerShell to deploy a template.
+Use either Azure CLI or Azure PowerShell to deploy the template.
 
 If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](./deployment-tutorial-local-template.md#deploy-template).
 
@@ -134,4 +134,4 @@ If you're stopping now, you might want to clean up the resources you deployed by
 You learned how to deploy a linked template. In the next tutorial, you learn how to secure the linked template by using SAS token.
 
 > [!div class="nextstepaction"]
-> [Add tags](deployment-tutorial-secured-linked-template.md)
+> [Secure a linked template ](./deployment-tutorial-secured-linked-template.md)

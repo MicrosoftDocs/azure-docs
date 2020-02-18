@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a local Azure Resource Manager template
 description: Learn how to deploy a Azure Resource Manager template from your local computer
-ms.date: 02/20/2020
+ms.date: 02/18/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -95,7 +95,7 @@ New-AzResourceGroupDeployment `
   -webAppName demoapp
 ```
 
-To learn more deploying template by using Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](./deploy-powershell.md).
+To learn more about deploying template by using Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](./deploy-powershell.md).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -108,7 +108,7 @@ az group deployment create \
   --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp
 ```
 
-To learn more deploying template by using Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](./deploy-cli.md).
+To learn more about deploying template by using Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](./deploy-cli.md).
 
 ---
 
