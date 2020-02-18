@@ -11,7 +11,7 @@ ms.date: 02/04/2020
 ---
 
 # Log Analytics agent overview
-The Azure Log Analytics agent was developed for comprehensive management across virtual machines in any cloud, on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). The Windows and Linux agents attach to Azure Monitor and store collected data from different sources in your Log Analytics workspace, as well as any unique logs or metrics as defined in a monitoring solution. The Log Analytics agent also supports insights and other services in Azure Monitor such as [Azure Monitor for VMs](), [Azure Security Center](), and [Azure Automation]().
+The Azure Log Analytics agent was developed for comprehensive management across virtual machines in any cloud, on-premises machines, and those monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). The Windows and Linux agents send collected data from different sources to your Log Analytics workspace in Azure Monitor, as well as any unique logs or metrics as defined in a monitoring solution. The Log Analytics agent also supports insights and other services in Azure Monitor such as [Azure Monitor for VMs](), [Azure Security Center](), and [Azure Automation]().
 
 This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
 
@@ -27,14 +27,14 @@ The [Azure diagnostics extension](diagnostics-extension-overview.md) in Azure Mo
 The key differences to consider are:
 
 - Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
-- Azure Diagnostics extension send data to Azure Storage, [Azure Monitor Metrics](data-platform-metrics.md) (Windows only) and Event Hubs. The Log Analytics agent primarily collects data to [Azure Monitor Logs](data-platform-logs.md) where it supports [Azure Monitor for VMs](../insights/vminsights-overview.md) and [solutions](../insights/solutions.md).
+- Azure Diagnostics extension sends data to Azure Storage, [Azure Monitor Metrics](data-platform-metrics.md) (Windows only) and Event Hubs. The Log Analytics agent collects data to [Azure Monitor Logs](data-platform-logs.md).
 - The Log Analytics agent is required for [solutions](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor for VMs](../insights/vminsights-overview.md), and other services such as [Azure Security Center](/azure/security-center/).
 
 ## Costs
 There is no cost for Log Analytics agent, but you may incur charges for the data ingested. Check [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) for detailed information on the pricing for data collected in a Log Analytics workspace.
 
 ## Data collected
-The following table lists the types of data you can configure for a Log Analytics workspace to collect from all connected agents. See [What is monitored by Azure Monitor?](../monitor-reference.md) for a list of insights, solutions, and other solutions that use the Log Analytics agent to collect other kinds of data.
+The following table lists the types of data you can configure a Log Analytics workspace to collect from all connected agents. See [What is monitored by Azure Monitor?](../monitor-reference.md) for a list of insights, solutions, and other solutions that use the Log Analytics agent to collect other kinds of data.
 
 | Data Source | Description |
 | --- | --- |
@@ -44,7 +44,8 @@ The following table lists the types of data you can configure for a Log Analytic
 | [IIS logs](data-sources-iis-logs.md)                 | Usage information for IIS web sites running on the guest operating system. |
 | [Custom logs](data-sources-custom-logs.md)           | Events from text files on both Windows and Linux computers. |
 
-
+## Data destinations
+The Log Analytics agent sends data to a Log Analytics workspace in Azure Monitor. The Windows agent can be multihomed to send data to multiple workspaces and System Center Operations Manager management groups. The Linux agent can send to only a single destination.
 
 ## Other services
 The agent for Linux and Windows isn't only for connecting to Azure Monitor, it also supports Azure Automation to host the Hybrid Runbook worker role and other services such as [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/automation-update-management.md), and [Azure Security Center](../../security-center/security-center-intro.md). For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
@@ -185,8 +186,6 @@ For example:
 ## Next steps
 
 * Review [data sources](agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
-
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
-
 * Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.
 

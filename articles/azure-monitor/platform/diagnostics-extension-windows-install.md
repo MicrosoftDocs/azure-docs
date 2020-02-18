@@ -6,7 +6,7 @@ author: bwren
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 02/17/2020
 ms.author: bwren
 ---
 # Install and configure Windows Azure diagnostics extension (WAD)
@@ -40,11 +40,14 @@ You can modify the default configuration once the diagnostics extension has been
 | Agent | Modify the following configuration for the agent:<br>- Change the storage account.<br>- Specify the maximum local disk used for the agent.<br>- Configure logs for the health of the agent itself.|
 
 
+> [!NOTE]
+> While the configuration for diagnostics extension can be formatted in either JSON or XML, any configuration done in the Azure portal will always be stored as JSON. If you use XML with another configuration method and then change your configuration with the Azure portal, the settings will be changed to JSON.
+
 ## Resource Manager template
 See [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../../virtual-machines/extensions/diagnostics-template.md) on deploying the diagnostics extension with Azure Resource Manager templates. 
 
 ## Azure CLI deployment
-The Azure CLI can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [az vm extension set](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) as in the following example. The protected settings are defined in the [PrivateConfig element](diagnostics-extension-schema-windows.md#privateconfig-element) of the configuration schema, while the public settings are defined in the [Public element](diagnostics-extension-schema-windows.md#publicconfig-element). See [Example configuration](diagnostics-extension-schema-windows.md#example-configuration) for a complete example of the private and public settings.
+The Azure CLI can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [az vm extension set](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) as in the following example. 
 
 ```azurecli
 az vm extension set \
@@ -52,29 +55,104 @@ az vm extension set \
   --vm-name myVM \
   --name IaaSDiagnostics \
   --publisher Microsoft.Azure.Diagnostics \
-  --version 1.9.0.0 --protected-settings protected-settings.json \
+  --protected-settings protected-settings.json \
   --settings public-settings.json 
 ```
 
-## PowerShell deployment
-PowerShell can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension). The public settings are defined in the [Public element](diagnostics-extension-schema-windows.md#publicconfig-element). See [Example configuration](diagnostics-extension-schema-windows.md#example-configuration) for a complete example of the public settings. A private setting file isn't required since these values are provided as parameters on the Set-AzVMDiagnosticsExtension cmdlet.
+The protected settings are defined in the [PrivateConfig element](diagnostics-extension-schema-windows.md#privateconfig-element) of the configuration schema. Following is a minimal example of a protected settings file that defines the storage account. See [Example configuration](diagnostics-extension-schema-windows.md#privateconfig-element) for complete details of the private settings.
 
+```JSON
+{
+    "storageAccountName": "mystorageaccount",
+    "storageAccountKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "storageAccountEndPoint": "https://mystorageaccount.blob.core.windows.net"
+}
+```
+The public settings are defined in the [Public element](diagnostics-extension-schema-windows.md#publicconfig-element) of the configuration schema. Following is a minimal example of a public settings file that enables collection of diagnostic infrastructure logs,  a single performance counter, and a single event log. See [Example configuration](diagnostics-extension-schema-windows.md#publicconfig-element) for complete details of the public settings.
 
-See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../../virtual-machines/extensions/diagnostics-windows.md).
-
-```powershell
-$vm_resourcegroup = "myvmresourcegroup"
-$vm_name = "myvm"
-$diagnosticsconfig_path = "DiagnosticsPubConfig.json"
-
-Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
-  -VMName $vm_name `
-  -DiagnosticsConfigurationPath $diagnosticsconfig_path
+```JSON
+{
+  "StorageAccount": "mystorageaccount",
+  "WadCfg": {
+    "DiagnosticMonitorConfiguration": {
+      "overallQuotaInMB": 5120,
+      "PerformanceCounters": {
+        "scheduledTransferPeriod": "PT1M",
+        "PerformanceCounterConfiguration": [
+          {
+            "counterSpecifier": "\\Processor Information(_Total)\\% Processor Time",
+            "unit": "Percent",
+            "sampleRate": "PT60S"
+          }
+        ]
+      },
+      "WindowsEventLog": {
+        "scheduledTransferPeriod": "PT1M",
+        "DataSource": [
+          {
+            "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+          }
+        ]
+      }
+    }
+  }
+}
 ```
 
-> [!IMPORTANT]
-> When you enable the diagnostics extension, you incur costs for the storage resources that your diagnostic data uses.
- 
+
+
+## PowerShell deployment
+PowerShell can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) as in the following example. 
+
+```powershell
+Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
+  -VMName "myvm" `
+  -DiagnosticsConfigurationPath "DiagnosticsConfiguration.json"
+```
+
+The privarte settings are defined in the [PrivateConfig element](diagnostics-extension-schema-windows.md#privateconfig-element), while the public settings are defined in the [Public element](diagnostics-extension-schema-windows.md#publicconfig-element) of the configuration schema. Following is a minimal example of a configuration file that enables collection of diagnostic infrastructure logs,  a single performance counter, and a single event log. See [Example configuration](diagnostics-extension-schema-windows.md#publicconfig-element) for complete details of the private and public settings.
+
+```JSON
+{
+    "PublicConfig": {
+        "WadCfg": {
+            "DiagnosticMonitorConfiguration": {
+                "overallQuotaInMB": 10000
+            },
+            "DiagnosticInfrastructureLogs": {
+                "scheduledTransferLogLevelFilter": "Error"
+            },
+            "PerformanceCounters": {
+                "scheduledTransferPeriod": "PT1M",
+                "PerformanceCounterConfiguration": [
+                    {
+                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                        "sampleRate": "PT3M",
+                        "unit": "percent"
+                    }
+                ]
+            },
+            "WindowsEventLog": {
+                "scheduledTransferPeriod": "PT1M",
+                    "DataSource": [
+                    {
+                        "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+                    }
+                ]
+            }
+        },
+        "StorageAccount": "mystorageaccount",
+        "StorageType": "TableAndBlob"
+    },
+    "PrivateConfig": {
+        "storageAccountName": "mystorageaccount",
+        "storageAccountKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "storageAccountEndPoint": "https://mystorageaccount.blob.core.windows.net"
+    }
+}
+```
+
+See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../../virtual-machines/extensions/diagnostics-windows.md).
 
 ## Data storage
 The following table lists the different types of data collected from the diagnostics extension and whether they're stored as a table or a blob. The data stored in tables can also be stored in blobs depending on the [StorageType setting](diagnostics-extension-schema-windows.md#publicconfig-element) in your public configuration.
@@ -87,7 +165,6 @@ The following table lists the different types of data collected from the diagnos
 | WadLogsTable | Table | Logs written in code using the trace listener. |
 | WADPerformanceCountersTable | Table | Performance counters. |
 | WADWindowsEventLogsTable | Table | Windows Event logs. |
-| wad-control-container | Blob | (Only for SDK 2.4 and previous) Contains the XML configuration files that controls the Azure diagnostics . |
 | wad-iis-failedreqlogfiles | Blob | Contains information from IIS Failed Request logs. |
 | wad-iis-logfiles | Blob | Contains information about IIS logs. |
 | "custom" | Blob | A custom container based on configuring directories that are monitored by the diagnostic monitor.  The name of this blob container will be specified in WADDirectoriesTable. |

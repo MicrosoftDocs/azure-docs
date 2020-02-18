@@ -21,7 +21,7 @@ ms.author: akjosh
 
 ## Overview
 
-Azure Monitor Logs provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. The Log Analytics Agent virtual machine extension for Linux is published and supported by Microsoft. The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. This document details the supported platforms, configurations, and deployment options for the Log Analytics virtual machine extension for Linux.
+Azure Monitor Logs provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. The Log Analytics virtual machine extension for Linux is published and supported by Microsoft. The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. This document details the supported platforms, configurations, and deployment options for the Log Analytics virtual machine extension for Linux.
 
 >[!NOTE]
 >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, the OMS Agent for Windows or Linux will be referred to as the Log Analytics agent for Windows and Log Analytics agent for Linux.
@@ -96,7 +96,6 @@ The following JSON shows the schema for the Log Analytics Agent extension. The e
 
 >[!NOTE]
 >The schema above assumes that it will be placed at the root level of the template. If you put it inside the virtual machine resource in the template, the `type` and `name` properties should be changed, as described [further down](#template-deployment).
->
 
 ### Property values
 

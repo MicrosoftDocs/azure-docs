@@ -6,18 +6,18 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/29/2020
+ms.date: 02/14/2020
 
 ---
 
 # Collect data from Azure diagnostics extension to Azure Monitor Logs
-Azure diagnostics extension is an [agent in Azure Monitor](agents-overview.md) that collects monitoring data from the guest operating system of Azure compute resources including virtual machines. This article describes how to collect data collected by the diagnostics setting from Azure Storage to Azure Monitor Logs.
+Azure diagnostics extension is an [agent in Azure Monitor](agents-overview.md) that collects monitoring data from the guest operating system of Azure compute resources including virtual machines. This article describes how to collect data collected by the diagnostics extension from Azure Storage to Azure Monitor Logs.
 
 > [!NOTE]
-> The Log Analytics agent in Azure Monitor is typically the prefer method to collect data from the guest operating system into Azure Monitor Logs. See [Overview of the Azure Monitor agents](agents-overview.md) for a detailed comparison of the agents.
+> The Log Analytics agent in Azure Monitor is typically the preferred method to collect data from the guest operating system into Azure Monitor Logs. See [Overview of the Azure Monitor agents](agents-overview.md) for a detailed comparison of the agents.
 
-## Supported tables
-Azure diagnostics extension stores data in an Azure Storage account. For Azure Monitor to collect these Azure Diagnostics logs, the logs must be in the following locations:
+## Supported data types
+Azure diagnostics extension stores data in an Azure Storage account. For Azure Monitor Logs to collect this data, it must be in the following locations:
 
 | Log Type | Resource Type | Location |
 | --- | --- | --- |
@@ -29,29 +29,11 @@ Azure diagnostics extension stores data in an Azure Storage account. For Azure M
 | Windows Event logs |Service Fabric nodes <br> Virtual Machines <br> Web roles <br> Worker roles |WADWindowsEventLogsTable (Table Storage) |
 | Windows ETW logs |Service Fabric nodes <br> Virtual Machines <br> Web roles <br> Worker roles |WADETWEventTable (Table Storage) |
 
-> [!NOTE]
-> IIS logs from Azure Websites are not currently supported.
+## Data types not supported
 
+- Performance data from the guest operating system
+- IIS logs from Azure websites
 
-## Enable Azure diagnostics in a virtual machine for event log and IIS log collection
-
-Use the following procedure to enable Azure diagnostics in a virtual machine for Event Log and IIS log collection using the Microsoft Azure portal.
-
-### To enable Azure diagnostics in a virtual machine with the Azure portal
-
-1. Install the VM Agent when you create a virtual machine. If the virtual machine already exists, verify that the VM Agent is already installed.
-
-   * In the Azure portal, navigate to the virtual machine, select **Optional Configuration**, then **Diagnostics** and set **Status** to **On**.
-
-     Upon completion, the VM has the Azure Diagnostics extension installed and running. This extension is responsible for collecting your diagnostics data.
-2. Enable monitoring and configure event logging on an existing VM. You can enable diagnostics at the VM level. To enable diagnostics and then configure event logging, perform the following steps:
-
-   1. Select the VM.
-   2. Click **Monitoring**.
-   3. Click **Diagnostics**.
-   4. Set the **Status** to **ON**.
-   5. Select each diagnostics log that you want to collect.
-   6. Click **OK**.
 
 ## Enable Azure diagnostics extension
 See [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-windows-install.md) or [Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) for details on installing and configuring the diagnostics extension. This will alow you to specify the storage account and to configure collection of the data that you want to forward to Azure Monitor Logs.
@@ -72,9 +54,7 @@ Use the following procedure to enable collection of diagnostics extension data f
 In approximately 30 minutes, you are able to see data from the storage account in the Log Analytics workspace. You will only see data that is written to storage after the configuration is applied. The workspace does not read the pre-existing data from the storage account.
 
 > [!NOTE]
-> The portal does not validate that the Source exists in the storage account or if new data is being written.
->
->
+> The portal does not validate that the source exists in the storage account or if new data is being written.
 
 
 
