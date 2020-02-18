@@ -201,13 +201,5 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 ## Next steps
 
 - Learn about [NAT gateway resource](./nat-gateway-resource.md).
-- Tutorial for validating NAT Gateway
-  * [Azure CLI](tutorial-create-validate-nat-gateway-cli.md),
-  * [PowerShell](tutorial-create-validate-nat-gateway-cli.md),
-  * [Portal](tutorial-create-validate-nat-gateway-cli.md)
-- Quickstart for deploying a NAT gateway resource
-  * [Azure CLI](./quickstart-create-nat-gateway-cli.md),
-  * [PowerShell](./quickstart-create-nat-gateway-powershell.md),
-  * [Portal](./quickstart-create-nat-gateway-portal.md).
 - [Tell us what to build next in UserVoice](https://aka/natuservoice).
 - [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
