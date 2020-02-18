@@ -44,7 +44,7 @@ You authorize a user or group in your Azure AD B2C directory (the **Service Prov
 
 This is the resource group containing the destination Azure storage account, event hub, or Log Analytics workspace to receive data from Azure Monitor. You specify the resource group name when you deploy the Azure Resource Manager template.
 
-[Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) or choose an existing one the Azure Active Directory (Azure AD) tenant that contains your Azure subscription, *not* the directory that contains your Azure AD B2C tenant.
+[Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) or choose an existing one in the Azure Active Directory (Azure AD) tenant that contains your Azure subscription, *not* the directory that contains your Azure AD B2C tenant.
 
 This example uses a resource group named *azure-ad-b2c-monitor* in the *Central US* region.
 
