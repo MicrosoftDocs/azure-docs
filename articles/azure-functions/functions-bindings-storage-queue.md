@@ -11,7 +11,7 @@ ms.custom: cc996988-fb4f-47
 
 # Azure Queue storage trigger and bindings for Azure Functions overview
 
-Azure Functions supports Azure Queue storage by being able to run as queue data changes as well as easily create queue messages within a function.
+Azure Functions can run as new Azure Queue storage messages are created and can write queue messages within a function.
 
 | Action | Type |
 |---------|---------|
