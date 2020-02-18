@@ -1,0 +1,33 @@
+---
+title: SRE Link list | Microsoft Docs
+description: Expand your knowledge of site reliiabiliy engineering with these resources
+author: dnblankedelman
+manager: efreeman
+ms.service: site-reliability
+ms.topic: article
+ms.date: 02/18/2020
+ms.author: dnb
+
+---
+# Concentrated sources for SRE information
+
+There are many, many sources for site reliability engineering information on the web.
+
+## Curated Link Lists
+
+Here are some good curated links of links for SRE and SRE-related topics:
+
+* [Awesome Site Reliability Engineering](https://github.com/dastergon/awesome-sre)
+* [Awesome Site Reliability Engineering Tools](https://github.com/squadcastHQ/awesome-sre-tools)
+* [The Patterns of Scalable, Reliable, and Performant Large-Scale Systems](http://awesome-scalability.com)
+* [awesome-distributed-systems](https://github.com/theanalyst/awesome-distributed-systems)
+* [Awesome Consensus](https://github.com/dgryski/awesome-consensus)
+* [awesome-monitoring](https://github.com/crazy-canux/awesome-monitoring)
+* [Awesome Observability](https://github.com/adriannovegil/awesome-observability)
+
+## Weekly Digests of interest to Site Reliability Engineers
+
+* [SRE Weekly](https://sreweekly.com) - "SRE Weekly is a newsletter devoted to everything related to keeping a site or service available as consistently as possible."
+* [Devops Weekly](https://www.devopsweekly.com) - "A weekly slice of devops news brought to you by Gareth Rushgrove."
+* [This Week in DevOps](https://thisweekindevops.com) - "DevOps news without the hype."
+* [KubeWeekly](https://kubeweekly.io) - "The weekly newsletters for all things Kubernetes."

@@ -6,14 +6,14 @@ summary: Site Reliability Engineering is an engineering discipline devoted to he
 brand: azure
 
 metadata:
-  title: title # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Site Reliability Engineering documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Site Reliability Engineering is an engineering discipline devoted to helping an organization sustainably achieve the appropriate level of reliability in their systems, services, and products. # Required; article description that is displayed in search results. < 160 chars.
   services: site-reliability-engineering
   ms.service: site-reliability-engineering #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: hub-page # Required
   author: dnblankedelman #Required; your GitHub user alias, with correct capitalization.
   ms.author: dnb #Required; microsoft alias of author; optional team alias.
-  ms.date: 12/23/2019 #Required; mm/dd/yyyy format.
+  ms.date: 02/18/2020 #Required; mm/dd/yyyy format.
 
 # highlightedContent section (optional)
 # Maximum of 8 items
