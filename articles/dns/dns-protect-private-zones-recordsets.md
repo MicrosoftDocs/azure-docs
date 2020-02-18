@@ -40,7 +40,7 @@ Permissions can also be [granted using Azure PowerShell](../role-based-access-co
 
 $rsg = "<resource group name>"
 $usr = "<user email address>"
-$rol = "DNS Private Zone Contributor"
+$rol = "Private DNS Zone Contributor"
 
 New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -ResourceGroupName $rsg
 ```
@@ -85,12 +85,10 @@ The equivalent command is also [available via the Azure CLI](../role-based-acces
 ```azurecli-interactive
 # Grant 'Private DNS Zone Contributor' permissions to a specific zone
 
-azure role assignment create \
---signInName <user email address> \
---roleName "Private DNS Zone Contributor" \
---resource-name <zone name> \
---resource-type Microsoft.Network/privateDnsZones \
---resource-group <resource group name>
+az role assignment create \
+--assignee <user email address> \
+--role "Private DNS Zone Contributor" \
+--scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/privateDnsZones/<zone name>/"
 ```
 
 ### Record set level RBAC
@@ -122,8 +120,8 @@ The equivalent command is also [available via the Azure CLI](../role-based-acces
 # Grant permissions to a specific record set
 
 az role assignment create \
---signInName "<user email address>" \
---roleName "Private DNS Zone Contributor" \
+--assignee "<user email address>" \
+--role "Private DNS Zone Contributor" \
 --scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/privateDnsZones/<zone name>/<record type>/<record name>"
 ```
 
@@ -210,7 +208,7 @@ $lvl = "<lock level>"
 $lnm = "<lock name>"
 $rsc = "<zone name>"
 $rty = "Microsoft.Network/privateDnsZones"
-$rsg = "<resource group name>
+$rsg = "<resource group name>"
 
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
@@ -223,9 +221,10 @@ The equivalent command is also [available via the Azure CLI](https://docs.micros
 az lock create \
 --lock-type "<lock level>" \
 --name "<lock name>" \
---resource-name "<zone name"> \
---namespace "Microsoft.Network/privateDnsZones" \
---resource-group "<resource group name>
+--resource-name "<zone name>" \
+--namespace "Microsoft.Network" \
+--resource-type "privateDnsZones" \
+--resource-group "<resource group name>"
 ```
 ### Protecting individual records
 
@@ -234,7 +233,7 @@ To prevent an existing DNS record set against modification, apply a ReadOnly loc
 > [!NOTE]
 > Applying a CanNotDelete lock to a record set is not an effective control. It prevents the record set from being deleted, but it does not prevent it from being modified.  Permitted modifications include adding and removing records from the record set, including removing all records to leave an empty record set. This has the same effect as deleting the record set from a DNS resolution viewpoint.
 
-Record set level resource locks can currently only be configured using Azure PowerShell or Azure CLI.  They aren't supported in the Azure portal.
+Record set level resource locks can currently only be configured using Azure PowerShell.  They aren't supported in the Azure portal or Azure CLI.
 
 Azure PowerShell
 
@@ -248,20 +247,6 @@ $rty = "Microsoft.Network/privateDnsZones"
 $rsg = "<resource group name>"
 
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rnm -ResourceType $rty -ResourceGroupName $rsg
-```
-
-Azure CLI
-
-```azurecli-interactive
-# Lock a DNS record set
-
-az lock create \
---lock-type "<lock level>" \
---name "<lock name>" \
---resource-name "<zone name>/<record set name>" \
---namespace "Microsoft.Network/privateDnsZones" \
---resource-group "<resource group name>
-
 ```
 ### Protecting against zone deletion
 
@@ -284,20 +269,6 @@ $rsg = "<resource group name>"
 
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rnm -ResourceType $rty -ResourceGroupName $rsg
 ```
-
-Equivalent Azure CLI:
-
-```azurecli-interactive
-# Protect against zone delete with CanNotDelete lock on the record set
-
-az lock create \
---lock-type "CanNotDelete" \
---name "<lock name>" \
---resource-name "<zone name>/@" \
---namespace "Microsoft.Network/privateDnsZones/SOA" \
---resource-group "<resource group name>
-```
-
 Another option to prevent accidental zone deletion is by using a custom role. This role ensures the accounts used to manage your zones don't have zone delete permissions. 
 
 When you do need to delete a zone, you can enforce a two-step delete:
