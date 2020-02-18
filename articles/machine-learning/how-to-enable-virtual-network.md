@@ -131,13 +131,14 @@ To use an Azure Machine Learning compute instance or compute cluster in a virtua
 > * If you're going to put multiple compute instances or clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
 > * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. 
 
-The Machine Learning compute instance or cluster automatically allocates additional networking resources in the resource group that contains the virtual network. For each compute instance or cluster, the service allocates the following resources:
-
-* One network security group
-* One public IP address
-* One load balancer
-
-These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+> [!TIP]
+> The Machine Learning compute instance or cluster automatically allocates additional networking resources in the resource group that contains the virtual network. For each compute instance or cluster, the service allocates the following resources:
+> 
+> * One network security group
+> * One public IP address
+> * One load balancer
+> 
+> These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 ### <a id="mlcports"></a> Required ports
@@ -497,6 +498,10 @@ When using Azure Firewall, you must configure a network rule to allow traffic to
 When adding the rule, set the __Protocol__ to any, and the ports to `*`.
 
 For more information on configuring a network rule, see [Deploy and configure Azure Firewall](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
+
+## Use Azure Container Registry
+
+When using a virtual network with Azure Machine Learning, __do not__ put the Azure Container Registry for the workspace in the virtual network. This configuration is not supported.
 
 ## Next steps
 
