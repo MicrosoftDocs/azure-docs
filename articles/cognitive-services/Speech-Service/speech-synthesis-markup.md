@@ -98,7 +98,7 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 | `name` | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
 
 > [!IMPORTANT]
-> Multiple voices are incompatible with the word boundary feature. The word boundary feature defaults to `true` in the Speech SDK and needs to be disabled in order to use multiple voices.
+> Multiple voices are incompatible with the word boundary feature. The word boundary feature needs to be disabled in order to use multiple voices.
 
 ### Disable word boundary
 
