@@ -92,11 +92,20 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
-4. **Increase number of threads/tasks**
+
+4. **Use Windows x64**
+
+    For the best performance for queries always run application on Windows x64 to support native ServiceInterop.dll. The native service interop is used to parse and optimize queries, and is packaged with the SDK. If the native ServiceInterop.dll is not available or a non-supported platform the SDK will go to the gateway to parse and optimize the query. This will cause an additional network call which will increase the latency of the query operation.
+
+    > [!NOTE] 
+    > Visual studio defaults new projects to Any CPU. It's recommend to set the project to x64 to avoid it switching to x86. Any CPU project can easily switch to x86 if any dependency is added that is x86 only. 
+    
+
+5. **Increase number of threads/tasks**
 
     Since calls to Azure Cosmos DB are made over the network, you may need to vary the degree of parallelism of your requests so that the client application spends very little time waiting between requests. For example, if you're using .NET's [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create in the order of 100s of Tasks reading or writing to Azure Cosmos DB.
 
-5. **Enable accelerated networking**
+6. **Enable accelerated networking**
 
    In order to reduce latency and CPU jitter, we recommend that the client virtual machines are accelerated networking enabled. See the [Create a Windows virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) articles to enable accelerated networking.
 
