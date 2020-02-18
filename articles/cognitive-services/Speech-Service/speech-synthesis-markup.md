@@ -91,8 +91,6 @@ The `voice` element is required. It is used to specify the voice that is used fo
 
 Within the `speak` element, you can specify multiple voices for text-to-speech output. These voices can be in different languages. For each voice, the text must be wrapped in a `voice` element. 
 
-:::code language="ava" source="~/samples-cognitive-services-speech-sdk/foobar.java" id="test":::
-
 **Attributes**
 
 | Attribute | Description | Required / Optional |
