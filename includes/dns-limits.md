@@ -24,4 +24,5 @@ ms.author: rohink
 | Maximum number of DNS queries queued (pending response) per virtual machine |200 <sup>2</sup> |
 
 <sup>1</sup>If you need to increase these limits, contact Azure Support.
+
 <sup>2</sup>These limits are applied to every individual virtual machine and not at the virtual network level. DNS queries exceeding these limits are dropped.
