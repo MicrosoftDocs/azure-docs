@@ -5,12 +5,12 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019
-ms.devlang: 
+ms.devlang:
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 03/12/2019
+ms.date: 02/12/2020
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
 
@@ -47,10 +47,10 @@ The following steps outline how to check the TDE Protector thumbprints still in 
 The thumbprint of the current TDE protector of the database, and the database ID can be found by running:
 
 ```sql
-SELECT [database_id], 
-       [encryption_state], 
-       [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/ 
-       [encryptor_thumbprint], 
+SELECT [database_id],
+       [encryption_state],
+       [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/
+       [encryptor_thumbprint],
  FROM [sys].[dm_database_encryption_keys]
 ```
 
@@ -174,6 +174,8 @@ For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
 
 2. Back up the key material of the TDE protector in Key Vault.
 3. Remove the potentially compromised key from Key Vault
+
+[!INCLUDE [sql-database-akv-permission-delay](includes/sql-database-akv-permission-delay.md)]
 
 ## Next steps
 

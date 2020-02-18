@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager templates for Azure Cosmos DB Gremlin API
+title: Resource Manager templates for Azure Cosmos DB Gremlin API
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB Gremlin API. 
 author: TheovanKraay
 ms.service: cosmos-db
@@ -55,4 +55,4 @@ Here are some additional resources:
 - [Azure Resource Manager documentation](/azure/azure-resource-manager/)
 - [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
 - [Azure Cosmos DB Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [Troubleshoot common Azure Resource Manager deployment errors](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+- [Troubleshoot common Azure Resource Manager deployment errors](../azure-resource-manager/templates/common-deployment-errors.md)

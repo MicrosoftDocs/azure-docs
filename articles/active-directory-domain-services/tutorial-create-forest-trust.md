@@ -41,6 +41,9 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain created using a resource forest and configured in your Azure AD tenant.
     * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance-advanced].
+    
+    > [!IMPORTANT]
+    > Make sure that you create an Azure AD DS managed domain using a *resource* forest. The default option creates a *user* forest. Only resource forests can create trusts to on-prem AD DS environments. You also need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for an Azure AD DS managed domain][howto-change-sku].
 
 ## Sign in to the Azure portal
 
@@ -80,6 +83,10 @@ To configure inbound trust on the on-premises AD DS domain, complete the followi
 1. Select **Start | Administrative Tools | Active Directory Domains and Trusts**
 1. Right-select domain, such as *onprem.contoso.com*, select **Properties**
 1. Choose **Trusts** tab, then **New Trust**
+
+   > [!NOTE]
+   > If you don't see the **Trusts** menu option, check under **Properties** for the *Forest type*. Only *resource* forests can create trusts. If the forest type is *User*, you can't create trusts. There's currently no way to change the forest type of an Azure AD DS managed domain. You need to delete and recreate the managed domain as a resource forest.
+
 1. Enter name on Azure AD DS domain name, such as *aadds.contoso.com*, then select **Next**
 1. Select the option to create a **Forest trust**, then to create a **One way: incoming** trust.
 1. Choose to create the trust for **This domain only**. In the next step, you create the trust in the Azure portal for the Azure AD DS managed domain.
@@ -211,3 +218,4 @@ For more conceptual information about forest types in Azure AD DS, see [What are
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
+[howto-change-sku]: change-sku.md

@@ -21,7 +21,7 @@ App Service on Linux provides pre-defined application stacks on Linux with suppo
 
 ## Create an image
 
-To complete this quickstart, you will need a suitable web app image stored in an [Azure Container Registry](/azure/container-registry). Follow the instructions in [Quickstart: Create a private container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal), but use the `mcr.microsoft.com/azuredocs/go` image instead of the `hello-world` image.
+To complete this quickstart, you will need a suitable web app image stored in an [Azure Container Registry](/azure/container-registry). Follow the instructions in [Quickstart: Create a private container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal), but use the `mcr.microsoft.com/azuredocs/go` image instead of the `hello-world` image. For reference, the [sample Dockerfile is found in Azure Samples repo](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
 > Be sure to set the **Admin User** option to **Enable** when you create the container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access.

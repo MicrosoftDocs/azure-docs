@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Use Azure Service Bus queues in Node.js'
-description: 'Quickstart: Learn how to use Service Bus queues in Azure from a Node.js app.'
+title: Use Azure Service Bus queues in Node.js using azure-sb package
+description: Learn how to create Node.js applications to send messages to and receive messages from an Azure Service Bus queue using the azure-sb package.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
 

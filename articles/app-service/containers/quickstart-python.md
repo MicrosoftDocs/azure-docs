@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 10/22/2019
 ms.custom: seo-python-october2019
 
-experimental: false
-experiment_id: 1e304dc9-5add-4b
+experimental: true
+experiment_id: 01a9132f-eaab-4c
 ---
 # Quickstart: Create a Python app in Azure App Service on Linux
 
@@ -47,7 +47,7 @@ In a terminal window, use the commands below (as appropriate for your operating 
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-FLASK_APP=application.py
+export FLASK_APP=application.py
 flask run
 ```
 
@@ -75,7 +75,7 @@ flask run
 
 Open a web browser, and go to the sample app at `http://localhost:5000/`. The app displays the message **Hello World!**.
 
-![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
+![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
 In your terminal window, press **Ctrl**+**C** to exit the web server.
 
@@ -93,7 +93,7 @@ az login
 
 The [`az webapp up`](/cli/azure/webapp#az-webapp-up) command creates the web app on App Service and deploys your code.
 
-In the *python-docs-hello-world* folder that contains the sample code, run the following `az webapp up` command. Replace  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*). Also replace `<location-name>` with an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. (You can retrieve a list of allowable regions for your Azure account by running the [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
+In the *python-docs-hello-world* folder that contains the sample code, run the following `az webapp up` command. Replace  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*). Also replace `<location-name>` with an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. (You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
 
 
 ```terminal

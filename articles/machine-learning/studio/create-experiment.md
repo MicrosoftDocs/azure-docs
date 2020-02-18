@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: quickstart
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
 #Customer intent: As a citizen data scientist, I want to learn how to create a data science experiment so that I can do the same process to answer my own data science questions.
@@ -42,7 +42,7 @@ This quickstart follows the default workflow for an experiment:
 ## Get the data
 
 The first thing you need in machine learning is data.
-There are several sample datasets included with the classic version of Studio that you can use, or you can import data from many sources. For this example, we'll use the sample dataset, **Automobile price data (Raw)**, that's included in your workspace.
+There are several sample datasets included with Studio (classic) that you can use, or you can import data from many sources. For this example, we'll use the sample dataset, **Automobile price data (Raw)**, that's included in your workspace.
 This dataset includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.
 
 > [!TIP]

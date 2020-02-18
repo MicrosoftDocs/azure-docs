@@ -1,5 +1,5 @@
 ---
-title: How to recognize differences between delegated and application permissions | Microsoft Docs
+title: Differences between delegated and app permissions | Azure
 description: Learn about delegated and application permissions, how they are used by clients and exposed by resources for applications you are developing with Azure AD
 services: active-directory
 author: rwike77
@@ -13,7 +13,6 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 
-ms.collection: M365-identity-device-management
 ---
 
 # How to recognize differences between delegated and application permissions

@@ -1,5 +1,5 @@
 ---
-title: Configure an application's publisher domain 
+title: Configure an app's publisher domain | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to configure an application's publisher domain to let users know where their information is being sent.
 services: active-directory
@@ -14,7 +14,6 @@ ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Configure an application's publisher domain

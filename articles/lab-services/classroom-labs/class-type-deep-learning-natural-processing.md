@@ -28,7 +28,7 @@ After you create the lab account, enable following settings in the lab account:
 
 | Lab account setting | Instructions |
 | ----------- | ------------ |  
-| Marketplace images | Enable the Data Science Virtual Machine for Linux (Ubuntu) image for use within your lab account.  See the following articles for instructions: [Specify marketplace images available to lab creators](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators). | 
+| Marketplace images | Enable the Data Science Virtual Machine for Linux (Ubuntu) image for use within your lab account.  See the following articles for instructions: [Specify marketplace images available to lab creators](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators). | 
 
 Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and apply the following settings:
 

@@ -12,7 +12,7 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
 ---
-# Intelligent Insights using AI to monitor and troubleshoot database performance
+# Intelligent Insights using AI to monitor and troubleshoot database performance (Preview)
 
 Azure SQL Database Intelligent Insights lets you know what is happening with your SQL Database and Managed Instance database performance.
 
@@ -184,4 +184,4 @@ If any of the monitored critical exceptions cross the absolute thresholds manage
 - Learn how to [troubleshoot SQL Database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Use the [Intelligent Insights SQL Database performance diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Learn how to [monitor SQL Database by using SQL Analytics](../azure-monitor/insights/azure-sql.md).
-- Learn how to [collect and consume log data from your Azure resources](../azure-monitor/platform/resource-logs-overview.md).
+- Learn how to [collect and consume log data from your Azure resources](../azure-monitor/platform/platform-logs-overview.md).

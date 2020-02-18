@@ -1,5 +1,5 @@
 ---
-title: How and why to add apps to Azure AD
+title: How and why apps are added to Azure AD
 titleSuffix: Microsoft identity platform
 description: What does it mean for an application to be added to Azure AD and how do they get there?
 services: active-directory
@@ -15,7 +15,6 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.collection: M365-identity-device-management
 ---
 
 # How and why applications are added to Azure AD

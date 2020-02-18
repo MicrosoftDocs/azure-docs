@@ -1,18 +1,11 @@
 ---
-title: Azure App Configuration key-value store | Microsoft Docs
-description: An overview of how configuration data is stored in Azure App Configuration
-services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: maiye
-editor: ''
-
+title: Azure App Configuration key-value store
+description: An overview of how configuration data is stored in Azure App Configuration.
+author: lisaguthrie
+ms.author: lcozzens
 ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 04/19/2019
-ms.author: yegu
 ---
 
 # Keys and values
@@ -27,7 +20,7 @@ The usage of configuration data within application frameworks might dictate spec
 
 Keys stored in App Configuration are case-sensitive, unicode-based strings. The keys *app1* and *App1* are distinct in an App Configuration store. Keep this in mind when you use configuration settings within an application because some frameworks handle configuration keys case-insensitively. For example, the ASP.NET Core configuration system treats keys as case-insensitive strings. To avoid unpredictable behaviors when you query App Configuration within an ASP.NET Core application, don't use keys that differ only by casing.
 
-You can use any unicode character in key names entered into App Configuration except for `*`, `,`, and `\`. These characters are reserved. If you need to include a reserved character, you must escape it by using `\{Reserved Character}`. There's a combined size limit of 10,000 characters on a key-value pair. This limit includes all characters in the key, its value, and all associated optional attributes. Within this limit, you can have many hierarchical levels for keys.
+You can use any unicode character in key names entered into App Configuration except for `*`, `,`, and `\`. These characters are reserved. If you need to include a reserved character, you must escape it by using `\{Reserved Character}`. There's a combined size limit of 10 KB on a key-value pair. This limit includes all characters in the key, its value, and all associated optional attributes. Within this limit, you can have many hierarchical levels for keys.
 
 ### Design key namespaces
 
@@ -53,7 +46,7 @@ Here are several examples of how you can structure your key names into a hierarc
 
 ### Label keys
 
-Key values in App Configuration can optionally have a label attribute. Labels are used to differentiate key values with the same key. A key *app1* with labels *A* and *B* forms two separate keys in an App Configuration store. By default, the label for a key value is empty, or `null`.
+Key values in App Configuration can optionally have a label attribute. Labels are used to differentiate key values with the same key. A key *app1* with labels *A* and *B* forms two separate keys in an App Configuration store. By default, a key value has no label. To explicitly reference a key value without a label, use `\0` (URL encoded as `%00`).
 
 Label provides a convenient way to create variants of a key. A common use of labels is to specify multiple environments for the same key:
 
@@ -76,8 +69,6 @@ Each key value is uniquely identified by its key plus a label that can be `null`
 | `key` is omitted or `key=*` | Matches all keys |
 | `key=abc` | Matches key name **abc** exactly |
 | `key=abc*` | Matches key names that start with **abc** |
-| `key=*abc` | Matches key names that end with **abc** |
-| `key=*abc*` | Matches key names that contain **abc** |
 | `key=abc,xyz` | Matches key names **abc** or **xyz**, limited to five CSVs |
 
 You also can include the following label patterns:
@@ -88,8 +79,6 @@ You also can include the following label patterns:
 | `label=%00` | Matches `null` label |
 | `label=1.0.0` | Matches label **1.0.0** exactly |
 | `label=1.0.*` | Matches labels that start with **1.0.** |
-| `label=*.0.0` | Matches labels that end with **.0.0** |
-| `label=*.0.*` | Matches labels that contain **.0.** |
 | `label=%00,1.0.0` | Matches labels `null` or **1.0.0**, limited to five CSVs |
 
 ## Values

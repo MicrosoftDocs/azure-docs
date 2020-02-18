@@ -1,13 +1,11 @@
 ---
 title: Troubleshoot Azure Cache for Redis timeouts
-description: Learn how to resolve common timeout issues with Azure Cache for Redis
+description: Learn how to resolve common timeout issues with Azure Cache for Redis, such as redis server patching and StackExchange.Redis timeout exceptions.
 author: yegu-ms
-
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: yegu
-
 ---
 # Troubleshoot Azure Cache for Redis timeouts
 

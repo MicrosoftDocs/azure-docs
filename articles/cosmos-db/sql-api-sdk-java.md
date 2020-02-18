@@ -39,11 +39,15 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ## Release notes
 
+### <a name="2.4.6"/>2.4.6
+* Updated correct client side replica policy tag on databaseAccount and made databaseAccount configuration reads from cache.
+
 ### <a name="2.4.5"/>2.4.5
 * Avoiding retry on invalid partition key range error, if user provides pkRangeId.
 
 ### <a name="2.4.4"/>2.4.4
 * Optimized partition key range cache refreshes.
+* Fixes the scenario where the SDK doesn't entertain partition split hint from server and results in incorrect client side routing caches refresh.
 
 ### <a name="2.4.2"/>2.4.2
 * Optimized collection cache refreshes.

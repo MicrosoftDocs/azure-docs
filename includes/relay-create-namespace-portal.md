@@ -9,7 +9,7 @@ ms.author: clemensv
 1. Select **Create a resource**. Then, select **Integration** > **Relay**. If you don't see **Relay** in the list, select **See All** in the top-right corner.
 1. Select **Create**, and enter a namespace name in the **Name** field. Azure portal checks to see if the name is available.
 1. Choose an Azure subscription in which to create the namespace.
-1. For [Resource group](../articles/azure-resource-manager/manage-resource-groups-portal.md), choose an existing resource group in which to place the namespace, or create a new one.  
+1. For [Resource group](../articles/azure-resource-manager/management/manage-resource-groups-portal.md), choose an existing resource group in which to place the namespace, or create a new one.  
 1. Select the country or region in which your namespace should be hosted.
 
     ![Create namespace][create-namespace]

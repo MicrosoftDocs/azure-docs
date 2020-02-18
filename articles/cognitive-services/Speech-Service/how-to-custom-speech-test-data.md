@@ -1,40 +1,43 @@
 ---
 title: "Prepare test data for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
-description: "Whether you're testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data (in the form of audio and/or text). On this page, we cover the types of data, how they are used, and how to manage them."
+description: "When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them."
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 12/17/2019
 ms.author: erhopf
 ---
 
 # Prepare data for Custom Speech
 
-Whether you're testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data in the form of audio and text. On this page, we cover the types of data, how they are used, and how to manage them.
+When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them.
 
 ## Data types
 
 This table lists accepted data types, when each data type should be used, and the recommended quantity. Not every data type is required to create a model. Data requirements will vary depending on whether you're creating a test or training a model.
 
-| Data type | Used of testing | Recommended quantity | Used for training | Recommended quantity |
+| Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/a |
-| [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5 - 5 hours of audio | Yes | 1 - 1,000 hours of audio |
+| [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-1,000 hours of audio |
 | [Related text](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
 
-Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
+Files should be grouped by type into a dataset and uploaded as a .zip file. Each dataset can only contain a single data type.
+
+> [!TIP]
+> To quickly get started, consider using sample data. See this GitHub repository for <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">sample Custom Speech data <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ## Upload data
 
-When you're ready to upload your data, navigate to the [Custom Speech portal](https://speech.microsoft.com/customspeech), then click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
+To upload your data, navigate to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. From the portal, click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
 
 ![Select audio from the Speech Portal](./media/custom-speech/custom-speech-select-audio.png)
 
-Each dataset you upload must meet the requirements for the data type that you choose. It is important to correctly format your data before it's uploaded. This ensures the data will be accurately processed by the Custom Speech service. Requirements are listed in the following sections.
+Each dataset you upload must meet the requirements for the data type that you choose. Your data must be correctly formatted before it's uploaded. Correctly formatted data ensures it will be accurately processed by the Custom Speech service. Requirements are listed in the following sections.
 
 After your dataset is uploaded, you have a few options:
 
@@ -57,26 +60,32 @@ Use this table to ensure that your audio files are formatted correctly for use w
 | Archive format | .zip |
 | Maximum archive size | 2 GB |
 
-If your audio doesn’t satisfy these properties or you want to check if it does, we suggest downloading [sox](http://sox.sourceforge.net) to check or convert the audio. Below are some examples of how each of these activities can be done through the command line:
+> [!TIP]
+> When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training, divide it into several .zip files and upload them separately. Later, you can choose to train from *multiple* datasets. However, you can only test from a *single* dataset.
 
-| Activity | Description | Sox command |
+Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX <span class="docon docon-navigate-external x-hidden-focus"></span></a> to verify audio properties or convert existing audio to the appropriate formats. Below are some examples of how each of these activities can be done through the SoX command line:
+
+| Activity | Description | SoX command |
 |----------|-------------|-------------|
-| Check audio format | Use this command to check the audio file format. | `sox --i <filename>` |
-| Convert audio format | Use this command to convert the audio file to single channel, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
+| Check audio format | Use this command to check<br>the audio file format. | `sox --i <filename>` |
+| Convert audio format | Use this command to convert<br>the audio file to single channel, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
 ## Audio + human-labeled transcript data for testing/training
 
-To measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high-quality transcripts are uploaded.  
+To measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high-quality transcripts are uploaded.
 
 | Property | Value |
 |----------|-------|
 | File format | RIFF (WAV) |
 | Sample rate | 8,000 Hz or 16,000 Hz |
 | Channels | 1 (mono) |
-| Maximum length per audio | 60 s |
+| Maximum length per audio | 2 hours (testing) / 60 s (training) |
 | Sample format | PCM, 16-bit |
 | Archive format | .zip |
 | Maximum zip size | 2 GB |
+
+> [!NOTE]
+> When uploading training and testing data, the .zip file size cannot exceed 2 GB. Uou can only test from a *single* dataset, be sure to keep it within the appropriate file size.
 
 To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 1,000 hours of audio. The transcriptions for all WAV files should be contained in a single plain-text file. Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t).
 
@@ -86,29 +95,33 @@ To address issues like word deletion or substitution, a significant amount of da
   speech02.wav  the quick brown fox jumped all over the place
   speech03.wav  the lazy dog was not amused
 ```
-> [!NOTE]
+
+> [!IMPORTANT]
 > Transcription should be encoded as UTF-8 byte order mark (BOM).
 
-The transcriptions are text-normalized so they can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data to the Speech Studio. For the appropriate language to use when you prepare your transcriptions, see [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md)
+The transcriptions are text-normalized so they can be processed by the system. However, there are some important normalizations that must be done before uploading the data to the Speech Studio. For the appropriate language to use when you prepare your transcriptions, see [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md)
 
-After you've gathered your audio files and corresponding transcriptions, they should be packaged as a single .zip file before uploading to the [Custom Speech portal](https://speech.microsoft.com/customspeech). This is an example dataset with three audio files and a human-labeled transcription file:
+After you've gathered your audio files and corresponding transcriptions, package them as a single .zip file before uploading to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Below is an example dataset with three audio files and a human-labeled transcription file:
 
-![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+> [!div class="mx-imgBorder"]
+> ![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
 ## Related text data for training
 
-If you have product names or features that are unique, and you want to make sure they are recognized correctly, it is important to include related text data for training. Two types of related text data can be provided to improve recognition:
+Product names or features that are unique, should include related text data for training. Related text helps ensure correct recognition. Two types of related text data can be provided to improve recognition:
 
 | Data type | How this data improves recognition |
 |-----------|------------------------------------|
-| Utterances and/or sentences | These can improve accuracy when recognizing product names, or industry-specific vocabulary within the context of a sentence. |
-| Pronunciations | These can improve pronunciation of uncommon terms, acronyms, or other words with undefined pronunciations. |
+| Sentences (utterances) | Improve accuracy when recognizing product names, or industry-specific vocabulary within the context of a sentence. |
+| Pronunciations | Improve pronunciation of uncommon terms, acronyms, or other words with undefined pronunciations. |
 
-Utterances can be provided as a single or multiple text files. The closer the text data is to what will be spoken, the greater the likelihood that accuracy is improved. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
+Sentences can be provided as a single text file or multiple text files. To improve accuracy, use text data that is closer to the expected spoken utterances. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
-### Guidelines to create an utterances file
+### Guidelines to create a sentences file
 
-To create a custom model using related text, you'll need to provide a list of sample utterances. These utterances don't need to be complete sentences or grammatically correct, but they must accurately reflect the spoken input you expect in production. If you want certain terms to have increased weight, you can add several sentences to your related data file that include these specific terms.
+To create a custom model using sentences, you'll need to provide a list of sample utterances. Utterances _do not_ need to be complete or grammatically correct, but they must accurately reflect the spoken input you expect in production. If you want certain terms to have increased weight, add several sentences that include these specific terms.
+
+As general guidance, model adaptation is most effective when the training text is as close as possible to the real text expected in production. Domain-specific jargon and phrases that you're targeting to enhance, should be included in training text. When possible, try to have one sentence or keyword controlled on a separate line. For keywords and phrases that are important to you (for example, product names), you can copy them a few times. But keep in mind, don't copy too much - it could affect the overall recognition rate.
 
 Use this table to ensure that your related data file for utterances is formatted correctly:
 
@@ -121,7 +134,7 @@ Use this table to ensure that your related data file for utterances is formatted
 Additionally, you'll want to account for the following restrictions:
 
 * Avoid repeating characters more than four times. For example: "aaaa" or "uuuu".
-* Don't use special characters or UTF-8 characters above U+00A1.
+* Don't use special characters or UTF-8 characters above `U+00A1`.
 * URIs will be rejected.
 
 ### Guidelines to create a pronunciation file
@@ -129,26 +142,26 @@ Additionally, you'll want to account for the following restrictions:
 If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition.
 
 > [!IMPORTANT]
-> It is not recommended to use this feature to alter the pronunciation of common words.
+> It is not recommended to use custom pronunciation files to alter the pronunciation of common words.
 
 This includes examples of a spoken utterance, and a custom pronunciation for each:
 
 | Recognized/displayed form | Spoken form |
 |--------------|--------------------------|
-| 3CPO | three c p o |  
+| 3CPO | three c p o |
 | CNTK | c n t k |
 | IEEE | i triple e |
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letter, words, syllables, or a combination of all three.
 
-Customized pronunciation is available in English (en-US) and German (de-DE). This table shows supported characters by language:
+Customized pronunciation is available in English (`en-US`) and German (`de-DE`). This table shows supported characters by language:
 
 | Language | Locale | Characters |
 |----------|--------|------------|
-| English | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
-| German | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| English | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
+| German | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
-Use this table to ensure that your related data file for pronunciations is formatted correctly. Pronunciation files are  small, and should not exceed a few KBs.
+Use the following table to ensure that your related data file for pronunciations is correctly formatted. Pronunciation files are small, and should only be a few kilobytes in size.
 
 | Property | Value |
 |----------|-------|

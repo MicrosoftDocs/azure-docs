@@ -1,7 +1,7 @@
 ---
 title: View and manage service providers
 description: Customers can use the Service providers page in the Azure portal to view info about service providers, service provider offers, and delegated resources.
-ms.date: 11/15/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
 ---
 # View and manage service providers
@@ -54,6 +54,9 @@ After reviewing the changes, the customer can choose to update to the new versio
 Delegations represent the role assignments that grant permissions to the service provider for the resources a customer has delegated. To view this info, select **Delegations** on the left side of the **Service providers** page.
 
 Filters at the top of the page let you sort and group your delegation info or filter by specific customers, offers, or keywords.
+
+> [!NOTE]
+> Customers will not see these role assignments, or any users from the service provider tenant who have been granted these roles, when [viewing role assignment info for the delegated scope in the Azure portal](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) or via APIs.
 
 ## Next steps
 

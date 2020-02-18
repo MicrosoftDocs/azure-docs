@@ -93,6 +93,10 @@ If you encounter one of these errors, we recommend that you [contact support](#c
 
 If your users are [Having trouble with two-step verification](../user-help/multi-factor-authentication-end-user-troubleshoot.md), help them self-diagnose problems.
 
+### Health check script
+
+The [Azure MFA NPS Extension health check script](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb) is available on the TechNet Gallery to perform a basic health check when troubleshooting the NPS extension. Run the script and choose option 3.
+
 ### Contact Microsoft support
 
 If you need additional help, contact a support professional through [Azure Multi-Factor Authentication Server support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, the ID of the user who saw the error, and debug logs.

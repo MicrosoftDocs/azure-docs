@@ -323,13 +323,13 @@ As part of the configuration of the NPS extension, you must supply administrator
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
 
-2. In the left pane, select the **Azure Active Directory** button.
+2. In the Azure portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
 
 3. Select **Properties**.
 
 4. To copy your Azure AD ID, select the **Copy** button.
 
-    ![Azure AD Directory ID in the Azure portal](./media/howto-mfa-nps-extension-vpn/image35.png)
+    ![Azure AD Directory ID in the Azure portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
 
 ### Install the NPS extension
 

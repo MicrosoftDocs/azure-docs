@@ -17,10 +17,6 @@ The following table lists the limits that apply to Azure IoT Hub Device Provisio
 | Maximum number of linked IoT hubs | 50 |
 | Maximum size of message | 96 KB|
 
-
-> [!NOTE]
-> To increase the number of instances in your subscription, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
-
 > [!NOTE]
 > To increase the number of enrollments and registrations on your provisioning service, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 

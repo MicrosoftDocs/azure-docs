@@ -21,7 +21,7 @@ This article shows you how to add IPv6 connectivity to an existing IPv
 - IPv6 address space for the virtual network and subnet
 - a Standard Load Balancer with both IPv4 and IPV6 frontend configurations
 - VMs with NICs that have both an IPv4 + IPv6 configuration
-- IPv Public IP so the load balancer has Internet-facing IPv6 connectivity
+- IPv6 Public IP so the load balancer has Internet-facing IPv6 connectivity
 
 > [!Important]
 > IPv6 support for Azure Virtual Network is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.

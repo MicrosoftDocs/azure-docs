@@ -37,7 +37,7 @@ preview, follow these steps in either the Azure portal or with Azure CLI:
 
   1. Register the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** resource
      providers. For steps, see
-     [Resource providers and types](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+     [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
   1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then
      searching for and selecting **Policy**.

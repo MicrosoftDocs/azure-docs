@@ -2,7 +2,6 @@
 documentType: LandingData
 title: App Service on Linux Documentation
 metadata:
-  document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
   title: Linux containers - Tutorials, Reference
   meta.description: Learn how to build Linux websites and web applications in App Service. Run your code in a default Docker container or run a custom container.
   ms.topic: landing-page

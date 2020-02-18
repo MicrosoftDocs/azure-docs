@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric CLI- sfctl chaos| Microsoft Docs
-description: Describes the Service Fabric CLI sfctl chaos commands.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI- sfctl chaos
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing chaos.
 author: jeffj6123
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-
 ---
 # sfctl chaos
 Start, stop, and report on the chaos test service.

@@ -76,6 +76,9 @@
       href: sql-database-security-overview.md
       displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
 
+    - name: Security best practices
+      href: sql-database-security-best-practice.md
+
     - name: Access management
       items:
       - name: Access control
@@ -92,12 +95,6 @@
         href: sql-database-ssms-mfa-authentication.md
       - name: Configure multi-factor auth
         href: sql-database-ssms-mfa-authentication-configure.md
-      - name: Configure TDE with BYOK
-        href: transparent-data-encryption-byok-azure-sql-configure.md
-      - name: Rotate TDE BYOK keys
-        href: transparent-data-encryption-byok-azure-sql-key-rotation.md
-      - name: Remove TDE protector
-        href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
 
     - name: Data protection
       items:
@@ -107,6 +104,12 @@
           href: transparent-data-encryption-azure-sql.md
         - name: TDE with Bring Your Own Key
           href: transparent-data-encryption-byok-azure-sql.md
+        - name: Configure TDE with BYOK
+          href: transparent-data-encryption-byok-azure-sql-configure.md
+        - name: Rotate TDE BYOK keys
+          href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+        - name: Remove TDE protector
+          href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
       - name: Dynamic data masking
         href: sql-database-dynamic-data-masking-get-started.md
       - name: Always encrypted
@@ -310,7 +313,7 @@
         href: sql-database-elastic-scale-introduction.md
       - name: Glossary
         href: sql-database-elastic-scale-glossary.md
-      - name: Elastic client library - consolidate
+      - name: Elastic client library
         href: sql-database-elastic-database-client-library.md
       - name: Shard maps
         href: sql-database-elastic-scale-shard-map-management.md
@@ -356,6 +359,8 @@
         href: sql-database-design-first-database-csharp.md
     - name: Load and move data
       items:
+      - name: Import or export from an Azure VM
+        href: import-export-from-vm.md
       - name: Import a database from a BACPAC file
         href: sql-database-import.md
       - name: Export a database to a BACPAC file
@@ -480,6 +485,8 @@
             href: saas-multitenantdb-schema-management.md
           - name: ETL for analytics
             href: saas-multitenantdb-tenant-analytics.md
+    - name: Request quota increases
+      href: quota-increase-request.md
 
 - name: SQL databases
   items:
@@ -527,6 +534,8 @@
       href: sql-database-security-tutorial.md
     - name: Stream data with Stream Analytics
       href: sql-database-stream-analytics.md
+    - name: Migrate a SQLite database to Azure SQL Database Serverless
+      href: tutorial-sqlite-db-to-azure-sql-serverless-offline.md
 
   - name: Concepts
     items:
@@ -660,8 +669,6 @@
       href: sql-database-advisor-portal.md
     - name: Create alerts
       href: sql-database-insights-alerts-portal.md
-    - name: Troubleshoot connectivity
-      href: sql-database-troubleshoot-common-connection-issues.md
     - name: Manage file space
       href: sql-database-file-space-management.md
     - name: Use Resource Health for connectivity issues
@@ -721,15 +728,16 @@
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
 - name: SQL managed instance
+  href:  sql-database-managed-instance-index.yml
   items:
-  - name: Managed instance documentation
-    href: sql-database-managed-instance-index.yml
   - name: Overview
-    href: sql-database-managed-instance.md
-  - name: Instance pools
-    href: sql-database-instance-pools.md
-  - name: FAQ
-    href: sql-database-managed-instance-faq.md
+    items: 
+    - name: Managed instance
+      href: sql-database-managed-instance.md
+    - name: Instance pools
+      href: sql-database-instance-pools.md
+    - name: FAQ
+      href: sql-database-managed-instance-faq.md
   - name: Quickstarts
     items:
     - name: Create
@@ -757,14 +765,18 @@
     items:
       - name: Migrate using DMS
         href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-      - name: Configure transactional replication
-        href: replication-with-sql-database-managed-instance.md
       - name: Configure security
         href: sql-database-managed-instance-aad-security-tutorial.md
       - name: Add managed instance to a failover group
         href: sql-database-managed-instance-failover-group-tutorial.md
       - name: Migrate on-premises users and groups
         href: tutorial-managed-instance-azure-active-directory-migration.md
+      - name: Transactional replication
+        items:
+        - name: MI pub to MI sub
+          href: replication-with-sql-database-managed-instance.md
+        - name: MI pub, MI dist, SQL Sub
+          href: sql-database-managed-instance-configure-replication-tutorial.md 
 
   - name: Concepts
     items:

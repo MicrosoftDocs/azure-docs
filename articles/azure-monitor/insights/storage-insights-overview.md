@@ -4,8 +4,8 @@ description: This article describes the Azure Monitor for Storage feature that p
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/15/2019
 
 ---

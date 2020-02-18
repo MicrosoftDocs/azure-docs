@@ -1,6 +1,7 @@
 ---
-title: Define an OAuth1 technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
-description: Define an OAuth1 technical profile in a custom policy in Azure Active Directory B2C.
+title: Define an OAuth1 technical profile in a custom policy
+titleSuffix: Azure AD B2C
+description: Define an OAuth 1.0 technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -89,7 +90,7 @@ If you are using the **b2clogin.com** domain instead of **login.microsoftonline.
 
 Examples:
 
-- [Add Twitter as an OAuth1 identity provider by using custom policies](active-directory-b2c-custom-setup-twitter-idp.md)
+- [Add Twitter as an OAuth1 identity provider by using custom policies](identity-provider-twitter-custom.md)
 
 
 

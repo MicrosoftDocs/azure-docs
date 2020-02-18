@@ -1,19 +1,11 @@
 ---
-title: Overview of Highly Available configurations with Azure VPN Gateways | Microsoft Docs
+title: 'Azure VPN Gateway: Overview - Highly Available gateway configurations'
 description: This article provides an overview of highly available configuration options using Azure VPN Gateways.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
 
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
 

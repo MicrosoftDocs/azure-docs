@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script - Create an Azure Cosmos account with IP Firewall
+title: PowerShell script to create an Azure Cosmos account with IP Firewall
 description: Azure PowerShell script sample - Create an Azure Cosmos account with IP Firewall
 author: markjbrown
 ms.service: cosmos-db

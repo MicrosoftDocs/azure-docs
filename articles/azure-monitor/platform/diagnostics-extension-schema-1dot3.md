@@ -4,8 +4,8 @@ description: Schema version 1.3 and later Azure diagnostics shipped as part of t
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 09/20/2018
 
 ---

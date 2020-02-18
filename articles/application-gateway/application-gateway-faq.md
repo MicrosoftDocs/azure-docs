@@ -63,7 +63,9 @@ If you're using a public IP address as an endpoint, you'll find the IP and DNS i
 
 ### What are the settings for Keep-Alive timeout and TCP idle timeout?
 
- In the Application Gateway v1 SKU, the Keep-Alive timeout is 120 seconds. The Keep-Alive timeout for the v2 SKU is 75 seconds. The TCP idle timeout is a 4-minute default on the frontend virtual IP (VIP) of Application Gateway.
+*Keep-Alive timeout* governs how long the Application Gateway will wait for a client to send another HTTP request on a persistent connection before reusing it or closing it. *TCP idle timeout* governs how long a TCP connection is kept open in case of no activity. 
+
+The *Keep-Alive timeout* in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. The *TCP idle timeout* is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. 
 
 ### Does the IP or DNS name change over the lifetime of the application gateway?
 
@@ -117,17 +119,17 @@ Use Traffic Manager to distribute traffic across multiple application gateways i
 
 Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Autoscaling and Zone-redundant Application Gateway](application-gateway-autoscaling-zone-redundant.md).
 
-### Does manual scale up or scale down cause downtime?
+### Does manual or automatic scale up or scale down cause downtime?
 
 No. Instances are distributed across upgrade domains and fault domains.
 
 ### Does Application Gateway support connection draining?
 
-Yes. You can set up connection draining to change members within a backend pool without disruption. This setup allows you to continue to send existing connections to their previous destination until either that connection closes or a configurable timeout expires. Connection draining waits for only current in-flight connections to finish. Application Gateway isn't aware of the application session state.
+Yes. You can set up connection draining to change members within a backend pool without disruption. For more information, see [connection draining section of Application Gateway](overview.md#connection-draining).
 
 ### Can I change instance size from medium to large without disruption?
 
-Yes. Azure distributes instances across update and fault domains to ensure that instances don't fail all at the same time. Application Gateway supports scaling by adding multiple instances of the same gateway to share the load.
+Yes.
 
 ## Configuration
 
@@ -153,7 +155,7 @@ See [User-defined routes supported in the Application Gateway subnet](https://do
 
 ### What are the limits on Application Gateway? Can I increase these limits?
 
-See [Application Gateway limits](../azure-subscription-service-limits.md#application-gateway-limits).
+See [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 ### Can I simultaneously use Application Gateway for both external and internal traffic?
 
@@ -195,6 +197,9 @@ No.
 
 Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
 
+### Does Application Gateway support IPv6?
+
+Application Gateway v2 does not currently support IPv6. It can operate in a dual stack VNet using only IPv4, but the gateway subnet must be IPv4-only. Application Gateway v1 does not support dual stack VNets. 
 
 ## Configuration - SSL
 
@@ -375,6 +380,31 @@ Yes. If your configuration matches following scenario, you won't see allowed tra
 - You've deployed Application Gateway v2
 - You have an NSG on the application gateway subnet
 - You've enabled NSG flow logs on that NSG
+
+### How do I use Application Gateway V2 with only private frontend IP address?
+
+Application Gateway V2 currently does not support only private IP mode. It supports the following combinations
+* Private IP and Public IP
+* Public IP only
+
+But if you'd like to use Application Gateway V2 with only private IP, you can follow the process below:
+1. Create an Application Gateway with both public and private frontend IP address
+2. Do not create any listeners for the public frontend IP address. Application Gateway will not listen to any traffic on the public IP address if no listeners are created for it.
+3. Create and attach a [Network Security Group](https://docs.microsoft.com/azure/virtual-network/security-overview) for the Application Gateway subnet with the following configuration in the order of priority:
+    
+    a. Allow traffic from Source as **GatewayManager** service tag and Destination as **Any** and Destination port as **65200-65535**. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by certificate authentication. External entities, including the Gateway user administrators, can't initiate changes on those endpoints without appropriate certificates in place
+    
+    b. Allow traffic from Source as **AzureLoadBalancer** service tag and Destination and destination port as **Any**
+    
+    c. Deny all inbound traffic from Source as **Internet** service tag and Destination and destination port as **Any**. Give this rule the *least priority* in the inbound rules
+    
+    d. Keep the default rules like allowing VirtualNetwork inbound so that the access on private IP address is not blocked
+    
+    e. Outbound internet connectivity can't be blocked. Otherwise, you will face issues with logging, metrics, etc.
+
+Sample NSG configuration for private IP only access:
+![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
+
 
 ## Next steps
 

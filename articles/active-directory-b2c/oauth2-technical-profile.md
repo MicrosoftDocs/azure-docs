@@ -1,5 +1,6 @@
 ---
-title: Define an OAuth2 technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
+title: Define an OAuth2 technical profile in a custom policy
+titleSuffix: Azure AD B2C
 description: Define an OAuth2 technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -8,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -91,6 +92,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | ResponseErrorCodeParamName | No | The name of the parameter that contains the error message returned over HTTP 200 (Ok). |
 | ExtraParamsInAccessTokenEndpointResponse | No | Contains the extra parameters that can be returned in the response from **AccessTokenEndpoint** by some identity providers. For example, the response from **AccessTokenEndpoint** contains an extra parameter such as `openid`, which is a mandatory parameter besides the access_token in a **ClaimsEndpoint** request query string. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |
 | ExtraParamsInClaimsEndpointRequest | No | Contains the extra parameters that can be returned in the **ClaimsEndpoint** request by some identity providers. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |
+| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
 ## Cryptographic keys
 
@@ -108,7 +110,7 @@ If you are using the **b2clogin.com** domain instead of **login.microsoftonline.
 
 Examples:
 
-- [Add Google+ as an OAuth2 identity provider using custom policies](active-directory-b2c-custom-setup-goog-idp.md)
+- [Add Google+ as an OAuth2 identity provider using custom policies](identity-provider-google-custom.md)
 
 
 

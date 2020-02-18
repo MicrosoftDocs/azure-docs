@@ -1,12 +1,12 @@
-- name: Build real world mobile applications with Microsoft services
+- name: Build real-world mobile applications with Microsoft services
   href: index.md
 - name: Stages in building mobile apps
   items:
   - name: Overview
     href: stages-overview.md
-  - name: Choose mobile development framework
+  - name: Choose a mobile development framework
     href: front-end-development-platform.md
-  - name: Plan and design mobile app with back-end services
+  - name: Plan and design a mobile app with back-end services
     items:
     - name: Authentication
       href: authentication.md
@@ -14,7 +14,7 @@
       href: data-storage.md
     - name: Serverless compute
       href: serverless-compute.md
-    - name: Azure storage
+    - name: Azure Storage
       href: azure-storage.md
     - name: Real-time apps
       href: real-time.md
@@ -22,9 +22,9 @@
     href: code-hosting-services.md
   - name: DevOps
     items:
-    - name: What is DevOps
+    - name: What is DevOps?
       href: devops.md
-    - name: Continuous build & integration
+    - name: Continuous build and integration
       href: continuous-integration.md
     - name: Test on real devices
       href: test.md
@@ -32,7 +32,7 @@
       href: continuous-delivery.md
   - name: Analyze usage and user behavior 
     href: analytics.md
-  - name: Real-time crash reporting
+  - name: Real-time failure reporting
     href: diagnostics.md
   - name: Push notifications
     href: push-notifications.md
@@ -42,7 +42,7 @@
     href: cognitive-services.md
   - name: Azure Maps 
     href: azure-maps.md
-  - name: Azure CDN
+  - name: Azure Content Delivery Network
     href: azure-cdn.md      
   - name: Azure Cognitive Search
     href: azure-search.md

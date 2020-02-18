@@ -152,6 +152,8 @@ The configuration pane shows the following GitHub repository settings:
 
 - GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
 
+- A maximum of 1,000 entities per resource type (such as pipelines and datasets) can be fetched from a single GitHub branch. If this limit is reached, is suggested to split your resources into separate factories. Azure DevOps Git does not have this limitation.
+
 ## Switch to a different Git repo
 
 To switch to a different Git repo, click the **Git Repo Settings** icon in the upper right corner of the Data Factory overview page. If you can’t see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
@@ -242,8 +244,13 @@ If the publish branch is out of sync with the master branch and contains out-of-
 
 1. Remove your current Git repository
 1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **New branch**
-1. Delete all resources from your collaboration branch
 1. Create a pull request to merge the changes to the collaboration branch 
+
+Below are some examples of situations that can cause a stale publish branch:
+- A user has multiple branches. In one feature branch, they deleted a linked service which is not AKV associated (non AKV linked services are published immediately regardless if they are in Git or not) and never merged the feature branch into the collaboration brnach.
+- A user modified the data factory using the SDK or PowerShell
+- A user moved all resources to a new branch and tried to publish for the first time. Linked services should be created manually when importing resources.
+- A user uploads a non AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the UX is published immediately becausethe credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the UX will allow it because it exists in the git environment. It will be rejected at publish time since it does not exist in the data factory service.
 
 ## Provide feedback
 Select **Feedback** to comment about features or to notify Microsoft about issues with the tool:

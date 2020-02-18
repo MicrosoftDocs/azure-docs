@@ -63,7 +63,7 @@ Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door Service](
 
 If the clusters need to talk to each other, connecting both virtual networks to each other can be achieved through [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). This technology interconnects virtual networks to each other providing high bandwidth across Microsoft's backbone network, even across different geographic regions.
 
-A prerequisite to peer the virtual networks where AKS clusters are running is to use the standard Load Balancer in your AKS cluster, so that kubernetes services are reachable across the virtual network peering.
+A prerequisite to peer the virtual networks where AKS clusters are running is to use the standard Load Balancer in your AKS cluster, so that Kubernetes services are reachable across the virtual network peering.
 
 ## Enable geo-replication for container images
 
@@ -111,7 +111,7 @@ Your applications might use Azure Storage for their data. Because your applicati
 
 Your applications might require persistent storage even after a pod is deleted. In Kubernetes, you can use persistent volumes to persist data storage. Persistent volumes are mounted to a node VM and then exposed to the pods. Persistent volumes follow pods even if the pods are moved to a different node inside the same cluster.
 
-The replication strategy you use depends on your storage solution. Common storage solutions such as [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/master/disaster-recovery.html), and [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) provide their own guidance about disaster recovery and replication.
+The replication strategy you use depends on your storage solution. Common storage solutions such as [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html), and [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) provide their own guidance about disaster recovery and replication.
 
 The typical strategy is to provide a common storage point where applications can write their data. This data is then replicated across regions and then accessed locally.
 
@@ -119,7 +119,7 @@ The typical strategy is to provide a common storage point where applications can
 
 If you use Azure Managed Disks, you can choose replication and DR solutions such as these:
 
-* [Velero on Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
+* [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
 * [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### Application-based asynchronous replication

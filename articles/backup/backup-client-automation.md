@@ -623,7 +623,7 @@ The object `$Rps` is an array of backup points. The first element is the latest 
 
 ### Specifying an item to restore
 
-To restore a specific file, specify the file name relative to the root volume. For example, to retreive C:\Test\Cat.job, execute the following command. 
+To restore a specific file, specify the file name relative to the root volume. For example, to retrieve C:\Test\Cat.job, execute the following command. 
 
 ```powershell
 $Item = New-OBRecoverableItem $Rps[0] "Test\cat.jpg" $FALSE

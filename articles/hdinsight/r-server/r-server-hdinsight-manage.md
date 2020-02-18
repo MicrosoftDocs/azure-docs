@@ -65,7 +65,7 @@ When prompted for "Current Kerberos password:", just press **Enter** to ignore i
 
 ### Step 3: Use RStudio Community version with the user created
 
-Access RStudio from https://CLUSTERNAME.azurehdinsight.net/rstudio/. If you are logging in for the first time after creating the cluster, enter the cluster admin credentials followed by the SSH user credentials you created. If this is not your first login, only enter the credentials for the SSH user you created.
+Access RStudio from `https://CLUSTERNAME.azurehdinsight.net/rstudio/`. If you are logging in for the first time after creating the cluster, enter the cluster admin credentials followed by the SSH user credentials you created. If this is not your first login, only enter the credentials for the SSH user you created.
 
 You can also sign in using the original credentials (by default, it is *sshuser*) concurrently from another browser window.
 

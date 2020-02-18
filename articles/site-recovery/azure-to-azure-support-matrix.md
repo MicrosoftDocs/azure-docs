@@ -1,14 +1,11 @@
 ---
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery 
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 01/10/2020
 ms.author: raynew
-
 ---
+
 # Support matrix for Azure VM disaster recovery between Azure regions
 
 This article summarizes support and prerequisites for disaster recovery of Azure VMs from one Azure region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
@@ -181,7 +178,7 @@ Extensions | Not supported | Extensions are not replicated to the failover VM in
 
 **Action** | **Details**
 -- | ---
-Resize disk on replicated VM | Supported
+Resize disk on replicated VM | Supported on the source VM before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, changes aren't captured by Site Recovery, and failback will be to the original VM size.
 Add a disk to a replicated VM | Supported
 
 ## Replicated machines - storage
@@ -209,7 +206,7 @@ Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.	 
-Encryption at rest (CMK) | Not Supported | 	 
+Encryption at rest (CMK) | Supported | Both Software and HSM keys are supported for managed disks	 
 Azure Disk Encryption (ADE) for Windows OS | Supported for VMs with managed disks. VMs using unmanaged disks are not supported |
 Azure Disk Encryption (ADE) for Linux OS | Supported |
 Hot add	| Supported | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks.

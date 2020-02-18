@@ -1,5 +1,5 @@
 ---
-title: Authorization protocols supported by the Microsoft identity platform | Azure
+title: OAuth 2.0 and OpenID Connect protocols - Microsoft identity platform | Azure
 description: A guide to OAuth 2.0 and OpenID Connect protocols that are supported by the Microsoft identity platform endpoint.
 services: active-directory
 author: rwike77
@@ -14,10 +14,9 @@ ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
-# Microsoft identity platform protocols
+# OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform
 
 The Microsoft identity platform endpoint for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending and handling HTTP requests or use a third party open-source library, rather than using one of our [open-source libraries](reference-v2-libraries.md).
 

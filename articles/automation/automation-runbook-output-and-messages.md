@@ -2,13 +2,9 @@
 title: Runbook Output and Messages in Azure Automation
 description: Describes how to create and retrieve output and error messages from runbooks in Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/04/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # Runbook output and messages in Azure Automation
 

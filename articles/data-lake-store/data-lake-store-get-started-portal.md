@@ -38,7 +38,7 @@ Before you begin this tutorial, you must have the following items:
 
    * **Name**. Enter a unique name for the Data Lake Storage Gen1 account.
    * **Subscription**. Select the subscription under which you want to create a new Data Lake Storage Gen1 account.
-   * **Resource Group**. Select an existing resource group, or select the **Create new** option to create one. A resource group is a container that holds related resources for an application. For more information, see [Resource Groups in Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
+   * **Resource Group**. Select an existing resource group, or select the **Create new** option to create one. A resource group is a container that holds related resources for an application. For more information, see [Resource Groups in Azure](../azure-resource-manager/management/overview.md#resource-groups).
    * **Location**: Select a location where you want to create the Data Lake Storage Gen1 account.
    * **Encryption Settings**. There are three options:
 

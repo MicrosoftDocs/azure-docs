@@ -28,9 +28,9 @@ This article describes how you can improve, monitor, and maintain the security o
 [![Azure Security Center's container security tab](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## Vulnerability management - scanning container images (Preview)
-To monitor your Azure Container Registry, ensure you're on Security Center's standard tier (see [pricing](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)). Then enable the optional Container Registries bundle. When a new image is pushed, Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys.
+To monitor your ARM-based Azure Container Registry, ensure you're on Security Center's standard tier (see [pricing](/azure/security-center/security-center-pricing)). Then enable the optional Container Registries bundle. When a new image is pushed, Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys.
 
-When issues are found – by Qualys or Security Center – you’ll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations, see the list of recommendations [here](recommendations-compute-and-apps.md).
+When issues are found – by Qualys or Security Center – you’ll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations, see the [reference list of recommendations](recommendations-reference.md).
 
 ## Environment hardening
 
