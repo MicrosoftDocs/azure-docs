@@ -53,8 +53,10 @@ Hyperscale (Citus) server groups are available in the following Azure regions:
 	* UK South
 	* West Europe
 
-To create a Hyperscale (Citus) server group in a region not on this list,
-please open a [support
+Some of these regions may not be initially activated on all Azure
+subscriptions. If you want to use a region from the list above and don't see it
+in your subscription, or if you want to use a region not on this list, open a
+[support
 request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Pricing
