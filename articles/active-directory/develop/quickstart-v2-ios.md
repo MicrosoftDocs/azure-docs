@@ -90,7 +90,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    ```
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kAuthority' with the following code snippet:
 >    ```swift
->    let kAuthority = "https://Enter_the_Cloud_Instance_Id_here/Enter_the_Tenant_Info_Here"
+>    let kAuthority = "https://Enter_the_Cloud_Instance_Id_hereEnter_the_Tenant_Info_Here"
 >    ```
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kGraphEndpoint' with the following code snippet:
 >    ```swift
@@ -124,12 +124,12 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    ```
 > 1. If you're building an app for [AzureAD national clouds](https://docs.microsoft.com/en-us/graph/deployments#app-registration-and-token-service-root-endpoints), replace the line starting with 'let kGraphEndpoint' and 'let kAuthority' with correct endpoints. For global access, use default values:
 >     ```objective-c
->     let kGraphEndpoint = "https://graph.microsoft.com"
+>     let kGraphEndpoint = "https://graph.microsoft.com/"
 >     let kAuthority = "https://login.microsoftonline.com/common"
 >     ```
 > 1. Other endpoints are documented [here](https://docs.microsoft.com/en-us/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the quickstart with AzureAD Germany, use following:
 >     ```objective-c
->     let kGraphEndpoint = "https://graph.microsoft.de"
+>     let kGraphEndpoint = "https://graph.microsoft.de/"
 >     let kAuthority = "https://login.microsoftonline.de/common"
 >     ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
