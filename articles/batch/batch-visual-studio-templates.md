@@ -3,8 +3,8 @@ title: Build solutions with Visual Studio templates - Azure Batch | Microsoft Do
 description: Learn how Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch.
 services: batch
 documentationcenter: .net
-author: laurenhughes
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: lahugh
+ms.author: labrenne
 ms.custom: seodec18
 
 ---

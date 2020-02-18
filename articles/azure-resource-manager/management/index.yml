@@ -35,6 +35,8 @@ landingContent:
         links:
           - text: Subscription and service limits
             url: azure-subscription-service-limits.md
+          - text: Resource name rules
+            url: resource-name-rules.md
           - text: Resource providers and types
             url: resource-providers-and-types.md
           - text: Resource providers for each Azure service

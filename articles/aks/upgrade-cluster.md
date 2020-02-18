@@ -21,7 +21,7 @@ For AKS clusters that use multiple node pools or Windows Server nodes (currently
 This article requires that you are running the Azure CLI version 2.0.65 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 > [!WARNING]
-> An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have a low compute quota available, the upgrade may fail.  See [increase quotas](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) for more information.
+> An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have a low compute quota available, the upgrade may fail.  See [increase quotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) for more information.
 > If you are running your own cluster autoscaler deployment please disable it (you can scale it to zero replicas) during the upgrade as there is a chance it will interfere with the upgrade process. Managed autoscaler automatically handles this. 
 
 ## Check for available AKS cluster upgrades

@@ -2,13 +2,13 @@
 title: Resource availability by region
 description: Availability of compute and memory resources for the Azure Container Instances service in different Azure regions.
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 01/31/2020
 ms.author: danlep
 
 ---
 # Resource availability for Azure Container Instances in Azure regions
 
-This article details the availability of Azure Container Instances compute and memory resources in Azure regions. 
+This article details the availability of Azure Container Instances compute, memory, and storage resources in Azure regions and by target operating system. 
 
 Values presented are the maximum resources available per deployment of a [container group](container-instances-container-groups.md). Values are current at time of publication. 
 
@@ -21,28 +21,28 @@ For information about quotas and other limits in your deployments, see [Quotas a
 
 The following regions and resources are available to container groups with Linux and [supported](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 2016-based containers.
 
-| Regions | OS | Max CPU | Max Memory (GB) |
-| -------- | -- | :---: | :-----------: |
-| Brazil South, Canada Central, Central India, Central US, East Asia, East US, East US 2, North Europe, South Central US, Southeast Asia, South India, UK South, West Europe, West US, West US 2 | Linux | 4 | 16 |
-| Australia East, Japan East | Linux | 2 | 8 |
-| North Central US | Linux | 2 | 3.5 |
-| Brazil South, Japan East, West Europe | Windows | 4 | 16 |
-| East US, West US | Windows | 4 | 14 |
-| Australia East, Canada Central, Central India, Central US, East Asia, East US 2,  North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, West US 2 | Windows | 2 | 3.5 |
+| Regions | OS | Max CPU | Max Memory (GB) | Storage (GB) |
+| -------- | -- | :---: | :-----------: | :---: |
+| Brazil South, Canada Central, Central India, Central US, East Asia, East US, East US 2, North Europe, South Central US, Southeast Asia, South India, UK South, West Europe, West US, West US 2 | Linux | 4 | 16 | 50 |
+| Australia East, Japan East | Linux | 2 | 8 | 50 |
+| North Central US | Linux | 2 | 3.5 | 50 |
+| Brazil South, Japan East, West Europe | Windows | 4 | 16 | 20 |
+| East US, West US | Windows | 4 | 14 | 20 |
+| Australia East, Canada Central, Central India, Central US, East Asia, East US 2,  North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, West US 2 | Windows | 2 | 3.5 | 20 |
 
 ## Availability - Windows Server 2019 LTSC, 1809 deployments (preview)
 
 The following regions and resources are available to container groups with Windows Server 2019-based containers (preview).
 
-| Regions | OS | Max CPU | Max Memory (GB) |
-| -------- | -- | :---: | :-----------: |
-| Australia East, Brazil South, Canada Central, Central India, Central US, East Asia, East US, Japan East, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, West Europe | Windows | 4 | 16 |
-| East US 2, West US 2 | Windows | 2 | 3.5 |
+| Regions | OS | Max CPU | Max Memory (GB) | Storage (GB) |
+| -------- | -- | :---: | :-----------: | :---: |
+| Australia East, Brazil South, Canada Central, Central India, Central US, East Asia, East US, Japan East, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, West Europe | Windows | 4 | 16 | 20 |
+| East US 2, West US 2 | Windows | 2 | 3.5 | 20 |
 
 
-## Availability - Virtual network deployment (preview)
+## Availability - Virtual network deployment
 
-The following regions and resources are available to a container group deployed in an [Azure virtual network](container-instances-vnet.md) (preview).
+The following regions and resources are available to a container group deployed in an [Azure virtual network](container-instances-vnet.md).
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 

@@ -46,7 +46,7 @@ The steps described in this topic are:
 ### Request
 
 	GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
-	x-ms-version: 2.13
+	x-ms-version: 2.19
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
 	Accept: application/json; odata=verbose
@@ -74,7 +74,7 @@ The steps described in this topic are:
 ### Request
 
 	GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
-	x-ms-version: 2.13
+	x-ms-version: 2.19
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
 	Accept: application/json; odata=verbose
@@ -107,7 +107,7 @@ The steps described in this topic are:
 ### Request
 
 	POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
-	x-ms-version: 2.13
+	x-ms-version: 2.19
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
 	Accept: application/json; odata=verbose
@@ -149,7 +149,7 @@ The steps described in this topic are:
 ### Request
 
 	GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
-	x-ms-version: 2.13
+	x-ms-version: 2.19
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
 	Accept: application/json; odata=verbose
@@ -179,7 +179,7 @@ The steps described in this topic are:
 ### Request
 
 	POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
-	x-ms-version: 2.13
+	x-ms-version: 2.19
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
 	Accept: application/json; odata=verbose
@@ -222,7 +222,7 @@ The steps described in this topic are:
 ### Request
 
 	DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
-	x-ms-version: 2.13
+	x-ms-version: 2.19
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
 	Accept: application/json; odata=verbose

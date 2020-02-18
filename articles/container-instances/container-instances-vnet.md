@@ -2,7 +2,7 @@
 title: Deploy container group to Azure virtual network
 description: Learn how to deploy container groups to a new or existing Azure virtual network.
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 01/06/2020
 ms.author: danlep
 
 ---
@@ -20,7 +20,7 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * Container communication with on-premises resources through a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)
 
 > [!IMPORTANT]
-> This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+> Container group deployments to a virtual network are generally available for production workloads only in the following regions: **East US, South Central US, and West US 2**. In other regions where the feature is available, virtual network deployments are currently in preview, with general availability planned in the near future. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. 
 
 
 ## Virtual network deployment limitations
@@ -28,12 +28,9 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 Certain limitations apply when you deploy container groups to a virtual network.
 
 * To deploy container groups to a subnet, the subnet cannot contain any other resource types. Remove all existing resources from an existing subnet prior to deploying container groups to it, or create a new subnet.
-* You cannot use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
-* Due to the additional networking resources involved, deploying a container group to a virtual network is typically somewhat slower than deploying a standard container instance.
-
-## Preview limitations
-
-While this feature is in preview, the following limitations apply when deploying container groups to a virtual network. 
+* You can't use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
+* You can't enable a [liveness probe](container-instances-liveness-probe.md) or [readiness probe](container-instances-readiness-probe.md) in a container group deployed to a virtual network.
+* Due to the additional networking resources involved, deploying a container group to a virtual network is typically slower than deploying a standard container instance.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
@@ -42,8 +39,10 @@ Container resource limits may differ from limits for non-networked container ins
 ### Unsupported networking scenarios 
 
 * **Azure Load Balancer** - Placing an Azure Load Balancer in front of container instances in a networked container group is not supported
-* **Virtual network peering** - VNet peering will not work for ACI if the network to which the ACI VNet is being peered to uses a public IP space. The peered network needs an RFC1918 private IP space in order for peering to work. Additionally, you currently can only peer your VNet to one other VNet
-* **Virtual network traffic routing** - Customer routes cannot be set up around public IPs. Routes can be set up within the private IP space of the delegated subnet in which the ACI resources are deployed 
+* **Virtual network peering**
+  * VNet peering will not work for ACI if the network that the ACI VNet is peering to uses a public IP space. The peered network needs an RFC 1918 private IP space in order for VNet peering to work. 
+  * You can only peer your VNet to one other VNet
+* **Virtual network traffic routing** - Custom routes cannot be set up around public IPs. Routes can be set up within the private IP space of the delegated subnet in which the ACI resources are deployed 
 * **Network security groups** - Outbound security rules in NSGs applied to a subnet delegated to Azure Container Instances aren't currently enforced 
 * **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name
 * **Internal name resolution** - Name resolution for Azure resources in the virtual network via the internal Azure DNS is not supported
@@ -95,7 +94,7 @@ Once you've deployed your first container group with this method, you can deploy
 
 To deploy a container group to an existing virtual network:
 
-1. Create a subnet within your existing virtual network, or empty an existing subnet of *all* other resources
+1. Create a subnet within your existing virtual network, use an existing subnet in which a container group is already deployed, or use an existing subnet emptied of *all* other resources
 1. Deploy a container group with [az container create][az-container-create] and specify one of the following:
    * Virtual network name and subnet name
    * Virtual network resource ID and subnet resource ID, which allows using a virtual network from a different resource group
@@ -111,7 +110,7 @@ The following sections describe how to deploy container groups to a virtual netw
 
 First, deploy a container group and specify the parameters for a new virtual network and subnet. When you specify these parameters, Azure creates the virtual network and subnet, delegates the subnet to Azure Container instances, and also creates a network profile. Once these resources are created, your container group is deployed to the subnet.
 
-Run the following [az container create][az-container-create] command that specifies settings for a new virtual network and subnet. You need to supply the name of a resource group that was created in a region that [supports](#preview-limitations) container groups in a virtual network. This command deploys the public Microsoft [aci-helloworld][aci-helloworld] container that runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
+Run the following [az container create][az-container-create] command that specifies settings for a new virtual network and subnet. You need to supply the name of a resource group that was created in a region where container group deployments in a virtual network are [available](#virtual-network-deployment-limitations). This command deploys the public Microsoft [aci-helloworld][aci-helloworld] container that runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
 
 ```azurecli
 az container create \
@@ -176,7 +175,7 @@ The log output should show that `wget` was able to connect and download the inde
 
 ### Deploy to existing virtual network - YAML
 
-You can also deploy a container group to an existing virtual network by using a YAML file. To deploy to a subnet in a virtual network, you specify several additional properties in the YAML:
+You can also deploy a container group to an existing virtual network by using a YAML file, a Resource Manager template, or another programmatic method such as with the Python SDK. To deploy to a subnet in a virtual network, you specify several additional properties in the YAML:
 
 * `ipAddress`: The IP address settings for the container group.
   * `ports`: The ports to open, if any.
@@ -221,7 +220,7 @@ properties:
     - protocol: tcp
       port: '80'
   networkProfile:
-    id: /subscriptions/<Subscription ID>/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+    id: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
   osType: Linux
   restartPolicy: Always
 tags: null
@@ -257,11 +256,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 ### Delete network resources
 
-
-> [!NOTE]
-> If you recieve an error while attempting to remove the Network Profile allow 2-3 days for the platform to automatically mitigate the issue and attempt the deletion again. If you still have issues removing the Network Profile [open a support reqest.](https://azure.microsoft.com/support/create-ticket/)
-
-The initial preview of this feature requires several additional commands to delete the network resources you created earlier. If you used the example commands in previous sections of this article to create your virtual network and subnet, then you can use the following script to delete those network resources.
+This feature currently requires several additional commands to delete the network resources you created earlier. If you used the example commands in previous sections of this article to create your virtual network and subnet, then you can use the following script to delete those network resources. The script assumes that your resource group contains a single virtual network with a single network profile.
 
 Before executing the script, set the `RES_GROUP` variable to the name of the resource group containing the virtual network and subnet that should be deleted. Update the name of the virtual network if you did not use the `aci-vnet` name suggested earlier. The script is formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, you'll need to adjust variable assignment and accessors accordingly.
 
@@ -270,9 +265,11 @@ Before executing the script, set the `RES_GROUP` variable to the name of the res
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
+# Assumes one virtual network in resource group
 RES_GROUP=<my-resource-group>
 
 # Get network profile ID
+# Assumes one profile in virtual network
 NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query [0].id --output tsv)
 
 # Delete the network profile

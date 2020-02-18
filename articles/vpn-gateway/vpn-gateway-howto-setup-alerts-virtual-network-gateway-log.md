@@ -53,6 +53,9 @@ The following example steps will create an alert for a disconnection event that 
 
    ![Selected check boxes](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Select")
 
+   > [!NOTE]
+   > It may take a few hours for the data to show up initially.
+
 7. Go to the overview for the virtual network gateway resource and select **Alerts** from the **Monitoring** tab. Then create a new alert rule or edit an existing alert rule.
 
    ![Selections for creating a new alert rule](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Select")

@@ -1,8 +1,8 @@
 ---
 title: 'Create an Azure Data Explorer cluster and database by using C#'
 description: Learn how to create an Azure Data Explorer cluster and database by using the C#
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
@@ -92,10 +92,13 @@ If the result contains `ProvisioningState` with the `Succeeded` value, then the 
     var hotCachePeriod = new TimeSpan(3650, 0, 0, 0);
     var softDeletePeriod = new TimeSpan(3650, 0, 0, 0);
     var databaseName = "mykustodatabase";
-    var database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
+    var database = new ReadWriteDatabase(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
 
     await kustoManagementClient.Databases.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, database);
     ```
+
+        [!NOTE]
+        If you are using C# version 2.0.0 or below, use Database instead of ReadWriteDatabase.
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
@@ -108,7 +111,7 @@ If the result contains `ProvisioningState` with the `Succeeded` value, then the 
 2. Run the following command to see the database that you created:
 
     ```csharp
-    kustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName);
+    kustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName) as ReadWriteDatabase;
     ```
 
 You now have a cluster and a database.

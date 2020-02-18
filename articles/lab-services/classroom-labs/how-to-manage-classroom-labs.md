@@ -98,6 +98,9 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 | Small GPU (Compute) | 6 | 56 GB | This size is best suited for compute-intensive and network-intensive applications like artificial intelligence and deep learning applications. | 
 | Medium GPU (Visualization) | 12 | 112 GB | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. | 
 
+> [!NOTE]
+> Azure Lab Services automatically installs and configures the necessary GPU drivers for you when you create a lab with GPU images.  
+
 ## View all classroom labs
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
 2. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 

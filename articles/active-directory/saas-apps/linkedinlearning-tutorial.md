@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -43,6 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * LinkedIn Learning supports **SP and IDP** initiated SSO
 * LinkedIn Learning supports **Just In Time** user provisioning
+* Once you configure LinkedIn Learning you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding LinkedIn Learning from the gallery
 
@@ -178,3 +178,4 @@ When you click the LinkedIn Learning tile in the Access Panel, you should be aut
 
 - [Try LinkedIn Learning with Azure AD](https://aad.portal.azure.com/)
 
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
