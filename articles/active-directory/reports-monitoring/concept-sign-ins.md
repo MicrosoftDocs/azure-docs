@@ -129,7 +129,12 @@ Possible values are:
 
 When you select a custom timeframe, you can configure a start time and an end time.
 
-The **Location** filter enables to you to select the sign-ins for a specific location and it is **case-sensitive**.  
+The following filters are **case-sensitive**:
+
+- **Location**
+- **Operating system**
+- **Device browser**
+   
 
 If you add additional fields to your sign-ins view, these fields are automatically added to the list of filters. For example, by adding **Client App** field to your list, you also get another filter option that enables you to set the following filters:  
 ![Sign-in activity](./media/concept-sign-ins/12.png "Sign-in activity")
