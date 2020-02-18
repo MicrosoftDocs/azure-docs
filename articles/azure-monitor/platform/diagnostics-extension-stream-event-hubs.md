@@ -1,12 +1,12 @@
 ---
-title: Stream Azure Diagnostics data to Event Hubs
-description: Configuring Azure Diagnostics with Event Hubs end to end, including guidance for common scenarios.
+title: Send data from Windows Azure diagnostics extension to Azure Event Hubs
+description: Configure diagnostics extension in Azure Monitor to send data to Azure Event Hub so you can forward it to locations outside of Azure.
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/03/2020
+ms.date: 02/18/2020
 
 ---
 
@@ -27,11 +27,9 @@ The data collected from the guest operating system that can be sent to Event Hub
 * Windows diagnostics extension 1.6 or higher. See [Azure Diagnostics extension configuration schema versions and history](diagnostics-extension-versions.md) for a version history and [Azure Diagnostics extension overview](diagnostics-extension-overview.md) for supported resources.
 * Event Hubs namespace must always be provisioned. See [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) for details.
 
-## Configuring diagnostics extension
-See [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-windows-install.md) for different options for applying this configuration to a particular virtual machine. 
 
 ## Configuration schema
-Azure diagnostics extension is configured using both a public and private configuration. See [Azure Diagnostics configuration schema](diagnostics-extension-schema-windows.md) for a reference of the configuration schema for the Windows diagnostics extension. The rest of this article will describe how to use this configuration to send data to an event hub. 
+See [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-windows-install.md) for different options for enabling and configuring the diagnostics extension and [Azure Diagnostics configuration schema](diagnostics-extension-schema-windows.md) for a reference of the configuration schema. The rest of this article will describe how to use this configuration to send data to an event hub. 
 
 Azure Diagnostics always sends logs and metrics to an Azure Storage account. You can configure one or more *data sinks* that send data to additional locations. Each sink is defined in the [SinksConfig element](diagnostics-extension-schema-windows.md#sinksconfig-element) of the public configuration with sensitive information in the private configuration. This configuration for event hubs uses the values in the following table.
 
@@ -42,7 +40,7 @@ Azure Diagnostics always sends logs and metrics to an Azure Storage account. You
 | SharedAccessKeyName | Name of a shared access policy for the event hub that has at least **Send** authority. |
 | SharedAccessKey     | Primary or secondary key from the shared access policy for the event hub. |
 
-Example public and private configurations are shown below in both JSON and XML. This is a minimal configuration with a single performance counter and event log to illustrate how to configure and use the event hub data sink. See [Azure Diagnostics configuration schema](diagnostics-extension-schema-windows.md) for a more complex example.
+Example public and private configurations are shown below. This is a minimal configuration with a single performance counter and event log to illustrate how to configure and use the event hub data sink. See [Azure Diagnostics configuration schema](diagnostics-extension-schema-windows.md) for a more complex example.
 
 ### Public configuration
 
@@ -129,14 +127,6 @@ To send data to a data sink, you specify the **sinks** attribute on the data sou
 }
 ```
 
-```xml
-<PerformanceCounters scheduledTransferPeriod="PT1M" sinks="MyEventHub">
-  <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
-</PerformanceCounters>
-```
-
 
 In the following example, the **sinks** attribute is applied directly to three counters which will cause only those performance counters to be sent to the event hub. 
 
@@ -171,26 +161,15 @@ In the following example, the **sinks** attribute is applied directly to three c
 }
 ```
 
-
-## Filter data
-
-The following example shows how you can limit the amount of data sent to the critical metrics that are used for this service’s health. In this example, the sink is applied to logs and is filtered only to error level trace.
-
-```JSON
-"Logs": {
-    "scheduledTransferPeriod": "PT1M",
-    "scheduledTransferLogLevelFilter": "Error",
-    "sinks": "MyEventHub"
-}
-```
-
-
+## Validating configuration
+You can use a variety of methods to validate that data is being sent to the event hub. ne straightforward method is to use Event Hubs capture as described in [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](../event-hubs/event-hubs-capture-overview.md. 
 
 
 ## Troubleshoot Event Hubs sinks
-Look at the Azure Storage table **WADDiagnosticInfrastructureLogsTable** which contains logs and errors for Azure Diagnostics itself. One option is to use a tool such as [Azure Storage Explorer](https://www.storageexplorer.com) to connect to this storage account, view this table, and add a query for TimeStamp in the last 24 hours. You can use the tool to export a .csv file and open it in an application such as Microsoft Excel. Excel makes it easy to search for calling-card strings, such as **EventHubs**, to see what error is reported.  
 
-Check that your event hub is successfully provisioned. All connection info in the **PrivateConfig** section of the configuration must match the values of your resource as seen in the portal. Make sure that you have a SAS policy defined (*SendRule* in the example) in the portal and that *Send* permission is granted.  
+- Look at the Azure Storage table **WADDiagnosticInfrastructureLogsTable** which contains logs and errors for Azure Diagnostics itself. One option is to use a tool such as [Azure Storage Explorer](https://www.storageexplorer.com) to connect to this storage account, view this table, and add a query for TimeStamp in the last 24 hours. You can use the tool to export a .csv file and open it in an application such as Microsoft Excel. Excel makes it easy to search for calling-card strings, such as **EventHubs**, to see what error is reported.  
+
+- Check that your event hub is successfully provisioned. All connection info in the **PrivateConfig** section of the configuration must match the values of your resource as seen in the portal. Make sure that you have a SAS policy defined (*SendRule* in the example) in the portal and that *Send* permission is granted.  
 
 ## Next steps
 

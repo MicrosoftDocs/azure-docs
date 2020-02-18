@@ -18,7 +18,7 @@ The diagnostics extension is implemented as a [virtual machine extension](/virtu
 You can install and configure the diagnostics extension on an individual virtual machine in the Azure portal which provides you an interface as opposed to working directly with the configuration. When you enable the diagnostics extension, it will automatically use a default configuration ith the most common performance counters and events. You can modify this default configuration according to your specific requirements.
 
 > [!NOTE]
-> You cannot configure the diagnostics extension to send data to Azure Event Hubs using the Azure portal. To configure this, you must use one of the other configuration methods.
+> There are diagnostics extension settings you cannot configure using the Azure portal including sending data to Azure Event Hubs. You must use one of the other configuration methods for these settings.
 
 1. Open the menu for a virtual machine in the Azure portal.
 2. Click on **Diagnostic settings** in the **Monitoring** section of the VM menu.
@@ -110,7 +110,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
   -DiagnosticsConfigurationPath "DiagnosticsConfiguration.json"
 ```
 
-The privarte settings are defined in the [PrivateConfig element](diagnostics-extension-schema-windows.md#privateconfig-element), while the public settings are defined in the [Public element](diagnostics-extension-schema-windows.md#publicconfig-element) of the configuration schema. Following is a minimal example of a configuration file that enables collection of diagnostic infrastructure logs,  a single performance counter, and a single event log. See [Example configuration](diagnostics-extension-schema-windows.md#publicconfig-element) for complete details of the private and public settings.
+The private settings are defined in the [PrivateConfig element](diagnostics-extension-schema-windows.md#privateconfig-element), while the public settings are defined in the [Public element](diagnostics-extension-schema-windows.md#publicconfig-element) of the configuration schema. Following is a minimal example of a configuration file that enables collection of diagnostic infrastructure logs,  a single performance counter, and a single event log. See [Example configuration](diagnostics-extension-schema-windows.md#publicconfig-element) for complete details of the private and public settings.
 
 ```JSON
 {
