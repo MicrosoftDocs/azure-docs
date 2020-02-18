@@ -8,7 +8,7 @@ ms.author: jgao
 
 # Tutorial: Deploy a remote Azure Resource Manager template
 
-In the [previous tutorial](./deployment-tutorial-options.md), you learned how to deploy a local template. Instead of storing Resource Manager templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization. In this tutorial, you learn how to deploy a template that is stored in an Azure storage account.  It takes about **12 minutes** to complete.
+In the [previous tutorial](./deployment-tutorial-local-template.md), you learned how to deploy a local template. Instead of storing Resource Manager templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization. In this tutorial, you learn how to deploy a template that is stored in an Azure storage account.  It takes about **12 minutes** to complete.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ In the previous tutorial, you deploy a template that creates a storage account, 
 
 ## Store and share the template
 
-The following PowerShell script creates a storage account, creates a container, copies the template from a github repository to the container. At the end of the execution, the script returns the URI of the  template. You will use the URI when you deploy the template.
+The following PowerShell script creates a storage account, creates a container, copies the template from a github repository to the container (to simplify the tutorial, the same template is shared in a github repository). At the end of the execution, the script returns the URI of the template. You will use the URI when you deploy the template.
 
 Select **Try-it** to open the cloud shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
@@ -64,7 +64,7 @@ Set-AzStorageBlobContent `
 
 Get-azStorageBlob -container $containerName -Context $context | Select Name
 
-Write-Host "The blob URI is https://${storageAccountName}.blob.core.windows.net/${containerName}/${fileName}".
+Write-Host "The blob URI is https://${storageAccountName}.blob.core.windows.net/${containerName}/${fileName}"
 
 Write-Host "Press [ENTER] to continue ..."
 ```
@@ -75,15 +75,18 @@ Make a note of the blob URI.
 
 Use either Azure CLI or Azure PowerShell to deploy a template.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](./deployment-tutorial-options.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](./deployment-tutorial-local-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
+
+$templateFile = Read-Host -Prompt "Enter the template URI"
+
 New-AzResourceGroupDeployment `
   -Name addwebapp `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile `
+  -TemplateUri $templateFile `
   -storagePrefix "store" `
   -storageSKU Standard_LRS `
   -webAppName demoapp
@@ -92,10 +95,14 @@ New-AzResourceGroupDeployment `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+
+echo "Enter the template URI:"
+read templateFile
+
 az group deployment create \
   --name addwebapp \
   --resource-group myResourceGroup \
-  --template-file $templateFile \
+  --template-uri $templateFile \
   --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp
 ```
 
@@ -114,7 +121,7 @@ If you're stopping now, you might want to clean up the resources you deployed by
 
 ## Next steps
 
-You learned how to deploy a linked template. In the next tutorial, you learn how to secure the linked template by using SAS token.
+You learned how to deploy a remote template. In the next tutorial, you modularize the template into a main template and a linked template, and then deploy the templates.
 
 > [!div class="nextstepaction"]
-> [Add tags](deploy-tutorial-secure-linked-template.md)
+> [Deploy linked templates](deployment-tutorial-linked-template.md)

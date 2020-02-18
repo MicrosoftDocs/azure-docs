@@ -40,7 +40,7 @@ At the end of the quickstart tutorial, your template had the following JSON, whi
 
 ## Sign in to Azure
 
-To start working with Azure PowerShell/Azure CLI, sign in with your Azure credentials.
+To start working with Azure PowerShell/Azure CLI to deploy a template, sign in with your Azure credentials.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -108,7 +108,7 @@ az group deployment create \
   --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp
 ```
 
-To learn more deploying template by using Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure CLI](./deploy-cli.md).
+To learn more deploying template by using Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](./deploy-cli.md).
 
 ---
 
@@ -125,7 +125,7 @@ If you're stopping now, you might want to clean up the resources you deployed by
 
 ## Next steps
 
-You learned how to deploy a template by using different deployment methods. In the next tutorial, you modularize the template into a main template and a linked template, And deploy the templates.
+You learned how to deploy a local template. In the next tutorial, you store the template in an Azure storage account, and then deploy the remote template.
 
 > [!div class="nextstepaction"]
-> [Deploy linked templates](deployment-tutorial-linked-template.md)
+> [Deploy a remote template](./deployment-tutorial-remote-template.md)

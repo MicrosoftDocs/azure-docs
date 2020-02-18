@@ -8,7 +8,7 @@ ms.author: jgao
 
 # Tutorial: Deploy a linked template
 
-In the previous two tutorials, [Deploy a local template](./deploy-tutorial-local-template.md) and [Deploy a remote template](./deploy-tutorial-remote-template.md), you learned how to deploy a template that is stored in your local computer and in an Azure storage account. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template and a linked template.  It takes about **12 minutes** to complete.
+In the previous two tutorials, [Deploy a local template](./deployment-tutorial-local-template.md) and [Deploy a remote template](./deployment-tutorial-remote-template.md), you learned how to deploy a template that is stored in your local computer and in an Azure storage account. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template and a linked template.  It takes about **12 minutes** to complete.
 
 ## Prerequisites
 
@@ -80,19 +80,23 @@ Write-Host "Press [ENTER] to continue ..."
 ```
 
 Make a note of the blob URI.
+
 ## Deploy template
 
 Use either Azure CLI or Azure PowerShell to deploy a template.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](./deployment-tutorial-options.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](./deployment-tutorial-local-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
+
+$templateFile = Read-Host -Prompt "Enter the template URI"
+
 New-AzResourceGroupDeployment `
   -Name addwebapp `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile `
+  -TemplateUri $templateFile `
   -storagePrefix "store" `
   -storageSKU Standard_LRS `
   -webAppName demoapp
@@ -101,10 +105,14 @@ New-AzResourceGroupDeployment `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+
+echo "Enter the template URI:"
+read templateFile
+
 az group deployment create \
   --name addwebapp \
   --resource-group myResourceGroup \
-  --template-file $templateFile \
+  --template-uri $templateFile \
   --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp
 ```
 
@@ -126,4 +134,4 @@ If you're stopping now, you might want to clean up the resources you deployed by
 You learned how to deploy a linked template. In the next tutorial, you learn how to secure the linked template by using SAS token.
 
 > [!div class="nextstepaction"]
-> [Add tags](deploy-tutorial-secure-linked-template.md)
+> [Add tags](deployment-tutorial-secured-linked-template.md)

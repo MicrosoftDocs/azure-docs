@@ -1,53 +1,25 @@
 ---
-title: Tutorial - Deploy a linked template
-description: Learn how to deploy a linked template
+title: Tutorial - Deploy a secured linked template
+description: Learn how to deploy a secured linked template
 ms.date: 02/20/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Create and deploy a linked template
+# Tutorial: Deploy a secured linked template
 
-Learn how to deploy a linked template. It takes about **12 minutes** to complete.
+In the [previous tutorial](./deployment-tutorial-linked template.md), you deploy a linked template. In this tutorial, you use SAS to grant limited access to the linked template file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md). It takes about **12 minutes** to complete.
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about Quickstart templates](template-tutorial-quickstart-template.md), but it's not required.
+We recommend that you complete the [tutorial about deploying a linked template](./deployment-tutorial-linked template.md), but it's not required.
 
-You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
-
-## Review template
+## Review templates
 
 At the end of the quickstart tutorial, your template had the following JSON, which deployed a storage account, App Service plan, and web app.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
-## Find template
-
-1. Open [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
-1. In **Search**, enter **deploy linux web app**.
-1. Select the one with the title **Deploy a basic Linux web app**. If you have trouble finding it, here's the [direct link](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
-1. Select **Browse on GitHub**.
-1. Select **azuredeploy.json**.
-1. Review the template. In particular, look for the `Microsoft.Web/sites` resource.
-
-    ![Resource Manager template quickstart web site](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
-
-## Revise existing template
-
-Merge the quickstart template with the existing template:
-
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
-
-The web app name needs to be unique across Azure. To prevent having duplicate names, the **webAppPortalName** variable has been updated from **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** to **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"**.
-
-Add a comma at the end of the `Microsoft.Web/serverfarms` definition to separate the resource definition from the `Microsoft.Web/sites` definition.
-
-There are a couple of important features to note in this new resource.
-
-You'll notice it has an element named **dependsOn** that is set to the app service plan. This setting is required because the app service plan must exist before the web app is created. The **dependsOn** element tells Resource Manager how to order the resources for deployment.
-
-The **serverFarmId** property uses the [resourceId](template-functions-resource.md#resourceid) function. This function gets the unique identifier for a resource. In this case, it gets the unique identifier for the app service plan. The web app is associated with one specific app service plan.
 
 ## Deploy template
 
