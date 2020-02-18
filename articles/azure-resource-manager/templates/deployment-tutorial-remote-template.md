@@ -16,13 +16,13 @@ We recommend that you complete the [first deployment tutorial](./deployment-tuto
 
 ## Review template
 
-In the previous tutorial, you deploy a template that creates a storage account, App Service plan, and web app. The template used is:
+In the previous tutorial, you deploy a template that creates a storage account, App Service plan, and web app. The template used was:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
 ## Store and share the template
 
-There are several methods that you can use to store and share the template. The following PowerShell script creates a storage account, creates a container, copies the template from a github repository to the container (To simplify the tutorial, the same template is shared in a github repository). At the end of the execution, the script returns the URI of the template. You need the URI when you deploy the template.
+There are several methods that you can use to store and share the template. The following PowerShell script creates a storage account, creates a container, and copies the template to the container. To simplify the tutorial, the same template is shared in a github repository, and is copied from the repository. At the end of the execution, the script returns the URI of the template. You need the URI when you deploy the template.
 
 Select **Try-it** to open the cloud shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
@@ -64,18 +64,18 @@ Set-AzStorageBlobContent `
 
 Get-azStorageBlob -container $containerName -Context $context | Select Name
 
-Write-Host "The blob URI is https://${storageAccountName}.blob.core.windows.net/${containerName}/${fileName}"
+Write-Host "The template URI is https://${storageAccountName}.blob.core.windows.net/${containerName}/${fileName}"
 
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-Write down the blob URI.
+Write down the template URI.
 
 ## Deploy template
 
-Use either Azure CLI or Azure PowerShell to deploy a template.
+Use either Azure CLI or Azure PowerShell to deploy a template. Notice the switches that are used to specify the template file have been changed to **-TemplateUri** and **--template-uri**.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](./deployment-tutorial-local-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group).
 
 # [PowerShell](#tab/azure-powershell)
 

@@ -80,12 +80,13 @@ az group create \
 
 ## Deploy template
 
-Use one or multiple deployment options to deploy the template.
+Use one or both deployment options to deploy the template.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$templateFile = "{provide-the-path-to-the-template-file}"
+$templateFile = Read-Host -Prompt "Enter the template URI"
+
 New-AzResourceGroupDeployment `
   -Name addwebapp `
   -ResourceGroupName myResourceGroup `
@@ -100,7 +101,9 @@ To learn more about deploying template by using Azure PowerShell, see [Deploy re
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-templateFile="{provide-the-path-to-the-template-file}"
+echo "Enter the template URI:"
+read templateFile
+
 az group deployment create \
   --name addwebapp \
   --resource-group myResourceGroup \
@@ -125,7 +128,7 @@ If you're stopping now, you might want to clean up the resources you deployed by
 
 ## Next steps
 
-You learned how to deploy a local template. In the next tutorial, you store the template in an Azure storage account, and then deploy the remote template.
+You learned how to deploy a local template. In the next tutorial, you upload the template to an Azure storage account, and then deploy the remote template.
 
 > [!div class="nextstepaction"]
 > [Deploy a remote template](./deployment-tutorial-remote-template.md)

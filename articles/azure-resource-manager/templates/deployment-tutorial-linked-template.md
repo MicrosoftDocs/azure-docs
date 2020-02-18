@@ -16,7 +16,7 @@ We recommend that you complete the first two deployment tutorials, but it's not 
 
 ## Review template
 
-In the previous tutorials, you deploy a template that creates a storage account, App Service plan, and web app. The template used is:
+In the previous tutorials, you deploy a template that creates a storage account, App Service plan, and web app. The template used was:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
@@ -26,7 +26,7 @@ You can separate the storage account resource into a linked template:
 
 :::code language="json" source="~/resourcemanager-templates/tutorial-deployment/linkedStorageAccount.json":::
 
-The following template is the main template.  The highlighted **Microsoft.Resources/deployments** object shows how to call a linked template. The linked template can not be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either http or https. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item. The URI is passed to template using a parameter. See the first highlighted section.
+The following template is the main template.  The highlighted **Microsoft.Resources/deployments** object shows how to call a linked template. The linked template can not be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either *http* or *https*. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item. The URI is passed to template using a parameter. See the highlighted parameter definition.
 
 :::code language="json" source="~/resourcemanager-templates/tutorial-deployment/azuredeploy.json" highlight="32-37,44-62":::
 
@@ -79,7 +79,7 @@ Write-Host "The linked template URI is https://${storageAccountName}.blob.core.w
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-Make a note of the blob URI.
+Make a note of the linked template URI.
 
 ## Deploy template
 

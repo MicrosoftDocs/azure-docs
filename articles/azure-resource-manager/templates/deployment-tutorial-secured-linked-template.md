@@ -8,7 +8,7 @@ ms.author: jgao
 
 # Tutorial: Secure a linked template
 
-In the [previous tutorial](./deployment-tutorial-linked-template.md), you deploy a linked template. In this tutorial, you use SAS to grant limited access to the linked template file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md). It takes about **12 minutes** to complete.
+In the [previous tutorial](./deployment-tutorial-linked-template.md), you deploy a main template and a linked template. The linked template was stored in a storage account with public access. In this tutorial, you use SAS to grant limited access to the linked template file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md). It takes about **12 minutes** to complete.
 
 ## Prerequisites
 
@@ -18,11 +18,11 @@ We recommend that you complete the [tutorial about deploying a linked template](
 
 In the previous tutorial, you had a main template and a linked template.  Both templates deployed a storage account, App Service plan, and web app.
 
-The linked template:
+The linked template was:
 
 :::code language="json" source="~/resourcemanager-templates/tutorial-deployment/linkedStorageAccount.json":::
 
-The main template:
+The main template was:
 
 :::code language="json" source="~/resourcemanager-templates/tutorial-deployment/azuredeploy.json" highlight="32-37,44-62":::
 
@@ -32,7 +32,10 @@ Save a copy of the main template to your local computer.
 
 ## Store and share the template
 
-The following PowerShell script creates a storage account, creates a container, copies the template from a github repository to the container (to simplify the tutorial, the same template is shared in a github repository). At the end of the execution, the script returns the URI of the template. You will use the URI when you deploy the template.
+The following PowerShell script creates a storage account, creates a container, copies the linked template from a github repository to the container . At the end of the execution, the script returns the URI of the template with SAS token. You need the URI when you deploy the template.
+
+> [!NOTE]
+> The script limits the SAS token to be used within eight hours. If you need more time to complete this tutorial, increase the expiry time.
 
 Select **Try-it** to open the cloud shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
@@ -87,10 +90,7 @@ Write-Host "Linked template URI with SAS token: $templateURI"
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-> [NOTE]
-> The script limits the SAS token to be used within eight hours. If you need more time to complete this tutorial, increase the expiry time.
-
-Make a note of the blob URI.
+Make a note of the linked template URI.
 
 ## Deploy template
 
