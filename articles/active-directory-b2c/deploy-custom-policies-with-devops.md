@@ -1,7 +1,7 @@
 ---
 title: Deploy custom policies with Azure Pipelines
 titleSuffix: Azure AD B2C
-description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure Pipelines within Azure DevOps Services.
+description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure Pipelines in Azure DevOps Services.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -14,7 +14,7 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Deploy custom policies from an Azure Pipeline
+# Deploy custom policies with Azure Pipelines
 
 By using a continuous integration and delivery (CI/CD) pipeline that you set up in [Azure Pipelines][devops-pipelines], you can include your Azure AD B2C custom policies in your software delivery and code control automation. As you deploy to different Azure AD B2C environments, for example dev, test, and production, we recommend that you remove manual processes and perform automated testing by using Azure Pipelines.
 
@@ -125,7 +125,9 @@ With a management application registered, you're ready to configure a repository
         $_
 
         $streamReader = [System.IO.StreamReader]::new($_.Exception.Response.GetResponseStream())
-        $ErrResp = $streamReader.ReadToEnd()
+        $streamReader.BaseStream.Position = 0
+        $streamReader.DiscardBufferedData()
+        $errResp = $streamReader.ReadToEnd()
         $streamReader.Close()
 
         $ErrResp
@@ -226,7 +228,7 @@ When running the agents and uploading the policy files, ensure they're uploaded 
 
 The Identity Experience Framework enforces this order as the file structure is built on a hierarchical chain.
 
-## Test your new pipeline
+## Test your pipeline
 
 To test your release pipeline:
 
