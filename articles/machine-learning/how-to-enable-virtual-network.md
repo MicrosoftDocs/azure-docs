@@ -501,7 +501,7 @@ For more information on configuring a network rule, see [Deploy and configure Az
 
 ## Use Azure Container Registry
 
-Azure Machine Learning __does not__ support using Azure Container Registry in a virtual network.
+When using a virtual network with Azure Machine Learning, __do not__ put the Azure Container Registry for the workspace in the virtual network. This configuration is not supported.
 
 ## Next steps
 
