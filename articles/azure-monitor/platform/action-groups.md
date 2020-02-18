@@ -56,7 +56,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 ## Manage your action groups
 
-After you create an action group, it's visible in the **Action groups** section of the **Monitor** pane. Select the action group you want to manage to:
+After you create an action group, you can view **Action groups** by selecting **Manage actions** from the **Alerts** landing page in **Monitor** pane. Select the action group you want to manage to:
 
 * Add, edit, or remove actions.
 * Delete the action group.

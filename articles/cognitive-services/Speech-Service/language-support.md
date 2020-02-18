@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 01/31/2020
 ms.author: dapine
 ms.custom: seodec18
 ---
@@ -235,8 +235,10 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Hmong Daw      | `mww`          |
 | Hungarian      | `hu`          |
 | Indonesian      | `id`          |
+| Irish      | `ga`          |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
+| Kannada      | `kn`          |
 | Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Klingon (plqaD)      | `tlh-Qaak`          |
@@ -245,11 +247,14 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Lithuanian      | `lt`          |
 | Malagasy      | `mg`          |
 | Malay      | `ms`          |
+| Malayalam      | `ml`          |
 | Maltese      | `mt`          |
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
-| Portuguese      | `pt`          |
+| Portuguese (Brazil)      | `pt-br`          |
+| Portuguese (Portugal)      | `pt-pt`          |
+| Punjabi      | `pa`          |
 | Queretaro Otomi      | `otq`          |
 | Romanian      | `ro`          |
 | Russian      | `ru`          |

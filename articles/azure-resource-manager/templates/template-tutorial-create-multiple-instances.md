@@ -103,7 +103,7 @@ The completed template looks like:
 }
 ```
 
-For more information about creating multiple instances, see [Deploy multiple instances of a resource or property in Azure Resource Manager Templates](./create-multiple-instances.md)
+For more information about creating multiple instances, see [Deploy multiple instances of a resource or property in Azure Resource Manager Templates](./copy-resources.md)
 
 ## Deploy the template
 

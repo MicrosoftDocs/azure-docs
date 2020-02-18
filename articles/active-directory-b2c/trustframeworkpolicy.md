@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/31/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -41,7 +41,7 @@ The **TrustFrameworkPolicy** element contains the following attributes:
 | TenantId | Yes | The unique identifier of the tenant to which this policy belongs. |
 | PolicyId | Yes | The unique identifier for the policy. This identifier must be prefixed by *B2C_1A_* |
 | PublicPolicyUri | Yes | The URI for the policy, which is combination of the tenant ID and the policy ID. |
-| DeploymentMode | No | Possible values: `Production`, `Debugging`, or `Development`. `Production` is the default. Use this property to debug your policy. For more information, see [Collecting Logs](troubleshoot-with-application-insights.md). |
+| DeploymentMode | No | Possible values: `Production`, or `Development`. `Production` is the default. Use this property to debug your policy. For more information, see [Collecting Logs](troubleshoot-with-application-insights.md). |
 | UserJourneyRecorderEndpoint | No | The endpoint that is used when **DeploymentMode** is set to `Development`. The value must be `urn:journeyrecorder:applicationinsights`. For more information, see [Collecting Logs](troubleshoot-with-application-insights.md). |
 
 

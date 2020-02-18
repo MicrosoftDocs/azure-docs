@@ -2,14 +2,15 @@
 title: Get help with the My Apps portal - Azure Active Directory| Microsoft Docs
 description: Get help with signing in to and performing common tasks in the My Apps portal.
 services: active-directory
-author: eross-msft
+author: curtand
+
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
 ---

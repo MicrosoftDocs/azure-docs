@@ -60,7 +60,7 @@ AKS_CLUSTER=$(az aks show --resource-group myResourceGroup --name myAKSCluster -
 
 # Get the account credentials for the logged in user
 ACCOUNT_UPN=$(az account show --query user.name -o tsv)
-ACCOUNT_ID=$(az ad user show --upn-or-object-id $ACCOUNT_UPN --query objectId -o tsv)
+ACCOUNT_ID=$(az ad user show --id $ACCOUNT_UPN --query objectId -o tsv)
 
 # Assign the 'Cluster Admin' role to the user
 az role assignment create \
