@@ -1,5 +1,5 @@
 ---
-title: Serverless database computing - Azure Functions and Azure Cosmos DB
+title: Serverless database computing with Azure Cosmos DB and Azure Functions 
 description: Learn how Azure Cosmos DB and Azure Functions can be used together to create event-driven serverless computing apps.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -143,10 +143,4 @@ Now let's connect Azure Cosmos DB and Azure Functions for real:
 
 * [Create an Azure Functions trigger for Cosmos DB in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](https://aka.ms/cosmosdbinputbind)
-* [Azure Cosmos DB bindings and triggers](../azure-functions/functions-bindings-cosmosdb.md)
-
-
- 
-
-
-
+* [Azure Cosmos DB bindings and triggers](../azure-functions/functions-bindings-cosmosdb-v2.md)

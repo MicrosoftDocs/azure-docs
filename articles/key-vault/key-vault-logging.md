@@ -31,7 +31,7 @@ Use this tutorial to help you get started with Azure Key Vault logging. You'll c
 > This article provides Azure PowerShell instructions for updating diagnostic logging. You can also update diagnostic logging by using Azure Monitor in the **Diagnostic logs** section of the Azure portal. 
 >
 
-For overview information about Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
+For overview information about Key Vault, see [What is Azure Key Vault?](key-vault-overview.md). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Prerequisites
 

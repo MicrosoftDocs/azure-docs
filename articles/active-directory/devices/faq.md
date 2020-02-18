@@ -53,13 +53,15 @@ For more information, see [Require managed devices for cloud app access with Con
 
 ---
 
-### Q: Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10 devices ?
+### Q: Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10 devices?
 
-**A:** On Windows 10 devices joined or registered with Azure AD, users are issued a [Primary refresh token (PRT)](concept-primary-refresh-token.md) which enables single sign on. The validity of the PRT is based on the validaity of the device itself. Users see this message if the device is either deleted or disabled in Azure AD without initiating the action from the device itself. A device can be deleted or disabled in Azure AD one of the following scenarios: 
+**A:** On Windows 10 devices joined or registered with Azure AD, users are issued a [Primary refresh token (PRT)](concept-primary-refresh-token.md) which enables single sign on. The validity of the PRT is based on the validity of the device itself. Users see this message if the device is either deleted or disabled in Azure AD without initiating the action from the device itself. A device can be deleted or disabled in Azure AD one of the following scenarios: 
 
 - User disables the device from the My Apps portal. 
 - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
 - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
+- Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+
 
 See below on how these actions can be rectified.
 
@@ -67,7 +69,7 @@ See below on how these actions can be rectified.
 
 ### Q: I disabled or deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered. What should I do?
 
-**A:** This operation is by design. In this case, the device doesn't have access to resources in the cloud. Administrators can perform this action for stale, lost or stolen devices to prevent unauthorized access. If this action was performed unintentionally, you'll need to re-enable or re-register the device as described below
+**A:** This operation is by design. In this case, the device doesn't have access to resources in the cloud. Administrators can perform this action for stale, lost, or stolen devices to prevent unauthorized access. If this action was performed unintentionally, you'll need to re-enable or re-register the device as described below
 
 - If the device was disabled in Azure AD, an administrator with sufficient privileges can enable it from the Azure AD portal  
   > [!NOTE]
@@ -115,7 +117,7 @@ See below on how these actions can be rectified.
 
 ### Q: Does Windows 10 device registration in Azure AD support TPMs in FIPS mode?
 
-**A:** No, currently device registration on Windows 10 for all device states - Hybrid Azure AD join, Azure AD join, and Azure AD registered - does not support TPMs in FIPS mode. To successfully join or register to Azure AD, FIPS mode needs to be turned off for the TPMs on those devices
+**A:** Windows 10 device registration only supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join or Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Contact your hardware OEM for support. 
 
 ---
 
@@ -130,11 +132,11 @@ See below on how these actions can be rectified.
 
 ### Q: Why are there devices marked as "Pending" under the REGISTERED column in the Azure portal?
 
-**A**:  Pending indicates the device is not registered. This state indicates that a device has been synchronized using Azure AD connect from on-premises AD and is ready for device registration. These device have the JOIN TYPE set to "Hybrid Azure AD joined". Learn more on [how to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
+**A**:  Pending indicates that the device is not registered. This state indicates that a device has been synchronized using Azure AD connect from an on-premises AD and is ready for device registration. These devices have the JOIN TYPE set to "Hybrid Azure AD joined". Learn more on [how to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
 
 >[!NOTE]
 >A device can also change from having a registered state to "Pending"
->* If a device is deleted and from Azure AD first and re-synchronized from on-premises AD.
+>* If a device is deleted from Azure AD first and re-synchronized from an on-premises AD.
 >* If a device is removed from a sync scope on Azure AD Connect and added back.
 >
 >In both cases, you must re-register the device manually on each of these devices. To review whether the device was previously registered, you can [troubleshoot devices using the dsregcmd command](troubleshoot-device-dsregcmd.md).
@@ -282,12 +284,20 @@ If a password is changed outside the corporate network (for example, by using Az
 
 ## Azure AD register FAQ
 
-### Q: How do I remove an Azure AD registered device locally on the device?
+### Q: How do I remove an Azure AD registered state for a device locally?
 
 **A:** 
 - For Windows 10 Azure AD registered devices, Go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Device registration is per user profile on Windows 10.
 - For iOS and Android, you can use the Microsoft Authenticator application **Settings** > **Device Registration** and select **Unregister device**.
-- For macOS, you can use the Microsoft Intune Company Portal application to un-enroll the device from management and remove any registration. 
+- For macOS, you can use the Microsoft Intune Company Portal application to unenroll the device from management and remove any registration. 
+
+---
+### Q: How can I block users from adding additional work accounts (Azure AD registered) on my corporate Windows 10 devices?
+
+**A:**
+Enable the following registry to block your users from adding additional work accounts to your corporate domain joined, Azure AD joined, or hybrid Azure AD joined Windows 10 devices. This policy can also be used to block domain joined machines from inadvertently getting Azure AD registered with the same user account. 
+
+`HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
 ---
 ### Q: Can I register Android or iOS BYOD devices?
@@ -304,7 +314,7 @@ If a password is changed outside the corporate network (for example, by using Az
 
 **Remarks:**
 
-- The users included in your Conditional Access policy need a [supported version of Office for macOS](../conditional-access/technical-reference.md#client-apps-condition) to access resources. 
+- The users included in your Conditional Access policy need a [supported version of Office for macOS](../conditional-access/concept-conditional-access-conditions.md) to access resources. 
 - During the first access try, your users are prompted to enroll the device by using the company portal.
 
 ---

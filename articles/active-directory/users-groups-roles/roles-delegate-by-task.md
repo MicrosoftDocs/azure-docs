@@ -1,12 +1,10 @@
 ---
-title: Delegate least privileged roles by administrator task - Azure Active Directory | Microsoft Docs
+title: Delegate roles by admin task - Azure Active Directory | Microsoft Docs
 description: Roles to delegate for identity tasks in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
-
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
@@ -52,11 +50,11 @@ Create, read, update, and delete sign-in user flows | Global Administrator |
 Create, read, update, and delete sign-up user flow |Global Administrator | 
 Create, read, update, and delete user attributes | Global Administrator | 
 Create, read, update, and delete users | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
-Read all configuration | Global Administrator | 
-Read B2C audit logs | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+Read all configuration | Global reader | 
+Read B2C audit logs | Global reader ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
 > [!NOTE]
-> Azure AD B2C global administrators do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
+> Azure AD B2C Global readers do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
 
 ## Company branding
 
@@ -76,7 +74,7 @@ Configure company properties | Global Administrator |
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Passthrough authentication | Global Administrator | 
-Read all configuration | Global Administrator | 
+Read all configuration | Global reader | 
 Seamless single sign-on | Global Administrator | 
 
 ## Connect Health
@@ -96,7 +94,6 @@ View metrics and alerts | Reader ([see documentation](https://docs.microsoft.com
 View metrics and alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
 View sync service metrics and alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
 
-
 ## Custom domain names
 
 Task | Least privileged role | Additional roles
@@ -109,7 +106,7 @@ Read all configuration | Directory readers | Default user role ([see documentati
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Create Azure AD Domain Services instance | Global Administrator | 
-Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
 Read all configuration | Reader on Azure subscription containing AD DS service | 
 
 ## Devices
@@ -141,6 +138,13 @@ Update enterprise application provisioning | Enterprise application owner ([see 
 Update enterprise application self-service | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 Update single sign-on properties | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 
+## Entitlement management
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Add resources to a catalog | User administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners))
+Add SharePoint Online sites to catalog | Global administrator
+
+
 ## Groups
 
 Task | Least privileged role | Additional roles
@@ -167,10 +171,10 @@ Configure and enable or disable MFA policy| Security Administrator |
 Configure and enable or disable sign-in risk policy| Security Administrator | 
 Configure and enable or disable user risk policy | Security Administrator | 
 Configure weekly digests | Security Administrator| 
-Dismiss all risk events | Security Administrator | 
+Dismiss all risk detections | Security Administrator | 
 Fix or dismiss vulnerability | Security Administrator | 
 Read all configuration | Security Reader | 
-Read all risk events | Security Reader | 
+Read all risk detections | Security Reader | 
 Read vulnerabilities | Security Reader | 
 
 ## Licenses
@@ -219,9 +223,9 @@ Configure one-time bypass | Global Administrator |
 Configure phone call settings | Global Administrator | 
 Configure providers | Global Administrator | 
 Configure server settings | Global Administrator | 
-Read activity report | Global Administrator | 
-Read all configuration | Global Administrator | 
-Read server status | Global Administrator |  
+Read activity report | Global reader | 
+Read all configuration | Global reader | 
+Read server status | Global reader |  
 
 ## Organizational relationships
 
@@ -230,7 +234,7 @@ Task | Least privileged role | Additional roles
 Manage identity providers | Global Administrator | 
 Manage settings | Global Administrator | 
 Manage terms of use | Global Administrator | 
-Read all configuration | Global Administrator | 
+Read all configuration | Global reader | 
 
 ## Password reset
 
@@ -266,7 +270,7 @@ Read all configuration | Default user role ([see documentation](https://docs.mic
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Configure authentication methods | Global Administrator | 
-Read all configuration | Global Administrator | 
+Read all configuration | Global reader | 
 
 ## Security - Conditional Access
 

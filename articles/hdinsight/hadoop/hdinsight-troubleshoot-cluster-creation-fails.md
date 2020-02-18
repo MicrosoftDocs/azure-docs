@@ -1,15 +1,16 @@
 ---
 title: Troubleshoot cluster creation failures with Azure HDInsight
-description: Learn how to troubleshoot cluster creation issues for Azure HDInsight.
+description: Learn how to troubleshoot Apache cluster creation issues for Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
-ms.date: 08/06/2019
+ms.date: 08/26/2019
 #Customer intent: As an HDInsight user, I would like to understand how to resolve common cluster creation failures.
 ---
+
 # Troubleshoot cluster creation failures with Azure HDInsight
 
 The following issues are most common root causes for cluster creation failures:
@@ -24,9 +25,9 @@ The following issues are most common root causes for cluster creation failures:
 
 ## Permissions issues
 
-If you are using Data Lake Storage Gen 2, ensure that the user-assigned managed identity assigned to your HDInsight cluster is in the **Storage Blob Data Contributor** role or in the **Storage Blob Data Owner Role**. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account) for complete setup instructions.
+If you are using Azure Data Lake Storage Gen2, and receive the error ```AmbariClusterCreationFailedErrorCode```, ```Internal server error occurred while processing the request. Please retry the request or contact support.```, open the Azure portal, go to your Storage account, and under Access Control (IAM), ensure that the **Storage Blob Data Contributor** or the **Storage Blob Data Owner** role has Assigned access to the **User assigned managed identity** for the subscription. See [Set up permissions for the managed identity on the Data Lake Storage Gen2 account](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account) for detailed instructions.
 
-If you are using Data Lake Storage Gen 1, see setup and configuration instructions [here](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen 1 isn't supported for HBase clusters, and is not supported in HDInsight version 4.0.
+If you are using Azure Data Lake Storage Gen1, see setup and configuration instructions [here](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen1 isn't supported for HBase clusters, and is not supported in HDInsight version 4.0.
 
 If using Azure Storage, ensure that storage account name is valid during the cluster creation.
 
@@ -59,7 +60,7 @@ If you are using an express route or your own custom DNS server, see [Plan a vir
 
 ## Resources locks  
 
-Ensure that there are no [locks on your virtual network and resource group](../../azure-resource-manager/resource-group-lock-resources.md).  
+Ensure that there are no [locks on your virtual network and resource group](../../azure-resource-manager/management/lock-resources.md). Clusters cannot be created or deleted if the resource group is locked. 
 
 ## Unsupported component versions
 
@@ -69,9 +70,11 @@ Ensure that you are using a [supported version of Azure HDInsight](../hdinsight-
 
 Storage account names cannot be more than 24 characters and cannot contain a special character. These restrictions also apply to the default container name in the storage account.
 
+Other naming restrictions also apply for cluster creation. See [Cluster name restrictions](../hdinsight-hadoop-provision-linux-clusters.md#cluster-name), for more information.
+
 ## Service outages
 
-Check [Azure status](https://status.azure.com/status) for any potential outages or service issues.
+Check [Azure status](https://status.azure.com) for any potential outages or service issues.
 
 ## Next steps
 

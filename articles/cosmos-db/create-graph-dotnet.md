@@ -1,5 +1,5 @@
 ---
-title: Build an Azure Cosmos DB .NET Framework or Core application using the Gremlin API
+title: Build an Azure Cosmos DB .NET Framework, Core application using the Gremlin API
 description: Presents a .NET Framework/Core code sample you can use to connect to and query Azure Cosmos DB
 author: luisbosquez
 ms.service: cosmos-db

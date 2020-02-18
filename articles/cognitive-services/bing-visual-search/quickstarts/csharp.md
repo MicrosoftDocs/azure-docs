@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get image insights using Bing Visual Search REST API and C#"
+title: "Quickstart: Get image insights using the REST API and C# - Bing Visual Search"
 titleSuffix: Azure Cognitive Services
 description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 04/26/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
 ---
 
@@ -37,7 +37,7 @@ This quickstart demonstrates how to upload an image to the Bing Visual Search AP
     using System.Collections.Generic;
     ```
 
-2. Add variables for your subscription key, endpoint, and path to the image you want to upload:
+2. Add variables for your subscription key, endpoint, and path to the image you want to upload. `uriBase` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource:
 
     ```csharp
         const string accessKey = "<my_subscription_key>";

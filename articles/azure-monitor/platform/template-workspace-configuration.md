@@ -1,27 +1,22 @@
 ---
 title: Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace | Microsoft Docs
 description: You can use Azure Resource Manager templates to create and configure Log Analytics workspaces.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.author: magoedte
+author: bwren
+ms.author: bwren
+ms.date: 01/09/2020
+
 ---
 
 # Manage Log Analytics workspace using Azure Resource Manager templates
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-You can use [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces in Azure Monitor. Examples of the tasks you can perform with templates include:
+You can use [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Examples of the tasks you can perform with templates include:
 
-* Create a workspace including setting pricing tier 
+* Create a workspace including setting pricing tier and capacity reservation
 * Add a solution
 * Create saved searches
 * Create a computer group
@@ -29,6 +24,7 @@ You can use [Azure Resource Manager templates](../../azure-resource-manager/reso
 * Collect performance counters from Linux and Windows computers
 * Collect events from syslog on Linux computers 
 * Collect events from Windows event logs
+* Collect custom logs from Windows computer
 * Add the log analytics agent to an Azure virtual machine
 * Configure log analytics to index data collected using Azure diagnostics
 
@@ -47,7 +43,19 @@ The following table lists the API version for the resources used in this example
 
 ## Create a Log Analytics workspace
 
-The following example creates a workspace using a template from  your local machine. The JSON template is configured to only require the name and location of the new workspace (using the default values for the other workspace parameters such as pricing tier and retention).  
+The following example creates a workspace using a template from your local machine. The JSON template is configured to only require the name and location of the new workspace. It uses values specified for other workspace parameters such as [access control mode](design-logs-deployment.md#access-control-mode), pricing tier, retention, and capacity reservation level.
+
+For capacity reservation, you define a selected capacity reservation for ingesting data by specifying the SKU `CapacityReservation` and a value in GB for the property `capacityReservationLevel`. The following list details the supported values and behavior when configuring it.
+
+- Once you set the reservation limit, you cannot change to a different SKU within 31 days.
+
+- Once you set the reservation value, you can only increase it within 31 days.
+
+- You can only set the value of `capacityReservationLevel` in multiples of 100, with a maximum value of 50000.
+
+- If you increase the reservation level, the timer is reset and you cannot change it for another 31 days from this update.  
+
+- If you modify any other property for the workspace but retain the reservation limit to the same level, the timer is not reset. 
 
 ### Create and deploy template
 
@@ -64,6 +72,21 @@ The following example creates a workspace using a template from  your local mach
               "description": "Specifies the name of the workspace."
             }
         },
+      "pricingTier": {
+      "type": "string",
+      "allowedValues": [
+        "pergb2018",
+        "Free",
+        "Standalone",
+        "PerNode",
+        "Standard",
+        "Premium"
+      ],
+      "defaultValue": "pergb2018",
+      "metadata": {
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+           }
+       },
         "location": {
             "type": "String",
             "allowedValues": [
@@ -101,11 +124,18 @@ The following example creates a workspace using a template from  your local mach
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
+                "sku": { 
+                    "name": "CapacityReservation",
+                    "capacityReservationLevel": 100
+                },
+                "retentionInDays": 120,
                 "features": {
-                    "searchVersion": 1
+                    "searchVersion": 1,
+                    "legacy": 0,
+                    "enableLogAccessUsingOnlyResourcePermissions": true
                 }
             }
           }
@@ -115,7 +145,7 @@ The following example creates a workspace using a template from  your local mach
 
 2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
-4. You are ready to deploy this template. You use either PowerShell or the command line to create the workspace, specifying the workspace name and location as part of the command.
+4. You are ready to deploy this template. You use either PowerShell or the command line to create the workspace, specifying the workspace name and location as part of the command. The workspace name must be globally unique across all Azure subscriptions.
 
    * For PowerShell use the following commands from the folder containing the template:
    
@@ -145,6 +175,7 @@ The following template sample illustrates how to:
 7. Collect Error and Warning events from the Application Event Log from Windows computers
 8. Collect Memory Available Mbytes performance counter from Windows computers
 9. Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
+10. Collect custom logs from Windows computer
 
 ```json
 {
@@ -167,9 +198,9 @@ The following template sample illustrates how to:
         "Standard",
         "Premium"
       ],
-      "defaultValue": "PerGB2018",
+      "defaultValue": "pergb2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+        "description": "Pricing tier: pergb2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
       }
     },
     "dataRetention": {
@@ -183,6 +214,7 @@ The following template sample illustrates how to:
     },
     "immediatePurgeDataOn30Days": {
       "type": "bool",
+      "defaultValue": "[bool('false')]",
       "metadata": {
         "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
@@ -230,37 +262,43 @@ The following template sample illustrates how to:
         "metadata": {
           "description": "The resource group name containing the storage account with Azure diagnostics output"
         }
-    }
-  },
-  "variables": {
-    "Updates": {
-      "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
-      "GalleryName": "Updates"
     },
-    "AntiMalware": {
-      "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
-      "GalleryName": "AntiMalware"
+    "customLogName": {
+    "type": "string",
+    "metadata": {
+      "description": "The custom log name"
+      }
+	 }
     },
-    "SQLAssessment": {
-      "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
-      "GalleryName": "SQLAssessment"
-    },
-    "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
+    "variables": {
+      "Updates": {
+        "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
+        "GalleryName": "Updates"
+      },
+      "AntiMalware": {
+        "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
+        "GalleryName": "AntiMalware"
+      },
+      "SQLAssessment": {
+        "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
+        "GalleryName": "SQLAssessment"
+      },
+      "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "properties": {
+        "retentionInDays": "[parameters('dataRetention')]",
+        "features": {
+          "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
+        },
         "sku": {
           "name": "[parameters('pricingTier')]"
-          "features": {
-            "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
-          }
-        },
-    "retentionInDays": "[parameters('dataRetention')]"
+        }
       },
       "resources": [
         {
@@ -402,6 +440,55 @@ The following template sample illustrates how to:
         },
         {
           "apiVersion": "2015-11-01-preview",
+          "type": "dataSources",
+          "name": "[concat(parameters('workspaceName'), parameters('customLogName'))]",
+          "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
+          ],
+          "kind": "CustomLog",
+          "properties": {
+            "customLogName": "[parameters('customLogName')]",
+            "description": "this is a description",
+            "extractions": [
+              {
+                "extractionName": "TimeGenerated",
+                "extractionProperties": {
+                  "dateTimeExtraction": {
+                    "regex": [
+                      {
+                        "matchIndex": 0,
+                        "numberdGroup": null,
+                        "pattern": "((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]"
+                      }
+                    ]
+                  }
+                },
+                "extractionType": "DateTime"
+              }
+            ],
+            "inputs": [
+              {
+                "location": {
+                  "fileSystemLocations": {
+                    "linuxFileTypeLogPaths": null,
+                    "windowsFileTypeLogPaths": [
+                      "[concat('c:\\Windows\\Logs\\',parameters('customLogName'))]"
+                    ]
+                  }
+                },
+                "recordDelimiter": {
+                  "regexDelimiter": {
+                    "matchIndex": 0,
+                    "numberdGroup": null,
+                    "pattern": "(^.*((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9].*$)"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2015-11-01-preview",
           "type": "datasources",
           "name": "sampleLinuxPerfCollection1",
           "dependsOn": [
@@ -527,8 +614,8 @@ The following template sample illustrates how to:
     }
   }
 }
-
 ```
+
 ### Deploying the sample template
 
 To deploy the sample template:

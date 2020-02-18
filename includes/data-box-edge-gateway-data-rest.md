@@ -2,13 +2,12 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
 ---
 
 For data at rest:
 
-- BitLocker XTS-AES 256-bit encryption is used to protect local data.
 - Access to data stored in shares is restricted.
 
     - SMB clients that access share data need user credentials associated with the share. These credentials are defined when the share is created.

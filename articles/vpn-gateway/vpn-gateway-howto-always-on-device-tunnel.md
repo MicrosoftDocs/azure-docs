@@ -1,12 +1,13 @@
 ---
-title: 'Configure an Always On VPN tunnel for VPN Gateway'
+title: 'Configure an Always-On VPN tunnel'
+titleSuffix: Azure VPN Gateway
 description: Steps to configure Always On VPN tunnel for VPN Gateway
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 12/11/2019
 ms.author: cherylmc
 
 ---
@@ -28,16 +29,11 @@ Both Device tunnel and User tunnel operate independently with their VPN profiles
 
 Configure the VPN gateway to use IKEv2 and certificate-based authentication using this [point-to-site article](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-## 2. Configure the user tunnel
-
-1. Install client certificates on the Windows 10 client as shown in this [point-to-site VPN client article](point-to-site-how-to-vpn-client-install-azure-cert.md). The certificate needs to be in the Current User Store
-2. Configure the Always On VPN client through PowerShell, SCCM, or Intune using [these instructions](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
-
-## 3. Configure the device tunnel
+## 2. Configure the device tunnel
 
 The following requirements must be met in order to successfully establish a device tunnel:
 
-* The device must be a domain joined computer running Windows 10 Enterprise or Education version 1709 or later.
+* The device must be a domain joined computer running Windows 10 Enterprise or Education version 1809 or later.
 * The tunnel is only configurable for the Windows built-in VPN solution and is established using IKEv2 with computer certificate authentication. 
 * Only one device tunnel can be configured per device.
 
@@ -102,9 +98,9 @@ After you have configured the virtual network gateway and installed the client c
    ```
 1. Copy the following text and save it as ***VPNProfile.xml*** in the same folder as **devicecert.ps1**. Edit the following text to match your environment.
 
-   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
-   * `<Address>192.168.3.5</Address>`
-   * `<Address>192.168.3.4</Address>`
+   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
+   * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
+   * `<Address>192.168.3.4</Address> <= IP of resource in the vnet or the vnet address space`
 
    ```
    <VPNProfile>  
@@ -139,15 +135,15 @@ After you have configured the virtual network gateway and installed the client c
 1. From an Admin CMD prompt, launch PowerShell by running:
 
    ```
-   C:\PsTools\PsExec.exe Powershell for 32-bit Windows
-   C:\PsTools\PsExec64.exe Powershell for 64-bit Windows
+   PsExec.exe Powershell for 32-bit Windows
+   PsExec64.exe Powershell for 64-bit Windows
    ```
 
    ![powershell](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
 1. In PowerShell, switch to the folder where **devicecert.ps1** and **VPNProfile.xml** are located, and run the following command:
 
    ```powershell
-   C:\> .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
+   .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
    ![MachineCertTest](./media/vpn-gateway-howto-always-on-device-tunnel/machinecerttest.png)

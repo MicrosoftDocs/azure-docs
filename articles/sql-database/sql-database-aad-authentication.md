@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory auth - Azure SQL | Microsoft Docs
+title: Azure Active Directory
 description: Learn about how to use Azure Active Directory for authentication with SQL Database, Managed Instance, and SQL Data Warehouse
 services: sql-database
 ms.service: sql-database
@@ -111,8 +111,9 @@ To create a contained database user in Azure SQL Database, Managed Instance, or 
 
 Azure Active Directory authentication supports the following methods of connecting to a database using Azure AD identities:
 
-- Using integrated Windows authentication
-- Using an Azure AD principal name and a password
+- Azure Active Directory Password
+- Azure Active Directory Integrated
+- Azure Active Directory Universal with MFA
 - Using Application token authentication
 
 The following authentication methods are supported for Azure AD server principals (logins) (**public preview**):
@@ -120,7 +121,6 @@ The following authentication methods are supported for Azure AD server principal
 - Azure Active Directory Password
 - Azure Active Directory Integrated
 - Azure Active Directory Universal with MFA
-- Azure Active Directory Interactive
 
 
 ### Additional considerations

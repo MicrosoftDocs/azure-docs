@@ -68,7 +68,7 @@ For more information about how to encode and decode messages sent using differen
 
 ## Message size
 
-IoT Hub measures message size in a protocol-agnostic way, considering only the actual payload. The size in bytes is calculated as the sum of the following:
+IoT Hub measures message size in a protocol-agnostic way, considering only the actual payload. The size in bytes is calculated as the sum of the following values:
 
 * The body size in bytes.
 * The size in bytes of all the values of the message system properties.

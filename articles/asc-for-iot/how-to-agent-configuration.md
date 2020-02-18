@@ -1,6 +1,6 @@
 ---
 title: Configure Azure Security Center for IoT agent| Microsoft Docs
-description: Learn how to configure agents for use with Azure Security Center for IoT.
+description: Learn how to configure Azure Security Center for IoT security agents for use with the Azure Security Center for IoT security service.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 02/18/2020
 ms.author: mlottner
 
 ---
@@ -84,28 +84,28 @@ To use a default property value, remove the property from the configuration obje
 
 1. In your IoT Hub, locate and select the device you wish to change.
 
-2. Click on your device, and then on **azureiotsecurity** module.
+1. Click on your device, and then on **azureiotsecurity** module.
 
-3. Click on **Module Identity Twin**.
+1. Click on **Module Identity Twin**.
 
-4. Edit the properties you wish to change in the security module.
+1. Edit the properties you wish to change in the security module.
    
    For example, to configure connection events as high priority and collect high priority events every 7 minutes, use the following configuration.
    
-   ```json
+    ```json
     "desired": {
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-        "highPriorityMessageFrequency": {
-          "value" : "PT7M"
-        },    
-        "eventPriorityConnectionCreate": {
-          "value" : "High" 
-        }
-      } 
-    }, 
+    	"ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+    		"highPriorityMessageFrequency": {
+    			"value": "PT7M"
+    		},
+    		"eventPriorityConnectionCreate": {
+    			"value": "High"
+    		}
+    	}
+    }
     ```
 
-5. Click **Save**.
+1. Click **Save**.
 
 ### Using a default value
 
@@ -133,7 +133,6 @@ Default values are available in the proper schema in [GitHub](https\://aka.ms/io
 |Diagnostic event|eventPriorityDiagnostic| Off| False| Agent related diagnostic events. Use this event for verbose logging.| 
 |Configuration error |eventPriorityConfigurationError |Low |False |Agent failed to parse the configuration. Verify the configuration against the schema.| 
 |Dropped events statistics |eventPriorityDroppedEventsStatistics |Low |True|Agent related event statistics. |
-|Message statistics|eventPriorityMessageStatistics |Low |True |Agent related message statistics. |
 |Connected hardware|eventPriorityConnectedHardware |Low |True |Snapshot of all hardware connected to the device.|
 |Listening ports|eventPriorityListeningPorts |High |True |Snapshot of all open listening ports on the device.|
 |Process create |eventPriorityProcessCreate |Low |False |Audits process creation on the device.|

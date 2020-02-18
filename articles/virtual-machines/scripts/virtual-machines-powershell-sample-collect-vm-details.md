@@ -1,17 +1,15 @@
 ---
-title: Collect details about all VMs in a subscription with PowerShell | Microsoft Docs
+title: Collect details about all VMs in a subscription with PowerShell 
 description: Collect details about all VMs in a subscription with PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: v-miegge
-manager: ???
+manager: dcscontentpm
 editor: v-miegge
 tags: azure-service-management
-
 ms.assetid:
 ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/01/2019
@@ -35,7 +33,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ```azurepowershell-interactive
 #Provide the subscription Id where the VMs reside
-$subscriptionId = "ea7ded4e-153a-4e65-ad70-25bf9f7b91bc"
+$subscriptionId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 #Provide the name of the csv file to be exported
 $reportName = "myReport.csv"

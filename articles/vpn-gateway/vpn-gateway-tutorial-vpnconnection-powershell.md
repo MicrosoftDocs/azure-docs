@@ -1,12 +1,12 @@
 ---
-title: Create and Manage Azure S2S VPN connections using PowerShell | Microsoft Docs
+title: 'Azure VPN Gateway: Create and manage S2S VPN connections: Tutorial'
 description: Tutorial - Create and Manage S2S VPN connections with the Azure PowerShell module
 services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 02/11/2019
+ms.date: 01/10/2020
 ms.author: yushwang
 ms.custom: mvc
 #Customer intent: I want to create an S2S VPN connection so that I can connect my VNet and on-premises network.
@@ -96,10 +96,10 @@ $lng1 = Get-AzLocalNetworkGateway   -Name $LNG1 -ResourceGroupName $RG1
 
 New-AzVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 `
   -Location $Location1 -VirtualNetworkGateway1 $vng1 -LocalNetworkGateway2 $lng1 `
-  -ConnectionType IPsec -SharedKey "Azure@!b2C3"
+  -ConnectionType IPsec -SharedKey "Azure@!b2C3" -ConnectionProtocol IKEv2
 ```
 
-Add the optional "**-EnableBGP $True**" property to enable BGP for the connection if you are using BGP. It is disabled by default.
+Add the optional "**-EnableBGP $True**" property to enable BGP for the connection if you are using BGP. It is disabled by default. Parameter '-ConnectionProtocol' is optional with IKEv2 as default. You can create the connection with IKEv1 protocols by specifying **-ConnectionProtocol IKEv1**.
 
 ## Update the VPN connection pre-shared key, BGP, and IPsec/IKE policy
 

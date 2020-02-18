@@ -1,14 +1,8 @@
 ---
-title: Tutorial - Automate container image builds on base image update - Azure Container Registry Tasks
+title: Tutorial - Trigger image build on base image update
 description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image is updated.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: tutorial
-ms.date: 06/12/2019
-ms.author: danlep
+ms.date: 08/12/2019
 ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want container
 # images to be built automatically when the base image of a container is
@@ -71,7 +65,16 @@ When a base image is updated, you're presented with the need to rebuild any cont
 
 ### Tasks triggered by a base image update
 
-* Currently, for image builds from a Dockerfile, an ACR task detects dependencies on base images in the same Azure container registry, a public Docker Hub repo, or a public repo in Microsoft Container Registry. If the base image specified in the `FROM` statement resides in one of these locations, the ACR task adds a hook to ensure the image is rebuilt any time its base is updated.
+* For image builds from a Dockerfile, an ACR task detects dependencies on base images in the following locations:
+
+  * The same Azure container registry where the task runs
+  * Another Azure container registry in the same region 
+  * A public repo in Docker Hub 
+  * A public repo in Microsoft Container Registry
+
+   If the base image specified in the `FROM` statement resides in one of these locations, the ACR task adds a hook to ensure the image is rebuilt any time its base is updated.
+
+* Currently, an ACR tasks only tracks base image updates for application (*runtime*) images. It doesn't track base image updates for intermediate (*buildtime*) images used in multi-stage Dockerfiles.  
 
 * When you create an ACR task with the [az acr task create][az-acr-task-create] command, by default the task is *enabled* for trigger by a base image update. That is, the `base-image-trigger-enabled` property is set to True. If you want to disable this behavior in a task, update the property to False. For example, run the following [az acr task update][az-acr-task-update] command:
 
@@ -81,7 +84,7 @@ When a base image is updated, you're presented with the need to rebuild any cont
 
 * To enable an ACR task to determine and track a container image's dependencies -- which include its base image -- you must first trigger the task **at least once**. For example, trigger the task manually using the [az acr task run][az-acr-task-run] command.
 
-* To trigger a task on base image update, the base image must have a *stable* tag, such as `node:9-alpine`. This tagging is typical for a base image that is updated with OS and framework patches to a latest stable release. If the base image is updated with a new version tag, it does not trigger a task. For more information about image tagging, see the [best practices guidance](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/). 
+* To trigger a task on base image update, the base image must have a *stable* tag, such as `node:9-alpine`. This tagging is typical for a base image that is updated with OS and framework patches to a latest stable release. If the base image is updated with a new version tag, it does not trigger a task. For more information about image tagging, see the [best practices guidance](container-registry-image-tag-version.md). 
 
 ### Base image update scenario
 
@@ -115,7 +118,6 @@ az acr task create \
     --arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --file Dockerfile-app \
-    --branch master \
     --git-access-token $GIT_PAT
 ```
 
@@ -216,7 +218,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 Output is similar to the following. The TRIGGER for the last-executed build should be "Image Update", indicating that the task was kicked off by your quick task of the base image.
 
 ```console
-$ az acr task list-builds --registry $ACR_NAME --output table
+$ az acr task list-runs --registry $ACR_NAME --output table
 
 Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------
@@ -263,10 +265,10 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 ## Next steps
 
-In this tutorial, you learned how to use a task to automatically trigger container image builds when the image's base image has been updated. Now, move on to learning about authentication for your container registry.
+In this tutorial, you learned how to use a task to automatically trigger container image builds when the image's base image has been updated. Now, move on to the next tutorial to learn how to trigger tasks on a defined schedule.
 
 > [!div class="nextstepaction"]
-> [Authentication in Azure Container Registry](container-registry-authentication.md)
+> [Run a task on a schedule](container-registry-tasks-scheduled.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

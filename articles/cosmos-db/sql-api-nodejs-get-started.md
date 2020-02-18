@@ -133,7 +133,7 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
 1. Copy and paste the code below to set the database ID, and the container ID. These IDs are how the Azure Cosmos DB client will find the right database and container.
 
    ```javascript
-   const client = new CosmosClient({ endpoint, key } });
+   const client = new CosmosClient({ endpoint, key });
 
    // ADD THIS PART TO YOUR CODE
    const HttpStatusCodes = { NOTFOUND: 404 };
@@ -657,7 +657,7 @@ Install the project's dependencies via npm. Use the following command:
 
 * ```npm install``` 
 
-Next, in the ```config.js``` file, update the config.endpoint and config.primaryKey values as described in [Step 3: Set your app's configurations](#Config).  
+Next, in the ```config.js``` file, update the config.endpoint and config.key values as described in [Step 3: Set your app's configurations](#Config).  
 
 Then in your terminal, locate your ```app.js``` file and run the command:  
 

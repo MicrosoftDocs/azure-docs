@@ -36,7 +36,7 @@ The easiest way to get started with Redactor is to use the open source AMSE tool
 
 ### Download and setup
 
-1. Download the AMSE tool from [here](https://github.com/Azure/Azure-Media-Services-Explorer).
+1. Download the AMSE for AMS v2 tool from [here](https://aka.ms/amseforv2).
 1. Log in to your Media Services account using your service key.
 
 	To obtain the account name and key information, go to the [Azure portal](https://portal.azure.com/) and select your AMS account. Then, select Settings > Keys. The Manage keys windows shows the account name and the primary and secondary keys is displayed. Copy values of the account name and the primary key.

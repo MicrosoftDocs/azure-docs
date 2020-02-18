@@ -1,6 +1,6 @@
 ---
-title: Governance of Azure DevTest Labs infrastructure
-description: This article provides guidance for governance of Azure DevTest Labs infrastructure. 
+title: Manage cost and ownership in Azure DevTest Labs
+description: This article provides information that helps you optimize for cost and align ownership across your environment.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 

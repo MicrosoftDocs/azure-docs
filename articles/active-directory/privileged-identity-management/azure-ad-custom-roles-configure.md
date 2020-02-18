@@ -1,15 +1,16 @@
 ---
-title: Configure Azure AD custom roles in Privileged Identity Management (PIM)| Microsoft Docs
+title: Configure Azure AD custom role - Privileged Identity Management (PIM)
 description: How to configure Azure AD custom roles in Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
-ms.service: role-based-access-control
+ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019

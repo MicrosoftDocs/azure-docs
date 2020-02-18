@@ -1,5 +1,5 @@
 ---
-title: Useful resources when working with Azure Sentinel Preview| Microsoft Docs
+title: Useful resources when working with Azure Sentinel| Microsoft Docs
 description: This document provides you with a list of useful resources when working with Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,23 +14,55 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/14/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
 
 ---
-# Useful resources for working with Azure Sentinel Preview
+# Useful resources for working with Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 This article lists resources that can help you get more information about working with Azure Sentinel.
 
 Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
 
-## Vendor documentation
 
+## Auditing and reporting
+Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/platform/platform-logs-overview.md).
+
+The following supported operations can be audited.
+
+|Operation name|	Resource type|
+|----|----|
+|Create or update workbook	|Microsoft.Insights/workbooks|
+|Delete Workbook	|Microsoft.Insights/workbooks|
+|Set Workflow	|Microsoft.Logic/workflows|
+|Delete Workflow	|Microsoft.Logic/workflows|
+|Create Saved Search	|Microsoft.OperationalInsights/workspaces/savedSearches|
+|Delete Saved Search	|Microsoft.OperationalInsights/workspaces/savedSearches|
+|Update Alert Rules	|Microsoft.SecurityInsights/alertRules|
+|Delete Alert Rules	|Microsoft.SecurityInsights/alertRules|
+|Update Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules/actions|
+|Delete Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules/actions|
+|Update Bookmarks	|Microsoft.SecurityInsights/bookmarks|
+|Delete Bookmarks	|Microsoft.SecurityInsights/bookmarks|
+|Update Cases	|Microsoft.SecurityInsights/Cases|
+|Update Case Investigation	|Microsoft.SecurityInsights/Cases/investigations|
+|Create Case Comments	|Microsoft.SecurityInsights/Cases/comments|
+|Update Data Connectors	|Microsoft.SecurityInsights/dataConnectors|
+|Delete Data Connectors	|Microsoft.SecurityInsights/dataConnectors|
+|Update Settings	|Microsoft.SecurityInsights/settings|
+
+### View audit and reporting data in Azure Sentinel
+
+You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it.
+
+1. Connect the [Azure Activity](connect-azure-activity.md) data source. After doing this, audit events are streamed into a new table in the **Logs** screen called AzureActivity.
+2. Then, query the data using KQL, like you would any other table.
+
+
+
+## Vendor documentation
 
 | **Vendor**  | **Use incident in Azure Sentinel** | **Link**|
 |----|----|----|

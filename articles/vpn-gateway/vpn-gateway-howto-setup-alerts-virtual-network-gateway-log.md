@@ -1,5 +1,5 @@
 ---
-title: 'Set up alerts on diagnostic log events from Azure VPN Gateway'
+title: 'Azure VPN Gateway: Configure alerts on diagnostic log events'
 description: Steps to configure alerts on VPN Gateway diagnostic log events
 services: vpn-gateway
 author: anzaman
@@ -53,6 +53,9 @@ The following example steps will create an alert for a disconnection event that 
 
    ![Selected check boxes](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Select")
 
+   > [!NOTE]
+   > It may take a few hours for the data to show up initially.
+
 7. Go to the overview for the virtual network gateway resource and select **Alerts** from the **Monitoring** tab. Then create a new alert rule or edit an existing alert rule.
 
    ![Selections for creating a new alert rule](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Select")
@@ -66,12 +69,17 @@ The following example steps will create an alert for a disconnection event that 
 
    ![Selections for a custom log search](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Select")
 
-10. Enter the following query in the **Search query** text box. Replace the values in <> as appropriate.
+10. Enter the following query in the **Search query** text box. Replace the values in <> and TimeGenerated as appropriate.
 
     ```
-    AzureDiagnostics |
-      where Category  == "TunnelDiagnosticLog" and ResourceId == toupper("<RESOURCEID OF GATEWAY>") and TimeGenerated > ago(5m) and
-      remoteIP_s == "<REMOTE IP OF TUNNEL>" and status_s == "Disconnected"
+    AzureDiagnostics
+    | where Category == "TunnelDiagnosticLog"
+    | where _ResourceId == tolower("<RESOURCEID OF GATEWAY>")
+    | where TimeGenerated > ago(5m) 
+    | where remoteIP_s == "<REMOTE IP OF TUNNEL>"
+    | where status_s == "Disconnected"
+    | project TimeGenerated, OperationName, instance_s, Resource, ResourceGroup, _ResourceId 
+    | sort by TimeGenerated asc
     ```
 
     Set the threshold value to 0 and select **Done**.

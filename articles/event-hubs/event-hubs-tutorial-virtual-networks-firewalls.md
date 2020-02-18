@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Enable Virtual Networks Integration and Firewalls on Event Hubs | Microsoft Docs
+title: Azure Event Hubs - Enable virtual networks integration and firewalls
 description: In this tutorial, you learn how to integrate Event Hubs with Virtual Networks and Firewalls to enable secure access.
 services: event-hubs
 author: axisc
 manager: darosa
 
 ms.author: aschhab
-ms.date: 11/28/2018
+ms.date: 12/20/2019
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc

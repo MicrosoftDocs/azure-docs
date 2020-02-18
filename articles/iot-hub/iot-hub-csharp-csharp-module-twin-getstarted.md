@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Hub module identity and module twin (.NET) | Microsoft Docs
+title: Get started w/ Azure IoT Hub module identity & module twin (.NET)
 description: Learn how to create module identity and update module twin using IoT SDKs for .NET.
 author: chrissie926
 ms.service: iot-hub
@@ -26,7 +26,7 @@ At the end of this tutorial, you have two .NET console apps:
 > [!NOTE]
 > For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
-To complete this tutorial, you need the following prerequisites:
+## Prerequisites
 
 * Visual Studio.
 

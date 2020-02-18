@@ -3,18 +3,17 @@ title: Create an account in the Azure portal - Azure Batch | Microsoft Docs
 description: Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud
 services: batch
 documentationcenter: ''
-author: laurenhughes
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: lahugh
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -112,9 +111,18 @@ In user subscription mode, an Azure key vault is required that belongs to the sa
 
 When creating the Batch account in user subscription mode, use the resource group for the key vault. Specify **User subscription** as the pool allocation mode, select the key vault, and check the box to grant Azure Batch access to the key vault. 
 
-If you prefer to grant access to the key vault manually, go to the **Access policies** section of the key vault and select **Microsoft Azure Batch**. Configure the **Secret permissions** using the drop down menu. Azure Batch must be given a minimum of **Get**, **List**, **Set**, and **Delete** permissions.
+If you prefer to grant access to the key vault manually, go to the **Access policies** section of the key vault and select **Add Access Policy** and search for **Microsoft Azure Batch**. Once selected, you will need to configure the **Secret permissions** using the drop down menu. Azure Batch must be given a minimum of **Get**, **List**, **Set**, and **Delete** permissions.
 
 ![Secret permissions for Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
+
+
+> [!NOTE]
+> Ensure that the **Azure Virtual Machines for deployment** and **Azure Resource Manager for template deployment** check boxes are selected under **Access policies** for the linked **Key Vault** resource.
+> 
+> ![Mandatory Key Vault Access Policy](./media/batch-account-create-portal/key-vault-access-policy.png)
+> This is not mandatory when creating a Batch account in the Azure portal. The option is selected by default.
+
+
 
 ### Configure subscription quotas
 

@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Blob storage and Visual Studio connected services (ASP.NET Core) | Microsoft Docs
+title: Get started with Azure Blob storage using Visual Studio (ASP.NET Core) 
 description: How to get started using Azure Blob storage in an ASP.NET Core project in Visual Studio, after connecting to a storage account by using Visual Studio connected services
 services: storage
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: ghogen
-
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Get started with Azure Blob storage and Visual Studio connected services (ASP.NET Core)
 
@@ -65,7 +65,7 @@ This section walks through setting up the development environment. This includes
 1. In the **Azure Storage** dialog box, select the Azure storage account to be used for this tutorial. To create a new Azure storage account, select **Create a New Storage Account**, and complete the form. After selecting either an existing storage account or creating a new one, select **Add**. Visual Studio installs the NuGet package for Azure Storage, and a storage connection string to **appsettings.json**.
 
 > [!TIP]
-> To learn how to create a storage account with the [Azure portal](https://portal.azure.com), see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+> To learn how to create a storage account with the [Azure portal](https://portal.azure.com), see [Create a storage account](../storage/common/storage-account-create.md).
 >
 > You can also create a storage account by using [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md), or [Azure Cloud Shell](../cloud-shell/overview.md).
 

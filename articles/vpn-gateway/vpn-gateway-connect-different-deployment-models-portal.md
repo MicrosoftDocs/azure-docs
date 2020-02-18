@@ -6,8 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 10/17/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
 ---
 # Connect virtual networks from different deployment models using the portal
@@ -26,7 +25,7 @@ If you do not already have a virtual network gateway and do not want to create o
 
 ### <a name="before"></a>Before you begin
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 * These steps assume that both VNets have already been created. If you are using this article as an exercise and don't have VNets, there are links in the steps to help you create them.
 * Verify that the address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
@@ -97,7 +96,7 @@ If you already have a VNet with a VPN gateway, verify that the gateway is Dynami
 ### 2. <a name="local"></a>Configure the local site
 
 1. Navigate to **All resources** and locate the **ClassicVNet** in the list.
-2. On the **Overview** page, in the **VPN connections** section, click **Gateway** to create a gateway.
+2. Click **Gateway** in the **Settings** section of the menu, and then click on the banner to create a gateway.
   ![Configure a VPN gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configure a VPN gateway")
 3. On the **New VPN Connection** page, for **Connection type**, select **Site-to-site**.
 4. For **Local site**, click **Configure required settings**. This opens the **Local site** page.
@@ -141,20 +140,13 @@ In this section, you create the virtual network gateway and the local network ga
 * Subnet name = Subnet-1 <br>
 * Address range = 192.168.1.0/24 <br>
 
-
 If you don't have a Resource Manager VNet and are running these steps as an exercise, create a virtual network with the steps in [Create a virtual network](../virtual-network/quick-create-portal.md), using the example values.
 
-### 2. Create a gateway subnet
+### <a name="creategw"></a>2. Create a virtual network gateway
 
-**Example value:** GatewaySubnet = 192.168.0.0/26
+In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
-Before creating a virtual network gateway, you first need to create the gateway subnet. Create a gateway subnet with CIDR count of /28 or larger (/27, /26, etc.). If you are creating this as part of an exercise, you can use the Example values.
-
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
-
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
-
-### <a name="creategw"></a>3. Create a virtual network gateway
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
 **Example values:**
 
@@ -164,11 +156,14 @@ Before creating a virtual network gateway, you first need to create the gateway 
 * SKU = VpnGw1 <br>
 * Location = East US <br>
 * Virtual network = RMVNet <br>
+* GatewaySubnet = 192.168.0.0/26 <br>
 * First IP configuration = rmgwpip <br>
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>4. Create a local network gateway
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
+### <a name="createlng"></a>3. Create a local network gateway
 
 **Example values:** Local network gateway = ClassicVNetLocal
 

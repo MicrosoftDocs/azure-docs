@@ -1,10 +1,10 @@
 ---
-title: Community tools - Move classic resources to Azure Resource Manager | Microsoft Docs
+title: Community tools - Move classic resources to Azure Resource Manager 
 description: This article catalogs the tools that have been provided by the community to help migrate IaaS resources from classic to the Azure Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 
@@ -12,10 +12,10 @@ ms.assetid: 228b697b-3950-49f5-84bb-283bb56621b1
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: kasing
+ms.date: 02/06/2020
+ms.author: tagore
 
 ---
 # Community tools to migrate IaaS resources from classic to Azure Resource Manager

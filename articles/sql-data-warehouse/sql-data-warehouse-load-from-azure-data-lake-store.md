@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial Load from Azure Data Lake Storage to Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Tutorial load data from Azure Data Lake Storage'
 description: Use PolyBase external tables to load data from Azure Data Lake Storage into Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -7,15 +7,20 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 08/08/2019
+ms.date: 12/06/2019
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Load data from Azure Data Lake Storage to SQL Data Warehouse
-Use PolyBase external tables to load data from Azure Data Lake Storage into Azure SQL Data Warehouse. Although you can run adhoc queries on data stored in Data Lake Storage, we recommend importing the data into the SQL Data Warehouse for best performance.
+This guide outlines how to use PolyBase external tables to load data from Azure Data Lake Storage into Azure SQL Data Warehouse. Although you can run adhoc queries on data stored in Data Lake Storage, we recommend importing the data into the SQL Data Warehouse for best performance. 
 
+> [!NOTE]  
+> An alternative to loading is the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) currently in public preview. To provide feedback on the COPY statement, send an email to the following distribution list: sqldwcopypreview@service.microsoft.com.
+>
 > [!div class="checklist"]
+
 > * Create database objects required to load from Data Lake Storage.
 > * Connect to a Data Lake Storage directory.
 > * Load data into Azure SQL Data Warehouse.
@@ -27,14 +32,13 @@ Before you begin this tutorial, download and install the newest version of [SQL 
 
 To run this tutorial, you need:
 
-* Azure Active Directory Application to use for Service-to-Service authentication. To create, follow [Active directory authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
-
 * An Azure SQL Data Warehouse. See [Create and query and Azure SQL Data Warehouse](create-data-warehouse-portal.md).
-
-* A Data Lake Storage account. See [Get started with Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). 
+* A Data Lake Storage account. See [Get started with Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). For this storage account, you will need to configure or specify one of the following credentials to load: A storage account key, an Azure Directory Application user, or an AAD user which has the appropriate RBAC role to the storage account. 
 
 ##  Create a credential
-To access your Data Lake Storage account, you will need to create a Database Master Key to encrypt your credential secret used in the next step. You then create a Database Scoped Credential. When authenticating using service principals, the Database Scoped Credential stores the service principal credentials set up in AAD. You can also use the storage account key in the Database Scoped Credential for Gen2. 
+You can skip this section and proceed to "Create the external data source"  when authenticating using AAD pass-through. A database scoped credential is not required to be created or specified when using AAD pass-through but make sure your AAD user has the appropriate RBAC role (Storage Blob Data Reader, Contributor, or Owner Role)  to the storage account. More details are outlined [here](https://techcommunity.microsoft.com/t5/Azure-SQL-Data-Warehouse/How-to-use-PolyBase-by-authenticating-via-AAD-pass-through/ba-p/862260). 
+
+To access your Data Lake Storage account, you will need to create a Database Master Key to encrypt your credential secret. You then create a Database Scoped Credential to store your secret. When authenticating using service principals (Azure Directory Application user), the Database Scoped Credential stores the service principal credentials set up in AAD. You can also use the Database Scoped Credential to store the storage account key for Gen2.
 
 To connect to Data Lake Storage using service principals, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Data Lake Storage account. For instructions, see [Authenticate to Azure Data Lake Storage Using Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
@@ -69,7 +73,7 @@ WITH
     SECRET = '<azure_storage_account_key>'
 ;
 
--- It should look something like this when authenticating using service principals:
+-- It should look something like this when authenticating using service principal:
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
@@ -78,7 +82,7 @@ WITH
 ```
 
 ## Create the external data source
-Use this [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) command to store the location of the data. 
+Use this [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) command to store the location of the data. If you are authenticating with AAD pass-through, the CREDENTIAL parameter is not required. 
 
 ```sql
 -- C (for Gen1): Create an external data source
@@ -210,8 +214,8 @@ In this tutorial, you created external tables to define the structure for data s
 
 You did these things:
 > [!div class="checklist"]
-> * Created database objects required to load from Data Lake Storage Gen1.
-> * Connected to a Data Lake Storage Gen1 directory.
+> * Created database objects required to load from Data Lake Storage.
+> * Connected to a Data Lake Storage directory.
 > * Loaded data into Azure SQL Data Warehouse.
 >
 

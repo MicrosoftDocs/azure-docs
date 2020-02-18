@@ -1,11 +1,11 @@
 ---
-title: Troubleshooting Starting and Stopping VMs with Azure Automation
-description: This article provides information on troubleshooting Starting and Stopping VMs in Azure Automation
+title: Troubleshoot Starting and Stopping VMs - Azure Automation
+description: This article provides information on troubleshooting Starting and Stopping VMs in Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
@@ -23,7 +23,7 @@ Account already exists in another resourcegroup in a subscription. ResourceGroup
 ```
 
 ```error
-Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
+Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]".
 ```
 
 ```error
@@ -38,6 +38,14 @@ The subscription is not registered to use namespace 'Microsoft.Insights'.
 The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
 ```
 
+```error
+A parameter cannot be found that matches parameter name 'TagName'
+```
+
+```error
+Start-AzureRmVm : Run Login-AzureRmAccount to login
+```
+
 ### Cause
 
 Deployments may fail because of one of the following reasons:
@@ -46,20 +54,22 @@ Deployments may fail because of one of the following reasons:
 2. A policy is in place that disallows the deployment of the Start/Stop VMs solution.
 3. The `Microsoft.OperationsManagement`, `Microsoft.Insights`, or `Microsoft.Automation` resource types are not registered.
 4. Your Log Analytics workspace has a lock on it.
+5. You have an outdated version of AzureRM modules or the Start/Stop solution.
 
 ### Resolution
 
 Review the following list for potential solutions to your problem or places to look:
 
 1. Automation accounts need to be unique within an Azure region, even if they are in different resource groups. Check your existing Automation Accounts in the target region.
-2. An existing policy prevents a resource that is required for the Start/Stop VM solution to be deployed. Go to your policy assignments in the Azure portal and check whether you have a policy assignment that disallows the deployment of this resource. To learn more about this, see [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md).
+2. An existing policy prevents a resource that is required for the Start/Stop VM solution to be deployed. Go to your policy assignments in the Azure portal and check whether you have a policy assignment that disallows the deployment of this resource. To learn more about this, see [RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md).
 3. In order to deploy the Start/Stop VM solution, your subscription needs to be registered to the following Azure resource namespaces:
     * `Microsoft.OperationsManagement`
     * `Microsoft.Insights`
     * `Microsoft.Automation`
 
-   See, [Resolve errors for resource provider registration](../../azure-resource-manager/resource-manager-register-provider-errors.md) to learn more about errors when registering providers.
+   See, [Resolve errors for resource provider registration](../../azure-resource-manager/templates/error-register-resource-provider.md) to learn more about errors when registering providers.
 4. If you have a lock on your Log Analytics workspace, go to your workspace in the Azure portal and remove any locks on the resource.
+5. If the resolutions above do not solve your issue, follow the instructions under [Update the Solution](../automation-solution-vm-management.md#update-the-solution) to re-deploy the Start/Stop solution.
 
 ## <a name="all-vms-fail-to-startstop"></a>Scenario: All VMs fail to start/stop
 

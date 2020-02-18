@@ -1,21 +1,12 @@
 ---
-title: Azure virtual machine scale sets overview | Microsoft Docs
+title: Azure virtual machine scale sets overview
 description: Learn about Azure virtual machine scale sets and how to automatically scale your applications
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/21/2018
+ms.date: 09/26/2019
 ms.author: manayar
 
 ---
@@ -58,6 +49,11 @@ Scale sets are built from virtual machines. With scale sets, the management and 
 
 There is no additional cost to scale sets. You only pay for the underlying compute resources such as the VM instances, load balancer, or Managed Disk storage. The management and automation features, such as autoscale and redundancy, incur no additional charges over the use of VMs.
 
+## How to monitor your scale sets
+
+Use [Azure Monitor for VMs](../azure-monitor/insights/vminsights-overview.md), which has a simple onboarding process and will automate the collection of important CPU, memory, disk, and network performance counters from the VMs in your scale set. It also includes additional monitoring capabilities and pre-defined visualizations that help you focus on the availability and performance of your scale sets.
+
+Enable monitoring for your [virtual machine scale set application](../azure-monitor/app/azure-vm-vmss-apps.md) with Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../azure-monitor/app/monitor-web-app-availability.md) to simulate user traffic.
 
 ## Next steps
 To get started, create your first virtual machine scale set in the Azure portal.

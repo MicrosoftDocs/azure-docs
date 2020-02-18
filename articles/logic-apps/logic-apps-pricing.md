@@ -1,12 +1,11 @@
 ---
-title: Pricing & billing - Azure Logic Apps | Microsoft Docs
-description: Learn how pricing and billing works for Azure Logic Apps
+title: Pricing & billing model
+description: Overview about how the pricing and billing model works for Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-ms.suite: logic-apps
+ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
 ---
@@ -25,7 +24,7 @@ For example, actions include:
 
 * Triggers, which are special actions. All logic apps require a trigger as the first step.
 * ["Built-in" or native actions](../connectors/apis-list.md#built-in) such as HTTP, calls to Azure Functions and API Management, and so on
-* Calls to [managed connectors](../connectors/apis-list.md##managed-connectors) such as Outlook 365, Dropbox, and so on
+* Calls to [managed connectors](../connectors/apis-list.md#managed-connectors) such as Outlook 365, Dropbox, and so on
 * Control flow steps, such as loops, conditional statements, and so on
 
 [Standard connectors](../connectors/apis-list.md#managed-connectors) are charged at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps). Generally available [Enterprise connectors](../connectors/apis-list.md#managed-connectors) are charged at the [Enterprise connector price](https://azure.microsoft.com/pricing/details/logic-apps), while public preview Enterprise connectors are charged at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps).
@@ -56,7 +55,7 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 
   * **Developer SKU**: Either up to 4 more Standard accounts, or up to 5 total Standard accounts. No Basic accounts.
 
-For more information about integration account limits, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic. 
+For more information about integration account limits, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic.
 
 For the Premium ISE SKU, the base unit has fixed capacity, so if you need more throughput, you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), either during creation or afterwards. The Developer ISE SKU doesn't have the capability to add more scale units. Logic apps that run in an ISE don't incur data retention costs.
 

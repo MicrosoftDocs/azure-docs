@@ -9,12 +9,22 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Name resolution - portal
-    href: dns-getstarted-portal.md
-  - name: Name resolution - PowerShell
-    href: dns-getstarted-powershell.md
-  - name: Name resolution - CLI
-    href: dns-getstarted-cli.md
+  - name: Public DNS
+    items:
+    - name: Create a public zone - portal
+      href: dns-getstarted-portal.md
+    - name: Create a public zone - PowerShell
+      href: dns-getstarted-powershell.md
+    - name: Create a public zone - CLI
+      href: dns-getstarted-cli.md
+  - name: Private DNS
+    items:
+    - name: Create a private zone - portal
+      href: private-dns-getstarted-portal.md
+    - name: Create a private zone - CLI
+      href: private-dns-getstarted-cli.md
+    - name: Create a private zone - PowerShell
+      href: private-dns-getstarted-powershell.md
 - name: Tutorials
   items:
   - name: Public DNS
@@ -29,15 +39,6 @@
       href: tutorial-alias-pip.md
     - name: Alias records for zone records
       href: tutorial-alias-rr.md
-  - name: Private DNS
-    items:
-    - name: Create private DNS zone and record
-      href: private-dns-portal.md
-
-- name: Samples
-  items:
-  - name: Azure CLI
-    href: cli-samples.md
 - name: Concepts
   items:
   - name: Public DNS
@@ -58,18 +59,20 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
   - name: Private DNS
     items:
-    - name: FAQ - Private DNS
-      href: dns-faq-private.md
+    - name: Private DNS zone
+      href: private-dns-privatednszone.md
+    - name: Virtual network links
+      href: private-dns-virtual-network-links.md
+    - name: Autoregistration
+      href: private-dns-autoregistration.md
     - name: Private DNS scenarios
       href: private-dns-scenarios.md
+    - name: DNS resolution in virtual networks
+      href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
+    - name: FAQ
+      href: dns-faq-private.md
 - name: How to
   items:
-  - name: Private DNS
-    items:
-    - name: Create private zone - CLI
-      href: private-dns-getstarted-cli.md
-    - name: Create private zone - PowerShell
-      href: private-dns-getstarted-powershell.md
   - name: Public DNS
     items:
     - name: Alias records for load balanced web apps
@@ -120,6 +123,8 @@
     items:
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=dns
+    - name: CLI Samples
+      href: cli-samples.md
     - name: Azure PowerShell
       href: /powershell/module/az.dns
     - name: Azure CLI
@@ -150,6 +155,8 @@
       href: /rest/api/dns/privatedns/privatezones
 - name: Related
   items:
+  - name: Private Link
+    href: ../private-link/private-link-overview.md
   - name: Application Gateway
     href: /azure/application-gateway/
   - name: Virtual Network

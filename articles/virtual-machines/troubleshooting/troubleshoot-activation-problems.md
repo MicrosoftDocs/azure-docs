@@ -4,14 +4,14 @@ description: Provides the troubleshoot steps for fixing Windows virtual machine 
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
@@ -22,7 +22,7 @@ If you have trouble when activating Azure Windows virtual machine (VM) that is c
 
 ## Understanding Azure KMS endpoints for Windows product activation of Azure Virtual Machines
 
-Azure uses different endpoints for KMS activation depending on the cloud region where the VM resides. When using this troubleshooting guide, use the appropriate KMS endpoint that applies to your region.
+Azure uses different endpoints for KMS (Key Management Services) activation depending on the cloud region where the VM resides. When using this troubleshooting guide, use the appropriate KMS endpoint that applies to your region.
 
 * Azure public cloud regions: kms.core.windows.net:1688
 * Azure China 21Vianet national cloud regions: kms.core.chinacloudapi.cn:1688

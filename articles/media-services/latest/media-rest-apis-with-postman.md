@@ -1,6 +1,6 @@
 ---
-title: Configure Postman for Azure Media Services REST API calls
-description: Learn how to configure Postman for Media Services REST API calls.
+title: Configure Postman for Azure Media Services v3 REST API calls
+description: This article shows you how to configure Postman so it can be used to call Azure Media Services (AMS) REST APIs.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 12/05/2019
 ms.author: juliako
 
 ---
-# Configure Postman for Media Services REST API calls
+# Configure Postman for Media Services v3 REST API calls
 
 This article shows you how to configure **Postman** so it can be used to call Azure Media Services (AMS) REST APIs. The article shows how to import environment and collection files into **Postman**. The collection contains grouped definitions of HTTP requests that call Azure Media Services (AMS) REST APIs. The environment file contains variables that are used by the collection.
 
@@ -30,6 +30,9 @@ Before you start developing, review [Developing with Media Services v3 APIs](med
 
     We are using **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 
 
+> [!IMPORTANT]
+> Review [naming conventions](media-services-apis-overview.md#naming-conventions).
+
 ## Download Postman files
 
 Clone a GitHub repository that contains the  Postman collection and environment files.
@@ -40,11 +43,9 @@ Clone a GitHub repository that contains the  Postman collection and environment 
 
 ## Configure Postman
 
-This section configures the Postman.
-
 ### Configure the environment 
 
-1. Open the **Postman**.
+1. Open the **Postman** app.
 2. On the right of the screen, select the **Manage environment** option.
 
     ![Manage env](./media/develop-with-postman/postman-import-env.png)
@@ -73,7 +74,7 @@ This section configures the Postman.
 
 Before you start manipulating AMS v3 resources you need to get and set Azure AD Token for Service Principal Authentication.
 
-1. In the left window of the Postman, select "Step 1: Get AAD Auth token".
+1. In the left window of the Postman app, select "Step 1: Get AAD Auth token".
 2. Then, select "Get Azure AD Token for Service Principal Authentication".
 3. Press **Send**.
 
@@ -86,6 +87,11 @@ Before you start manipulating AMS v3 resources you need to get and set Azure AD 
 4. The response comes back with the token and sets the "AccessToken" environment variable to the token value.  
 
     ![Get AAD token](./media/develop-with-postman/postman-get-aad-auth-token.png)
+
+## Troubleshooting 
+
+* If your application fails with "HTTP 504: Gateway Timeout", make sure that the location variable has not been explicitly set to a value other than the expected location of the Media Services account. 
+* If you get an "account not found" error, also check to make sure that the location property in the Body JSON message is set to the location that the Media Services account is in. 
 
 ## See also
 

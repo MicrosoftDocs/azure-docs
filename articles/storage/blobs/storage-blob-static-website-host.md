@@ -5,7 +5,7 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ---
@@ -14,9 +14,9 @@ ms.reviewer: dineshm
 
 # Tutorial: Host a static website on Blob Storage
 
-This tutorial is part one of a series. In it, you learn how to build and deploy a static website to Azure Storage. When you're finished, you will have a static website that users can access publicly. 
+In this tutorial, you'll learn how to build and deploy a static website to Azure Storage. When you're finished, you will have a static website that users can access publicly. 
 
-In part one of the series, you learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Configure static website hosting
@@ -25,6 +25,9 @@ In part one of the series, you learn how to:
 ## Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+
+> [!NOTE] 
+> Make sure to create a general-purpose v2 storage account. Static websites aren't available in any other type of storage account.
 
 This tutorial uses [Visual Studio Code](https://code.visualstudio.com/download), a free tool for programmers, to build the static website and deploy it to an Azure Storage account.
 
@@ -91,9 +94,9 @@ You’ve successfully completed the tutorial and deployed a static website to Az
 
 ## Next steps
 
-In part one of this tutorial, you learned how to configure your Azure Storage account for static website hosting, and how to create and deploy a static website to an Azure endpoint.
+In this tutorial, you learned how to configure your Azure Storage account for static website hosting, and how to create and deploy a static website to an Azure endpoint.
 
-Now advance to part two, where you configure a custom domain with SSL for your static website with Azure CDN.
+Next, learn how to configure a custom domain with your static website.
 
 > [!div class="nextstepaction"]
-> [Use Azure CDN to enable a custom domain with SSL for a static website](storage-blob-static-website-custom-domain.md)
+> [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)

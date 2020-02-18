@@ -18,7 +18,6 @@ ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Application types for Microsoft identity platform
@@ -86,7 +85,7 @@ In addition to simple sign-in, a web server app might need to access another web
 
 ## Web APIs
 
-You can use the Microsoft identity platform endpoint to secure web services, such as your app's RESTful Web API. Instead of ID tokens and session cookies, a Web API uses an OAuth 2.0 access token to secure its data and to authenticate incoming requests. The caller of a Web API appends an access token in the authorization header of an HTTP request, like this:
+You can use the Microsoft identity platform endpoint to secure web services, such as your app's RESTful Web API. Web APIs can be implemented in numerous platforms and languages. They can also be implemented using HTTP Triggers in Azure Functions. Instead of ID tokens and session cookies, a Web API uses an OAuth 2.0 access token to secure its data and to authenticate incoming requests. The caller of a Web API appends an access token in the authorization header of an HTTP request, like this:
 
 ```
 GET /api/items HTTP/1.1
@@ -118,7 +117,7 @@ In this flow, the app receives an authorization code from the Microsoft identity
 
 ## Daemons and server-side apps
 
-Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow. You can prove the app's identity using a client secret or certificate. For more info, see [Authenticating to Microsoft identity platform in daemon apps with certificates](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
+Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow. You can prove the app's identity using a client secret or certificate. For more info, see [Authenticating to Microsoft identity platform in daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/).
 
 In this flow, the app interacts directly with the `/token` endpoint to obtain access:
 

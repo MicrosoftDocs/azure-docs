@@ -1,21 +1,21 @@
 ---
-title: Create a zoned Windows VM with the Azure portal | Microsoft Docs
+title: Create a zoned Windows VM with the Azure portal 
 description: Create a Windows VM in an availability zone with the Azure portal
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: gwallace
 editor: 
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/27/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: 
 ---
 

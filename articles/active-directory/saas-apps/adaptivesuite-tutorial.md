@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
@@ -194,7 +194,7 @@ To enable Azure AD users to sign in to Adaptive Insights, they must be provision
    c. Click **Submit**.
 
 > [!NOTE]
-> You can use any other Adaptive Insights user account creation tools or APIs provided by Adaptive Insights to provision AAD user accounts.
+> You can use any other Adaptive Insights user account creation tools or APIs provided by Adaptive Insights to provision Azure AD user accounts.
 
 ### Test SSO 
 

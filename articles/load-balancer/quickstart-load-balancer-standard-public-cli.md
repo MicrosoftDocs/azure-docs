@@ -1,13 +1,13 @@
 ---
-title: Quickstart:Create a public Standard Load Balancer - Azure CLI
-titlesuffix: Azure Load Balancer
+title: Quickstart:Create a public Load Balancer - Azure CLI
+titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a public load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
 tags: azure-resource-manager
-Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
 ms.devlang: na
@@ -18,9 +18,9 @@ ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
 ---
-# Quickstart: Create a Standard Load Balancer to load balance VMS using Azure CLI
+# Quickstart: Create a Standard Load Balancer to load balance VMs using Azure CLI
 
-This quickstart shows you how to create Standard Load Balancer. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server and load balance a web app between the two VMs.
+This quickstart shows you how to create a public Load Balancer. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server and load balance a web app between the two VMs.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -38,15 +38,23 @@ The following example creates a resource group named *myResourceGroupSLB* in the
     --location eastus
 ```
 
-## Create a public Standard IP address
+## Create a public IP address
 
-To access your web app on the Internet, you need a public IP address for the load balancer. A Standard Load Balancer only supports Standard Public IP addresses. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) to create a Standard Public IP address named *myPublicIP* in *myResourceGroupSLB*.
+To access your web app on the Internet, you need a public IP address for the load balancer. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) to create a Standard zone redundant Public IP address named *myPublicIP* in *myResourceGroupSLB*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard
 ```
 
-## Create Azure load balancer
+To create a zonal Public IP address in zone 1 use:
+
+```azurecli-interactive
+  az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
+```
+
+ Use ```--sku basic``` to create a Basic Public IP. Basic does not support Availability zones. Microsoft recommends Standard SKU for production workloads.
+
+## Create Azure Load balancer
 
 This section details how you can create and configure the following components of the load balancer:
   - a frontend IP pool that receives the incoming network traffic on the load balancer.
@@ -56,7 +64,7 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer
 
-Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend pool named **myFrontEnd**, a backend pool named **myBackEndPool** that is associated with the public IP address **myPublicIP** that you created in the preceding step.
+Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend pool named **myFrontEnd**, a backend pool named **myBackEndPool** that is associated with the public IP address **myPublicIP** that you created in the preceding step. Use ```--sku basic``` to create a Basic Public IP. Microsoft recommends Standard SKU for production workloads.
 
 ```azurecli-interactive
   az network lb create \
@@ -176,20 +184,11 @@ Create three network interfaces with [az network nic create](/cli/azure/network/
 
 ```
 
-
 ## Create backend servers
 
-In this example, you create three virtual machines to be used as backend servers for the load balancer. To verify that the load balancer was successfully created, you also install NGINX on the virtual machines .
+In this example, you create three virtual machines to be used as backend servers for the load balancer. To verify that the load balancer was successfully created, you also install NGINX on the virtual machines.
 
-### Create an Availability set
-
-Create an availability set with [az vm availabilityset create](/cli/azure/network/nic)
-
- ```azurecli-interactive
-  az vm availability-set create \
-    --resource-group myResourceGroupSLB \
-    --name myAvailabilitySet
-```
+If you're creating a Basic Load Balancer with a Basic Public IP, you will need to create an Availability Set using ([az vm availabilityset create](/cli/azure/network/nic) to add your virtual machines into. Standard Load Balancers do not require this additional step. Microsoft recommends using Standard.
 
 ### Create three virtual machines
 
@@ -294,9 +293,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 ```azurecli-interactive 
   az group delete --name myResourceGroupSLB
 ```
-## Next step
-In this quickstart, you created Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+## Next steps
+In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the Load Balancer traffic rule, health probe, and then tested the Load Balancer. To learn more about Azure Load Balancer, continue to [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-> [!div class="nextstepaction"]
-> [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
-
+Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).

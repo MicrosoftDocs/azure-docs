@@ -29,7 +29,7 @@ The tutorial shows you how to:
 > * Enable a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the Virtual Machine.
 > * Assign permissions to the VM identity.
 
-Before you begin, read [Key Vault basic concepts](key-vault-whatis.md#basic-concepts). 
+Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -43,7 +43,7 @@ For Windows, Mac, and Linux:
 
 Azure Key Vault stores credentials securely, so they're not displayed in your code. However, you need to authenticate to Azure Key Vault to retrieve your keys. To authenticate to Key Vault, you need a credential. It's a classic bootstrap dilemma. Managed Service Identity (MSI) solves this issue by providing a _bootstrap identity_ that simplifies the process.
 
-When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](key-vault-whatis.md#basic-concepts). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the service principal credentials into that instance. 
+When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](basic-concepts.md). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the service principal credentials into that instance. 
 
 ![MSI](media/MSI.png)
 
@@ -177,10 +177,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-Edit the class file to contain the code in the following two-step process:
+Edit the class file to contain the code in the following three-step process:
 
 1. Fetch a token from the local MSI endpoint on the VM. Doing so also fetches a token from Azure AD.
-1. Pass the token to your key vault, and then fetch your secret. 
+2. Pass the token to your key vault, and then fetch your secret. 
+3. Add the vault name and secret name to the request.
 
 ```csharp
  class Program
@@ -201,9 +202,10 @@ Edit the class file to contain the code in the following two-step process:
             WebResponse response = request.GetResponse();
             return ParseWebResponse(response, "access_token");
         }
-
+        
         static string FetchSecretValueFromKeyVault(string token)
         {
+            //Step 3: Add the vault name and secret name to the request.
             WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
             kvRequest.Headers.Add("Authorization", "Bearer "+  token);
             WebResponse kvResponse = kvRequest.GetResponse();

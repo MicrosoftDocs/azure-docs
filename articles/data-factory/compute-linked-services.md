@@ -1,16 +1,16 @@
 ---
-title: Compute environments supported by Azure Data Factory | Microsoft Docs
+title: Compute environments supported by Azure Data Factory 
 description: Learn about compute environments that you can use in Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
 ---
 # Compute environments supported by Azure Data Factory
 This article explains different compute environments that you can use to process or transform data. It also provides details about different configurations (on-demand vs. bring your own) supported by Data Factory when configuring linked services linking these compute environments to an Azure data factory.
@@ -21,11 +21,13 @@ The following table provides a list of compute environments supported by Data Fa
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
-
+| [Azure Function](#azure-function-linked-service)         | [Azure Function activity](control-flow-azure-function-activity.md)
 >  
 
 ## On-demand HDInsight compute environment
@@ -108,7 +110,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 | connectVia                   | The Integration Runtime to be used to dispatch the activities to this HDInsight linked service. For on-demand HDInsight linked service, it only supports Azure Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
 | clusterUserName                   | The username to access the cluster. | No       |
 | clusterPassword                   | The password in type of secure string to access the cluster. | No       |
-| clusterSshUserName         | The username to SSH remotely connect to cluster’s node (for Linux). | No       |
+| clusterSshUserName         | The username to SSH remotely connects to cluster’s node (for Linux). | No       |
 | clusterSshPassword         | The password in type of secure string to SSH remotely connect cluster’s node (for Linux). | No       |
 | scriptActions | Specify script for [HDInsight cluster customizations](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) during on-demand cluster creation. <br />Currently, Azure Data Factory's User Interface authoring tool supports specifying only 1 script action, but you can get through this limitation in the JSON (specify multiple script actions in the JSON). | No |
 
@@ -286,7 +288,7 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 | password          | Specify password for the user account.                       | Yes      |
 | linkedServiceName | Name of the Azure Storage linked service that refers to the Azure blob storage used by the HDInsight cluster. <p>Currently, you cannot specify an Azure Data Lake Store linked service for this property. If the HDInsight cluster has access to the Data Lake Store, you may access data in the Azure Data Lake Store from Hive/Pig scripts. </p> | Yes      |
 | isEspEnabled      | Specify '*true*' if the HDInsight cluster is [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture) enabled. Default is '*false*'. | No       |
-| connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. <br />For Enterprise Security Package (ESP) enabled HDInsight cluster use a self-hosted integration runtime which has a line of sight to the cluster or it should be deployed inside the same Virtual Network as the ESP HDInsight cluster. | No       |
+| connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. <br />For Enterprise Security Package (ESP) enabled HDInsight cluster use a self-hosted integration runtime, which has a line of sight to the cluster or it should be deployed inside the same Virtual Network as the ESP HDInsight cluster. | No       |
 
 > [!IMPORTANT]
 > HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
@@ -302,10 +304,10 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 
 You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) to a data factory. You can run Custom activity using Azure Batch.
 
-See following topics if you are new to Azure Batch service:
+See following articles if you are new to Azure Batch service:
 
 * [Azure Batch basics](../batch/batch-technical-overview.md) for an overview of the Azure Batch service.
-* [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) topic for detailed instructions on using the cmdlet.
+* [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) article for detailed instructions on using the cmdlet.
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
 ### Example
@@ -348,8 +350,8 @@ See following topics if you are new to Azure Batch service:
 | linkedServiceName | Name of the Azure Storage linked service associated with this Azure Batch linked service. This linked service is used for staging files required to run the activity. | Yes      |
 | connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
 
-## Azure Machine Learning linked service
-You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint to a data factory.
+## Azure Machine Learning Studio linked service
+You create an Azure Machine Learning Studio linked service to register a Machine Learning batch scoring endpoint to a data factory.
 
 ### Example
 
@@ -379,11 +381,55 @@ You create an Azure Machine Learning linked service to register a Machine Learni
 | Type                   | The type property should be set to: **AzureML**. | Yes                                      |
 | mlEndpoint             | The batch scoring URL.                   | Yes                                      |
 | apiKey                 | The published workspace model’s API.     | Yes                                      |
-| updateResourceEndpoint | The Update Resource URL for an Azure ML Web Service endpoint used to update the predictive Web Service with trained model file | No                                       |
+| updateResourceEndpoint | The Update Resource URL for an Azure Machine Learning Web Service endpoint used to update the predictive Web Service with trained model file | No                                       |
 | servicePrincipalId     | Specify the application's client ID.     | Required if updateResourceEndpoint is specified |
 | servicePrincipalKey    | Specify the application's key.           | Required if updateResourceEndpoint is specified |
 | tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified |
 | connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No                                       |
+
+## Azure Machine Learning linked service
+You create an Azure Machine Learning linked service to connect an Azure Machine Learning workspace to a data factory.
+
+> [!NOTE]
+> Currently only service principal authentication is supported for the Azure Machine Learning linked service.
+
+### Example
+
+```json
+{
+    "name": "AzureMLServiceLinkedService",
+    "properties": {
+        "type": "AzureMLService",
+        "typeProperties": {
+            "subscriptionId": "subscriptionId",
+            "resourceGroupName": "resourceGroupName",
+            "mlWorkspaceName": "mlWorkspaceName",
+            "servicePrincipalId": "service principal id",
+            "servicePrincipalKey": {
+                "value": "service principal key",
+                "type": "SecureString"
+            },
+            "tenant": "tenant ID"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime?",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Properties
+| Property               | Description                              | Required                                 |
+| ---------------------- | ---------------------------------------- | ---------------------------------------- |
+| Type                   | The type property should be set to: **AzureMLService**. | Yes                                      |
+| subscriptionId         | Azure subscription ID              | Yes                                      |
+| resourceGroupName      | name | Yes                                      |
+| mlWorkspaceName        | Azure Machine Learning workspace name | Yes  |
+| servicePrincipalId     | Specify the application's client ID.     | No |
+| servicePrincipalKey    | Specify the application's key.           | No |
+| tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified | No |
+| connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No |    
 
 ## Azure Data Lake Analytics linked service
 You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
@@ -404,7 +450,7 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
                 "type": "SecureString"
             },
             "tenant": "tenant ID",
-            "subscriptionId": "<optional, subscription id of ADLA>",
+            "subscriptionId": "<optional, subscription ID of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
         },
         "connectVia": {
@@ -422,7 +468,7 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 | type                 | The type property should be set to: **AzureDataLakeAnalytics**. | Yes                                      |
 | accountName          | Azure Data Lake Analytics Account Name.  | Yes                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics URI.           | No                                       |
-| subscriptionId       | Azure subscription id                    | No                                       |
+| subscriptionId       | Azure subscription ID                    | No                                       |
 | resourceGroupName    | Azure resource group name                | No                                       |
 | servicePrincipalId   | Specify the application's client ID.     | Yes                                      |
 | servicePrincipalKey  | Specify the application's key.           | Yes                                      |
@@ -432,7 +478,9 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 
 
 ## Azure Databricks linked service
-You can create **Azure Databricks linked service** to register Databricks workspace that you will use to run the Databricks workloads(notebooks).
+You can create **Azure Databricks linked service** to register Databricks workspace that you will use to run the Databricks workloads(notebook, jar, python). 
+> [!IMPORTANT]
+> Databricks linked services supports [Instance pools](https://aka.ms/instance-pools). 
 
 ### Example - Using new job cluster in Databricks
 
@@ -480,13 +528,14 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 | Property             | Description                              | Required                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | name                 | Name of the Linked Service               | Yes   |
-| type                 | The type property should be set to: **AzureDatabricks**. | Yes                                      |
+| type                 | The type property should be set to: **Azure Databricks**. | Yes                                      |
 | domain               | Specify the Azure Region accordingly based on the region of the Databricks workspace. Example: https://eastus.azuredatabricks.net | Yes                                 |
 | accessToken          | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Yes                                       |
 | existingClusterId    | Cluster ID of an existing cluster to run all jobs on this. This should be an already created Interactive Cluster. You may need to manually restart the cluster if it stops responding. Databricks suggest running jobs on new clusters for greater reliability. You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [More details](https://docs.databricks.com/user-guide/clusters/tags.html) | No 
+| instancePoolId    | Instance Pool ID of an existing pool in databricks workspace.  | No  |
 | newClusterVersion    | The Spark version of the cluster. It will create a job cluster in databricks. | No  |
-| newClusterNumOfWorker| Number of worker nodes that this cluster should have. A cluster has one Spark Driver and num_workers Executors for a total of num_workers + 1 Spark nodes. A string formatted Int32, like “1” means numOfWorker is 1 or “1:10” means auto-scale from 1 as min and 10 as max.  | No                |
-| newClusterNodeType   | This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster. For example, the Spark nodes can be provisioned and optimized for memory or compute intensive workloads  This field is required for new cluster                | No               |
+| newClusterNumOfWorker| Number of worker nodes that this cluster should have. A cluster has one Spark Driver and num_workers Executors for a total of num_workers + 1 Spark nodes. A string formatted Int32, like “1” means numOfWorker is 1 or “1:10” means autoscale from 1 as min and 10 as max.  | No                |
+| newClusterNodeType   | This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster. For example, the Spark nodes can be provisioned and optimized for memory or compute intensive workloads. This field is required for new cluster                | No               |
 | newClusterSparkConf  | a set of optional, user-specified Spark configuration key-value pairs. Users can also pass in a string of extra JVM options to the driver and the executors via spark.driver.extraJavaOptions and spark.executor.extraJavaOptions respectively. | No  |
 | newClusterInitScripts| a set of optional, user-defined initialization scripts for the new cluster. Specifying the DBFS path to the init scripts. | No  |
 
@@ -499,6 +548,16 @@ You create an Azure SQL Data Warehouse linked service and use it with the [Store
 
 ## SQL Server linked service
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [SQL Server connector](connector-sql-server.md#linked-service-properties) article for details about this linked service.
+
+## Azure Function linked service
+You create an Azure Function linked service and use it with the [Azure Function activity](control-flow-azure-function-activity.md) to run Azure Functions in a Data Factory pipeline. The return type of the Azure function has to be a valid `JObject`. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *not* a `JObject`.) Any return type other than `JObject` fails and raises the user error *Response Content is not a valid JObject*.
+
+| **Property** | **Description** | **Required** |
+| --- | --- | --- |
+| type   | The type property must be set to: **AzureFunction** | yes |
+| function app url | URL for the Azure Function App. Format is `https://<accountname>.azurewebsites.net`. This URL is the value under **URL** section when viewing your Function App in the Azure portal  | yes |
+| function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | yes |
+|   |   |   |
 
 ## Next steps
 For a list of the transformation activities supported by Azure Data Factory, see [Transform data](transform-data.md).

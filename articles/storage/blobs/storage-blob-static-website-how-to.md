@@ -17,7 +17,7 @@ This article shows you how to enable static website hosting by using the Azure p
 
 <a id="portal" />
 
-## Use the Azure portal
+## [Portal](#tab/azure-portal)
 
 For a step-by-step tutorial, see [Tutorial: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
@@ -33,7 +33,7 @@ In the pane that appears beside the account overview page of your storage accoun
 
 <a id="cli" />
 
-## Use the Azure CLI
+## [Azure CLI](#tab/azure-cli)
 
 You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -97,7 +97,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 <a id="powershell" />
 
-## Use PowerShell
+## [PowerShell](#tab/azure-powershell)
 
 You can enable static website hosting by using the Azure PowerShell module.
 
@@ -170,7 +170,7 @@ You can view content from a browser by using the public URL of the website.
 Find the URL by using the following command:
 
 ```powershell
- $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>"
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
@@ -179,6 +179,8 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 <a id="metrics" />
+
+---
 
 ## Enable metrics on static website pages
 
@@ -214,10 +216,5 @@ Once you've enabled metrics, traffic statistics on files in the **$web** contain
 
 ## Next steps
 
-* [Static website hosting in Azure Storage](storage-blob-static-website.md)
-* [Use the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
-* [Configure a custom domain name for your blob or web endpoint](storage-custom-domain-name.md)
-* [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure App Service](/azure/app-service/overview)
-* [Build your first serverless web app](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+* Learn how to configure a custom domain with your static website. See [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md).
+

@@ -1,11 +1,11 @@
 ---
 title: Azure Firewall FAQ
-description: FAQ for Azure Firewall
+description: FAQ for Azure Firewall. A managed, cloud-based network security service that protects your Azure Virtual Network resources.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 6/21/2019
+ms.date: 02/18/2020
 ms.author: victorh
 ---
 
@@ -49,7 +49,7 @@ There are three types of rule collections:
 
 ## Does Azure Firewall support inbound traffic filtering?
 
-Azure Firewall supports inbound and outbound filtering. Inbound protection is for non-HTTP/S protocols. For example RDP, SSH, and FTP protocols.
+Azure Firewall supports inbound and outbound filtering. Inbound protection is typically used for non-HTTP/S protocols. For example RDP, SSH, and FTP protocols. For best inbound HTTP/S protection, use a web application firewall such as [Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
 
 ## Which logging and analytics services are supported by the Azure Firewall?
 
@@ -108,7 +108,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## What are the known service limits?
 
-For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#azure-firewall-limits).
+For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
 ## Can Azure Firewall in a hub virtual network forward and filter network traffic between two spoke virtual networks?
 
@@ -120,15 +120,15 @@ Yes. However, configuring the UDRs to redirect traffic between subnets in the sa
 
 ## Does Azure Firewall outbound SNAT between private networks?
 
-Azure Firewall doesn’t SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet.
+Azure Firewall doesn’t SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 
 ## Is forced tunneling/chaining to a Network Virtual Appliance supported?
 
-Forced tunneling isn't supported by default, but it can be enabled with help from Support.
+Forced tunneling is supported. For more information, see [Azure Firewall forced tunneling (preview)](forced-tunneling.md). 
 
-Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity. By default, Azure Firewall doesn't support forced tunneling to an on-premises network.
+Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
 
-However, if your configuration requires forced tunneling to an on-premises network, Microsoft will support it on a case by case basis. Contact Support so that we can review your case. If accepted, we'll allow your subscription and ensure the required firewall Internet connectivity is maintained.
+If your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.
 
 ## Are there any firewall resource group restrictions?
 
@@ -145,3 +145,30 @@ If you configure ***.contoso.com**, it allows *anyvalue*.contoso.com, but not co
 ## What does *Provisioning state: Failed* mean?
 
 Whenever a configuration change is applied, Azure Firewall attempts to update all its underlying backend instances. In rare cases, one of these backend instances may fail to update with the new configuration and the update process  stops with a failed provisioning state. Your Azure Firewall is still operational, but the applied configuration may be in an inconsistent state, where some instances have the previous configuration where others have the updated rule set. If this happens, try updating your configuration one more time until the operation succeeds and your Firewall is in a *Succeeded* provisioning state.
+
+### How does Azure Firewall handle planned maintenance and unplanned failures?
+Azure Firewall consists of several backend nodes in an active-active configuration.  For any planned maintenance, we have connection draining logic to gracefully update nodes.  Updates are planned during non-business hours for each of the Azure regions to further limit risk of disruption.  For unplanned issues, we instantiate a new node to replace the failed node.  Connectivity to the new node is typically reestablished within 10 seconds from the time of the failure.
+
+## Is there a character limit for a firewall name?
+
+Yes. There's a 50 character limit for a firewall name.
+
+## Why does Azure Firewall need a /26 subnet size?
+
+Azure Firewall must provision more virtual machine instances as it scales. A /26 address space ensures that the firewall has enough IP addresses available to accommodate the scaling.
+
+## Does the firewall subnet size need to change as the service scales?
+
+No. Azure Firewall doesn't need a subnet bigger than /26.
+
+## How can I increase my firewall throughput?
+
+Azure Firewall's initial throughput capacity is 2.5 - 3 Gbps. Currently, scale out is based on CPU usage and throughput. In some cases, a firewall with network rules only won't scale up to increase throughput because the network rules don't significantly impact CPU usage. If you need higher throughput for your firewall, contact Support to increase your firewall's initial throughput capacity.
+
+## How long does it take for Azure Firewall to scale out?
+
+Currently, it takes from five to seven minutes for Azure Firewall to scale out. If you have bursts that require a faster autoscale, contact Support to increase your firewall's initial throughput capacity.
+
+## Does Azure Firewall allow access to Active Directory by default?
+
+No. Azure Firewall blocks Active Directory access by default. To allow access, configure the AzureActiveDirectory service tag. For more information, see [Azure Firewall service tags](service-tags.md).

@@ -1,28 +1,16 @@
 ---
-title: Enable offline sync for your Azure Mobile App (Xamarin Android)
-description: Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin Android application
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
-services: app-service\mobile
+title: Enable offline sync (Xamarin Android)
+description: Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin Android application.
 
 ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # Enable offline sync for your Xamarin.Android mobile app
 
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-
-> [!NOTE]
-> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started-offline-data) today.
->
 
 ## Overview
 

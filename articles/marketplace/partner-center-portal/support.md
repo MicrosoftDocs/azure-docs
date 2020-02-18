@@ -1,10 +1,11 @@
 ---
 title: Get support for the Commercial Marketplace portal in Partner Center
 description: Learn about your support options in Partner Center, including how to file a support request.
-author: mattwojo 
+author: ChJenk 
 manager: evansma
 ms.author: jamwall 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/17/2019
 ---
@@ -65,7 +66,7 @@ No information is required in the **Severity** section. Select **Next**.
 
 #### Who should we contact
 
-In the **Contact Information** section, ensure that your primary contact’s name, phone number, and email is correct. 
+In the **Contact Information** section, ensure that your primary contact's name, phone number, and email is correct. 
 - Update this information if you see anything that is incorrect
 - You may add other contacts from your company to this support request if desired
 - Select **Next**

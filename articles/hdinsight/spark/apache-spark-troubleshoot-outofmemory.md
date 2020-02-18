@@ -1,10 +1,11 @@
 ---
 title: OutOfMemoryError exceptions for Apache Spark in Azure HDInsight
-description: Various OutOfMemoryError exceptions for Apache Spark in Azure HDInsight
+description: Various OutOfMemoryError exceptions for Apache Spark cluster in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/15/2019
 ---
 
@@ -114,11 +115,11 @@ You can increase the Spark History Server memory by editing the `SPARK_DAEMON_ME
 
 You can do this from within the Ambari browser UI by selecting the Spark2/Config/Advanced spark2-env section.
 
-![Advanced spark2-env section](./media/apache-spark-ts-outofmemory-heap-space/image01.png)
+![Advanced spark2-env section](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
 Add the following property to change the Spark History Server memory from 1g to 4g: `SPARK_DAEMON_MEMORY=4g`.
 
-![Spark property](./media/apache-spark-ts-outofmemory-heap-space/image02.png)
+![Spark property](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
 Make sure to restart all affected services from Ambari.
 
@@ -249,4 +250,4 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

@@ -1,5 +1,5 @@
 ﻿---
-title: 'Tutorial: Create a pipeline using Resource Manager Template | Microsoft Docs'
+title: 'Tutorial: Create a pipeline using Resource Manager Template '
 description: In this tutorial, you create an Azure Data Factory pipeline by using an Azure Resource Manager template. This pipeline copies data from an Azure blob storage to an Azure SQL database. 
 services: data-factory
 documentationcenter: ''
@@ -10,8 +10,6 @@ editor:
 ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -47,7 +45,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 
 * Go through [Tutorial Overview and Prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 * Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install latest version of Azure PowerShell on your computer. In this tutorial, you use PowerShell to deploy Data Factory entities. 
-* (optional) See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/resource-group-authoring-templates.md) to learn about Azure Resource Manager templates.
+* (optional) See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/template-syntax.md) to learn about Azure Resource Manager templates.
 
 ## In this tutorial
 In this tutorial, you create a data factory with the following Data Factory entities:

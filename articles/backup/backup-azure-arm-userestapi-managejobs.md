@@ -1,14 +1,8 @@
 ---
-title: 'Azure Backup: Manage Backup Jobs using REST API'
-description: manage backup and restore jobs of Azure Backup using REST API
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM backup; Azure VM restore;
-ms.service: backup
+title:  Manage Backup Jobs using REST API
+description: In this article, learn how to track and manage backup and restore jobs of Azure Backup using REST API.
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ---
 
@@ -39,7 +33,7 @@ The Azure VM backup job is identified by "jobId" field and can be tracked as men
 ## Tracking the job
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2017-07-01
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
 The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with the "status" field indicating the current status of the job. Once it is "Completed" or "CompletedWithWarnings", the 'extendedInfo' section reveals more details about the job.

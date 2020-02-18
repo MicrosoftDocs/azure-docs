@@ -4,10 +4,12 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is the Data Science VM?
+  - name: What is the Data Science Virtual Machine (DSVM)?
     href: overview.md
-  - name: What is the Geo AI Data Science VM?
+  - name: What is the Geo AI DSVM?
     href: geo-ai-dsvm-overview.md
+  - name: Tools Included on the DSVM
+    href: tools-included.md
 - name: Quickstarts
   expanded: true
   items:
@@ -17,26 +19,27 @@
     href: dsvm-ubuntu-intro.md
   - name: Create a CentOS DSVM
     href: linux-dsvm-intro.md
-  - name: Create a Geo AI Data Science VM
+  - name: Create a Geo AI DSVM
     href: provision-geo-ai-dsvm.md 
 - name: Concepts
   items:
   - name: Deep Learning and AI frameworks
-    href: dsvm-deep-learning-ai-frameworks.md
+    href: dsvm-tools-deep-learning-frameworks.md
   - name: Programming languages
-    href: dsvm-languages.md
+    href: dsvm-tools-languages.md
   - name: Development tools 
     href: dsvm-tools-development.md
   - name: ML and data science tools
-    href: dsvm-ml-data-science-tools.md
+    href: dsvm-tools-data-science.md
   - name: Data platforms
-    href: dsvm-data-platforms.md    
+    href: dsvm-tools-data-platforms.md    
   - name: Data ingestion tools
     href: dsvm-tools-ingestion.md
-  - name: Data exploration & visualization tools
-    href: dsvm-tools-explore-and-visualize.md
-  - name: Enterprise security & guidance
+  - name: Productivity tools
+    href: dsvm-tools-productivity.md
+  - name: Enterprise security and guidance
     href: dsvm-enterprise-overview.md  
+
 - name: Samples    
   href: dsvm-samples-and-walkthroughs.md
 - name: How-to guides
@@ -47,7 +50,7 @@
     href: linux-dsvm-walkthrough.md
   - name: Use a Geo AI DSVM
     href: use-geo-ai-dsvm.md
-  - name: Create autoscaled DSVM pool 
+  - name: Create an autoscaled DSVM pool 
     href: dsvm-pools.md
   - name: Integrate with Active Directory
     href: dsvm-common-identity.md
@@ -61,3 +64,15 @@
     href: https://stackoverflow.com/search?q=dsvm
   - name: R developer guide 
     href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
+- name: Reference
+  items:
+  - name: Ubuntu DSVM
+    href: reference-ubuntu-vm.md
+  - name: CentOS DSVM
+    href: reference-centos-vm.md
+  - name: Release notes
+    href: release-notes.md
+  - name: Known issues
+    href: reference-known-issues.md
+  - name: Deprecation Announcements
+    href: reference-deprecation.md
