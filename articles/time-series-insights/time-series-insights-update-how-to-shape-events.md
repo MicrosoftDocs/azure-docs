@@ -40,9 +40,9 @@ During ingestion, payloads that contain nested columns (attributes) will be flat
 * For example, the following nested JSON:
 
    ```JSON
-   "data": [
+   "data": {
        "temperature": ...
-   ]
+   }
    ```
 
    Becomes: `data_temperature` when flattened.
