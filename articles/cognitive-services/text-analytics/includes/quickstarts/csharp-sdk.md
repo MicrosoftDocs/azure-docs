@@ -245,7 +245,7 @@ Language: English
 
 > [!NOTE]
 > New in version `3.0-preview`:
-> * Entity recognition now includes a separate capability for detecting personal identifiable information (PII).
+> * Entity recognition now includes the ability to detect personal information in text.
 > * Entity linking is now a separated from entity recognition.
 
 
