@@ -66,7 +66,7 @@ Zone-level RBAC permissions can be granted via the Azure portal.  Open **Access 
 
 ![DNS Zone level RBAC via the Azure portal](./media/dns-protect-private-zones-recordsets/rbac2.png)
 
-Permissions can also be [granted using PowerShell](../role-based-access-control/role-assignments-powershell.md):
+Permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```azurepowershell-interactive
 # Grant 'Private DNS Zone Contributor' permissions to a specific zone
