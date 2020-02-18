@@ -177,6 +177,8 @@
         href: betterworks-tutorial.md
       - name: BGS Online
         href: bgsonline-tutorial.md
+      - name: BIC Cloud Design
+        href: bic-cloud-design-tutorial.md
       - name: Bime
         href: bime-tutorial.md
       - name: Birst Agile Business Analytics
@@ -483,6 +485,8 @@
         href: expensein-tutorial.md
       - name: Expensify
         href: expensify-tutorial.md
+      - name: Experience Cloud
+        href: experience-cloud-tutorial.md
       - name: Explanation-Based Auditing System
         href: explanation-based-auditing-system-tutorial.md
       - name: Expiration Reminder
@@ -596,8 +600,6 @@
       items:
       - name: Hackerone
         href: hackerone-tutorial.md
-      - name: Halogen Software
-        href: halogen-software-tutorial.md
       - name: Halosys
         href: halosys-tutorial.md
       - name: HappyFox
@@ -650,6 +652,8 @@
         href: hype-tutorial.md
       - name: HyperAnna
         href: hyperanna-tutorial.md
+      - name: IamIP Patent Platform
+        href: iamip-patent-platform-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -960,6 +964,8 @@
         href: netsuite-tutorial.md
       - name: New Relic
         href: new-relic-tutorial.md
+      - name: New Relic (Limited Release)
+        href: new-relic-limited-release-tutorial.md
       - name: Nexonia
         href: nexonia-tutorial.md
       - name: Nimblex
@@ -972,6 +978,8 @@
         href: nomadic-tutorial.md
       - name: Novatus
         href: novatus-tutorial.md
+      - name: NS1 SSO for Azure
+        href: ns1-sso-azure-tutorial.md
       - name: Nuclino
         href: nuclino-tutorial.md
       - name: O.C. Tanner - AppreciateHub
@@ -1088,7 +1096,7 @@
         href: presspage-tutorial.md
       - name: Printix
         href: printix-tutorial.md
-      - name: Prisma Cloud
+      - name: Prisma Cloud SSO
         href: prisma-cloud-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
@@ -1174,6 +1182,8 @@
         href: runmyprocess-tutorial.md
     - name: S
       items:
+      - name: Saba TalentSpace
+        href: halogen-software-tutorial.md
       - name: SafeConnect
         href: safeconnect-tutorial.md
       - name: SafetyNet
@@ -1294,7 +1304,7 @@
         href: skyhighnetworks-tutorial.md
       - name: SKYSITE
         href: skysite-tutorial.md
-      - name: Skytap
+      - name: Single Sign-on for Skytap
         href: skytap-tutorial.md
       - name: Skyward Qmlativ
         href: skyward-qmlativ-tutorial.md
@@ -1468,6 +1478,8 @@
         href: veracode-tutorial.md
       - name: Veritas Enterprise Vault.cloud SSO
         href: veritas-tutorial.md
+      - name: Verkada Command
+        href: verkada-command-tutorial.md
       - name: Versal
         href: versal-tutorial.md
       - name: Viareport (Europe)
@@ -1727,6 +1739,8 @@
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
         href: peakon-provisioning-tutorial.md
+      - name: PureCloud by Genesys
+        href: purecloud-by-genesys-provisioning-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -28,8 +28,9 @@ This claim validates the format of the phone number. If it is in a valid format,
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | string | The claim of string type converting from. |
-| OutputClaim | outputClaim | string | The result of this claims transformation. |
+| InputClaim | phoneNumberString | string |  The string claim for the phone number. The phone number has to be in international format, complete with a leading "+" and country code. If input claim `country` is provided, the phone number is in local format (without the country code). |
+| InputClaim | country | string | [Optional] The string claim for the country code of the phone number in ISO3166 format (the two-letter ISO-3166 country code). |
+| OutputClaim | outputClaim | phoneNumber | The result of this claims transformation. |
 
 The **ConvertStringToPhoneNumberClaim** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md) or [display control](display-controls.md). The **UserMessageIfClaimsTransformationInvalidPhoneNumber** self-asserted technical profile metadata controls the error message that is presented to the user.
 
@@ -40,7 +41,8 @@ You can use this claims transformation to ensure that the provided string claim 
 ```XML
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="inputClaim" />
+    <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
+    <InputClaim ClaimTypeReferenceId="countryCode" TransformationClaimType="country" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
@@ -59,11 +61,19 @@ The self-asserted technical profile that calls the validation technical profile 
 </TechnicalProfile>
 ```
 
-### Example
+### Example 1
 
 - Input claims:
-  - **inputClaim**: +1 (123) 456-7890
+  - **phoneNumberString**: 045 456-7890
+  - **country**: DK
 - Output claims:
+  - **outputClaim**: +450546148120
+
+### Example 2
+
+- Input claims:
+  - **phoneNumberString**: +1 (123) 456-7890
+- Output claims: 
   - **outputClaim**: +11234567890
 
 ## GetNationalNumberAndCountryCodeFromPhoneNumberString

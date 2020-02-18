@@ -137,8 +137,6 @@
         href: /visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services?toc=/azure/cloud-services/toc.json
     - name: Cloud Service allocation failure
       href: cloud-services-allocation-failures.md
-    - name: Applications don't support TLS 1.2
-      href: applications-dont-support-TLS-1-2.md
     - name: Common causes of Cloud Service roles recycling
       href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
     - name: Application does not support TLS 1.2
