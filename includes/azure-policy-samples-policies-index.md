@@ -1,3 +1,7 @@
+## App Platform
+
+[!INCLUDE [azure-policy-samples-policies-app-platform](azure-policy-samples-policies-app-platform.md)]
+
 ## App Service
 
 [!INCLUDE [azure-policy-samples-policies-app-service](azure-policy-samples-policies-app-service.md)]
@@ -17,6 +21,10 @@
 ## Compute
 
 [!INCLUDE [azure-policy-samples-policies-compute](azure-policy-samples-policies-compute.md)]
+
+## Container Registry
+
+[!INCLUDE [azure-policy-samples-policies-container-registry](azure-policy-samples-policies-container-registry.md)]
 
 ## Cosmos DB
 
