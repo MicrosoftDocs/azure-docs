@@ -14,13 +14,13 @@ Save on your Azure Premium SSD usage. With reserved capacity and Azure Reserved 
 
 The reservation discount is applied automatically to the matching disks in the selected reservation scope. Because of this automatic application, you don't need to assign a reservation to a managed disk to get the discounts.
 
-Discounts are applied hourly depending on the disk usage. Unused reserved capacity doesn't carry over. Azure-Managed Disk Reservation discounts don't apply to Unmanaged Disks, Ultra Disks, or Page-Blob consumption.
+Discounts are applied hourly depending on the disk usage. Unused reserved capacity doesn't carry over. Azure Managed Disk Reservation discounts don't apply to Unmanaged Disks, Ultra Disks, or Page-Blob consumption.
 
 ## Determine your storage needs
 
 Before you purchase a reservation, determine your storage needs. Currently, Azure Managed Disk Reservation is available only for select Azure Premium SSD SKUs. The SKU of a premium SSD determines the disk's size and performance.
 
-When determining your storage needs, don't think of disks based on just capacity. For example, you can't have a reservation for a P40 disk and use that to pay for two smaller P30 disks. When you purchase a reservation, you only purchase the total number of disks per SKU.
+When determining your storage needs, don't think of disks based on just capacity. For example, you can't have a reservation for a P40 disk and use that to pay for two smaller P30 disks. When you purchase a reservation, you purchase only the total number of disks per SKU.
 
 A disk reservation is made per Premium SSD SKU. As a result, the reservation consumption is based on the unit of the Premium SSD SKUs instead of the provided size.
 
@@ -43,12 +43,12 @@ We recommend the following practices when considering disk reservation purchase:
 
 Reservation discounts are currently unavailable for the following disk types:
 
-- Azure-Unmanaged Disks or Azure Page Blobs.
+- Azure Unmanaged Disks or Azure Page Blobs.
 - Azure Standard SSD or Azure Standard HDD.
 - Azure Premium SSD SKUs smaller than P30: P1, P2, P3, P4, P6, P10, P15, and P20 Premium SSD SKUs.
 - Disks in Azure Government, Azure Germany, or Azure China regions.
 
-In rare circumstances, Azure limits the purchase of new reservations for a subset of disk SKUs because of low capacity in a region.
+In rare circumstances, Azure limits the purchase of new reservations to a subset of disk SKUs because of low capacity in a region.
 
 ## Buy a disk reservation
 
@@ -70,7 +70,7 @@ Follow these steps to purchase reserved capacity:
    |**Subscription**  | The subscription you use to pay for the Azure Storage reservation. The payment method on the selected subscription is used in charging the costs. The subscription must be one of the following types:<br/><ul><li> Enterprise Agreement (offer numbers MS-AZR-0017P and MS-AZR-0148P). For an Enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage.</li><br/><li>Individual subscription with pay-as-you-go rates (offer numbers MS-AZR-0003P and MS-AZR-0023P). For an individual subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription.</li></ul>    |
    | **Disks** | The SKU you want to create. |
    | **Region** | The region where the reservation is in effect. |
-   | **Billing frequency** | How often the account is billed for the reservation. Options include **Monthly** or **Upfront**. |
+   | **Billing frequency** | How often the account is billed for the reservation. Options include **Monthly** and **Upfront**. |
 
     ![Pane for selecting the product you want to purchase.png](media/disks-reserved-capacity/premium-ssd-reserved-purchase-selection.png)
 
