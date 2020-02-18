@@ -59,7 +59,7 @@ The following illustration is for the free service, which is capped at 3 objects
 
 ## Monitor workloads
 
-Logged events includes those related to indexing and queries. The **AzureDiagnostics** table in Log Analytics collects operational data related to queries and indexing.
+Logged events include those related to indexing and queries. The **AzureDiagnostics** table in Log Analytics collects operational data related to queries and indexing.
 
 Most of the logged data is for read-only operations. For other create-update-delete operations not captured in the log, you can query the search service for system information.
 
