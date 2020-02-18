@@ -1,5 +1,6 @@
 ---
 title: 'Reference: Ubuntu DSVM'
+titleSuffix: Azure Data Science Virtual Machine 
 description: 'Details on tools included in the Ubuntu Data Science Virtual Machine'
 author: gvashishtha
 ms.service: machine-learning
