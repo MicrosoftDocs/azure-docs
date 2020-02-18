@@ -313,20 +313,24 @@
       href: direct-line-speech.md
   - name: Quickstarts
     items:
-    - name: C# (UWP)
-      href: quickstart-voice-assistant-csharp-uwp.md
-    - name: Java (Windows, macOS, Linux)
-      href: quickstart-voice-assistant-java-jre.md
-    - name: Java (Android)
-      href: quickstart-voice-assistant-java-android.md
-    - name: Create a Custom Command (preview)
-      href: quickstart-custom-speech-commands-create-new.md
-    - name: Create a Custom Command with parameters (preview)
-      href: quickstart-custom-speech-commands-create-parameters.md
-    - name: Use Custom Commands with Custom Voice (preview)
-      href: quickstart-custom-speech-commands-select-custom-voice.md
-    - name: Use Custom Commands with the Speech SDK (preview)
-      href: quickstart-custom-speech-commands-speech-sdk.md
+    - name: Custom Commands (preview)
+      items:
+      - name: Create a Custom Command (preview)
+        href: quickstart-custom-speech-commands-create-new.md
+      - name: Create a Custom Command with parameters (preview)
+        href: quickstart-custom-speech-commands-create-parameters.md
+      - name: Use Custom Commands with Custom Voice (preview)
+        href: quickstart-custom-speech-commands-select-custom-voice.md
+      - name: Use Custom Commands with the Speech SDK (preview)
+        href: quickstart-custom-speech-commands-speech-sdk.md
+    - name: Direct Line Speech
+      items:    
+      - name: C# (UWP)
+        href: quickstart-voice-assistant-csharp-uwp.md
+      - name: Java (Windows, macOS, Linux)
+        href: quickstart-voice-assistant-java-jre.md
+      - name: Java (Android)
+        href: quickstart-voice-assistant-java-android.md
   - name: How-to guides
     items:
     - name: Fulfill Custom Commands with the Speech SDK
