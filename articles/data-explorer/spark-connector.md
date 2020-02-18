@@ -29,19 +29,15 @@ This topic describes how to install and configure the Azure Data Explorer Spark 
 * Install Azure Data Explorer connector library, and libraries listed in [dependencies](https://github.com/Azure/azure-kusto-spark#dependencies) including the following [Kusto Java SDK](/azure/kusto/api/java/kusto-java-client-library) libraries:
     * [Kusto Data Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
     * [Kusto Ingest Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
-* Install pre-built libraries for [Spark 2.4, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases) 
-* Install pre-built libraries for [Maven repo](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector)
-
-### Build prerequisites
-
-* Install Java 1.8 SDK
-* Install [Maven 3.x](https://maven.apache.org/download.cgi) installed
-* Install Apache Spark version 2.4.0 or higher
+* Pre-built libraries for [Spark 2.4, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases) and [Maven repo](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector)
+* [Maven 3.x](https://maven.apache.org/download.cgi) installed
 
 > [!TIP]
 > 2.3.x versions are also supported, but may require some changes in pom.xml dependencies.
 
 ## How to build the Spark connector
+
+Spark Connector can be built from [sources](https://github.com/Azure/azure-kusto-spark) as detailed below.
 
 > [!NOTE]
 > This step is optional. If you are using pre-built libraries go to [Spark cluster setup](#spark-cluster-setup).
