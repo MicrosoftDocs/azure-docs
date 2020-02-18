@@ -82,14 +82,13 @@ Open **Windows PowerShell** from the **Start** screen in Administrator mode.
 
 From the PowerShell command line shell, browse to the folder that contains the script that you downloaded. Change the values for the parameters *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId*, and *-WorkspaceName*. Then run the script.
 
-     > [!NOTE]
-     > You're prompted to authenticate with Azure after you run the script. You *must* sign in with an account that's a member of the Subscription Admins role and co-administrator of the subscription.
+You're prompted to authenticate with Azure after you run the script. You must sign in with an account that's a member of the Subscription Admins role and co-administrator of the subscription.
 
-   ```powershell-interactive
-   .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> -AAResourceGroupName <NameofResourceGroup>`
-   -OMSResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
-   -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
-   ```
+```powershell-interactive
+.\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> -AAResourceGroupName <NameofResourceGroup>`
+-OMSResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
+-SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
+```
 
 ### 4. Install NuGet
 
@@ -103,11 +102,11 @@ After the script is finished, the **Hybrid Worker Groups** page shows the new gr
 
 On the target machine, perform the first two steps once for your Automation environment. Then perform the remaining steps for each worker computer.
 
-#### 1. Create a Log Analytics workspace
+### 1. Create a Log Analytics workspace
 
 If you don't already have a Log Analytics workspace, first review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create a workspace.
 
-#### 2. Add the Automation solution to the Log Analytics workspace
+### 2. Add the Automation solution to the Log Analytics workspace
 
 The Automation solution adds functionality for Azure Automation, including support for Hybrid Runbook Worker. When you add the solution to your Log Analytics workspace, it automatically pushes worker components to the agent computer that you will install in the next step.
 
@@ -117,7 +116,7 @@ To add the **Automation** solution to your workspace, run the following PowerShe
 Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true -DefaultProfile <IAzureContextContainer>
 ```
 
-#### 3. Install the Log Analytics agent for Windows
+### 3. Install the Log Analytics agent for Windows
 
 The Log Analytics agent for Windows connects computers to an Azure Monitor Log Analytics workspace. When you install the agent on your computer and connect it to your workspace, it automatically downloads the components that are required for Hybrid Runbook Worker.
 
@@ -133,7 +132,7 @@ Heartbeat
 
 In the search results, you should see heartbeat records for the computer, indicating that it is connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace. You can verify that the agent has correctly downloaded the Automation solution when it has a folder called AzureAutomationFiles in C:\Program Files\Microsoft Monitoring Agent\Agent. To confirm the version of the Hybrid Runbook Worker, browse to C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ and note the \\*version* subfolder.
 
-#### 4. Install the runbook environment and connect to Azure Automation
+### 4. Install the runbook environment and connect to Azure Automation
 
 When you configure an agent to report to a Log Analytics workspace, the Automation solution pushes down the HybridRegistration PowerShell module, which contains the **Add-HybridRunbookWorker** cmdlet. Use this cmdlet to install the runbook environment on the computer and register it with Azure Automation.
 
@@ -160,7 +159,7 @@ You can get the information required for this cmdlet from the "Manage Keys" page
 
 To receive detailed information about the installation, use the *-Verbose* switch with **Add-HybridRunbookWorker**.
 
-#### 5. Install PowerShell modules
+### 5. Install PowerShell modules
 
 Runbooks can use any of the activities and cmdlets defined in the modules that are installed in your Azure Automation environment. These modules are not automatically deployed to on-premises computers, so you must install them manually. The exception is the Azure module. This module is installed by default and provides access to cmdlets for all Azure services and activities for Azure Automation.
 
