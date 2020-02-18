@@ -35,9 +35,9 @@ If you are using Log Analytics or Azure Storage, you can create resources in adv
 
 + [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 
-## Create a log
+## Enable data collection
 
-Diagnostic settings define data collection. A setting specifies how and what is collected. 
+Diagnostic settings specify how logged events and metrics are collected.
 
 1. Under **Monitoring**, select **Diagnostic settings**.
 
