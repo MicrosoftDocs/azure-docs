@@ -27,9 +27,9 @@ In this quickstart, you use a direct method to control a simulated device connec
 
 * [Git](https://git-scm.com/download/).
 
-* [Device SDK sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample), included in [Azure IoT Samples](https://github.com/Azure-Samples/azure-iot-samples-java).
+* [Device SDK sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample), included in [Azure IoT Samples (Java)](https://github.com/Azure-Samples/azure-iot-samples-java).
 
-* [Service SDK sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample), included in Azure IoT Samples.
+* [Service SDK sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample), included in Azure IoT Samples (Java).
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 

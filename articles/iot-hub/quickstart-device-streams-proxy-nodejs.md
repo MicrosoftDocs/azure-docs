@@ -36,7 +36,12 @@ node --version
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!IMPORTANT]
-> The preview of device streams is currently only supported for IoT Hubs created in the following regions: Central US, Central US EUAP, North Europe, and Southeast Asia.
+> The preview of device streams is currently only supported for IoT Hubs created in the following regions:
+>
+> * Central US
+> * Central US EUAP
+> * North Europe
+> * Southeast Asia
   
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
