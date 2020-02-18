@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.custom: hdinsightactive
+ms.date: 02/18/2020
 ---
 
 # Use Apache Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
@@ -16,9 +16,8 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
 ## Prerequisites
 
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* The URI scheme for your clusters primary storage. This would be `wasb://` for Azure Blob Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage, the URI would be `wasbs://`.  See also, [Require secure transfer in Azure Storage](../../storage/common/storage-require-secure-transfer.md) for more information.
+* The URI scheme for your clusters primary storage. This would be `wasb://` for Azure Blob Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage, the URI would be `wasbs://`.  For more information, see [Require secure transfer in Azure Storage](../../storage/common/storage-require-secure-transfer.md) .
 
 ## Launch an Apache Zeppelin notebook
 
@@ -149,7 +148,7 @@ This saves the notebook as a JSON file in your download location.
 
 ## Livy session management
 
-When you run the first code paragraph in your Zeppelin notebook, a new Livy session is created in your HDInsight Spark cluster. This session is shared across all Zeppelin notebooks that you subsequently create. If for some reason the Livy session is killed (cluster reboot, etc.), you will not be able to run jobs from the Zeppelin notebook.
+When you run the first code paragraph in your Zeppelin notebook, a new Livy session is created in your HDInsight Spark cluster. This session is shared across all Zeppelin notebooks that you subsequently create. If for some reason the Livy session is killed (cluster reboot, and so on), you won't be able to run jobs from the Zeppelin notebook.
 
 In such a case, you must perform the following steps before you can start running jobs from a Zeppelin notebook.  
 
@@ -163,9 +162,44 @@ In such a case, you must perform the following steps before you can start runnin
 
 3. Run a code cell from an existing Zeppelin notebook. This creates a new Livy session in the HDInsight cluster.
 
-## <a name="seealso"></a>See also
+## General information
 
-* [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
+### Validate service
+
+To validate the service from Ambari, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` where CLUSTERNAME is the name of your cluster.
+
+To validate the service from a command line, SSH to the head node. Switch user to zeppelin using command `sudo su zeppelin`. Status commands:
+
+|Command |Description |
+|---|---|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|Service status.|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|Service version.|
+|`ps -aux | grep zeppelin`|Identify PID.|
+
+### Log locations
+
+|Service |Path |
+|---|---|
+|zeppelin-server|/usr/hdp/current/zeppelin-server/|
+|Server Logs|/var/log/zeppelin|
+|Configuration Interpreter,Shiro,site.xml,log4j|/usr/hdp/current/zeppelin-server/conf or /etc/zeppelin/conf|
+|PID directory|/var/run/zeppelin|
+
+### Enable debug logging
+
+1. Navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` where CLUSTERNAME is the name of your cluster.
+
+1. Navigate to **CONFIGS** > **Advanced zeppelin-log4j-properties** > **log4j_properties_content**.
+
+1. Modify `log4j.appender.dailyfile.Threshold = INFO` to `log4j.appender.dailyfile.Threshold = DEBUG`.
+
+1. Add `log4j.logger.org.apache.zeppelin.realm=DEBUG`.
+
+1. Save changes and restart service.
+
+## Next steps
+
+[Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
 ### Scenarios
 
