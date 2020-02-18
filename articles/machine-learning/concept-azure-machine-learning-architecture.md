@@ -53,7 +53,7 @@ Use these tools for Azure Machine Learning:
 ## Glossary
 
 * [Activity](#activities)
-* [Workspace](#workspace)
+* [Workspace](#workspaces)
     * [Experiments](#experiments)
         * [Run](#runs) 
             * [Run configuration](#run-configurations)
@@ -68,7 +68,7 @@ Use these tools for Azure Machine Learning:
     * [Endpoints](#endpoints)
         * [Web service](#web-service-endpoint)
         * [IoT modules](#iot-module-endpoints)
-    * [Dataset & datastores](#datasets-and-datastore)
+    * [Dataset & datastores](#datasets-and-datastores)
     * [Compute targets](#compute-targets)
 
 ### Activities
