@@ -2,7 +2,7 @@
 title: Azure Migrate appliance 
 description: Provides an overview of the Azure Migrate appliance used in server assessment and migration.
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 02/17/2020
 ---
 
 
@@ -51,7 +51,7 @@ Physical machine |  Azure Migrate: Server Assessment |  Discover physical server
 **Hash value** | MD5: 29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256: 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Hyper-V host** | Running Windows Server 2012 R2 or later.
 **Azure Migrate project** | An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
-**Discovery** | An appliance can discover up to 5000 VMware VMs on a vCenter Server.<br/> An appliance can connect to up to 300 Hyper-V hosts.
+**Discovery** | An appliance can discover up to 5000 Hyper-V VMs.<br/> An appliance can connect to up to 300 Hyper-V hosts.
 **Appliance components** | Management app: Web app in appliance for user input during deployment.<br/> Discovery agent: Gathers machine configuration data.<br/> Assessment agent: Collect performance data.<br/>  Auto update service: Update components (runs every 24 hours).
 
 
