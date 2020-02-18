@@ -20,7 +20,7 @@ If you use IaaS resources from ASM, please start planning today and complete mig
 
 ## How does this affect me? 
 
-1) On March 1st, 2023, all active Classic VMs will be a stopped/ deallocated but will not deleted immediately.
+1) On March 1st, 2023, all active Classic VMs will be stopped & deallocated but will not be deleted immediately.
 2) On March 1st, 2023, we will notify remaining subscriptions who have not migrated to ARM, about our timelines for deleting any remaining Classic VMs. 
 
 The following Azure services and functionality will **NOT** be impacted by this retirement: 
