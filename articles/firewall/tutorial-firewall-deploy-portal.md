@@ -141,7 +141,7 @@ Deploy the firewall into the VNet.
    |Name     |**Test-FW01**|
    |Location     |Select the same location that you used previously|
    |Choose a virtual network     |**Use existing**: **Test-FW-VN**|
-   |Public IP address     |**Create new**. The Public IP address must be the Standard SKU type.|
+   |Public IP address     |**Add new**. The Public IP address must be the Standard SKU type.|
 
 5. Select **Review + create**.
 6. Review the summary, and then select **Create** to create the firewall.
