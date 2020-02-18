@@ -228,6 +228,7 @@
       href: cli-create-transform.md
     - name: Create jobs - CLI
       href: cli-create-jobs.md
+    - name: Jobs with multiple transform outputs - .NET
   - name: Encode content
     items:
     - name: HTTPS as Job input - .NET
