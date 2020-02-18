@@ -176,21 +176,27 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
     Please make sure you have installed [Azure Stream Analytics Tools](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) and [SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) on Visual Studio Code and set up your ASA project. For more information on setting up, see [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/quick-create-vs-code) and [SQL Server (mssql) extension tutorial](https://aka.ms/mssql-getting-started).
 
 2. Configure your SQL reference data input.
+   
    ![Configure SQL reference data input](./media/sql-reference-data/Configure-SQL-reference-data-input.png)
 
 3. Click SQL Server icon and click "Add Connection".
+   
    ![Click SQL Server icon and click add connection](./media/sql-reference-data/Add-SQL-Connection.png)
 
 4. Fill in connection information.
+   
    ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Fill-Connection-Information.png)
 
 5. Right click in reference sql and click "Execute Query".
+   
    ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Execute-Query.png)
 
 6. Choose your connection.
+   
    ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Choose-Connection.png)
 
 7. Check out and verify your query result.
+   
    ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Verify-Result.png)
 
 
