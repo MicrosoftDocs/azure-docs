@@ -163,7 +163,7 @@ First-time users will be prompted to select a subscription and create a storage 
 1. Download the [upgrade script](https://aka.ms/FarmBeatsUpgradeScript)
 
     ```azurepowershell-interactive
-        wget –q https://aka.ms/https://aka.ms/FarmBeatsUpgradeScript -O ./update-farmbeats.ps1
+        wget –q https://aka.ms/FarmBeatsUpgradeScript -O ./update-farmbeats.ps1
     ```
 
 2. By default, the file is downloaded to your home directory. Navigate to the directory.
