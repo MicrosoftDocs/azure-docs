@@ -25,7 +25,7 @@ You can also migrate existing rules from Azure Firewall using the portal or Azur
 
 Policies can be associated with one or more virtual hubs or VNets. The firewall can be in any subscription associated with your account and in any region.
 
-## Hierarchical Policies
+## Hierarchical policies
 
 New policies can be created from scratch or inherited from existing policies. Inheritance allows DevOps to create local firewall policies on top of organization mandated base policy.
 
@@ -38,7 +38,7 @@ NAT rule collections aren't inherited because they're specific to a given firewa
 
 With inheritance, any changes to the parent policy are automatically applied down to associated firewall child policies.
 
-## Traditional Rules and policies
+## Traditional rules and policies
 
 Azure Firewall supports both traditional rules and policies. The following table compares policies and rules:
 
@@ -48,7 +48,7 @@ Azure Firewall supports both traditional rules and policies. The following table
 |Contains     |NAT, Network, Application rules, and Threat Intelligence settings|NAT, Network, and Application rules |
 |Protects     |Virtual hubs and Virtual Networks|Virtual Networks only|
 |Portal experience     |Central management using Firewall Manager|Standalone firewall experience|
-|Multiple firewall support     |Firewall Policy is a separate resource that can be used across firewalls|Manually export and import rules, or using thirs party management solutions |
+|Multiple firewall support     |Firewall Policy is a separate resource that can be used across firewalls|Manually export and import rules, or using third-party management solutions |
 |Pricing     |Billed based on firewall association. See [Pricing](#pricing).|Free|
 |Supported deployment mechanisms     |Portal, REST API, templates, Azure PowerShell, and CLI|Portal, REST API, templates, PowerShell, and CLI. |
 |Release Status     |Public Preview|General Availability|
