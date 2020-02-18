@@ -91,10 +91,21 @@ For Application Gateway, the following metrics are available:
 - **Current connections**
 
    The total number of concurrent connections active from clients to the Application Gateway
+   
+- **Estimated Billed Capacity units**
+
+  Number of capacity units using which the billing is estimated. This is calcutaed as the greater value between *Current capacity units* and *Fixed billable capacity units*.  
 
 - **Failed Requests**
 
    Count of failed requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
+   
+- **Fixed Billable Capacity Units**
+The minimum number of capacity units kept provisioned as per the *Minimum scale units* setting in the Application Gateway configuration.
+   
+ - **New connections per second**
+
+   The average number of new TCP connections per second established from clients to the Application Gateway and from the Application Gateway to the backend members.
 
 
 - **Response Status**
