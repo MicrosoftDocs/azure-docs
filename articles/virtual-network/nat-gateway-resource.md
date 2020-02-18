@@ -338,7 +338,7 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 - Quickstart for deploying a NAT gateway resource
   * [Azure CLI](./quickstart-create-nat-gateway-cli.md),
   * [PowerShell](./quickstart-create-nat-gateway-powershell.md),
-  * [Portal)(./quickstart-create-nat-gateway-portal.md).
+  * [Portal](./quickstart-create-nat-gateway-portal.md).
 - Learn more about [availability zones](../availability-zones/az-overview.md).
 - Learn more about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
 - Learn more about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
