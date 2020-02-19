@@ -273,7 +273,7 @@
     - name: Configure Azure Backup reports
       items:
       - name: Configure Azure Backup reports
-        href: backup-azure-configure-backup-reports.md
+        href: configure-reports.md
     - name: Configure Diagnostics Events for Recovery Services Vaults
       items:
       - name: Using Diagnostics Settings for Recovery Services Vaults
@@ -289,7 +289,7 @@
       - name: Auto-Enable Backup on VM Creation using Azure Policy
         href: backup-azure-auto-enable-backup.md
       - name: Configure vault diagnostics settings at scale
-        href: backup-azure-policy-configure-diagnostics.md
+        href: azure-policy-configure-diagnostics.md
     - name: PowerShell
       items:
       - name: Azure VMs in the Azure portal
