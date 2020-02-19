@@ -50,7 +50,7 @@ When you create custom OUs in an Azure AD DS managed domain, you gain additional
 * A default OU for *AADDC Users* is created that contains all the synchronized user accounts from your Azure AD tenant.
     * You can't move users or groups from the *AADDC Users* OU to custom OUs that you create. Only user accounts or resources created in the Azure AD DS managed domain can be moved into custom OUs.
 * User accounts, groups, service accounts, and computer objects that you create under custom OUs aren't available in your Azure AD tenant.
-    * These objects don't show up using the Azure AD Graph API or in the Azure AD UI; they're only available in your Azure AD DS managed domain.
+    * These objects don't show up using the Microsoft Graph API or in the Azure AD UI; they're only available in your Azure AD DS managed domain.
 
 ## Create a custom OU
 

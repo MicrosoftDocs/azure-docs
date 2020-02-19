@@ -10,8 +10,8 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 02/06/2020
-tags: azure-synapse
+ms.date: 02/12/2020
+ms.custom: azure-synapse
 ---
 # Azure SQL Transparent Data Encryption with customer-managed key
 
@@ -60,6 +60,7 @@ When needed, server sends protected DEK to the key vault for decryption.
 
 Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging is enabled.
 
+[!INCLUDE [sql-database-akv-permission-delay](includes/sql-database-akv-permission-delay.md)]
 
 ## Requirements for configuring customer-managed TDE
 

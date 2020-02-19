@@ -65,7 +65,7 @@ The Service Fabric Reliable Services extension for VS Code provides many command
 
 The **Service Fabric: Create Application** command creates a new Service Fabric application in your current workspace. Depending on which yeoman generators are installed on your development machine, you can create several types of Service Fabric application, including Java, C#, Container, and Guest projects. 
 
-1.  Select the **Service Fabric: Add Service** command
+1.  Select the **Service Fabric: Create Application** command
 2.  Select the type for your new Service Fabric application. 
 3.  Enter the name of application you want to create
 3.  Select the type of service that you want to add to your Service Fabric application. 

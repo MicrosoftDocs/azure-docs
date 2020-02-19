@@ -1,6 +1,6 @@
 ---
 title: Migrate your data warehouse to Gen2 
-description: Instructions for migrating an existing data warehouse to Gen2 and the migration schedule by region.
+description: Instructions for migrating an existing Azure Synapse Analytics data warehouse to Gen2 and the migration schedule by region.
 services: sql-data-warehouse
 author: mlee3gsd
 ms.author: anjangsh
@@ -10,13 +10,13 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 01/21/2020
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ---
-# Upgrade your data warehouse to Gen2
+# Upgrade your Azure Synapse Analytics data warehouse to Gen2
 
-Microsoft is helping drive down the entry-level cost of running a data warehouse.  Lower compute tiers capable of handling demanding queries are now available for Azure SQL Data Warehouse. Read the full announcement [Lower compute tier support for Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is available in the regions noted in the table below. For supported regions, existing Gen1 data warehouses can be upgraded to Gen2 through either:
+Microsoft is helping drive down the entry-level cost of running a data warehouse.  Lower compute tiers capable of handling demanding queries are now available for data warehouse. Read the full announcement [Lower compute tier support for Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is available in the regions noted in the table below. For supported regions, existing Gen1 data warehouses can be upgraded to Gen2 through either:
 
-- **The automatic upgrade process:** Automatic upgrades don't start as soon as the service is available in a region.  When automatic upgrades start in a specific region, individual DW upgrades will take place during your selected maintenance schedule.
+- **The automatic upgrade process:** Automatic upgrades don't start as soon as the service is available in a region.  When automatic upgrades start in a specific region, individual data warehouse upgrades will take place during your selected maintenance schedule.
 - [**Self-upgrade to Gen2:**](#self-upgrade-to-gen2) You can control when to upgrade by doing a self-upgrade to Gen2. If your region is not yet supported, you can restore from a restore point directly to a Gen2 instance in a supported region.
 
 ## Automated Schedule and Region Availability Table
@@ -64,7 +64,7 @@ To expedite the background data migration process, you can immediately force dat
 > [!NOTE]
 > Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.
 
-If you encounter any issues with your data warehouse, create a [support request](sql-data-warehouse-get-started-create-support-ticket.md) and reference “Gen2 upgrade” as the possible cause.
+If you encounter any issues with your data warehouse, create a [support request](sql-data-warehouse-get-started-create-support-ticket.md) and reference "Gen2 upgrade" as the possible cause.
 
 For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
