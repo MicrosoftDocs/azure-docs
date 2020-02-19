@@ -166,7 +166,7 @@ Back up & Restore deduplicated VMs/disks | Azure Backup does not support dedupli
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
 Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server is not supported. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
-[Shared disks](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-shared-enable) | Not supported.
+[Shared disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | Not supported.
 
 ## VM network support
 
