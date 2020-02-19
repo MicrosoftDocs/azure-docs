@@ -16,7 +16,6 @@ ms.date: 02/13/2020
 ms.author: juliako
 ---
 
-
 # Scaling streaming with CDN
 
 Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. For more information, see [CDN overview](../../cdn/cdn-overview.md).
@@ -28,6 +27,8 @@ The popular content will be served directly from the CDN cache as long as the vi
 You also need to consider how adaptive streaming works. Each individual video fragment is cached as it's own entity. For example, imagine the first time a certain video is watched. If the viewer skips around watching only a few seconds here and there, only the video fragments associated with what the person watched get cached in CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they're each cached separately in the CDN. Even if two people are watching the same bitrate, they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
 
 When deciding whether or not to enable CDN on the Media Services [streaming endpoint](streaming-endpoint-concept.md), consider the number of anticipated viewers. CDN helps only if you are anticipating many viewers for your content. If the max concurrency  of viewer is lower than 500, it's recommended to disable CDN since CDN scales best with concurrency. 
+
+This topic discusses enabling [CDN integration](enable-azure-cdn-integration). It also explains prefetching (active caching) and the [Origin-Assist CDN-Prefetch](origin-assist-cdn-prefetch) concept.
 
 ## Considerations
 
