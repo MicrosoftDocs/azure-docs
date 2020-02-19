@@ -22,6 +22,10 @@ Azure Search is now renamed to **Azure Cognitive Search** to reflect the expande
 
 ## Feature announcements
 
+### February 2020
+
++ [PII Detection](cognitive-search-skill-pii-detection.md) is a cognitive skill used during indexing that extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways.
+
 ### January 2020
 
 + [Customer-managed encryption keys](search-security-manage-encryption-keys.md) is now generally available. If you are using REST, you can access the feature using `api-version=2019-05-06`. For managed code, the correct package is still [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md) even though the feature is out of preview. 

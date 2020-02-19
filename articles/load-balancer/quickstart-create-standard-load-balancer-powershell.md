@@ -1,24 +1,24 @@
 ---
-title: 'Quickstart: Create a Standard Load Balancer - Azure PowerShell'
+title: 'Quickstart: Create a Load Balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a Standard Load Balancer using Azure PowerShell
+description: This quickstart shows how to create a Load Balancer using Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
 ---
 
-# Quickstart: Create a Standard Load Balancer using Azure PowerShell
+# Quickstart: Create a Load Balancer using Azure PowerShell
 
 This quickstart shows you how to create a Standard Load Balancer using Azure PowerShell. To test the load balancer, you deploy three virtual machines (VMs) running Windows server and load balance a web app between the VMs. To learn more about Standard Load Balancer, see [What is Standard Load Balancer](load-balancer-standard-overview.md).
 
@@ -51,11 +51,13 @@ $publicIp = New-AzPublicIpAddress `
  -SKU Standard
 ```
 
-## Create Standard Load Balancer
+Use ```-SKU Basic``` to create a Basic Public IP. Microsoft recommends using Standard for production workloads.
+
+## Create Load Balancer
 
 In this section, you configure the front-end IP and the back-end address pool for the load balancer and then create the Standard Load Balancer.
 
-### Create front-end IP
+### Create frontend IP
 
 Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). The following example creates a front-end IP configuration named *myFrontEnd* and attaches the *myPublicIP* address:
 
@@ -140,6 +142,7 @@ $lb = New-AzLoadBalancer `
   -LoadBalancingRule $rule `
   -InboundNatRule $natrule1,$natrule2,$natrule3
 ```
+Use ```-SKU Basic``` to create a Basic Public IP. Microsoft recommends using Standard for production workloads.
 
 ## Create network resources
 Before you deploy some VMs and can test your balancer, you must create supporting network resources - virtual network and virtual NICs. 
@@ -190,6 +193,9 @@ $RdpPublicIP_3 = New-AzPublicIpAddress `
   -AllocationMethod static
 
 ```
+
+Use ```-SKU Basic``` to create a Basic Public IPs. Microsoft recommends using Standard for production workloads.
+
 ### Create network security group
 Create network security group to define inbound connections to your virtual network.
 
