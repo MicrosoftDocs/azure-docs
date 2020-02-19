@@ -182,7 +182,7 @@ To validate the service from a command line, SSH to the head node. Switch user t
 |---|---|
 |zeppelin-server|/usr/hdp/current/zeppelin-server/|
 |Server Logs|/var/log/zeppelin|
-|Configuration Interpreter,Shiro,site.xml,log4j|/usr/hdp/current/zeppelin-server/conf or /etc/zeppelin/conf|
+|Configuration Interpreter, Shiro, site.xml, log4j|/usr/hdp/current/zeppelin-server/conf or /etc/zeppelin/conf|
 |PID directory|/var/run/zeppelin|
 
 ### Enable debug logging
