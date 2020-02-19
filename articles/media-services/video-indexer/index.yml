@@ -30,7 +30,7 @@ landingContent:
           - text: "Compare Media Services v3 presets and Video Indexer"
             url: compare-video-indexer-with-media-services-presets.md
           - text: Frequently asked questions
-            url: video-indexer.md
+            url: faq.md
           - text: User voice
             url: https://cognitive.uservoice.com/forums/598144-video-indexer
       - linkListType: 	whats-new
