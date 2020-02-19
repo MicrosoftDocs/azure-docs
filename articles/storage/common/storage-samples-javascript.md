@@ -72,50 +72,23 @@ The following tables provide an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [DefaultAzureCredential authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/azureAdAuth.js#L47)
+      [Azure Active Directory authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/azureAdAuth.js#L47)
    :::column-end:::
    :::column span="":::
       [Proxy authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/proxyAuth.js#L28)
    :::column-end:::
 :::row-end:::
 :::row:::
-   :::column span="":::
+   :::column span="2":::
       [Connect using a custom pipeline](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/customPipeline.js#L26)
-   :::column-end:::
-   :::column span="":::
-      []()
    :::column-end:::
 :::row-end:::
 
 ### Blob service
 
 :::row:::
-   :::column span="":::
-      []()
-   :::column-end:::
-   :::column span="":::
-      []()
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      []()
-   :::column-end:::
-   :::column span="":::
-      []()
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      []()
-   :::column-end:::
-   :::column span="":::
-      []()
-   :::column-end:::
-:::row-end:::
-:::row:::
    :::column span="2":::
-      []()
+      [Create a blob service client using a SAS URL](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L39)
    :::column-end:::
 :::row-end:::
 
@@ -126,12 +99,12 @@ The following tables provide an overview of our samples repository and the scena
       [Create a container](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L53)
    :::column-end:::
    :::column span="":::
-      [List containers](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L48)
+      [Create a container using a SharedKeyCredential](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L38)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Delete a container](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L82)
+      [List containers](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L48)
    :::column-end:::
    :::column span="":::
       [List containers using an iterator](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-containers.js#L28)
@@ -142,12 +115,7 @@ The following tables provide an overview of our samples repository and the scena
       [List containers by page](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-containers.js#L53)
    :::column-end:::
    :::column span="":::
-      []()
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="2":::
-      []()
+      [Delete a container](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L82)
    :::column-end:::
 :::row-end:::
 
@@ -182,155 +150,224 @@ The following tables provide an overview of our samples repository and the scena
       [Listing blobs without using await](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-without-await.js#L42)
    :::column-end:::
    :::column span="":::
-      []()
+      [Create a blob snapshot](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L56)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      []()
+      [Download a blob snapshot](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L61)
    :::column-end:::
    :::column span="":::
-      []()
+      [Parallel upload a readable stream to a blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L74)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      []()
+      [Parallel download block blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L99)
    :::column-end:::
    :::column span="":::
-      []()
+      [Set the access tier on a blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L118)
    :::column-end:::
 :::row-end:::
+
+### Troubleshooting
+
 :::row:::
    :::column span="2":::
-      []()
+      [Trigger a recoverable error using a container client](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/errorsAndResponses.js#L33)
    :::column-end:::
 :::row-end:::
+
 
 ## Data Lake Storage Gen2 samples
 
-### Data Lake service
-
 :::row:::
    :::column span="":::
-      []()
+      [Create a Data Lake service client](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L36)
    :::column-end:::
    :::column span="":::
-      []()
+      [Create a file system](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L47)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      []()
+      [List file systems](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L42)
    :::column-end:::
    :::column span="":::
-      []()
+      [Create a file](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L54)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      []()
+      [List paths in a file system](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L63)
    :::column-end:::
    :::column span="":::
-      []()
+      [Download a file](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L69)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      []()
+      [Delete a file system](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L78)
    :::column-end:::
 :::row-end:::
-
-
-<!-- ## File samples (v10)
-
-| **Scenario** | **Sample Code** |
-|--------------|-----------------|
-| Create Shares/Directories/Files | [Getting Started with Azure File Service in JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L97) |
-| Delete Shares/Directories/Files | [Getting Started with Azure File Service in JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L135) |
-| Download Files | [Getting Started with Azure File Service in JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L128) |
-| List Directories and Files | [Getting Started with Azure File Service in JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L115) |
-| List Shares | [Getting Started with Azure File Service in JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L187) | -->
 
 ## Azure Files samples
 
+### Authorization
+
 :::row:::
    :::column span="":::
-      []()
+      [Connection string authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/withConnString.js)
    :::column-end:::
    :::column span="":::
-      []()
+      [SharedKeyCredential authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/sharedKeyCred.js)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      []()
+      [AnonymousCredential authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/anonymousCred.js)
    :::column-end:::
    :::column span="":::
-      []()
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      []()
-   :::column-end:::
-   :::column span="":::
-      []()
+      [Custom pipeline authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/customPipeline.js)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      []()
+      [Connect using a proxy](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/proxyAuth.js)
    :::column-end:::
 :::row-end:::
 
-<!-- ## Queue samples (v10)
-
-| **Scenario** | **Sample Code** |
-|--------------|-----------------|
-| Add Message | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L142) |
-| Client-Side Encryption | [Managing storage account keys in Azure Key Vault with JavaScript](https://github.com/Azure-Samples/key-vault-node-storage-accounts) |
-| Create Queues | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L57) |
-| Delete Message | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L164) |
-| Delete Queue | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L203) |
-| List Queues | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L111) |
-| Peek Message | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L170) |
-| Queue ACL | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/advanced.js#L192) |
-| Queue Cors rules | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/advanced.js#L55) |
-| Queue Metadata | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/advanced.js#L161) |
-| Queue Service Properties | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/advanced.js#L94) |
-| Queue Stats | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/advanced.js#L149) |
-| Update Message | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L176) | -->
-
-## Queues samples
+### Share
 
 :::row:::
    :::column span="":::
-      []()
+      [Create a share](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L48)
    :::column-end:::
    :::column span="":::
-      []()
+      [List shares](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-shares.js#L27)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      []()
+      [List shares by page](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-shares.js#L51)
    :::column-end:::
    :::column span="":::
-      []()
+      [Delete a share](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L104)
    :::column-end:::
 :::row-end:::
+
+### Directory
+
 :::row:::
    :::column span="":::
-      []()
+      [Create a directory](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L54)
    :::column-end:::
    :::column span="":::
-      []()
+      [List files and directories](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-files-and-directories.js#L56)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      []()
+      [List files and directories by page](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-files-and-directories.js#L90)
+   :::column-end:::
+:::row-end:::
+
+### File
+
+:::row:::
+   :::column span="":::
+      [Parallel upload a file](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L65)
+   :::column-end:::
+   :::column span="":::
+      [Parallel upload a readable stream](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L74)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Parallel download a file](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L93)
+   :::column-end:::
+   :::column span="":::
+      [List file handles](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-handles.js#L43)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [List file handles by page](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-handles.js#L79)
+   :::column-end:::
+:::row-end:::
+
+## Queue samples
+
+### Authorization
+
+:::row:::
+   :::column span="":::
+      [Connection string authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/withConnString.js)
+   :::column-end:::
+   :::column span="":::
+      [SharedKeyCredential authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/sharedKeyCred.js)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [AnonymousCredential authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/anonymousCred.js)
+   :::column-end:::
+   :::column span="":::
+      [Custom pipeline authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/customPipeline.js)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Connect using a proxy](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/proxyAuth.js)
+   :::column-end:::
+   :::column span="":::
+      [Azure Active Directory authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/azureAdAuth.js)
+   :::column-end:::
+:::row-end:::
+
+### Queue service
+
+:::row:::
+   :::column span="2":::
+      [Create a queue service client](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L42)
+   :::column-end:::
+:::row-end:::
+
+### Queue
+
+:::row:::
+   :::column span="":::
+      [Create a new queue](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L54)
+   :::column-end:::
+   :::column span="":::
+      [List queues](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/iterators.js#L27)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [List queues by page](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/iterators.js#L51)
+   :::column-end:::
+   :::column span="":::
+      [Delete a queue](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L89)
+   :::column-end:::
+:::row-end:::
+
+### Message
+
+:::row:::
+   :::column span="":::
+      [Send a message into a queue](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L62)
+   :::column-end:::
+   :::column span="":::
+      [Peek at messages](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L68)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Receive messages](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L76)
+   :::column-end:::
+   :::column span="":::
+      [Delete messages](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L80)
    :::column-end:::
 :::row-end:::
 
@@ -338,39 +375,39 @@ The following tables provide an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Batch Entities](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L87)
+      [Batch entities](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L87)
    :::column-end:::
    :::column span="":::
-      [Create Table](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L41)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [Delete Entity/Table](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L67)
-   :::column-end:::
-   :::column span="":::
-      [Insert/Merge/Replace Entity](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L49)
+      [Create table](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L41)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [List Tables](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L63)
+      [Delete entity/table](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L67)
    :::column-end:::
    :::column span="":::
-      [Query Entities](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L59)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [Query Tables](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L140)
-   :::column-end:::
-   :::column span="":::
-      [Range Query](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L102)
+      [Insert/merge/replace entity](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L49)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Shared Access Signature](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L87)
+      [List tables](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L63)
+   :::column-end:::
+   :::column span="":::
+      [Query entities](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L59)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Query tables](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L140)
+   :::column-end:::
+   :::column span="":::
+      [Range query](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L102)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Shared Access Signature (SAS)](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L87)
    :::column-end:::
    :::column span="":::
       [Table ACL](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L255)
@@ -378,35 +415,38 @@ The following tables provide an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Table CORS Rules](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L149)
+      [Table Cross-Origin Resource Sharing (CORS) rules](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L149)
    :::column-end:::
    :::column span="":::
-      [Table Properties](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L188)
+      [Table properties](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L188)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Table Stats](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L243)
+      [Table stats](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L243)
    :::column-end:::
    :::column span="":::
-      [Update Entity](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L49)
+      [Update entity](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L49)
    :::column-end:::
 :::row-end:::
 
+## Azure code sample libraries
 
+To view the complete JavaScript sample libraries, go to:
 
-## Azure Code Samples library
+* [Azure blob code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
+* [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples/javascript)
+* [Azure Files code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-share/samples/javascript)
+* [Azure queue code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
 
-To view the complete sample library, go to the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=storage) library, which includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
-
-[!INCLUDE [storage-node-samples-include](../../../includes/storage-node-samples-include.md)]
+You can browse and clone the GitHub repository for each library.
 
 ## Getting started guides
 
 Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
 * [Getting Started with Azure Blob Service in JavaScript](../blobs/storage-quickstart-blobs-nodejs.md)
-* [Getting Started with Azure Queue Service in JavaScript](../queues/storage-nodejs-how-to-use-queues.md)
+* [Getting Started with Azure Queue Service in JavaScript](../queues/storage-quickstart-queues-nodejs.md)
 * [Getting Started with Azure Table Service in JavaScript](../../cosmos-db/table-storage-how-to-use-nodejs.md)
 
 ## Next steps
