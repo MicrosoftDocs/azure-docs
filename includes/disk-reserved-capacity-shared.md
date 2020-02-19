@@ -84,27 +84,9 @@ Follow these steps to purchase reserved capacity:
 
 After you purchase a reservation, it's automatically applied to any existing Disk Storage resources that match the reservation terms. If you haven't created any Disk Storage resources yet, the reservation applies whenever you create a resource that matches the reservation terms. In either case, the reservation term begins immediately after a successful purchase.
 
-## Exchange or refund a reservation
+## Cancel, exchange, or refund reservations
 
-Within certain limitations, you can exchange or refund a reservation.
-
-To exchange or refund a reservation, go to the reservation details in the Azure portal. Select **Exchange or Refund**, and follow the instructions to submit a support request. After we process the request, we'll send you an email to confirm completion of the request.
-
-For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
-
-### Exchange a reservation
-
-Exchanging a reservation lets you receive a prorated refund based on the unused portion of the reservation. You can then apply the refund to the purchase price of a new Disk Storage reservation.
-
-There's no limit to the number of exchanges you can make. Additionally, no fee is associated with an exchange. The new reservation that you purchase must be at least the cost of the original reservation's prorated credit.
-
-A Disk Storage reservation can be exchanged only for another Disk Storage reservation. It can't be exchanged for a reservation for any other Azure service.
-
-### Refund a reservation
-
-You can cancel a Disk Storage reservation at any time. If you cancel, you'll receive a prorated refund. The refund is based on the remaining term of the reservation minus a 12% early termination fee.
-
-Cancelling a reservation immediately ends the reservation and returns the remaining months to Microsoft. The remaining prorated balance minus the fee is refunded to your original form of purchase.
+You can cancel, exchange, or refund reservations within certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/en-us/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
 ## Expiration of a reservation
 
