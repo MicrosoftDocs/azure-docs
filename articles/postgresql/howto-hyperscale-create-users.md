@@ -64,7 +64,7 @@ users. To add a user, use the Azure portal interface.
 
 The user will be created on the coordinator node of the server group,
 and propagated to all the worker nodes. Roles created through the Azure
-Portal have the `LOGIN` attribute, which means they are true users who
+portal have the `LOGIN` attribute, which means they are true users who
 can sign in to the database.
 
 ## How to modify privileges for user role
