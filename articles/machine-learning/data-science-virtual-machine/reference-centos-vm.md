@@ -1,5 +1,5 @@
 ---
-title: Reference: CentOS Data Science Virtual Machine
+title: 'Reference: CentOS Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine 
 description: Details on tools included in the CentOS Data Science Virtual Machine
 author: gvashishtha
