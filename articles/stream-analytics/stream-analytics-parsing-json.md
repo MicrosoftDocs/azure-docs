@@ -171,7 +171,7 @@ When using Azure SQL Database as reference data in your job, it is possible to h
 |12345|{"key" : "value1"}|
 |54321|{"key" : "value2"}|
 
-You can parse the JSON record in "Data" column by writing a simple JavaScript user-defined function.
+You can parse the JSON record in the *Data* column by writing a simple JavaScript user-defined function.
 
 ```javascript
 function parseJson(string) {
