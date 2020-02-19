@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Unpack, rack, cable Azure Stack Edge physical device"
+title: Tutorial to install - Unpack, rack, cable Azure Data Box Edge physical device | Microsoft Docs
 description: The second tutorial about installing Azure Data Box Edge involves how to unpack, rack, and cable the physical device.
 services: databox
 author: alkohli

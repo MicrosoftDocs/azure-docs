@@ -1,5 +1,5 @@
 ---
-title: Use Windows PowerShell to connect to and manage Azure Stack Edge
+title: Connect to and manage Microsoft Azure Data Box Edge device via the Windows PowerShell interface | Microsoft Docs
 description: Describes how to connect to and then manage Data Box Edge via the Windows PowerShell interface.
 services: databox
 author: alkohli
