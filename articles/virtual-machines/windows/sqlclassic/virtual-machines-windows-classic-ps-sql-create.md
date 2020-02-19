@@ -19,7 +19,7 @@ ms.custom: "seo-lt-2019"
 ---
 # Provision a SQL Server virtual machine using Azure PowerShell (Classic)
 
-[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+[!INCLUDE [classic-vm-deprecation](../../../../includes/classic-vm-deprecation.md)]
 
 This article provides steps for how to create a SQL Server virtual machine in Azure by using the PowerShell cmdlets.
 
