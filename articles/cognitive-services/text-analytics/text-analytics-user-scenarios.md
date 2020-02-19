@@ -40,6 +40,12 @@ Monitor user product feedback on your product’s twitter or Facebook page. Use 
 
 ![An image describing how to monitor your product and company feedback on social media using key phrase extraction](media/use-cases/social-feed.svg)
 
+## Classify and redact documents that have sensitive information​
+
+Use Entity Recognition to identify personal and sensitive information in documents. Use the data to classify documents or redact them so they can be shared safely.​
+
+![An image describing how to use NER to detect personal info and classify and redact documents](media/use-cases/sensitive-docs.jpg)
+
 ## Next steps
 
 * [What is the Text Analytics API?](overview.md)
