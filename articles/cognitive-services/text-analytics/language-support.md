@@ -45,7 +45,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Arabic                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Czech                 |     `cs`      |           |             |           ✔ \*           |                |                    |
-| Chinese-Simplified    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
+| Chinese-Simplified    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                | `zh` also accepted                   |
 | Chinese-Traditional   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
 | Danish                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Dutch                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
@@ -58,7 +58,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Italian               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Japanese              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Korean                |     `ko`      |   ✔ \*\*  |      ✔      |           ✔ \*           |                |                    |
-| Norwegian  (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Norwegian  (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                | `nb` also accepted                   |
 | Polish                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Portuguese (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | `pt` also accepted |
 | Portuguese (Brazil)   |    `pt-BR`    |           |      ✔      |           ✔ \*           |                |                    |

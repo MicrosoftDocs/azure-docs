@@ -23,7 +23,7 @@ Creating a virtual network to experiment with is easy enough, but chances are, y
 
 ## Naming
 
-All Azure resources have a name. The name must be unique within a scope, that may vary for each resource type. For example, the name of a virtual network must be unique within a [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), but can be duplicated within a [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) or Azure [region](https://azure.microsoft.com/regions/#services). Defining a naming convention that you can use consistently when naming resources is helpful when managing several network resources over time. For suggestions, see [Naming conventions](/azure/architecture/best-practices/resource-naming#networking).
+All Azure resources have a name. The name must be unique within a scope, that may vary for each resource type. For example, the name of a virtual network must be unique within a [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), but can be duplicated within a [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) or Azure [region](https://azure.microsoft.com/regions/#services). Defining a naming convention that you can use consistently when naming resources is helpful when managing several network resources over time. For suggestions, see [Naming conventions](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork).
 
 ## Regions
 
