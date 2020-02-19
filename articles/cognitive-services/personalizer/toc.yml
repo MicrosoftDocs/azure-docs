@@ -56,11 +56,13 @@
     href: concepts-scalability-performance.md
 - name: How-to guides
   items:
-  - name: How to create Personlizer Resource
+  - name: Create Personlizer Resource
     href: how-to-create-resource.md
-  - name: Create and configure Personalizer
+  - name: Configure learning loop
     href: how-to-settings.md
     displayName: azure, portal, settings, evaluation, offline, policy, export, model, configure
+  - name: Manage your model
+    href: how-to-manage-model.md
   - name: Manage your learning policy
     href: how-to-learning-policy.md
   - name: Analyze
