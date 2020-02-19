@@ -81,4 +81,4 @@ az policy state list \
 
 * Create a [custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md)
 
-* Learn more about [governance capabilities](../governance/) in Azure
+* Learn more about [governance capabilities](../governance/index.yml) in Azure
