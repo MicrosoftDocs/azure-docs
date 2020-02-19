@@ -36946,6 +36946,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/tutorial-enable-writeback.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-enable-sspr-writeback",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/howto-sspr-writeback.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-enable-sspr-writeback",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/authentication/concept-mfa-get-started.md",
       "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-mfa-get-started",
       "redirect_document_id": true
@@ -41228,6 +41238,26 @@
     {
       "source_path": "articles/azure-monitor/platform/diagnostic-settings-subscription.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-settings-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/azure-storage-iis-table.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostics-extension-schema-1dot3.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostics-extension-schema.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-versions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostics-extension-to-storage.md",
+      "redirect_url": "/azure/azure-monitor/cloud-services/diagnostics-extension-to-storage",
       "redirect_document_id": false
     },
     {
@@ -47088,8 +47118,8 @@
     },
     {
       "source_path": "articles/terraform/terraform-vm-msi.md",
-      "redirect_url": "/azure/terraform/terraform-vm-managed-identities-for-azure-resources",
-      "redirect_document_id": true
+      "redirect_url": "/azure/terraform/terraform-create-complete-vm",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-dotnet-windows.md",
@@ -48507,6 +48537,96 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/sizes-general.md",
+      "redirect_url": "/azure/virtual-machines/sizes-general",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-general.md",
+      "redirect_url": "/azure/virtual-machines/sizes-general",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-compute.md",
+      "redirect_url": "/azure/virtual-machines/sizes-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-compute.md",
+      "redirect_url": "/azure/virtual-machines/sizes-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-memory.md",
+      "redirect_url": "/azure/virtual-machines/sizes-memory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-memory.md",
+      "redirect_url": "/azure/virtual-machines/sizes-memory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-storage.md",
+      "redirect_url": "/azure/virtual-machines/sizes-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-storage.md",
+      "redirect_url": "/azure/virtual-machines/sizes-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-gpu.md",
+      "redirect_url": "/azure/virtual-machines/sizes-gpu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-gpu.md",
+      "redirect_url": "/azure/virtual-machines/sizes-gpu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-hpc.md",
+      "redirect_url": "/azure/virtual-machines/sizes-hpc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-hpc.md",
+      "redirect_url": "/azure/virtual-machines/sizes-hpc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-previous-gen.md",
+      "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-previous-gen.md",
+      "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/acu.md",
+      "redirect_url": "/azure/virtual-machines/acu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/acu.md",
+      "redirect_url": "/azure/virtual-machines/acu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/b-series-burstable.md",
+      "redirect_url": "/azure/virtual-machines/sizes-b-series-burstable",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/b-series-burstable.md",
+      "redirect_url": "/azure/virtual-machines/sizes-b-series-burstable",
+      "redirect_document_id": false
+    },
+    {
        "source_path": "articles/cognitive-services/Bing-News-Search/vs-bing-news-search-connected-service.md",
        "redirect_url": "/azure/cognitive-services/bing-news-search/search-the-web",
        "redirect_document_id": false
@@ -48534,17 +48654,17 @@
     {
       "source_path": "articles/virtual-machines/linux/ansible-install-configure.md",
       "redirect_url": "/azure/ansible/ansible-install-configure",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/ansible-create-vm.md",
       "redirect_url": "/azure/ansible/ansible-create-vm",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/ansible-manage-linux-vm.md",
       "redirect_url": "/azure/ansible/ansible-manage-linux-vm",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/app-service/containers/tutorial-java-enterprise-postgresql-app.md",
@@ -48554,10 +48674,15 @@
     {
       "source_path": "articles/virtual-machines/linux/terraform-install-configure.md",
       "redirect_url": "/azure/terraform/terraform-install-configure",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/terraform-create-complete-vm.md",
+      "redirect_url": "/azure/terraform/terraform-create-complete-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/terraform/terraform-vm-managed-identities-for-azure-resources.md",
       "redirect_url": "/azure/terraform/terraform-create-complete-vm",
       "redirect_document_id": false
     }
