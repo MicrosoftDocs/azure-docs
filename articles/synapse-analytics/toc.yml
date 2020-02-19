@@ -27,7 +27,7 @@
     - name: Create Apache Spark pool
       href: quickstart-create-apachesparkpool.md
     - name: Create SQL pool
-      href: quickstart-create-sqlpool
+      href: quickstart-create-sqlpool.md
   # - name: Ingest data into Data Lake
   #   href: article-template.md
   # - name: Ingest data into SQL pool

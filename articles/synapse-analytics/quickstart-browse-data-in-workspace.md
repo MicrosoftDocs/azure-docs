@@ -115,7 +115,8 @@ quickstarts should be something a reader can complete in 10 minutes or less.
 
 ## Sign in to <service/product/tool name>
 
-Sign in to the [<service> portal](url).
+<!---<Sign in to the [<service> portal](url).--->
+
 <!---If you need to sign in to the Azure portal to complete the quickstart, this H2
 and link are required. If you use the Cloud Shell or the az login command elsewhere,
 however, this step can be omitted. --->
@@ -155,7 +156,7 @@ procedure.
 1. Step 1 of the procedure
 1. Step 2 of the procedure
 1. Step 3 of the procedure
-   ![Browser](media/contribute-how-to-mvc-quickstart/browser.png)
+    <!---![Browser](media/contribute-how-to-mvc-quickstart/browser.png)--->
    <!---Use screenshots but be judicious to maintain a reasonable length. Make
     sure screenshots align to the
     [current standards](https://review.docs.microsoft.com/help/contribute/contribute-how-to-create-screenshot?branch=master).
@@ -219,8 +220,8 @@ so that a reader doesn't need to recreate those resources.
 ## Next steps
 
 Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
+<!---> [!div class="nextstepaction"]
+> [Next steps button](contribute-get-started-mvc.md)--->
 
 <!--- Required:
 Quickstarts should always have a Next steps H2 that points to the next logical

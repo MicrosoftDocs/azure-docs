@@ -21,7 +21,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 ## Prerequisites
 
-[Synapse Workspace](./quickstart-create-new-synapse-workspace.md)
+[Synapse Workspace](quickstart-create-synapse-workspace.md)
 
 ## Sign in to the Azure portal
 

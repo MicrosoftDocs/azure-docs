@@ -3,7 +3,8 @@ title: Quickstart - create a workspace
 description: Create an Azure Synapse Analytics workspace by following the steps in this guide. 
 services: sql-data-warehouse 
 author: malvenko 
-ms.service: sql-data-warehouse 
+ms.service: sql-data-warehouse
+ms.topic: quickstart  
 ms.subservice: design 
 ms.date: 10/10/2019
 ms.author: josels
@@ -80,14 +81,4 @@ If you want to delete the  Azure Synapse workspace, complete the following steps
 
 ## Next steps
 
-<!--
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](tutorial-facilities-app.md)
---->
-
-<!--- Required:
-Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->
-
-Next, you can [create SQL pools](./quickstart-create-a-sqlpool.md) or [create Apache Spark pools](./quickstart-create-an-apachesparkpool.md) to start analyzing and exploring your data. 
+Next, you can [create SQL pools](quickstart-create-sqlpool.md) or [create Apache Spark pools](quickstart-create-apachesparkpool.md) to start analyzing and exploring your data. 
