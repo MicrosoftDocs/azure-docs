@@ -21,7 +21,7 @@ ms.author: juliako
 
 Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. For more information, see [CDN overview](../../cdn/cdn-overview.md).
 
-CDN caches content streamed from a Media Services [streaming endpoint](streaming-endpoint-concept.md) per codec, per streaming protocol, per bitrate, per container format, and per encryption/DRM. For each combination of codec-streaming protocol-container format-bitrate-encryption, there will be a separate CDN cache. 
+CDN caches content streamed from a Media Services [streaming endpoint (origin)](streaming-endpoint-concept.md) per codec, per streaming protocol, per bitrate, per container format, and per encryption/DRM. For each combination of codec-streaming protocol-container format-bitrate-encryption, there will be a separate CDN cache. 
 
 The popular content will be served directly from the CDN cache as long as the video fragment is cached. Live content is likely to be cached because you typically have many people watching the exact same thing. On-demand content can be a bit trickier because you could have some content that's popular and some that isn't. If you have millions of video assets where none of them are popular (only one or two viewers a week) but you have thousands of people watching all different videos, the CDN becomes much less effective. 
 
@@ -31,8 +31,8 @@ When deciding whether or not to enable CDN on the Media Services [streaming endp
 
 ## Considerations
 
-* The Streaming Endpoint `hostname` and the streaming URL remain the same whether or not you enable CDN.
-* If you need the ability to test your content with or without CDN, create another Streaming Endpoint that isn't CDN enabled.
+* The [streaming endpoint](streaming-endpoint-concept.md) `hostname` and the streaming URL remain the same whether or not you enable CDN.
+* If you need the ability to test your content with or without CDN, create another streaming endpoint that isn't CDN enabled.
 
 ## Enable Azure CDN integration
 
@@ -41,7 +41,7 @@ When deciding whether or not to enable CDN on the Media Services [streaming endp
 >
 > CDN integration is enabled in all the Azure data centers except Federal Government and China regions.
 
-After a Streaming Endpoint is provisioned with CDN enabled, there's a defined wait time on Media Services before DNS update is done to map the Streaming Endpoint to CDN endpoint.
+After a streaming endpoint is provisioned with CDN enabled, there's a defined wait time on Media Services before DNS update is done to map the streaming endpoint to CDN endpoint.
 
 If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to two hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, you can start your streaming endpoint and stream without interruptions from the streaming endpoint and once the integration is complete, the stream is delivered from the CDN. During the provisioning period, your streaming endpoint will be in the **starting** state and you might observe degraded performance.
 
@@ -54,7 +54,7 @@ Azure Media Services integration with Azure CDN is implemented on **Azure CDN fr
 
 ## Determine if a DNS change was made
 
-You can determine if DNS change was made on a Streaming Endpoint (the traffic is being directed to the Azure CDN) by using https://www.digwebinterface.com. If you see azureedge.net domain names in the results, the traffic is now being pointed to the CDN.
+You can determine if DNS change was made on a streaming endpoint (the traffic is being directed to the Azure CDN) by using https://www.digwebinterface.com. If you see azureedge.net domain names in the results, the traffic is now being pointed to the CDN.
 
 ## Origin-Assist CDN-Prefetch
 
