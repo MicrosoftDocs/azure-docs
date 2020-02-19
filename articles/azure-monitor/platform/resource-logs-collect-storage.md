@@ -27,8 +27,7 @@ Send platform logs to storage and other destinations by creating a diagnostic se
 
 
 ## Collect data from compute resources
-Diagnostic settings will collect resource logs for Azure compute resources like any other resource, but not their guest operating system or workloads. To collect this data, install the [Windows Azure Diagnostics agent](diagnostics-extension-overview.md). See [Store and view diagnostic data in Azure Storage
-](diagnostics-extension-to-storage.md) for details.
+Diagnostic settings will collect resource logs for Azure compute resources like any other resource, but not their guest operating system or workloads. To collect this data, install the [Windows Azure Diagnostics agent](diagnostics-extension-overview.md). 
 
 
 ## Schema of platform logs in storage account

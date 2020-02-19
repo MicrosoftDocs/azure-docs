@@ -195,7 +195,6 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 - IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.
 - NSG on subnet or NIC isn't honored for outbound flows to public endpoints using NAT.
 - NSG flow logging isn't supported when using NAT.
-- When a virtual network has multiple subnets, each subnet can have a different NAT configured.
 - NAT can't span multiple virtual networks.
 
 ## Next steps
