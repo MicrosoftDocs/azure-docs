@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Azure App Configuration preview documentation
+title: Azure App Configuration documentation
 summary: Learn how to use Azure App Configuration, a managed service that helps developers centralize their application and feature settings simply and securely.
 metadata:
-  title: Azure App Configuration preview documentation
+  title: Azure App Configuration documentation
   description: Learn how to use Azure App Configuration, a managed service that helps developers centralize their application and feature settings simply and securely.
   author: lisaguthrie
   ms.author: lcozzens
