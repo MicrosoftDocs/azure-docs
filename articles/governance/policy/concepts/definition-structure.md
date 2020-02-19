@@ -140,6 +140,16 @@ A parameter has the following properties that are used in the policy definition:
   - `description`: The explanation of what the parameter is used for. Can be used to provide
     examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
+  - `version`: (Optional) Tracks details about the version of the contents of a policy definition.
+
+    > [!NOTE]
+    > The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey
+    > level of change to a built-in policy definition or initiative and state. The format of
+    > `version` is: `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_,
+    > are appended to the `version` property or in another property as a **boolean**.
+
+  - `category`: (Optional) Determines under which category in Azure portal the policy definition is
+    displayed.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides
     a context aware list. For more information, see [strongType](#strongtype).
   - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments
@@ -315,8 +325,7 @@ When using the **match** and **notMatch** conditions, provide `#` to match a dig
 letter, `.` to match any character, and any other character to match that actual character. While,
 **match** and **notMatch** are case-sensitive, all other conditions that evaluate a _stringValue_
 are case-insensitive. Case-insensitive alternatives are available in **matchInsensitively** and
-**notMatchInsensitively**. For examples, see
-[Allow several name patterns](../samples/allow-multiple-name-patterns.md).
+**notMatchInsensitively**.
 
 In an **\[\*\] alias** array field value, each element in the array is evaluated individually with
 logical **and** between elements. For more information, see [Evaluating the \[\*\]
@@ -336,7 +345,7 @@ The following fields are supported:
 - `kind`
 - `type`
 - `location`
-  - Use **global** for resources that are location agnostic. For an example, see [Samples - Allowed locations](../samples/allowed-locations.md).
+  - Use **global** for resources that are location agnostic.
 - `identity.type`
   - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
     enabled on the resource.

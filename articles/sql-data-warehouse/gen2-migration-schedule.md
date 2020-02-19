@@ -10,13 +10,13 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 01/21/2020
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ---
 # Upgrade your SQL pool to Gen2
 
 Microsoft is helping to reduce the entry-level cost of running a SQL pool.  Lower compute tiers capable of handling demanding queries are now available for SQL pool. Read the full announcement [Lower compute tier support for Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is available in the regions noted in the table below. For supported regions, existing Gen1 SQL pools can be upgraded to Gen2 through either:
 
-- **The automatic upgrade process:** Automatic upgrades don't start as soon as the service is available in a region.  When automatic upgrades start in a specific region, individual DW upgrades will take place during your selected maintenance schedule.
+- **The automatic upgrade process:** Automatic upgrades don't start as soon as the service is available in a region.  When automatic upgrades start in a specific region, individual data warehouse upgrades will take place during your selected maintenance schedule.
 - [**Self-upgrade to Gen2:**](#self-upgrade-to-gen2) You can control when to upgrade by doing a self-upgrade to Gen2. If your region is not yet supported, you can restore from a restore point directly to a Gen2 instance in a supported region.
 
 ## Automated Schedule and Region Availability Table

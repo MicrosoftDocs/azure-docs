@@ -4,7 +4,7 @@ description: This article explains how to install and use the Azure Cost Managem
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
@@ -55,18 +55,18 @@ The following reports are available in the app.
 
 **Getting Started** - Provides useful links to documentation and links to provide feedback.
 
-**Usage by Subscriptions and Resource Groups** - Provides a cost over time view and charts showing cost by subscription and resource group.
-
-**Usage by Services** - Provides a view over time of usage by MeterCategory. You can track your usage data and drill into any anomalies to understand usage spikes or dips.
-
-**Top 5 Usage drivers** - The report shows a filtered cost summarization by the top 5 MeterCategory and corresponding MeterName.
-
-**Usage Summary Overview** - The report shows a monthly summary of information, including:
+**Account overview** - The report shows a monthly summary of information, including:
 
 - Charges against credits
 - New purchases
 - Azure Marketplace charges
 - Overages and total charges
+
+**Usage by Subscriptions and Resource Groups** - Provides a cost over time view and charts showing cost by subscription and resource group.
+
+**Usage by Services** - Provides a view over time of usage by MeterCategory. You can track your usage data and drill into any anomalies to understand usage spikes or dips.
+
+**Top 5 Usage drivers** - The report shows a filtered cost summarization by the top 5 MeterCategory and corresponding MeterName.
 
 **Windows Server AHB Usage** - The report shows the number virtual machines that have Azure Hybrid Benefit enabled. It also shows a count of cores/vCPUs used by the virtual machines.
 
