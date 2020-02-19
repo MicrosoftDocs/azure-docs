@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 02/13/2020
+ms.date: 02/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -130,6 +130,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Security Admin](#security-admin) | In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Security Assessment Contributor](#security-assessment-contributor) | Lets you push assessments to Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Security Manager (Legacy)](#security-manager-legacy) | This is a legacy role. Please use Security Administrator instead | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | [Security Reader](#security-reader) | In Security Center only: Can view recommendations and alerts, view security policies, view security states, but cannot make changes | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | [Site Recovery Contributor](#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
@@ -163,6 +164,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [Virtual Machine User Login](#virtual-machine-user-login) | View Virtual Machines in the portal and login as a regular user. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | [Web Plan Contributor](#web-plan-contributor) | Lets you manage the web plans for websites, but not access to them. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Website Contributor](#website-contributor) | Lets you manage websites (not web plans), but not access to them. | de139f84-1756-47ae-9be6-808fbbe84772 |
+> | [Workbook Contributor](#workbook-contributor) | Can save shared workbooks. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
+> | [Workbook Reader](#workbook-reader) | Can read workbooks. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 
 
 ## Owner
@@ -342,7 +345,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.ApiManagement/service/restore/action | Restore API Management Service from the specified container in a user provided storage account |
 > | Microsoft.ApiManagement/service/updatecertificate/action | Upload SSL certificate for an API Management Service |
 > | Microsoft.ApiManagement/service/updatehostname/action | Setup, update or remove custom domain names for an API Management Service |
-> | Microsoft.ApiManagement/service/write | Create a new instance of API Management Service |
+> | Microsoft.ApiManagement/service/write | Create or Update API Management Service instance |
 > | Microsoft.Authorization/*/read | Read authorization |
 > | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
@@ -605,7 +608,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Id** | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | **Actions** |  |
 > | Microsoft.HybridCompute/machines/read | Read any Azure Arc machines |
-> | Microsoft.HybridCompute/machines/write | Write a Azure Arc machines |
+> | Microsoft.HybridCompute/machines/write | Writes an Azure Arc machines |
 > | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Get guest configuration assignment. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -622,9 +625,9 @@ The following table provides a brief description of each built-in role. Click th
 > | **Id** | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | **Actions** |  |
 > | Microsoft.HybridCompute/machines/read | Read any Azure Arc machines |
-> | Microsoft.HybridCompute/machines/write | Write a Azure Arc machines |
-> | Microsoft.HybridCompute/machines/delete | Delete a Azure Arc machines |
-> | Microsoft.HybridCompute/machines/reconnect/action | Reconnect a Azure Arc machines |
+> | Microsoft.HybridCompute/machines/write | Writes an Azure Arc machines |
+> | Microsoft.HybridCompute/machines/delete | Deletes an Azure Arc machines |
+> | Microsoft.HybridCompute/machines/reconnect/action | Reconnects an Azure Arc machines |
 > | Microsoft.HybridCompute/*/read |  |
 > | **NotActions** |  |
 > | *none* |  |
@@ -686,6 +689,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | List the clusterAdmin credential of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Get a managed cluster access profile by role name using list credential |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1536,6 +1540,8 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | Lists the unencrypted credentials related to the order. |
 > | Microsoft.Databox/locations/availableSkus/action | This method returns the list of available skus. |
+> | Microsoft.Databox/locations/validateInputs/action | This method does all type of validations. |
+> | Microsoft.Databox/locations/regionConfiguration/action | This method returns the configurations for the region. |
 > | Microsoft.Databox/locations/validateAddress/action | Validates the shipping address and provides alternate addresses if any. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Support/* | Create and manage support tickets |
@@ -1561,6 +1567,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.EventGrid/eventSubscriptions/write | Create or update an eventSubscription |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1847,6 +1854,8 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.LabServices/labAccounts/createLab/action | Create a lab in a lab account. |
 > | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action |  |
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Get regional availability information for each size category configured under a lab account |
+> | Microsoft.LabServices/labAccounts/getPricingAndAvailability/action | Get the pricing and availability of combinations of sizes, geographies, and operating systems for the lab account. |
+> | Microsoft.LabServices/labAccounts/getRestrictionsAndUsage/action | Get core restrictions and usage for this subscription |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 > | **NotActions** |  |
@@ -2347,6 +2356,21 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Security/* |  |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Security Assessment Contributor
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lets you push assessments to Security Center |
+> | **Id** | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
+> | **Actions** |  |
+> | Microsoft.Security/assessments/write | Create or update security assessments on your subscription |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -3110,6 +3134,9 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Compute/locations/* | Create and manage compute locations |
 > | Microsoft.Compute/virtualMachines/* | Create and manage virtual machines |
 > | Microsoft.Compute/virtualMachineScaleSets/* | Create and manage virtual machine scale sets |
+> | Microsoft.Compute/disks/write | Creates a new Disk or updates an existing one |
+> | Microsoft.Compute/disks/read | Get the properties of a Disk |
+> | Microsoft.Compute/disks/delete | Deletes the Disk |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joins an application gateway backend address pool. Not Alertable. |
@@ -3210,6 +3237,38 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
 > | Microsoft.Web/sites/* | Create and manage websites (site creation also requires write permissions to the associated App Service Plan) |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Workbook Contributor
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Can save shared workbooks. |
+> | **Id** | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
+> | **Actions** |  |
+> | Microsoft.Insights/workbooks/write | Create or update a workbook |
+> | Microsoft.Insights/workbooks/delete | Delete a workbook |
+> | Microsoft.Insights/workbooks/read | Read a workbook |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Workbook Reader
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Can read workbooks. |
+> | **Id** | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
+> | **Actions** |  |
+> | microsoft.insights/workbooks/read | Read a workbook |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
