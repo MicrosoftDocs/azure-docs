@@ -248,7 +248,19 @@ The application gateway routes traffic to the back-end servers by using the conf
 
 ### Cookie-based affinity
 
-This feature is useful when you want to keep a user session on the same server. Gateway-managed cookies let the application gateway direct subsequent traffic from a user session to the same server for processing. This is important when session state is saved locally on the server for a user session. If the application can't handle cookie-based affinity, you can't use this feature. To use it, make sure that the clients support cookies.
+Azure Application Gateway uses gateway managed cookies for maintaining user sessions. When a user sends the first request to Application Gateway, it sets an affinity cookie in the response with a hash value which contains the session details, so that the subsequent requests carrying the affinity cookie will be routed to the same backend server for maintaining stickiness. 
+
+This feature is useful when you want to keep a user session on the same server and when session state is saved locally on the server for a user session. If the application can't handle cookie-based affinity, you can't use this feature. To use it, make sure that the clients support cookies.
+
+Starting from **17th February 2020**, the [Chromium](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) brings a mandate where HTTP cookies without SameSite attribute to be treated as SameSite=Lax. In case of CORS (Cross-Origin Resource Sharing) requests, if the cookie has to be sent in a third-party context, it has to use “SameSite=None; Secure” attributes and it should be sent over HTTPS only. Otherwise, in a HTTP only scenario, the browser won’t send the cookies in the third-party context. The goal of this update from Chrome is to enhance security and to avoid Cross-Site Request Forgery (CSRF) attacks. 
+
+To support this change, Application Gateway (all the SKU types) will be injecting another identical cookie called **ApplicationGatewayAffinityCORS** in addition to the existing **ApplicationGatewayAffinity** cookie, which is similar, but this cookie will now have two more attributes **"SameSite=None; Secure"** added to it so that sticky session can be maintained even for cross-origin requests.
+
+Please note that the default affinity cookie name is **ApplicationGatewayAffinity** and this can be changed by the users. In case you are using a custom affinity cookie name, an additional cookie will be added with CORS as suffix, for example, **CustomCookieNameCORS**.
+
+> [!NOTE]
+> It is mandatory that if the attribute **SameSite=None** is set, the cookie also should contain the **Secure** flag and should be sent over **HTTPS**. Hence, if session affinity is required over CORS, you must migrate your workload to HTTPS. 
+Please refer to SSL offload and End-to-End SSL documentation for Application Gateway here – [Overview](https://docs.microsoft.com/azure/application-gateway/ssl-overview), [How-to configure SSL offload](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal), [How-to configure End-to-End SSL](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal).
 
 ### Connection draining
 
