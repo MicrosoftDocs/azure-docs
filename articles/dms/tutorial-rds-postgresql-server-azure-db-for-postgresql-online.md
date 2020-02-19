@@ -59,9 +59,13 @@ To complete this tutorial, you need to:
 1. To create a new parameter group, follow the instructions provided by AWS in the article [Working with DB Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html).
 2. Use the master user name to connect to the source from Azure Database Migration Service. If you use an account other than the master user account, the account must have the rds_superuser role and the rds_replication role. The rds_replication role grants permissions to manage logical slots and to stream data using logical slots.
 3. Create a new parameter group with the following configuration:
+
     a. Set the rds.logical_replication parameter in your DB parameter group to 1.
+
     b. max_wal_senders =[number of concurrent tasks] - The max_wal_senders parameter sets the number of concurrent tasks that can run, recommend 10 tasks.
+
     c. max_replication_slots – = [number of slots], recommend set to five slots.
+
 4. Associate the parameter group you created to the RDS PostgreSQL instance.
 
 ## Migrate the schema
@@ -183,13 +187,9 @@ After the service is created, locate it within the Azure portal, open it, and th
 
       ![Locate all instances of the Azure Database Migration Service](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-search.png)
 
-2. On the **Azure Database Migration Services** screen, search for the name of the Azure Database Migration Service instance that you created, and then select the instance.
-
-     ![Locate your instance of the Azure Database Migration Service](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-instance-search.png)
-
-3. Select + **New Migration Project**.
-4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **AWS RDS for PostgreSQL**, and then in the **Target server type** text box, select **Azure Database for PostgreSQL**.
-5. In the **Choose type of activity** section, select **Online data migration**.
+2. On the **Azure Database Migration Services** screen, search for the name of the Azure Database Migration Service instance that you created, select the instance, and then select + **New Migration Project**.
+3. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **AWS RDS for PostgreSQL**, and then in the **Target server type** text box, select **Azure Database for PostgreSQL**.
+4. In the **Choose type of activity** section, select **Online data migration**.
 
     > [!IMPORTANT]
     > Be sure to select **Online data migration**; offline migrations are not supported for this scenario.
@@ -199,9 +199,9 @@ After the service is created, locate it within the Azure portal, open it, and th
     > [!NOTE]
     > Alternately, you can choose **Create project only** to create the migration project now and execute the migration later.
 
-6. Select **Save**.
+5. Select **Save**.
 
-7. Select **Create and run activity** to create the project and run the migration activity.
+6. Select **Create and run activity** to create the project and run the migration activity.
 
     > [!NOTE]
     > Please make a note of the pre-requisites needed to set up online migration in the project creation blade.

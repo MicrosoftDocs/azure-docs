@@ -372,7 +372,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 In the output file, there are several parameters that indicate progress of migration. For example, see the output file below:
 
-    ```
+  ```
     "output": [									Database Level
           {
             "appliedChanges": 0,		//Total incremental sync applied after full load
@@ -447,7 +447,7 @@ In the output file, there are several parameters that indicate progress of migra
       },
       "resourceGroup": "PostgresDemo",
       "type": "Microsoft.DataMigration/services/projects/tasks"
-    ```
+  ```
 
 ## Cutover migration task
 

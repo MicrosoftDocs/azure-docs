@@ -198,22 +198,18 @@ After the service is created, locate it within the Azure portal, open it, and th
 
       ![Locate all instances of Azure Database Migration Service](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-search.png)
 
-2. On the **Azure Database Migration Services** screen, search for the name of Azure Database Migration Service instance that you created, and then select the instance.
+2. On the **Azure Database Migration Services** screen, search for the name of Azure Database Migration Service instance that you created, select the instance, and then select + **New Migration Project**.
 
-     ![Locate your instance of Azure Database Migration Service](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-instance-search.png)
+3. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **PostgresSQL**, in the **Target server type** text box, select **Azure Database for PostgreSQL**.
 
-3. Select + **New Migration Project**.
-
-4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **PostgresSQL**, in the **Target server type** text box, select **Azure Database for PostgreSQL**.
-
-5. In the **Choose type of activity** section, select **Online data migration**.
+4. In the **Choose type of activity** section, select **Online data migration**.
 
     ![Create Azure Database Migration Service project](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-create-project.png)
 
     > [!NOTE]
     > Alternately, you can choose **Create project only** to create the migration project now and execute the migration later.
 
-6. Select **Save**, note the requirements to successfully use Azure Database Migration Service to migrate data, and then select **Create and run activity**.
+5. Select **Save**, note the requirements to successfully use Azure Database Migration Service to migrate data, and then select **Create and run activity**.
 
 ## Specify source details
 

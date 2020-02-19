@@ -76,9 +76,9 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 
 ## Datatype limitations
 
-- **Limitation**: If there's no primary key on tables, changes may not be synced to the target database.
+  **Limitation**: If there's no primary key on tables, changes may not be synced to the target database.
 
-    **Workaround**: Temporarily set a primary key for the table for migration to continue. You can remove the primary key after data migration is complete.
+  **Workaround**: Temporarily set a primary key for the table for migration to continue. You can remove the primary key after data migration is complete.
 
 ## Limitations when migrating online from AWS RDS PostgreSQL
 
@@ -92,11 +92,13 @@ When you try to perform an online migration from AWS RDS PostgreSQL to Azure Dat
 - **Error**: Target database '{database}' has '{number of tables}' tables where as source database '{database}' has '{number of tables}' tables. The number of tables on source and target databases should match.
 
   **Limitation**: This error occurs when the number of tables is different between the source and target databases.
+
   **Workaround**: Ensure that the schema on the target matches schema on the source. For detail on migrating schema, refer to the [Azure PostgreSQL online migration documentation](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 - **Error:** The source database {database} is empty.
 
   **Limitation**: This error occurs when the source database is empty. It is most likely because you have selected the wrong database as source.
+
   **Workaround**: Double-check the source database you selected for migration, and then try again.
 
 - **Error:** The target database {database} is empty. Please migrate the schema.
