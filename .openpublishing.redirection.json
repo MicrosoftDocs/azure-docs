@@ -48545,6 +48545,11 @@
       "source_path": "articles/virtual-machines/linux/ansible-manage-linux-vm.md",
       "redirect_url": "/azure/ansible/ansible-manage-linux-vm",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-java-enterprise-postgresql-app.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_document_id": false
     }
   ]
 }
