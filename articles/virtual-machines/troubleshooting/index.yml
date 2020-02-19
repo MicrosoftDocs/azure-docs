@@ -68,7 +68,7 @@ landingContent:
             url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-local-password-without-agent
           - text:  Troubleshooting specific RDP error messages to a Windows VM in Azure
             url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-specific-rdp-errors
-          - text:  Troubleshoot Remote Desktop connections to an Azure Virtual Machine
+          - text:  Troubleshoot remote desktop connections to an Azure Virtual Machine
             url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection
 
   # Card
@@ -114,7 +114,7 @@ landingContent:
             url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-stuck-updating-boot-error
 
   # Card
-  - title: Virtual sisk management issues
+  - title: Virtual Disk management issues
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -156,7 +156,7 @@ landingContent:
             url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
           - text:  Installing the extension in your VM
             url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-windows
-          - text:  Custom script extension for Windows
+          - text:  Custom Script Extension for Windows
             url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#tips-and-tricks
                     
    # Card
