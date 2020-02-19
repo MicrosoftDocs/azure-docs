@@ -22,9 +22,7 @@ ms.author: rkarlin
 
 
 > [!IMPORTANT]
-> The Azure Security Center for IoT data connector is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The Azure Security Center for IoT data connector is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Use the Azure Security Center for IoT connector to stream all your Azure Security Center for IoT events into Azure Sentinel. 
 
@@ -36,7 +34,7 @@ Use the Azure Security Center for IoT connector to stream all your Azure Securit
 - **Read** and **Write** permissions on the **Azure IoT Hub resource group**
 
 > [!NOTE]
-> You must have the Azure Security Center Standard tier licensing running on your subscription to send general Azure resource alerts. With the free tier licensing required for Azure Security Center for IoT, only Azure Security Center for IoT related alerts will be forwarded to Azure Sentinel. 
+> While you must enable the Azure Security Center **Standard** tier license on your subscription to stream IoT resource alerts to Azure Sentinel, you only need to enable the Azure Security Center **Free** tier license on your subscription to view Azure Security Center for IoT alerts in Azure Sentinel. 
 
 ## Connect to Azure Security Center for IoT
 

@@ -17,6 +17,14 @@ ms.author: rkarlin
 ---
 # Advanced multistage attack detection in Azure Sentinel
 
+
+> [!IMPORTANT]
+> Some Fusion features in Azure Sentinel are currently in public preview.
+> These features are provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+
 By using Fusion technology that’s based on machine learning, Azure Sentinel can automatically detect multistage attacks by combining anomalous behaviors and suspicious activities that are observed at various stages of the kill-chain. Azure Sentinel then generates incidents that would otherwise be very difficult to catch. These incidents encase two or more alerts or activities. By design, these incidents are low volume, high fidelity, and high severity.
 
 Customized for your environment, this detection not only reduces false positive rates but can also detect attacks with limited or missing information.
