@@ -9,14 +9,11 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
+ms.custom: fasttrack-edit
 
 ---
-# What is Azure Private Link? (Preview)
+# What is Azure Private Link? 
 Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage, Azure Cosmos DB, and SQL Database) and Azure hosted customer/partner services over a [Private Endpoint](private-endpoint-overview.md) in your virtual network. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can also create your own [Private Link Service](private-link-service-overview.md) in your virtual network (VNet) and deliver it privately to your customers. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
-
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations).
-
 
 ![Private endpoint overview](media/private-link-overview/private-endpoint.png)
 
@@ -46,6 +43,7 @@ Azure Private Link provides the following benefits:
 |  |  Azure Database for PostgreSQL - Single server         | All public regions      |   Preview      |
 |  |  Azure Database for MySQL         | All public regions      |   Preview      |
 |  |  Azure Database for MariaDB         | All public regions      |   Preview      |
+|  |  Azure Key Vault         | All public regions      |   Preview      |
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network).
 

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 01/22/2020
 ms.author: victorh
 ---
 
@@ -98,17 +98,19 @@ The following metrics are available for Azure Firewall:
 
     Unit: bytes
 
-- **Firewall health state** - Indicates the health of the firewall.
+- **Firewall health state** - Indicates the health of the firewall based on SNAT port availability.
 
     Unit: percent
 
    This metric has two dimensions:
-  - **Status**: Possible values are *Healthy*, *Degraded*, *Unhealthy*.
-  - **Reason**: Indicates the reason for the corresponding status of the firewall. For example, it can indicate *SNAT ports* if the firewall status is Degraded or Unhealthy.
+  - Status: Possible values are *Healthy*, *Degraded*, *Unhealthy*.
+  - Reason: Indicates the reason for the corresponding status of the firewall. 
 
+     If SNAT ports are used > 95%, they are considered exhausted and the health is 50% with status=**Degraded** and reason=**SNAT port**. The firewall keeps processing traffic and existing connections are not affected. However, new connections may not be established intermittently.
 
+     If SNAT ports are used < 95%, then firewall is considered healthy and health is shown as 100%.
 
-
+     If no SNAT ports usage is reported, health is shown as 0%. 
 
 - **SNAT port utilization** - The percentage of SNAT ports that have been utilized by the firewall.
 

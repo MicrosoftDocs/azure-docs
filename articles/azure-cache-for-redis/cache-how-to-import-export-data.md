@@ -20,7 +20,7 @@ Import/Export enables you to migrate between different Azure Cache for Redis ins
 This article provides a guide for importing and exporting data with Azure Cache for Redis and provides the answers to commonly asked questions.
 
 > [!IMPORTANT]
-> Import/Export is in preview and is only available for [premium tier](cache-premium-tier-intro.md) caches.
+> Import/Export is only available for [premium tier](cache-premium-tier-intro.md) caches.
 >
 >
 

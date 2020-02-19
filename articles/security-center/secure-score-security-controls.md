@@ -18,7 +18,7 @@ ms.author: memildin
 
 # The enhanced Secure Score (Preview) 
 
-This article introduces the enhanced Secure Score (currently in preview), the accompanying Security Controls, and the advantages they bring.
+This article introduces the enhanced Secure Score (currently in preview), the accompanying Security Controls, and the advantages they bring. It also explains how your score is calculated.
 
 ## Introduction to Secure Score
 
@@ -28,11 +28,11 @@ Security Center continually assesses your resources, subscriptions, and organiza
 
 The *enhanced* Secure Score (currently in preview) is **attack surface focused** and brings three benefits:
 
-- Security Controls - Security recommendations are now grouped into logical sets that better reflect your vulnerable attack surfaces. For more information, see [How the Secure Score is calculated](secure-score-security-controls.md#how-the-secure-score-is-calculated) below.
+- **Security Controls** - Security recommendations are now grouped into logical sets that better reflect your vulnerable attack surfaces. For more information, see [How the Secure Score is calculated](secure-score-security-controls.md#how-the-secure-score-is-calculated) below.
 
-- Overall score better reflects the overall posture - Points were awarded at the recommendation level. With this enhancement, your score will only improve when you remediate *all* of the recommendations for a single resource within a control. That means that your score only improves when the security of a resource improves. 
+- **Overall score better reflects the overall posture** - Points were awarded at the recommendation level. With this enhancement, your score will only improve when you remediate *all* of the recommendations for a single resource within a control. That means that your score only improves when the security of a resource improves. 
 
-- Security status of individual attack surfaces is more visible - By showing the score per Security Control, the Secure Score page becomes the place where you can get a granular view of how well your organization is securing each individual attack surface.
+- **Security status of individual attack surfaces is more visible** - By showing the score per Security Control, the Secure Score page becomes the place where you can get a granular view of how well your organization is securing each individual attack surface.
 
 The enhanced Secure Score is shown as a percentage, as shown in the following screenshot:
 
@@ -59,7 +59,7 @@ For example, the Security Control called "Apply system updates" has a maximum sc
 
 [![The Security Control "Apply system updates"](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
 
-The value for the Security Control "Apply system updates" in the screenshot above shows "2% (1 Point)". That means that if you remediate all the recommendations in this control, your score will increase by 2% (which in this case is one point). For simplicity, values in the recommendations list's "Potential increase" column are rounded to whole numbers. The tooltips show the precise values:
+The potential for the Security Control "Apply system updates" in the screenshot above shows "2% (1 Point)". That means that if you remediate all the recommendations in this control, your score will increase by 2% (in this case, one point). For simplicity, values in the recommendations list's "Potential increase" column are rounded to whole numbers. The tooltips show the precise values:
 
 * **Potential increase** - The remaining points available to you within the control. To get these points  added to your Secure Score, remediate all of the control's recommendations. In the example above, the one point shown for the control is actually 0.96 points.
 * **Current score** - The current score for this control. Each control contributes towards the total score. In this example, the control is contributing 5.04 points to the total. 
@@ -97,7 +97,7 @@ The table below lists the Security Controls in Azure Security Center. For each c
 |**Encrypt data in transit**|4|- API App should only be accessible over HTTPS<br>- Function App should only be accessible over HTTPS<br>- Only secure connections to your Redis Cache should be enabled<br>- Secure transfer to storage accounts should be enabled<br>- Web Application should only be accessible over HTTPS|
 |**Manage access and permissions**|4|- A maximum of 3 owners should be designated for your subscription<br>- Deprecated accounts should be removed from your subscription (Preview)<br>- Deprecated accounts with owner permissions should be removed from your subscription (Preview)<br>- External accounts with owner permissions should be removed from your subscription (Preview)<br>- External accounts with read permissions should be removed from your subscription<br>- External accounts with write permissions should be removed from your subscription (Preview)<br>- There should be more than one owner assigned to your subscription<br>- Role-Based Access Control (RBAC) should be used on Kubernetes Services (Preview)<br>- Service Fabric clusters should only use Azure Active Directory for client authentication|
 |**Remediate security configurations**|4|- Pod Security Policies should be defined on Kubernetes Services (Preview)<br>- Vulnerabilities in container security configurations should be remediated<br>- Vulnerabilities in security configuration on your machines should be remediated<br>- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated<br>- Monitoring agent should be installed on your virtual machines<br>- Monitoring agent should be installed on your machines<br>- Monitoring agent should be installed on virtual machine scale sets<br>- Monitoring agent health issues should be resolved on your machines|
-|**Restrict unauthorized network access**|4|- IP forwarding on your virtual machine should be disabled<br>- Authorized IP ranges should be defined on Kubernetes Services (Preview)<br>- Access to App Services should be restricted (Preview)<br>- The rules for web applications on IaaS NSGs should be hardened<br>- Virtual machines should be associated with a Network Security Group<br>- CORS should not allow every resource to access your API App<br>- CORS should not allow every resource to access your Function App<br>- CORS should not allow every resource to access your Web Application<br>- Remote debugging should be turned off for API App<br>- Remote debugging should be turned off for Function App<br>- Remote debugging should be turned off for Web Application<br>- Access should be restricted for permissive Network Security Groups with Internet-facing VMs<br>- Network Security Group Rules for Internet facing virtual machines should be hardened|
+|**Restrict unauthorized network access**|4|- IP forwarding on your virtual machine should be disabled<br>- Authorized IP ranges should be defined on Kubernetes Services (Preview)<br>- (DEPRECATED) Access to App Services should be restricted (Preview)<br>- (DEPRECATED) The rules for web applications on IaaS NSGs should be hardened<br>- Virtual machines should be associated with a Network Security Group<br>- CORS should not allow every resource to access your API App<br>- CORS should not allow every resource to access your Function App<br>- CORS should not allow every resource to access your Web Application<br>- Remote debugging should be turned off for API App<br>- Remote debugging should be turned off for Function App<br>- Remote debugging should be turned off for Web Application<br>- Access should be restricted for permissive Network Security Groups with Internet-facing VMs<br>- Network Security Group Rules for Internet facing virtual machines should be hardened|
 |**Apply adaptive application control**|3|- Adaptive Application Controls should be enabled on virtual machines<br>- Monitoring agent should be installed on your virtual machines<br>- Monitoring agent should be installed on your machines<br>- Monitoring agent health issues should be resolved on your machines|
 |**Apply data classification**|2|- Sensitive data in your SQL databases should be classified (Preview)|
 |**Protect applications against DDoS attacks**|2|- DDoS Protection Standard should be enabled|

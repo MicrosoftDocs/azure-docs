@@ -43,7 +43,7 @@ Premium Storage caching:  Supported
 - Windows Server 2016 or later
 - Ubuntu 16.04 LTS or later, with Azure tuned kernel (4.15 kernel or later)
 - SLES 12 SP2 or later
-- RHEL or CentOS version 6.7 thru 6.10, with Microsoft-provided LIS package 4.3.1 (or later) installed
+- RHEL or CentOS version 6.7 through 6.10, with Microsoft-provided LIS package 4.3.1 (or later) installed
 - RHEL or CentOS version 7.3, with Microsoft-provided LIS package 4.2.1 (or later) installed
 - RHEL or CentOS version 7.6 or later
 - Oracle Linux with UEK4 or later

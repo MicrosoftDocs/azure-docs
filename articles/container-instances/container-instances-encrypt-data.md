@@ -2,8 +2,9 @@
 title: Encrypt deployment data
 description: Learn about encryption of data persisted for your container instance resources and how to encrypt the data with a customer-managed key
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: danlep
+ms.date: 01/17/2020
+author: dkkapur
+ms.author: dekapur
 ---
 
 # Encrypt deployment data
@@ -83,15 +84,18 @@ The access policy should now show up in your key vault's access policies.
 > [!IMPORTANT]
 > Encrypting deployment data with a customer-managed key is available in the latest API version (2019-12-01) that is currently rolling out. Specify this API version in your deployment template. If you have any issues with this, please reach out to Azure Support.
 
-Once the key vault key and access policy are set up, add the following property to your ACI deployment template. You can learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Once the key vault key and access policy are set up, add the following properties to your ACI deployment template. Learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+* Under `resources`, set `apiVersion` to `2012-12-01`.
+* Under the container group properties section of the deployment template, add an `encryptionProperties`, which contains the following values:
+  * `vaultBaseUrl`: the DNS Name of your key vault, can be found  on the overview blade of the key vault resource in Portal
+  * `keyName`: the name of the key generated earlier
+  * `keyVersion`: the current version of the key. This can be found by clicking into the key itself (under "Keys" in the Settings section of your key vault resource)
+* Under the container group properties, add a `sku` property with value `Standard`. The `sku` property is required in API version 2019-12-01.
 
-Specifically, under the container group properties section of the deployment template, add an "encryptionProperties", which contains the following values:
-* vaultBaseUrl: the DNS Name of your key vault, can be found  on the overview blade of the key vault resource in Portal
-* keyName: the name of the key generated earlier
-* keyVersion: the current version of the key. This can be found by clicking into the key itself (under "Keys" in the Settings section of your key vault resource)
-
+The following template snippet shows these additional properties to encrypt deployment data:
 
 ```json
+[...]
 "resources": [
     {
         "name": "[parameters('containerGroupName')]",
@@ -104,12 +108,107 @@ Specifically, under the container group properties section of the deployment tem
                 "keyName": "acikey",
                 "keyVersion": "xxxxxxxxxxxxxxxx"
             },
+            "sku": "Standard",
             "containers": {
                 [...]
             }
         }
     }
 ]
+```
+
+Following is a complete template, adapted from the template in [Tutorial: Deploy a multi-container group using a Resource Manager template](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerGroupName": {
+      "type": "string",
+      "defaultValue": "myContainerGroup",
+      "metadata": {
+        "description": "Container Group name."
+      }
+    }
+  },
+  "variables": {
+    "container1name": "aci-tutorial-app",
+    "container1image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+    "container2name": "aci-tutorial-sidecar",
+    "container2image": "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"
+  },
+  "resources": [
+    {
+      "name": "[parameters('containerGroupName')]",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2019-12-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "encryptionProperties": {
+            "vaultBaseUrl": "https://example.vault.azure.net",
+            "keyName": "acikey",
+            "keyVersion": "xxxxxxxxxxxxxxxx"
+        },
+        "sku": "Standard",  
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
+                },
+                {
+                  "port": 8080
+                }
+              ]
+            }
+          },
+          {
+            "name": "[variables('container2name')]",
+            "properties": {
+              "image": "[variables('container2image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            },
+            {
+                "protocol": "tcp",
+                "port": "8080"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', parameters('containerGroupName'))).ipAddress.ip]"
+    }
+  }
+}
 ```
 
 ### Deploy your resources

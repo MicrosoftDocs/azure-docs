@@ -112,7 +112,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 3. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 
 ### Specify VM credentials
-For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the access privileges needed.
+For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) about the access privileges needed.
 
 > [!NOTE]
 > This input is optional and is needed to enable application discovery and agentless dependency visualization.

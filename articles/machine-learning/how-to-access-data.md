@@ -45,12 +45,12 @@ You'll need:
 
 ## Supported data storage service types
 
-Datastores currently support storing connection information to the storage services listed in the following matrix.
+Datastores currently support storing connection information to the storage services listed in the following matrix. At this time, Azure Data warehouse is not supported. 
 
 | Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Rest API](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---
 [Azure&nbsp;Blob&nbsp;Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓
-[Azure&nbsp;File&nbsp;Share]((https://docs.microsoft.com/azure/storage/files/storage-files-introduction))| Account key <br> SAS token | ✓ | ✓ | ✓ |✓
+[Azure&nbsp;File&nbsp;Share](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;1](https://docs.microsoft.com/azure/data-lake-store/)| Service principal| ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Service principal| ✓ | ✓ | ✓ |✓
 Azure&nbsp;SQL&nbsp;Database| SQL authentication <br>Service principal| ✓ | ✓ | ✓ |✓
@@ -132,7 +132,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### Azure Data Lake Storage Generation 2
 
-For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a credential datastore connected to an Azure DataLake Gen 2 storage with service principal permissions. Learn more about [access control set up for ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a credential datastore connected to an Azure DataLake Gen 2 storage with [service principal permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Learn more about [access control set up for ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 The following code creates and registers the `adlsgen2_datastore_name` datastore to the `ws` workspace. This datastore accesses the file system `test` on the `account_name` storage account, by using the provided service principal credentials.
 
@@ -269,7 +269,7 @@ For situations where the SDK doesn't provide access to datastores, you might be 
 
 ## Move data to supported Azure Storage solutions
 
-Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. If you're using unsupported storage, we recommend that you move your data to supported Azure Storage solutions by using [Azure Data Factory and these steps]((https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool)). Moving data to supported storage can help you save data egress costs during machine learning experiments. 
+Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. If you're using unsupported storage, we recommend that you move your data to supported Azure Storage solutions by using [Azure Data Factory and these steps](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool). Moving data to supported storage can help you save data egress costs during machine learning experiments. 
 
 Azure Data Factory provides efficient and resilient data transfer with more than 80 prebuilt connectors at no additional cost. These connectors include Azure data services, on-premises data sources, Amazon S3 and Redshift, and Google BigQuery.
 

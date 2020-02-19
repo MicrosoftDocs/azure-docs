@@ -50,7 +50,7 @@ Azure Resource Manager capabilities will always be introduced to global Azure fi
 
 1. Once you have a local clone of the repository, connect to the destination's Azure Resource Manager with PowerShell.
 
-1. Import the psm1 module and execute the Test-AzureRmureRmTemplateFunctions cmdlet:
+1. Import the psm1 module and execute the Test-AzureRmTemplateFunctions cmdlet:
 
    ```powershell
    # Import the module
@@ -444,7 +444,7 @@ In general, avoid hardcoded endpoints in a template. The best practice is to use
 The following reference template function retrieves the endpoint namespace from the storage resource provider:
 
 ```json
-"diskUri":"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, 'container/myosdisk.vhd')]"
+"diskUri":"[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))).primaryEndpoints.blob, 'container/myosdisk.vhd')]"
 ```
 
 By replacing the hardcoded value of the storage account endpoint with the `reference` template function, you can use the same template to deploy to different environments successfully without making any changes to the endpoint reference.

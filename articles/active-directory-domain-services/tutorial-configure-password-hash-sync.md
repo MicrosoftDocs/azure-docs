@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 02/10/2020
 ms.author: iainfou
 
 #Customer intent: As an server administrator, I want to learn how to enable password hash synchronization with Azure AD Connect to create a hybrid environment using an on-premises AD DS domain.

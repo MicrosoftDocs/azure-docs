@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/10/2020
+ms.date: 01/22/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -45,6 +45,7 @@ NetSuite supports:
 * IDP-initiated SSO.
 * JIT (just-in-time) user provisioning.
 * [Automated user provisioning](NetSuite-provisioning-tutorial.md).
+* Once you configure the NetSuite you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > Because the identifier of this application is a fixed string value, only one instance can be configured in one tenant.
@@ -94,8 +95,12 @@ To enable Azure AD SSO in the Azure portal, do the following:
     | `https://<Account ID>.na1.sandbox.NetSuite.com/saml2/acs`|
     | `https://<Account ID>.na2.sandbox.NetSuite.com/saml2/acs`|
 
-    > [!NOTE]
-    > The values in the preceding URLs are not real. Update them with the actual Reply URL. To get the value, contact the [NetSuite Client support team](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). You can also refer to the formats shown in the **Basic SAML Configuration** section in the Azure portal.
+    * You will get the **<`Account ID`>** value in the Netsuite configuration section which is explained later in the tutorial at step 8 under Netsuite Configuration. You will find the exact domain (such as system.na0.netsuite.com in this case).
+
+        ![Configure single sign-on](./media/NetSuite-tutorial/domain-value.png)
+
+        > [!NOTE]
+        > The values in the preceding URLs are not real. Update them with the actual Reply URL. To get the value, contact the [NetSuite Client support team](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). You can also refer to the formats shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. NetSuite application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -200,7 +205,7 @@ In this section, you enable user B.Simon to use Azure single sign-on by granting
 
     b. In the **Company Information** pane, in the right column, copy the **Account ID** value.
 
-    c. Paste the **Account ID** that you copied from the NetSuite account into the **Attribute Value** box in Azure AD. 
+    c. Paste the **Account ID** that you copied from the NetSuite account into the **Attribute Value** box in Azure AD.
 
 10. Before users can perform single sign-on into NetSuite, they must first be assigned the appropriate permissions in NetSuite. To assign these permissions, do the following:
 
@@ -262,3 +267,6 @@ When you select the NetSuite tile in the Access Panel, you should be automatical
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Try NetSuite with Azure AD](https://aad.portal.azure.com/)
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect NetSuite with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

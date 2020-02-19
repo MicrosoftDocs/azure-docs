@@ -33,7 +33,7 @@ The following features are available to function apps deployed to a Premium plan
 
 ### Pre-warmed instances
 
-If no events and executions occur today in the Consumption plan, your app may scale down to zero instances. When new events come in, a new instance needs to be specialized with your app running on it.  Specializing new instances may take some time depending on the app.  This additional latency on the first call is often called app cold start.
+If no events and executions occur today in the Consumption plan, your app may scale in to zero instances. When new events come in, a new instance needs to be specialized with your app running on it.  Specializing new instances may take some time depending on the app.  This additional latency on the first call is often called app cold start.
 
 In the Premium plan, you can have your app pre-warmed on a specified number of instances, up to your minimum plan size.  Pre-warmed instances also let you pre-scale an app before high load. As the app scales out, it first scales into the pre-warmed instances. Additional instances continue to buffer out and warm immediately in preparation for the next scale operation. By having a buffer of pre-warmed instances, you can effectively avoid cold start latencies.  Pre-warmed instances is a feature of the Premium plan, and you need to keep at least one instance running and available at all times the plan is active.
 
@@ -53,7 +53,7 @@ Azure Functions deployed to a Premium plan takes advantage of [new VNet integrat
 
 When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
 
-Fore more information, see [integrate your function app with a VNet](functions-create-vnet.md).
+For more information, see [integrate your function app with a VNet](functions-create-vnet.md).
 
 ### Rapid elastic scale
 
@@ -89,6 +89,11 @@ When creating or scaling your plan, you can choose between three instance sizes.
 |EP1|1|3.5GB|250GB|
 |EP2|2|7GB|250GB|
 |EP3|4|14GB|250GB|
+
+### Memory utilization considerations
+Running on a machine with more memory does not always mean that your function app will use all available memory.
+
+For example, a JavaScript function app is constrained by the default memory limit in Node.js. To increase this fixed memory limit, add the app setting `languageWorkers:node:arguments` with a value of `--max-old-space-size=<max memory in MB>`.
 
 ## Regions
 

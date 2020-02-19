@@ -170,7 +170,7 @@ Gets the current timestamp when the job starts to run with local time zone
 ___
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Gets the current timestamp as UTC. If you want your current time to be interpreted in a different timezone than your cluster time zone,you can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezone. Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.htmlTo convert the UTC time to a different timezone use fromUTC()
+Gets the current timestamp as UTC. If you want your current time to be interpreted in a different timezone than your cluster time zone,you can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezone. Refer Java's SimpleDateFormat for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). To convert the UTC time to a different timezone use fromUTC()
 * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
 * ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
 * ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
@@ -854,7 +854,7 @@ Converts a primitive datatype to a string. For numbers and date a format can be 
 ___
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts a string to a timestamp given an optional timestamp format. Refer to Java SimpleDateFormat for all possible formats. If the timestamp is omitted the default pattern.yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'.Timestamp supports upto millisecond accuracy with value of 999Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+Converts a string to a timestamp given an optional timestamp format. Refer to Java SimpleDateFormat for all possible formats. If the timestamp is omitted the default pattern.yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'.Timestamp supports up to millisecond accuracy with value of 999Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``
@@ -1124,9 +1124,9 @@ The CumeDist function computes the position of a value relative to all values in
 * ``cumeDist()``
 ___
 ### <code>denseRank</code>
-<code><b>denseRank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Computes the rank of a value in a group of values. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will not produce gaps in the sequence. Dense Rank works even when data is not sorted and looks for change in values
-* ``denseRank(salesQtr, salesAmt)``
+<code><b>denseRank() => integer</b></code><br/><br/>
+Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will not produce gaps in the sequence. Dense Rank works even when data is not sorted and looks for change in values
+* ``denseRank()``
 ___
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
@@ -1147,9 +1147,9 @@ The NTile function divides the rows for each window partition into `n` buckets r
 * ``nTile(numOfBuckets)``
 ___
 ### <code>rank</code>
-<code><b>rank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Computes the rank of a value in a group of values. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will produce gaps in the sequence. Rank works even when data is not sorted and looks for change in values
-* ``rank(salesQtr, salesAmt)``
+<code><b>rank() => integer</b></code><br/><br/>
+Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will produce gaps in the sequence. Rank works even when data is not sorted and looks for change in values
+* ``rank()``
 ___
 ### <code>rowNumber</code>
 <code><b>rowNumber() => integer</b></code><br/><br/>

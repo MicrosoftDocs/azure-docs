@@ -151,11 +151,11 @@ This log is only generated if you've enabled it on a per load balancer basis as 
 
 The JSON output shows in the properties field the basic information for the probe health status. The *dipDownCount* property shows the total number of instances on the back-end, which are not receiving network traffic because of failed probe responses.
 
-### View and analyze the audit log
+### View and analyze the activity log
 
-You can view and analyze audit log data using any of the following methods:
+You can view and analyze activity log data using any of the following methods:
 
-* **Azure tools:** Retrieve information from the audit logs through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md) article.
+* **Azure tools:** Retrieve information from the activity log through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md) article.
 * **Power BI:** If you don't already have a [Power BI](https:// .microsoft.com/pricing) account, you can try it for free. Using the [Azure Audit Logs content pack for Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs), you can analyze your data with pre-configured dashboards, or you can customize views to suit your requirements.
 
 ### View and analyze the health probe and event log

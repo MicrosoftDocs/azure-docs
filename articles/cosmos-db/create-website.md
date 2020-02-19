@@ -52,7 +52,7 @@ Now let's deploy your first template.
    ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment3.png)
 4. Click **Edit parameters**, provide values for each of the mandatory parameters, and click **OK**.  The parameters are as follows:
    
-   1. SITENAME: Specifies the App Service web app name and is used to construct the URL that you use to access the web app (for example, if you specify "mydemodocdbwebapp", then the URL by which you access the web app is mydemodocdbwebapp.azurewebsites.net).
+   1. SITENAME: Specifies the App Service web app name and is used to construct the URL that you use to access the web app (for example, if you specify "mydemodocdbwebapp", then the URL by which you access the web app is `mydemodocdbwebapp.azurewebsites.net`).
    2. HOSTINGPLANNAME: Specifies the name of App Service hosting plan to create.
    3. LOCATION: Specifies the Azure location in which to create the Azure Cosmos DB and web app resources.
    4. DATABASEACCOUNTNAME: Specifies the name of the Azure Cosmos DB account to create.   
@@ -65,7 +65,7 @@ Now let's deploy your first template.
    ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment6.png)
 7. When the deployment finishes, the Resource group pane opens.
    ![Screenshot of the resource group pane](./media/create-website/TemplateDeployment7.png)  
-8. To use the application, navigate to the web app URL (in the example above, the URL would be http://mydemodocdbwebapp.azurewebsites.net).  You'll see the following web application:
+8. To use the application, navigate to the web app URL (in the example above, the URL would be `http://mydemodocdbwebapp.azurewebsites.net`).  You'll see the following web application:
    
    ![Sample Todo application](./media/create-website/image2.png)
 9. Go ahead and create a couple of tasks in the web app and then return to the Resource group pane in the Azure portal. Click the Azure Cosmos DB account resource in the Resources list and then click **Data Explorer**.
