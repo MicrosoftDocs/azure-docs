@@ -167,10 +167,15 @@ A P2S configuration requires quite a few specific steps. The following articles 
 
 ## How do I remove the configuration of a P2S connection?
 
-A P2S configuration can be removed using az cli and the following command : 
+A P2S configuration can be removed using Azure CLI and PowerShell using the following commands : 
 
+### Azure CLI
 `az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"`
- 
+### PowerShell
+`$gw=Get-AzVirtualNetworkGateway -name <gateway-name>`  
+`$gw.VPNClientConfiguration = $null`  
+`Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw`
+
 ## <a name="faqcert"></a>FAQ for native Azure certificate authentication
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
