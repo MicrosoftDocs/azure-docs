@@ -82,14 +82,6 @@ Unlocked time-based retention policies allow the `allowProtectedAppendWrites` se
 
 Legal hold policies cannot enable `allowProtectedAppendWrites` and do not allow for new blocks to be appended to append blobs. If a legal hold is applied to a time-based retention policy with `allowProtectedAppendWrites` enabled, the *AppendBlock* API will fail until the legal hold is lifted.
 
-> [!IMPORTANT] 
-> The allow protected append blobs writes setting under time-based retention is currently available in the following regions:
-> - East US
-> - South Central US
-> - West US 2
->
-> At this time, we strongly advise that you do not enable `allowProtectedAppendWrites` in any other regions besides those specified, as it may cause intermittent failures and affect compliance for append blobs. For more information on how to set and lock time-based retention policies, see [Enabling allow protected append blobs writes](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
-
 ## Legal holds
 
 Legal holds are temporary holds that can be used for legal investigation purposes or general protection policies. Each legal hold policy needs to be associated with one or more tags. Tags are used as a named identifier, such as a case ID or event, to categorize and 
@@ -161,7 +153,7 @@ Yes, you can use the Set Blob Tier command to move data across the blob tiers wh
 
 **What happens if I fail to pay and my retention interval has not expired?**
 
-In the case of non-payment, normal data retention policies will apply as stipulated in the terms and conditions of your contract with Microsoft.
+In the case of non-payment, normal data retention policies will apply as stipulated in the terms and conditions of your contract with Microsoft. For general information, see [Data management at Microsoft](https://www.microsoft.com/en-us/trust-center/privacy/data-management). 
 
 **Do you offer a trial or grace period for just trying out the feature?**
 
