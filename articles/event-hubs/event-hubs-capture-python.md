@@ -4,7 +4,6 @@ description: 'Quickstart: Scripts that use the Azure Python SDK to demonstrate t
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
-manager: timlt
 editor: ''
 
 ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6

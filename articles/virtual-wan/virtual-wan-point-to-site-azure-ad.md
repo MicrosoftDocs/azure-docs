@@ -119,7 +119,7 @@ Use the VPN profile to configure your clients.
 
 ## Configure user VPN clients
 
-To connect, you need to download the Azure VPN Client (Preview) and import the VPN client profile that was downloaded in the previous steps on every computer that wants to connect to the VNet.
+To connect, you need to download the Azure VPN Client and import the VPN client profile that was downloaded in the previous steps on every computer that wants to connect to the VNet.
 
 > [!NOTE]
 > Azure AD authentication is supported only for OpenVPN® protocol connections.
@@ -127,7 +127,7 @@ To connect, you need to download the Azure VPN Client (Preview) and import the V
 
 #### To download the Azure VPN client
 
-Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) to download the Azure VPN Client (Preview).
+Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) to download the Azure VPN Client.
 
 #### <a name="import"></a>To import a client profile
 

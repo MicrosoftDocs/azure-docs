@@ -64,6 +64,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Exists Transformation](http://youtu.be/GS8JVgNBMfs?hd=1)
 
+[Dynamic Joins and Dynamic Lookups](https://youtu.be/CMOPPie9bXM)
+
 ## Source and sink
 
 [Reading and writing JSONs](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
@@ -131,3 +133,5 @@ As updates are constantly made to the product, some features have added or diffe
 ## Data flow expressions
 
 [Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
+
+[Splitting Arrays and Case Statement](https://www.youtube.com/watch?v=DHNH8ZO7YjI)

@@ -492,10 +492,10 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
-  - name: Azure PowerShell classic
-    href: /powershell/module/azure/?view=azuresmps-3.7.0
+  - name: AzureRM PowerShell
+    href: /powershell/module/AzureRM.RecoveryServices
   - name: REST
-    href: https://msdn.microsoft.com/library/mt750497
+    href: /rest/api/site-recovery
 - name: Related
   items:
   - name: Azure Automation

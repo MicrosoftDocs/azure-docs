@@ -16,8 +16,6 @@ ms.custom: aaddev
 
 # Quickstart: Add sign-in with Microsoft to a Python web app
 
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
-
 In this quickstart, you'll learn how to integrate a Python web application with the Microsoft identity platform. Your app will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API.
 
 When you've completed the guide, your application will accept sign-ins of personal Microsoft accounts (including outlook.com,
