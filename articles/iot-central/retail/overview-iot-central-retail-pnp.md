@@ -155,7 +155,7 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 > [!div class="mx-imgBorder"]
 > ![Micro-fulfillment Center](./media/overview-iot-central-retail/MFC-Dashboard.png)
 
-To learn more, see the [Deploy and walk through the micro-fulfillment center application template](./tutorial-iot-central-smart-inventory-management-pnp.md) tutorial.
+To learn more, see the [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center-pnp.md) tutorial.
 
 ## Next steps
 
@@ -165,5 +165,5 @@ To get started building a retail solution:
 * [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics-pnp.md).
 * [Deploy and walk through a digital distribution center application template](./tutorial-iot-central-digital-distribution-center-pnp.md).
 * [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management-pnp.md).
-* [Deploy and walk through the micro-fulfillment center application template](./tutorial-iot-central-smart-inventory-management-pnp.md).
+* [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center-pnp.md).
 * Learn more about IoT Central in the [IoT Central overview](../preview/overview-iot-central.md).

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 1/14/2020
+ms.date: 02/10/2020
 ms.author: alsin
 
 ---
@@ -172,9 +172,9 @@ The following is an example script. You should replace the Resource Group, locat
 
 Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images can be secured through the use of [Azure Disk Encryption](../../linux/disk-encryption-overview.md). However, the subscription **must** be registered before enabling encryption.  Details on registering a RHEL BYOS Gold Image are available on the Red Hat site. See [How to register and subscribe a system to the Red Hat Customer Portal using Red Hat Subscription-Manager](https://access.redhat.com/solutions/253273); if you have an active Red Hat subscription, you can also read [Creating Red Hat Customer Portal Activation Keys](https://access.redhat.com/articles/1378093).
 
-Azure Disk Encryption is not supported on [Red Hat custom images](/linux/redhat-create-upload-vhd). Additional ADE requirements and prerequisites are documented in [Azure Disk Encryption for Linux VMs](../../linux/disk-encryption-overview.md#additional-vm-requirements).
+Azure Disk Encryption is not supported on [Red Hat custom images](../../linux/redhat-create-upload-vhd.md). Additional ADE requirements and prerequisites are documented in [Azure Disk Encryption for Linux VMs](../../linux/disk-encryption-overview.md#additional-vm-requirements).
 
-Steps for applying Azure Disk Encryption are available in [Azure Disk Encryption scenarios on Linux VMs](../../linux/disk-encryption-linux.md) and related articles.  
+Steps for applying Azure Disk Encryption are available in [Azure Disk Encryption scenarios on Linux VMs](../../linux/disk-encryption-linux.md) and related articles.
 
 ## Additional information
 
@@ -183,7 +183,7 @@ Steps for applying Azure Disk Encryption are available in [Azure Disk Encryption
     ```
     "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
     ```
-    
+
     In this case, contact Microsoft or Red Hat to enable your subscription.
 
 - If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:

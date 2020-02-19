@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: virtual-machines
-author: singhkays
+author: tanmaygore
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
-ms.author: kasing
+ms.date: 02/06/2020
+ms.author: tagore
 ms.custom: include file
 
 ---
@@ -35,7 +35,7 @@ You can abort your migration as long as the resources are in the prepared state.
 
 ## Can I roll back my migration if the commit operation fails? 
 
-You cannot abort migration if the commit operation fails. All migration operations, including the commit operation, are idempotent. So we recommend that you retry the operation after a short time. If you still face an error, create a support ticket or create a forum post with the ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
+You cannot abort migration if the commit operation fails. All migration operations, including the commit operation, are idempotent. So we recommend that you retry the operation after a short time. If you still face an error, create a support ticket or create a forum post on [Microsoft Q&A](https://docs.microsoft.com/answers/index.html).
 
 ## Do I have to buy another express route circuit if I have to use IaaS under Resource Manager? 
 
@@ -47,7 +47,7 @@ During migration, the resources transform from classic to Resource Manager. So w
 
 ## I backed up my classic VMs in a vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault?
 
-<a name="vault">When</a> you move a VM from classic to Resource Manager mode, backups taken prior to migration will not migrate to newly migrated Resource Manager VM. However, if you wish to keep your backups of classic VMs, follow these steps before the migration. 
+When you move a VM from classic to Resource Manager mode, backups taken prior to migration will not migrate to newly migrated Resource Manager VM. However, if you wish to keep your backups of classic VMs, follow these steps before the migration. 
 
 1. In the Recovery Services vault, go to the **Protected Items** tab and select the VM. 
 2. Click Stop Protection. Leave *Delete associated backup data* option **unchecked**.

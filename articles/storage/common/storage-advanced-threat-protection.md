@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 02/04/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ---
@@ -25,7 +25,7 @@ Advanced threat protection for Azure Storage ingests diagnostic logs of read, wr
 
 ## Set up advanced threat protection
 
-Advanced threat protection is enabled for your storage account by default. You can configure advanced threat protection in any of several ways, described in the following sections.
+You can configure advanced threat protection in any of several ways, described in the following sections.
 
 ### [Portal](#tab/azure-portal)
 
