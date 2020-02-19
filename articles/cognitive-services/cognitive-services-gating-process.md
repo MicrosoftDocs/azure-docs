@@ -17,12 +17,6 @@ Cognitive Services extends artificial intelligence (AI) within reach to every de
 
 Currently, the services below are offered through the gating process:
 
-## Web APIs
-
-| Service |
-| ------- |
-| TBD     |
-
 ## Online Containers
 
 | Service                                        | Container(s)                                           |
@@ -45,66 +39,23 @@ Currently, the services below are offered through the gating process:
 | [Text Analytics][ta-containers]                | Sentiment Analysis |
 | [Translator Text][tt-containers]               | Translator Text    |
 
-## Eligibility, approval process and FAQs
+## Eligibility and Approval process
 
-<details>
-<summary>
-<b>What is the customer criteria to submit an application?</b>
-</summary>
+The gating process is in place to help gauge interest and better understand customer needs. The Microsoft team accepts applications from customers with a valid Azure subscription and a valid business scenario. Customers will potentially have their applications denied when:
 
-**Answer:** We accept applications from customers whom have a valid Azure subscription and a valid business scenario.
+ - They do not have a valid Azure subscription
+ - The application was submitted through personal email (@hotmail.com, @gmail.com, @yahoo.com)
+ - There was no proper justification or business scenario provided
 
-</details>
+Given the demand from different customer segments, we're attempting to expedite approval process. However, we cannot commit to a timeline. Once a decision is made, the Microsoft team will contact you and your account management team for the next steps. We appreciate your understanding and patience.
 
-<details>
-<summary>
-<b>Why might an application be denied?</b>
-</summary>
+If the application is approved, the Microsoft team will send an email with all details, documentation, and guidance. Cognitive Services pricing details available [here](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-**Answer:** Applications having chances of denial because of below reason (and not limited to):
- - No valid Azure subscription
- - Application submitted through personal email (@hotmail.com, @gmail.com, @yahoo.com)
- - No proper justification provided in the business scenario
+## Application
 
-</details>
+The application is available here, <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u" target="_blank">Azure Cognitive Services - Application for gated services <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
-<details>
-<summary>
-<b>How long does it take to approve an application?</b>
-</summary>
-
-**Answer:** Given the demand from different customer segments, we are trying to expedite approval process, however we cannot promise a timeline. Once a decision is made, the Microsoft team will contact you and your account management team for the next steps. We appreciate your understanding and patience. Meanwhile any question please email us at containersupport@microsoft.com 
-
-</details>
-
-<details>
-<summary>
-<b>How do I know my application is approved?</b>
-</summary>
-
-**Answer:** If the application is approved, Microsoft team will send an email with all details, documentation and guidance.
-
-</details>
-
-<details>
-<summary>
-<b>Where can I find the pricing information?</b>
-</summary>
-
-**Answer:** Cognitive Services pricing details available [here](https://azure.microsoft.com/pricing/details/cognitive-services/).
-
-</details>
-
-<details>
-<summary>
-<b>How should I signup for a gated service?</b>
-</summary>
-
-**Answer:** You will need to submit application with all required details at this page - Sign up - Cognitive Services
-
-</details>
-
-If you still have questions, please email <a href="mailto:containersupport@microsoft.com">containersupport@microsoft.com</a>.
+If you have questions, email the Microsoft team at <a href="mailto:containersupport@microsoft.com">containersupport@microsoft.com</a>.
 
 [ad-containers]: ./anomaly-detector/anomaly-detector-container-howto.md
 [cv-containers]: ./computer-vision/computer-vision-how-to-install-containers.md
