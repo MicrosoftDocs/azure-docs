@@ -1,25 +1,23 @@
 ---
-title: SQL Data Warehouse recommendations
-description: Learn about SQL Data Warehouse recommendations and how they are generated
+title: SQL Analytics recommendations
+description: Learn about SQL Analytics recommendations and how they are generated
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/05/2018
+ms.date: 02/05/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# SQL Data Warehouse Recommendations
+# SQL Analytics Recommendations
 
-This article describes the recommendations served by SQL Data Warehouse through Azure Advisor.  
+This article describes the SQL Analytics recommendations served through Azure Advisor.  
 
-SQL Data Warehouse provides recommendations to ensure your data warehouse is consistently optimized for performance. Data warehouse recommendations are tightly integrated with [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) to provide you with best practices directly within the [Azure portal](https://aka.ms/Azureadvisor). SQL Data Warehouse analyzes the current state of your data warehouse, collects telemetry, and surfaces recommendations for your active workload on a daily cadence. The supported data warehouse recommendation scenarios are outlined below along with how to apply recommended actions.
-
-If you have any feedback on the SQL Data Warehouse Advisor or run into any issues, reach out to [sqldwadvisor@service.microsoft.com](mailto:sqldwadvisor@service.microsoft.com).   
+SQL Analytics provides recommendations to ensure your data warehouse workload is consistently optimized for performance. Recommendations are tightly integrated with [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) to provide you with best practices directly within the [Azure portal](https://aka.ms/Azureadvisor). SQL Analytics collects telemetry and surfaces recommendations for your active workload on a daily cadence. The supported  recommendation scenarios are outlined below along with how to apply recommended actions.
 
 Click [here](https://aka.ms/Azureadvisor) to check your recommendations today! Currently this feature is applicable to Gen2 data warehouses only. 
 
@@ -31,7 +29,7 @@ Data skew can cause additional data movement or resource bottlenecks when runnin
 
 ## No or Outdated Statistics
 
-Having suboptimal statistics can severely impact query performance as it can cause the SQL Data Warehouse query optimizer to generate suboptimal query plans. The following documentation describes the best practices around creating and updating statistics:
+Having suboptimal statistics can severely impact query performance as it can cause the SQL query optimizer to generate suboptimal query plans. The following documentation describes the best practices around creating and updating statistics:
 
 - [Creating and updating table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
