@@ -66,9 +66,9 @@ See [best practices](./howto-best-practices.md).
 
 ## How much does App Configuration cost?
 
-The service is free to use during the public preview.
+There are two pricing tiers: 1) a free tier, and 2) a standard tier.
 
-Once the service reaches general availability on February 19, 2020, there will be two pricing tiers: 1) a free tier, and 2) a standard tier. Stores created prior to the introduction of the Standard tier will move to the Free tier upon general availability.
+If you created a store prior to the introduction of the Standard tier, it automatically moved to the Free tier upon general availability. You can choose to upgrade to the Standard tier, or remain on the Free tier if it meets your needs.
 
 ## Which App Configuration tier should I use?
 
