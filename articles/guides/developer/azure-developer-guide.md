@@ -57,7 +57,7 @@ Because all three app types share the App Service runtime, you can host a websit
 
 App Service has been designed with DevOps in mind. It supports various tools for publishing and continuous integration deployments. These tools include GitHub webhooks, Jenkins, Azure DevOps, TeamCity, and others.
 
-You can migrate your existing applications to App Service by using the [online migration tool](https://www.migratetoazure.net/).
+You can migrate your existing applications to App Service by using the [online migration tool](https://appmigration.microsoft.com/).
 
 > **When to use**: Use App Service when you’re migrating existing web applications to Azure, and when you need a fully-managed hosting platform for your web apps. You can also use App Service when you need to support mobile clients or expose REST APIs with your app.
 >
@@ -168,7 +168,7 @@ It's crucial to not only know who is using your applications, but also to preven
 
   > **When to use**: When you want to provide an SSO experience, work with Graph-based data, or authenticate domain-based users.
   >
-  > **Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/v1-overview.md).
+  > **Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/v2-overview.md).
 
 - **App Service Authentication**: When you choose App Service to host your app, you also get built-in    authentication support for Azure AD, along with social identity providers—including Facebook, Google, Microsoft, and Twitter.
 
