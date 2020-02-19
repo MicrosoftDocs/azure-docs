@@ -18,7 +18,7 @@ ms.author: juliako
 
 # Scaling streaming with CDN
 
-Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. For more information, see [CDN overview](../../cdn/cdn-overview.md).
+Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world.  
 
 CDN caches content streamed from a Media Services [streaming endpoint (origin)](streaming-endpoint-concept.md) per codec, per streaming protocol, per bitrate, per container format, and per encryption/DRM. For each combination of codec-streaming protocol-container format-bitrate-encryption, there will be a separate CDN cache. 
 
@@ -73,7 +73,6 @@ To achieve this goal, a streaming endpoint (origin) and CDN need to work hand in
 The benefits of the *Origin-Assist CDN-Prefetch* feature includes:
 
 - Prefetch improves video playback quality by: pre-positioning anticipated video segments at the edge during playback, reducing latency to the viewer and improving video segment download times. This results in faster video start-up time and lower rebuffering occurrences.
-- The *Origin-Assist* capability in Media Services origin can be used with other CDN (such as Verizon CDN and/or Microsoft CDN) once the *CDN-Prefetch* feature is enabled. 
 - This concept is applicable to general CDN-origin scenario, not limited to media.
 - Akamai has added this feature to [Akamai Cloud Embed (ACE)](https://learn.akamai.com/en-us/products/media_delivery/cloud_embed.html).
 
