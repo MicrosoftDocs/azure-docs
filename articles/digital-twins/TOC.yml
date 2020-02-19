@@ -72,6 +72,7 @@
   - name: User-defined functions client library
     href: reference-user-defined-functions-client-library.md
 - name: Resources
+  expanded: true
   items:
   - name: Developer resources
     items:
