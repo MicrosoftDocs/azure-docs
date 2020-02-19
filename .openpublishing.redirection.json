@@ -41231,6 +41231,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/azure-storage-iis-table.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostics-extension-schema-1dot3.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostics-extension-schema.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-versions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostics-extension-to-storage.md",
+      "redirect_url": "/azure/azure-monitor/cloud-services/diagnostics-extension-to-storage",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
