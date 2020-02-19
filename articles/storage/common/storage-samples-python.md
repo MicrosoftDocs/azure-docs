@@ -537,7 +537,7 @@ The following tables provide an overview of our samples repository and the scena
       [Create table](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L46)
    :::column-end:::
    :::column span="":::
-      [Delete entitytTable](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L79)
+      [Delete entity/table](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L79)
    :::column-end:::
 :::row-end:::
 :::row:::

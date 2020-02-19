@@ -277,7 +277,7 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Create table](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262)
+      [Create table](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/Common.cs#L40)
    :::column-end:::
    :::column span="":::
       [Delete entity/table](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs)
@@ -285,10 +285,10 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Insert/merge/replace entity](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262)
+      [Insert/merge/replace entity](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/SamplesUtils.cs#L41)
    :::column-end:::
    :::column span="":::
-      [Query entities](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs)
+      [Query entities](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs#L672)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -296,12 +296,12 @@ The following table provides an overview of our samples repository and the scena
       [Query tables](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs)
    :::column-end:::
    :::column span="":::
-      [Table ACL/properties](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs)
+      [Table ACL/properties](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs#L224)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Update entity](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262)
+      [Update entity](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs#L51)
    :::column-end:::
 :::row-end:::
 
