@@ -48534,17 +48534,17 @@
     {
       "source_path": "articles/virtual-machines/linux/ansible-install-configure.md",
       "redirect_url": "/azure/ansible/ansible-install-configure",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/ansible-create-vm.md",
       "redirect_url": "/azure/ansible/ansible-create-vm",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/ansible-manage-linux-vm.md",
       "redirect_url": "/azure/ansible/ansible-manage-linux-vm",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/app-service/containers/tutorial-java-enterprise-postgresql-app.md",
@@ -48554,12 +48554,17 @@
     {
       "source_path": "articles/virtual-machines/linux/terraform-install-configure.md",
       "redirect_url": "/azure/terraform/terraform-install-configure",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/terraform-create-complete-vm.md",
       "redirect_url": "/azure/terraform/terraform-create-complete-vm",
-      "redirect_document_id": false
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/terraform/terraform-vm-managed-identities-for-azure-resources.md",
+      "redirect_url": "/azure/terraform/terraform-create-complete-vm",
+      "redirect_document_id": true
     }
   ]
 }
