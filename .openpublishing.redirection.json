@@ -36946,6 +36946,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/tutorial-enable-writeback.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-enable-sspr-writeback",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/howto-sspr-writeback.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-enable-sspr-writeback",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/authentication/concept-mfa-get-started.md",
       "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-mfa-get-started",
       "redirect_document_id": true
