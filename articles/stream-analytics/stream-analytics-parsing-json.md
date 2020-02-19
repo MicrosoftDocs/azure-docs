@@ -180,6 +180,7 @@ return JSON.parse(string);
 ```
 
 You can then create a step in your Stream Analytics query as shown below to access the fields of your JSON records.
+
  ```SQL
  WITH parseJson as
  (
