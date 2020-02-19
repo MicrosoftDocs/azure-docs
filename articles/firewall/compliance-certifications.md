@@ -1,6 +1,6 @@
 ---
-title: Azure Firewall compliance certifications
-description: A list of Azure Firewall compliance certifications for PCI, SOC, and ISO
+title: Azure Firewall certifications
+description: A list of Azure Firewall certifications for PCI, SOC, ISO, and ICSA Labs
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,7 +9,7 @@ ms.date: 02/19/2020
 ms.author: victorh
 ---
 
-# Azure Firewall compliance certifications
+# Azure Firewall certifications
 
 Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), International Organization for Standardization (ISO), ICSA Labs, and HITRUST compliant.
 
