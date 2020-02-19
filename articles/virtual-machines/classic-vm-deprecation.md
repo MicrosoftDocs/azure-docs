@@ -12,36 +12,32 @@ ms.date: 02/10/2020
 ms.author: tagore
 ---
 
-
 # Migrate your IaaS resources to Azure Resource Manager by March 1, 2023 
-In 2014, we launched IaaS on Azure Resource Manager, and have been enhancing capabilities ever since. Because it replaces IaaS resources from Azure Service Manager (ASM), classic VMs will be retired on March 1, 2023. 
-If you use IaaS resources from ASM, please migrate by March 1, 2023. We encourage you to make the switch sooner to take advantage of these feature enhancements: 
-- Enables deploying complex applications through templates. 
-- Includes scalable, parallel deployment for virtual machines into availability sets. 
-- Provides lifecycle management of compute, network, and storage independently. 
-- Enables security by default with the enforcement of virtual machines in a virtual network.
 
+In 2014, we launched IaaS on Azure Resource Manager, and have been enhancing capabilities ever since. Because it replaces IaaS resources from Azure Service Manager (ASM), we have started a 3 year retirement process for classic VMs beginning February 24th, 2020 and ending on March 1, 2023. 
+
+If you use IaaS resources from ASM, please start planning today and complete migration by March 1, 2023. We encourage you to make the switch sooner to take all the advantages of [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/).  
 
 ## How does this affect me? 
 
-1. Starting September 1, 2021, you will no longer be able to create classic VMs using ASM. 
-2. Beginning March 1, 2023, you will no longer be able to start any classic VMs using ASM. Any remaining VMs in a running or stopped-allocated state will be moved to a stopped-deallocated state.  We will not immediately delete remaining VMs. 
-3. After March 1, 2023, we will notify remaining subscriptions who have not moved, about our timelines to delete remaining VMs. 
+1) On March 1st, 2023, all active Classic VMs will be stopped & deallocated but will not be deleted immediately.
+2) On March 1st, 2023, we will notify remaining subscriptions who have not migrated to Azure Resource Manager about our timelines for deleting any remaining Classic VMs. 
 
-
-The following Azure services and functionality will NOT be impacted by this retirement: 
+The following Azure services and functionality will **NOT** be impacted by this retirement: 
 - Cloud Services 
 - Storage accounts **not** used by classic VMs 
 - Virtual networks (VNets) **not** used by classic VMs. 
 
-
 ## What actions should I take? 
 
-Start to migrate your existing VMs from classic (Azure Service Manager) to the Azure Resource Manager deployment model using our platform supported migration.  
+Start planning for the migration to Azure Resource Manager, today. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) about migrating your classic Linux and Windows VMs to Azure Resource Manager.
 
-Learn more about migrating your classic [Linux](./linux/migration-classic-resource-manager-overview.md) and [Windows](./windows/migration-classic-resource-manager-overview.md) VMs to Azure Resource Manager. 
+For additional information, refer to the [Frequently asked questions about classic to Azure Resource Manager migration](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq)
 
-If you have questions, please [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+If you need Microsoft provided technical assistance on migration, please enroll in the Fast Track Program.
+
+For other technical issues and additional questions, please open a [Support Request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 
 ## Next steps
 
