@@ -758,8 +758,15 @@ To enable [Azure Active Directory OAuth](../active-directory/develop/about-micro
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | 
+   | **Policy name** | Yes | The name that you want to use for the authorization policy |
+   | **Claims** | Yes | The list of claim types and values that incoming calls must use in the authentication tokens that they present to your logic app. The list requires at least the **Issuer** claim whose value must start with the Azure AD issuer ID, `https://sts.windows.net/`. <p><p>Standard claim types include **Issuer**, **Audience**, **Subject**, and the **JWT ID** type. You can also specify your own claim type and value. |
    |||
+
+1. To add another standard claim, select **Add standard claim**, select the claim type, and specify the corresponding value. To add your own claim, select **Add custom claim**, and specify the values for your custom claim.
+
+1. To add another authorization policy, select **Add policy**.
+
+1. When you're done, select **Save**.
 
 <a name="raw-authentication"></a>
 
