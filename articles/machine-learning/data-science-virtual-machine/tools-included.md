@@ -16,7 +16,7 @@ ms.date: 02/19/2020
 
 # What tools are included on the Azure Data Science Virtual Machine?
 
-The Data Science Virtual Machine is the easiest way to explore data and do machine learning in the cloud. The Data Science Virtual Machines are pre-configured with the complete operating system, security patches, drivers, and popular data science and development software. You can choose the hardware environment, ranging from lower-cost CPU-centric machines to very powerful machines with multiple GPUs, NVMe storage, and large amounts of memory. For machines with GPUs, all drivers are installed, all machine learning frameworks are version-matched for GPU compatibility, and acceleration is enabled in all application software.
+The Data Science Virtual Machine is the easiest way to explore data and do machine learning in the cloud. The Data Science Virtual Machines are pre-configured with the complete operating system, security patches, drivers, and popular data science and development software. You can choose the hardware environment, ranging from lower-cost CPU-centric machines to very powerful machines with multiple GPUs, NVMe storage, and large amounts of memory. For machines with GPUs, all drivers are installed, all machine learning frameworks are version-matched for GPU compatibility, and acceleration is enabled in all application software that supports GPUs.
 
 The Data Science Virtual Machine comes with the most useful data-science tools pre-installed: 
 
