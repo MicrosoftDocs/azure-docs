@@ -394,7 +394,7 @@
       - name: Add a one-step correction to a Custom Command
         href: how-to-custom-speech-commands-one-step-correction.md
   - name: Direct Line Speech
-    items:
+    items:    
     - name: What is Direct Line Speech?
       href: direct-line-speech.md
     - name: Quickstarts
@@ -413,67 +413,7 @@
       items:
       - name: Voice assistants FAQ
         href: faq-voice-assistants.md
-- name: Customization
-  expanded: false
-  items:
-  - name: Speech-to-text
-    items:
-    - name: Custom Speech portal
-      items:
-      - name: Get started with Custom Speech
-        href: how-to-custom-speech.md
-      - name: Prepare data
-        href: how-to-custom-speech-test-data.md
-      - name: Inspect data
-        href: how-to-custom-speech-inspect-data.md
-      - name: Evaluate accuracy
-        href: how-to-custom-speech-evaluate-data.md
-      - name: Train a custom model
-        href: how-to-custom-speech-train-model.md
-      - name: Deploy a custom model
-        href: how-to-custom-speech-deploy-model.md
-      - name: Create human-labeled transcriptions
-        href: how-to-custom-speech-human-labeled-transcriptions.md
-    - name: Tenant models
-      items:
-      - name: Create, publish, and use a model
-        href: tutorial-tenant-model.md
-  - name: Text-to-speech
-    items:
-    - name: Responsible deployment
-      items:
-      - name: Gating of Custom Voice
-        href: concepts-gating-overview.md
-      - name: Deployment of synthetic technology
-        href: concepts-guidelines-responsible-deployment-synthetic.md
-      - name: Disclosure for voice talent
-        href: https://aka.ms/disclosure-voice-talent
-      - name: Disclosure design guidelines
-        href: concepts-disclosure-guidelines.md
-      - name: Disclosure design patterns
-        href: concepts-disclosure-patterns.md
-      - name: Code of conduct
-        href: https://aka.ms/custom-neural-code-of-conduct
-    - name: Custom Voice portal
-      items:
-      - name: Get started with Custom Voice
-        href: how-to-custom-voice.md
-        displayName: "custom voice, neural voice"
-      - name: Prepare data
-        href: how-to-custom-voice-prepare-data.md
-      - name: Create and use Custom Voice models
-        href: how-to-custom-voice-create-voice.md
-      - name: Record voice samples
-        href: record-custom-voice-samples.md
-    - name: Audio Content Creation
-      items:
-      - name: Audio Content Creation
-        href: how-to-audio-content-creation.md
-  - name: Custom keyword naming guidelines
-    href: speech-devices-sdk-kws-guidelines.md
-  - name: Custom keyword spotting
-    href: speech-devices-sdk-create-kws.md
-- name: Speech service
+- name: Hosting
   expanded: false
   items:
     - name: Overview
