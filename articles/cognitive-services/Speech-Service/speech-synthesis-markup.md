@@ -388,7 +388,7 @@ Each `lexeme` element is a lexicon item. `grapheme` contains text describing the
 For more information about custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/) on the W3C website.
 
 Step 2: Upload Custom Lexicon file create in step 1 online, you could store it anywhere, and we suggest you to store it in Microsoft Azure , for example
-for example [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal).
+for example [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 Step 3: Refer to custom lexicon file in SSML
 
