@@ -105,6 +105,7 @@
   - name: Event Domains
     href: event-domains.md
   - name: Event sources
+    displayName: Azure subscriptions, Container registry, Custom topics, Event Hubs, IoT Hub, Key Vault, Media Services, Resource groups, Service Bus, Storage, Maps, App Configuration, Signal R, Machine Learning
     href: event-sources.md
   - name: Event handlers
     href: event-handlers.md
