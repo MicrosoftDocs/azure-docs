@@ -32,6 +32,8 @@ The table below lists which GPUs support H265 hardware video decoding.
 | AMD | GPUs with at least version 6 of AMD's [Unified Video Decoder](https://en.wikipedia.org/wiki/Unified_Video_Decoder#UVD_6). |
 | Intel | Skylake and newer CPUs |
 
+Even though the correct H265 codec might be installed, security properties on the codec dlls may cause codec initialization failures. The [troubleshooting guide](../resources/troubleshoot.md#h265-codec-not-available) describes steps how to solve this. This dll issue can only occur when using the service in a desktop application, for instance in Unity or Unreal.
+
 ## Devices
 
 Azure Remote Rendering currently only supports **HoloLens 2** as a target device.
@@ -60,7 +62,7 @@ The following software must be installed:
 * The latest version of **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **GIT** [(download)](https://git-scm.com/downloads)
-* The **NuGet** command line tool and Credential Provider (see details below)
+* The **NuGet** command-line tool and Credential Provider (see details below)
 * Optional: To view the video stream from the server on a desktop PC, you need the **HEVC Video Extensions** [(Microsoft Store link)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).
 
 ### How to install NuGet
