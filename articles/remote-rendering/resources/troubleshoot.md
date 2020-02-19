@@ -20,7 +20,7 @@ This article has a few guidelines to troubleshoot problems that may occur on the
 There are two reasons why the server might refuse to connect with a 'codec not available' error.
 * **The H265 codec is not installed.** Refer to [system requirements](../overview/system-requirements.md#development-pc) for installing latest graphics driver.
 * **The codec is installed, but cannot be used.** The reason for this is wrong security settings on the dlls. This problem does not manifest when trying to watch videos encoded with H265. Furthermore, reinstalling the codec does not fix this either. To fix this problem for Remote Rendering, perform the following steps:
-   1. **Find out the dll location of the codec.** For that, open a **powershell console in admin** mode and run
+   1. **Find out the dll location of the codec.** For that, open a **PowerShell console in admin** mode and run
    ```PowerShell
    Get-AppxPackage -Name Microsoft.HEVCVideoExtension
    ```
