@@ -193,6 +193,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |500121| Authentication failed during strong authentication request.|
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
 |500172|Certificate '{name}' issued by '{issuer}' is not valid. Current time: '{curTime}'. Certificate NotBefore: '{startTime}'. Certificate NotAfter: '{endTime}'.|
+|501291|Client app is a Mam app, device is not registered and request is sent using a broker. Work place join needs to be done to register the device before the app can be accessed.|
 |530003|Your device is required to be managed to access this resource.|
 |530021|Application does not meet the Conditional Access approved app requirements.|
 |530032|Blocked by security policy.| 
