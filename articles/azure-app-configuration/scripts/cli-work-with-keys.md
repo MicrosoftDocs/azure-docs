@@ -24,7 +24,7 @@ This sample script shows how to:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-This article requires Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). The Azure Cloud Shell provides the latest version of the Azure CLI.
+This article requires Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Sample script
 
@@ -75,13 +75,13 @@ az appconfig kv list --name $appConfigName
 
 ## Script explanation
 
-This tables lists the commands used in our sample script. 
+This table lists the commands used in our sample script. 
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Creates or updates a key-value. |
-| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Lists key-values in an App Configuration store. |
-| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Deletes a key-value. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Create or update a key-value pair. |
+| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | List key-value pairs in an App Configuration store. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Delete a key-value pair. |
 
 ## Next steps
 
