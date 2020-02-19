@@ -255,33 +255,33 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
         "data" : { 
           "entities": [
             { 
-              "name" : "Microsoft", 
-              "description" : "This document refers to Microsoft the company", 
-              "id" : "differentIdentifyingScheme987", 
-              "matches" : [ 
+              "Name" : "Microsoft", 
+              "Description" : "This document refers to Microsoft the company", 
+              "Id" : "differentIdentifyingScheme987", 
+              "Matches" : [ 
                 { 
-                  "text" : "microsoft", 
-                  "offset" : 13, 
-                  "length" : 9, 
-                  "matchDistance" : 0 
+                  "Text" : "microsoft", 
+                  "Offset" : 13, 
+                  "Length" : 9, 
+                  "MatchDistance" : 0 
                 }, 
                 { 
-                  "text" : "Microsoft",
-                  "offset" : 49, 
-                  "length" : 9, 
-                  "matchDistance" : 0
+                  "Text" : "Microsoft",
+                  "Offset" : 49, 
+                  "Length" : 9, 
+                  "MatchDistance" : 0
                 }
               ] 
             },
             { 
-              "name" : "Bill Gates",
-              "description" : "William Henry Gates III, founder of Microsoft.", 
-              "matches" : [
+              "Name" : "Bill Gates",
+              "Description" : "William Henry Gates III, founder of Microsoft.", 
+              "Matches" : [
                 { 
-                  "text" : "Bill Gates",
-                  "offset" : 37, 
-                  "length" : 10,
-                  "matchDistance" : 0 
+                  "Text" : "Bill Gates",
+                  "Offset" : 37, 
+                  "Length" : 10,
+                  "MatchDistance" : 0 
                 }
               ]
             }
