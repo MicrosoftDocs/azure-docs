@@ -16,7 +16,7 @@ To control access and protect data in Azure Logic Apps, you can set up security 
 * [Access to logic app operations](#secure-operations)
 * [Access to run history inputs and outputs](#secure-run-history)
 * [Access to parameter inputs](#secure-action-parameters)
-* [Access to services and systems called from logic apps](#secure-requests)
+* [Access to services and systems called from logic apps](#secure-outbound-requests)
 
 <a name="secure-triggers"></a>
 
@@ -27,6 +27,7 @@ If your logic app uses a request-based trigger, which receives incoming calls or
 Here are options that can help you secure access to this trigger type:
 
 * [Generate shared access signatures](#sas)
+* [Enable Azure Active Directory Open Authentication (Azure AD OAuth)](#enable-oauth)
 * [Restrict inbound IP addresses](#restrict-inbound-ip-addresses)
 * [Add Azure Active Directory Open Authentication (Azure AD OAuth) or other security](#add-authentication)
 
@@ -88,6 +89,93 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 ```
 
 In the body, include the `KeyType` property as either `Primary` or `Secondary`. This property returns a URL that's signed by the specified security key.
+
+<a name="enable-oauth"></a>
+
+### Enable Azure Active Directory OAuth
+
+If your logic app starts with a Request trigger, you can enable [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) for authorizing inbound calls to the Request trigger. Before you enable this authentication, review these considerations:
+
+* Your logic app can have up to five authorization policies. Each authorization policy can have up to 10 [claims](../active-directory/develop/developer-glossary.md#claim).
+
+* An authorization policy must include at least the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` as the Azure AD issuer ID.
+
+* Your logic app can't use both Azure AD OAuth and [Shared Access Signatures (SAS)](#sas) authorization schemes.
+
+* OAuth tokens are supported only for workflow trigger requests.
+
+* Only Bearer-type authorization schemes are supported for OAuth tokens.
+
+To enable Azure AD OAuth, follow these steps to add one or more authorization policies to your logic app.
+
+1. In the [Azure portal](https://portal.microsoft.com), find and open your logic app in the Logic App Designer.
+
+1. On the logic app menu, under **Settings**, select **Authorization**. After the Authorization pane opens, select **Add policy**.
+
+   ![Select "Authorization" > "Add policy"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
+
+1. Provide information about the authorization policy by specifying the [claim types](../active-directory/develop/developer-glossary.md#claim) and values that your logic app expects in the authentication tokens presented by inbound calls to the Request trigger:
+
+   ![Provide information for authorization policy](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Policy name** | Yes | The name that you want to use for the authorization policy |
+   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. Here are the available standard claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token ID) <p><p>At the minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with the `https://sts.windows.net/` Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
+   |||
+
+1. To add another claim, select from these options:
+
+   * To add another standard claim type, select **Add standard claim**, select the claim type, and specify the claim value.
+
+   * To add your own claim, select **Add custom claim**, and specify the custom claim value.
+
+1. To add another authorization policy, select **Add policy**. Repeat the previous steps to set up the policy.
+
+1. When you're done, select **Save**.
+
+You've now set up your logic app to use Azure AD OAuth for authorizing inbound requests. This example shows a sample decoded [access token](../active-directory/develop/access-tokens.md) that's used for calling a logic app that specifies an authorization policy with an **Issuer**-type claim:
+
+```json
+{
+   "aud": "https://management.core.windows.net/",
+   "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
+   "iat": 1582056988,
+   "nbf": 1582056988,
+   "exp": 1582060888,
+   "_claim_names": {
+      "groups": "src1"
+   },
+   "_claim_sources": {
+      "src1": {
+         "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
+    }
+   },
+   "acr": "1",
+   "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
+   "amr": [
+      "rsa",
+      "mfa"
+   ],
+   "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
+   "appidacr": "2",
+   "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
+   "family_name": "Sophia Owen",
+   "given_name": "Sophia Owen (Fabrikam)",
+   "ipaddr": "167.220.2.46",
+   "name": "sophiaowen",
+   "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
+   "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
+   "puid": "1003000000098FE48CE",
+   "scp": "user_impersonation",
+   "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
+   "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "unique_name": "SophiaOwen@fabrikam.com",
+   "upn": "SophiaOwen@fabrikam.com",
+   "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
+   "ver": "1.0"
+}
+```
 
 <a name="restrict-inbound-ip"></a>
 
@@ -563,7 +651,7 @@ This example template that has multiple secured parameter definitions that use t
 }
 ```
 
-<a name="secure-requests"></a>
+<a name="secure-outbound-requests"></a>
 
 ## Access to services and systems called from logic apps
 
@@ -571,7 +659,7 @@ Here are some ways that you can help secure endpoints that receive calls or requ
 
 * Add authentication to outbound requests.
 
-  When you work with an HTTP-based trigger or action that makes outbound calls, such as HTTP, HTTP + Swagger, or Webhook, you can add authentication to the request that's sent by your logic app. For example, you can use these authentication types:
+  When you work with an HTTP-based trigger or action that makes outbound calls, such as HTTP, HTTP + Swagger, or Webhook, you can add authentication to the request that's sent by your logic app. For example, you can select these authentication types:
 
   * [Basic authentication](#basic-authentication)
 
@@ -615,7 +703,7 @@ HTTP and HTTPS endpoints support various kinds of authentication. Based on the t
 |---------------------|--------------|
 | [Basic](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Client Certificate](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook, Request |
+| [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Raw](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Managed identity](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 |||
@@ -730,50 +818,6 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 }
 ```
 
-<a name="enable-oauth"></a>
-
-### Enable Azure AD OAuth on Request triggers
-
-When your logic app starts with the Request trigger, you can use [Azure AD OAuth](../active-directory/develop/about-microsoft-identity-platform.md) for authorizing inbound calls to your logic app. Before you enable this authentication, review these considerations:
-
-* Your logic app can have up to five authorization policies. Each authorization policy can have up to 10 [claims](../active-directory/develop/developer-glossary.md#claim).
-
-* An authorization policy must include at least the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` as the Azure AD issuer ID.
-
-* Your logic app can't use both Azure AD OAuth and [Shared Access Signatures (SAS)](#sas) schemes for authorization.
-
-* Currently, OAuth tokens are supported only for workflow trigger requests.
-
-* Only Bearer-type authorization schemes are supported for OAuth tokens.
-
-To set up this authentication, follow these steps to add one or more authorization policies to your logic app.
-
-1. In the [Azure portal](https://portal.microsoft.com), find and open your logic app in the Logic App Designer.
-
-1. On the logic app menu, under **Settings**, select **Authorization**. After the Authorization pane opens, select **Add policy**.
-
-   ![Select "Authorization" > "Add policy"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
-
-1. Provide information about the authorization policy by specifying the [claim types](../active-directory/develop/developer-glossary.md#claim) and values that your logic app expects in the authentication tokens presented by inbound calls to the Request trigger:
-
-   ![Provide information for authorization policy](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
-
-   | Property | Required | Description |
-   |----------|----------|-------------|
-   | **Policy name** | Yes | The name that you want to use for the authorization policy |
-   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. Here are the available standard claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token ID) <p><p>At the minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with the `https://sts.windows.net/` Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
-   |||
-
-1. To add another claim, select from these options:
-
-   * To add another standard claim type, select **Add standard claim**, select the claim type, and specify the claim value.
-
-   * To add your own claim, select **Add custom claim**, and specify the custom claim value.
-
-1. To add another authorization policy, select **Add policy**. Repeat the previous steps to set up the policy.
-
-1. When you're done, select **Save**.
-
 <a name="raw-authentication"></a>
 
 ### Raw authentication
@@ -833,7 +877,7 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
    |---------------------|-----------------|----------|-------|-------------|
    | **Authentication** | `type` | Yes | **Managed Identity** <br>or <br>`ManagedServiceIdentity` | The authentication type to use |
    | **Managed Identity** | `identity` | Yes | * **System Assigned Managed Identity** <br>or <br>`SystemAssigned` <p><p>* <*user-assigned-identity-name*> | The managed identity to use |
-   | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. <p>For example, `https://storage.azure.com/` makes the access tokens for authentication valid for all storage accounts. However, you can also specify a root service URL, such as `https://fabrikamstorageaccount.blob.core.windows.net` for a specific storage account. <p>**Note**: The **Audience** property might be hidden in some triggers or actions. To make this property visible, in the trigger or action, open the **Add new parameter** list, and select **Audience**. <p><p>**Important**: Make sure that this target resource ID *exactly matches* the value that Azure AD expects, including any required trailing slashes. So, the `https://storage.azure.com/` resource ID for all Azure Blob Storage accounts requires a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. To find these resource IDs, see [Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. <p>For example, `https://storage.azure.com/` makes the [access tokens](../active-directory/develop/access-tokens.md) for authentication valid for all storage accounts. However, you can also specify a root service URL, such as `https://fabrikamstorageaccount.blob.core.windows.net` for a specific storage account. <p>**Note**: The **Audience** property might be hidden in some triggers or actions. To make this property visible, in the trigger or action, open the **Add new parameter** list, and select **Audience**. <p><p>**Important**: Make sure that this target resource ID *exactly matches* the value that Azure AD expects, including any required trailing slashes. So, the `https://storage.azure.com/` resource ID for all Azure Blob Storage accounts requires a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. To find these resource IDs, see [Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
    When you use [secured parameters](#secure-action-parameters) to handle and protect sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ManagedServiceIdentity` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
