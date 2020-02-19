@@ -22,11 +22,11 @@ highlightedContent:
       itemType: get-started
       url: guides/developer/azure-developer-guide.md
     # Card
-    - title: Design your application using the Azure Architecture Center
+    - title: Design your app using the Azure Architecture Center
       itemType: architecture
       url: https://docs.microsoft.com/azure/architecture/
     # Card
-    - title: Prepare your organization with the Cloud Adoption Framework for Azure
+    - title: Prepare your org with the Cloud Adoption Framework
       itemType: overview
       url: https://docs.microsoft.com/azure/cloud-adoption-framework/
     # Card
