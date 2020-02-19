@@ -102,7 +102,7 @@ Password writeback is a highly secure service. To ensure your information is pro
    * After the service bus relay is created, a strong symmetric key is created that is used to encrypt the password as it comes over the wire. This key only lives in your company's secret store in the cloud, which is heavily locked down and audited, just like any other password in the directory.
 * **Industry standard Transport Layer Security (TLS)**
    1. When a password reset or change operation occurs in the cloud, the plaintext password is encrypted with your public key.
-   1. The encrypted password is placed into an HTTPS message that is sent over an encrypted channel by using Microsoft SSL certs to your service bus relay.
+   1. The encrypted password is placed into an HTTPS message that is sent over an encrypted channel by using Microsoft TLS/SSL certs to your service bus relay.
    1. After the message arrives in the service bus, your on-premises agent wakes up and authenticates to the service bus by using the strong password that was previously generated.
    1. The on-premises agent picks up the encrypted message and decrypts it by using the private key.
    1. The on-premises agent attempts to set the password through the AD DS SetPassword API. This step is what allows enforcement of your Active Directory on-premises password policy (such as the complexity, age, history, and filters) in the cloud.

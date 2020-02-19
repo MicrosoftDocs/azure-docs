@@ -86,7 +86,7 @@ To get started, connect to the Windows Server VM as follows:
 
     ![Connect to Windows virtual machine in the Azure portal](./media/tutorial-create-management-vm/connect-vm.png)
 
-    You can also [create and use an Azure Bastion host (currently in preview)][azure-bastion] to allow access only through the Azure portal over SSL.
+    You can also [create and use an Azure Bastion host (currently in preview)][azure-bastion] to allow access only through the Azure portal over TLS.
 
 1. Select the option to *Download RDP File*. Save this RDP file in your web browser.
 1. To connect to your VM, open the downloaded RDP file. If prompted, select **Connect**.

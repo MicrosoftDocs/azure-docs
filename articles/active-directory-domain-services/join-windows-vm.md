@@ -69,7 +69,7 @@ If you already have a VM that you want to domain-join, skip to the section to [j
 
 1. By default, VMs created in Azure aren't accessible from the Internet. This configuration helps improve the security of the VM and reduces the area for potential attack. In the next step of this tutorial, you need to connect to the VM using remote desktop protocol (RDP) and then join the Windows Server to the Azure AD DS managed domain.
 
-    When RDP is enabled, automated sign in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign in attempts. RDP should only be enabled when required, and limited to a set of authorized IP ranges. [Azure Just In Time VM access][jit-access] as part of Azure Security Center can enable these short-lived, restricted RDP sessions. You can also [create and use an Azure Bastion host (currently in preview)][azure-bastion] to allow access only through the Azure portal over SSL.
+    When RDP is enabled, automated sign in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign in attempts. RDP should only be enabled when required, and limited to a set of authorized IP ranges. [Azure Just In Time VM access][jit-access] as part of Azure Security Center can enable these short-lived, restricted RDP sessions. You can also [create and use an Azure Bastion host (currently in preview)][azure-bastion] to allow access only through the Azure portal over TLS.
 
     For this tutorial, manually enable RDP connections to the VM.
 
