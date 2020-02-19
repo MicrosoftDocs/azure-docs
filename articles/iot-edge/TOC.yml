@@ -168,7 +168,7 @@
   - name: Monitor and diagnose deployments
     items:
       - name: EdgeAgent direct methods
-        href: how-to-monitor-edgeagent.md
+        href: how-to-edgeagent-direct-methods.md
   - name: Use IoT Edge devices as gateways
     items:
     - name: Configure a transparent gateway
