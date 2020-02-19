@@ -130,6 +130,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50178|Session Control  is not supported for passthrough users.|
 |50180|Windows Integrated authentication is needed. Enable the tenant for Seamless SSO.|
 |50181|OTP related failure during sign-in. |
+|50194|Application '{appId}'({appName}) is not configured as a multi-tenant application. Usage of the /common endpoint is not supported for such applications created after '{time}'. Use a tenant-specific endpoint or configure the application to be multi-tenant.|
 |50201|This message prompt interrupt will be shown to the user during login when additional information should be provided to user.|
 |51001|Domain Hint is not present with On-Premises Security Identifier - On-Premises UPN.|
 |51004|User account doesn’t exist in the directory.|
