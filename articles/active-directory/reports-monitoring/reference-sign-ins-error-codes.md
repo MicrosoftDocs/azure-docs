@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/08/2019
+ms.date: 02/19/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -198,6 +198,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |530021|Application does not meet the Conditional Access approved app requirements.|
 |530032|Blocked by security policy.| 
 |700016|Application with identifier '{appIdentifier}' was not found in the directory '{tenantName}'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.|
+|700051|Response_type 'token' is not enabled for the application. The application requested an unsupported response type due to the following reasons: response_type 'token' is not enabled for the application. Application owner should go to the Azure portal or call MS Graph to enable the implicit access token grant.|
 |900432|Confidential Client is not supported in Cross Cloud request.|
 |5000811|Unable to verify SAML token signature. The signing key identifier does not match any valid registered keys.|
 |7000215|Invalid client secret was provided.|
