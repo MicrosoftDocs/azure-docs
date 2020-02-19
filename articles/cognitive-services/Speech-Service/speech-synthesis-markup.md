@@ -343,6 +343,98 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 </speak>
 ```
 
+## Use custom lexicon to improve pronunciation
+
+Sometimes TTS cannot pronounce a word accurately, like new company name, foreign person name. Developers can define the reading of these entities in SSML using `phoneme` and `sub` tag, or can define the reading of multiple entities by referring to a custom lexicon file using `lexicon` tag.
+
+**Syntax**
+
+```XML
+<lexicon uri="string"/>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| uri | The address of the external PLS document which is referenced by `lexicon` element. | Required. |
+
+**Usage**
+
+Step 1: Define custom lexicon 
+
+You can define the reading of entities by a list of custom lexicon items, and the list file should be stored as .xml or .pls file. 
+Here is a sample of custom lexicon file.
+
+```XML
+<?xml version="1.0" encoding="UTF-16"?>
+<lexicon version="1.0" 
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="ipa" xml:lang="en-US">
+  <lexeme>
+    <grapheme>BTW</grapheme> 
+    <alias>By the way</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme> Benigni </grapheme> 
+    <phoneme> bɛˈniːnji</phoneme>
+  </lexeme>
+</lexicon>
+```
+Each `lexeme` element is a lexicon item. `grapheme` contains text describing the orthograph of `lexeme`. Readout form can be provided as `alias`. Phone string could be provided in `phoneme` element. 
+For more information about custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/) on the W3C website.
+
+Step 2: Upload Custom Lexicon file create in step 1 online, you could store it anywhere, and we suggest you to store it in Microsoft Azure , for example
+for example [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+Step 3: Refer to custom lexicon file in SSML
+
+```XML
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
+          xmlns:mstts="http://www.w3.org/2001/mstts" 
+          xml:lang="en-US">
+<lexicon uri="http://www.example.com/customlexicon.xml"/>
+BTW, we will be there probably 8:00 tomorrow morning.
+Could you help leave a message to Robert Benigni for me?
+</speak>
+```
+“BTW” will be read as “By the way”. “Benigni” will be read with provided IPA “bɛˈniːnji”.  
+
+**Limitation**
+- File size: custom lexicon file size maximum limit is 100KB, if beyond this size, synthesis request will fail.
+- Lexicon cache refresh: custom lexicon will be cached with URI as key on TTS Service when it’s first loaded. Lexicon with same URI won’t be reloaded within 15 mins, so custom lexicon change needs to wait at most 15 mins to take effect.
+
+**SAPI Phone set**
+
+In the sample above, we use International Phonetic Association (IPA) phone set. We suggest developer to use IPA because IPA is the international standard. 
+
+Considering that IPA is not easy to remember, Microsoft define SAPI phone set for 7 languages (en-US, fr-FR, de-DE, es-ES, ja-JP, zh-CN, zh-TW). For more Alphabet information, see [Phonetic Alphabet Reference](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx).
+
+You can use SAPI phone in Custom Lexicon like below in which set the alphabet value as **sapi**.
+
+```XML
+<?xml version="1.0" encoding="UTF-16"?>
+<lexicon version="1.0" 
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="sapi" xml:lang="en-US">
+  <lexeme>
+    <grapheme>BTW</grapheme> 
+    <alias> By the way </alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme> Benigni </grapheme>
+    <phoneme> b eh 1 - n iy - n y iy </phoneme>
+  </lexeme>
+</lexicon>
+```
+Detailed SAPI Alphabet doc refer to [SAPI Alphabet Reference](sapi-phoneset-usage.md).
+
 ## Adjust prosody
 
 The `prosody` element is used to specify changes to pitch, countour, range, rate, duration, and volume for the text-to-speech output. The `prosody` element may contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.

@@ -120,6 +120,8 @@
     items:
     - name: Improve synthesis with SSML
       href: speech-synthesis-markup.md
+    - name: Speech API (SAPI) Phone Set Usage
+      href: sapi-phoneset-usage.md
     - name: Improve synthesis with Custom Voice
       href: how-to-custom-voice.md
       displayName: "custom voice"
