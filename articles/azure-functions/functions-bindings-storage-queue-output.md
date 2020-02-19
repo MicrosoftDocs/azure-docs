@@ -265,7 +265,7 @@ Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
-Attributes are not supported by Java Script.
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
