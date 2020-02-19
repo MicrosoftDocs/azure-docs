@@ -3,7 +3,7 @@ title: SRE Book list | Microsoft Docs
 description: Increase your knowledge of site reliiabiliy engineering with these books
 author: dnblankedelman
 manager: efreeman
-ms.service: site-reliability
+ms.service: site-reliability-engineeering
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: dnb
