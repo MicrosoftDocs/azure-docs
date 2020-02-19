@@ -47089,7 +47089,7 @@
     {
       "source_path": "articles/terraform/terraform-vm-msi.md",
       "redirect_url": "/azure/terraform/terraform-create-complete-vm",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-dotnet-windows.md",
@@ -48564,7 +48564,7 @@
     {
       "source_path": "articles/terraform/terraform-vm-managed-identities-for-azure-resources.md",
       "redirect_url": "/azure/terraform/terraform-create-complete-vm",
-      "redirect_document_id": true
+      "redirect_document_id": false
     }
   ]
 }
