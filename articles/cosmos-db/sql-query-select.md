@@ -193,7 +193,7 @@ SELECT * FROM c where c.order.orderid = "12345"
 ```sql
 SELECT * FROM c where c.order.price($) > 50
 ```
-The Result is:
+The result is:
 
 `
 Syntax error, incorrect syntax near 'order'
