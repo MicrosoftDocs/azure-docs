@@ -25,6 +25,7 @@ You can use [Azure Web App Plugin for Maven](/java/api/overview/azure/maven/azur
 Otherwise, your deployment method will depend on your archive type:
 
 - To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
 
 Do not deploy your .war using FTP. The FTP tool is designed to upload startup scripts, dependencies, or other runtime files. It is not the optimal choice for deploying web apps.
 
@@ -283,6 +284,10 @@ To edit Tomcat's `server.xml` or other configuration files, first take a note of
 
 Finally, restart your App Service. Your deployments should go to `D:\home\site\wwwroot\webapps` just as before.
 
+## Configure Java SE
+
+When running a .JAR application on Java SE on Windows, `server.port` is passed as a command line option as your application starts. You can manually resolve the HTTP port from the environment variable, `HTTP_PLATFORM_PORT`. The value of this environment variable will be the HTTP port your application should listen on. 
+
 ## Java runtime statement of support
 
 ### JDK versions and maintenance
@@ -296,6 +301,8 @@ Supported JDKs are automatically patched on a quarterly basis in January, April,
 ### Security updates
 
 Patches and fixes for major security vulnerabilities will be released as soon as they become available from Azul Systems. A "major" vulnerability is defined by a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/cvss.cfm).
+
+Tomcat 8.0 has reached [End of Life (EOL) as of September 30, 2018](https://tomcat.apache.org/tomcat-80-eol.html). While the runtime is still avialable on Azure App Service, Azure will not apply security updates to Tomcat 8.0. If possible, migrate your applications to Tomcat 8.5 or 9.0. Both Tomcat 8.5 and 9.0 are available on Azure App Service. See the [official Tomcat site](https://tomcat.apache.org/whichversion.html) for more information. 
 
 ### Deprecation and retirement
 
