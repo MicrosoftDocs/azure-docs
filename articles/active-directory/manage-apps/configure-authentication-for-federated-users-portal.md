@@ -253,7 +253,7 @@ Use the previous example to get the **ObjectID** of the policy, and that of the 
 #### Step 2: Remove the policy assignment from the application service principal  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### Step 3: Check removal by listing the service principals to which the policy is assigned 
