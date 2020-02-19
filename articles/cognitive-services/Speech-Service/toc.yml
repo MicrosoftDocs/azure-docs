@@ -367,9 +367,7 @@
   items:
   - name: Overview
     items:
-    - name: Voice assistants documentation
-      href: index-voice-assistants.yml
-    - name: About voice assistants
+    - name: What is a voice assistant?
       href: voice-assistants.md
   - name: Custom Commands (preview)
     items:
