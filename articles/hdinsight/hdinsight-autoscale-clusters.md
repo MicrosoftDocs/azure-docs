@@ -73,7 +73,7 @@ Based on the number of AM containers per node and the current CPU and memory req
 
 ### Create a cluster with load-based Autoscaling
 
-To use Autoscale on a cluster, the **Enable autoscale** option must be enabled when the cluster is created. To enable the Autoscale feature with load-based scaling, complete the following steps as part of the normal cluster creation process:
+To enable the Autoscale feature with load-based scaling, complete the following steps as part of the normal cluster creation process:
 
 1. On the **Configuration + pricing** tab, select the **Enable autoscale** checkbox.
 1. Select **Load-based** under **Autoscale type**.
