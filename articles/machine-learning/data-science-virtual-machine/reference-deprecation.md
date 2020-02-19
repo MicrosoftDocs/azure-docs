@@ -1,5 +1,5 @@
 ---
-title: 'Reference: DSVM Image Deprecation'
+title: Reference: Data Science Virtual Machine Image Deprecation
 titleSuffix: Azure Data Science Virtual Machine 
 description: 'Details on deprecations affecting the Azure Data Science Virtual Machine (DSVM)'
 author: gvashishtha
