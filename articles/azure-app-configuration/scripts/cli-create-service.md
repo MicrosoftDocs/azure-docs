@@ -21,10 +21,6 @@ This sample script creates a new instance of Azure App Configuration in a new re
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-You need to install the Azure App Configuration CLI extension first by executing the following command:
-
-        az extension add -n appconfig
-
 ## Sample script
 
 ```azurecli-interactive
