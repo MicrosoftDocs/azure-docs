@@ -26,7 +26,7 @@ To create your data warehouse solution using the SQL Analytics feature of Azure 
 | ![Redpoint Global](./media/sql-data-warehouse-partner-data-management/redpoint-global-logo.png) |**RedPoint Data Management**<br>RedPoint Data Management enables marketers to apply all their data to drive cross-channel customer engagement while performing structured and unstructured data management. By taking advantage of Azure Synapse and RedPoint you can maximize the value of your structured and unstructured data to deliver the hyper-personalized, contextual interactions needed to engage today’s omni-channel customer. Drag-and-drop interface makes designing and executing data management processes easy. |[Product page](http://www.redpoint.net/products/data-management-solutions/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-rpdm/)<br> |
 | ![Sentry One](./media/sql-data-warehouse-partner-data-management/sql-sentry-logo.png) |**SentryOne (DW Sentry)**<br>With the intelligent data movement dashboard and event calendar, you always know exactly what is impacting your workload. Designed to give you visibility into your queries and jobs running to load, backup, or restore your data, you never worry about making the most of your Azure resources. |[Product page](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br>[Azure Marketplace](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br> |
 
-## Next Steps
+## Next steps
 To learn more about other partners, see [Business Intelligence partners](sql-data-warehouse-partner-business-intelligence.md) and [Data Integration partners](sql-data-warehouse-partner-data-integration.md).
 
 
