@@ -160,6 +160,8 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: Shared disks
+      href: disks-shared.md
     - name: Ephemeral OS disks
       href: ephemeral-os-disks.md
   - name: Networking
@@ -261,6 +263,8 @@
         href: create-ssh-keys-detailed.md
   - name: Protect VMs
     items:
+    - name: Disaster recovery
+      href: ../virtual-machines-disaster-recovery-guidance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Back up VMs
       href: ../../backup/backup-introduction-to-azure-backup.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       items:
@@ -446,9 +450,9 @@
     - name: Terraform
       items:
       - name: Install and configure
-        href: terraform-install-configure.md
+        href: ../../terraform/terraform-install-configure.md
       - name: Create a complete VM
-        href: terraform-create-complete-vm.md
+        href: ../../terraform/terraform-create-complete-vm.md
     - name: Cloud-init
       items:
       - name: Cloud-init overview
@@ -551,6 +555,8 @@
     - name: Deploy disks with template
       displayName: Azure Resource Manager, ARM
       href: using-managed-disks-template-deployments.md
+    - name: Enable shared disks
+      href: disks-shared-enable.md
     - name: Upload a vhd to a disk - CLI
       href: disks-upload-vhd-to-managed-disk-cli.md
     - name: Resize a disk

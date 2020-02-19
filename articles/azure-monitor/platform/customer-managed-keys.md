@@ -350,8 +350,6 @@ following details:
 > fulfilled. If you associate workspaces and ingest data prior to this
 > **provisioning**, the data will be dropped and won't be recoverable.
 
-**Associate a workspace to a *Cluster* resource
-
 For Application Insights CMK configuration, follow the Appendix content for this step.
 
 ```rst

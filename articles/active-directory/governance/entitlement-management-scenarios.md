@@ -149,6 +149,10 @@ There are several ways that you can configure entitlement management for your or
 1. [View access packages for a user](entitlement-management-reports.md#view-access-packages-for-a-user)
 1. [View resource assignments for a user](entitlement-management-reports.md#view-resource-assignments-for-a-user)
 
+## Programmatic administration
+
+You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
+
 ## Next steps
 
 - [Delegation and roles](entitlement-management-delegate.md)

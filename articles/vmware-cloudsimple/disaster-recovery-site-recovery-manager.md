@@ -96,7 +96,7 @@ You can add an external identity provider as described in [Use Azure AD as an id
 
 To provide IP address lookup, IP address management, and name resolution services for your workloads in the AVS Private Cloud, set up a DHCP and DNS server as described in [Set up DNS and DHCP applications and workloads in your AVS Private Cloud](dns-dhcp-setup.md).
 
-The *.avs.io domain is used by management VMs and hosts in your AVS Private Cloud. To resolve requests to this domain, configure DNS forwarding on the DNS server as described in [Create a Conditional Forwarder](on-premises-dns-setup.md#create-a-conditional-forwarder).
+The *.cloudsimple.io domain is used by management VMs and hosts in your AVS Private Cloud. To resolve requests to this domain, configure DNS forwarding on the DNS server as described in [Create a Conditional Forwarder](on-premises-dns-setup.md#create-a-conditional-forwarder).
 
 ### Install vSphere Replication Appliance in your on-premises environment
 
@@ -218,7 +218,7 @@ You have full control over vSphere Replication and SRM software in your AVS Priv
 
 * [VMware Site Recovery Manager Documentation](https://docs.vmware.com/en/Site-Recovery-Manager/index.html)
 * [Operational limits for Site Recovery Manager 6.5](https://kb.vmware.com/s/article/2147110)
-* [Calculating bandwidth requirements for vSphere Replication](https://kb.vmware.com/s/article/2037268)
+* [Calculating bandwidth requirements for vSphere Replication](https://docs.vmware.com/en/vSphere-Replication/6.5/com.vmware.vsphere.replication-admin.doc/GUID-4A34D0C9-8CC1-46C4-96FF-3BF7583D3C4F.html)
 * [OVF Choices When Deploying vSphere Replication 6.5](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices/)
 * [VMware vSphere Replication 6.5 Installation and Configuration](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf)
 * [Prerequisites and Best Practices for SRM 6.5](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
