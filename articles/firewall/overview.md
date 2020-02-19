@@ -6,12 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/18/2020
+ms.date: 02/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
 
 # What is Azure Firewall?
+
+![ICSA certification](media/overview/icsa_cert_firewall_small.png)
 
 Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.
 
@@ -89,7 +91,7 @@ All events are integrated with Azure Monitor, allowing you to archive logs to a 
 
 ## Compliance certifications
 
-Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), and International Organization for Standardization (ISO) compliant. For more information, see [Azure Firewall compliance certifications](compliance-certifications.md).
+Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), International Organization for Standardization (ISO), and ICSA Labs compliant. For more information, see [Azure Firewall compliance certifications](compliance-certifications.md).
 
 
 ## Known issues
