@@ -336,7 +336,7 @@ Managed dependency is a feature that is currently only supported with PowerShell
 
 ## queues
 
-Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue.md#host-json).  
+Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue-output.md#host-json).  
 
 ## sendGrid
 

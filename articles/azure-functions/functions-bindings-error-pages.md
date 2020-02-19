@@ -30,7 +30,7 @@ When integrating with Azure services, errors may originate from the APIs of the 
 
 + [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 
-+ [Queue storage](functions-bindings-storage-queue.md#exceptions-and-return-codes)
++ [Queue storage](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
 
 + [Service Bus](functions-bindings-service-bus.md#exceptions-and-return-codes)
 
