@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure SQL Analytics | Microsoft Docs
+title: Connect to SQL Analytics | Microsoft Docs
 description: Get connected to Azure SQL Analytics.
 services: synapse-analytics 
 author: azaricstefan 
@@ -11,8 +11,8 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to Azure SQL Analytics
-Get connected to Azure SQL Analytics.
+# Connect to SQL Analytics
+Get connected to the SQL Analytics capability in Azure Synapse Analytics.
 
 ## Supported tools for SQL Analytics on-demand
 The fully supported tool is Azure Data Studio.
@@ -22,21 +22,21 @@ SQL Server Management Studio is supported partially from version 18.4. There are
 ## Find your server name
 The server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:
 
-1. Go to the [Azure portal][Azure portal].
+1. Go to the [Azure portal](https://portal.azure.com).
 2. Click on **SQL Analytics**.
 3. Click on the Analytics you want to connect to.
 4. Locate the full server name.
 
-4.1. **SQL Analytics pool**
+4.1. **SQL pool**
 
-![Full server name][1]
+![Full server name](media/sql-analytics-connect-overview/server-connect-example.png)
 
-4.2. **SQL Analytics on-demand**
+4.2. **SQL on-demand**
 
-![Full server name SQL on-demand][2]
+![Full server name SQL on-demand](media/sql-analytics-connect-overview/server-connect-example-sqlod.png)
 
 ## Supported drivers and connection strings
-Azure SQL Analytics supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
+SQL Analytics supports [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396), and [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
 
 > [!NOTE]
 > Consider setting the connection timeout to 300 seconds to allow your connection to survive short periods of unavailability.
@@ -68,38 +68,17 @@ SQL Analytics standardizes some settings during connection and object creation. 
 
 | Database Setting | Value |
 |:--- |:--- |
-| [ANSI_NULLS][ANSI_NULLS] |ON |
-| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ON |
-| [DATEFORMAT][DATEFORMAT] |mdy |
-| [DATEFIRST][DATEFIRST] |7 |
+| [ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx) |ON |
+| [QUOTED_IDENTIFIERS](https://msdn.microsoft.com/library/ms174393.aspx) |ON |
+| [DATEFORMAT](https://msdn.microsoft.com/library/ms189491.aspx) |mdy |
+| [DATEFIRST](https://msdn.microsoft.com/library/ms181598.aspx) |7 |
 
 ## Recommendations
 
-For executing **SQL Analytics on-demand** queries, recommended tools are [Azure Data Studio](get-started-azure-data-studio.md) and Azure Synapse Studio.
+For executing **SQL on-demand** queries, recommended tools are [Azure Data Studio](get-started-azure-data-studio.md) and Azure Synapse Studio.
 
 
 ## Next steps
-To connect and query with Visual Studio, see [Query with Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Analytics][Authentication to Azure SQL Analytics].
-
-<!--Articles-->
-[Query with Visual Studio]: ../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md
-[Authentication to Azure SQL Analytics]: ../../sql-data-warehouse/sql-data-warehouse-authentication.md
-
-<!--MSDN references-->
-[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
-[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
-[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
-[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
-[ANSI_NULLS]: https://msdn.microsoft.com/library/ms188048.aspx
-[QUOTED_IDENTIFIERS]: https://msdn.microsoft.com/library/ms174393.aspx
-[DATEFORMAT]: https://msdn.microsoft.com/library/ms189491.aspx
-[DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
-
-<!--Other-->
-[Azure portal]: https://portal.azure.com
-
-<!--Image references-->
-[1]: media/sql-analytics-connect-overview/server-connect-example.png
-[2]: media/sql-analytics-connect-overview/server-connect-example-sqlod.png
+To connect and query with Visual Studio, see [Query with Visual Studio](../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md). To learn more about authentication options, see [Authentication to SQL Analytics](../../sql-data-warehouse/sql-data-warehouse-authentication.md).
 
 
