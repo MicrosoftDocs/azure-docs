@@ -375,13 +375,13 @@
     - name: SendGrid
       href: functions-bindings-sendgrid.md
     - name: Service Bus
-        items:
-        - name: Overview
-          href: functions-bindings-service-bus.md
-        - name: Trigger
-          href: functions-bindings-service-bus-trigger.md
-        - name: Output
-          href: functions-bindings-service-bus-output.md
+      items:
+      - name: Overview
+        href: functions-bindings-service-bus.md
+      - name: Trigger
+        href: functions-bindings-service-bus-trigger.md
+      - name: Output
+        href: functions-bindings-service-bus-output.md
     - name: SignalR Service
       href: functions-bindings-signalr-service.md
     - name: Table storage
