@@ -16,30 +16,17 @@ This article shows you how to host Helm charts in repositories in an Azure conta
 
 ## Helm 2 or Helm 3?
 
-To store, manage, and install Helm charts, you use a Helm client and the Helm CLI. Major releases of the Helm client include Helm 2 and Helm 3. Among other differences, Helm 3 supports a new chart format and no longer installs the Tiller server-side component. For details on the differences between Helm 2 and Helm 3, see the [version FAQ](https://helm.sh/docs/faq/). If you've previously deployed Helm 2 charts, see [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/).
+To store, manage, and install Helm charts, you use a Helm client and the Helm CLI. Major releases of the Helm client include Helm 2 and Helm 3. Helm 3 supports a new chart format and no longer installs the Tiller server-side component. For details on the differences between Helm 2 and Helm 3, see the [version FAQ](https://helm.sh/docs/faq/). If you've previously deployed Helm 2 charts, see [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/).
 
-To store and manage Helm charts in an Azure container registry, you can use either the Helm 2 or Helm 3 client. The clients have different workflows to interact with an Azure container registry.
+You can use either Helm 2 or Helm 3 to host Helm charts in Azure Container Registry, with workflows specific to each version:
 
-With **Helm 2** you:
-
-* Configure your Azure container registry as a *single* Helm chart repository. Azure Container Registry manages the index definition as you add and remove charts to the repository.
-* Use the [az acr helm][az-acr-helm] commands in the Azure CLI to add your Azure container registry as a Helm chart repository, and to push and manage charts. These Azure CLI commands wrap Helm 2 client commands.
-* Add the chart repository in your Azure container registry to your local Helm repo index, supporting chart search
-
-With **Helm 3** you:
-
-* Can create *multiple* Helm repositories in a registry
-* Store Helm 3 charts in an Azure container registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Currently, Helm 3 support for OCI is considered *experimental*.
-* Use `helm chart` commands directly from the Helm CLI to push, pull, and manage Helm charts in an Azure container registry
-
-When using **either Helm 2 or Helm 3**, you can:
-
-* Authenticate with your Azure container registry via the Azure CLI, which then updates your Helm client automatically with the registry URI and credentials. You don't need to manually specify this registry information, so the credentials aren't exposed in the command history.
-* Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.
+* [Helm 3 client](#use-the-helm-3-client) - use `helm chart` commands to manage charts in your registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts)
+* [Helm 2 client](#use-the-helm-2-client) - use [az acr helm][az-acr-helm] commands in the Azure CLI to add your container registry as a Helm chart repository
 
 ### Additional information
 
-*  You can use [az acr helm][az-acr-helm] Azure CLI commands and workflow with the Helm 3 client and charts. However, we recommend using the Helm 3 workflow with `helm chart` commands to manage charts as OCI artifacts. Certain commands such as `az acr helm list` aren't compatible with Helm 3 charts.
+* Managing Helm charts as OCI artifacts in an Azure container registry is a recommended approach
+* You can use legacy [az acr helm][az-acr-helm] Azure CLI commands and workflow with the Helm 3 client and charts. However, we recommend using the Helm 3 workflow with `helm chart` commands to manage charts as OCI artifacts. Certain commands such as `az acr helm list` aren't compatible with Helm 3 charts.
 * As of Helm 3, [az acr helm][az-acr-helm] commands are supported mainly for compatibility with the Helm 2 client and chart format. Future development of these commands isn't currently planned.
 
 ## Use the Helm 3 client
@@ -50,6 +37,18 @@ When using **either Helm 2 or Helm 3**, you can:
 - **Helm client version 3.0.0 or later** - Run `helm version` to find your current version. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install].
 - **A Kubernetes cluster** where you will install a Helm chart. If needed, create an [Azure Kubernetes Service cluster][aks-quickstart]. 
 - **Azure CLI version 2.0.71 or later** - Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+### High level workflow
+
+With **Helm 3** you:
+
+* Can create *multiple* Helm repositories in a registry
+* Store Helm 3 charts in an Azure container registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Currently, Helm 3 support for OCI is considered *experimental*.
+* Use `helm chart` commands directly from the Helm CLI to push, pull, and manage Helm charts in an Azure container registry
+* Authenticate with your Azure container registry via the Azure CLI, which then updates your Helm client automatically with the registry URI and credentials. You don't need to manually specify this registry information, so the credentials aren't exposed in the command history.
+* Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.
+
+See the following sections for examples.
 
 ### Pull an existing Helm package
 
@@ -189,7 +188,7 @@ Run `helm chart pull` to download the chart from the Azure container registry to
 helm chart pull mycontainerregistry.azurecr.io/helm/wordpress:latest
 ```
 
-### Install a Helm chart
+### Export Helm chart
 
 To work further with the chart, export it to a local directory using `helm chart export`. For example, export the chart you pulled to the `install` directory:
 
@@ -236,7 +235,7 @@ sources:
 version: 8.1.0
 ```
 
-### Install a Helm chart
+### Install Helm chart
 
 Run `helm install` to install the Helm chart you pulled to the local cache and exported. Specify a release name or pass the `--generate-name` parameter. For example:
 
@@ -268,6 +267,18 @@ az acr repository delete --name mycontainerregistry --image helm/wordpress:lates
 - **An Azure container registry** in your Azure subscription. If needed, create a registry using the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
 - **Helm client version 2.11.0 (not an RC version) or later** - Run `helm version` to find your current version. You also need a Helm server (Tiller) initialized within a Kubernetes cluster. If needed, create an [Azure Kubernetes Service cluster][aks-quickstart]. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install-v2].
 - **Azure CLI version 2.0.46 or later** - Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+### High level workflow
+
+With **Helm 2** you:
+
+* Configure your Azure container registry as a *single* Helm chart repository. Azure Container Registry manages the index definition as you add and remove charts to the repository.
+* Use the [az acr helm][az-acr-helm] commands in the Azure CLI to add your Azure container registry as a Helm chart repository, and to push and manage charts. These Azure CLI commands wrap Helm 2 client commands.
+* Add the chart repository in your Azure container registry to your local Helm repo index, supporting chart search
+* Authenticate with your Azure container registry via the Azure CLI, which then updates your Helm client automatically with the registry URI and credentials. You don't need to manually specify this registry information, so the credentials aren't exposed in the command history.
+* Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.
+
+See the following sections for examples.
 
 ### Add repository to Helm client
 
