@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/19/2020
 ms.author: jgao
 
 ---
@@ -24,7 +24,7 @@ Learn how to use deployment scripts in Azure Resource templates. With a new reso
 The benefits of deployment script:
 
 - Easy to code, use, and debug. You can develop deployment scripts in your favorite development environments. The scripts can be embedded in templates or in external script files.
-- You can specify the script language and platform. Currently, only Azure PowerShell and Azure CLI deployment scripts on the Linux environment are supported.
+- You can specify the script language and platform. Currently, Azure PowerShell and Azure CLI deployment scripts on the Linux environment are supported.
 - Allow specifying the identities that are used to execute the scripts. Currently, only [Azure user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) is supported.
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
@@ -43,14 +43,27 @@ The benefits of deployment script:
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  Use the following PowerShell script to get the ID by providing the resource group name and the identity name.
+  Use the following CLI or PowerShell script to get the ID by providing the resource group name and the identity name.
+
+  # [CLI](#tab/CLI)
+
+  ```azurecli-interactive
+  echo "Enter the Resource Group name:" &&
+  read resourceGroupName &&
+  echo "Enter the managed identity name:" &&
+  read idName &&
+  az identity show -g jgaoidentity1008rg -n jgaouami --query id
+  ```
+
+  # [PowerShell](#tab/PowerShell)
 
   ```azurepowershell-interactive
   $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
   $idName = Read-Host -Prompt "Enter the name of the managed identity"
 
-  $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
+  (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name $idName).Id
   ```
+  ---
 
 - **Azure PowerShell version 3.0.0, 2.8.0 or 2.7.0** or **Azure CLI version 2.0.80, 2.0.79, 2.0.78 or 2.0.77**. You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
 
@@ -64,7 +77,7 @@ The following json is an example.  The latest template schema can be found [here
   "apiVersion": "2019-10-01-preview",
   "name": "runPowerShellInline",
   "location": "[resourceGroup().location]",
-  "kind": "AzurePowerShell", // or AzureCLI
+  "kind": "AzurePowerShell", // or "AzureCLI"
   "identity": {
     "type": "userAssigned",
     "userAssignedIdentities": {
@@ -97,7 +110,7 @@ The following json is an example.  The latest template schema can be found [here
 Property value details:
 
 - **Identity**: The deployment script service uses a user-assigned managed identity to execute the scripts. Currently, only user-assigned managed identity is supported.
-- **kind**: Specify the type of script. Currently, only Azure PowerShell and Azure CLI scripts are support. The value are **AzurePowerShell** and **AzureCLI**.
+- **kind**: Specify the type of script. Currently, Azure PowerShell and Azure CLI scripts are support. The value are **AzurePowerShell** and **AzureCLI**.
 - **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. Use the newGuid() or utcNow() function that needs to be set as the defaultValue of a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
 - **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. Deployment script currently supports Azure PowerShell version 2.7.0, 2.8.0, 3.0.0 and Azure CLI version 2.0.80, 2.0.79, 2.0.78, 2.0.77.
 - **arguments**: Specify the parameter values. The values are separated by spaces.
@@ -139,7 +152,7 @@ The output looks like:
 
 ## Use external scripts
 
-In addition to inline scripts, you can also use external script files. Currently only PowerShell scripts with the **ps1** file extension are supported. To use external script files, replace `scriptContent` with `primaryScriptUri`. For example:
+In addition to inline scripts, you can also use external script files. Only primary PowerShell scripts with the **ps1** file extension are supported. For CLI scripts, the primary scripts can have any extensions (or without an extension), as long as the scripts are valid bash scripts. To use external script files, replace `scriptContent` with `primaryScriptUri`. For example:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -165,7 +178,7 @@ You can separate complicated logics into one or more supporting script files. Th
 ],
 ```
 
-Supporting script files can be called from both inline scripts and primary script files.
+Supporting script files can be called from both inline scripts and primary script files. Supporting script files have no restrictions on the file extension.
 
 The supporting files are copied to azscripts/azscriptinput at the runtime. Use relative path to reference the supporting files from inline scripts and primary script files.
 
@@ -183,9 +196,9 @@ reference('<ResourceName>').output.text
 
 ## Work with outputs from CLI deployment scripts
 
-Different than the Powershell version, CLI/bash support does not expose a common variable to store script outputs, instead, there is an environment variable called **AZ_DEPLOYMENTS_SCRIPTS_OUTPUT_PATH** that stores the location where the script outputs file resides. If a deployment script is ran from a Resource Manager template, this environment variable is set automatically for you by the Bash shell that we created.
+Different than the Powershell version, CLI/bash support does not expose a common variable to store script outputs, instead, there is an environment variable called **AZ_SCRIPTS_OUTPUT_PATH** that stores the location where the script outputs file resides. If a deployment script is ran from a Resource Manager template, this environment variable is set automatically for you by the Bash shell that we created.
 
-Deployment script outputs must be saved in AZ_DEPLOYMENTS_SCRIPTS_OUTPUT_PATH location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, if you want to store an array of strings, you must do: { “MyResult”: [ “foo”, “bar”] }, storing just the array results in an error, meaning if the file content is: [ “foo”, “bar” ] it will be treating as invalid.
+Deployment script outputs must be saved in AZ_SCRIPTS_OUTPUT_PATH location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, if you want to store an array of strings, you must do: { “MyResult”: [ “foo”, “bar”] }, storing just the array results in an error, meaning if the file content is: [ “foo”, “bar” ] it will be treating as invalid.
 
 [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json?range=1-44)]
 
