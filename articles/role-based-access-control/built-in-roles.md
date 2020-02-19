@@ -129,10 +129,10 @@ The following table provides a brief description of each built-in role. Click th
 > | [Resource Policy Contributor](#resource-policy-contributor) | Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
-> | [Security Admin](#security-admin) | In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Security Admin](#security-admin) | Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Security Assessment Contributor](#security-assessment-contributor) | Lets you push assessments to Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
-> | [Security Manager (Legacy)](#security-manager-legacy) | This is a legacy role. Please use Security Administrator instead | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Security Reader](#security-reader) | In Security Center only: Can view recommendations and alerts, view security policies, view security states, but cannot make changes | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Security Manager (Legacy)](#security-manager-legacy) | This is a legacy role. Please use Security Admin instead. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
+> | [Security Reader](#security-reader) | Can view recommendations and alerts, view security policies, view security states, but cannot make changes. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | [Site Recovery Contributor](#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
 > | [Site Recovery Operator](#site-recovery-operator) | Lets you failover and failback but not perform other Site Recovery management operations | 494ae006-db33-4328-bf46-533a6560a3ca |
 > | [Site Recovery Reader](#site-recovery-reader) | Lets you view Site Recovery status but not perform other management operations | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
@@ -2342,7 +2342,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations |
+> | **Description** | Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations. |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
@@ -2382,7 +2382,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | This is a legacy role. Please use Security Administrator instead |
+> | **Description** | This is a legacy role. Please use Security Admin instead. |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
@@ -2406,7 +2406,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | In Security Center only: Can view recommendations and alerts, view security policies, view security states, but cannot make changes |
+> | **Description** | Can view recommendations and alerts, view security policies, view security states, but cannot make changes. |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
