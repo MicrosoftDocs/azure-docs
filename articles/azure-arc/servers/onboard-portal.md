@@ -178,7 +178,7 @@ To disconnect a machine from Azure Arc for servers (preview), do the following:
 1. To uninstall the Linux agent, run the following command:
 
       ```bash
-      sudo apt purge hybridagent
+      sudo apt purge azcmagent
       ```
 
 ## Next steps
