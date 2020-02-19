@@ -98,24 +98,29 @@ Microsoft Graph API supports creating and updating a user with extension attribu
 ## Code sample
 
 This code sample is a .NET Core console application that uses the [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview) to interact with Microsoft Graph API. Its code demonstrates how to call the API to programmatically manage users in an Azure AD B2C tenant.
-You can [download the sample archive](https://github.com/Azure-Samples) (*.zip), [browse the repository](https://github.com/Azure-Samples) on GitHub, or clone the repository:
+You can [download the sample archive](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*.zip), [browse the repository](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) on GitHub, or clone the repository:
 
 ```cmd
-git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
+git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management.git
 ```
 
 After you've obtained the code sample, configure it for your environment and then build the project:
 
-1. Open the solution in [Visual Studio](https://visualstudio.microsoft.com) or [Visual Studio Code](https://code.visualstudio.com).
-1. Open `appsettings.json`.
-1. Under the `appSettings` section, replace `{your-b2c-tenant}` with the name of your tenant, and `{Application ID}` and `{Client secret}` with the values for your management application registration (see the [Register a management application](#register-a-management-application) section of this article).
-1. The console application can be found in `bin\Debug\netcoreapp3.0` folder. To run the application, run following command:
+1. Open the project in [Visual Studio](https://visualstudio.microsoft.com) or [Visual Studio Code](https://code.visualstudio.com).
+1. Open `src/appsettings.json`.
+1. In the `appSettings` section, replace `your-b2c-tenant` with the name of your tenant, and `Application (client) ID` and `Client secret` with the values for your management application registration (see the [Register a management application](#register-a-management-application) section of this article).
+1. Open a console window within your local clone of the repo, switch into the `src` directory, then build the project:
+    ```console
+    cd src
+    dotnet build
+    ```
+1. Run the application with the `dotnet` command:
 
-```cmd
-dotnet aad-b2c-graph.dll
+```console
+dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
 ```
 
-The application will show you list of commands you can use. For example: List users, Get a user, delete user, update user's password, and create bulk users.
+The application displays a list of commands you can execute. For example, get all users, get a single user, delete a user, update a user's password, and bulk import.
 
 ### Code discussion
 
@@ -125,71 +130,50 @@ Any request to the Microsoft Graph API requires an access token for authenticati
 
 The `RunAsync` method in the _Program.cs_ file:
 
-1. Reads application settings from the _appSettings.json_ file
+1. Reads application settings from the _appsettings.json_ file
 1. Initializes the auth provider using [OAuth 2.0 client credentials grant](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) flow. With the client credentials grant flow, the app is able to get an access token to call the Microsoft Graph API.
-1. Next, it sets up the Microsoft Graph service client with the auth provider:
+1. Sets up the Microsoft Graph service client with the auth provider:
 
     ```csharp
-    // Read application settings
+    // Read application settings from appsettings.json (tenant ID, app ID, client secret, etc.)
     AppSettings config = AppSettingsFile.ReadFromJsonFile();
 
-    // Initialize the auth provider with values from appsettings.json
+    // Initialize the client credential auth provider
     IConfidentialClientApplication confidentialClientApplication = ConfidentialClientApplicationBuilder
         .Create(config.AppId)
         .WithTenantId(config.TenantId)
-        .WithClientSecret(config.AppSecret)
+        .WithClientSecret(config.ClientSecret)
         .Build();
-
-    // Setup the MS Graph service client with client credentials
-    string[] scopes = new string[] { "https://graph.microsoft.com/.default" };
     ClientCredentialProvider authProvider = new ClientCredentialProvider(confidentialClientApplication);
+
+    // Set up the Microsoft Graph service client with client credentials
     GraphServiceClient graphClient = new GraphServiceClient(authProvider);
     ```
 
-The Microsoft Graph SDK service libraries provide a client class that you can use as the starting point for creating all API requests. Learn how to [Make API calls using the Microsoft Graph SDKs](https://docs.microsoft.com/graph/sdks/create-requests).
+The initialized *GraphServiceClient* is then used in _UserService.cs_ to perform the user management operations. For example, getting a list of the user accounts in the tenant:
 
-The _main_ method (in the _Program_ class) invokes the _GetUserBySignInName_ method in the _Services\\UserService.cs_ file. This method:
+```csharp
+public static async Task ListUsers(GraphServiceClient graphClient)
+{
+    Console.WriteLine("Getting list of users...");
 
-1. Accepted `AppSettings` and  `GraphServiceClient` objects that have been initiated in the _Program_ class.
-1. Asks the user to provide the sign-in name
-1. Uses the `graphClient.Users` to find the account in the directory.
-1. Write the result to the console.
+    // Get all users (one page)
+    var result = await graphClient.Users
+        .Request()
+        .Select(e => new
+        {
+            e.DisplayName,
+            e.Id,
+            e.Identities
+        })
+        .GetAsync();
 
-    ```csharp
-    public static async Task GetUserBySignInName(AppSettings config, GraphServiceClient graphClient)
+    foreach (var user in result.CurrentPage)
     {
-        Console.WriteLine("Type user sign-in name (username or email address)");
-        string userId = Console.ReadLine();
-
-        Console.WriteLine($"Looking for user with sign-in name '{userId}'...");
-
-        try
-        {
-            // Get user by object Id
-            var result = await graphClient.Users
-                .Request()
-                .Filter($"identities/any(c:c/issuerAssignedId eq '{userId}' and c/issuer eq '{config.TenantId}')")
-                .Select(e => new
-                {
-                    e.DisplayName,
-                    e.Id,
-                    e.Identities
-                })
-                .GetAsync();
-
-            if (result != null)
-            {
-                Console.WriteLine(JsonConvert.SerializeObject(result));
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(ex.Message);
-            Console.ResetColor();
-        }
+        Console.WriteLine(JsonConvert.SerializeObject(user));
     }
-    ```
+}
+```
 
 [Make API calls using the Microsoft Graph SDKs](https://docs.microsoft.comgraph/sdks/create-requests) includes information on how to read and write information from Microsoft Graph, use `$select` to control the properties returned, provide custom query parameters, and use the `$filter` and `$orderBy` query parameters.
 
