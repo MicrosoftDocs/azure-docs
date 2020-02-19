@@ -305,15 +305,11 @@
     items:
     - name: What is a voice assistant?
       href: voice-assistants.md
-  - name: Building your assistant
+  - name: Custom Commands (preview)
     items:
-    - name: Custom Commands (preview)
+    - name: What is Custom Commands?
       href: custom-commands.md
-    - name: Direct Line Speech
-      href: direct-line-speech.md
-  - name: Quickstarts
-    items:
-    - name: Custom Commands (preview)
+    - name: Quickstarts
       items:
       - name: Create a Custom Command (preview)
         href: quickstart-custom-speech-commands-create-new.md
@@ -323,32 +319,36 @@
         href: quickstart-custom-speech-commands-select-custom-voice.md
       - name: Use Custom Commands with the Speech SDK (preview)
         href: quickstart-custom-speech-commands-speech-sdk.md
-    - name: Direct Line Speech
-      items:    
+    - name: How-to guides
+      items:
+      - name: Fulfill Custom Commands with the Speech SDK
+        href: how-to-custom-speech-commands-fulfill-sdk.md
+      - name: Add parameter validation to a Custom Command
+        href: how-to-custom-speech-commands-validations.md
+      - name: Add a confirmation to a Custom Command
+        href: how-to-custom-speech-commands-confirmations.md
+      - name: Add a one-step correction to a Custom Command
+        href: how-to-custom-speech-commands-one-step-correction.md
+  - name: Direct Line Speech
+    items:    
+    - name: What is Direct Line Speech?
+      href: direct-line-speech.md
+    - name: Quickstarts
+      items:
       - name: C# (UWP)
         href: quickstart-voice-assistant-csharp-uwp.md
       - name: Java (Windows, macOS, Linux)
         href: quickstart-voice-assistant-java-jre.md
       - name: Java (Android)
         href: quickstart-voice-assistant-java-android.md
-  - name: How-to guides
-    items:
-    - name: Fulfill Custom Commands with the Speech SDK
-      href: how-to-custom-speech-commands-fulfill-sdk.md
-    - name: Add parameter validation to a Custom Command
-      href: how-to-custom-speech-commands-validations.md
-    - name: Add a confirmation to a Custom Command
-      href: how-to-custom-speech-commands-confirmations.md
-    - name: Add a one-step correction to a Custom Command
-      href: how-to-custom-speech-commands-one-step-correction.md
-  - name: Tutorials
-    items:
-    - name: Voice enable your bot with Speech SDK
-      href: tutorial-voice-enable-your-bot-speech-sdk.md
-  - name: Resources
-    items:
-    - name: Voice assistants FAQ
-      href: faq-voice-assistants.md
+    - name: Tutorials
+      items:
+      - name: Voice enable your bot with Speech SDK
+        href: tutorial-voice-enable-your-bot-speech-sdk.md
+    - name: Resources
+      items:
+      - name: Voice assistants FAQ
+        href: faq-voice-assistants.md
 - name: Customization
   expanded: false
   items:
