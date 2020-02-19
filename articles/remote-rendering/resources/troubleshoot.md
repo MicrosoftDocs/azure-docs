@@ -15,6 +15,25 @@ ms.service: azure-remote-rendering
 
 This article has a few guidelines to troubleshoot problems that may occur on the client side when using the Remote Rendering service.
 
+## H265 codec not available
+
+There are two reasons why the server might refuse to connect with a 'codec not available' error.
+* **The H265 codec is not installed.** Refer to [system requirements](../overview/system-requirements.md#development-pc) for installing latest graphics driver.
+* **The codec is installed, but cannot be used.** The reason for this is wrong security settings on the dlls. This problem does not manifest when trying to watch videos encoded with H265. Furthermore, reinstalling the codec does not fix this either. To fix this problem for Remote Rendering, perform the following steps:
+   1. **Find out the dll location of the codec.** For that, open a **powershell console in admin** mode and run
+   ```PowerShell
+   Get-AppxPackage -Name Microsoft.HEVCVideoExtension
+   ```
+   That should output the ```InstallLocation```, something like:
+   ```cmd
+   InstallLocation   : C:\Program Files\WindowsApps\Microsoft.HEVCVideoExtension_1.0.23254.0_x64__5wasdgertewe
+   ```
+   Go into that folder in file explorer.
+
+   2. There should be a **x86** and a **x64** subfolder. Click on both folders individually with the right mouse button, and choose **Properties** from the context menu. Move to the **Security** tab and click the **Advanced** settings button. There, click **Change** for the **Owner**, type in **Administrators** in the text field, click **Check Names** and **OK**.
+   1. Repeat the steps above now on each dll file individually inside the **x86** and **x64** folder (it should be four dlls altogether).
+   1. To verify that the settings are now correct, select **Properties->Security->Edit** for each of the four dlls. Go through the list of all **Groups / Users** and make sure each one has the **Read & execute** right set (checkmark in the **allow** column must be ticked).
+
 ## Low video quality
 
 The video quality can be compromised either by network quality or the missing H265 video codec.
