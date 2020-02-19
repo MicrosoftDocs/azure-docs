@@ -529,6 +529,8 @@
         href: ./hadoop/troubleshoot-lost-key-vault-access.md
       - name: WASBS storage exception
         href: ./hadoop/troubleshoot-wasbs-storage-exception.md
+      - name: Manage disk space
+        href: ./hadoop/troubleshoot-disk-space.md
 - name: Apache Kafka
   items:
   - name: Overview
@@ -852,6 +854,8 @@
       href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
   - name: Concepts
     items:
+    - name: Enterprise security general guidelines
+      href: ./domain-joined/general-guidelines.md
     - name: Plan for ESP clusters
       href: ./domain-joined/apache-domain-joined-architecture.md
     - name: HDInsight virtual network architecture
@@ -864,6 +868,8 @@
       href: ./hdinsight-service-tags.md
     - name: Customer-managed key disk encryption
       href: ./disk-encryption.md
+    - name: LDAP sync in Ranger and Apache Ambari
+      href: ./domain-joined/ldap-sync.md
   - name: How to
     items:
     - name: Use ID Broker for credential management
@@ -880,6 +886,8 @@
       href: ./hdinsight-sync-aad-users-to-cluster.md
     - name: Manage clusters with enterprise security
       href: ./domain-joined/apache-domain-joined-manage.md
+    - name: Manage SSH access
+      href: ./domain-joined/ssh-domain-accounts.md
     - name: Securing data
       href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: Troubleshoot

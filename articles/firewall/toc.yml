@@ -61,6 +61,8 @@
       href: integrate-lb.md
     - name: Application rules with SQL FQDNs
       href: sql-fqdn-filtering.md
+    - name: SNAT private ranges
+      href: snat-private-range.md
     - name: Create IP Groups
       href: create-ip-group.md
 - name: Reference
