@@ -13,7 +13,7 @@ Customer intent: As an administrator, I want to evaluate Azure Firewall so I can
 
 # What is Azure Firewall?
 
-![ICSA certification](media/overview/icsa_cert_firewall_small.png)
+![ICSA certification](media/overview/icsa-cert-firewall-small.png)
 
 Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.
 

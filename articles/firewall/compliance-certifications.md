@@ -101,7 +101,7 @@ The following Azure Firewall certifications are for Azure Government:
 
 ## ICSA Labs Corporate Firewall Certification
 
-![ICSA certification](media/overview/icsa_cert_firewall_small.png)
+![ICSA certification](media/overview/icsa-cert-firewall-small.png)
 
 ICSA Labs is a leading vendor in third-party testing and certification of security and health IT products, as well as network-connected devices. They measure product compliance, reliability, and performance for most of the world’s top technology vendors.
 
