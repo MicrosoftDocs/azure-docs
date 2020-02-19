@@ -42,7 +42,7 @@
         href: deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
-      - name: Expand existing host pool
+      - name: Expand an existing host pool
         href: expand-existing-host-pool.md
   - name: Create a profile container
     items:
