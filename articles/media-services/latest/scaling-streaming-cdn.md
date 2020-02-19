@@ -28,7 +28,7 @@ You also need to consider how adaptive streaming works. Each individual video fr
 
 When deciding whether or not to enable CDN on the Media Services [streaming endpoint](streaming-endpoint-concept.md), consider the number of anticipated viewers. CDN helps only if you are anticipating many viewers for your content. If the max concurrency  of viewer is lower than 500, it's recommended to disable CDN since CDN scales best with concurrency. 
 
-This topic discusses enabling [CDN integration](enable-azure-cdn-integration). It also explains prefetching (active caching) and the [Origin-Assist CDN-Prefetch](origin-assist-cdn-prefetch) concept.
+This topic discusses enabling [CDN integration](#enable-azure-cdn-integration). It also explains prefetching (active caching) and the [Origin-Assist CDN-Prefetch](#origin-assist-cdn-prefetch) concept.
 
 ## Considerations
 
