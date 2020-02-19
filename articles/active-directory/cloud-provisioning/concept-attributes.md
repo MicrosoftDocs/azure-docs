@@ -65,7 +65,7 @@ The following table lists common attributes and how they're synchronized to Azur
 
 ## View the schema
 > [!WARNING]
-> You should not be using the service principal configuration to modify the attribute mappings.  This is not supported.
+> The cloud provisioning configuration creates a service principal. The service principal is visible in the Azure portal. You should not modify the attribute mappings using the service principal experience in the Azure portal.  This is not supported.
 
 To view the schema and verify it, follow these steps.
 
