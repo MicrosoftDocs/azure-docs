@@ -17,65 +17,32 @@ The following tables provide an overview of our samples repository and the scena
 > [!NOTE]
 > These samples use the latest Azure Storage JavaScript v12 library. For legacy v11 code, see [Getting Started with Azure Blob Service in Node.js](https://github.com/Azure-Samples/storage-blob-node-getting-started) in the GitHub repository.
 
-
-<!--
-:::row:::
-   :::column span="":::
-      []()
-   :::column-end:::
-   :::column span="":::
-      []()
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      []()
-   :::column-end:::
-   :::column span="":::
-      []()
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      []()
-   :::column-end:::
-   :::column span="":::
-      []()
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="2":::
-      []()
-   :::column-end:::
-:::row-end:::
--->
-
 ## Blob samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="":::
-      [Connection string authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/withConnString.js#L14)
+      [Authenticate using connection string](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/withConnString.js#L14)
    :::column-end:::
    :::column span="":::
-      [SAS connection string authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/withConnString.js#L14)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [SharedKeyCredential authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/sharedKeyCred.js#L5)
-   :::column-end:::
-   :::column span="":::
-      [AnonymousCredential authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/anonymousCred.js#L18)
+      [[Authenticate using SAS connection string](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/withConnString.js#L14)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Azure Active Directory authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/azureAdAuth.js#L47)
+      [[Authenticate using shared key credential](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/sharedKeyCred.js#L5)
    :::column-end:::
    :::column span="":::
-      [Proxy authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/proxyAuth.js#L28)
+      [[Authenticate using AnonymousCredential](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/anonymousCred.js#L18)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [[Authenticate using Azure Active Directory](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/azureAdAuth.js#L47)
+   :::column-end:::
+   :::column span="":::
+      [[Authenticate using a proxy](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/proxyAuth.js#L28)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -88,7 +55,7 @@ The following tables provide an overview of our samples repository and the scena
 
 :::row:::
    :::column span="2":::
-      [Create a blob service client using a SAS URL](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L39)
+      [Create blob service client using a SAS URL](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L39)
    :::column-end:::
 :::row-end:::
 
@@ -99,7 +66,7 @@ The following tables provide an overview of our samples repository and the scena
       [Create a container](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L53)
    :::column-end:::
    :::column span="":::
-      [Create a container using a SharedKeyCredential](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L38)
+      [Create a container using a shared key credential](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L38)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -158,7 +125,7 @@ The following tables provide an overview of our samples repository and the scena
       [Download a blob snapshot](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L61)
    :::column-end:::
    :::column span="":::
-      [Parallel upload a readable stream to a blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L74)
+      [Parallel upload a stream to a blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L74)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -213,22 +180,22 @@ The following tables provide an overview of our samples repository and the scena
 
 ## Azure Files samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="":::
-      [Connection string authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/withConnString.js)
+      [Authenticate using a connection string](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/withConnString.js)
    :::column-end:::
    :::column span="":::
-      [SharedKeyCredential authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/sharedKeyCred.js)
+      [Authenticate using a shared key credential](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/sharedKeyCred.js)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [AnonymousCredential authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/anonymousCred.js)
+      [Authenticate using AnonymousCredential](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/anonymousCred.js)
    :::column-end:::
    :::column span="":::
-      [Custom pipeline authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/customPipeline.js)
+      [Connect using a custom pipeline](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/customPipeline.js)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -298,22 +265,22 @@ The following tables provide an overview of our samples repository and the scena
 
 ## Queue samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="":::
-      [Connection string authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/withConnString.js)
+      [Authenticate using a connection string](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/withConnString.js)
    :::column-end:::
    :::column span="":::
-      [SharedKeyCredential authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/sharedKeyCred.js)
+      [Authenticate using a shared key credential](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/sharedKeyCred.js)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [AnonymousCredential authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/anonymousCred.js)
+      [Authenticate using AnonymousCredential](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/anonymousCred.js)
    :::column-end:::
    :::column span="":::
-      [Custom pipeline authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/customPipeline.js)
+      [Connect using a custom pipeline](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/customPipeline.js)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -321,7 +288,7 @@ The following tables provide an overview of our samples repository and the scena
       [Connect using a proxy](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/proxyAuth.js)
    :::column-end:::
    :::column span="":::
-      [Azure Active Directory authorization](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/azureAdAuth.js)
+      [Authenticate using Azure Active Directory](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/azureAdAuth.js)
    :::column-end:::
 :::row-end:::
 

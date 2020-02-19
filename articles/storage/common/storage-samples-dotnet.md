@@ -19,22 +19,22 @@ The following table provides an overview of our samples repository and the scena
 
 ## Blob samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="":::
-      [Use a connection string to connect to a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample02_Auth.cs#L27)
+      [Authenticate using a connection string](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample02_Auth.cs#L27)
    :::column-end:::
    :::column span="":::
-      [Use a shared key to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample02_Auth.cs#L91)
+      [Authenticate using a shared key credential](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample02_Auth.cs#L91)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Authenticate with DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01a_HelloWorld.cs#L210)
+      [Authenticate with Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01a_HelloWorld.cs#L210)
    :::column-end:::
    :::column span="":::
-      [Use an Active Directory token to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample02_Auth.cs#L177)
+      [Authenticate using an Active Directory token](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample02_Auth.cs#L177)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -55,10 +55,10 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Exert fine-grained control over individual operations in a batch request](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample03b_BatchingAsync.cs#L90)
+      [Fine-grained control in a batch request](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample03b_BatchingAsync.cs#L90)
    :::column-end:::
    :::column span="":::
-      [Catch any errors from a failed sub-operation](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample03b_BatchingAsync.cs#L136)
+      [Catch errors from a failed sub-operation](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample03b_BatchingAsync.cs#L136)
    :::column-end:::
 :::row-end:::
 
@@ -77,7 +77,7 @@ The following table provides an overview of our samples repository and the scena
       [Download an image](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01b_HelloWorldAsync.cs#L109)
    :::column-end:::
    :::column span="":::
-      [List all the blobs in a container](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01b_HelloWorldAsync.cs#L128)
+      [List all blobs in a container](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01b_HelloWorldAsync.cs#L128)
    :::column-end:::
 :::row-end:::
 
@@ -90,22 +90,22 @@ The following table provides an overview of our samples repository and the scena
 
 ## Data Lake Storage Gen2 samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="":::
       [Anonymously access a public file](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample02_Auth.cs#L28)
    :::column-end:::
    :::column span="":::
-      [Use a shared key to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample02_Auth.cs#L79)
+      [Authenticate using a shared key credential](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample02_Auth.cs#L79)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Use a shared access signature to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample02_Auth.cs#L114)
+      [Authenticate using a shared access signature (SAS)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample02_Auth.cs#L114)
    :::column-end:::
    :::column span="":::
-      [Use an Active Directory token to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample02_Auth.cs#L164)
+      [Authenticate using an Active Directory token](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample02_Auth.cs#L164)
    :::column-end:::
 :::row-end:::
 
@@ -136,10 +136,10 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [List all the directories](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L275)
+      [List directories](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L275)
    :::column-end:::
    :::column span="":::
-      [Traverse the files and directories](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L318)
+      [Traverse files and directories](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L318)
    :::column-end:::
 :::row-end:::
 
@@ -149,7 +149,7 @@ The following table provides an overview of our samples repository and the scena
       [Upload a file](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L126)
    :::column-end:::
    :::column span="":::
-      [Upload file by appending each part to a Data Lake file](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L169)
+      [Upload by appending to a file](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L169)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -159,10 +159,10 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Set and get access control list of a file](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L468)
+      [Set and get a file access control list](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L468)
    :::column-end:::
    :::column span="":::
-      [Set and get permissions in the access control list of a file](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L426)
+      [Set and get permissions of a file](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L426)
    :::column-end:::
 :::row-end:::
 
@@ -176,19 +176,19 @@ The following table provides an overview of our samples repository and the scena
 
 ## Azure Files samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="":::
-      [Use a connection string to connect to a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample02_Auth.cs#L24)
+      [Authenticate using a connection string](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample02_Auth.cs#L24)
    :::column-end:::
    :::column span="":::
-      [Use a shared key to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample02_Auth.cs#L52)
+      [Authenticate using a shared key credential](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample02_Auth.cs#L52)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Use a shared access signature to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample02_Auth.cs#L86)
+      [Authenticate using a shared access signature (SAS))](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample02_Auth.cs#L86)
    :::column-end:::
 :::row-end:::
 
@@ -204,7 +204,7 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Traverse the files and directories in a share](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample01b_HelloWorldAsync.cs#L107)
+      [Traverse files and directories](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample01b_HelloWorldAsync.cs#L107)
    :::column-end:::
 :::row-end:::
 
@@ -218,27 +218,27 @@ The following table provides an overview of our samples repository and the scena
 
 ## Queue samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="":::
-      [Authenticate via Azure Active Directory](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L167)
+      [Authenticate using Azure Active Directory](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L167)
    :::column-end:::
    :::column span="":::
-      [Use a connection string to connect to a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L24)
+      [Authenticate using a connection string](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L24)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Use a shared key to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L52)
+      [Authenticate using a shared key credential](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L52)
    :::column-end:::
    :::column span="":::
-      [Use a shared access signature to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L86)
+      [Authenticate using a shared access signature (SAS))](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L86)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Use an Active Directory token to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L140)
+      [Authenticate using an Active Directory token](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L140)
    :::column-end:::
 :::row-end:::
 
@@ -254,15 +254,15 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Receive and process messages from a queue](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L61)
+      [Receive and process messages](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L61)
    :::column-end:::
    :::column span="":::
-      [Peek at the messages in a queue](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L90)
+      [Peek at messages](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L90)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Receive messages and update their visibility timeout for extended processing](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L115)
+      [Receive messages and update visibility timeout](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L115)
    :::column-end:::
 :::row-end:::
 
@@ -277,31 +277,31 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Create Table](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262)
+      [Create table](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262)
    :::column-end:::
    :::column span="":::
-      [Delete Entity/Table](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [Insert/Merge/Replace Entity](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262)
-   :::column-end:::
-   :::column span="":::
-      [Query Entities](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs)
+      [Delete entity/table](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Query Tables](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs)
+      [Insert/merge/replace entity](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262)
    :::column-end:::
    :::column span="":::
-      [Table ACL/Properties](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs)
+      [Query entities](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Query tables](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs)
+   :::column-end:::
+   :::column span="":::
+      [Table ACL/properties](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Update Entity](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262)
+      [Update entity](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262)
    :::column-end:::
 :::row-end:::
 

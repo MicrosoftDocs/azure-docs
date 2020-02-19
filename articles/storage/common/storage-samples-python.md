@@ -19,22 +19,22 @@ The following tables provide an overview of our samples repository and the scena
 
 ## Blob samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="":::
-      [Blob service client authorization from connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L45)
+      [Create blob service client using a connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L45)
    :::column-end:::
    :::column span="":::
-      [Container client authorization from connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L50)
+      [Create container client using a connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L50)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Blob client authorization from connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L56)
+      [Create blob client using a connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L56)
    :::column-end:::
    :::column span="":::
-      [Create blob service client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L66)
+      [Create blob service client using a shared access key](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L66)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -55,7 +55,7 @@ The following tables provide an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Create blob service client using DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L125)
+      [Create blob service client using Azure Identity](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L125)
    :::column-end:::
    :::column span="":::
       [Create blob snapshot](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_common.py#L56)
@@ -66,18 +66,18 @@ The following tables provide an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Get Blob Service account info](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_service.py#L30)
+      [Get blob service account info](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_service.py#L30)
    :::column-end:::
    :::column span="":::
-      [Set Blob Service properties](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_service.py#L41)
+      [Set blob service properties](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_service.py#L41)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Get Blob Service properties](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_service.py#L61)
+      [Get blob service properties](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_service.py#L61)
    :::column-end:::
    :::column span="":::
-      [Get Blob Service stats](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_service.py#L71)
+      [Get blob service stats](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_service.py#L71)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -109,7 +109,7 @@ The following tables provide an overview of our samples repository and the scena
       [Create container client from service](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_containers.py#L35)
    :::column-end:::
    :::column span="":::
-      [Create container client SAS URL](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_containers.py#L44)
+      [Create container client using SAS URL](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_containers.py#L44)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -146,7 +146,7 @@ The following tables provide an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Create container client SAS token](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_containers.py#L158)
+      [Create container client using SAS token](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_containers.py#L158)
    :::column-end:::
    :::column span="":::
       [Upload blob to container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_containers.py#L182)
@@ -278,7 +278,7 @@ The following tables provide an overview of our samples repository and the scena
 
 ## Azure Files samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="":::
@@ -365,7 +365,7 @@ The following tables provide an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Delete file in directory](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_directory.py#L55)
+      [Delete file from directory](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_directory.py#L55)
    :::column-end:::
    :::column span="":::
       [Delete directory](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_directory.py#L60)
@@ -422,11 +422,11 @@ The following tables provide an overview of our samples repository and the scena
 
 ## Queue samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="":::
-      [Authorization from connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_authentication.py#L50)
+      [Authenticate using connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_authentication.py#L50)
    :::column-end:::
    :::column span="":::
       [Create queue service client token](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_authentication.py#L69)
@@ -534,31 +534,31 @@ The following tables provide an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Create Table](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L46)
+      [Create table](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L46)
    :::column-end:::
    :::column span="":::
-      [Delete Entity/Table](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L79)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [Insert/Merge/Replace Entity](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L57)
-   :::column-end:::
-   :::column span="":::
-      [Query Entities](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L62)
+      [Delete entitytTable](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L79)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Query Tables](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py)
+      [Insert/merge/replace entity](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L57)
    :::column-end:::
    :::column span="":::
-      [Table ACL/Properties](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_advanced_samples.py#L138)
+      [Query entities](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L62)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Query tables](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py)
+   :::column-end:::
+   :::column span="":::
+      [Table ACL/properties](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_advanced_samples.py#L138)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Update Entity](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L68)
+      [Update entity](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L68)
    :::column-end:::
 :::row-end:::
 

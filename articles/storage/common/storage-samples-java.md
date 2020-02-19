@@ -19,14 +19,14 @@ The following table provides an overview of our samples repository and the scena
 
 ## Blob samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="":::
-      [Use a shared key to access a storage account](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L38)
+      [Authenticate using a shared key credential](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L38)
    :::column-end:::
    :::column span="":::
-      [Authenticate with DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/AzureIdentityExample.java#L10)
+      [Authenticate using Azure Identity](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/AzureIdentityExample.java#L10)
    :::column-end:::
 :::row-end:::
 
@@ -34,10 +34,10 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Create a blob service client object](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L49)
+      [Create a blob service client](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L49)
    :::column-end:::
    :::column span="":::
-      [List the containers in a storage account](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/ListContainersExample.java#L10)
+      [List containers](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/ListContainersExample.java#L10)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -58,7 +58,7 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Set the access tier on a batch of blobs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L51)
+      [Set access tier on a batch of blobs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L51)
    :::column-end:::
 :::row-end:::
 
@@ -74,7 +74,7 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [List the blobs in a container](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L112)
+      [List blobs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L112)
    :::column-end:::
    :::column span="":::
       [Delete a container](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L123)
@@ -135,7 +135,7 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Create a file and sub directory](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L73)
+      [Create a file and subdirectory](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L73)
    :::column-end:::
    :::column span="":::
       [Create a file client](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L83)
@@ -143,7 +143,7 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [List the paths in a file system](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L131)
+      [List paths in a file system](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L131)
    :::column-end:::
    :::column span="":::
       [Delete a file system](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L142)
@@ -151,7 +151,7 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [List the file systems in an Azure storage account](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/ListFileSystemsExample.java#L10)
+      [List file systems in an Azure storage account](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/ListFileSystemsExample.java#L10)
    :::column-end:::
 :::row-end:::
 
@@ -221,11 +221,11 @@ The following table provides an overview of our samples repository and the scena
 
 ## Azure File samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="2":::
-      [Create a file service client using a connection string](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L27)
+      [Authenticate using a connection string](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L27)
    :::column-end:::
 :::row-end:::
 
@@ -233,18 +233,18 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Create file shares using file service client](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L31)
+      [Create file shares](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L31)
    :::column-end:::
    :::column span="":::
-      [Get the properties of a file service](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L40)
+      [Get properties](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L40)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [List shares under file service](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L49)
+      [List shares](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L49)
    :::column-end:::
    :::column span="":::
-      [Delete shares under file service](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L49)
+      [Delete shares](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L49)
    :::column-end:::
 :::row-end:::
 
@@ -268,10 +268,10 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Get the properties of a share](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L72)
+      [Get properties of a share](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L72)
    :::column-end:::
    :::column span="":::
-      [Get the root directory and list all directories](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L100)
+      [Get root directory and list directories](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L100)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -334,11 +334,11 @@ The following table provides an overview of our samples repository and the scena
 
 ## Queue samples
 
-### Authorization
+### Authentication
 
 :::row:::
    :::column span="2":::
-      [Create a queue service client using a SAS Token](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/QueueServiceSamples.java#L17)
+      [Authenticate using a SAS token](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/QueueServiceSamples.java#L17)
    :::column-end:::
 :::row-end:::
 
@@ -376,12 +376,12 @@ The following table provides an overview of our samples repository and the scena
       [Get the count of messages](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L34)
    :::column-end:::
    :::column span="":::
-      [Peek at all messages](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L37)
+      [Peek at messages](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L37)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Receive all messages](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L41)
+      [Receive messages](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L41)
    :::column-end:::
    :::column span="":::
       [Update a message](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L45)
@@ -405,31 +405,31 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Create Table](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L50)
+      [Create table](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L50)
    :::column-end:::
    :::column span="":::
-      [Delete Entity/Table](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L109)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [Insert/Merge/Replace Entity](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L195)
-   :::column-end:::
-   :::column span="":::
-      [Query Entities](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L234)
+      [Delete entity/table](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L109)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Query Tables](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L262)
+      [Insert/merge/replace entity](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L195)
    :::column-end:::
    :::column span="":::
-      [Table ACL/Properties](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java#L49)
+      [Query entities](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L234)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Query tables](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L262)
+   :::column-end:::
+   :::column span="":::
+      [Table ACL/properties](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java#L49)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Update Entity](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L76)
+      [Update entity](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L76)
    :::column-end:::
 :::row-end:::
 
