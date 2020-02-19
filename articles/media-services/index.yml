@@ -113,7 +113,7 @@ additionalContent:
         summary: Learn how to use Azure Event Grid to react to relevant events     
         url: https://docs.microsoft.com/en-us/azure/event-grid/
       - title:  Azure Media Player
-        summary: Learn about a web video player built to playback media content from Microsoft Azure Media Services on a wide variety of browsers and devices.    
+        summary: Learn about a web video player built to playback media content from Microsoft Azure Media Services on a wide variety of browsers and devices
         url: https://amp.azure.net/libs/amp/latest/docs/index.html          
 
   
