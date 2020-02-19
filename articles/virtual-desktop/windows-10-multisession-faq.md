@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/19/2020
 ms.author: helohr
 ---
 # Windows 10 Enterprise multi-session FAQ
@@ -69,7 +69,7 @@ For a full list of applicable licenses, see [Windows Virtual Desktop pricing](ht
 
 ## Why do my apps disappear after I sign off?
 
-This happens because you're using Windows 10 Enterprise multi-session with a profile management solution like FSLogix. Your admin configured your system to delete user profiles when the users sign off, which removes any apps the user installed during their session. If you want to keep these apps, you'll need to ask your admin to provision these apps for all users in your Windows Virtual Desktop environment.
+This happens because you're using Windows 10 Enterprise multi-session with a profile management solution like FSLogix. Your admin or profile solution configured your system to delete user profiles when users sign off. This configuration means that when your system deletes your user profile after you sign off, it also removes any apps you installed during your session. If you want to keep the apps you installed, you'll need to ask your admin to provision these apps for all users in your Windows Virtual Desktop environment.
 
 ## How do I make sure apps don't disappear when users sign out?
 
@@ -79,7 +79,7 @@ Most virtualized environments are configured by default to prevent users from in
 - [DISM app package servicing command-line options](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
 - [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
 
-## How do I make sure users don't download extra apps?
+## How do I make sure users don't download and install apps from the Microsoft Store?
 
 You can disable the Microsoft Store app to make sure users don't download extra apps beyond the apps you've already provisioned for them.
 
