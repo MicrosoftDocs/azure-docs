@@ -1,4 +1,13 @@
-# Using GitOps for cluster configuration
+---
+title: "Use GitOps for cluster configuration"
+services: arc-kubernetes
+ms.date: 02/19/2020
+ms.topic: "Tutorial"
+description: "Onboard Arc with Azure Monitor for containers"
+keywords: "Kubernetes, Arc, Azure, K8s, AKS, Azure Kubernetes Service, containers"
+---
+
+# Use GitOps for cluster configuration
 
 ## Overview
 

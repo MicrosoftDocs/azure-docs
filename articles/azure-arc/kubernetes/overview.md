@@ -1,15 +1,10 @@
 ---
-title: Azure Arc for Kubernetes Overview
-description: Learn how to use Azure Arc for Kubernetes to automate the lifecycle of infrastructure and applications.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-kubernetes
-author: mlearned
-ms.author: mlearned
-keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 01/30/2020
-ms.custom: mvc
-ms.topic: overview
+title: "Overview"
+services: arc-kubernetes
+ms.date: 02/19/2020
+ms.topic: "conceptual"
+description: ""
+keywords: "Kubernetes, Arc, Azure, AKS, Azure Kubernetes Service, containers"
 ---
 
 # What is Azure Arc for Kubernetes

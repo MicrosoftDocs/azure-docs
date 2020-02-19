@@ -1,3 +1,12 @@
+---
+title: "Install CLI extensions for Arc"
+services: arc-kubernetes
+ms.date: 02/19/2020
+ms.topic: "how-to-guide"
+description: "Install CLI extensions for Arc"
+keywords: "Kubernetes, Arc, Azure, K8s, AKS, Azure Kubernetes Service, containers"
+---
+
 # CLI extensions
 
 Azure Arc for Kubernetes consists of two CLI extensions, one to register and unregister a Kubernetes cluster, and a second extension to apply, update, and remove configurations.

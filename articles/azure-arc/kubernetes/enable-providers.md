@@ -1,3 +1,12 @@
+---
+title: "Enable resource providers"
+services: arc-kubernetes
+ms.date: 02/19/2020
+ms.topic: "how-to-guide"
+description: "Enable resource providers"
+keywords: "Kubernetes, Arc, Azure, K8s, AKS, Azure Kubernetes Service, containers"
+---
+
 # Enable resource providers
 
 ## Verify private preview access

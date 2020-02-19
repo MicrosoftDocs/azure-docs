@@ -1,3 +1,12 @@
+---
+title: "Use GitOps with Azure Kubernetes Service (AKS)"
+services: arc-kubernetes
+ms.date: 02/19/2020
+ms.topic: "conceptual"
+description: ""
+keywords: "GitOps, Kubernetes, Arc, Azure, AKS, Azure Kubernetes Service, containers"
+---
+
 # Enable source control config for Azure Kubernetes Services (AKS)
 
 GitOps configuration can be enabled for Azure Kubernetes Service (AKS) clusters by following below steps.

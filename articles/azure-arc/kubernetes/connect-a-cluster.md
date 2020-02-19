@@ -1,3 +1,12 @@
+---
+title: "Connect a Kubernetes cluster"
+services: arc-kubernetes
+ms.date: 02/19/2020
+ms.topic: "how-to-guide"
+description: "Learn GitOps with AKS"
+keywords: "Kubernetes, Arc, Azure, AKS, K8s, Azure Kubernetes Service, containers"
+---
+
 # Connect a Kubernetes cluster
 
 ## Pre-requisites

@@ -22,7 +22,7 @@ Azure Arc and Azure IoT Edge complement each other's capabilities quite well. Ar
       --namespace iotedge
     ```
 
-    >You can also set this up remotely using the [cluster config example](./03-use-gitops.md).
+    >You can also set this up remotely using the [cluster config example](./use-gitops.md).
 
 1. The Flux `helm-operator` [doesn't yet support Helm 3](https://github.com/fluxcd/helm-operator/issues/8), so we'll need to deploy a cluster-scoped `tiller` instance for now.
 

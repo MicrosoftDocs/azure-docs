@@ -1,4 +1,13 @@
-# Azure Monitor for containers
+---
+title: "Onboard Arc with Azure Monitor for containers"
+services: arc-kubernetes
+ms.date: 02/19/2020
+ms.topic: "how-to-guide"
+description: "Onboard Arc with Azure Monitor for containers"
+keywords: "Kubernetes, Arc, Azure, K8s, AKS, Azure Kubernetes Service, containers"
+---
+
+# Onboard Azure Monitor for containers with Arc
 This document describes how to onboard [Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-overview) to Azure Arc K8s cluster(s).
 
 # Pre-requisites
