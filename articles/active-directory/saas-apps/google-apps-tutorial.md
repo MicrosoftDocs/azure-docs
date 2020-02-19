@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 02/14/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate G Suite with Azure Active Direct
 * Enable your users to be automatically signed-in to G Suite with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -84,7 +84,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * G Suite supports **SP** initiated SSO
 
 * G Suite supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
-* Once you configure the G Suite you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure G Suite you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding G Suite from the gallery
 
@@ -133,6 +133,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://google.com` |
 	| `https://google.com/a/<yourdomain.com>` |
 
+    c. In the **Reply URL** textbox, type a URL using the following pattern: 
+
+    | |
+	|--|
+	| `https://google.com` |
+	| `https://google.com/a/<yourdomain.com>` |
+
+
 1. On the **Basic SAML Configuration** section, if you want to configure for the **Google Cloud Platform** perform the following steps:
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
@@ -146,6 +154,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://google.com` |
 	| `https://google.com/a/<yourdomain.com>` |
     
+    c. In the **Reply URL** textbox, type a URL using the following pattern: 
+    
+    | |
+	|--|
+	| `https://google.com` |
+	| `https://google.com/a/<yourdomain.com>` |
+
     > [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. G Suite doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you uncheck the **domain specific issuer** option the Identifier value will be `google.com`. If you check the **domain specific issuer** option it will be `google.com/a/<yourdomainname.com>`. To check/uncheck the **domain specific issuer** option you need to go to the **Configure G Suite SSO** section which is explained later in the tutorial. For more information contact [G Suite Client support team](https://www.google.com/contact/).
 
@@ -244,14 +259,18 @@ When you click the G Suite tile in the Access Panel, you should be automatically
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-- [Configure User Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
-- [Try G Suite with Azure AD](https://aad.portal.azure.com/)
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
 
-- [How to protect G Suite with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Configure User Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
+
+- [Try G Suite with Azure AD](https://aad.portal.azure.com/)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect G Suite with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
+
 <!--Image references-->
 
 [10]: ./media/google-apps-tutorial/gapps-security.png

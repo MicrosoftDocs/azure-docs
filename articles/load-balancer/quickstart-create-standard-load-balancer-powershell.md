@@ -40,7 +40,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 ## Create a public IP address
 
-To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). The following example creates a public IP address named *myPublicIP* in the *myResourceGroupSLB* resource group:
+To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). The following example creates a zone redundant public IP address named *myPublicIP* in the *myResourceGroupSLB* resource group:
 
 ```azurepowershell
 $publicIp = New-AzPublicIpAddress `
@@ -49,6 +49,18 @@ $publicIp = New-AzPublicIpAddress `
  -Location $location `
  -AllocationMethod static `
  -SKU Standard
+```
+
+To create a zonal Public IP address in zone 1, use the following:
+
+```azurepowershell
+$publicIp = New-AzPublicIpAddress `
+ -ResourceGroupName $rgName `
+ -Name 'myPublicIP' `
+ -Location $location `
+ -AllocationMethod static `
+ -SKU Standard
+ -zone 1
 ```
 
 Use ```-SKU Basic``` to create a Basic Public IP. Microsoft recommends using Standard for production workloads.
@@ -142,7 +154,8 @@ $lb = New-AzLoadBalancer `
   -LoadBalancingRule $rule `
   -InboundNatRule $natrule1,$natrule2,$natrule3
 ```
-Use ```-SKU Basic``` to create a Basic Public IP. Microsoft recommends using Standard for production workloads.
+
+Use ```-SKU Basic``` to create a Basic Load Balancer. Microsoft recommends using Standard for production workloads.
 
 ## Create network resources
 Before you deploy some VMs and can test your balancer, you must create supporting network resources - virtual network and virtual NICs. 
@@ -357,7 +370,6 @@ Remove-AzResourceGroup -Name myResourceGroupSLB
 
 ## Next steps
 
-In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the Load Balancer traffic rule, health probe, and then tested the Load Balancer. To learn more about Azure Load Balancer, continue to [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-> [!div class="nextstepaction"]
-> [Azure Load Balancer tutorials](tutorial-load-balancer-basic-internal-portal.md)
+Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).

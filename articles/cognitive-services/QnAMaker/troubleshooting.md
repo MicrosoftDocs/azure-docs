@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 01/28/2020
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -33,13 +33,6 @@ QnAMaker service endpoint is useful for debugging purposes when you contact QnAM
 1. The endpoint URL is available in the Overview section
 
     ![QnAMaker endpoint](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
-
-
-## Use the Help bot in the QnA Maker portal
-
-QnA Maker provides a **Help** bot within the QnA Maker portal to help you. The help bot is available on every web page. The bot uses QnA Maker to provide answers and provides the [C# Bot Framework code project](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) to the bot so you can quickly get up and running with your own answer bot.
-
-![![QnA Maker provides a **Help** bot within the QnA Maker portal to help you.](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
 ## Manage the knowledge base
 

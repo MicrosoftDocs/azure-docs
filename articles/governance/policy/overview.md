@@ -31,7 +31,7 @@ policies with Azure Policy.
 > regardless of pricing tier. If your assignments do not show the compliance data, please ensure that
 > the subscription is registered with the Microsoft.PolicyInsights resource provider.
 
-[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## How is it different from RBAC?
 

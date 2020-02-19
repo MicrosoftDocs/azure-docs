@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 12/02/2019
+ms.date: 02/10/2020
 ms.author: swmachan
 ---
 # Language and region support for the Translator Text API
@@ -35,73 +35,81 @@ The V3 Translator API is neural by default and statistical systems are only avai
 > [!NOTE]
 > Currently, a subset of the neural languages are available in Custom Translator and we are gradually adding additional ones. [View languages currently available in Custom Translator](#customization).
 
-|Language|	Language code|	V2 API|	V3 API|
-|:-----|:-----:|:-----|:-----|
-|Afrikaans|	`af`	|Statistical only|	Neural|
-|Arabic|	`ar`	|Neural available|	Neural|
-|Bangla|	`bn`	|Neural available|	Neural|
-|Bosnian (Latin)|	`bs`	|Neural available|	Neural|
-|Bulgarian|	`bg`	|Neural available|	Neural|
-|Cantonese (Traditional)|	`yue`	|Statistical only|	Statistical|
-|Catalan|	`ca`	|Statistical only|	Statistical|
-|Chinese Simplified|	`zh-Hans`	|Neural default	|Neural|
-|Chinese Traditional|	`zh-Hant`	|Neural default	|Neural|
-|Croatian|	`hr`	|Neural available|	Neural|
-|Czech|	`cs`	|Neural available|	Neural|
-|Danish|	`da`	|Neural available	|Neural|
-|Dutch|	`nl`	|Neural available|	Neural|
-|English|	`en`	|Neural available|	Neural|
-|Estonian|	`et`	|Neural available|	Neural|
-|Fijian|	`fj`	|Statistical only|	Statistical|
-|Filipino|	`fil`	|Statistical only|	Statistical|
-|Finnish|	`fi`	|Neural available|	Neural|
-|French|	`fr`	|Neural available|	Neural|
-|German|	`de`	|Neural available|	Neural|
-|Greek|	`el`	|Neural available|	Neural|
-|Haitian Creole|	`ht`	|Statistical only	|Statistical|
-|Hebrew	|`he`	|Neural available	|Neural|
-|Hindi|	`hi`	|Neural default|	Neural|
-|Hmong Daw|	`mww`	|Statistical only|	Statistical|
-|Hungarian|	`hu`	|Neural available|	Neural|
-|Icelandic|	`is`	|Neural only|	Neural|
-|Indonesian|	`id`	|Statistical only|	Statistical|
-|Italian|	`it`	|Neural available|	Neural|
-|Japanese|	`ja`	|Neural available|	Neural|
-|Kiswahili|	`sw`	|Statistical only|	Statistical|
-|Klingon|	`tlh`	|Statistical only|	Statistical|
-|Klingon (plqaD)|	`tlh-Qaak`	|Statistical only|	Statistical|
-|Korean	|`ko`	|Neural available|	Neural|
-|Latvian|	`lv`	|Neural available|	Neural|
-|Lithuanian|	`lt`	|Neural available|	Neural|
-|Malagasy|	`mg`	|Statistical only|	Statistical|
-|Malay|	`ms`	|Statistical only	|Statistical|
-|Maltese|	`mt`	|Statistical only|	Statistical|
-|Maori| `mi`  |Neural only| Neural|
-|Norwegian|	`nb`	|Neural available|	Neural|
-|Persian|	`fa`	|Neural available|	Neural|
-|Polish|	`pl`	|Neural available|	Neural|
-|Portuguese|	`pt`	|Neural available|	Neural|
-|Queretaro Otomi|	`otq`	|Statistical only|	Statistical|
-|Romanian|	`ro`	|Neural available|	Neural|
-|Russian|	`ru`	|Neural available|	Neural|
-|Samoan|	`sm`	|Statistical only|	Statistical|
-|Serbian (Cyrillic)|	`sr-Cyrl`	|Statistical only|	Statistical|
-|Serbian (Latin)|	`sr-Latn`	|Statistical only	|Statistical|
-|Slovak|	`sk`	|Neural available|	Neural|
-|Slovenian|	`sl`	|Neural available|	Neural|
-|Spanish|	`es`	|Neural available|	Neural|
-|Swedish|	`sv`	|Neural available	|Neural|
-|Tahitian|	`ty`	|Statistical only|	Statistical|
-|Tamil|	`ta`	|Neural available |	Neural|
-|Telugu|	`te`	|Neural only|	Neural|
-|Thai|	`th`	|Neural available|	Neural|
-|Tongan|	`to`	|Statistical only|	Statistical|
-|Turkish|	`tr`	|Neural available	|Neural|
-|Ukrainian|	`uk`	|Neural available|	Neural|
-|Urdu|	`ur`	|Statistical only|	Statistical|
-|Vietnamese|	`vi`	|Neural available|	Neural|
-|Welsh|	`cy`	|Neural available|	Neural|
-|Yucatec Maya|	`yua`	|Statistical only|	Statistical|
+|Language|	Language code|	V3 API|
+|:-----|:-----:|:-----|
+|Afrikaans|	`af`|	Neural|
+|Arabic|	`ar`	|	Neural|
+|Bangla|	`bn`	|	Neural|
+|Bosnian (Latin)|	`bs`	|	Neural|
+|Bulgarian|	`bg`	|	Neural|
+|Cantonese (Traditional)|	`yue`|	Statistical|
+|Catalan|	`ca`	|	Statistical|
+|Chinese Simplified|	`zh-Hans`|Neural|
+|Chinese Traditional|	`zh-Hant`		|Neural|
+|Croatian|	`hr`	|Neural|
+|Czech|	`cs`	|	Neural|
+|Danish|	`da`		|Neural|
+|Dutch|	`nl`|	Neural|
+|English|	`en`	|	Neural|
+|Estonian|	`et`	|	Neural|
+|Fijian|	`fj`	|	Statistical|
+|Filipino|	`fil`	|	Statistical|
+|Finnish|	`fi`	|	Neural|
+|French|	`fr`	|	Neural|
+|German|	`de`	|	Neural|
+|Greek|	`el`	|	Neural|
+|Haitian Creole|	`ht`		|Statistical|
+|Hebrew	|`he`	|Neural
+|Hindi|	`hi`	|	Neural|
+|Hmong Daw|	`mww`	|	Statistical|
+|Hungarian|	`hu`	|	Neural|
+|Icelandic|	`is`	|	Neural|
+|Indonesian|	`id`	|	Statistical|
+|Irish | `ga`| Neural
+|Italian|	`it`	|	Neural|
+|Japanese|	`ja`	|	Neural|
+|Kannada|`kn`| Neural
+|Kiswahili|	`sw`	|	Statistical|
+|Klingon|	`tlh`	|	Statistical|
+|Klingon (plqaD)|	`tlh-Qaak`	|	Statistical|
+|Korean	|`ko`	|	Neural|
+|Latvian|	`lv`	|	Neural|
+|Lithuanian|	`lt`	|	Neural|
+|Malagasy|	`mg`	|	Statistical|
+|Malay|	`ms`		|Statistical|
+|Malayalam| `ml` | Neural
+|Maltese|	`mt`	|	Statistical|
+|Maori| `mi`  | Neural|
+|Norwegian|	`nb`	|	Neural|
+|Persian|	`fa`	|	Neural|
+|Polish|	`pl`	|	Neural|
+|Portuguese (Brazil)|	`pt-br`	|	Neural|
+|Portuguese (Portugal)| `pt-pt` | Neural
+|Punjabi|`pa`|Neural
+|Queretaro Otomi|	`otq`	|	Statistical|
+|Romanian|	`ro`	|	Neural|
+|Russian|	`ru`	|	Neural|
+|Samoan|	`sm`	|	Statistical|
+|Serbian (Cyrillic)|	`sr-Cyrl`|	Statistical|
+|Serbian (Latin)|	`sr-Latn`		|Statistical|
+|Slovak|	`sk`	|	Neural|
+|Slovenian|	`sl`	|	Neural|
+|Spanish|	`es`	|	Neural|
+|Swedish|	`sv`	|Neural|
+|Tahitian|	`ty`	|Statistical|
+|Tamil|	`ta`	|	Neural|
+|Telugu|	`te`	|	Neural|
+|Thai|	`th`	|	Neural|
+|Tongan|	`to`	|	Statistical|
+|Turkish|	`tr`		|Neural|
+|Ukrainian|	`uk`	|	Neural|
+|Urdu|	`ur`	|	Statistical|
+|Vietnamese|	`vi`	|	Neural|
+|Welsh|	`cy`	|	Neural|
+|Yucatec Maya|	`yua`	|	Statistical|
+
+> [!NOTE]
+> Language code `pt` will default to `pt-br`, Portuguese (Brazil).
 
 ## Transliteration
 
@@ -128,7 +136,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
 | Tamil | `ta` | Tamil `Taml` | --> | Latin `Latn` |
 | Telugu | `te` | Telugu `Telu` | --> | Latin `Latn` |
-| Thai | `th` | Thai `Thai` | <--> | Latin `Latn` |
+| Thai | `th` | Thai `Thai` | --> | Latin `Latn` |
 
 ## Dictionary
 
@@ -171,7 +179,7 @@ The dictionary supports the following languages to or from English using the Loo
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
-| Portuguese      | `pt`          |
+| Portuguese (Brazil)     | `pt-br`          |
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
 | Serbian (Latin)      | `sr-Latn`          |
@@ -228,19 +236,19 @@ The following languages are available for customization to or from English using
 | Irish | `ga`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |
-|Kiswahili|	`sw`	|
+| Kiswahili|	`sw`	|
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
-|Malagasy|	`mg`	|
-|Maori| `mi`  |
+| Malagasy|	`mg`	|
+| Maori| `mi`  |
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
-| Portuguese      | `pt`          |
+| Portuguese (Brazil) | `pt-br` |
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
-|Samoan|	`sm`	|
+| Samoan|	`sm`	|
 | Serbian (Latin)      | `sr-Latn`          |
 | Slovak     | `sk`          |
 | Slovenian      | `sl`          |

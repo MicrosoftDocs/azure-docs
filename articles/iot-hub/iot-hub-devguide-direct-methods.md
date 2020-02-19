@@ -68,7 +68,10 @@ Direct method invocations on a device are HTTPS calls that are made up of the fo
     }
     ```
 
-Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
+The value provided as `responseTimeoutInSeconds` in the request is the amount of time that IoT Hub service must await for completion of a direct method execution on a device. Set this timeout to be at least as long as the expected execution time of a direct method by a device. If timeout is not provided, it the default value of 30 seconds is used. The minimum and maximum values for `responseTimeoutInSeconds` are 5 and 300 seconds, respectively.
+
+The value provided as `connectTimeoutInSeconds` in the request is the amount of time upon invocation of a direct method that IoT Hub service must await for a disconnected device to come online. The default value is 0, meaning that devices must already be online upon invocation of a direct method. The maximum value for `connectTimeoutInSeconds` is 300 seconds.
+
 
 #### Example
 
@@ -93,7 +96,10 @@ curl -X POST \
 
 The back-end app receives a response that is made up of the following items:
 
-* *HTTP status code*, which is used for errors coming from the IoT Hub, including a 404 error for devices not currently connected.
+* *HTTP status code*:
+  * 200 indicates successful execution of direct method;
+  * 404 indicates that either device ID is invalid, or that the device was not online upon invocation of a direct method and for `connectTimeoutInSeconds` thereafter (use accompanied error message to understand the root cause);
+  * 504 indicates gateway timeout caused by device not responding to a direct method call within `responseTimeoutInSeconds`.
 
 * *Headers* that contain the ETag, request ID, content type, and content encoding.
 

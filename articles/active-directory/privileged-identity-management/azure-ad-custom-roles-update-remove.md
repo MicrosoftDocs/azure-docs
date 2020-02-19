@@ -1,5 +1,5 @@
 ---
-title: Update or remove an Azure AD custom role assignment in Privileged Identity Management (PIM) | Microsoft Docs
+title: Update or remove Azure AD custom role - Privileged Identity Management (PIM)
 description: How to update or remove an Azure AD custom role assignment Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -8,6 +8,7 @@ manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

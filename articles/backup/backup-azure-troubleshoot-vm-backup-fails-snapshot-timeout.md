@@ -59,6 +59,7 @@ This error occurs when one of the extension failures puts the VM into provisioni
 
 - This issue could happen if there is a lock on the recovery point resource group preventing automatic cleanup of recovery points.
 - This issue can also happen if multiple backups are triggered per day. Currently we recommend only one backup per day, as the instant restore points are retained for 1-5 days per the configured snapshot retention and only 18 instant RPs can be associated with a VM at any given time. <br>
+- The number of restore points across restore point collections and resource groups for a VM cannot exceed 18. To create a new restore point, please delete existing restore points.
 
 Recommended Action:<br>
 To resolve this issue, remove the lock on the resource group of the VM, and retry the operation to trigger clean-up.

@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to optimize your reserved instance 
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 02/13/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
