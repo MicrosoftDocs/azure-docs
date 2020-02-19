@@ -54,6 +54,34 @@ The following shows a function app configured to run from a .zip file hosted in 
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
+
+## Using Key Vault References
+
+For added security, you can use Key Vault References in conjunction with your external URL. This keeps the URL encrypted at rest in Key Vault and allows you to leverage Azure Key Vault's secret management and rotation capabilities. We recommend using Azure Blob storage so you can easily rotate the associated SAS key. Azure Blob storage is encrypted at rest, which keeps your application data secure while it is not deployed on App Service.
+
+1. Create an Azure Key Vault.
+
+    ```azurecli
+    az keyvault create --name "Contoso-Vault" --resource-group "ContosoResourceGroup" --location eastus
+    ```
+
+1. Add your external URL as a secret in Key Vault.
+
+    ```azurecli
+    az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<insert-your-URL>"
+    ```
+
+1. Create the `WEBSITE_RUN_FROM_PACKAGE` app setting. The value will now be a Key Vault Reference to the external URL.
+
+    ```azurecli
+    az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"
+    ```
+
+See the following articles for more information.
+
+- [Key Vault references for App Service](app-service-key-vault-references.md)
+- [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)
+
 ## Troubleshooting
 
 - Run From Package makes `wwwroot` read-only, so you will receive an error when writing files to this directory.
