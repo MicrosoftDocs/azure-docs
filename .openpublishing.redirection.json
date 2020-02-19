@@ -3732,7 +3732,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-group-create-multiple.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/create-multiple-instances.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-resources",
       "redirect_document_id": false
     },
     {
@@ -4662,7 +4667,7 @@
     },
     {
       "source_path": "articles/resource-group-create-multiple.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-resources",
       "redirect_document_id": false
     },
     {
@@ -5654,6 +5659,11 @@
       "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started-custom.md",
       "redirect_url": "/azure/active-directory-b2c/custom-policy-get-started",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-ui-customization-dynamic.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-overview-custom.md",
@@ -12037,7 +12047,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-property-copy.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-properties",
       "redirect_document_id": false
     },
     {
@@ -12047,7 +12057,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-sequential-loop.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_url": "/azure/azure-resource-manager/templates/copy-resources",
       "redirect_document_id": false
     },
     {
@@ -41221,6 +41231,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/azure-storage-iis-table.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostics-extension-schema-1dot3.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostics-extension-schema.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-versions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostics-extension-to-storage.md",
+      "redirect_url": "/azure/azure-monitor/cloud-services/diagnostics-extension-to-storage",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -47078,8 +47108,8 @@
     },
     {
       "source_path": "articles/terraform/terraform-vm-msi.md",
-      "redirect_url": "/azure/terraform/terraform-vm-managed-identities-for-azure-resources",
-      "redirect_document_id": true
+      "redirect_url": "/azure/terraform/terraform-create-complete-vm",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/speech-service/quickstart-csharp-dotnet-windows.md",
@@ -48524,16 +48554,36 @@
     {
       "source_path": "articles/virtual-machines/linux/ansible-install-configure.md",
       "redirect_url": "/azure/ansible/ansible-install-configure",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/ansible-create-vm.md",
       "redirect_url": "/azure/ansible/ansible-create-vm",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/ansible-manage-linux-vm.md",
       "redirect_url": "/azure/ansible/ansible-manage-linux-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-java-enterprise-postgresql-app.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/terraform-install-configure.md",
+      "redirect_url": "/azure/terraform/terraform-install-configure",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/terraform-create-complete-vm.md",
+      "redirect_url": "/azure/terraform/terraform-create-complete-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/terraform/terraform-vm-managed-identities-for-azure-resources.md",
+      "redirect_url": "/azure/terraform/terraform-create-complete-vm",
       "redirect_document_id": false
     }
   ]
