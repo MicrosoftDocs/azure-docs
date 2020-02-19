@@ -1,17 +1,19 @@
 ---
 title: Azure Service Bus bindings for Azure Functions
-description: Understand how to use Azure Service Bus triggers and bindings in Azure Functions.
+description: Learn to send Azure Service Bus messages from Azure Functions.
 author: craigshoemaker
 
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 04/01/2017
+ms.date: 02/19/2020
 ms.author: cshoe
 
 ---
-# Azure Service Bus bindings for Azure Functions
+# Azure Service Bus output binding for Azure Functions
 
 Use Azure Service Bus output binding to send queue or topic messages.
+
+For information on setup and configuration details, see the [overview](functions-bindings-service-bus-output.md).
 
 ## Example
 
@@ -184,7 +186,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
 
 # [Java](#tab/java)
 
-The following example shows a Java function that sends a message to a Service Bus queue `myqueue` when triggered by a HTTP request.
+The following example shows a Java function that sends a message to a Service Bus queue `myqueue` when triggered by an HTTP request.
 
 ```java
 @FunctionName("httpToServiceBusQueue")
@@ -280,7 +282,7 @@ The following table explains the binding configuration properties that you set i
 |**name** | n/a | The name of the variable that represents the queue or topic message in function code. Set to "$return" to reference the function return value. |
 |**queueName**|**QueueName**|Name of the queue.  Set only if sending queue messages, not for a topic.
 |**topicName**|**TopicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
-|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.|
+|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus". If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.|
 |**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -383,4 +385,4 @@ This section describes the global configuration settings available for this bind
 
 ## Next steps
 
-- [Run a function when messages in a Service Bus queue or topic is created (Trigger)](./functions-bindings-storage-service-bus-trigger.md)
+- [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-storage-service-bus-trigger.md)

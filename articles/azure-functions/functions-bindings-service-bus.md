@@ -1,22 +1,22 @@
 ---
 title: Azure Service Bus bindings for Azure Functions
-description: Understand how to use Azure Service Bus triggers and bindings in Azure Functions.
+description: Learn to send Azure Service Bus triggers and bindings in Azure Functions.
 author: craigshoemaker
 
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 04/01/2017
+ms.date: 02/19/2020
 ms.author: cshoe
 ---
 
 # Azure Service Bus bindings for Azure Functions
 
-Azure Functions integrates with [Azure Storage](https://docs.microsoft.com/azure/storage/) via [triggers and bindings](./functions-triggers-bindings.md). Integrating with Blob storage allows you to build functions that react to changes in blob data as well as read and write values.
+Azure Functions integrates with [Azure Service Bus](https://azure.microsoft.com/services/service-bus) via [triggers and bindings](./functions-triggers-bindings.md). Integrating with Service Bus allows you to build functions that react to and send queue or topic messages.
 
 | Action | Type |
 |---------|---------|
-| Run a function when messages in a Service Bus queue or topic is created | [Trigger](./functions-bindings-storage-service-bus-trigger.md) |
-| Allow a function to create Service Bus messages |[Output binding](./functions-bindings-storage-service-bus-output.md) |
+| Run a function when a Service Bus queue or topic message is created | [Trigger](./functions-bindings-storage-service-bus-trigger.md) |
+| Send Azure Service Bus messages |[Output binding](./functions-bindings-storage-service-bus-output.md) |
 
 ## Add to your Functions app
 
@@ -44,5 +44,5 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 ## Next steps
 
-- [Run a function when messages in a Service Bus queue or topic is created (Trigger)](./functions-bindings-storage-service-bus-trigger.md)
-- [Allow a function to create Service Bus messages (Output binding)](./functions-bindings-storage-service-bus-output.md)
+- [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-storage-service-bus-trigger.md)
+- [Send Azure Service Bus messages from Azure Functions (Output binding)](./functions-bindings-storage-service-bus-output.md)

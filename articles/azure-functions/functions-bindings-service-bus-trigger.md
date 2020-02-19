@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus bindings for Azure Functions
-description: Learn how to run an Azure Function when as Azure Service Bus messages are created.
+description: Learn to run an Azure Function when as Azure Service Bus messages are created.
 author: craigshoemaker
 
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
@@ -12,6 +12,8 @@ ms.author: cshoe
 # Azure Service Bus trigger for Azure Functions
 
 Use the Service Bus trigger to respond to messages from a Service Bus queue or topic.
+
+For information on setup and configuration details, see the [overview](functions-bindings-service-bus-output.md).
 
 ## Example
 
@@ -131,7 +133,7 @@ A Service Bus binding is defined in *function.json* where *type* is set to `serv
 }
 ```
 
-The code in *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage` which allows you to read the queue message in your function.
+The code in *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage`, which allows you to read the queue message in your function.
 
 ```python
 import azure.functions as func
@@ -291,7 +293,7 @@ The following table explains the binding configuration properties that you set i
 |**queueName**|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
 |**topicName**|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
-|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
+|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus". If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
 |**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**isSessionsEnabled**|**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
 
@@ -351,7 +353,7 @@ The `maxAutoRenewDuration` is configurable in *host.json*, which maps to [OnMess
 
 ## Message metadata
 
-The Service Bus trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) class.
+The Service Bus trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These properties are members of the [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -360,7 +362,7 @@ The Service Bus trigger provides several [metadata properties](./functions-bindi
 |`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
 |`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
 |`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application specific logic.|
+|`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application-specific logic.|
 |`ReplyTo`|`string`|The reply to queue address.|
 |`SequenceNumber`|`Int64`|The unique number assigned to a message by the Service Bus.|
 |`To`|`string`|The send to address.|
@@ -374,4 +376,4 @@ See [code examples](#example) that use these properties earlier in this article.
 
 ## Next steps
 
-- [Allow a function to create Service Bus messages (Output binding)](./functions-bindings-storage-service-bus-output.md)
+- [Send Azure Service Bus messages from Azure Functions (Output binding)](./functions-bindings-storage-service-bus-output.md)
