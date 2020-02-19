@@ -17,7 +17,7 @@ Application Gateway publishes data points, called metrics, to [Azure Monitor](ht
 
 ### Timing metrics
 
-Application Gateway provides several built‑in timing metrics related to the request and response which are all measured in milliseconds. 
+Application Gateway provides several built‑in timing metrics related to the request and response, which are all measured in milliseconds. 
 
 ![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
@@ -62,7 +62,7 @@ For example, If there’s a spike in *Backend first byte response time* trend bu
 
 If you notice a spike in *Backend last byte response time* but the *Backend first byte response time* is stable, then it can be deduced that the spike is because of a larger file being requested.
 
-Similarly, if the *Application gateway total time* has a spike but the *Backend last byte response time* is stable, then it can either be a sign of performance bottleneck at the Application Gateway or a bottleneck in the network between client and Application Gateway. Additionally, if the *client RTT* also has a corresponding spike, then this indicates that that the degradation is because of the network between client and Application Gateway.
+Similarly, if the *Application gateway total time* has a spike but the *Backend last byte response time* is stable, then it can either be a sign of performance bottleneck at the Application Gateway or a bottleneck in the network between client and Application Gateway. Additionally, if the *client RTT* also has a corresponding spike, then it indicates that that the degradation is because of the network between client and Application Gateway.
 
 ### Application Gateway metrics
 
@@ -82,7 +82,7 @@ For Application Gateway, the following metrics are available:
 
 - **Current capacity units**
 
-   Count of capacity units consumed. Capacity units measure consumption-based cost that is charged in addition to the fixed cost. There are three determinants to capacity unit - compute unit, persistent connections and throughput. Each capacity unit is composed of at most: 1 compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.
+   Count of capacity units consumed to load balance the traffic. There are three determinants to capacity unit - compute unit, persistent connections and throughput. Each capacity unit is composed of at most: 1 compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.
 
 - **Current compute units**
 
@@ -94,14 +94,15 @@ For Application Gateway, the following metrics are available:
    
 - **Estimated Billed Capacity units**
 
-  Number of capacity units using which the billing is estimated. This is calcutaed as the greater value between *Current capacity units* and *Fixed billable capacity units*.  
+  With the v2 SKU, the pricing model is driven by consumption. Capacity units measure consumption-based cost that is charged in addition to the fixed cost. *Estimated Billed Capacity units* indicates the number of capacity units using which the billing is estimated. This is calculated as the greater value between *Current capacity units* (capacity units required to load balance the traffic) and *Fixed billable capacity units* (minimum capacity units kept provisioned).
 
 - **Failed Requests**
 
-   Count of failed requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
+  Count of failed requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
    
 - **Fixed Billable Capacity Units**
-The minimum number of capacity units kept provisioned as per the *Minimum scale units* setting in the Application Gateway configuration.
+
+  The minimum number of capacity units kept provisioned as per the *Minimum scale units* setting (one instance translates to 10 capacity units) in the Application Gateway configuration.
    
  - **New connections per second**
 
@@ -141,6 +142,7 @@ For Application Gateway, the following metrics are available:
   The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.
   
 - **Requests per minute per Healthy Host**
+
   The average number of requests received by each healthy member in a backend pool in a minute. You must specify the backend pool using the *BackendPool HttpSettings* dimension.  
   
 
