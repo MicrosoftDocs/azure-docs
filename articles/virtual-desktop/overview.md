@@ -67,7 +67,7 @@ We plan to add support for the following OSes, so make sure you have the [approp
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
-* An [Azure Active Directory](/active-directory/)
+* An [Azure Active Directory](/azure/active-directory/)
 * A Windows Server Active Directory in sync with Azure Active Directory. You can configure this with one of the following:
   * Azure AD Connect (for hybrid organizations)
   * Azure AD Domain Services (for hybrid or cloud organizations)
