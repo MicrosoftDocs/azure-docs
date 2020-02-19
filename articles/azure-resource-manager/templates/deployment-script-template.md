@@ -37,7 +37,7 @@ The benefits of deployment script:
 
 ## Prerequisites
 
-- **A user-assigned managed identity with the contributor's role at the subscription level**. This identity is used to execute deployment scripts. To create one, see [Create a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), or [by using Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), or [by using Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). You need the identity ID when you deploy the template. The format of the identity is:
+- **A user-assigned managed identity with the contributor's role to the target resource group**. This identity is used to execute deployment scripts. To create one, see [Create a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), or [by using Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), or [by using Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). You need the identity ID when you deploy the template. The format of the identity is:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -53,7 +53,8 @@ The benefits of deployment script:
   ```
 
   > [!NOTE]
-  > A user-assigned managed identity with contributor role at the resource group level can also work given the subscription has registered Azure storage account (Microsoft.Storage) and Azure container instance (Microsoft.ContainerInstance) resource providers. The deployment script engine needs to create a storage account and a container instance in the background.  Only subscription-level contributor can register resource providers. Contributors at the resource group level can only perform operations within the scope.  For example, deployment scripts with resource-group-level contributor role can’t create another resource group under the subscription. 
+  > The deployment script engine needs to create a storage account and a container instance in the background.  A user-assigned managed identity with the contributor’s role at the subscription level is required if the subscription has registered the Azure storage account (Microsoft.Storage) and Azure container instance (Microsoft.ContainerInstance) resource providers.
+  > Contributors at the resource group level can only perform operations within the scope.  For example, deployment scripts with resource-group-level contributor role can’t create another resource group under the subscription.
 
 - **Azure PowerShell version 2.7.0, 2.8.0 or 3.0.0**. You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps). You can use a pre-configured Docker image.  See [Configure development environment](#configure-development-environment).
 
