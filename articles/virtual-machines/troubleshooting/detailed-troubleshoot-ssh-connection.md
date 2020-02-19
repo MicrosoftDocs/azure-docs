@@ -89,7 +89,7 @@ Work with your network administrator to correct the settings of your organizatio
 
 ## Source 3: Cloud service endpoint and ACL
 
-[!INCLUDE [classic-vm-deprecation](../../../../includes/classic-vm-deprecation.md)]
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 > [!NOTE]
 > This source applies only to VMs that were created by using the classic deployment model. For VMs that were created by using Resource Manager, skip to [source 4: Network security groups](#nsg).

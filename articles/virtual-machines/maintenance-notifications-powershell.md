@@ -81,7 +81,7 @@ Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceG
 
 ## Classic deployments
 
-[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
 If you still have legacy VMs that were deployed using the classic deployment model, you can use PowerShell to query for VMs and initiate maintenance.
 
