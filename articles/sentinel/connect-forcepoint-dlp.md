@@ -20,11 +20,11 @@ ms.author: rkarlin
 # Connect your Forcepoint DLP to Azure Sentinel
 
 > [!IMPORTANT]
-> The Forcepoint DLP data connector in Azure Sentinel is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The Forcepoint Data Loss Prevention (DLP) data connector in Azure Sentinel is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
-Forcepoint DLP (Data Loss Prevention) connector allows you to automatically export DLP incident data from Forcepoint DLP into Azure Sentinel. This enriches visibility into user activities and data loss incidents, enables further correlation with data from Azure workloads and other feeds, and improves monitoring capability with Workbooks inside Azure Sentinel.
+The Forcepoint DLP connector lets you automatically export DLP incident-data into Azure Sentinel. You can use it to get visibility into user activities and data loss incidents. It also enables correlations with data from Azure workloads and other feeds, and improves monitoring capability with Workbooks inside Azure Sentinel.
 ​
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.

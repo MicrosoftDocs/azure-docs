@@ -19,13 +19,12 @@ ms.author: rkarlin
 # Connect your Squadra Technologies secRMM data to Azure Sentinel 
 
 > [!IMPORTANT]
-> The Squadra Technologies secRMM data connector in Azure Sentinel is currently in public preview.
+> The Squadra Technologies Security Removable Media Manager (secRMM) data connector in Azure Sentinel is currently in public preview.
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-
-Squadra Technologies secRMM (Security Removable Media Manager) connector allows you to easily connect all your Squadra Technologies secRMM security solution logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This Sentinel Data connector gives you very detailed insight into USB removable storage events. Integration between Squadra Technologies secRMM and Azure Sentinel makes use of REST API.
+The Squadra Technologies secRMM connector allows you to easily connect your Squadra Technologies secRMM security solution logs with Azure Sentinel. It lets you view dashboards, create custom alerts, and improve investigation. This connector gives you  insights into USB removable storage events. Integration between Squadra Technologies secRMM and Azure Sentinel makes use of REST API.
 
 
 > [!NOTE]
