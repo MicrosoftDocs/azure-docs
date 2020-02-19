@@ -123,4 +123,4 @@ If you use an Azure Active Directory (Azure AD) [service principal](../active-di
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+> [Monitor logic apps](../logic-apps/monitor-logic-apps.md)

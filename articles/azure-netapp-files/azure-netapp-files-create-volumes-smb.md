@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -68,6 +68,8 @@ A subnet must be delegated to Azure NetApp Files.
     If you have domain controllers that are unreachable via the Azure NetApp Files delegated subnet, you can submit an Azure support request to alter the scope from **global** (default) to **site**.  Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space resides.
 
     See [Designing the site topology](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) about AD sites and services. 
+    
+See Azure NetApp Files [SMB FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) about additional AD information. 
 
 ## Create an Active Directory connection
 

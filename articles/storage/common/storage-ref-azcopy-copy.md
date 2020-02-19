@@ -212,7 +212,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 
 **--no-guess-mime-type**                   Prevents AzCopy from detecting the content-type based on the extension or content of the file.
 
-**--overwrite** string                     Overwrite the conflicting files and blobs at the destination if this flag is set to true. Possible values include 'true', 'false', and 'prompt'. (default "true")
+**--overwrite** string                     Overwrite the conflicting files and blobs at the destination if this flag is set to true. Possible values include 'true', 'false', 'ifSourceNewer', and 'prompt'. (default "true")
 
 **--page-blob-tier** string                Upload page blob to Azure Storage using this blob tier. (default "None")
 

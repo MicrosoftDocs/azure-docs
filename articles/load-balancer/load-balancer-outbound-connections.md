@@ -38,7 +38,7 @@ Azure Load Balancer and related resources are explicitly defined when you're usi
 | SKUs | Scenario | Method | IP protocols | Description |
 | --- | --- | --- | --- | --- |
 | Standard, Basic | [1. VM with Public IP address (with or without Load Balancer)](#ilpip) | SNAT, port masquerading not used | TCP, UDP, ICMP, ESP | Azure uses the public IP assigned to the IP configuration of the instance's NIC. The instance has all ephemeral ports available. When using Standard Load Balancer, you should use [outbound rules](load-balancer-outbound-rules-overview.md) to explicitly define outbound connectivity |
-| Standard, Basic | [2. Public Load Balancer associated with a VM (no Public IP address on the instance)](#lb) | SNAT with port masquerading (PAT) using the Load Balancer frontends | TCP, UDP |Azure shares the public IP address of the public Load Balancer frontends with multiple private IP addresses. Azure uses ephemeral ports of the frontends to PAT. |
+| Standard, Basic | [1. VM with an Instance Level Public IP address (with or without Load Balancer)](#ilpip) | SNAT, port masquerading not used | TCP, UDP, ICMP, ESP | Azure uses the public IP assigned to the IP configuration of the instance's NIC. The instance has all ephemeral ports available. When using Standard Load Balancer, [outbound rules](load-balancer-outbound-rules-overview.md) are not supported if a public IP is assigned to the Virtual Machine |
 | none or Basic | [3. Standalone VM (no Load Balancer, no Public IP address)](#defaultsnat) | SNAT with port masquerading (PAT) | TCP, UDP | Azure automatically designates a public IP address for SNAT, shares this public IP address with multiple private IP addresses of the availability set, and uses ephemeral ports of this public IP address. This scenario is a fallback for the preceding scenarios. We don't recommend it if you need visibility and control. |
 
 If you don't want a VM to communicate with endpoints outside Azure in public IP address space, you can use network security groups (NSGs) to block access as needed. The section [Preventing outbound connectivity](#preventoutbound) discusses NSGs in more detail. Guidance on designing, implementing, and managing a virtual network without any outbound access is outside the scope of this article.
@@ -232,7 +232,7 @@ If you scale out to the next larger backend pool size tier, there is potential f
 
 ### <a name="idletimeout"></a>Use keepalives to reset the outbound idle timeout
 
-Outbound connections have a 4-minute idle timeout. This timeout is not adjustable. However, you can use transport (for example, TCP keepalives) or application-layer keepalives to refresh an idle flow and reset this idle timeout if necessary.  
+Outbound connections have a 4-minute idle timeout. This timeout is adjustable via [Outbound rules](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). You can also use transport (for example, TCP keepalives) or application-layer keepalives to refresh an idle flow and reset this idle timeout if necessary.  
 
 When using TCP keepalives, it is sufficient to enable them on one side of the connection. For example, it is sufficient to enable them on the server side only to reset the idle timer of the flow and it is not necessary for both sides to initiated TCP keepalives.  Similar concepts exist for application layer, including database client-server configurations.  Check the server side for what options exist for application specific keepalives.
 

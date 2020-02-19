@@ -6,6 +6,8 @@
     href: allocation-failure.md
   - name: Allocation failures for classic deployments
     href: allocation-failure-classic.md
+  - name: Availability sets
+    href: virtual-machines-availability-set-supportability.md
 - name: RDP
   href: rdp.md
   items:
@@ -159,8 +161,6 @@
     href: troubleshoot-deploy-vm-linux.md
   - name: Windows
     href: troubleshoot-deploy-vm-windows.md
-  - name: Restarting, Shutting Down, or Stopping services
-    href: boot-error-troubleshoot-windows.md
 - name: Device names are changed
   href: troubleshoot-device-names-problems.md
 - name: VM recovery access
@@ -199,6 +199,8 @@
     href: troubleshoot-critical-service-failed-boot-error.md
   - name: Reboot loop
     href: troubleshoot-reboot-loop.md
+  - name: Restarting, Shutting Down, or Stopping services
+    href: boot-error-troubleshoot-windows.md
   - name: Stuck at Windows update
     href: troubleshoot-stuck-updating-boot-error.md
 - name: Throttling errors
