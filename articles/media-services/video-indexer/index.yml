@@ -36,7 +36,7 @@ landingContent:
       - linkListType: 	whats-new
         links:         
         - text: "What's new in Video Indexer?"
-            url: release-notes.md
+          url: release-notes.md
             
   # Card (optional)
   - title: Get started
