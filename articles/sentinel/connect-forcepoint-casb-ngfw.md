@@ -25,7 +25,7 @@ ms.author: rkarlin
 
 This article explains how to connect your Forcepoint products to Azure Sentinel. 
 
-The Forcepoint data connectors allow you to easily connect your Forcepoint CASB (Cloud Access Security Broker) and Forcepoint NGFW (Next Generation Firewall) logs with Azure Sentinel, to automatically export user-defined logs into Azure Sentinel in real-time. This enriches visibility into user activities recorded by Forcepoint products, enables further correlation with data from Azure workloads and other feeds, and improves monitoring capability with Workbooks inside Azure Sentinel.
+The Forcepoint data connectors allow you to connect Forcepoint Cloud Access Security Broker and Forcepoint Next Generation Firewall logs with Azure Sentinel. In this way you can automatically export user-defined logs into Azure Sentinel in real time. The connector gives you enriched visibility into user activities recorded by Forcepoint products. It also enables further correlation with data from Azure workloads and other feeds, and improves monitoring capability with Workbooks inside Azure Sentinel.
 
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
