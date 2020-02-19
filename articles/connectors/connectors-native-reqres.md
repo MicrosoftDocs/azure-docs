@@ -17,10 +17,12 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 * Trigger a workflow when an external webhook event happens.
 * Receive and respond to an HTTPS call from another logic app.
 
+The Request trigger supports [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) for authorizing inbound calls to your logic app. For more information about enabling this authentication, see [Secure access and data in Azure Logic Apps - Enable Azure AD OAuth authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+
 > [!NOTE]
-> The Request trigger supports *only* Transport Layer Security (TLS) 1.2 for incoming calls. Outgoing calls 
-> continue to support TLS 1.0, 1.1, and 1.2. For more information, see [Solving the TLS 1.0 problem](https://docs.microsoft.com/security/solving-tls1-problem).
->
+> The Request trigger supports *only* Transport Layer Security (TLS) 1.2 for incoming calls. 
+> Outgoing calls support TLS 1.0, 1.1, and 1.2. For more information, see 
+> [Solving the TLS 1.0 problem](https://docs.microsoft.com/security/solving-tls1-problem).
 > If you see SSL handshake errors, make sure that you use TLS 1.2. For incoming calls, here are the supported cipher suites:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -31,6 +33,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 > * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
 > * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+>
 
 ## Prerequisites
 
@@ -182,8 +185,6 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
 1. To trigger your logic app, send an HTTP POST to the generated URL. For example, you can use a tool such as [Postman](https://www.getpostman.com/).
 
 For more information about the trigger's underlying JSON definition and how to call this trigger, see these topics, [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
-
-Request triggers support using [Azure Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) for authenticating incoming calls. For more information about enabling this support, see [Securing logic apps - Enable Azure AD OAuth authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ### Trigger outputs
 
