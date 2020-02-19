@@ -13,9 +13,9 @@ ms.author: helohr
 
 This article answers frequently asked questions and explains best practices for Windows 10 Enterprise multi-session.
  
-## What is Windows 10 Enterprise multi-session? 
+## What is Windows 10 Enterprise multi-session?
 
-Windows 10 Enterprise multi-session, formerly known as Windows 10 Enterprise for Virtual Desktops (EVD), is a new Remote Desktop Session Host that allows multiple concurrent interactive sessions, which previously only Windows Server could do. This capability gives users a familiar Windows 10 experience while IT can benefit from the cost advantages of multi-session and use existing per-user Windows licensing instead of RDS Client Access Licenses (CALs). For more information about licenses and pricing, see [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
+Windows 10 Enterprise multi-session, formerly known as Windows 10 Enterprise for Virtual Desktops (EVD), is a new Remote Desktop Session Host that allows multiple concurrent interactive sessions. Previously, only Windows Server could do this. This capability gives users a familiar Windows 10 experience while IT can benefit from the cost advantages of multi-session and use existing per-user Windows licensing instead of RDS Client Access Licenses (CALs). For more information about licenses and pricing, see [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
  
 ## How many users can simultaneously have an interactive session on Windows 10 Enterprise multi-session?
 
@@ -35,7 +35,7 @@ You can start a virtual machine (VM) in Azure with Windows 10 Windows 10 Enterpr
  
 To get started, create a VM in Azure with Windows 10 Windows 10 Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you'll be able to use the VHD you downloaded to create a new Generation 1 VM on a Windows 10 PC with Hyper-V enabled.
 
-Customize the image to your needs by installing LOB applications and sysprep the image. When you're done customizing, upload the image to Azure with the VHD inside. After that, get Windows Virtual Desktop from the Azure Marketplace and use it to to deploy a new host pool with the customized image.
+Customize the image to your needs by installing LOB applications and sysprep the image. When you're done customizing, upload the image to Azure with the VHD inside. After that, get Windows Virtual Desktop from the Azure Marketplace and use it to deploy a new host pool with the customized image.
  
 ## How do I manage Windows 10 Enterprise multi-session after deployment?
 
@@ -67,9 +67,9 @@ For more information about how to configure an FSLogix profile container, see [C
 
 For a full list of applicable licenses, see [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
-## Why do my apps disappear after I sign off?
+## Why do my apps disappear after I sign out?
 
-This happens because you're using Windows 10 Enterprise multi-session with a profile management solution like FSLogix. Your admin or profile solution configured your system to delete user profiles when users sign off. This configuration means that when your system deletes your user profile after you sign off, it also removes any apps you installed during your session. If you want to keep the apps you installed, you'll need to ask your admin to provision these apps for all users in your Windows Virtual Desktop environment.
+This happens because you're using Windows 10 Enterprise multi-session with a profile management solution like FSLogix. Your admin or profile solution configured your system to delete user profiles when users sign out. This configuration means that when your system deletes your user profile after you sign out, it also removes any apps you installed during your session. If you want to keep the apps you installed, you'll need to ask your admin to provision these apps for all users in your Windows Virtual Desktop environment.
 
 ## How do I make sure apps don't disappear when users sign out?
 
