@@ -165,3 +165,17 @@ conceptualContent:
         - url:  https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops
           itemType: get-started
           text: Azure Pipelines
+    # Card
+    - title: Scaling
+      links:
+        - url: https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview
+          itemType: get-started
+          text: Overview of autoscale
+
+        - url:  https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling
+          itemType: get-started
+          text: Autoscaling guidance
+
+        - url:  https://www.pluralsight.com/courses/microsoft-azure-autoscaling-developing
+          itemType: get-started
+          text: Developing for Autoscaling         
