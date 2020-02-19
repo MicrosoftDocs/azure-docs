@@ -48537,6 +48537,96 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/sizes-general.md",
+      "redirect_url": "/azure/virtual-machines/sizes-general",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-general.md",
+      "redirect_url": "/azure/virtual-machines/sizes-general",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-compute.md",
+      "redirect_url": "/azure/virtual-machines/sizes-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-compute.md",
+      "redirect_url": "/azure/virtual-machines/sizes-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-memory.md",
+      "redirect_url": "/azure/virtual-machines/sizes-memory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-memory.md",
+      "redirect_url": "/azure/virtual-machines/sizes-memory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-storage.md",
+      "redirect_url": "/azure/virtual-machines/sizes-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-storage.md",
+      "redirect_url": "/azure/virtual-machines/sizes-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-gpu.md",
+      "redirect_url": "/azure/virtual-machines/sizes-gpu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-gpu.md",
+      "redirect_url": "/azure/virtual-machines/sizes-gpu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-hpc.md",
+      "redirect_url": "/azure/virtual-machines/sizes-hpc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-hpc.md",
+      "redirect_url": "/azure/virtual-machines/sizes-hpc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-previous-gen.md",
+      "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-previous-gen.md",
+      "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/acu.md",
+      "redirect_url": "/azure/virtual-machines/acu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/acu.md",
+      "redirect_url": "/azure/virtual-machines/acu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/b-series-burstable.md",
+      "redirect_url": "/azure/virtual-machines/sizes-b-series-burstable",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/b-series-burstable.md",
+      "redirect_url": "/azure/virtual-machines/sizes-b-series-burstable",
+      "redirect_document_id": false
+    },
+    {
        "source_path": "articles/cognitive-services/Bing-News-Search/vs-bing-news-search-connected-service.md",
        "redirect_url": "/azure/cognitive-services/bing-news-search/search-the-web",
        "redirect_document_id": false
