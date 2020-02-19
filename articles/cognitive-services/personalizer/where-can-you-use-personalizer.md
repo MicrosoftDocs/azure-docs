@@ -4,7 +4,7 @@ description: Personalizer can be applied in any situation where your application
 ms.topic: conceptual
 ms.date: 02/18/2020
 ---
-# Where and how you use Personalizer
+# Where and how to use Personalizer
 
 Use Personalizer in any situation where your application needs to select the correct action (content) to display - in order to make the experience better, achieve better business results, or improve productivity.
 
