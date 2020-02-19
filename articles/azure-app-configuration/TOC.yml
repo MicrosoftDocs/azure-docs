@@ -67,14 +67,18 @@
       href: concept-github-action.md
     - name: Event handling
       href: concept-app-configuration-event.md
+    - name: Authentication
+      items:
+        - name: Integrate with Azure Managed Identity
+          href: howto-integrate-azure-managed-service-identity.md
+        - name: Enable access using Azure Active Directory
+          href: concept-enable-rbac.md
     - name: High availability
       items:
         - name: Resiliency and disaster recovery
           href: concept-disaster-recovery.md
 - name: How-to guides
   items:
-    - name: Integrate with Azure Managed Identity
-      href: howto-integrate-azure-managed-service-identity.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
     - name: Route events to a custom endpoint
