@@ -62,7 +62,7 @@ Follow the instructions in [Run the Azure Marketplace offering to provision a ne
 1. For [Basics](./create-host-pools-azure-marketplace.md#basics), select the same resource group, then enter the same host pool name as the original host pool.
 2. For [Configure virtual machines](./create-host-pools-azure-marketplace.md#configure-virtual-machines), enter the same prefix and VM size that you did when you first created the host pool. Enter the total number of VMs that you want in your host pool. For example, if you want to expand your host pool from five session hosts to eight, enter **8**.
 3. For [Virtual machine settings](./create-host-pools-azure-marketplace.md#virtual-machine-settings), enter the same information that you did when you first created the host pool, including the image, domain join, and networking information.
-4. For [Windows Virtual Desktop information](./create-host-pools-azure-marketplace.md#windows-virtual-desktop-information), enter the same information you did when you first created the host pool, including your Windows Virtual Desktop tenant name and tenant administrator credentials.
+4. For [Windows Virtual Desktop tenant information](./create-host-pools-azure-marketplace.md#windows-virtual-desktop-tenant-information), enter the same information you did when you first created the host pool, including your Windows Virtual Desktop tenant name and tenant administrator credentials.
 
 ## Run the GitHub Azure Resource Manager template
 
