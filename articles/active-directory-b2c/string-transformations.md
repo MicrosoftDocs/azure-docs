@@ -118,7 +118,7 @@ Use this claim transformation to change any string ClaimType to lower or upper c
 
 ## CreateStringClaim
 
-Creates a string claim from the provided input parameter in the policy.
+Creates a string claim from the provided input parameter in the transformation.
 
 | Item | TransformationClaimType | Data Type | Notes |
 |----- | ----------------------- | --------- | ----- |

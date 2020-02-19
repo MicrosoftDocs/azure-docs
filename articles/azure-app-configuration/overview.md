@@ -12,8 +12,6 @@ ms.date: 02/24/2019
 
 Azure App Configuration provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed in nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their accesses in one place.
 
-App Configuration is currently in public preview. It is free to use during the preview period. You can sign up for it in the [Azure portal](https://portal.azure.com).
-
 ## Why use App Configuration?
 
 Cloud-based applications often run on multiple virtual machines or containers in multiple regions and use multiple external services. Creating such a distributed application that's robust and scalable is a challenge.
