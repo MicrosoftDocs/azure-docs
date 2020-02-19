@@ -185,6 +185,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|
 |90094| The app has requested permissions which the signed-in user is not allowed to consent to, and the user was blocked. |
 |90095| The app has requested permissions which the signed-in user is not allowed to consent to, and the user was shown the [admin consent request](../manage-apps/configure-admin-consent-workflow.md) form. |
+|130500|Phone sign in was blocked due to User Credential Policy.|
 |500011| The resource principal named <site address> was not found in the tenant named <tenant ID>. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.|
 |500014|Resource '{identifier}' is disabled.|
 |500021| Tenant is restricted by company proxy. Denying the resource access.|
