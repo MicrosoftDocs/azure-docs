@@ -15,15 +15,50 @@ ms.service: digital-twins
 ---
 # Manage your Azure Digital Twins model set
 
-## Here is an info dump.
+* Model Management APIs are APIs used to manage the models (types of twins and relationships) that a given ADT instance knows about. This includes upload, validation and retrieval of twin models authored in DTDL. 
 
-	Model Management APIs. These are APIs used to manage the models (types of twins and relationships) that a given ADT instance knows about. This includes upload, validation and retrieval of twin models authored in DTDL. 
+## Modeling (Private Preview, Public Preview)
+The first step towards the solution is to model the twin types used to represent the hospital. Models for ADT are written in DTDL, a JSON-LD-based, programming language agnostic type description. For example, a patient room, for the purposes of this solution, might be described as:
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+```json
+{
+  "@id": "urn:example:PatientRoom:1",
+  "@type": "Interface",
+  "displayName": "Patient Room",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "visitorCount",
+      "schema": "double"
+    },
+    {
+      "@type": "Property",
+      "name": "handWashCount",
+      "schema": "double"
+    },
+    {
+      "@type": "Property",
+      "name": "handWashPercentage",
+      "schema": "double"
+    },
 
-Uploading Models
+    {
+      "@type": "Relationship",
+      "name": "hasDevices"
+    }
+  ],
+  "@context": "http://azure.com/v3/contexts/Model.json"
+}
+```
+
+This description defines a name and a unique id for the patient room, a few properties to represent handwash status (counters that will be updated from motion sensors and soap dispensers, as well as a computed “handwash percentage” property). The type also defines a relationship “hasDevices” that will be used to connect to the actual devices.
+In a similar manner, types for the hospital itself, as well as hospital wards or zones can be defined.
+
+## Uploading Models
 Once models are created, you can upload them to the service instance. 
 An example:
+
+```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");
 // Read model file into string (not part of SDK)
 StreamReader r = new StreamReader("MyModelFile.dtdl"));
@@ -43,7 +78,11 @@ foreach (string fileName in dtdlFiles)
 }
 
 Task<Response> rUpload client.UploadDTDLAsync(dtdlStrings.ToArray());
+```
+
 The DTDL upload API provides two overloads for loading DTDL. One overload lets you pass a single string containing DTDL models, the other lets you pass an array of DTDL models. Each string can either contain a single DTDL model, or multiple models as a JSON array:
+
+```csharp
 [
   {
     "@id": "urn:Planet",
@@ -56,17 +95,21 @@ The DTDL upload API provides two overloads for loading DTDL. One overload lets y
     ...
   }
 ]
+```
  
 On upload, model files are validated. 
 Add up-to-date information on validation of DTDL on upload
 
-Retrieve Model(s)
+## Retrieve Model(s)
 You can list and retrieve models stored on your ADT service instance. Your options are:
-	Retrieve all models
-	Retrieve a single model
-	Retrieve a single model with dependencies
-	Retrieve metadata for models
+* Retrieve all models
+* Retrieve a single model
+* Retrieve a single model with dependencies
+* Retrieve metadata for models
+
 An example:
+
+```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");  
 // Get just the names of available models
 IAsyncEnumerable<Response<ModelData>> modelData = RetrieveAllModelsAsync(IncludeModels.None);
@@ -78,26 +121,35 @@ Response<ModelData> oneModel = client.RetrieveModel(modelId, IncludeModels.All);
 // Get a single model with all referenced models, recursively
 IAsyncEnumerable<Response<ModelData>> oneModelWithDependencies = 
                         client.RetrieveModelWithDependenciesAsync(modelId, IncludeModels.All);
+```
 
 The API calls to retrieve models return ModelData objects. ModelData contains metadata about the model stored in the ADT service instance, such as name, DTMI, and creation date of the model. The ModelData object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire models.  
 The RetrieveModelWithDependencies call returns not just the requested model, but also all models that the requested model is dependent on.
 Models are not necessarily returned in exactly the document form they have been uploaded in. ADT makes no guarantees about the form a document is returned in, beyond that the document will be returned in semantically equivalent form. 
-Parse Models
+
+## Parse Models
+
 As part of the ADT SDK, a DTDL parsing library is provided as a client-side library. This library provides object-model access to the DTDL type definitions – effectively, the equivalent of C# reflection on DTDL. This library can be used independently of the ADT SDK, for example for validation in a visual or text editor for DTDL. 
+
 To use the parser library, you provide a set of DTDL documents to the library. Typically, you would retrieve these model documents from the service, but you might also have them available locally, if your client was responsible for uploading them to the service in the first place. The overall workflow:
-	You retrieve all (or, potentially, some) DTDL documents from the service
-	You pass the returned in-memory DTDL documents to the parser 
-	The parser will validate the set of documents passed to it and return detailed error information. This can be used in editor scenarios
-	You can use the parser APIs to analyze the types included in the document set
-	Functionality includes:
-o	Get all interfaces implemented (the content of the extends section)
-o	Get all properties, telemetry, commands, components and relationships declared in the type. This includes all metadata included in these definitions and takes inheritance (“extends”) into account
-o	Get all complex type definitions
-o	Ascertain if a type is assignable from another type 
+* You retrieve all (or, potentially, some) DTDL documents from the service
+* You pass the returned in-memory DTDL documents to the parser 
+* The parser will validate the set of documents passed to it and return detailed error information. This can be used in editor scenarios
+* You can use the parser APIs to analyze the types included in the document set
+* Functionality includes:
+    - Get all interfaces implemented (the content of the extends section)
+    - Get all properties, telemetry, commands, components and relationships declared in the type. This includes all metadata included in these definitions and takes inheritance (“extends”) into account
+    - Get all complex type definitions
+    - Ascertain if a type is assignable from another type 
+
 Note for Plug and Play device users: 
 Plug and play devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of DTDL as used in ADT. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your twin. The parser will always, by default, return the same object model for both PnP and Digital Twins syntax.
-An example.
+
+### An example
+
 The following models are defined in the service (the dtmi:com:example:coffeeMaker model is using the capability model syntax, which implies that it was installed in the service by connecting a Plug and Play device exposing that model):
+
+```csharp
 {
   "@id": " dtmi:com:example:coffeeMaker",
   "@type”: "CapabilityModel",
@@ -120,7 +172,10 @@ The following models are defined in the service (the dtmi:com:example:coffeeMake
 	{ "@type": "property", "name": "capacity”, “schema”: integer }
   ]    
 }
+```
+
 The following code shows an example on how to use the parser library to reflect on these definitions in C#:
+```csharp
 public void LogModel(DTInterface model)
 {
     Log.WriteLine("Interface: "+model.id);
@@ -170,15 +225,23 @@ public void ParseModels()
         LogModel(ires); 
     }
 }
+```
 
 Add an example that shows how the parser coalesces properties in the presence of inheritance. That is, when reflecting over properties of ConferenceRoom, we’d see all the properties of the types that ConferenceRoom extends. 
-Model Deletion
+
+## Model Deletion
 Models can also be deleted from the service. Deletion is a two-step process:
-	Models first need to be “de-commissioned”. A de-commissioned model is still valid and can be used by existing twin instances. This includes the ability to change properties or add and delete relationships. However, new instances of this model type cannot be created any longer
-	Once there are no more instances of a given model, and the model is not referenced by any other model any longer, they can be deleted. After decommissioning a model, you would typically either delete existing instances of that model, or you would transition the twin instance to a different model. Add an example for transitioning 
+* Models first need to be “de-commissioned”. A de-commissioned model is still valid and can be used by existing twin instances. This includes the ability to change properties or add and delete relationships. However, new instances of this model type cannot be created any longer
+* Once there are no more instances of a given model, and the model is not referenced by any other model any longer, they can be deleted. After decommissioning a model, you would typically either delete existing instances of that model, or you would transition the twin instance to a different model. Add an example for transitioning 
+
+
+```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");  
 client.DecommisionModel(dtmiOfPlanetInterface);
 // Write some code that deletes or transitions twins
 ...
+```
+
+
 DecommissionModel() can take one or more than one URN(s) so developers can process one or multiple ones in one statement. 
 Note that the decommissioning status is also included in the ModelData records returned by the model retrieval APIs.

@@ -13,6 +13,5 @@ ms.service: digital-twins
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
-# Understand security best practices
 
-## Here is an info dump.
+# Understand security best practices

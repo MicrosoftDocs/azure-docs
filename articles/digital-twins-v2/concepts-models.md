@@ -13,46 +13,19 @@ ms.service: digital-twins
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
+
 # Understand object modeling in Azure Digital Twins
 
-## Here is an info dump.
+## Digital Twins Definition Language: DTDL
 
-Modeling
-The first step towards the solution is to model the twin types used to represent the hospital. Models for ADT are written in DTDL, a JSON-LD-based, programming language agnostic type description. For example, a patient room, for the purposes of this solution, might be described as:
-{
-  "@id": "urn:example:PatientRoom:1",
-  "@type": "Interface",
-  "displayName": "Patient Room",
-  "contents": [
-    {
-      "@type": "Property",
-      "name": "visitorCount",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "handWashCount",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "handWashPercentage",
-      "schema": "double"
-    },
+Digital Twin models for ADT are defined using the Digital Twin Description Language (DTDL). DTDL is written in JSON-LD and programming language independent.  
+This section provides conceptual information on DTDL. Please see the DTDL reference [Add Link to DTDL specification] for more details on DTDL. 
+DTDL in ADT versus DTDL in Plug and Play
+DTDL is also used as part of Azure IoT Plug and Play. Developers of Plug and Play devices use a subset of the same description language used for twins. This document describes DTDL as used in ADT, please see Add reference to PnP DTDL specs.
+The DTDL version used for Plug and Play is semantically a subset of DTDL for ADT: Every CapabilityModel as defined by PnP is also a valid interface for use in ADT.  
 
-    {
-      "@type": "Relationship",
-      "name": "hasDevices"
-    }
-  ],
-  "@context": "http://azure.com/v3/contexts/Model.json"
-}
-This description defines a name and a unique id for the patient room, a few properties to represent handwash status (counters that will be updated from motion sensors and soap dispensers, as well as a computed “handwash percentage” property). The type also defines a relationship “hasDevices” that will be used to connect to the actual devices.
-In a similar manner, types for the hospital itself, as well as hospital wards or zones can be defined.
+## Interfaces
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-Interfaces
 Model descriptions in DTDL are called interfaces. An interface describes a model in terms of:
 	Properties. Properties are data fields that represent the state of an entity, just like in most object-oriented languages. Unlike telemetry, which is just a data event, properties have backing storage and can be read at any time.
 	Telemetry. Telemetry fields represent measurements or events. Measurement are typically used for the equivalent of sensor readings. Telemetry is not stored on a twin – it is effectively sent as a stream of data events.
@@ -62,6 +35,8 @@ Model descriptions in DTDL are called interfaces. An interface describes a model
 In contrast, use independent twins connected by a relationship when you want both parts to have an independent existence in the graph.
 Example that shows how to think about relationships versus components
 A simple example model: [TBA – should probably be a model that exposes a command too]
+
+```json
 {
     "@id": "dtmi:com:example:Planet",
     "@type": "Interface",
@@ -88,4 +63,80 @@ A simple example model: [TBA – should probably be a model that exposes a comma
         }
     ]
 }
+```
+
 As the example shows, all content of an interface is described in the “contents” section of the DTDL file as an array of attribute definitions, where each attribute has a type (telemetry, property, relationship, etc.) and a set of properties that define the actual attribute (e.g. name and schema to define a property).
+
+## Inheritance
+
+Often, it is desirable to specialize a given model. For example, a generic model “Room” might have specialized variants “ConferenceRoom” or “Gym”. To express specialization, DTDL supports inheritance: Interfaces can inherit from one or more other interfaces. 
+
+```json
+{
+    "@id": " dtmi:com:example:CelestialBody",
+    "@type": "Interface",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "location",
+            "schema": " dtmi:com:example:CelestialCoordinate"
+        },
+        {
+            "@type": "Property",
+            "name": "name",
+            "schema": "string"
+        },
+        {
+            "@type": "Property"
+            "name": "mass",
+            "schema": "double"
+        }
+    ] ,
+    "@context": "http://azure.com/v3/contexts/Model.json"
+},
+{
+    "@id": "dtmi:com:example:Planet;1",
+    "@type": "Interface",
+    “extends”: [
+        “dtmi:com:example:CelestialBody”
+    ]
+    "contents": [
+        {
+            "@type": "Relationship",
+            "name": "satellites",
+            "target": " dtmi:com:example:Moon"
+        }
+    ] ,
+    "@context": "http://azure.com/v3/contexts/Model.json"
+},
+{
+    "@id": " dtmi:com:example:Moon",
+    "@type": "Interface",
+    “extends”: [
+        “dtmi:com:example:CelestialBody”
+    ],
+    "contents": [
+        {
+            "@type": "Relationship",
+            "name": "owner",
+            "target": " dtmi:com:example:Planet"
+        }
+    ] ,
+    "@context": "http://azure.com/v3/contexts/Model.json"
+}
+```
+
+In this example, both Planet and Moon inherit from CelestialBody, which contributes a name, a mass and a location to both Planet and Moon. Inheritance is expressed in the DTDL files with the “extends” section, which points to an array of interface specifications.
+If inheritance is applied, the sub-type exposes all properties from the entire inheritance chain.
+The extending interface cannot change any of the definitions of the parent interfaces. It can only add to them. Note that an interface inheriting from one or more interfaces cannot define a capability already defined in one of those “parent” interfaces (even if the capabilities are defined the same). For example, if a parent interface defines a double property “foo”, the extending interface cannot contain a declaration of foo, even if it is also declared as a double.
+
+## Data Types
+
+Property and telemetry values can be of standard primitive types – integer, double, string and Boolean and others, such as DateTime and Duration. See Reference to DTDL documentation for complete information.
+Add information on mandatory versus optional properties
+In addition to primitive types, property and telemetry fields can have the following four complex types:
+* Object
+* Array
+* Map
+* Enum
+Add more descriptions and an example	
