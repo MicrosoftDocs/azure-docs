@@ -9,7 +9,7 @@ ms.date: 05/17/2018
 
 Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Through the process of offline seeding, Azure Backup can use disks to upload the offline backup data to Azure.
 
-The Azure Backup offline-seeding process is tightly integrated with the [Azure Import/Export service](../storage/common/storage-import-export-service.md). You can use the Import/Export service to transfer initial backup data to Azure by using disks. If you have terabytes (TBs) of initial backup data that needs to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy, on one or more hard drives, to an Azure datacenter. The following image provides an overview of the steps in the workflow.
+The Azure Backup offline-seeding process is tightly integrated with the [Azure Import/Export service](../storage/common/storage-import-export-service.md). You can use this service to transfer initial backup data to Azure by using disks. If you have terabytes (TBs) of initial backup data that needs to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy, on one or more hard drives to an Azure datacenter. The following image provides an overview of the steps in the workflow.
 
   ![Overview of offline import workflow process](./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png)
 
@@ -23,13 +23,13 @@ The offline backup process involves the following steps:
 
 ## Supported configurations
 
-The following Azure Backup features or workloads support the use of offline backup:
+The following Azure Backup features or workloads support the use of offline backup for:
 
 > [!div class="checklist"]
 >
-> * Backup of files and folders with the Microsoft Azure Recovery Services agent, also referred to as the Azure Backup agent
-> * Backup of all workloads and files with System Center Data Protection Manager
-> * Backup of all workloads and files with Microsoft Azure Backup Server
+> * Backup of files and folders with the Microsoft Azure Recovery Services agent, also referred to as the Azure Backup agent.
+> * Backup of all workloads and files with System Center Data Protection Manager.
+> * Backup of all workloads and files with Microsoft Azure Backup Server.
  
    > [!NOTE]
    > Offline backup isn't supported for system state backups done by using the Azure Backup agent.
@@ -59,7 +59,7 @@ Before you initiate the offline backup workflow, complete the following prerequi
 
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you want to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
 * When you send disks to Azure, use only 2.5-inch SSD or 2.5-inch or 3.5-inch SATA II/III internal hard drives. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
-* The SATA drives must be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the *staging location* to the SATA drives is done. Ensure that Azure BitLocker is enabled on the copy computer.
+* The SATA drives must be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the staging location to the SATA drives is done. Ensure that Azure BitLocker is enabled on the copy computer.
 
 ## Workflow
 
@@ -94,7 +94,7 @@ This section describes the offline backup workflow so that your data can be deli
 
     ![Azure subscription sign-in screen](./media/backup-azure-backup-import-export/azure-login.png)
 
-1. Complete the workflow. On the Azure Backup agent console, select **Back Up Now**.
+1. Finish the workflow. On the Azure Backup agent console, select **Back Up Now**.
 
     ![Back Up Now](./media/backup-azure-backup-import-export/backupnow.png)
 
@@ -108,13 +108,13 @@ This section describes the offline backup workflow so that your data can be deli
 
 ## Prepare SATA drives and ship to Azure
 
-The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent to the nearest Azure datacenter. This utility is available in the Azure Backup agent installation directory (in the following path):
+The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent to the nearest Azure datacenter. This utility is available in the Azure Backup agent installation directory in the following path:
 
     *\Microsoft Azure Recovery Services Agent\Utils\\*
 
 1. Go to the directory, and copy the **AzureOfflineBackupDiskPrep** directory to another computer where the SATA drives are connected. On the computer with the connected SATA drives, ensure that:
 
-   * The copy computer can access the staging location for the offline-seeding workflow by using the same network path that was provided in the workflow in the "Initiate offline backup" section.
+   * The copy computer can access the staging location for the offline-seeding workflow by using the same network path that was provided in the **Initiate offline backup** workflow.
    * BitLocker is enabled on the copy computer.
    * Azure PowerShell 3.7.0 is installed.
    * The latest compatible browsers (Microsoft Edge or Internet Explorer 11) are installed, and JavaScript is enabled.
@@ -129,8 +129,8 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
     | Parameter | Description |
     | --- | --- |
-    | s:&lt;*Staging Location Path*&gt; |This mandatory input is used to provide the path to the staging location that you entered in the workflow in the "Initiate offline backup" section. |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |This optional input is used to provide the path to the **Azure Publish Settings** file that you entered in the workflow in the "Initiate offline backup" section. |
+    | s:&lt;*Staging Location Path*&gt; |This mandatory input is used to provide the path to the staging location that you entered in the **Initiate offline backup** workflow. |
+    | p:&lt;*Path to PublishSettingsFile*&gt; |This optional input is used to provide the path to the **Azure publish settings** file that you entered in the **Initiate offline backup** workflow. |
 
     When you run the command, the utility requests the selection of the Azure import job that corresponds to the drives that need to be prepared. If only a single import job is associated with the provided staging location, you see a screen like this one.
 
@@ -169,17 +169,17 @@ The following procedure updates the Azure import job shipping details. This info
 1. Sign in to your Azure subscription.
 1. On the main menu, select **All services**. In the **All services** dialog box, enter **Import**. When you see **Import/export jobs**, select it.
 
-    ![Enter shipping information](./media/backup-azure-backup-import-export/search-import-job.png)<br/>
+    ![Entering shipping information](./media/backup-azure-backup-import-export/search-import-job.png)<br/>
 
     The **Import/export jobs** menu opens, and the list of all import/export jobs in the selected subscription appears.
 
 1. If you have multiple subscriptions, select the subscription used to import the backup data. Then select the newly created import job to open its details.
 
-    ![Review shipping information](./media/backup-azure-backup-import-export/import-job-found.png)<br/>
+    ![Reviewing shipping information](./media/backup-azure-backup-import-export/import-job-found.png)<br/>
 
 1. On the **Settings** menu for the import job, select **Manage shipping info**. Enter the return shipping details.
 
-    ![Store shipping information](./media/backup-azure-backup-import-export/shipping-info.png)<br/>
+    ![Storing shipping information](./media/backup-azure-backup-import-export/shipping-info.png)<br/>
 
 1. When you have the tracking number from your shipping carrier, select the banner in the Azure import job overview page and enter the following details.
 
@@ -212,4 +212,4 @@ After the initial backup is finished, you can safely delete the data imported to
 
 ## Next steps
 
-* For any questions on the Azure Import/Export workflow, see [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../storage/common/storage-import-export-service.md).
+* For any questions on the Azure Import/Export service workflow, see [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../storage/common/storage-import-export-service.md).
