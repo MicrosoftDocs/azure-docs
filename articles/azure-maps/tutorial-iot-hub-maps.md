@@ -236,9 +236,9 @@ All relevant event info is then kept in the blob store. Step 5 below points to t
     
     The **Azure Event Hub Trigger** and the **Azure Event Grid Trigger** have similar icons. Make sure you select the **Azure Event Grid Trigger**.
 
-6. Copy the [c# code](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) into your function.
+6. Copy the [C# code](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) into your function.
  
-7. In the c# script, replace the following parameters. Click **Save**. Don't click **Run** yet
+7. In the C# script, replace the following parameters. Click **Save**. Don't click **Run** yet
     * Replace the **SUBSCRIPTION_KEY** with your Azure Maps account primary subscription key.
     * Replace the **UDID** with the udId of the geofence you uploaded, 
     * The **CreateBlobAsync** function in the script creates a blob per event in the data storage account. Replace the **ACCESS_KEY**, **ACCOUNT_NAME**, and **STORAGE_CONTAINER_NAME** with your storage account's access key, account name, and data storage container.
@@ -265,9 +265,9 @@ In our example scenario, we want to filter out all messages where the rental veh
 
 ## Send telemetry data to IoT Hub
 
-Once our Azure Function is up and running, we can now send telemetry data to the IoT Hub, which will route it to the Event Grid. Let's use a c# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need the .NET Core SDK 2.1.0 or greater on your development machine. Follow the steps below to send simulated telemetry data to IoT Hub.
+Once our Azure Function is up and running, we can now send telemetry data to the IoT Hub, which will route it to the Event Grid. Let's use a C# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need the .NET Core SDK 2.1.0 or greater on your development machine. Follow the steps below to send simulated telemetry data to IoT Hub.
 
-1. Download the [rentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation) c# project. 
+1. Download the [rentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation) C# project. 
 
 2. Open the simulatedCar.cs file in a text editor of your choice and replace the value of the `connectionString` with the one you saved when you registered the device and save changes to the file.
  
