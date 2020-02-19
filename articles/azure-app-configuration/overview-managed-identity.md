@@ -1,5 +1,5 @@
 ---
-title: Managed identities
+title: Configure managed identities with Azure App Configuration
 description: Learn how managed identities work in Azure App Configuration and how to configure a managed identity
 author: jpconnock
 
