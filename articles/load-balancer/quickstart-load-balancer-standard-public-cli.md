@@ -40,11 +40,22 @@ The following example creates a resource group named *myResourceGroupSLB* in the
 
 ## Create a public IP address
 
-To access your web app on the Internet, you need a public IP address for the load balancer. A Standard Load Balancer only supports Standard Public IP addresses. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) to create a Standard Public IP address named *myPublicIP* in *myResourceGroupSLB*. Use ```--sku basic``` to create a Basic Public IP. Microsoft recommends Standard SKU for production workloads.
+To access your web app on the Internet, you need a public IP address for the load balancer. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) to create a Standard zone redundant Public IP address named *myPublicIP* in *myResourceGroupSLB*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard
 ```
+
+To create a zonal Public IP address in zone 1 use:
+
+```azurecli-interactive
+  az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
+```
+
+Use ```-SKU Basic``` to create a Basic Public IP. Basic Public IPs are not compatible with **Standard** load balancer. Microsoft recommends using **Standard** for production workloads.
+
+> [!IMPORTANT]
+> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
 
 ## Create Azure Load balancer
 
@@ -67,6 +78,9 @@ Create a public Azure Load Balancer with [az network lb create](https://docs.mic
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
   ```
+
+> [!IMPORTANT]
+> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
 
 ### Create the health probe
 
@@ -285,8 +299,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 ```azurecli-interactive 
   az group delete --name myResourceGroupSLB
 ```
-## Next step
-In this quickstart, you created Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+## Next steps
+In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the Load Balancer traffic rule, health probe, and then tested the Load Balancer. To learn more about Azure Load Balancer, continue to [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-> [!div class="nextstepaction"]
-> [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).

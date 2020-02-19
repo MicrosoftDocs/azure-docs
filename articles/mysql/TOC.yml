@@ -21,7 +21,7 @@
       href: connect-php.md
     - name: Java
       href: connect-java.md
-    - name: .Net
+    - name: .NET
       href: connect-csharp.md    
     - name: Python
       href: connect-python.md
@@ -93,8 +93,6 @@
       href: concepts-data-access-and-security-threat-protection.md   
     - name: Private Link
       href: concepts-data-access-security-private-link.md
-    - name: Data Encryption
-      href: concepts-data-encryption-mysql.md
     - name: Data Encryption
       href: concepts-data-encryption-mysql.md
     - name: Azure AD authentication
@@ -222,6 +220,8 @@
       href: howto-troubleshoot-query-performance.md
     - name: How to use views in sys schema
       href: howto-troubleshoot-sys-schema.md
+    - name: Troubleshoot data encryption
+      href: howto-data-encryption-troubleshoot.md
   - name: Advanced Threat Protection
     items:
     - name: Azure portal

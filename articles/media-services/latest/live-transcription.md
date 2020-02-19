@@ -28,7 +28,7 @@ This article describes how to enable live transcription when streaming a Live Ev
 
 ## Creating the Live Event 
 
-To create the Live Event, you would send the PUT operation to the 2019-05-01 version, such as: 
+To create the Live Event, you would send the PUT operation to the 2019-05-01-preview version, such as: 
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 

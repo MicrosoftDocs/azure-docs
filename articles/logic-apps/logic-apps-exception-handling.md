@@ -355,9 +355,9 @@ For reference, here's an example of a single `@result()` item, showing the `name
 
 To perform different exception handling patterns, you can use the expressions previously described in this article. You might choose to execute a single exception handling action outside the scope that accepts the entire filtered array of failures, and remove the `For_each` action. You can also include other useful properties from the `\@result()` response as previously described.
 
-## Azure Diagnostics and metrics
+## Set up Azure Monitor logs
 
-The previous patterns are great way to handle errors and exceptions within a run, but you can also identify and respond to errors independent of the run itself. [Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) provides a simple way to send all workflow events, including all run and action statuses, to an Azure Storage account or an event hub created with [Azure Event Hubs](../event-hubs/event-hubs-about.md).
+The previous patterns are great way to handle errors and exceptions within a run, but you can also identify and respond to errors independent of the run itself. [Azure Monitor](../azure-monitor/overview.md) provides a simple way to send all workflow events, including all run and action statuses, to a [Log Analytics workspace](../azure-monitor/platform/data-platform-logs.md), [Azure storage account](../storage/blobs/storage-blobs-overview.md), or [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 To evaluate run statuses, you can monitor the logs and metrics, or publish them into any monitoring tool that you prefer. One potential option is to stream all the events through Event Hubs into [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). In Stream Analytics, you can write live queries based on any anomalies, averages, or failures from the diagnostic logs. You can use Stream Analytics to send information to other data sources, such as queues, topics, SQL, Azure Cosmos DB, or Power BI.
 

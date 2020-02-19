@@ -1,11 +1,8 @@
 ---
 title: Dependency visualization in Azure Migrate
 description: Provides an overview of assessment calculations in the Server Assessment service in Azure Migrate
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.author: hamusa
+ms.date: 02/17/2020
 ---
 
 # Dependency visualization
