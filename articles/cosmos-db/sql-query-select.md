@@ -164,7 +164,7 @@ The results are:
       }
     }]
 ```
-## Reserved keywords and special characters in property names
+## Reserved keywords and special characters
 
 Queries against documents with property names like `ORDER` or `Group` will result in syntax errors. You should explicitly include the property in `[]`.
 
