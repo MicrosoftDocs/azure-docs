@@ -186,6 +186,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |90094| The app has requested permissions which the signed-in user is not allowed to consent to, and the user was blocked. |
 |90095| The app has requested permissions which the signed-in user is not allowed to consent to, and the user was shown the [admin consent request](../manage-apps/configure-admin-consent-workflow.md) form. |
 |500011| The resource principal named <site address> was not found in the tenant named <tenant ID>. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.|
+|500014|Resource '{identifier}' is disabled.|
 |500021| Tenant is restricted by company proxy. Denying the resource access.|
 |500121| Authentication failed during strong authentication request.|
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
