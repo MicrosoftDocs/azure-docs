@@ -166,7 +166,7 @@ The results are:
 ```
 ## Reserved keywords and special characters
 
-Queries against documents with property names like `ORDER` or `Group` will result in syntax errors. You should explicitly include the property in `[]`.
+If your data contains properties with the same names as reserved keywords such as "order" or "Group" then the queries against these documents will result in syntax errors. You should explicitly include the property in `[]` character to run the query successfully.
 
 For example, here's a document with a property named `order` and a property `price($)` that contains special characters:
 
