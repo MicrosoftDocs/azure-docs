@@ -143,7 +143,7 @@ Commands are always prefixed with `sfctl`. For general information about all the
 
 Commands follow a repeatable structure, with the target of the command preceding the verb or the action.
 
-```azurecli
+```bash
 sfctl <object> <action>
 ```
 
@@ -156,7 +156,7 @@ Before you perform any operations, you must select a cluster to connect to. For 
 > [!WARNING]
 > Do not use unsecured Service Fabric clusters in a production environment.
 
-```azurecli
+```bash
 sfctl cluster select --endpoint http://testcluster.com:19080
 ```
 
@@ -164,7 +164,7 @@ The cluster endpoint must be prefixed by `http` or `https`. It must include the 
 
 For clusters that are secured with a certificate, you can specify a PEM-encoded certificate. The certificate can be specified as a single file or as a cert and a key pair. If it is a self-signed certificate that is not CA signed, you can pass the `--no-verify` option to bypass CA verification.
 
-```azurecli
+```bash
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
@@ -177,7 +177,7 @@ Cluster connection information persists across multiple Service Fabric CLI sessi
 
 For example, to get the Service Fabric cluster health state, use the following command:
 
-```azurecli
+```bash
 sfctl cluster health
 ```
 
@@ -242,13 +242,13 @@ Detailed logs often are helpful when you debug or report a problem. The `--debug
 
 For help with a specific command or a group of commands, use the `-h` flag.
 
-```azurecli
+```bash
 sfctl application -h
 ```
 
 Here is another example:
 
-```azurecli
+```bash
 sfctl application create -h
 ```
 

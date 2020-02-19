@@ -30,7 +30,7 @@ If your .pfx file is not password protected, use -passin pass: for the last para
 
 To specify the client certificate as a pem file, specify the file path in the `--pem` argument. For example:
 
-```azurecli
+```bash
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
@@ -39,7 +39,7 @@ Password protected pem files will prompt for password prior to running any comma
 To specify a cert, key pair use the `--cert` and `--key` arguments to specify the file paths to each respective
 file.
 
-```azurecli
+```bash
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
@@ -49,14 +49,14 @@ verification, specify the `--no-verify` option. For example:
 > [!WARNING]
 > Do not use the `no-verify` option when connecting to production Service Fabric clusters.
 
-```azurecli
+```bash
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 In addition, you can specify paths to directories of trusted CA certs, or individual certs. To specify these
 paths, use the `--ca` argument. For example:
 
-```azurecli
+```bash
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
