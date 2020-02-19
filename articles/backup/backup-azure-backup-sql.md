@@ -13,8 +13,8 @@ To back up SQL Server databases to Azure, you need an Azure account. If you don'
 To back up a SQL Server database to Azure and to recover it from Azure:
 
 1. Create a backup policy to protect SQL Server databases in Azure.
-2. Create on-demand backup copies in Azure.
-3. Recover the database from Azure.
+1. Create on-demand backup copies in Azure.
+1. Recover the database from Azure.
 
 ## Before you start
 
@@ -29,20 +29,20 @@ Before you begin, ensure you've met the [prerequisites](backup-azure-dpm-introdu
 To protect SQL Server databases in Azure, first create a backup policy:
 
 1. On the Data Protection Manager (DPM) server, select the **Protection** workspace.
-2. Select **New** to create a protection group.
+1. Select **New** to create a protection group.
 
     ![Create a protection group](./media/backup-azure-backup-sql/protection-group.png)
-3. On the start page, review the guidance about creating a protection group. Then select **Next**.
-4. Select **Servers**.
+1. On the start page, review the guidance about creating a protection group. Then select **Next**.
+1. Select **Servers**.
 
     ![Select the Servers protection group type](./media/backup-azure-backup-sql/pg-servers.png)
-5. Expand the SQL Server machine where the databases that you want to back up are located. You see the data sources that can be backed up from that server. Expand **All SQL Shares** and then select the databases that you want to back up. In this example, we select ReportServer$MSDPM2012 and ReportServer$MSDPM2012TempDB. Then select **Next**.
+1. Expand the SQL Server machine where the databases that you want to back up are located. You see the data sources that can be backed up from that server. Expand **All SQL Shares** and then select the databases that you want to back up. In this example, we select ReportServer$MSDPM2012 and ReportServer$MSDPM2012TempDB. Then select **Next**.
 
     ![Select a SQL Server database](./media/backup-azure-backup-sql/pg-databases.png)
-6. Name the protection group and then select **I want online protection**.
+1. Name the protection group and then select **I want online protection**.
 
     ![Choose a data-protection method - short-term disk protection or online Azure protection](./media/backup-azure-backup-sql/pg-name.png)
-7. On the **Specify Short-Term Goals** page, include the necessary inputs to create backup points to the disk.
+1. On the **Specify Short-Term Goals** page, include the necessary inputs to create backup points to the disk.
 
     In this example, **Retention range** is set to *5 days*. The backup **Synchronization frequency** is set to once every *15 minutes*. **Express Full Backup** is set to *8:00 PM*.
 
@@ -53,7 +53,7 @@ To protect SQL Server databases in Azure, first create a backup policy:
    >
    >
 
-8. Select **Next**. DPM shows the overall storage space available. It also shows the potential disk space utilization.
+1. Select **Next**. DPM shows the overall storage space available. It also shows the potential disk space utilization.
 
     ![Set up disk allocation](./media/backup-azure-backup-sql/pg-storage.png)
 
@@ -61,7 +61,7 @@ To protect SQL Server databases in Azure, first create a backup policy:
 
     If you select **Automatically grow the volumes**, then DPM can account for the increased backup volume as the production data grows. If you don't select **Automatically grow the volumes**, then DPM limits the backup storage to the data sources in the protection group.
 
-9. If you're an administrator, you can choose to transfer this initial backup **Automatically over the network** and choose the time of transfer. Or choose to **Manually** transfer the backup. Then select **Next**.
+1. If you're an administrator, you can choose to transfer this initial backup **Automatically over the network** and choose the time of transfer. Or choose to **Manually** transfer the backup. Then select **Next**.
 
     ![Choose a replica-creation method](./media/backup-azure-backup-sql/pg-manual.png)
 
@@ -69,16 +69,16 @@ To protect SQL Server databases in Azure, first create a backup policy:
 
     After the initial backup finishes, backups continue incrementally on the initial backup copy. Incremental backups tend to be small and are easily transferred across the network.
     
-10. Choose when to run a consistency check. Then select **Next**.
+1. Choose when to run a consistency check. Then select **Next**.
 
     ![Choose when to run a consistency check](./media/backup-azure-backup-sql/pg-consistent.png)
 
     DPM can run a consistency check on the integrity of the backup point. It calculates the checksum of the backup file on the production server (the SQL Server machine in this example) and the backed-up data for that file in DPM. If the check finds a conflict, then the backed-up file in DPM is assumed to be corrupt. DPM fixes the backed-up data by sending the blocks that correspond to the checksum mismatch. Because the consistency check is a performance-intensive operation, administrators can choose to schedule the consistency check or run it automatically.
 
-11. Select the data sources to protect in Azure. Then select **Next**.
+1. Select the data sources to protect in Azure. Then select **Next**.
 
     ![Select data sources to protect in Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)
-12. If you're an administrator, you can choose backup schedules and retention policies that suit your organization's policies.
+1. If you're an administrator, you can choose backup schedules and retention policies that suit your organization's policies.
 
     ![Choose schedules and retention policies](./media/backup-azure-backup-sql/pg-schedule.png)
 
@@ -91,7 +91,7 @@ To protect SQL Server databases in Azure, first create a backup policy:
 
     **Best practice**: Use DPM to schedule Azure Backups after the local disk backups finish. When you follow this practice, the latest disk backup is copied to Azure.
 
-13. Choose the retention policy schedule. For more information about how the retention policy works, see [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
+1. Choose the retention policy schedule. For more information about how the retention policy works, see [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
 
     ![Choose a retention policy](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
@@ -104,14 +104,14 @@ To protect SQL Server databases in Azure, first create a backup policy:
     
     After you choose a retention policy, select **Next**.
 
-14. Choose how to transfer the initial backup copy to Azure.
+1. Choose how to transfer the initial backup copy to Azure.
 
     * The **Automatically over the network** option follows your backup schedule to transfer the data to Azure.
     * For more information about **Offline Backup**, see [Overview of Offline Backup](offline-backup-overview.md).
 
     After you choose a transfer mechanism, select **Next**.
 
-15. On the **Summary** page, review the policy details. Then select **Create group**. You can select **Close** and watch the job progress in the **Monitoring** workspace.
+1. On the **Summary** page, review the policy details. Then select **Create group**. You can select **Close** and watch the job progress in the **Monitoring** workspace.
 
     ![The progress of the protection group creation](./media/backup-azure-backup-sql/pg-summary.png)
 
@@ -122,13 +122,13 @@ A recovery point is created when the first backup occurs. Rather than waiting fo
 1. In the protection group, make sure the database status is **OK**.
 
     ![A protection group, showing the database status](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
-2. Right-click the database and then select **Create recovery point**.
+1. Right-click the database and then select **Create recovery point**.
 
     ![Choose to create an online recovery point](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
-3. In the drop-down menu, select **Online protection**. Then select **OK** to start the creation of a recovery point in Azure.
+1. In the drop-down menu, select **Online protection**. Then select **OK** to start the creation of a recovery point in Azure.
 
     ![Start creating a recovery point in Azure](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-4. You can view the job progress in the **Monitoring** workspace.
+1. You can view the job progress in the **Monitoring** workspace.
 
     ![View job progress in the Monitoring console](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
@@ -139,16 +139,16 @@ To recover a protected entity, such as a SQL Server database, from Azure:
 1. Open the DPM server management console. Go to the **Recovery** workspace to see the servers that DPM backs up. Select the database (in this example, ReportServer$MSDPM2012). Select a **Recovery time** that ends with **Online**.
 
     ![Select a recovery point](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
-2. Right-click the database name and select **Recover**.
+1. Right-click the database name and select **Recover**.
 
     ![Recover a database from Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM shows the details of the recovery point. Select **Next**. To overwrite the database, select the recovery type **Recover to original instance of SQL Server**. Then select **Next**.
+1. DPM shows the details of the recovery point. Select **Next**. To overwrite the database, select the recovery type **Recover to original instance of SQL Server**. Then select **Next**.
 
     ![Recover a database to its original location](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     In this example, DPM allows the database to be recovered to another SQL Server instance or to a standalone network folder.
-4. On the **Specify Recovery Options** page, you can select the recovery options. For example, you can choose **Network bandwidth usage throttling** to throttle the bandwidth that recovery uses. Then select **Next**.
-5. On the **Summary** page, you see the current recovery configuration. Select **Recover**.
+1. On the **Specify Recovery Options** page, you can select the recovery options. For example, you can choose **Network bandwidth usage throttling** to throttle the bandwidth that recovery uses. Then select **Next**.
+1. On the **Summary** page, you see the current recovery configuration. Select **Recover**.
 
     The recovery status shows the database being recovered. You can select **Close** to close the wizard and view the progress in the **Monitoring** workspace.
 
