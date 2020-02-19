@@ -15,7 +15,7 @@ Azure diagnostics extension is an agent in Azure Monitor that collects monitorin
 The diagnostics extension is implemented as a [virtual machine extension](/virtual-machines/extensions/overview) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. See [Virtual machine extensions and features for Windows](/virtual-machines/extensions/features-windows) for details on installing and maintaining virtual machine extensions.
 
 ## Install with Azure portal
-You can install and configure the diagnostics extension on an individual virtual machine in the Azure portal which provides you an interface as opposed to working directly with the configuration. When you enable the diagnostics extension, it will automatically use a default configuration ith the most common performance counters and events. You can modify this default configuration according to your specific requirements.
+You can install and configure the diagnostics extension on an individual virtual machine in the Azure portal which provides you an interface as opposed to working directly with the configuration. When you enable the diagnostics extension, it will automatically use a default configuration with the most common performance counters and events. You can modify this default configuration according to your specific requirements.
 
 > [!NOTE]
 > There are diagnostics extension settings you cannot configure using the Azure portal including sending data to Azure Event Hubs. You must use one of the other configuration methods for these settings.
