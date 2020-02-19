@@ -6,7 +6,7 @@ ms.date: 07/26/2019
 ms.author: alkohli
 ---
 
-On a Data Box Edge device that has the compute role configured, a subset of docker commands are available to monitor or troubleshoot modules. To see a list of available commands, [connect to the PowerShell interface](#connect-to-the-powershell-interface) and use the `dkrdbe` function.
+On an Azure Edge device that has the compute role configured, a subset of docker commands are available to monitor or troubleshoot modules. To see a list of available commands, [connect to the PowerShell interface](#connect-to-the-powershell-interface) and use the `dkrdbe` function.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
