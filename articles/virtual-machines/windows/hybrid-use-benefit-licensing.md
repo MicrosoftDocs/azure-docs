@@ -32,6 +32,7 @@ For customers with Software Assurance, Azure Hybrid Benefit for Windows Server a
 > For classic VMs, only deploying new VM from on premises custom images is supported. To take advantage of the capabilities supported in this article, you must first migrate classic VMs to Resource Manager model.
 >
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
  
 
 ## Ways to use Azure Hybrid Benefit for Windows Server

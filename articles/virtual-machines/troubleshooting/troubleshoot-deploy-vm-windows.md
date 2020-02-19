@@ -112,6 +112,8 @@ When a VM is running, it is deployed to a physical server. The physical servers 
 
 - VMs deployed in Classic deployment model, the cloud service deployment must be removed and redeployed to change the VMs to a size in another size family.
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 - VMs deployed in Resource Manager deployment model, you must stop all VMs in the availability set before changing the size of any VM in the availability set.
 
 ## The listed VM size is not supported while deploying in Availability Set.
