@@ -90,7 +90,7 @@ This step is optional. If you're interested in learning how the database resourc
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
 
-### Managing database resources using the asynchronous (async) API**
+### Managing database resources using the asynchronous (async) API
 
 * Async API calls return immediately, without waiting for a response from the server. In light of this, the following code snippets show proper design patterns for accomplishing all of the preceding management tasks using async API.
 
