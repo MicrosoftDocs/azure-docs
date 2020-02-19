@@ -43,7 +43,7 @@ Learn how to:
 
 Learn how to:
 
-- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview).
+- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Puppet.puppet-agent-windows-asm?tab=Overview).
 
 
 ## Cloud-init
@@ -95,8 +95,8 @@ Learn how to:
 
 Learn how to:
 
-- [Install and configure Terraform with Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
-- [Create an Azure infrastructure with Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
+- [Install and configure Terraform with Azure](../articles/terraform/terraform-install-configure.md).
+- [Create an Azure infrastructure with Terraform](../articles/terraform/terraform-create-complete-vm.md).
 
 
 ## Azure Automation
