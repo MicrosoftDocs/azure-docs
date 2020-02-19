@@ -40,8 +40,6 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
-[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
-
 ## Next steps
 
 - [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-service-bus-trigger.md)
