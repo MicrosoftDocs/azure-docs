@@ -22,6 +22,7 @@ This article provides references to best practices that can help you understand 
 ## Azure Kubernetes Service (AKS) solutions
 
 * [Azure NetApp Files integration with AKS](https://github.com/andyzhangx/demo/tree/master/linux/nfs)
+* [Integrate Azure NetApp Files with Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/azure-netapp-files)
 
 ## Oracle database solutions
 
