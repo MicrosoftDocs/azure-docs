@@ -5872,8 +5872,13 @@
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-social-migration.md",
-      "redirect_url": "/azure/active-directory-b2c/migrate-social-identities",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory-b2c/user-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/migrate-social-identities.md",
+      "redirect_url": "/azure/active-directory-b2c/user-migration",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-goog-idp.md",
@@ -36478,6 +36483,11 @@
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem.md",
       "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-scim-compatibility.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility",
       "redirect_document_id": false
     },
     {
