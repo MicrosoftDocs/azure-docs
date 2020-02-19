@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Implement IoT spatial analytics using Azure Maps
 
-In an IoT scenario, it's common to capture and track relevant events that occur in space and time. Example scenarios include fleet management, asset tracking, mobility, and smart city applications. This tutorial guides you through a solution pattern using the Azure Maps APIs. Relevant events are captured by IoT Hub, using the evVent subscription model provided by the Event Grid.
+In an IoT scenario, it's common to capture and track relevant events that occur in space and time. Example scenarios include fleet management, asset tracking, mobility, and smart city applications. This tutorial guides you through a solution pattern using the Azure Maps APIs. Relevant events are captured by IoT Hub, using the event subscription model provided by the Event Grid.
 
 In this tutorial you will:
 
@@ -236,9 +236,9 @@ All relevant event info is then kept in the blob store. Step 5 below points to t
 
 The **Azure Event Hub Trigger** and the **Azure Event Grid Trigger** have similar icons. Make sure you select the **Azure Event Grid Trigger**.
 
-6. Copy the [c# code](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) into your function and click **Save**. Don't click **Run** yet.
+6. Copy the [c# code](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) into your function.
  
-7. In the c# script, replace the following parameters:
+7. In the c# script, replace the following parameters. Click **Save**. Don't click **Run** yet
     * Replace the **SUBSCRIPTION_KEY** with your Azure Maps account primary subscription key.
     * Replace the **UDID** with the udId of the geofence you uploaded, 
     * The **CreateBlobAsync** function in the script creates a blob per event in the data storage account. Replace the **ACCESS_KEY**, **ACCOUNT_NAME**, and **STORAGE_CONTAINER_NAME** with your storage account's access key, account name, and data storage container.
@@ -247,7 +247,7 @@ The **Azure Event Hub Trigger** and the **Azure Event Grid Trigger** have simila
     
     ![add-event-grid](./media/tutorial-iot-hub-maps/add-egs.png)
 
-11. Fill out subscription details, under **EVENT SUBSCRIPTION DETAILS** name your event subscription and for Event Schema choose "Event Grid Schema". Under **TOPIC DETAILS** select "Azure IoT Hub Accounts" as Topic type. Choose the same subscription you used for creating the resource group, select "ContosoRental" as the "Resource Group". Choose the IoT Hub you created as a "Resource". Pick **Device Telemetry** as Event Type. After choosing these options, you'll see the "Topic Type" change to "IoT Hub" automatically.
+11. Fill out subscription details, under **EVENT SUBSCRIPTION DETAILS** name your event subscription. For Event Schema choose "Event Grid Schema". Under **TOPIC DETAILS** select "Azure IoT Hub Accounts" as Topic type. Choose the same subscription you used for creating the resource group, select "ContosoRental" as the "Resource Group". Choose the IoT Hub you created as a "Resource". Pick **Device Telemetry** as Event Type. After choosing these options, you'll see the "Topic Type" change to "IoT Hub" automatically.
 
     ![event-grid-subscription](./media/tutorial-iot-hub-maps/af-egs.png)
  
