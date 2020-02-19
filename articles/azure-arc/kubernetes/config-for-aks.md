@@ -1,3 +1,14 @@
+---
+title: "Configuration for Azure Kubernetes Service (AKS)"
+services: arc-kubernetes
+author: mlearned
+ms.author: stephpr
+ms.date: 02/19/2020
+ms.topic: 
+description:
+keywords:
+manager: gwallace
+---
 # Enable source contol config for Azure Kubernetes Services(AKS)
 Gitops configuration can be enabled for Azure Kubernetes Services(AKS) clusters by following below steps
 
