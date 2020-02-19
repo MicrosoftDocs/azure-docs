@@ -59,7 +59,11 @@ landingContent:
             url: hpc-cache-edit-storage.md
           - text: Work around firewall settings to create Blob storage targets
             url: hpc-cache-blob-firewall-fix.md
+          - text: Troubleshoot NFS storage target creation
+            url: troubleshoot-nas.md
       - linkListType: concept
         links:
           - text: Recover from a regional outage
             url: hpc-region-recovery.md
+          - text: Use Azure NetApp Files storage targets
+            url: hpc-cache-netapp.md
