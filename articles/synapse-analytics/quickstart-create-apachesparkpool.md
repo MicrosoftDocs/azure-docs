@@ -60,9 +60,9 @@ For the CLI or PowerShell based procedures, don't use bullets or numbering.
 --->
 
 1. Navigate to the Synapse workspace where the Apache Spark pool will be created by typing the service name (or resource name directly) into the search bar:
-![Azure portal search bar with Synapse workspaces typed in.](media/quickstart-create-sqlpool//quickstart-create-a-sqlpool-00a.png).
+![Azure portal search bar with Synapse workspaces typed in.](media/quickstart-create-sqlpool//quickstart-create-sqlpool-00a.png).
 1. From the list of workspaces, type the name (or part of the name) of the workspace to open -- in this case, we will use a workspace named **contosoanalytics**
-![Listing of Synapse workspaces filtered to show those containing the name Contoso.](media/quickstart-create-sqlpool//quickstart-create-a-sqlpool-00b.png)
+![Listing of Synapse workspaces filtered to show those containing the name Contoso.](media/quickstart-create-sqlpool//quickstart-create-sqlpool-00b.png)
 1. Click on the **New Apache Spark pool** command in the top bar.
 ![Overview of Synapse workspace with a red box around the command to create a new Apache Spark pool.](media/quickstart-create-apachesparkpool/quickstart-create-a-sparkpool-01.png)
 1. Enter the following details in the **Basics** tab:

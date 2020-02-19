@@ -220,8 +220,6 @@ so that a reader doesn't need to recreate those resources.
 ## Next steps
 
 Advance to the next article to learn how to create...
-<!---> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)--->
 
 <!--- Required:
 Quickstarts should always have a Next steps H2 that points to the next logical
