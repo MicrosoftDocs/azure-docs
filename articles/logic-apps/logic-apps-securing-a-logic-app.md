@@ -134,7 +134,7 @@ To enable Azure AD OAuth, follow these steps to add one or more authorization po
 
 1. When you're done, select **Save**.
 
-You've now set up your logic app to use Azure AD OAuth for authorizing inbound requests. This example shows a sample decoded [access token](../active-directory/develop/access-tokens.md) that's used for calling a logic app that specifies an authorization policy with an **Issuer**-type claim:
+You've now set up your logic app to use Azure AD OAuth for authorizing inbound requests. This example shows a sample decoded [access token](../active-directory/develop/access-tokens.md) that's used for calling a logic app, which has an authorization policy that specifies claims that have **Issuer** and **Audience** types:
 
 ```json
 {
