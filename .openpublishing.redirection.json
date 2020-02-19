@@ -48545,6 +48545,16 @@
       "source_path": "articles/app-service/containers/tutorial-java-enterprise-postgresql-app.md",
       "redirect_url": "/azure/app-service/containers/configure-language-java",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/terraform-install-configure.md",
+      "redirect_url": "/azure/terraform/terraform-install-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/terraform-create-complete-vm.md",
+      "redirect_url": "/azure/terraform/terraform-create-complete-vm",
+      "redirect_document_id": false
     }
   ]
 }
