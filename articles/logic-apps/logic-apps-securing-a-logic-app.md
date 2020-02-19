@@ -28,7 +28,7 @@ Here are options that can help you secure access to this trigger type:
 
 * [Generate shared access signatures](#sas)
 * [Restrict inbound IP addresses](#restrict-inbound-ip-addresses)
-* [Add Azure Active Directory OAuth or other security](#add-authentication)
+* [Add Azure Active Directory Open Authentication (Azure AD OAuth) or other security](#add-authentication)
 
 <a name="sas"></a>
 
@@ -110,16 +110,16 @@ Along with Shared Access Signature (SAS), you might want to specifically limit t
 If you want your logic app to trigger only as a nested logic app, from the **Allowed inbound IP addresses** list, select **Only other Logic Apps**. This option writes an empty array to your logic app resource. That way, only calls from the Logic Apps service (parent logic apps) can trigger the nested logic app.
 
 > [!NOTE]
-> Regardless of IP address, you can still run a logic app that has a request-based trigger 
-> by using `/triggers/<trigger-name>/run` through the Azure REST API or through API Management. 
-> However, this scenario still requires authentication against the Azure REST API. 
-> All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
+> Regardless of IP address, you can still run a logic app that has a request-based trigger by using 
+> `/triggers/<trigger-name>/run` through the Azure REST API or through API Management. However, this scenario 
+> still requires [authentication](../active-directory/develop/authentication-scenarios.md) > against the 
+> Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
 
 #### Restrict inbound IP ranges in Azure Resource Manager template
 
 If you [automate deployment for logic apps by using Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can specify the IP ranges by using the `accessControl` section with the `triggers` section in your logic app's resource definition, for example:
 
-``` json
+```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
@@ -158,9 +158,9 @@ If you [automate deployment for logic apps by using Resource Manager templates](
 
 <a name="add-authentication"></a>
 
-### Add Azure Active Directory OAuth or other security
+### Add Azure Active Directory Open Authentication or other security
 
-To add more authorization protocols to your logic app, consider using the [Azure API Management](../api-management/api-management-key-concepts.md) service. This service helps you expose your logic app as an API and offers rich monitoring, security, policy, and documentation for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), [client certificate](#client-certificate-authentication), or other security standards for authorizing access to that endpoint. When API Management receives a request, the service sends the request to your logic app, also making any necessary transformations or restrictions along the way. To let only API Management trigger your logic app, you can use your logic app's inbound IP range settings.
+To add more [authentication](../active-directory/develop/authentication-scenarios.md) protocols to your logic app, consider using the [Azure API Management](../api-management/api-management-key-concepts.md) service. This service helps you expose your logic app as an API and offers rich monitoring, security, policy, and documentation for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), [client certificate](#client-certificate-authentication), or other security standards for authorizing access to that endpoint. When API Management receives a request, the service sends the request to your logic app, also making any necessary transformations or restrictions along the way. To let only API Management trigger your logic app, you can use your logic app's inbound IP range settings.
 
 <a name="secure-operations"></a>
 
@@ -255,7 +255,7 @@ If you [automate deployment for logic apps by using Resource Manager templates](
 
 ### Hide data from run history by using obfuscation
 
-Many triggers and actions have settings to hide inputs, outputs, or both from a logic app's run history. Here are some [considerations to review](#obfuscation-considerations) when you use these settings to help you secure this data.
+Many triggers and actions have settings to hide inputs, outputs, or both from a logic app's run history. Before using these settings to help you secure this data, [review these considerations](#obfuscation-considerations).
 
 #### Hide inputs and outputs in the designer
 
@@ -295,8 +295,8 @@ Many triggers and actions have settings to hide inputs, outputs, or both from a 
 
 In the underlying trigger or action definition, add or update the `runtimeConfiguration.secureData.properties` array with either or both of these values:
 
-* `"inputs"`: Secures inputs in run history.
-* `"outputs"`: Secures outputs in run history.
+* `"inputs"`: Hides inputs in run history.
+* `"outputs"`: Hides outputs in run history.
 
 Here are some [considerations to review](#obfuscation-considerations) when you use these settings to help you secure this data.
 
@@ -332,7 +332,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
   **Secure Outputs setting**
 
-  When you manually turn on **Secure Outputs** in a trigger or action, Logic Apps secures these outputs in the run history. If a downstream action explicitly uses these secured outputs as inputs, Logic Apps hides this action's inputs in the run history, but *doesn't enable* the action's **Secure Inputs** setting.
+  When you manually turn on **Secure Outputs** in a trigger or action, Logic Apps hides these outputs in the run history. If a downstream action explicitly uses these secured outputs as inputs, Logic Apps hides this action's inputs in the run history, but *doesn't enable* the action's **Secure Inputs** setting.
 
   ![Secured outputs as inputs and downstream impact on most actions](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
 
@@ -342,7 +342,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
   **Secure Inputs setting**
 
-  When you manually turn on **Secure Inputs** in a trigger or action, Logic Apps secures these inputs in the run history. If a downstream action explicitly uses the visible outputs from that trigger or action as inputs, Logic Apps hides this downstream action's inputs in the run history, but *doesn't enable* **Secure Inputs** in this action and doesn't hide this action's outputs.
+  When you manually turn on **Secure Inputs** in a trigger or action, Logic Apps hides these inputs in the run history. If a downstream action explicitly uses the visible outputs from that trigger or action as inputs, Logic Apps hides this downstream action's inputs in the run history, but *doesn't enable* **Secure Inputs** in this action and doesn't hide this action's outputs.
 
   ![Secured inputs and downstream impact on most actions](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
@@ -356,7 +356,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
 If you deploy across different environments, consider parameterizing the values in your workflow definition that vary based on those environments. That way, you can avoid hard-coded data by using an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to deploy your logic app, protect sensitive data by defining secured parameters, and pass that data as separate inputs through the [template's parameters](../azure-resource-manager/templates/template-parameters.md) by using a [parameter file](../azure-resource-manager/templates/parameter-files.md).
 
-For example, if you authenticate HTTP actions with [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), you can define and obscure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To hide parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+For example, if you authenticate HTTP actions with [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), you can define and obscure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To hide parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > If you use a parameter in a request header or body, that parameter might be visible when you view your logic app's 
@@ -366,7 +366,7 @@ For example, if you authenticate HTTP actions with [Azure Active Directory OAuth
 
 For more information, see these sections in this topic:
 
-* [Secure parameters in workflow definitions](#secure-parameters-workflow)
+* [Hide parameters in workflow definitions](#secure-parameters-workflow)
 * [Hide data from run history by using obfuscation](#obfuscate)
 
 If you [automate deployment for logic apps by using Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can define secured [template parameters](../azure-resource-manager/templates/template-parameters.md), which are evaluated at deployment, by using the `securestring` and `secureobject` types. To define template parameters, use your template's top level `parameters` section, which is separate and different from your workflow definition's `parameters` section. To provide the values for template parameters, use a separate [parameter file](../azure-resource-manager/templates/parameter-files.md).
@@ -374,11 +374,11 @@ If you [automate deployment for logic apps by using Resource Manager templates](
 For example, if you use secrets, you can define and use secured template parameters that retrieve those secrets from [Azure Key Vault](../key-vault/key-vault-overview.md) at deployment. You can then reference the key vault and secret in your parameter file. For more information, see these topics:
 
 * [Pass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
-* [Secure parameters in Azure Resource Manager templates](#secure-parameters-deployment-template) later in this topic
+* [Hide parameters in Azure Resource Manager templates](#secure-parameters-deployment-template) later in this topic
 
 <a name="secure-parameters-workflow"></a>
 
-### Secure parameters in workflow definitions
+### Hide parameters in workflow definitions
 
 To protect sensitive information in your logic app's workflow definition, use secured parameters so this information isn't visible after you save your logic app. For example, suppose you have an HTTP action requires basic authentication, which uses a username and password. In the workflow definition, the `parameters` section defines the `basicAuthPasswordParam` and `basicAuthUsernameParam` parameters by using the `securestring` type. The action definition then references these parameters in the `authentication` section.
 
@@ -424,7 +424,7 @@ To protect sensitive information in your logic app's workflow definition, use se
 
 <a name="secure-parameters-deployment-template"></a>
 
-### Secure parameters in Azure Resource Manager templates
+### Hide parameters in Azure Resource Manager templates
 
 A [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) for a logic app has multiple `parameters` sections. To protect passwords, keys, secrets, and other sensitive information, define secured parameters at the template level and workflow definition level by using the `securestring` or `secureobject` type. You can then store these values in [Azure Key Vault](../key-vault/key-vault-overview.md) and use the [parameter file](../azure-resource-manager/templates/parameter-files.md) to reference the key vault and secret. Your template then retrieves that information at deployment. For more information, see [Pass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
 
@@ -692,9 +692,9 @@ For more information about securing services by using client certificate authent
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
-### Azure Active Directory OAuth authentication
+### Azure Active Directory Open Authentication
 
-On Request triggers, you can use [Azure Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) for authenticating incoming calls after you [set up Azure Active Directory authorization policies](#enable-oauth) for your logic app. For all other triggers and actions that provide the **Active Directory OAuth** authentication type for you to select, specify these property values:
+On Request triggers, you can use [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth), for authenticating incoming calls after you [set up Azure AD authorization policies](#enable-oauth) for your logic app. For all other triggers and actions that provide the **Active Directory OAuth** authentication type for you to select, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
@@ -732,17 +732,17 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 
 <a name="enable-oauth"></a>
 
-### Enable Azure AD OAuth authentication on Request triggers
+### Enable Azure AD OAuth on Request triggers
 
-When your logic app starts with the Request trigger, you can use [Azure Active Directory (AD) OAuth](../active-directory/develop/about-microsoft-identity-platform.md) authentication for authorizing inbound calls to your logic app. Before you enable this authentication, review these considerations:
+When your logic app starts with the Request trigger, you can use [Azure AD OAuth](../active-directory/develop/about-microsoft-identity-platform.md) for authorizing inbound calls to your logic app. Before you enable this authentication, review these considerations:
 
 * Your logic app can have up to five authorization policies. Each authorization policy can have up to 10 [claims](../active-directory/develop/developer-glossary.md#claim).
 
-* An authorization policy must include at least the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` as the Azure Active Directory issuer ID.
+* An authorization policy must include at least the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` as the Azure AD issuer ID.
 
-* Your logic app can't use both Azure AD OAuth [Shared Access Signatures (SAS)](#sas) for authorization.
+* Your logic app can't use both Azure AD OAuth and [Shared Access Signatures (SAS)](#sas) schemes for authorization.
 
-* Currently, open authentication tokens are supported only for workflow trigger requests.
+* Currently, OAuth tokens are supported only for workflow trigger requests.
 
 * Only Bearer-type authorization schemes are supported for OAuth tokens.
 
@@ -761,7 +761,7 @@ To set up this authentication, follow these steps to add one or more authorizati
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Policy name** | Yes | The name that you want to use for the authorization policy |
-   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. Here are the available standard claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** <p><p>At the minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with the `https://sts.windows.net/` Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
+   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. Here are the available standard claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token ID) <p><p>At the minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with the `https://sts.windows.net/` Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
    |||
 
 1. To add another claim, select from these options:
@@ -821,7 +821,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 
 ### Managed identity authentication
 
-If the [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) option is available, your logic app can use the system-assigned identity or a *single* manually-created user-assigned identity for authenticating access to resources in other Azure Active Directory (Azure AD) tenants without signing in. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+If the [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) option is available, your logic app can use the system-assigned identity or a *single* manually-created user-assigned identity for authenticating access to resources in other Azure Active Directory (Azure AD) tenants without signing in. Azure manages this identity for you and helps you secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Before your logic app can use a managed identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
