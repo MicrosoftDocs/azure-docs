@@ -21,7 +21,7 @@ landingContent:
           - text: What are Mobile Apps?
             url: app-service-mobile-value-prop.md
           - text: App Service plans
-            url: ~/app-service/overview-hosting-plans.md
+            url: ../app-service/overview-hosting-plans.md
           - text: App Service video library
             url: https://azure.microsoft.com/documentation/videos/index/?services=app-service
 
