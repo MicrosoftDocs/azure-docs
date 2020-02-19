@@ -5,8 +5,7 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ---
 
-# Create Personalizer resource
-
+# Configure Personalizer learning loop
 
 ### Configure reward for the feedback loop based on use case
 

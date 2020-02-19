@@ -2,11 +2,12 @@
 title: Create Personalizer resource
 description: Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 02/19/2020
 ---
 
-# Create Personalizer resource
+# Create a Personalizer resource
 
+A Personalizer resource is the same thing as a Personalizer learning loop. A single resource, or learning loop, is created for each subject domain or content area you have. Do not use multiple content areas in the same loop because this will confuse the learning loop and provide poor predictions.
 
 ## Create a resource in the Azure portal
 
@@ -14,20 +15,41 @@ Create a Personalizer resource for each feedback loop.
 
 1. Sign in to [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). The previous link takes you to the **Create** page for the Personalizer service.
 1. Enter your service name, select a subscription, location, pricing tier, and resource group.
-1. Select the confirmation and select **Create**.
 
-<a name="configure-service-settings-in-the-azure-portal"></a>
+    ![Use Azure portal to create Personalizer resource, also called a learning loop.](./media/how-to-create-resource/how-to-create-personalizer-resource-learning-loop.png)
 
-## Configure service in the Azure portal
+1. Select **Create** to create the resource.
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
-1. Find your Personalizer resource.
-1. In the **Resource management** section, select **Configuration**.
+1. While still in the Azure portal, go to the **Configuration** page for the new resource to configure the learning loop.
 
-    Before leaving the Azure portal, copy one of your resource keys from the **Keys** page. You will need this to use the [Personalizer SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
+## Create a resource with the Azure CLI
 
-<a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
+1. Sign in to the Azure CLI with the following command:
 
+    ```bash
+    az login
+    ```
+
+1. Create a resource group, a logical grouping to manage all Azure resources you intend to use with the Personalizer resource.
+
+
+    ```bash
+    az group create \
+        --name your-personalizer-resource-group \
+        --location westus2
+    ```
+
+1. Create a new Personalizer resource, _learning loop_, with the following command for an existing resource group.
+
+    ```bash
+    az cognitiveservices account create \
+    --name your-personalizer-learning-loop \
+    --resource-group your-personalizer-resource-group \
+    --kind Personalizer \
+    --sku F0 \
+    --location westus2 \
+    --yes
+    ```
 ## Next steps
 
-* [Configure](how-to-settings.md) Personalizer loop
+* [Configure](how-to-settings.md) Personalizer learning loop
