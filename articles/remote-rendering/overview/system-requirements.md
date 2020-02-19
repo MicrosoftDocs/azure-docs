@@ -32,7 +32,7 @@ The table below lists which GPUs support H265 hardware video decoding.
 | AMD | GPUs with at least version 6 of AMD's [Unified Video Decoder](https://en.wikipedia.org/wiki/Unified_Video_Decoder#UVD_6). |
 | Intel | Skylake and newer CPUs |
 
-Even though the correct H265 codec might be installed, security properties on the codec dlls may cause codec initialization failures. The [troubleshooting guide](../resources/roubleshoot.md#h265-codec-not-available) describes steps how to solve this. This dll issue can only occur when using the service in a desktop application, for instance in Unity or Unreal.
+Even though the correct H265 codec might be installed, security properties on the codec dlls may cause codec initialization failures. The [troubleshooting guide](../resources/troubleshoot.md#h265-codec-not-available) describes steps how to solve this. This dll issue can only occur when using the service in a desktop application, for instance in Unity or Unreal.
 
 ## Devices
 
