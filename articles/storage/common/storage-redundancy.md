@@ -62,7 +62,7 @@ The following table shows which types of storage accounts support ZRS in which r
 |    FileStorage    | Europe West<br /> US East    |    Azure Files only    |
 
 <sup>1</sup> The archive tier is not currently supported for ZRS accounts.<br />
-<sup>2</sup> Azure disks for virtual machines, including both managed and unmanaged disks, support LRS only. They do not support ZRS or GZRS. For more information on managed disks, see [Pricing for Azure managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
+<sup>2</sup> Azure disks for virtual machines, including both managed and unmanaged disks, support LRS only. They do not support ZRS or GZRS. For more information on managed disks, see [Pricing for Azure managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 For information about which regions support ZRS, see **Services support by region**  in [What are Azure Availability Zones?](../../availability-zones/az-overview.md).
 
