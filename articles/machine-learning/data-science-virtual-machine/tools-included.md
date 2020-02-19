@@ -10,7 +10,7 @@ ms.subservice: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: overview
-ms.date: 12/31/2019
+ms.date: 02/19/2020
 
 ---
 
