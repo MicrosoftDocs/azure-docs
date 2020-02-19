@@ -734,17 +734,19 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 
 ### Enable Azure AD OAuth authentication on Request triggers
 
-To enable [Azure Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) authentication for incoming calls to Request triggers, follow these steps to set up an authorization policy. Here are some considerations for enabling this authentication support:
+If your logic app uses the Request trigger, you can use [Azure Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) authentication for authorizing inbound calls to your logic app. Before you enable this authentication, review these considerations:
 
 * Your logic app can have up to five authorization policies. Each authorization policy can have up to 10 claims.
 
-* An authorization policy must include the **Issuer** claim, which starts with the Azure Active Directory issuer ID, `https://sts.windows.net/`.
+* An authorization policy must include at least the **Issuer** [claim](../active-directory/develop/developer-glossary.md#claim) whose value starts with the Azure Active Directory issuer ID, `https://sts.windows.net/`.
 
-* Your logic app can't use both [Shared Access Signatures (SAS)](#sas) and Azure AD OAuth.
+* Your logic app can't use both Azure AD OAuth [Shared Access Signatures (SAS)](#sas) for authorization.
 
 * Currently, open authentication tokens are supported only for workflow trigger requests.
 
 * Only Bearer-type authorization schemes are supported for OAuth tokens.
+
+Now, to set up this authentication, follow these steps to add one or more authorization policies to your logic app.
 
 1. In the [Azure portal](https://portal.microsoft.com), find and open your logic app in the Logic App Designer.
 
@@ -752,19 +754,23 @@ To enable [Azure Active Directory OAuth](../active-directory/develop/about-micro
 
    ![Select "Authorization" > "Add policy"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
-1. Provide this information for the claims in your policy:
+1. Provide information about the authorization policy by specifying the claim types and values that your logic app requires from inbound requests:
 
-   ![Provide information about the authorization policy](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
+   ![Provide information for authorization policy](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Policy name** | Yes | The name that you want to use for the authorization policy |
-   | **Claims** | Yes | The list of claim types and values that incoming calls must use in the authentication tokens that they present to your logic app. The list requires at least the **Issuer** claim whose value must start with the Azure AD issuer ID, `https://sts.windows.net/`. <p><p>Standard claim types include **Issuer**, **Audience**, **Subject**, and the **JWT ID** type. You can also specify your own claim type and value. |
+   | **Claims** | Yes | The list of [claim](../active-directory/develop/developer-glossary.md#claim) types and values that incoming calls must use in the authentication tokens that they present to your logic app. This list requires at least one **Issuer**-type claim, which has a value that starts with the Azure AD issuer ID, `https://sts.windows.net/`. <p><p>Standard claims have these types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** <p><p>For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value.  |
    |||
 
-1. To add another standard claim, select **Add standard claim**, select the claim type, and specify the corresponding value. To add your own claim, select **Add custom claim**, and specify the values for your custom claim.
+1. To add another claim, select from these options:
 
-1. To add another authorization policy, select **Add policy**.
+   * To add another standard claim type, select the claim type, and specify the claim value.
+
+   * To add your own claim, select **Add custom claim**, and specify the custom claim value.
+
+1. To add another authorization policy, select **Add policy**. Repeat the previous steps to set up the policy.
 
 1. When you're done, select **Save**.
 
