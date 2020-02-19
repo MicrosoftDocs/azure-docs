@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: zhaoyunED
+ms.author: jiajzhan
 ---
 
 # SAPI Phone Set Usage
