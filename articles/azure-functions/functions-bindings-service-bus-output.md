@@ -385,4 +385,4 @@ This section describes the global configuration settings available for this bind
 
 ## Next steps
 
-- [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-storage-service-bus-trigger.md)
+- [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-service-bus-trigger.md)

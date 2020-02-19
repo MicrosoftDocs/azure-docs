@@ -337,7 +337,7 @@ The queue message is available to the function via a parameter typed as `func.Se
 
 The incoming Service Bus message is available via a `ServiceBusQueueMessage` or `ServiceBusTopicMessage` parameter.
 
-[See the example for details](#trigger).
+[See the example for details](#example).
 
 ---
 
@@ -376,4 +376,4 @@ See [code examples](#example) that use these properties earlier in this article.
 
 ## Next steps
 
-- [Send Azure Service Bus messages from Azure Functions (Output binding)](./functions-bindings-storage-service-bus-output.md)
+- [Send Azure Service Bus messages from Azure Functions (Output binding)](./functions-bindings-service-bus-output.md)
