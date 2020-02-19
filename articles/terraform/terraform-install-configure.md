@@ -30,7 +30,7 @@ To learn more about how to use Terraform with Azure, visit the [Terraform Hub](/
 
 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Terraform is installed by default in the [Cloud Shell](/azure/terraform/terraform-cloud-shell). If you choose to install Terraform locally, complete the next step, otherwise continue to [Set up Terraform access to Azure](#set-up-terraform-access-to-azure).
 

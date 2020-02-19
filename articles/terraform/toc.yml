@@ -8,12 +8,12 @@
   expanded: true
   items:
     - name: Install and configure Terraform
-      href: /azure/virtual-machines/linux/terraform-install-configure
+      href: terraform-install-configure.md
       maintainContext: true
     - name: Create a Terraform configuration
       href: terraform-create-configuration.md
     - name: Create a Linux VM
-      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      href: terraform-create-complete-vm.md
       maintainContext: true
 - name: Tutorials
   items:
