@@ -280,14 +280,7 @@ Deployment script execution is an idempotent operation. If none of the deploymen
 
 ## Configure development environment
 
-
-•	You can pull the image by running:
-o	docker pull mcr.microsoft.com/azure-cli:{version}
-o	Also, is worth mentioning that this is not a custom image we built, we use the ones available in mcr.
-
-
-
-Currently, deployment script supports Azure PowerShell version 2.7.0, 2.8.0, and 3.0.0.  If you have a Windows computer, you can install one of the supported Azure PowerShell versions and start developing and testing deployment scripts.  If you don't have a Windows computer or you don't have one of these Azure PowerShell versions installed, you can use a pre-configured docker container image. The following procedure shows you how to configure the docker image on Windows. For Linux and Mac, you can find the information on the Internet.
+You can use a pre-configured docker container image as your deployment script development environment. The following procedure shows you how to configure the docker image on Windows. For Linux and Mac, you can find the information on the Internet.
 
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop) on your development computer.
 1. Open Docker Desktop.
@@ -304,7 +297,15 @@ Currently, deployment script supports Azure PowerShell version 2.7.0, 2.8.0, and
     docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
     ```
 
-    The example uses version 2.7.0.
+    The example uses version PowerShell 2.7.0.
+
+    To pull a CLI image from a Microsoft Container Registry (MCR):
+
+    ```command
+    docker pull mcr.microsoft.com/azure-cli:2.0.80
+    ```
+
+    This example uses version CLI 2.0.80. All CLI images are the ones available in MCR.
 
 1. Run the docker image locally.
 
@@ -319,6 +320,12 @@ Currently, deployment script supports Azure PowerShell version 2.7.0, 2.8.0, and
     ```
 
     **-it** means keeping the container image alive.
+
+    A CLI example:
+
+    ```command
+    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
+    ```
 
 1. Select **Share it** when you get a prompt.
 1. Run a PowerShell script as shown in the following screenshot (given that you have a helloworld.ps1 file in d:\docker folder.)
