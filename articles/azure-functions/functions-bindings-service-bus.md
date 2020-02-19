@@ -16,7 +16,7 @@ Azure Functions integrates with [Azure Service Bus](https://azure.microsoft.com/
 | Action | Type |
 |---------|---------|
 | Run a function when a Service Bus queue or topic message is created | [Trigger](./functions-bindings-service-bus-trigger.md) |
-| Send Azure Service Bus messages |[Output binding](./functions-bindings-storage-bus-output.md) |
+| Send Azure Service Bus messages |[Output binding](./functions-bindings-bus-output.md) |
 
 ## Add to your Functions app
 
