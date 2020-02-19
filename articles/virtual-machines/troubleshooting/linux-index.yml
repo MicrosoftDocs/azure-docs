@@ -53,12 +53,8 @@ landingContent:
             url: https://docs.microsoft.com/azure/virtual-machines/linux/reset-password
           - text: Reset Remote Access to address remote server issues using PowerShell or CLI
             url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection
-          - text: Understanding FSTAB errors and mitigation steps
-            url: https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors
           - text: Quick steps to diagnose & address common SSH connection issues
             url: https://azure.microsoft.com/documentation/articles/virtual-machines-troubleshoot-ssh-connections/
-          - text: Detailed SSH troubleshooting steps for issues connecting to a Linux VM in Azure
-            url: https://docs.microsoft.com/azure/virtual-machines/linux/detailed-troubleshoot-ssh-connection
 
   # Card
   - title: Password reset
@@ -103,17 +99,17 @@ landingContent:
             url: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
 
   # Card
-  - title: Virtual disk management issues
+  - title: Virtual Disk management issues
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text:  Virtual disks FAQ
+          - text:  Virtual Disks FAQ
             url: https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks
           - text:  Troubleshoot allocation failures when resizing a VM
             url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure
           - text:  Understanding the temporary drive on your VM
             url: https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux#temporary-disk
-          - text:  Overview of Azure managed disks
+          - text:  Overview of Azure Managed Disks
             url: https://docs.microsoft.com/azure/virtual-machines/linux/managed-disks-overview
           - text:  FAQ about Azure VM disks and managed and unmanaged premium disks
             url: https://docs.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks
@@ -125,7 +121,7 @@ landingContent:
         links:
           - text:  Azure disk encryption scenarios on Linux VM
             url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux
-          - text:  Troubleshoot Disk encryption issues 
+          - text:  Troubleshoot disk encryption issues 
             url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-troubleshooting
           - text:  Azure disk encryption FAQ
             url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-faq
