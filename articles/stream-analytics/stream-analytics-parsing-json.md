@@ -164,7 +164,7 @@ SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE
 ```
 
 ### Parse JSON record in SQL reference data
-When using Azure SQL Database as reference data in your job, it is possible to have a column which has data in JSON format. An example is shown below.
+When using Azure SQL Database as reference data in your job, it's possible to have a column that has data in JSON format. An example is shown below.
 
 |DeviceID|Data|
 |-|-|
