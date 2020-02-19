@@ -174,7 +174,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id="ad-support-rest-apis"></a>
 **Are there REST APIs to support Get/Set/Copy directory/file NTFS ACLs?**
 
-    Yes, we support REST APIs that get, set, or copy NTFS ACLs for directories or files when using the [2019-02-02](https://docs.microsoft.com/en-us/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-02-02) (or later) REST API.
+    Yes, we support REST APIs that get, set, or copy NTFS ACLs for directories or files when using the [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-02-02) (or later) REST API.
 
 * <a id="ad-vm-subscription"></a>
 **Can I access Azure Files with Azure AD credentials from a VM under a different subscription?**
