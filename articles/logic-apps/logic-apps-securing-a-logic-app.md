@@ -761,7 +761,7 @@ Now, to set up this authentication, follow these steps to add one or more author
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Policy name** | Yes | The name that you want to use for the authorization policy |
-   | **Claims** | Yes | The list of [claim](../active-directory/develop/developer-glossary.md#claim) types and values that incoming calls must use in the authentication tokens that they present to your logic app. This list requires at least one **Issuer**-type claim, which has a value that starts with the Azure AD issuer ID, `https://sts.windows.net/`. <p><p>Standard claims have these types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** <p><p>For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value.  |
+   | **Claims** | Yes | The list of [claim](../active-directory/develop/developer-glossary.md#claim) types and values that incoming calls must use in the authentication tokens that they present to your logic app. This list requires at least one **Issuer**-type claim, which has a value that starts with the Azure AD issuer ID, `https://sts.windows.net/`. <p><p>Standard claims have these types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** <p><p>For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value.  |
    |||
 
 1. To add another claim, select from these options:
