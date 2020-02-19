@@ -29,12 +29,12 @@ Use Visual Studio to query a SQL pool within Azure Synapse in just a few minutes
 To use this tutorial, you need:
 
 * An existing SQL pool. To create one, see [Create a SQL pool](sql-data-warehouse-get-started-provision.md).
-* SSDT for Visual Studio. If you have Visual Studio, you probably already have this. For installation instructions and options, see [Installing Visual Studio and SSDT](sql-data-warehouse-install-visual-studio.md).
-* The fully qualified SQL server name. To find this, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
+* SSDT for Visual Studio. If you have Visual Studio, you probably already have SSDT for Visual Studio. For installation instructions and options, see [Installing Visual Studio and SSDT](sql-data-warehouse-install-visual-studio.md).
+* The fully qualified SQL server name. To find this information, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
 
 ## 1. Connect to your SQL pool
 1. Open Visual Studio 2019.
-2. Open SQL Server Object Explorer. To do this, select **View** > **SQL Server Object Explorer**.
+2. Open SQL Server Object Explorer by selecting **View** > **SQL Server Object Explorer**.
    
     ![SQL Server Object Explorer](media/sql-data-warehouse-query-visual-studio/open-ssdt.png)
 3. Click the **Add SQL Server** icon.
@@ -59,12 +59,12 @@ Now that a connection has been established to your database, let's write a query
 2. Select **New Query**. A new query window opens.
    
     ![New query](media/sql-data-warehouse-query-visual-studio/new-query2.png)
-3. Copy this TSQL query into the query window:
+3. Copy the following T-SQL query into the query window:
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Run the query. To do this, click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
+4. Run the query by clicking the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
    
     ![Run query](media/sql-data-warehouse-query-visual-studio/run-query.png)
 5. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
@@ -72,6 +72,6 @@ Now that a connection has been established to your database, let's write a query
     ![Query results](media/sql-data-warehouse-query-visual-studio/query-results.png)
 
 ## Next steps
-Now that you can connect and query, try [visualizing the data with PowerBI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
+Now that you can connect and query, try [visualizing the data with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL pool](sql-data-warehouse-authentication.md).

@@ -30,11 +30,11 @@ To use this tutorial, you need:
 
 * An existing SQL pool. To create one, see [Create a SQL pool](sql-data-warehouse-get-started-provision.md).
 * SQL Server Management Studio (SSMS) installed. [Install SSMS](https://msdn.microsoft.com/library/hh213248.aspx) for free if you don't already have it.
-* The fully qualified SQL server name. To find this, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
+* The fully qualified SQL server name. To find this information, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
 
 ## 1. Connect to your SQL pool
 1. Open SSMS.
-2. Open Object Explorer. To do this, select **File** > **Connect Object Explorer**.
+2. Open Object Explorer by selecting **File** > **Connect Object Explorer**.
    
     ![SQL Server Object Explorer](media/sql-data-warehouse-query-ssms/connect-object-explorer.png)
 3. Fill in the fields in the Connect to Server window.
@@ -56,12 +56,12 @@ Now that a connection has been established to your database, let's write a query
 2. Select **New Query**. A new query window opens.
    
     ![New query]( media/sql-data-warehouse-query-ssms/new-query.png)
-3. Copy this TSQL query into the query window:
+3. Copy the following T-SQL query into the query window:
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Run the query. To do this, click `Execute` or use the following shortcut: `F5`.
+4. Run the query by clicking `Execute` or use the following shortcut: `F5`.
    
     ![Run query](media/sql-data-warehouse-query-ssms/execute-query.png)
 5. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
@@ -69,5 +69,5 @@ Now that a connection has been established to your database, let's write a query
     ![Query results](media/sql-data-warehouse-query-ssms/results.png)
 
 ## Next steps
-Now that you can connect and query, try [visualizing the data with PowerBI](sql-data-warehouse-get-started-visualize-with-power-bi.md ).
+Now that you can connect and query, try [visualizing the data with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md ).
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL pool](sql-data-warehouse-authentication.md).
