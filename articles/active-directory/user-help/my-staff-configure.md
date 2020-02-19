@@ -17,7 +17,7 @@ ms.custom: oldportal;it-pro;
 ---
 # Administrative units management in Azure Active Directory (preview)
 
-My Staff enables firstline managers, such as a store manager, to ensure that their staff members are able to access their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks such as resetting passwords or changing phone numbers to a firstline manager. With My Staff, a user who can’t access their account can re-gain access in just a couple of clicks – no helpdesk or IT staff required. 
+My Staff enables firstline managers, such as a store manager, to ensure that their staff members are able to access their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks such as resetting passwords or changing phone numbers to a firstline manager. With My Staff, a user who can’t access their account can re-gain access in just a couple of clicks – no helpdesk or IT staff required.
 
 Before you configure My Staff for your organization, we recommend that you review this documentation as well as the end user documentation to ensure you understand the functionality and impact of this feature. You can leverage the user documentation to train and prepare your users for the new experience and help to ensure a successful rollout.
 
