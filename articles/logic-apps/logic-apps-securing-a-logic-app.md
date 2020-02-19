@@ -615,7 +615,7 @@ HTTP and HTTPS endpoints support various kinds of authentication. Based on the t
 |---------------------|--------------|
 | [Basic](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Client Certificate](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
+| [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook, Request |
 | [Raw](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Managed identity](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 |||
@@ -694,7 +694,7 @@ For more information about securing services by using client certificate authent
 
 ### Azure Active Directory OAuth authentication
 
-If the [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) option is available, specify these property values:
+On Request triggers, you can use [Azure Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) for authenticating incoming calls after you [set up Azure Active Directory authorization policies](#enable-oauth) for your logic app. For all other triggers and actions that provide the **Active Directory OAuth** authentication type for you to select, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
@@ -729,6 +729,37 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
    "runAfter": {}
 }
 ```
+
+<a name="enable-oauth"></a>
+
+### Enable Azure AD OAuth authentication on Request triggers
+
+To enable [Azure Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) authentication for incoming calls to Request triggers, follow these steps to set up an authorization policy. Here are some considerations for enabling this authentication support:
+
+* Your logic app can have up to five authorization policies. Each authorization policy can have up to 10 claims.
+
+* An authorization policy must include the **Issuer** claim, which starts with the Azure Active Directory issuer ID, `https://sts.windows.net/`.
+
+* Your logic app can't use both [Shared Access Signatures (SAS)](#sas) and Azure AD OAuth.
+
+* Currently, open authentication tokens are supported only for workflow trigger requests.
+
+* Only Bearer-type authorization schemes are supported for OAuth tokens.
+
+1. In the [Azure portal](https://portal.microsoft.com), find and open your logic app in the Logic App Designer.
+
+1. On the logic app menu, under **Settings**, select **Authorization**. After the Authorization pane opens, select **Add policy**.
+
+   ![Select "Authorization" > "Add policy"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
+
+1. Provide this information for the claims in your policy:
+
+   ![Provide information about the authorization policy](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | 
+   |||
 
 <a name="raw-authentication"></a>
 

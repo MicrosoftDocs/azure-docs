@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 02/20/2020
 tags: connectors
 ---
 
@@ -42,7 +42,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 
 ## Add Request trigger
 
-This built-in trigger creates a manually callable HTTPS endpoint that can receive *only* incoming HTTPS requests. When this event happens, the trigger fires and runs the logic app. For more information about the trigger's underlying JSON definition and how to call this trigger, see the [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+This built-in trigger creates a manually callable HTTPS endpoint that can receive *only* incoming HTTPS requests. When this event happens, the trigger fires and runs the logic app.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app.
 
@@ -173,13 +173,17 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
 
    Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
 
-1. When you're done, save your logic app. On the designer toolbar, select **Save**. 
+1. When you're done, save your logic app. On the designer toolbar, select **Save**.
 
    This step generates the URL to use for sending the request that triggers the logic app. To copy this URL, select the copy icon next to the URL.
 
    ![URL to use triggering your logic app](./media/connectors-native-reqres/generated-url.png)
 
 1. To trigger your logic app, send an HTTP POST to the generated URL. For example, you can use a tool such as [Postman](https://www.getpostman.com/).
+
+For more information about the trigger's underlying JSON definition and how to call this trigger, see these topics, [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+
+Request triggers support using [Azure Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) for authenticating incoming calls. For more information about enabling this support, see [Securing logic apps - Enable Azure AD OAuth authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ### Trigger outputs
 
