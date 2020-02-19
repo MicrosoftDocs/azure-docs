@@ -27,7 +27,7 @@ There are two parts to event handling with ADT:
 * For more complex computation, you can provide your own event handler functions using webhooks, or Azure Functions. Whatever compute resource you choose for custom processing will run in your own subscription. 
 Add picture illustrating the workflow
 
-![Event handling workflow](./media/how-to-event-handle/workflow.png)
+![Event handling workflow](./media/how-to-handle-events/workflow.png)
 
 ## Create twin-to-twin event handlers
 

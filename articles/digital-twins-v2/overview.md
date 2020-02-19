@@ -25,7 +25,7 @@ ADT does a lot of the hard work of translating a device-centric view of the worl
 ## ADT key capabilities
 The Azure Digital Twins service is a Platform-as-a-Service (PaaS) offering that lets you create, run and manage your digital twins securely and efficiently in the cloud. ADT allows you to: 
 
-### Model your real-world business environment.
+### Model your real-world business environment
 With ADT, you can define twin types that represent the things, places and people in your physical environment, as well as the relationships between them. You can think of these types as a custom vocabulary to describe your business. Twin types are expressed in terms of properties (that represent the persistent state of your twins), telemetry events, commands, relationships and components.
 For a building management solution, for instance, you might define types such as “building”, “floor”, “room”, “elevator” and “HVAC system”.
 Once you have defined the vocabulary for your business, you can model your concrete environment by creating a graph of twins from the types you previously defined.  
@@ -35,7 +35,7 @@ The arrows in the illustration below show different semantic relationships betwe
 The following diagram represents this model scenario.
 ![An example model scenario](./media/overview/modeling-example.png)
 
-### Process incoming data and propagate state through the Digital Twins Graph
+### Process incoming data and propagate state through the Digital Twins graph
 Digital Twins models are meant to be live, up-to-date representations of the state of the real world – or of simulations thereof. To keep twins updated, Digital Twins provides a comprehensive event processing system. You can, for example, provide event handlers to process incoming telemetry from devices, state changes within your ADT graph, or life cycle events generated when twins are created or modified. ADT provides a convenient data processing framework for you to apply custom code to incoming data streams of IoT and business data. 
 You might, for example, use event handlers to:
 * Compute properties on a twin from sensor input (e.g. aggregate data from temperature, CO2, humidity and noise sensors into a comfort property on a “room” twin)

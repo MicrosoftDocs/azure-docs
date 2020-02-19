@@ -18,6 +18,7 @@ ms.service: digital-twins
 The Event APIs let developers wire-up event flow throughout the system, as well as to downstream services.
 
 ## Endpoints
+
 To define an event route, developers first must define endpoints. An endpoint is a connection to a destination outside of ADT. Supported destinations are (see priority table above):
 * [p0] EventGrid custom topics
 * [p0] EventHub
@@ -30,6 +31,7 @@ Endpoints are set up using control plane APIs or in the portal. An endpoint defi
 * Endpoint type, e.g. Event Grid, Event Hub or other type.
 * Primary connection string and secondary connection string to authenticate (* - this might be temporary for private preview until we implement the MSI auth pass when we need Azure Id for the service)
 * Path is topic path of the endpoint, e.g. your-topic.westus.eventgrid.azure.net
+
 These are the endpoints APIs that are available in control plane
 1.	Create endpoint
 2.	Get list of endpoints
@@ -42,6 +44,7 @@ Event routes are defined using data plane APIs. A route definition contains:
 * The desired route id 
 * The desired endpoint id
 * A filter that defines which events are sent to the endpoint 
+
 One route should allow multiple notifications and event types to be selected. 
 This is the desired behavior: if there is no route, no messages are routed outside of DT. If there is a route and filter is null, all messages are routed to the endpoint. If there is a route and filter is added, messages will be filtered based on the filter.
 In SDK form:
@@ -67,6 +70,7 @@ Message routing query supports multiple category of filters, all expressed in on
 2.	Filter on twin instances (no traversal of graph)
 3.	Filter on message/notification body
 4.	Filter on message properties
+
 Note: ADT messages are following CloudEvents standard, see doc Digital Twin x-team APIs 2 - Notifications.docx
 
 In order to explain the message routing query, here are two sample messages of telemetry and notification:
@@ -122,20 +126,20 @@ type IN [‘microsoft.iot.telemetry’, ‘microsoft.digitaltwins.twin.create’
 Filtering based on Twins
 The query language for this should be compatible with DT query language and should be a sub-set of query language (join is out of scope) QueryStore.Language.Syntax.docx example
 
-$dt.$metadata.$model = "urn:example:Thermostat:1" OR 
-$dt.$metadata.$model = "urn:contosocom:DigitalTwins:Space"
+`$dt.$metadata.$model = "urn:example:Thermostat:1"` OR 
+`$dt.$metadata.$model = "urn:contosocom:DigitalTwins:Space"`
 
 Or 
 
-$dt.IS_OF_MODEL(urn:example:Thermostat:1') OR
-$dt.IS_OF_MODEL('urn:contosocom:DigitalTwins:Space;1')
+`$dt.IS_OF_MODEL(urn:example:Thermostat:1')` OR
+`$dt.IS_OF_MODEL('urn:contosocom:DigitalTwins:Space;1')`
 
 * Priority is to support filtering based on the model and support OR operations between multiple models
 * Second priority is to support filtering by other properties of the twin (beside model above)
 $dt.firmareVersion = “1.0” AND
 $dt.location = “Redmond”
 Filtering based on message body
-Query language should be similar to IoT Hub supporting filtering of the message. In the Hub query language, the telemetry message itself is referred to as $body
+Query language should be similar to IoT Hub supporting filtering of the message. In the Hub query language, the telemetry message itself is referred to as `$body`
 Test
 
 ```json
@@ -153,9 +157,16 @@ Test
 
 Filtering based on message properties
 * Query language should be similar with Hub filtering on message properties
+
+```sql
 AND source = “thermostat.vav-10”
 AND contentType = ‘UTF-8’
+```
+
+
 Any of these 4 dimensions could be use individually or with AND and OR conditions
+
+```sql
 AND type = ‘DigitalTwinTelemetryMessages’
 AND $dt.$metadata.$model = "urn:contosocom:DigitalTwins:Device"
 AND $dt.firmareVersion = “1.1”
@@ -163,6 +174,8 @@ AND $dt.Name = ‘device1’
 AND $body.Temperature > 0
 AND source = “thermostat.vav-10”
 AND contentType = ‘UTF-8’
+```
+
 
 Filtering on the routes is flat with no traversal of the graph (out of scope for public preview). 
 Digital Twins should support at least 10 custom endpoints and 100 routes, same as IoT Hub.
