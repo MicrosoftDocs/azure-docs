@@ -1,10 +1,10 @@
 ---
-title: Configure Azure Backup Reports
+title: Configure Azure Backup reports
 description: Configure and view reports for Azure Backup using Log Analytics and Azure Workbooks
 ms.topic: conceptual
 ms.date: 02/10/2020
 ---
-# Configure Azure Backup Reports
+# Configure Azure Backup reports
 
 A common requirement for backup admins is to obtain insights on backups, based on data spanning a long period of time. There could be multiple use cases for such a solution - allocating and forecasting of cloud storage consumed, auditing of backups and restores, and identifying key trends at different levels of granularity.
 
@@ -21,7 +21,9 @@ Today, Azure Backup provides a reporting solution that leverages [Azure Monitor 
 
 ## Getting Started
 
-1. **Create a Log Analytics (LA) Workspace (or use an existing one):**
+To get started with using the reports, follow the three steps detailed below:
+
+1. **Create a Log Analytics (LA) workspace (or use an existing one):**
 
 You need to set up one or more LA Workspaces to store your backup reporting data. The location and subscription where this LA workspace can be created is independent of the location and subscription where your vaults exist. 
 
@@ -29,7 +31,7 @@ Refer to the following article: [Create a Log Analytics Workspace in the Azure p
 
 By default, the data in an LA Workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the LA Workspace. To change the retention period, refer to the following article: [Manage usage and costs with Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
 
-2. **Configure Diagnostics Settings for your vaults:**
+2. **Configure diagnostics settings for your vaults:**
 
 Azure Resource Manager resources, such as Recovery Services vaults, record information about scheduled operations and user-triggered operations as diagnostics data. 
 
@@ -39,7 +41,7 @@ In the monitoring section of your Recovery Services vault, select **Diagnostic s
 
 Azure Backup also provides a built-in Azure Policy, which automates the configuration of diagnostic settings for all vaults in a given scope. Refer to the following article to learn how to use this policy: [Configure Vault Diagnostics Settings at scale](https://aka.ms/AzureBackupDiagnosticsPolicyDocs)
 
-3. **View Reports on the Azure portal:**
+3. **View reports on the Azure portal:**
 
 Once you have configured your vaults to send data to LA, view your backup reports by navigating to any vault’s blade and clicking on the **Backup Reports** menu item. 
 
@@ -52,23 +54,23 @@ Clicking this link opens up the Backup Report Workbook.
 
 Below is a description of the various tabs that the report contains:
 
-1. **Summary** - The Summary tab provides a high-level overview of your backup estate. Under the Summary tab, you can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances and the job success rate per workload type. For more detailed information around a specific backup artifact type, navigate to the respective tabs.
+* **Summary** - The Summary tab provides a high-level overview of your backup estate. Under the Summary tab, you can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances and the job success rate per workload type. For more detailed information around a specific backup artifact type, navigate to the respective tabs.
 
 ![Summary tab](./media/backup-azure-configure-backup-reports/summary.png)
 
-2. **Backup Items** - The Backup Items tab allows you to see information and trends on cloud storage consumed at a Backup Item level. For example, if you are using SQL in Azure VM backup, you can see the cloud storage consumed for each SQL database being backed up. You can also choose to see data for backup items of a particular protection status. For example, clicking on the **Protection Stopped** tile at the top of the tab, filters all the below widgets to show data only for Backup Items in Protection Stopped state.
+* **Backup Items** - The Backup Items tab allows you to see information and trends on cloud storage consumed at a Backup Item level. For example, if you are using SQL in Azure VM backup, you can see the cloud storage consumed for each SQL database being backed up. You can also choose to see data for backup items of a particular protection status. For example, clicking on the **Protection Stopped** tile at the top of the tab, filters all the below widgets to show data only for Backup Items in Protection Stopped state.
 
 ![Backup Items tab](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-3. **Usage** - The Usage tab helps you view key billing parameters for your backups. The information shown in this tab is at a billing entity (protected container) level. For example, in the case of a DPM server being backed up to Azure, you can view the trend of protected instances and cloud storage consumed for the DPM server. Similarly, if you are using SQL in Azure Backup or SAP HANA in Azure Backup, this tab gives you usage-related information at the level of the virtual machine that these databases are contained in.
+* **Usage** - The Usage tab helps you view key billing parameters for your backups. The information shown in this tab is at a billing entity (protected container) level. For example, in the case of a DPM server being backed up to Azure, you can view the trend of protected instances and cloud storage consumed for the DPM server. Similarly, if you are using SQL in Azure Backup or SAP HANA in Azure Backup, this tab gives you usage-related information at the level of the virtual machine that these databases are contained in.
 
 ![Usage tab](./media/backup-azure-configure-backup-reports/usage.png)
 
-4. **Jobs** - The Jobs tab lets you view long running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. You can view this information at both an aggregate level and at a backup item level. Clicking on a particular backup item in a grid lets you view detailed information on each job that was triggered on that backup item in the selected time range.
+* **Jobs** - The Jobs tab lets you view long running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. You can view this information at both an aggregate level and at a backup item level. Clicking on a particular backup item in a grid lets you view detailed information on each job that was triggered on that backup item in the selected time range.
 
 ![Jobs tab](./media/backup-azure-configure-backup-reports/jobs.png)
 
-5. **Policies** - The Policies tab lets you view information on all of your active policies, such as the number of associated items, and the total cloud storage consumed by items backed up under a given policy. Clicking on a particular policy lets you view information on each of its associated backup items.
+* **Policies** - The Policies tab lets you view information on all of your active policies, such as the number of associated items, and the total cloud storage consumed by items backed up under a given policy. Clicking on a particular policy lets you view information on each of its associated backup items.
 
 ![Policies tab](./media/backup-azure-configure-backup-reports/policies.png)
 
