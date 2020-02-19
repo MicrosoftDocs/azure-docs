@@ -21,7 +21,7 @@ Create an Azure AD tenant using the steps in the [Create a new tenant](../articl
 
   Example:
 
-   ![New Azure AD tenant](./media/openvpn-azure-ad-tenant-multi-app/newtenant.png)
+   ![New Azure AD tenant](./media/openvpn-azure-ad-tenant-multi-app/new-tenant.png)
 
 ## <a name="users"></a>2. Create tenant users
 
@@ -78,7 +78,7 @@ Register the VPN client in the Azure AD tenant.
 
 7. Under your Azure AD, in **Enterprise applications**, you will see **Azure VPN** listed.
 
-     ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/azurevpn.png)
+     ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/azure-vpn.png)
 
 ## <a name="register-apps"></a>4. Register additional applications
 
