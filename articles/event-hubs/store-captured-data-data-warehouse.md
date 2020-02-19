@@ -72,9 +72,9 @@ To deploy the template using Azure CLI, use the following commands:
 ```azurecli-interactive
 az group create -l westus -n rgDataMigrationSample
 
-az group deployment create \
-  --resource-group rgDataMigrationSample \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json \
+az group deployment create `
+  --resource-group rgDataMigrationSample `
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json `
   --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
 ```
 
