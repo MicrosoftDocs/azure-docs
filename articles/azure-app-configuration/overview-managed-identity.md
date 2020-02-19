@@ -13,12 +13,12 @@ ms.service: azure-app-configuration
 
 # How to use managed identities for Azure App Configuration
 
-This topic shows you how to create a managed identity for Azure App Configuration applications and how to use it to access other resources. A managed identity from Azure Active Directory (AAD) allows your app to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in AAD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+This topic shows you how to create a managed identity for Azure App Configuration. A managed identity from Azure Active Directory (AAD) allows Azure App Configuration to easily access other AAD-protected resources, such as Azure Key Vault. The identity is managed by the Azure platform. It does not require you to provision or rotate any secrets. For more about managed identities in AAD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities:
 
-- A **system-assigned identity** is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
-- A **user-assigned identity** is a standalone Azure resource which can be assigned to your app. An app can have multiple user-assigned identities.
+- A **system-assigned identity** is tied to your configuration store. It's deleted if your configuration store is deleted. A configuration store can only have one system-assigned identity.
+- A **user-assigned identity** is a standalone Azure resource that can be assigned to your configuration store. A configuration store can have multiple user-assigned identities.
 
 ## Adding a system-assigned identity
 
@@ -29,12 +29,12 @@ Creating an App Configuration store with a system-assigned identity requires an 
 To set up a managed identity using the Azure CLI, use the [az appconfig identity assign] command against an existing configuration store. You have three options for running the examples in this section:
 
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
-- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block below.
+- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
 - [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.1 or later) if you prefer to use a local CLI console.
 
 The following steps will walk you through creating an App Configuration store and assigning it an identity using the CLI:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login]. Use an account that is associated with the Azure subscription under which you would like to deploy the application:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login]. Use an account that is associated with your Azure subscription:
 
     ```azurecli-interactive
     az login
@@ -59,15 +59,15 @@ Creating an App Configuration store with a user-assigned identity requires that 
 
 ### Using the Azure CLI
 
-To set up a managed identity using the Azure CLI, you will need to use the [az appconfig identity assign] command against an existing configuration store. You have three options for running the examples in this section:
+To set up a managed identity using the Azure CLI, use the [az appconfig identity assign] command against an existing configuration store. You have three options for running the examples in this section:
 
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
-- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block below.
+- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
 - [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 or later) if you prefer to use a local CLI console.
 
 The following steps will walk you through creating a user-assigned identity and an App Configuration store, then assigning the identity to the store using the CLI:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login]. Use an account that is associated with the Azure subscription under which you would like to deploy the application:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login]. Use an account that is associated with your Azure subscription:
 
     ```azurecli-interactive
     az login
