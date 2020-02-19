@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: 
   ms.author: 
-  ms.date: 02/18/2020
+  ms.date: 02/19/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample tutorial | video | whats-new
@@ -713,11 +713,10 @@ productDirectory:
         - databases
       url: cosmos-db/table-storage-overview.md
     # Card
-    - title: App Configuration (Preview)
+    - title: App Configuration
       summary: Fast, scalable parameter storage for app configuration
       imageSrc: https://static.docs.com/ui/media/product/azure/app-configuration.svg
       azureCategories:
-        - featured
         - developer-tools
       url: azure-app-configuration/index.yml
     # Card
