@@ -21,7 +21,7 @@ ms.author: rogarana
 > 
 > AD authentication can only be supported against one AD forest where the storage account is registered to. You can only access Azure file shares with the AD credentials from a single AD forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured.  
 > 
-> AD authentication for SMB access and NTFS DACL persistence is not supported for Azure file shares managed by Azure File Sync.
+> AD authentication for SMB access and NTFS DACL persistence is supported for Azure file shares managed by Azure File Sync.
 
 When you enable AD for Azure file shares over SMB, your AD domain joined machines can mount Azure file shares using your existing AD credentials. This capability can be enabled with an AD environment hosted either in on-prem machines or hosted in Azure.
 
@@ -127,7 +127,7 @@ The following is a description of the actions performed when the `join-AzStorage
 
 ### Checking environment
 
-First, it checks your environment. Specifically it checks if the [Active Directory PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) is installed and if the shell is being executed with administrator privileges. If those checks pass, then it will check your AD to see if there is either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) that has already been created with SPN/UPN as "cifs/your-storage-account-name-here.file.core.windows.net" and create one if it doesn't exist.
+First, it checks your environment. Specifically it checks if the [Active Directory PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) is installed and if the shell is being executed with administrator privileges. Then it checks to see if the [Az.Storage 1.11.1-preview module](https://www.powershellgallery.com/packages/Az.Storage/1.11.1-preview) is installed, and installs it if it isn't. If those checks pass, then it will check your AD to see if there is either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) that has already been created with SPN/UPN as "cifs/your-storage-account-name-here.file.core.windows.net" and create one if it doesn't exist.
 
 ### Creating an identity representing the storage account in your AD manually
 
