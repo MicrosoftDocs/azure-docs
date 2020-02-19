@@ -59,7 +59,7 @@ landingContent:
             url: video-indexer-output-json-v2.md
           - text: Embed Video Indexer widgets into apps
             url: video-indexer-embed-widgets.md
-      - linkListType: download
+      - linkListType: sample
         links:
           - text: Code samples
             url: https://github.com/Azure-Samples/media-services-video-indexer               
