@@ -63,7 +63,7 @@ In this section, you will create a Virtual Network and the subnet to host the VM
     | Virtual machine name | Enter *myVm*. |
     | Region | Select **WestCentralUS**. |
     | Availability options | Leave the default **No infrastructure redundancy required**. |
-    | Image | Select **Windows Server 2019 Datacenter**. |
+    | Image | Select **Windows 10 Pro**. |
     | Size | Leave the default **Standard DS1 v2**. |
     | **ADMINISTRATOR ACCOUNT** |  |
     | Username | Enter a username of your choosing. |
