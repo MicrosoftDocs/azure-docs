@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Implement IoT spatial analytics using Azure Maps
 
-In an IoT scenario, it's common to capture and track relevant events that occur in space and time. Example scenarios include fleet management, asset tracking, mobility, and smart city applications. This tutorial guides you through a solution pattern using the Azure Maps APIs. Relevant events are captured by IoT Hub, using the event subscription model provided by the Event Grid.
+In an IoT scenario, it's common to capture and track relevant events that occur in space and time. Example scenarios include fleet management, asset tracking, mobility, and smart city applications. This tutorial guides you through a solution pattern using the Azure Maps APIs. Relevant events are captured by IoT Hub, using the evVent subscription model provided by the Event Grid.
 
 In this tutorial you will:
 
@@ -113,9 +113,9 @@ To implement business logic based on Azure Maps spatial analytics, we need to cr
 
 ### Create a storage account
 
-To log event data, we'll create a general-purpose **v2storage** account in the "ContosoRental" resource group to store data as blobs. To create a storage account, follow instruction in [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Next we'll need to create a container to store blobs. Follow the steps below to do so:
+To log event data, we'll create a general-purpose **v2storage** that  provides access to all of the Azure Storage services: blobs, files, queues, tables, and disks.  We'll need to place this storage account in the "ContosoRental" resource group to store data as blobs. To create a storage account, follow instruction in [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Next we'll need to create a container to store blobs. Follow the steps below to do so:
 
-1. In your storage account, navigate to Containers.
+1. In your "storage account - blob, file, table, queue", navigate to Containers.
 
     ![blobs](./media/tutorial-iot-hub-maps/blobs.png)
 
@@ -152,6 +152,9 @@ In order to connect to the IoT Hub, a device must be registered. To register a d
     
     ![register-device](./media/tutorial-iot-hub-maps/register-device.png)
 
+3. Save the **Primary Connection String** of your device to use it in a later step, in which you need to change a placeholder with this connection string.
+
+    ![add-device](./media/tutorial-iot-hub-maps/connectionString.png)
 
 ## Upload geofence
 
@@ -185,7 +188,7 @@ Open the Postman app and follow the steps below to upload the geofence using the
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Copy your status URI and append a `subscription-key` parameter to it with its value being your Azure Maps account subscription key. The status URI format should be like the one below:
+6. Copy your status URI and append a `subscription-key` parameter to it. Assign the value of your Azure Maps account subscription key to the `subscription-key` parameter. The status URI format should be like the one below, and `{Subscription-key}` replaced with your subscription key.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
@@ -211,11 +214,11 @@ The logic we implement in the function is using the location data coming from th
 
 All relevant event info is then kept in the blob store. Step 5 below points to the executable code implementing such logic. Follow the steps below to create an Azure Function that sends data logs to the blob container in the blob storage account and add an Event Grid subscription to it.
 
-1. In the Azure portal dashboard, select create a resource. Select **Compute** from the list of available resource types and then select **Function APP**.
+1. In the Azure portal dashboard, select create a resource. Select **Compute** from the list of available resource types and then select **Function App**.
 
     ![create-resource](./media/tutorial-iot-hub-maps/create-resource.png)
 
-2. On the **Function App** creation page, name your function app. Under **Resource Group**, select **Use existing**, and select "ContosoRental" from the drop-down list. Select ".NET Core" as the Runtime Stack. Under **Storage**, select **Use existing**, select "contosorentaldata" from the drop-down list, and then select **Review+Create**.
+2. On the **Function App** creation page, name your function app. Under **Resource Group**, select **Use existing**, and select "ContosoRental" from the drop-down list. Select ".NET Core" as the Runtime Stack. Under **Hosting**, for **Storage account**, select the storage account name from a prior step. In our prior step, we named the storage account **v2storage**.  Then, select **Review+Create**.
     
     ![create-app](./media/tutorial-iot-hub-maps/rental-app.png)
 
@@ -231,7 +234,9 @@ All relevant event info is then kept in the blob store. Step 5 below points to t
 
     ![function-template](./media/tutorial-iot-hub-maps/eventgrid-funct.png)
 
-6. Copy the [c# code](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) into your function and click **Save**.
+The **Azure Event Hub Trigger** and the **Azure Event Grid Trigger** have similar icons. Make sure you select the **Azure Event Grid Trigger**.
+
+6. Copy the [c# code](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) into your function and click **Save**. Don't click **Run** yet.
  
 7. In the c# script, replace the following parameters:
     * Replace the **SUBSCRIPTION_KEY** with your Azure Maps account primary subscription key.
@@ -242,7 +247,7 @@ All relevant event info is then kept in the blob store. Step 5 below points to t
     
     ![add-event-grid](./media/tutorial-iot-hub-maps/add-egs.png)
 
-11. Fill out subscription details, under **EVENT SUBSCRIPTION DETAILS** name your subscription and for Event Schema choose "Event Grid Schema". Under **TOPIC DETAILS** select "Azure IoT Hub Accounts" as Topic type. Choose the same subscription you used for creating the resource group, select "ContosoRental" as the "Resource Group". Choose the IoT Hub you created as a "Resource". Pick **Device Telemetry** as Event Type. After choosing these options, you'll see the "Topic Type" change to "IoT Hub" automatically.
+11. Fill out subscription details, under **EVENT SUBSCRIPTION DETAILS** name your event subscription and for Event Schema choose "Event Grid Schema". Under **TOPIC DETAILS** select "Azure IoT Hub Accounts" as Topic type. Choose the same subscription you used for creating the resource group, select "ContosoRental" as the "Resource Group". Choose the IoT Hub you created as a "Resource". Pick **Device Telemetry** as Event Type. After choosing these options, you'll see the "Topic Type" change to "IoT Hub" automatically.
 
     ![event-grid-subscription](./media/tutorial-iot-hub-maps/af-egs.png)
  
