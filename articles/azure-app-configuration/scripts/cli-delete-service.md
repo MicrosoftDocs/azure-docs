@@ -28,10 +28,6 @@ This sample script deletes an instance of Azure App Configuration.
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-You need to install the Azure App Configuration CLI extension first by executing the following command:
-
-        az extension add -n appconfig
-
 ## Sample script
 
 ```azurecli-interactive
@@ -49,7 +45,7 @@ This script uses the following commands to delete an App Configuration store. Ea
 
 | Command | Notes |
 |---|---|
-| [az appconfig delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Deletes an App Configuration store resource. |
+| [az appconfig delete](/cli/azure/appconfig#az-appconfig-delete) | Deletes an App Configuration store resource. |
 
 ## Next steps
 
