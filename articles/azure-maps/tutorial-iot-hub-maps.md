@@ -233,8 +233,8 @@ All relevant event info is then kept in the blob store. Step 5 below points to t
 5. Select the template with an **Azure Event Grid Trigger**. Install extensions if prompted, name the function, and select **Create**.
 
     ![function-template](./media/tutorial-iot-hub-maps/eventgrid-funct.png)
-
-The **Azure Event Hub Trigger** and the **Azure Event Grid Trigger** have similar icons. Make sure you select the **Azure Event Grid Trigger**.
+    
+    The **Azure Event Hub Trigger** and the **Azure Event Grid Trigger** have similar icons. Make sure you select the **Azure Event Grid Trigger**.
 
 6. Copy the [c# code](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) into your function.
  
