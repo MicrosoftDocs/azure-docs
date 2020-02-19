@@ -1,7 +1,7 @@
 ---
 title: Debug and troubleshoot machine learning pipelines
 titleSuffix: Azure Machine Learning
-description: Debug and troubleshoot machine learning pipelines in the Azure Machine Learning SDK for Python. Learn common pitfalls for developing pipelines, and tips to help you debug your scripts before and during remote execution. 
+description: Debug and troubleshoot machine learning pipelines in the Azure Machine Learning SDK for Python. Learn common pitfalls for developing pipelines, and tips to help you debug your scripts before and during remote execution. Learn how to use Visual Studio Code to interactively debug your machine learning pipelines.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,12 @@ ms.date: 12/12/2019
 # Debug and troubleshoot machine learning pipelines
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer).
+In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer). Information is provided on how to:
+
+* Debug using the Azure Machine Learning SDK
+* Debug using the Azure Machine Learning Designer
+* Debug using Application Insights
+* Debug interactively using Visual Studio Code (VS Code) and the Python Tools for Visual Studio (PTVSD)
 
 ## Debug and troubleshoot in the Azure Machine Learning SDK
 The following sections provide an overview of common pitfalls when building pipelines, and different strategies for debugging your code that's running in a pipeline. Use the following tips when you're having trouble getting a pipeline to run as expected.
