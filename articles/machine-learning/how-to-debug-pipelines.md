@@ -155,7 +155,11 @@ In some cases, you may need to interactively debug the Python code used in your 
 * An __Azure Machine Learning workspace__ that is configured to use an __Azure Virtual Network__.
 * An __Azure Machine Learning pipeline__ that uses Python scripts as part of the pipeline steps. For example, a PythonScriptStep.
 * An Azure Machine Learning Compute cluster, which is __in the virtual network__ and is __used by the pipeline for training__.
-* A __development environment__ that is __in the virtual network__. The development environment might be an Azure Virtual Machine in the virtual network, or a client machine connected to the virtual network by a virtual private network (VPN).
+* A __development environment__ that is __in the virtual network__. The development environment might be one of the following:
+
+    * An Azure Virtual Machine in the virtual network
+    * A Compute instance of Notebook VM in the virtual network
+    * A client machine connected to the virtual network by a virtual private network (VPN).
 
 For more information on using an Azure Virtual Network with Azure Machine Learning, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
 
@@ -319,6 +323,9 @@ ip_address: 10.3.0.5
 
 Save the `ip_address` value. It is used in the next section.
 
+> [!TIP]
+> You can also find the IP address from the run logs for the child run for this pipeline step. For more information on viewing this information, see [Monitor Azure ML experiment runs and metrics](how-to-track-experiments.md).
+
 ### Configure development environment
 
 1. To install the Python Tools for Visual Studio (PTVSD) on your VS Code development environment, use the following command:
@@ -333,7 +340,7 @@ Save the `ip_address` value. It is used in the next section.
 
     1. From VS Code, select the __Debug__ menu and then select __Open configurations__. A file named __launch.json__ opens.
 
-    1. In the __launch.json__ file, find the line that contains `"configurations": [`, and insert the following text after it. Change the `"host": "10.3.0.5"` entry to the IP address returned in your logs from the previous section. Change the `"localRoot": "${workspaceFolder}"` entry to a local directory that contains a copy of the script being debugged:
+    1. In the __launch.json__ file, find the line that contains `"configurations": [`, and insert the following text after it. Change the `"host": "10.3.0.5"` entry to the IP address returned in your logs from the previous section. Change the `"localRoot": "${workspaceFolder}/code/step"` entry to a local directory that contains a copy of the script being debugged:
 
         ```json
         {
@@ -345,7 +352,7 @@ Save the `ip_address` value. It is used in the next section.
             "redirectOutput": true,
             "pathMappings": [
                 {
-                    "localRoot": "${workspaceFolder}",
+                    "localRoot": "${workspaceFolder}/code/step1",
                     "remoteRoot": "."
                 }
             ]
@@ -354,6 +361,11 @@ Save the `ip_address` value. It is used in the next section.
 
         > [!IMPORTANT]
         > If there are already other entries in the configurations section, add a comma (,) after the code that you inserted.
+
+        > [!TIP]
+        > The best practice is to keep the resources for scripts in separate directories, which is why the `localRoot` example value references `/code/step1`.
+        >
+        > If you are debugging multiple scripts, in different directories, create a separate configuration section for each script.
 
     1. Save the __launch.json__ file.
 
