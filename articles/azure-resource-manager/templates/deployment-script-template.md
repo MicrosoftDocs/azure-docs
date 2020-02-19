@@ -196,9 +196,9 @@ reference('<ResourceName>').output.text
 
 ## Work with outputs from CLI deployment scripts
 
-Different than the Powershell version, CLI/bash support does not expose a common variable to store script outputs, instead, there is an environment variable called **AZ_SCRIPTS_OUTPUT_PATH** that stores the location where the script outputs file resides. If a deployment script is ran from a Resource Manager template, this environment variable is set automatically for you by the Bash shell that we created.
+Different than the Powershell version, CLI/bash support does not expose a common variable to store script outputs, instead, there is an environment variable called **AZ_SCRIPTS_OUTPUT_PATH** that stores the location where the script outputs file resides. If a deployment script is ran from a Resource Manager template, this environment variable is set automatically for you by the Bash shell.
 
-Deployment script outputs must be saved in AZ_SCRIPTS_OUTPUT_PATH location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, if you want to store an array of strings, you must do: { “MyResult”: [ “foo”, “bar”] }, storing just the array results in an error, meaning if the file content is: [ “foo”, “bar” ] it will be treating as invalid.
+Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, an array of strings is stored as { “MyResult”: [ “foo”, “bar”] }.  Storing just the array results, for example [ “foo”, “bar” ], is invalid.
 
 [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json?range=1-44)]
 
@@ -328,11 +328,11 @@ You can use a pre-configured docker container image as your deployment script de
     ```
 
 1. Select **Share it** when you get a prompt.
-1. Run a PowerShell script as shown in the following screenshot (given that you have a helloworld.ps1 file in d:\docker folder.)
+1. The following screenshot shows how to run a PowerShell script, given that you have a helloworld.ps1 file in d:\docker folder.
 
     ![Resource Manager template deployment script docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
-After the PowerShell script is tested successfully, you can use it as a deployment script.
+After the script is tested successfully, you can use it as a deployment script.
 
 ## Next steps
 
