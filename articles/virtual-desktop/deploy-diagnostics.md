@@ -124,7 +124,10 @@ Before you continue deploying the diagnostics tool, we recommend that you verify
 To make sure your app registration has API permissions:
 
 1. Open a browser and connect to the [Azure portal](https://portal.azure.com/) with your administrative account.
-2. Go to **App registrations** and look for your Azure AD App registration.
+2. Go to **Azure Active Directory**.
+3.	Go to **App registrations** and click on **All Applications**
+4.	Look for your Azure AD App registration that has the name you entered earlier in step 5 of the “Create an Azure Active Directory app registration” section of this guide.
+
 
       ![The API permissions page.](media/api-permissions-page.png)
 
