@@ -105,7 +105,7 @@ The next step is to create a new virtual machine within one subnet of the virtua
 | Setting      | Suggested value  | Description      |
 | ------------ | ---------------- | ---------------- |
 | **Subscription** | Your subscription | The subscription under which your resources are created. |
-| **Resource group** | _functions-private-access_ | Choose functions-private-access, or the resource group you created with your function app.  Using the same resource group for the function app and VM makes it easier to clean up resources when you are done with this tutorial. |
+| **Resource group** | _functions-private-access_ | Choose the resource group to contain all the resources for this tutorial.  Using the same resource group for the function app and VM makes it easier to clean up resources when you are done with this tutorial. |
 | **Virtual machine name** | myVM | The VM name needs to be unique in the resource group |
 | **Region** | (US) North Central US | Choose a region near you or near the functions to be accessed. |
 | **Public inbound ports** | None | todo |
@@ -137,10 +137,10 @@ The next step is to create a new virtual machine within one subnet of the virtua
 
 | Setting      | Suggested value  | Description      |
 | ------------ | ---------------- | ---------------- |
-| Name | myBastion |
-| Region | North Central US |
-| Virtual network | function-private-vnet |
-| Subnet | AzureBastionSubnet |
+| Name | myBastion | TODO |
+| Region | North Central US | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
+| Virtual network | function-private-vnet | TODO |
+| Subnet | AzureBastionSubnet | TODO |
 
 5. You will need to create a subnet where Azure can provision the Azure Bastion host. Clicking on **Manage subnet configuration** will open a new blade to allow you to define a new subnet.  Click on **+Subnet** to create a new subnet. The subnet must be of the name **AzureBastionSubnet** and the subnet prefix must be at least /27.  Click **OK** to create the subnet.
 
@@ -152,7 +152,7 @@ The next step is to create a new virtual machine within one subnet of the virtua
 [!div class="mx-imgBorder"]
 ![Create an Azure Bastion host with specific subnet](./media/functions-create-private-site-access/create-bastion-4.png)
 
-7. Press **Review & Create**. It will take a few minutes for the Azure Bastion resource to be created.  The Azure Bastion resource should now be in your resource group.
+7. Select **Review & Create**. It will take a few minutes for the Azure Bastion resource to be created.  The Azure Bastion resource should now be in your resource group.
 
 [!div class="mx-imgBorder"]
 ![Final view of Azure Bastion host in resource group](./media/functions-create-private-site-access/create-bastion-5.png)
@@ -166,6 +166,54 @@ To summarize, the following is being created:
 * **Plan**: Azure Function Consumption plan
 * **OS**: Windows
 * **Runtime**: .NET Core
+
+1. In the portal, choose **Add** at the top of the resource group view.
+2. Select **Compute > Function App**
+
+[!div class="mx-imgBorder"]
+![Create a new Function App](./media/functions-create-private-site-access/create-function-app-1.png)
+
+3. Use the function app settings as specified in the table below the image.
+
+[!div class="mx-imgBorder"]
+![Settings for a new Function App](./media/functions-create-private-site-access/create-function-app-2.png)
+
+| Setting      | Suggested value  | Description      |
+| ------------ | ---------------- | ---------------- |
+| Subscription | Your subscription | The subscription under which your resources are created. |
+| Resource Group | _functions-private-access_ | Choose the resource group to contain all the resources for this tutorial.  Using the same resource group for the function app and VM makes it easier to clean up resources when you are done with this tutorial. |
+| Function App name | Globally unique name | Name that identifies your new function app. Valid characters are a-z (case insensitive), 0-9, and -. |
+| Publish | Code | Option to publish code files or a Docker container. |
+| Runtime stack | Preferred language | Choose a runtime that supports your favorite function programming language. |
+| Region | North Central US | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
+
+Select the **Next:Hosting >** button.
+
+4. Enter the following hosting settings.
+
+[!div class="mx-imgBorder"]
+![Settings for a new Function App](./media/functions-create-private-site-access/create-function-app-3.png)
+
+| Setting      | Suggested value  | Description      |
+| ------------ | ---------------- | ---------------- |
+| Storage account | Globally unique name | Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](https://docs.microsoft.com/azure/azure-functions/functions-scale#storage-account-requirements). |
+| Operating system | Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
+| Plan | Consumption | TODO |
+
+Select the **Next:Monitoring >** button.
+
+6. Enter the following monitoring settings.
+
+[!div class="mx-imgBorder"]
+![Configure monitoring](./media/functions-create-private-site-access/create-function-app-4.png)
+
+| Setting      | Suggested value  | Description      |
+| ------------ | ---------------- | ---------------- |
+| Application Insights | Default | Creates an Application Insights resource of the same App name in the nearest supported region. By expanding this setting, you can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data. |
+
+Select **Review + Create** to review the app configuration selections.
+
+7. Select **Create** to provision and deploy the function app.
 
 ## Configure Access Restrictions
 
