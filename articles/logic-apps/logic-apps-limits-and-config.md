@@ -32,7 +32,6 @@ Here are the limits for a single logic app definition:
 | Length of `description` | 256 characters | |
 | Maximum `parameters` | 50 | |
 | Maximum `outputs` | 10 | |
-||||
 
 <a name="run-duration-retention-limits"></a>
 
@@ -151,7 +150,7 @@ Some connector operations make asynchronous calls or listen for webhook requests
 |------|--------------------|---------------------------------------|-------|
 | Message size | 100 MB | 200 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. |
 | Message size with chunking | 1 GB | 5 GB | This limit applies to actions that natively support chunking or let you enable chunking in their runtime configuration. <p>For the integration service environment, the Logic Apps engine supports this limit, but connectors have their own chunking limits up to the engine limit, for example, see the [Azure Blob Storage connector's API reference](https://docs.microsoft.com/connectors/azureblob/). For more information chunking, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
-|||||   
+|||||
 
 #### Character limits
 
@@ -168,6 +167,18 @@ Some connector operations make asynchronous calls or listen for webhook requests
 | Retry attempts | 90 | The default is 4. To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Retry max delay | 1 day | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Retry min delay | 5 seconds | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+||||
+
+<a name="authentication-limits"></a>
+
+### Authentication limits
+
+Here are the limits for a logic app that starts with a Request trigger and enables [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) for authorizing inbound calls to the Request trigger:
+
+| Name | Limit | Notes |
+| ---- | ----- | ----- |
+| Azure AD authorization policies | 5 | |
+| Claims per authorization policy | 10 | |
 ||||
 
 <a name="custom-connector-limits"></a>

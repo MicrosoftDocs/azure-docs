@@ -96,15 +96,15 @@ In the body, include the `KeyType` property as either `Primary` or `Secondary`. 
 
 If your logic app starts with a Request trigger, you can enable [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) for authorizing inbound calls to the Request trigger. Before you enable this authentication, review these considerations:
 
-* Your logic app can have up to five authorization policies. Each authorization policy can have up to 10 [claims](../active-directory/develop/developer-glossary.md#claim).
+* Your logic app is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](../active-directory/develop/developer-glossary.md#claim). For more information, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
 * An authorization policy must include at least the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` as the Azure AD issuer ID.
 
-* Your logic app can't use both Azure AD OAuth and [Shared Access Signatures (SAS)](#sas) authorization schemes.
+* An inbound call to your logic app can use only one authorization scheme, either Azure AD OAuth or [Shared Access Signatures (SAS)](#sas).
 
-* OAuth tokens are supported only for workflow trigger requests.
+* OAuth tokens are supported only for the Request trigger.
 
-* Only Bearer-type authorization schemes are supported for OAuth tokens.
+* Only [Bearer-type](../active-directory/develop/active-directory-v2-protocols.md#tokens) authorization schemes are supported for OAuth tokens.
 
 To enable Azure AD OAuth, follow these steps to add one or more authorization policies to your logic app.
 
