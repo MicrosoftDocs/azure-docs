@@ -1,7 +1,6 @@
 ---
 title: Manage model and learning settings - Personalizer
-description:
-The machine-learned model and learning settings can be exported for backup in your own source control system.
+description: The machine-learned model and learning settings can be exported for backup in your own source control system.
 ms.topic: conceptual
 ms.date: 02/19/2020
 ---
@@ -60,4 +59,4 @@ The `argument` property contains a [configuration](https://github.com/VowpalWabb
 
 ## Next steps
 
-[Learn how to manage a learning policy](how-to-learning-policy.md)
+[Learn how to manage a learning policy](how-to-manage-model.md)

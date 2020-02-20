@@ -9,6 +9,8 @@ ms.date: 02/19/2020
 
 Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 
+<a name="configure-service-settings-in-the-azure-portal"></a>
+<a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
 
 ## Configure rewards for the feedback loop based on use case
 
@@ -35,6 +37,8 @@ Changes to this value will reset the current Personalizer model and retrain it w
 
 After changing this value, make sure to select **Save**.
 
+<a name="model-update-frequency"></a>
+
 ## Configure model update frequency for model training
 
 The **Model update frequency** sets how often the model is trained.
@@ -55,12 +59,16 @@ After changing this value, make sure to select **Save**.
 
 After changing this value, make sure to select **Save**.
 
+<a name="clear-data-for-your-learning-loop"></a>
+
 ## Settings that include resetting the model
 
 The following actions include an immediate retraining of the model with the last 2 days of data.
 
 * Reward
 * Exploration
+
+To [clear](how-to-manage-model.md) all your data, use the **Model and learning settings ** page.
 
 ## Next steps
 

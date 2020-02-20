@@ -38,7 +38,7 @@ Learning settings determine the *hyperparameters* of the model training. Two mod
 
 You can import and export learning-policy files from the Azure portal. Use this method to save existing policies, test them, replace them, and archive them in your source code control as artifacts for future reference and audit.
 
-Learn [how to](how-to-learning-policy.md) import and export a learning policy.
+Learn [how to](how-to-manage-model.md) import and export a learning policy.
 
 ### Understand learning policy settings
 
@@ -59,7 +59,7 @@ The following `.json` is an example of a learning policy.
 
 You can compare how different learning policies perform against past data in Personalizer logs by doing [offline evaluations](concepts-offline-evaluation.md).
 
-[Upload your own learning policies](how-to-learning-policy.md) to compare them with the current learning policy.
+[Upload your own learning policies](how-to-manage-model.md) to compare them with the current learning policy.
 
 ### Optimize learning policies
 
