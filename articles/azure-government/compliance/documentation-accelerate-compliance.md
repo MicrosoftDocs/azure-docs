@@ -20,8 +20,8 @@ ms.author: todorb
 ---
 # Program Overview
 
-Accelerating your path to comliance in Azure is a focused program that targets the provisioning of learning resources and implementatio tools by educating, providing architectural references, and support during the scoping and implementation of your project. 
-In addition, we work with key assessment and automation partners to share reference architectures, solutions, alternatives both 1st party and 3rd party that can help you meet your compliance needs.
+Accelerating your path to compliance in Azure is a focused program that targets the provisioning of learning resources and implementation tools by educating, providing architectural references, and support during the scoping and implementation of your project. In addition, we work with key assessment and automation partners to share reference architectures, solutions, alternatives both 1st party and 3rd party that can help you meet your compliance needs.
+
 As a partner who provides a service in this field, you can publish your offering in the marketplace that will expand the reach of your services. 
 
 ## Customers
@@ -40,7 +40,7 @@ A FedRAMP P-ATO is an initial approval of the CSP authorization package by the J
 ###### Agency ATO Process 
 
 As part of the Agency authorization process, a CSP works directly with the Agency sponsor who reviews the cloud service’s security package. After completing a security assessment, the head of an Agency (or their designee) can grant an ATO.   
-Taking the above into consideration, an ISV can chose to go for JAB authorization which grants a generalized authorization to it’s solution and can be used with multiple agencies, this process tends to be longer. They can also choose to go for an Agency ATO which is specific to the Government customer they are serving. This customer acts as the sponsor and may even have “reciprocity” with other agencies which allows for a faster, smoother adoption of the company’s solution with a different customer.  
+Taking the above into consideration, an ISV can choose to go for JAB authorization which grants a generalized authorization to its solution and can be used with multiple agencies, this process tends to be longer. They can also choose to go for an Agency ATO which is specific to the Government customer they are serving. This customer acts as the sponsor and may even have “reciprocity” with other agencies which allows for a faster, smoother adoption of the company’s solution with a different customer.  
 
 ## Partners
 
@@ -51,9 +51,9 @@ Microsoft is able to scale through its partners. Scale is what will allow us to 
  > [!NOTE]
 > Partners are asked to publish their solutions to the Azure Marketplace. Steps on how to achieve that are presented below.
 
-## Publishing to the Azure Marketpalce for Partners in the Compliance space
+## Publishing to the Azure Marketplace for Partners in the Compliance space
 
-1. Join the Parnter Network - It’s a requirement for publishing but easy to sign-up. Instructions are located here: [Ensure you have a MPN ID and Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page)
+1. Join the Partner Network - It’s a requirement for publishing but easy to sign-up. Instructions are located here: [Ensure you have a MPN ID and Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page)
 2. Enable your partner center account as Publisher / Developer for Marketplace, follow the instructions [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)
 3. With an enabled Partner Center Account, publish listing as a SaaS App as instructed [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer)
 
