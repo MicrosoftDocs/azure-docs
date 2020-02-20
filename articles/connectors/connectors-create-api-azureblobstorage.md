@@ -20,7 +20,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 > [!IMPORTANT]
 > Logic apps can't directly access storage accounts that are behind firewalls if they're both in the same region. As a workaround, 
 > you can have your logic apps and storage account in different regions. For more information about enabling access from Azure Logic 
-> Apps to storage accounts behind firewalls, see the > [Access storage accounts behind firewalls](#storage-firewalls) section later in this topic.
+> Apps to storage accounts behind firewalls, see the [Access storage accounts behind firewalls](#storage-firewalls) section later in this topic.
 
 <a name="blob-storage-limits"></a>
 
