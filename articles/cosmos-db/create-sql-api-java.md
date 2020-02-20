@@ -30,6 +30,18 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account fro
 - A [Maven binary archive](https://maven.apache.org/download.cgi). On Ubuntu, run `apt-get install maven` to install Maven.
 - [Git](https://www.git-scm.com/downloads). On Ubuntu, run `sudo apt-get install git` to install Git.
 
+## Introductory notes
+
+*The structure of a Cosmos DB account.* Irrespective of API or programming language, a Cosmos DB *account* contains zero or more *databases*, a *database* (DB) contains zero or more *containers*, and a *container* contains zero or more items, as shown in the diagram below:
+
+![Azure Cosmos account entities](./media/databases-containers-items/cosmos-entities.png)
+
+You may read more about databases, containers and items [here.](databases-containers-items.md) A few important properties are defined at the level of the container, among them *provisioned throughput* and *partition key*. 
+
+The provisioned throughput is measured in Request Units (*RUs*) which have a monetary price and are a substantial determining factor in the operating cost of the account. Provisioned throughput can be selected at per-container granularity or per-database granularity, however container-level throughput specification is typically preferred. You may read more about throughput provisioning [here.](set-throughput.md)
+
+As items are inserted into a Cosmos DB container, the database grows horizontally by adding more storage and compute to handle requests. Storage and compute capacity are added in discrete units known as *partitions*, and you must choose one field in your documents to be the partition key which maps each document to a partition. The way partitions are managed is that each partition is assigned a roughly equal slice out of the range of partition key values; therefore you are advised to choose a partition key which is relatively random or evenly-distributed. Otherwise, some partitions will see substantially more requests (*hot partition*) while other partitions see substantially fewer requests (*cold partition*), and this is to be avoided. You may learn more about partitioning [here](partitioning-overview.md).
+
 ## Create a database account
 
 Before you can create a document database, you need to create a SQL API account with Azure Cosmos DB.
