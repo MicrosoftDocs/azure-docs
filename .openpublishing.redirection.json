@@ -35546,6 +35546,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/conditional-access/app-based-mfa.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-enable-azure-mfa",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/conditional-access/technical-reference.md",
       "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
       "redirect_document_id": false
