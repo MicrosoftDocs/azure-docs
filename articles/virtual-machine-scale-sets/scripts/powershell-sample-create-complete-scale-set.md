@@ -1,19 +1,10 @@
 ---
 title: Azure PowerShell Samples - Create a complete virtual machine scale set
 description: This script creates a virtual machine scale set running Windows Server 2016, where individual resources are configured and created.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc

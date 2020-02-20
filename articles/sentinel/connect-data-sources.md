@@ -101,7 +101,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | AzureNetworkAnalytics_CL  | [Traffic analytic schema](../network-watcher/traffic-analytics.md) [Traffic analytics](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Connect CEF](connect-common-event-format.md)  | V | |
 | OfficeActivity | [Connect Office 365](connect-office-365.md) | V | |
-| SecurityEvents | [Connect Windows security events](connect-windows-security-events.md)  | V | For the Insecure Protocols workbooks, see [Insecure protocols workbook setup](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
+| SecurityEvents | [Connect Windows security events](connect-windows-security-events.md)  | V | For the Insecure Protocols workbooks, see [Insecure protocols workbook setup](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
 | Syslog | [Connect Syslog](connect-syslog.md) | V | |
 | Microsoft Web Application Firewall (WAF) - (AzureDiagnostics) |[Connect Microsoft Web Application Firewall](connect-microsoft-waf.md) | V | |
 | SymantecICDx_CL | [Connect Symantec](connect-symantec.md) | V | |
@@ -119,7 +119,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | Sysmon (Event) | [Connect Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connect Windows Events](../azure-monitor/platform/data-sources-windows-events.md) <br> [Get the Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/SysmonParser.txt)| X | Sysmon collection is not installed by default on virtual machines. For more information on how to install the Sysmon Agent, see [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
 | ConfigurationData  | [Automate VM inventory](../automation/automation-vm-inventory.md)| X | |
 | ConfigurationChange  | [Automate VM tracking](../automation/change-tracking.md) | X | |
-| F5 BIG-IP | [Connect F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel.md)  | X | |
+| F5 BIG-IP | [Connect F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | X | |
 | McasShadowItReporting  |  | X | |
 | Barracuda_CL | [Connect Barracuda](connect-barracuda.md) | V | |
 

@@ -31,7 +31,7 @@ When trying to back up, selecting a Storage Account to discover file shares with
 
 ### Can I change the Vault to which I back up my file shares?
 
-Yes. However, you'll need to [Stop Protection](backup-azure-files.md#stop-protecting-an-azure-file-share) from the connected Vault, [Unregister](troubleshoot-azure-files.md#configuring-backup) this Storage Account, and then protect it from a different Vault.
+Yes. However, you'll need to  [Stop protection on a file share](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected Vault, [Unregister](troubleshoot-azure-files.md#configuring-backup) this Storage Account, and then protect it from a different Vault.
 
 ### In which geos can I back up Azure File shares?
 

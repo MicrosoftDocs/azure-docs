@@ -82,6 +82,9 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Virtual Network Gateways | Schema not available. |
 
 ## Supported log categories per resource type
+
+Some categories may only be supported for specific types of resources. This is list of all that are available in some form.  For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../sql-database/sql-database-metrics-diag-logging.md). 
+
 |Resource Type|Category|Category Display Name|
 |---|---|---|
 |Microsoft.AAD/domainServices|SystemSecurity|SystemSecurity|

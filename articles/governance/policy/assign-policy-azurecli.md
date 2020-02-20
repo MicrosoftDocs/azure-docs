@@ -36,7 +36,7 @@ Azure environment.
   ```
 
   For more information about registering and viewing resource providers, see
-  [Resource Providers and Types](../../azure-resource-manager/resource-manager-supported-services.md)
+  [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 - If you haven't already, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's a
   tool that sends HTTP requests to Azure Resource Manager-based APIs.

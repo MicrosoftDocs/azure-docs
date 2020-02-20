@@ -33,7 +33,7 @@ Azure Germany is continually expanding its services. These services are deployed
 >
 >
 
-In the following tables, services specified as Azure Resource Manager enabled have resource providers and can be managed through PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, see [Resource Manager supported services](../azure-resource-manager/resource-manager-supported-services.md). Services specified as available in the portal can be managed in the [Azure Germany portal](https://portal.microsoftazure.de/). 
+In the following tables, services specified as Azure Resource Manager enabled have resource providers and can be managed through PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, see [Resource Manager supported services](../azure-resource-manager/management/resource-providers-and-types.md). Services specified as available in the portal can be managed in the [Azure Germany portal](https://portal.microsoftazure.de/). 
 
 ## [Compute](./germany-services-compute.md)
 

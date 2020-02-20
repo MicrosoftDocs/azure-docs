@@ -574,4 +574,4 @@ This tutorial added patterns to help LUIS predict the intent with a significantl
 
 
 > [!div class="nextstepaction"]
-> [Learn how to use roles with a pattern](luis-tutorial-pattern-roles.md)
+> [Learn how to use roles with a pattern](luis-tutorial-pattern.md)

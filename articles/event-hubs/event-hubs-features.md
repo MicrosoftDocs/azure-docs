@@ -131,11 +131,14 @@ It is your responsibility to manage the offset.
 
 For more information about Event Hubs, visit the following links:
 
-* Get started with an [Event Hubs tutorial][Event Hubs tutorial]
+- Get started with Event Hubs
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Event Hubs samples][]
 
-[Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [Event Hubs samples]: https://github.com/Azure/azure-event-hubs/tree/master/samples

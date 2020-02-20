@@ -28,7 +28,7 @@ To move your logic app or related resources to another Azure subscription, resou
 
 ## Move resources between subscriptions
 
-To move a resource, such as a logic app or integration account, to another Azure subscription, you can use the Azure portal, Azure PowerShell, Azure CLI, or REST API. These steps cover the Azure portal, which you can use when the resource's region stays the same. For other steps and general preparation, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+To move a resource, such as a logic app or integration account, to another Azure subscription, you can use the Azure portal, Azure PowerShell, Azure CLI, or REST API. These steps cover the Azure portal, which you can use when the resource's region stays the same. For other steps and general preparation, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 1. In the [Azure portal](https://portal.azure.com), find and select the logic app resource that you want to move.
 
@@ -46,7 +46,7 @@ To move a resource, such as a logic app or integration account, to another Azure
 
 ## Move resources between resource groups
 
-To move a resource, such as a logic app or integration account, to another Azure resource group, you can use the Azure portal, Azure PowerShell, Azure CLI, or REST API. These steps cover the Azure portal, which you can use when the resource's region stays the same. For other steps and general preparation, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+To move a resource, such as a logic app or integration account, to another Azure resource group, you can use the Azure portal, Azure PowerShell, Azure CLI, or REST API. These steps cover the Azure portal, which you can use when the resource's region stays the same. For other steps and general preparation, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Before actually moving resources between groups, you can test whether you can successfully move your resource to another group. For more information, see [Validate your move](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
 
@@ -101,4 +101,4 @@ The template that you get from Visual Studio includes only the resource definiti
 
 ## Next steps
 
-[Move Azure resources to new resource groups or subscriptions](../azure-resource-manager/resource-group-move-resources.md)
+[Move Azure resources to new resource groups or subscriptions](../azure-resource-manager/management/move-resource-group-and-subscription.md)

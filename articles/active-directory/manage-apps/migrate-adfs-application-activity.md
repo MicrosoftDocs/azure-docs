@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/22/2019
+ms.date: 01/14/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ---
@@ -119,6 +119,7 @@ The following table lists all claim rule tests that are performed on AD FS appli
 
 ## Next steps
 
+- [Video: How to use the AD FS activity report to migrate an application](https://www.youtube.com/watch?v=OThlTA239lU)
 - [Managing applications with Azure Active Directory](what-is-application-management.md)
 - [Manage access to apps](what-is-access-management.md)
 - [Azure AD Connect federation](../hybrid/how-to-connect-fed-whatis.md)

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 01/14/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
@@ -45,10 +45,10 @@ CREATE WORKLOAD CLASSIFIER wcCEOPriority
 WITH ( WORKLOAD_GROUP = 'wgPriority'
       ,MEMBERNAME = 'TheCEO');
 ```
-The below chart is configured as follows:
-Metric 1: *Effective min resource percent* (Avg aggregation, `blue line`)
-Metric 2: *Workload group allocation by system percent* (Avg aggregation, `purple line`)
-Filter: [Workload Group] = `wgPriority`
+The below chart is configured as follows:<br>
+Metric 1: *Effective min resource percent* (Avg aggregation, `blue line`)<br>
+Metric 2: *Workload group allocation by system percent* (Avg aggregation, `purple line`)<br>
+Filter: [Workload Group] = `wgPriority`<br>
 ![underutilized-wg.png](media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png)
 The chart shows that with 25% workload isolation, only 10% is being used on average.  In this case, the `MIN_PERCENTAGE_RESOURCE` parameter value could be lowered to between 10 or 15 and allow for other workloads on the system to consume the resources.
 
@@ -65,11 +65,11 @@ CREATE WORKLOAD CLASSIFIER wcDataAnalyst
 WITH ( WORKLOAD_GROUP = 'wgDataAnalyst'
       ,MEMBERNAME = 'DataAnalyst');
 ```
-The below chart is configured as follows:
-Metric 1: *Effective cap resource percent* (Avg aggregation, `blue line`)
-Metric 2: *Workload group allocation by max resource percent* (Avg aggregation, `purple line`)
-Metric 3: *Workload group queued queries* (Sum aggregation, `turquoise line`)
-Filter: [Workload Group] = `wgDataAnalyst`
+The below chart is configured as follows:<br>
+Metric 1: *Effective cap resource percent* (Avg aggregation, `blue line`)<br>
+Metric 2: *Workload group allocation by max resource percent* (Avg aggregation, `purple line`)<br>
+Metric 3: *Workload group queued queries* (Sum aggregation, `turquoise line`)<br>
+Filter: [Workload Group] = `wgDataAnalyst`<br>
 ![bottle-necked-wg](media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png)
 The chart shows that with a 9% cap on resources, the workload group is 90%+ utilized (from the *Workload group allocation by max resource percent metric*).  There is a steady queuing of queries as shown from the *Workload group queued queries metric*.  In this case, increasing the `CAP_PERCENTAGE_RESOURCE` to a value higher than 9% will allow more queries to execute concurrently.  Increasing the `CAP_PERCENTAGE_RESOURCE` assumes that there are enough resources available and not isolated by other workload groups.  Verify the cap increased by checking the *Effective cap resource percent metric*.  If more throughput is desired, also consider increasing the `REQUEST_MIN_RESOURCE_GRANT_PERCENT` to a value greater than 3.  Increasing the `REQUEST_MIN_RESOURCE_GRANT_PERCENT` could allow queries to run faster.
 

@@ -16,7 +16,7 @@ ms.date: 09/08/2019
 
 Azure Data Explorer is a fast, fully managed, data-analytics service. It offers real-time analysis on large volumes of data that stream from many sources, such as applications, websites, and IoT devices. 
 
-Azure Data Factory is a fully managed, cloud-based, data-integration service. You can use it to populate your Azure Data Explorer database with data from your existing system. And it can help you save time when you're building analytics solutions. 
+To copy data from a database in Oracle Server, Netezza, Teradata, or SQL Server to Azure Data Explorer, you have to load huge amounts of data from multiple tables. Usually, the data has to be partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template to use in these scenarios.
 
 [Azure Data Factory templates](/azure/data-factory/solution-templates-introduction) are predefined Data Factory pipelines. These templates can help you get started quickly with Data Factory and reduce development time on data integration projects. 
 

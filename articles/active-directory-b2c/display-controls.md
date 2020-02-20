@@ -86,7 +86,7 @@ Certain display claims are required for certain types of display control. For ex
 
 The **output claims** of a display control are not sent to the next orchestration step. They are saved temporarily only for the current display control session. These temporary claims can be shared between the different actions of the same display control.
 
-To bubble up the output the claims to the next orchestration step, use the **OutputClaims** of the actual self-asserted technical profile which references this display control.
+To bubble up the output claims to the next orchestration step, use the **OutputClaims** of the actual self-asserted technical profile which references this display control.
 
 ### Display control Actions
 

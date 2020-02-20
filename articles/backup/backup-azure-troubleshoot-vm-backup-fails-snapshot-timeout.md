@@ -59,6 +59,7 @@ This error occurs when one of the extension failures puts the VM into provisioni
 
 - This issue could happen if there is a lock on the recovery point resource group preventing automatic cleanup of recovery points.
 - This issue can also happen if multiple backups are triggered per day. Currently we recommend only one backup per day, as the instant restore points are retained for 1-5 days per the configured snapshot retention and only 18 instant RPs can be associated with a VM at any given time. <br>
+- The number of restore points across restore point collections and resource groups for a VM cannot exceed 18. To create a new restore point, please delete existing restore points.
 
 Recommended Action:<br>
 To resolve this issue, remove the lock on the resource group of the VM, and retry the operation to trigger clean-up.
@@ -84,7 +85,6 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 
 **Cause 1: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 2: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
-**Cause 3: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
 ## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks - VMSnapshot extension operation failed
 
@@ -108,7 +108,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 4: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 5: Backup service doesn't have permission to delete the old restore points because of a resource group lock** <br>
-**Cause 6: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
+
 
 ## UserErrorUnsupportedDiskSize - The configured disk size(s) is currently not supported by Azure Backup.
 
@@ -136,16 +136,6 @@ Your recent backup job failed because there is an existing backup job in progres
 If the scheduled backup operation is taking longer, conflicting with the next backup configuration, then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance), and [Restore consideration](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
 ## Causes and solutions
-
-### <a name="the-vm-has-no-internet-access"></a>The VM doesn't have internet access
-
-Per the deployment requirement, the VM doesn't have internet access. Or, it might have restrictions that prevent access to the Azure infrastructure.
-
-To function correctly, the Backup extension requires connectivity to Azure public IP addresses. The extension sends commands to an Azure storage endpoint (HTTPs URL) to manage the snapshots of the VM. If the extension doesn't have access to the public internet, backup eventually fails.
-
-#### Solution
-
-To resolve the network issue, see [Establish network connectivity](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>The agent is installed in the VM, but it's unresponsive (for Windows VMs)
 

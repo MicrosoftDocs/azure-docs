@@ -1,9 +1,7 @@
 ---
 title: (DEPRECATED) Service principal for Azure Kubernetes cluster
 description: Create and manage an Azure Active Directory service principal for a Kubernetes cluster in Azure Container Service
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: conceptual

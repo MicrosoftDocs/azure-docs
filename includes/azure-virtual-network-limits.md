@@ -5,7 +5,7 @@
  author: anavinahar
  ms.service: networking
  ms.topic: include
- ms.date: 01/13/2020
+ ms.date: 01/14/2020
  ms.author: anavin
  ms.custom: include file
 
@@ -14,14 +14,15 @@
 The following limits apply only for networking resources managed through **Azure Resource Manager** per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> We recently increased all default limits to their maximum limits. If there's no maximum limit column, the resource doesn't have adjustable limits. If you had these limits increased by support in the past and don't see updated limits in the following tables, [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> We recently increased all default limits to their maximum limits. If there's no maximum limit column, the resource doesn't have adjustable limits. If you had these limits increased by support in the past and don't see updated limits in the following tables, [open an online customer support request at no charge](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
 | Resource | Default/maximum limit | 
 | --- | --- |
 | Virtual networks |1,000 |
 | Subnets per virtual network |3,000 |
 | Virtual network peerings per virtual network |500 |
-| [Virtual network gateways (VPN Gateways) per virtual network](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
+| [Virtual network gateways (VPN gateways) per virtual network](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
+| [Virtual network gateways (ExpressRoute gateways) per virtual network](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | DNS servers per virtual network |20 |
 | Private IP addresses per virtual network |65,536 |
 | Private IP addresses per network interface |256 |
@@ -46,10 +47,13 @@ The following limits apply only for networking resources managed through **Azure
 #### <a name="publicip-address"></a>Public IP address limits
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Public IP addresses - dynamic | 1,000 for Basic. |Contact support. |
-| Public IP addresses - static | 1,000 for Basic. |Contact support. |
-| Public IP addresses - static | 1,000 for Standard.|Contact support. |
+| Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
+| Static Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
+| Standard Public IP addresses<sup>1</sup> | 10 | Contact support. |
+| Public IP Prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
 | Public IP prefix length | /28 | Contact support. |
+
+<sup>1</sup>Default limits for Public IP addresses vary by offer category type, such as Free Trial, Pay-As-You-Go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000.
 
 #### <a name="load-balancer"></a>Load balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).

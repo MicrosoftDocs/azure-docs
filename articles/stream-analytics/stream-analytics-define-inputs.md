@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 01/17/2020
 ---
 # Stream data as input into Stream Analytics
 
@@ -49,6 +49,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Event Hub name** | The name of the event hub to use as input. |
 | **Event Hub policy name** | The shared access policy that provides access to the Event Hub. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated, unless you select the option to provide the Event Hub settings manually.|
 | **Event Hub consumer group** (recommended) | It is highly recommended to use a distinct consumer group for each Stream Analytics job. This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group.  |
+| **Partition key** | If your input is partitioned by a property, you can add the name of this property. Partition keys are optional and is used to improve the performance of your query if it includes a PARTITION BY or GROUP BY clause on this property. |
 | **Event serialization format** | The serialization format (JSON, CSV, Avro, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
 | **Event compression type** | The compression type used to read the incoming data stream, such as None (default), GZip, or Deflate. |
@@ -98,6 +99,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Shared access policy name** | The shared access policy that provides access to the IoT Hub. Each shared access policy has a name, permissions that you set, and access keys. |
 | **Shared access policy key** | The shared access key used to authorize access to the IoT Hub.  This option is automatically populated in unless you select the option to provide the Iot Hub settings manually. |
 | **Consumer group** | It is highly recommended that you use a different consumer group for each Stream Analytics job. The consumer group is used to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless you specify otherwise.  |
+| **Partition key** | If your input is partitioned by a property, you can add the name of this property. Partition keys are optional and is used to improve the performance of your query if it includes a PARTITION BY or GROUP BY clause on this property. |
 | **Event serialization format** | The serialization format (JSON, CSV, Avro, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
 | **Event compression type** | The compression type used to read the incoming data stream, such as None (default), GZip, or Deflate. |
@@ -151,6 +153,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Path pattern** (optional) | The file path used to locate the blobs within the specified container. If you want to read blobs from the root of the container, do not set a path pattern. Within the path, you can specify one or more instances of the following three variables: `{date}`, `{time}`, or `{partition}`<br/><br/>Example 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Example 2: `cluster1/logs/{date}`<br/><br/>The `*` character is not an allowed value for the path prefix. Only valid <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob characters</a> are allowed. Do not include container names or file names. |
 | **Date format** (optional) | If you use the date variable in the path, the date format in which the files are organized. Example: `YYYY/MM/DD` |
 | **Time format** (optional) |  If you use the time variable in the path, the time format in which the files are organized. Currently the only supported value is `HH` for hours. |
+| **Partition key** | If your input is partitioned by a property, you can add the name of this property. Partition keys are optional and is used to improve the performance of your query if it includes a PARTITION BY or GROUP BY clause on this property. |
 | **Event serialization format** | The serialization format (JSON, CSV, Avro, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | For CSV and JSON, UTF-8 is currently the only supported encoding format. |
 | **Compression** | The compression type used to read the incoming data stream, such as None (default), GZip, or Deflate. |
