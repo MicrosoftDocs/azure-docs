@@ -50,6 +50,14 @@ With **Helm 3** you:
 
 See the following sections for examples.
 
+### Enable OCI support
+
+Set the following environment variable to enable OCI support in the Helm 3 client. Currently, this support is experimental. 
+
+```console
+export HELM_EXPERIMENTAL_OCI=1
+```
+
 ### Pull an existing Helm package
 
 If you haven't already added the `stable` Helm chart repo, run the `helm repo add` command:
@@ -68,12 +76,6 @@ helm pull stable/wordpress --untar
 The `helm pull stable/wordpress` command didn't specify a particular version, so the *latest* version was pulled and uncompressed in the `wordpress` subdirectory.
 
 ### Save chart to local registry cache
-
-First set the following environment variable to enable OCI support in the Helm 3 client. Currently, this support is experimental. 
-
-```console
-export HELM_EXPERIMENTAL_OCI=1
-```
 
 Change directory to the `wordpress` subdirectory, which contains the Helm chart files. Then, run `helm chart save` to save a copy of the chart locally and also create an alias with the fully qualified name of the registry and the target repository and tag. 
 
