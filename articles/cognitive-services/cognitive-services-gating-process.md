@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 02/20/2020
 ms.author: dapine
 ---
 
@@ -16,6 +16,13 @@ ms.author: dapine
 Cognitive Services extends artificial intelligence (AI) within reach to every developer, without requiring machine-learning expertise. All it takes is an API call to embed the ability to see, hear, speak, search, understand, and accelerate decision-making into your applications. This article will guide you through the application process for gated Cognitive Services offerings.
 
 Currently, the services below are offered through the gating process:
+
+## Web APIs
+
+| Service |
+|---------|
+| TBD     |
+| TBD     |
 
 ## Online Containers
 
