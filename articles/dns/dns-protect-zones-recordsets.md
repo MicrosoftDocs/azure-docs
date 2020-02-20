@@ -25,7 +25,7 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 
 The DNS Zone Contributor role is a built-in role for managing private DNS resources. This role applied to a user or group enables them to manage DNS resources.
 
-The resource group *myzones* contains five zones for Contoso Corporation. Granting the DNS administrator DNS Zone Contributor permissions to that resource group, enables full control over those DNS zones. It avoids granting unnecessary permissions. The DNS administrator can't create or stop virtual machines.
+The resource group *myResourceGroup* contains five zones for Contoso Corporation. Granting the DNS administrator DNS Zone Contributor permissions to that resource group, enables full control over those DNS zones. It avoids granting unnecessary permissions. The DNS administrator can't create or stop virtual machines.
 
 The simplest way to assign RBAC permissions is [via the Azure portal](../role-based-access-control/role-assignments-portal.md).  
 
@@ -60,7 +60,7 @@ az role assignment create \
 
 Azure RBAC rules can be applied to a subscription, a resource group or to an individual resource. That resource can be an individual DNS zone, or an individual record set.
 
-For example, the resource group *myzones* contains the zone *contoso.com* and a subzone *customers.contoso.com*. CNAME records are created for each customer account. The administrator account used to manage CNAME records is assigned permissions to create records in the *customers.contoso.com* zone. The account can manage *customers.contoso.com* only.
+For example, the resource group *myResourceGroup* contains the zone *contoso.com* and a subzone *customers.contoso.com*. CNAME records are created for each customer account. The administrator account used to manage CNAME records is assigned permissions to create records in the *customers.contoso.com* zone. The account can manage *customers.contoso.com* only.
 
 Zone-level RBAC permissions can be granted via the Azure portal.  Open **Access control (IAM)** for the zone, select **Add**, then select the **DNS Zone Contributor** role and select the required users or groups to grant permissions.
 
