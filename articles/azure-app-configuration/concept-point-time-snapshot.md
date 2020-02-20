@@ -18,7 +18,7 @@ Azure App Configuration maintains a record of changes made to key-value pairs. T
 
 You can use Azure PowerShell to retrieve past key values.  Use `az appconfig revision list`, adding appropriate parameters to retrieve the required values.  Specify the Azure App Configuration instance by providing either the store name (`--name {app-config-store-name}`) or by using a connection string (`--connection-string {your-connection-string}`). Restrict the output by specifying a specific point in time (`--datetime`) and by specifying the maximum number of items to return (`--top`).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Retrieve all recorded changes to your key-values.
 
