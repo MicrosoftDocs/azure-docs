@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/13/2019
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 
@@ -28,7 +28,7 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 1. Open **Azure AD Privileged Identity Management**. If you have a banner on the top of the overview page, follow the instructions in the **New version** tab of this article. Otherwise, follow the instructions in the **Previous version** tab.
 
-    ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 # [New version](#tab/new)
 
@@ -46,7 +46,7 @@ Resource audit gives you a view of all activity associated with your Azure AD ro
 
 1. Filter the history using a predefined date or custom range.
 
-    ![Resource audit list with filters](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Resource audit list with filters](media/pim-how-to-use-audit-log/resource-audit.png)
 
 ## View my audit
 
@@ -62,7 +62,7 @@ My audit enables you to view your personal role activity.
 
 1. Filter the history using a predefined date or custom range.
 
-    ![Audit list for the current user](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Audit list for the current user](media/pim-how-to-use-audit-log/audit-time-span.png)
 
 # [Previous version](#tab/previous)
 
