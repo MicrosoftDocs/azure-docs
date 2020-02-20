@@ -444,9 +444,9 @@ Refer to the following table for details about advanced metrics.
 
 |**Metric**|**Metric Display Name**|**Description**|
 |---|---|---|
-|tempdb_data_size| Tempdb Data File Size Kilobytes |Tempdb Data File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models. |
-|tempdb_log_size| Tempdb Log File Size Kilobytes |Tempdb Log File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models. |
-|tempdb_log_used_percent| Tempdb Percent Log Used |Tempdb Percent Log Used. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models. |
+|tempdb_data_size| Tempdb Data File Size Kilobytes |Tempdb Data File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 200 DTU with 2 vCore and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.|
+|tempdb_log_size| Tempdb Log File Size Kilobytes |Tempdb Log File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 200 DTU with 2 vCore and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.|
+|tempdb_log_used_percent| Tempdb Percent Log Used |Tempdb Percent Log Used. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 200 DTU with 2 vCore and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.|
 
 ## Basic logs
 
