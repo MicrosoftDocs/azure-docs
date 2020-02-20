@@ -20,7 +20,7 @@ For more information, see [What is Azure Private Link (Preview)?](../private-lin
 
 ## Prerequisites
 
-To integrate an event hub with Azure Private Link (Preview), you will need the following:
+To integrate an event hub with Azure Private Link (Preview), you'll need the following entities or permissions:
 
 - An event hub.
 - An Azure virtual network.
@@ -51,12 +51,12 @@ After configuring the event hub basics, select the **Networking** tab and follow
 1. In the **Location** field of the **Create Private Endpoint** page, select the **region** in which your virtual network is located. 
 1. In the **Name** field, create a descriptive name that will allow you to identify this private endpoint. 
 1. Select the **virtual network** and **subnet** you want this private endpoint to be created in from the dropdown menu. 
-1. Leave the **integrate with the private zone DNS** option unchanged.  
+1. Leave **integrate with the private zone DNS** option unchanged.  
 1. Select **Ok**.
 
     ![Image](./media/private-link-service/private-link-service-2.png)
  
-You will now be able to see the configured private endpoint. You now have the option to delete and edit this private endpoint. 
+You can see the configured private endpoint now. You now have the option to delete and edit this private endpoint. 
 Select the **Review + Create** button and create the **event hub**. It will take 5-10 minutes for the deployment to complete. 
 
 ### Establish a private link connection to an existing event hub
@@ -73,18 +73,18 @@ If you already have an event hub, you can create a private link connection by fo
     ![Image](./media/private-link-service/private-link-service-3.png)
     ![Image](./media/private-link-service/private-link-service-4.png)
 
-You can choose to create a private endpoint for any Azure resource in using this blade. You can either use the dropdown menus to select a resource type and select a resource in your directory, or you can connect to any Azure resource using a resource ID. Leave the "integrate with the private zone DNS" option unchanged.  
+You can choose to create a private endpoint for any Azure resource in using this page. You can either use the dropdown menus to select a resource type and select a resource in your directory, or you can connect to any Azure resource using a resource ID. Leave the "integrate with the private zone DNS" option unchanged.  
 
 ![Image](./media/private-link-service/private-link-service-3.png)
 ![Image](./media/private-link-service/private-link-service-4.png)
 
 ## Manage private link connection
 
-When you create a private endpoint, the connection must be approved. If the resource for which you are creating a private endpoint is in your directory, you will be able to approve the connection request provided you have sufficient permissions; if you are connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
+When you create a private endpoint, the connection must be approved. If the resource for which you're creating a private endpoint is in your directory, you can approve the connection request provided you have sufficient permissions. If you're connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
 
 There are four provisioning states:
 
-| Service provide action | Service consumer private endpoint state | Description |
+| Service action | Service consumer private endpoint state | Description |
 |--|--|--|
 | None | Pending | Connection is created manually and is pending approval from the Private Link resource owner. |
 | Approve | Approved | Connection was automatically or manually approved and is ready to be used. |

@@ -188,6 +188,8 @@
       href: event-hubs-tutorial-virtual-networks-firewalls.md
     - name: Configure customer-managed keys for encrypting data at rest
       href: configure-customer-managed-key.md
+    - name: Integrate with Azure Private Link service (preview)
+      href: private-link-service.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
