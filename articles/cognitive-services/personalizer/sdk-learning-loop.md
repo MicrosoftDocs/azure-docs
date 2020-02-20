@@ -8,7 +8,7 @@ zone_pivot_groups: programming-languages-set-six
 
 # Quickstart: Personalizer client library
 
-Display personalized content in this python quickstart with the Personalizer service.
+Display personalized content in this quickstart with the Personalizer service.
 
 Get started with the Personalizer client library. Follow these steps to install the package and try out the example code for basic tasks.
 
