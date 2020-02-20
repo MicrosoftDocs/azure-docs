@@ -38,56 +38,72 @@ The following table describes the actions included with the Azure Monitor Logs c
 
 
 
-## Walkthrough: mail visualized results
-
-
-
- 
+## Walkthrough: Mail visualized results
 
 The tutorial in this article shows you how to create a flow that automatically sends the results of an Azure Monitor log query by email, just one example of how you can use the Log Analytics connector in Microsoft Flow. 
 
 
-## Step 1: Create a flow
-1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and select **My Flows**.
-2. Click **+ Create from blank**.
+### Create a Flow or Logic App
 
-## Step 2: Create a trigger for your flow
-1. Click **Search hundreds of connectors and triggers**.
-2. Type **Schedule** in the search box.
-3. Select **Schedule**, and then select **Schedule - Recurrence**.
-4. In the **Frequency** box select **Day** and in the **Interval** box, enter **1**.<br><br>![Microsoft Flow trigger dialog box](media/flow-tutorial/flow01.png)
+Go to **Logic Apps** in the Azure portal and click **Add**. Select a **Subscription**, **Resource group**, and **Region** to store the new logic app and then give it a unique name. You can turn on **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). This setting isn't required for using the Azure Monitor Logs connector.
+
+![Create logic app](media/logicapp-flow-connector/create-logic-app.png)
 
 
-## Step 3: Add a Log Analytics action
-1. Click **+ New step**, and then click **Add an action**.
-2. Search for **Log Analytics**.
-3. Click **Azure Log Analytics – Run query and visualize results**.<br><br>![Log Analytics run query window](media/flow-tutorial/flow02.png)
+Click **Review + create** and then **Create**. When the deployment is complete, click **Go to resource** to open the **Logic Apps Designer**.
 
-## Step 4: Configure the Log Analytics action
+### Create a trigger for the logic app
+Under **Start with a common trigger**, select **Recurrence**. This creates a logic app that automatically runs at a regular interval. In the **Frequency** box of the action, select **Day** and in the **Interval** box, enter **1**.
 
-1. Specify the details for your workspace including the Subscription ID, Resource Group, and Workspace Name.
-2. Add the following log query to the **Query** window.  This is only a sample query, and you can replace with any other that returns data.
-   ```
-	Event
-	| where EventLevelName == "Error" 
-	| where TimeGenerated > ago(1day)
-	| summarize count() by Computer
-	| sort by Computer
-   ```
+![Recurrence action](media/logicapp-flow-connector/recurrence-action.png)
 
-2. Select **HTML Table** for the **Chart Type**.<br><br>![Log Analytics action](media/flow-tutorial/flow03.png)
 
-## Step 5: Configure the flow to send email
+### Add Azure Monitor Logs action
+Click **+ New step** to add an action that runs after the recurrence action. Under **Choose an action**, type **azure monitor** and then select **Azure Monitor Logs**.
 
-1. Click **New step**, and then click **+ Add an action**.
-2. Search for **Office 365 Outlook**.
-3. Click **Office 365 Outlook – Send an email**.<br><br>![Office 365 Outlook selection window](media/flow-tutorial/flow04.png)
+![Azure Monitor Logs action](media/logicapp-flow-connector/select-azure-monitor-connector.png)
 
-4. Specify the email address of a recipient in the **To** window and a subject for the email in **Subject**.
-5. Click anywhere in the **Body** box.  A **Dynamic content** window opens with values from previous actions.  
-6. Select **Body**.  This is the results of the query in the Log Analytics action.
-6. Click **Show advanced options**.
-7. In the **Is HTML** box, select **Yes**.<br><br>![Office 365 email configuration window](media/flow-tutorial/flow05.png)
+Click **Azure Log Analytics – Run query and visualize results**.
+
+![Run query and visualize results action](media/logicapp-flow-connector/select-query-action.png)
+
+
+### Add Azure Monitor Logs action
+
+Select the **Subscription** and **Resource Group** for your Log Analytics workspace. Select *Log Analytics Workspace* for the **Resource Type** and then select the workspace's name under **Resource Name**.
+
+Add the following log query to the **Query** window.  
+
+```Kusto
+Event
+| where EventLevelName == "Error" 
+| where TimeGenerated > ago(1day)
+| summarize TotalErrors=count() by Computer
+| sort by Computer asc   
+```
+
+Select *Set in query* for the **Time Range** and **HTML Table** for the **Chart Type**.
+   
+![Run query and visualize results action](media/logicapp-flow-connector/run-query-visualize-action.png)
+
+The mail will be sent by the account associated with the current connection. You can specify another account by clicking on **Change connection**.
+
+### Add email action
+
+Click **+ New step**, and then click **+ Add an action**. Under **Choose an action**, type **outlook** and then select **Office 365 Outlook**.
+
+![Select Outlook connector](media/logicapp-flow-connector/select-outlook-connector.png)
+
+Select **Send an email (V2)**.
+
+![Office 365 Outlook selection window](media/logicapp-flow-connector/select-mail-action.png)
+
+Specify the email address of a recipient in the **To** window and a subject for the email in **Subject**. Click anywhere in the **Body** box.  A **Dynamic content** window opens with values from the previous actions in the logic app. 
+
+
+7. Select **Body**.  This is the results of the query in the Log Analytics action.
+8. Click **Show advanced options**.
+9. In the **Is HTML** box, select **Yes**.<br><br>![Office 365 email configuration window](media/flow-tutorial/flow05.png)
 
 ## Step 6: Save and test your flow
 1. In the **Flow name** box, add a name for your flow, and then click **Create flow**.<br><br>![Save flow](media/flow-tutorial/flow06.png)
