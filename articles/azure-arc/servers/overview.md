@@ -126,7 +126,7 @@ You can also register the resource providers in the Azure portal by following th
 
 ## Connected Machine agent
 
-You can download the Azure Connected Machine Agent package for Windows and Linux from the locations listed below.
+You can download the Azure Connected Machine agent package for Windows and Linux from the locations listed below.
 
 - [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center.
 - Linux agent package is distributed from Microsoft's [package repository](https://packages.microsoft.com/) using the preferred package format for the distribution (.RPM or .DEB).
@@ -134,7 +134,11 @@ You can download the Azure Connected Machine Agent package for Windows and L
 >[!NOTE]
 >During this preview, only one package has been released, which is suitable for Ubuntu 16.04 or 18.04.
 
-The Azure Arc for servers agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. For Windows, the agent can be updated from Windows Update and for Ubuntu, using the [apt](https://help.ubuntu.com/lts/serverguide/apt.html) command-line tool. 
+The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. For Windows, the agent update can be automatically performed using Windows Update and for Ubuntu, using the [apt](https://help.ubuntu.com/lts/serverguide/apt.html) command-line tool.
+
+### Agent status
+
+The Connected Machine agent sends a regular heartbeat message to the service every 5 minutes. If one is not received for 15 minutes, the machine is considered offline and the status will automatically be changed to **Disconnected** in the portal. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed to **Connected**.
 
 ## Install and configure agent
 
