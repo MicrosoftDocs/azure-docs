@@ -48810,6 +48810,21 @@
       "source_path": "articles/terraform/terraform-vm-managed-identities-for-azure-resources.md",
       "redirect_url": "/azure/terraform/terraform-create-complete-vm",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-android-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-devices-sdk-quickstart?pivots=platform-android",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-linux-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-devices-sdk-quickstart?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-windows-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-devices-sdk-quickstart?pivots=platform-windows",
+      "redirect_document_id": false
     }
   ]
 }

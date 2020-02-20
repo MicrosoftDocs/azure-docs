@@ -16,15 +16,15 @@ zone_pivot_groups: platforms-set-of-three
 # Quickstart: Run the Speech Devices SDK sample app on Windows, Linux or Android
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Windows platform](speech-devices-sdk-windows-quickstart.md)]
+[!INCLUDE [Windows platform](includes/speech-devices-sdk-windows-quickstart.md)]
 ::: zone-end
 
 ::: zone pivot="platform-linux"
-[!INCLUDE [Linux platform](speech-devices-sdk-linux-quickstart.md)]
+[!INCLUDE [Linux platform](includes/speech-devices-sdk-linux-quickstart.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Android platform](speech-devices-sdk-android-quickstart.md)]
+[!INCLUDE [Android platform](includes/speech-devices-sdk-android-quickstart.md)]
 ::: zone-end
 
 ## Next steps
