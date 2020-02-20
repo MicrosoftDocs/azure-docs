@@ -30,8 +30,7 @@ and uses both geo-redundant service deployment and geo-regional job replication.
 
 ### Geo-redundant service deployment
 
-Azure Scheduler is available in the Azure portal across almost 
-[every geographical region supported by Azure today](https://azure.microsoft.com/global-infrastructure/regions/#services). 
+Azure Scheduler is available across almost [every geographical region supported by Azure today](https://azure.microsoft.com/global-infrastructure/regions/#services). 
 So, if an Azure datacenter in a hosted region becomes unavailable, 
 you can still use Azure Scheduler because the service's failover 
 capabilities make Scheduler available from another datacenter.

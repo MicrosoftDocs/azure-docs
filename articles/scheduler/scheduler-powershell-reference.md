@@ -54,7 +54,7 @@ see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-res
 
 For more details, you can run any of these cmdlets: 
 
-```
+```text
 Get-Help <cmdlet name> -Detailed
 Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
@@ -64,5 +64,4 @@ Get-Help <cmdlet name> -Full
 
 * [What is Azure Scheduler?](scheduler-intro.md)
 * [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
-* [Create and schedule your first job - Azure portal](scheduler-get-started-portal.md)
 * [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)

@@ -6661,6 +6661,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/scheduler/get-started-portal.md",
+      "redirect_url": "/azure/scheduler/scheduler-powershell-reference",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
       "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/create-web-api-connector",
       "redirect_document_id": true
