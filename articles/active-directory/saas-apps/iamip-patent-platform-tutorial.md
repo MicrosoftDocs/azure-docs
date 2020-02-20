@@ -67,7 +67,7 @@ To configure and test Azure AD SSO with IamIP Platform, you'll take these high-l
     * **[Grant access to the test user](#grant-access-to-the-test-user)** to enable the user to use Azure AD single sign-on.
 
 1. **[Configure IamIP Platform SSO](#configure-iamip-platform-sso)** on the application side.
-    * **[Create an IamIP Platform test user](#create-iamip-patent-platform-test-user)** as a counterpart to the Azure AD representation of the user.
+    * **[Create an IamIP Platform test user](#create-iamip-platform-test-user)** as a counterpart to the Azure AD representation of the user.
 
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
