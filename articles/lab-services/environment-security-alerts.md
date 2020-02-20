@@ -16,11 +16,11 @@ ms.author: spelluru
 ---
 
 # Security alerts for environments in Azure DevTest Labs
-As a lab user you can now view Azure Security Center alerts for your lab ARM environments. Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack. [Learn more about security alerts in Azure Security Center](../security-center//security-center-alerts-overview.md).  
+As a lab user you can now view Azure Security Center alerts for your lab environments. Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack. [Learn more about security alerts in Azure Security Center](../security-center//security-center-alerts-overview.md).  
 
 
 ## Prerequisites
-Currently, you can view security alerts only for environments deployed into your lab. To test or use this feature, [deploy an environment into your lab](devtest-lab-create-environment-from-arm.md). 
+Currently, you can view security alerts only for platform as a service (PaaS) environments deployed into your lab. To test or use this feature, [deploy an environment into your lab](devtest-lab-create-environment-from-arm.md). 
 
 ## View security alerts for an environment
 
