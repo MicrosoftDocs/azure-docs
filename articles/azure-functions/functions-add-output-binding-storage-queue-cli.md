@@ -87,7 +87,7 @@ In this case, `msg` is given to the function as an output argument. For a `queue
 [!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]  
 ::: zone-end  
 
-For more information on the details of bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md) and [queue output configuration](functions-bindings-storage-queue.md#output---configuration).
+For more information on the details of bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md) and [queue output configuration](functions-bindings-storage-queue-output.md#configuration).
 
 ## Add code to use the output binding
 
@@ -204,13 +204,13 @@ Now that you've tested the function locally and verified that it wrote a message
     
     Copy the complete **Invoke url** shown in the output of the publish command into a browser address bar, appending the query parameter `&name=Azure`. The browser should display similar output as when you ran the function locally.
 
-    ![The output of the function run on Azure in a browser](./media/functions-create-first-function-python/function-test-cloud-browser.png)
+    ![The output of the function run on Azure in a browser](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-browser.png)
 
     # [curl](#tab/curl)
     
     Run [curl](https://curl.haxx.se/) with the **Invoke url**, appending the parameter `&name=Azure`. The output of the command should be the text, "Hello Azure".
     
-    ![The output of the function run on Azure using curl](./media/functions-create-first-function-python/function-test-cloud-curl.png)
+    ![The output of the function run on Azure using curl](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-curl.png)
 
     --- 
 
