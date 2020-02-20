@@ -38,3 +38,5 @@
     href: ../../key-vault/security-baseline.md
   - name: HDInsight Security Baselines
     href: ../../hdinsight/security-baseline.md
+  - name: SQL Database Security Baselines
+    href: ../../sql-database/security-baseline.md
