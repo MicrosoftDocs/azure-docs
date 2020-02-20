@@ -545,7 +545,7 @@ The following example looks up the domain name in one of the inputParameters col
     - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
     - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
     - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup**: false
+    - **errorOnFailedLookup**: true
 - Error:
     - No match found for the input claim value in the list of input parameter ids and errorOnFailedLookup is true.
 
