@@ -19,7 +19,7 @@ This article describes the SQL Analytics recommendations served through Azure Ad
 
 SQL Analytics provides recommendations to ensure your data warehouse workload is consistently optimized for performance. Recommendations are tightly integrated with [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) to provide you with best practices directly within the [Azure portal](https://aka.ms/Azureadvisor). SQL Analytics collects telemetry and surfaces recommendations for your active workload on a daily cadence. The supported  recommendation scenarios are outlined below along with how to apply recommended actions.
 
-Click [here](https://aka.ms/Azureadvisor) to check your recommendations today! Currently this feature is applicable to Gen2 data warehouses only. 
+You can [check your recommendations](https://aka.ms/Azureadvisor) today! Currently this feature is applicable to Gen2 data warehouses only. 
 
 ## Data skew
 
