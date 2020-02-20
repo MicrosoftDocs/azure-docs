@@ -111,6 +111,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Log Analytics Reader](#log-analytics-reader) | Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | [Logic App Contributor](#logic-app-contributor) | Lets you manage logic apps, but not change access to them. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | [Logic App Operator](#logic-app-operator) | Lets you read, enable, and disable logic apps, but not edit or update them. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
+> | [Managed Application Contributor Role](#managed-application-contributor-role) | Allows for creating managed application resources. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [Managed Application Operator Role](#managed-application-operator-role) | Lets you read and perform actions on Managed Application resources | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Managed Applications Reader](#managed-applications-reader) | Lets you read resources in a managed app and request JIT access. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | [Managed Identity Contributor](#managed-identity-contributor) | Create, Read, Update, and Delete User Assigned Identity | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
@@ -1969,6 +1970,25 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Web/connections/*/read | Read Connections. |
 > | Microsoft.Web/customApis/*/read | Read Custom API. |
 > | Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Managed Application Contributor Role
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for creating managed application resources. |
+> | **Id** | 641177b8-a67a-45b9-a033-47bc880bb21e |
+> | **Actions** |  |
+> | */read | Read resources of all types, except secrets. |
+> | Microsoft.Solutions/applications/* |  |
+> | Microsoft.Solutions/register/action | Register to Solutions. |
+> | Microsoft.Resources/subscriptions/resourceGroups/* |  |
+> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
