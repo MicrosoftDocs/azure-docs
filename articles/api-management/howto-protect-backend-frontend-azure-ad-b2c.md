@@ -32,7 +32,7 @@ For defense in depth, we then use EasyAuth to validate the token again inside th
 To follow the steps in this article, you must have:
 * An Azure (StorageV2) General Purpose V2 Storage Account to host the frontend JS Single Page App
 * An Azure API Management instance 
-* An empty Azure Function app (running the V2 .Net Core runtime, on a Windows Consumption Plan) to host the called API
+* An empty Azure Function app (running the V2 .NET Core runtime, on a Windows Consumption Plan) to host the called API
 * An Azure AD B2C tenant, linked to a subscription 
 
 Although in practice you would use resources in the same region in production workloads, for this how-to article the region of deployment isn't important.
@@ -86,7 +86,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Under 'User Attributes and claims', click 'Show More...' then choose the claim options that you want your users to enter and have returned in the token. Check at least 'Display Name' and 'Email Address' to collect and return, and click 'OK', then click 'Create'.
 1. Select the policy that you created in the list, then click the 'Run user flow' button.
 1. This action will open the run user flow blade, select the frontend application, then record the address of the b2clogin.com domain that's shown under the dropdown for 'Select domain'.
-1. Click on the link at the top to open the 'well-known openid configuration endpoint', and record the authorization_endpoint and token_endpoint values as well of the value of the link itself as the well known openid configuration endpoint.
+1. Click on the link at the top to open the 'well-known openid configuration endpoint', and record the authorization_endpoint and token_endpoint values as well of the value of the link itself as the well-known openid configuration endpoint.
 
 >   [!NOTE]
 >   B2C Policies allow you to expose the Azure AD B2C login endpoints to be able to capture different data components and sign in users in different ways. 
@@ -239,7 +239,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
        </cors>
    </inbound>
 ```
-1. Edit the openid-config url to match your well known Azure AD B2C endpoint for the sign up or sign in policy.
+1. Edit the openid-config url to match your well-known Azure AD B2C endpoint for the sign up or sign in policy.
 1. Edit the claim value to match the valid application ID, also known as a client ID for the backend API application and save.
 1. Select the api operation below the "All APIs"
 
