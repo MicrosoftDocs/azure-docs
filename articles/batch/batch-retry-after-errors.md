@@ -24,16 +24,16 @@ It is important to remember to check for errors when working with a REST service
 
 ## Common errors 
 
-- Networking failures which means the request never reached Batch or the Batch response didn't reach the client in time.
-- Internal server errors which is a standard 5xx status code HTTP response.
-- Throttling can cause errors such as 429 or 503 status code HTTP responses with the Retry-after header. 
-- 4xx errors which include such errors as AlreadyExists and InvalidOperation. This means that the resource is not in the correct state for the state transition requested by the customer. 
+- Networking failures - these are requests that never reached Batch or the Batch response didn't reach the client in time.
+- Internal server errors - these are standard 5xx status code HTTP response.
+- Throttling can cause errors such as 429 or 503 status code HTTP responses with the Retry-after header.
+- 4xx errors that include such errors as AlreadyExists and InvalidOperation. This means that the resource is not in the correct state for the state transition.
 
 ## When to retry
 
-The Batch APIs will notify you if there is a failure. They can all be retried and include a global retry handler for that purpose. It is best to use this built-in mechanism.
+The Batch APIs will notify you if there is a failure. They can all be retried, and they all include a global retry handler for that purpose. It is best to use this built-in mechanism.
 
-After a failure, you should wait a bit (several seconds between retries) before retrying. If you retry too frequently or too quickly, you will be throttled. This is managed by the retry handler.
+After a failure, you should wait a bit (several seconds between retries) before retrying. If you retry too frequently or too quickly, the retry handler will throttle.
 
 
 For detailed information about each API and their default retry policies, read [Batch Status and Error Codes](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
