@@ -83,7 +83,6 @@ azurefunctions {
     runtime {
       os = 'windows'
     }
-    allowTelemetry = true
     localDebug = "transport=dt_socket,server=y,suspend=n,address=5005"
 }
 ```
