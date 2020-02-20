@@ -71,7 +71,7 @@ Recommended usage |Recommended for the vast majority of streaming scenarios.|Pro
 
 <sup>1</sup> Only used directly on the Streaming Endpoint when the CDN isn't enabled on the endpoint.<br/>
 
-## Properties
+## Streaming Endpoint properties
 
 This section gives details about some of the Streaming Endpoint's properties. For examples of how to create a new streaming endpoint and descriptions of all properties, see [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
 
@@ -128,6 +128,21 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
 - `scaleUnits`: Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
 
+## Why use multiple Streaming Endpoints?
+
+A single streaming endpoint can stream both live and on-demand videos and most customers only use one streaming endpoint. This section gives some examples of why you may need to use multiple streaming endpoints.
+
+* Load Balance different CDN providers. For example, you could set up the default Streaming Endpoint to use the Verizon CDN and create a second one to use Akamai. Then add some load balancing between the two to achieve multi-CDN balancing. 
+* Each reserved unit allows for 200 Mbps of bandwidth. If you need more than 2,000 Mbps (2 Gbps) of bandwidth, you could use the second streaming endpoint and load balance to give you additional bandwidth.
+
+    However, CDN is the best way to achieve scale out for streaming content but if you are delivering so much content that the CDN is pulling more than 2 Gbps then you can add additional streaming endpoints (origins). In this case you would need to hand out content URLs that are balanced across the two streaming endpoints. This approach gives better caching than trying to send requests to each origin randomly (for example, via a traffic manager).
+ 
+* Streaming mixed content: Live and Video on Demand. 
+
+    The access patterns for live and on-demand content are very different. The live content tends to get a lot of demand for the same content all at once. The video on-demand content (long tail archive content for instance) has low usage on the same content. Thus caching works very well on the live content but not as well on the long tail content.
+
+    Consider a scenario in which your customers are mainly watching live content but are only occasionally watching on-demand content and it is served from the same Streaming Endpoint. The low usage of on-demand content would occupy cache space that would be better saved for the live content. In this scenario, we would recommend serving the live content from one Streaming Endpoint and the long tail content from another Streaming Endpoint. This will improve the performance of the live event content.
+    
 ## Scaling streaming with CDN
 
 See the following articles:
