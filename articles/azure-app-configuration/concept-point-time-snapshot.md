@@ -12,7 +12,7 @@ ms.date: 02/20/2020
 
 # Point-in-time snapshot
 
-Azure App Configuration maintains a record of changes made to key-value pairs. This records forms a complete timeline of key-value changes, beginning with the creation of each pair, for up to 7 days. An App Configuration store can reconstruct the history of any key-value and provide its past value at any given moment. Using this feature, you can “time-travel” backward and retrieve an old key-value. For example, you can recover configuration settings used prior to the most recent deployment in order to roll back the application to the previous configuration.
+Azure App Configuration maintains a record of changes made to key-value pairs. This record provides a timeline of key-value changes. You can reconstruct the history of any key-value and provide its past value at any moment within the previous seven days. Using this feature, you can “time-travel” backward and retrieve an old key-value. For example, you can recover configuration settings used before the most recent deployment in order to roll back the application to the previous configuration.
 
 ## Key-value retrieval
 
