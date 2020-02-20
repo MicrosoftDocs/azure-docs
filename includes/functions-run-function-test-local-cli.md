@@ -40,4 +40,4 @@ Copy the URL of your `HttpExample` function from this output to a browser and ap
 
 The terminal in which you ran `func start` also shows log output as you make requests.
 
-When you're ready, **Ctrl**+**C** to stop the functions host.
+When you're ready, use **Ctrl**+**C** to stop the functions host.
