@@ -1211,6 +1211,101 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech/concepts.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/Home.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/samples.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/support.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/troubleshooting.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/API-Reference-REST/BingVoiceOutput.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/API-Reference-REST/websocketprotocol.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/API-Reference-REST/supportedlanguages.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStarted.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStartedClientLibraries.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStartedCSharpDesktop.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStartedCSharpServiceLibrary.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStartedJavaAndroid.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStartedJSWebsockets.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/Get-Started-ObjectiveC-iOS.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStartedREST.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/How-to/how-to-authentication.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/How-to/how-to-choose-recognition-mode.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/How-to/how-to-chunked-transfer.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
       "redirect_document_id": false
@@ -5872,8 +5967,13 @@
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-social-migration.md",
-      "redirect_url": "/azure/active-directory-b2c/migrate-social-identities",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory-b2c/user-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/migrate-social-identities.md",
+      "redirect_url": "/azure/active-directory-b2c/user-migration",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-goog-idp.md",
@@ -36481,6 +36581,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-scim-compatibility.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-configure-api.md",
       "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-configure-api",
       "redirect_document_id": false
@@ -48529,6 +48634,96 @@
     {
       "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-python.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-general.md",
+      "redirect_url": "/azure/virtual-machines/sizes-general",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-general.md",
+      "redirect_url": "/azure/virtual-machines/sizes-general",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-compute.md",
+      "redirect_url": "/azure/virtual-machines/sizes-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-compute.md",
+      "redirect_url": "/azure/virtual-machines/sizes-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-memory.md",
+      "redirect_url": "/azure/virtual-machines/sizes-memory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-memory.md",
+      "redirect_url": "/azure/virtual-machines/sizes-memory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-storage.md",
+      "redirect_url": "/azure/virtual-machines/sizes-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-storage.md",
+      "redirect_url": "/azure/virtual-machines/sizes-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-gpu.md",
+      "redirect_url": "/azure/virtual-machines/sizes-gpu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-gpu.md",
+      "redirect_url": "/azure/virtual-machines/sizes-gpu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-hpc.md",
+      "redirect_url": "/azure/virtual-machines/sizes-hpc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-hpc.md",
+      "redirect_url": "/azure/virtual-machines/sizes-hpc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-previous-gen.md",
+      "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-previous-gen.md",
+      "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/acu.md",
+      "redirect_url": "/azure/virtual-machines/acu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/acu.md",
+      "redirect_url": "/azure/virtual-machines/acu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/b-series-burstable.md",
+      "redirect_url": "/azure/virtual-machines/sizes-b-series-burstable",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/b-series-burstable.md",
+      "redirect_url": "/azure/virtual-machines/sizes-b-series-burstable",
       "redirect_document_id": false
     },
     {

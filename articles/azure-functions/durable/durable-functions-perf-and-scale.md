@@ -246,7 +246,7 @@ When planning to use Durable Functions for a production application, it is impor
 > [!TIP]
 > Unlike fan-out, fan-in operations are limited to a single VM. If your application uses the fan-out, fan-in pattern and you are concerned about fan-in performance, consider sub-dividing the activity function fan-out across multiple [sub-orchestrations](durable-functions-sub-orchestrations.md).
 
-The following table shows the expected *maximum* throughput numbers for the previously described scenarios. "Instance" refers to a single instance of an orchestrator function running on a single small ([A1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) VM in Azure App Service. In all cases, it is assumed that [extended sessions](#orchestrator-function-replay) are enabled. Actual results may vary depending on the CPU or I/O work performed by the function code.
+The following table shows the expected *maximum* throughput numbers for the previously described scenarios. "Instance" refers to a single instance of an orchestrator function running on a single small ([A1](../../virtual-machines/sizes-previous-gen.md)) VM in Azure App Service. In all cases, it is assumed that [extended sessions](#orchestrator-function-replay) are enabled. Actual results may vary depending on the CPU or I/O work performed by the function code.
 
 | Scenario | Maximum throughput |
 |-|-|
