@@ -29,7 +29,7 @@ Use `sudo pip install` instead of `pip install` when installing packages.
 
 ### Disk encryption fails on the Ubuntu DSVM
 
-Azure Disk Encryption (ADE) is not currently supported on the Ubuntu DSVM. As a workaround, consider configuring [Server Side Encryption of Azure managed disks](../../virtual-machines/windows/disc-encryption.md).
+Azure Disk Encryption (ADE) is not currently supported on the Ubuntu DSVM. As a workaround, consider configuring [Server Side Encryption of Azure managed disks](../../virtual-machines/windows/disk-encryption.md).
 
 ## Tool appears disabled
 
