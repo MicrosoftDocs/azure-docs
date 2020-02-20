@@ -58,11 +58,12 @@ Given the demand from different customer segments, we're attempting to expedite 
 
 If the application is approved, the Microsoft team will send an email with all details, documentation, and guidance. Cognitive Services pricing details available [here](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-## Application
-
-The application is available here, <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u" target="_blank">Azure Cognitive Services - Application for gated services <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+## Next steps
 
 If you have questions, email the Microsoft team at <a href="mailto:containersupport@microsoft.com">containersupport@microsoft.com</a>.
+
+> [!div class="nextstepaction"]
+> [Submit application for gated services](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u)
 
 [ad-containers]: ./anomaly-detector/anomaly-detector-container-howto.md
 [cv-containers]: ./computer-vision/computer-vision-how-to-install-containers.md
