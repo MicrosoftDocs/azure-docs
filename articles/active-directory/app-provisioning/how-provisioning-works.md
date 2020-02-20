@@ -7,7 +7,7 @@ author: msmimart
 manager: CelesteDG
 
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -88,7 +88,7 @@ Note that the userPrincipalName for a guest user is often stored as "alias#EXT#@
 
 ## Provisioning cycles: Initial and incremental
 
-When Azure AD is the source system, the provisioning service uses the [Differential Query feature of the Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) to monitor users and groups. The provisioning service runs an initial cycle against the source system and target system, followed by periodic incremental cycles.
+When Azure AD is the source system, the provisioning service uses the [Use delta query to track changes in Microsoft Graph data](https://docs.microsoft.com/graph/delta-query-overview) to monitor users and groups. The provisioning service runs an initial cycle against the source system and target system, followed by periodic incremental cycles.
 
 ### Initial cycle
 
@@ -139,8 +139,8 @@ After the initial cycle, all other cycles will:
 
 The provisioning service continues running back-to-back incremental cycles indefinitely, at intervals defined in the [tutorial specific to each application](../saas-apps/tutorial-list.md). Incremental cycles continue until one of the following events occurs:
 
-- The service is manually stopped using the Azure portal, or using the appropriate Graph API command 
-- A new initial cycle is triggered using the **Clear state and restart** option in the Azure portal, or using the appropriate Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again.
+- The service is manually stopped using the Azure portal, or using the appropriate Microsoft Graph API command.
+- A new initial cycle is triggered using the **Clear state and restart** option in the Azure portal, or using the appropriate Microsoft Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again.
 - A new initial cycle is triggered because of a change in attribute mappings or scoping filters. This action also clears any stored watermark and causes all source objects to be evaluated again.
 - The provisioning process goes into quarantine (see below) because of a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
 

@@ -7,7 +7,7 @@ ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc
+ms.custom: mvc, cli-validate
 ms.custom: seodec18
 
 ---

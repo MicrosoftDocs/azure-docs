@@ -2,7 +2,7 @@
 title: Limits and boundaries - QnA Maker
 description: QnA Maker has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish.
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 02/14/2020
 ---
 
 # QnA Maker knowledge base limits and boundaries
@@ -49,6 +49,8 @@ The maximum number of files that can be extracted and maximum file size is based
 The maximum number of deep-links that can be crawled for extraction of QnAs from a URL page is **20**.
 
 ## Metadata Limits
+
+Metadata is stored and compared in lower case.
 
 ### By Azure Cognitive Search pricing tier
 
