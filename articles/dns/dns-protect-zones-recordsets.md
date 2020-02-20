@@ -48,7 +48,7 @@ The equivalent command is also [available via the Azure CLI](../role-based-acces
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
 
-azure role assignment create \
+az role assignment create \
 --signInName "<user email address>" \
 --roleName "DNS Zone Contributor" \
 --resourceGroup "<resource group name>"
@@ -68,14 +68,27 @@ Permissions can also be [granted using Azure PowerShell](../role-based-access-co
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
-New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
+
+$usr = "<user email address>"
+$rol = "DNS Zone Contributor"
+$rsg = "<resource group name>"
+$zon = "<zone name>"
+$typ = "Microsoft.Network/DNSZones"
+
+New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -ResourceGroupName $rsg -ResourceName $zon -ResourceType $typ
 ```
 
 The equivalent command is also [available via the Azure CLI](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to a specific zone
-azure role assignment create --signInName <user email address> --roleName "DNS Zone Contributor" --resource-name <zone name> --resource-type Microsoft.Network/DNSZones --resource-group <resource group name>
+
+az role assignment create \
+--signInName <user email address> \
+--roleName "DNS Zone Contributor" \
+--resource-name <zone name> \
+--resource-type Microsoft.Network/DNSZones \
+--resource-group <resource group name>
 ```
 
 ### Record set level RBAC
