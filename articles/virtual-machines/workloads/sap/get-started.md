@@ -120,6 +120,7 @@ For information on integration of Azure services into SAP components, see:
 
 ## Change Log
 
+- 02/20/2020: Change in [High availability for SAP NetWeaver on Azure VMs on SLES multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) to add a link to the SUSE multi-SID cluster guide
 - 02/13/2020: Change in [Azure VMs high availability for SAP NetWeaver on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) and [Azure VMs high availability for SAP NetWeaver on RHEL with Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) to align the cluster resources timeouts to the Red Hat timeout recommendations
 - 02/11/2020: Release of [SAP HANA on Azure Large Instance migration to Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration)
 - 02/07/2020: Change in [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) to update sample NSG screenshot
