@@ -132,11 +132,13 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
 A single streaming endpoint can stream both live and on-demand videos and most customers only use one streaming endpoint. This section gives some examples of why you may need to use multiple streaming endpoints.
 
-* Load Balance different CDN providers. For example, you could set up the default Streaming Endpoint to use the Verizon CDN and create a second one to use Akamai. Then add some load balancing between the two to achieve multi-CDN balancing. 
+* To handle case of the streaming endpoint (origin) not being available or not having the content requested.
 * Each reserved unit allows for 200 Mbps of bandwidth. If you need more than 2,000 Mbps (2 Gbps) of bandwidth, you could use the second streaming endpoint and load balance to give you additional bandwidth.
 
     However, CDN is the best way to achieve scale out for streaming content but if you are delivering so much content that the CDN is pulling more than 2 Gbps then you can add additional streaming endpoints (origins). In this case you would need to hand out content URLs that are balanced across the two streaming endpoints. This approach gives better caching than trying to send requests to each origin randomly (for example, via a traffic manager).
- 
+* Load balancing different CDN providers. For example, you could set up the default streaming endpoint to use the Verizon CDN and create a second one to use Akamai. Then add some load balancing between the two to achieve multi-CDN balancing. 
+
+    However, customer often do load balancing across multiple CDN providers using a single origin.
 * Streaming mixed content: Live and Video on Demand. 
 
     The access patterns for live and on-demand content are very different. The live content tends to get a lot of demand for the same content all at once. The video on-demand content (long tail archive content for instance) has low usage on the same content. Thus caching works very well on the live content but not as well on the long tail content.
