@@ -262,21 +262,34 @@ It is important to note that access restrictions have not been enabled on the [S
 
 ## Access the Function app
 
-If you try to access the function app now, you should receive an HTTP 403 page indicating that the app is stopped.  The app isn't really stopped. The response is actually a HTTP 403.6 - IP address rejected status.
+1. Proceed back to the previously created Azure Function app.  In the **Overview** section, copy the URL.
 
-<!-- INSERT SCREENSHOT -->
+[!div class="mx-imgBorder"]
+![Get the Function app URL](./media/functions-create-private-site-access/access-function-1.png)
 
-In order to access the site from the VM which was previously configured in the virtual network, connect to the VM via the Azure Bastion service.
+2. If you try to access the function app now, you will receive an HTTP 403 page indicating that the app is stopped.  The app isn't really stopped. The response is actually a HTTP 403 IP Forbidden status.
 
-<!-- INSERT SCREENSHOT -->
+[!div class="mx-imgBorder"]
+![Forbidden from accessing the Azure Function](./media/functions-create-private-site-access/access-function-2.png)
 
-From the web browser on the VM it is possible to access the site.
+3. Proceed to the previously created virtual machine. In order to access the site from the VM, connect to the VM via the Azure Bastion service.  First select **Connect** and then choose **Bastion**.
 
-<!-- INSERT SCREENSHOT -->
+[!div class="mx-imgBorder"]
+![Access virtual machine via Bastion](./media/functions-create-private-site-access/access-function-3.png)
+
+4. Provide the required username and password to log into the virtual machine.  Select **Connect**. A new browser window will pop up to allow you to interact with the the virtual machine.
+
+[!div class="mx-imgBorder"]
+![Provide virtual machine credentials via Bastion](./media/functions-create-private-site-access/access-function-4.png)
+
+5. From the web browser on the VM it is possible to access the site.
+
+[!div class="mx-imgBorder"]
+![Browse to web site via Bastion](./media/functions-create-private-site-access/access-function-5.png)
 
 From the VM on the virtual network it is possible to access the default Azure Function site. The next step is to create an Azure Function and deploy it.
 
-It's important to note that while the function app is only accessible from within the designated virtual network, a public DNS entry remains. As shown above, attempting to access the site will result in a HTTP 403 response.
+It is important to note that while the function app is only accessible from within the designated virtual network, a public DNS entry remains. As shown above, attempting to access the site will result in a HTTP 403 response.
 
 ## Create an Azure Function
 
