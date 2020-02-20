@@ -1,16 +1,17 @@
 ---
-title: Security best practices playbook for Azure SQL Database | Microsoft Docs
-description: This article provides general guidance for security best practices in Azure SQL Database.
+title: Playbook for Addressing Common Security Requirements | Microsoft Docs
+titleSuffix: Azure SQL Database
+description: This article provides common security requirements and best practices in Azure SQL Database.
 ms.service: sql-database
 ms.subservice: security
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 02/20/2020
 ms.reviewer: ""
 ---
 
-# Azure SQL Database security best practices playbook
+# Playbook for Addressing Common Security Requirements with Azure SQL Database
 
 > [!NOTE]
 > This document provides best practices on how to solve common security requirements. Not all requirements are applicable to all environments, and you should consult your database and security team on which features to implement.
