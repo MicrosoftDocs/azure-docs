@@ -20,7 +20,6 @@ Offline Evaluations allow you to measure how effective Personalizer is compared 
 
 Read about [Offline Evaluations](concepts-offline-evaluation.md) to learn more.
 
-
 ## Prerequisites
 
 * A configured Personalizer loop

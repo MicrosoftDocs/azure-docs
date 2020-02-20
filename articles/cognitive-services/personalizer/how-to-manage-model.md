@@ -32,7 +32,7 @@ From the Resource management's section for **Model and learning settings**, revi
 
 ## Import a new learning policy
 
-The [learning policy](concept-active-learning.md#understand-learning-policy-settings) settings determine the _hyperparameters_ of the model training.
+The [learning policy](concept-active-learning.md#understand-learning-policy-settings) settings determine the _hyperparameters_ of the model training. Perform an [offline evaluation](how-to-offline-evaluation.md) to find a new learning policy.
 
 1. Open the [Azure portal](https://portal.azure.com), and select your Personalizer resource.
 1. Select **Model and learning settings** in the **Resource Management** section.
