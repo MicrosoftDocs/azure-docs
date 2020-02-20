@@ -34,7 +34,7 @@ Schedules are the time slots that a teacher can create for the class so the stud
 There are three types of schedules: Standard, Start only and Stop only.
 
 - **Standard**.  This schedule will start all student VMs at the specified start time and shutdown all student VMs at the specified stop time.
-- **Start only**.   This schedule will start all student VMs at the specified  time.  Student VMs won't be stopped with this type of schedule.  Student VMs won't stop until student stops the lab VM through their Azure Lab Services portal or a stop schedule occurs.
+- **Start only**.   This schedule will start all student VMs at the specified  time.  Student VMs won't be stop until a student stops the their VM through the Azure Lab Services portal or a stop only schedule occurs.
 - **Stop only**.  This schedule will stop all student VMs at the specified time.  
 
 ## Template virtual machine
