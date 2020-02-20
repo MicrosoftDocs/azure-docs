@@ -37,34 +37,18 @@ You also need an active Azure subscription. [!INCLUDE [quickstarts-free-trial-no
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
 
-## Generate a new Functions project
-
+## Prepare a Functions project
+::: zone pivot="java-build-tools-maven" 
 In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-### Linux/macOS
-
 ```bash
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-	-DarchetypeArtifactId=azure-functions-archetype 
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype 
 ```
+> [!NOTE]
+> If you're using Powershell, remeber to add "" around parameters.
 
 > [!NOTE]
 > If you're experiencing issues with running the command, take a look at what `maven-archetype-plugin` version is used. Because you are running the command in an empty directory with no `.pom` file, it might be attempting to use a plugin of the older version from `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` if you upgraded your Maven from an older version. If so, try deleting the `maven-archetype-plugin` directory and re-running the command.
-
-### Windows
-
-```powershell
-mvn archetype:generate `
-    "-DarchetypeGroupId=com.microsoft.azure" `
-    "-DarchetypeArtifactId=azure-functions-archetype"
-```
-
-```cmd
-mvn archetype:generate ^
-	"-DarchetypeGroupId=com.microsoft.azure" ^
-	"-DarchetypeArtifactId=azure-functions-archetype"
-```
 
 Maven asks you for values needed to finish generating the project on deployment. Provide the following values when prompted:
 
@@ -81,6 +65,29 @@ Maven asks you for values needed to finish generating the project on deployment.
 Type `Y` or press Enter to confirm.
 
 Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
+
+::: zone-end 
+::: zone pivot="java-build-tools-gradle"
+Use the following command to clone the sample project:
+```bash
+git clone https://github.com/Azure-Samples/azure-functions-samples-java.git
+cd azure-functions-samples-java/
+```
+Open `build.gradle` and change the `appName` in the following section to a unique name to avoid domain name conflict when deploying to Azure. 
+```gradle
+azurefunctions {
+    resourceGroup = 'java-functions-group'
+    appName = 'azure-functions-sample-demo'
+    pricingTier = 'Consumption'
+    region = 'westus'
+    runtime {
+      os = 'windows'
+    }
+    allowTelemetry = true
+    localDebug = "transport=dt_socket,server=y,suspend=n,address=5005"
+}
+```
+::: zone-end
 
 Open the new Function.java file from the *src/main/java* path in a text editor and review the generated code. This code is an [HTTP triggered](functions-bindings-http-webhook.md) function that echoes the body of the request. 
 
