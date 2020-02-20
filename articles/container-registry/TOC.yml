@@ -56,6 +56,8 @@
         href: container-registry-get-started-docker-cli.md
       - name: Push and pull an OCI artifact
         href: container-registry-oci-artifacts.md
+      - name: Push and pull a Helm chart
+        href: container-registry-helm-repos.md
       - name: View repositories
         href: container-registry-repositories.md
       - name: Import container images
@@ -72,8 +74,6 @@
           href: container-registry-auto-purge.md
       - name: Use ACR webhooks
         href: container-registry-webhook.md
-      - name: Helm chart repositories
-        href: container-registry-helm-repos.md
     - name: Security and authentication
       items:
       - name: Limit access with virtual network (preview)
