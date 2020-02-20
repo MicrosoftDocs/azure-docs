@@ -70,7 +70,7 @@ Click **New Step** and search for **Initialize variable**. Do this four times, t
 Add the following information to the variables you created. They represent the columns of the Excel file. If any variables are collapsed, you can click on them to expand them.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-variables-2.png" alt-text="information for creating the flow variables"
+> :::image type="content" source="../media/tutorials/excel/flow-variables-2.png" alt-text="information for creating the flow variables":::
 
 ## Read the excel file
 
