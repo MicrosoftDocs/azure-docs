@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 In this tutorial, you'll learn how to integrate IamIP Platform with Azure Active Directory (Azure AD). When you integrate IamIP Platform with Azure AD, you can:
 
-* Use Azure AD to control who has access to IamIP Platform.
+* Use Azure AD to control who can access IamIP Platform.
 * Enable your users to be automatically signed-in to IamIP Platform with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 	![Folder and Upload buttons](common/browse-upload-metadata.png)
 
-	c. After the metadata file is uploaded, the **Identifier** and **Reply URL** values are automatically populated in the **Basic SAML Configuration** section:
+	c. After the metadata file uploads, the **Identifier** and **Reply URL** values automatically populate in the **Basic SAML Configuration** section:
 
 	![Identifier and Reply URL values](common/idp-intiated.png)
 
