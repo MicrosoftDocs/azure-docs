@@ -7,9 +7,10 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/04/2019
+ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
+ms.custom: azure-synapse
 ---
 
 # Azure Synapse Analytics (formerly SQL DW) capacity limits
@@ -25,9 +26,10 @@ Maximum values allowed for various components of Azure Synapse.
 | Database connection |Maximum Concurrent open sessions |1024<br/><br/>The number of concurrent open sessions will vary based on the selected DWU. DWU600c and above support a maximum of 1024 open sessions. DWU500c and below, support a maximum concurrent open session limit of 512. Note, there are limits on the number of queries that can execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed. |
 | Database connection |Maximum memory for prepared statements |20 MB |
 | [Workload management](resource-classes-for-workload-management.md) |Maximum concurrent queries |128<br/><br/>  A maximum of 128 concurrent queries will execute and remaining queries will be queued.<br/><br/>The number of concurrent queries can decrease when users are assigned to higher resource classes or when the [data warehouse unit](memory-concurrency-limits.md) setting is lowered. Some queries, like DMV queries, are always allowed to run and do not impact the concurrent query limit. For more details on concurrent query execution, see the [concurrency maximums](memory-concurrency-limits.md) article. |
-| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100. Therefore at DWU1000, tempdb is sized to 3.99 TB. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100c. Therefore at DWU1000c, tempdb is sized to 3.99 TB. |
 
 ## Database objects
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Database |Max size | Gen1: 240 TB compressed on disk. This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type). <br/><br/> Gen2: 240TB for rowstore and unlimited storage for columnstore tables |
@@ -49,11 +51,13 @@ Maximum values allowed for various components of Azure Synapse.
 | View |Columns per view |1,024 |
 
 ## Loads
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB. Loading LOB data types into tables with a Clustered Columnstore Index (CCI) is not supported.<br/><br/> |
 
 ## Queries
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Query |Queued queries on user tables. |1000 |
@@ -70,6 +74,7 @@ Maximum values allowed for various components of Azure Synapse.
 | String literals | Number of string literals in a statement | 20,000 <br/><br/>The number of string constants in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632.|
 
 ## Metadata
+
 | System view | Maximum rows |
 |:--- |:--- |
 | sys.dm_pdw_component_health_alerts |10,000 |
@@ -83,4 +88,5 @@ Maximum values allowed for various components of Azure Synapse.
 | sys.dm_pdw_sql_requests |The most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
 
 ## Next steps
+
 For recommendations on using Azure Synapse, see the [Cheat Sheet](cheat-sheet.md).
