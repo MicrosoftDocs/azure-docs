@@ -15,8 +15,7 @@ ms.author: jispar
 ms.reviewer: kumud
 ---
 
-# Virtual network service tags 
-<a name="network-service-tags"></a>
+# Virtual network service tags
 
 A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. 
 
