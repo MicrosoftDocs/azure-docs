@@ -56,7 +56,7 @@ You can create your own queries on Azure AD audit events, including entitlement 
 
 1. Your workspace should be shown in the upper left of the query page. If you have multiple Azure Monitor workspaces, and the workspace you're using to store Azure AD audit events isn't shown, click **Select Scope** and select the correct subscription and workspace.
 
-1. Next, in the query text area, delete the string “search *” and replace it with the following cmdlet:
+1. Next, in the query text area, delete the string “search *” and replace it with the following query:
 
     ```
     AuditLogs | where Category == "EntitlementManagement"
@@ -80,7 +80,9 @@ For more information on the columns that are stored for audit events in Azure Mo
 
 Once you've configured Azure AD to send logs to Azure Monitor, you can access those logs through PowerShell. You can send queries from scripts or the PowerShell command line, without needing to be a Global Admin in the tenant. 
 
-You'll want to ensure you, the user or service principal authenticating to Azure AD, are in the appropriate Azure role in the Log Analytics workspace. The role options are either Log Analytics Reader or the Log Analytics Contributor.
+### Ensure the user or service principal has the correct role assignment
+
+You'll want to ensure you, or the user or service principal authenticating to Azure AD, are in the appropriate Azure role in the Log Analytics workspace. The role options are either Log Analytics Reader or the Log Analytics Contributor. If you're already in one of those roles, then skip to [Retrieve Log Analytics ID with one Azure subscription](###Retrieve-Log-Analytics-ID-with-one-Azure-subscription).
 
 To set the role assignment and create a query, do the following steps:
 1. In the Azure Portal, locate the [Log Analytics workspace](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
@@ -91,6 +93,8 @@ To set the role assignment and create a query, do the following steps:
 1. Then click **Add** to add a role assignment.
 
     ![Add a role assignment](./media/entitlement-management-logs-and-reporting/workspace-set-role-assignment.png)
+
+### Install Azure PowerShell module
 
 1. Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.3.0) (if you haven’t already), by typing:
 
