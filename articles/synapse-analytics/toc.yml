@@ -44,6 +44,8 @@
       href: ./sql-analytics/get-started-azure-data-studio.md
 - name: Tutorials
   items:
+  - name: Get Started with Azure Synapse Analytics
+    href: tutorial-synapse.md   
   - name: Connect to Power BI
     href: ./sql-analytics/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
