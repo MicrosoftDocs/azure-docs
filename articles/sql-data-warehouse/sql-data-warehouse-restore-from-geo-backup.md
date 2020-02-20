@@ -79,14 +79,17 @@ resource**.
 
 3. Click **Databases** and then **Azure Synapse Analytics**.
 
-    ![New DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
-1. Fill out the information requested in the **Basics** tab and click **Next: Additional settings**.
+![New DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
-    ![Basics](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
-1. For **Use existing data** parameter, select **Backup** and select the appropriate backup from the scroll down options. Click **Review + Create**.
+4. Fill out the information requested in the **Basics** tab and click **Next: Additional settings**.
+
+![Basics](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+
+5. For **Use existing data** parameter, select **Backup** and select the appropriate backup from the scroll down options. Click **Review + Create**.
  
-   ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
-2. Once the data warehouse has been restored, check that the **Status** is Online.
+![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
+
+6. Once the data warehouse has been restored, check that the **Status** is Online.
 
 ## Next Steps
 - [Restore an existing SQL pool](sql-data-warehouse-restore-active-paused-dw.md)
