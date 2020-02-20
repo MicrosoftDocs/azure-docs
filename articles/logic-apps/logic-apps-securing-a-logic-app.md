@@ -353,7 +353,7 @@ Many triggers and actions have settings to hide inputs, outputs, or both from a 
 
    ![Open logic app in Logic App Designer](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
-1. On the trigger or action where you want to hide sensitive data, select the ellipses (**...**) button, and then select **Settings**.
+1. On the trigger or action where you want to protect sensitive data, select the ellipses (**...**) button, and then select **Settings**.
 
    ![Open trigger or action settings](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
@@ -446,7 +446,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
 If you deploy across different environments, consider parameterizing the values in your workflow definition that vary based on those environments. That way, you can avoid hard-coded data by using an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to deploy your logic app, protect sensitive data by defining secured parameters, and pass that data as separate inputs through the [template's parameters](../azure-resource-manager/templates/template-parameters.md) by using a [parameter file](../azure-resource-manager/templates/parameter-files.md).
 
-For example, if you authenticate HTTP actions with [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), you can define and obscure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To hide parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+For example, if you authenticate HTTP actions with [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), you can define and obscure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To help protect parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > If you use a parameter in a request header or body, that parameter might be visible when you view your logic app's 
@@ -456,7 +456,7 @@ For example, if you authenticate HTTP actions with [Azure Active Directory Open 
 
 For more information, see these sections in this topic:
 
-* [Hide parameters in workflow definitions](#secure-parameters-workflow)
+* [Protect parameters in workflow definitions](#secure-parameters-workflow)
 * [Hide data from run history by using obfuscation](#obfuscate)
 
 If you [automate deployment for logic apps by using Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can define secured [template parameters](../azure-resource-manager/templates/template-parameters.md), which are evaluated at deployment, by using the `securestring` and `secureobject` types. To define template parameters, use your template's top level `parameters` section, which is separate and different from your workflow definition's `parameters` section. To provide the values for template parameters, use a separate [parameter file](../azure-resource-manager/templates/parameter-files.md).
@@ -464,11 +464,11 @@ If you [automate deployment for logic apps by using Resource Manager templates](
 For example, if you use secrets, you can define and use secured template parameters that retrieve those secrets from [Azure Key Vault](../key-vault/key-vault-overview.md) at deployment. You can then reference the key vault and secret in your parameter file. For more information, see these topics:
 
 * [Pass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
-* [Hide parameters in Azure Resource Manager templates](#secure-parameters-deployment-template) later in this topic
+* [Protect parameters in Azure Resource Manager templates](#secure-parameters-deployment-template) later in this topic
 
 <a name="secure-parameters-workflow"></a>
 
-### Hide parameters in workflow definitions
+### Protect parameters in workflow definitions
 
 To protect sensitive information in your logic app's workflow definition, use secured parameters so this information isn't visible after you save your logic app. For example, suppose you have an HTTP action requires basic authentication, which uses a username and password. In the workflow definition, the `parameters` section defines the `basicAuthPasswordParam` and `basicAuthUsernameParam` parameters by using the `securestring` type. The action definition then references these parameters in the `authentication` section.
 
@@ -514,7 +514,7 @@ To protect sensitive information in your logic app's workflow definition, use se
 
 <a name="secure-parameters-deployment-template"></a>
 
-### Hide parameters in Azure Resource Manager templates
+### Protect parameters in Azure Resource Manager templates
 
 A [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) for a logic app has multiple `parameters` sections. To protect passwords, keys, secrets, and other sensitive information, define secured parameters at the template level and workflow definition level by using the `securestring` or `secureobject` type. You can then store these values in [Azure Key Vault](../key-vault/key-vault-overview.md) and use the [parameter file](../azure-resource-manager/templates/parameter-files.md) to reference the key vault and secret. Your template then retrieves that information at deployment. For more information, see [Pass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
 
