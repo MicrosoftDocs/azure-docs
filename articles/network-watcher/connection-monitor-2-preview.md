@@ -608,14 +608,14 @@ In connection monitors that were created before the Connection Monitor (Preview)
 
 ![Screenshot showing metrics in Connection Monitor (Preview)](./media/connection-monitor-2-preview/monitor-metrics.png)
 
-Resource Type - Microsoft.Network/networkWatchers/connectionMonitors
+When you use metrics, set the resource type as Microsoft.Network/networkWatchers/connectionMonitors
 
 | Metric | Display name | Unit | Aggregation type | Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % Probes Failed | Percentage | Average | Percentage of connectivity monitoring probes failed. | No dimensions |
 | AverageRoundtripMs | Avg. Round-trip Time (ms) | Milliseconds | Average | Average network RTT for connectivity monitoring probes sent between source and destination. |             No dimensions |
-| ChecksFailedPercent (Preview) | % Checks Failed (Preview) | Percentage | Average | Percentage of failed checks for a test. | <ul><li>ConnectionMonitorResourceId</li><li>SourceAddress</li><li>SourceName</li><li>SourceResourceId</li><li>SourceType </li><li>Protocol </li><li>DestinationAddress </li><li> DestinationName </li> <li>DestinationResourceId </li> <li>DestinationType </li><li> DestinationPort </li> <li>TestGroupName </li><li>  TestConfigurationName </li> <li>Region</li></ul> |
-| RoundTripTimeMs (Preview) | Round-trip Time (ms) (Preview) | Milliseconds | Average | RTT for checks sent between source and destination. This value isn't averaged. | <ul><li>ConnectionMonitorResourceId</li><li>SourceAddress</li><li>SourceName</li><li>SourceResourceId</li><li>SourceType </li><li>Protocol </li><li>DestinationAddress </li><li> DestinationName </li> <li>DestinationResourceId </li> <li>DestinationType </li><li> DestinationPort </li> <li>TestGroupName </li><li>  TestConfigurationName </li> <li>Region</li></ul> |
+| ChecksFailedPercent (Preview) | % Checks Failed (Preview) | Percentage | Average | Percentage of failed checks for a test. | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> *  SourceType <br> * Protocol <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * Region |
+| RoundTripTimeMs (Preview) | Round-trip Time (ms) (Preview) | Milliseconds | Average | RTT for checks sent between source and destination. This value isn't averaged. | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protocol <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * Region |
 
 #### Metric alerts in Azure Monitor
 
