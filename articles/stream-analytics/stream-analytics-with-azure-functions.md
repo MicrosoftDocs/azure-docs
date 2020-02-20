@@ -194,6 +194,8 @@ In the Azure portal, when you try to reset the Max Batch Size/ Max Batch Count v
 
 The use of [Http routing](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) on your Azure Functions is currently not supported by Stream Analytics.
 
+Support to connect to Azure Functions hosted in a Vnet is not enabled.
+
 ## Clean up resources
 
 When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and restart it later when you need. If you are not going to continue to use this job, delete all resources created by this quickstart by using the following steps:
