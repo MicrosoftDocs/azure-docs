@@ -43,7 +43,7 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
    ![Create new project](media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Create new project")  
 
-2. Right-click on your empty sqlproject  and import your data warehouse into the database project
+2. Right-click on your empty sqlproject and import your data warehouse into the database project
 
    ![Import Project](media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Import Project")  
 
