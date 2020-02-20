@@ -188,7 +188,7 @@ The following cloud data stores require whitelisting of IP address of the gatewa
 **Answer:** Gateway makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for gateway to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as source/ destination, then you need to open **1433** port as well. For more information, see [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of gateway) section. 
 
 **Question:** What are certificate requirements for Gateway?
-**Answer:** Current gateway requires a certificate that is used by the credential manager application for securely setting data store credentials. This certificate is a self-signed certificate created and configured by the gateway setup. You can use your own TLS/ SSL certificate instead. For more information, see [click-once credential manager application](#click-once-credentials-manager-app) section. 
+**Answer:** Current gateway requires a certificate that is used by the credential manager application for securely setting data store credentials. This certificate is a self-signed certificate created and configured by the gateway setup. You can use your own TLS/SSL certificate instead. For more information, see [click-once credential manager application](#click-once-credentials-manager-app) section. 
 
 ## Next steps
 For information about performance of copy activity, see [Copy activity performance and tuning guide](data-factory-copy-activity-performance.md).
