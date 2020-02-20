@@ -38,13 +38,14 @@ Sign in to the [Azure portal](https:/portal.azure.com/)
 ![Overview of Synapse workspace with a red box around the command to create a new Apache Spark pool.](media/quickstart-create-apache-spark-pool/quickstart-create-sparkpool-01.png)
 1. Enter the following details in the **Basics** tab:
 
-  |Setting | Suggested value | Description |
-  | :------ | :-------------- | :---------- |
-  | **Apache Spark pool name** | contosospark | This is the name that the Apache Spark pool will have. |
-  | **Node size** | Small (4 vCPU / 32 GB) | Set this to the smallest size to reduce costs for this quickstart |
-  | **Autoscale** | Disabled | We will not need autoscale in this quickstart |
-  | **Number of nodes** | 8 | Use a small size to limit costs in this quickstart|
-  ||||
+    |Setting | Suggested value | Description |
+    | :------ | :-------------- | :---------- |
+    | **Apache Spark pool name** | contosospark | This is the name that the Apache Spark pool will have. |
+    | **Node size** | Small (4 vCPU / 32 GB) | Set this to the smallest size to reduce costs for this quickstart |
+    | **Autoscale** | Disabled | We will not need autoscale in this quickstart |
+    | **Number of nodes** | 8 | Use a small size to limit costs in this quickstart|
+    ||||
+
     ![SQL Analytics pool create flow - basics tab.](media/quickstart-create-apache-spark-pool/quickstart-create-sparkpool-02.png)
     > [!IMPORTANT]
     > Note that there are specific limitations for the names that Apache Spark pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.

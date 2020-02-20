@@ -37,11 +37,12 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 ![Overview of Synapse Workspace with a red box around the command to create a new SQL pool.](media/quickstart-create-sql-pool/quickstart-create-sql-pool-01.png)
 1. Enter the following details in the **Basics** tab:
 
-  | Setting | Suggested value | Description |
-  | :------ | :-------------- | :---------- |
-  | **SQL pool name** | contosoedw | Name of the SQL pool. |
-  | **Performance level** | DW100c | Set to the smallest size to reduce costs for this quickstart |
-  ||||
+    | Setting | Suggested value | Description |
+    | :------ | :-------------- | :---------- |
+    | **SQL pool name** | contosoedw | Name of the SQL pool. |
+    | **Performance level** | DW100c | Set to the smallest size to reduce costs for this quickstart |
+    ||||
+  
     ![SQL pool create flow - basics tab.](media/quickstart-create-sql-pool/quickstart-create-sql-pool-02.png)
     > [!IMPORTANT]
     > Note that there are specific limitations for the names that SQL pools can use. Names can't contain special characters, must be 15 or less characters, not contain reserved words, and be unique in the workspace.
