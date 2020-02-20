@@ -81,7 +81,7 @@ For more information, see [Enable Network Watcher](https://docs.microsoft.com/az
 
 ## Create a connection monitor 
 
-Connection Monitor monitors communication at regular intervals. It informs you of changes in reachability and latency, and network topology between source agents and destination endpoints. 
+Connection Monitor monitors communication at regular intervals. It informs you of changes in reachability and latency. You can also check the current and historical network topology between source agents and destination endpoints.
 
 Sources can be Azure VMs or on-premises machines that have an installed monitoring agent. Destination endpoints can be Office 365 URLs, Dynamics 365 URLs, custom URLs, Azure VM resource IDs, IPv4, IPv6, FQDN, or any domain name.
 
@@ -98,7 +98,7 @@ Sources can be Azure VMs or on-premises machines that have an installed monitori
 
 In connection monitors that you create in Connection Monitor (Preview), you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP.
 
-A Connection Monitor solution includes the following entities:
+Connection Monitor (Preview) includes the following entities:
 
 * **Connection monitor resource** – A region-specific Azure resource. All of the following entities are properties of a connection monitor resource.
 * **Endpoint** – A source or destination that participates in connectivity checks. Examples of endpoints include Azure VMs, on-premises agents, URLs, and IPs.
