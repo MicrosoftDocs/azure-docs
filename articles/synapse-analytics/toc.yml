@@ -17,7 +17,7 @@
 - name: Quickstarts
   items:
   - name: Create an Azure Synapse workspace
-    href: quickstart-create-synapse-workspace.md
+    href: quickstart-create-workspace.md
   - name: Use Azure Synapse Studio
     href: quickstart-synapse-studio.md    
   - name: Create pools

@@ -23,7 +23,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Prerequisites
 
-[Create an Azure Synapse workspace and associated storage account](quickstart-create-synapse-workspace.md).
+[Create an Azure Synapse workspace and associated storage account](quickstart-create-workspace.md).
 
 ## Launch Synapse Studio
 
