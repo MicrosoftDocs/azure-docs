@@ -10,7 +10,7 @@ ms.date: 02/16/2020
 
 # Mapping data flow video tutorials
 
-Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team.
+Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team. 
 
 As updates are constantly made to the product, some features have added or different functionality in the current Azure Data Factory user experience.
 

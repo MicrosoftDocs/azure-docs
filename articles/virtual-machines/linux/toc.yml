@@ -771,4 +771,4 @@
   - name: FAQ
     href: faq.md
 - name: Troubleshoot
-  href: ../troubleshooting/index.md
+  href: ../troubleshooting/index.yml
