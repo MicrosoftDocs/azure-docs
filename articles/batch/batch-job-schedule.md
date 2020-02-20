@@ -1,9 +1,7 @@
 ---
 title: Schedule your jobs - Azure Batch
 description: Use job scheduling to manage your tasks.
-.
 services: batch
-documentationcenter: .net
 author: LauraBrenner
 manager: evansma
 editor: ''
@@ -11,7 +9,6 @@ editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 02/20/2020
 ms.author: labrenne
