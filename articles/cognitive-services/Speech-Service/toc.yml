@@ -13,10 +13,10 @@
 - name: Speech-to-text
   expanded: false
   items:
+  - name: Speech-to-text documentation
+    href: index-speech-to-text.yml
   - name: Overview
     items:
-    - name: Speech-to-text documentation
-      href: index-speech-to-text.yml
     - name: What is speech-to-text?
       href: speech-to-text.md
   - name: Quickstart
@@ -102,10 +102,10 @@
 - name: Text-to-speech
   expanded: false
   items:
+  - name: Text-to-speech documentation
+    href: index-text-to-speech.yml
   - name: Overview
     items:
-    - name: Text-to-speech documentation
-      href: index-text-to-speech.yml
     - name: What is text-to-speech?
       href: text-to-speech.md
   - name: Quickstart
@@ -201,10 +201,10 @@
 - name: Speech translation
   expanded: false
   items:
+  - name: Speech translation documentation
+    href: index-speech-translation.yml
   - name: Overview
     items:
-    - name: Speech translation documentation
-      href: index-speech-translation.yml
     - name: What is speech translation?
       href: speech-translation.md
   - name: Quickstart
@@ -251,10 +251,8 @@
 - name: Intent recognition
   expanded: false
   items:
-  - name: Overview
-    items:
-    - name: Intent recognition documentation
-      href: index-intent-recognition.yml
+  - name: Intent recognition documentation
+    href: index-intent-recognition.yml
   - name: Quickstart
     items:
     - name: Recognize speech, intents, and entities
@@ -365,6 +363,8 @@
 - name: Voice assistants
   expanded: false
   items:
+  - name: Voice assistants documentation
+    href: index-voice-assistants.yml
   - name: Overview
     items:
     - name: What is a voice assistant?
@@ -416,10 +416,8 @@
 - name: Hosting
   expanded: false
   items:
-    - name: Overview
-      items:
-      - name: Hosting documentation
-        href: index-hosting.yml
+    - name: Hosting documentation
+      href: index-hosting.yml
     - name: How-to guides
       items:
         - name: Install and run containers
@@ -486,10 +484,10 @@
 - name: Devices
   expanded: false
   items:
+  - name: Speech devices documentation
+    href: index-devices.yml
   - name: Overview
     items:
-    - name: Speech devices documentation
-      href: index-devices.yml
     - name: About the Speech Devices SDK
       href: speech-devices-sdk.md
     - name: Get the Speech Devices SDK
@@ -502,12 +500,8 @@
       href: speech-devices-sdk-roobo-v1.md
   - name: Quickstart
     items:
-    - name: Windows
-      href: speech-devices-sdk-windows-quickstart.md
-    - name: Linux
-      href: speech-devices-sdk-linux-quickstart.md
-    - name: Android
-      href: speech-devices-sdk-android-quickstart.md
+    - name: Use Speech Devices SDK
+      href: speech-devices-sdk-quickstart.md
   - name: Resources
     items:
     - name: Troubleshoot the Speech Devices SDK

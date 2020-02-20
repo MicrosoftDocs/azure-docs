@@ -1,18 +1,11 @@
 ---
-title: 'Quickstart: Run the Speech Devices SDK on Android - Speech service'
-titleSuffix: Azure Cognitive Services
-description: Prerequisites and instructions for getting started with an Android Speech Devices SDK.
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 02/12/2020
-ms.author: erhopf
+ms.topic: include
+ms.date: 02/20/2020
+ms.author: dapine
 ---
-
-# Quickstart: Run the Speech Devices SDK sample app on Android
 
 In this quickstart, you'll learn how to use the Speech Devices SDK for Android to build a speech-enabled product or use it as a [Conversation Transcription](conversation-transcription-service.md) device.
 
@@ -182,8 +175,3 @@ If you cannot connect to the Speech Device. Type the following command in a Comm
 > This command uses the Android Debug Bridge, `adb.exe`, which is part of the Android Studio installation. This tool is located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
 >
 > If you see an error `no devices/emulators found` then check your USB cable is connected and ensure a high quality cable is used.
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Review the release notes](devices-sdk-release-notes.md)

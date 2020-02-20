@@ -110,10 +110,10 @@ conceptualContent:
           text: About Voice Assistants
           url: voice-assistants.md
         - itemType: quickstart
-          text: Create Custom commands for your Assistant
+          text: Create a voice assistant using Custom Commands
           url: custom-commands.md
         - itemType: get-started
-          text: Power your Voice Assistant with Direct Line Speech
+          text: •	Create a voice assistant using the Bot Framework
           url: direct-line-speech.md
       footerLink:
         text: See more
@@ -134,15 +134,15 @@ conceptualContent:
         url: index-hosting.yml
     - title: Devices
       links:
+      - itemType: overview
+        text: About the Speech Devices SDK
+        url: speech-devices-sdk.md
+      - itemType: how-to-guide
+        text: Get the Speech Devices SDK
+        url: get-speech-devices-sdk.md
       - itemType: quickstart
-        text: Use Speech Device SDK (Windows)
-        url: speech-devices-sdk-windows-quickstart.md
-      - itemType: quickstart
-        text: Use Speech Device SDK (Linux)
-        url: speech-devices-sdk-linux-quickstart.md
-      - itemType: quickstart
-        text: Use Speech Device SDK (Android)
-        url: speech-devices-sdk-android-quickstart.md
+        text: Use Speech Devices SDK
+        url: speech-devices-sdk-quickstart.md
       footerLink:
         text: See more
         url: index-devices.yml

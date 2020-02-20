@@ -1,19 +1,11 @@
 ---
-title: "Quickstart: Run the Speech Devices SDK on Linux - Speech service"
-titleSuffix: Azure Cognitive Services
-description: Prerequisites and instructions for getting started with a Linux Speech Devices SDK.
-services: cognitive-services
-author: erhopf
-manager: nitinme
-
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 02/12/2020
-ms.author: erhopf
+ms.topic: include
+ms.date: 02/20/2020
+ms.author: dapine
 ---
-
-# Quickstart: Run the Speech Devices SDK sample app on Linux
 
 In this quickstart, you'll learn how to use the Speech Devices SDK for Linux to build a speech-enabled product or use it as a [Conversation Transcription](conversation-transcription-service.md) device. Currently only the [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) is supported.
 
@@ -183,8 +175,3 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
      ```bash
      java -jar SpeechDemo.jar
      ```
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Review the release notes](devices-sdk-release-notes.md)

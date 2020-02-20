@@ -24,11 +24,11 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Use Speech Device SDK (Windows)
-          url: speech-devices-sdk-windows-quickstart.md
+          url: speech-devices-sdk-quickstart.md?pivots=platform-windows
         - text: Use Speech Device SDK (Linux)
-          url: speech-devices-sdk-linux-quickstart.md
+          url: speech-devices-sdk-quickstart.md?pivots=platform-linux
         - text: Use Speech Device SDK (Android)
-          url: speech-devices-sdk-android-quickstart.md
+          url: speech-devices-sdk-quickstart.md?pivots=platform-android
 - title: Step-by-step guides
   linkLists:
     - linkListType: how-to-guide
