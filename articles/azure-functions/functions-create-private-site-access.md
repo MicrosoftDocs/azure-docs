@@ -12,6 +12,8 @@ ms.date: 02/15/2020
 
 This tutorial will show you how to create an Azure Function with private site access. Configuring private site access ensures that the specified Azure Function is not able to be triggered via the public internet. By enabling private site access, the function can only be triggered via a specific virtual network.
 
+TODO: ADD TEXT ON WHY THIS IS HELPFUL / POTENTIAL SCENARIOS
+
 If an Azure Function needs to access Azure resources within the virtual network, or connected via [service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview), then [virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet) is needed.
 
 In this tutorial, the following steps will be performed in order to configure private site access for an Azure Function:
@@ -90,9 +92,9 @@ The first step is to create a new resource group, and then a new virtual network
 
 ## Create a Virtual Machine
 
-The next step is to create a new virtual machine within the "default" subnet of the virtual network.
+The next step is to create a new virtual machine within one subnet of the virtual network.
 
-1. In the portal, choose **Add** at the top of the resource group view
+1. In the portal, choose **Add** at the top of the resource group view.
 2. In the search field, type "Windows Server".
 3. Choose **Windows Server** in the search results.
 4. In the **Basics** tab, use the VM settings as specified in the table below the image.
@@ -102,14 +104,11 @@ The next step is to create a new virtual machine within the "default" subnet of 
 
 | Setting      | Suggested value  | Description      |
 | ------------ | ---------------- | ---------------- |
-| **Subscription** | todo | todo |
-| **Resource group** | todo | todo |
-| **Virtual machine name** | todo | todo |
-| **Region** | todo | todo |
-| **Image** | todo | todo |
-| **Username** | todo | todo |
-| **Password** | todo | todo |
-| **Public inbound ports** | todo | todo |
+| **Subscription** | Your subscription | The subscription under which your resources are created. |
+| **Resource group** | _functions-private-access_ | Choose functions-private-access, or the resource group you created with your function app.  Using the same resource group for the function app and VM makes it easier to clean up resources when you are done with this tutorial. |
+| **Virtual machine name** | myVM | The VM name needs to be unique in the resource group |
+| **Region** | (US) North Central US | Choose a region near you or near the functions to be accessed. |
+| **Public inbound ports** | None | todo |
 
 5. Leave the defaults in the **Disk** tab.
 6. In the **Networking** tab, select the previously created virtual network and subnet. Change the IP address setting to not have a public IP address. Remote access to the VM will be configured via the Azure Bastion service.
@@ -123,6 +122,40 @@ The next step is to create a new virtual machine within the "default" subnet of 
 ## Configure Azure Bastion
 
 [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) is a fully-managed Azure service which provides secure RDP and SSH access to virtual machines directly from the Azure Portal. Using the Azure Bastion service removes the need to configure network settings related to RDP access.
+
+1. In the portal, choose **Add** at the top of the resource group view.
+2. In the search field, type "Bastion".  Select "Bastion".
+3. Select **Create** to begin the process of creating a new Azure Bastion resource.
+
+[!div class="mx-imgBorder"]
+![Start of creating Azure Bastion](./media/functions-create-private-site-access/create-bastion-1.png)
+
+4. Create a new Azure Bastion resource using the settings as specified in the table below the image.  For a detailed, step-by-step guide to creating an Azure Bastion resource, please refer to the [Create an Azure Bastion host](https://docs.microsoft.com/azure/bastion/bastion-create-host-portal) tutorial.
+
+[!div class="mx-imgBorder"]
+![Create an Azure Bastion host](./media/functions-create-private-site-access/create-bastion-2.png)
+
+| Setting      | Suggested value  | Description      |
+| ------------ | ---------------- | ---------------- |
+| Name | myBastion |
+| Region | North Central US |
+| Virtual network | function-private-vnet |
+| Subnet | AzureBastionSubnet |
+
+5. You will need to create a subnet where Azure can provision the Azure Bastion host. Clicking on **Manage subnet configuration** will open a new blade to allow you to define a new subnet.  Click on **+Subnet** to create a new subnet. The subnet must be of the name **AzureBastionSubnet** and the subnet prefix must be at least /27.  Click **OK** to create the subnet.
+
+[!div class="mx-imgBorder"]
+![Create subnet for Azure Bastion host](./media/functions-create-private-site-access/create-bastion-4.png)
+
+6. On the **Create a Bastion** page, select the newly created **AzureBastionSubnet** from the list of available subnets.
+
+[!div class="mx-imgBorder"]
+![Create an Azure Bastion host with specific subnet](./media/functions-create-private-site-access/create-bastion-4.png)
+
+7. Press **Review & Create**. It will take a few minutes for the Azure Bastion resource to be created.  The Azure Bastion resource should now be in your resource group.
+
+[!div class="mx-imgBorder"]
+![Final view of Azure Bastion host in resource group](./media/functions-create-private-site-access/create-bastion-5.png)
 
 ## Create an Azure Function App
 
