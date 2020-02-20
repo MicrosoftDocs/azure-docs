@@ -128,11 +128,11 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
 - `scaleUnits`: Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
 
-## Why use multiple Streaming Endpoints?
+## Why use multiple streaming endpoints?
 
 A single streaming endpoint can stream both live and on-demand videos and most customers only use one streaming endpoint. This section gives some examples of why you may need to use multiple streaming endpoints.
 
-* To handle case of the streaming endpoint (origin) not being available or not having the content requested.
+* To handle case of the streaming endpoint (origin) not being available or not having the requested content.
 * Each reserved unit allows for 200 Mbps of bandwidth. If you need more than 2,000 Mbps (2 Gbps) of bandwidth, you could use the second streaming endpoint and load balance to give you additional bandwidth.
 
     However, CDN is the best way to achieve scale out for streaming content but if you are delivering so much content that the CDN is pulling more than 2 Gbps then you can add additional streaming endpoints (origins). In this case you would need to hand out content URLs that are balanced across the two streaming endpoints. This approach gives better caching than trying to send requests to each origin randomly (for example, via a traffic manager).
