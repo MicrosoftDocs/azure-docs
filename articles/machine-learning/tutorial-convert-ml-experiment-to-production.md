@@ -405,4 +405,4 @@ Now that you understand how to convert from an experiment to production code, us
 
 > [!div class="nextstepaction"]
 > [Monitor Azure ML experiment runs and metrics](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-> [Monitor and collect data from ML web service endpoints](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insight)
+> [Monitor and collect data from ML web service endpoints](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)
