@@ -82,7 +82,7 @@ As a first planning step, you should review your environment and determine wheth
 
 - If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure that snapshot is not from a VM that is already registered with Azure AD as Hybrid Azure AD join.
 
-- If you are using [Unified Write Filter](https://docs.microsoft.com/en-us/windows-hardware/customize/enterprise/unified-write-filter) and similar technologies that clear changes to the disk at reboot, they must be applied after the device is Hybrid Azure AD joined. Enabling such technologies prior to completion of Hybrid Azure AD join will result in the device getting unjoined on every reboot
+- If you are using [Unified Write Filter](https://docs.microsoft.com/windows-hardware/customize/enterprise/unified-write-filter) and similar technologies that clear changes to the disk at reboot, they must be applied after the device is Hybrid Azure AD joined. Enabling such technologies prior to completion of Hybrid Azure AD join will result in the device getting unjoined on every reboot
 
 ### Handling devices with Azure AD registered state
 If your Windows 10 domain joined devices are [Azure AD registered](overview.md#getting-devices-in-azure-ad) to your tenant, it could lead to a dual state of Hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or above to automatically address this scenario. In pre-1803 releases, you will need to remove the Azure AD registered state manually before enabling Hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
