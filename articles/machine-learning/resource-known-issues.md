@@ -66,6 +66,11 @@ This exception should come from your training scripts. You can look at the log f
 ### Horovod has been shut down
 In most cases if you encounter "AbortedError: Horovod has been shut down" this exception means there was an underlying exception in one of the processes that caused Horovod to shut down. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easier to differentiate the logs. To find the exact error that caused Horovod to shut down, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
 
+### SR-IOV availability on NCv3 machines in AmlCompute for distributed training
+Azure Compute has been rolling out an [SR-IOV upgrade](https://azure.microsoft.com/en-us/updates/sriov-availability-on-ncv3-virtual-machines-sku/) of NCv3 machines, which customers can leverage with Azure ML's managed compute offering (AmlCompute). The updates will enable the support of the entire MPI stack and the use of Infiniband RDMA network for improved multi-node distributed training performance, particularly for deep learning.
+
+View the [update schedule](https://azure.microsoft.com/en-us/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku/) to see when support will be rolled out for your region.
+
 ### Run or experiment deletion
 
 Experiments can be archived by using the [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) 
@@ -73,7 +78,14 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
 Permanent deletion of individual experiments or runs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](how-to-export-delete-data.md).
 
-## Outage: SR-IOV upgrade to NCv3 machines in AmlCompute
+## Azure Machine Learning Compute issues
+Known issues with using Azure Machine Learning Compute (AmlCompute).
+
+### Trouble creating AmlCompute
+
+There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
+
+### Outage: SR-IOV upgrade to NCv3 machines in AmlCompute
 
 Azure Compute will be updating the NCv3 SKUs starting early November 2019 to support all MPI implementations and versions, and RDMA verbs for InfiniBand-equipped virtual machines. This will require a short downtime - [read more about the SR-IOV upgrade](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
@@ -96,10 +108,6 @@ Before the fix, you can connect the dataset to any data transformation module (S
 
 Below image shows how:
 ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
-
-## Trouble creating Azure Machine Learning Compute
-
-There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create Azure Machine Learning Compute in that workspace. You can either raise a support request against the service or create a new workspace through the Portal or the SDK to unblock yourself immediately.
 
 ## Image building failure
 
