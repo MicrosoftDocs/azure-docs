@@ -1,7 +1,7 @@
 ---
 title: "Use GitOps for cluster configuration"
 services: arc-kubernetes
-ms.date: 02/19/2020
+ms.date: 02/20/2020
 ms.topic: "Tutorial"
 description: "Onboard Arc with Azure Monitor for containers"
 keywords: "Kubernetes, Arc, Azure, K8s, AKS, Azure Kubernetes Service, containers"
@@ -11,15 +11,15 @@ keywords: "Kubernetes, Arc, Azure, K8s, AKS, Azure Kubernetes Service, container
 
 ## Overview
 
-This architecture uses a GitOps workflow to configure the cluster and deploy applications. Configuration is described declaratively and stored in Git. An agent watches the Git repo for changes and applies them.
+This architecture uses a GitOps workflow to configure the cluster and deploy applications. Configuration is described declaratively and stored in Git. An agent watches the Git repo for changes and applies them.  The same agent also periodically assures that the cluster state matches the state declared in the Git repo, and returns the cluster to the desired state if any unmanaged changes have occurred.
 
-The connection between your cluster and one ore more git repositories is tracked in Azure Resource Manager (ARM) as a `sourceControlConfiguration` extension resource. The `sourceControlConfiguration` resource properties represents where and how Kubernetes resources should flow from Git to your cluster.
+The connection between your cluster and one or more Git repositories is tracked in Azure Resource Manager (ARM) as a `sourceControlConfiguration` extension resource. The `sourceControlConfiguration` resource properties represents where and how Kubernetes resources should flow from Git to your cluster.
 
-The Azure Arc for Kubernetes `config-agent` running in your cluster is responsible for watching for new or updated `sourceControlConfiguration` resources and orchestrates adding, updating, or removing the git repo links automatically.
+The Azure Arc for Kubernetes `config-agent` running in your cluster is responsible for watching for new or updated `sourceControlConfiguration` resources and orchestrates adding, updating, or removing the Git repo links automatically.
 
-The same patterns can be used to manage a larger collection of clusters, which may be deployed across hetrogenous environments. For example, you may have one repository that defines baseline configuration for your organization and apply that to tens of Kubernetes clusters at once.
+The same patterns can be used to manage a larger collection of clusters, which may be deployed across heterogenous environments. For example, you may have one repository that defines baseline configuration for your organization and apply that to tens of Kubernetes clusters at once.
 
-The git repository can contain any valid Kubernetes resources including Namespaces, ConfigMaps, Deployments, DaemonSets, etc. A common set of scenarios include defining a baseline configuration for your organization, which might include common RBAC roles and bindings, monitoring or logging agents, or cluster-wide services.
+The Git repository can contain any valid Kubernetes resources including Namespaces, ConfigMaps, Deployments, DaemonSets, etc.  It may also contain Helm charts for deploying applications. A common set of scenarios include defining a baseline configuration for your organization, which might include common RBAC roles and bindings, monitoring or logging agents, or cluster-wide services.
 
 This getting started guide will walk you through applying a set of configurations with cluster-admin scope.
 
@@ -157,8 +157,8 @@ When the `sourceControlConfiguration` is created, a few things happen under the 
 1. `config-agent` reads the configuration properties and prepares to deploy a managed instance of `flux`
     1. `config-agent` creates the destination namespace
     1. `config-agent` prepares a Kubernetes Service Account with the appropriate permission (`cluster` or `namespace` scope)
-    1. `config-agent` generates a deploy key
     1. `config-agent` deploys an instance of `flux`
+    1. `flux` generates a SSH key and logs the public key
 1. `config-agent` reports status back to the `sourceControlConfiguration`
 
 While the provisioning process happens, the `sourceControlConfiguration` will move through a few state changes. Monitor progress with the `az k8sconfiguration show ...` command above:
@@ -166,6 +166,26 @@ While the provisioning process happens, the `sourceControlConfiguration` will mo
 1. `complianceStatus` -> `Pending`: represents the initial and in-progress states
 1. `complianceStatus` -> `Compliant`: `config-agent` was able to successfully configure the cluster and deploy `flux` without error
 1. `complianceStatus` -> `Noncompliant`: `config-agent` encountered an error deploying `flux`, details should be available in `complianceStatus.message` response body
+
+## Apply configuration from a private git repository
+If you are using a private git repo, then you need to perform one more task to close the loop: you need to add the public key that was generated by `flux` as a **Deploy key** in the repo.
+
+**Get the public key using az cli**
+
+```console
+$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --query 'repositoryPublicKey'
+Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
+"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAREDACTED"
+```
+
+**Get the public key from the Azure portal**
+1. In the Azure portal navigate to the connected cluster resource.
+2. In the resource page select "Configurations" and see the list of configurations for this cluster.
+3. Select the configuration that uses the private Git repository.
+4. In the context window that opens, at the bottom of the window copy the **Repository public key**.
+
+**Add the public key as a deploy key to the Git repo**
+1. Open GitHub, navigate to your fork, go to **Settings**, then **Deploy keys**, and click  **Add deploy key**, give it a Title, check **Allow write access**, paste the public key and click **Add key**. See the GitHub docs for more info on how to manage deploy keys.
 
 ## Validate the Kubernetes configuration
 
