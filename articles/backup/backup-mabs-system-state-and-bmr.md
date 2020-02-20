@@ -16,7 +16,7 @@ Azure Backup Server backs up system state and provides bare-metal recovery (BMR)
   * Computer that runs certificate services: Certificate data
 * **Bare-metal backup**: Backs up operating system files and all data on critical volumes, except for user data. By definition, a BMR backup includes a system state backup. It provides protection when a computer won't start and you have to recover everything.
 
-The following table summarizes what you can back up and recover. For information about app versions that system state and BMR can protect, see [What does Azure Backup Server back up?](backup-mabs-protection-matrix.md)
+The following table summarizes what you can back up and recover. For information about app versions that system state and BMR can protect, see [What does Azure Backup Server back up?](backup-mabs-protection-matrix.md).
 
 |Backup|Issue|Recover from Azure Backup Server backup|Recover from system state backup|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
