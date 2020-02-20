@@ -101,7 +101,7 @@ There are also instance-level limits like max log write throughput 22 MB/s, so y
 
 ## Supported regions
 
-Managed instances can be created only in [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). To create a managed instance in a region that is currently not supported, you can [send a support request via the Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
+Managed instances can be created only in [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). To create a managed instance in a region that is currently not supported, you can [send a support request via the Azure portal](quota-increase-request.md).
 
 ## Supported subscription types
 
@@ -116,13 +116,13 @@ Managed instance currently supports deployment only on the following types of su
 
 ## Regional resource limitations
 
-Supported subscription types can contain a limited number of resources per region. Managed instance has two default limits per Azure region (that can be increased on-demand by creating a special [support request in the Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance)) depending on a type of subscription type:
+Supported subscription types can contain a limited number of resources per region. Managed instance has two default limits per Azure region (that can be increased on-demand by creating a special [support request in the Azure portal](quota-increase-request.md) depending on a type of subscription type:
 
 - **Subnet limit**: The maximum number of subnets where managed instances are deployed in a single region.
 - **vCore unit limit**: The maximum number of vCore units that can be deployed across all instances in a single region. One GP vCore uses one vCore unit and one BC vCore takes 4 vCore units. The total number of instances is not limited as long as it is within the vCore unit limit.
 
 > [!Note]
-> These limits are default settings and not technical limitations. The limits can be increased on-demand by creating a special [support request in the Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) if you need more managed instances in the current region. As an alternative, you can create new managed instances in another Azure region without sending support requests.
+> These limits are default settings and not technical limitations. The limits can be increased on-demand by creating a special [support request in the Azure portal](quota-increase-request.md) if you need more managed instances in the current region. As an alternative, you can create new managed instances in another Azure region without sending support requests.
 
 The following table shows the **default regional limits** for supported subscription types (default limits can be extended using support request described below):
 
