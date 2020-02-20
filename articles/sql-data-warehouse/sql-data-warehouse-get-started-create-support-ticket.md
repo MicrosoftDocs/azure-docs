@@ -1,6 +1,6 @@
 ---
-title: How to create a support ticket 
-description: How to create a support ticket in Azure SQL Data Warehouse.
+title: Request quota increases and get support
+description: How to create a support ticket in Azure SQL Data Warehouse to request quota increases or for problem resolution.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -13,15 +13,19 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# How to create a support ticket for SQL Data Warehouse
-If you're having any issues with your SQL Data Warehouse, create a support ticket so the engineering support team can assist you.
+# Request quota increases and get support for SQL Data Warehouse
+
+This article describes how to submit a support ticket in the Azure portal for SQL Data Warehouse. This enables you to request a quota increase or to get other types of help from the enginering support team.
 
 ## Create a support ticket
+
 1. Open the [Azure portal](https://portal.azure.com/).
-2. On the Home screen, click the **Help + support** tab.
+
+1. On the Home screen, click the **Help + support** tab.
    
     ![Help + support](./media/sql-data-warehouse-get-started-create-support-ticket/MainPage.PNG)
-3. On the Help + Support blade, click **New support request** and fill out the **Basics** blade.
+
+1. On the Help + Support blade, click **New support request** and fill out the **Basics** blade.
 
    Select your [Azure support plan](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/).
    
