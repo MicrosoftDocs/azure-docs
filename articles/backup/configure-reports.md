@@ -19,7 +19,7 @@ Today, Azure Backup provides a reporting solution that leverages [Azure Monitor 
 * If you are an [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
 * Data for log backup jobs is currently not displayed in the reports.
 
-## Getting Started
+## Getting started
 
 To get started with using the reports, follow the three steps detailed below:
 
@@ -82,7 +82,7 @@ Clicking on the down arrow button at the top right of any widget (table/chart) e
 
 Click the Pin Icon at the top of each widget to pin the widget to your Azure portal dashboard. This helps you create customized dashboards tailored to display the most important information that you need.
 
-## Cross-Tenant Reports
+## Cross-tenant Reports
 
 If you are an [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) user with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter (by clicking on the filter icon in the top right of the Azure portal) to choose all the subscriptions you wish to see data for. Doing so will let you select LA Workspaces across your tenants to view multi-tenanted reports.
 
@@ -96,11 +96,11 @@ If you are an [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) u
 * The values shown for Cloud Storage and Protected Instances, are at the **end** of the selected time range.
 * The Backup Items displayed in the reports are those items that exist at the **end** of the selected time range. Backup Items which were deleted in the middle of the selected time range are not displayed. The same convention applies for Backup Policies as well.
 
-## Query Load Times
+## Query load times
 
 The widgets in the Backup Report are powered by Kusto queries, which run on the user's LA Workspaces. As these queries typically involve the processing of large amounts of data, with multiple joins to enable richer insights, the widgets may not load instantaneously when the user is viewing reports across a large backup estate. The table below provides a rough estimate of the time that different widgets can take to load, based on the number of backup items and the time range for which the report is being viewed:
 
-| **# Datasources**                         | **Time Horizon** | **Load Times (approx)**                                              |
+| **# Datasources**                         | **Time Horizon** | **Load Times (approx.)**                                              |
 | --------------------------------- | ------------- | ------------------------------------------------------------ |
 | ~5 K                       | 1 month          | Tiles: 5-10 secs <br> Grids: 5-10 secs <br> Charts: 5-10 secs <br> Report-level filters: 5-10 secs|
 | ~5 K                       | 3 months          | Tiles: 5-10 secs <br> Grids: 5-10 secs <br> Charts: 5-10 secs <br> Report-level filters: 5-10 secs|
@@ -113,5 +113,5 @@ The widgets in the Backup Report are powered by Kusto queries, which run on the 
 
 * In addition, the V1 schema of sending diagnostics data to a storage account or an LA Workspace is also on a deprecation path. This means that if you have written any custom queries or automations based on the V1 schema, you are advised to update these queries to use the currently supported V2 schema.
 
-## Next Steps
+## Next steps
 [Learn more about monitoring and reporting with Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)

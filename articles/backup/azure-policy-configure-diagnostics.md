@@ -1,10 +1,10 @@
 ---
-title: Configure Vault Diagnostics Settings at scale
-description: Configure Log Analytics Diagnostics Settings for all vaults in a given scope using Azure Policy
+title: Configure Vault Diagnostics settings at scale
+description: Configure Log Analytics Diagnostics settings for all vaults in a given scope using Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
 ---
-# Configure Vault Diagnostics Settings at scale
+# Configure Vault Diagnostics settings at scale
 
 The reporting solution provided by Azure Backup leverages Log Analytics (LA). For the data of any given vault to be sent to LA, a [diagnostics setting](https://aka.ms/AzureBackupDiagnosticsDocs) needs to be created for that vault.
 
