@@ -5,12 +5,12 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/06/2020
+ms.date: 02/16/2020
 ---
 
 # Mapping data flow video tutorials
 
-Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team.
+Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team. 
 
 As updates are constantly made to the product, some features have added or different functionality in the current Azure Data Factory user experience.
 
@@ -95,6 +95,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Decrease start-up times](https://youtu.be/FFCbU4ujCiY?t=528)
 
 [SQL DB performance](https://youtu.be/iyZT5CY3V_4)
+
+[Logging and auditing](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
 ## Mapping data flow scenarios
 
