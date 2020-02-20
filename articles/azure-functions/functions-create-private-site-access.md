@@ -221,29 +221,46 @@ The next step is to configure access restrictions to ensure only resources on th
 
 [Private site](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#private-site-access) access is enable by creating an Azure [virtual network service endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) between the App Service plan (consumption) and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure that only traffic originating from within the specified virtual network can access the designated resource. In this case, the designed resource is the Azure Function.
 
-Within the function app, proceed to the **Platform features** tab.
+1. Within the function app, proceed to the **Platform features** tab. Click on **Networking** to open the **Network Feature Status** section.
 
-<!-- INSERT SCREENSHOT -->
+[!div class="mx-imgBorder"]
+![Select Platform features in Azure Functions](./media/functions-create-private-site-access/configure-access-restrictions-1.png)
 
-Click on **Networking** to open the **Network Feature Status** section. This page is the starting point to configure Azure Front Door, the Azure CDN, and also Access Restrictions. Private site access is configured via access restrictions. Click to **Configure Access Restrictions**.
+2. The **Network Feature Status** page is the starting point to configure Azure Front Door, the Azure CDN, and also Access Restrictions. Private site access is configured via access restrictions. Select **Configure Access Restrictions**.
 
-<!-- INSERT SCREENSHOT -->
+[!div class="mx-imgBorder"]
+![Select Platform features in Azure Functions](./media/functions-create-private-site-access/configure-access-restrictions-2.png)
 
-It can be seen on the Access Restrictions page that only the default restriction is in place. The default does not place any restrictions on access to the function.  For private site access, a new access restriction configuration needs to be created. Do so by first clicking on **Add rule**.
+3. It can be seen on the **Access Restrictions** page that only the default restriction is in place. The default does not place any restrictions on access to the function.  For private site access, a new access restriction configuration needs to be created. Do so by first clicking on **Add rule**.
 
-<!-- INSERT SCREENSHOT -->
+[!div class="mx-imgBorder"]
+![Configure access restrictions](./media/functions-create-private-site-access/configure-access-restrictions-3.png)
 
-This will open new **Add Access Restriction** blade on the right side of the portal. The key configuration in this blade is to select **Virtual Network** from the Type drop-down selection box. Once Virtual Network is selected, select the desired virtual network and subnet.
+4. This will open new **Add Access Restriction** blade on the right side of the portal. The key configuration in this blade is to select **Virtual Network** from the Type drop-down selection box. Once Virtual Network is selected, select the desired virtual network and subnet.
 
-<!-- INSERT SCREENSHOT -->
+[!div class="mx-imgBorder"]
+![Configure access restrictions](./media/functions-create-private-site-access/configure-access-restrictions-4.png)
+
+| Setting      | Suggested value  | Description      |
+| ------------ | ---------------- | ---------------- |
+| Name | TODO | TODO |
+| Priority | 100 | TODO |
+| Description | Brief description of the rule. | TODO |
+| Type | Virtual Network | TODO |
+| Subscription | TODO | TODO |
+| Virtual Network | TODO | TODO |
+| Subnet | TODO | TODO |
 
 Notice in the above screenshot the information block indicating a service endpoint has not yet been enabled for Microsoft.Web. The service endpoint will automatically be created.
 
-The Access Restrictions page now shows that there is a new restriction. It may take a few seconds for the Endpoint status to change from Provisioning to Enabled.
+5. The Access Restrictions page now shows that there is a new restriction. It may take a few seconds for the Endpoint status to change from Disabled to Provisioning to Enabled.
 
-<!-- INSERT SCREENSHOT -->
+[!div class="mx-imgBorder"]
+![Access restrictions with newly created rule](./media/functions-create-private-site-access/configure-access-restrictions-5.png)
 
 It is important to note that access restrictions have not been enabled on the [SCM site](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions#scm-site), private-site.scm.azurewebsites.net. By not enabling access restrictions the SCM site, it will be possible to deploy the Azure Function code from a local developer workstation or another build service without needing to take extra steps to provision an agent within the virtual network.
+
+## Access the Function app
 
 If you try to access the function app now, you should receive an HTTP 403 page indicating that the app is stopped.  The app isn't really stopped. The response is actually a HTTP 403.6 - IP address rejected status.
 
