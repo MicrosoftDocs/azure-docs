@@ -68,8 +68,8 @@ The infrastructure supporting your virtual machines may occasionally be updated 
 **Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window.
 
 > [!NOTE]
->  Maintenance control is currently in a limited preview stage and requires an onboarding process. 
-> Apply for this preview by submitting a [nomination survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
+>  Maintenance control is currently in public preview. 
+> For more information, see **Control updates with Maintenance Control using [CLI](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) or [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)**.
 
 ## Capacity considerations
 

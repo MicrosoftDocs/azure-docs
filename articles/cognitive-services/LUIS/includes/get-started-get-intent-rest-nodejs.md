@@ -20,7 +20,7 @@ ms.author: diberry
 
 1. Sign into the [Azure portal](https://portal.azure.com)
 1. Click [Create **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Enter all required settings for Runtime key:
+1. Enter all required settings for **Runtime** key:
 
     |Setting|Value|
     |--|--|
@@ -84,11 +84,11 @@ Use Node.js to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predi
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. Replace the `YOUR-KEY` and `YOUR-ENDPOINT` values with your own prediction key and endpoint.
+1. Replace the `YOUR-KEY` and `YOUR-ENDPOINT` values with your own prediction **Runtime** key and endpoint.
 
     |Information|Purpose|
     |--|--|
-    |`YOUR-KEY`|Your 32 character prediction key.|
+    |`YOUR-KEY`|Your 32 character prediction **Runtime** key.|
     |`YOUR-ENDPOINT`| Your prediction URL endpoint. For example, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 1. Install the `request`, `request-promise`, and `querystring` dependencies with this command:

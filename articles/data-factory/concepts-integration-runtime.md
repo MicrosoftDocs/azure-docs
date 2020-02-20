@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/31/2019
+ms.date: 01/28/2020
 ---
 
 # Integration runtime in Azure Data Factory 
@@ -152,9 +152,9 @@ When used to perform data movement, the self-hosted IR extracts data from the so
 
 Selecting the right location for your Azure-SSIS IR is essential to achieve high performance in your extract-transform-load (ETL) workflows.
 
-- The location of your Azure-SSIS IR doesn't need to be the same as the location of your data factory, but it should be the same as the location of your own Azure SQL Database/Managed Instance server where SSISDB is to be hosted. This way, your Azure-SSIS Integration Runtime can easily access SSISDB without incurring excessive traffics between different locations.
-- If you do not have an existing Azure SQL Database/Managed Instance server to host SSISDB, but you have on-premises data sources/destinations, you should create a new Azure SQL Database/Managed Instance server in the same location of a virtual network connected to your on-premises network.  This way, you can create your Azure-SSIS IR using the new Azure SQL Database/Managed Instance server and joining that virtual network, all in the same location, effectively minimizing data movements across different locations.
-- If the location of your existing Azure SQL Database/Managed Instance server where SSISDB is hosted is not the same as the location of a virtual network connected to your on-premises network, first create your Azure-SSIS IR using an existing Azure SQL Database/Managed Instance server and joining another virtual network in the same location, and then configure a virtual network to virtual network connection between different locations.
+- The location of your Azure-SSIS IR does not need be the same as the location of your data factory, but it should be the same as the location of your own Azure SQL Database or Managed Instance server where SSISDB is to be hosted. This way, your Azure-SSIS Integration Runtime can easily access SSISDB without incurring excessive traffics between different locations.
+- If you do not have an existing Azure SQL Database or Managed Instance server to host SSISDB, but you have on-premises data sources/destinations, you should create a new Azure SQL Database or Managed Instance server in the same location of a virtual network connected to your on-premises network.  This way, you can create your Azure-SSIS IR using the new Azure SQL Database or Managed Instance server and joining that virtual network, all in the same location, effectively minimizing data movements across different locations.
+- If the location of your existing Azure SQL Database or Managed Instance server where SSISDB is hosted is not the same as the location of a virtual network connected to your on-premises network, first create your Azure-SSIS IR using an existing Azure SQL Database or Managed Instance server and joining another virtual network in the same location, and then configure a virtual network to virtual network connection between different locations.
 
 The following diagram shows location settings of Data Factory and its integration run times:
 
@@ -174,13 +174,13 @@ For Copy activity, it requires source and sink linked services to define the dir
 
 The Lookup and GetMetadata activity is executed on the integration runtime associated to the data store linked service.
 
-### Transformation activity
+### External transformation activity
 
-Each transformation activity has a target compute Linked Service, which points to an integration runtime. This integration runtime instance is where the transformation activity is dispatched from.
+Each external transformation activity that utilizes an external compute engine has a target compute Linked Service, which points to an integration runtime. This integration runtime instance determines the location where that external hand-coded transformation activity is dispatched from.
 
 ### Data Flow activity
 
-Data Flow activity is executed on the integration runtime associated to it. 
+Data Flow activities are executed on the Azure integration runtime associated to it. The Spark compute utilized by Data Flows are determined by the data flow properties in your Azure Integration Runtime and are fully managed by ADF.
 
 ## Next steps
 
