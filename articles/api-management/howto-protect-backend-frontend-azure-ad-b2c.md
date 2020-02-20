@@ -71,8 +71,8 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Upon clicking save, record the key somewhere safe for later use - note that this place is the ONLY chance will you get to view and copy this key.
 1. Now select the *Published Scopes* Tab (Under API Access)
 1. Create and name a scope for your Function API and record the Scope and populated Full Scope Value, then click 'Save'.
->   [!NOTE]
->   Azure AD B2C scopes are effectively permissions within your API that other applications can request access to via the API access blade from their applications, effectively you just created application permissions for your called API.
+   > [!NOTE]
+   > Azure AD B2C scopes are effectively permissions within your API that other applications can request access to via the API access blade from their applications, effectively you just created application permissions for your called API.
 1. Open the other two applications and then look under the *API Access* tab.
 1. Grant them access to the backend API scope and the default one that was already there ("Access the user's profile").
 1. Generate them a key each by selecting the *Keys* tab under 'General' to generate an auth key and record those keys somewhere safe for later.
@@ -88,12 +88,12 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. This action will open the run user flow blade, select the frontend application, then record the address of the b2clogin.com domain that's shown under the dropdown for 'Select domain'.
 1. Click on the link at the top to open the 'well-known openid configuration endpoint', and record the authorization_endpoint and token_endpoint values as well of the value of the link itself as the well-known openid configuration endpoint.
 
->   [!NOTE]
->   B2C Policies allow you to expose the Azure AD B2C login endpoints to be able to capture different data components and sign in users in different ways. 
->   In this case we configured a sign up or sign in endpoint, which exposed a well-known configuration endpoint, specifically our created policy was identified in the URL by the p= parameter.
->   
->   Once this is done – you now have a functional Business to Consumer identity platform that will sign users into multiple applications. 
->   If you want to you can click the 'Run user flow' button here (to go through the sign up or sign in process) and get a feel for what it will do in practice, but the redirection step at the end will fail as the app has not yet been deployed.
+   > [!NOTE]
+   > B2C Policies allow you to expose the Azure AD B2C login endpoints to be able to capture different data components and sign in users in different ways. 
+   > In this case we configured a sign up or sign in endpoint, which exposed a well-known configuration endpoint, specifically our created policy was identified in the URL by the p= parameter.
+   > 
+   > Once this is done – you now have a functional Business to Consumer identity platform that will sign users into multiple applications. 
+   > If you want to you can click the 'Run user flow' button here (to go through the sign up or sign in process) and get a feel for what it will do in practice, but the redirection step at the end will fail as the app has not yet been deployed.
 
 ## Build the function API
 1. Go to the Function Apps blade of the Azure portal, open your empty function app, then create a new In-Portal 'Webhook + API' function via the quickstart.
@@ -114,8 +114,8 @@ Open the Azure AD B2C blade in the portal and do the following steps.
    
    ```
 
->   [!NOTE]
->   The c# script function code you just pasted simply logs a line to the functions logs, and returns the text "Hello World" with some dynamic data (the date and time).
+   > [!NOTE]
+   > The c# script function code you just pasted simply logs a line to the functions logs, and returns the text "Hello World" with some dynamic data (the date and time).
 
 3. Select “Integrate” from the left-hand blade, then select ‘Advanced Editor’ in the top-right-hand corner of the pane.
 4. Paste the sample code below over the existing json.
@@ -144,10 +144,10 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 
 5. Switch back to the HttpTrigger1 tab, click 'Get Function URL', then copy the URL that appears.
 
->   [!NOTE]
->   The bindings you just created simply tell Functions to respond on anonymous http GET requests to the URL you just copied. (https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey)
->   Now we have a scalable serverless https API, that is capable of returning a very simple payload.
->   You can now test calling this API from a web browser using the URL above, you can also strip the ?code=secret portion of the URL and prove that Azure Functions will return a 401 error.
+   > [!NOTE]
+   > The bindings you just created simply tell Functions to respond on anonymous http GET requests to the URL you just copied. (https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey)
+   > Now we have a scalable serverless https API, that is capable of returning a very simple payload.
+   > You can now test calling this API from a web browser using the URL above, you can also strip the ?code=secret portion of the URL and prove that Azure Functions will return a 401 error.
 
 ## Configure and secure the function API
 1. Two extra areas in the function app need to be configured (Auth and Network Restrictions).
@@ -160,10 +160,10 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Add the three (or two if using API Management consumption model) application IDs that you recorded earlier for the Azure AD B2C applications into the Allowed Token Audiences, this setting tells EasyAuth which AUD claim values are allowed in the tokens received.
 1. Select OK, then click Save.
 
->   [!NOTE]
->   Now your Function API is deployed and should throw 401 or 403 errors for unauthorized requests, and should return data when a valid request is presented.
->   But we still have no IP security, if you have a valid key you can call this from anywhere - ideally we want to force all requests to come via API Management.
->   Also, if you are using the API Management consumption tier, you will not be able to perform this lockdown by VIP as there is no dedicated static IP for that tier, you will need to rely on the method of locking down your API calls via the shared secret function key, so steps 11-14 will not be possible.
+   > [!NOTE]
+   > Now your Function API is deployed and should throw 401 or 403 errors for unauthorized requests, and should return data when a valid request is presented.
+   > But we still have no IP security, if you have a valid key you can call this from anywhere - ideally we want to force all requests to come via API Management.
+   > Also, if you are using the API Management consumption tier, you will not be able to perform this lockdown by VIP as there is no dedicated static IP for that tier, you will need to rely on the method of locking down your API calls via the shared secret function key, so steps 11-14 will not be possible.
 
 1. Close the 'Authentication / Authorization' blade 
 1. Select 'Networking' and then select 'Access Restrictions'
@@ -173,8 +173,8 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 
 You'll need to add CIDR formatted blocks of addresses to the IP restrictions panel. When you need to add a single address such as the API Management VIP, you need to add it in the format xx.xx.xx.xx/32.
 
->   [!NOTE]
->   Now your Function API should not be callable from anywhere other than via API management, or your address.
+   > [!NOTE]
+   > Now your Function API should not be callable from anywhere other than via API management, or your address.
 
 ## Import the function app definition
 1. Open the API Management portal blade and select your API Management instance.
@@ -203,8 +203,8 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Select the Oauth server that you defined earlier.
 1. Check the ‘Override scope’ checkbox and enter the scope you recorded for the backend API call earlier on.
 
->   [!NOTE]
->   Now we have an API Management instance that knows how to get access tokens from Azure AD B2C to authorize requests and understands our Oauth2 Azure Active Directory B2C configuration.
+   > [!NOTE]
+   > Now we have an API Management instance that knows how to get access tokens from Azure AD B2C to authorize requests and understands our Oauth2 Azure Active Directory B2C configuration.
 
 ## Set up the **CORS** and **validate-jwt** policies
 
@@ -243,12 +243,12 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Edit the claim value to match the valid application ID, also known as a client ID for the backend API application and save.
 1. Select the api operation below the "All APIs"
 
->   [!NOTE]
->   Now API management is able respond to cross origin requests to JS SPA apps, and it will perform throttling, rate-limiting and pre-validation of the JWT auth token being passed BEFORE forwarding the request on to the Function API.
+   > [!NOTE]
+   > Now API management is able respond to cross origin requests to JS SPA apps, and it will perform throttling, rate-limiting and pre-validation of the JWT auth token being passed BEFORE forwarding the request on to the Function API.
 
->   [!NOTE]
->   The following section is optional and does not apply to the **Consumption** tier, which does not support the developer portal.
->   If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](##build-the-javascript-spa-to-consume-the-api).
+   > [!NOTE]
+   > The following section is optional and does not apply to the **Consumption** tier, which does not support the developer portal.
+   > If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](##build-the-javascript-spa-to-consume-the-api).
 
 ## [Optional] Configure the developer portal
 
@@ -263,8 +263,8 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 1. After successful sign-in, an `Authorization: Bearer` header is added to the request, with an access token from Azure AD B2C encoded in Base64. 
 1. Select **Send** and you can call the API successfully.
 
->   [!NOTE]
->   Now API management is able to acquire tokens for the developer portal to test your API and is able to understand it's definition and render the appropriate test page in the dev portal.
+   > [!NOTE]
+   > Now API management is able to acquire tokens for the developer portal to test your API and is able to understand it's definition and render the appropriate test page in the dev portal.
 
 1. From the overview blade of the API Management portal, click 'Developer Portal' to sign in as an administrator of the API.
 1. Here, you and other selected consumers of your API can test and call them from a console.
@@ -273,11 +273,11 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 1. Also select Implicit, from the oauth auth dropdown and you may have to authenticate here with a popup.
 1. Click ‘Send’ and if all is well, your Function App should respond back with a hello message via API management with a 200 OK message and some JSON.
 
->   [!NOTE]
->   Congratulations, you now have Azure AD B2C, API Management and Azure Functions working together to publish, secure AND consume an API. 
->   You might have noticed that the API is in fact secured twice using this method, once with the API Management Ocp-Subscription-Key Header, and once with the Authorization: Bearer JWT.
->   You would be correct, as this example is a JavaScript Single Page Application, we use the API Management Key only for rate-limiting and billing calls.
->   The actual Authorization and Authentication is handled by Azure AD B2C, and is encapsulated in the JWT, which gets validated twice, once by API Management, and then by Azure Functions.
+   > [!NOTE]
+   > Congratulations, you now have Azure AD B2C, API Management and Azure Functions working together to publish, secure AND consume an API. 
+   > You might have noticed that the API is in fact secured twice using this method, once with the API Management Ocp-Subscription-Key Header, and once with the Authorization: Bearer JWT.
+   > You would be correct, as this example is a JavaScript Single Page Application, we use the API Management Key only for rate-limiting and billing calls.
+   > The actual Authorization and Authentication is handled by Azure AD B2C, and is encapsulated in the JWT, which gets validated twice, once by API Management, and then by Azure Functions.
 
 ## Build the JavaScript SPA to consume the API
 1. Open the storage accounts blade in the Azure portal 
@@ -285,8 +285,8 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 1. Set the static web hosting feature to 'enabled', and set the index document name to 'index.html', then click 'save'.
 1. Note down the contents of the Primary Endpoint, as this location is where the frontend site will be hosted. 
 
->   [!NOTE]
->   You could use either Azure Blob Storage + CDN rewrite, or Azure App Service - but Blob Storage's Static Website hosting feature gives us a default container to serve static web content / html / js / css from Azure Storage and will infer a default page for us for zero work.
+   > [!NOTE]
+   > You could use either Azure Blob Storage + CDN rewrite, or Azure App Service - but Blob Storage's Static Website hosting feature gives us a default container to serve static web content / html / js / css from Azure Storage and will infer a default page for us for zero work.
 
 ## Upload the JS SPA sample
 1. Still in the storage account blade, select the 'Blobs' blade from the Blob Service section and click on the $web container that appears in the right-hand pane.
@@ -409,9 +409,9 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 
 1. Browse to the Static Website Primary Endpoint you stored earlier in the last section.
 
->   [!NOTE]
->   Congratulations, you just deployed a JavaScript Single Page App to Azure Storage
->   Since we haven’t configured the JS app with your keys for the api or configured the JS app with your Azure AD B2C details yet – the page will not work yet if you open it.
+   > [!NOTE]
+   > Congratulations, you just deployed a JavaScript Single Page App to Azure Storage
+   > Since we haven’t configured the JS app with your keys for the api or configured the JS app with your Azure AD B2C details yet – the page will not work yet if you open it.
 
 ## Configure the JS SPA for Azure AD B2C
 1. Now we know where everything is: we can configure the SPA with the appropriate API Management API address and the correct Azure AD B2C application / client IDs
@@ -437,16 +437,16 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 1. Open the Azure AD B2C blade and navigate to the application registration for the JavaScript Frontend Application
 1. Set the redirect URL to the one you noted down when you previously set up the static website primary endpoint above
 
->   [!NOTE] 
->   This configuration will result in a client of the frontend application receiving an access token with appropriate claims from Azure AD B2C.
->   The SPA will be able to add this as a bearer token in the https header in the call to the backend API.
->   API Management will pre-validate the token, rate-limit calls to the endpoint by the subscriber key, before passing through the request to the receiving Azure Function API.
->   The SPA will render the response in the browser.
+   > [!NOTE] 
+   > This configuration will result in a client of the frontend application receiving an access token with appropriate claims from Azure AD B2C.
+   > The SPA will be able to add this as a bearer token in the https header in the call to the backend API.
+   > API Management will pre-validate the token, rate-limit calls to the endpoint by the subscriber key, before passing through the request to the receiving Azure Function API.
+   > The SPA will render the response in the browser.
 
->   *Congratulations, you’ve configured Azure AD B2C, Azure API Management, Azure Functions, Azure App Service Authorization to work in perfect harmony!*
+   > *Congratulations, you’ve configured Azure AD B2C, Azure API Management, Azure Functions, Azure App Service Authorization to work in perfect harmony!*
 
->   [!NOTE]
->   Now we have a simple app with a simple secured API, let's test it.
+   > [!NOTE]
+   > Now we have a simple app with a simple secured API, let's test it.
 
 ## Test the client application
 1. Open the sample app URL that you noted down from the storage account you created earlier
