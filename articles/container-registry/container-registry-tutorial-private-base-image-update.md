@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 01/22/2020
 ---
 
-# Tutorial: Automate container image builds when a base image is updated in another Azure container registry 
+# Tutorial: Automate container image builds when a base image is updated in another private container registry 
 
 ACR Tasks supports automated image builds when a container's [base image is updated](container-registry-tasks-base-images.md), such as when you patch the OS or application framework in one of your base images. 
 
