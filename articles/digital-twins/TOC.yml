@@ -109,7 +109,7 @@
     - name: Product requests and suggestions
       href: https://feedback.azure.com/forums/916621-azure-digital-twins
   - name: Customer stories
-    href: https://customers.microsoft.com/search?sq=azure%20digital%20twins&ff=&p=0&so=story_publish_date%20desc
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Channel 9 videos
     href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22
   - name: Azure IoT updates
