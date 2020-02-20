@@ -77,7 +77,7 @@ In this tutorial, you use the [Vcpkg](https://github.com/microsoft/vcpkg) librar
 
 To connect a device to an IoT Central application, you need a device key. To generate a device key:
 
-1. Sign in to the IoT Central application you created using the **Custom app > Preview application** template in the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart.
+1. Sign in to the IoT Central application you created using the **Custom application** template in the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart.
 
 1. Go to the **Administration** page and select **Device Connection**.
 
