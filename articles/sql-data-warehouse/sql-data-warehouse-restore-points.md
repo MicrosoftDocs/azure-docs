@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # User-defined restore points
 
-In this article, you'll learn to create a new user-defined restore point for the SQL pool resource in Azure Synapse Analytics by using PowerShell and the Azure portal.
+In this article, you'll learn to create a new user-defined restore point for a SQL pool in Azure Synapse Analytics by using PowerShell and the Azure portal.
 
 ## Create user-defined restore points through PowerShell
 
