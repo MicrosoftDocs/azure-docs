@@ -170,7 +170,7 @@ In this section, you use the Azure cloud shell to connect to the server you crea
     
     If everything goes well, you see output similar to the following results:
     
-    ```
+    ```output
     demo@Azure:~$ mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.

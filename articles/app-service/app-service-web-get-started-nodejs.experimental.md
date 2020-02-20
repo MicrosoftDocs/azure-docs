@@ -98,7 +98,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 Browse to your newly created web app. Replace `<app_name>` with a unique app name.
 
-```
+```http
 http://<app_name>.azurewebsites.net
 ```
 
@@ -127,7 +127,7 @@ This command deploys the files and directories from the ZIP file to your default
 
 Browse to the deployed application using your web browser.
 
-```
+```http
 http://<app_name>.azurewebsites.net
 ```
 

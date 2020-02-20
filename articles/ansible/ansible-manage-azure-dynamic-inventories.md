@@ -104,7 +104,7 @@ Ansible provides a Python script named [azure_rm.py](https://github.com/ansible/
 
 1. Once connected, you see results similar to the following output:
 
-    ```Output
+    ```output
     ansible-inventory-test-vm1 | SUCCESS => {
         "changed": false,
         "failed": false,
@@ -142,7 +142,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in]
 
 1. When running the preceding command, you could receive the following error:
 
-    ```Output
+    ```output
     Failed to connect to the host via ssh: Host key verification failed.
     ```
     
@@ -154,7 +154,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in]
 
 1. When you run the playbook, you see results similar to the following output:
   
-    ```Output
+    ```output
     ansible-inventory-test-vm1_0324 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ```
@@ -177,7 +177,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in]
     
     You now see only one virtual machine (the one whose tag matches the value exported into the `AZURE_TAGS` environment variable):
 
-    ```Output
+    ```output
        ansible-inventory-test-vm1 | SUCCESS => {
         "changed": false,
         "failed": false,
@@ -189,7 +189,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in]
 
 - Run the command `ansible-inventory -i myazure_rm.yml --graph` to get the following output:
 
-    ```Output
+    ```output
         @all:
           |--@tag_Ansible_nginx:
           |  |--ansible-inventory-test-vm1_9e2f
@@ -250,7 +250,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 1. After running the playbook, you see output similar to the following results:
 
-    ```Output
+    ```output
     PLAY [Install and start Nginx on an Azure virtual machine] 
 
     TASK [Gathering Facts] 
@@ -286,7 +286,7 @@ This section illustrates one technique to test that Nginx is installed on your v
 
 1. Once you run the `nginx -v` command, you see the Nginx version (second line) that indicates that Nginx is installed.
 
-    ```Output
+    ```output
     tom@ansible-inventory-test-vm1:~$ nginx -v
 
     nginx version: nginx/1.10.3 (Ubuntu)
@@ -298,7 +298,7 @@ This section illustrates one technique to test that Nginx is installed on your v
 
 1. Doing the preceding steps for the `ansible-inventory-test-vm2` virtual machine yields an informational message indicating where you can get Nginx (which implies that you don't have it installed at this point):
 
-    ```Output
+    ```output
     tom@ansible-inventory-test-vm2:~$ nginx -v
     The program 'nginx' can be found in the following packages:
     * nginx-core
