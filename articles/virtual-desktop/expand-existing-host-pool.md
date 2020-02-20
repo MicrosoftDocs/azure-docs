@@ -33,7 +33,7 @@ The next three sections are three methods you can use to expand the host pool. Y
 
 ## Redeploy from Azure
 
-If you've already created a host pool and session host VMs using the [Azure Marketplace offering](./create-host-pools-azure-marketplace.md) or [GitHub Azure Resource Manager template](./create-host-pools-arm-template.md), you can redeploy the same template from the Azure Portal. This automatically reenters all the information you entered into the original template except for passwords.
+If you've already created a host pool and session host VMs using the [Azure Marketplace offering](./create-host-pools-azure-marketplace.md) or [GitHub Azure Resource Manager template](./create-host-pools-arm-template.md), you can redeploy the same template from the Azure Portal. Redeploying the template automatically reenters all the information you entered into the original template except for passwords.
 
 Here's how to redeploy the Azure Resource Manager template to expand a host pool:
 
@@ -66,7 +66,7 @@ All values in this section should match what you provided when you first created
 1.	For *Subscription*, select the subscription where you first created the host pool.
 2.	For *Resource group*, select the same resource group where the existing host pool session host VMs are located.
 3.	For *Region*, select the same region where the existing host pool session host VMs are located.
-4.	For *Hostpool name*, enter the of the existing host pool.
+4.	For *Hostpool name*, enter the name of the existing host pool.
 5.	For *Desktop type*, select the desktop type that matches the existing host pool.
 6.	For *Default desktop users*, enter a comma-separated list of any additional users who you want to sign in to the Windows Virtual Desktop clients and access a desktop after the Azure Marketplace offering finishes. For example, if you want to assign user3@contoso.com and user4@contoso.com access, enter user3@contoso.com,user4@contoso.com.
 7.	Select **Next : Configure virtual machine**.
