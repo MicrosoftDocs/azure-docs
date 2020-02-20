@@ -34,7 +34,7 @@ landingContent:
           - text: Development lifecycle
             url: concepts/development-lifecycle-knowledge-base.md
           - text: Data sources
-            url: concepts/data-sources-supported.md
+            url: concepts/knowledge-base.md
       - linkListType: video
         links:
           - text: Build a bot in minutes

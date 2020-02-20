@@ -284,7 +284,7 @@ In the Recovery Services vault, select **Configuration Servers** in **Site Recov
 
 ### Can a single configuration server be used to protect multiple vCenter instances?
 
-Yes, a single configuration server can protect VMs accross multiple vCenters.  There is not limit on how many vCenter instances can be added to the configuration server, however the limits for how many VMs a single configuration server can protect do apply.
+Yes, a single configuration server can protect VMs across multiple vCenters.  There is not limit on how many vCenter instances can be added to the configuration server, however the limits for how many VMs a single configuration server can protect do apply.
 
 ### Can a single configuration server protect multiple clusters within vCenter?
 

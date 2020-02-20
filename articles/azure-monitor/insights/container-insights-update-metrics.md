@@ -525,7 +525,7 @@ Perform the following steps to update a specific cluster using Azure PowerShell.
     }
 
     #
-    #   Check AKS cluster existance and access check
+    #   Check AKS cluster existence and access check
     #
     Write-Host("Checking aks cluster exists...")
     $cluster = Get-AzAks -ResourceGroupName $resourceGroupName -Name $clusterName  -ErrorVariable notPresent -ErrorAction SilentlyContinue

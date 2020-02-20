@@ -1,5 +1,5 @@
 ---
-title: Set up advanced threat protection for Azure Key Vault | Microsoft Docs
+title: Set up advanced threat protection for Azure Key Vault
 description: This article explains how to set up advanced threat protection for Azure Key Vault in Azure Security Center
 services: security-center
 author: memildin
@@ -15,9 +15,6 @@ ms.author: memildin
 Advanced threat protection for Azure Key Vault provides an additional layer of security intelligence. This tool detects potentially harmful attempts to access or exploit Key Vault accounts. Using the native advanced threat protection in Azure Security Center, you can address threats without being a security expert, and without learning additional security monitoring systems.
 
 When Security Center detects anomalous activity, it displays alerts. It also emails the subscription administrator with details of the suspicious activity and recommendations for how to investigate and remediate the identified threats.
-
-> [!NOTE]
-> Advanced threat protection for Azure Key Vault is currently available only in North America regions.
 
 ## Set up advanced threat protection from Azure Security Center
 

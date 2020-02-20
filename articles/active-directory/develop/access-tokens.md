@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev, fasttrack-edit
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ---
 
 # Microsoft identity platform access tokens
@@ -59,7 +59,7 @@ JWTs are split into three pieces:
 
 Each piece is separated by a period (`.`) and separately Base64 encoded.
 
-Claims are present only if a value exists to fill it. So, your app shouldn't take a dependency on a claim being present. Examples include `pwd_exp` (not every tenant requires passwords to expire) or `family_name` ([client credential](v1-oauth2-client-creds-grant-flow.md) flows are on behalf of applications, which don't have names). Claims used for access token validation will always be present.
+Claims are present only if a value exists to fill it. So, your app shouldn't take a dependency on a claim being present. Examples include `pwd_exp` (not every tenant requires passwords to expire) or `family_name` (client credential ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) flows are on behalf of applications, which don't have names). Claims used for access token validation will always be present.
 
 > [!NOTE]
 > Some claims are used to help Azure AD secure tokens in case of reuse. These are marked as not being for public consumption in the description as "Opaque". These claims may or may not appear in a token, and new ones may be added without notice.
@@ -94,7 +94,7 @@ Claims are present only if a value exists to fill it. So, your app shouldn't tak
 | `preferred_username` | String | The primary username that represents the user. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. Since it is mutable, this value must not be used to make authorization decisions.  It can be used for username hints though. The `profile` scope is required in order to receive this claim. |
 | `name` | String | Provides a human-readable value that identifies the subject of the token. The value is not guaranteed to be unique, it is mutable, and it's designed to be used only for display purposes. The `profile` scope is required in order to receive this claim. |
 | `scp` | String, a space separated list of scopes | The set of scopes exposed by your application for which the client application has requested (and received) consent. Your app should verify that these scopes are valid ones exposed by your app, and make authorization decisions based on the value of these scopes. Only included for [user tokens](#user-and-application-tokens). |
-| `roles` | Array of strings, a list of permissions | The set of permissions exposed by your application that the requesting application or user has been given permission to call. For [application tokens](#user-and-application-tokens), this is used during the [client-credentials](v1-oauth2-client-creds-grant-flow.md) flow in place of user scopes.  For [user tokens](#user-and-application-tokens) this is populated with the roles the user was assigned to on the target application. |
+| `roles` | Array of strings, a list of permissions | The set of permissions exposed by your application that the requesting application or user has been given permission to call. For [application tokens](#user-and-application-tokens), this is used during the client credential flow ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) in place of user scopes.  For [user tokens](#user-and-application-tokens) this is populated with the roles the user was assigned to on the target application. |
 | `wids` | Array of [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) GUIDs | Denotes the tenant-wide roles assigned to this user, from the section of roles present in [the admin roles page](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  This claim is configured on a per-application basis, through the `groupMembershipClaims` property of the [application manifest](reference-app-manifest.md).  Setting it to "All" or "DirectoryRole" is required.  May not be present in tokens obtained through the implicit flow due to token length concerns. |
 | `groups` | JSON array of GUIDs | Provides object IDs that represent the subject's group memberships. These values are unique (see Object ID) and can be safely used for managing access, such as enforcing authorization to access a resource. The groups included in the groups claim are configured on a per-application basis, through the `groupMembershipClaims` property of the [application manifest](reference-app-manifest.md). A value of null will exclude all groups, a value of "SecurityGroup" will include only Active Directory Security Group memberships, and a value of "All" will include both Security Groups and Office 365 Distribution Lists. <br><br>See the `hasgroups` claim below for details on using the `groups` claim with the implicit grant. <br>For other flows, if the number of groups the user is in goes over a limit (150 for SAML, 200 for JWT), then an overage claim will be added to the claim sources pointing at the AAD Graph endpoint containing the list of groups for the user. |
 | `hasgroups` | Boolean | If present, always `true`, denoting the user is in at least one group. Used in place of the `groups` claim for JWTs in implicit grant flows if the full groups claim would extend the URI fragment beyond the URL length limits (currently 6 or more groups). Indicates that the client should use the Graph to determine the user's groups (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
@@ -168,7 +168,7 @@ To validate an id_token or an access_token, your app should validate both the to
 
 The Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) to find one in the language of your choice. For more information on how to explicitly validate a JWT token, see the [manual JWT validation sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).
 
-We provide libraries and code samples that show how to easily handle token validation. The below information is provided for those who wish to understand the underlying process. There are also several third-party open-source libraries available for JWT validation - there is at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, see [v1.0 authentication libraries](active-directory-authentication-libraries.md) and [v2.0 authentication libraries](reference-v2-libraries.md).
+We provide libraries and code samples that show how to easily handle token validation. The below information is provided for those who wish to understand the underlying process. There are also several third-party open-source libraries available for JWT validation - there is at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, see [v1.0 authentication libraries](../azuread-dev/active-directory-authentication-libraries.md) and [v2.0 authentication libraries](reference-v2-libraries.md).
 
 ### Validating the signature
 
@@ -225,9 +225,9 @@ Your application's business logic will dictate this step, some common authorizat
 
 ## User and application tokens
 
-Your application may receive tokens on behalf of a user (the usual flow) or directly from an application (through the [client credentials flow](v1-oauth2-client-creds-grant-flow.md)). These app-only tokens indicate that this call is coming from an application and does not have a user backing it. These tokens are handled largely the same, with some differences:
+Your application may receive tokens on behalf of a user (the usual flow) or directly from an application (through the client credential flow ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)). These app-only tokens indicate that this call is coming from an application and does not have a user backing it. These tokens are handled largely the same, with some differences:
 
-* App-only tokens will not have a `scp` claim, and may instead have a `roles` claim. This is where application permission (as opposed to delegated permissions) will be recorded. For more information about delegated and application permissions, see permission and consent in [v1.0](v1-permissions-and-consent.md) and [v2.0](v2-permissions-and-consent.md).
+* App-only tokens will not have a `scp` claim, and may instead have a `roles` claim. This is where application permission (as opposed to delegated permissions) will be recorded. For more information about delegated and application permissions, see permission and consent ([v1.0](../azuread-dev/v1-permissions-consent.md),  [v2.0](v2-permissions-and-consent.md)).
 * Many human-specific claims will be missing, such as `name` or `upn`.
 * The `sub` and `oid` claims will be the same. 
 
@@ -253,7 +253,7 @@ Refresh tokens can be invalidated or revoked at any time, for different reasons.
 | Admin resets password | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | User revokes their refresh tokens [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
 | Admin revokes all refresh tokens for the tenant [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked | Revoked |
-| [Single sign-out](v1-protocols-openid-connect-code.md#single-sign-out) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive |
+| Single sign-out ([v1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out), [v2.0](v2-protocols-oidc.md#single-sign-out) ) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive |
 
 > [!NOTE]
 > A "Non-password based" login is one where the user didn't type in a password to get it. For example, using your face with Windows Hello, a FIDO2 key, or a PIN.
@@ -265,4 +265,4 @@ Refresh tokens can be invalidated or revoked at any time, for different reasons.
 ## Next steps
 
 * Learn about [`id_tokens` in Azure AD](id-tokens.md).
-* Learn about permission and consent in [v1.0](v1-permissions-and-consent.md) and [v2.0](v2-permissions-and-consent.md).
+* Learn about permission and consent ( [v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](v2-permissions-and-consent.md)).

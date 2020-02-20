@@ -38,6 +38,7 @@ The following articles are the complete documentation for AI enrichment.
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
   + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
+  + [Microsoft.Skills.Text.PIIDetectionSkill](cognitive-search-skill-pii-detection.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
   + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
   + [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md)

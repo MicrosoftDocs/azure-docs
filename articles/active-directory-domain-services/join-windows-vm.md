@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 02/19/2020
 ms.author: iainfou
 
 #Customer intent: As an server administrator, I want to learn how to join a Windows Server VM to an Azure Active Directory Domain Services managed domain to provide centralized identity and policy.
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Windows Server VM
-> * Connect to the Windows Server VM to an Azure virtual network
+> * Connect the Windows Server VM to an Azure virtual network
 > * Join the VM to the Azure AD DS managed domain
 
 If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -38,6 +38,8 @@ To complete this tutorial, you need the following resources:
     * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
     * Make sure that Azure AD Connect password hash synchronization or self-service password reset has been performed so the account is able to sign in to Azure AD DS managed domain.
+* An Azure Bastion host deployed in your Azure AD DS virtual network.
+    * If needed, [create an Azure Bastion host][azure-bastion].
 
 If you already have a VM that you want to domain-join, skip to the section to [join the VM to the Azure AD DS managed domain](#join-the-vm-to-the-azure-ad-ds-managed-domain).
 
@@ -67,13 +69,13 @@ If you already have a VM that you want to domain-join, skip to the section to [j
     | Username             | Enter a username for the local administrator account to create on the VM, such as *azureuser* |
     | Password             | Enter, and then confirm, a secure password for the local administrator to create on the VM. Don't specify a domain user account's credentials. |
 
-1. By default, VMs created in Azure aren't accessible from the Internet. This configuration helps improve the security of the VM and reduces the area for potential attack. In the next step of this tutorial, you need to connect to the VM using remote desktop protocol (RDP) and then join the Windows Server to the Azure AD DS managed domain.
+1. By default, VMs created in Azure are accessible from the Internet using RDP. When RDP is enabled, automated sign in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign in attempts.
 
-    When RDP is enabled, automated sign in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign in attempts. RDP should only be enabled when required, and limited to a set of authorized IP ranges. [Azure Just In Time VM access][jit-access] as part of Azure Security Center can enable these short-lived, restricted RDP sessions. You can also [create and use an Azure Bastion host (currently in preview)][azure-bastion] to allow access only through the Azure portal over SSL.
+    RDP should only be enabled when required, and limited to a set of authorized IP ranges. This configuration helps improve the security of the VM and reduces the area for potential attack. Or, create and use an Azure Bastion host that allows access only through the Azure portal over SSL. In the next step of this tutorial, you use an Azure Bastion host to securely connect to the VM.
 
-    For this tutorial, manually enable RDP connections to the VM.
+    For now, disable direct RDP connections to the VM.
 
-    Under **Public inbound ports**, select the option to **Allow selected ports**. From the drop-down menu for **Select inbound ports**, choose *RDP (3389)*.
+    Under **Public inbound ports**, select *None*.
 
 1. When done, select **Next: Disks**.
 1. From the drop-down menu for **OS disk type**, choose *Standard SSD*, then select **Next: Networking**.
@@ -117,20 +119,23 @@ It takes a few minutes to create the VM. The Azure portal shows the status of th
 
 ## Connect to the Windows Server VM
 
-Now let's connect to the newly created Windows Server VM using RDP and join the Azure AD DS managed domain. Use the local administrator credentials that you specified when the VM was created in the previous step, not any existing domain credentials.
+To securely connect to your VMs, use an Azure Bastion host. With Azure Bastion, a managed host is deployed into your virtual network and provides web-based RDP or SSH connections to VMs. No public IP addresses are required for the VMs, and you don't need to open network security group rules for external remote traffic. You connect to VMs using the Azure portal from your web browser.
 
-1. In the **Overview** pane, select **Connect**.
+To use a Bastion host to connect to your VM, complete the following steps:
 
-    ![Connect to Windows virtual machine in the Azure portal](./media/join-windows-vm/connect-to-vm.png)
+1. In the **Overview** pane for your VM, select **Connect**, then **Bastion**.
 
-1. Select the option to *Download RDP File*. Save this RDP file in your web browser.
-1. To connect to your VM, open the downloaded RDP file. If prompted, select **Connect**.
-1. Enter the local administrator credentials you entered in the previous step to create the VM, such as *localhost\azureuser*
-1. If you see a certificate warning during the sign in process, select **Yes** or **Continue** to connect.
+    ![Connect to Windows virtual machine using Bastion in the Azure portal](./media/join-windows-vm/connect-to-vm.png)
+
+1. Enter the credentials for your VM that you specified in the previous section, then select **Connect**.
+
+   ![Connect through the Bastion host in the Azure portal](./media/join-windows-vm/connect-to-bastion.png)
+
+If needed, allow your web browser to open pop-ups for the Bastion connection to be displayed. It takes a few seconds to make the connection to your VM.
 
 ## Join the VM to the Azure AD DS managed domain
 
-With the VM created and an RDP connection establish, now let's join the Windows Server virtual machine to the Azure AD DS managed domain. This process is the same as a computer connecting to a regular on-premises Active Directory Domain Services domain.
+With the VM created and a web-based RDP connection established using Azure Bastion, now let's join the Windows Server virtual machine to the Azure AD DS managed domain. This process is the same as a computer connecting to a regular on-premises Active Directory Domain Services domain.
 
 1. If **Server Manager** doesn't open by default when you sign in to the VM, select the **Start** menu, then choose **Server Manager**.
 1. In the left pane of the **Server Manager** window, select **Local Server**. Under **Properties** on the right pane, choose **Workgroup**.
@@ -171,22 +176,13 @@ Once the Windows Server VM has restarted, any policies applied in the Azure AD D
 
 ## Clean up resources
 
-In the next tutorial, you use this Windows Server VM to install the management tools that let you administer the Azure AD DS managed domain. If you don't want to continue in this tutorial series, review the following clean up steps to [disable RDP](#disable-rdp) or [delete the VM](#delete-the-vm). Otherwise, [continue to the next tutorial](#next-steps).
+In the next tutorial, you use this Windows Server VM to install the management tools that let you administer the Azure AD DS managed domain. If you don't want to continue in this tutorial series, review the following clean up steps to [delete the VM](#delete-the-vm). Otherwise, [continue to the next tutorial](#next-steps).
 
 ### Un-join the VM from Azure AD DS managed domain
 
 To remove the VM from the Azure AD DS managed domain, follow through the steps again to [join the VM to a domain](#join-the-vm-to-the-azure-ad-ds-managed-domain). Instead of joining the Azure AD DS managed domain, choose to join a workgroup, such as the default *WORKGROUP*. After the VM has rebooted, the computer object is removed from the Azure AD DS managed domain.
 
 If you [delete the VM](#delete-the-vm) without unjoining from the domain, an orphaned computer object is left in Azure AD DS.
-
-### Disable RDP
-
-If you continue to use the Windows Server VM created in this tutorial for running your own applications or workloads, recall that RDP was open over the Internet. To improve the security and reduce the risk of attack, RDP should be disabled over the Internet. To disable RDP to the Windows Server VM over the internet, complete the following steps:
-
-1. From the left-hand menu, select **Resource groups**
-1. Choose your resource group, such as *myResourceGroup*.
-1. Choose your VM, such as *myVM*, then select *Networking*.
-1. Under **Inbound network security rules** for the network security group, select the rule that allows RDP, then choose **Delete**. It takes a few seconds to remove the inbound security rule.
 
 ### Delete the VM
 
@@ -246,6 +242,5 @@ To administer your Azure AD DS managed domain, configure a management VM using t
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [password-sync]: active-directory-ds-getting-started-password-sync.md
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
-[jit-access]: ../security-center/security-center-just-in-time.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

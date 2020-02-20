@@ -39,7 +39,7 @@ The steps include:
     
         The Azure-SSIS IR needs to create certain network resources under the same resource group as the virtual network. These resources include:
         - An Azure load balancer, with the name *\<Guid>-azurebatch-cloudserviceloadbalancer*
-        - A network work security group, with the name *\<Guid>-azurebatch-cloudservicenetworksecuritygroup
+        - A network security group, with the name *\<Guid>-azurebatch-cloudservicenetworksecuritygroup
         - An Azure public IP address, with the name -azurebatch-cloudservicepublicip
     
         Those resources will be created when your Azure-SSIS IR starts. They'll be deleted when your Azure-SSIS IR stops. To avoid blocking your Azure-SSIS IR from stopping, don't reuse these network resources in your other resources.
@@ -61,7 +61,7 @@ The steps include:
 
 ## Configure a virtual network
 
-Use the Azure portal to a virtual network before you try to join an Azure-SSIS IR to it.
+Use the Azure portal to configure a virtual network before you try to join an Azure-SSIS IR to it.
 
 1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support the Data Factory UI.
 
