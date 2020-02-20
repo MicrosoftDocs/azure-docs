@@ -68,21 +68,21 @@ For the CLI or PowerShell based procedures, don't use bullets or numbering.
 
 Include a sentence or two to explain only what is needed to complete the procedure.
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
+1. Step 1 of the procedure
+1. Step 2 of the procedure
+1. Step 3 of the procedure
    <!--- ![Browser](media/contribute-how-to-mvc-tutorial/browser.png) --->
    <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
    If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
-1. Step four of the procedure
+1. Step 4 of the procedure
 
 ## Procedure 2
 
 Include a sentence or two to explain only what is needed to complete the procedure.
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
+1. Step 1 of the procedure
+1. Step 2 of the procedure
+1. Step 3 of the procedure
 
 ## Procedure 3
 
