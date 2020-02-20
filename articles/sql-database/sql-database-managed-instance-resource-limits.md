@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 11/27/2019
+ms.date: 02/18/2020
 ---
 # Overview Azure SQL Database managed instance resource limits
 
@@ -90,7 +90,7 @@ Managed instance has two service tiers: [General Purpose](sql-database-service-t
 
 In General Purpose service tier every database file is getting dedicated IOPS and throughput that depends on the file size. Bigger files are getting more IOPS and throughput. IO characteristics of the database files are shown in the following table:
 
-| File size           | 0 - 128 GiB | 128 - 256 GiB | 256 - 512 GiB | 0.5 - 1 TiB    | 1 - 2 TiB    | 2 - 4 TiB | 4 - 8 TiB |
+| File size | >=0 and <=128 GiB | >128 and <=256 GiB | >256 and <= 512 GiB | >0.5 and <=1 TiB    | >1 and <=2 TiB    | >2 and <=4 TiB | >4 and <=8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | IOPS per file       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500   |
 | Throughput per file | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
