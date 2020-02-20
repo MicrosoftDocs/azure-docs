@@ -143,7 +143,7 @@ The information in this section helps you finish the offline backup workflow so 
    * **Azure Storage Account**: The name of the storage account in the Azure subscription associated with the Azure publish settings file.
    * **Azure Storage Container**: The name of the destination storage blob in the Azure storage account where the backup data is imported.
 
-     Save the **Staging Location** and the **Azure Import Job Name** information you provided. It's required to prepare the disks. 
+   Save the **Staging Location** and the **Azure Import Job Name** information you provided. It's required to prepare the disks.
 
 1. Finish the workflow. To initiate the offline backup copy, select **Back Up Now** on the Azure Backup agent management console. The initial backup is written to the staging area as part of this step.
 

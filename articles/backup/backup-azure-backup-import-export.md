@@ -13,7 +13,7 @@ The Azure Backup offline-seeding process is tightly integrated with the [Azure I
 
   ![Overview of offline import workflow process](./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png)
 
-The offline backup process involves the following steps:
+The offline backup process involves these steps:
 
 1. Instead of sending the backup data over the network, write the backup data to a staging location.
 1. Use the *AzureOfflineBackupDiskPrep* utility to write the data in the staging location to one or more SATA disks.
@@ -112,7 +112,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
     *\Microsoft Azure Recovery Services Agent\Utils\\*
 
-1. Go to the directory, and copy the **AzureOfflineBackupDiskPrep** directory to another computer where the SATA drives are connected. On the computer with the connected SATA drives, ensure that:
+1. Go to the directory, and copy the *AzureOfflineBackupDiskPrep* directory to another computer where the SATA drives are connected. On the computer with the connected SATA drives, ensure that:
 
    * The copy computer can access the staging location for the offline-seeding workflow by using the same network path that was provided in the workflow in the "Initiate offline backup" section.
    * BitLocker is enabled on the copy computer.
