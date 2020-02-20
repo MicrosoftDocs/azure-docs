@@ -66,7 +66,7 @@ For added security, you can use Key Vault References in conjunction with your ex
 1. Create an Azure Key Vault.
 
     ```azurecli
-    az keyvault create --name "Contoso-Vault" --resource-group "ContosoResourceGroup" --location eastus
+    az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus
     ```
 
 1. Add your external URL as a secret in Key Vault.
