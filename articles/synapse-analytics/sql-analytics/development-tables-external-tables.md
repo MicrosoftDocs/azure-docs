@@ -12,7 +12,7 @@ ms.reviewer: jrasnick
 ---
 
 # Use external tables with SQL Analytics
-An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Store. External tables are used to read data from files or write data to files in Azure Storage. With SQL Analytics, you can use external tables to read and write data to SQL pool or SQL on-demand.
+An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With SQL Analytics, you can use external tables to read and write data to SQL pool or SQL on-demand.
 
 ## External tables in SQL pool
 
@@ -276,6 +276,20 @@ SELECT TOP 1 * FROM census_external_table
 ```
 
 
+
+
+
+## Create External tables from a file or folder in the Lake
+Leveraging Data Lake exploration capabilities you can now create an external table using SQL pool or SQL On-demand with a simple right-click on the file. 
+1. From the Data panel select the file that you would like to create the external table from:
+    > [!div class="mx-imgBorder"] 
+    >![externaltable1](./media/development-tables-external-tables/externaltable1.png)
+A dialog window will open. You need to select SQL pool or SQL On-demand, give a name to the table and click open script:
+    > [!div class="mx-imgBorder"] 
+    >![externaltable2](./media/development-tables-external-tables/externaltable2.png)
+The SQL Script will open and can be executed:
+    > [!div class="mx-imgBorder"] 
+    >![externaltable3](./media/development-tables-external-tables/externaltable3.png)
 
 ## Next steps
 Check the [CETAS](development-tables-cetas.md) article for how to save the query results to an external table in Azure Storage. Or you can start querying [Spark tables](development-storage-files-spark-tables.md).
