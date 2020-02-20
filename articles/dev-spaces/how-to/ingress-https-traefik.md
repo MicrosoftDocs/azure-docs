@@ -122,7 +122,7 @@ azds space select -n dev -y
 Deploy the sample application using `helm install`.
 
 ```console
-helm install bikesharing . --dependency-update --namespace dev --atomic
+helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 ```
 
 The above example deploys the sample application to the *dev* namespace.
