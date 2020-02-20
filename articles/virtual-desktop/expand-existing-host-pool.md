@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Expand an existing host pool with new session hosts
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+As you ramp up usage within your host pool, you may need to expand your existing host pool with new session hosts to handle the new load.
 
 This article will tell you how you can expand an existing host pool with new session hosts.
 
@@ -33,26 +33,26 @@ The next three sections are three methods you can use to expand the host pool. Y
 
 ## Redeploy from Azure
 
-If you previously created a host pool and session host VMs through the [Azure Marketplace offering](./create-host-pools-azure-marketplace.md) or [GitHub Azure Resource Manager template](./create-host-pools-arm-template.md), you can redeploy the same Azure Resource Manager template from the Azure portal. This will automatically reenter all of the same information except for passwords, ensuring that you do not mistype input parameters this time around.
+If you've already created a host pool and session host VMs using the [Azure Marketplace offering](./create-host-pools-azure-marketplace.md) or [GitHub Azure Resource Manager template](./create-host-pools-arm-template.md), you can redeploy the same template from the Azure Portal. This automatically reenters all the information you entered into the original template except for passwords.
 
-Follow the instructions below to redeploy the Azure Resource Manager template to expand an existing host pool:
+Here's how to redeploy the Azure Resource Manager template to expand a host pool:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. From the search bar at the top of the Azure portal, search for **Resource groups** and select the item under **Services**.
-3. Find the resource group you created when you first created the host pool, then select it.
+3. Find and select the resource group you created when you made the host pool.
 4. In the panel on the left side of the browser, select **Deployments**.
-5. Select the appropriate deployment that maps to the host pool creation process:
-     - If you initially created the host pool through the Azure Marketplace offering, select the deployment starting with *rds.wvd-provision-host-pool*.
-     - If you initially created the host pool through the GitHub Azure Resource Manager template, select the deployment named *Microsoft.Template*.
+5. Select the appropriate deployment for your host pool creation process:
+     - If you created the original host pool with the Azure Marketplace offering, select the deployment starting with **rds.wvd-provision-host-pool**.
+     - If you created the original host pool with the GitHub Azure Resource Manager template, select the deployment named **Microsoft.Template**.
 6. Select **Redeploy**.
 7. Make sure that the correct *Resource group* is entered.
      
      >[!NOTE]
      >Even though the *Resource group* is automatically and correctly populated, you may see an error that suggests selecting a different resource group. To fix, select another resource group, then select the original resource group.
 
-8. Enter the new total for *Rdsh Number Of Instances*. For example, if you are expanding your host pool from 5 session hosts to 8 session hosts, enter **8** for this parameter.
-9. Re-enter the *Existing Domain Password* for the user entered for *Existing Domain UPN*. Do not change the username, as this will result in an error when running the template.
-10. Re-enter the *Tenant Admin Password* for the user or application ID entered for *Tenant Admin Upn Or Application Id*. Do not change the username, as this will result in an error when running the template.
+8. Enter the new total number of session hosts you want into *Rdsh Number Of Instances*. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
+9. Enter the same existing domain password that you used for the existing domain UPN. Don't change the username, because that will cause an error when you run the template.
+10. Enter the same tenant admin password you used for the user or application ID you entered for *Tenant Admin Upn Or Application Id*. Once again, don't change the username.
 11. Complete the submission to expand your host pool.
 
 ## Run the Azure Marketplace offering
@@ -76,7 +76,7 @@ All values in this section should match what you provided when you first created
 
 ### Configure virtual machines
 
-
+All parameter values in this section should match what you provided when you first created the host pool and session host VMs, except for the total number of VMs. The number of VMs you enter will be the number of VMs in your expanded host pool:
 
 1. Either accept the defaults or customize the number and size of the VMs.
     
@@ -107,4 +107,4 @@ All parameter values in this section should match what you provided when you fir
 
 ## Run the GitHub Azure Resource Manager template
 
-Follow the same steps provided in [Run the Azure Resource Manager template for provisioning a new host pool](./create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *Rdsh Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you are expanding your host pool from 5 session hosts to 8 session hosts, enter **8** for this parameter.
+Follow the instructions in [Run the Azure Resource Manager template for provisioning a new host pool](./create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *Rdsh Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
