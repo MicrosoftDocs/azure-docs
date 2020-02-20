@@ -278,9 +278,9 @@ To control access to the inputs and outputs in your logic app's run history, you
 
   This option helps you secure access to run history based on the requests from a specific IP address range.
 
-* [Hide data from run history by using obfuscation](#obfuscate).
+* [Secure data in run history by using obfuscation](#obfuscate).
 
-  In many triggers and actions, you can hide their inputs, outputs, or both from a logic app's run history.
+  In many triggers and actions, you can secure the inputs, outputs, or both in a logic app's run history.
 
 <a name="restrict-ip"></a>
 
@@ -343,11 +343,11 @@ If you [automate deployment for logic apps by using Resource Manager templates](
 
 <a name="obfuscate"></a>
 
-### Hide data from run history by using obfuscation
+### Secure data in run history by using obfuscation
 
-Many triggers and actions have settings to hide inputs, outputs, or both from a logic app's run history. Before using these settings to help you secure this data, [review these considerations](#obfuscation-considerations).
+Many triggers and actions have settings to secure inputs, outputs, or both from a logic app's run history. Before using these settings to help you secure this data, [review these considerations](#obfuscation-considerations).
 
-#### Hide inputs and outputs in the designer
+#### Secure inputs and outputs in the designer
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
@@ -381,12 +381,12 @@ Many triggers and actions have settings to hide inputs, outputs, or both from a 
 
 <a name="secure-data-code-view"></a>
 
-#### Hide inputs and outputs in code view
+#### Secure inputs and outputs in code view
 
 In the underlying trigger or action definition, add or update the `runtimeConfiguration.secureData.properties` array with either or both of these values:
 
-* `"inputs"`: Hides inputs in run history.
-* `"outputs"`: Hides outputs in run history.
+* `"inputs"`: Secures inputs in run history.
+* `"outputs"`: Secures outputs in run history.
 
 Here are some [considerations to review](#obfuscation-considerations) when you use these settings to help you secure this data.
 
@@ -416,7 +416,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
 * The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
 
-* To hide outputs from an action that obscures inputs or explicitly obscures outputs, manually turn on **Secure Outputs** in that action.
+* To secure outputs from an action that obscures inputs or explicitly obscures outputs, manually turn on **Secure Outputs** in that action.
 
 * Make sure that you turn on **Secure Inputs** or **Secure Outputs** in downstream actions where you expect the run history to obscure that data.
 
@@ -456,19 +456,19 @@ For example, if you authenticate HTTP actions with [Azure Active Directory Open 
 
 For more information, see these sections in this topic:
 
-* [Protect parameters in workflow definitions](#secure-parameters-workflow)
-* [Hide data from run history by using obfuscation](#obfuscate)
+* [Secure parameters in workflow definitions](#secure-parameters-workflow)
+* [Secure data in run history by using obfuscation](#obfuscate)
 
 If you [automate deployment for logic apps by using Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can define secured [template parameters](../azure-resource-manager/templates/template-parameters.md), which are evaluated at deployment, by using the `securestring` and `secureobject` types. To define template parameters, use your template's top level `parameters` section, which is separate and different from your workflow definition's `parameters` section. To provide the values for template parameters, use a separate [parameter file](../azure-resource-manager/templates/parameter-files.md).
 
 For example, if you use secrets, you can define and use secured template parameters that retrieve those secrets from [Azure Key Vault](../key-vault/key-vault-overview.md) at deployment. You can then reference the key vault and secret in your parameter file. For more information, see these topics:
 
 * [Pass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
-* [Protect parameters in Azure Resource Manager templates](#secure-parameters-deployment-template) later in this topic
+* [Secure parameters in Azure Resource Manager templates](#secure-parameters-deployment-template) later in this topic
 
 <a name="secure-parameters-workflow"></a>
 
-### Protect parameters in workflow definitions
+### Secure parameters in workflow definitions
 
 To protect sensitive information in your logic app's workflow definition, use secured parameters so this information isn't visible after you save your logic app. For example, suppose you have an HTTP action requires basic authentication, which uses a username and password. In the workflow definition, the `parameters` section defines the `basicAuthPasswordParam` and `basicAuthUsernameParam` parameters by using the `securestring` type. The action definition then references these parameters in the `authentication` section.
 
@@ -514,7 +514,7 @@ To protect sensitive information in your logic app's workflow definition, use se
 
 <a name="secure-parameters-deployment-template"></a>
 
-### Protect parameters in Azure Resource Manager templates
+### Secure parameters in Azure Resource Manager templates
 
 A [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) for a logic app has multiple `parameters` sections. To protect passwords, keys, secrets, and other sensitive information, define secured parameters at the template level and workflow definition level by using the `securestring` or `secureobject` type. You can then store these values in [Azure Key Vault](../key-vault/key-vault-overview.md) and use the [parameter file](../azure-resource-manager/templates/parameter-files.md) to reference the key vault and secret. Your template then retrieves that information at deployment. For more information, see [Pass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
 
