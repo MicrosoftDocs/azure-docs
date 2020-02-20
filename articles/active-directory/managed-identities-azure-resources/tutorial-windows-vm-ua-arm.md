@@ -5,14 +5,14 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: daveba
+editor: 
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
@@ -49,7 +49,16 @@ You learn how to:
 - Run `Install-Module -Name PowerShellGet -AllowPrerelease` to get the pre-release version of the `PowerShellGet` module (you may need to `Exit` out of the current PowerShell session after you run this command to install the `Az.ManagedServiceIdentity` module).
 - Run `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` to install the prerelease version of the `Az.ManagedServiceIdentity` module to perform the user-assigned identity operations in this article.
 
-## Create identity
+
+## Enable
+
+For a scenario that is based on a user-assigned identity, you need to perform the following steps:
+
+- Create an identity
+ 
+- Assign the newly created identity
+
+### Create identity
 
 This section shows how to create a user-assigned identity. A user-assigned identity is created as a standalone Azure resource. Using the [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity),  Azure creates an identity in your Azure AD tenant that can be assigned to one or more Azure service instances.
 
@@ -75,7 +84,7 @@ Type: Microsoft.ManagedIdentity/userAssignedIdentities
 }
 ```
 
-## Assign identity
+### Assign identity
 
 This section shows how to Assign the user-assigned identity to a Windows VM. A user-assigned identity can be used by clients on multiple Azure resources. Use the following commands to assign the user-assigned identity to a single VM. Use the `Id` property returned in the previous step for the `-IdentityID` parameter.
 
@@ -109,7 +118,9 @@ ObjectType: ServicePrincipal
 CanDelegate: False
 ```
 
-## Get an access token 
+## Access data
+
+### Get an access token 
 
 For the remainder of the tutorial, you will work from the VM we created earlier.
 
@@ -129,7 +140,7 @@ For the remainder of the tutorial, you will work from the VM we created earlier.
     $ArmToken = $content.access_token
     ```
 
-## Read properties
+### Read properties
 
 Use the access token retrieved in the previous step to access Azure Resource Manager, and read the properties of the Resource Group you granted your user-assigned identity access. Replace `<SUBSCRIPTION ID>` with the subscription id of your environment.
 

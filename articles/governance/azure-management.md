@@ -54,7 +54,7 @@ resources in Azure. It involves planning your initiatives and setting strategic 
 Governance in Azure is primarily implemented with two services. [Azure
 Policy](./policy/overview.md) allows you to create, assign, and manage policy definitions to
 enforce rules for your resources. This feature keeps those resources in compliance with your
-corporate standards. [Azure Cost Management](../cost-management/overview-cost-mgt.md) allows you
+corporate standards. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) allows you
 to track cloud usage and expenditures for your Azure resources and other cloud providers.
 
 ## Secure

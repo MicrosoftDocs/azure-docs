@@ -5,12 +5,12 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/08/2020
+ms.date: 02/16/2020
 ---
 
 # Mapping data flow video tutorials
 
-Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team.
+Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team. 
 
 As updates are constantly made to the product, some features have added or different functionality in the current Azure Data Factory user experience.
 
@@ -38,6 +38,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Join transformation](https://www.youtube.com/watch?v=zukwayEXRtg)
 
+[Self-join pattern](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
+
 [Lookup transformation](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
 [Pivot transformation](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
@@ -55,6 +57,14 @@ As updates are constantly made to the product, some features have added or diffe
 [Unpivot transformation](http://youtu.be/KFYkxcpB8b0?hd=1)
 
 [Window Transformation](https://www.youtube.com/watch?v=m6zgbtY5AYQ)
+
+[Filter Transformation](https://youtu.be/OhbKDOXSfeE)
+
+[Conditional Split Transformation](http://youtu.be/W1lQHojhKZw?hd=1)
+
+[Exists Transformation](http://youtu.be/GS8JVgNBMfs?hd=1)
+
+[Dynamic Joins and Dynamic Lookups](https://youtu.be/CMOPPie9bXM)
 
 ## Source and sink
 
@@ -85,6 +95,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Decrease start-up times](https://youtu.be/FFCbU4ujCiY?t=528)
 
 [SQL DB performance](https://youtu.be/iyZT5CY3V_4)
+
+[Logging and auditing](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
 ## Mapping data flow scenarios
 
@@ -117,3 +129,11 @@ As updates are constantly made to the product, some features have added or diffe
 [Data masking for sensitive data](https://www.youtube.com/watch?v=OFd4LeiTmfs)
 
 [Logical Models vs. Physical Models](http://youtu.be/K5tgzLjEE9Q)
+
+[Detect source data changes](http://youtu.be/CaxIlI7oXfI?hd=1)
+
+## Data flow expressions
+
+[Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
+
+[Splitting Arrays and Case Statement](https://www.youtube.com/watch?v=DHNH8ZO7YjI)

@@ -1,5 +1,5 @@
 ---
-title: Connection strings
+title: Connection strings for SQL Analytics
 description: Connection strings for SQL Analytics
 services: synapse analytics 
 author: azaricstefan 
@@ -11,8 +11,10 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connection strings for Azure SQL Analytics
-You can connect to SQL Analytics with several different application protocols such as, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] and [JDBC][JDBC]. Below are some examples of connections strings for each protocol. You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
+# Connection strings for SQL Analytics
+You can connect to SQL Analytics with several different application protocols such as, [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396), and [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Below are some examples of connections strings for each protocol. 
+
+You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
 
 ## Sample ADO.NET connection string
 ```csharp
@@ -41,20 +43,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## Recommendations
 
-For executing **SQL Analytics on-demand** queries, recommended tools are [Azure Data Studio](get-started-azure-data-studio.md) and Azure Synapse Studio.
+For executing **SQL on-demand** queries, recommended tools are [Azure Data Studio](get-started-azure-data-studio.md) and Azure Synapse Studio.
 
 ## Next steps
-To start querying your analytics with Visual Studio and other applications, see [Query with Visual Studio][Query with Visual Studio].
-
-<!--Image references-->
-
-<!--Azure.com references-->
-[Query with Visual Studio]: ../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md
-
-<!--MSDN references-->
-[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
-[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
-[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
-[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
-
-<!--Other references-->
+To start querying your analytics with Visual Studio and other applications, see [Query with Visual Studio](../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md).

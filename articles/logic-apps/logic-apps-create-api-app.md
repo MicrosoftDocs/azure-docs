@@ -371,12 +371,9 @@ Your API can then unregister the callback URL and stop any processes as necessar
 > For an example webhook pattern, review this 
 > [webhook trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-## Secure calls to your APIs from logic apps
+## Improve security for calls to your APIs from logic apps
 
-After creating your custom APIs, 
-set up authentication for your APIs 
-so that you can call them securely from logic apps. Learn 
-[how to secure calls to custom APIs from logic apps](../logic-apps/logic-apps-custom-api-authentication.md).
+After creating your custom APIs, set up authentication for your APIs so that you can call them securely from logic apps. Learn [how to improve security for calls to custom APIs from logic apps](../logic-apps/logic-apps-custom-api-authentication.md).
 
 ## Deploy and call your APIs
 

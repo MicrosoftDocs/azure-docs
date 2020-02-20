@@ -14,7 +14,6 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an enterprise developer and software-as-a-service provider, I want to know how to add and register my application with the Microsoft identity platform.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Register an application with the Microsoft identity platform

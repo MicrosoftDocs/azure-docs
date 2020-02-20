@@ -6,11 +6,12 @@ tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 01/23/2020
 ms.author: genli
 
 ---
 # Microsoft Azure new support request file upload utility guidelines
+
 When you [create a support request](https://portal.azure.com/#create/Microsoft.Support), the file upload option can help you easily upload diagnostic files or any other files that you think are relevant to the incident.  
 
 > [!NOTE]
@@ -20,12 +21,13 @@ When you [create a support request](https://portal.azure.com/#create/Microsoft.S
 
 Follow these guidelines when you use the file upload option:
 
-* All files must have a file name extension, such as .docx or .xlsx. See the table for the list of allowed file name extensions.
+* All files must have a file name extension, such as *.docx* or *.xlsx*. See the table for the allowed file name extensions.
 * The file name must be no longer than 110 characters.
-* You can’t upload more than one file.
-* Files can’t be larger than 4 MB.
+* You can't upload more than one file.
+* Files can't be larger than 4 MB.
 
 ## Table of the allowed file name extensions
+
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7z         | .dat  | .hwl        | .odx  | .rar     | .tdb       | .xlam   |

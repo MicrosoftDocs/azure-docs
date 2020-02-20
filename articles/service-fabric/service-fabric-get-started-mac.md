@@ -43,7 +43,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     
     >[!NOTE]
     >
-    >Modifying the daemon directly in Docker is reccommended because the location of the daemon.json file can vary from machine to machine. For example,
+    >Modifying the daemon directly in Docker is recommended because the location of the daemon.json file can vary from machine to machine. For example,
     > ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 

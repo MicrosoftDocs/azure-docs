@@ -103,6 +103,9 @@ To create a new workspace where the __services are automatically created__, use 
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
+> [!NOTE]
+> The workspace name is case-insensitive.
+
 The output of this command is similar to the following JSON:
 
 ```json
@@ -157,7 +160,7 @@ To create a workspace that uses existing resources, you must provide the ID for 
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     The response from this command is similar to the following text, and is the ID for your key vault:
 

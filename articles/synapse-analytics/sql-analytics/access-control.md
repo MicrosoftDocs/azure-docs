@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 01/13/2019
+ms.date: 01/13/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
@@ -15,17 +15,15 @@ ms.reviewer: jrasnick
 
 Learn how to manage access control to workspaces, data, and pipelines in an Azure Synapse Analytics workspace.
 
-## Notes to the reader
-
 > [!NOTE]
 > For GA, RBAC will be more developed through the introduction of Synapse-specific Azure RBAC roles
 
 ## Access Control for Workspace
 
-For a production deployment into a Synapse workspace, we suggest organizing your environment to make it easy to provision users and admins.
+For a production deployment into an Azure Synapse workspace, we suggest organizing your environment to make it easy to provision users and admins.
 
 > [!NOTE]
-> The approach taken here is to pre-create several security groups and then configure the workspace to use them consistently. So after the groups are setup, an admin only need to manage membership within the security groups.
+> The approach taken here is to create several security groups and then configure the workspace to use them consistently. After the groups are set up, an admin only need to manage membership within the security groups.
 
 ### Step 1: Set up security groups with names following this pattern
 
@@ -35,13 +33,13 @@ For a production deployment into a Synapse workspace, we suggest organizing your
 
 ### Step 2: Prepare the Default ADLS Gen2 Account
 
-When you provisioned your workspace you had to pick an ADLSGEN2 account and a container for the filesystem for the workspace to use.
+When you provisioned your workspace, you had to pick an ADLSGEN2 account and a container for the filesystem for the workspace to use.
 
-1. Open the Azure portal (https://portal.azure.com)
+1. Open the [Azure portal](https://portal.azure.com)
 2. Navigate to the ADLSGEN2 account
 3. Navigate to container (filesystem) you picked for the Azure Synapse workspace
 4. Click **Access Control (IAM)**
-5. Assign roles
+5. Assign the following roles:
    1. **Reader** role:  `Synapse_WORKSPACENAME_Users`
    2. **Storage Blob Data Owner** role:  `Synapse_WORKSPACENAME_Admins`
    3. **Storage Blob Data Contributor** role: `Synapse_WORKSPACENAME_Users`
@@ -49,13 +47,13 @@ When you provisioned your workspace you had to pick an ADLSGEN2 account and a co
   
 ### Step 3: Configure the workspace admin list
 
-1. Go to the **Azure Synapse Web UI** (https://web.azuresynapse.net)
-2. Go to the **Manage**  > **Security** > **Access control**
+1. Go to the [**Azure Synapse Web UI**](https://web.azuresynapse.net)
+2. Go to **Manage**  > **Security** > **Access control**
 3. Click **Add Admin**, and select `Synapse_WORKSPACENAME_Admins`
 
 ### Step 4: Configure SQL Admin Access for the workspace
 
-1. Open the Azure portal (https://portal.azure.com)
+1. Go to the [Azure portal](https://portal.azure.com)
 2. Navigate to your workspace
 3. Go to **Settings** > **Active Directory admin**
 4. Click **Set Admin**
@@ -76,14 +74,14 @@ Access control to the underlying data is split into three parts:
 - Data-plane access to the SQL Databases (for both SQL pools and SQL on-demand)
 - Creating a credential for SQL on-demand databases over the storage account
 
-> [!TIP]
-> Note that the below steps need to be run for **each** SQL database to grant a user access to all SQL databases.
-
 ## Access control to SQL Databases
+
+> [!TIP]
+> The below steps need to be run for **each** SQL database to grant user access to all SQL databases.
 
 ### SQL on-demand
 
-To grant access to a user to a **single** SQL on-demand database, there are three steps:
+To grant access to a user to a **single** SQL on-demand database, follow the steps in this example:
 
 1. Create LOGIN
 
@@ -112,7 +110,7 @@ To grant access to a user to a **single** SQL on-demand database, there are thre
 
 ### SQL Pools
 
-To grant access to a user to a **single** SQL Database, there are two steps:
+To grant access to a user to a **single** SQL Database, follow these steps:
 
 1. Create the user in the database by running the following command targeting the desired database in the context selector (dropdown to select databases):
 
@@ -129,7 +127,7 @@ To grant access to a user to a **single** SQL Database, there are two steps:
     ```
 
 > [!IMPORTANT]
-> *db_datareader* and *db_datawriter* can work for read/write if granting *db_owner* permission is undesired.
+> *db_datareader* and *db_datawriter* can work for read/write permissions if granting *db_owner* permission is undesired.
 > For a Spark user to read and write directly from Spark into/from a SQL pool, *db_owner* permission is required.
 
 After creating the users, validate that SQL on-demand can query the storage account:
@@ -146,9 +144,9 @@ After creating the users, validate that SQL on-demand can query the storage acco
 ### Workspace-managed identity
 
 > [!IMPORTANT]
-> To successfully run pipelines that include datasets or activities that reference to a SQL pool, the workspace identity needs to be granted access to the SQL pool directly.
+> To successfully run pipelines that include datasets or activities that reference a SQL pool, the workspace identity needs to be granted access to the SQL pool directly.
 
-Run the following commands on each SQL pool to allow the workspace-managed identity to run pipelines on the SQL pool database:
+Run the following commands on each SQL pool to allow the workspace managed identity to run pipelines on the SQL pool database:
 
 ```sql
 --Create user in DB

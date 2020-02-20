@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: bryanla
 
 ms.service: active-directory
 ms.subservice: msi
@@ -13,7 +12,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
@@ -33,6 +32,12 @@ This tutorial shows you how to use a system-assigned identity for a Windows virt
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
+
+## Enable
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
 ## Grant access
 
 To grant your VM access to a database in an Azure SQL Server, you can use an existing SQL server or create a new one. To create a new server and database using the Azure portal, follow this [Azure SQL quickstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). There are also quickstarts that use the Azure CLI and Azure PowerShell in the [Azure SQL documentation](https://docs.microsoft.com/azure/sql-database/).
@@ -42,9 +47,9 @@ There are two steps to granting your VM access to a database:
 1. Enable Azure AD authentication for the SQL server.
 2. Create a **contained user** in the database that represents the VM's system-assigned identity.
 
-## Enable Azure AD authentication
+### Enable Azure AD authentication
 
-[Configure Azure AD authentication for the SQL server](/azure/sql-database/sql-database-aad-authentication-configure) using the following steps:
+**To [configure Azure AD authentication for the SQL server](/azure/sql-database/sql-database-aad-authentication-configure):**
 
 1.	In the Azure portal, select **SQL servers** from the left-hand navigation.
 2.	Click the SQL server to be enabled for Azure AD authentication.
@@ -53,7 +58,7 @@ There are two steps to granting your VM access to a database:
 5.	Select an Azure AD user account to be made an administrator of the server, and click **Select.**
 6.	In the command bar, click **Save.**
 
-## Create user
+### Create contained user
 
 This section shows how to create a contained user in the database that represents the VM's system assigned identity. For this step, you need [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Before beginning, it may also be helpful to review the following articles for background on Azure AD integration:
 
@@ -61,6 +66,8 @@ This section shows how to create a contained user in the database that represent
 - [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
 SQL DB requires unique AAD display names. With this, the AAD accounts such as users, groups and Service Principals (applications) and VM names enabled for managed identity must be uniquely defined in AAD regarding their display names. SQL DB checks the AAD display name during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique AAD display name for a given account.
+
+**To create a contained user:**
 
 1. Start SQL Server Management Studio.
 2. In the **Connect to Server** dialog, Enter your SQL server name in the **Server name** field.
@@ -94,7 +101,7 @@ SQL DB requires unique AAD display names. With this, the AAD accounts such as us
 
 Code running in the VM can now get a token using its system-assigned managed identity and use the token to authenticate to the SQL server.
 
-## Get an access token
+## Access data
 
 This section shows how to get an access token using the VM's system-assigned managed identity and use it to call Azure SQL. Azure SQL natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. You use the **access token** method of creating a connection to SQL. This is part of Azure SQL's integration with Azure AD, and is different from supplying credentials on the connection string.
 
@@ -187,6 +194,12 @@ Alternatively, a quick way to test the end to end setup without having to write 
     ```
 
 Examine the value of `$DataSet.Tables[0]` to view the results of the query.
+
+
+## Disable
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
 
 ## Next steps
 

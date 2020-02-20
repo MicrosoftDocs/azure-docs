@@ -108,6 +108,7 @@ When you create an anchor, the client SDK captures environment information aroun
 **A:** Developers can build apps with Azure Spatial Anchors using familiar tools and frameworks for their device:
 
 - Unity across HoloLens, iOS, and Android
+- Xamarin on iOS and Android
 - Swift or Objective-C on iOS
 - Java or the Android NDK on Android
 - C++/WinRT on HoloLens

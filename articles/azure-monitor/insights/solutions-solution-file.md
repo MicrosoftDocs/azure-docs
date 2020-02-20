@@ -15,15 +15,15 @@ ms.custom: H1Hack27Feb2017
 > [!NOTE]
 > This is preliminary documentation for creating management solutions in Azure which are currently in preview. Any schema described below is subject to change.  
 
-Management solutions in Azure are implemented as [Resource Manager templates](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  The main task in learning how to author management solutions is learning how to [author a template](../../azure-resource-manager/templates/template-syntax.md).  This article provides unique details of templates used for solutions and how to configure typical solution resources.
+Management solutions in Azure are implemented as [Resource Manager templates](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).  The main task in learning how to author management solutions is learning how to [author a template](../../azure-resource-manager/templates/template-syntax.md).  This article provides unique details of templates used for solutions and how to configure typical solution resources.
 
 
 ## Tools
 
 You can use any text editor to work with solution files, but we recommend leveraging the features provided in Visual Studio or Visual Studio Code as described in the following articles.
 
-- [Creating and deploying Azure resource groups through Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Working with Azure Resource Manager Templates in Visual Studio Code](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
+- [Creating and deploying Azure resource groups through Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)
+- [Working with Azure Resource Manager Templates in Visual Studio Code](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
 
 
@@ -155,7 +155,7 @@ In this case, you refer to variable values through the solution with the syntax 
 
 
 ### Dependencies
-The **dependsOn** element specifies a [dependency](../../azure-resource-manager/resource-group-define-dependencies.md) on another resource.  When the solution is installed, a resource is not created until all of its dependencies have been created.  For example, your solution might [start a runbook](solutions-resources-automation.md#runbooks) when it's installed using a [job resource](solutions-resources-automation.md#automation-jobs).  The job resource would be dependent on the runbook resource to make sure that the runbook is created before the job is created.
+The **dependsOn** element specifies a [dependency](../../azure-resource-manager/templates/define-resource-dependency.md) on another resource.  When the solution is installed, a resource is not created until all of its dependencies have been created.  For example, your solution might [start a runbook](solutions-resources-automation.md#runbooks) when it's installed using a [job resource](solutions-resources-automation.md#automation-jobs).  The job resource would be dependent on the runbook resource to make sure that the runbook is created before the job is created.
 
 ### Log Analytics workspace and Automation account
 Management solutions require a [Log Analytics workspace](../../azure-monitor/platform/manage-access.md) to contain views and an [Automation account](../../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will [specify a workspace and account](solutions.md#log-analytics-workspace-and-automation-account) when they deploy your solution, but as the author you should consider the following points.
@@ -196,7 +196,7 @@ Each solution requires a resource entry in the **resources** element that define
 
 
 ### Dependencies
-The solution resource must have a [dependency](../../azure-resource-manager/resource-group-define-dependencies.md) on every other resource in the solution since they need to exist before the solution can be created.  You do this by adding an entry for each resource in the **dependsOn** element.
+The solution resource must have a [dependency](../../azure-resource-manager/templates/define-resource-dependency.md) on every other resource in the solution since they need to exist before the solution can be created.  You do this by adding an entry for each resource in the **dependsOn** element.
 
 ### Properties
 The solution resource has the properties in the following table.  This includes the resources referenced and contained by the solution which defines how the resource is managed after the solution is installed.  Each resource in the solution should be listed in either the **referencedResources** or the **containedResources** property.

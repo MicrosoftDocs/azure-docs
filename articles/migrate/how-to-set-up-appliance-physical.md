@@ -87,7 +87,7 @@ The script will launch the appliance web application when it finishes successful
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to the required [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Make sure that the appliance VM can connect to the required [Azure URLs](migrate-appliance.md#url-access).
 
 ## Configure the appliance
 

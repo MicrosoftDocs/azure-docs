@@ -32,7 +32,7 @@ This article documents the security controls built into Azure VPN Gateway.
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Azure Monitor Diagnostics Logs/alert](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure Monitor Metrics/alert](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
 | Control and management plane logging and audit| Yes | Azure Resource Manager Activity Log. |
-| Data plane logging and audit | Yes | [Azure Monitor Diagnostic Logs](../azure-resource-manager/resource-group-audit.md) for VPN connectivity logging and auditing. |
+| Data plane logging and audit | Yes | [Azure Monitor Diagnostic Logs](../azure-resource-manager/management/view-activity-logs.md) for VPN connectivity logging and auditing. |
 
 ## Identity
 
@@ -55,7 +55,7 @@ This article documents the security controls built into Azure VPN Gateway.
 
 | Security control | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration, etc.)| Yes | For management operations, the state of an Azure VPN gateway configuration can be exported as an Azure Resource Manager template and versioned over time. | 
+| Configuration management support (versioning of configuration, etc.)| Yes | For management operations, the state of an Azure VPN gateway configuration can be exported as an Azure Resource Manager template and versioned over time. |
 
 ## Next steps
 

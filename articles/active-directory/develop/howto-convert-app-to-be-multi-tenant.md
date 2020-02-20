@@ -11,11 +11,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
-ms.reviewer: jmprieur, lenalepa, sureshja
+ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Sign in any Azure Active Directory user using the multi-tenant application pattern
@@ -34,7 +33,7 @@ There are four simple steps to convert your application into an Azure AD multi-t
 3. [Update your code to handle multiple issuer values](#update-your-code-to-handle-multiple-issuer-values)
 4. [Understand user and admin consent and make appropriate code changes](#understand-user-and-admin-consent)
 
-Let’s look at each step in detail. You can also jump straight to [this list of multi-tenant samples](https://docs.microsoft.com/samples/browse/?products=azure-active-directory).
+Let’s look at each step in detail. You can also jump straight to the sample [Build a multi-tenant SaaS web application that calls Microsoft Graph using Azure AD and OpenID Connect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md).
 
 ## Update registration to be multi-tenant
 
@@ -173,7 +172,7 @@ In this article, you learned how to build an application that can sign in a user
 
 ## Related content
 
-* [Multi-tenant application samples](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)
+* [Multi-tenant application sample](https://github.com/mspnp/multitenant-saas-guidance)
 * [Branding guidelines for applications][AAD-App-Branding]
 * [Application objects and service principal objects][AAD-App-SP-Objects]
 * [Integrating applications with Azure Active Directory][AAD-Integrating-Apps]

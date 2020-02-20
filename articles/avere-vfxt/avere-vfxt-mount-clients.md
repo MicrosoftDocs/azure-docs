@@ -4,7 +4,7 @@ description: How to mount clients with Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/16/2019
 ms.author: rohogue
 ---
 
@@ -42,7 +42,7 @@ function mount_round_robin() {
 
     # no need to write again if it is already there
     if ! grep --quiet "${DEFAULT_MOUNT_POINT}" /etc/fstab; then
-        echo "${ROUND_ROBIN_IP}:${NFS_PATH}    ${DEFAULT_MOUNT_POINT}    nfs hard,nointr,proto=tcp,mountproto=tcp,retry=30 0 0" >> /etc/fstab
+        echo "${ROUND_ROBIN_IP}:${NFS_PATH}    ${DEFAULT_MOUNT_POINT}    nfs hard,proto=tcp,mountproto=tcp,retry=30 0 0" >> /etc/fstab
         mkdir -p "${DEFAULT_MOUNT_POINT}"
         chown nfsnobody:nfsnobody "${DEFAULT_MOUNT_POINT}"
     fi
@@ -57,27 +57,27 @@ The function above is part of the Batch example available in the [Avere vFXT exa
 ## Create the mount command
 
 > [!NOTE]
-> If you did not create a new Blob container when creating your Avere vFXT cluster, follow the steps in [Configure storage](avere-vfxt-add-storage.md) before attempting to mount clients.
+> If you did not create a new Blob container when creating your Avere vFXT cluster, add storage systems as described in [Configure storage](avere-vfxt-add-storage.md) before attempting to mount clients.
 
 From your client, the ``mount`` command maps the virtual server (vserver) on the vFXT cluster to a path on the local filesystem. The format is ``mount <vFXT path> <local path> {options}``
 
-There are three elements to the mount command:
+The mount command has three elements:
 
-* vFXT path - (a combination of IP address and namespace junction path described below)
+* vFXT path - a combination of an IP address and namespace junction path on the cluster 9described below)
 * local path - the path on the client
-* mount command options - (listed in [Mount command arguments](#mount-command-arguments))
+* mount command options - listed in [Mount command arguments](#mount-command-arguments)
 
 ### Junction and IP
 
 The vserver path is a combination of its *IP address* plus the path to a *namespace junction*. The namespace junction is a virtual path that was defined when the storage system was added.
 
-If your cluster was created with Blob storage, the namespace path is `/msazure`
+If your cluster was created with Blob storage, the namespace path to that container is `/msazure`
 
 Example: ``mount 10.0.0.12:/msazure /mnt/vfxt``
 
-If you added storage after creating the cluster, the namespace junction path corresponds to the value you set in **Namespace path** when creating the junction. For example, if you used ``/avere/files`` as your namespace path, your clients would mount *IP_address*:/avere/files to their local mount point.
+If you added storage after creating the cluster, the namespace junction path is the value you set in **Namespace path** when creating the junction. For example, if you used ``/avere/files`` as your namespace path, your clients would mount *IP_address*:/avere/files to their local mount point.
 
-!["Add new junction" dialog with /avere/files in the namespace path field](media/avere-vfxt-create-junction-example.png)
+!["Add new junction" dialog with /avere/files in the namespace path field](media/avere-vfxt-create-junction-example.png) <!-- to do - change example and screenshot to vfxt/files instead of avere -->
 
 The IP address is one of the client-facing IP addresses defined for the vserver. You can find the range of client-facing IPs in two places in the Avere Control Panel:
 
@@ -95,7 +95,7 @@ In addition to the paths, include the [Mount command arguments](#mount-command-a
 
 To ensure a seamless client mount, pass these settings and arguments in your mount command:
 
-``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
+``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
 | Required settings | |
 --- | ---
@@ -104,14 +104,10 @@ To ensure a seamless client mount, pass these settings and arguments in your mou
 ``mountproto=netid`` | This option supports appropriate handling of network errors for mount operations.
 ``retry=n`` | Set ``retry=30`` to avoid transient mount failures. (A different value is recommended in foreground mounts.)
 
-| Preferred settings  | |
---- | ---
-``nointr``            | The option "nointr" is preferred for clients with legacy kernels (prior to April 2008) that support this option. Note that the option "intr" is the default.
-
 ## Next steps
 
-After you have mounted clients, you can use them to populate the backend data storage (core filer). Refer to these documents to learn more about additional setup tasks:
+After you have clients mounted, you can use them to copy data to a new Blob storage container on your cluster. If you don't need to populate new storage, read the other links to learn about additional setup tasks:
 
-* [Move data to the cluster core filer](avere-vfxt-data-ingest.md) - How to use multiple clients and threads to efficiently upload your data
+* [Move data to a cluster core filer](avere-vfxt-data-ingest.md) - How to use multiple clients and threads to efficiently upload your data to a new core filer
 * [Customize cluster tuning](avere-vfxt-tuning.md) - Tailor the cluster settings to suit your workload
 * [Manage the cluster](avere-vfxt-manage-cluster.md) - How to start or stop the cluster and manage nodes

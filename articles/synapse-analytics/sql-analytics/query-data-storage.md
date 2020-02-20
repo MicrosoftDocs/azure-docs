@@ -25,7 +25,7 @@ Currently supported files are:
 The tools you need to issue queries:
 
 - SQL client of your choice:
-    - Synapse Studio
+    - Azure Synapse Studio
     - Azure Data Studio
     - SQL Server Management Studio
 
@@ -63,10 +63,18 @@ CREATE DATABASE mydbname
 ### Create credentials
 
 You must create credentials before you can run queries. This credential will be used by SQL on-demand service to access the files in storage.
-For more information on how to manage storage access control, review the [Storage access control](development-storage-files-storage-access-control.md) article.
 
 > [!NOTE]
-> You need to create credentials for a storage account located in your endpoint region. Although SQL on-demand can access storages from different regions, having the storage and endpoint in the same region will provide a better performance experience.
+> In order to successfully run quickstarts in this section you have to use SAS token.
+>
+> To start using SAS tokens you have to drop the UserIdentity which is explained in the following [article](development-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
+>
+> SQL on-demand by default always uses AAD pass-through.
+
+For more information on how to manage storage access control, check this [link](development-storage-files-storage-access-control.md).
+
+> [!WARNING]
+> You need to create credentials for a storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in the same region will provide a better performance experience.
 
 To create credentials for CSV, JSON, and Parquet containers, run the code below:
 
@@ -137,26 +145,16 @@ Execute the following three queries and check if the credentials are created cor
 > All URIs in the sample queries use a storage account located in the North Europe Azure region. Make sure that you created the appropriate credential. Run the query below and make sure the storage account is listed.
 
 ```sql
--- QUERY 1 - Validate CSV credential
 SELECT name
-FROM sys.credentials 
-WHERE 
-	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
-
--- QUERY 2 - Validate Parquet credential
-SELECT name
-FROM sys.credentials 
-WHERE 
-	name = 'https://sqlondemandstorage.blob.core.windows.net/parquet'
-
--- QUERY 3 - Validate JSON credential
-SELECT name
-FROM sys.credentials 
-WHERE 
-	name = 'https://sqlondemandstorage.blob.core.windows.net/json'
+FROM sys.credentials
+WHERE
+     name IN ( 'https://sqlondemandstorage.blob.core.windows.net/csv',
+     'https://sqlondemandstorage.blob.core.windows.net/parquet',
+     'https://sqlondemandstorage.blob.core.windows.net/json')
 ```
 
-If you can't find the appropriate credential, review [First-time setup](#first-time-setup).
+If you can't find the appropriate credential, check [First-time setup](#first-time-setup).
+
 
 ### Sample query
 

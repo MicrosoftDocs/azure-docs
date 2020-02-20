@@ -112,7 +112,7 @@ This topic shows you how to use the connector in a logic app to process database
 
 1. To view the inputs, under **Inputs Link**, select the URL link. To view the outputs, under **Outputs Link** link, select the URL link. Here are some example outputs:
 
-   * **Get tables** shows a list of tables:
+   * **Get_tables** shows a list of tables:
 
      ![Outputs from "Get tables" action](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)
 

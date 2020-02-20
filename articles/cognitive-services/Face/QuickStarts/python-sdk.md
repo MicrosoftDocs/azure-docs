@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Quickstart: Face client library for Python
 
-Get started with the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face API service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
+Get started with the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face client library for Python to:
 
@@ -285,5 +285,5 @@ In this quickstart, you learned how to use the Face library for Python to do bas
 > [!div class="nextstepaction"]
 > [Face API reference (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)
 
-* [What is the Face API?](../overview.md)
+* [What is the Face service?](../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).

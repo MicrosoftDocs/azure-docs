@@ -41,7 +41,7 @@ For more information, see [Plan IP addressing for your cluster](configure-azure-
 There might be various reasons for the pod being stuck in that mode. You might look into:
 
 * The pod itself, by using `kubectl describe pod <pod-name>`.
-* The logs, by using `kubectl log <pod-name>`.
+* The logs, by using `kubectl logs <pod-name>`.
 
 For more information on how to troubleshoot pod problems, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
@@ -116,7 +116,7 @@ Naming restrictions are implemented by both the Azure platform and AKS. If a res
 
 * Cluster names must be 1-63 characters. The only allowed characters are letters, numbers, dashes, and underscores. The first and last character must be a letter or a number.
 * The AKS *MC_* resource group name combines resource group name and resource name. The auto-generated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name.
-* The *dnsPrefix* must start and end with alphanumeric values. Valid characters include alphanumeric values and hyphens (-). The *dnsPrefix* can't include special characters such as a period (.).
+* The *dnsPrefix* must start and end with alphanumeric values and must be between 1-54 characters. Valid characters include alphanumeric values and hyphens (-). The *dnsPrefix* can't include special characters such as a period (.).
 
 ## I’m receiving errors when trying to create, update, scale, delete or upgrade cluster, that operation is not allowed as another operation is in progress.
 

@@ -48,9 +48,9 @@ The following steps are not required if you're running commands in Azure Cloud S
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
 1. When running Azure CLI locally or in the Azure Cloud Shell, you need to install the Az.Kusto module on your device:
-	
+
 	```azurepowershell-interactive
-     Install-Module -Name Az.Kusto	
+     Install-Module -Name Az.Kusto
     ```
 
 ## Create the Azure Data Explorer cluster
