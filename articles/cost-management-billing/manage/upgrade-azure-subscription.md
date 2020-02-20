@@ -3,13 +3,10 @@ title: Upgrade your Azure account
 description: Describes how you can upgrade your Azure account.
 keywords: pay as you go upgrade
 author: bandersmsft
-manager: sasrin
+ms.reviewer: sasrin
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/10/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017

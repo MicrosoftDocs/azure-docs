@@ -28,10 +28,6 @@ This sample script creates a new key-value in an Azure App Configuration store, 
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-You need to install the Azure App Configuration CLI extension first by executing the following command:
-
-        az extension add -n appconfig
-
 ## Sample script
 
 ```azurecli-interactive
@@ -85,9 +81,9 @@ This script uses the following commands to operate on key-values in an App Confi
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | Creates or updates a key-value. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Lists key-values in an App Configuration store. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | Deletes a key-value. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Creates or updates a key-value. |
+| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Lists key-values in an App Configuration store. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Deletes a key-value. |
 
 ## Next steps
 
