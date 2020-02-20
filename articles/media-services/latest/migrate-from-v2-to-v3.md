@@ -75,7 +75,7 @@ If you have a video service developed today on top of the [legacy Media Services
 * In v2, XML [input](../previous/media-services-input-metadata-schema.md) and [output](../previous/media-services-output-metadata-schema.md) metadata files get generated as the result of an encoding job. In v3, the metadata format changed from XML to JSON. 
 
 > [!NOTE]
-> Review the naming conventions that are applied to [Media Services v3 resources](media-services-apis-overview.md#naming-conventions). Also review [naming blobs](assets-concept.md#naming-blobs).
+> Review the naming conventions that are applied to [Media Services v3 resources](media-services-apis-overview.md#naming-conventions). Also review [naming blobs](assets-concept.md#naming).
 
 ## Feature gaps with respect to v2 APIs
 
