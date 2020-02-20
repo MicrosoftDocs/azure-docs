@@ -202,13 +202,13 @@ Now that you've tested the function locally and verified that it wrote a message
 
     # [Browser](#tab/browser)
     
-    Copy the complete **Invoke url** shown in the output of the publish command into a browser address bar, appending the query parameter `&name=Azure`. The browser should display similar output as when you ran the function locally.
+    Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar, appending the query parameter `&name=Functions`. The browser should display similar output as when you ran the function locally.
 
     ![The output of the function run on Azure in a browser](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-browser.png)
 
     # [curl](#tab/curl)
     
-    Run [curl](https://curl.haxx.se/) with the **Invoke url**, appending the parameter `&name=Azure`. The output of the command should be the text, "Hello Azure".
+    Run [curl](https://curl.haxx.se/) with the **Invoke URL**, appending the parameter `&name=Functions`. The output of the command should be the text, "Hello Functions!".
     
     ![The output of the function run on Azure using curl](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-curl.png)
 
@@ -230,13 +230,29 @@ az group delete --name AzureFunctionsQuickstart-rg
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Enable Application Insights integration with an Azure Functions app](functions-monitoring.md#manually-connect-an-app-insights-resource)
+You've updated your HTTP triggered function to write data to a Storage queue. Now you can learn more about developing Functions from the command line using Core Tools and Azure CLI:
 
-Other resources:
-
-- [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).
-- [Azure Functions Python developer guide](functions-reference-python.md)
-- [Azure Functions triggers and bindings](functions-triggers-bindings.md).
-- [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/)
-- [Estimating Consumption plan costs](functions-consumption-costs.md) article.
++ [Work with Azure Functions Core Tools](functions-run-local.md)
+::: zone pivot="programming-language-csharp"  
++ [Examples of complete Function projects in C#](/samples/browse/?products=azure-functions&languages=csharp).
++ [Azure Functions C# developer reference](functions-dotnet-class-library.md)  
+::: zone-end 
+::: zone pivot="programming-language-javascript"  
++ [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
++ [Azure Functions JavaScript developer guide](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
++ [Examples of complete Function projects in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
++ [Azure Functions TypeScript developer guide](functions-reference-node.md#typescript)  
+::: zone-end  
+::: zone pivot="programming-language-python"  
++ [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).
++ [Azure Functions Python developer guide](functions-reference-python.md)  
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
++ [Examples of complete Function projects in PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
++ [Azure Functions PowerShell developer guide](functions-reference-powershell.md) 
+::: zone-end
++ [Azure Functions triggers and bindings](functions-triggers-bindings.md).
++ [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/)
++ [Estimating Consumption plan costs](functions-consumption-costs.md) article.

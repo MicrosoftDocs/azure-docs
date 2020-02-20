@@ -176,9 +176,29 @@ You created resources to complete these quickstarts. You may be billed for these
 
 ## Next steps
 
-You've updated your HTTP triggered function to write data to a Storage queue. Next, you can learn more about developing Functions using Visual Studio Code:
+You've updated your HTTP triggered function to write data to a Storage queue. Now you can learn more about developing Functions using Visual Studio Code:
 
-> [!div class="nextstepaction"]
-> [Develop Azure Functions using Visual Studio Code](functions-develop-vs-code.md)
-
-[Azure Storage Explorer]: https://storageexplorer.com/
++ [Develop Azure Functions using Visual Studio Code](functions-develop-vs-code.md)
+::: zone pivot="programming-language-csharp"  
++ [Examples of complete Function projects in C#](/samples/browse/?products=azure-functions&languages=csharp).
++ [Azure Functions C# developer reference](functions-dotnet-class-library.md)  
+::: zone-end 
+::: zone pivot="programming-language-javascript"  
++ [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
++ [Azure Functions JavaScript developer guide](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
++ [Examples of complete Function projects in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
++ [Azure Functions TypeScript developer guide](functions-reference-node.md#typescript)  
+::: zone-end  
+::: zone pivot="programming-language-python"  
++ [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).
++ [Azure Functions Python developer guide](functions-reference-python.md)  
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
++ [Examples of complete Function projects in PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
++ [Azure Functions PowerShell developer guide](functions-reference-powershell.md) 
+::: zone-end
++ [Azure Functions triggers and bindings](functions-triggers-bindings.md).
++ [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/)
++ [Estimating Consumption plan costs](functions-consumption-costs.md) article.
