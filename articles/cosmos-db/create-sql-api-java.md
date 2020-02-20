@@ -32,7 +32,7 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account fro
 
 ## Introductory notes
 
-*The structure of a Cosmos DB account.* Irrespective of API or programming language, a Cosmos DB *account* contains zero or more *databases*, a *database* (DB) contains zero or more *containers*, and *containers* contain zero or more items, as shown in the diagram below:
+*The structure of a Cosmos DB account.* Irrespective of API or programming language, a Cosmos DB *account* contains zero or more *databases*, a *database* (DB) contains zero or more *containers*, and a *container* contains zero or more items, as shown in the diagram below:
 
 ![Azure Cosmos account entities](./media/databases-containers-items/cosmos-entities.png)
 
