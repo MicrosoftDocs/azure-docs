@@ -113,7 +113,7 @@ conceptualContent:
           text: Create a voice assistant using Custom Commands
           url: custom-commands.md
         - itemType: get-started
-          text: •	Create a voice assistant using the Bot Framework
+          text: Create a voice assistant using the Bot Framework
           url: direct-line-speech.md
       footerLink:
         text: See more
