@@ -17,14 +17,14 @@ ms.custom: seodec18
 
 In this article, learn about how to use Azure Machine Learning to manage the lifecycle of your models. Azure Machine Learning uses a Machine Learning Operations (MLOps) approach. MLOps improves the quality and consistency of your machine learning solutions. 
 
-Azure Machine Learning provides the following MLOps capabilities:
+MLOps is based on DevOps principles and practices that increase the efficiency of workflows. For example, continuous integration, delivery, and deployment. Azure Machine Learning provides the following MLOps capabilities:
 
-- **Create reproducible ML pipelines**. Pipelines allow you to define repeatable and reusable steps for your data preparation, training, and scoring processes.
-- **Register, package, and deploy models from anywhere** and track associated metadata required to use the model.
-- **Capture the governance data required for capturing the end-to-end ML lifecycle**, including who is publishing models, why changes are being made, and when models were deployed or used in production.
-- **Notify and alert on events in the ML lifecycle** such as experiment completion, model registration, model deployment, and data drift detection.
+- **Create reproducible ML pipelines**. Machine Learning pipelines allow you to define repeatable and reusable steps for your data preparation, training, and scoring processes.
+- **Register, package, and deploy models from anywhere**. You can also track associated metadata required to use the model.
+- **Capture the governance data required for capturing the end-to-end ML lifecycle**. The logged information can include who is publishing models, why changes are being made, and when models were deployed or used in production.
+- **Notify and alert on events in the ML lifecycle**, such as experiment completion, model registration, model deployment, and data drift detection.
 - **Monitor ML applications for operational and ML-related issues**. Compare model inputs between training and inference, explore model-specific metrics, and provide monitoring and alerts on your ML infrastructure.
-- **Automate the end-to-end ML lifecycle with Azure Machine Learning and Azure DevOps** to frequently update models, test new models, and continuously roll out new ML models alongside your other applications and services.
+- **Automate the end-to-end ML lifecycle with Azure Machine Learning and Azure Pipelines** to frequently update models, test new models, and continuously roll out new ML models alongside your other applications and services.
 
 ## Create reproducible ML pipelines
 
@@ -157,6 +157,8 @@ The [Azure Machine Learning extension](https://marketplace.visualstudio.com/item
 * Enables release pipelines to be triggered by trained models created in a training pipeline.
 
 For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article and the [Azure Machine Learning MLOps](https://aka.ms/mlops) repository.
+
+You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](how-to-cicd-data-ingestion.md).
 
 ## Next steps
 
