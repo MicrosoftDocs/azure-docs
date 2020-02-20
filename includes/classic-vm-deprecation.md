@@ -11,5 +11,5 @@ ms.author: cynthn
 >
 > If you use IaaS resources from ASM, please complete your migration by March 1, 2023. We encourage you to make the switch sooner to take advantage of the many feature enhancements in Azure Resource Manager.
 >
-> For more information, see [Migrate your IaaS resources to Azure Resource Manager by March 1, 2023](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation).
+> For more information, see [Migrate your IaaS resources to Azure Resource Manager by March 1, 2023](../articles/virtual-machines/classic-vm-deprecation.md).
 > 
