@@ -84,7 +84,7 @@ The Azure connector can use a Service Principal to authorize against Microsoft A
 1. Click on New registration
 1. Enter a name and click on Register
 1. Select the new App and click on Certificates & secrets in the Settings tab
-1. Create a new client secret, enter a description for a new key, select when the secret should exire and click on Save
+1. Create a new client secret, enter a description for a new key, select when the secret should expire and click on Save
 1. Write down the Value. It is used as the password for the Service Principal
 1. Write down the Application ID. It is used as the username of the Service Principal
 

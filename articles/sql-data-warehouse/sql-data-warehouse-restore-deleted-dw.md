@@ -21,22 +21,22 @@ In this article, you learn to restore a deleted SQL Data Warehouse using Azure p
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (for example, myserver.database.windows.net) which has a default DTU quota.  Verify that the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change][Request a DTU quota change].
+**Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (for example, myserver.database.windows.net) which has a default DTU quota.  Verify that the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Restore a deleted data warehouse through PowerShell
 
-To restore a deleted SQL Data Warehouse, use the [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet. If the corresponding logical server has been deleted as well, you can't restore that data warehouse.
+To restore a deleted SQL Data Warehouse, use the [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) cmdlet. If the corresponding logical server has been deleted as well, you can't restore that data warehouse.
 
-1. Before you begin, make sure to [install Azure PowerShell][Install Azure PowerShell].
+1. Before you begin, make sure to [install Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Open PowerShell.
 3. Connect to your Azure account and list all the subscriptions associated with your account.
 4. Select the subscription that contains the deleted data warehouse to be restored.
 5. Get the specific deleted data warehouse.
 6. Restore the deleted data warehouse
     1. To restore the deleted SQL Data Warehouse to a different logical server, make sure to specify the other logical server name.  This logical server can also be in a different resource group and region.
-    1. To restore to a different subscription, use the [Move][Move] button to move the logical server to another subscription.
+    1. To restore to a different subscription, use the [Move](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal) button to move the logical server to another subscription.
 1. Verify that the restored data warehouse is online.
-1. After the restore has completed, you can configure your recovered data warehouse by following [configure your database after recovery][Configure your database after recovery].
+1. After the restore has completed, you can configure your recovered data warehouse by following [configure your database after recovery](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -66,7 +66,7 @@ $RestoredDatabase.status
 
 ## Restore a deleted database using the Azure portal
 
-1. Sign in to the [Azure portal][Azure portal].
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Navigate to the SQL server your deleted data warehouse was hosted on.
 3. Select the **Deleted databases** icon in the table of contents.
 
@@ -81,29 +81,5 @@ $RestoredDatabase.status
     ![Specify Database Name](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## Next Steps
-- [Restore an existing data warehouse][Restore an existing data warehouse]
-- [Restore from a geo-backup data warehouse][Restore from a geo-backup data warehouse]
-
-<!--Image references-->
-
-<!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[support ticket]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket
-[Move]:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal
-[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
-[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
-
-<!--MSDN references-->
-[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/
+- [Restore an existing data warehouse](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restore from a geo-backup data warehouse](sql-data-warehouse-restore-from-geo-backup.md)

@@ -21,14 +21,14 @@ Accounts that are assigned administrative rights are targeted by attackers. Requ
 
 Microsoft recommends you require MFA on the following roles at a minimum:
 
-* Global administrator
-* SharePoint administrator
-* Exchange administrator
+* Billing administrator
 * Conditional Access administrator
-* Security administrator
+* Exchange administrator
+* Global administrator
 * Helpdesk (Password) administrator
 * Password administrator
-* Billing administrator
+* Security administrator
+* SharePoint administrator
 * User administrator
 
 Organizations can choose to include or exclude roles as they see fit.
@@ -52,14 +52,14 @@ The following steps will help create a Conditional Access policy to require thos
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **Directory roles (preview)** and choose the following roles at a minimum:
-      * Global administrator
-      * SharePoint administrator
-      * Exchange administrator
+      * Billing administrator
       * Conditional Access administrator
-      * Security administrator
+      * Exchange administrator
+      * Global administrator
       * Helpdesk administrator
       * Password administrator
-      * Billing administrator
+      * Security administrator
+      * SharePoint administrator
       * User administrator
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.

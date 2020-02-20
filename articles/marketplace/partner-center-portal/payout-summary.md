@@ -41,7 +41,7 @@ If you sell offerings in the Azure Marketplace, you’ll also see info on succes
 
 | | Cloud Partner Portal | Partner Center |
 |---------|---------|---------|
-| Links | https://cloudpartner.azure.com/ | https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory and https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| Links | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory) and [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 | Navigation | Payout reporting provided in Insights Payout | Payout reporting provided in Partner Center – Payout Icon |
 | Scope | <ul> <li>Transaction per line item is visible, for collection in progress, collected, and paid </li> <li>Reporting – shows all line items once purchase order is created, including collection in progress  and billing in Progress, and collection status and line items that are not yet eligible to be paid. </li> </ul> | <ul> <li>Shows the line items once they are deemed as eligible earnings.</li> <li>The customers pay to Microsoft first, and then ISVs can see the payout report starting.</li> <li>Payout report will not show collection in progress and billing in progress.  </li> </ul>  |
 | Transaction not ready for payout | Billing in Progress | Next estimated payment: The payout status is in the unprocessed state.  |

@@ -44,7 +44,7 @@ To connect to the Azure Media Services API with Azure AD authentication, the cli
 
 For example, you don't need to provide the Azure AD authority, Media Services resource URI, or native Azure AD application details. These are well-known values that are already configured by the Azure AD access token provider class. 
 
-If you are not using Azure Media Service .NET SDK, we recommend that you use the [Azure AD Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md). To get values for the parameters that you need to use with Azure AD Authentication Library, see [Use the Azure portal to access Azure AD authentication settings](media-services-portal-get-started-with-aad.md).
+If you are not using Azure Media Service .NET SDK, we recommend that you use the [Azure AD Authentication Library](../../active-directory/azuread-dev/active-directory-authentication-libraries.md). To get values for the parameters that you need to use with Azure AD Authentication Library, see [Use the Azure portal to access Azure AD authentication settings](media-services-portal-get-started-with-aad.md).
 
 You also have the option of replacing the default implementation of the **AzureAdTokenProvider** with your own implementation.
 

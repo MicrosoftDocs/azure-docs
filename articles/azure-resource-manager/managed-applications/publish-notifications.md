@@ -183,7 +183,7 @@ billingDetails | *Specified only for Azure Marketplace managed applications.* Th
 
 ## Endpoint authentication
 To secure the webhook endpoint and ensure the authenticity of the notification:
-1. Provide a query parameter on top of the webhook URI, like this: https://your-endpoint.com?sig=Guid. With each notification, check that the query parameter `sig` has the expected value `Guid`.
+1. Provide a query parameter on top of the webhook URI, like this: https\://your-endpoint.com?sig=Guid. With each notification, check that the query parameter `sig` has the expected value `Guid`.
 2. Issue a GET on the managed application instance by using applicationId. Validate that the provisioningState matches the provisioningState of the notification to ensure consistency.
 
 ## Notification retries
