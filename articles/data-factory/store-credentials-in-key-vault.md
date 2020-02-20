@@ -11,7 +11,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 01/16/2020
 ms.author: jingwang
 ---
 
@@ -29,8 +29,8 @@ This feature relies on the data factory managed identity. Learn how it works fro
 
 To reference a credential stored in Azure Key Vault, you need to:
 
-1. **Retrieve data factory managed identity** by copying the value of "Managed Identity Application ID" generated along with your factory. If you use ADF authoring UI, the managed identity application ID will be shown on the Azure Key Vault linked service creation window; you can also retrieve it from Azure portal, refer to [Retrieve data factory managed identity](data-factory-service-identity.md#retrieve-managed-identity).
-2. **Grant the managed identity access to your Azure Key Vault.** In your key vault -> Access policies -> Add new -> search this managed identity application ID to grant **Get** permission in Secret permissions dropdown. It allows this designated factory to access secret in key vault.
+1. **Retrieve data factory managed identity** by copying the value of "Managed Identity Object ID" generated along with your factory. If you use ADF authoring UI, the managed identity object ID will be shown on the Azure Key Vault linked service creation window; you can also retrieve it from Azure portal, refer to [Retrieve data factory managed identity](data-factory-service-identity.md#retrieve-managed-identity).
+2. **Grant the managed identity access to your Azure Key Vault.** In your key vault -> Access policies -> Add new -> search this managed identity to grant **Get** permission in Secret permissions dropdown. It allows this designated factory to access secret in key vault.
 3. **Create a linked service pointing to your Azure Key Vault.** Refer to [Azure Key Vault linked service](#azure-key-vault-linked-service).
 4. **Create data store linked service, inside which reference the corresponding secret stored in key vault.** Refer to [reference secret stored in key vault](#reference-secret-stored-in-key-vault).
 

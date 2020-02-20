@@ -42,7 +42,7 @@ If you plan to use the Azure PowerShell examples in this article, be sure to ins
 ## Overview
 
 A client application can request managed identities for Azure resources [app-only access token](../develop/developer-glossary.md#access-token) for accessing a given resource. The token is [based on the managed identities for Azure resources service principal](overview.md#how-does-the-managed-identities-for-azure-resources-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in
-[service-to-service calls requiring client credentials](../develop/v1-oauth2-client-creds-grant-flow.md).
+[service-to-service calls requiring client credentials](../develop/v2-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |

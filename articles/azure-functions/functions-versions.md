@@ -139,7 +139,7 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 ```
 
 > [!NOTE]
-> Azure Functions 3.x and .NET requires the `Microsoft.Sdk.NET.Functions` extension be at least `3.0.0`.
+> Azure Functions 3.x and .NET requires the `Microsoft.NET.Sdk.Functions` extension be at least `3.0.0`.
 
 ###### Updating 2.x apps to 3.x in Visual Studio
 

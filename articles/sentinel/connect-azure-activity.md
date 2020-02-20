@@ -27,7 +27,7 @@ You can stream logs from [Azure Activity log](../azure-monitor/platform/platform
 
 ## Prerequisites
 
-- User with global administrator or security administrator permissions
+- User with contributor permissions to Log Analytics workspace 
 
 
 ## Connect to Azure Activity log

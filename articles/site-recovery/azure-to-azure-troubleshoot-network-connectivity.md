@@ -1,15 +1,12 @@
 ---
 title: Troubleshoot connectivity for Azure to Azure disaster recovery with Azure Site Recovery 
-description: Troubleshoot errors and issues when you replicate Azure virtual machines for disaster recovery
-services: site-recovery
-author: carmonmills
+description: Troubleshoot connectivity issues in Azure VM disaster recovery
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/05/2019
-ms.author: carmonm
-
 ---
+
 # Troubleshoot Azure-to-Azure VM network connectivity issues
 
 This article describes the common issues related to network connectivity when you replicate and recover Azure virtual machines from one region to another region. For more information about networking requirements, see the [connectivity requirements for replicating Azure VMs](azure-to-azure-about-networking.md).

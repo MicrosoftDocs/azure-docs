@@ -4,7 +4,7 @@ description: How to attach a managed data disk to a Windows VM by using the Azur
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
 

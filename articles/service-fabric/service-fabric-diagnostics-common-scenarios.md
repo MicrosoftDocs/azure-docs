@@ -1,11 +1,8 @@
 ---
 title: Azure Service Fabric Diagnose Common Scenarios 
 description: Learn about troubleshooting common monitoring and diagnostic scenarios within Azure Service Fabric applications.
-author: srrengar
-
 ms.topic: article
 ms.date: 02/25/2019
-ms.author: srrengar
 ---
 
 # Diagnose common scenarios with Service Fabric
@@ -131,6 +128,7 @@ Check these links for the full list of performance counters on Reliable [Service
 
 ## Next steps
 
+* [Look Up Common Code Package Activation Errors](./service-fabric-diagnostics-code-package-errors.md)
 * [Set up Alerts in AI](../azure-monitor/app/alerts.md) to be notified about changes in performance or usage
 * [Smart Detection in Application Insights](../azure-monitor/app/proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to AI to warn you of potential performance problems
 * Learn more about Azure Monitor logs [alerting](../log-analytics/log-analytics-alerts.md) to aid in detection and diagnostics.

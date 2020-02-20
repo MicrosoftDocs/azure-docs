@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure delegated resource management
 description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
-ms.date: 01/09/2020
+ms.date: 01/20/2020
 ms.topic: conceptual
 ---
 
@@ -115,10 +115,7 @@ To onboard your customer, you'll need to create an [Azure Resource Manager](../.
 |**managedByTenantId**     |Your tenant ID.          |
 |**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each with a **principalIdDisplayName** to help your customer understand the purpose of the authorization, and mapped to a built-in **roleDefinitionId** value to specify the level of access.      |
 
-> [!TIP]
-> Be sure that your **managedByTenantID**, **principalIdDisplayName**, and **roleDefinitionId** entries are identical to the values used by Azure. Do not use any capital letters in these values.
-
-The onboarding process requires an Azure Resource Manager template (provided in our [samples repo](https://github.com/Azure/Azure-Lighthouse-samples/) and a corresponding parameters file that you modify to match your configuration and define your authorizations.
+The onboarding process requires an Azure Resource Manager template (provided in our [samples repo](https://github.com/Azure/Azure-Lighthouse-samples/)) and a corresponding parameters file that you modify to match your configuration and define your authorizations.
 
 The template you choose will depend on whether you are onboarding an entire subscription, a resource group, or multiple resource groups within a subscription. We also provide a template that can be used for customers who purchased a managed service offer that you published to Azure Marketplace, if you prefer to onboard their subscription(s) this way.
 
@@ -224,15 +221,15 @@ New-AzDeployment -Name <deploymentName> `
 # Log in first with az login if you're not using Cloud Shell
 
 # Deploy Azure Resource Manager template using template and parameter file locally
-az deployment create –-name <deploymentName> \
+az deployment create --name <deploymentName> \
                      --location <AzureRegion> \
                      --template-file <pathToTemplateFile> \
                      --parameters <parameters/parameterFile> \
                      --verbose
 
 # Deploy external Azure Resource Manager template, with local parameter file
-az deployment create –-name <deploymentName \
-                     –-location <AzureRegion> \
+az deployment create --name <deploymentName> \
+                     --location <AzureRegion> \
                      --template-uri <templateUri> \
                      --parameters <parameterFile> \
                      --verbose
@@ -297,6 +294,12 @@ The example below shows an assignment granting the **Managed Services Registrati
 ```
 
 A user with this permission can remove a delegation in one of the following ways.
+
+### Azure portal
+
+1. Navigate to the [My customers page](view-manage-customers.md).
+2. Select **Delegations**.
+3. Find the delegation you want to remove, then select the trash can icon that appears in its row.
 
 ### PowerShell
 

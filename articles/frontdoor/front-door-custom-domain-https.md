@@ -88,7 +88,7 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 Register the service principal for Azure Front Door Service as an app in your Azure Active Directory via PowerShell.
 
 > [!NOTE]
-> This action need only be performed **once** per tenant.
+> This action requires Global Administrator permissions, and needs to be performed only **once** per tenant.
 
 1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell on your local machine.
 
