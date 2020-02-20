@@ -22,7 +22,7 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: Command line
       href: functions-create-first-azure-function-azure-cli.md
-    - name: Maven (Java)
+    - name: Maven/Gradle (Java)
       href: functions-create-first-java-maven.md
   - name: Connect to storage
     items:
@@ -30,7 +30,7 @@
       href: functions-add-output-binding-storage-queue-vs-code.md
     - name: Visual Studio
       href: functions-add-output-binding-storage-queue-vs.md
-    - name: Maven (Java)
+    - name: Maven/Gradle (Java)
       href: functions-add-output-binding-storage-queue-java.md
 - name: Tutorials
   items:
