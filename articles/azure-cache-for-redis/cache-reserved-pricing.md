@@ -5,7 +5,7 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 02/20/2020
 ---
 
 # Prepay for Azure Cache for Redis compute resources with reserved capacity
@@ -60,7 +60,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 Cache size flexibility helps you scale up or down within a service tier and region, without losing the reserved capacity benefit.
 
-## Need help ? Contact us
+## Need help? Contact us
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
