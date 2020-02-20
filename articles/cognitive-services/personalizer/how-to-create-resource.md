@@ -16,11 +16,12 @@ Create a Personalizer resource for each feedback loop.
 1. Sign in to [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). The previous link takes you to the **Create** page for the Personalizer service.
 1. Enter your service name, select a subscription, location, pricing tier, and resource group.
 
-    ![Use Azure portal to create Personalizer resource, also called a learning loop.](./media/how-to-create-resource/how-to-create-personalizer-resource-learning-loop.png)
+    > [!div class="mx-imgBorder"]
+    > ![Use Azure portal to create Personalizer resource, also called a learning loop.](./media/how-to-create-resource/how-to-create-personalizer-resource-learning-loop.png)
 
 1. Select **Create** to create the resource.
 
-1. While still in the Azure portal, go to the **Configuration** page for the new resource to configure the learning loop.
+1. While still in the Azure portal, go to the **Configuration** page for the new resource to [configure the learning loop](how-to-settings.md).
 
 ## Create a resource with the Azure CLI
 
@@ -43,12 +44,12 @@ Create a Personalizer resource for each feedback loop.
 
     ```bash
     az cognitiveservices account create \
-    --name your-personalizer-learning-loop \
-    --resource-group your-personalizer-resource-group \
-    --kind Personalizer \
-    --sku F0 \
-    --location westus2 \
-    --yes
+        --name your-personalizer-learning-loop \
+        --resource-group your-personalizer-resource-group \
+        --kind Personalizer \
+        --sku F0 \
+        --location westus2 \
+        --yes
     ```
 ## Next steps
 

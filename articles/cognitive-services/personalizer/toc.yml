@@ -58,7 +58,7 @@
   items:
   - name: Create Personlizer Resource
     href: how-to-create-resource.md
-  - name: Configure learning loop
+  - name: Configure a learning loop
     href: how-to-settings.md
     displayName: azure, portal, settings, evaluation, offline, policy, export, model, configure
   - name: Manage your model
