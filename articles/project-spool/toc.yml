@@ -1,7 +1,14 @@
-- name: Spatial Anchors Documentation
+- name: Project Spool Documentation
   href: index.yml
-- name: Contributor Quickstart
-  href: contribute.md
+- name: Meta [Temporary]
+  expanded: true
+  items:
+  - name: Contributor Quickstart
+    href: contribute.md
+  - name: Internal Questions
+    href: internalquestions.md
+  - name: Docs Priorities
+    href: docsspriorities.md
 - name: Overview
   items:
   - name: About Spatial Anchors

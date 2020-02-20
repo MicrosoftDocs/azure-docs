@@ -1,8 +1,8 @@
-*Note: This is a temporary page being used to ready-up Project Spool.  **This will not be published.***
+*Note: This is a temporary page.  **This will not be published.***
 
 ## Intro
 
-Welcome to the Project Spool Contributor Quickstart!  I'm writing this to expose you to the bare minimum amount of information you need in order to contribute documentation.
+Welcome to the Project Spool Contributor Quickstart!
 
 If you have any questions or feedback along the way, feel free to ping/email any time.  My alias is **mikben**.
 
@@ -10,8 +10,6 @@ If you have any questions or feedback along the way, feel free to ping/email any
 
 
 ## Our Azure Docs Contribution Process
-
-Before we begin, I think it's important to understand the overall content devops process we're pushing our contributions into.
 
 ![Cross Platform](./media/pr-process.png)
 
