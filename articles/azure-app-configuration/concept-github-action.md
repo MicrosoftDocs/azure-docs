@@ -4,24 +4,24 @@ description: Use GitHub Actions to trigger an update to your App Configuration i
 author: lisaguthrie
 
 ms.author: lcozzens
-ms.date: 01/14/2020
+ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 
 ---
 # Sync your App Configuration instance using GitHub Actions
-Azure App Configuration uses GitHub Actions to update an App Configuration instance when triggered by an action performed on a GitHub repository. You can leverage GitHub workflows to update app configuration, enabling the integration of app configuration updates into the same workflow used to update app code.
+Azure App Configuration uses GitHub Actions to update an App Configuration instance when triggered by an action performed on a GitHub repository. GitHub workflows can trigger app configuration updates, enabling the integration of those updates into the same workflow used to update the app code.
 
-A GitHub Actions [workflow](https://help.github.com/articles/about-github-actions#workflow) is an automated process defined in your GitHub repository. This process tells GitHub how to build and deploy your GitHub project. Azure App Configuration provides the *Azure App Configuration Sync* Action to enable updates to an App Configuration instance when changes are made to the source repository. 
+A GitHub Actions [workflow](https://help.github.com/articles/about-github-actions#workflow) defines an automated process in a GitHub repository. This process tells GitHub how to build and deploy your GitHub project. Azure App Configuration provides the *Azure App Configuration Sync* Action to enable updates to an App Configuration instance when changes are made to the source repository. 
 
-A workflow is defined by a YAML (.yml) file found in the `/.github/workflows/` path of your repository. This definition contains the various steps and parameters that define the workflow.
+A YAML (.yml) file found in the `/.github/workflows/` path of your repository defines your workflow. This definition contains the workflow's steps and parameters.
 
-GitHub events, such as a push to a repository, can trigger a GitHub Action workflow.  Azure provides the *Azure App Configuration Sync* action to enable you to trigger an update of an App Configuration instance when a specified GitHub action occurs. This allows teams to leverage GitHub's core features when pushing, reviewing, or branching app configuration files just as they do with app code.
+GitHub events, such as a push to a repository, can trigger a GitHub Action workflow.  The *Azure App Configuration Sync* action enables you to trigger an update of an App Configuration instance when a specified GitHub action occurs. This allows you to leverage GitHub's core features when pushing, reviewing, or branching app configuration files just as you do with app code.
 
 The GitHub [documentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) provides in-depth view of GitHub workflows and actions. 
 
 ## Enable GitHub Actions in your repository
-To start using this GitHub action, go to your repository and select the **Actions** tab. Click on “New workflow” and then “Set up a workflow yourself”. From there, search the marketplace for “Azure App Configuration Sync.”
+To start using this GitHub action, go to your repository and select the **Actions** tab. Click on **New workflow**, then **Set up a workflow yourself**. Finally, search the marketplace for “Azure App Configuration Sync.”
 > [!div class="mx-imgBorder"]
 > ![Select the Action tab](media/find-github-action.png)
 
@@ -29,9 +29,9 @@ To start using this GitHub action, go to your repository and select the **Action
 > ![Select the app configuration syn Action](media/app-configuration-sync-action.png)
 
 ## Sync configuration files after a push
-This action syncs Azure App Configuration files when a change is pushed to `appsettings.json`. When a developer makes and pushes a change to `appsettings.json`, the App Configuration Sync action updates the App Configuration instance with the new values.
+This action syncs Azure App Configuration files when a change is pushed to `appsettings.json`. When a developer pushes a change to `appsettings.json`, the App Configuration Sync action updates the App Configuration instance with the new values.
 
-The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *master* branch. The second section lists the jobs run once the action is triggered. The action checks out the relevant files and updates the App Configuration instance using the connection string stored as a secret in the repository.  For more information about using secrets in Github, see [this article](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) about creating and using encrypted secrets.
+The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *master* branch. The second section lists the jobs run once the action is triggered. The action checks out the relevant files and updates the App Configuration instance using the connection string stored as a secret in the repository.  For more information about using secrets in Github, see [GitHub's article](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) about creating and using encrypted secrets.
 
 ```json
 on: 
@@ -58,7 +58,7 @@ jobs:
 ```
 
 ## Use a dynamic label on sync
-The previous action simply updated the App Configuration instance whenever `appsettings.json` is updated. This action inserts a dynamic label on each sync, ensuring that each sync can be uniquely identified.  This allows code changes to quickly be mapped to config changes.
+The previous action updates the App Configuration instance whenever `appsettings.json` is updated. This action inserts a dynamic label on each sync, ensuring that each sync can be uniquely identified.  This allows code changes to quickly be mapped to config changes.
 
 The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *master* branch. The second section runs a job which creates a unique label for the config update based on the commit hash. The job then updates the App Configuration instance with the new values and the unique label for this update.
 
@@ -139,6 +139,7 @@ The default behavior for nested JSON attributes is to flatten the entire object.
     }
 }
 ```
+
 If the nested object is intended to be the value pushed to the Configuration instance, you can use the *depth* value to stop the flattening at the appropriate depth. 
 
 ```json
