@@ -12,6 +12,10 @@ ms.author: mjbrown
 
 The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB for MongoDB API.
 
+> [!NOTE]
+> The PowerShell samples in this article are supported by Azure Cosmos DB accounts on MongoDB server version 3.6 only (that is, accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). They are currently not supported by accounts on server version 3.2 (that is, accounts using the endpoint in the format `*.documents.azure.com`). To use these scripts, you should migrate old accounts to the new version.
+
+
 | | |
 |---|---|
 |[Create an account, database and collection](scripts/powershell/mongodb/ps-mongodb-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, database and collection. |
