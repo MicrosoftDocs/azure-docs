@@ -17,6 +17,19 @@ You can broadly categorize query optimizations in Azure Cosmos DB: Optimizations
 
 This document will use examples that can be recreated using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
+### Important
+* For the best performance always run application on Windows x64 to support native service interop.
+    * ServiceInterop.dll is used to parse and optimize queries locally. If ServiceInterop.dll is not aviabable it will go to the gateway which adds an additional network call to process the query.
+    * Visual studio default new projects to Any CPU. Any CPU project can easily switch to x86. It's recommend to set the project to x64 to avoid it switching to x86.
+* Make sure to drain the query completely. Look at the SDK samples and use a while loop on the `FeedIterator.HasMoreResults` to drain the entire query.
+* SDK does not support a minimum item count.
+    * Code should handle any page size from 0 to max item count
+    * The amount of items in a page can and will change without any notice.
+* Empty pages are expected for queries, and can appear at any time. 
+    * The reason empty pages are exposed to user is it allows more opportunities to cancel the query and makes it clear that it is doing multiple network calls.
+    * Empty page can show up in existing workloads because a physical partition is split in Cosmos DB. First partition now has 0 results which causes the empty page.
+    * It is possible that you are getting an empty page due to the backend preempting your query. This would mean that your query is taking more than some fixed amount of time on the backend to retrieve your documents, so it preempts your query and sends you a continuation if you want to continue making progress on the query.
+
 ### Obtaining query metrics:
 
 When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](profile-sql-api-query.md) for your query. These are also available through the Azure portal as shown below:
