@@ -170,7 +170,7 @@ Traceroute output from the spoke VNet to a VM in on-premises Location 2 is shown
 
 	C:\Users\rb>tracert 10.1.31.10
 
-	Tracing route to 10.2.30.10 over a maximum of 30 hops
+	Tracing route to 10.1.31.10 over a maximum of 30 hops
 
 	  1    76 ms    75 ms    76 ms  10.10.30.134
 	  2     *        *        *     Request timed out.
