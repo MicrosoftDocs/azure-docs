@@ -13,6 +13,9 @@ This article introduces built-in policies (preview) for Azure Container Registry
 
 There are no charges for using Azure Policy.
 
+> [!IMPORTANT]
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+
 ## Built-in policy definitions
 
 [!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/azure-policy-samples-policies-container-registry.md)]
@@ -21,11 +24,11 @@ There are no charges for using Azure Policy.
 ## Assign policies
 
 * Assign policies using the [Azure portal](../governance/policy/assign-policy-portal.md), [Azure CLI](../governance/policy/assign-policy-azurecli.md), a [Resource Manager template](../governance/policy/assign-policy-template.md), or the Azure Policy SDKs.
-* Scope a policy assignment to a resource group, a subscription, or an [Azure management group](../governance/management-groups/overview.md). Assigned policies apply to existing and new container registries within the scope.
+* Scope a policy assignment to a resource group, a subscription, or an [Azure management group](../governance/management-groups/overview.md). Assigned container registry policies apply to existing and new container registries within the scope.
 * Enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.
 
 > [!NOTE]
-> After assigning or updating a policy, it takes some time for the assignment to be applied to the defined scope. 
+> After assigning or updating a policy, it takes some time for the assignment to be applied to resources in the defined scope. 
 
 ## Review policy compliance
 
@@ -35,10 +38,10 @@ When a resource is non-compliant, there are many possible reasons. To determine 
 
 ### Policy compliance in the portal:
 
-1. Select **All services**, and search for **Policy**
-1. Select **Compliance** 
+1. Select **All services**, and search for **Policy**.
+1. Select **Compliance**.
 1. Use the filters to limit compliance states or to search for policies
-    ![Policy compliance in portal](./media/container-registry-azure-policy/azure-policy-compliance.png)
+    ![Policy compliance in portal](./media/container-registry-azure-policy/azure-policy-compliance.png).
 1. Select a policy to review aggregate compliance details and events. If desired, then select a specific registry for resource compliance.
 
 ### Policy compliance in the Azure CLI
@@ -82,3 +85,7 @@ az policy state list \
 * Create a [custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md)
 
 * Learn more about [governance capabilities](../governance/index.yml) in Azure
+
+
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
