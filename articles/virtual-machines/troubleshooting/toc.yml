@@ -1,7 +1,7 @@
 ### YamlMime:TOC
 
 - name: Troubleshooting Azure VMs
-  href: index.md
+  href: index.yml
 - name: Troubleshoot deployment failures
   items:
   - name: Windows
