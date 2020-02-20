@@ -594,7 +594,7 @@
     items:
     - name: Add a disk
       items:
-      - name: Azure Powershell
+      - name: Azure PowerShell
         href: attach-disk-ps.md
       - name: Azure portal
         href: attach-managed-disk-portal.md
