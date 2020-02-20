@@ -62,34 +62,29 @@ On the **Build a scheduled flow** page, initialize your flow with the following 
 
 Create variables representing the information that will be extracted from the Excel file.
 
-1. Click **New Step** and search for **Initialize variable**. Do this four times, to create four variables.
+Click **New Step** and search for **Initialize variable**. Do this four times, to create four variables.
 
-    > [!div class="mx-imgBorder"] 
-    > :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Initialize variables.":::
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Initialize variables.":::
 
 Add the following information to the variables you created. They represent the columns of the Excel file. If any variables are collapsed, you can click on them to expand them.
 
 > [!div class="mx-imgBorder"] 
-> [![Flow variables.](../media/tutorials/excel/flow-variables.png)](../media/tutorials/excel/flow-variables.png#lightbox)
+> [![Flow variables.](../media/tutorials/excel/flow-variables-resized.png)](../media/tutorials/excel/flow-variables.png#lightbox)
 
 ## Read the excel file
 
-Click New Step and type Excel, then select Update a Row from Actions.
+Click **New Step** and type **Excel**, then select **Update a Row** from Actions.
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="add excel rows.":::
 
 Select the options to fill in the fields as below. This requires the sample Excel file to have been uploaded to One Drive for Business.
 
-:::row:::
-   :::column span="2":::
-        > [!div class="mx-imgBorder"] 
-        > :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="add excel rows.":::
-   :::column-end:::
-   :::column span="":::
-        > [!div class="mx-imgBorder"] 
-        > :::image type="content" source="../media/tutorials/excel/list-rows-present.png" alt-text="add excel rows.":::
-   :::column-end:::
-:::row-end:::
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="../media/tutorials/excel/list-rows-present.png" alt-text="add excel rows.":::
 
-Add an Apply to each action.
+Add an **Apply to each** action.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-an-apply.png" alt-text="add an apply command.":::
@@ -101,7 +96,7 @@ Select output from spreadsheet. Click inside the box and select value.
 
 ## Send a request to the Text Analytics API
 
-If you haven’t already, you need to create a Text Analytics resource in the Azure Portal.
+If you haven’t already, you need to create a [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure Portal.
 
 ### Create a Text Analytics connection
 
