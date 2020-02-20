@@ -1211,6 +1211,101 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech/concepts.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/Home.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/samples.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/support.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/troubleshooting.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/API-Reference-REST/BingVoiceOutput.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/API-Reference-REST/websocketprotocol.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/API-Reference-REST/supportedlanguages.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStarted.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStartedClientLibraries.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStartedCSharpDesktop.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStartedCSharpServiceLibrary.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStartedJavaAndroid.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStartedJSWebsockets.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/Get-Started-ObjectiveC-iOS.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/GetStarted/GetStartedREST.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/How-to/how-to-authentication.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/How-to/how-to-choose-recognition-mode.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech/How-to/how-to-chunked-transfer.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
       "redirect_document_id": false
@@ -18388,6 +18483,21 @@
     {
       "source_path": "articles/backup/backup-azure-vms-prepare.md",
       "redirect_url": "/azure/backup/backup-azure-arm-vms-prepare",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/backup/backup-azure-configure-reports.md",
+      "redirect_url": "/azure/backup/configure-reports.md",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/backup/backup-azure-log-analytics-data-model.md",
+      "redirect_url": "/azure/backup/backup-azure-diagnostics-mode-data-model.md",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/backup/backup-azure-log-analytics-new-data-model.md",
+      "redirect_url": "/azure/backup/backup-azure-reports-data-model.md",
       "redirect_document_id": false
     },
     {

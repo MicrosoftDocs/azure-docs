@@ -164,7 +164,7 @@ Subscriptions must be registered to allow participation in the Public Preview.  
 2. activate registration
 
     ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network
+      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
     ```
 
 ## Pricing
