@@ -45,8 +45,8 @@ Taking the above into consideration, an ISV can choose to go for JAB authorizati
 ## Partners
 
 Microsoft is able to scale through its partners. Scale is what will allow us to create a more predictable, cost-effective, and speedy delivery. These so happen to be the concerns with perusing an ATO.  We are focusing on enabling two main kinds of partnerships: 
- * **Advisory:** enables partners to create offerings based on Azure that can shepherd a customer through steps or the entire ATO process. These partners offer consulting services bundled with some automated solutions that are valu-add to what Azure Compliance Launchpad provides. They can usually be contracted directly, by reference or via the Marketplace.  
- * **Automation:** there are two types of automation partners we focus one, foundational partners which enable integrated 3rd party solutions with Azure and help you achieve / meet controls from your FedRAMP Package. These partners are part of our recommended reference architectures. The second kind are true automation partners that help automating certain aspects of the ATO journey such as the SSP generation, self-healing, alerts and monitoring. 
+ * **Advisory:** enables partners to create offerings based on Azure that shepherd a customer through steps or the entire ATO process. These partners offer consulting services bundled with some automated solutions that are valu-add to what Azure Compliance Launchpad provides. They can usually be contracted directly, by reference or via the Marketplace.  
+ * **Automation:** there are two types of automation partners we focus one, foundational partners which enable integrated 3rd party solutions with Azure and help you achieve / meet controls from your FedRAMP Package. These partners are part of our recommended reference architectures. The second kind is true automation partners that help automating certain aspects of the ATO journey such as the SSP generation, self-healing, alerts and monitoring. 
  
  > [!NOTE]
 > Partners are asked to publish their solutions to the Azure Marketplace. Steps on how to achieve that are presented below.
