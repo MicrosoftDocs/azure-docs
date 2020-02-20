@@ -47,6 +47,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or Network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
 
+    > [!NOTE] 
+    > High CPU usage can cause increased latency and request timeout exceptions.
+
 ## Networking
 <a id="direct-connection"></a>
 
@@ -119,19 +122,11 @@ So if you're asking "How can I improve my database performance?" consider the fo
     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
 
-4. **Use Windows x64**
-
-    For the best performance for queries always run application on Windows x64 to support native ServiceInterop.dll. The ServiceInterop.dll is used to parse and optimize queries, and is packaged with the SDK. The SDK will go to the gateway to parse and optimize the query if the native ServiceInterop.dll is not available or a non-supported platform. The network call to the gateway is slower than processing the query locally with the native ServiceInterop.dll.
-
-    > [!NOTE] 
-    > Visual studio defaults new projects to Any CPU. It's recommend to set the project to x64 to avoid it switching to x86. Any CPU project can easily switch to x86 if any dependency is added that is x86 only. 
-    
-
-5. **Increase number of threads/tasks**
+4. **Increase number of threads/tasks**
 
     Since calls to Azure Cosmos DB are made over the network, you may need to vary the degree of parallelism of your requests so that the client application spends very little time waiting between requests. For example, if you're using .NET's [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create in the order of 100s of Tasks reading or writing to Azure Cosmos DB.
 
-6. **Enable accelerated networking**
+5. **Enable accelerated networking**
 
    In order to reduce latency and CPU jitter, we recommend that the client virtual machines are accelerated networking enabled. See the [Create a Windows virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) articles to enable accelerated networking.
 
