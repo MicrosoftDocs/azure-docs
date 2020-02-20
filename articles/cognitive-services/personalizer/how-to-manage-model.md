@@ -1,13 +1,62 @@
 ---
-title: Manage your Personalizer model
+title: Manage model and learning settings - Personalizer
 description:
+The machine-learned model and learning settings can be exported for backup in your own source control system.
 ms.topic: conceptual
 ms.date: 02/19/2020
 ---
 
-# How to manage your model
+# How to manage model and learning settings
 
-## Your model 
+The machine-learned model and learning settings can be exported for backup in your own source control system.
+
+## Export the Personalizer model
+
+From the Resource management's section for **Model and learning settings**, review model creation and last updated date and export the current model. You can use the Azure portal or the Personalizer APIs to export a model file for archival purposes.
+
+![Export current Personalizer model](media/settings/export-current-personalizer-model.png)
+
+## Clear data for your learning loop
+
+1. In the Azure portal, for your Personalizer resource, on the **Model and learning settings** page, select **Clear data**.
+1. In order to clear all data, and reset the learning loop to the original state, select all 3 check boxes.
+
+    ![In Azure portal, clear data from Personalizer resource.](./media/settings/clear-data-from-personalizer-resource.png)
+
+    |Value|Purpose|
+    |--|--|
+    |Logged personalization and reward data.|This logging data is used in offline evaluations. Clear the data if you are resetting your resource.|
+    |Reset the Personalizer model.|This model changes on every retraining. This frequency of training is specified in **upload model frequency** on the **Configuration** page. |
+    |Set the learning policy to default.|If you have changed the learning policy as part of an offline evaluation, this resets to the original learning policy.|
+
+1. Select **Clear selected data** to begin the clearing process. Status is reported in Azure notifications, in the top-right navigation.
+
+## Import a new learning policy
+
+Learning policy settings determine the _hyperparameters_ of the model training. The learning policy is defined in a `.json` file.
+
+```json
+{
+  "name": "9b64d93fcb5744f8b699bf88341cb806",
+  "arguments": "--cb_explore_adf --epsilon 0.2 --power_t 0 -l 0.001 --cb_type mtr -q ::"
+}
+```
+
+The `argument` property contains a [configuration](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Contextual-Bandit-algorithms) used by Vowpal Wabbit.
+
+## Import a new learning policy
+
+1. Open the [Azure portal](https://portal.azure.com), and select your Personalizer resource.
+1. Select **Model and learning settings** in the **Resource Management** section.
+1. For the **Import learning settings** select the file you created with the JSON format specified above, then select the **Upload** button.
+
+    Wait for the notification that the learning policy was uploaded successfully.
+
+## Export a learning policy
+
+1. Open the [Azure portal](https://portal.azure.com), and select your Personalizer resource.
+1. Select **Model and learning settings** in the **Resource Management** section.
+1. For the **Import learning settings** select the **Export learning settings** button. This saves the `json` file to your local computer.
 
 ## Next steps
 

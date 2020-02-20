@@ -61,14 +61,10 @@
   - name: Configure a learning loop
     href: how-to-settings.md
     displayName: azure, portal, settings, evaluation, offline, policy, export, model, configure
-  - name: Manage your model
-    href: how-to-manage-model.md
   - name: Manage your learning policy
     href: how-to-learning-policy.md
-  - name: Analyze
-    items:
-    - name: Offline evaluation
-      href: how-to-offline-evaluation.md
+  - name: Analyze with an offline evaluation
+    href: how-to-offline-evaluation.md
 - name: Reference
   items:
   - name: Samples

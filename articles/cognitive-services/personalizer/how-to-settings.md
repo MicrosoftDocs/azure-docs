@@ -10,7 +10,6 @@ ms.date: 02/19/2020
 Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 
 
-
 ## Configure rewards for the feedback loop based on use case
 
 Configure the service for your learning loop's use of rewards. Changes to the following values will reset the current Personalizer model and retrain it with the last 2 days of data.
@@ -66,4 +65,4 @@ Configuration:
 
 ## Next steps
 
-[Learn how to manage a learning policy](how-to-learning-policy.md)
+[Learn how to manage your model](how-to-manage-model.md)
