@@ -23,7 +23,7 @@ The code in this article defaults to .NET Core syntax, used in Functions version
 
 ### Functions 2.x and higher
 
-Working with the trigger and bindings requires that you reference the appropriate package. The a NuGet package is used for .NET class libraries while the extension bundle all other application types.
+Working with the trigger and bindings requires that you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
 
 | Language                                        | Add by...                                   | Remarks 
 |-------------------------------------------------|---------------------------------------------|-------------|
