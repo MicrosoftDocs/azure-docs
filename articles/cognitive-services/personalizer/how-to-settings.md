@@ -59,7 +59,6 @@ After changing this value, make sure to select **Save**.
 
 The following actions include an immediate retraining of the model with the last 2 days of data.
 
-Configuration:
 * Reward
 * Exploration
 
