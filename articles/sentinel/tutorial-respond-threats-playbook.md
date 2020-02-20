@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2019
+ms.date: 02/18/2019
 ms.author: rkarlin
 ---
 
@@ -60,7 +60,7 @@ Follow these steps to create a new security playbook in Azure Sentinel:
 
    ![Logic App](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
-3. In the **Azure Sentinel - Playbooks (Preview)** page, click **Add** button.
+3. In the **Azure Sentinel - Playbooks** page, click **Add** button.
 
    ![Create logic app](./media/tutorial-respond-threats-playbook/create-playbook.png) 
 
