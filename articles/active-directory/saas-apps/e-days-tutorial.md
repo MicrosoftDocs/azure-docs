@@ -149,11 +149,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure E-days SSO
 
-To configure single sign-on on **E-days** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [E-days support team](support.e-days.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **E-days** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [E-days support team](https://support.e-days.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create E-days test user
 
-In this section, you create a user called B.Simon in E-days. Work with [E-days support team](support.e-days.com) to add the users in the E-days platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in E-days. Work with [E-days support team](https://support.e-days.com) to add the users in the E-days platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
