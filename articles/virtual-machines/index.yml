@@ -51,9 +51,9 @@ conceptualContent:
         - url: https://docs.microsoft.com/azure/virtual-machines/linux/image-builder
           itemType: how-to-guide
           text: Azure Image Builder
-        - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/index
+        - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/linux-index
           itemType: how-to-guide
-          text: Troubleshoot Azure VM
+          text: Troubleshoot Linux virtual machines
       footerLink:
         url: https://docs.microsoft.com/azure/virtual-machines/linux/
         text: See more
@@ -71,29 +71,13 @@ conceptualContent:
           text: Configure managed identities
         - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/index
           itemType: how-to-guide
-          text: Troubleshoot Azure VM
+          text: Troubleshoot Windows virtual machines
       # footerLink (optional)
       footerLink:
         url: https://docs.microsoft.com/azure/virtual-machines/linux/
         text: See more
     # Card
     - title: Virtual machine scale sets
-      links:
-        - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-powershell
-          itemType: how-to-guide
-          text: Create a scale set using PowerShell
-        - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/orchestration-modes
-          itemType: concept
-          text: Orchestration modes
-        - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot
-          itemType: how-to-guide
-          text: Use Spot instances
-      # footerLink (optional)
-      footerLink:
-        url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/
-        text: See more
-    # Card
-    - title: Troubleshoot Azure VM (Test)
       links:
         - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-powershell
           itemType: how-to-guide
