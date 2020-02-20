@@ -83,7 +83,9 @@ Before you begin, refer to the following SAP Notes and papers first:
 * [SUSE SAP HA Best Practice Guides][suse-ha-guide]
   The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
 * [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
-* [SUSE Support for multi-SID cluster](https://www.suse.com/c/sap-workloads-going-green/)
+* SUSE multi-SID cluster documentation
+  * [SUSE support for multi-SID cluster](https://www.suse.com/c/sap-workloads-going-green/)
+  * [SUSE multi-SID cluster guide for SLES 12 and SLES 15](https://documentation.suse.com/sbp/all/html/SBP-SAP-MULTI-SID/index.html)
 
 ## Overview
 
