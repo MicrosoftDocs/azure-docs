@@ -72,7 +72,7 @@ To generate a new security access key at any time, use the Azure REST API or Azu
 
 If you share the endpoint URL for a request-based trigger with other parties, you can generate callback URLs that use specific keys and have expiration dates. That way, you can seamlessly roll keys or restrict access to triggering your logic app based on a specific timespan. To specify an expiration date for a URL, use the [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers), for example:
 
-``` http
+```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
@@ -84,7 +84,7 @@ In the body, include the `NotAfter`property by using a JSON date string. This pr
 
 When you generate or list callback URLs for a request-based trigger, you can specify the key to use for signing the URL. To generate a URL that's signed by a specific key, use the [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers), for example:
 
-``` http
+```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
@@ -114,19 +114,19 @@ To enable Azure AD OAuth, follow these steps to add one or more authorization po
 
    ![Select "Authorization" > "Add policy"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
-1. Provide information about the authorization policy by specifying the [claim types](../active-directory/develop/developer-glossary.md#claim) and values that your logic app expects in the authentication tokens presented by inbound calls to the Request trigger:
+1. Provide information about the authorization policy by specifying the [claim types](../active-directory/develop/developer-glossary.md#claim) and values that your logic app expects in the authentication token presented by each inbound call to the Request trigger:
 
    ![Provide information for authorization policy](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Policy name** | Yes | The name that you want to use for the authorization policy |
-   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. Here are the available standard claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token ID) <p><p>At the minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with the `https://sts.windows.net/` Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
+   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. Here are the available claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token ID) <p><p>At the minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with the `https://sts.windows.net/` Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
    |||
 
 1. To add another claim, select from these options:
 
-   * To add another standard claim type, select **Add standard claim**, select the claim type, and specify the claim value.
+   * To add another claim type, select **Add standard claim**, select the claim type, and specify the claim value.
 
    * To add your own claim, select **Add custom claim**, and specify the custom claim value.
 
@@ -134,7 +134,9 @@ To enable Azure AD OAuth, follow these steps to add one or more authorization po
 
 1. When you're done, select **Save**.
 
-You've now set up your logic app to use Azure AD OAuth for authorizing inbound requests. This example shows a sample decoded [access token](../active-directory/develop/access-tokens.md) that's used for calling a logic app, which has an authorization policy that specifies claims that have **Issuer** and **Audience** types:
+Your logic app is now set up to use Azure AD OAuth for authorizing inbound requests. When your logic app receives a inbound request that includes an authentication token, Azure Logic Apps compares the token's claims against the claims in each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
+
+For example, suppose that your logic app has an authorization policy that requires two claim types, Issuer and Audience. This sample decoded [access token](../active-directory/develop/access-tokens.md) includes both those claim types:
 
 ```json
 {
