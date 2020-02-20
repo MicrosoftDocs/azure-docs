@@ -271,6 +271,8 @@ To deploy the Custom Script Extension on a Scale Set, see [Add-AzVmssExtension](
 
 ## Classic VMs
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 To deploy the Custom Script Extension on classic VMs, you can use the Azure portal or the Classic Azure PowerShell cmdlets.
 
 ### Azure portal
