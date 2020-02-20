@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/06/2020
+ms.date: 02/16/2020
 ---
 
 # Mapping data flow video tutorials
@@ -64,6 +64,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Exists Transformation](http://youtu.be/GS8JVgNBMfs?hd=1)
 
+[Dynamic Joins and Dynamic Lookups](https://youtu.be/CMOPPie9bXM)
+
 ## Source and sink
 
 [Reading and writing JSONs](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
@@ -93,6 +95,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Decrease start-up times](https://youtu.be/FFCbU4ujCiY?t=528)
 
 [SQL DB performance](https://youtu.be/iyZT5CY3V_4)
+
+[Logging and auditing](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
 ## Mapping data flow scenarios
 
@@ -131,3 +135,5 @@ As updates are constantly made to the product, some features have added or diffe
 ## Data flow expressions
 
 [Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
+
+[Splitting Arrays and Case Statement](https://www.youtube.com/watch?v=DHNH8ZO7YjI)

@@ -1,5 +1,6 @@
 ---
-title: Securing PaaS web and mobile applications using Azure App Service | Microsoft Docs
+title: Securing PaaS web & mobile applications
+titleSuffix: Azure App Service
 description: "Learn about Azure App Service security best practices for securing your PaaS web and mobile applications. "
 services: security
 documentationcenter: na

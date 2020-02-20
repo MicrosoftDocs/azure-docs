@@ -16,10 +16,15 @@ There are a few differences between an incremental snapshot and a regular snapsh
 
 Incremental snapshots also offer a differential capability, which is uniquely available to managed disks. They enable you to get the changes between two incremental snapshots of the same managed disks, down to the block level. You can use this capability to reduce your data footprint when copying snapshots across regions.
 
-## Restrictions
+### Supported regions
 
-- Incremental snapshots are currently only available in East US, East US 2, Central US, West Central US, Canada East, Canada Central, and North Europe.
-- Incremental snapshots currently cannot be created after you've changed the size of a disk.
+Only the following regions are currently supported:
+
+- Available as a GA offering in the West Central US, Canada East, Canada Central regions.
+- Available as a public preview in the East US, East US 2, Central US, North Europe, South East Asia regions.
+
+## Restrictions
+- Incremental snapshots currently cannot be created after you've changed the size of a disk (during preview only).
 - Incremental snapshots currently cannot be moved between subscriptions.
 - You can currently only generate SAS URIs of up to five snapshots of a particular snapshot family at any given time.
 - You cannot create an incremental snapshot for a particular disk outside of that disk's subscription.
