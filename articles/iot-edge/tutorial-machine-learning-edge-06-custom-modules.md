@@ -68,7 +68,7 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
 
 1. Name the module **turbofanRulClassifier**.
 
-1. Choose your machine learning workspace.
+1. Choose your machine learning workspace. This is the **turboFanDemo** workspace that you created in the previous tutorial.
 
 1. Select the image you created while running the Azure Notebook.
 
@@ -121,7 +121,7 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
         }
        ```
 
-   * **deployment.debug.template.json:** this file is the debug version of deployment.template.json. We should mirror all of the changes from the deployment.template.json into this file.
+   * **deployment.debug.template.json:** this file is the debug version of deployment.template.json. Keeping its content current with the deployment.template.json file is not required for this tutorial.
 
    * **.env:** this file is where you should supply the username and password for accessing your registry.
 
@@ -134,7 +134,7 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
 
 1. Notice that this command creates a config folder with a deployment.amd64.json file. This file is the concrete deployment template for the solution.
 
-If the close and reopen Visual Studio Code, open the folder **C:\source\IoTEdgeAndMlSample\EdgeSolution\EdgeSolution** to return to the solution we are building.
+If the close and reopen Visual Studio Code, open the folder **C:\source\IoTEdgeAndMlSample\EdgeSolution** to return to the solution we are building.
 
 ## Add Router module
 
@@ -164,7 +164,7 @@ Next, we add the Router module to our solution. The Router module handles severa
 1. Copy files from the sample module into the solution.
 
     ```cmd
-    copy c:\source\IoTEdgeAndMlSample\EdgeModules\modules\turbofanRouter\*.cs c:\source\IoTEdgeAndMlSample\EdgeSolution\EdgeSolution\modules\turbofanRouter\
+    copy c:\source\IoTEdgeAndMlSample\EdgeModules\modules\turbofanRouter\*.cs c:\source\IoTEdgeAndMlSample\EdgeSolution\modules\turbofanRouter\
     ```
 
 1. When prompted to overwrite program.cs, press `y` and then hit `Enter`.
@@ -288,7 +288,7 @@ The Avro Writer module has two responsibilities in our solution, to store messag
 1. Copy files from the sample module into the solution.
 
    ```cmd
-   copy C:\source\IoTEdgeAndMlSample\EdgeModules\modules\avroFileWriter\*.py C:\source\IoTEdgeAndMlSample\EdgeSolution\EdgeSolution\modules\avroFileWriter\
+   copy C:\source\IoTEdgeAndMlSample\EdgeModules\modules\avroFileWriter\*.py C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avroFileWriter\
    ```
 
 1. If prompted to overwrite main.py, type `y` and then hit `Enter`.
@@ -336,7 +336,7 @@ As mentioned previously, the writer module relies on the presence of a bind moun
 
 To add the directory to the module’s container, we will modify the Dockerfiles associated with the avroFileWriter module. There are three Dockerfiles associated with the module: Dockerfile.amd64, Dockerfile.amd64.debug, and Dockerfile.arm32v7. These files should be kept in sync in case we wish to debug or deploy to an arm32 device. For this article, focus only on Dockerfile.amd64.
 
-1. On your development VM, open the **C:\source\IoTEdgeAndMlSample\EdgeSolution\EdgeSolution\modules\avoFileWriter\Dockerfile.amd64** file.
+1. On your development VM, open the **C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avoFileWriter\Dockerfile.amd64** file.
 
 1. Modify the file so that is looks like the following example:
 
@@ -363,7 +363,8 @@ To add the directory to the module’s container, we will modify the Dockerfiles
 
    The `mkdir` and `chown` commands instruct the Docker build process to create a top-level directory called /avrofiles in the image and then to make the moduleuser the owner of that directory. It is important that these commands are inserted after the module user is added to the image with the `useradd` command and before the context switches to the moduleuser (USER moduleuser).
 
-1. Make the corresponding changes to Dockerfile.amd64.debug and Dockerfile.arm32v7.
+> [!NOTE]
+> If needed, make corresponding changes to Dockerfile.amd64.debug and Dockerfile.arm32v7.
 
 ### Bind mount for access to config.yaml
 
@@ -457,7 +458,7 @@ The writer module takes a dependency on two Python libraries, fastavro and PyYAM
 
 ### PyYAML
 
-1. On your development machine, open the **C:\source\IoTEdgeAndMlSample\EdgeSolution\EdgeSolution\modules\avoFileWriter\requirements.txt** file and add "pyyaml" on a new line in the file.
+1. On your development machine, open the **C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avoFileWriter\requirements.txt** file and add "pyyaml" on a new line in the file.
 
    ```txt
    azure-iothub-device-client~=<current version>
@@ -489,8 +490,6 @@ The writer module takes a dependency on two Python libraries, fastavro and PyYAM
 
    CMD [ "python3", "-u", "./main.py" ]
    ```
-
-1. Make the corresponding changes to Dockerfile.amd64.debug. <!--may not be necessary. Add 'if needed'?-->
 
 1. Install pyyaml locally by opening a terminal in Visual Studio Code and typing
 
@@ -630,7 +629,7 @@ Configure the IoT Hub file upload feature to enable the file writer module to up
 
 1. Select your storage account from the list.
 
-1. Select the **uploadturbofanfiles** container and click **Select**.
+1. Select the container that starts with **azureml-blobstore** appended with a guid and click **Select**.
 
 1. Select **Save**. The portal notifies you when the save is complete.
 
