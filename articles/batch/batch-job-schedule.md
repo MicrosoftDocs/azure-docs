@@ -13,7 +13,7 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 02/20/2020
 ms.author: labrenne
 ms.custom: seodec18
 
@@ -22,9 +22,6 @@ ms.custom: seodec18
 # Schedule jobs for efficiency
 
 Scheduling Batch jobs enables you to prioritize the jobs you want to run first while taking into account tasks that have dependencies on other tasks. By scheduling your jobs you can make sure you use the least amount of resources. Nodes can be decommissioned when not needed, tasks that are dependent on other tasks are spun up just in time optimizing the workflows. 
-
-## The benefits of scheduling jobs
-
 
 ## Use the portal to schedule a job
 
@@ -73,7 +70,9 @@ m. **When a task fails**: The default is no action. A task fails if the retry co
 After you select **Save**, if you go to **Job schedules** in the left navigation, you can track the execution of the job, by selecting **Execution info**.
 
 
+## For more information
 
+To manage a job using the Azure CLI, see [az batch job-schedule](https://docs.microsoft.com/cli/azure/batch/job-schedule?view=azure-cli-latest).
 
 
 
