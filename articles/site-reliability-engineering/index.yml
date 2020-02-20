@@ -218,7 +218,7 @@ additionalContent:
               url: file1a.md OR https://docs.microsoft.com/file1a
 
         # Card
-        - title: "Incident Response an Post-Incident Reviews"
+        - title: "Incident Response and Post-Incident Reviews"
           links:
             - text: "Building Resilience: How to Learn More from Incidents"
               url: file2a.md OR https://docs.microsoft.com/file2a
