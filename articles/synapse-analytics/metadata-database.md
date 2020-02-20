@@ -6,7 +6,7 @@ author: MikeRys
 ms.service: sql-data-warehouse 
 ms.topic: overview
 ms.subservice: design
-ms.date: 01/16/2020
+ms.date: 02/20/2020
 ms.author: mrys 
 ms.reviewer: jrasnick
 ---
@@ -33,7 +33,7 @@ Use Spark to manage Spark created databases. For example, delete it through a Sp
 
 If you create objects in such a database from SQL on-demand or try to drop the database, the operation will succeed, but the original Spark database will not be changed.
 
-If you try to drop the synchronized schema in a SQL Pool, or try to create a table in it, Azure returns an error.
+If you try to drop the synchronized schema in a SQL pool, or try to create a table in it, Azure returns an error.
 
 ## Handling of name conflicts
 
@@ -42,6 +42,8 @@ If you try to drop the synchronized schema in a SQL Pool, or try to create a tab
 If the name of a Spark database conflicts with the name of an existing SQL on-demand database, a suffix is appended in SQL on-demand to the Spark database. The suffix in SQL on-demand is `_<workspace name>-ondemand-DefaultSparkConnector`. 
 
 For example, if a Spark database called `mydb` gets created in the Azure Synapse workspace `myws` and a SQL on-demand database with that name already exists, then the Spark database in SQL on-demand will have to be referenced using the name `mydb_myws-ondemand-DefaultSparkConnector`.
+
+Caution: You should not take a dependency on this behavior.
 
 ## Security model
 
