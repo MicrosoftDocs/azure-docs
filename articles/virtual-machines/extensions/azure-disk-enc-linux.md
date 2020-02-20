@@ -33,7 +33,7 @@ For a full list of prerequisites, see [Azure Disk Encryption for Linux VMs](../l
 
 ## Extension schemata
 
-There are two extension schemas version for Azure Disk Encryption: 
+There are two versions of extension schema for Azure Disk Encryption (ADE):
 - v1.1 - A newer recommended schema that does not use Azure Active Directory (AAD) properties.
 - v0.1 - An older schema that requires Azure Active Directory (AAD) properties. 
 
@@ -51,17 +51,18 @@ The v1.1 schema is recommended and does not require Azure Active Directory (AAD)
   "location": "[location]",
   "properties": {
         "publisher": "Microsoft.Azure.Security",
-		"type": "AzureDiskEncryptionForLinux",
+	"type": "AzureDiskEncryptionForLinux",
         "typeHandlerVersion": "[extensionVersion]",
-		"autoUpgradeMinorVersion": true,
+	"autoUpgradeMinorVersion": true,
         "settings": {
           "DiskFormatQuery": "[diskFormatQuery]",
           "EncryptionOperation": "[encryptionOperation]",
-		  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-		  "KeyVaultURL": "[keyVaultURL]",
-		  "KeyVaultResourceId": "[KeyVaultResourceId]",
-		  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-		  "KekVaultResourceId": "[KekVaultResourceId",
+	  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+	  "KeyVaultURL": "[keyVaultURL]",
+	  "KeyVaultResourceId": "[KeyVaultResourceId]",
+	  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+	  "KekVaultResourceId": "[KekVaultResourceId",
+	  "SequenceVersion": "sequenceVersion]",
           "VolumeType": "[volumeType]"
         }
   }
@@ -145,8 +146,7 @@ Using `AADClientCertificate`:
 | (0.1 schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (0.1 schema) AADClientSecret | password | string |
 | (0.1 schema) AADClientCertificate | thumbprint | string |
-| (0.1 schema) Passphrase | password | string |
-| (0.1 schema) SequenceVersion | uniqueidentifier | string |
+| (optional) (0.1 schema) Passphrase | password | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON dictionary |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
 | (optional - default RSA-OAEP ) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
@@ -154,6 +154,7 @@ Using `AADClientCertificate`:
 | KeyVaultResourceId | url | string |
 | (optional) KeyEncryptionKeyURL | url | string |
 | (optional) KekVaultResourceId | url | string |
+| (optional) SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS, Data, All | string |
 
 ## Template deployment
