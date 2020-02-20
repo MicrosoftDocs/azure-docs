@@ -124,10 +124,10 @@ Before you continue deploying the diagnostics tool, we recommend that you verify
 To make sure your app registration has API permissions:
 
 1. Open a browser and connect to the [Azure portal](https://portal.azure.com/) with your administrative account.
-2. Go to **App registrations** and look for your Azure AD App registration.
+2. Go to **Azure Active Directory > App registrations > All Applications** and look for your Azure AD App registration.
 
       ![The API permissions page.](media/api-permissions-page.png)
-
+      ![AAD App API Permission page.](media/AADAppAPIPermissions.PNG)
 
 ### Review your Log Analytics workspace
 
