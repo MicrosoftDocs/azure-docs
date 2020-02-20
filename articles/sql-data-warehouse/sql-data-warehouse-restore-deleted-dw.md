@@ -1,6 +1,6 @@
 ---
-title: Restore a deleted data warehouse 
-description: How to guide for restoring a deleted Azure SQL Data Warehouse.
+title: Restore a deleted SQL pool 
+description: How to guide for restoring a deleted SQL pool.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -13,19 +13,19 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Restore a deleted Azure SQL Data Warehouse
+# Restore a deleted SQL pool using Azure Synapse Analytics
 
-In this article, you learn to restore a deleted SQL Data Warehouse using Azure portal and PowerShell:
+In this article, you learn to restore a SQL using either the Azure portal or PowerShell.
 
 ## Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (for example, myserver.database.windows.net) which has a default DTU quota.  Verify that the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verify your DTU capacity.** Each SQL pool is hosted by a SQL server (for example, myserver.database.windows.net) which has a default DTU quota.  Verify that the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Restore a deleted data warehouse through PowerShell
 
-To restore a deleted SQL Data Warehouse, use the [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) cmdlet. If the corresponding logical server has been deleted as well, you can't restore that data warehouse.
+To restore a deleted SQL pool, use the [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) cmdlet. If the corresponding logical server has been deleted as well, you can't restore that data warehouse.
 
 1. Before you begin, make sure to [install Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Open PowerShell.
@@ -81,5 +81,5 @@ $RestoredDatabase.status
     ![Specify Database Name](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## Next Steps
-- [Restore an existing data warehouse](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restore from a geo-backup data warehouse](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restore an existing SQL pool](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restore from a geo-backup SQL pool](sql-data-warehouse-restore-from-geo-backup.md)
