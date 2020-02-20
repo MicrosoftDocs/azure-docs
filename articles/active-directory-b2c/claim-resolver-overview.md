@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -100,9 +100,21 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | The access token. | N/A |
 
+
+### SAML
+
+| Claim | Description | Example |
+| ----- | ----------- | --------|
+| {SAML:AuthnContextClassReferences} | The `AuthnContextClassRef` element value, from the SAML request. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
+| {SAML:NameIdPolicyFormat} | The `Format` attribute, from the `NameIDPolicy` element of the SAML request. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| {SAML:Issuer} |  The SAML `Issuer` element value of the SAML request.| https://contoso.com |
+| {SAML:AllowCreate} | The `AllowCreate` attribute value, from the `NameIDPolicy` element of the SAML request. | True |
+| {SAML:ForceAuthn} | The `ForceAuthN` attribute value, from the `AuthnRequest` element of the SAML request. | True |
+| {SAML:ProviderName} | The `ProviderName` attribute value, from the `AuthnRequest` element of the SAML request.| Contoso.com |
+
 ## Using claim resolvers 
 
-You can use claims resolvers with following elements: 
+You can use claims resolvers with the following elements: 
 
 | Item | Element | Settings |
 | ----- | ----------------------- | --------|
@@ -119,8 +131,8 @@ You can use claims resolvers with following elements:
 |[RelyingParty](relyingparty.md#technicalprofile) technical profile| `OutputClaim`| 2 |
 
 Settings: 
-1. The `IncludeClaimResolvingInClaimsHandling` metadata must set to `true`
-1. The input or output claims attribute `AlwaysUseDefaultValue` must set to `true`
+1. The `IncludeClaimResolvingInClaimsHandling` metadata must be set to `true`.
+1. The input or output claims attribute `AlwaysUseDefaultValue` must be set to `true`.
 
 ## Claim resolvers samples
 
@@ -128,7 +140,7 @@ Settings:
 
 In a [RESTful](restful-technical-profile.md) technical profile, you may want to send the user language, policy name, scope, and client ID. Based on these claims the REST API can run custom business logic, and if necessary raise a localized error message.
 
-The following example shows a RESTful technical profile:
+The following example shows a RESTful technical profile with this scenario:
 
 ```XML
 <TechnicalProfile Id="REST">
@@ -156,9 +168,9 @@ Using claim resolvers, you can prepopulate the sign-in name or direct sign-in to
 
 ### Dynamic UI customization
 
-Azure AD B2C enables you to pass query string parameters to your HTML content definition endpoints so that you can dynamically render the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization-dynamic.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
+Azure AD B2C enables you to pass query string parameters to your HTML content definition endpoints to dynamically render the page content. For example, this allows the ability to modify the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
 
-The following example passes in the query string a parameter named **campaignId** with a value of `hawaii`, a **language** code of `en-US`, and **app** representing the client ID:
+The following example passes in the query string parameter named **campaignId** with a value of `hawaii`, a **language** code of `en-US`, and **app** representing the client ID:
 
 ```XML
 <UserJourneyBehaviors>
@@ -170,7 +182,7 @@ The following example passes in the query string a parameter named **campaignId*
 </UserJourneyBehaviors>
 ```
 
-As a result Azure AD B2C sends the above parameters to the HTML content page:
+As a result, Azure AD B2C sends the above parameters to the HTML content page:
 
 ```
 /selfAsserted.aspx?campaignId=hawaii&language=en-US&app=0239a9cc-309c-4d41-87f1-31288feb2e82
@@ -207,7 +219,7 @@ With Azure Application Insights and claim resolvers you can gain insights on use
 
 ### Relying party policy
 
-In a [Relying party](relyingparty.md) policy technical profile, you may want to send the tenant ID, or correlation ID to the relying party application. 
+In a [Relying party](relyingparty.md) policy technical profile, you may want to send the tenant ID, or correlation ID to the relying party application within the JWT. 
 
 ```XML
 <RelyingParty>
