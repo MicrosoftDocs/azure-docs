@@ -290,6 +290,8 @@ A dialog window will open. You need to select SQL pool or SQL On-demand, give a 
 The SQL Script will open and can be executed:
     > [!div class="mx-imgBorder"] 
     >![externaltable3](./media/development-tables-external-tables/externaltable3.png)
-
+Then run:
+    > [!div class="mx-imgBorder"] 
+    >![externaltable4](./media/development-tables-external-tables/externaltable4.png)
 ## Next steps
 Check the [CETAS](development-tables-cetas.md) article for how to save the query results to an external table in Azure Storage. Or you can start querying [Spark tables](development-storage-files-spark-tables.md).
