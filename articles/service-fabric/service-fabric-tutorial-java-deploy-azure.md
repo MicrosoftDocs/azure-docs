@@ -68,7 +68,7 @@ The following steps create the necessary resources required to deploy your appli
 
     The preceding command returns the following information that should be noted for use later.
 
-    ```
+    ```output
     Source Vault Resource Id: /subscriptions/<subscription_id>/resourceGroups/testkeyvaultrg/providers/Microsoft.KeyVault/vaults/<name>
     Certificate URL: https://<name>.vault.azure.net/secrets/<cluster-dns-name-for-certificate>/<guid>
     Certificate Thumbprint: <THUMBPRINT>
@@ -96,7 +96,7 @@ The following steps create the necessary resources required to deploy your appli
 
 8. Copy the account SAS URL and set it aside for use when creating your Service Fabric cluster. It resembles the following URL:
 
-    ```
+    ```output
     ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
@@ -153,7 +153,7 @@ The following steps create the necessary resources required to deploy your appli
 
     Copy the value of the **sr** field in the JSON returned. The **sr** field value is the SAS token for EventHubs. The following URL is an example of the **sr** field:
 
-    ```bash
+    ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 

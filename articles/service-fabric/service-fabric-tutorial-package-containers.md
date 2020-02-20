@@ -194,7 +194,7 @@ For Service Fabric to assign this DNS name to the backend service, the name need
 
 The frontend service reads an environment variable to know the DNS name of the Redis instance. This environment variable is already defined in the Dockerfile that was used to generate the Docker image and no action needs to be taken here.
 
-```Dockerfile
+```dockerfile
 ENV REDIS redisbackend.testapp
 ```
 

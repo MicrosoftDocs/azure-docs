@@ -217,7 +217,7 @@ In Visual Studio:
 
 You receive a *Service cannot be started* error when attempting to rerun a service after you have removed and then recreated the Azure Dev Spaces controller associated with this cluster. In this situation, the verbose output contains the following text:
 
-```cmd
+```output
 Installing Helm chart...
 Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
@@ -331,7 +331,7 @@ To fix this issue:
 
 You need *Owner* or *Contributor* access in your Azure subscription to manage Azure Dev Spaces. If you're trying to manage Dev Spaces and you don't have *Owner* or *Contributor* access to the associated Azure subscription, you may see an authorization error. For example:
 
-```console
+```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
 ```
 

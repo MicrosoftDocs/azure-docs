@@ -137,7 +137,7 @@ az acr show --name <acrName> --query loginServer --output table
 
 This outputs a table with the following results. This result will be used to tag your **azure-vote-front** image before pushing it to the container registry in the next step.
 
-```bash
+```output
 Result
 ------------------
 <acrName>.azurecr.io
@@ -153,7 +153,7 @@ Once tagged, run 'docker images' to verify the operation.
 
 Output:
 
-```bash
+```output
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
 <acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
@@ -183,7 +183,7 @@ az acr repository list --name <acrName> --output table
 
 Output:
 
-```bash
+```output
 Result
 ----------------
 azure-vote-front
