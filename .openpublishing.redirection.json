@@ -23532,7 +23532,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md",
-      "redirect_url": "/azure/virtual-machines/linux/update-infrastructure-redhat",
+      "redirect_url": "articles/virtual-machines/workloads/redhat/redhat-rhui.md",
       "redirect_document_id": false
     },
     {
