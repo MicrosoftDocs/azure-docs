@@ -178,4 +178,178 @@ conceptualContent:
 
         - url:  https://www.pluralsight.com/courses/microsoft-azure-autoscaling-developing
           itemType: get-started
-          text: Developing for Autoscaling         
+          text: Developing for Autoscaling
+
+        - url:  https://docs.microsoft.com/azure/architecture/framework/scalability/overview
+          itemType: get-started
+          text: Azure architecture scalability pillar
+
+        - url:  https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out
+          itemType: get-started
+          text: Design to scale out
+
+        - url:  https://docs.microsoft.com/en-us/azure/architecture/patterns/category/performance-scalability
+          itemType: get-started
+          text: Performance and Scalability patterns
+additionalContent:
+  # Supports up to 3 sections
+  sections:
+    - title: SRE talks from Microsoft # < 60 chars (optional)
+      #summary: sectionsummary # < 160 chars (optional)
+      items:
+        # Card
+        - title: Culture
+          links:
+            - text: "The Evolution of Site Reliability Engineering"
+              url: file1a.md OR https://docs.microsoft.com/file1a
+            - text: "Building SRE: Culture from the Outside In"
+              url: file1b.md OR https://docs.microsoft.com/file1b
+            - text: "Cultural Nuance and Effective Collaboration for Multicultural Teams"
+              url: file1a.md OR https://docs.microsoft.com/file1a
+            - text: "Evolution of SRE and Rising Need of SRE Catalyzers"
+              url: file1a.md OR https://docs.microsoft.com/file1a
+            - text: "Feedback Loops: How SREs Benefit and What Is Needed to Realize Their Potential"
+              url: file1a.md OR https://docs.microsoft.com/file1a
+            - text: "Understanding Business Metrics Can Make You a Better SRE"
+              url: file1a.md OR https://docs.microsoft.com/file1a
+            - text: "The Never-Ending Story of Site Reliability"
+              url: file1a.md OR https://docs.microsoft.com/file1a
+            - text: "Every Day Is Monday in Operations"
+              url: file1a.md OR https://docs.microsoft.com/file1a
+
+        # Card
+        - title: "Incident Response an Post-Incident Reviews"
+          links:
+            - text: "Building Resilience: How to Learn More from Incidents"
+              url: file2a.md OR https://docs.microsoft.com/file2a
+            - text: "A Tale of Two Postmortems: A Human Factors View"
+              url: file2b.md OR https://docs.microsoft.com/file2b
+            - text: "Ironies of Automation: A Comedy in Three Parts"
+              url: file2b.md OR https://docs.microsoft.com/file2b
+            - text: "Against On-Call: A Polemic"
+              url: file2b.md OR https://docs.microsoft.com/file2b
+            - text: "One on One SRE"
+              url: file2b.md OR https://docs.microsoft.com/file2b
+
+        # Card
+        - title: "Monitoring and Observability"
+          links:
+            - text: "Over 600 Million Members and Hundreds of Micro Services: How We Scaled Our Monitoring System to Keep up"
+              url: file3a.md OR https://docs.microsoft.com/file3a
+            - text: "Off the Beaten Path: Moving Observability Focus from Your Service to Your Customer"
+              url: file3b.md OR https://docs.microsoft.com/file3b      
+            - text: "You Get What You Measure—Why Metrics Are Important"
+              url: file3b.md OR https://docs.microsoft.com/file3b      
+            - text: "Weathering the Storm: How Early Warnings Save the Farm"
+              url: file3b.md OR https://docs.microsoft.com/file3b      
+            - text: "Capturing and Analyzing Millions of Queries without Any Overhead"
+              url: file3b.md OR https://docs.microsoft.com/file3b      
+            - text: "Event Correlation: A Fresh Approach towards Reducing MTTR"
+              url: file3b.md OR https://docs.microsoft.com/file3b      
+            - text: "How Robust Monitoring Powers High Availability for LinkedIn Feed"
+              url: file3b.md OR https://docs.microsoft.com/file3b      
+            - text: "Reducing MTTR and False Escalations: Event Correlation at Linkedin"
+              url: file3b.md OR https://docs.microsoft.com/file3b      
+               
+        # Card
+        - title: "Practices and Principles"
+          links:
+            - text: "Availability—Thinking beyond 9s"
+              url: file3a.md OR https://docs.microsoft.com/file3a
+            - text: "Mental Models for SREs"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Prioritizing Trust While Creating Applications"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Java Hates Linux. Deal with It."
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Characterizing and Understanding Phases of SRE Practices"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Security and SRE: Natural Force Multipliers"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Production Improvement Review: Taking a Bite Out of Repair Debt"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Ensuring Reliability of High-Performance Applications"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "The Service Score Card—Gamifying Operational Excellence"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "My Service Runs at 99.999%...All Those Tweets about Outages Are Not Real:..."
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "How to Improve a Service by Roasting It"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+       # Card
+        - title: "Teams and Management"
+          links:
+            - text: "Code-Yellow: Helping Operations Top-Heavy Teams the Smart Way"
+              url: file3a.md OR https://docs.microsoft.com/file3a
+            - text: "Leading without Managing: Becoming an SRE Technical Leader"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Differences in SRE Implementations across Companies"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "100 Teams, 100 Ways to Fail"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "The Why, What, and How of Starting an SRE Engagement"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Building and Running SRE Teams"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "College Student to SRE: Onboarding Your Entry Level Talent"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "LinkedIn SRE: From Inception to Global Scale"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Splicing SRE DNA Sequences in the Biggest Software Company on the Planet"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Transforming Tier 1 Caterpillars to Butterflies"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+
+       # Card
+        - title: "Tools and Technologies"
+          links:
+            - text: "Azure SREBot: More than a Chatbot—an Intelligent Bot to Crush Mitigation Time"
+              url: file3a.md OR https://docs.microsoft.com/file3a
+            - text: "TrafficShift: Avoiding Disasters at Scale"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Let's Build a Distributed File System"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "TCP—Architecture, Enhancements, and Tuning"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "BGP—The Backbone of the Internet"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "The Ops in Serverless"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "How We Used Kafka to Scale Database Infrastructure"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Networks for SREs: What Do I Need to Know for Troubleshooting Applications"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Ambry—LinkedIn’s Distributed Immutable Object Store"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "BPerf—Bing.com Cloud Profiling on Production"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "DNS: Old Solution for Modern Problems"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Traffic Steering using Rum DNS @ LinkedIn"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+
+
+       # Card
+        - title: "Scaling"
+          links:
+            - text: "Traffic Forecasting and Stress Testing Infrastructure"
+              url: file3a.md OR https://docs.microsoft.com/file3a
+            - text: "Learning at Scale Is Hard! Outage Pattern Analysis and Dirty Data"
+              url: file3b.md OR https://docs.microsoft.com/file3b              
+            - text: "Scaling a Distributed Stateful System: A LinkedIn Case Study"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Debugging at Scale—Going from Single Box to Production"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Building Centralized Caching Infrastructure at Scale"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Scalable Coding—Find the Error"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Managing Capacity @ LinkedIn"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "InStream: Large Scale Distribution using BitTorrent, Python, Salt, and Kafka"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "Avoiding and Breaking Out of Capacity Prison"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+            - text: "The Evolution of Global Traffic Routing and Failover"
+              url: file3b.md OR https://docs.microsoft.com/file3b
+
