@@ -5872,8 +5872,13 @@
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-social-migration.md",
-      "redirect_url": "/azure/active-directory-b2c/migrate-social-identities",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory-b2c/user-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/migrate-social-identities.md",
+      "redirect_url": "/azure/active-directory-b2c/user-migration",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-goog-idp.md",
@@ -36481,6 +36486,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-scim-compatibility.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-configure-api.md",
       "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-configure-api",
       "redirect_document_id": false
@@ -48534,6 +48544,96 @@
     {
       "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-python.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-general.md",
+      "redirect_url": "/azure/virtual-machines/sizes-general",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-general.md",
+      "redirect_url": "/azure/virtual-machines/sizes-general",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-compute.md",
+      "redirect_url": "/azure/virtual-machines/sizes-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-compute.md",
+      "redirect_url": "/azure/virtual-machines/sizes-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-memory.md",
+      "redirect_url": "/azure/virtual-machines/sizes-memory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-memory.md",
+      "redirect_url": "/azure/virtual-machines/sizes-memory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-storage.md",
+      "redirect_url": "/azure/virtual-machines/sizes-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-storage.md",
+      "redirect_url": "/azure/virtual-machines/sizes-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-gpu.md",
+      "redirect_url": "/azure/virtual-machines/sizes-gpu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-gpu.md",
+      "redirect_url": "/azure/virtual-machines/sizes-gpu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-hpc.md",
+      "redirect_url": "/azure/virtual-machines/sizes-hpc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-hpc.md",
+      "redirect_url": "/azure/virtual-machines/sizes-hpc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sizes-previous-gen.md",
+      "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/sizes-previous-gen.md",
+      "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/acu.md",
+      "redirect_url": "/azure/virtual-machines/acu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/acu.md",
+      "redirect_url": "/azure/virtual-machines/acu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/b-series-burstable.md",
+      "redirect_url": "/azure/virtual-machines/sizes-b-series-burstable",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/b-series-burstable.md",
+      "redirect_url": "/azure/virtual-machines/sizes-b-series-burstable",
       "redirect_document_id": false
     },
     {
