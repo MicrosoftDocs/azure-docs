@@ -279,9 +279,17 @@ SELECT TOP 1 * FROM census_external_table
 
 
 
-## Create External tables from a file or folder in the Lake
+## Create External tables from a file in Azure Data Lake
 Leveraging Data Lake exploration capabilities you can now create an external table using SQL pool or SQL On-demand with a simple right-click on the file. 
-1. From the Data panel select the file that you would like to create the external table from:
+#### Prerequisites
+Make sure you have you have Storage Blob Data Contributor ARM Access role to the ADLS Gen2 Account. You need to have DB owner permission on the SQL pool or SQL OD. Also if you run this scenario of an existing Workspace an additional set-up might be required to grant MSI access to the Workspace:
+```sql
+CREATE USER <workspacename> from External Provider
+GO
+GRANT CONTROL TO <workspacename>
+
+```
+From the Data panel select the file that you would like to create the external table from:
     > [!div class="mx-imgBorder"] 
     >![externaltable1](./media/development-tables-external-tables/externaltable1.png)
 A dialog window will open. You need to select SQL pool or SQL On-demand, give a name to the table and click open script:
