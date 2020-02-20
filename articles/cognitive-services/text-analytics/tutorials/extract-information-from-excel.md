@@ -65,7 +65,7 @@ Create variables representing the information that will be extracted from the Ex
 Click **New Step** and search for **Initialize variable**. Do this four times, to create four variables.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Initialize variables.":::
+> :::image type="content" source="../media/tutorials/excel/initialize-variables-2.png" alt-text="Initialize variables.":::
 
 Add the following information to the variables you created. They represent the columns of the Excel file. If any variables are collapsed, you can click on them to expand them.
 
