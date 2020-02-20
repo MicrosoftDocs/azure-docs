@@ -92,8 +92,8 @@ The following message appears once the VM is created.
 
 ![Deployment completion message, Create a virtual machine, Azure portal](./media/virtual-networks-static-ip-arm-pportal/deployment-is-complete.png)
 
-## Retrieve static private IP address information for a VM
-To view the static private IP address information for your new VM:
+## Retrieve private IP address information for a VM
+To view the private IP address information for your new VM:
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your VM. Search for and select **Virtual machines**.
 
