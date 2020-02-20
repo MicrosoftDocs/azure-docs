@@ -82,7 +82,7 @@ Once you've configured Azure AD to send logs to Azure Monitor, you can access th
 
 ### Ensure the user or service principal has the correct role assignment
 
-You'll want to ensure you, or the user or service principal authenticating to Azure AD, are in the appropriate Azure role in the Log Analytics workspace. The role options are either Log Analytics Reader or the Log Analytics Contributor. If you're already in one of those roles, then skip to [Retrieve Log Analytics ID with one Azure subscription](###Retrieve-Log-Analytics-ID-with-one-Azure-subscription).
+You'll want to ensure you, or the user or service principal authenticating to Azure AD, are in the appropriate Azure role in the Log Analytics workspace. The role options are either Log Analytics Reader or the Log Analytics Contributor. If you're already in one of those roles, then skip to [Retrieve Log Analytics ID with one Azure subscription](#Retrieve-Log-Analytics-ID-with-one-Azure-subscription).
 
 To set the role assignment and create a query, do the following steps:
 1. In the Azure Portal, locate the [Log Analytics workspace](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
