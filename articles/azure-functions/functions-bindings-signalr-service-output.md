@@ -13,7 +13,8 @@ Use the *SignalR* output binding to send one or more messages using Azure Signal
 
 - All connected clients
 - Connected clients authenticated to a specific user
-- Manage groups for which a user belongs
+
+The output binding also allows you to manage groups.
 
 For information on setup and configuration details, see the [overview](functions-bindings-signalr-service.md).
 

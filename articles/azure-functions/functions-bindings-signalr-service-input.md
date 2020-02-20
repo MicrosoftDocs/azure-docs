@@ -15,6 +15,8 @@ For more information on how this binding is used to create a "negotiate" functio
 
 For information on setup and configuration details, see the [overview](functions-bindings-signalr-service.md).
 
+## Example
+
 # [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
@@ -136,7 +138,7 @@ public SignalRConnectionInfo negotiate(
 
 ---
 
-### Authenticated tokens
+## Authenticated tokens
 
 If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication](../app-service/overview-authentication-authorization.md).
 
