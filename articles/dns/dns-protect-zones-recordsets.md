@@ -2,11 +2,11 @@
 title: Protecting DNS Zones and Records - Azure DNS
 description: In this learning path, get started protecting DNS zones and record sets in Microsoft Azure DNS.
 services: dns
-author: rohinkoul
+author: asudbring
 ms.service: dns
 ms.topic: article
-ms.date: 12/4/2018
-ms.author: rohink
+ms.date: 2/20/2020
+ms.author: allensu
 ---
 
 # How to protect DNS zones and records
@@ -35,14 +35,23 @@ Permissions can also be [granted using Azure PowerShell](../role-based-access-co
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
-New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
+
+$usr = "<user email address>"
+$rol = "DNS Zone Contributor"
+$rsg = "<resource group name>"
+
+New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -ResourceGroupName $rsg
 ```
 
 The equivalent command is also [available via the Azure CLI](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
-azure role assignment create --signInName "<user email address>" --roleName "DNS Zone Contributor" --resourceGroup "<resource group name>"
+
+azure role assignment create \
+--signInName "<user email address>" \
+--roleName "DNS Zone Contributor" \
+--resourceGroup "<resource group name>"
 ```
 
 ### Zone level RBAC
