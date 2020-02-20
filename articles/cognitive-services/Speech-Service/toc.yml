@@ -294,10 +294,8 @@
 - name: Conversation scenarios
   expanded: false
   items:
-  - name: Overview
-    items:
-    - name: Conversation scenarios documentation
-      href: index-conversation-scenarios.yml
+  - name: Conversation scenarios documentation
+    href: index-conversation-scenarios.yml
   - name: Conversation transcription
     items:
     - name: Overview
