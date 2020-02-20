@@ -1450,11 +1450,12 @@ If you're building an application that will be used by more than one tenant, you
 ### Gallery onboarding checklist
 Follow the checklist below to ensure that your application is onboarded quicky and customers have a smooth deployment experience. The information will be gathered from you when onboarding to the gallery. 
 > [!div class="checklist"]
-> * [Support SCIM 2.0 ](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (Required)
+> * Support a [SCIM 2.0 ](https://tools.ietf.org/html/draft-wahl-scim-profile-00) user and group endpoint (Only one is required but both are recommended)
 > * Support at least 25 requests per second per tenant (Required)
 > * Support schema discovery (Recommended)
 > * Support the OAuth authorization code grant or a long lived token as described below (Required)
 > * Establish an engineering and support point of contact to support customer post gallery onboarding (Required)
+> * Support updating multiple group memberships with a single PATCH
 > * Document your SCIM endpoint publicly (Recommended) 
 
 
