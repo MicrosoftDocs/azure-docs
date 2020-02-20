@@ -35,7 +35,7 @@ Azure Disk Encryption (ADE) isn't currently supported on the Ubuntu DSVM. As a w
 
 ### Hyper-V does not work on the Windows DSVM
 
-That Hyper-V initially doesn't work on Windows is expected behavior. For boot performance we've disabled some services. To enable Hyper-V:
+That Hyper-V initially doesn't work on Windows is expected behavior. For boot performance, we've disabled some services. To enable Hyper-V:
 
 1. Open the search bar on your Windows DSVM
 1. Type in "Services,"
