@@ -1,6 +1,6 @@
 ---
 title: How to accelerate your journey to compliance with Azure
-description: Provides an overview of resources for Develpment, Automation, and Advisory partners and how they can accelerate their path to ATO with Azure
+description: Provides an overview of resources for Development, Automation, and Advisory partners and how they can accelerate their path to ATO with Azure
 titleSuffix: Azure Government
 services: azure-government
 cloud: gov
@@ -20,15 +20,15 @@ ms.author: todorb
 ---
 # Program Overview
 
-Accelerating your path to compliance in Azure is a focused program that targets the provisioning of learning resources and implementation tools by educating, providing architectural references, and support during the scoping and implementation of your project. In addition, we work with key assessment and automation partners to share reference architectures, solutions, alternatives both 1st party and 3rd party that can help you meet your compliance needs.
+Accelerating your path to compliance in Azure is a focused program that targets the provisioning of learning resources and implementation tools by educating, providing architectural references, and support during the scoping and implementation of your project. In addition, we work with key assessment and automation partners to share reference architectures, solutions, alternatives both first party and third party that can help you meet your compliance needs.
 
 As a partner who provides a service in this field, you can publish your offering in the marketplace that will expand the reach of your services. 
 
 ## Customers
 
-The Government, as many other organizations, relays on commercial software companies to achieve its mission. As part of the procurement and consumption processes, the ATO (Authority to Operate) was implemented to ensure that the development, use, and operation of such commercial software and platforms, is done in accordance with security and data protection necessary to safeguard government information.  While the process is best intentioned, the bureaucracy across all swim lanes creates a long and expensive project which discourages many Independent Software Vendors (ISVs) to go down this path.
+The Government, as many other organizations, relays on commercial software companies to achieve its mission. As part of the procurement and consumption processes, the ATO (Authority to Operate) was implemented to ensure that the development, use, and operation of such commercial software and platforms, is done in accordance with security and data protection necessary to safeguard government information.  While the process is best intentioned, the complexity across all swim lanes creates a long and expensive project that discourages many Independent Software Vendors (ISVs) to go down this path.
 
-With the adoption of cloud technologies by the Federal Government as well as other industries, we have seen the development of certification/accreditation standards such as HIPA, GDPR, SOX, ISO etc.… and in the case of the Federal Government, FedRAMP or Federal Risk Authorization Management Program. This is a government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. This approach uses a “do once, use many times” framework that saves cost, time, and staff required to conduct redundant Agency security assessments. This program is based, as well as FISMA, on the NIST SP 800-53 security controls.  
+With the adoption of cloud technologies by the Federal Government as well as other industries, we have seen the development of certification/accreditation standards such as HIPA, GDPR, SOX, ISO, FISMA, and others and in the case of the Federal Government, FedRAMP or Federal Risk Authorization Management Program. This is a government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. This approach uses a “do once, use many times” framework that saves cost, time, and staff required to conduct redundant Agency security assessments. This program is based, as well as FISMA, on the NIST SP 800-53 security controls.  
 There are two types of FedRAMP authorizations for cloud services: 
  * A Provisional Authority to Operate (P-ATO) through the Joint Authorization Board (JAB) 
  * An Agency Authority to Operate (ATO) 
@@ -40,12 +40,12 @@ A FedRAMP P-ATO is an initial approval of the CSP authorization package by the J
 ###### Agency ATO Process 
 
 As part of the Agency authorization process, a CSP works directly with the Agency sponsor who reviews the cloud service’s security package. After completing a security assessment, the head of an Agency (or their designee) can grant an ATO.   
-Taking the above into consideration, an ISV can choose to go for JAB authorization which grants a generalized authorization to its solution and can be used with multiple agencies, this process tends to be longer. They can also choose to go for an Agency ATO which is specific to the Government customer they are serving. This customer acts as the sponsor and may even have “reciprocity” with other agencies which allows for a faster, smoother adoption of the company’s solution with a different customer.  
+Taking the above into consideration, an ISV can choose to go for JAB authorization, which grants a generalized authorization to its solution and can be used with multiple agencies, this process tends to be longer. They can also choose to go for an Agency ATO which is specific to the Government customer they are serving. This customer acts as the sponsor and may even have “reciprocity” with other agencies which allows for a faster, smoother adoption of the company’s solution with a different customer.  
 
 ## Partners
 
-Microsoft is able to scale through its partners. Scale is what will allow us to create a more predictable, cost-effective, and speedy delivery. These so happens to be the concerns with perusing an ATO.  We are focusing on enabling 2 main kinds of partnerships: 
- * **Advisory:** enables partners create offerings based on Azure that can shepherd a customer through steps or the entire ATO process. These partners offer consulting services bundled with some automated solutions that are value add to what Azure Compliance Launchpad provides. They can usually be contracted directly, by reference or via the Marketplace.  
+Microsoft is able to scale through its partners. Scale is what will allow us to create a more predictable, cost-effective, and speedy delivery. These so happen to be the concerns with perusing an ATO.  We are focusing on enabling two main kinds of partnerships: 
+ * **Advisory:** enables partners to create offerings based on Azure that can shepherd a customer through steps or the entire ATO process. These partners offer consulting services bundled with some automated solutions that are valu-add to what Azure Compliance Launchpad provides. They can usually be contracted directly, by reference or via the Marketplace.  
  * **Automation:** there are two types of automation partners we focus one, foundational partners which enable integrated 3rd party solutions with Azure and help you achieve / meet controls from your FedRAMP Package. These partners are part of our recommended reference architectures. The second kind are true automation partners that help automating certain aspects of the ATO journey such as the SSP generation, self-healing, alerts and monitoring. 
  
  > [!NOTE]
@@ -53,7 +53,7 @@ Microsoft is able to scale through its partners. Scale is what will allow us to 
 
 ## Publishing to the Azure Marketplace for Partners in the Compliance space
 
-1. Join the Partner Network - It’s a requirement for publishing but easy to sign-up. Instructions are located here: [Ensure you have a MPN ID and Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page)
+1. Join the Partner Network - It’s a requirement for publishing but easy to sign up. Instructions are located here: [Ensure you have a MPN ID and Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page)
 2. Enable your partner center account as Publisher / Developer for Marketplace, follow the instructions [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)
 3. With an enabled Partner Center Account, publish listing as a SaaS App as instructed [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer)
 
@@ -70,7 +70,7 @@ For a list of existing Azure Marketplace offerings in this space, visit [this pa
  * Get familiarized with the [FedRAMP Marketplace](https://marketplace.fedramp.gov/#/products)
  * Are you a partner and want to join our program? Fill out the [form](https://aka.ms/partnerazcl)
  * Learn more about Blueprint [here](https://azure.microsoft.com/en-us/services/blueprints/)
- * To learn how Blueprint helps you when using Azure Policy review the [blogpost here](https://azure.microsoft.com/en-us/blog/new-azure-blueprint-simplifies-compliance-with-nist-sp-800-53/)
+ * To learn how Blueprint helps you when using Azure Policy review the [blog post here](https://azure.microsoft.com/en-us/blog/new-azure-blueprint-simplifies-compliance-with-nist-sp-800-53/)
  
 ## Next steps
 Review the documentation above, if you are still facing issues reach out to [Azure Compliance Acceleration Program](mailto:azcl@microsoft.com).
