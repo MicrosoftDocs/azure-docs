@@ -15,11 +15,15 @@ ms.author: curtand
 ms.reviewer: kexia
 ---
 
-# Common problems and solutions with two-factor verification and your work or school account
+# Common problems with two-factor verification and your work or school account
 
 When your Azure Active Directory (Azure AD) organization turns on two-factor verification, your work or school account sign-in requires a combination of your user name, your password, and a mobile device or phone. Your organization turned on this extra verification because it's more secure than just a password, relying on two forms of authentication: something you know, and something you have with you. Two-factor verification can help to stop malicious hackers from pretending to be you, because even if they have your password, odds are that they don't have your device, too.
 
-There are some common two-factor verification problems that seem to happen more frequently than any of us would like. We've put together this article hoping to address the most common problems and some possible fixes.
+<center>
+
+![Conceptual authentication methods image](./media/concept-mfa-howitworks/methods.png)</center>
+
+There are some common two-factor verification problems that seem to happen more frequently than any of us would like. We've put together this article to address the most common problems and some possible fixes.
 
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure AD Azure AD environment in the [Azure AD documentation](https://docs.microsoft.com/azure/active-directory).
