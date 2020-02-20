@@ -7,7 +7,7 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 02/12/2020
+ms.date: 02/20/2020
 ms.topic: overview
 ---
 
@@ -44,7 +44,7 @@ In most cases, the location you select when you create the installation script s
 
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent: 
 
-- Windows Server 2012 R2 and higher
+- Windows Server 2012 R2 and higher (including Windows Server Core)
 - Ubuntu 16.04 and 18.04
 
 >[!NOTE]
@@ -60,6 +60,15 @@ The following versions of the Windows and Linux operating system are officially 
 ### Azure subscription and service limits
 
 Before configuring your machines with Azure Arc for servers (preview), you should review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
+
+## TLS 1.2 protocol
+
+To ensure the security of data in transit to Azure, we strongly encourage you to configure machine to use Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. 
+
+|Platform/Language | Support | More Information |
+| --- | --- | --- |
+|Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support. | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
+| Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).|
 
 ### Networking Configuration
 
