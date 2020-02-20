@@ -112,7 +112,6 @@
     - name: Connect to Power BI
       href: how-to-connect-power-bi.md
 - name: Reference
-  expanded: true
   items:
   - name: Time Series Insights 
     items:
@@ -137,6 +136,7 @@
     - name: JavaScript Client SDK
       href: https://github.com/microsoft/tsiclient/blob/master/docs/API.md
 - name: Resources
+  expanded: true
   items:
   - name: Customer data requests
     href: time-series-insights-customer-data-requests.md
