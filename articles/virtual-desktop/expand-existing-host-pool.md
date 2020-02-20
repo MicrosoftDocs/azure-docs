@@ -50,10 +50,11 @@ Here's how to redeploy the Azure Resource Manager template to expand a host pool
      >[!NOTE]
      >Even though the *Resource group* is automatically and correctly populated, you may see an error that suggests selecting a different resource group. To fix, select another resource group, then select the original resource group.
 
-8. Enter the new total number of session hosts you want into *Rdsh Number Of Instances*. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
-9. Enter the same existing domain password that you used for the existing domain UPN. Don't change the username, because that will cause an error when you run the template.
-10. Enter the same tenant admin password you used for the user or application ID you entered for *Tenant Admin Upn Or Application Id*. Once again, don't change the username.
-11. Complete the submission to expand your host pool.
+8. Enter the following URL for the *_artifactsLocation*: `https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
+9. Enter the new total number of session hosts you want into *Rdsh Number Of Instances*. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
+10. Enter the same existing domain password that you used for the existing domain UPN. Don't change the username, because that will cause an error when you run the template.
+11. Enter the same tenant admin password you used for the user or application ID you entered for *Tenant Admin Upn Or Application Id*. Once again, don't change the username.
+12. Complete the submission to expand your host pool.
 
 ## Run the Azure Marketplace offering
 
