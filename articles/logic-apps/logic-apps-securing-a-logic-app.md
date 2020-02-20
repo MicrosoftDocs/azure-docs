@@ -202,7 +202,7 @@ If you want your logic app to trigger only as a nested logic app, from the **All
 > [!NOTE]
 > Regardless of IP address, you can still run a logic app that has a request-based trigger by using 
 > `/triggers/<trigger-name>/run` through the Azure REST API or through API Management. However, this scenario 
-> still requires [authentication](../active-directory/develop/authentication-scenarios.md) > against the 
+> still requires [authentication](../active-directory/develop/authentication-scenarios.md) against the 
 > Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
 
 #### Restrict inbound IP ranges in Azure Resource Manager template
