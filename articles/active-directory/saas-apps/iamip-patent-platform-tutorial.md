@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate IamIP Platform with Azure Active
 * Enable your users to be automatically signed-in to IamIP Platform with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -58,9 +58,9 @@ To configure the integration of IamIP Platform into Azure AD, you need to add Ia
 
 ## Configure and test Azure AD SSO for IamIP Platform
 
-You'll configure and test Azure AD SSO with IamIP Platform by using a test user named **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding user in IamIP Platform.
+You'll configure and test Azure AD SSO with IamIP Platform by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding user in IamIP Platform.
 
-To configure and test Azure AD SSO with IamIP Patent Platform, you'll take these high-level steps:
+To configure and test Azure AD SSO with IamIP Platform, you'll take these high-level steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use the feature.
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
@@ -75,7 +75,7 @@ To configure and test Azure AD SSO with IamIP Patent Platform, you'll take these
 
 Follow these steps to enable Azure AD SSO in the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **IamIP Patent Platform** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **IamIP Patent Platform** application integration page, in the **Manage** section, select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the pencil button for **Basic SAML Configuration** to edit the settings:
 
@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 1. Select **Set additional URLs** and complete the following step if you want to configure the application in SP-initiated mode:
 
 	In the **Sign-on URL** box, enter
-    **https://patents.iamip.com/login-user**.
+    **https:\//patents.iamip.com/login-user**.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link for **Certificate (Raw)** to download the certificate and save it on your computer:
 
@@ -145,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 To configure single sign-on on the IamIP Platform side, you need to send the downloaded raw certificate and the appropriate URLs that you copied from Azure portal to the [IamIP Platform support team](mailto:info@iamip.com). They configure the SAML SSO connection to be correct on both sides.
 
-### Create IamIP Patent Platform test user
+### Create IamIP Platform test user
 
 Work with the [IamIP Platform support team](mailto:info@iamip.com) to add a user named B.Simon in IamIP Platform. Users must be created and activated before you use single sign-on.
 
@@ -153,7 +153,7 @@ Work with the [IamIP Platform support team](mailto:info@iamip.com) to add a use
 
 In this section, you'll test your Azure AD SSO configuration by using Access Panel.
 
-When you select the IamIP Platform tile in Access Panel, you should be automatically signed in to the IamIP Platform instance for which you set up SSO. For more information about Access Panel, see [Introduction to Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the IamIP Patent Platform tile in Access Panel, you should be automatically signed in to the IamIP Platform instance for which you set up SSO. For more information about Access Panel, see [Introduction to Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
