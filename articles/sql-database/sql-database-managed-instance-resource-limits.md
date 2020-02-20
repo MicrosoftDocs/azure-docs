@@ -140,39 +140,9 @@ The following table shows the **default regional limits** for supported subscrip
 
 \*\* Larger subnet and vCore limits are available in the following regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe, West US 2.
 
-## Obtaining a larger quota for SQL managed instance
+## Request a quota increase for SQL managed instance
 
-If you need more managed instances in your current regions, send a support request to extend the quota using the Azure portal.
-To initiate the process of obtaining a larger quota:
-
-1. Open **Help + support**, and click **New support request**.
-
-   ![Help and Support](media/sql-database-managed-instance-resource-limits/help-and-support.png)
-2. On the Basics tab for the new support request:
-   - For **Issue type**, select **Service and subscription limits (quotas)**.
-   - For **Subscription**, select your subscription.
-   - For **Quota type**, select **SQL Database Managed Instance**.
-   - For **Support plan**, select your support plan.
-
-     ![Issue type quota](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
-
-3. Click **Next**.
-4. On the **Problem tab** for the new support request:
-   - For **Severity**, select the severity level of the problem.
-   - For **Details**, provide additional information about your issue, including error messages.
-   - For **File upload**, attach a file with more information (up to 4 MB).
-
-     ![Problem details](media/sql-database-managed-instance-resource-limits/problem-details.png)
-
-     > [!IMPORTANT]
-     > A valid request should include:
-     > - Region in which subscription limit needs to be increased.
-     > - Required number of vCores, per service tier in existing subnets after the quota increase (if any of the existing subnets needs to be expanded.
-     > - Required number of new subnets and total number of vCores per service tier within the new subnets (if you need to deploy managed instances in new subnets).
-
-5. Click **Next**.
-6. On the Contact Information tab for the new support request, enter preferred contact method (email or phone) and the contact details.
-7. Click **Create**.
+If you need more managed instances in your current regions, send a support request to extend the quota using the Azure portal. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md).
 
 ## Next steps
 

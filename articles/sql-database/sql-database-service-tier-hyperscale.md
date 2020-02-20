@@ -187,49 +187,14 @@ The Azure SQL Database Hyperscale tier is currently available in the following r
 - West US
 - West US 2
 
-If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure portal. We are working to expand the list of supported regions so please check back for latest region list.
+If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure portal. For instructions, see [Request quota increases for Azure SQL Database](quota-increase-request.md) for instructions. When submitting your request, use the following guidelines:
 
-To request the ability to create Hyperscale databases in regions not listed:
-
-1. Navigate to [Azure Help and Support Blade](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-
-2. Click on [**New support request**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
-
-    ![Azure Help and Support Blade](media/sql-database-service-tier-hyperscale/request-screen-1.png)
-
-3. For **Issue Type**, select **Service and subscription limits (quotas)**
-
-4. Choose the subscription you would use to create the database(s)
-
-5. For **Quota Type**, select **SQL database**
-
-6. Click **Next: Solutions**
-
-1. Click **Provide Details**
-
-    ![Problem details](media/sql-database-service-tier-hyperscale/request-screen-2.png)
-
-8. Choose **SQL Database quota type**: **Other quota request**
-
-9. Fill in the following template:
-
-    ![Quota details](media/sql-database-service-tier-hyperscale/request-screen-3.png)
-
-    In the template, provide the following information
-
-    > Request to create Azure Hyperscale SQL Database in a new region<br/> 
-    > Region: [Fill in your requested region]  <br/>
-    > Compute SKU/total cores including readable replicas <br/>
-    > Number of TB estimated 
-    >
-
-10. Choose **Severity C**
-
-11. Choose the appropriate contact method and fill in details.
-
-12. Click **Save** and **Continue**
+- Use the [Other quota request](quota-increase-request.md#other) SQL database quota type.
+- In the text details, add the compute SKU/total cores including readable replicas.
+- Also specify the estimated TB.
 
 ## Known limitations
+
 These are the current limitations to the Hyperscale service tier as of GA.  We are actively working to remove as many of these limitations as possible.
 
 | Issue | Description |
