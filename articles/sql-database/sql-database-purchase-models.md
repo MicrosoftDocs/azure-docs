@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
+ms.date: 02/01/2020
 ---
 # Choose between the vCore and the DTU purchasing models
 
@@ -23,7 +23,7 @@ Different purchasing models are available for different Azure SQL Database deplo
 
 - The [single database](sql-database-single-databases-manage.md) and [elastic pool](sql-database-elastic-pool.md) deployment options in [Azure SQL Database](sql-database-technical-overview.md) offer both the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 - The [managed instance](sql-database-managed-instance.md) deployment option in Azure SQL Database offers only the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
-- The [hyperscale service tier](sql-database-service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
+- The [Hyperscale service tier](sql-database-service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
 The following table and chart compare and contrast the vCore-based and the DTU-based purchasing models:
 
@@ -41,9 +41,9 @@ The following table and chart compare and contrast the vCore-based and the DTU-b
 
 In the provisioned compute tier, the compute cost reflects the total compute capacity that is provisioned for the application.
 
-In the business critical service tier, we automatically allocate at least 3 replicas. To reflect this additional allocation of compute resources, the price in the vCore-based purchasing model is approximately 2.7x higher in the business critical service tier than it is in the general purpose service tier. Likewise, the higher storage price per GB in the business critical service tier reflects the high I/O and low latency of the SSD storage.
+In the Business Critical service tier, we automatically allocate at least 3 replicas. To reflect this additional allocation of compute resources, the price in the vCore-based purchasing model is approximately 2.7x higher in the Business Critical service tier than it is in the General Purpose service tier. Likewise, the higher storage price per GB in the Business Critical service tier reflects the higher IO limits and lower latency of the SSD storage.
 
-The cost of backup storage is the same for the business critical service tier and the general purpose service tier because both tiers use standard storage.
+The cost of backup storage is the same for the Business Critical service tier and the General Purpose service tier because both tiers use standard storage for backups.
 
 ### Serverless compute costs
 
@@ -61,7 +61,7 @@ For more information about storage prices, see the [pricing](https://azure.micro
 
 A virtual core (vCore) represents a logical CPU and offers you the option to choose between generations of hardware and the physical characteristics of the hardware (for example, the number of cores, the memory, and the storage size). The vCore-based purchasing model gives you flexibility, control, transparency of individual resource consumption, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage resources based upon your workload needs.
 
-In the vCore-based purchasing model, you can choose between the [general purpose](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) and [business critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) service tiers for [single databases](sql-database-single-database-scale.md), [elastic pools](sql-database-elastic-pool.md), and [managed instances](sql-database-managed-instance.md). For single databases, you can also choose the [hyperscale service tier](sql-database-service-tier-hyperscale.md).
+In the vCore-based purchasing model, you can choose between the [General Purpose](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) and [Business Critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) service tiers for [single databases](sql-database-single-database-scale.md), [elastic pools](sql-database-elastic-pool.md), and [managed instances](sql-database-managed-instance.md). For single databases, you can also choose the [Hyperscale service tier](sql-database-service-tier-hyperscale.md).
 
 The vCore-based purchasing model lets you independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, you pay for:
 
@@ -77,8 +77,8 @@ If your single database or elastic pool consumes more than 300 DTUs, converting 
 
 To convert from the DTU-based purchasing model to the vCore-based purchasing model, select the compute size by using the following rules of thumb:
 
-- Every 100 DTUs in the standard tier require at least 1 vCore in the general purpose service tier.
-- Every 125 DTUs in the premium tier require at least 1 vCore in the business critical service tier.
+- Every 100 DTUs in the standard tier require at least 1 vCore in the General Purpose service tier.
+- Every 125 DTUs in the premium tier require at least 1 vCore in the Business Critical service tier.
 
 ## DTU-based purchasing model
 
@@ -119,7 +119,19 @@ You can add additional eDTUs to an existing pool with no database downtime and w
 
 ### Determine the number of DTUs needed by a workload
 
-If you want to migrate an existing on-premises or SQL Server virtual machine workload to Azure SQL Database, use the [DTU calculator](https://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. For an existing Azure SQL Database workload, use [query-performance insights](sql-database-query-performance.md) to understand your database-resource consumption (DTUs) and gain deeper insights for optimizing your workload. The [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) dynamic management view (DMV) lets you view resource consumption for the last hour. The [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) catalog view displays resource consumption for the last 14 days, but at a lower fidelity of five-minute averages.
+If you want to migrate an existing on-premises or SQL Server virtual machine workload to Azure SQL Database, use the [DTU calculator](https://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. For an existing Azure SQL Database workload, use [query-performance insights](sql-database-query-performance.md) to understand your database-resource consumption (DTUs) and gain deeper insights for optimizing your workload. The [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamic management view (DMV) lets you view resource consumption for the last hour. The [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) catalog view displays resource consumption for the last 14 days, but at a lower fidelity of five-minute averages.
+
+### Determine DTU utilization
+
+To determine the average percentage of DTU/eDTU utilization relative to the DTU/eDTU limit of a database or an elastic pool, use the following formula:
+
+`avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
+
+The input values for this formula can be obtained from [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), and [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMVs. In other words, to determine the percentage of DTU/eDTU utilization toward the DTU/eDTU limit of a database or an elastic pool, pick the largest percentage value from the following: `avg_cpu_percent`, `avg_data_io_percent`, and `avg_log_write_percent` at a given point in time.
+
+> [!NOTE]
+> The DTU limit of a database is determined by CPU, reads, writes, and memory available to the database. However, because the SQL Server database engine typically uses all available memory for its data cache to improve performance, the `avg_memory_usage_percent` value will usually be close to 100% regardless of current database load. Therefore, even though memory does indirectly influence the DTU limit, it is not used in the DTU utilization formula.
+>
 
 ### Workloads that benefit from an elastic pool of resources
 

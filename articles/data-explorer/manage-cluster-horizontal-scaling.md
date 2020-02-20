@@ -53,9 +53,10 @@ Optimized autoscale starts working. Its actions are now visible in the Azure act
 When your cluster approaches a state of over-utilization, scale out to maintain optimal performance. Scale out will occur when:
 * The number of cluster instances is below the maximum number of instances defined by the user.
 * The cache utilization is high for over an hour.
+* The CPU is high for over an hour.
 
 > [!NOTE]
-> The scale out logic doesn't currently consider the ingestion utilization and CPU metrics. If those metrics are important for your use case, use [custom autoscale](#custom-autoscale).
+> The scale out logic doesn't currently consider the ingestion utilization metric. If this metric is important for your use case, use [custom autoscale](#custom-autoscale).
 
 **Scale in**
 

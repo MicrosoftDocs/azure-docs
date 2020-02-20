@@ -6,13 +6,25 @@ ms.date: 09/13/2019
 ---
 # Security features to help protect cloud workloads that use Azure Backup
 
-Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect backup data even after deletion. One such feature is soft delete. With soft delete, even if a malicious actor deletes the backup of a VM (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. These additional 14 days retention of backup data in the "soft delete" state don’t incur any cost to the customer. Azure also encrypts all the backed-up data at rest using [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) to further secure your data.
+Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect backup data even after deletion.
+
+One such feature is soft delete. With soft delete, even if a malicious actor deletes the backup of a VM (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state don’t incur any cost to the customer. Azure also encrypts all the backed-up data at rest using [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) to further secure your data.
+
+Soft delete protection for Azure virtual machines is generally available.
+
+>[!NOTE]
+>Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads is now available in preview.<br>
+>To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
+
+## Soft delete
+
+### Soft delete for VMs
+
+Soft delete for VMs protects the backups of your VMs from unintended deletion. Even after the backups are deleted, they are preserved in soft-delete state for 14 additional days.
 
 > [!NOTE]
 > Soft delete only protects deleted backup data. If a VM is deleted without a backup, the soft-delete feature will not preserve the data. All resources should be protected with Azure Backup to ensure full resilience.
 >
-
-## Soft delete
 
 ### Supported regions
 

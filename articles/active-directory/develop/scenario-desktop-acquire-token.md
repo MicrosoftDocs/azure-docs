@@ -17,7 +17,6 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Desktop app that calls web APIs: Acquire a token
@@ -411,7 +410,7 @@ To sign in a domain user on a domain or Azure AD joined machine, use Integrated 
 
 - The authority passed in `PublicClientApplicationBuilder` needs to be:
   - Tenanted of the form `https://login.microsoftonline.com/{tenant}/`, where `tenant` is either the GUID that represents the tenant ID or a domain associated with the tenant.
-  - For any [work and school accounts](`https://login.microsoftonline.com/organizations/`).
+  - For any work and school accounts: `https://login.microsoftonline.com/organizations/`.
   - Microsoft personal accounts aren't supported. You can't use /common or /consumers tenants.
 
 - Because Integrated Windows Authentication is a silent flow:

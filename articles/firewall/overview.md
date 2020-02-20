@@ -6,12 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/15/2020
+ms.date: 02/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
 
 # What is Azure Firewall?
+
+![ICSA certification](media/overview/icsa-cert-firewall-small.png)
 
 Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.
 
@@ -66,7 +68,9 @@ Threat intelligence-based filtering can be enabled for your firewall to alert an
 
 ## Outbound SNAT support
 
-All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. Azure Firewall doesn’t SNAT when the destination IP is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). If your organization uses a public IP address range for private networks, Azure Firewall will SNAT the traffic to one of the firewall private IP addresses in AzureFirewallSubnet.
+All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. Azure Firewall doesn’t SNAT when the destination IP is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
+
+If your organization uses a public IP address range for private networks, Azure Firewall will SNAT the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 
 ## Inbound DNAT support
 
@@ -85,9 +89,9 @@ This enables the following scenarios:
 
 All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs.
 
-## Compliance certifications
+## Certifications
 
-Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), and International Organization for Standardization (ISO) compliant. For more information, see [Azure Firewall compliance certifications](compliance-certifications.md).
+Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), International Organization for Standardization (ISO), and ICSA Labs compliant. For more information, see [Azure Firewall compliance certifications](compliance-certifications.md).
 
 
 ## Known issues
@@ -106,8 +110,9 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |Can't remove first public IP configuration|Each Azure Firewall public IP address is assigned to an *IP configuration*.  The first IP configuration is assigned during the firewall deployment, and typically also contains a reference to the firewall subnet (unless configured explicitly differently via a template deployment). You can't delete this IP configuration because it would de-allocate the firewall. You can still change or remove the public IP address associated with this IP configuration if the firewall has at least one other public IP address available to use.|This is by design.|
 |Availability zones can only be configured during deployment.|Availability zones can only be configured during deployment. You can't configure Availability Zones after a firewall has been deployed.|This is by design.|
 |SNAT on inbound connections|In addition to DNAT, connections via the firewall public IP address (inbound) are SNATed to one of the firewall private IPs. This requirement today (also for Active/Active NVAs) to ensure symmetric routing.|To preserve the original source for HTTP/S, consider using [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) headers. For example, use a service such as [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) or [Azure Application Gateway](../application-gateway/rewrite-http-headers.md) in front of the firewall. You can also add WAF as part of Azure Front Door and chain to the firewall.
-|SQL FQDN filtering support only in proxy mode (port 1433)|For Azure SQL Database, Azure SQL Data Warehouse, and Azure SQL Managed Instance:<br><br>During the preview, SQL FQDN filtering is supported in proxy-mode only (port 1433).<br><br>For Azure SQL IaaS:<br><br>If you are using non-standard ports, you can specify those ports in the application rules.|For SQL in redirect mode, which is the default if connecting from within Azure, you can instead filter access using the SQL service tag as part of Azure Firewall network rules.
-|Outbound traffic on TCP port 25 isn't allowed| Outbound SMTP connections that use TCP port 25 are blocked. Port 25 is primarily used for unauthenticated email delivery. This is the default platform behavior for virtual machines. For more information, see more [Troubleshoot outbound SMTP connectivity issues in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). However, unlike virtual machines, it isn't currently possible to enable this functionality on Azure Firewall.|Follow the recommended method to send email as documented in the SMTP troubleshooting article. Alternatively, exclude the virtual machine that needs outbound SMTP access from your default route to the firewall, and instead configure outbound access directly to the Internet.
+|SQL FQDN filtering support only in proxy mode (port 1433)|For Azure SQL Database, Azure SQL Data Warehouse, and Azure SQL Managed Instance:<br><br>During the preview, SQL FQDN filtering is supported in proxy-mode only (port 1433).<br><br>For Azure SQL IaaS:<br><br>If you're using non-standard ports, you can specify those ports in the application rules.|For SQL in redirect mode, which is the default if connecting from within Azure, you can instead filter access using the SQL service tag as part of Azure Firewall network rules.
+|Outbound traffic on TCP port 25 isn't allowed| Outbound SMTP connections that use TCP port 25 are blocked. Port 25 is primarily used for unauthenticated email delivery. This is the default platform behavior for virtual machines. For more information, see more [Troubleshoot outbound SMTP connectivity issues in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). However, unlike virtual machines, it isn't currently possible to enable this functionality on Azure Firewall.|Follow the recommended method to send email as documented in the SMTP troubleshooting article. Or, exclude the virtual machine that needs outbound SMTP access from your default route to the firewall, and instead configure outbound access directly to the Internet.
+|Active FTP isn't supported|Active FTP is disabled on Azure Firewall to protect against FTP bounce attacks using the FTP PORT command.|You can use Passive FTP instead. You must still explicitly open TCP ports 20 and 21 on the firewall.
 
 ## Next steps
 

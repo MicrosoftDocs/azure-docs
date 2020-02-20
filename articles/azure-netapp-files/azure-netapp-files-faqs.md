@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 02/05/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -126,7 +126,9 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 ### How many Active Directory connections are supported?
 
-Azure NetApp Files currently supports only one Active Directory connection per NetApp account, per subscription, and in each region; the connection is not shared across NetApp accounts.
+Azure NetApp Files does not support multiple Active Directory (AD) connections in a single *region*, even if the AD connections are in different NetApp accounts. However, you can have multiple AD connections in a single *subscription*, as long as the AD connections are in different regions. If you need multiple AD connections in a single region, you can use separate subscriptions to do so. 
+
+An AD connection is configured per NetApp account; the AD connection is visible only through the NetApp account it is created in.
 
 ### Does Azure NetApp Files support Azure Active Directory? 
 

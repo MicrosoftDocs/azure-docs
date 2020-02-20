@@ -103,6 +103,9 @@ To create a new workspace where the __services are automatically created__, use 
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
+> [!NOTE]
+> The workspace name is case-insensitive.
+
 The output of this command is similar to the following JSON:
 
 ```json

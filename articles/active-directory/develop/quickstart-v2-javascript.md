@@ -16,7 +16,6 @@ ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
 
 #Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and get an access token in a JavaScript SPA

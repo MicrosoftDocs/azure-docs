@@ -6,7 +6,7 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.custom: mvc
+ms.custom: mvc, cli-validate
 ms.custom: seodec18
 
 ---

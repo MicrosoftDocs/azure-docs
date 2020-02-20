@@ -2,13 +2,9 @@
 title: Self-service exchanges and refunds for Azure Reservations
 description: Learn how you can exchange or refund Azure Reservations.
 author: yashesvi
-manager: yashesvi
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
+ms.date: 02/12/2020
 ms.author: banders
 ---
 
@@ -24,14 +20,14 @@ You must have owner access on the Reservation Order to exchange or refund an exi
 
 You can exchange your reservation with three quick steps in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
-1. Select the reservations that you want to refund and click **Exchange**.  
+1. Select the reservations that you want to refund and select **Exchange**.  
     ![Example image showing reservations to return](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)
 2. Select the VM product that you want to purchase and type a quantity. Make sure that the new purchase total is more than the return total. [Determine the right size before you purchase](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Example image showing the VM product to purchase with an exchange](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png)
 3. Review and complete the transaction.  
     ![Example image showing the VM product to purchase with an exchange, completing the return](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)
 
-To refund a reservation, go to **Reservation Details** and click **Refund**.
+To refund a reservation, go to **Reservation Details** and select **Refund**.
 
 ## How transactions are processed
 
@@ -61,22 +57,20 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 - Only reservation owners can process an exchange. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - An exchange is processed as a refund and repurchase – different transactions are created for the cancellation and the new purchase. The prorated reservation amount is refunded for the reservations that you trade-in. You're charged fully for the new purchase. The prorated reservation amount is the daily prorated residual value of the reservation being returned.
 - You can exchange or refund reservations even if the enterprise agreement used to purchase the reservation is expired and was renewed as a new agreement.
-- You can change any reservation property such as size, region, quantity, and term with an exchange.
+- You can change a reservation property such as family, series, version, SKU, region, quantity, and term with an exchange.
 - The new purchase total should equal or be greater than the returned amount.
 - The new reservation purchased as part of exchange has a new term starting from the time of exchange.
 - There's no penalty or annual limits for exchanges.
 
 **Refund policies**
-- If you cancel a reservation, there may be a 12% early termination fee.
-- The refund you receive for a cancellation is the remaining pro-rated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select **Refund**.
+- There may be a 12% early termination fee for cancellations in future. We are currently not charging this penalty.
 - Your total refund amount can't exceed $50,000 USD in a 12-month rolling window.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
-- Only reservation owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft reserves the right to charge a 12% penalty for any returns. The penalty isn't currently charged, but will be charged in future.
+- Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
 ## Exchange non-premium storage for premium storage
 
-You can exchange a reservation purchased for a VM size that doesn't support premium storage to a corresponding VM size that does. For example, an _F1_ for an _F1s_. To make the exchange, go to Reservation Details and click **Exchange**. The exchange doesn't reset the term of the reserved instance or create a new transaction.
+You can exchange a reservation purchased for a VM size that doesn't support premium storage to a corresponding VM size that does. For example, an _F1_ for an _F1s_. To make the exchange, go to Reservation Details and select **Exchange**. The exchange doesn't reset the term of the reserved instance or create a new transaction.
 
 ## Need help? Contact us.
 

@@ -18,7 +18,7 @@ ms.author: willzhan
 
 ---
 
-# Offline Widevine streaming for Android
+# Offline Widevine streaming for Android with Media Services v3
 
 In addition to protecting content for online streaming, media content subscription and rental services offer downloadable content that works when you are not connected to the internet. You might need to download content onto your phone or tablet for playback in airplane mode when flying disconnected from the network. Additional scenarios, in which you might want to download content:
 
