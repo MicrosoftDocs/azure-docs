@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/06/2020
+ms.date: 02/16/2020
 ---
 
 # Mapping data flow video tutorials
@@ -95,6 +95,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Decrease start-up times](https://youtu.be/FFCbU4ujCiY?t=528)
 
 [SQL DB performance](https://youtu.be/iyZT5CY3V_4)
+
+[Logging and auditing](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
 ## Mapping data flow scenarios
 

@@ -431,6 +431,8 @@
       items:
       - name: Use Apache Hadoop sandbox
         href: ./hadoop/apache-hadoop-emulator-get-started.md
+      - name: Use Apache Pig
+        href: use-pig.md
     - name: Develop
       items:
       - name: Use MapReduce with Apache Hadoop
@@ -477,7 +479,7 @@
           href: ./hadoop/apache-hadoop-mahout-linux-mac.md
         - name: Advanced analytics for HDInsight
           href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
-    - name: Manage
+      - name: Manage
       items:
       - name: Use empty edge nodes
         href: ./hdinsight-apps-use-edge-node.md
@@ -529,6 +531,8 @@
         href: ./hadoop/troubleshoot-lost-key-vault-access.md
       - name: WASBS storage exception
         href: ./hadoop/troubleshoot-wasbs-storage-exception.md
+      - name: Manage disk space
+        href: ./hadoop/troubleshoot-disk-space.md
 - name: Apache Kafka
   items:
   - name: Overview

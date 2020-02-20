@@ -37,7 +37,7 @@ When issues are found – by Qualys or Security Center – you’ll get notified
 ## Environment hardening
 
 ### Continuous monitoring of your Docker configuration
-Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/)).
+Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
 
 Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use the **recommendations page** to view recommendations and remediate issues. You'll also see the recommendations on the **Containers** tab that displays all virtual machines deployed with Docker. 
 
@@ -67,9 +67,9 @@ We detect threats at the host and AKS cluster level. For full details, see [thre
 ## Container security FAQ
 
 ### What types of images can Azure Security Center scan?
-Security Center scans Linux OS based images. 
+Security Center scans Linux OS based images which provide shell access. 
 
-The Qualys scanner doesn't support "distroless" images which only contain your application and its runtime dependencies.
+The Qualys scanner doesn't support super minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images which only contain your application and its runtime dependencies (without a package manager, shell, or OS).
 
 ### How does we scan Azure Security Center scan an image?
 The image is extracted from the registry. It's then run in an isolated sandbox with the Qualys scanner which extracts a list of known vulnerabilities.
