@@ -35,7 +35,7 @@ The fundamental concepts described in these topics should be reviewed prior to s
 
 ## Media Services v3 concepts
 
-|Concept|Description|Links|
+|Concepts|Description|Links|
 |---|---|---|
 |Asset and uploading content|To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account and upload your digital files into **Assets**.|[Cloud upload and storage](storage-account-concept.md)<br/><br/>[Assets concept](assets-concept.md)|
 |Encoding content|Once you upload your high-quality digital media files into Assets, you can encode them into formats that can be played on a wide variety of browsers and devices. <br/>To encode with Media Services v3, you need to create **Transforms** and **Jobs**.|[Transforms and Jobs](transforms-jobs-concept.md)<br/><br/>[Encoding with Media Services](encoding-concept.md)|
