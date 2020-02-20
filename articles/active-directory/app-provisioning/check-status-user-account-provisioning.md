@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: app-mgmt
+ms.tgt_pltfrm: app-provisioning
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
