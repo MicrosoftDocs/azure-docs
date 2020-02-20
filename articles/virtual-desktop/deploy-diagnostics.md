@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 02/20/2020
 ms.author: helohr
 ---
 
@@ -124,7 +124,9 @@ Before you continue deploying the diagnostics tool, we recommend that you verify
 To make sure your app registration has API permissions:
 
 1. Open a browser and connect to the [Azure portal](https://portal.azure.com/) with your administrative account.
-2. Go to **App registrations** and look for your Azure AD App registration.
+2. Go to **Azure Active Directory**.
+3. Go to **App registrations** and select **All Applications**.
+4. Look for your Azure AD app registration with the same app name you entered in step 5 of [Create an Azure Active Directory app registration](deploy-diagnostics.md#create-an-azure-active-directory-app-registration)
 
       ![The API permissions page.](media/api-permissions-page.png)
 
