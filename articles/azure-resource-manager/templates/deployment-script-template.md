@@ -202,6 +202,8 @@ Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, 
 
 [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json?range=1-44)]
 
+[jq](https://stedolan.github.io/jq/) is used in the previous sample. It comes with the container images. See [Configure development environment](#configure-development-environment).
+
 ## Debug deployment scripts
 
 The script service creates a [storage account](../../storage/common/storage-account-overview.md) and a [container instance](../../container-instances/container-instances-overview.md) for script execution. Both resources have the **azscripts** suffix in the resource names.
@@ -305,7 +307,7 @@ You can use a pre-configured docker container image as your deployment script de
     docker pull mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-    This example uses version CLI 2.0.80. All CLI images are the ones available in MCR.
+    This example uses version CLI 2.0.80. Deployment script uses the default CLI containers images found [here](https://hub.docker.com/_/microsoft-azure-cli).
 
 1. Run the docker image locally.
 
