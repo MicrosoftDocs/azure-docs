@@ -19,9 +19,9 @@ This document will use examples that can be recreated using the [nutrition](http
 
 ## Important
 
-- For the best performance run the application on Windows x64 to support the native ServiceInterop.dll.
-    - ServiceInterop.dll is used to parse and optimize queries locally. If ServiceInterop.dll is not available it will go to the gateway, which adds an additional network call to process the query.
-    - Visual studio default new projects to Any CPU. Any CPU project can easily switch to x86. It's recommend setting the project to x64 to avoid it switching to x86.
+- For the best performance please follow the [Performance Tips](performance-tips.md).
+    > [!NOTE] 
+    > Windows 64-bit host processing is recommended for improved performance. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally, and is only supported on the Windows x64 platform. For linux and other unsupported platforms where the ServiceInterop.dll is not available it will do an additional network call to the gateway to get the optimized query. 
 - Cosmos DB query does not support a minimum item count.
     - Code should handle any page size from 0 to max item count
     - The number of items in a page can and will change without any notice.
