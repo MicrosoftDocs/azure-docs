@@ -21,7 +21,7 @@ In the Apache Ambari UI, you might see an alert like this:
 
 ## Cause
 
-Ambari agents continuously monitor the health of many resources. Each health check, or *alert*, is configured to run at predefined time intervals. After each alert runs, Ambari agents report the status back to the Ambari server. An alert that doesn't run on time generates a *stale alert*. If the Ambari server detects any stale alerts, it triggers an "Ambari Server Alerts" alert.
+Ambari agents continuously monitor the health of many resources. *Alerts* can be configured to notify you whether specific cluster properties are within predetermined thresholds. After each resource check runs, if the alert condition is met, Ambari agents report the status back to the Ambari server and trigger an alert. If an alert isn't checked according to the interval in its Alert Profile, the server triggers an *Ambari Server Stale Alerts* alert.
 
 There are various reasons why a health check might not run at its defined interval:
 
