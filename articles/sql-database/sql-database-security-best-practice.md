@@ -64,6 +64,9 @@ Authentication is the process of proving the user is who they claim to be. Azure
 - SQL authentication
 - Azure Active Directory authentication
 
+> [!NOTE]
+> Azure Active Directory authentication may not be supported for all tools and 3rd party applications.
+
 ### Central management for identities
 
 Central identity management offers the following benefits:
@@ -261,7 +264,7 @@ The following best practices are optional but will result in better manageabilit
       - It is a best practice to use schemas to grant permissions inside a database. (also see: [Schema-design for SQL Server: recommendations for Schema design with security in mind](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Object (table, view, procedure, etc.) 
   > [!NOTE]
-  > It is not recommended to apply permissions on the object level because this level adds unnecessary complexity to the overall implementation. If you decide to use object-level permissions, those should be clearly documented. The same applies to column-level-permissions, which are even less recommendable for the same reasons. Also be aware that by default a table-level [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) does not override a column-level GRANT. This would require the common criteria compliance Server Configuration to be activated.
+  > It is not recommended to apply permissions on the object level because this level adds unnecessary complexity to the overall implementation. If you decide to use object-level permissions, those should be clearly documented. The same applies to column-level-permissions, which are even less recommendable for the same reasons. Also be aware that by default a table-level [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) does not override a column-level GRANT. This would require the [common criteria compliance Server Configuration](https://docs.microsoft.com/sql/database-engine/configure-windows/common-criteria-compliance-enabled-server-configuration-option) to be activated.
 
 - Perform regular checks using [Vulnerability Assessment (VA)](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment) to test for too many permissions.
 
