@@ -44,7 +44,7 @@ A SQL pool is created with a defined set of [compute resources]memory-concurrenc
 
 Follow these steps to create a blank database. 
 
-1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **Azure Synapse Analytics** under **Featured** on the **New** page.
 
@@ -61,7 +61,7 @@ Follow these steps to create a blank database.
 
     ![create data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
-4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
+4. Select **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
 
     | Setting                | Suggested value          | Description                                                  |
     | ---------------------- | ------------------------ | ------------------------------------------------------------ |
@@ -72,22 +72,22 @@ Follow these steps to create a blank database.
 
     ![create database server](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
-5. Click **Select**.
+5. Select **Select**.
 
-6. Click **Performance level** to specify whether the data warehouse is Gen1 or Gen2, and the number of data warehouse units. 
+6. Select **Performance level** to specify whether the data warehouse is Gen1 or Gen2, and the number of data warehouse units. 
 
 7. For this tutorial, select SQL pool **Gen2**. The slider is set to **DW1000c** by default.  Try moving it up and down to see how it works. 
 
     ![configure performance](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. Click **Apply**.
+8. Select **Apply**.
 9. In the provisioning blade, select a **collation** for the blank database. For this tutorial, use the default value. For more information about collations, see [Collations](/sql/t-sql/statements/collations)
 
-11. Now that you have completed the form, click **Create** to provision the database. Provisioning takes a few minutes. 
+11. Now that you have completed the form, select **Create** to provision the database. Provisioning takes a few minutes. 
 
-    ![click create](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
+    ![select create](media/load-data-from-azure-blob-storage-using-polybase/select-create.png)
 
-12. On the toolbar, click **Notifications** to monitor the deployment process.
+12. On the toolbar, select **Notifications** to monitor the deployment process.
   
      ![notification](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
@@ -98,37 +98,37 @@ A firewall at the server-level that prevents external applications and tools fro
 > [!NOTE]
 > SQL Data Warehouse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20180430.database.windows.net**) and provides options for further configuration. 
+1. After the deployment completes, select **SQL databases** from the left-hand menu and then select **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20180430.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. Then click on the server name to open server settings.
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. Then select on the server name to open server settings.
 
     ![find server name](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
 
-3. Click the server name to open server settings.
+3. Select the server name to open server settings.
 
     ![server settings](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
-5. Click **Show firewall settings**. The **Firewall settings** page for the SQL Database server opens. 
+5. select **Show firewall settings**. The **Firewall settings** page for the SQL Database server opens. 
 
     ![server firewall rule](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
 
-4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+4. select **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+5. select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
-6. Click **OK** and then close the **Firewall settings** page.
+6. select **OK** and then close the **Firewall settings** page.
 
 You can now connect to the SQL server and its data warehouses using this IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the ServerAdmin account you created previously.  
 
 > [!IMPORTANT]
-> By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page and then click **Save** to disable the firewall for all Azure services.
+> By default, access through the SQL Database firewall is enabled for all Azure services. select **OFF** on this page and then select **Save** to disable the firewall for all Azure services.
 
 ## Get the fully qualified server name
 
 Get the fully qualified server name for your SQL server in the Azure portal. Later you will use the fully qualified name when connecting to the server.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **Azure Synapse Analytics** from the left-hand menu, and click your database on the **Azure Synapse Analytics** page. 
+2. Select **Azure Synapse Analytics** from the left-hand menu, and select your database on the **Azure Synapse Analytics** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20180430.database.windows.net. 
 
     ![connection information](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
@@ -151,7 +151,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
     ![connect to server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-4. Click **Connect**. The Object Explorer window opens in SSMS. 
+4. Select **Connect**. The Object Explorer window opens in SSMS. 
 
 5. In Object Explorer, expand **Databases**. Then expand **System databases** and **master** to view the objects in the master database.  Expand **mySampleDatabase** to view the objects in your new database.
 
@@ -165,7 +165,7 @@ It's best to create a login and user that is dedicated for loading data. Then ad
 
 Since you are currently connected as the server admin, you can create logins and users. Use these steps to create a login and user called **LoaderRC20**. Then assign the user to the **staticrc20** resource class. 
 
-1.  In SSMS, right-click **master** to show a drop-down menu, and choose **New Query**. A new query window opens.
+1.  In SSMS, right-select **master** to show a drop-down menu, and choose **New Query**. A new query window opens.
 
     ![New query in master](media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
@@ -176,7 +176,7 @@ Since you are currently connected as the server admin, you can create logins and
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. Click **Execute**.
+3. Select **Execute**.
 
 4. Right-click **mySampleDataWarehouse**, and choose **New Query**. A new query Window opens.  
 
@@ -190,19 +190,19 @@ Since you are currently connected as the server admin, you can create logins and
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. Click **Execute**.
+6. Select **Execute**.
 
 ## Connect to the server as the loading user
 
 The first step toward loading data is to login as LoaderRC20.  
 
-1. In Object Explorer, click the **Connect** drop down menu and select **Database Engine**. The **Connect to Server** dialog box appears.
+1. In Object Explorer, select the **Connect** drop down menu and select **Database Engine**. The **Connect to Server** dialog box appears.
 
     ![Connect with new login](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
 2. Enter the fully qualified server name, and enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
 
-3. Click **Connect**.
+3. Select **Connect**.
 
 4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as MedRCLogin.
 
@@ -210,7 +210,7 @@ The first step toward loading data is to login as LoaderRC20.
 
 ## Create external tables for the sample data
 
-You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use external tables to load New York City taxi cab data from an Azure storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source, see the [loading overview](sql-data-warehouse-overview-load.md).
+You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use external tables to load New York City taxi cab data from an Azure Storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source, see the [loading overview](sql-data-warehouse-overview-load.md).
 
 Run the following SQL scripts and specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. 
 
@@ -226,7 +226,7 @@ Run the following SQL scripts and specify information about the data you wish to
     CREATE MASTER KEY;
     ```
 
-4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) statement to define the location of the Azure blob. This is the location of the external taxi cab data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
+4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) statement to define the location of the Azure blob. This is the location of the external taxi cab data.  To run a command that you have appended to the query window, highlight the commands you wish to run and select **Execute**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -556,7 +556,7 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
     ![View loaded tables](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
 ## Authenticate using managed identities to load (optional)
-Loading using PolyBase and authenticating through managed identities is the most secure mechanism and enables you to leverage VNet Service Endpoints with Azure storage. 
+Loading using PolyBase and authenticating through managed identities is the most secure mechanism and enables you to leverage virtual network service endpoints with Azure Storage. 
 
 ### Prerequisites
 1.	Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
@@ -578,7 +578,7 @@ Loading using PolyBase and authenticating through managed identities is the most
    >
    > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    
-1. Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your SQL Database server.
+1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your SQL Database server.
 
    > [!NOTE] 
    > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
@@ -609,17 +609,17 @@ You are being charged for compute resources and data that you loaded into your d
 
 Follow these steps to clean up resources as you desire.
 
-1. Log in to the [Azure portal](https://portal.azure.com), click on your data warehouse.
+1. Log in to the [Azure portal](https://portal.azure.com), select your data warehouse.
 
     ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. To pause compute, click the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, click **Start**.
+2. To pause compute, select the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, select **Start**.
 
-3. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
+3. To remove the data warehouse so you won't be charged for compute or storage, select **Delete**.
 
-4. To remove the SQL server you created, click **mynewserver-20180430.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
+4. To remove the SQL server you created, select **mynewserver-20180430.database.windows.net** in the previous image, and then select **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
 
-5. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
+5. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
 
 ## Next steps 
 In this tutorial, you learned how to create a data warehouse and create a user for loading data. You created external tables to define the structure for data stored in Azure Storage Blob, and then used the PolyBase CREATE TABLE AS SELECT statement to load data into your data warehouse. 

@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# SQL Analytics Recommendations
+# SQL Analytics recommendations
 
 This article describes the SQL Analytics recommendations served through Azure Advisor.  
 
@@ -21,13 +21,13 @@ SQL Analytics provides recommendations to ensure your data warehouse workload is
 
 Click [here](https://aka.ms/Azureadvisor) to check your recommendations today! Currently this feature is applicable to Gen2 data warehouses only. 
 
-## Data Skew
+## Data skew
 
 Data skew can cause additional data movement or resource bottlenecks when running your workload. The following documentation describes show to identify data skew and prevent it from happening by selecting an optimal distribution key.
 
 - [Identify and remove skew](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice) 
 
-## No or Outdated Statistics
+## No or outdated statistics
 
 Having suboptimal statistics can severely impact query performance as it can cause the SQL query optimizer to generate suboptimal query plans. The following documentation describes the best practices around creating and updating statistics:
 
@@ -35,7 +35,7 @@ Having suboptimal statistics can severely impact query performance as it can cau
 
 To see the list of impacted tables by these recommendations, run the following  [T-SQL script](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). Advisor continuously runs the same T-SQL script to generate these recommendations.
 
-## Replicate Tables
+## Replicate tables
 
 For replicated table recommendations, Advisor detects table candidates based on the following
 physical characteristics:

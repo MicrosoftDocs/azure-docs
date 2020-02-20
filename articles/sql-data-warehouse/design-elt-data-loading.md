@@ -114,7 +114,7 @@ To format the text files:
 - Separate fields in the text file with a terminator.  Be sure to use a character or a character sequence that is not found in your source data. Use the terminator you specified with [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
 
-## 4. Load the data into staging tables using PolyBase or the COPY statement
+## 4. Load the data using PolyBase or the COPY statement
 
 It is best practice to load data into a staging table. Staging tables allow you to handle errors without interfering with the production tables. A staging table also gives you the opportunity to use the SQL pool MPP for data transformations before inserting the data into production tables. The table will need to be pre-created when loading into a staging table with COPY.
 
