@@ -9,24 +9,24 @@ ms.date: 01/28/2020
 
 To quickly manage and deploy applications for Kubernetes, you can use the [open-source Helm package manager][helm]. With Helm, application packages are defined as [charts](https://helm.sh/docs/topics/charts/), which are collected and stored in a [Helm chart repository](https://helm.sh/docs/topics/chart_repository/).
 
-This article shows you how to host Helm charts in repositories in an Azure container registry, using either a Helm 2 or Helm 3 installation. For this example, you store an existing Helm chart from the public Helm *stable* repo. In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts].
+This article shows you how to host Helm charts in repositories in an Azure container registry, using either a Helm 3 or Helm 2 installation. For this example, you store an existing Helm chart from the public Helm *stable* repo. In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts].
 
 > [!IMPORTANT]
 > Support for Helm charts in Azure Container Registry is currently in preview. Previews are made available to you on the condition that you agree to the supplemental [terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
-## Helm 2 or Helm 3?
+## Helm 3 or Helm 2?
 
-To store, manage, and install Helm charts, you use a Helm client and the Helm CLI. Major releases of the Helm client include Helm 2 and Helm 3. Helm 3 supports a new chart format and no longer installs the Tiller server-side component. For details on the differences between Helm 2 and Helm 3, see the [version FAQ](https://helm.sh/docs/faq/). If you've previously deployed Helm 2 charts, see [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/).
+To store, manage, and install Helm charts, you use a Helm client and the Helm CLI. Major releases of the Helm client include Helm 3 and Helm 2. Helm 3 supports a new chart format and no longer installs the Tiller server-side component. For details on the version differences, see the [version FAQ](https://helm.sh/docs/faq/). If you've previously deployed Helm 2 charts, see [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/).
 
-You can use either Helm 2 or Helm 3 to host Helm charts in Azure Container Registry, with workflows specific to each version:
+You can use either Helm 3 or Helm 2 to host Helm charts in Azure Container Registry, with workflows specific to each version:
 
 * [Helm 3 client](#use-the-helm-3-client) - use `helm chart` commands to manage charts in your registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts)
-* [Helm 2 client](#use-the-helm-2-client) - use [az acr helm][az-acr-helm] commands in the Azure CLI to add your container registry as a Helm chart repository
+* [Helm 2 client](#use-the-helm-2-client) - use [az acr helm][az-acr-helm] commands in the Azure CLI to add and manage your container registry as a Helm chart repository
 
 ### Additional information
 
-* Managing Helm charts as OCI artifacts in an Azure container registry is a recommended approach
-* You can use legacy [az acr helm][az-acr-helm] Azure CLI commands and workflow with the Helm 3 client and charts. However, we recommend using the Helm 3 workflow with `helm chart` commands to manage charts as OCI artifacts. Certain commands such as `az acr helm list` aren't compatible with Helm 3 charts.
+* We recommend using the Helm 3 workflow with native `helm chart` commands to manage charts as OCI artifacts.
+* You can use legacy [az acr helm][az-acr-helm] Azure CLI commands and workflow with the Helm 3 client and charts. However, certain commands such as `az acr helm list` aren't compatible with Helm 3 charts.
 * As of Helm 3, [az acr helm][az-acr-helm] commands are supported mainly for compatibility with the Helm 2 client and chart format. Future development of these commands isn't currently planned.
 
 ## Use the Helm 3 client
@@ -42,10 +42,10 @@ You can use either Helm 2 or Helm 3 to host Helm charts in Azure Container Regis
 
 With **Helm 3** you:
 
-* Can create *multiple* Helm repositories in a registry
-* Store Helm 3 charts in an Azure container registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Currently, Helm 3 support for OCI is considered *experimental*.
-* Use `helm chart` commands directly from the Helm CLI to push, pull, and manage Helm charts in an Azure container registry
-* Authenticate with your Azure container registry via the Azure CLI, which then updates your Helm client automatically with the registry URI and credentials. You don't need to manually specify this registry information, so the credentials aren't exposed in the command history.
+* Can create one or more Helm repositories in an Azure container registry
+* Store Helm 3 charts in a registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Currently, Helm 3 support for OCI is considered *experimental*.
+* Use `helm chart` commands directly from the Helm CLI to push, pull, and manage Helm charts in a registry
+* Authenticate with your registry via the Azure CLI, which then updates your Helm client automatically with the registry URI and credentials. You don't need to manually specify this registry information, so the credentials aren't exposed in the command history.
 * Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.
 
 See the following sections for examples.
@@ -122,12 +122,14 @@ version: 8.1.0
 
 ### List charts in the repository
 
-Similar to other artifacts stored in an Azure container registry, you can show the repositories hosting your charts, and chart tags and manifests, in the Azure portal or by using [az acr repository][az-acr-repository] commands. 
+As with images stored in an Azure container registry, you can use [az acr repository][az-acr-repository] commands to show the repositories hosting your charts, and chart tags and manifests. 
 
 For example, run [az acr repository show][az-acr-repository-show] to see the properties of the repo you created in the previous step:
 
 ```azurecli
-az acr repository show --name mycontainerregistry --repository helm/wordpress
+az acr repository show \
+  --name mycontainerregistry \
+  --repository helm/wordpress
 ```
 
 Output is similar to:
@@ -152,7 +154,9 @@ Output is similar to:
 Run the [az acr repository show-manifests][az-acr-repository-show-manifests] command to see details of the chart stored in the repository. For example:
 
 ```azurecli
-az acr repository show-manifests --name mycontainerregistry --repository helm/wordpress --detail
+az acr repository show-manifests \
+  --name mycontainerregistry \
+  --repository helm/wordpress --detail
 ```
 
 Output, abbreviated in this example, shows a `configMediaType` of `application/vnd.cncf.helm.config.v1+json`:
@@ -176,7 +180,7 @@ Output, abbreviated in this example, shows a `configMediaType` of `application/v
 
 ### Pull chart to local cache
 
-To install a Helm chart to Kubernetes, the chart must be in the local cache. In this example, first run `helm chart remove` to remove the existing `mycontainerregistry.azurecr.io/helm/wordpress:latest` local chart:
+To install a Helm chart to Kubernetes, the chart must be in the local cache. In this example, first run `helm chart remove` to remove the existing local chart named `mycontainerregistry.azurecr.io/helm/wordpress:latest`:
 
 ```console
 helm chart remove mycontainerregistry.azurecr.io/helm/wordpress:latest
@@ -203,7 +207,7 @@ cd install
 helm inspect chart wordpress
 ```
 
-When no version number is provided, the *latest* version is used. Helm returns detailed information about your chart, as shown in the following condensed example output:
+When no version number is provided, the *latest* version is used. Helm returns detailed information about your chart, as shown in the following condensed output:
 
 ```
 apiVersion: v1
