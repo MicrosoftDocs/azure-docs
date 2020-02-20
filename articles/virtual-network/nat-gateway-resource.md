@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/19/2020
 ms.author: allensu
 ---
 
@@ -337,7 +337,6 @@ A SNAT port is available for reuse to the same destination IP address and destin
 - IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.
 - NSG on subnet or NIC isn't honored for outbound flows to public endpoints using NAT.
 - NSG flow logging isn't supported when using NAT.
-- When a virtual network has multiple subnets, each subnet can have a different NAT configured.
 - NAT can't span multiple virtual networks.
 
 ## Preview participation
