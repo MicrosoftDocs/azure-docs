@@ -35,6 +35,10 @@
       href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Concepts
     items: 
+      name: Security
+      items:
+        - name: Security baseline
+        - href: security-baseline.md
     - name: Apache Hadoop components on HDInsight
       href: ./hdinsight-component-versioning.md
     - name: High availability components
