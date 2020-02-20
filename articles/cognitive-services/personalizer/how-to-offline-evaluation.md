@@ -50,9 +50,9 @@ Once completed, you can select the evaluation from the list of evaluations, then
 1. Review the performance of the [learning policies](concepts-offline-evaluation.md#discovering-the-optimized-learning-policy).
 
     > [!div class="mx-imgBorder"]
-    > ![Review evaluation results](./media/offline-evaluation/evaluation-results.png)
+    > [![Review evaluation results](./media/offline-evaluation/evaluation-results.png)](./media/offline-evaluation/evaluation-results.png#lightbox)
 
-1. Select **Apply** to apply the policy that improves the model.
+1. Select **Apply** to apply the policy that improves the model best for your data.
 
 ## Next steps
 
