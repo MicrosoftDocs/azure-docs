@@ -44,7 +44,7 @@ Using [Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-
 
 ## Is my data encrypted? Can I use my own keys?
 
-All Kafka messages on the managed disks are encrypted with [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). Data-in-transit (for example, data being transmitted from clients to brokers and the other way around) isn't encrypted by default. It's possible to encrypt such traffic by [setting up SSL on your own](./apache-kafka-ssl-encryption-authentication.md). Additionally, HDInsight allows you to manage their own keys to encrypt the data at rest. See [Bring your own key for Apache Kafka on Azure HDInsight](apache-kafka-byok.md), for more information.
+All Kafka messages on the managed disks are encrypted with [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). Data-in-transit (for example, data being transmitted from clients to brokers and the other way around) isn't encrypted by default. It's possible to encrypt such traffic by [setting up SSL on your own](./apache-kafka-ssl-encryption-authentication.md). Additionally, HDInsight allows you to manage their own keys to encrypt the data at rest. See [Customer-managed key disk encryption](../disk-encryption.md), for more information.
 
 ## How do I connect clients to my cluster?
 
