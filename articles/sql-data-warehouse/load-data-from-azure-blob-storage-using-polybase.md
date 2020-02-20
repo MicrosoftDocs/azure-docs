@@ -85,8 +85,6 @@ Follow these steps to create a blank database.
 
 11. Now that you have completed the form, select **Create** to provision the database. Provisioning takes a few minutes. 
 
-    ![select create](media/load-data-from-azure-blob-storage-using-polybase/select-create.png)
-
 12. On the toolbar, select **Notifications** to monitor the deployment process.
   
      ![notification](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
