@@ -47,7 +47,7 @@ Evaluations can take a long time to run, depending on the amount of data to proc
 
 Once completed, you can select the evaluation from the list of evaluations, then select **Compare the score of your application with other potential learning settings**. Select this feature when you want to see how your current learning policy performs compared to a new policy.
 
-1. Review the performance of the [learning policies](concepts-offline-evaluation.md#discovering-the-optimized-learning-policy.png).
+1. Review the performance of the [learning policies](concepts-offline-evaluation.md#discovering-the-optimized-learning-policy).
 
     > [!div class="mx-imgBorder"]
     > ![Review evaluation results](./media/offline-evaluation/evaluation-results.png)
