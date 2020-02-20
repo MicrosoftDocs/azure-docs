@@ -64,7 +64,10 @@ Maven asks you for values needed to finish generating the project on deployment.
 
 Type `Y` or press Enter to confirm.
 
-Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
+Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. Run the following command to change the directory to the created project folder.
+```bash
+cd fabrikam-function
+```
 
 ::: zone-end 
 ::: zone pivot="java-build-tools-gradle"
@@ -95,18 +98,16 @@ Open the new Function.java file from the *src/main/java* path in a text editor a
 
 ## Run the function locally
 
-Run the following command, which changes the directory to the newly created project folder, then builds and runs the function project:
+Run the following command to build then run the function project:
 
 ::: zone pivot="java-build-tools-maven" 
 ```bash
-cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
 ```
 ::: zone-end 
 ::: zone pivot="java-build-tools-gradle"  
 ```bash
-cd fabrikam-function
 gradle jar --info
 gradle azureFunctionsRun
 ```
