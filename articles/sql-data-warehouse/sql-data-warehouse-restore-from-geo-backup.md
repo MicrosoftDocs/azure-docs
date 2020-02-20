@@ -72,9 +72,14 @@ The recovered database will be TDE-enabled if the source database is TDE-enabled
 Follow the steps outlined below to restore a SQL pool from a geo-backup:
 
 1. Sign in to your [Azure portal](https://portal.azure.com/) account.
-1. Click **+ Create a resource** and search for SQL pool and click **Create**.
+1. Click **+ Create a 
+resource**. 
 
-    ![New DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+![New DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+
+3. Click **Databases** and then **Azure Synapse Analytics**.
+
+    ![New DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 1. Fill out the information requested in the **Basics** tab and click **Next: Additional settings**.
 
     ![Basics](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
