@@ -53,9 +53,9 @@ Microsoft is able to scale through its partners. Scale is what will allow us to 
 
 ## Publishing to the Azure Marketpalce for Partners in the Compliance space
 
-1. Join the Parnter Network - It’s a requirement for publishing but easy to sign-up. Instructions are located here: [Ensure you have a MPN ID and Partner Center Account](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page)
-2. Enable your partner center account as Publisher / Developer for Marketplace, follow the instructions [here](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-account)
-3. With an enabled Partner Center Account, publish listing as a SaaS App as instructed [here](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-new-saas-offer)
+1. Join the Parnter Network - It’s a requirement for publishing but easy to sign-up. Instructions are located here: [Ensure you have a MPN ID and Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page)
+2. Enable your partner center account as Publisher / Developer for Marketplace, follow the instructions [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)
+3. With an enabled Partner Center Account, publish listing as a SaaS App as instructed [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer)
 
 For a list of existing Azure Marketplace offerings in this space, visit [this page](https://aka.ms/azclmarketplace). 
 
@@ -64,7 +64,7 @@ For a list of existing Azure Marketplace offerings in this space, visit [this pa
  > [!NOTE]
 >The information provide here will allow partners and customers to sign up and get information about this program. The program is designed to help customers of Azure and Azure Government successfully prepare their environments for Accreditation and request FedRAMP ATO. This information does not constitute an offer of any kind, and submitting the forms below in no way guarantees participation in the program. At this time, the program details shared with partners and customers are notional and subject to change without notice.
 
- * Are you a customer in look of compliance help on Azure and don't know where to start? Fill out our [form](http://aka.ms/azcl)
+ * Are you a customer in look of compliance help on Azure and don't know where to start? Fill out our [form](https://aka.ms/azcl)
  * Free training on what is FedRAMP can be found [here](https://www.fedramp.gov/learning/)
  * Templates you will need to start understanding controls and what is needed are [here](https://www.fedramp.gov/templates/)
  * Get familiarized with the [FedRAMP Marketplace](https://marketplace.fedramp.gov/#/products)
