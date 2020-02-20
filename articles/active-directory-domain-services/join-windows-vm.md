@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Windows Server VM
-> * Connect to the Windows Server VM to an Azure virtual network
+> * Connect the Windows Server VM to an Azure virtual network
 > * Join the VM to the Azure AD DS managed domain
 
 If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -38,7 +38,7 @@ To complete this tutorial, you need the following resources:
     * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
     * Make sure that Azure AD Connect password hash synchronization or self-service password reset has been performed so the account is able to sign in to Azure AD DS managed domain.
-* An Azure Bastion host deployed into your virtual network for Azure AD DS.
+* An Azure Bastion host deployed in your Azure AD DS virtual network.
     * If needed, [create an Azure Bastion host][azure-bastion].
 
 If you already have a VM that you want to domain-join, skip to the section to [join the VM to the Azure AD DS managed domain](#join-the-vm-to-the-azure-ad-ds-managed-domain).
@@ -119,7 +119,9 @@ It takes a few minutes to create the VM. The Azure portal shows the status of th
 
 ## Connect to the Windows Server VM
 
-To securely connect to your VMs, use an Azure Bastion host. With Azure Bastion, a managed host is deployed into your virtual network and provides web-based RDP or SSH connections to VMs. No public IP addresses are required for the VMs, and you don't need to open network security group rules for external remote traffic. You connect to VMs using the Azure portal from your web browser. To use a Bastion host to connect to your VM, complete the following steps:
+To securely connect to your VMs, use an Azure Bastion host. With Azure Bastion, a managed host is deployed into your virtual network and provides web-based RDP or SSH connections to VMs. No public IP addresses are required for the VMs, and you don't need to open network security group rules for external remote traffic. You connect to VMs using the Azure portal from your web browser.
+
+To use a Bastion host to connect to your VM, complete the following steps:
 
 1. In the **Overview** pane for your VM, select **Connect**, then **Bastion**.
 

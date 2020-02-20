@@ -42,7 +42,7 @@ To complete this tutorial, you need the following resources and privileges:
 * A Windows Server VM that is joined to the Azure AD DS managed domain.
     * If needed, see the previous tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
-* An Azure Bastion host deployed into your virtual network for Azure AD DS.
+* An Azure Bastion host deployed in your Azure AD DS virtual network.
     * If needed, [create an Azure Bastion host][azure-bastion].
 
 ## Sign in to the Azure portal
@@ -88,7 +88,7 @@ To get started, connect to the Windows Server VM as follows:
 
     ![Connect to Windows virtual machine using Bastion in the Azure portal](./media/join-windows-vm/connect-to-vm.png)
 
-1. Enter the credentials for your VM that you specified in the previous section, then select **Connect**.
+1. Enter the credentials for your VM, then select **Connect**.
 
    ![Connect through the Bastion host in the Azure portal](./media/join-windows-vm/connect-to-bastion.png)
 
