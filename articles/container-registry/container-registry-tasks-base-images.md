@@ -15,6 +15,8 @@ Dockerfiles defining most container images specify a parent image from which the
 
 A base image is often updated by the image maintainer to include new features or improvements to the OS or framework in the image. Security patches are another common cause for a base image update. When these upstream updates occur, you must also update your base images to include the critical fix. Each application image must then also be rebuilt to include these upstream fixes now included in your base image.
 
+In some cases, such as a private development team, a base image might specify more than OS or framework. For example, a base image could be a shared service component image that needs to be tracked. Members of a team might need to track this base image for testing, or need to regularly update the image when developing application images.
+
 ## Track base image updates
 
 ACR Tasks includes the ability to automatically build images for you when a container's base image is updated.
