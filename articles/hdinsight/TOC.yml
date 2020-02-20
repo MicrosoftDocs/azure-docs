@@ -35,7 +35,7 @@
       href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Concepts
     items: 
-      name: Security
+    - name: Security
       items:
         - name: Security baseline
         - href: security-baseline.md
