@@ -2,7 +2,7 @@
 title: Manage model and learning settings - Personalizer
 description: The machine-learned model and learning settings can be exported for backup in your own source control system.
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 02/20/2020
 ---
 
 # How to manage model and learning settings
@@ -32,18 +32,7 @@ From the Resource management's section for **Model and learning settings**, revi
 
 ## Import a new learning policy
 
-Learning policy settings determine the _hyperparameters_ of the model training. The learning policy is defined in a `.json` file.
-
-```json
-{
-  "name": "9b64d93fcb5744f8b699bf88341cb806",
-  "arguments": "--cb_explore_adf --epsilon 0.2 --power_t 0 -l 0.001 --cb_type mtr -q ::"
-}
-```
-
-The `argument` property contains a [configuration](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Contextual-Bandit-algorithms) used by Vowpal Wabbit.
-
-## Import a new learning policy
+The [learning policy](concept-active-learning.md#understand-learning-policy-settings) settings determine the _hyperparameters_ of the model training.
 
 1. Open the [Azure portal](https://portal.azure.com), and select your Personalizer resource.
 1. Select **Model and learning settings** in the **Resource Management** section.
