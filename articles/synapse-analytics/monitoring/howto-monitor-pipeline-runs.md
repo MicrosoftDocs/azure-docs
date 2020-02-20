@@ -2,12 +2,12 @@
 title: Monitor pipeline runs
 description: Use the Synapse Studio to monitor your workspace's pipeline runs.
 services: sql-data-warehouse 
-author: matt1883 
-ms.service: sql-data-warehouse 
+author: matt1883
+ms.service: sql-data-warehouse
 ms.topic: howto
 ms.subservice: design
 ms.date: 01/01/2020
-ms.author: mahi 
+ms.author: mahi
 ms.reviewer: mahi
 ---
 
@@ -21,15 +21,18 @@ This article explains how to monitor your pipeline runs, which allows you to kee
 
 To see the list of pipeline runs in your workspace, first [open the Azure Synapse Studio](https://web.azuresynapse.net/) and select your workspace.
 
-  ![Log in to workspace](../media/howto-monitor-pipeline-runs/login-workspace.png)
+  [!div class="mx-imgBorder"]
+  ![Log in to workspace](./media/common/login-workspace.png)
 
 Once you’ve opened your workspace, select the **Monitor** section on the left.
 
-  ![Select Monitor hub](../media/howto-monitor-pipeline-runs/leftnav.png)
+  [!div class="mx-imgBorder"]
+  ![Select Monitor hub](./media/common/leftnav.png)
 
 Select **Pipeline runs** to view the list of pipeline runs.
 
-  ![Select pipeline runs](../media/howto-monitor-pipeline-runs/monitorhub-nav-pipelineruns.png)
+  [!div class="mx-imgBorder"]
+  ![Select pipeline runs](./media/howto-monitor-pipeline-runs/monitorhub-nav-pipelineruns.png)
 
 ## Filtering your pipeline runs
 
@@ -37,15 +40,15 @@ You can filter the list of pipeline runs to just those you’re interested in. T
 
 For example, you can filter the view to see only the pipeline runs for the pipeline named “holiday”:
 
-  ![Filter button](../media/howto-monitor-pipeline-runs/filter-button.png)
+  [!div class="mx-imgBorder"]
+  ![Filter button](./media/common/filter-button.png)
 
-  ![Sample filter](../media/howto-monitor-pipeline-runs/filter-example.png)
+  [!div class="mx-imgBorder"]
+  ![Sample filter](./media/howto-monitor-pipeline-runs/filter-example.png)
 
 ## Viewing details about a specific pipeline run
 
 To view the details about one of your pipeline runs, select the pipeline run and view the activity runs associated with the pipeline run. You can also monitor the progress of the pipeline run, if it is still running.
-
-  ![Log in to workspace](../media/howto-monitor-pipeline-runs/login-workspace.png)
   
 ## Next steps
 
