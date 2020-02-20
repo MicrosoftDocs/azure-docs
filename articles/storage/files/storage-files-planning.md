@@ -171,7 +171,7 @@ This section only applies to the standard file shares. All premium file shares a
 
 Standard file shares with 100 TiB capacity limit are available globally in all Azure regions -
 
-- LRS: All regions, except for South Africa North and South Africa West.
+- LRS: All regions, except for South Africa North, South Africa West, Germany West Central, and Germany North.
 - ZRS: All regions, except for Japan East, North Europe, South Africa North.
 - GRS/GZRS: Not supported.
 
