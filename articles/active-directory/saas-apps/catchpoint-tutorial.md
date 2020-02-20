@@ -138,12 +138,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In a different web browser window, sign into Catchpoint application as an adminstrator.
 
 1. Click on the **Settings** icon and select **SSO Identity Provider**.
-	
-	![Catchpoint configuration](./media/catchpoint-tutorial/configuration1.png)
+
+    ![Catchpoint configuration](./media/catchpoint-tutorial/configuration1.png)
 
 1. On the **Single Sign On** page, perform the following steps:
 
-	![Catchpoint configuration](./media/catchpoint-tutorial/configuration2.png)
+    ![Catchpoint configuration](./media/catchpoint-tutorial/configuration2.png)
 
 	1. In the **Namespace** textbox, enter namespace as `azure AD test`.
 
