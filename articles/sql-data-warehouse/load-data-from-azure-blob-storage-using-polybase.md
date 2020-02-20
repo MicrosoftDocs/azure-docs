@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Tutorial: Load the New York Taxicab dataset
 
-This tutorial uses PolyBase to load New York Taxicab data from a public Azure blob storage account. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
+This tutorial uses PolyBase to load New York Taxicab data from a global Azure blob storage account. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Create a SQL pool in the Azure portal
@@ -106,20 +106,20 @@ A firewall at the server-level that prevents external applications and tools fro
 
     ![server settings](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
-5. select **Show firewall settings**. The **Firewall settings** page for the SQL Database server opens. 
+5. Select **Show firewall settings**. The **Firewall settings** page for the SQL Database server opens. 
 
     ![server firewall rule](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
 
-4. select **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+4. Select **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-5. select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+5. Select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
-6. select **OK** and then close the **Firewall settings** page.
+6. Select **OK** and then close the **Firewall settings** page.
 
 You can now connect to the SQL server and its data warehouses using this IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the ServerAdmin account you created previously.  
 
 > [!IMPORTANT]
-> By default, access through the SQL Database firewall is enabled for all Azure services. select **OFF** on this page and then select **Save** to disable the firewall for all Azure services.
+> By default, access through the SQL Database firewall is enabled for all Azure services. Select **OFF** on this page and then select **Save** to disable the firewall for all Azure services.
 
 ## Get the fully qualified server name
 
