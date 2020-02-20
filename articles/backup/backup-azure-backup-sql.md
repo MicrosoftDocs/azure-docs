@@ -87,9 +87,8 @@ To protect SQL Server databases in Azure, first create a backup policy:
     > [!TIP]
     > For quick recovery, keep a few short-term recovery points on your disk. These recovery points are used for operational recovery. Azure serves as a good offsite location, providing higher SLAs and guaranteed availability.
     >
+    > Use DPM to schedule Azure Backups after the local disk backups finish. When you follow this practice, the latest disk backup is copied to Azure.
     >
-
-    **Best practice**: Use DPM to schedule Azure Backups after the local disk backups finish. When you follow this practice, the latest disk backup is copied to Azure.
 
 1. Choose the retention policy schedule. For more information about how the retention policy works, see [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
 

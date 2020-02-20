@@ -102,8 +102,6 @@ When the backup finishes, the file is transferred to the Backup Server computer.
 
 ## Back up system state and bare metal
 
-Set up a protection group as described in [Deploy protection groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Remember that you can't protect BMR and system state for the same computer in different groups. Also, when you select BMR, system state is automatically enabled.
-
 To back up system state and bare metal:
 
 1. To open the Create New Protection Group Wizard, in the Backup Server Administrator Console, select **Protection** > **Actions** > **Create Protection Group**.
@@ -181,7 +179,8 @@ To run recovery on the Backup Server computer:
     * You can create and split a clone to make it writable.
     * The protected computer and Backup Server computer are connected to the same network.
 
-1. Set up notification options. On the **Confirmation** page, select **Recover**.
+1. Set up notification options. 
+1. On the **Confirmation** page, select **Recover**.
 
 To set up the share location:
 
@@ -224,7 +223,8 @@ To run recovery in Backup Server:
     * You can create and split a clone to make it writable. 
     * The protected computer and Backup Server server are connected to the same network.
 
-1. Set up notification options. On the **Confirmation** page, select **Recover**.
+1. Set up notification options. 
+1. On the **Confirmation** page, select **Recover**.
 
 To run Windows Server Backup:
 
