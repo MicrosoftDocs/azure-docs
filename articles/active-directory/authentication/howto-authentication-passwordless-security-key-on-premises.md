@@ -30,7 +30,7 @@ Azure Active Directory (AD) can issue Kerberos Ticket Granting Tickets (TGTs) fo
 
 An Azure AD Kerberos Server object is created in your on-premises Active Directory and then securely published to Azure Active Directory. The object isn't associated with any physical servers. It's simply a resource that can be used by Azure Active Directory to generate Kerberos TGTs for your Active Directory Domain.
 
-![Getting a TGT and PRT from Azure AD and AD DS](./media/howto-authentication-passwordless-on-premises/fido2-tgt-exchange-process.png)
+![Getting a ticket granting ticket (TGT) from Azure AD and AD DS](./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png)
 
 1. User signs in to their Windows 10 device with a FIDO2 security key and authenticates to Azure AD.
 1. Azure AD checks the directory for a Kerberos server key matching the user's on-premises AD domain.
