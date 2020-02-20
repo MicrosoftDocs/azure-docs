@@ -44,7 +44,7 @@
   - name: Security
     items:
     - name: Security baseline
-    - href: security-baseline.md
+      href: security-baseline.md
   - name: Developer features
     href: batch-api-basics.md
   - name: APIs and tools
