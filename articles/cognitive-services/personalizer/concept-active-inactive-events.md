@@ -25,4 +25,4 @@ To disable training for an event, call Rank by using `learningEnabled = False`. 
 
 ## Next steps
 
-* Learn [how to determine reward score and what data to consider](concepts-rewards.md).
+* Learn [how to determine reward score and what data to consider](concept-rewards.md).

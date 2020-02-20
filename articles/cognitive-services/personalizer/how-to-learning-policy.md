@@ -25,6 +25,6 @@ Learning policy settings determine the _hyperparameters_ of the model training. 
 
 ## Next steps
 
-Learn about learning policy [concepts](concept-active-learning.md#learning-settings)
+Learn about learning policy [concepts](concept-active-learning.md)
 
 [Learn about region availability](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
