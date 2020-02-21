@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/21/2020
 ms.author: helohr
 ---
 # Expand an existing host pool with new session hosts
@@ -45,6 +45,10 @@ Here's how to redeploy the Azure Resource Manager template to expand a host pool
      - If you created the original host pool with the Azure Marketplace offering, select the deployment starting with **rds.wvd-provision-host-pool**.
      - If you created the original host pool with the GitHub Azure Resource Manager template, select the deployment named **Microsoft.Template**.
 6. Select **Redeploy**.
+     
+     >[!NOTE]
+     >If selecting **Redeploy** does not automatically redeploy the template, select **Template** in the panel on the left side of the browser then select **Deploy**.
+
 7. Select the resource group that contains the current session host VMs in the existing host pool.
      
      >[!NOTE]
