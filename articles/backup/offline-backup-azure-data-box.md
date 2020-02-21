@@ -209,7 +209,7 @@ To ensure you can mount your Data Box device as a Local System by using the NFS 
     >
     >For example, if the path of the disk is `\\mydomain\myserver\disk1\` and *disk1* contains a directory called *PageBlob*, the path you enter on the MARS Agent wizard page is `\\mydomain\myserver\disk1\`.
     >
-    >If you [set up an Azure Data Box 100-TB device](#setup-azure-data-box), enter `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` as the network path to the device.
+    >If you [set up an Azure Data Box 100-TB device](#set-up-azure-data-box-devices), enter `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` as the network path to the device.
 
 1. Select **Next**, and select **Finish** on the next page to save the backup and retention policy with the configuration of offline backup by using Azure Data Box.
 
