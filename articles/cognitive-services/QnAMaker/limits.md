@@ -98,4 +98,4 @@ These represent the limits for each update action; that is, clicking *Save and t
 
 ## Next steps
 
-Learn when and how to change [service pricing tiers](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).
+Learn when and how to change [service pricing tiers](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).

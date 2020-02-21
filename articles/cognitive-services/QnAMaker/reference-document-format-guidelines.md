@@ -36,7 +36,7 @@ A manual is typically guidance material that accompanies a product. It helps the
 
 Below is an example of a manual with an index page, and hierarchical content
 
- ![Product Manual example for a knowledge base](../media/qnamaker-concepts-datasources/product-manual.png)
+ ![Product Manual example for a knowledge base](./media/qnamaker-concepts-datasources/product-manual.png)
 
 > [!NOTE]
 > Extraction works best on manuals that have a table of contents and/or an index page, and a clear structure with hierarchical headings.
@@ -47,7 +47,7 @@ Many other types of documents can also be processed to generate QA pairs, provid
 
 Below is an example of a semi-structured doc, without an index:
 
- ![Azure Blob storage semi-structured Doc](../media/qnamaker-concepts-datasources/semi-structured-doc.png)
+ ![Azure Blob storage semi-structured Doc](./media/qnamaker-concepts-datasources/semi-structured-doc.png)
 
 ## Structured QnA Document
 
@@ -65,7 +65,7 @@ Answer2
 
 Below is an example of a structured QnA word document:
 
- ![Structured QnA document example for a knowledge base](../media/qnamaker-concepts-datasources/structured-qna-doc.png)
+ ![Structured QnA document example for a knowledge base](./media/qnamaker-concepts-datasources/structured-qna-doc.png)
 
 ## Structured *TXT*, *TSV* and *XLS* Files
 
@@ -82,17 +82,17 @@ Any additional columns in the source file are ignored.
 
 Below is an example of a structured QnA *.xls* file, with HTML content:
 
- ![Structured QnA excel example for a knowledge base](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![Structured QnA excel example for a knowledge base](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ### Example of alternate questions for single answer in Excel file
 
 Below is an example of a structured QnA *.xls* file, with several alternate questions for a single answer:
 
- ![Example of alternate questions for single answer in Excel file](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+ ![Example of alternate questions for single answer in Excel file](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
 
 After the file is imported, the question-and-answer pair is in the knowledge base as shown below:
 
- ![Screenshot of alternate questions for single answer imported into knowledge base](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
+ ![Screenshot of alternate questions for single answer imported into knowledge base](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## Structured data format through import
 

@@ -35,4 +35,4 @@ The high-level idea as represented above is as follows:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Choose capacity for your QnA Maker deployment](../Tutorials/choosing-capacity-qnamaker-deployment.md)
+> [Choose capactiy](./improve-knowledge-base.md)

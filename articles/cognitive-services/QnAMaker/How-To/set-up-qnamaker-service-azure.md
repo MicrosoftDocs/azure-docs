@@ -11,7 +11,7 @@ Before you can create any QnA Maker knowledge bases, you must first set up a QnA
 A solid understanding of the following concepts is helpful before creating your resource:
 
 * [QnA Maker resources](../Concepts/azure-resources.md)
-* [Authoring and publishing keys](../Concepts/azure-resources.md#types-of-keys-in-qna-maker)
+* [Authoring and publishing keys](../Concepts/azure-resources.md#keys-in-qna-maker)
 
 ## Create a new QnA Maker service
 
