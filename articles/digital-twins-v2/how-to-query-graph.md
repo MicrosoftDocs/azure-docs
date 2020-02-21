@@ -13,10 +13,10 @@ ms.service: digital-twins
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
+
 # Query the digital twin graph
 
 The Query APIs let developers find sets of twins in the graph across relationships and applying filters
-
 
 Some example queries:
 
@@ -32,7 +32,6 @@ FROM DigitalTwins T
 WHERE T.IS_OF_MODEL(T , ‘urn:contosocom:DigitalTwins:Space:3’)
 AND T.roomSize > 50
 ```
-
 
 Get twins by traversing relationships
 ```sql

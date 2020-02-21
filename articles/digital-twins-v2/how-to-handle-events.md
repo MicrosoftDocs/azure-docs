@@ -59,7 +59,7 @@ var client = new DigitalTwinsClient("...Authentication Info...");
     client.RegisterEventHandler("SoapDispenserP01", "RoomPed01", "Egrid1.MotionOrSoapEvent");
 ```
 
-The new lines are marked with red arrows. Basically, an event handler registration lets you specify a source twin (the twin that fires event), and a twin that you want to modify with the event handler (the target twin). Exactly which event handler function is targeted is specified with the 3rd argument in the registration call (i.e. “Egrid1.UpdateHandWashAverage” in this example). This will be explained in detail below Add reference to details section
+The new lines are marked with red arrows. Basically, an event handler registration lets you specify a source twin (the twin that fires event), and a twin that you want to modify with the event handler (the target twin). Exactly which event handler function is targeted is specified with the 3rd argument in the registration call (i.e. `Egrid1.UpdateHandWashAverage`in this example). This will be explained in detail below Add reference to details section
 As you can see in the example, the same event handler function can be used in multiple places.
 Please see the detailed sections on event handling for more details on the wire up of compute resources.
 
@@ -104,6 +104,7 @@ var client = new DigitalTwinsClient("...Authentication Info...");
 ```
 
 ## Compute Setup and Preparation
+
 Add more detail to the setup workflow of compute 
 To run compute from ADT event handlers, you need to prepare an event grid as the broker between ADT and your compute resource. You can then use subscriptions to this EventGrid to handle events from ADT, for example using Azure functions. 
 The steps to do so are: 
@@ -112,14 +113,18 @@ The steps to do so are:
 * Set up an Azure Functions app with your desired functions
 * Register the Azure Function App with Azure Active Directory
 * Enable Event Grid to access the AAD App
+
 For more information:
 * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid
 * https://docs.microsoft.com/en-us/azure/event-grid/secure-webhook-delivery
-Creating Function / Webhook Subscription
+
+## Creating Function / Webhook Subscription
+
 Once you have an event grid with appropriate topics for each function you want to connect, you need to create subscriptions for each compute resource. This is done using the Azure management APIs for Event Grid. 
 If your compute resource is an Azure Function, wire-up is a little easier, as you do not need to perform validation explicitly (this is handled by the EventGridTrigger for Azure Functions automatically).
 
 ## Writing the Function Body
+
 The following code snippet shows an example for an Azure Function set up as an event handler:
 
 ```csharp
@@ -198,7 +203,6 @@ This function receives a DigitalTwinsEventData object wrapped into the EventGrid
 * A security context that provides access to the ADT service. 
 The code first connects to the ADT service, using the security context passed in as part of the event message. It then retrieves the relationships from the target twin, and averages the HandWashPercentage property of the source twins (error handling omitted for brevity).
 Finally, it sets the averages HandWashPercentage property on the twin identified by the target Id.
-
 
 ## React to live cycle events to handle device creation
 

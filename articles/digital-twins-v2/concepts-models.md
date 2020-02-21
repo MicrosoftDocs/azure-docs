@@ -27,12 +27,12 @@ The DTDL version used for Plug and Play is semantically a subset of DTDL for ADT
 ## Interfaces
 
 Model descriptions in DTDL are called interfaces. An interface describes a model in terms of:
-	Properties. Properties are data fields that represent the state of an entity, just like in most object-oriented languages. Unlike telemetry, which is just a data event, properties have backing storage and can be read at any time.
-	Telemetry. Telemetry fields represent measurements or events. Measurement are typically used for the equivalent of sensor readings. Telemetry is not stored on a twin – it is effectively sent as a stream of data events.
-	Commands. Commands represent methods can be executed on the digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
-	Relationships. Relationships lets you model how a given twin is related to other twins. Relationships can represent different semantic meanings, such as “floor contains room”, “hvac cools rooms”, “Compressor is-billed-to user” etc. Using relationships, digital twins solutions construct a graph of interrelated twins. 
-	Components. A component lets you build your model as an assembly of other interfaces. Use a component to describe something that is an integral part of your model, and that does not need to be created, deleted or re-arranged in your topology of twins independently. 
-In contrast, use independent twins connected by a relationship when you want both parts to have an independent existence in the graph.
+* Properties. Properties are data fields that represent the state of an entity, just like in most object-oriented languages. Unlike telemetry, which is just a data event, properties have backing storage and can be read at any time.
+* Telemetry. Telemetry fields represent measurements or events. Measurement are typically used for the equivalent of sensor readings. Telemetry is not stored on a twin – it is effectively sent as a stream of data events.
+* Commands. Commands represent methods can be executed on the digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
+* Relationships. Relationships lets you model how a given twin is related to other twins. Relationships can represent different semantic meanings, such as “floor contains room”, “hvac cools rooms”, “Compressor is-billed-to user” etc. Using relationships, digital twins solutions construct a graph of interrelated twins. 
+* Components. A component lets you build your model as an assembly of other interfaces. Use a component to describe something that is an integral part of your model, and that does not need to be created, deleted or re-arranged in your topology of twins independently. In contrast, use independent twins connected by a relationship when you want both parts to have an independent existence in the graph.
+
 Example that shows how to think about relationships versus components
 A simple example model: [TBA – should probably be a model that exposes a command too]
 

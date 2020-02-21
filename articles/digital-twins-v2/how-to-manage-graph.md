@@ -13,6 +13,7 @@ ms.service: digital-twins
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
+
 # Manage the components of your digital twin graph
 
 The Twin APIs let developers create, modify and delete twins and their relationships in an ADT instance
@@ -49,6 +50,7 @@ var client = new DigitalTwinsClient("...Authentication Info...");
 ```
 
 ## Creating Twins and Graphs of Twin Instances 
+
 Once models are uploaded to the server, you can begin constructing a twin instance graph. In many cases, the data that determines the topology of the instance graph will come from an existing data source such as a CAD file, a BIM database or an excel spreadsheet.
 The following code shows a minimal example for instance graph creation:
 
@@ -61,7 +63,7 @@ Response rR = client.CreateRelationship("idMyPlanet01", "IsCircledBy", "idMyMoon
 ```
 
 
-This code creates two instances of twins, one using model type planet, the other using model type moon. In addition to the model type id (dtmi:Planet and dtmi:Moon), you need to pass in a unique ID, and data to initialize the twin instance during creation. More on initialization in the next section. The sample also creates a relationship between the two instances, connecting them to each other.
+This code creates two instances of twins, one using model type planet, the other using model type moon. In addition to the model type id (`dtmi:Planet` and `dtmi:Moon`), you need to pass in a unique ID, and data to initialize the twin instance during creation. More on initialization in the next section. The sample also creates a relationship between the two instances, connecting them to each other.
 
 ## Initializing Properties
 
@@ -97,14 +99,15 @@ string s = JsonSerializer.Serialize(moonData);
 ## Creating Twins: A More Complete Example
 
 A slightly more complete example, reading a topology from a spreadsheet. Assumption is that there are a number of rows in the excel file that list floors or rooms (and the parent floor for each room):
-Type	Id	Parent	RelName	OtherData	OtherData	
-floor	Floor01			…	…	
-room	Room10	Floor01	contains	…	…	
-room	Room11	Floor01	contains	…	…	
-room	Room12	Floor01	contains	…	…	
-floor	Floor02			…	…	
-room	Room21	Floor02	contains	…	…	
-room	Room22	Floor02	contains	…	…	
+| Type	| Id | Parent | RelName | OtherData | OtherData |
+| --- | --- | --- | --- | --- | --- |
+| floor	| Floor01 | | | … | … |
+| room	| Room10 | Floor01 | contains | … | … |
+| room	| Room11 | Floor01 | contains | … | … |
+| room	| Room12 | Floor01 | contains | … | … |
+| floor	| Floor02 | | | … | … |
+| room	| Room21 | Floor02 | contains | … | … |
+| room	| Room22 | Floor02 | contains | … | … |
 
 The following code uses the Microsoft Graph API to read a spreadsheet and construct an ADT graph from the results:
 

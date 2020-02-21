@@ -13,11 +13,13 @@ ms.service: digital-twins
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
+
 # Manage your Azure Digital Twins model set
 
-* Model Management APIs are APIs used to manage the models (types of twins and relationships) that a given ADT instance knows about. This includes upload, validation and retrieval of twin models authored in DTDL. 
+Model Management APIs are APIs used to manage the models (types of twins and relationships) that a given ADT instance knows about. This includes upload, validation and retrieval of twin models authored in DTDL. 
 
 ## Modeling (Private Preview, Public Preview)
+
 The first step towards the solution is to model the twin types used to represent the hospital. Models for ADT are written in DTDL, a JSON-LD-based, programming language agnostic type description. For example, a patient room, for the purposes of this solution, might be described as:
 
 ```json
@@ -55,6 +57,7 @@ This description defines a name and a unique id for the patient room, a few prop
 In a similar manner, types for the hospital itself, as well as hospital wards or zones can be defined.
 
 ## Uploading Models
+
 Once models are created, you can upload them to the service instance. 
 An example:
 
@@ -101,6 +104,7 @@ On upload, model files are validated.
 Add up-to-date information on validation of DTDL on upload
 
 ## Retrieve Model(s)
+
 You can list and retrieve models stored on your ADT service instance. Your options are:
 * Retrieve all models
 * Retrieve a single model
@@ -230,10 +234,10 @@ public void ParseModels()
 Add an example that shows how the parser coalesces properties in the presence of inheritance. That is, when reflecting over properties of ConferenceRoom, we’d see all the properties of the types that ConferenceRoom extends. 
 
 ## Model Deletion
+
 Models can also be deleted from the service. Deletion is a two-step process:
 * Models first need to be “de-commissioned”. A de-commissioned model is still valid and can be used by existing twin instances. This includes the ability to change properties or add and delete relationships. However, new instances of this model type cannot be created any longer
 * Once there are no more instances of a given model, and the model is not referenced by any other model any longer, they can be deleted. After decommissioning a model, you would typically either delete existing instances of that model, or you would transition the twin instance to a different model. Add an example for transitioning 
-
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");  
@@ -242,6 +246,5 @@ client.DecommisionModel(dtmiOfPlanetInterface);
 ...
 ```
 
-
-DecommissionModel() can take one or more than one URN(s) so developers can process one or multiple ones in one statement. 
+`DecommissionModel()` can take one or more than one URN(s) so developers can process one or multiple ones in one statement. 
 Note that the decommissioning status is also included in the ModelData records returned by the model retrieval APIs.

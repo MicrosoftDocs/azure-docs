@@ -13,6 +13,7 @@ ms.service: digital-twins
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
+
 # Explore an Azure Digital Twin solution
 
 Intent: I want to quickly build an example ADT solution and transform telemetry into insights.​
@@ -22,26 +23,19 @@ Scenario: Monitor hygiene in a health facility ​
 Tooling: Azure subscription, CLI*, VS Code, .NET core​
 
 Experiences per tool​
-
-    - CLI​  *preferred quickstart tooling
-
-    - VS Code​
-
-    - Visual Studio​
+* CLI​  *preferred quickstart tooling
+* VS Code​
+* Visual Studio​
 
 Outline: ​
-
-    - Git clone project​
-
-    - Create Azure AD service principal​
-
-    - Modify project with SP / connection info​
-
-    - Dotnet run​
-
-    - Explore a simple model and graph, run an example query
+* Git clone project​
+* Create Azure AD service principal​
+* Modify project with SP / connection info​
+* Dotnet run​
+* Explore a simple model and graph, run an example query
 
 ## ADT: A Simple Example
+
 In hospitals, it is crucial that medical personnel wash their hands regularly. However, actual compliance with hand-washing policies is traditionally hard to measure. Using IoT technology, a hospital aims to solve multiple business problems at once:
 * Measure compliance with hand washing policies to control spread of germs
 * Make sure that sanitation equipment and soap and towel dispensers are always filled and operational

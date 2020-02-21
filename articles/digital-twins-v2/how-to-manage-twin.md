@@ -13,11 +13,13 @@ ms.service: digital-twins
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
+
 # Manage an individual twin in the graph
 
 The Twin APIs let developers create, modify and delete twins and their relationships in an ADT instance
 
 ## Getting Twin Data for an Entire Twin
+
 You can access data on any twin by calling 
 `Response<JsonDocument> GetTwin(string id);`
 This returns twin data in JSON form. Assuming the following DTDL for a twin of type moon:
@@ -157,7 +159,6 @@ UpdateTwin can also be used to migrate a twin instance to a different model type
   }
 ]
 ```
-
 
 ## Getting and Setting Individual Properties on Twins
 
