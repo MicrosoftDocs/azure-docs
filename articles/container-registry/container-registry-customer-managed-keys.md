@@ -6,43 +6,61 @@ ms.date: 01/13/2020
 ms.custom: 
 ---
 
-# Configure a customer-managed key to encrypt registry data
+# Encrypt registry data with a customer-managed key 
 
-When you use an Azure container registry to store image data and other artifacts, the Azure Container Registry service automatically encrypts this data at rest. By default, data is encrypted with Microsoft-managed keys.
+When you use an Azure container registry to store image data and other artifacts, the Azure Container Registry service automatically encrypts this data at rest. By default, data is encrypted with Microsoft-managed keys. Data in a registry is encrypted and decrypted using 256-bit AES encryption.
 
 For additional control over encryption keys, you can supply a customer-managed key to encrypt the data in a registry. The key must be stored in an Azure key vault. This article shows you how to create and store a key in an Azure key vault, and then create a registry enabled to encrypt data using this key.
 
+This feature is only available in a **Premium** container registry. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
+
 > [!IMPORTANT]
-> At this time, you must [request access](#register-the-provider) to use this capability. We recommend you review current [limitations and constraints](#limitations-and-constraints) before enabling this feature.    
+> This feature is currently in preview, and some [limitations](#preview-limitations) apply. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+   
+## Preview limitations 
 
-## Limitations and constraints
+* This feature is currently enabled only on a newly created registry.
 
-* This feature can only be enabled on a newly created registry.
-* Disabling encryption for a registry is not supported.
-* This feature is only available in a **Premium** container registry. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
-* You can only use a Resource Manager template to enable this feature. Azure CLI and Azure portal support for this feature are planned.
-* Other registry features such as geo-replication, content trust, and virtual network integration are currently unsupported when this feature is enabled but planned for a future release.
+## Encryption key management
 
-## Register the provider
+You can rely on Microsoft-managed keys for the encryption of your registry data, or you can manage the encryption with your own keys. The following table compares these options: 
 
-In order to use this feature, you need to request access using the following [az feature register][az-feature-register] command. Substitute your own Azure subscription ID in the command.
+|    |    Microsoft-managed keys     |     Customer-managed keys     |
+|----|----|----|
+|    Encryption/decryption operations    |    Azure    |    Azure    |
+|    Key storage    |    Microsoft key store    |    Azure Key Vault    |
+|    Key rotation responsibility    |    Microsoft    |    Customer    |
+|    Key access    |    Microsoft only    |    Microsoft, Customer    |
 
-```azurecli
-az feature register --name PrivatePreview \
-  --namespace Microsoft.ContainerRegistry \
-  --subscription <subscriptionID>
-```
+The rest of this article  covers the steps required to encrypt your registry data with a key created and stored in an Azure key vault ß(customer-managed key). 
 
-After the request is approved, you can use the feature.
+## Customer-managed key - portal
 
-To check the status of your registration, run the [az feature show][az-feature-show] command:
+### Create a key vault and key
 
-```azure cli
-az feature show --name PrivatePreview \
-  --namespace Microsoft.ContainerRegistry \
-```
+For steps, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/quick-create-portal.md).
 
-## Create a key vault and key
+### Enable soft delete and purge protection
+
+This key vault should have two key protection settings enabled: **Soft delete** and **Purge protection**.
+
+To enable the settings in the portal:
+
+1. Navigate to your key vault.
+1. Select **Settings** > **Properties**.
+1. In **Soft delete**, select **Enable**. Enter a retention period in days, or accept the default value.
+1. In **Purge protection**, select **Enable**. Click **Save**.
+
+### Create key and get key ID
+
+1. Navigate to your key vault.
+1. Select **Settings** > **Keys**
+1. Select **+Generate/Import** and enter a unique name for the key.
+1. Accept the remaining default values and select **Create**.
+1. After creation, select the key and select the current key version.
+1. On the **Key Version** screen, copy the **Key Identifier**.
+
+## Customer-managed key - CLI
 
 ### Create a resource group
 
@@ -54,7 +72,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### Create a key vault
 
-Create a key vault with [az keyvault create][az-keyvault-create] to store customer-managed keys for registry encryption. This key vault should have two key protection settings enabled: Soft Delete and Do Not Purge. This following example includes parameters for these settings: 
+Create a key vault with [az keyvault create][az-keyvault-create] to store customer-managed keys for registry encryption. This key vault should have two key protection settings enabled: **Soft delete** and **Purge protection**. This following example includes parameters for these settings: 
 
 ```azurecli
 az keyvault create \
@@ -64,7 +82,7 @@ az keyvault create \
   --enable-purge-protection
 ```
 
-### Create a key and get the key ID
+### Create key and get key ID
 
 Run the [az keyvault key create][az-keyvault-key-create] command to create a key in the key vault key and the corresponding key ID. In this example, the key is stored in the `KEK` variable.
 
