@@ -95,7 +95,7 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 ### Step 5
 
-On the Azure Portal for Stream Analytics job, click on your job name.  Click on the ***Test*** button in the ***Output details*** pane.
+On the Azure portal for Stream Analytics job, click on your job name.  Click on the ***Test*** button in the ***Output details*** pane.
 
 ![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png)
 When the connection to the database succeeds, you will see a notification in the portal.
