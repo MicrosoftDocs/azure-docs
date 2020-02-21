@@ -40,16 +40,16 @@ conceptualContent:
   items:
     - title: Bing Web Search
       links:      
-        - url: web-search-sdk-quickstart.md
+        - url: ./quickstarts/bing-web-search-sdk.md
           itemType: quickstart
           text: Use C#
-        - url: web-sdk-java-quickstart.md
+        - url: ./quickstarts/bing-web-search-sdk.md
           itemType: quickstart
           text: Use Java
         - text: Use Node.js
           itemType: quickstart
-          url: web-search-sdk-node-quickstart.md
-        - url: web-sdk-python-quickstart.md
+          url: ./quickstarts/bing-web-search-sdk.md
+        - url: ./quickstarts/bing-web-search-sdk.md
           itemType: quickstart
           text: Use Python
         - url: tutorial-bing-web-search-single-page-app.md
