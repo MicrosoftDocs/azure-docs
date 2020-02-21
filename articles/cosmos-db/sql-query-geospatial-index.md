@@ -1,5 +1,5 @@
 ---
-title: Indexing geospatial data with Azure Cosmos DB
+title: Index geospatial data with Azure Cosmos DB
 description: Index spatial data with Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
@@ -8,7 +8,7 @@ ms.date: 02/20/2020
 ms.author: tisande
 
 ---
-# Indexing geospatial data with Azure Cosmos DB
+# Index geospatial data with Azure Cosmos DB
 
 We designed Azure Cosmos DB’s database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of Azure Cosmos DB natively understands spatial data represented in the GeoJSON standard.
 

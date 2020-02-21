@@ -431,12 +431,12 @@
         - name: Geospatial overview
           displayName: geospatial, spatial
           href: sql-query-geospatial-intro.md
-        - name: Querying geospatial data
+        - name: Query geospatial data
           displayName: geospatial, spatial, query
           href: sql-query-geospatial-query.md
-        - name: Indexing geospatial data
-          displayName: geospatial, spatial, indexing
-          href: sql-query-geospatial-indexing.md
+        - name: Index geospatial data
+          displayName: geospatial, spatial, index
+          href: sql-query-geospatial-index.md
       - name: Parameterized query
         displayName: parameterized query, parameterized, parameter, parameters
         href: sql-query-parameterized-queries.md

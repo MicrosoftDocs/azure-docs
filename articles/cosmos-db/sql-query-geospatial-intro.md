@@ -195,4 +195,4 @@ Now that you have learned how to get started with geospatial support in Azure Co
 
 * Learn more about [Azure Cosmos DB Query](sql-query-getting-started.md)
 * Learn more about [Querying spatial data with Azure Cosmos DB](sql-query-geospatial-query.md)
-* Learn more about [Indexing spatial data with Azure Cosmos DB](sql-query-geospatial-indexing.md)
+* Learn more about [Index spatial data with Azure Cosmos DB](sql-query-geospatial-index.md)

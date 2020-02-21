@@ -24,7 +24,7 @@ Here is a list of geospatial system functions useful for querying in Azure Cosmo
 |ST_ISVALID| Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid.|
 | ST_ISVALIDDETAILED| Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid. If invalid, it returns the reason as a string value.|
 
-Spatial functions can be used to perform proximity queries against spatial data. For example, here's a query that returns all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. 
+Spatial functions can be used to perform proximity queries against spatial data. For example, here's a query that returns all family documents that are within 30 km of the specified location using the `ST_DISTANCE` built-in function.
 
 **Query**
 
@@ -42,7 +42,7 @@ Spatial functions can be used to perform proximity queries against spatial data.
     }]
 ```
 
-If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more information on spatial indexing, see [geospatial indexing](sql-query-geospatial-indexing.md). If you don't have a spatial index for the specified paths, the query will do a scan of the container.
+If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more information on spatial indexing, see [geospatial indexing](sql-query-geospatial-index.md). If you don't have a spatial index for the specified paths, the query will do a scan of the container.
 
 `ST_WITHIN` can be used to check if a point lies within a Polygon. Commonly Polygons are used to represent boundaries like zip codes, state boundaries, or natural formations. Again if you include spatial indexing in your indexing policy, then "within" queries will be served efficiently through the index.
 
@@ -94,7 +94,7 @@ Azure Cosmos DB also supports performing inverse queries, that is, you can index
     }]
 ```
 
-`ST_ISVALID` and `ST_ISVALIDDETAILED` can be used to check if a spatial object is valid. For example, the following query checks the validity of a point with an out of range latitude value (-132.8). ST_ISVALID returns just a Boolean value, and ST_ISVALIDDETAILED returns the Boolean and a string containing the reason why it is considered invalid.
+`ST_ISVALID` and `ST_ISVALIDDETAILED` can be used to check if a spatial object is valid. For example, the following query checks the validity of a point with an out of range latitude value (-132.8). `ST_ISVALID` returns just a Boolean value, and `ST_ISVALIDDETAILED` returns the Boolean and a string containing the reason why it is considered invalid.
 
 **Query**
 
@@ -110,7 +110,7 @@ Azure Cosmos DB also supports performing inverse queries, that is, you can index
     }]
 ```
 
-These functions can also be used to validate Polygons. For example, here we use `ST_ISVALIDDETAILED` to validate a Polygon that is not closed. 
+These functions can also be used to validate Polygons. For example, here we use `ST_ISVALIDDETAILED` to validate a Polygon that is not closed.
 
 **Query**
 
@@ -131,8 +131,9 @@ These functions can also be used to validate Polygons. For example, here we use 
     }]
 ```
 
-## LINQ Querying in the .NET SDK
-The SQL .NET SDK also providers stub methods `Distance()` and `Within()` for use within LINQ expressions. The SQL LINQ provider translates this method calls to the equivalent SQL built-in function calls (ST_DISTANCE and ST_WITHIN respectively). 
+## LINQ querying in the .NET SDK
+
+The SQL .NET SDK also providers stub methods `Distance()` and `Within()` for use within LINQ expressions. The SQL LINQ provider translates this method calls to the equivalent SQL built-in function calls (ST_DISTANCE and ST_WITHIN respectively).
 
 Here's an example of a LINQ query that finds all documents in the Azure Cosmos container whose `location` value is within a radius of 30 km of the specified point using LINQ.
 
@@ -176,4 +177,4 @@ Now that you have learned how to get started with geospatial support in Azure Co
 
 * Learn more about [Azure Cosmos DB Query](sql-query-getting-started.md)
 * Learn more about [Geospatial and GeoJSON location data in Azure Cosmos DB](sql-query-geospatial-intro.md)
-* Learn more about [Indexing spatial data with Azure Cosmos DB](sql-query-geospatial-indexing.md)
+* Learn more about [Index spatial data with Azure Cosmos DB](sql-query-geospatial-index.md)
