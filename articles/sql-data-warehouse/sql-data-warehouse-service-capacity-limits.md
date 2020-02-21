@@ -32,11 +32,11 @@ Maximum values allowed for various components of Azure Synapse.
 
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Database |Max size | Gen1: 240 TB compressed on disk. This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type). <br/><br/> Gen2: 240TB for rowstore and unlimited storage for columnstore tables |
-| Table |Max size |60 TB compressed on disk |
+| Database |Max size | Gen1: 240 TB compressed on disk. This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type). <br/><br/> Gen2: Unlimited storage for columnstore tables.  Rowstore portion of the database is still limited to 240 TB compressed on disk. |
+| Table |Max size |Unlimited size for columnstore tables. <br>60 TB for rowstore tables compressed on disk. |
 | Table |Tables per database | 100,000 |
 | Table |Columns per table |1024 columns |
-| Table |Bytes per column |Dependent on column [data type](sql-data-warehouse-tables-data-types.md). Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types. |
+| Table |Bytes per column |Dependent on column [data type](sql-data-warehouse-tables-data-types.md). For character data types, MAX Limit can store up to 2 GB in off page (row-overflow) storage.  Non-Unicode characters such as char or varchar limit is 8000 in a data page, Unicode characters such as nchar or nvarchar limit is 4000 in a data page.  Use data page storage sizes to increase performance. |
 | Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, row-overflow storage is supported, which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see [Row-Overflow Data Exceeding 8-KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Table |Partitions per table |15,000<br/><br/>For high performance, we recommend minimizing the number of partitions you need while still supporting your business requirements. As the number of partitions grows, the overhead for Data Definition Language (DDL) and Data Manipulation Language (DML) operations grows and causes slower performance. |
 | Table |Characters per partition boundary value. |4000 |
