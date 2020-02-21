@@ -98,7 +98,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 
 
 >[!IMPORTANT] 
-> The IsMemberOf filter is not supported currently.. 
+> The IsMemberOf filter is not supported currently.
 
 9. Optionally, repeat steps 7-8 to add more scoping clauses.
 
