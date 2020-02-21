@@ -35,18 +35,21 @@ async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
     // load a model that will be parented to modelParent
     var modelParams = new LoadModelParams(modelUri, modelParent);
 
-    var async = session.Actions.LoadModelAsync(modelParams);
+    var loadOp = session.Actions.LoadModelAsync(modelParams);
 
-    async.ProgressUpdated += (float progress) =>
+    loadOp.ProgressUpdated += (float progress) =>
     {
         Debug.Log($"Loading: {progress * 100.0f}%");
     };
 
-    await async.AsTask();
+    await loadOp.AsTask();
 }
 ```
 
 Afterwards you can traverse the entity hierarchy and modify the entities and components. Loading the same model multiple times creates multiple instances, each with their own copy of the entity/component structure. Since meshes, materials, and textures are [shared resources](../concepts/lifetime.md), their data will not be loaded again, though. Therefore instantiating a model more than once incurs relatively little memory overhead.
+
+> [!CAUTION]
+> All *Async* functions in ARR return asynchronous operation objects. You must store a reference to those objects until the operation is completed. Otherwise the C# garbage collector may delete the operation early and it can never finish. In the sample code above the use of *await* guarantees that the local variable 'loadOp' holds a reference until model loading is finished. However, if you were to use the *Completed* event instead, you would need to store the asynchronous operation in a member variable.
 
 ## Next steps
 

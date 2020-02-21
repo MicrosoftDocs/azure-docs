@@ -13,7 +13,7 @@ This article lists some resources for sample data that can be used for testing t
 
 ## Built-in sample model
 
-We provide a built-in sample model that can always be loaded using the URL **builtin:://Engine**
+We provide a built-in sample model that can always be loaded using the URL **builtin://Engine**
 
 ![Sample model](./media/sample-model.png "Sample model")
 

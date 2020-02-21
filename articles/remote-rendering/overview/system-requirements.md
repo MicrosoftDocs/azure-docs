@@ -32,7 +32,7 @@ The table below lists which GPUs support H265 hardware video decoding.
 | AMD | GPUs with at least version 6 of AMD's [Unified Video Decoder](https://en.wikipedia.org/wiki/Unified_Video_Decoder#UVD_6). |
 | Intel | Skylake and newer CPUs |
 
-Even though the correct H265 codec might be installed, security properties on the codec dlls may cause codec initialization failures. The [troubleshooting guide](../resources/troubleshoot.md#h265-codec-not-available) describes steps how to solve this. This dll issue can only occur when using the service in a desktop application, for instance in Unity or Unreal.
+Even though the correct H265 codec might be installed, security properties on the codec DLLs may cause codec initialization failures. The [troubleshooting guide](../resources/troubleshoot.md#h265-codec-not-available) describes steps how to solve this problem. The DLL issue can only occur when using the service in a desktop application, for instance in Unity or Unreal.
 
 ## Devices
 
@@ -49,7 +49,7 @@ It's important to use the latest HEVC codec, as newer versions have significant 
 
 ## Network
 
-A stable, low-latency network connection is critical for a good user experience. 
+A stable, low-latency network connection is critical for a good user experience.
 
 See dedicated chapter for [network requirements](../reference/network-requirements.md).
 
@@ -74,7 +74,7 @@ The following software must be installed:
   ![Connect to Feed 2](./media/connect-to-feed-2.png)
 1. From the link under *Step 1* download the latest NuGet.exe (under *Windows x86 Commandline*)
 1. Copy NuGet.exe to some folder and add the location to your `PATH` environment variable.
-1. The page linked under *Step 2* describes how to install the NuGet Credential Provider. The [manual installation](https://github.com/microsoft/artifacts-credprovider#manual-installation-on-windows) is straight forward.
+1. The page linked under *Step 2* describes how to install the NuGet Credential Provider. The [manual installation](https://github.com/microsoft/artifacts-credprovider#manual-installation-on-windows) is straight forward and should work, even when your domain does not allow the automated load of the Credentials Manager.
 1. Open a **new** command prompt (if you had to change your `PATH` environment variable you cannot reuse an existing one).
 1. Add the "arrPackages" feed with the following NuGet command:
   
