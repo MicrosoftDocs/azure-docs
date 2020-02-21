@@ -38,7 +38,7 @@ Azure has thousands of permissions that you can potentially include in your cust
 | --- | --- |
 | Look at existing roles | You can look at existing roles to see what permissions are being used. For more information, see [Azure built-in roles](built-in-roles.md). |
 | Search for permissions by keyword | When you create a custom role using the Azure portal, you can search for permissions by keyword. For example, you can search for *virtual machine* or *billing* permissions. This search functionality is described more later in [Step 4: Permissions](#step-4-permissions). |
-| Download all permissions | When you create a custom role using the Azure portal, you can download all of the permissions as a CSV file and then search this file. On the Add permissions pane, click the **Download app permissions** button to download all of the permissions. For more information about the Add permissions pane, see [Step 4: Permissions](#step-4-permissions). |
+| Download all permissions | When you create a custom role using the Azure portal, you can download all of the permissions as a CSV file and then search this file. On the Add permissions pane, click the **Download all permissions** button to download all of the permissions. For more information about the Add permissions pane, see [Step 4: Permissions](#step-4-permissions). |
 | View the permissions in the docs | You can view the available permissions in [Azure Resource Manager resource provider operations](resource-provider-operations.md). |
 
 ## Step 2: Choose how to start
