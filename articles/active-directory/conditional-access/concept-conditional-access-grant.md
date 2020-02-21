@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 02/21/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -120,7 +120,7 @@ This setting applies to the following client apps:
 
 ### Terms of use
 
-If your organization has created terms of use, additional options may be visible under grant controls. These options allow administrators to require acknowledgement of terms of use as a condition of accessing the resources protected by the policy. More information about terms of use can be found in the article, [Azure Active Directory terms of use](terms-of-use.md).
+If your organization has created terms of use, additional options may be visible under grant controls. These options allow administrators to require acknowledgment of terms of use as a condition of accessing the resources protected by the policy. More information about terms of use can be found in the article, [Azure Active Directory terms of use](terms-of-use.md).
 
 ## Next steps
 
