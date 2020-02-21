@@ -28,7 +28,7 @@
   - name: SDKs
     items:
     - name: Bing Web Search client libraries
-      href: ./quickstarts/bing-web-search-sdk.md
+      href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Build a single-page web app
