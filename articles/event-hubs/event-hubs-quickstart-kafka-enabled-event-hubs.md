@@ -28,9 +28,7 @@ To complete this quickstart, make sure you have the following prerequisites:
 
 
 ## Create a Kafka enabled Event Hubs namespace
-When you create a standard tier Event Hubs namespace, the Kafka endpoint for the namespace is automatically enabled. You can stream events from your applications that use the Kafka protocol into standard tier Event Hubs. It's not enabled for the basic tier Event Hubs namespace. 
-
-Follow step-by-step instructions in the [Create an event hub using Azure portal](event-hubs-create.md) to create a **standard** tier Event Hubs namespace. 
+When you create a standard tier Event Hubs namespace, the Kafka endpoint for the namespace is automatically enabled. You can stream events from your applications that use the Kafka protocol into standard tier Event Hubs. It's not enabled for the basic tier Event Hubs namespace. Follow step-by-step instructions in the [Create an event hub using Azure portal](event-hubs-create.md) to create a **standard** tier Event Hubs namespace. 
 
 ## Send and receive messages with Kafka in Event Hubs
 
