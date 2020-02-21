@@ -52,8 +52,11 @@ Given that low storage latency is critical for DBMS systems, even as DBMS, like 
 
 **Recommendation: As stripe sizes for the RAID 0 the recommendation is to use:**
 
-- 64 KB or 128 KB for **/hana/data**
+- 256 KB for **/hana/data**
 - 32 KB for **/hana/log**
+
+> [!IMPORTANT]
+> The stripe size for /hana/data got changed from earlier recommendations calling for 64 KB or 128 KB to 256 KB based on customer experiences with more recent Linux versions. The size of 256 KB is providing slightly better performance
 
 > [!NOTE]
 > You don't need to configure any redundancy level using RAID volumes since Azure Premium and Standard storage keep three images of a VHD. The usage of a RAID volume is purely to configure volumes that provide sufficient I/O throughput.

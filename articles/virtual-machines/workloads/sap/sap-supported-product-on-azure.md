@@ -56,12 +56,16 @@ You need to check:
 
 - Whether the SAP applications you are running, are covered by the minimum releases stated. If not, you need to define a new target release, check in the SAP Product Availability Matrix, what operating system builds and DBMS combinations are supported with the new target release. So, that you can choose the right operating system release and DBMS release
 - Whether you need to update your SAP kernels in a move to Azure
+- Whether you need to update SAP Support Packages. Especially Basis Support Packages that can be required for cases where you are required to move to a more recent DBMS release
 
 
 The next section goes into more details on other SAP products and DBMS releases that are supported by SAP on Azure for Windows and Linux. 
 
 > [!NOTE]
-> The minimum releases of the different DBMS is carefully chosen and might not always reflect the whole spectrum of DBMS releases the different DBMS vendors support on Azure in general. Many considerations were taken into account to define those minimum releases. There is no effort to test and qualify older DBMS releases
+> The minimum releases of the different DBMS is carefully chosen and might not always reflect the whole spectrum of DBMS releases the different DBMS vendors support on Azure in general. Many SAP workload related considerations were taken into account to define those minimum releases. There is no effort to test and qualify older DBMS releases. 
+
+> [!NOTE]
+> The minimum releases listed are representing older version of operating systems and database releases. We highly encourage to use most recent operating system releases and database releases. In a lot of cases, more recent operating system and database releases took the usage case of running in public cloud into consideration and adapted code to optimize for running in public cloud or more specifically Azure
 
 ## Oracle DBMS support
 Operating system, Oracle DBMS releases and Oracle functionality supported on Azure are specifically listed in [SAP support note #2039619](https://launchpad.support.sap.com/#/notes/2039619). Essence out of that note can be summarized like:
