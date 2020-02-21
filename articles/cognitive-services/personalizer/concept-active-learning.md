@@ -9,11 +9,13 @@ ms.date: 02/20/2020
 
 Learning settings determine the *hyperparameters* of the model training. Two models of the same data that are trained on different learning settings will end up different.
 
+[Learning policy and settings](how-to-settings#configure-rewards-for-the-feedback-loop-based-on-use-case) are set on your Personalizer resource in the Azure portal.
+
 ### Import and export learning policies
 
 You can import and export learning-policy files from the Azure portal. Use this method to save existing policies, test them, replace them, and archive them in your source code control as artifacts for future reference and audit.
 
-Learn [how to](how-to-manage-model.md) import and export a learning policy.
+Learn [how to](how-to-manage-model.md#import-a-new-learning-policy) import and export a learning policy in the Azure portal for your Personalizer resource.
 
 ### Understand learning policy settings
 

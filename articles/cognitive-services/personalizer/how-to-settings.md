@@ -9,10 +9,12 @@ ms.date: 02/19/2020
 
 Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 
+Configure the learning loop on the **Configuration** page, in the Azure portal for that Personalizer resource.
+
 <a name="configure-service-settings-in-the-azure-portal"></a>
 <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
 
-## Configure rewards for the feedback loop based on use case
+## Configure rewards for the feedback loop
 
 Configure the service for your learning loop's use of rewards. Changes to the following values will reset the current Personalizer model and retrain it with the last 2 days of data.
 

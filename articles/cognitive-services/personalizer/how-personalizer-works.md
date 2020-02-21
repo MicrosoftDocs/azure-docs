@@ -7,14 +7,14 @@ ms.date: 02/18/2020
 
 # How Personalizer works
 
-The Personalizer _learning loop_ uses machine learning to build the model that predicts the top action for your content. The model is trained exclusively on your data that you sent to it with the **Rank** and **Reward** calls. Every loop is completely independent of each other.
+The Personalizer reource, your _learning loop_, uses machine learning to build the model that predicts the top action for your content. The model is trained exclusively on your data that you sent to it with the **Rank** and **Reward** calls. Every loop is completely independent of each other.
 
 ## Rank and Reward APIs impact the model
 
 You send _actions with features_ and _context features_ to the Rank API. The **Rank** API decides to use either:
 
 * _Exploit_: The current model to decide the best action based on past data.
-* _Explore_: Select a different action instead of the top action. This percentage is configured for your Personalizer resource in the Azure portal.
+* _Explore_: Select a different action instead of the top action. You [configure this percentage](how-to-settings#configure-exploration-to-allow-the-learning-loop-to-adapt) for your Personalizer resource in the Azure portal.
 
 You determine the reward score and send that score to the Reward API. The **Reward** API:
 

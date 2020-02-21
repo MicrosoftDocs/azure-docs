@@ -55,7 +55,7 @@ Personalizer is configured from the [Azure portal](https://portal.azure.com).
 * **Inactive Events**: An inactive event is one where you called Rank, but you're not sure the user will ever see the result, due to client application decisions. Inactive events allow you to create and store personalization results, then decide to discard them later without impacting the machine learning model.
 
 
-* **Reward**: A measure of how the user responded to the Rank API's returned reward action ID, as a score between 0 and 1. The 0 to 1 value is set by your business logic, based on how the choice helped achieve your business goals of personalization. The learning loop doesn't store this reward as individual user history. 
+* **Reward**: A measure of how the user responded to the Rank API's returned reward action ID, as a score between 0 to 1. The 0 to 1 value is set by your business logic, based on how the choice helped achieve your business goals of personalization. The learning loop doesn't store this reward as individual user history.
 
 ## Offline evaluations
 

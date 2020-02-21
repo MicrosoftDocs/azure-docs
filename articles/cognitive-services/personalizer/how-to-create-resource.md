@@ -9,6 +9,9 @@ ms.date: 02/19/2020
 
 A Personalizer resource is the same thing as a Personalizer learning loop. A single resource, or learning loop, is created for each subject domain or content area you have. Do not use multiple content areas in the same loop because this will confuse the learning loop and provide poor predictions.
 
+If you want Personalizer to select the best content for more than one content area of a web page, use a different learning loop for each.
+
+
 ## Create a resource in the Azure portal
 
 Create a Personalizer resource for each feedback loop.
@@ -21,7 +24,7 @@ Create a Personalizer resource for each feedback loop.
 
 1. Select **Create** to create the resource.
 
-1. While still in the Azure portal, go to the **Configuration** page for the new resource to [configure the learning loop](how-to-settings.md).
+1. Once your resource has deployed, select the **Go to Resource** button to go to your Personalizer resource. Go to the **Configuration** page for the new resource to [configure the learning loop](how-to-settings.md).
 
 ## Create a resource with the Azure CLI
 
