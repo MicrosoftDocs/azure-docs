@@ -151,7 +151,7 @@ You can set up a managed instance resource to collect the following diagnostics 
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |
-| **Managed instance** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, and used storage space. |
+| **Managed instance** | [ResourceUsageStats](#resource-usage-stats-for-managed-instances) contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, and used storage space. |
 
 To configure streaming of diagnostics telemetry for managed instance and instance databases, you will need to separately configure each:
 
@@ -445,7 +445,7 @@ Refer to the following table for details about advanced metrics.
 
 ## Basic logs
 
-Details of telemetry available for all logs are documented in the tables below. Please see [supported diagnostic logging](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
+Details of telemetry available for all logs are documented in the tables below. Please see [supported diagnostic logging](#supported-diagnostic-logging-for-azure-sql-databases) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
 
 ### Resource usage stats for managed instances
 
