@@ -95,7 +95,7 @@ All parameter values in this section should match what you provided when you fir
 1. For *Image source* and *Image OS version*, enter the same information that you provided when you first created the host pool.
 2. For *AD domain join UPN* and the associated passwords, enter the same information that you provided when you first created the host pool to join the VMs to the Active Directory domain. These credentials will be used to create a local account on your virtual machines. You can reset these local accounts to change their credentials later.
 3. For the virtual network information, select the same virtual network and subnet for where your existing host pool session host VMs are located.
-4. Select **Next: Configure Windows Virtual Desktop information**.
+4. Select **Next : Configure Windows Virtual Desktop information**.
 
 ### Windows Virtual Desktop information
 
@@ -109,3 +109,10 @@ All parameter values in this section should match what you provided when you fir
 ## Run the GitHub Azure Resource Manager template
 
 Follow the instructions in [Run the Azure Resource Manager template for provisioning a new host pool](./create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *Rdsh Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
+
+## Next steps
+
+Now that you've expanded your existing host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
+
+- [Connect with the Windows Desktop client](connect-windows-7-and-10.md)
+- [Connect with the web client](connect-web.md)
