@@ -166,6 +166,9 @@ In this section, you will create a private endpoint to the MariaDB server to it.
 
     ![Private Link created](media/concepts-data-access-and-security-private-link/show-mariadb-private-link.png)
 
+    > [!NOTE] 
+    > The FQDN in the customer DNS setting does not resolve to the private IP configured. You will have to setup a DNS zone for the configured FQDN as shown [here](../dns/dns-operations-recordsets-portal.md).
+
 ## Connect to a VM using Remote Desktop (RDP)
 
 
