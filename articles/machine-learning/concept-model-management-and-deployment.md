@@ -13,7 +13,7 @@ ms.date: 02/21/2020
 ms.custom: seodec18
 ---
 
-# MLOps: Model management, deployment and monitoring with Azure Machine Learning
+# MLOps: Model management, deployment, and monitoring with Azure Machine Learning
 
 In this article, learn about how to use Azure Machine Learning to manage the lifecycle of your models. Azure Machine Learning uses a Machine Learning Operations (MLOps) approach. MLOps improves the quality and consistency of your machine learning solutions. 
 
@@ -134,7 +134,7 @@ Azure ML gives you the capability to track the end-to-end audit trail of all of 
 
 - Azure ML [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
 - [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data. 
-- Azure ML Run history stores a snapshot of the code, data, and compute used to train a model.
+- Azure ML Run history stores a snapshot of the code, data, and computes used to train a model.
 - The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
 
 ## Notify, automate, and alert on events in the ML lifecycle
