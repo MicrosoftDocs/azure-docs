@@ -39,6 +39,10 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ## Release notes
 
+### <a name="2.4.7"/>2.4.7
+* Fixes connection pool timeout issue.
+* Fixes auth token refresh on internal retries.
+
 ### <a name="2.4.6"/>2.4.6
 * Updated correct client side replica policy tag on databaseAccount and made databaseAccount configuration reads from cache.
 
