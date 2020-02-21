@@ -1,0 +1,13 @@
+- name: Managed HSM Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Managed HSM
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+- name: Tutorials
+- name: Samples
+- name: How-to guides
+- name: Reference
+- name: Resources
