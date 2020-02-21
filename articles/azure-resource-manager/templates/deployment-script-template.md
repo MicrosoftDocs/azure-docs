@@ -37,7 +37,7 @@ The benefits of deployment script:
 
 ## Prerequisites
 
-- **A user-assigned managed identity with the contributor's role at the subscription level or the resource-group level**. This identity is used to execute deployment scripts. The identity needs Depending the operations of your script, you need to assign the identity to different levels.  For example, deployment scripts with resource-group-level contributor role can’t create another resource group under the subscription. You would need to assign the identity to the subscription level in this case.
+- **A user-assigned managed identity with the contributor's role at the subscription level or the resource-group level**. This identity is used to execute deployment scripts. Depending on what the script does, you need to assign the identity to different levels.  For example, deployment scripts with resource-group-level contributor role can’t create another resource group under the subscription. You would need to assign the identity to the subscription level in this case.
 
   > [!NOTE]
   > The deployment script engine needs to create a storage account and a container instance in the background.  A user-assigned managed identity with the contributor’s role at the subscription level is required if the subscription has not registered the Azure storage account (Microsoft.Storage) and Azure container instance (Microsoft.ContainerInstance) resource providers.
