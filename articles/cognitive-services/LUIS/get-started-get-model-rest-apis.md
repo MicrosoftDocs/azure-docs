@@ -20,31 +20,21 @@ zone_pivot_groups: programming-languages-set-one
 In this quickstart, add example utterances to a Travel Agent app and train the app. Example utterances are conversational user text mapped to an intent. By providing example utterances for intents, you teach LUIS what kinds of user-supplied text belongs to which intent.
 
 ::: zone pivot="programming-language-csharp"
-
 [!INCLUDE [Get intent with C# and REST](./includes/get-started-get-model-rest-csharp.md)]
-
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-
 [!INCLUDE [Get intent with Java and REST](./includes/get-started-get-model-rest-java.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Get intent with Python and REST](./includes/get-started-get-model-rest-python.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-nodejs"
-
-[!INCLUDE [Get intent with Node.js and REST](./includes/get-started-get-model-rest-nodejs.md)]
-
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-
 [!INCLUDE [Get intent with Go and REST](./includes/get-started-get-model-rest-go.md)]
+::: zone-end
 
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Get intent with Node.js and REST](./includes/get-started-get-model-rest-nodejs.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Get intent with Python and REST](./includes/get-started-get-model-rest-python.md)]
 ::: zone-end
