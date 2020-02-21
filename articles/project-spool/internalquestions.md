@@ -20,7 +20,9 @@
   - Eventually – message directly to Twitter, Whatsapp, Facebook, and others.
 - {mick} As I prioritize our use-cases and quickstarts, I'm wondering about our launch strategy.  **Who is our "early adopter" and what scenarios would appeal to them?**
 - {mick} I'm tempted to apply some of the lessons I've learned from my entrepreneurial endeavors as we craft our content.  One of those lessons is to deliver a crisp, minimal painkiller - something that alleviates so much pain with so much clarity that our users would be *very* disappointed if our solution didn't exist.  This is related to some of the things I've learned about product-market fit - specifically, [the 40% rule](https://uxplanet.org/understanding-product-market-fit-from-start-to-finish-596a4653814).   **What Spool capabilities do our users *have* to have?  Should I focus on building out docs to support those?**
-- {mick} When I built my home security app, I primarily depended upon [this resource](https://webrtc.github.io/samples/) to learn WebRTC.  This gave me "building block" samples that I could combine without depending too much on documentation.  **As we build our docs, should we build a corresponding collection of "building block samples" like this that utilizes a prepaid Nexus to show off the use-cases in a public web app**?  I'm envisioning something very similar to the WebRTC samples app - a minimal, interactive, usable, sharable, plug-and-playable collection of building blocks that link back to the docs.  I'd love to contribute to this as it would help me learn the platform.  If so... **what demos should we include?**  Some ideas:
+- {mick} **Do we have a "showcase app" that we can integrate with our docs?**
+- {mick} When I built my home security app, I primarily depended upon [this resource](https://webrtc.github.io/samples/) to learn WebRTC.  This gave me "building block" samples that I could combine without depending too much on documentation.  **As we build our docs, should we build a corresponding collection of "building block samples" like this that utilizes a prepaid Nexus**?  I'm envisioning something very similar to the WebRTC samples app - a minimal, interactive, usable, sharable, plug-and-playable collection of building blocks that link back to the docs.
+- {mick} **What tutorials would you like to prioritize?**
   - Call another device for nearly* free (via WebRTC / STUN)
   - Call your phone
   - Send an SMS message
@@ -30,7 +32,7 @@
   - Connect a driver to a passenger for nearly* free
   - Build a mini call center for nearly* free
   - **{asterisk}** It seems that WebRTC + SignalR empower highly technical devs to do this, right now.  But there’s a high technical barrier to entry that our SDKs might reduce.  Is our business model focused on empowering less experienced devs with our SDKs, and then monetizing *after* we’ve empowered?  Or are we directly targeting the monetizable NAT traversal / telephony needs from the outset?  
-
+- {mick} **Should I connect with our Marketing team to ensure that our stories and language are aligned?**
 - {mick} **Should I be concerned with capturing feedback from alpha/beta users?**  If so, how do I access them, and what protocol should I follow?
 - {mick} Should I see myself as carrying some marketing and evangelism responsibility?  If so...
   - I'm thinking that I should try to align our content with the stories that would excite our users the most.  **Which of our stories elicit the most love from our vocal evangelists?**
