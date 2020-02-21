@@ -149,7 +149,8 @@ Now that you've created some resources, let's build a bot. We're going to start 
 
 4. After the project is loaded, press <kbd>F5</kbd> to build and run the project.
 5. A browser should launch and you'll see a screen looking similar to this.
-    ![echobot-running-on-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot running on localhost")
+    > [!div class="mx-imgBorder"]
+    > ![echobot-running-on-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot running on localhost")
 
 ### Test the bot sample with the Bot Framework Emulator
 
