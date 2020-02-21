@@ -82,14 +82,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
+
     `https://<SUBDOMAIN>.e-days.com`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+    
     `https://<SUBDOMAIN>.e-days.com/SSO/SAML2/SP/AssertionConsumer.aspx`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
+
     `https://<SUBDOMAIN>.e-days.com`
 
 	> [!NOTE]
@@ -98,16 +101,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. E-days application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/default-attributes.png)
-
-1. In addition to above, E-days application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-
-	| Name | Source Attribute|
-	| ------------ | --------- |
-	| emailaddress | user.mail |
-	| surname | user.surname |
-	| givenname | user.givenname |
-	| name | user.userprincipalname |
-
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
