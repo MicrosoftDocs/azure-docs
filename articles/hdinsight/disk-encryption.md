@@ -23,6 +23,11 @@ Both resource disk and managed disks on each node of the cluster are encrypted w
 
 You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight cluster starts using the new key within minutes. Enable the [Soft Delete](../key-vault/key-vault-ovw-soft-delete.md) key protection features to protect against ransomware scenarios and accidental deletion. Key vaults without this protection feature aren't supported.
 
+|Cluster type |OS Disk (Managed disk) |Data disk (Managed disk) |Temp data disk (Local SSD) |
+|---|---|---|---|
+|Kafka, HBase with Accelerated writes|SSE Encryption|SSE Encryption + Optional CMK encryption|Optional CMK encryption|
+|All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes)|SSE Encryption|N/A|Optional CMK encryption|
+
 ## Get started with customer-managed keys
 
 To create a customer-managed key enabled HDInsight cluster, we'll go through the following steps:
