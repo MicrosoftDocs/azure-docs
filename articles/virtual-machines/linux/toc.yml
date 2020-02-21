@@ -381,7 +381,7 @@
     - name: Updates and patches
       items:
       - name: Red Hat Update Infrastructure
-        href: update-infrastructure-redhat.md
+        href: ../workloads/redhat/redhat-rhui.md
     - name: Azure VM agent
       items:
       - name: Overview
