@@ -28,11 +28,11 @@ When loading a texture, you have to specify its expected type. If the type misma
 Loading a texture with the same URI twice will return the same texture object, as it is a [shared resource](../concepts/lifetime.md).
 
 ``` cs
-LoadTextureAsync _async = null;
+LoadTextureAsync _textureLoad = null;
 void LoadMyTexture(AzureSession session, string textureUri)
 {
-    _async = session.Actions.LoadTextureAsync(new LoadTextureParams(textureUri, TextureType.Texture2D));
-    _async.Completed +=
+    _textureLoad = session.Actions.LoadTextureAsync(new LoadTextureParams(textureUri, TextureType.Texture2D));
+    _textureLoad.Completed +=
         (LoadTextureAsync res) =>
         {
             if (res.IsRanToCompletion)
@@ -43,12 +43,15 @@ void LoadMyTexture(AzureSession session, string textureUri)
             {
                 System.Console.WriteLine("Texture loading failed!");
             }
-            _async = null;
+            _textureLoad = null;
         };
 }
 ```
 
 The URI may point to a [builtin or external file](../concepts/sdk-concepts.md#built-in-and-external-resources). Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the roughness map of a [PBR material](../overview/features/pbr-materials.md) must be grayscale.
+
+> [!CAUTION]
+> All *Async* functions in ARR return asynchronous operation objects. You must store a reference to those objects until the operation is completed. Otherwise the C# garbage collector may delete the operation early and it can never finish. In the sample code above the member variable '_textureLoad' is used to hold a reference until the *Completed* event arrives.
 
 ## Next steps
 
