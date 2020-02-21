@@ -211,10 +211,10 @@ Create a policy as follows:
         -   Backups taken on Saturday on the last week of the month at midnight and 6:00 PM are kept for 12 months.
         -   Backups taken on a Saturday in the last week of March are kept for 10 years.
 
-    ![Retention example](./media/backup-configure-vault/retention-example.png)
+        ![Retention example](./media/backup-configure-vault/retention-example.png)
 
 
-11. In **Choose Initial Backup Type** decide if you want to take the initial backup over the network or use offline backup (for more information on offline backup refer, see this [article](backup-azure-backup-import-export.md)). To take the initial backup over the network, select **Automatically over the network** and click **Next**.
+11. In **Choose Initial Backup Type** decide if you want to take the initial backup over the network or use offline backup (for more information on offline backup refer, see this [article](offline-backup-azure-data-box.md)). To take the initial backup over the network, select **Automatically over the network** and click **Next**.
 
     ![initial Backup Type](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
 
@@ -241,7 +241,7 @@ You can run an initial backup automatically over the network, or offline. Offlin
 5. At the datacenter, the disk data is copied to an Azure storage account.
 6. Azure Backup copies the data from the storage account to the vault, and incremental backups are scheduled.
 
-[Learn more](backup-azure-backup-import-export.md) about offline seeding.
+[Learn more](offline-backup-azure-data-box.md) about offline seeding.
 
 ### Enable network throttling
 

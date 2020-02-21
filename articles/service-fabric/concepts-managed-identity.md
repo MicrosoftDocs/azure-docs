@@ -25,7 +25,7 @@ Managed identities for Azure is based upon several key concepts:
 
 - **Service Principal** - an Azure Active Directory object, which represents the projection of an AAD application in a given tenant (also see [service principal](../active-directory/develop/developer-glossary.md#service-principal-object).)
 
-The are two types of managed identities:
+There are two types of managed identities:
 
 - A **System-assigned managed identity** is enabled directly on an Azure service instance.  The lifecycle of a system-assigned identity is unique to the Azure service instance that it's enabled on.
 - A **user-assigned managed identity** is created as a standalone Azure resource. The identity can be assigned to one or more Azure service instances and is managed separately from the lifecycles of those instances.
@@ -34,7 +34,7 @@ To further understand the difference between managed identity types, see [How do
 
 ## Supported scenarios for Service Fabric applications
 
-Managed identities for Service Fabric are only supported in Azure-deployed Service Fabric clusters, and only for applications deployed as Azure resources; an application that is not deployed as an Azure resource cannot be assigned an identity. Conceptually speaking, support for managed identities in Azure Service Fabric cluster consists of two phases:
+Managed identities for Service Fabric are only supported in Azure-deployed Service Fabric clusters, and only for applications deployed as Azure resources; an application that is not deployed as an Azure resource cannot be assigned an identity. Conceptually speaking, support for managed identities in an Azure Service Fabric cluster consists of two phases:
 
 1. Assign one or more managed identities to the application resource; an application may be assigned a single system-assigned identity, and/or up to 32 user-assigned identities, respectively.
 

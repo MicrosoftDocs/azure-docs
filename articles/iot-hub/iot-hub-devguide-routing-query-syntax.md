@@ -191,7 +191,7 @@ Message routing enables you to query on [Device Twin](iot-hub-devguide-device-tw
 
 ### Query expressions
 
-A query on message body needs to be prefixed with the `$twin`. Your query expression can also combine a twin tag or property reference with a body reference, message system properties, and message application properties reference. We recommend using unique names in tags and properties as the query is not case-sensitive. This applies to both device twins and module twins. Also refrain from using `twin`, `$twin`, `body`, or `$body`, as a property names. For example, the following are all valid query expressions: 
+A query on message twin needs to be prefixed with the `$twin`. Your query expression can also combine a twin tag or property reference with a body reference, message system properties, and message application properties reference. We recommend using unique names in tags and properties as the query is not case-sensitive. This applies to both device twins and module twins. Also refrain from using `twin`, `$twin`, `body`, or `$body`, as a property names. For example, the following are all valid query expressions: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

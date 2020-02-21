@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
 ---
 
 # Apply Transformation module
@@ -28,9 +28,9 @@ Azure Machine Learning provides support for creating and then applying many diff
 
 ## How to use Apply Transformation  
   
-1. Add the **Apply Transformation** module to your pipeline. You can find this module under **Machine Learning**, in the **Score** category. 
+1. Add the **Apply Transformation** module to your pipeline. You can find this module in the **Model Scoring & Evaluation** category. 
   
-2. Locate an existing transformation to use as an input.  Previously saved transformations can be found in the **Transforms** group in the left navigation pane.  
+2. Locate an existing transformation to use as an input. Previously saved transformations can be found in the **My Datasets** group under **Datasets** category in the left module tree.  
   
    
   
