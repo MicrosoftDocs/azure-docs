@@ -112,7 +112,10 @@ Follow the instructions in [Run the Azure Resource Manager template for provisio
 
 ## Next steps
 
-Now that you've expanded your existing host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
+Now that you've expanded your existing host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
 
-- [Connect with the Windows Desktop client](connect-windows-7-and-10.md)
-- [Connect with the web client](connect-web.md)
+- [Connect with the Windows Desktop client](./connect-windows-7-and-10.md)
+- [Connect with the web client](./connect-web.md)
+- [Connect with the Android client](./connect-android.md)
+- [Connect with the macOS client](./connect-macos.md)
+- [Connect with the iOS client](./connect-ios.md)
