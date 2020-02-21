@@ -177,16 +177,11 @@ Enter the Excel info. Note the Key Column, Key Value and Person Name fields.
 
 Minimize the **Apply to each 2** action by clicking on the name. Then add another **Apply to each** action, like before. it will be named **Apply to each 3**. Select the text box, and add **entities** as the output for this action. 
 
-
-
-<!-- edit apply-to-each-3-action.png -->
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/get-phone-number-1.png" alt-text="Add Text Analytics credentials to your flow.":::
+> :::image type="content" source="../media/tutorials/excel/apply-to-each-3-action.png" alt-text="Add Text Analytics credentials to your flow.":::
 
+Within **Apply to each 3**, add a **Condition** control. It will be named **Condition 2**.
 
-
-* Type apply to each and create it like we did above which will name it Apply each 3. 
-* Enter the Entities as the output from previous step, then add a Condition Control (Condition 2).
 * This time select Entities Type to match the var_phone variable.
 
 > [!div class="mx-imgBorder"] 
