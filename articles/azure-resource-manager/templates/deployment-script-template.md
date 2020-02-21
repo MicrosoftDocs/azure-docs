@@ -132,7 +132,7 @@ The following template has one resource defined with the `Microsoft.Resources/de
 
 The script takes one parameter, and output the parameter value. **DeploymentScriptOutputs** is used for storing outputs.  In the outputs section, the **value** line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Debug deployment scripts](#debug-deployment-scripts).  For the property descriptions, see [Sample template](#sample-template).
 
-To run the script, select **Try it** to open the cloud shell, and then paste the following code into the shell pane.
+To run the script, select **Try it** to open Azure Cloud Shell, and then paste the following code into the shell pane.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
