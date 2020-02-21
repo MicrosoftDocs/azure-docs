@@ -357,6 +357,9 @@ iris_dataset = run_context.input_datasets['iris_data']
 dataframe = iris_dataset.to_pandas_dataframe()
 ```
 
+>[!NOTE]
+> All types of datasets (Blob, File Share, ADLS Gen 2, etc. ) can be used as input to any pipeline step, and output can be used in the DataTransferStep. However, writing output data (PipelineData)to ADLS Gen 2  is not supported. 
+
 For more information, see the [azure-pipeline-steps package](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) and [Pipeline class](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) reference.
 
 ## Submit the pipeline
