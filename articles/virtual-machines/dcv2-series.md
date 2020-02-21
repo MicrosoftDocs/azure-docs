@@ -31,7 +31,7 @@ Premium Storage caching: Supported*
 | Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64 (86)                                                            | 6400/96                                   | 2                                            |
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2                                            |
 
-- DCv2-series VMs are [generation 2 VMs](../articles/virtual-machines/linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
+- DCv2-series VMs are [generation 2 VMs](./linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
 
 
 
