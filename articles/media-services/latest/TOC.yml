@@ -100,7 +100,7 @@
       displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
     - name: Scaling streaming with CDN
-      href: scaling-streaming-cdn.md
+      href: scale-streaming-cdn.md
     - name: Streaming Locators 
       displayName: URLs
       href: streaming-locators-concept.md
