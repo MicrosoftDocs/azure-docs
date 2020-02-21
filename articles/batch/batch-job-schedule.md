@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 # Schedule jobs for efficiency
 
-Scheduling Batch jobs enables you to prioritize the jobs you want to run first while taking into account tasks that have dependencies on other tasks. By scheduling your jobs you can make sure you use the least amount of resources. Nodes can be decommissioned when not needed, tasks that are dependent on other tasks are spun up just in time optimizing the workflows. 
+Scheduling Batch jobs enables you to prioritize the jobs you want to run first while taking into account tasks that have dependencies on other tasks. By scheduling your jobs you can make sure you use the least amount of resources. Nodes can be decommissioned when not needed, tasks that are dependent on other tasks are spun up just in time optimizing the workflows. Only one job at a time runs. A new one won't start until the previous one completes. You can set your job to auto-complete. 
 
 ## Use the portal to schedule a job
 
@@ -65,6 +65,7 @@ l. **When all tasks complete**: The default is no action.
 m. **When a task fails**: The default is no action. A task fails if the retry count is exhausted or there was an error when starting the task. 
 
 After you select **Save**, if you go to **Job schedules** in the left navigation, you can track the execution of the job, by selecting **Execution info**.
+
 
 
 ## For more information
