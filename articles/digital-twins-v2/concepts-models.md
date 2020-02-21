@@ -21,14 +21,14 @@ ms.service: digital-twins
 Digital Twin models for ADT are defined using the **Digital Twin Description Language (DTDL)**. DTDL is written in JSON-LD and programming language independent.  
 This section provides conceptual information on DTDL. 
 
-> [!WARNING]
+> [!NOTE]
 > Please see the DTDL reference [Add Link to DTDL specification] for more details on DTDL. 
 
 ### DTDL in ADT versus DTDL in Plug and Play
 
 DTDL is also used as part of Azure IoT Plug and Play. Developers of Plug and Play devices use a subset of the same description language used for twins. This document describes DTDL as used in ADT, 
 
-> [!WARNING]
+> [!NOTE]
 > please see Add reference to PnP DTDL specs.
 
 The DTDL version used for Plug and Play is semantically a subset of DTDL for ADT: Every CapabilityModel as defined by PnP is also a valid interface for use in ADT.  
@@ -148,8 +148,8 @@ The extending interface cannot change any of the definitions of the parent inter
 
 Property and telemetry values can be of standard primitive types – integer, double, string and Boolean and others, such as DateTime and Duration. 
 
-> [!WARNING]
-> See Reference to DTDL documentation for complete information.
+> [!NOTE]
+> Insert Reference to DTDL documentation for complete information.
 
 > [!NOTE]
 > Add information on mandatory versus optional properties

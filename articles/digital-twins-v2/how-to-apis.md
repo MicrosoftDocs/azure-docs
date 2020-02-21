@@ -18,8 +18,8 @@ ms.service: digital-twins
 
 This section gives a brief overview of the API surface of ADT as provided by the C# SDK. 
 
-> [!WARNING]
-> Please see the reference documentation for additional details.
+> [!NOTE]
+> Include reference documentation link for additional details.
 
 > [!NOTE]
 > Documentation needs to be extended with examples and snippets in all SDK languages

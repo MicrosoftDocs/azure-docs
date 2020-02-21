@@ -21,13 +21,11 @@ The Event APIs let developers wire-up event flow throughout the system, as well 
 ## Endpoints
 
 To define an event route, developers first must define endpoints. An endpoint is a connection to a destination outside of ADT. Supported destinations are 
-> [!WARNING]
-> (see priority table above):
-* [p0] EventGrid custom topics
-* [p0] EventHub
-* [p1] ServiceBus
-* [p1] EventGrid system topics (GA)
-* [p2] Azure Data Lake Store (ADLS) Gen2  (post-GA)
+* EventGrid custom topics
+* EventHub
+* ServiceBus
+* EventGrid system topics (GA)
+* Azure Data Lake Store (ADLS) Gen2  (post-GA)
 
 Endpoints are set up using control plane APIs or in the portal. An endpoint definition gives 
 * An endpoint id (or name) to the endpoint, this is a friendly name
@@ -80,7 +78,7 @@ Message routing query supports multiple category of filters, all expressed in on
 4.	Filter on message properties
 
 Note: ADT messages are following CloudEvents standard, 
-> [!WARNING]
+> [!NOTE]
 > see doc Digital Twin x-team APIs 2 - Notifications.docx
 
 In order to explain the message routing query, here are two sample messages of telemetry and notification:
@@ -130,9 +128,6 @@ Lifecycle notifications message
 ### Filter based on Messages Types (Telemetry & Notification Types)
 
 Query language for filtering on messages type is, AND and OR operators are supported. 
-
-> [!WARNING]
-> The list of messages types is described here
 
 `type = ‘microsoft.digitaltwins.twin.create’ OR type = ‘microsoft.iot.telemetry’`
 You can also specify IN operator 
@@ -223,7 +218,7 @@ We aspire to have notifications conform to the CloudEvents standard. For practic
 
 Services have to add sequence number on all the notification to be used to indicate order of notifications or they need to maintain ordering. Notification emitted by ADT to Event Grid is formatted into Event Grid schema until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on Event Grid schema inside of payload.  
 
-> [!WARNING]
+> [!NOTE]
 > To read more about proposed Digital Twins notifications and messages, please read Notifications and Event Types section of Digital Twins Event Processing.docx
 
 ### Digital twin lifecycle notifications
@@ -318,11 +313,8 @@ and another example of a logical digital twin not supporting components, such as
 
 These notifications are triggered when any relationship’s edge of a digital twin is created, updated, or deleted. 
 
-> [!WARNING]
-> See definition of relationship and edge here 
-
 > [!NOTE]
-> Relationship resource
+> See definition of relationship and edge here: Insert relationship resource
 
 #### Properties
 
@@ -369,7 +361,7 @@ Here is an example of an update edge notification to update a property:
 
 These notifications are triggered when a DTDL model is uploaded, reloaded, patched, decommissioned, or deleted.
 
-> [!WARNING]
+> [!NOTE]
 >  See model APIs for Hub and DT Model API Discussion Notes.docx
 
 #### Properties

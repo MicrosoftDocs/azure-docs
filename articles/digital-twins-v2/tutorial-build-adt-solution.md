@@ -83,9 +83,6 @@ Exact set of projects still TBD
 
 As part of the configuration of an ADT instance (in the portal or via CLI/ARM), you can connect a pre-existing IoT Hub to ADT. Once an IoT Hub is attached to ADT, ADT will automatically create special twins for all devices newly registered on IoT Hub. For PnP devices, it will also synchronize properties to the ADT graph. Finally, all telemetry from devices will produce telemetry messages in ADT.
 
-> [!WARNING]
-> See the section on IoT Hub Integration for more information.  
-
 ### Setting up Endpoints
 
 To connect ADT to downstream data consumers, you need to set up consumer endpoints in your subscription and attach them to ADT. Initially, supported endpoints include:

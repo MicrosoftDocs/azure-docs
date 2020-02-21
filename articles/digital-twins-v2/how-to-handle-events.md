@@ -67,9 +67,6 @@ The new lines are marked with red arrows. Basically, an event handler registrati
 
 As you can see in the example, the same event handler function can be used in multiple places.
 
-> [!WARNING]
-> Please see the detailed sections on event handling for more details on the wire up of compute resources.
-
 ## Registering event handlers
 
 Event handlers are registered with the following API:

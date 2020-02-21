@@ -19,7 +19,7 @@ ms.service: digital-twins
 Digital Twin models for ADT are defined using the Digital Twin Description Language (DTDL). DTDL is written in JSON-LD and programming language independent.  
 This section provides conceptual information on DTDL. 
 
-> [!WARNING]
+> [!NOTE]
 > Please see the DTDL reference [Add Link to DTDL specification] for more details on DTDL. 
 
 ### DTDL in ADT versus DTDL in Plug and Play
@@ -52,8 +52,8 @@ We strongly recommend using reverse internet addresses as namespaces in DTMI. Fo
 
 Property and telemetry values can be of standard primitive types – integer, double, string and Boolean and others, such as DateTime and Duration. 
 
-> [!WARNING]
-> See Reference to DTDL documentation for complete information.
+> [!NOTE]
+> Insert Reference to DTDL documentation for complete information.
 
 > [!NOTE]
 > Add information on mandatory versus optional properties
