@@ -255,7 +255,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Open the Azure AD B2C blade and navigate to the application registration for the Developer Portal
 1. Set the 'Reply URL' entry to the one you noted down when you configured the redirect_uri of the auth code grant in API Management earlier.
 
-Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Developer Console obtains an access token for the user, before calling the API.
+   Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Developer Console obtains an access token for the user, before calling the API.
 
 1. Browse to any operation under the `Echo API` in the developer portal, and select **Try it** to bring you to the Developer Console.
 1. Note a new item in the **Authorization** section, corresponding to the authorization server you just added.
