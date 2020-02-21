@@ -1,5 +1,5 @@
 ---
-title: Select correct VM SKU for your cluster - Azure Data Explorer
+title: Select correct VM SKU for your Azure Data Explorer cluster
 description: This article describes how to select the optimal SKU size for Azure Data Explorer cluster.
 author: avneraa
 ms.author: avnera
