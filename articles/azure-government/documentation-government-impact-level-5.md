@@ -227,14 +227,6 @@ Azure Monitor can be used in Azure Government supporting all impact levels with 
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Monitor** | X | X | X | X | X | X |
 
-### [Azure Scheduler](https://azure.microsoft.com/services/scheduler/)
-
-Azure Scheduler can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Scheduler** | X | X | X | X | X | X |
-
 ## Media services
 
 ### [Azure Media Services](https://azure.microsoft.com/services/media-services/)
