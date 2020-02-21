@@ -99,7 +99,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Go to the Function Apps blade of the Azure portal, open your empty function app, then create a new In-Portal 'Webhook + API' function via the quickstart.
 1. Paste the sample code from below into Run.csx over the existing code that appears.
 
-```csharp
+   ```csharp
    
    using System.Net;
    using Microsoft.AspNetCore.Mvc;
@@ -120,7 +120,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 3. Select “Integrate” from the left-hand blade, then select ‘Advanced Editor’ in the top-right-hand corner of the pane.
 4. Paste the sample code below over the existing json.
 
-```json
+   ```json
    {
       "bindings": [
        {
@@ -140,7 +140,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
        }
      ]
    }
-```
+   ```
 
 5. Switch back to the HttpTrigger1 tab, click 'Get Function URL', then copy the URL that appears.
 
@@ -213,7 +213,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Switch back to the design tab and choose “All APIs”, then click the code view button to show the policy editor.
 1. Edit the inbound section and paste the below xml so it reads like the following.
 
-```xml
+   ```xml
    <inbound>
       <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
          <openid-config url="https://tenant.b2clogin.com/tenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_MyDefaultPolicy" />
@@ -238,7 +238,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
          </expose-headers>
        </cors>
    </inbound>
-```
+   ```
 1. Edit the openid-config url to match your well-known Azure AD B2C endpoint for the sign up or sign in policy.
 1. Edit the claim value to match the valid application ID, also known as a client ID for the backend API application and save.
 1. Select the api operation below the "All APIs"
@@ -292,7 +292,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 1. Still in the storage account blade, select the 'Blobs' blade from the Blob Service section and click on the $web container that appears in the right-hand pane.
 1. Save the code below to a file locally on your machine as index.html and then upload the file index.html to the $web container.
 
-```html
+   ```html
    <!doctype html>
    <html lang="en">
    <head>
@@ -404,8 +404,8 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
         </script>
     </body>
    </html>
-
-```
+   
+   ```
 
 1. Browse to the Static Website Primary Endpoint you stored earlier in the last section.
 
@@ -421,7 +421,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 1. Create An APIM subscription key by heading to the API Management back to the API Management blade, selecting 'Subscriptions', and clicking 'Add Subscription' then saving the record. Clicking the Ellipsis (...) next to the created row will allow you to show the keys so you can copy the primary key.
 1. It should look something like the below code:-  
 
-```javascript
+   ```javascript
    var applicationConfig =
       clientID: "{aadb2c-clientid-goeshere}",
       authority: "https://{tenant}.b2clogin.com/{tenant}/{policy}",
@@ -429,7 +429,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
       webApi: 'http://{apim-url-for-your-function}',
       subKey: '{apim-subscription-key-goes-here}'
    };
-```
+   ```
 
 1. Click Save
 
