@@ -17,6 +17,9 @@ When you set up disaster recovery for VMware VMs and physical servers using [Azu
 - Install manually: You can install the Mobility service manually on each machine through [UI](#install-mobility-agent-through-ui) or [command prompt](#install-mobility-agent-through-command-prompt).
 - [Automated deployment](vmware-azure-mobility-install-configuration-mgr.md): You can automate installation with software deployment tools such as Configuration Manager.
 
+> [!NOTE]
+> The Mobility agent uses approximately 6%-10% of memory on source machines for VMware VMs or physical machines.
+
 ## Anti-virus on replicated machines
 
 If machines you want to replicate have active anti-virus software running, make sure you exclude the Mobility service installation folder from anti-virus operations (*C:\ProgramData\ASR\agent*). This ensures that replication works as expected.
@@ -68,7 +71,7 @@ During push installation of mobility agent, following steps are performed
 
     ![Mobility Service registration page](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
-5. In **Configuration Server Details**, specify the IP address and passphrase you configured.  
+5. In **Configuration Server Details**, specify the IP address and passphrase you configured.
 
     ![Mobility Service registration page](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 

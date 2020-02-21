@@ -68,6 +68,9 @@ az aks create \
     --client-secret <password>
 ```
 
+> [!NOTE]
+> If you're using an existing service principal with customized secret, ensure the secret is no longer than 190 bytes.
+
 If you deploy an AKS cluster using the Azure portal, on the *Authentication* page of the **Create Kubernetes cluster** dialog, choose to **Configure service principal**. Select **Use existing**, and specify the following values:
 
 - **Service principal client ID** is your *appId*
