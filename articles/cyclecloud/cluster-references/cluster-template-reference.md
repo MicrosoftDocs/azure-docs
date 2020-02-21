@@ -58,6 +58,7 @@ Azure.Offer | String | Offer for VM Marketplace image
 Azure.Sku | String | Sku of VM Marketplace image
 Azure.ImageVersion | String | Image Version of Marketplace image
 ImageId | String | Resource ID of VM image
+Azure.Identities | List | List of managed identities active for this cluster separated by a comma.
 InstallJetpack | Boolean | CycleCloud will install jetpack with OS extension
 AwaitInstallation | Boolean | Once a vm is started, wait for jetpack to report installation details.
 EphemeralOSDisk | Boolean | Use local ephemeral disk for operating system

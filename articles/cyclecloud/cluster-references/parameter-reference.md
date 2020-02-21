@@ -50,6 +50,7 @@ Autoscale = $Autoscale
   Widget.Plugin = pico.form.BooleanCheckBox
   Widget.Label = Start and stop execute instances automatically
 ```
+
 The `$` is a reference to a parameter name.
 
 ## Attribute Reference
@@ -77,7 +78,7 @@ Special parameter types in Azure beginning with the `Azure` key might respect sp
 parameter names like Credential and Region. Credential and Region inform these
 parameter selectors which options to present based on subscription and location.
 
-ParamterType | Definition
+ParameterType | Definition
 ------ | ----------
 Boolean | Boolean checkbox selector
 String | String parameter field
