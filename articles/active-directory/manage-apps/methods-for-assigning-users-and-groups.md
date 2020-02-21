@@ -15,6 +15,7 @@ ms.date: 04/26/2019
 ms.author: mimart
 
 ms.collection: M365-identity-device-management
+ROBOTS: NOINDEX
 ---
 
 # Assign users and groups to an application in Azure Active Directory
