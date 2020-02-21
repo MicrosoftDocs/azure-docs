@@ -1,24 +1,21 @@
 ---
 title: SharePoint files - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Add secured SharePoint data sources to your knowledge base to enrich the knowledge base with questions and answers that may be secured with Active Directory.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: diberry
+ms.date: 02/20/2020
 ---
 
 # Add a secured SharePoint data source to your knowledge base
 
-Add secured SharePoint data sources to your knowledge base to enrich the knowledge base with questions and answers that may be secured with Active Directory.
+Add secured cloud-based SharePoint data sources to your knowledge base to enrich the knowledge base with questions and answers that may be secured with Active Directory.
 
 When you add a secured SharePoint document to your knowledge base, as the QnA Maker manager, you must request Active Directory permission for QnA Maker. Once this permission is given from the Active Directory manager to QnA Maker for access to SharePoint, it doesn't have to be given again. Each subsequent document addition to the knowledge base will not need authorization if it is in the same SharePoint resource.
 
 If the QnA Maker knowledge base manager is not the Active Directory manager, you will need to communicate with the Active Directory manager to finish this process.
+
+## Prerequisites
+
+QnA Maker uses Microsoft Graph for permissions. If your SharePoint is on-premises, you won't be able to extract from SharePoint because Microsoft Graph won't be able to determine permissions.
 
 ## Add supported file types to knowledge base
 
