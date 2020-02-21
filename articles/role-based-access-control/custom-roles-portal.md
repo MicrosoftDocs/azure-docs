@@ -32,19 +32,15 @@ To create custom roles, you need:
 
 ## Step 1: Determine the permissions you need
 
-Azure has thousands of permissions that you can potentially include in your custom role. There are different ways that you can determine the permissions you will want to add.
+Azure has thousands of permissions that you can potentially include in your custom role. There are different ways that you can determine the permissions you will want to add to your custom role:
 
-**Look at existing roles**
-- You can look at the permissions in existing roles. Typically, you clone an existing role and then modify the permissions for your scenario.
+**Look at existing roles** - You can look at the permissions in existing roles. Typically, you clone an existing role and then modify the permissions for your scenario.
 
-**Search for permissions**
-- When you create a custom role using the Azure portal, you can search for permissions by keyword. For example, you can search for *virtual machine* or *billing* permissions. This search functionality is described more later in [Step 4: Permissions](#step-4-permissions).
+**Search for permissions** - When you create a custom role using the Azure portal, you can search for permissions by keyword. For example, you can search for *virtual machine* or *billing* permissions. This search functionality is described more later in [Step 4: Permissions](#step-4-permissions).
 
-**Download all permissions**
-- When you create a custom role using the Azure portal, you can download all of the permissions as a CSV file and then search this file. On the **Add permissions** pane, click the **Download app permissions** button to download all of the permissions. For more information about the Add permissions pane, see [Step 4: Permissions](#step-4-permissions).
+**Download all permissions** - When you create a custom role using the Azure portal, you can download all of the permissions as a CSV file and then search this file. On the Add permissions pane, click the **Download app permissions** button to download all of the permissions. For more information about the Add permissions pane, see [Step 4: Permissions](#step-4-permissions).
 
-**View the permissions in the docs**
-- You can view the available permissions in [Azure Resource Manager resource provider operations](resource-provider-operations.md).
+**View the permissions in the docs** - You can view the available permissions in [Azure Resource Manager resource provider operations](resource-provider-operations.md).
 
 ## Step 2: Choose how to start
 
@@ -172,7 +168,7 @@ On the **Permissions** tab, you specify the permissions for your custom role. De
 
 ### Add or remove permissions
 
-Follow these steps to add or remove permissions from your custom role.
+Follow these steps to add or remove permissions for your custom role.
 
 1. To add permissions, click **Add permissions** to open the Add permissions pane.
 
