@@ -58,8 +58,8 @@ Azure Scheduler is being retired, so to create scheduling jobs, use [Azure Logic
 
 For more information:
 
-- Learn more by completing the [Azure Logic Apps tutorials](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
-- Review the [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md).
+- Learn more by completing the [Azure Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
+- Review the [Azure Logic Apps overview](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview.md).
 
 ## Network Watcher
 
