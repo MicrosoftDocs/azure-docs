@@ -12,7 +12,7 @@
 # Preview: DCv2-series
 
 
-The DCv2-series is a family of virtual machines in Azure that can help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. These machines are backed by the latest generation of Intel XEON E-2288G Processor with SGX technology. With the Intel Turbo Boost Technology these machines can go up to 5.0GHz. DCv2 series instances enable customers to build secure enclave-based applications to protect their code and data while it’s in use.
+The DCv2-series can help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. These machines are backed by the latest generation of Intel XEON E-2288G Processor with SGX technology. With the Intel Turbo Boost Technology these machines can go up to 5.0GHz. DCv2 series instances enable customers to build secure enclave-based applications to protect their code and data while it’s in use.
 
 Example use cases include confidential multiparty data sharing, fraud detection, anti-money laundering, blockchain, confidential usage analytics, intelligence analysis and confidential machine learning.
 
