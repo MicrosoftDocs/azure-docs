@@ -9,6 +9,7 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ""
 ms.date: 09/27/2019
+manager: dcscontentpm
 ---
 
 # Azure SQL Database Import/Export service takes a long time to import or export a database
