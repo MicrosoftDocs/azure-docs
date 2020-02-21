@@ -1,7 +1,7 @@
 ---
 title: "Develop an application on Kubernetes"
 services: azure-dev-spaces
-ms.date: 07/08/2019
+ms.date: 02/20/2020
 ms.topic: quickstart
 description: "This quickstart shows you how to use Azure Dev Spaces and the command line to develop an application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
@@ -70,7 +70,7 @@ In order to run your application on Azure Dev Spaces, you need a Dockerfile and 
 Generate the Docker and Helm chart assets for running the application in Kubernetes using the `azds prep` command:
 
 ```cmd
-azds prep --public
+azds prep --enable-ingress
 ```
 
 You must run the `prep` command from the *dev-spaces/samples/nodejs/getting-started/webfrontend* directory to correctly generate the Docker and Helm chart assets.
