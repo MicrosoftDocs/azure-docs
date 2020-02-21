@@ -1,19 +1,3 @@
----
-title: "Quickstart: Use the Bing Web Search SDK for Node.js"  
-titleSuffix: Azure Cognitive Services
-description: The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Node.js application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
-services: cognitive-services
-author: aahill
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: bing-web-search
-ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: aahi
----
-
-# Quickstart: Use the Bing Web Search SDK for Node.js
-
 The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Node.js application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
 
 Want to see the code right now? The [Bing Web Search SDK for Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) are available on GitHub.
@@ -24,7 +8,7 @@ Here are a few things that you'll need before running this quickstart:
 * [Node.js 6](https://nodejs.org/en/download/) or later
 * A subscription key  
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
 
 ## Set up your development environment

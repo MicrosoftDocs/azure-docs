@@ -1,19 +1,3 @@
----
-title: "Quickstart: Use the Bing Web Search SDK for Java"
-titleSuffix: Azure Cognitive Services
-description: The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Java application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
-services: cognitive-services
-author: aahill
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: bing-web-search
-ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: aahi
----
-
-# Quickstart: Use the Bing Web Search SDK for Java
-
 The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Java application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
 
 Want to see the code right now? The [Bing Web Search SDK for Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/) are available on GitHub.
@@ -26,7 +10,7 @@ Here are a few things that you'll need before running this quickstart:
 * [Apache Maven](https://maven.apache.org/download.cgi) or your favorite build automation tool
 * A subscription key
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and set up your POM file
 
