@@ -17,7 +17,7 @@
 | [Health probes](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Health probe down behavior](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | TCP connections stay alive on an instance probe down __and__ on all probes down. | TCP connections stay alive on an instance probe down. All TCP connections terminate when all probes are down. |
 | Availability Zones | Zone-redundant and zonal frontends for inbound and outbound traffic. | Not available |
-| Diagnostics | [Azure Monitor multi-dimensional metrics](..articles/load-balancer/load-balancer-standard-diagnostics.md) | [Azure Monitor logs](../articles/load-balancer/load-balancer-monitor-log.md) |
+| Diagnostics | [Azure Monitor multi-dimensional metrics](../articles/load-balancer/load-balancer-standard-diagnostics.md) | [Azure Monitor logs](../articles/load-balancer/load-balancer-monitor-log.md) |
 | HA Ports | [Available for Internal Load Balancer](../articles/load-balancer/load-balancer-ha-ports-overview.md) | Not available |
 | Secure by default | Closed to inbound flows unless allowed by a network security group. Please note that internal traffic from the VNet to the internal load balancer is allowed. | Open by default. Network security group optional. |
 | Outbound Rules | [Declarative outbound NAT configuration](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Not available |
