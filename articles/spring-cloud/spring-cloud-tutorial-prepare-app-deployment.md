@@ -102,7 +102,7 @@ Include one of the following dependencies in your pom.xml file. Select the depen
 
 ### Dependency for Azure Spring Cloud version 2.1
 
-For Spring Boot version 2.1 add the following dependencies to the application POM file.
+For Spring Boot version 2.1 add the following dependency to the application POM file.
 
 ```xml
 <dependency>
@@ -114,7 +114,7 @@ For Spring Boot version 2.1 add the following dependencies to the application PO
 
 ### Dependency for Azure Spring Cloud version 2.2
 
-For Spring Boot version 2.2 add the following dependencies to the application POM file.
+For Spring Boot version 2.2 add the following dependency to the application POM file.
 
 ```xml
 <dependency>
@@ -126,7 +126,33 @@ For Spring Boot version 2.2 add the following dependencies to the application PO
 
 ## Other required dependencies
 
-To enable the built-in features of Azure Spring Cloud, your application must include the following dependencies. This inclusion ensures that your application configures itself correctly with each component.  
+To enable the built-in features of Azure Spring Cloud, your application must include the following dependencies. This inclusion ensures that your application configures itself correctly with each component.
+
+### EnableDiscoveryClient annotation
+
+Add the following annotation to the application source code.
+```java
+@EnableDiscoveryClient
+```
+For example, see the piggymetrics application from earlier examples:
+```java
+package com.piggymetrics.gateway;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+
+@SpringBootApplication
+@EnableDiscoveryClient
+@EnableZuulProxy
+
+public class GatewayApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(GatewayApplication.class, args);
+	}
+}
+```
 
 ### Service Registry dependency
 
