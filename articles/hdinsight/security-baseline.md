@@ -812,14 +812,16 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/386).
 
 **Guidance**: With Azure HDInsight Enterprise Security Package (ESP), you can use Apache Ranger to create and manage fine-grained access control and data obfuscation policies for your data stored in files, folders, databases, tables and rows/columns. The hadoop admin can configure role-based access control (RBAC) to secure Apache Hive, HBase, Kafka ​and Spark using those plugins in Apache Ranger.
-Configuring RBAC policies with Apache Ranger allows you to associate permissions with a role in the organization. This layer of abstraction makes it easier to ensure that people have only the permissions needed to perform their work responsibilities.
 
+Configuring RBAC policies with Apache Ranger allows you to associate permissions with a role in the organization. This layer of abstraction makes it easier to ensure that people have only the permissions needed to perform their work responsibilities.
 
 Enterprise Security Package configurations with Azure Active Directory Domain Services in HDInsight:
 https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
 
 Overview of enterprise security in Azure HDInsight:
-https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/hdinsight-security-overview
+https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-overview
+
+
 
 **Azure Security Center monitoring**: Currently not available
 
