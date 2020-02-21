@@ -3,13 +3,13 @@ title: "Tutorial: Voices enable your bot using Speech SDK - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll create an Echo Bot using Microsoft Bot-Framework, deploy it to Azure, and register it with the Bot-Framework Direct Line Speech channel. Then you'll configure a sample client app for Windows that lets you speak to your bot and hear it respond back to you.
 services: cognitive-services
-author: dargilco
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.author: dcohen
+ms.date: 02/21/2020
+ms.author: dapine
 ---
 
 # Tutorial: Voice-enable your bot using the Speech SDK
@@ -60,8 +60,7 @@ Here's what you'll need to complete this tutorial:
 
 The client app that you'll create in this tutorial uses a handful of Azure services. To reduce the round-trip time for responses from your bot, you'll want to make sure that these services are located in the same Azure region. In this section, you'll create a resource group in the **West US** region. This resource group will be used when creating individual resources for the Bot-Framework, the  Direct Line Speech channel, and the Speech service.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. From the left navigation, select **Resource groups**. Then click **Add** to add a new resource group.
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.ResourceGroup" target="_blank">Create a resource group <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 1. You'll be prompted to provide some information:
    * Set **Subscription** to **Free Trial** (you can also use an existing subscription).
    * Enter a name for your **Resource group**. We recommend **SpeechEchoBotTutorial-ResourceGroup**.
@@ -82,15 +81,13 @@ For more information about regions, see [Azure locations](https://azure.microsof
 
 ## Create resources
 
-Now that you have a resource group in the **West US** region, the next step is to create individual resources for each service that you'll use in this tutorial.
+Now that you have a resource group in a supported region, the next step is to create individual resources for each service that you'll use in this tutorial.
 
 ### Create a Speech service resource
 
 Follow these instructions to create a Speech resource:
 
-1. Go to the [Azure portal](https://portal.azure.com) and select **Create a resource** from the left navigation.
-2. In the search bar, type **Speech**.
-3. Select **Speech**, then click **Create**.
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create a Speech service resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 4. You'll be prompted to provide some information:
    * Give your resource a **Name**. We recommend **SpeechEchoBotTutorial-Speech**
    * For **Subscription**, make sure **Free Trial** is selected.
@@ -102,7 +99,7 @@ Follow these instructions to create a Speech resource:
 
 At this point, check that your resource group (**SpeechEchoBotTutorial-ResourceGroup**) has a Speech resource:
 
-| NAME | TYPE  | LOCATION |
+| Name | Type  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-Speech | Cognitive Services | West US |
 
@@ -110,9 +107,7 @@ At this point, check that your resource group (**SpeechEchoBotTutorial-ResourceG
 
 The next step is to create an App Service Plan. An App Service plan defines a set of compute resources for a web app to run.
 
-1. Go to the [Azure portal](https://portal.azure.com) and select **Create a resource** from the left navigation.
-2. In the search bar, type **App Service Plan**. Next, locate and select the **App Service Plan** card from the search results.
-3. Click **Create**.
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate" target="_blank">Create an Azure App Service plan <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 4. You'll be prompted to provide some information:
    * Set **Subscription** to **Free Trial** (you can also use an existing subscription).
    * For **Resource group**, select **SpeechEchoBotTutorial-ResourceGroup**.
@@ -125,7 +120,7 @@ The next step is to create an App Service Plan. An App Service plan defines a se
 
 At this point, check that your resource group (**SpeechEchoBotTutorial-ResourceGroup**) has two resources:
 
-| NAME | TYPE  | LOCATION |
+| Name | Type  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | App Service Plan | West US |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | West US |
@@ -152,11 +147,14 @@ Now that you've created some resources, let's build a bot. We're going to start 
    samples\csharp_dotnetcore\02.echo-bot\EchoBot.sln
    ```
 
-4. After the project is loaded, press `F5` to build and run the project.
+4. After the project is loaded, press <kbd>F5</kbd> to build and run the project.
+5. A browser should launch and you'll see a screen looking similar to this.
+    > [!div class="mx-imgBorder"]
+    > ![echobot-running-on-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot running on localhost")
 
 ### Test the bot sample with the Bot Framework Emulator
 
-The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) is a desktop app that allows bot developers to test and debug their bots locally or remotely through a tunnel. The Emulator supports typed text as the input (not voice). The bot will response with text. Follow these steps to use the Bot Framework Emulator to test your Echo Bot running locally, with text input and text output. After we deploy the bot Azure we will test it with voice input and voice output.
+The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) is a desktop app that allows bot developers to test and debug their bots locally or remotely through a tunnel. The Emulator supports typed text as the input (not voice). The bot will response with text. Follow these steps to use the Bot Framework Emulator to test your Echo Bot running locally, with text input and text output. After we deploy the bot to Azure we will test it with voice input and voice output.
 
 1. Install the [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) version 4.3.0 or greater
 2. Launch the Bot Framework Emulator and open your bot:
@@ -168,6 +166,8 @@ The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator)
    ```
    and press "Connect".
 4. The bot should immediately greet you with "Hello and welcome!" message. Type in any text message and confirm you get a response from the bot.
+5. This is what an exchange of communication with an Echo Bot instance might look like:
+    ![bot-framework-emulator](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework emulator")
 
 ## Deploy your bot to an Azure App Service
 
@@ -184,7 +184,7 @@ The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy
 
 1. In the **Solution Explorer**, right-click the **EchoBot** project and select **Publish...**
 1. A new window titled **Pick a publish target** will open.
-1. Select **App Service** from the left navigation, select **Create New**, then click **Publish**.
+1. Select **App Service** from the **Azure services** navigation, select **Create New**, then click **Publish**.
 1. When the **Create App Service** window appears:
    * Click **Add an account**, and sign in with your Azure account credentials. If you're already signed in, select the account you want from the drop-down list.
    * For the **App Name**, you'll need to enter a globally unique name for your Bot. This name is used to create a unique bot URL. A default value will be populated including the date and time (For example: "EchoBot20190805125647"). You can use the default name for this tutorial.
@@ -202,7 +202,7 @@ The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy
 1. Your default browser should open and display a page that reads: "Your bot is ready!".
 1. At this point, check your Resource Group **SpeechEchoBotTutorial-ResourceGroup** in the Azure portal, and confirm there are three resources:
 
-| NAME | TYPE  | LOCATION |
+| Name | Type  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | West US |
 | SpeechEchoBotTutorial-AppServicePlan | App Service plan | West US |
@@ -213,7 +213,7 @@ The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy
 You'll need to make a small configuration change so that your bot can communicate with the Direct Line Speech channel using web sockets. Follow these steps to enable web sockets:
 
 1. Navigate to the [Azure portal](https://portal.azure.com), and locate your App Service. The resource should be named similar to **EchoBot20190805125647** (your unique app name).
-2. In the left navigation, under **Settings**, click **Configuration**.
+2. In the **Azure services** navigation, under **Settings**, click **Configuration**.
 3. Select the **General settings** tab.
 4. Locate the toggle for **Web sockets** and set it to **On**.
 5. Click **Save**.
@@ -227,6 +227,8 @@ Now that you've created an Azure App Service to host your bot, the next step is 
 
 > [!NOTE]
 > If you'd like to learn more about how bots leverage channels, see [Connect a bot to channels](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0).
+
+<!-- https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage -->
 
 1. The first step is to create a new resource for the registration. In the [Azure portal](https://portal.azure.com), click **Create a resource**.
 2. In the search bar type **bot**, after the results appear, select **Bot Channels Registration**.
@@ -244,7 +246,7 @@ Now that you've created an Azure App Service to host your bot, the next step is 
 
 At this point, check your Resource Group **SpeechEchoBotTutorial-ResourceGroup** in the Azure portal. It should now show four resources:
 
-| NAME | TYPE  | LOCATION |
+| Name | Type  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | West US |
 | SpeechEchoBotTutorial-AppServicePlan | App Service plan | West US |
@@ -259,13 +261,13 @@ At this point, check your Resource Group **SpeechEchoBotTutorial-ResourceGroup**
 Now it's time to register your bot with the Direct Line Speech channel. This channel is what's used to create a connection between your echo bot and a client app compiled with the Speech SDK.
 
 1. Locate and open your **SpeechEchoBotTutorial-BotRegistration** resource in the [Azure portal](https://portal.azure.com).
-1. From the left navigation, select **Channels**.
+1. From the **Azure services** navigation, select **Channels**.
    * Look for **More channels**, locate and click **Direct Line Speech**.
    * Review the text on the page titled **Configure Direct line Speech**, then expand the drop-down menu labeled "Cognitive service account."
    * Select the speech resource you created earlier (e.g., **SpeechEchoBotTutorial-Speech**) from the menu to associate your bot to your speech subscription key.
    * Click **Save**.
 
-1. From the left navigation, click **Settings**.
+1. From the **Azure services** navigation, click **Settings**.
    * Check the box labeled **Enable Streaming Endpoint**. This is needed to enable a communication protocol built on web sockets between your bot and the Direct Line Speech channel.
    * Click **Save**.
 
@@ -427,7 +429,7 @@ Now that you've made the necessary change to the bot, the next step is to republ
 
 If you're not going to continue using the echo-bot deployed in this tutorial, you can remove it and all its associated Azure resources by simply deleting the Azure Resource group **SpeechEchoBotTutorial-ResourceGroup**.
 
-1. From the [Azure portal](https://portal.azure.com), click on **Resource Groups** from the left navigation.
+1. From the [Azure portal](https://portal.azure.com), click on **Resource Groups** from the **Azure services** navigation.
 2. Find the resource group named: **SpeechEchoBotTutorial-ResourceGroup**. Click the three dots (...).
 3. Select **Delete resource group**.
 
