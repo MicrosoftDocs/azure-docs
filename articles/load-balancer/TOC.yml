@@ -6,16 +6,14 @@
     href: load-balancer-overview.md
 - name: Quickstart
   items:
-  - name: Create Azure Load Balancer
-    items:
-    - name: Portal
-      href: quickstart-load-balancer-standard-public-portal.md
-    - name: Azure CLI
-      href: quickstart-load-balancer-standard-public-cli.md
-    - name: Azure PowerShell
-      href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Template
-      href: quickstart-load-balancer-standard-public-template.md
+  - name: Portal
+    href: quickstart-load-balancer-standard-public-portal.md
+  - name: Azure CLI
+    href: quickstart-load-balancer-standard-public-cli.md
+  - name: Azure PowerShell
+    href: quickstart-create-standard-load-balancer-powershell.md
+  - name: Template
+    href: quickstart-load-balancer-standard-public-template.md
 - name: Tutorials
   items:
   - name: Load balance internet traffic to VMs
@@ -28,6 +26,12 @@
     href: tutorial-load-balancer-standard-public-zonal-portal.md
   - name: Configure port forwarding in Load Balancer
     href: tutorial-load-balancer-port-forwarding-portal.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
 - name: Concepts
   items:
   - name: Components and limitations
@@ -109,12 +113,6 @@
     items:
     - name: Troubleshoot Azure Load Balancer
       href: load-balancer-troubleshoot.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    href: cli-samples.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
 - name: Reference
   items:
   - name: Code samples

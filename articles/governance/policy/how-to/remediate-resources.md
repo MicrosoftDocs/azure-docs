@@ -185,8 +185,8 @@ To create a **remediation task**, follow these steps:
    ![Remediate - select which resources to remediate](../media/remediate-resources/select-resources.png)
 
 1. Begin the remediation task once the resources have been filtered by clicking **Remediate**. The
-   policy compliance page will open to the **Remediation tasks** tab to show the state of the tasks
-   progress.
+   policy compliance page opens to the **Remediation tasks** tab to show the state of the tasks
+   progress. Deployments created by the remediation task begin right away.
 
    ![Remediate - progress of remediation tasks](../media/remediate-resources/task-progress.png)
 

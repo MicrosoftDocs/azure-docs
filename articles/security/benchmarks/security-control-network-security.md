@@ -182,7 +182,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Azure Policy samples for networking:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 How to create an Azure Blueprint:
 
@@ -222,7 +222,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Azure Policy samples for networking:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 ## Next steps
 

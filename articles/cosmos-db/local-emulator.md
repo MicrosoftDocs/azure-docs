@@ -436,31 +436,47 @@ Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7
 
 Finally, we need to import the Emulator CA certificate into the Linux or Mac environment.
 
+### Linux
+
 If you are working on Linux, .NET relays on OpenSSL to do the validation:
 
 1. [Export the certificate in PFX format](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate) (PFX is available when choosing to export the private key). 
-2. Copy that PFX file into your Linux environment.
-3. Convert the PFX file into a CRT file
-```bash
-openssl pkcs12 -in YourPFX.pfx -clcerts -nokeys -out YourCTR.crt
-```
-4. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
-```bash
-cp YourCTR.crt /usr/local/share/ca-certificates/
-```
-5. Update the CA certificates, which will update the `/etc/ssl/certs/` folder.
-```bash
-update-ca-certificates
-```
 
-If you are working on Mac:
+1. Copy that PFX file into your Linux environment.
 
-1. [Export the certificate in PFX format](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate) (PFX is available when choosing to export the private key). 
-2. Copy that PFX file into your Mac environment.
-3. Open the *Keychain Access* application and import the PFX file.
-4. Open the list of Certificates and identify the one with the name `localhost`.
-5. Open the context menu for that particular item, select *Get Item* and under *Trust* > *When using this certificate* option, select *Always Trust*. 
-![Open the context menu for that particular item, select Get Item and under Trust - When using this certificate option, select Always Trust](./media/local-emulator/mac-trust-certificate.png)
+1. Convert the PFX file into a CRT file
+
+   ```bash
+   openssl pkcs12 -in YourPFX.pfx -clcerts -nokeys -out YourCTR.crt
+   ```
+
+1. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
+
+   ```bash
+   cp YourCTR.crt /usr/local/share/ca-certificates/
+   ```
+
+1. Update the CA certificates, which will update the `/etc/ssl/certs/` folder.
+
+   ```bash
+   update-ca-certificates
+   ```
+
+### Mac OS
+
+Use the following steps if you are working on Mac:
+
+1. [Export the certificate in PFX format](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate) (PFX is available when choosing to export the private key).
+
+1. Copy that PFX file into your Mac environment.
+
+1. Open the *Keychain Access* application and import the PFX file.
+
+1. Open the list of Certificates and identify the one with the name `localhost`.
+
+1. Open the context menu for that particular item, select *Get Item* and under *Trust* > *When using this certificate* option, select *Always Trust*. 
+
+   ![Open the context menu for that particular item, select Get Item and under Trust - When using this certificate option, select Always Trust](./media/local-emulator/mac-trust-certificate.png)
 
 After following these steps, your environment will trust the certificate used by the Emulator when connecting to the IP address exposes by `/AllowNetworkAccess`.
 

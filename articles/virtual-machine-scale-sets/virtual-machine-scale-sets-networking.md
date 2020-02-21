@@ -60,6 +60,8 @@ az vmss create \
     --lb mylb \
     --backend-pool-name mybackendpool
 ```
+>[!NOTE]
+> After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again. 
 
 ## Create a scale set that references an Application Gateway
 To create a scale set that uses an application gateway, reference the backend address pool of the application gateway in the ipConfigurations section of your scale set as in this ARM template config:

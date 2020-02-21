@@ -20,9 +20,9 @@ For more information on Terraform, see the [Terraform documentation](https://www
 ## Set up authentication with Azure
 
 > [!TIP]
-> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
+> If you [use Terraform environment variables](terraform-install-configure.md) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
 
- Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
+ Review [Install Terraform and configure access to Azure](terraform-install-configure.md) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
 
 ```hcl
 variable subscription_id {}
