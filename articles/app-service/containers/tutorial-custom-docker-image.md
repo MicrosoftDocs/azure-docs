@@ -1,17 +1,10 @@
 ---
-title: Build a custom image and run in App Service from a private registry
-description: How to use a custom Docker image for Web App for Containers.
+title: 'Tutorial: Build and run a custom image'
+description: Learn how to build a custom Linux image that can run on Azure App Service, deploy it to Azure Container Registries, and run it in App Service.
 keywords: azure app service, web app, linux, docker, container
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
@@ -125,7 +118,7 @@ az acr credential show --name <azure-container-registry-name>
 The output reveals two passwords along with the user name.
 
 ```json
-<
+{
   "passwords": [
     {
       "name": "password",

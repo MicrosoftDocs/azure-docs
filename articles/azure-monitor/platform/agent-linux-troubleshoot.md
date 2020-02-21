@@ -1,18 +1,13 @@
 ---
 title: Troubleshoot Azure Log Analytics Linux Agent | Microsoft Docs
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics agent for Linux in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: magoedte
+author: bwren
+ms.author: bwren
+ms.date: 11/21/2019
+
 ---
 
 # How to troubleshoot issues with the Log Analytics agent for Linux 
@@ -46,7 +41,7 @@ If none of these steps work for you, the following support channels are also ava
 
  >[!NOTE]
  >Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [data menu Log Analytics Advanced Settings](../../azure-monitor/platform/agent-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from Log Analytics **Advanced Settings** or for a single agent run the following:  
-> `sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable`
+> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 ## Installation error codes
 
@@ -166,7 +161,8 @@ Below the output plugin, uncomment the following section by removing the `#` in 
     |*.ods.opinsights.azure.com | Port 443| Inbound and outbound |  
     |*.oms.opinsights.azure.com | Port 443| Inbound and outbound |  
     |*.blob.core.windows.net | Port 443| Inbound and outbound |  
-    |*.azure-automation.net | Port 443| Inbound and outbound | 
+
+    If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 ## Issue: You receive a 403 error when trying to onboard
 
@@ -187,7 +183,7 @@ This is a known issue that occurs on first upload of Linux data into a Log Analy
 ## Issue: You see omiagent using 100% CPU
 
 ### Probable causes
-A regression in nss-pem package [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-5.el7.x86_64.rpm.html) caused a severe performance issue, that we've been seeing come up a lot in Redhat/Centos 7.x distributions. To learn more about this issue, check the following documentation: Bug [1667121 Performance regression in libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
+A regression in nss-pem package [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html) caused a severe performance issue, that we've been seeing come up a lot in Redhat/Centos 7.x distributions. To learn more about this issue, check the following documentation: Bug [1667121 Performance regression in libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
 
 Performance related bugs don't happen all the time, and they are very difficult to reproduce. If you experience such issue with omiagent you should use the script omiHighCPUDiagnostics.sh which will collect the stack trace of the omiagent when exceeding a certain threshold.
 
@@ -201,7 +197,7 @@ Performance related bugs don't happen all the time, and they are very difficult 
 
 ### Resolution (step by step)
 
-1. Upgrade the nss-pem package to [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-updates-x86_64/nss-pem-1.0.3-5.el7_6.1.x86_64.rpm.html). <br/>
+1. Upgrade the nss-pem package to [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html). <br/>
 `sudo yum upgrade nss-pem`
 
 2. If nss-pem is not available for upgrade (mostly happens on Centos), then downgrade curl to 7.29.0-46. If by mistake you run "yum update", then curl will be upgraded to 7.29.0-51 and the issue will happen again. <br/>
@@ -398,7 +394,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
   1. Reonboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
   2. Under **Advanced Settings** in the Azure portal, ensure that the setting **Apply the following configuration to my Linux Servers** is enabled.  
 
-2. Check that the `omsconfig` agent can communicate with Azure Monitor by running the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  This command returns the configuration that agent receives from the service, including Syslog settings, Linux performance counters, and custom logs. If this command fails, run the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration.
+2. Check that the `omsconfig` agent can communicate with Azure Monitor by running the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  This command returns the configuration that agent receives from the service, including Syslog settings, Linux performance counters, and custom logs. If this command fails, run the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration.
 
 **Background:** Instead of the Log Analytics agent for Linux running as a privileged user - `root`, the agent runs as the `omsagent` user. In most cases, explicit permission must be granted to this user in order for certain files to be read. To grant permission to `omsagent` user, run the following commands:
 

@@ -1,5 +1,5 @@
 ---
-title: Configure Advanced Threat Protection - Azure SQL Database managed instance | Microsoft Docs
+title: Configure Advanced Threat Protection - managed instance
 description: Advanced Threat Protection detects anomalous database activities indicating potential security threats to the database in a managed instance. 
 services: sql-database
 ms.service: sql-database

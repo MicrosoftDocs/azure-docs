@@ -1,11 +1,12 @@
 ---
-title: Create an account SAS with .NET - Azure Storage
+title: Create an account SAS with .NET
+titleSuffix: Azure Storage
 description: Learn how to create an account shared access signature (SAS) using the .NET client library.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: cbrooks

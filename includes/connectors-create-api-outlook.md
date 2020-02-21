@@ -1,10 +1,11 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
+ms.date: 11/03/2016
 ---
+
 1. In the search box, enter "outlook.com" as your filter. 
 For this example, select this trigger: **When a new email arrives**
 
@@ -16,7 +17,7 @@ if you already didn't sign in. Choose **Sign in**.
 
    ![Sign in to your Outlook.com account](./media/connectors-create-api-outlook/sign-in-outlook.png)  
 
-3. Select your Outlook.com account credentials.
+1. Select your Outlook.com account credentials.
 
    ![Select sign-in account](./media/connectors-create-api-outlook/outlook-sign-in.png)  
 

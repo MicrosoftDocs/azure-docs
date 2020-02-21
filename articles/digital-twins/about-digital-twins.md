@@ -1,13 +1,13 @@
 ---
-title: Overview of Azure Digital Twins | Microsoft Docs
+title: Overview - Azure Digital Twins | Microsoft Docs
 description: Learn more about Azure Digital Twins, an Azure IoT solution for spatial intelligence.
-author: julieseto
-ms.author: jseto
-ms.date: 08/01/2019
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
+ms.date: 12/30/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
-manager: bertvanhoof
 ms.custom: mvc
 #Customer intent: As an Azure enterprise customer, I want to know what capabilities Digital Twins has so that I can build next-generation IoT services. 
 ---
@@ -29,7 +29,7 @@ Azure Digital Twins applies to all types of environments, such as, warehouses, o
 - Analyze occupancy levels for a building.
 - Find the busiest cash register in your store.
 
-Whatever your real-world business scenario is, it's very likely a corresponding digital instance can be provisioned through Azure Digital Twins.
+Whatever your real-world business scenario is, it's likely a corresponding digital instance can be provisioned through Azure Digital Twins.
 
 The following video takes a closer look at Azure Digital Twins.
 
@@ -41,13 +41,13 @@ Azure Digital Twins has the following key capabilities.
 
 ### Spatial intelligence graph
 
-The [*spatial intelligence graph*](./concepts-objectmodel-spatialgraph.md#graph), or *spatial graph*, is a virtual representation of the physical environment. You can use it to model the relationships between people, places, and devices.
+The [*spatial intelligence graph*](./concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph), or *spatial graph*, is a virtual representation of the physical environment. You can use it to model the relationships between people, places, and devices.
 
 Consider a smart utility app that involves several electricity usage meters connected across a neighborhood. The smart utility company must accurately monitor and predict electricity usage and billing. Each device and sensor must be modeled with context about the location and the customer that's to be billed. You can use the spatial intelligence graph to model these kinds of complex relationships.
 
 ### Digital twin object models
 
-[Digital twin object models](./concepts-objectmodel-spatialgraph.md#model) are predefined device protocols and data schema. They align your solution’s domain-specific needs to accelerate and simplify development.
+[Digital twin object models](./concepts-objectmodel-spatialgraph.md#digital-twins-object-models) are predefined device protocols and data schema. They align your solution’s domain-specific needs to accelerate and simplify development.
 
 For example, a room occupancy application might use predefined space types such as campus, building, floor, and room.
 
@@ -89,9 +89,9 @@ Azure Digital Twins is useful for representing the physical world and its many r
 
 Azure Digital Twins uses Azure IoT Hub to connect the IoT devices and sensors that keep everything up-to-date with the physical world. The following diagram shows how Azure Digital Twins relates to other Azure IoT services.
 
-![Azure Digital Twins is a service built on top of Azure IoT Hub][1]
+[![Azure Digital Twins is a service built on top of Azure IoT Hub](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
 
-For more information about IoT, see [Azure IoT technologies and solutions](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
+For more information about IoT, read [Azure IoT technologies and solutions](../iot-fundamentals/iot-services-and-technologies.md).
 
 ## Next steps
 
@@ -109,6 +109,3 @@ Learn about core Azure Digital Twins concepts:
 
 >[!div class="nextstepaction"]
 >[Understand the Digital Twins object model and spatial intelligence graph](./concepts-objectmodel-spatialgraph.md)
-
-<!-- Images -->
-[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

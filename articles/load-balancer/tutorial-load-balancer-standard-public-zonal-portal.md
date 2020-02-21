@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Load Balancer VMs within a zone--Azure portal"
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This tutorial demonstrates how to create a Standard Load Balancer with zonal frontend to load balance VMs within an availability zone by using Azure portal
 services: load-balancer
 documentationcenter: na

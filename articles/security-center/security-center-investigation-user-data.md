@@ -1,12 +1,10 @@
 ---
-title: Manage user data found in an Azure Security Center investigation | Microsoft Docs
+title: Manage user data found in an Azure Security Center investigation
 description: " Learn how to manage user data found in Azure Security Center's investigation feature. "
 services: operations-management-suite
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 
@@ -31,7 +29,7 @@ The investigation feature shows all entities, user information, and data under t
 ## Securing and controlling access to personal information
 A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can access customer data within the tool.
 
-See [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md) to learn more about the Reader, Owner, and Contributor roles. See [Azure subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md) to learn more about the Account Administrator role.
+See [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md) to learn more about the Reader, Owner, and Contributor roles. See [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md) to learn more about the Account Administrator role.
 
 ## Deleting personal data
 A Security Center user assigned the role of Owner, Contributor, or Account Administrator can delete the investigation information.

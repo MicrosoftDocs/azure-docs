@@ -1,14 +1,15 @@
 ---
-title: Collation - Azure SQL Data Warehouse | Microsoft Docs
+title: Collation 
 description: Collation types supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: antvgski 
 manager: igorstan
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
+ms.custom: seo-lt-2019
 ---
 
 # Database collation support for Azure SQL Data Warehouse
@@ -95,6 +96,8 @@ For example, if you wanted to change the default collation to case sensitive, yo
 
 ## Checking the current collation
 To check the current collation for the database, you can run the following T-SQL snippet:
+```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
+```
 When passed ‘Collation’ as the property parameter, the DatabasePropertyEx function returns the current collation for the database specified. You can learn more about the DatabasePropertyEx function on MSDN.
 

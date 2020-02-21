@@ -1,16 +1,10 @@
 ﻿---
-title: Configure PHP runtime - Azure App Service
+title: Configure PHP runtime
 description: Learn how to configure the default PHP installation or add a custom PHP installation for Azure App Service.
-services: app-service
-documentationcenter: php
-author: msangapu
-manager: cfowler
+author: msangapu-msft
 
 ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: PHP
+ms.devlang: php
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
@@ -36,20 +30,6 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
 2. From **Configuration**, select **General Settings** and choose the new PHP version.
 
 3. Click the **Save** button at the top of the **General settings** blade.
-
-### Azure PowerShell (Windows)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-1. Open Azure PowerShell, and login to your account:
-
-        PS C:\> Connect-AzAccount
-2. Set the PHP version for the app.
-
-        PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
-3. The PHP version is now set. You can confirm these settings:
-
-        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
 ### Azure CLI 
 

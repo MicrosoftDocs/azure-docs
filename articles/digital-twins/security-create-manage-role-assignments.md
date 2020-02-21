@@ -1,22 +1,19 @@
 ---
-title: 'Create and manage role assignments in Azure Digital Twins | Microsoft Docs'
-description: Create and manage role assignments in Azure Digital Twins.
-author: lyrana
-manager: alinast
+title: 'Create and manage role assignments - Azure Digital Twins | Microsoft Docs'
+description: Learn about creating and managing role assignments within Azure Digital Twins.
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.author: lyhughes
+ms.date: 02/07/2020
 ms.custom: seodec18
 ---
 
 # Create and manage role assignments in Azure Digital Twins
 
 Azure Digital Twins uses role-based access control ([RBAC](./security-role-based-access-control.md)) to manage access to resources.
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Role assignments overview
 
@@ -58,7 +55,7 @@ Previously, the **objectIdType** attribute was introduced.
 
 Azure Digital Twins supports full *CREATE*, *READ*, and *DELETE* operations for role assignments. *UPDATE* operations are handled by adding role assignments, removing role assignments, or modifying the [Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md) nodes that role assignments give access to.
 
-![Role assignment endpoints][1]
+[![Role assignment endpoints](media/security-roles/role-assignments.png)](media/security-roles/role-assignments.png#lightbox)
 
 The supplied Swagger reference documentation contains further information about all available API endpoints, request operations, and definitions.
 
@@ -66,28 +63,33 @@ The supplied Swagger reference documentation contains further information about 
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-<div id="grant"></div>
-
 ### Grant permissions to your service principal
 
 Granting permissions to your service principal is often one of the first steps you'll take when working with Azure Digital Twins. It entails:
 
-1. Logging in to your Azure instance through PowerShell.
+1. Logging in to your Azure instance through [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or [PowerShell](https://docs.microsoft.com/powershell/azure/).
 1. Acquiring your service principal information.
 1. Assigning the desired role to your service principal.
 
 Your application ID is supplied to you in Azure Active Directory. To learn more about configuring and provisioning an Azure Digital Twins in Active Directory, read through the [Quickstart](./quickstart-view-occupancy-dotnet.md).
 
-Once you have the application ID, execute the following PowerShell commands:
+Once you have the application ID, execute one of the following commands. In Azure CLI:
 
-```shell
+```azurecli
+az login
+az ad sp show --id <ApplicationId>
+```
+
+In Powershell:
+
+```powershell
 Login-AzAccount
-Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
+Get-AzADServicePrincipal -ApplicationId <ApplicationId>
 ```
 
 A user with the **Admin** role can then assign the Space Administrator role to a user by making an authenticated HTTP POST request to the URL:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
@@ -103,15 +105,13 @@ With the following JSON body:
 }
 ```
 
-<div id="all"></div>
-
 ### Retrieve all roles
 
-![System roles][2]
+[![System roles](media/security-roles/system-api.png)](media/security-roles/system-api.png#lightbox)
 
 To list all available roles (role definitions), make an authenticated HTTP GET request to:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/system/roles
 ```
 
@@ -148,13 +148,11 @@ A successful request will return a JSON array with entries for each role that ma
 ]
 ```
 
-<div id="check"></div>
-
 ### Check a specific role assignment
 
 To check a specific role assignment, make an authenticated HTTP GET request to:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
@@ -162,8 +160,8 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True | String |	The objectId for the UserId objectIdType. |
 | YOUR_PATH | True | String |	The chosen path to check access for. |
-| YOUR_ACCESS_TYPE |  True | String |	The access type to check for. |
-| YOUR_RESOURCE_TYPE | True | String |	The resource to check. |
+| YOUR_ACCESS_TYPE |  True | String |	*Read*, *Create*, *Update*, or *Delete* |
+| YOUR_RESOURCE_TYPE | True | String |	*Device*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *Endpoint*, *KeyStore*, *Matcher*, *Ontology*, *Report*, *RoleDefinition*, *Sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System*, *UerDefinedFunction*, *User*, *UserBlobMetadata*, or *UserExtendedProperty* |
 
 A successful request will return a boolean `true` or `false` to indicate whether the access type has been assigned to the user for the given path and resource.
 
@@ -171,7 +169,7 @@ A successful request will return a boolean `true` or `false` to indicate whether
 
 To get all role assignments for a path, make an authenticated HTTP GET request to:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
@@ -195,9 +193,9 @@ A successful request will return a JSON array with each role assignment associat
 
 ### Revoke a permission
 
-To revoke a permissions from a recipient, delete the role assignment by making an authenticated HTTP DELETE request:
+To revoke a permission from a recipient, delete the role assignment by making an authenticated HTTP DELETE request:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 ```
 
@@ -205,13 +203,13 @@ YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 | --- | --- |
 | *YOUR_ROLE_ASSIGNMENT_ID* | The **id** of the role assignment to remove |
 
-A successful DELETE request will return a 204 response status. Verify the removal of the role assignment by [checking](#check) whether the role assignment still holds.
+A successful DELETE request will return a 204 response status. Verify the removal of the role assignment by [checking](#check-a-specific-role-assignment) whether the role assignment still holds.
 
 ### Create a role assignment
 
 To create a role assignment, make an authenticated HTTP POST request to the URL:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
@@ -277,7 +275,3 @@ The following examples demonstrate how to configure your JSON body in several co
 - To review Azure Digital Twins role-based-access-control, read [Role-base-access-control](./security-authenticating-apis.md).
 
 - To learn about Azure Digital Twins API authentication, read [API authentication](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/security-roles/roleassignments.png
-[2]: media/security-roles/system.png

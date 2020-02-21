@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
-ms.localizationpriority: high 
+ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
+
+# Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 
 ::: zone target="chromeless"
@@ -49,7 +49,7 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
 The next steps are determined by where you are returning the device. The instructions are different for US/Canada, European Union (EU), Australia, or countries in Asia.
 
-### Pick up in US, Canada
+### [In US or Canada](#tab/in-us-or-canada)
 
 Take the following steps if returning the device in US or Canada.
 
@@ -65,7 +65,7 @@ Take the following steps if returning the device in US or Canada.
     - If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
     - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
-### Pick up in Europe
+### [In Europe](#tab/in-europe)
 
 Take the following steps if returning the device in Europe.
 
@@ -78,22 +78,15 @@ Take the following steps if returning the device in Europe.
 4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.    
 3. Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
 
-### Pick up in Australia
+### [In Australia](#tab/in-australia)
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
 
-1. Email `adbops@microsoft.com` to request shipment label with unique inbound ID or the TAU code. Place the request at least 3 days in advance of the planned ship date to get the label in time.
-2. The email subject should be - *Request for reverse shipping label with TAU code*. Make sure to include the following details in the email: 
+1. Use the provided return ship label and make sure that the TAU code (reference number) is written on it. If the provided shipping label is missing or you have any other issues, email [Data Box Asia Operations](mailto:adbo@microsoft.com). Provide the order name in subject header and details of the issue you are facing.
+3. Affix the label on the box. 
+4. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-    - Order name
-    - Address
-    - Contact name
-
-### Pick up in Asia
-
-The pickup instructions are different for Japan, Korea, and Singapore.
-
-#### Pick up in Japan
+### [In Japan](#tab/in-japan)
 
 1. Write your company name and address information on the consignment note as your sender information.
 2. Email Quantium solution using the following email template.
@@ -120,7 +113,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 - Email：Customerservice.JP@quantiumsolutions.com 
 - Telephone：03-5755-0150 
 
-#### Pick up in Korea
+### [In Korea](#tab/in-korea)
 
 1. Make sure to include the return consignment note.
 2. To request pickup when consignment note is present:
@@ -134,21 +127,54 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
     3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
     4. You receive a verbal confirmation if the request is made via telephone.
 
-#### Pick up in Singapore
 
-1. Print the shipping label and attach onto the box. If the label is damaged or lost:
+### [In Singapore](#tab/in-singapore)
+
+1. Print the shipping label and attach it to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and get a return shipping label.
     - Affix the label on the device. Make sure that the label is visible.
 
-2. To request pickup:
-    - Call **SingPost** hotline at **6845 6485** during office hours (9am to 5pm, Monday to Friday).  
-    - Quote *Microsoft Azure pickup* and the service request number (tracking number on the return shipping label) to arrange for a collection. 
-    - You will get a verbal confirmation for the pickup schedule. 
-    - If the courier does not arrive for collection, call **SingPost** at **6845 6485** for alternate arrangements. 
-3. Hand over to the courier. 
+2. To request pickup, email SingPost Customer Service by using the following template with the tracking number (the tracking number can be found on the return label provided in the delivered package).
 
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - XZ00001234567 
+    Body: 
+     a.	Requestor name
+     b.	Requestor contact number
+     c.	Requestor collection address
+     d.	Preferred collection date
+    ```
+
+   > [!NOTE]
+   > For booking requests received on a business day:
+   > - Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
+   > - After 3 PM, pickup will be the next business day between 2 PM to 6 PM.
+
+   If you encounter any issues, kindly reach out to Data Box Operations Asia at adbo@microsoft.com. Provide the job name in the subject header and the issue encountered.
+
+3. Hand over to the courier.
+
+### [In Self-Managed](#tab/in-selfmanaged)
+
+If you are using Data Box Disk in Japan, Singapore, Korea, and West Europe and have selected the self-managed shipping option during order creation, follow these instructions. 
+
+1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
+
+2. Send an email to the Azure Data Box Operations team using the following template when you are ready to return the device.
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Body: 
+     a. Order name
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+    ```
+3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure Datacenter.
 
 ::: zone target="docs"
+
+---
 
 ## Next steps
 

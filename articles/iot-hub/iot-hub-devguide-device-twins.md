@@ -186,7 +186,7 @@ The solution back end operates on the device twin using the following atomic ope
     deviceId | ID of the device |
     hubName | Name of IoT Hub |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp of operation |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" or "updateTwin" |
 
     Message system properties are prefixed with the `$` symbol.
@@ -240,11 +240,11 @@ The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the pr
 
 Tags, desired properties, and reported properties are JSON objects with the following restrictions:
 
-* All keys in JSON objects are case-sensitive 64 bytes UTF-8 UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, `$`, and SP.
+* All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, `$`, and SP.
 
 * All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed. The maximum value for integers is 4503599627370495 and the minimum value for integers is -4503599627370496.
 
-* All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
+* All JSON objects in tags, desired, and reported properties can have a maximum depth of 10. For instance, the following object is valid:
 
    ```json
    {
@@ -255,7 +255,17 @@ Tags, desired properties, and reported properties are JSON objects with the foll
                    "three": {
                        "four": {
                            "five": {
-                               "property": "value"
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
                            }
                        }
                    }
@@ -266,11 +276,11 @@ Tags, desired properties, and reported properties are JSON objects with the foll
    }
    ```
 
-* All string values can be at most 512 bytes in length.
+* All string values can be at most 4 KB in length.
 
 ## Device twin size
 
-IoT Hub enforces an 8KB size limitation on each of the respective total values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.
+IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements.
 
 The size is computed by counting all characters, excluding UNICODE control characters (segments C0 and C1) and spaces that are outside of string constants.
 

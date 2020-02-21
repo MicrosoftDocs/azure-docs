@@ -3,8 +3,9 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database  
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 02/14/2020
 ms.author: mathoma
+ms.reviewer: vanto
 ---
 
 In this step, you will create an Azure SQL Database single database. 
@@ -24,14 +25,14 @@ Create your resource group and single database using the Azure portal.
 
    ![Create single database](../media/sql-database-get-started-portal/create-single-database.png)
 
-3. On the **Basics** tab, in the **Project Details** section, type or select the following values:
+4. On the **Basics** tab, in the **Project Details** section, type or select the following values:
 
    - **Subscription**: Drop down and select the correct subscription, if it doesn't appear.
    - **Resource group**: Select **Create new**, type `myResourceGroup`, and select **OK**.
 
      ![New SQL database - basic tab](../media/sql-database-get-started-portal/new-sql-database-basics.png)
 
-4. In the **Database Details** section, type or select the following values:
+5. In the **Database Details** section, type or select the following values:
 
    - **Database name**: Enter `mySampleDatabase`.
    - **Server**: Select **Create new**, enter the following values and then select **Select**.
@@ -50,26 +51,30 @@ Create your resource group and single database using the Azure portal.
 
      ![SQL Database details](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - Select **Provisioned** and **Gen5**.
+   - Select **Provisioned**.
 
      ![Provisioned Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - Review the settings for **Max vCores**, **Min vCores**, **Autopause delay**, and **Data max size**. Change these as desired.
-   - Accept the preview terms and click **OK**.
+   - Review the settings for **vCores**, and **Data max size**. Change these as desired. 
+     - Optionally, you can also select **Change configuration** to change the hardware generation.
    - Select **Apply**.
 
-5. Select the **Additional settings** tab. 
-6. In the **Data source** section, under **Use existing data**, select `Sample`.
+6. Select the **Networking** tab and decide if you want to [**Allow Azure services and resources to access this server**](../sql-database-networkaccess-overview.md), or add a [private endpoint](../../private-link/private-endpoint-overview.md).
+
+   ![Networking Tab](../media/sql-database-get-started-portal/create-database-networking.png)
+
+7. Select the **Additional settings** tab. 
+8. In the **Data source** section, under **Use existing data**, select `Sample`.
 
    ![Additional SQL DB settings](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
    > Make sure to select the **Sample (AdventureWorksLT)** data so you can follow easily this and other Azure SQL Database quickstarts that use this data.
 
-7. Leave the rest of the values as default and select **Review + Create** at the bottom of the form.
-8. Review the final settings and select **Create**.
+9. Leave the rest of the values as default and select **Review + Create** at the bottom of the form.
+10. Review the final settings and select **Create**.
 
-9. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database.
+11. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -137,6 +142,15 @@ Create your resource group and single database using PowerShell.
    $database
    ```
 
+This portion of the article uses the following PowerShell cmdlets:
+
+| Command | Notes |
+|---|---|
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a new Azure SQL Database single database. | 
+
 # [Azure CLI](#tab/azure-cli)
 
 Create your resource group and single database using AZ CLI.
@@ -202,5 +216,16 @@ Create your resource group and single database using AZ CLI.
       --family Gen5 \
       --capacity 2
    ```
+
+This script uses the following commands. Each command in the table links to command specific documentation.
+
+| Command | Notes |
+|---|---|
+| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Sets a subscription to be the current active subscription. | 
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a SQL Database server that hosts single databases and elastic pools. |
+| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Creates a server's firewall rules. | 
+| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Creates a database. | 
+
 
 ---

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Load Balancer VMs across availability zones - Azure portal'
-titlesuffix: Azure Load Balancer
+title: 'Tutorial: Load balance VMs across availability zones - Azure portal'
+titleSuffix: Azure Load Balancer
 description: This tutorial demonstrates how to create a Standard Load Balancer with zone-redundant frontend to load balance VMs across availability zones using Azure portal
 services: load-balancer
 documentationcenter: na
@@ -210,6 +210,7 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
     - *myBackendPool* - for the name of the backend pool.
     - *myHealthProbe* - for the name of the health probe.
 4. Click **OK**.
+    
     
     ![Adding a load balancing rule](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 10/15/2019
 ms.author: diberry
 ---
 # Understand what good utterances are for your LUIS app
@@ -54,17 +54,17 @@ Take these example utterances:
 |I want to get a computer, how do I go about it?|
 |When can I have a computer?| 
 
-The core term here, "computer", isn't varied. Use alternatives such as desktop computer, laptop, workstation, or even just machine. LUIS intelligently infers synonyms from context, but when you create utterances for training, it's still better to vary them.
+The core term here, "computer," isn't varied. Use alternatives such as desktop computer, laptop, workstation, or even just machine. LUIS can intelligently infer synonyms from context, but when you create utterances for training, it's always better to vary them.
 
 ## Example utterances in each intent
 
-Each intent needs to have example utterances, at least 15. If you have an intent that does not have any example utterances, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS will not accurately predict the intent. 
+Each intent needs to have example utterances, at least 15. If you have an intent that does not have any example utterances, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS may not accurately predict the intent. 
 
 ## Add small groups of 15 utterances for each authoring iteration
 
 In each iteration of the model, do not add a large quantity of utterances. Add utterances in quantities of 15. [Train](luis-how-to-train.md), [publish](luis-how-to-publish-app.md), and [test](luis-interactive-test.md) again.  
 
-LUIS builds effective models with utterances that are carefully selected by the LUIS model author. Adding too many utterances isn't valuable because it introduces confusion.  
+LUIS builds effective models with utterances that are carefully selected by the LUIS model author. Adding too many utterances isn't valuable because it introduces confusion.
 
 It is better to start with a few utterances, then [review endpoint utterances](luis-how-to-review-endpoint-utterances.md) for correct intent prediction and entity extraction.
 
@@ -106,7 +106,7 @@ Punctuation is a separate token in LUIS. An utterance that contains a period at 
 
 If punctuation is not normalized, LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. 
 
-Make sure the model handles punctuation either in the [example utterances](luis-concept-utterance.md) (having and not having punctuation) or in the [patterns](luis-concept-patterns.md) where it is easier to ignore punctuation with the special syntax: `I am applying for the {Job} position[.]`
+Make sure the model handles punctuation either in the example utterances (having and not having punctuation) or in the [patterns](luis-concept-patterns.md) where it is easier to ignore punctuation with the special syntax: `I am applying for the {Job} position[.]`
 
 If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#utterance-normalization) by normalizing punctuation. 
 
@@ -130,6 +130,20 @@ After your model is trained, published, and receiving [endpoint](luis-glossary.m
 ## Best practices
 
 Review [best practices](luis-concept-best-practices.md) and apply them as part of your regular authoring cycle.
+
+## Label for word meaning
+
+If the word choice or word arrangement is the same, but doesn't mean the same thing, do not label it with the entity. 
+
+The following utterances, the word `fair` is a homograph. It is spelled the same but has a different meaning:
+
+|Utterance|
+|--|
+|What kind of county fairs are happening in the Seattle area this summer?|
+|Is the current rating for the Seattle review fair?|
+
+If you wanted an event entity to find all event data, label the word `fair` in the first utterance, but not in the second.
+
 
 ## Next steps
 See [Add example utterances](luis-how-to-add-example-utterances.md) for information on training a LUIS app to understand user utterances.

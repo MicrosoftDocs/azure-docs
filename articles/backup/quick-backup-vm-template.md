@@ -1,14 +1,9 @@
 ---
-title: Azure Quickstart - Back up a VM with Resource Manager template
+title: Quickstart - Resource Manager template VM Backup
 description: Learn how to back up your virtual machines with Azure Resource Manager template
-
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.author: dacurwin
 ms.custom: mvc
 ---
 
@@ -40,7 +35,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -adminUsername $adminUsername -adminPassword $adminPassword -dnsLabelPrefix $dnsPrefix
 ```
 
-Azure PowerShell is used to deploy the Resource Manager template in this quickstart. The [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), and [Rest API](../azure-resource-manager/resource-group-template-deploy-rest.md) can also be used to deploy templates.
+Azure PowerShell is used to deploy the Resource Manager template in this quickstart. The [Azure portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), and [Rest API](../azure-resource-manager/templates/deploy-rest.md) can also be used to deploy templates.
 
 ## Start a backup job
 
@@ -54,7 +49,7 @@ To monitor the backup job, see [Monitor the backup job](./quick-backup-vm-powers
 
 If you no longer need to back up the VM, you can clean it up.
 
-- If you want to try out restoring the VM, skip the clean up.
+- If you want to try out restoring the VM, skip the cleanup.
 - If you used an existing VM, you can skip the final [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to leave the resource group and VM in place.
 
 Disable protection, remove the restore points and vault. Then delete the resource group and associated VM resources, as follows:

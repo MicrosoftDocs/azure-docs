@@ -4,7 +4,7 @@ description: Learn how to troubleshoot RDP problem that is caused by static IP i
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows
@@ -22,7 +22,7 @@ This article describes a problem in which you cannot remote desktop to Azure Win
 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources:
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
+[Resource Manager and classic](../../azure-resource-manager/management/deployment-models.md). This article covers using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
 ## Symptoms
 

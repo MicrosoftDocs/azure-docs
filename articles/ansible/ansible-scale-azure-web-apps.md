@@ -1,12 +1,8 @@
 ---
-title: Tutorial - Scale apps in Azure App Service using Ansible | Microsoft Docs
+title: Tutorial - Scale apps in Azure App Service using Ansible
 description: Learn how to scale up an app in Azure App Service
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, scale, Java
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
 ---
 

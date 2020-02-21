@@ -1,6 +1,6 @@
 ---
-title: Auto-forwarding Azure Service Bus messaging entities | Microsoft Docs
-description: How to chain a Service Bus queue or subscription to another queue or topic.
+title: Auto-forwarding Azure Service Bus messaging entities
+description: This article describes how to chain an Azure Service Bus queue or subscription to another queue or topic.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
@@ -44,8 +44,10 @@ You can also use autoforwarding to decouple message senders from receivers. For 
 If Alice goes on vacation, her personal queue, rather than the ERP topic, fills up. In this scenario, because a sales representative has not received any messages, none of the ERP topics ever reach quota.
 
 > [!NOTE]
-> When autoforwarding is setup, the value for AutoDeleteOnIdle on the destination is automatically set to the maximum value of the data type.
-> This is done to ensure that there is always a destination to forward the message to.
+> When autoforwarding is setup, the value for AutoDeleteOnIdle on **both the Source and the Destination** is automatically set to the maximum value of the data type.
+> 
+>   - On the Source side, autoforwarding acts as a receive operation. So the source which has autoforwarding setup is never really "idle".
+>   - On the destination side, this is done to ensure that there is always a destination to forward the message to.
 
 ## Autoforwarding considerations
 

@@ -1,19 +1,19 @@
 ---
-title: Cloud smart alert correlation in Azure Security Center (incidents) | Microsoft Docs
+title: Azure Security Center incidents - smart correlations of alerts
 description: This topic explains how fusion uses cloud smart alert correlation to generate security incidents in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
+
 ms.assetid: e9d5a771-bfbe-458c-9a9b-a10ece895ec1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
-ms.author: "v-mohabe"
+ms.date: 07/02/2019
+ms.author: memildin
 ---
 # Cloud smart alert correlation in Azure Security Center (incidents)
 
@@ -25,7 +25,7 @@ Fusion analytics is the technology and analytic back end that powers Security Ce
 
 Fusion analytics combines security domain knowledge with AI to analyze alerts, discovering new attack patterns as they occur. 
 
-Security Center leverages MITRE Attack Matrix to associate alerts with their perceived intent, helping formalize security domain knowledge. In addition, by using the information gathered for each step of an attack, Security Center can rule out activity that appears to be steps of an attack, but actually isn't.  
+Security Center leverages MITRE Attack Matrix to associate alerts with their perceived intent, helping formalize security domain knowledge. In addition, by using the information gathered for each step of an attack, Security Center can rule out activity that appears to be steps of an attack, but actually isn't.
 
 Because attacks often occur across different tenants, Security Center can combine AI algorithms to analyze attack sequences that are reported on each subscription. This technique identifies the attack sequences as prevalent alert patterns, instead of just being incidentally associated with each other.
 

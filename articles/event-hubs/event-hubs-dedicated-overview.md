@@ -53,7 +53,7 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 | Event Hubs |  10 per namespace | 1000 per namespace |
 | Ingress events | Pay per million events | Included |
 | Message Size | 1 Million Bytes | 1 Million Bytes |
-| Partitions | 40 per namespace | 2000 per CU |
+| Partitions | 32 per Event Hub | 1024 per Event Hub |
 | Consumer groups | 20 per Event Hub | No limit per CU, 1000 per event hub |
 | Brokered connections | 1,000 included, 5,000 max | 100 K included and max |
 | Message Retention | 7 days, 84 GB included per TU | 90 days, 10 TB included per CU |

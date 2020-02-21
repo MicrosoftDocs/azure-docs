@@ -4,14 +4,14 @@ title: Azure DNS documentation
 summary: Learn how to use Azure DNS. Quickstarts, tutorials, samples, and more, show you how to set up and manage DNS zones and records for domain names.
 
 metadata:
-  title: Azure DNS documenation
+  title: Azure DNS documentation
   description: Learn how to use Azure DNS. Quickstarts, tutorials, samples, and more, show you how to set up and manage DNS zones and records for domain names.
   services: dns
   ms.service: dns
   ms.topic: landing-page
-  author: vhorne
-  ms.author: victorh
-  ms.date: 08/29/2019
+  author: rohinkoul
+  ms.author: rohink
+  ms.date: 09/20/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -29,13 +29,13 @@ landingContent:
   # Card
   - title: Create an Azure DNS zone and record
     linkLists:
-      - linkListType: get-started
+      - linkListType: quickstart
         links:
           - text: Create an Azure DNS zone and record using the Azure portal
             url: dns-getstarted-portal.md     
       - linkListType: tutorial
         links:
-          - text: Host you domain in Azure DNS
+          - text: Host your domain in Azure DNS
             url: dns-delegate-domain-azure-dns.md
 
   # Card
@@ -51,7 +51,7 @@ landingContent:
             url: private-dns-scenarios.md
           - text: Azure Private DNS FAQ
             url: dns-faq-private.md
-      - linkListType: tutorial
+      - linkListType: quickstart
         links:
           - text: Create an Azure DNS private zone using the Azure portal
             url: private-dns-portal.md

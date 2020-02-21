@@ -1,12 +1,11 @@
 ---
-title: Test logic apps with mock data - Azure Logic Apps
+title: Test logic apps with mock data
 description: Set up static results for testing logic apps with mock data without affecting production environments
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ---

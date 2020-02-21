@@ -1,18 +1,13 @@
 ---
 title: Enable Azure Monitor for VMs by using Azure Policy | Microsoft Docs
 description: This article describes how you enable Azure Monitor for VMs for multiple Azure virtual machines or virtual machine scale sets by using Azure Policy.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/07/2019
-ms.author: magoedte
+author: bwren
+ms.author: bwren
+ms.date: 10/15/2019
+
 ---
 
 # Enable Azure Monitor for VMs (preview) by using Azure Policy
@@ -31,7 +26,7 @@ If you're interested in accomplishing these tasks with Azure PowerShell or an Az
 
 Originally, the experience with Azure Policy for managing and deploying the policy definitions for Azure Monitor for VMs was done exclusively from Azure Policy. The Manage Policy Coverage feature makes it simpler and easier to discover, manage, and enable at scale the **Enable Azure Monitor for VMs** initiative, which includes the policy definitions mentioned earlier. You can access this new feature from the **Get Started** tab in Azure Monitor for VMs. Select **Manage Policy Coverage** to open the **Azure Monitor for VMs Policy Coverage** page.
 
-![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-at-scale-policy/get-started-page-01.png)
+![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-at-scale-policy/get-started-page.png)
 
 From here, you can check and manage coverage for the initiative across your management groups and subscriptions. You can understand how many VMs exist in each of the management groups and subscriptions and their compliance status.
 
@@ -41,7 +36,7 @@ This information is useful to help you plan and execute your governance scenario
 
 From this page, you also can configure your Log Analytics workspace for Azure Monitor for VMs, which:
 
-- Installs the Installing Service Map and Infrastructure Insights solutions.
+- Installs the Service Map solution.
 - Enables the operating system performance counters used by the performance charts, workbooks, and your custom log queries and alerts.
 
 ![Azure Monitor for VMs configure workspace](./media/vminsights-enable-at-scale-policy/manage-policy-page-02.png)
@@ -49,6 +44,7 @@ From this page, you also can configure your Log Analytics workspace for Azure Mo
 This option isn't related to any policy actions. It's available to provide an easy way to satisfy the [prerequisites](vminsights-enable-overview.md) required for enabling Azure Monitor for VMs.  
 
 ### What information is available on this page?
+
 The following table provides a breakdown of the information that's presented on the policy coverage page and how to interpret it.
 
 | Function | Description | 
@@ -71,7 +67,7 @@ To enable Azure Monitor for VMs by using Azure Policy in your tenant:
 - Assign the initiative to a scope: management group, subscription, or resource group.
 - Review and remediate compliance results.
 
-For more information about assigning Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md#policy-assignment) and review the [overview of management groups](../../governance/management-groups/index.md) before you continue.
+For more information about assigning Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md#policy-assignment) and review the [overview of management groups](../../governance/management-groups/overview.md) before you continue.
 
 ### Policies for Azure VMs
 
@@ -93,7 +89,7 @@ The policy definitions for an Azure virtual machine scale set are listed in the 
 
 |Name |Description |Type |
 |-----|------------|-----|
-|\[Preview\]: Enable Azure Monitor for virtual machine scale sets |Enable Azure Monitor for the virtual machine scale sets in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. Note: If your scale set upgrade policy is set to Manual, apply the extension to all the VMs in the set by calling upgrade on them. In the CLI, this is az vmss update-instances. |Initiative |
+|\[Preview\]: Enable Azure Monitor for virtual machine scale sets |Enable Azure Monitor for the virtual machine scale sets in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. Note: If your scale set upgrade policy is set to Manual, apply the extension to all the VMs in the set by calling upgrade on them. In the CLI, this is `az vmss update-instances`. |Initiative |
 |\[Preview\]: Audit Dependency agent deployment in virtual machine scale sets – VM image (OS) unlisted |Reports virtual machine scale set as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
 |\[Preview\]: Audit Log Analytics agent deployment in virtual machine scale sets – VM image (OS) unlisted |Reports virtual machine scale set as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
 |\[Preview\]: Deploy Dependency agent for Linux virtual machine scale sets |Deploy Dependency agent for Linux virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
@@ -108,6 +104,7 @@ Standalone policy (not included with the initiative) is described here:
 |\[Preview\]: Audit Log Analytics workspace for VM – Report mismatch |Report VMs as noncompliant if they aren't logging to the Log Analytics workspace specified in the policy or initiative assignment. |Policy |
 
 ### Assign the Azure Monitor initiative
+
 To create the policy assignment from the **Azure Monitor for VMs Policy Coverage** page, follow these steps. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../../governance/policy/assign-policy-portal.md).
 
 When you assign the policy or initiative, the scope selected in the assignment could be the scope listed here or a subset of it. For instance, you might have created an assignment for the subscription (policy scope) and not the management group (coverage scope). In this case, the coverage percentage would indicate the VMs in the policy or initiative scope divided by the VMs in the coverage scope. In another case, you might have excluded some VMs, or resource groups, or a subscription from the policy scope. If it's blank, it indicates that either the policy or initiative doesn't exist or you don't have permissions. Information is provided under **Assignment Status**.
@@ -171,7 +168,7 @@ The following table maps each possible assignment status for the initiative.
 
 The following example is for an Azure VM, but it also applies to virtual machine scale sets. To learn how to review compliance results, see [Identify noncompliance results](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). On the **Azure Monitor for VMs Policy Coverage** page, select either a management group or a subscription from the table. Select **View Compliance** by selecting the ellipsis (...).   
 
-![Policy compliance for Azure VMs](./media/vminsights-enable-at-scale-policy/policy-view-compliance-01.png)
+![Policy compliance for Azure VMs](./media/vminsights-enable-at-scale-policy/policy-view-compliance.png)
 
 Based on the results of the policies included with the initiative, VMs are reported as noncompliant in the following scenarios:
 
@@ -205,7 +202,6 @@ At any time after you assign an initiative to a management group or subscription
 
 Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs. 
 
-- To learn how to use the health feature, see [View Azure Monitor for VMs health](vminsights-health.md). 
 - To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
+
 - To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM performance](vminsights-performance.md). 
-- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).

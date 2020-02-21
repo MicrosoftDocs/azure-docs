@@ -1,10 +1,10 @@
 ---
 title: Working with arrays and objects in Azure Cosmos DB
-description: Learn about array and object creation SQL syntax for Azure Cosmos DB.
+description: Learn the SQL syntax to create arrays and objects in Azure Cosmos DB. This article also provides some examples to perform operations on array objects 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 12/02/2019
 ms.author: tisande
 
 ---
@@ -153,5 +153,5 @@ The results are:
 ## Next steps
 
 - [Getting started](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Joins](sql-query-join.md)

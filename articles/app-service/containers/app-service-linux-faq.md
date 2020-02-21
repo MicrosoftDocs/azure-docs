@@ -1,17 +1,9 @@
 ---
-title: App Service on Linux FAQ - Azure | Microsoft Docs
-description: Azure App Service on Linux FAQ.
+title: Run built-in containers FAQ
+description: Find answers to the frequently asked questions about the built-in Linux containers in Azure App Service.
 keywords: azure app service, web app, faq, linux, oss, web app for containers, multi-container, multicontainer
-services: app-service
-documentationCenter: ''
 author: msangapu-msft
-manager: stefsch
-editor: ''
 
-ms.assetid:
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
@@ -35,8 +27,8 @@ You can find all Docker files on [GitHub](https://github.com/azure-app-service).
 
 | Stack           | Expected Value                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | the command to start your JAR app (for example, `java -jar my-app.jar --server.port=80`) |
-| Tomcat, Wildfly | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | the command to start your JAR app (for example, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
+| Tomcat          | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | the PM2 configuration file or your script file                                |
 | .Net Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
 | Ruby            | the Ruby script that you want to initialize your app with                     |

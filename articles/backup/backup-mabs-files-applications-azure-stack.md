@@ -1,13 +1,8 @@
 ---
-title: Back up Files in Azure Stack VMs
+title: Back up files in Azure Stack VMs
 description: Use Azure Backup to back up and recover Azure Stack files and applications to your Azure Stack environment.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: dacurwin
 ---
 
 # Back up files and applications on Azure Stack
@@ -129,7 +124,7 @@ To view Azure Backup Server entities in the Azure portal, you can follow the fol
 2. Click Backup Infrastructure.
 3. View Backup Management Servers.
 
-## See also
+## Next steps
 
 For information on using Azure Backup Server to protect other workloads, see one of the following articles:
 

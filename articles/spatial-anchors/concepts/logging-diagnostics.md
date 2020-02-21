@@ -1,8 +1,8 @@
 ---
-title: Logging and diagnostics in Azure Spatial Anchors | Microsoft Docs
+title: Logging and diagnostics
 description: In-depth explanation of how to generate and retrieve logging and diagnostics in Azure Spatial Anchors.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: rgarcia
@@ -45,7 +45,7 @@ These event callbacks are provided to process logs and errors from the session:
 
 In addition to the standard mode of operation for logging, Spatial Anchors also has a diagnostics mode. Diagnostics mode captures images of the environment and logs them to the disk. You can use this mode to debug certain kinds of issues, like failure to predictably locate an anchor. Enable diagnostics logging only to reproduce a specific issue. Then disable it. Don't enable diagnostics when you're running your apps normally.
 
-During a support interaction with Microsoft, a Microsoft representative might ask if you're willing to submit a diagnostics bundle for further investigation. In this case, you might decide to enable diagnostics and reproduce the issue so you can submit the diagnostic bundle. 
+During a support interaction with Microsoft, a Microsoft representative might ask if you're willing to submit a diagnostics bundle for further investigation. In this case, you might decide to enable diagnostics and reproduce the issue so you can submit the diagnostic bundle.
 
 If you submit a diagnostics log to Microsoft without prior acknowledgement from a Microsoft representative, the submission will go unanswered.
 
@@ -83,7 +83,7 @@ private void ConfigureSession()
 
 ### Submit the diagnostics bundle
 
-The following code snippet shows how to submit a diagnostics bundle to Microsoft. This bundle will include images of the environment captured by the session after you enable diagnostics. 
+The following code snippet shows how to submit a diagnostics bundle to Microsoft. This bundle will include images of the environment captured by the session after you enable diagnostics.
 
 ```csharp
 // method to handle the diagnostics bundle submission

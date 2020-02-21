@@ -1,12 +1,8 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/26/2019
-ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
+ms.topic: how-to
 ---
 # Determine causes of non-compliance
 
@@ -17,7 +13,7 @@ two ways to find this information:
 
 > [!div class="checklist"]
 > - [Compliance details](#compliance-details)
-> - [Change history (Preview)](#change-history-preview)
+> - [Change history (Preview)](#change-history)
 
 ## Compliance details
 
@@ -94,7 +90,7 @@ To view the compliance details, follow these steps:
 
 These details explain why a resource is currently non-compliant, but don't show when the change was
 made to the resource that caused it to become non-compliant. For that information, see [Change
-history (Preview)](#change-history-preview) below.
+history (Preview)](#change-history) below.
 
 ### Compliance reasons
 
@@ -224,7 +220,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 As part of a new **public preview**, the last 14 days of change history are available for all Azure
 resources that support [complete mode
-deletion](../../../azure-resource-manager/complete-mode-deletion.md). Change history provides
+deletion](../../../azure-resource-manager/templates/complete-mode-deletion.md). Change history provides
 details about when a change was detected and a _visual diff_ for each change. A change detection is
 triggered when the Resource Manager properties are added, removed, or altered.
 
@@ -257,6 +253,6 @@ query this information outside of the Azure portal, see [Get resource changes](.
 - Review the [Azure Policy definition structure](../concepts/definition-structure.md).
 - Review [Understanding policy effects](../concepts/effects.md).
 - Understand how to [programmatically create policies](programmatically-create.md).
-- Learn how to [get compliance data](getting-compliance-data.md).
+- Learn how to [get compliance data](get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

@@ -221,7 +221,7 @@ In order to enable Azure AD users to sign in to Kudos, they must be provisioned 
     b. Click **Create User**.
 
 > [!NOTE]
-> You can use any other Kudos user account creation tools or APIs provided by Kudos to provision AAD user accounts.
+> You can use any other Kudos user account creation tools or APIs provided by Kudos to provision Azure AD user accounts.
 
 ### Test single sign-on
 

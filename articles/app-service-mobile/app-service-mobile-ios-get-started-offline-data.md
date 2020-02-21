@@ -1,27 +1,15 @@
 ---
-title: Enable offline syncing with iOS mobile apps | Microsoft Docs
+title: Enable offline syncing (iOS)
 description: Learn how to use Azure App Service mobile apps to cache and sync offline data in iOS applications.
-documentationcenter: ios
-author: elamalani
-manager: crdun
-editor: ''
-services: app-service\mobile
 
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # Enable offline syncing with iOS mobile apps
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-
-> [!NOTE]
-> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-offline-data) today.
->
 
 ## Overview
 This tutorial covers offline syncing with the Mobile Apps feature of Azure App Service for iOS. With offline syncing end-users can interact with a mobile app to view, add, or modify data, even when they have no network connection. Changes are stored in a local database. After the device is back online, the changes are synced with the remote back end.

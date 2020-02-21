@@ -1,23 +1,22 @@
 ---
-title: Azure Virtual Machine boot error
+title: Linux VM boots to Grub Rescue
 description: Virtual machine failed to boot because the virtual machine entered a rescue console
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
-manager: ''
+manager: dcscontentpm
 editor: ''
-tags: azure-resource-manager
-
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
 ---
 
-# VM boot error
+
+# Linux VM boots to Grub Rescue
 
 We have identified that your Virtual Machine (VM) entered a rescue console. The issue occurs when your Linux VM had kernel changes applied recently such as a kernel upgrade, and is no longer starting up properly because of kernel errors during the boot process. During the boot process, when the boot loader attempts to locate the Linux kernel and hand off boot control to it, the VM enters a rescue console when the handoff fails.
 
@@ -44,7 +43,7 @@ Follow the mitigation steps below depending on the error you receive:
 
     2. Next, run the following command to regenerate its configuration: `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * If the missing file is `/boot/grub/menu.lst`, this error is for older OS versions (**RHEL 6.x**, **Centos 6.x** and **Ubuntu 14.04**) so the commands could defer. You will have to spin up an old server and test to ensure the correct commands are provided.
+   * If the missing file is `/boot/grub/menu.lst`, this error is for older OS versions (**RHEL 6.x**, **Centos 6.x** and **Ubuntu 14.04**) so the commands could differ. You will have to spin up an old server and test to ensure the correct commands are provided.
 
 ### Error - No such partition
 

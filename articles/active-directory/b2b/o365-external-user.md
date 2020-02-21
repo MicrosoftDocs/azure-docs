@@ -1,5 +1,5 @@
 ---
-title: Office 365 external sharing and B2B collaboration - Azure Active Directory | Microsoft Docs
+title: Office 365 external sharing and B2B collaboration - Azure AD
 description: Discusses sharing resources with external partners using O365 and Azure Active Directory B2B collaboration.
 
 services: active-directory

@@ -1,11 +1,11 @@
 ---
 title: Accessing change feed in Azure Cosmos DB Azure Cosmos DB 
 description: This article describes different options available to read and access change feed in Azure Cosmos DB Azure Cosmos DB.  
-author: rimman
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: rimman
+ms.date: 11/25/2019
 
 ---
 # Reading Azure Cosmos DB change feed
@@ -26,7 +26,13 @@ The change feed processor library hides complexity and still gives you a complet
 
 ## Using the Azure Cosmos DB SQL API SDK
 
-With the SDK, you get a low-level control of the change feed. You can manage the checkpoint, access a particular logical partition key, etc. If you have multiple readers, you can use `ChangeFeedOptions` to distribute read load to different threads or different clients. 
+With the SDK, you get a low-level control of the change feed. You can manage the checkpoint, access a particular logical partition key, etc. If you have multiple readers, you can use `ChangeFeedOptions` to distribute read load to different threads or different clients.
+
+## Change feed in APIs for Cassandra and MongoDB
+
+Change feed functionality is surfaced as change stream in MongoDB API and Query with predicate in Cassandra API. To learn more about the implementation details for MongoDB API, see the [Change streams in the Azure Cosmos DB API for MongoDB](mongodb-change-streams.md).
+
+Native Apache Cassandra provides change data capture (CDC), a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. The change feed feature in Azure Cosmos DB API for Cassandra enhances the ability to query the changes with predicate via CQL. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB API for Cassandra](cassandra-change-feed.md).
 
 ## Next steps
 

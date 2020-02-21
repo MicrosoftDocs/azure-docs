@@ -1,5 +1,5 @@
 ---
-title: Set up direct federation with an AD FS for B2B - Azure Active Directory | Microsoft Docs
+title: Set up direct federation with an AD FS for B2B - Azure AD
 description: Learn how to set up AD FS as an identity provider for direct federation so guests can sign in to your Azure AD apps
 
 services: active-directory

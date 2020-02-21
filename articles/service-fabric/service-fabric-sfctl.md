@@ -1,24 +1,15 @@
 ---
-title: Azure Service Fabric CLI- sfctl | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl commands.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
+title: Azure Service Fabric CLI- sfctl 
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands and subgroups.
+author: jeffj6123
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-
+ms.date: 1/16/2020
+ms.author: jejarry
 ---
 
 # sfctl
-Commands for managing Service Fabric clusters and entities. This version is compatible with Service Fabric 6.4 runtime.
+Commands for managing Service Fabric clusters and entities. This version is compatible with Service Fabric 7.0 runtime.
 
 Commands follow the noun-verb pattern. See subgroups for more information.
 
@@ -30,6 +21,7 @@ Commands follow the noun-verb pattern. See subgroups for more information.
 | [cluster](service-fabric-sfctl-cluster.md) | Select, manage, and operate Service Fabric clusters. |
 | [compose](service-fabric-sfctl-compose.md) | Create, delete, and manage Docker Compose applications. |
 | [container](service-fabric-sfctl-container.md) | Run container related commands on a cluster node. |
+| [events](service-fabric-sfctl-events.md) | Retrieve events from the events store (if EventStore service is already installed). |
 | [is](service-fabric-sfctl-is.md) | Query and send commands to the infrastructure service. |
 | [mesh](service-fabric-sfctl-mesh.md) | Delete and manage Service Fabric Mesh applications. |
 | [node](service-fabric-sfctl-node.md) | Manage the nodes that form a cluster. |

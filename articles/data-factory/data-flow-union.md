@@ -1,17 +1,16 @@
 ---
-title: Azure Data Factory Mapping Data Flow New Branch Transformation
-description: Azure Data Factory Mapping Data Flow New Branch Transformation
+title: Mapping data flow union transformation
+description: Azure Data Factory mapping data flow New Branch Transformation
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/12/2019
 ---
 
-# Mapping data flow union transformation
-
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+# Azure Data Factory mapping data flow union transformation
 
 Union will combine multiple data streams into one, with the SQL Union of those streams as the new output from the Union transformation. All of the schema from each input stream will be combined inside of your data flow, without needing to have a join key.
 

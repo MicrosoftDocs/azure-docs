@@ -1,35 +1,50 @@
 ---
-title: "Quickstart: Create a Standard load balancer - Azure Resource Manager template"
-titlesuffix: Azure Load Balancer
-description: This quickstart shows how to create a Standard load balancer by using the Azure Resource Manager template.
+title: "Quickstart: Create a Load Balancer - Azure template"
+titleSuffix: Azure Load Balancer
+description: This quickstart shows how to create a load balancer by using the Azure Resource Manager template.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 01/27/2020
 ms.author: allensu
 ms.custom: mvc
 ---
 
-# Quickstart: Create a Standard load balancer to load balance VMs by using an Azure Resource Manager template
+# Quickstart: Create a Load Balancer to load balance VMs by using Azure Resource Manager template
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs). This quickstart shows you how to deploy an Azure Resource Manager template that creates a Standard load balancer to load balance VMs.
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs). This quickstart shows you how to deploy an Azure Resource Manager template that creates a Standard load balancer to load balance VMs. Using Resource Manager template takes fewer steps comparing to other deployment methods.
+
+[Resource Manager template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. If you want to learn more about developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.network/loadbalancers).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create a Standard load balancer
+## Create a Load Balancer
 
-Standard Load Balancer supports only a Standard Public IP address. When you create a Standard load balancer, you must also create a new Standard Public IP address that is configured as the front end for the Standard load balancer.
+Load Balancer and Public IP SKUs must match. When you create a Standard Load Balancer, you must also create a new Standard Public IP address that is configured as the frontend for the Standard load balancer. If you want to create a Basic Load Balancer, use [this template](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). Microsoft recommends using Standard SKU for production workloads.
 
-You can use many methods to create a Standard load balancer. In this quickstart, you use Azure PowerShell to deploy a [Resource Manager template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager templates are JSON files that define the resources you need to deploy for your solution.
+The template used in this quickstart is a [Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json).
 
-To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager documentation](/azure/azure-resource-manager/). To find more templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
+[!code-json[<Azure Resource Manager template create standard load balancer>](~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json)]
+
+Multiple Azure resources have been defined in the template:
+
+- **Microsoft.Network/loadBalancers**
+- **Microsoft.Network/publicIPAddresses**: for the load balancer.
+- **Microsoft.Network/networkSecurityGroups**
+- **Microsoft.Network/virtualNetworks**
+- **Microsoft.Compute/virutalMachines** (3 of them)
+- **Microsoft.Network/publicIPAddresses** (3 of them): for each of the three virtual machines.
+- **Microsoft.Network/networkInterfaces** (3 of them)
+- **Microsoft.Compute/virtualMachine/extensions** (3 of them): use to configure the IIS, and the web pages
+
+To find more templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
 1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
 
@@ -60,7 +75,11 @@ To understand the concepts associated with deploying and managing your Azure sol
 
    The resource group name is the project name with **rg** appended. You need the resource group name in the next section.
 
-It takes about 10 minutes to deploy the template.
+It takes about 10 minutes to deploy the template. When completed, the output is similar to:
+
+![Azure Standard Load Balancer Resource Manager template PowerShell deployment output](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
+
+Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
 ## Test the load balancer
 
@@ -72,9 +91,13 @@ It takes about 10 minutes to deploy the template.
 
 1. Select the load balancer. Its default name is the project name with **-lb** appended.
 
-1. Copy only the IP address part of the public IP address, and then paste it into the address bar of your browser. The browser displays the default page of the Internet Information Services (IIS) web server.
+1. Copy only the IP address part of the public IP address, and then paste it into the address bar of your browser.
 
-   ![IIS web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
+   ![Azure standard load balancer Resource Manager template public IP](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-deployment-public-ip.png)
+
+    The browser displays the default page of the Internet Information Services (IIS) web server.
+
+   ![IIS web server](./media/quickstart-load-balancer-standard-public-template/load-balancer-test-web-page.png)
 
 To see the load balancer distribute traffic across all three VMs, you can force a refresh of your web browser from the client machine.
 
@@ -90,4 +113,3 @@ To learn more, continue to the tutorials for Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
- 

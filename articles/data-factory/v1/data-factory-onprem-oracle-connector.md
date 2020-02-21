@@ -1,15 +1,15 @@
 ---
-title: Copy data to or from Oracle by using Data Factory | Microsoft Docs
+title: Copy data to or from Oracle by using Data Factory 
 description: Learn how to copy data to or from an on-premises Oracle database by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 05/15/2018
