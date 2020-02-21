@@ -23,6 +23,8 @@
    :::column span="":::
       **Support level**
    :::column-end:::
+:::row-end:::
+:::row:::
    :::column span="":::
       [Archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers.)
    :::column-end:::
@@ -35,6 +37,8 @@
    :::column span="":::
       Preview
    :::column-end:::
+:::row-end:::
+:::row:::
       :::column span="":::
       [Archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers.)
    :::column-end:::
@@ -47,6 +51,8 @@
    :::column span="":::
       Preview
    :::column-end:::
+:::row-end:::
+:::row:::
       :::column span="":::
       [Archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers.)
    :::column-end:::
@@ -59,6 +65,8 @@
    :::column span="":::
       Preview
    :::column-end:::
+:::row-end:::
+:::row:::
       :::column span="":::
       [Archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers.)
    :::column-end:::
