@@ -143,40 +143,47 @@ Enter `en` for Language. (Click Show advanced options if you don’t see Languag
 
 ## Extract the person name
 
-Next, we will find the person entity type in the Text Analytics output. Within the **Apply to each**, create a new **Apply to each two** action.
-
-2. Click inside the input box to select the output and select Entities under Dynamic Content.
-3. Next, click Add an action and type condition, then select Condition Control from Actions.
+Next, we will find the person entity type in the Text Analytics output. Within the **Apply to each**, click **Add an action** and create a another **Apply to each** action. Click inside the text box and select **Entities** in the Dynamic Content window that appears.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/get-person-name-1.png" alt-text="Add Text Analytics credentials to your flow.":::
+> :::image type="content" source="../media/tutorials/excel/second-apply-to-each-action.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-In the Condition window, select Entities Type in the first input box.
-
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/get-person-name-2.png" alt-text="Add Text Analytics credentials to your flow.":::
-
-Click in the box after “is equal to” and select var_person under Variables.
+Within the newly created **Apply to each 2** action, click **Add an action**, and add a **Condition** control.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/get-person-name-3.png" alt-text="Add Text Analytics credentials to your flow.":::
+> :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-In the “If Yes” condition,  type in Excel then select Update a Row.
-
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/get-person-name-4.png" alt-text="Add Text Analytics credentials to your flow.":::
-
-Enter the Excel info. Note the Key Column and Key Value and Person Name fields.
+In the Condition window, click on the first text box. In the Dynamic content window, search for **Entities Type** and select it.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/get-person-name-5.png" alt-text="Add Text Analytics credentials to your flow.":::
+> :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Add Text Analytics credentials to your flow.":::
+
+Make sure the second box says **is equal to**. Then select the third box, and search for **var_person**. 
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Add Text Analytics credentials to your flow.":::
+
+In the **If yes** condition,  type in Excel then select Update a Row.
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="../media/tutorials/excel/action-in-yes-column.png" alt-text="Add Text Analytics credentials to your flow.":::
+
+Enter the Excel info. Note the Key Column, Key Value and Person Name fields.
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="../media/tutorials/excel/action-in-yes-column-options.png" alt-text="Add Text Analytics credentials to your flow.":::
 
 ## Get the phone number
 
-Minimize Apply to each 2 (click on the name), then click Add an action. Don’t add the action inside Apply each 2!
+Minimize the **Apply to each 2** action by clicking on the name. Then add another **Apply to each** action, like before. it will be named **Apply to each 3**. Select the text box, and add **entities** as the output for this action. 
 
+
+
+<!-- edit apply-to-each-3-action.png -->
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/get-phone-number-1.png" alt-text="Add Text Analytics credentials to your flow.":::
+
+
 
 * Type apply to each and create it like we did above which will name it Apply each 3. 
 * Enter the Entities as the output from previous step, then add a Condition Control (Condition 2).
