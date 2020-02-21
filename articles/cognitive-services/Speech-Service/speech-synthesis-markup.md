@@ -357,7 +357,7 @@ Sometimes TTS cannot pronounce a word accurately, like new company name, foreign
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| uri | The address of the external PLS document which is referenced by `lexicon` element. | Required. |
+| uri | The address of the external PLS document. | Required. |
 
 **Usage**
 
@@ -387,7 +387,7 @@ Here is a sample of custom lexicon file.
 Each `lexeme` element is a lexicon item. `grapheme` contains text describing the orthograph of `lexeme`. Readout form can be provided as `alias`. Phone string could be provided in `phoneme` element. 
 For more information about custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/) on the W3C website.
 
-Step 2: Upload Custom Lexicon file create in step 1 online, you could store it anywhere, and we suggest you to store it in Microsoft Azure , for example
+Step 2: Upload Custom Lexicon file create in step 1 online, you could store it anywhere, and we suggest you to store it in Microsoft Azure , 
 for example [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 Step 3: Refer to custom lexicon file in SSML
