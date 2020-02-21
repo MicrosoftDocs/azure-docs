@@ -42,7 +42,7 @@ Host name 'CLUSTERNAME.azurehdinsight.net' in the connection string is the same 
 
 ### Port in connection string
 
-You can only use **443 port** to connect to the cluster from some places outside of the cluster. HDInsight is a managed service, that means all connections to the cluster is managed via a secure Gateway. You cannot connect to HiveServer 2 directly on the port 10001 or 10000 because the port is not exposed to outside. 
+You can only use **port 443** to connect to the cluster from some places outside of the Azure virtual network. HDInsight is a managed service, which means that all connections to the cluster are managed via a secure Gateway. You cannot connect to HiveServer 2 directly on ports 10001 or 10000 because these ports are not exposed to the outside. 
 
 ## Authentication
 
