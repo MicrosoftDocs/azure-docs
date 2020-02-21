@@ -45,10 +45,10 @@ Here's how to redeploy the Azure Resource Manager template to expand a host pool
      - If you created the original host pool with the Azure Marketplace offering, select the deployment starting with **rds.wvd-provision-host-pool**.
      - If you created the original host pool with the GitHub Azure Resource Manager template, select the deployment named **Microsoft.Template**.
 6. Select **Redeploy**.
-7. Make sure that the correct *Resource group* is entered.
+7. Select the resource group that contains the current session host VMs in the existing host pool.
      
      >[!NOTE]
-     >Even though the *Resource group* is automatically and correctly populated, you may see an error that suggests selecting a different resource group. To fix, select another resource group, then select the original resource group.
+     >If you see an error that tells you to select a different resource group even though the one you entered is correct, select another resource group, then select the original resource group.
 
 8. Enter the following URL for the *_artifactsLocation*: `https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
 9. Enter the new total number of session hosts you want into *Rdsh Number Of Instances*. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
