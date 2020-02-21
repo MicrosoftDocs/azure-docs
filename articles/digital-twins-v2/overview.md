@@ -40,8 +40,8 @@ The following diagram represents this model scenario.
 
 ### Process incoming data and propagate state through the Digital Twins graph
 
-Digital Twins models are meant to be live, up-to-date representations of the state of the real world – or of simulations thereof. To keep twins updated, Digital Twins provides a comprehensive event processing system. You can, for example, provide event handlers to process incoming telemetry from devices, state changes within your ADT graph, or life cycle events generated when twins are created or modified. ADT provides a convenient data processing framework for you to apply custom code to incoming data streams of IoT and business data. 
-You might, for example, use event handlers to:
+Digital Twins models are meant to be live, up-to-date representations of the state of the real world – or of simulations thereof. To keep twins updated, Digital Twins provides a comprehensive event processing system. You can, for example, process events to manage incoming telemetry from devices, state changes within your ADT graph, or life cycle events generated when twins are created or modified. ADT provides a convenient data processing framework for you to apply custom code to incoming data streams of IoT and business data. 
+You might, for example, use event data routing to:
 * Compute properties on a twin from sensor input (e.g. aggregate data from temperature, CO2, humidity and noise sensors into a comfort property on a “room” twin)
 * Propagate state through the ADT graph (e.g. calculate an average comfort for a floor in a building when the comfort property of any of the rooms on the floor changes)
 * Apply complex external simulation or machine learning processors (e.g. to calculate the energy efficiency of a wind turbine based on current operational parameters)

@@ -18,7 +18,7 @@ ms.service: digital-twins
 
 The Twin APIs let developers create, modify and delete twins and their relationships in an ADT instance
 
-## Creating a Graph (Private Preview, Public Preview)
+## Creating a Graph (Private Preview)
 Once we have a set of types, we can create a graph representing a complete hospital. For a small hospital, this graph might look like this:
 
 > [!NOTE]

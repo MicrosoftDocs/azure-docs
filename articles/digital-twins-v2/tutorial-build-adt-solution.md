@@ -20,14 +20,14 @@ Intent: I want to understand how to integrate ADT into my IoT solution and build
 
 Scenario: Build a complete IoT solution using ADT​
 
-Goal: Build solution from the ground up, get solid core experience of platform from model to event handling​
+Goal: Build solution from the ground up, get solid core experience of platform from model to event routing
 
 Tooling: Azure subscription, CLI*, VS Code, .NET core​
 
 Outline: ​
 * Update and extend an existing model​
 * Build simple .NET app for interacting with Digital Twins instance, integrate with AAD​
-* Add components to the Digital Twins graph (create twins, relationships, event handling)​
+* Add components to the Digital Twins graph (create twins, relationships, event routing)​
 * Identify what to change that will affect customer projects and works in their scenario​
 * Potentially extend the Quickstart with custom code
 
@@ -60,9 +60,7 @@ To get started with ADT development you will need:
 
 ### Creating an ADT Instance
 
-You can use Azure Portal to create a new instance of ADT
-> [!NOTE]
-> Describe how to find the ADT PaaS offering in the portal and create an instance using the portal (public preview)
+You can use Azure Portal to create a new instance of ADT.
  
 For production projects, however, we recommend using an automation-centric approach, where all artifacts – not just code, but also configuration scripts – are stored in version-controlled repositories. developer experience support. This approach makes it easier to implement a reliable development cycle.
  

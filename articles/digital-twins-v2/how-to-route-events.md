@@ -24,8 +24,6 @@ To define an event route, developers first must define endpoints. An endpoint is
 * EventGrid custom topics
 * EventHub
 * ServiceBus
-* EventGrid system topics (GA)
-* Azure Data Lake Store (ADLS) Gen2  (post-GA)
 
 Endpoints are set up using control plane APIs or in the portal. An endpoint definition gives 
 * An endpoint id (or name) to the endpoint, this is a friendly name

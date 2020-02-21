@@ -17,7 +17,7 @@ ms.service: digital-twins
 # Real IoT Devices in the ADT Graph
 
 As part of the Digital Twins graph, in addition to your business twins, you can also have twins that represent IoT devices placed in your environment. IoT device might be simple sensors such as thermostats, or complex machines. 
-If you attach an IoT Hub to ADT, each device connected to IoT Hub can become visible as a node in the twin graph and can then be connected to other nodes to form a topology. Typically, incoming data from devices triggers event handler that are then used to drive properties on other twins.
+If you attach an IoT Hub to ADT, each device connected to IoT Hub can become visible as a node in the twin graph and can then be connected to other nodes to form a topology. Typically, incoming data from devices triggers event handling functions that are then used to drive properties on other twins.
 ADT makes it easy to work with devices by automatically mapping devices from a connected IoT Hub into the ADT instance graph. 
 
 > [!NOTE]

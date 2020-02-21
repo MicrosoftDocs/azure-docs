@@ -18,7 +18,7 @@ ms.service: digital-twins
 
 Model Management APIs are APIs used to manage the models (types of twins and relationships) that a given ADT instance knows about. This includes upload, validation and retrieval of twin models authored in DTDL. 
 
-## Modeling (Private Preview, Public Preview)
+## Modeling (Private Preview)
 
 The first step towards the solution is to model the twin types used to represent the hospital. Models for ADT are written in DTDL, a JSON-LD-based, programming language agnostic type description. For example, a patient room, for the purposes of this solution, might be described as:
 

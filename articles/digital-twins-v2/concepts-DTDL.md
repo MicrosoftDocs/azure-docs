@@ -39,15 +39,6 @@ DTDL constraints in the current release
 * ADT does not yet support the execution of commands on twins you model and instantiate. You can, however, execute commands on devices.
 * ADT does not support stand-alone relationships (i.e. relationships defined as independent types). All relationships have to be defined inline in a model type.
 
-## DTMI (public preview)
-
-DTDL models are identified using a custom IRI/URI scheme registered with the IANA. A DTMI has three components: scheme, path, and version. Scheme and path are separated by a colon; path and version are separated by a semicolon:
-`<scheme> : <path> ; <version>`
-
-The scheme is the string literal “dtmi” in lowercase. The path is a sequence of one or more segments, separated by colons. The version is a sequence of one or more digits.
-All path components that begin with an underscore (“_”) are reserved system namespaces. You must not use the underscore character to begin the path or any segment of it. 
-We strongly recommend using reverse internet addresses as namespaces in DTMI. For example, any dtmi published by Contoso Corp, which has the domain name *www.contosocorp.com*, should start with *dtmi:com:contosocorp:*. For example, `dtmi:com:contosocorp:IoT:devices:X500;1`
-
 ## DTDL Data Types
 
 Property and telemetry values can be of standard primitive types – integer, double, string and Boolean and others, such as DateTime and Duration. 

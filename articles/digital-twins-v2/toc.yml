@@ -25,8 +25,6 @@
     href: concepts-twins.md
   - name: Representing real devices
     href: concepts-devices.md
-  - name: Using event handlers
-    href: concepts-event-handlers.md
   - name: Routing events
     href: concepts-event-routing.md
   - name: Querying the ADT graph
@@ -43,8 +41,6 @@
     href: how-to-manage-graph.md
   - name: Query the ADT graph
     href: how-to-query-graph.md
-  - name: Use ADT event handling
-    href: how-to-handle-events.md
   - name: Route event data
     href: how-to-route-events.md
   - name: Use the ADT APIs
