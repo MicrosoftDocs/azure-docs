@@ -60,7 +60,7 @@ Framework-specific dependencies  are listed in the respective framework document
 > [!Note]
 > If you think a particular package is common enough to be added in Azure ML maintained images and environments please raise a GitHub issue in [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
  
- ### NameError (Name not defined), AttributeError (Object has no attribute)
+### NameError (Name not defined), AttributeError (Object has no attribute)
 This exception should come from your training scripts. You can look at the log files from Azure portal to get more information about the specific name not defined or attribute error. From the SDK, you can use `run.get_details()` to look at the error message. This will also list all the log files generated for your run. Please make sure to take a look at your training script and fix the error before resubmitting your run. 
 
 ### Horovod has been shut down
@@ -72,7 +72,6 @@ Azure Compute has been rolling out an [SR-IOV upgrade](https://azure.microsoft.c
 View the [update schedule](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku/) to see when support will be rolled out for your region.
 
 ### Run or experiment deletion
-
 Experiments can be archived by using the [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) 
 method, or from the Experiment tab view in Azure Machine Learning studio client via the "Archive experiment" button. This action hides the experiment from list queries and views, but does not delete it.
 
