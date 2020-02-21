@@ -173,8 +173,10 @@
       href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Require secure transfer
       href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Enable Azure AD authentication over SMB
+    - name: Enable Azure AD DS authentication over SMB
       href: storage-files-active-directory-enable.md
+    - name: Enable AD authentication over SMB
+      href: storage-files-active-directory-domain-services-enable.md
     - name: Enable secure TLS for Azure Storage client
       href: ../common/storage-security-tls.md
   - name: Troubleshoot
