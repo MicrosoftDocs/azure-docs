@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/20/2020
 ms.author: allensu
 ---
 
@@ -193,7 +193,6 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 
 - NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
 - IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.
-- NSG on subnet or NIC isn't honored for outbound flows to public endpoints using NAT.
 - NSG flow logging isn't supported when using NAT.
 - NAT can't span multiple virtual networks.
 
