@@ -49,7 +49,7 @@ To build Media Services solutions, you can use:
 	* Azure Media Services SDK for .NET
 	
 		* [NuGet package](https://www.nuget.org/packages/windowsazure.mediaservices/)
-		* [Github source code](https://github.com/Azure/azure-sdk-for-media-services)
+		* [GitHub source code](https://github.com/Azure/azure-sdk-for-media-services)
 	* [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java),
 	* [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
 	* [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs).
