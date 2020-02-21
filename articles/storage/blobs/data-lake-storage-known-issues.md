@@ -18,15 +18,6 @@ This article lists the features and tools that are not yet supported or only par
 ## Feature, tool and service support
 
 [!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
-|||
-|---|---|
-|[AzCopy](../common/storage-use-azcopy-v10.md) |Version-specific support|
-|[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) |Version-specific support |
-|Browsing directories and files in the Azure portal |Limited support |
-|Third party applications |Limited support |
-|[blobfuse](storage-how-to-mount-container-linux.md)|Not yet supported|
-[!INCLUDE [storage-data-lake-sdk-support](../../../includes/storage-data-lake-sdk-support.md)]
-[!INCLUDE [storage-data-lake-service-ecosystem-support](../../../includes/storage-data-lake-service-ecosystem-support.md)]
 
 <a id="life-cycle-notes" />
 

@@ -12,6 +12,54 @@
 
 :::row:::
    :::column span="":::
+      **Feature**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+      :::column span="":::
+      **Feature**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+   :::column span="":::
+      [Archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers.)
+   :::column-end:::
+   :::column span="":::
+      Preview
+   :::column-end:::
+      :::column span="":::
+      [Diagnostic logs](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+   :::column-end:::
+   :::column span="":::
+      Preview
+   :::column-end:::
+      :::column span="":::
+      [Archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers.)
+   :::column-end:::
+   :::column span="":::
+      Preview
+   :::column-end:::
+      :::column span="":::
+      [Diagnostic logs](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+   :::column-end:::
+   :::column span="":::
+      Preview
+   :::column-end:::
+      :::column span="":::
+      [Archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers.)
+   :::column-end:::
+   :::column span="":::
+      Preview
+   :::column-end:::
+      :::column span="":::
+      [Diagnostic logs](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+   :::column-end:::
+   :::column span="":::
+      Preview
+   :::column-end:::
+      :::column span="":::
       [Archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers.)
    :::column-end:::
    :::column span="":::
