@@ -33,7 +33,7 @@
   # - name: Ingest data into SQL pool
   #   href: article-template.md
   - name: Browse data using workspace
-    href: quickstart-browse-data-in-workspace.md
+    href: quickstart-browse-data-workspace.md
   - name: Analyze and Visualize data
     items:
     # - name: Spark
