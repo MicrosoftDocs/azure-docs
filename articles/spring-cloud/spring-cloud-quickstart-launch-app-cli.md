@@ -4,7 +4,7 @@ description: In this quickstart, you deploy a sample application to Azure Spring
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/15/2020
 ms.author: brendm
 
 ---
@@ -54,7 +54,7 @@ az extension add --name spring-cloud
     ```azurecli
         az login
         az account list -o table
-        az account set --subscription
+        az account set --subscription <Name or ID of subscription from the last step>
     ```
 
 2. Prepare a name for your Azure Spring Cloud service.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
@@ -89,7 +89,7 @@ az extension add --name spring-cloud
 Update your config-server with the location of the git repository for our project:
 
 ```git
-az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics --label config
+az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
 
 > [!div class="nextstepaction"]
@@ -138,28 +138,34 @@ az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth
 
 ## Assign public endpoint to gateway
 
-We need a way to access the application via a web browser. Our gateway application needs a public facing endpoint, which can be assigned using the following command:
+We need a way to access the application via a web browser. Our gateway application needs a public facing endpoint.
+
+1. Assign the endpoint using the following command:
 
 ```azurecli
 az spring-cloud app update -n gateway --is-public true
 ```
+2. Query the **gateway** application for its public IP so you can verify that the application is running:
 
-Finally, query the **gateway** application for its public IP so you can verify that the application is running:
-
+Linux:
 ```azurecli
 az spring-cloud app show --name gateway | grep url
 ```
-
-Navigate to the URL provided by the previous command to run the PiggyMetrics application.
+Windows:
+```azurecli
+az spring-cloud app show --name gateway | findstr url
+```
+3. Navigate to the URL provided by the previous command to run the PiggyMetrics application.
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 You can also navigate the Azure portal to find the URL. 
 1. Navigate to the service
-1. Select **Apps**
-1. Select **gateway**
+2. Select **Apps**
+3. Select **gateway**
 
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
-1. Find the URL on the **gateway Overview** page
+    
+4. Find the URL on the **gateway Overview** page
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]

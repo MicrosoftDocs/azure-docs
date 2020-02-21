@@ -2,7 +2,7 @@
 title: Change your two-factor verification method and settings - Azure AD
 description: Learn how to change the security verification method and settings for your work or school account, from the Additional security verification page.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 08/06/2019
-ms.author: lizross
+ms.author: curtand
 ---
 
 # Change your two-factor verification method and settings

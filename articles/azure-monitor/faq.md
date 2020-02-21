@@ -324,6 +324,11 @@ You can [use Power BI](app/export-power-bi.md ) to display your request telemetr
 ### <a name="data"></a>How long is data retained in the portal? Is it secure?
 Take a look at [Data Retention and Privacy][data].
 
+### What happens to Application Insight's telemetry when a server or device loses connection with Azure?
+
+All of our SDKs, including the web SDK, includes "reliable transport" or "robust transport". When the server or device loses connection with Azure, telemetry is [stored locally on the file system](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (Server SDKs) or in HTML5 Session Storage (Web SDK). The SDK will periodically retry to send this telemetry until our ingestion service considers it "stale" (48-hours for logs, 30 minutes for metrics). Stale telemetry will be dropped. In some cases, such as when local storage is full, retry will not occur.
+
+
 ### Could personal data be sent in the telemetry?
 
 This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](app/data-retention-privacy.md).
@@ -689,7 +694,10 @@ Thresholds for the following Linux health criteria aren’t modifiable, because 
 Alert rules that are defined for each health criterion aren't displayed in the Azure portal. You can enable or disable a health alert rule only in the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Also, you can't assign an [Azure Monitor action group](platform/action-groups.md) for health alerts in the Azure portal. You can only use the notification setting API to configure an action group to be triggered whenever a health alert is fired. Currently, you can assign action groups against a VM so that all *health alerts* fired against the VM trigger the same action groups. Unlike traditional Azure alerts, there's no concept of a separate action group for each health alert rule. Additionally, only action groups that are configured to provide email or SMS notifications are supported when health alerts are triggered. 
 
 ### I don’t see some or any data in the performance charts for my VM
+Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you will need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](insights/vminsights-ga-release-faq.md) for additional information.
+
 If you don’t see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell).
+
 
 ### How is Azure Monitor for VMs Map feature different from Service Map?
 The Azure Monitor for VMs Map feature is based on Service Map, but has the following differences:
