@@ -1,5 +1,5 @@
 ---
-title: 'Create cluster, database with C#: Azure Data Explorer'
+title: 'Create an Azure Data Explorer cluster & DB using C#'
 description: Learn how to create an Azure Data Explorer cluster and database by using the C#
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
