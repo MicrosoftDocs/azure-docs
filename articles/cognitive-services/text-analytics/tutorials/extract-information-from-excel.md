@@ -180,32 +180,36 @@ Minimize the **Apply to each 2** action by clicking on the name. Then add anothe
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/apply-to-each-3-action.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-Within **Apply to each 3**, add a **Condition** control. It will be named **Condition 2**.
-
-* This time select Entities Type to match the var_phone variable.
+Within **Apply to each 3**, add a **Condition** control. It will be named **Condition 2**. In the first text box, search for, and add **Entities Type** from the **Dynamic content** window. Be sure the center box says **is equal to**. Then, in the right text box, enter **var_phone**. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/get-phone-number-2.png" alt-text="Add Text Analytics credentials to your flow.":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-* Under “If yes”, add an action to update the Excel row. Then enter the information like we did above.
+In the **If yes** condition, add an **Update a row** action. Then enter the information like we did above.
 * This time enter set the Phone Number column to be updated.
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="../media/tutorials/excel/condition-2-if-yes-column.png" alt-text="Add Text Analytics credentials to your flow.":::
+
 
 ## Get the plumbing issues
 
-* Click on the name to minimize it then click on Add an action. Again, ensure the new action is outside Apply each 3.
-* This will create Apply to each 4.
+Minimize **Apply to each 3** by clicking on the name. Then create another **Apply to each** action. Select the text box, and add **entities** as the output for this action from the **Dynamic content** window. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/get-plumbing-issue-1.png" alt-text="Add Text Analytics credentials to your flow.":::
-
-* Type and select Apply to each. Click inside the input box and select Entities under Dynamic content.
-* Inside Apply to each 4, click Add an action and select the Condition Control. This will create Condition 3.
+> :::image type="content" source="../media/tutorials/excel/apply-to-each-4-action.png" alt-text="Add Text Analytics credentials to your flow.":::
 
 Next, we are going to check if the Issue Description from the Excel table row contains the word “plumbing”. If yes, we will enter “plumbing” in the IssueType column. If not, we will enter “other.”
 
-* Click inside the first input box and select Description from Dynamic content. Select contains in the dropdown. In the right input box, select var_plumbing. 
-* In the “If yes” condition, click Add an action and select Update a row. Then enter the information like we did above. In the IssueType column, select var_plumbing.
-* In the “If no” condition, click Add an action and select Update a row. Then enter the information like we did above. In the IssueType column, select var_other.
+Inside the **Apply to each 4** action, add a **Condition** Control. It will be named **Condition 3**. In the first text box, search for, and add **Description** from the Excel file, using the **Dynamic content** window. Be sure the center box says **contains**. Then, in the right text box, enter **var_plumbing**. 
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Add Text Analytics credentials to your flow.":::
+
+
+In the “If yes” condition, click **Add an action** and select **Update a row**. Then enter the information like before. In the IssueType column, select var_plumbing.
+
+In the “If no” condition, click **Add an action** and select **Update a row**. Then enter the information like before. In the IssueType column, select var_other.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/get-plumbing-issue-2.png" alt-text="Add Text Analytics credentials to your flow.":::
