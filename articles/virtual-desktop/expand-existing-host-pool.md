@@ -31,6 +31,9 @@ You'll also need the following information from when you first created the host 
 
 The next three sections are three methods you can use to expand the host pool. You can do either with whichever deployment tool you're comfortable with.
 
+>[!NOTE]
+>During the deployment phase, you'll see error messages for the previous session host VM resources if they're currently shut down. These errors happen because Azure can't run the PowerShell DSC extension to validate that the session host VMs are correctly registered to your existing host pool. You can safely ignore these errors, or you can avoid the errors by starting all session host VMs in the existing host pool before starting the deployment process.
+
 ## Redeploy from Azure
 
 If you've already created a host pool and session host VMs using the [Azure Marketplace offering](./create-host-pools-azure-marketplace.md) or [GitHub Azure Resource Manager template](./create-host-pools-arm-template.md), you can redeploy the same template from the Azure Portal. Redeploying the template automatically reenters all the information you entered into the original template except for passwords.
