@@ -14,7 +14,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-In this quickstart, you create a simulated device on a Windows computer, run the Windows TPM simulator as the Hardware Security Module (HSM) of the device, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub.
+In this quickstart, you create a simulated IoT device on a Windows computer. The simulated device includes a TPM simulator as a Hardware Security Module (HSM). You use device sample Node.js code to connect this simulated device with your IoT hub using an individual enrollment with the Device Provisioning Service (DPS).
 
 ## Prerequisites
 

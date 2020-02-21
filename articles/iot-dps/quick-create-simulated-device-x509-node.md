@@ -15,7 +15,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-In this quickstart, you create an enrollment entry in the Device Provisioning Service and simulate an X.509 device, You connect the simulated device with the Device Provisioning Service and register the device on your IoT hub using the Azure IoT Hub Node.js Device SDK.
+In this quickstart, you create a simulated X.509 device on a Windows computer. You use device sample Node.js code to connect this simulated device with your IoT hub using an individual enrollment with the Device Provisioning Service (DPS).
 
 ## Prerequisites
 
