@@ -6,7 +6,7 @@ author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 12/28/2019
+ms.date: 02/07/2020
 ms.author: evansma
 
 ---

@@ -21,7 +21,7 @@ Here's how you can back up and restore Azure VMs with the Azure Backup service.
 
 **Scenario** | **Backup** | **Agent** |**Restore**
 --- | --- | --- | ---
-Direct backup of Azure VMs  | Back up the entire VM.  | No agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) that is running on the VM. | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM instead of from the entire VM.
+Direct backup of Azure VMs  | Back up the entire VM.  | No additional agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) that is running on the VM. | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM instead of from the entire VM.
 Direct backup of Azure VMs (Windows only)  | Back up specific files/folders/volume. | Install the [Azure Recovery Services agent](backup-azure-file-folder-backup-faq.md).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at file/folder level. | Restore specific folders/files.
 Back up Azure VM to backup server  | Back up files/folders/volumes; system state/bare metal files; app data to System Center DPM or to Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS then backs up to the backup vault. | Install the DPM/MABS protection agent on the VM. The MARS agent is installed on DPM/MABS.| Restore files/folders/volumes; system state/bare metal files; app data.
 
@@ -60,7 +60,7 @@ The following table summarizes the supported operating systems when backing up W
 
 **Scenario** | **OS support**
 --- | ---
-Back up with Azure VM agent extension | - Windows 10 Client (only 64 bit) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)
+Back up with Azure VM agent extension | - Windows 10 Client (64 bit only) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only)
 Back up with MARS agent | [Supported](backup-support-matrix-mars-agent.md#support-for-direct-backups) operating systems.
 Back up with DPM/MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -166,6 +166,7 @@ Back up & Restore deduplicated VMs/disks | Azure Backup does not support dedupli
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
 Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server is not supported. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
+[Shared disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | Not supported.
 
 ## VM network support
 

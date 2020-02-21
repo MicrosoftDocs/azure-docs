@@ -826,7 +826,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, default is ""| Static |The network name to use when setting up a container network.|
-|ContainerNetworkSetup|bool, default is FALSE| Static |Whether to set up a container network.|
+|ContainerNetworkSetup|bool, default is FALSE (Linux) and default is TRUE (Windows)| Static |Whether to set up a container network.|
 |FabricDataRoot |String | Not Allowed |Service Fabric data root directory. Default for Azure is d:\svcfab |
 |FabricLogRoot |String | Not Allowed |Service fabric log root directory. This is where SF logs and traces are placed. |
 |NodesToBeRemoved|string, default is ""| Dynamic |The nodes which should be removed as part of configuration upgrade. (Only for Standalone Deployments)|

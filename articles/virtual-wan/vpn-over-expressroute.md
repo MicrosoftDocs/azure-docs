@@ -1,16 +1,16 @@
 ---
-title: 'Create a site-to-site VPN connection over ExpressRoute private peering in Azure Virtual WAN | Microsoft Docs'
+title: 'Configure ExpressRoute encryption: IPsec over ExpressRoute for Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a site-to-site VPN connection over ExpressRoute private peering.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 02/18/2020
 ms.author: cherylmc
-Customer intent: I want to connect my on-premises networks to my virtual networks by using an S2S VPN connection over my ExpressRoute private peering through Azure Virtual WAN.
+
 ---
-# Create a site-to-site VPN connection over ExpressRoute private peering by using Azure Virtual WAN
+# ExpressRoute encryption: IPsec over ExpressRoute for Virtual WAN
 
 This article shows you how to use Azure Virtual WAN to establish an IPsec/IKE VPN connection from your on-premises network to Azure over the private peering of an Azure ExpressRoute circuit. This technique can provide an encrypted transit between the on-premises networks and Azure virtual networks over ExpressRoute, without going over the public internet or using public IP addresses.
 

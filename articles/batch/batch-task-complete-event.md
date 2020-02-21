@@ -2,8 +2,8 @@
 title: Azure Batch task complete event
 description: Reference for Batch task complete event. This event is emitted once a task is completed, regardless of the exit code.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 
 ms.assetid: 
 ms.service: batch
@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: jushiman
+ms.author: labrenne
 ---
 
 # Task complete event

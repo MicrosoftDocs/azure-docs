@@ -91,6 +91,8 @@
       href: built-in-vulnerability-assessment.md
     - name: Using external scanners
       href: partner-vulnerability-assessment.md
+  - name: Monitor your containers
+    href: monitor-container-security.md
   - name: Protect your servers with Microsoft Defender ATP
     href: security-center-wdatp.md
   - name: Use advanced data security for SQL on Azure VMs

@@ -16,6 +16,11 @@ ms.reviewer: lenalepa, manrath
 
 A redirect URI, or reply URL, is the location that the authorization server will send the user to once the app has been successfully authorized, and granted an authorization code or access token. The code or token is contained in the redirect URI or reply token so it's important that you register the correct location as part of the app registration process.
 
+ The following restrictions apply to reply URLs:
+
+    * The reply URL must begin with the scheme `https`.
+    * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+    
 ## Maximum number of redirect URIs
 
 The following table shows the maximum number of redirect URIs that you can add when you register your app.
