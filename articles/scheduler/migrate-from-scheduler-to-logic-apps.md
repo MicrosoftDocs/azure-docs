@@ -20,7 +20,7 @@ ms.date: 02/29/2020
 >
 > Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
 > and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
-> for managing your jobs and job collections at this time.
+> at this time so that you can manage your jobs and job collections.
 
 This article shows how you can schedule one-time and recurring jobs by creating automated workflows with Azure Logic Apps, rather than with Azure Scheduler. When you create scheduled jobs with Logic Apps, you get these benefits:
 

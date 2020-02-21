@@ -21,7 +21,7 @@ ms.date: 08/18/2016
 >
 > Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
 > and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
-> for managing your jobs and job collections at this time.
+> at this time so that you can manage your jobs and job collections.
 
 ## Entity hierarchy
 

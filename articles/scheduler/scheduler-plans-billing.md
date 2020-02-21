@@ -20,13 +20,11 @@ ms.date: 08/18/2016
 >
 > Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
 > and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
-> for managing your jobs and job collections at this time.
+> at this time so that you can manage your jobs and job collections.
 
 ## Job collection plans
 
-In Azure Scheduler, a job collection contains a specific number of jobs. 
-The job collection is the billable entity and comes in Standard, P10 Premium, 
-and P20 Premium plans, which are described here: 
+In Azure Scheduler, a job collection contains a specific number of jobs. The job collection is the billable entity and comes in Standard, P10 Premium, and P20 Premium plans, which are described here: 
 
 | Job collection plan | Max jobs per collection | Max recurrence | Max job collections per subscription | Limits | 
 |:--- |:--- |:--- |:--- |:--- |

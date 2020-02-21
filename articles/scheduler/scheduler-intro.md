@@ -21,7 +21,7 @@ ms.date: 02/17/2020
 >
 > Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
 > and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
-> for managing your jobs and job collections at this time.
+> at this time so that you can manage your jobs and job collections.
 
 [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) helps you create [jobs](../scheduler/scheduler-concepts-terms.md) that run in the cloud by declaratively describing actions. The service then automatically schedules and runs those actions. For example, you can call services inside and outside Azure, such as calling HTTP or HTTPS endpoints, and also post messages to Azure Storage queues and Azure Service Bus queues or topics. You can run jobs immediately or at a later time. Scheduler easily supports [complex schedules and advanced recurrence](../scheduler/scheduler-advanced-complexity.md). Scheduler specifies when to run jobs, keeps a history of job results that you can review, and then predictably and reliably schedules workloads to run.
 

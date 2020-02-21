@@ -20,11 +20,9 @@ ms.date: 08/16/2016
 >
 > Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
 > and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
-> for managing your jobs and job collections at this time.
+> at this time so that you can manage your jobs and job collections.
 
-Azure Scheduler provides both [high availability](https://docs.microsoft.com/azure/architecture/framework/#resiliency) 
-and reliability for your jobs. For more information, see 
-[SLA for Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
+Azure Scheduler provides both [high availability](https://docs.microsoft.com/azure/architecture/framework/#resiliency) and reliability for your jobs. For more information, see [SLA for Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
 
 ## High availability
 
@@ -33,10 +31,7 @@ and uses both geo-redundant service deployment and geo-regional job replication.
 
 ### Geo-redundant service deployment
 
-Azure Scheduler is available across almost [every geographical region supported by Azure today](https://azure.microsoft.com/global-infrastructure/regions/#services). 
-So, if an Azure datacenter in a hosted region becomes unavailable, 
-you can still use Azure Scheduler because the service's failover 
-capabilities make Scheduler available from another datacenter.
+Azure Scheduler is available across almost [every geographical region supported by Azure today](https://azure.microsoft.com/global-infrastructure/regions/#services). So, if an Azure datacenter in a hosted region becomes unavailable, you can still use Azure Scheduler because the service's failover capabilities make Scheduler available from another datacenter.
 
 ### Geo-regional job replication
 
