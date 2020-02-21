@@ -11,7 +11,7 @@ The reward score indicates how well the personalization choice, [RewardActionID]
 
 Personalizer trains its machine learning models by evaluating the rewards.
 
-Learn [how to](how-to-settings.md#configure-rewards-for-the-feedback-loop-based-on-use-case) configure the default reward score in the Azure portal for your Personalizer resource.
+Learn [how to](how-to-settings.md#configure-rewards-for-the-feedback-loop) configure the default reward score in the Azure portal for your Personalizer resource.
 
 ## Use Reward API to send reward score to Personalizer
 

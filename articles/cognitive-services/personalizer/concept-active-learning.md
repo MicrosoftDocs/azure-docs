@@ -9,7 +9,7 @@ ms.date: 02/20/2020
 
 Learning settings determine the *hyperparameters* of the model training. Two models of the same data that are trained on different learning settings will end up different.
 
-[Learning policy and settings](how-to-settings#configure-rewards-for-the-feedback-loop-based-on-use-case) are set on your Personalizer resource in the Azure portal.
+[Learning policy and settings](how-to-settings.md#configure-rewards-for-the-feedback-loop-based-on-use-case) are set on your Personalizer resource in the Azure portal.
 
 ### Import and export learning policies
 

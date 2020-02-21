@@ -14,7 +14,7 @@ The Personalizer reource, your _learning loop_, uses machine learning to build t
 You send _actions with features_ and _context features_ to the Rank API. The **Rank** API decides to use either:
 
 * _Exploit_: The current model to decide the best action based on past data.
-* _Explore_: Select a different action instead of the top action. You [configure this percentage](how-to-settings#configure-exploration-to-allow-the-learning-loop-to-adapt) for your Personalizer resource in the Azure portal.
+* _Explore_: Select a different action instead of the top action. You [configure this percentage](how-to-settings.md#configure-exploration-to-allow-the-learning-loop-to-adapt) for your Personalizer resource in the Azure portal.
 
 You determine the reward score and send that score to the Reward API. The **Reward** API:
 
