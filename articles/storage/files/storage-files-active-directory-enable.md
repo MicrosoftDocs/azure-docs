@@ -136,6 +136,5 @@ You have now successfully enabled Azure AD DS authentication over SMB and assign
 
 For more information about Azure Files and how to use Azure AD over SMB, see these resources:
 
-- [Introduction to Azure Files](storage-files-introduction.md)
-- [Overview of Azure Active Directory authentication over SMB for Azure Files](storage-files-active-directory-overview.md)
+- [ Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md)
 - [FAQ](storage-files-faq.md)

@@ -156,7 +156,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id="ad-support"></a>
 **Is identity-based authentication and access control supported by Azure Files?**  
     
-    Yes, Azure Files supports identity-based authentication and access control. You can choose one of two ways to use identity-based access control: Azure Active Directory Domain Services (Azure AD DS) (GA) or Active Directory (AD) (preview). Azure AD DS authentication over SMB for Azure Files enables Azure AD DS domain-joined Windows VMs to access shares, directories, and files using Azure AD credentials. AD supports authentication using AD domain joined machines, either on-premises or in Azure, to access Azure file shares over SMB. For more details, see [Overview of Azure Files authentication support for SMB access](storage-files-active-directory-overview.md). 
+    Yes, Azure Files supports identity-based authentication and access control. You can choose one of two ways to use identity-based access control: Azure Active Directory Domain Services (Azure AD DS) (GA) or Active Directory (AD) (preview). Azure AD DS authentication over SMB for Azure Files enables Azure AD DS domain-joined Windows VMs to access shares, directories, and files using Azure AD credentials. AD supports authentication using AD domain joined machines, either on-premises or in Azure, to access Azure file shares over SMB. For more details, see [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md). 
 
     Azure Files offers two additional ways to manage access control:
 
@@ -197,6 +197,11 @@ This article answers common questions about Azure Files features and functionali
     Azure Files AD authentication only integrates with the forest of the AD domain service that the storage account is registered to. To support authentication from another AD forest, your environment must have forest trust configured properly. Azure Files registration to an AD domain service is the mostly same as a regular file server, where it creates an account in AD for authentication. The only difference is that the registered SPN of the storage account ends with "file.core.windows.net" which does not match with the domain suffix.
 
     Consult your domain administrator to see if any update to your DNS routing policy is required to enable multiple forest authentication.
+
+* <a id=""></a>
+**What regions are available for Azure Files AD authentication (preview)?**
+
+    Refer to [AD regional availability](storage-files-active-directory-domain-services-enable.md#regional-availability) for details.
 
 * <a id="ad-aad-smb-afs"></a>
 **Can I leverage Azure Files Azure AD DS authentication or Active Directory (AD) authentication (preview) on file shares managed by Azure File Sync?**
