@@ -132,7 +132,7 @@ The following template has one resource defined with the `Microsoft.Resources/de
 
 The script takes one parameter, and output the parameter value. **DeploymentScriptOutputs** is used for storing outputs.  In the outputs section, the **value** line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Debug deployment scripts](#debug-deployment-scripts).  For the property descriptions, see [Sample template](#sample-template).
 
-To run the script, select **Try it** to open the Cloud shell, and then paste the following code into the shell pane.
+To run the script, select **Try it** to open the cloud shell, and then paste the following code into the shell pane.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
@@ -182,7 +182,7 @@ Supporting script files can be called from both inline scripts and primary scrip
 
 The supporting files are copied to azscripts/azscriptinput at the runtime. Use relative path to reference the supporting files from inline scripts and primary script files.
 
-## Work with outputs from PowerShell deployment scripts
+## Work with outputs from PowerShell script
 
 The following template shows how to pass values between two deploymentScripts resources:
 
@@ -194,9 +194,9 @@ In the first resource, you define a variable called **$DeploymentScriptOutputs**
 reference('<ResourceName>').output.text
 ```
 
-## Work with outputs from CLI deployment scripts
+## Work with outputs from CLI script
 
-Different than the Powershell version, CLI/bash support does not expose a common variable to store script outputs, instead, there is an environment variable called **AZ_SCRIPTS_OUTPUT_PATH** that stores the location where the script outputs file resides. If a deployment script is ran from a Resource Manager template, this environment variable is set automatically for you by the Bash shell.
+Different from the PowerShell deployment script, CLI/bash support does not expose a common variable to store script outputs, instead, there is an environment variable called **AZ_SCRIPTS_OUTPUT_PATH** that stores the location where the script outputs file resides. If a deployment script is ran from a Resource Manager template, this environment variable is set automatically for you by the Bash shell.
 
 Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, an array of strings is stored as { “MyResult”: [ “foo”, “bar”] }.  Storing just the array results, for example [ “foo”, “bar” ], is invalid.
 
