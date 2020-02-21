@@ -201,155 +201,152 @@ additionalContent:
         - title: Culture
           links:
             - text: "The Evolution of Site Reliability Engineering"
-              url: file1a.md OR https://docs.microsoft.com/file1a
+              url: https://www.usenix.org/conference/srecon18asia/presentation/purgason
             - text: "Building SRE: Culture from the Outside In"
-              url: file1b.md OR https://docs.microsoft.com/file1b
+              url: https://www.usenix.org/conference/srecon18asia/presentation/palino
             - text: "Cultural Nuance and Effective Collaboration for Multicultural Teams"
-              url: file1a.md OR https://docs.microsoft.com/file1a
+              url: https://www.usenix.org/conference/srecon18asia/presentation/ravindran
             - text: "Evolution of SRE and Rising Need of SRE Catalyzers"
-              url: file1a.md OR https://docs.microsoft.com/file1a
+              url: https://www.usenix.org/conference/srecon18asia/presentation/ganeriwal
             - text: "Feedback Loops: How SREs Benefit and What Is Needed to Realize Their Potential"
-              url: file1a.md OR https://docs.microsoft.com/file1a
+              url: https://www.usenix.org/conference/srecon17americas/program/presentation/tangi
             - text: "Understanding Business Metrics Can Make You a Better SRE"
-              url: file1a.md OR https://docs.microsoft.com/file1a
+              url: https://www.usenix.org/conference/srecon19asia/presentation/suley
             - text: "The Never-Ending Story of Site Reliability"
-              url: file1a.md OR https://docs.microsoft.com/file1a
+              url: https://www.usenix.org/conference/srecon17europe/conference-program/presentation/andersen
             - text: "Every Day Is Monday in Operations"
-              url: file1a.md OR https://docs.microsoft.com/file1a
+              url: https://www.usenix.org/conference/srecon17americas/program/presentation/purgason
 
         # Card
         - title: "Incident Response and Post-Incident Reviews"
           links:
             - text: "Building Resilience: How to Learn More from Incidents"
-              url: file2a.md OR https://docs.microsoft.com/file2a
+              url: https://www.usenix.org/conference/srecon19emea/presentation/stenning
             - text: "A Tale of Two Postmortems: A Human Factors View"
-              url: file2b.md OR https://docs.microsoft.com/file2b
+              url: https://www.usenix.org/conference/srecon19asia/presentation/lund-postmortem
             - text: "Ironies of Automation: A Comedy in Three Parts"
-              url: file2b.md OR https://docs.microsoft.com/file2b
+              url: https://www.usenix.org/conference/srecon19asia/presentation/lund-comedy
             - text: "Against On-Call: A Polemic"
-              url: file2b.md OR https://docs.microsoft.com/file2b
+              url: https://www.usenix.org/conference/srecon18europe/presentation/murphy
             - text: "One on One SRE"
-              url: file2b.md OR https://docs.microsoft.com/file2b
+              url: https://www.usenix.org/conference/srecon19americas/presentation/tobey
 
         # Card
         - title: "Monitoring and Observability"
           links:
             - text: "Over 600 Million Members and Hundreds of Micro Services: How We Scaled Our Monitoring System to Keep up"
-              url: file3a.md OR https://docs.microsoft.com/file3a
+              url: https://www.usenix.org/conference/srecon19asia/presentation/lamba
             - text: "Off the Beaten Path: Moving Observability Focus from Your Service to Your Customer"
-              url: file3b.md OR https://docs.microsoft.com/file3b      
+              url: https://www.usenix.org/conference/lisa19/presentation/suley
             - text: "You Get What You Measure—Why Metrics Are Important"
-              url: file3b.md OR https://docs.microsoft.com/file3b      
+              url: https://www.usenix.org/conference/srecon18asia/presentation/srinivasamurthy-metrics
             - text: "Weathering the Storm: How Early Warnings Save the Farm"
-              url: file3b.md OR https://docs.microsoft.com/file3b      
+              url: https://www.usenix.org/conference/srecon19emea/presentation/sherwin
             - text: "Capturing and Analyzing Millions of Queries without Any Overhead"
-              url: file3b.md OR https://docs.microsoft.com/file3b      
+              url: https://www.usenix.org/conference/srecon17europe/program/presentation/appigatla
             - text: "Event Correlation: A Fresh Approach towards Reducing MTTR"
-              url: file3b.md OR https://docs.microsoft.com/file3b      
+              url: https://www.usenix.org/conference/srecon17asia/program/presentation/rajan
             - text: "How Robust Monitoring Powers High Availability for LinkedIn Feed"
-              url: file3b.md OR https://docs.microsoft.com/file3b      
+              url: https://www.usenix.org/conference/srecon17americas/program/presentation/barot
             - text: "Reducing MTTR and False Escalations: Event Correlation at Linkedin"
-              url: file3b.md OR https://docs.microsoft.com/file3b      
+              url: https://www.usenix.org/conference/srecon17europe/program/presentation/kehoe-0
                
         # Card
         - title: "Practices and Principles"
           links:
             - text: "Availability—Thinking beyond 9s"
-              url: file3a.md OR https://docs.microsoft.com/file3a
+              url: https://www.usenix.org/conference/srecon19asia/presentation/srinivasamurthy
             - text: "Mental Models for SREs"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon18asia/presentation/suley-mental
             - text: "Prioritizing Trust While Creating Applications"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon19emea/presentation/davis
             - text: "Java Hates Linux. Deal with It."
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17americas/program/presentation/banks
             - text: "Characterizing and Understanding Phases of SRE Practices"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon18asia/presentation/andersen
             - text: "Security and SRE: Natural Force Multipliers"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon18americas/presentation/scott
             - text: "Production Improvement Review: Taking a Bite Out of Repair Debt"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon16europe/program/presentation/check
             - text: "Ensuring Reliability of High-Performance Applications"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon18asia/presentation/nayak
             - text: "The Service Score Card—Gamifying Operational Excellence"
-              url: file3b.md OR https://docs.microsoft.com/file3b
-            - text: "My Service Runs at 99.999%...All Those Tweets about Outages Are Not Real:..."
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17americas/program/presentation/lawrence
             - text: "How to Improve a Service by Roasting It"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon16/program/presentation/dickson
        # Card
         - title: "Teams and Management"
           links:
             - text: "Code-Yellow: Helping Operations Top-Heavy Teams the Smart Way"
-              url: file3a.md OR https://docs.microsoft.com/file3a
+              url: https://www.usenix.org/conference/srecon19americas/presentation/kehoe
             - text: "Leading without Managing: Becoming an SRE Technical Leader"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon19asia/presentation/palino-leading
             - text: "Differences in SRE Implementations across Companies"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon19americas/presentation/andersen
             - text: "100 Teams, 100 Ways to Fail"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17europe/program/presentation/keiser
             - text: "The Why, What, and How of Starting an SRE Engagement"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17europe/program/presentation/clawson
             - text: "Building and Running SRE Teams"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon16europe/program/presentation/andersen
             - text: "College Student to SRE: Onboarding Your Entry Level Talent"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon16/program/presentation/kehoe
             - text: "LinkedIn SRE: From Inception to Global Scale"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17asia/program/presentation/connelly
             - text: "Splicing SRE DNA Sequences in the Biggest Software Company on the Planet"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon16europe/program/presentation/splicing-sre-dna-sequences-biggest-software-company
             - text: "Transforming Tier 1 Caterpillars to Butterflies"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon16/program/presentation/mushiana
 
        # Card
         - title: "Tools and Technologies"
           links:
             - text: "Azure SREBot: More than a Chatbot—an Intelligent Bot to Crush Mitigation Time"
-              url: file3a.md OR https://docs.microsoft.com/file3a
+              url: https://www.usenix.org/conference/srecon17asia/program/presentation/guimaraes
             - text: "TrafficShift: Avoiding Disasters at Scale"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17americas/program/presentation/kehoe_trafficshift
             - text: "Let's Build a Distributed File System"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon19asia/presentation/patel
             - text: "TCP—Architecture, Enhancements, and Tuning"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon19asia/presentation/dhakal
             - text: "BGP—The Backbone of the Internet"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon19asia/presentation/kehoe
             - text: "The Ops in Serverless"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon19americas/presentation/davis
             - text: "How We Used Kafka to Scale Database Infrastructure"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon19asia/presentation/thambara
             - text: "Networks for SREs: What Do I Need to Know for Troubleshooting Applications"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17europe/program/presentation/kehoe
             - text: "Ambry—LinkedIn’s Distributed Immutable Object Store"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17americas/program/presentation/shenoy
             - text: "BPerf—Bing.com Cloud Profiling on Production"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17americas/program/presentation/sabharwal
             - text: "DNS: Old Solution for Modern Problems"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon16europe/program/presentation/jackson
             - text: "Traffic Steering using Rum DNS @ LinkedIn"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17europe/program/presentation/rastogi
 
 
        # Card
         - title: "Scaling"
           links:
             - text: "Traffic Forecasting and Stress Testing Infrastructure"
-              url: file3a.md OR https://docs.microsoft.com/file3a
+              url: https://www.usenix.org/conference/srecon19asia/presentation/sulakhe
             - text: "Learning at Scale Is Hard! Outage Pattern Analysis and Dirty Data"
-              url: file3b.md OR https://docs.microsoft.com/file3b              
+              url: https://www.usenix.org/conference/srecon18americas/presentation/lund
             - text: "Scaling a Distributed Stateful System: A LinkedIn Case Study"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon18asia/presentation/kanuri
             - text: "Debugging at Scale—Going from Single Box to Production"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon18asia/presentation/srinivasamurthy-debugging
             - text: "Building Centralized Caching Infrastructure at Scale"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon19asia/presentation/won
             - text: "Scalable Coding—Find the Error"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon18europe/presentation/ebner-de-carvalho
             - text: "Managing Capacity @ LinkedIn"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17asia/program/presentation/harkare
             - text: "InStream: Large Scale Distribution using BitTorrent, Python, Salt, and Kafka"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17europe/program/presentation/sharma
             - text: "Avoiding and Breaking Out of Capacity Prison"
-              url: file3b.md OR https://docs.microsoft.com/file3b
+              url: https://www.usenix.org/conference/srecon17europe/program/presentation/welch
             - text: "The Evolution of Global Traffic Routing and Failover"
-              url: file3b.md OR https://docs.microsoft.com/file3b
-
+              url: https://www.usenix.org/conference/srecon16/program/presentation/heady
