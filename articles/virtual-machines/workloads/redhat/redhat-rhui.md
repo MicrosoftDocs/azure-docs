@@ -24,7 +24,7 @@ Additional information on RHEL images in Azure, including publishing and retenti
 Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
 
 > [!IMPORTANT]
-> RHUI is intended only for pay-as-you-go (PAYGO) images. For custom and golden images, also known as bring-your-own-subscription (BYOS), the system needs to be attached to RHSM or Satellite in order to receive updates. See [Red Hat article](https://access.redhat.com/solutions/253273) for more details.
+> RHUI is intended only for pay-as-you-go (PAYG) images. For custom and golden images, also known as bring-your-own-subscription (BYOS), the system needs to be attached to RHSM or Satellite in order to receive updates. See [Red Hat article](https://access.redhat.com/solutions/253273) for more details.
 
 
 ## Important information about Azure RHUI
@@ -101,7 +101,7 @@ Use the following instructions to lock a RHEL VM to a particular minor release (
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
-1. Lock the releasever variable (run as root):
+1. Lock the `releasever` variable (run as root):
     ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
@@ -116,7 +116,7 @@ Use the following instructions to lock a RHEL VM to a particular minor release (
 
 ### Switch a RHEL VM back to non-EUS (remove a version lock)
 Run the following as root:
-1. Remove the releasever file:
+1. Remove the `releasever` file:
     ```bash
     rm /etc/yum/vars/releasever
      ```
