@@ -18121,6 +18121,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/update-infrastructure-redhat.md",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/redhat-rhui",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-advanced-autoscale.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets",
       "redirect_document_id": false
@@ -18483,6 +18488,21 @@
     {
       "source_path": "articles/backup/backup-azure-vms-prepare.md",
       "redirect_url": "/azure/backup/backup-azure-arm-vms-prepare",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/backup/backup-azure-configure-reports.md",
+      "redirect_url": "/azure/backup/configure-reports.md",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/backup/backup-azure-log-analytics-data-model.md",
+      "redirect_url": "/azure/backup/backup-azure-diagnostics-mode-data-model.md",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/backup/backup-azure-log-analytics-new-data-model.md",
+      "redirect_url": "/azure/backup/backup-azure-reports-data-model.md",
       "redirect_document_id": false
     },
     {
@@ -23512,7 +23532,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md",
-      "redirect_url": "/azure/virtual-machines/linux/update-infrastructure-redhat",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/redhat-rhui",
       "redirect_document_id": false
     },
     {
@@ -35531,6 +35551,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/conditional-access/app-based-mfa.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-enable-azure-mfa",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/conditional-access/technical-reference.md",
       "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
       "redirect_document_id": false
@@ -37198,11 +37223,6 @@
     {
       "source_path": "articles/active-directory/user-help/myprofile-portal-recent-activity-page.md",
       "redirect_url": "/azure/active-directory/user-help/myprofile-portal-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md",
-      "redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows",
       "redirect_document_id": false
     },
     {
@@ -45542,12 +45562,12 @@
     },
     {
       "source_path": "articles/iot-central/core/howto-export-data-blob-storage.md",
-      "redirect_url": "/azure/iot-central/core/",
+      "redirect_url": "/azure/iot-central/core/howto-export-data/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/howto-export-data-event-hubs-service-bus.md",
-      "redirect_url": "/azure/iot-central/core/",
+      "redirect_url": "/azure/iot-central/core/howto-export-data/",
       "redirect_document_id": false
     },
     {

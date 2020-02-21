@@ -76,7 +76,7 @@ conceptualContent:
           text: Create a telemetry rule 
         - url: ./core/howto-export-data.md
           itemType: how-to-guide
-          text: Configure continuous data export
+          text: Export data to destinations in Azure
       footerLink: 
         url: ./core/index.yml
         text: See more
