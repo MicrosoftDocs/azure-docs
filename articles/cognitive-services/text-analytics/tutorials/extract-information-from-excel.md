@@ -65,16 +65,16 @@ Create variables representing the information that will be extracted from the Ex
 Click **New Step** and search for **Initialize variable**. Do this four times, to create four variables.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/initialize-variables-2.png" alt-text="Initialize variables.":::
+> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Initialize variables.":::
 
 Add the following information to the variables you created. They represent the columns of the Excel file. If any variables are collapsed, you can click on them to expand them.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-variables-2.png" alt-text="information for creating the flow variables":::
+> :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="information for creating the flow variables":::
 
 ## Read the excel file
 
-Click **New Step** and type **Excel**, then select **Update a Row** from Actions.
+Click **New Step** and type **Excel**, then select **List rows present in a table** from Actions.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="add excel rows.":::
@@ -82,7 +82,7 @@ Click **New Step** and type **Excel**, then select **Update a Row** from Actions
 Select the options to fill in the fields as below. This requires the sample Excel file to have been uploaded to One Drive for Business.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-rows-present.png" alt-text="add excel rows.":::
+> :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="add excel rows.":::
 
 Add an **Apply to each** action.
 
