@@ -16,7 +16,7 @@ ms.service: digital-twins
 
 # Query the digital twin graph
 
-The Query APIs let developers find sets of twins in the graph across relationships and applying filters
+The Query APIs let developers find sets of twins in the graph across relationships and applying filters.
 
 Some example queries:
 
@@ -48,7 +48,7 @@ IAsynEnumerable<Result<JsonDocument>> result = client.Query(“querystring”);
 ```
 
 This returns the query results in form of a JSON string. 
-To parse the JSON results returned, use the Json parser of your choice. 
+To parse the JSON results returned, use the JSON parser of your choice. 
 
 > [!NOTE]
 > Documentation of the query results

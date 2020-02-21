@@ -20,7 +20,8 @@ Model Management APIs are APIs used to manage the models (types of twins and rel
 
 ## Modeling (Private Preview)
 
-The first step towards the solution is to model the twin types used to represent the hospital. Models for ADT are written in DTDL, a JSON-LD-based, programming language agnostic type description. For example, a patient room, for the purposes of this solution, might be described as:
+Consider an example in which a hospital wants to model their rooms, complete with sensors to monitor traffic into/out of the rooms and handwashing stations in each room.
+The first step towards the solution is to model the twin types used to represent the hospital. Models for ADT are written in [DTDL](concepts-DTDL.md). A patient room might be described as:
 
 ```json
 {
@@ -53,7 +54,7 @@ The first step towards the solution is to model the twin types used to represent
 }
 ```
 
-This description defines a name and a unique id for the patient room, a few properties to represent handwash status (counters that will be updated from motion sensors and soap dispensers, as well as a computed *handwash percentage* property). The type also defines a relationship *hasDevices* that will be used to connect to the actual devices.
+This description defines a name and a unique ID for the patient room, a few properties to represent handwash status (counters that will be updated from motion sensors and soap dispensers, as well as a computed *handwash percentage* property). The type also defines a relationship *hasDevices* that will be used to connect to the actual devices.
 In a similar manner, types for the hospital itself, as well as hospital wards or zones can be defined.
 
 ## Uploading Models
@@ -129,13 +130,14 @@ IAsyncEnumerable<Response<ModelData>> oneModelWithDependencies =
                         client.RetrieveModelWithDependenciesAsync(modelId, IncludeModels.All);
 ```
 
-The API calls to retrieve models return `ModelData` objects. `ModelData` contains metadata about the model stored in the ADT service instance, such as name, DTMI, and creation date of the model. The `ModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire models.  
-The `RetrieveModelWithDependencies` call returns not just the requested model, but also all models that the requested model is dependent on.
-Models are not necessarily returned in exactly the document form they have been uploaded in. ADT makes no guarantees about the form a document is returned in, beyond that the document will be returned in semantically equivalent form. 
+The API calls to retrieve models return `ModelData` objects. `ModelData` contains metadata about the model stored in the ADT service instance, such as name, DTMI, and creation date of the model. The `ModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
+
+The `RetrieveModelWithDependencies` call returns not only the requested model, but also all models that the requested model depends on.
+Models are not necessarily returned in exactly the document form they were uploaded in. ADT makes no guarantees about the form a document is returned in, beyond that the document will be returned in semantically equivalent form. 
 
 ## Parse Models
 
-As part of the ADT SDK, a DTDL parsing library is provided as a client-side library. This library provides object-model access to the DTDL type definitions – effectively, the equivalent of C# reflection on DTDL. This library can be used independently of the ADT SDK, for example for validation in a visual or text editor for DTDL. 
+As part of the ADT SDK, a DTDL parsing library is provided as a client-side library. This library provides object-model access to the DTDL type definitions – effectively, the equivalent of C# reflection on DTDL. This library can be used independently of the ADT SDK; for example, for validation in a visual or text editor for DTDL. 
 
 To use the parser library, you provide a set of DTDL documents to the library. Typically, you would retrieve these model documents from the service, but you might also have them available locally, if your client was responsible for uploading them to the service in the first place. The overall workflow:
 * You retrieve all (or, potentially, some) DTDL documents from the service
@@ -144,11 +146,12 @@ To use the parser library, you provide a set of DTDL documents to the library. T
 * You can use the parser APIs to analyze the types included in the document set
 * Functionality includes:
     - Get all interfaces implemented (the content of the extends section)
-    - Get all properties, telemetry, commands, components and relationships declared in the type. This includes all metadata included in these definitions and takes inheritance (“extends”) into account
+    - Get all properties, telemetry, commands, components and relationships declared in the type. This includes all metadata included in these definitions and takes inheritance (`extends` sections) into account
     - Get all complex type definitions
     - Ascertain if a type is assignable from another type 
 
-*Note for Plug and Play device users: Plug and play devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of DTDL as used in ADT. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your twin. The parser will always, by default, return the same object model for both PnP and Digital Twins syntax.*
+> [!NOTE]
+> Plug and play devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of DTDL as used in ADT. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your twin. The parser will always, by default, return the same object model for both PnP and Digital Twins syntax.
 
 ### An example
 
@@ -233,13 +236,16 @@ public void ParseModels()
 ```
 
 > [!NOTE]
-> Add an example that shows how the parser coalesces properties in the presence of inheritance. That is, when reflecting over properties of ConferenceRoom, we’d see all the properties of the types that ConferenceRoom extends. 
+> Add an example that shows how the parser coalesces properties in the presence of inheritance. That is, when reflecting over properties of *ConferenceRoom*, we’d see all the properties of the types that *ConferenceRoom* extends. 
 
 ## Model Deletion
 
 Models can also be deleted from the service. Deletion is a two-step process:
-* Models first need to be “de-commissioned”. A de-commissioned model is still valid and can be used by existing twin instances. This includes the ability to change properties or add and delete relationships. However, new instances of this model type cannot be created any longer
-* Once there are no more instances of a given model, and the model is not referenced by any other model any longer, they can be deleted. After decommissioning a model, you would typically either delete existing instances of that model, or you would transition the twin instance to a different model. Add an example for transitioning 
+* Models first need to be **decommissioned**. A decommissioned model is still valid and can be used by existing twin instances. This includes the ability to change properties or add and delete relationships. However, new instances of this model type cannot be created any longer.
+* Once there are no more instances of a given model, and the model is not referenced by any other model any longer, IT can be **deleted**. After decommissioning a model, you would typically either delete existing instances of that model, or you would transition the twin instance to a different model. 
+
+> [!NOTE]
+> Add an example for transitioning 
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");  
@@ -248,5 +254,4 @@ client.DecommisionModel(dtmiOfPlanetInterface);
 ...
 ```
 
-`DecommissionModel()` can take one or more than one URN(s) so developers can process one or multiple ones in one statement. 
-Note that the decommissioning status is also included in the ModelData records returned by the model retrieval APIs.
+`DecommissionModel()` can take one or more than one URN(s), so developers can process one or multiple ones in one statement. Note that the decommissioning status is also included in the `ModelData` records returned by the model retrieval APIs.

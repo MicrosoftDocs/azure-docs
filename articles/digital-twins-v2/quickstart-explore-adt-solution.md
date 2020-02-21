@@ -37,10 +37,13 @@ Outline: ​
 ## ADT: A Simple Example
 
 In hospitals, it is crucial that medical personnel wash their hands regularly. However, actual compliance with hand-washing policies is traditionally hard to measure. Using IoT technology, a hospital aims to solve multiple business problems at once:
-* Measure compliance with hand washing policies to control spread of germs
+
+* Measure compliance with hand-washing policies to control spread of germs
 * Make sure that sanitation equipment and soap and towel dispensers are always filled and operational
 * Reduce maintenance costs, by making sure that only sanitation equipment that needs maintenance is visited by facilities management for repair or refill
-* Collect long term data about the aggregate behavior of medical personnel that can be used for research, with the goal of designing more effective policies that can protect patients and providers alike
+* Collect long-term data about the aggregate behavior of medical personnel that can be used for research, with the goal of designing more effective policies that can protect patients and providers alike
 
-The desired solution provides a dashboard that can display current and historical information for each patient room, as well as roll-ups for each ward in the hospital, each floor, and the hospital as a whole. A separate dashboard informs maintenance staff about device operability as well as requests for refills, etc.
-From an IoT perspective, the solution is built around motion sensors that can detect and count people traffic into and out of patient rooms, as well as sensors that can check the fill status of soap and towel dispensers. The data collected by the sensors might also be correlated with scheduling information originating from a different business system.
+The desired solution provides a dashboard that can display current and historical information for each patient room, as well as roll-ups for each ward in the hospital, each floor, and the hospital as a whole. 
+
+A separate dashboard informs maintenance staff about device operability, requests for refills, etc.
+From an IoT perspective, the solution is built around motion sensors that can detect and count foot traffic into and out of patient rooms, as well as sensors that can check the fill status of soap and towel dispensers. The data collected by the sensors might also be correlated with scheduling information originating from a different business system.

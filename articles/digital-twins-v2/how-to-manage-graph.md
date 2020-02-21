@@ -16,7 +16,7 @@ ms.service: digital-twins
 
 # Manage the components of your digital twin graph
 
-The Twin APIs let developers create, modify and delete twins and their relationships in an ADT instance
+The Twin APIs let developers create, modify and delete twins and their relationships in an ADT instance.
 
 ## Creating a Graph (Private Preview)
 Once we have a set of types, we can create a graph representing a complete hospital. For a small hospital, this graph might look like this:
@@ -55,7 +55,8 @@ var client = new DigitalTwinsClient("...Authentication Info...");
 
 ## Creating Twins and Graphs of Twin Instances 
 
-Once models are uploaded to the server, you can begin constructing a twin instance graph. In many cases, the data that determines the topology of the instance graph will come from an existing data source such as a CAD file, a BIM database or an excel spreadsheet.
+Once models are uploaded to the server, you can begin constructing a twin instance graph. In many cases, the data that determines the topology of the instance graph will come from an existing data source such as a CAD file, a BIM database or an Excel spreadsheet.
+
 The following code shows a minimal example for instance graph creation:
 
 ```csharp
@@ -66,12 +67,12 @@ Response rR = client.CreateRelationship("idMyPlanet01", "IsCircledBy", "idMyMoon
                                         “idRel01”);
 ```
 
-This code creates two instances of twins, one using model type *Planet*, the other using model type *Moon*. In addition to the model type id (`dtmi:Planet` and `dtmi:Moon`), you need to pass in a unique ID, and data to initialize the twin instance during creation. More on initialization in the next section. The sample also creates a relationship between the two instances, connecting them to each other.
+This code creates two instances of twins, one using model type *Planet*, the other using model type *Moon*. In addition to the model type id (`dtmi:Planet` and `dtmi:Moon`), you need to pass in a unique ID, and data to initialize the twin instance during creation. The sample also creates a relationship between the two instances, connecting them to each other.
 
 ## Initializing Properties
 
 All non-optional properties and components of twins must be initialized at creation time. Relationships may be initialized, but do not need to be. 
-The Twin creation API accepts a JSON string to initialize the twin instance. You will typically create this JSON string by serializing an object that holds the initialization data into JSON, for example using the JSON functionality in System.Text.Json (built-in for .NET Core 3.0, and available as a nuget package for many other versions of the .NET framework).
+The Twin creation API accepts a JSON string to initialize the twin instance. You will typically create this JSON string by serializing an object that holds the initialization data into JSON; for example, using the JSON functionality in `System.Text.Json` (built-in for .NET Core 3.0, and available as a NuGet package for many other versions of the .NET framework).
 
 The following code shows an example for the creation of the JSON string:
 
@@ -84,7 +85,7 @@ Dictionary<string, object> moonData = new Dictionary<string, object>()
 string s = JsonSerializer.Serialize(moonData);
 ```
 
-The example above uses a Dictionary with an initializer to hold the data for the twin. If you have the data in custom classes, you can use the more advanced capabilities of System.Text.Json to shape the JSON string as needed. For example:
+The example above uses a Dictionary with an initializer to hold the data for the twin. If you have the data in custom classes, you can use the more advanced capabilities of `System.Text.Json` to shape the JSON string as needed. For example:
 
 ```csharp
 class MoonData
@@ -102,7 +103,7 @@ string s = JsonSerializer.Serialize(moonData);
 
 ## Creating Twins: A More Complete Example
 
-A slightly more complete example, reading a topology from a spreadsheet. Assumption is that there are a number of rows in the excel file that list floors or rooms (and the parent floor for each room):
+A slightly more complete example is outlined below, to read topology from a spreadsheet. This assumes that there are a number of rows in the Excel file that list floors or rooms (and the parent floor for each room):
 
 | Type	| Id | Parent | RelName | OtherData | OtherData |
 | --- | --- | --- | --- | --- | --- |
@@ -114,7 +115,7 @@ A slightly more complete example, reading a topology from a spreadsheet. Assumpt
 | room	| Room21 | Floor02 | contains | … | … |
 | room	| Room22 | Floor02 | contains | … | … |
 
-The following code uses the Microsoft Graph API to read a spreadsheet and construct an ADT graph from the results:
+The following code uses the [Microsoft Graph API](https://docs.microsoft.com/en-us/graph/overview) to read a spreadsheet and construct an ADT graph from the results:
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");

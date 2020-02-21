@@ -16,31 +16,17 @@ ms.service: digital-twins
 
 # Understand object modeling in Azure Digital Twins
 
-## Digital Twins Definition Language: DTDL
+Think of a **model** as a template that describes the characteristics of a particular type of twin in terms of properties, telemetry/events, commands etc. They are defined using the JSON-based [Digital Twin Definition Language (DTDL)](concepts-DTDL.md).  
 
-Digital Twin models for ADT are defined using the **Digital Twin Description Language (DTDL)**. DTDL is written in JSON-LD and programming language independent.  
-This section provides conceptual information on DTDL. 
-
-> [!NOTE]
-> Please see the DTDL reference [Add Link to DTDL specification] for more details on DTDL. 
-
-### DTDL in ADT versus DTDL in Plug and Play
-
-DTDL is also used as part of Azure IoT Plug and Play. Developers of Plug and Play devices use a subset of the same description language used for twins. This document describes DTDL as used in ADT, 
-
-> [!NOTE]
-> please see Add reference to PnP DTDL specs.
-
-The DTDL version used for Plug and Play is semantically a subset of DTDL for ADT: Every CapabilityModel as defined by PnP is also a valid interface for use in ADT.  
 
 ## Interfaces
 
-Model descriptions in DTDL are called interfaces. An interface describes a model in terms of:
-* **Properties**. Properties are data fields that represent the state of an entity, just like in most object-oriented languages. Unlike telemetry, which is just a data event, properties have backing storage and can be read at any time.
-* **Telemetry**. Telemetry fields represent measurements or events. Measurement are typically used for the equivalent of sensor readings. Telemetry is not stored on a twin – it is effectively sent as a stream of data events.
-* **Commands**. Commands represent methods can be executed on the digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
-* **Relationships**. Relationships lets you model how a given twin is related to other twins. Relationships can represent different semantic meanings, such as “floor contains room”, “hvac cools rooms”, “Compressor is-billed-to user” etc. Using relationships, digital twins solutions construct a graph of interrelated twins. 
-* **Components**. A component lets you build your model as an assembly of other interfaces. Use a component to describe something that is an integral part of your model, and that does not need to be created, deleted or re-arranged in your topology of twins independently. In contrast, use independent twins connected by a relationship when you want both parts to have an independent existence in the graph.
+Model descriptions in DTDL are called **interfaces**. An interface describes a model in terms of:
+* **Properties** — Properties are data fields that represent the state of an entity, just like with many object-oriented programming languages. Unlike telemetry, which is just a data event, properties have backing storage and can be read at any time.
+* **Telemetry** — Telemetry fields represent measurements or events. Measurements are typically used for the equivalent of sensor readings. Telemetry is not stored on a twin; it is effectively sent as a stream of data events.
+* **Commands** — Commands represent methods that can be executed on a digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
+* **Relationships** — Relationships let you model how a given twin is involved with other twins. Relationships can represent different semantic meanings, such as “floor contains room”, “hvac cools rooms”, “Compressor is-billed-to user” etc. Relationships allow digital twins solutions to construct graphs of interrelated twins. 
+* **Components** — A component lets you build your model as an assembly of other interfaces. Use a component to describe something that is an integral part of your model, and that does not need to be created, deleted or re-arranged in your topology of twins independently. In contrast, use independent twins connected by a relationship when you want both parts to have an independent existence in the graph.
 
 > [!NOTE]
 > Example that shows how to think about relationships versus components
@@ -78,11 +64,11 @@ A simple example model:
 }
 ```
 
-As the example shows, all content of an interface is described in the `contents` section of the DTDL file as an array of attribute definitions, where each attribute has a type (telemetry, property, relationship, etc.) and a set of properties that define the actual attribute (e.g. name and schema to define a property).
+As the example shows, all content of an interface is described in the `contents` section of the DTDL file as an array of attribute definitions. Each attribute has a type (telemetry, property, relationship, etc...) and a set of properties that define the actual attribute (for example, name and schema to define a property).
 
 ## Inheritance
 
-Often, it is desirable to specialize a given model. For example, a generic model *Room* might have specialized variants *ConferenceRoom* or *Gym*. To express specialization, DTDL supports inheritance: Interfaces can inherit from one or more other interfaces. 
+Often it is desirable to specialize a given model. For example, a generic model *Room* might have specialized variants *ConferenceRoom* and *Gym*. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
 
 ```json
 {
@@ -142,23 +128,4 @@ Often, it is desirable to specialize a given model. For example, a generic model
 In this example, both *Planet* and *Moon* inherit from *CelestialBody*, which contributes a name, a mass and a location to both *Planet* and *Moon*. Inheritance is expressed in the DTDL files with the `extends` section, which points to an array of interface specifications.
 If inheritance is applied, the sub-type exposes all properties from the entire inheritance chain.
 
-The extending interface cannot change any of the definitions of the parent interfaces. It can only add to them. Note that an interface inheriting from one or more interfaces cannot define a capability already defined in one of those “parent” interfaces (even if the capabilities are defined the same). For example, if a parent interface defines a double property “foo”, the extending interface cannot contain a declaration of foo, even if it is also declared as a double.
-
-## Data Types
-
-Property and telemetry values can be of standard primitive types – integer, double, string and Boolean and others, such as DateTime and Duration. 
-
-> [!NOTE]
-> Insert Reference to DTDL documentation for complete information.
-
-> [!NOTE]
-> Add information on mandatory versus optional properties
-
-In addition to primitive types, property and telemetry fields can have the following four complex types:
-* Object
-* Array
-* Map
-* Enum
-
-> [!NOTE]
-> Add more descriptions and an example	
+The extending interface cannot change any of the definitions of the parent interfaces. It can only add to them. Note that an interface inheriting from one or more interfaces cannot define a capability already defined in one of those parent interfaces (even if the capabilities are defined the same). For example, if a parent interface defines a `double` property *foo*, the extending interface cannot contain a declaration of *foo*, even if it is also declared as a `double`.

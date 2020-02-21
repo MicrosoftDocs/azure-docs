@@ -20,33 +20,34 @@ The Event APIs let developers wire-up event flow throughout the system, as well 
 
 ## Endpoints
 
-To define an event route, developers first must define endpoints. An endpoint is a connection to a destination outside of ADT. Supported destinations are 
+To define an event route, developers first must define endpoints. An **endpoint** is a connection to a destination outside of ADT. Supported destinations in private preview are 
 * EventGrid custom topics
 * EventHub
 * ServiceBus
 
-Endpoints are set up using control plane APIs or in the portal. An endpoint definition gives 
-* An endpoint id (or name) to the endpoint, this is a friendly name
-* Endpoint type, e.g. Event Grid, Event Hub or other type.
-* Primary connection string and secondary connection string to authenticate (* - this might be temporary for private preview until we implement the MSI auth pass when we need Azure Id for the service)
-* Path is topic path of the endpoint, e.g. *your-topic.westus.eventgrid.azure.net*
+Endpoints are set up using control plane APIs, or via the portal. An endpoint definition gives :
+* An endpoint ID (or name) to the endpoint. This is a friendly name
+* Endpoint type, e.g. Event Grid, Event Hub or other
+* Primary connection string and secondary connection string to authenticate (* - this might be temporary for private preview until we implement the MSI auth pass when we need Azure ID for the service)
+* Path, which is the topic path of the endpoint, e.g. *your-topic.westus.eventgrid.azure.net*
 
-These are the endpoints APIs that are available in control plane
+These are the endpoint APIs that are available in control plane:
 1.	Create endpoint
 2.	Get list of endpoints
-3.	Get endpoint by Id (similar with above, but passing endpointId)
-4.	Delete endpoint by Id
-5.	Get endpoint health (this is similar to Hub API GetEndpointHealth https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/getendpointhealth )
+3.	Get endpoint by ID (similar to above, but pass in endpointID)
+4.	Delete endpoint by ID
+5.	Get endpoint health (this is similar to the Hub API [`GetEndpointHealth`](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/getendpointhealth).
 
 ## Routes
 
 Event routes are defined using data plane APIs. A route definition contains:
-* The desired route id 
-* The desired endpoint id
+* The desired route ID 
+* The desired endpoint ID
 * A filter that defines which events are sent to the endpoint 
 
 One route should allow multiple notifications and event types to be selected. 
-This is the desired behavior: if there is no route, no messages are routed outside of DT. If there is a route and filter is null, all messages are routed to the endpoint. If there is a route and filter is added, messages will be filtered based on the filter.
+
+This is the desired behavior: if there is no route, no messages are routed outside of ADT. If there is a route and the filter is `null`, all messages are routed to the endpoint. If there is a route and a filter is added, messages will be filtered based on the filter.
 
 In SDK form:
 
@@ -55,7 +56,7 @@ Response CreateEventRoute(string routeId,
                             string endpointId,
                             string filter)
 ```
-Filter can be null/empty and all events will be published to the endpoint.
+Filter can be `null`/empty and all events will be published to the endpoint.
 
 `PATCH {service}/eventroutes/{id}`
 Patch operation supports patching of the filter in json-patch format.
@@ -64,12 +65,12 @@ Delete routes operation
 `DELETE {service}/eventroutes/{id}`
 `Response DeleteEventRoute(string routeId);`
 
-And to list event routes:
+List event routes:
 `GET {service}/eventroutes`
 `IEnumerable<Response<string>> ListEventRoutes();`
 
 ## Message routing query/filter
-Message routing query supports multiple category of filters, all expressed in one single query language.
+Message routing query supports multiple categories of filters, all expressed in one single query language:
 1.	Filter on messages types
 2.	Filter on twin instances (no traversal of graph)
 3.	Filter on message/notification body
@@ -80,6 +81,7 @@ Note: ADT messages are following CloudEvents standard,
 > see doc Digital Twin x-team APIs 2 - Notifications.docx
 
 In order to explain the message routing query, here are two sample messages of telemetry and notification:
+
 Telemetry message
 
 ```json
@@ -125,15 +127,15 @@ Lifecycle notifications message
 
 ### Filter based on Messages Types (Telemetry & Notification Types)
 
-Query language for filtering on messages type is, AND and OR operators are supported. 
+In the query language for filtering on message type, `IS`, `AND` and `OR` operators are supported. 
 
 `type = ‘microsoft.digitaltwins.twin.create’ OR type = ‘microsoft.iot.telemetry’`
-You can also specify IN operator 
+You can also specify `IN` operator 
 `type IN [‘microsoft.iot.telemetry’, ‘microsoft.digitaltwins.twin.create’]`
 
 ### Filtering based on Twins
 
-The query language for this should be compatible with DT query language and should be a sub-set of query language (join is out of scope) 
+The query language for this should be compatible with ADT query language, and should be a subset of it (`JOIN` for this is out of scope) 
 
 > [!NOTE]
 > QueryStore.Language.Syntax.docx example
@@ -141,19 +143,20 @@ The query language for this should be compatible with DT query language and shou
 `$dt.$metadata.$model = "urn:example:Thermostat:1"` OR 
 `$dt.$metadata.$model = "urn:contosocom:DigitalTwins:Space"`
 
-Or 
+or 
 
 `$dt.IS_OF_MODEL(urn:example:Thermostat:1')` OR
 `$dt.IS_OF_MODEL('urn:contosocom:DigitalTwins:Space;1')`
 
-* Priority is to support filtering based on the model and support OR operations between multiple models
-* Second priority is to support filtering by other properties of the twin (beside model above)
+> [!NOTE]
+> * The priority is to support filtering based on the model and support `OR` operations between multiple models
+> * Second priority is to support filtering by other properties of the twin (beside model above)
+
 `$dt.firmareVersion = “1.0” AND $dt.location = “Redmond”`
 
 ### Filtering based on message body
 
-Query language should be similar to IoT Hub supporting filtering of the message. In the Hub query language, the telemetry message itself is referred to as `$body`
-Test
+This query language should be similar to the way IoT Hub supports filtering of messages. In the IoT Hub query language, the telemetry message itself is referred to as `$body`.
 
 ```json
 {
@@ -169,14 +172,14 @@ Test
 ```
 
 ### Filtering based on message properties
-* Query language should be similar with Hub filtering on message properties
+This query language should be similar to IoT Hub's query language, filtering on message properties.
 
 ```sql
 AND source = “thermostat.vav-10”
 AND contentType = ‘UTF-8’
 ```
 
-Any of these 4 dimensions could be use individually or with AND and OR conditions
+Any of these four dimensions could be used individually, or with `AND` and `OR` conditions.
 
 ```sql
 AND type = ‘DigitalTwinTelemetryMessages’
@@ -188,8 +191,8 @@ AND source = “thermostat.vav-10”
 AND contentType = ‘UTF-8’
 ```
 
-Filtering on the routes is flat with no traversal of the graph (out of scope for public preview). 
-Digital Twins should support at least 10 custom endpoints and 100 routes, same as IoT Hub.
+Filtering on the routes is flat, with no traversal of the graph (out of scope for public preview). 
+Digital Twins should support at least 10 custom endpoints and 100 routes, like with IoT Hub.
 Complex filtering to traverse the graph is out of scope for public preview and GA.
 
 ## Route Event Types
@@ -205,31 +208,31 @@ Complex filtering to traverse the graph is out of scope for public preview and G
 
 ## Notification / Message Formats
 
-Notifications allow the solution backend to be notified when below actions are happening. These are the types of notifications emitted by IoT Hub and Digital Twins or other Azure IoT service. 
-Notifications are made up of two parts: the headers and the body. In this section, we will discuss and illustrate message headers as key-value pairs and the message body as JSON. Depending on the protocol used (i.e. MQTT, AMQP, or HTTP) message headers will be serialized differently. Depending on the serialization desired for the message body, the message body may be serialized differently (i.e. as JSON, CBOR, Protobuf, etc.). This section discusses the format for telemetry messages regardless of the specific protocol and serialization chosen.
+Notifications allow the solution backend to be notified when below actions are happening. These are the types of notifications emitted by IoT Hub and Azure Digital Twins, or other Azure IoT services. 
+Notifications are made up of two parts: the headers and the body. In this section, we will discuss and illustrate message headers as key-value pairs and the message body as JSON. Depending on the protocol used (i.e. MQTT, AMQP, or HTTP), message headers will be serialized differently. Depending on the serialization desired for the message body, the message body may be serialized differently (i.e. as JSON, CBOR, Protobuf, etc.). This section discusses the format for telemetry messages regardless of the specific protocol and serialization chosen.
 
 We aspire to have notifications conform to the CloudEvents standard. For practical reasons, we suggest a phased approach to CloudEvents conformance.
-* Notification emitted from devices continues to follow the existing specification for notifications
-* Notification processed and emitted by IoT Hub continues to follow the existing specification for notification, except where IoT Hub chooses to support CloudEvents, such as through Event Grid.
-* Notification emitted from logical digital twins conforms to CloudEvents.
-* Notification processed and emitted by ADT conforms to CloudEvents.
+* Notifications emitted from devices continue to follow the existing specifications for notifications
+* Notifications processed and emitted by IoT Hub continue to follow the existing specifications for notification, except where IoT Hub chooses to support CloudEvents, such as through Event Grid.
+* Notifications emitted from logical digital twins conform to CloudEvents.
+* Notifications processed and emitted by ADT conform to CloudEvents.
 
-Services have to add sequence number on all the notification to be used to indicate order of notifications or they need to maintain ordering. Notification emitted by ADT to Event Grid is formatted into Event Grid schema until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on Event Grid schema inside of payload.  
+Services have to add sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Notifications emitted by ADT to Event Grid are formatted into the Event Grid schema, until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload.  
 
 > [!NOTE]
 > To read more about proposed Digital Twins notifications and messages, please read Notifications and Event Types section of Digital Twins Event Processing.docx
 
 ### Digital twin lifecycle notifications
 
-All digital twins are emitting notifications, regardless if they are proxies or not. A digital twin proxy is defined in Digital Twins Proxies for Device Digital Twins 
+All digital twins are emitting notifications, regardless of whether they are proxies representing [real devices in ADT](concepts-devices.md) or not.
 
 #### Trigger
 
-These notifications are triggered when digital twins are:
-* Digital twin created (regardless if proxy or not)
-* Digital twin deleted (regardless if proxy or not)
-* A proxy is attached to a Hub device
-* A proxy is detached from its associated Hub device
+These notifications are triggered when:
+* A digital twin is created (proxy or not)
+* A digital twin is deleted (proxy or not)
+* A proxy is attached to an IoT Hub device
+* A proxy is detached from its associated IoT Hub device
 
 #### Properties
 
@@ -241,13 +244,13 @@ These notifications are triggered when digital twins are:
 | type | `Microsoft.<Service RP>.Twin.Create`<br>`Microsoft.<Service RP>.Twin.Delete`<br>`Microsoft.<Service RP>.TwinProxy.Create`<br>`Microsoft.<Service RP>.TwinProxy.Delete`<br>`Microsoft.<Service RP>.TwinProxy.Attach`<br>`Microsoft.<Service RP>.TwinProxy.Detach` |
 | datacontenttype | application/json |
 | subject | Id of the digital twin instance, e.g. `<twinid>` |
-| time | Time of when the operation happened on the twin |
+| time | Timestamp for when the operation occurred on the twin |
 | sequence & sequencetype | See Headers section |
 
 #### Body
 
-This section includes digital twin payload in a JSON format for all types. The schema is here Digital Twins Resource 7.1. The body is always the state after the resource is created, so it should include all system generated elements as of a GET call.
-Here is an example of body for PnP devices with components and no top-level properties. Properties that do not make sense for devices should be omitted, e.g. reported properties.
+This section includes a digital twin payload in a JSON format for all types. The schema for this is Digital Twins Resource 7.1. The body is always the state after the resource is created, so it should include all system generated-elements just like a `GET` call.
+Here is an example of body for PnP devices, with components and no top-level properties. Properties that do not make sense for devices (such as reported properties) should be omitted.
 
 ```json
 {
@@ -279,7 +282,7 @@ Here is an example of body for PnP devices with components and no top-level prop
 }
 ```
 
-and another example of a logical digital twin not supporting components, such as:
+Here is another example of a logical digital twin not supporting components:
 
 ```json
 {
@@ -323,13 +326,13 @@ These notifications are triggered when any relationship’s edge of a digital tw
 | specversion	| 1.0 |
 | type	| `Microsoft.<Service RP>.Edge.Create`<br>`Microsoft.<Service RP>.Edge.Update`<br>`Microsoft.<Service RP>.Edge.Delete`<br>`datacontenttype	application/json for Edge.Create`<br>`application/json-patch+json for Edge.Update` |
 | subject	| Id of the edge, e.g. `<twinid>/relationships/<relationshipName>/<edged>` |
-| time	| Time of when the operation happened on the edge |
+| time	| Timestamp for when the operation occurred on the edge |
 | sequence & sequencetype	| See Headers section |
 
 #### Body
 
-This section includes payload in a JSON format for create, and delete relationship’s edge. It uses the same format as GET payload for a relationship’s edge Relationship API. Update relationship means properties of the edge have changed. 
-For Edge.Delete body is the same as GET, it gets the latest state before deletion.
+This section includes payload in a JSON format for creating and deleting a relationship’s edge. It uses the same format as a `GET` request for a relationship’s edge via the Relationship API. "Updating a relationship" means properties of the edge have changed. 
+For `Edge.Delete`, the body is the same as the `GET` request, and it gets the latest state before deletion.
 Here is an example of a create or delete edge notification:
 
 ```json
@@ -372,17 +375,20 @@ These notifications are triggered when a DTDL model is uploaded, reloaded, patch
 | type	| `Microsoft.<Service RP>.Model.Upload`<br>`Microsoft.<Service RP>.Model.Reload` (Hub specific)<br>`Microsoft.<Service RP>.Model.Patch` (Hub specific)<br>`Microsoft.<Service RP>.Model.Decom`<br>`Microsoft.<Service RP>.Model.Delete` |
 | datacontenttype	| application/json |
 | subject	| Id of the model, e.g. `<modelId>` in the form of dtmi:my:Room;1 |
-| time	| Time of when the operation happened on the model |
+| time	| Timestamp for when the operation occurred on the model |
 | sequence	| Value expressing the relative order of the event. It describes the position of an event in the ordered sequence of events. Services have to add sequence number on all the notification to be used to indicate order of notifications or they need to maintain ordering. Sequence will be incremented for each subject and will be reset to 1 every time the object gets recreated with the same id (delete and recreate). See Headers section for more details |
 | sequencetype	| The exact value and meaning of sequence. E.g. value must start with 1 and increase by 1 for each subsequent value, string-encoded signed 32-bit integers, see examples here  |
-| modelstatus	| The resolution model status for resolving a model. Possible values: Successful/NotFound/Failed (Hub only, see definitions here Azure IoT Digital Twin Model Resolution Design Spec.docx) |
-| updatereason	| Update model reason in the schema. Possible values: Create/Reset/Override (Hub only, see definitions here Azure IoT Digital Twin Model Resolution Design Spec.docx) |
+| modelstatus	| The resolution model status for resolving a model. Possible values: Successful/NotFound/Failed (IoT Hub only) | 
+| updatereason	| Update model reason in the schema. Possible values: Create/Reset/Override (IoT Hub only) |
+
+>[!NOTE]
+> For IoT Hub only, see definitions here Azure IoT Digital Twin Model Resolution Design Spec.docx
 
 #### Body
 
-No body for upload, reload, and patch model. User must make a GET call to get the model content. 
-For Model.Delete body is the same as GET, it gets the latest state before deletion.
-For and Model.Decom, the body of the patch will be in JSON patch format, like all other patch APIs in the DT API surface. That is, to decommission a model, you would use
+No body for upload, reload, and patch model. User must make a `GET` call to get the model content. 
+For `Model.Delete`, the request body is the same as a `GET` request, and it gets the latest state before deletion.
+For and `Model.Decom`, the body of the patch will be in JSON patch format, like all other patch APIs in the ADT API surface. That is, to decommission a model, you would use:
 
 ```json
 [
@@ -393,7 +399,6 @@ For and Model.Decom, the body of the patch will be in JSON patch format, like al
   }
 ]
 ```
-
 
 ### Digital twin change notifications
 
@@ -411,13 +416,13 @@ These are triggered when the digital twin resource is being updated, for instanc
 | type	| `Microsoft.<Service RP>.Twin.Update` |
 | datacontenttype	| application/json-patch+json |
 | subject	| Id of the twin, e.g. `<twinId>` |
-| time	| Time of when the operation happened on the twin |
+| time	| Timestamp for when the operation occurred on the twin |
 | sequence & sequencetype	| See Headers section |
 
 #### Body
 
-The body for the Twin.Update notification is a Json-Patch document containing the update to the digital twin resource.
-For instance, as a result of a PATCH twin of:
+The body for the `Twin.Update` notification is a JSON Patch document containing the update to the digital twin resource.
+For instance, for the following PATCH twin:
 
 ```json
 [
@@ -429,7 +434,7 @@ For instance, as a result of a PATCH twin of:
 ]
 ```
 
-The corresponding notification (if synchronously executed by the service, e.g. ADT updating a logical digital twin) would contain a body such as:
+the corresponding notification (if synchronously executed by the service, e.g. ADT updating a logical digital twin) would contain a body like:
 
 ```json
 [

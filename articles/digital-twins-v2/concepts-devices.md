@@ -14,34 +14,34 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Real IoT Devices in the ADT Graph
+# Real IoT Devices in Azure Digital Twins
 
-As part of the Digital Twins graph, in addition to your business twins, you can also have twins that represent IoT devices placed in your environment. IoT device might be simple sensors such as thermostats, or complex machines. 
-If you attach an IoT Hub to ADT, each device connected to IoT Hub can become visible as a node in the twin graph and can then be connected to other nodes to form a topology. Typically, incoming data from devices triggers event handling functions that are then used to drive properties on other twins.
-ADT makes it easy to work with devices by automatically mapping devices from a connected IoT Hub into the ADT instance graph. 
+As part of the Azure Digital Twins (ADT) graph, in addition to your business twins, you can also have twins that represent IoT devices placed in your environment. IoT devices might be simple sensors, such as thermostats, or complex machines. 
+If you attach an IoT hub to ADT, each device connected to the hub can become visible as a node in the twin graph, which can then be connected to other nodes to form a topology. Typically, incoming data from devices triggers event handling functions that are then used to drive properties on other twins.
+ADT makes it easy to work with devices by automatically mapping devices from a connected IoT hub into the ADT instance graph. 
 
 > [!NOTE]
 > Add a section to describe ADT – IoT Hub integration
 
-An ADT graph contains not just twins based on the models you create and instantiate. ADT also automatically creates nodes for every device registered on an IoT Hub attached to ADT. You can connect these twins to the twins you create using relationships.
+An ADT graph contains more than twins based on the models you create and instantiate. ADT also automatically creates nodes for every device registered on an IoT hub attached to ADT. You can connect these twins to the modeled twins you create using relationships.
 Devices can be:
-* Plug and Play devices that are represented by a DTDL model. Devices with a DTDL model have a well-defined interface, allowing you to reflect on the messages the device can be expect to set, and the properties, etc. exposed on its twin in ADT.
-* Devices without PnP. For these devices, we have no information about the messages the device can send, or properties or commands available on it. 
-Devices sent messages for telemetry, or whenever a property is changed. There are also messages for lifecycle events, such as device registration, connection, etc.
+* **Plug and Play (PnP) devices** — These are devices that are represented by a [DTDL](concepts-DTDL.md) (Digital Twin Definition Langauge) model. Devices with a DTDL model have a well-defined interface, allowing you to reflect on the messages the device can be expected to set, and the properties etc... exposed on its twin in ADT.
+* **Devices without PnP** — For these devices, we have no information about the messages the device can send, or properties or commands available on it. 
+Devices send messages for telemetry, or whenever a property is changed. There are also messages for lifecycle events, such as device registration, connection, etc.
 
 ## Working with PnP devices
 
-For PnP devices, you can get a description of the telemetry messages a device sends, as well as for properties you can read and write, and commands you can call. You use the same APIs for devices that you use for all other twins, as described in the sections above. For non-PnP devices, the message payload is unknown to the system. 
-As described in the section on the JSON data format for messages and query results, each message also contains metadata. This metadata for devices contains information such as connection state, last update, and many other fields more.
+For PnP devices, you can get a description of the telemetry messages a device sends, as well as for properties you can read and write, and commands you can call. You manage device twins using the same APIs and practices used to [manage all twins](how-to-manage-twin.md). For non-PnP devices, the message payload is unknown to the system. 
+As described in the section on the JSON data format for messages and query results, each message also contains metadata. This metadata for devices contains information such as connection state, last update, and many other fields.
 
 ### Device Model Updates for PnP
 
-For PnP devices, it is possible that the DTDL description of the device changes without your direct input, for example if the device receives an over-the-air firmware update. Such changes may invalidate the twins graph.
-For example:
+For PnP devices, it is possible that the DTDL description of the device changes without your direct input. For example, a device may receive an over-the-air firmware update. Such a change may invalidate the twins graph.
+Here is a possible scenario:
 * A Room twin declares an *isEquippedWith* relationship with a temperature sensor with a target type of `dtmi:example:ContosoTemperatureSensor;1`.
-* During a firmware update, the manufacturer decided to change the urn to `dtmi:example:ContosoTemperatureSensor;1`.
-* At this point, any existing relationship between instances of room and instances of Contoso temperature  sensors is not valid any longer.
+* During a firmware update, the manufacturer decides to change the urn to `dtmi:example:ContosoTemperatureSensor;1`.
+* At this point, any existing relationship between instances of room and instances of Contoso temperature sensors is not valid any longer.
 
 ADT reacts to this event as follows:
-* The relationship is places in an invalid state. You can query for this state to find such relationships 
+* The relationship is places in an invalid state. You can query for this state to find such relationships.
 * A lifecycle message is generated that indicates that a breaking change has occurred in a device. This message contains the affected relationships and relationship source nodes. You can react to this message by updating your relationships or models as required.

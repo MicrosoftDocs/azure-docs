@@ -85,6 +85,7 @@ More formally, the JSON data has the following fields:
 ## Relationship JSON Format
 
 A relationship resource has the following format:
+
 ```json
 {
   "$edgeId": "edge-01",
