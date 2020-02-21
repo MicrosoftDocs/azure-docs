@@ -69,7 +69,7 @@ Here are the general steps to configure and test Azure AD SSO with NS1 SSO for A
     b. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure NS1 SSO for Azure SSO](#configure-ns1-sso-for-azure-sso)** to configure the single sign-on settings on the application side.
 
-    a. **[Create an NS1 SSO for Azure test user](#create-ns1-sso-for-azure-test-user)** to    have a counterpart of B.Simon in NS1 SSO for Azure. This counterpart is linked to the Azure AD representation of the user.
+    a. **[Create an NS1 SSO for Azure test user](#create-an-ns1-sso-for-azure-test-user)** to have a counterpart of B.Simon in NS1 SSO for Azure. This counterpart is linked to the Azure AD representation of the user.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ## Configure Azure AD SSO
