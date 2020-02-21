@@ -159,7 +159,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 ## Configure NS1 SSO for Azure SSO
 
-To configure single sign-on on the NS1 SSO for Azure side, you need to send the App Federation Metadata Url to the [NS1 SSO for Azure support team](mailto:techops@nsone.net). They configure this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the NS1 SSO for Azure side, you need to send the App Federation Metadata URL to the [NS1 SSO for Azure support team](mailto:techops@nsone.net). They configure this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an NS1 SSO for Azure test user
 

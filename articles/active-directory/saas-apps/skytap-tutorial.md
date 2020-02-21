@@ -151,7 +151,7 @@ In this section, you create a user called B.Simon in Single Sign-on for Skytap. 
 
 In this section, you test your Azure AD single sign-on configuration by using Access Panel.
 
-When you click the Single Sign-on for Skytap tile in Access Panel, you should be automatically signed in to the Single Sign-on for Skytap for which you set up SSO. For more information, see [Introduction to Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Single Sign-on for Skytap tile in Access Panel, you should be automatically signed in to the Single Sign-on for Skytap for which you set up SSO. For more information, see [Introduction to Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
