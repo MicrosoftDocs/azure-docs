@@ -48,7 +48,7 @@ Azure has thousands of permissions that you can potentially include in your cust
 
 ## Step 2: Choose how to start
 
-There are three ways that you can start creating a custom role. You can clone an existing role, start from scratch, or start with a JSON file. The easiest way is to start is to find an existing role that has most of the permissions you need and then clone and modify it for your scenario. 
+There are three ways that you can start to create a custom role. You can clone an existing role, start from scratch, or start with a JSON file. The easiest way is to find an existing role that has most of the permissions you need and then clone and modify it for your scenario. 
 
 ### Clone a role
 
@@ -186,7 +186,7 @@ Follow these steps to add or remove permissions from your custom role.
 
 1. Click a resource provider card that might have the permissions you want to add to your custom role, such as **Microsoft Billing**.
 
-    A list of the management permissions for that resource provider are displayed based on your search string.
+    A list of the management permissions for that resource provider is displayed based on your search string.
 
     ![Add permissions list](./media/custom-roles-portal/add-permissions-list.png)
 
@@ -329,7 +329,7 @@ Follow these steps to view your custom roles.
 
     ![Custom role menu](./media/custom-roles-portal/edit-menu.png)
 
-1. Use the the different tabs to update the custom role.
+1. Use the different tabs to update the custom role.
 
 1. Once you are finished with your changes, click the **Review + create** tab to review your changes.
 
