@@ -54,11 +54,11 @@ For more information:
 
 ## Scheduler
 
-Azure Scheduler is being deprecated. Use Azure Logic Apps to create scheduling jobs.
+Azure Scheduler is being retired, so to create scheduling jobs, use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) instead.
 
 For more information:
 
-- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
+- Learn more about Azure Logic Apps by completing the [Logic Apps tutorials](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
 - Review the [Logic Apps overview](../logic-apps/logic-apps-overview.md).
 
 ## Network Watcher
