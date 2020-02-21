@@ -5,7 +5,7 @@ description: The Bing Web Search client library makes it easy to integrate Bing 
 services: cognitive-services
 author: aahill
 manager: nitinme
-zone_pivot_groups: programming-languages-set-ten
+zone_pivot_groups: programming-languages-set-eleven
 
 ms.service: cognitive-services
 ms.subservice: bing-web-search
@@ -22,9 +22,9 @@ ms.author: aahi
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-java"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts/web-search-sdk-python.md)]
+[!INCLUDE [Java quickstart](../includes/quickstarts/web-search-sdk-java.md)]
 
 ::: zone-end
 
@@ -34,8 +34,8 @@ ms.author: aahi
 
 ::: zone-end
 
-::: zone pivot="programming-language-java"
+::: zone pivot="programming-language-python"
 
-[!INCLUDE [Java quickstart](../includes/quickstarts/web-search-sdk-java.md)]
+[!INCLUDE [Python quickstart](../includes/quickstarts/web-search-sdk-python.md)]
 
 ::: zone-end
