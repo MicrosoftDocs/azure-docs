@@ -16,7 +16,7 @@ ms.date: 02/29/2020
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, 
 > which is [being retired](#retire-date). To continue working with the jobs that you set 
-> up in Scheduler, please migrate to Azure Logic Apps as soon as possible by following this article.
+> up in Scheduler, please migrate to Azure Logic Apps as soon as possible by following this article. > Scheduler is no longer available in the Azure portal.
 
 This article shows how you can schedule one-time and recurring jobs by creating automated workflows with Azure Logic Apps, rather than with Azure Scheduler. When you create scheduled jobs with Logic Apps, you get these benefits:
 
