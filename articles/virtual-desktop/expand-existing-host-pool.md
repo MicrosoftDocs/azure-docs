@@ -47,7 +47,7 @@ Here's how to redeploy the Azure Resource Manager template to expand a host pool
 6. Select **Redeploy**.
      
      >[!NOTE]
-     >If selecting **Redeploy** does not automatically redeploy the template, select **Template** in the panel on the left side of the browser then select **Deploy**.
+     >If the template doesn't automatically redeploy when you select **Redeploy**, select **Template** in the panel on the left side of your browser, then select **Deploy**.
 
 7. Select the resource group that contains the current session host VMs in the existing host pool.
      
