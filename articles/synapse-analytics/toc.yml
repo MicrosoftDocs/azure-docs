@@ -16,20 +16,24 @@
     href: ../sql-data-warehouse/release-notes-10-0-10106-0.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Quickstarts
   items:
-  - name: Create a workspace
-    href: quickstart-create-a-workspace.md
+  - name: Create an Azure Synapse workspace
+    href: quickstart-create-workspace.md
+  - name: Use Azure Synapse Studio
+    href: quickstart-synapse-studio.md    
   - name: Create pools
     items:
     - name: Create Spark pool
       href: ./spark/apache-spark-notebook-create-spark-use-sql.md
-  #   - name: Create SQL Analytics pool
-  #     href: article-template.md
+    - name: Create Apache Spark pool
+      href: quickstart-create-apache-spark-pool.md
+    - name: Create SQL pool
+      href: quickstart-create-sql-pool.md
   # - name: Ingest data into Data Lake
   #   href: article-template.md
-  # - name: Ingest data into SQL Analytics pool
+  # - name: Ingest data into SQL pool
   #   href: article-template.md
-  # - name: Browse data using workspace
-  #   href: article-template.md
+  - name: Browse data using workspace
+    href: quickstart-browse-data-workspace.md
   - name: Analyze and Visualize data
     items:
     # - name: Spark
