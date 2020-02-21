@@ -262,7 +262,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |15.1| Add-ins that contain custom functions must support add-in commands. This is to ensure that users can easily discover your add-in. |
 |15.2| Your custom functions metadata must have the **helpUrl** property set. For an example, see [Custom functions metdata](https://docs.microsoft.com/office/dev/add-ins/excel/custom-functions-json).|
 |15.3| To help to ensure the security of your app and users, your custom functions HTML, Javascript, and JSON metadata files must be hosted on the same domain. |
-|15.4| Your add-in must work across all platforms that support custom functions. Your add-in must also define in the **Requirements** element the following requirement set `<Set Name="CustomFunctionsRuntime" MinVersion="1.1"/>`. |
+|15.4| Deleted. |
 |15.5| After an add-in is approved using the **EquivalentAddins** tag in the manifest, all future updates to the add-in must include this tag. This tag ensures that your custom functions save in XLL-compatible mode. |
 |15.6| To help ensure an efficient validation process, if your add-in contains custom functions, you must provide test notes to validate them on submission. |
 
@@ -279,6 +279,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|February 21, 2020|Deleted policy 15.4.|
 |2.2|December 16, 2019|Updated policy 14.15.|
 |2.2|December 6, 2019|Added policies 14.19, 14.20, and 14.21.|
 |2.2|December 4, 2019|Update policy 14.15.|
