@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author:  jordane
-ms.date: 11/22/2019
+ms.date: 02/21/2020
 ms.custom: seodec18
 ---
 
@@ -17,11 +17,20 @@ ms.custom: seodec18
 
 In this article, learn about how to use Azure Machine Learning to manage the lifecycle of your models. Azure Machine Learning uses a Machine Learning Operations (MLOps) approach. MLOps improves the quality and consistency of your machine learning solutions. 
 
-MLOps is based on DevOps principles and practices that increase the efficiency of workflows. For example, continuous integration, delivery, and deployment. Azure Machine Learning provides the following MLOps capabilities:
+## What is MLOps?
+
+Machine Learning Operations (MLOps) is based on DevOps principles and practices that increase the efficiency of workflows. For example, continuous integration, delivery, and deployment. MLOps applies these principals to the machine learning process, with the goal of:
+
+* Faster experimentation and development of models
+* Faster deployment of models into production
+* Quality assurance
+
+Azure Machine Learning provides the following MLOps capabilities:
 
 - **Create reproducible ML pipelines**. Machine Learning pipelines allow you to define repeatable and reusable steps for your data preparation, training, and scoring processes.
+- **Create reusable software environments** for training and deploying models.
 - **Register, package, and deploy models from anywhere**. You can also track associated metadata required to use the model.
-- **Capture the governance data required for capturing the end-to-end ML lifecycle**. The logged information can include who is publishing models, why changes are being made, and when models were deployed or used in production.
+- **Capture the governance data for the end-to-end ML lifecycle**. The logged information can include who is publishing models, why changes are being made, and when models were deployed or used in production.
 - **Notify and alert on events in the ML lifecycle**, such as experiment completion, model registration, model deployment, and data drift detection.
 - **Monitor ML applications for operational and ML-related issues**. Compare model inputs between training and inference, explore model-specific metrics, and provide monitoring and alerts on your ML infrastructure.
 - **Automate the end-to-end ML lifecycle with Azure Machine Learning and Azure Pipelines** to frequently update models, test new models, and continuously roll out new ML models alongside your other applications and services.
@@ -33,6 +42,12 @@ Use ML pipelines from Azure Machine Learning to stitch together all of the steps
 An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](concept-ml-pipelines.md).
 
 If you use the [Designer](concept-designer.md) to create your ML pipelines, you may at any time click the **"..."** at the top-right of the Designer page and then select **Clone**. Cloning your pipeline allows you to iterate your pipeline design without losing your old versions.  
+
+## Create reusable software environments
+
+Azure Machine Learning environments allow you to track and reproduce your projects' software dependencies as they evolve. Environments allow you to ensure that builds are reproducible without manual software configurations.
+
+Environments describe the pip and Conda dependencies for your projects, and can be used for both training and deployment of models. For more information, see [What are Azure Machine Learning environments](concept-environments.md).
 
 ## Register, package, and deploy models from anywhere
 
@@ -77,7 +92,7 @@ When using a model as a web service or IoT Edge device, you provide the followin
 
 * The model(s) that are used to score data submitted to the service/device.
 * An entry script. This script accepts requests, uses the model(s) to score the data, and return a response.
-* A conda environment file that describes the dependencies required by the model(s) and entry script.
+* An Azure Machine Learning environment that describes the pip and Conda dependencies required by the model(s) and entry script.
 * Any additional assets such as text, data, etc. that are required by the model(s) and entry script.
 
 You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores when deploying to Azure Kubernetes Service.
