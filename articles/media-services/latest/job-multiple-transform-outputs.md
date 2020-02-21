@@ -16,7 +16,8 @@ ms.author: juliako
 
 # Create a job with multiple transform outputs
 
-This topic shows how to create a Transform with two outputs. The first output specifies to encode a video with adaptive bitrate streaming. The second output specifies to process the video with `AudioAnalyzerPreset`. Once you set up your transform you can submit a job that will process your video according to the transform. Since in this example we are specifying two Transform outputs, we must specify two Job outputs.
+This topic shows how to create a Transform with two Transform Outputs. The first one calls for the input to be encoded for adaptive bitrate streaming with a built-in [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) preset. The second one calls for the audio signal in the input video to be processed with the [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). After the Transform is created, you can submit a job that will process your video accordingly. Since in this example we are specifying two Transform Outputs, we must specify two Job Outputs. You can choose to direct both Job Outputs to the same Asset (as shown below), or you can have the results be written to separate Assets.
+ 
 
 > [!TIP]
 > Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
@@ -81,10 +82,11 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 
     JobOutput[] jobOutputs =
     {
-        // Since we are specifying two Transform outputs,
-        // we must specify two Job outputs.
-        // In this example, we are first encoding and then analyzing. The processors that output the results of the job go into the same asset.
-        // You can specify different asset names.
+        // Since we are specifying two Transform Outputs, two Job Outputs are needed.
+        // In this example, the first Job Output is for the results from adaptive bitrate encoding,
+        // and the second is for the results from audio analysis. In this example, both are written to the
+        // same output Asset. Or, you can specify different Assets.
+        
         new JobOutputAsset(outputAsset.Name),
         new JobOutputAsset(outputAsset.Name)
 
