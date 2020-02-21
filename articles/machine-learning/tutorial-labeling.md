@@ -118,9 +118,9 @@ Now add your data files to the storage account.
 
 ## Start a labeling project
 
-You now have an Azure Machine Learning workspace, and images stored in an Azure Storage container.
+You now have an Azure Machine Learning workspace, and the image files you want to label stored in an Azure Storage container.
 
-You manage data labeling projects in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
+Next you will manage the data labeling project in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -177,7 +177,7 @@ Now that you have your list of labelers and access to the data you want to have 
 
     Field|Description 
     ---|---
-    Project name | Give your project a name.  Here we'll use **tutorial-labeling**.
+    Project name | Give your project a name.  Here we'll use **tutorial-cats-n-dogs**.
     Labeling task type | Select **Image Classification Multi-class**.
     
     Select **Next** to continue creating the project.
@@ -203,13 +203,15 @@ Now that you have your list of labelers and access to the data you want to have 
 
 ### Label classes
 
-1. On the **Label classes** form, type a label name, then select **+Add label** to type the next label.  For this project, the labels are **X**, **Y**, **Z**, and **Unknown**.
+1. On the **Label classes** form, type a label name, then select **+Add label** to type the next label.  For this project, the labels are **Cat**, **Dog**, and **Uncertain**.
 
 1. Select **Next** when have added all the labels.
 
 ### Labeling instructions
 
 1. On the **Labeling instructions** form, you can provide a link to a website that provides detailed instructions for your labelers.  We'll leave it blank for this tutorial.
+
+1. You can also add a short description of the task directly on the form.  Type **Labeling tutorial - Cats & Dogs.**
 
 1. Select **Create project**.
 
@@ -265,10 +267,13 @@ In this part of the tutorial, you'll switch roles from the *project administrato
 
 1. Select one or more images, then select a tag to apply to the selection. The tag appears below the image.  Continue to select and tag all images on the page.  To select all the displayed images simultaneously, select **Select all**. Select at least one image to apply a tag.
 
+
     > [!TIP]
     > You can select the first nine tags by using the number keys on your keyboard.
 
 1. Once all the images on the page are tagged, select **Submit** to submit these labels.
+
+    ![Tagging images](media/tutorial-labeling/catsndogs.gif)
 
 1. After you submit tags for the data at hand, Azure refreshes the page with a new set of images from the work queue.
 
