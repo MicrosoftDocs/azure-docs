@@ -6,7 +6,7 @@ documentationcenter: 'azure'
 author: BarbaraSelden
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
