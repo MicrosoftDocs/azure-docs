@@ -293,20 +293,23 @@ It is important to note that while the function app is only accessible from with
 
 ## Create an Azure Function
 
-The next step is to creates a C# HTTP-triggered Azure Function. This results in an Azure Function that is accessed via a URL such as https://private-site.azurewebsites.net/api/Function1. Invoking the function via an HTTP GET or POST should result in a response of "Hello, {name}".
+The next step in this tutorial is to creates a HTTP-triggered Azure Function. Invoking the function via an HTTP GET or POST should result in a response of "Hello, {name}".  
 
-There are four basic steps in the quickstart tutorial for creating an Azure Function:
+1. Follow one of the following quickstarts to create and deploy your Azure Function.
 
-1. Create a function app project
-2. Run locally
-3. Publish to Azure
-4. Test it
+    * [Visual Studio Code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code)
+    * [Visual Studio](https://docs.microsoft.com/azure/azure-functions/functions-create-your-first-function-visual-studio)
+    * [Command line](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli)
+    * [Maven (Java)](https://docs.microsoft.com/azure/azure-functions/functions-create-first-java-maven)
 
-When publishing the function, select the Azure Function Consumption plan previously created. For this tutorial, the Azure Function is deployed from a development laptop which is not connected to the virtual network used in the tutorial. It is possible to do this because access restrictions where not configured for the SCM endpoint.
+2. When publishing the Azure Function, select the Azure Function Consumption plan previously created in this tutorial. For this tutorial, the Azure Function is deployed from a development laptop which is not connected to the virtual network used in the tutorial. It is possible to do this because access restrictions where not configured for the SCM endpoint.
+3. Verify the function is deployed.
 
 <!-- INSERT SCREENSHOT -->
 
-With the function deployed via Visual Studio, it's time to go back to the Azure Portal. There should now be a function, Function1, in the list of functions.
+## Invoke the Azure Function
+
+With the function deployed, it is time to go back to the Azure Portal. There should now be a function in the list of functions.
 
 <!-- INSERT SCREENSHOT -->
 
