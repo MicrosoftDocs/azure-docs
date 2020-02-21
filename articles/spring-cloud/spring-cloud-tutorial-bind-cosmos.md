@@ -1,11 +1,11 @@
 ---
 title: Tutorial - Bind an Azure Cosmos DB to your Azure Spring Cloud application
 description: In this tutorial, learn how to bind Azure Cosmos DB to your Azure Spring Cloud application
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 

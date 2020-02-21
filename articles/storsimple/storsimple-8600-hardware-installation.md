@@ -1,18 +1,10 @@
 ---
-title: Install Microsoft Azure StorSimple 8600 device | Microsoft Docs
+title: Install Microsoft Azure StorSimple 8600 device
 description: Describes how to unpack, rack mount, and cable your StorSimple 8600 device before you deploy and configure the software.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy a Node.js application that uses MongoDB to Azure Service Fabric 
+title: Deploy a Node.js application that uses MongoDB
 description: Walkthrough on how to package multiple guest executables to deploy to an Azure Service Fabric cluster
 author: mikkelhegn
 

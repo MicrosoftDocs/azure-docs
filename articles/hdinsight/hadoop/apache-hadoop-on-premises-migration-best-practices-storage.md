@@ -34,7 +34,7 @@ One of the following formats can be used to access data that is stored in Azure 
 |`wasbs:///`|Access default storage using encrypted communication.|
 |`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Used when communicating with a non-default storage account. |
 
-[Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md) lists the current limits on Azure Storage accounts. If the needs of the application exceed the scalability targets of a single storage account, the application can be built to use multiple storage accounts and then partition data objects across those storage accounts.
+[Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md) lists the current limits on Azure Storage accounts. If the needs of the application exceed the scalability targets of a single storage account, the application can be built to use multiple storage accounts and then partition data objects across those storage accounts.
 
 [Azure Storage Analytics](../../storage/storage-analytics.md) provides metrics for all storage services and Azure portal can be configured collect metrics to be visualized through charts. Alerts can be created to notify when thresholds have been reached for storage resource metrics.
 
@@ -68,7 +68,8 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 For more information, see the following articles:
 
 - [Use Azure Storage with Azure HDInsight clusters](../hdinsight-hadoop-use-blob-storage.md)
-- [Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md)
+- [Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md)
+- [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md)
 - [Microsoft Azure Storage Performance and Scalability Checklist](../../storage/common/storage-performance-checklist.md)
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitor a storage account in the Azure portal](../../storage/common/storage-monitor-storage-account.md)
@@ -194,7 +195,7 @@ All data written to Azure Storage is automatically encrypted using [Storage Ser
 - [Locally redundant storage (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [Geo-redundant storage (GRS)](../../storage/common/storage-redundancy-grs.md)
-- [Read-access geo-redundant storage (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+- [Read-access geo-redundant storage (RA-GRS)](../../storage/common/storage-redundancy.md)
 
 Azure Data Lake Storage provides locally redundant storage (LRS) but you should also copy critical data to another Data Lake Storage account in another region with a frequency aligned to the needs of the disaster recovery plan. There are different methods to copy data including [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), or [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). It's also recommended to enforce access policies for Data Lake Storage account to prevent accidental deletion.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric application and cluster best practices 
-description: Best practices for managing Service Fabric clusters and applications.
+title: Azure Service Fabric application and cluster best practices
+description: Best practices and design considerations for managing clusters, apps, and services using Azure Service Fabric.
 author: peterpogorski
 
 ms.topic: conceptual

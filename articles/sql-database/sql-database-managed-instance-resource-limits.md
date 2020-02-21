@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 11/27/2019
+ms.date: 02/18/2020
 ---
 # Overview Azure SQL Database managed instance resource limits
 
@@ -32,8 +32,8 @@ Managed instance has characteristics and resource limits that depend on the unde
 | Max instance reserved storage |  General Purpose: 8 TB<br/>Business Critical: 1 TB | General Purpose: 8 TB<br/> Business Critical 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 > [!IMPORTANT]
-> - Gen4 hardware is being phased out. It is recommended to deploy new managed instances on Gen5 hardware.
-> - Gen4 hardware at this time is still available only in the following regions: North Europe, West Europe, East US, South Central US, North Central US, West US 2, Central US, Canada Central, South India, Southeast Asia and Korea Central.
+> - Gen4 hardware is being phased out and is not available anymore for the new deployments. All new managed instances must be deployed on Gen5 hardware.
+> - Consider [moving your managed instances to Gen 5](sql-database-service-tiers-vcore.md) hardware to experience a wider range of vCore and storage scalability, accelerated networking, best IO performance, and minimal latency.
 
 ### In-memory OLTP available space 
 
@@ -81,7 +81,7 @@ Managed instance has two service tiers: [General Purpose](sql-database-service-t
 > - Both data and log file size in the user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
 > - Throughput and IOPS on General Purpose tier also depend on the [file size](#file-io-characteristics-in-general-purpose-tier) that is not explicitly limited by managed instance.
 > - You can create another readable replica in different Azure region using Auto-failover groups.
-> - Max instance IOPS depend on the file layout and distribution of workload. As an example, if you create 7 x 1GB files with max 5K IOPS each and 7 small files (smaller than 128 GB) with 500 IOPS each, you can get 38500 IOPS per instance (7x5000+7x500) if your workload can use all files. Note that some amount of IOPS is also used for auto-backups.
+> - Max instance IOPS depend on the file layout and distribution of workload. As an example, if you create 7 x 1TB files with max 5K IOPS each and 7 small files (smaller than 128 GB) with 500 IOPS each, you can get 38500 IOPS per instance (7x5000+7x500) if your workload can use all files. Note that some amount of IOPS is also used for auto-backups.
 
 > [!NOTE]
 > Find more information about the [resource limits in managed instance pools in this article](sql-database-instance-pools.md#instance-pools-resource-limitations).
@@ -90,7 +90,7 @@ Managed instance has two service tiers: [General Purpose](sql-database-service-t
 
 In General Purpose service tier every database file is getting dedicated IOPS and throughput that depends on the file size. Bigger files are getting more IOPS and throughput. IO characteristics of the database files are shown in the following table:
 
-| File size           | 0 - 128 GiB | 128 - 256 GiB | 256 - 512 GiB | 0.5 - 1 TiB    | 1 - 2 TiB    | 2 - 4 TiB | 4 - 8 TiB |
+| File size | >=0 and <=128 GiB | >128 and <=256 GiB | >256 and <= 512 GiB | >0.5 and <=1 TiB    | >1 and <=2 TiB    | >2 and <=4 TiB | >4 and <=8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | IOPS per file       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500   |
 | Throughput per file | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 

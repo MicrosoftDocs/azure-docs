@@ -4,7 +4,7 @@ description: Learn what to consider when planning for an Azure Files deployment.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -136,6 +136,7 @@ To display the results in CSV:
 
 | File/folder | Note |
 |-|-|
+| pagefile.sys | File specific to system |
 | Desktop.ini | File specific to system |
 | thumbs.db | Temporary file for thumbnails |
 | ehthumbs.db | Temporary file for media thumbnails |
@@ -285,7 +286,7 @@ Azure File Sync supports syncing only with an Azure file share that's in the sam
 For the regions marked with asterisks, you must contact Azure Support to request access to Azure Storage in those regions. The process is outlined in [this document](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### Azure disaster recovery
-To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster that causes an Azure region to go temporarily or permanently offline, Microsoft will failover storage to the paired region. 
+To protect against the loss of an Azure region, Azure File Sync integrates with [geo-redundant storage](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster that causes an Azure region to go temporarily or permanently offline, Microsoft will failover storage to the paired region. 
 
 > [!Warning]  
 > If you are using your Azure file share as a cloud endpoint in a GRS storage account, you shouldn't initiate storage account failover. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files. In the case of loss of an Azure region, Microsoft will trigger the storage account failover in a way that is compatible with Azure File Sync.
@@ -341,13 +342,13 @@ In the following table, we have provided both the size of the namespace as well 
 | Namespace size - files & directories (millions)  | Typical capacity (TiB)  | CPU Cores  | Recommended memory (GiB) |
 |---------|---------|---------|---------|
 | 3        | 1.4     | 2        | 8 (initial sync)/ 2 (typical churn)      |
-| 5        | 2.3     | 2        | 16 (initial sync)/ 4 (typical churn)    |
-| 10       | 4.7     | 4        | 32  (initial sync)/ 8 (typical churn)   |
-| 30       | 14.0    | 8        | 48 (initial sync)/ 16 (typical churn)   |
-| 50       | 23.3    | 16       | 64  (initial sync)/ 32 (typical churn)  |
-| 100*     | 46.6    | 32       | 128 (initial sync)/ 32 (typical churn)  |
+| 5        | 2.4     | 2        | 16 (initial sync)/ 4 (typical churn)    |
+| 10       | 4.8     | 4        | 32  (initial sync)/ 8 (typical churn)   |
+| 30       | 14.3    | 8        | 48 (initial sync)/ 16 (typical churn)   |
+| 50       | 23.8    | 16       | 64  (initial sync)/ 32 (typical churn)  |
+| 100*     | 47.7   | 32       | 128 (initial sync)/ 32 (typical churn)  |
 
-\*More than 100 million files & directories is not supported at this time. This is a soft limit.
+\*More than 100 million files & directories has not been tested. This is a soft limit.
 
 > [!TIP]
 > Initial synchronization of a namespace is an intensive operation and we recommend allocating more memory until initial synchronization is complete. This isn't required but, may speed up initial sync. 

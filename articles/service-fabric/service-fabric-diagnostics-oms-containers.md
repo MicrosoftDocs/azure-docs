@@ -1,5 +1,5 @@
 ---
-title: Monitor containers on Azure Service Fabric with Azure Monitor logs 
+title: Monitor containers with Azure Monitor logs 
 description: Use Azure Monitor logs for monitoring containers running on Azure Service Fabric clusters.
 author: srrengar
 

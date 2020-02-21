@@ -3,7 +3,7 @@ title: Interact with an IoT Plug and Play Preview device from an Azure IoT solut
 description: As a solution developer, learn about how to use the service SDK to interact with IoT Plug and Play devices.
 author: Philmea
 ms.author: philmea
-ms.date: 07/24/2019
+ms.date: 12/26/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp

@@ -1,6 +1,6 @@
 ---
 title: Introducing the Service Fabric Cluster Resource Manager 
-description: An introduction to the Service Fabric Cluster Resource Manager.
+description: Learn about the Service Fabric Cluster Resource Manager, a way to manage orchestration of your application's services.
 author: masnider
 
 ms.topic: conceptual

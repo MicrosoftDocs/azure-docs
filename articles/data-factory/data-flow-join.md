@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/19/2019
+ms.date: 01/02/2020
 ---
 
 # Join transformation in mapping data flow
@@ -46,7 +46,7 @@ You can use this join type for non-equi joins and ```OR``` conditions.
 If you would like to explicitly produce a full cartesian product, use the Derived Column transformation in each of the two independent streams before the join to create a synthetic key to match on. For example, create a new column in Derived Column in each stream called ```SyntheticKey``` and set it equal to ```1```. Then use ```a.SyntheticKey == b.SyntheticKey``` as your custom join expression.
 
 > [!NOTE]
-> Make sure to include at least one column from each side of your left and right relationship in a custom cross join. Executing cross joins with static values instead of columns from each side will result in full scans of the entire dataset, causing your data flow to perform poorly.
+> Make sure to include at least one column from each side of your left and right relationship in a custom cross join. Executing cross joins with static values instead of columns from each side results in full scans of the entire dataset, causing your data flow to perform poorly.
 
 ## Configuration
 
@@ -111,7 +111,7 @@ TripData, TripFare
 
 ### Custom cross join example
 
-The below example is a join transformation named `CartesianProduct` that takes left stream `TripData` and right stream `TripFare`. This transformation takes in two streams and returns a cartesian product of their rows. The join condition is `true()` because it outputs a full cartesian product. The `joinType` is `cross`. We're enabling broadcasting in only the left stream so `broadcast` has value `'left'`.
+The below example is a join transformation named `JoiningColumns` that takes left stream `LeftStream` and right stream `RightStream`. This transformation takes in two streams and joins together all rows where column `leftstreamcolumn` is greater than column `rightstreamcolumn`. The `joinType` is `cross`. Broadcasting is not enabled `broadcast` has value `'none'`.
 
 In the Data Factory UX, this transformation looks like the below image:
 
@@ -120,12 +120,12 @@ In the Data Factory UX, this transformation looks like the below image:
 The data flow script for this transformation is in the snippet below:
 
 ```
-TripData, TripFare
+LeftStream, RightStream
     join(
-        true(),
+        leftstreamcolumn > rightstreamcolumn,
 	    joinType:'cross',
-        broadcast: 'left'
-    )~> CartesianProduct
+        broadcast: 'none'
+    )~> JoiningColumns
 ```
 
 ## Next steps

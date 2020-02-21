@@ -130,7 +130,7 @@ For a detailed explanation of the available parameters, see the [CLI documentati
 
 ## Restore a deleted database
 
-Restoring a deleted database can be done only by using PowerShell. The database can be restored to the same instance or another instance.
+Restoring a deleted database can be done by using PowerShell or Azure Portal.Please use this document to do this by [Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#managed-instance-database-1). The database can be restored to the same instance or another instance.
 
 To restore a deleted database by using PowerShell, specify your values for the parameters in the following command. Then, run the command:
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Standalone Cluster Deployment Preparation 
+title: Standalone Cluster Deployment Preparation 
 description: Documentation related to preparing the environment and creating the cluster configuration, to be considered prior to deploying a cluster intended for handling a production workload.
 author: dkkapur
 

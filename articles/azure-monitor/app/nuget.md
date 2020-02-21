@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights - Dependency Auto-Collection | Microsoft Docs
-description: Application Insights automatically collect and visualize dependencies
+title: Azure Monitor Application Insights NuGet packages
+description: Azure Monitor Application Insights NuGet packages lists for ASP.NET, ASP.NET Core, Python
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: reference

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric - Performance Monitoring with Azure Monitor logs 
+title: Performance Monitoring with Azure Monitor logs 
 description: Learn how to set up the Log Analytics Agent for monitoring containers and performance counters for your Azure Service Fabric clusters.
 author: srrengar
 

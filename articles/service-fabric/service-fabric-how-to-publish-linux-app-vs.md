@@ -1,5 +1,5 @@
 ---
-title: Learn about creating and publishing .Net Core applications to a remote Azure Service Fabric Linux cluster 
+title: Create and Publish a.Net Core app to a remote Linux Cluster
 description: Create and publish .Net Core apps targeting a remote Linux cluster from Visual Studio
 author: peterpogorski
 

@@ -68,8 +68,12 @@ The links below provide instructions on NSG configuration for VM deployments. Us
 
 IP addressing can pose a few challenges that are easily overcome if you are aware of the issue and potential workarounds. The remaining sections provide recommendations for handling issues related to IP addresses in the ACL.
 
-#### Restrict access to the search service IP address
-We strongly recommend that you restrict the access to the IP address of your search service in the ACL instead of making your SQL Azure VMs wide open to any connection requests. You can easily find out the IP address by pinging the FQDN (for example, `<your-search-service-name>.search.windows.net`) of your search service.
+#### Restrict access to the Azure Cognitive Search
+We strongly recommend that you restrict the access to the IP address of your search service and the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) in the ACL instead of making your SQL Azure VMs open to all connection requests.
+
+You can find out the IP address by pinging the FQDN (for example, `<your-search-service-name>.search.windows.net`) of your search service.
+
+You can find out the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) by either using [Downloadable JSON files](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). The IP address range is updated weekly.
 
 #### Managing IP address fluctuations
 If your search service has only one search unit (that is, one replica and one partition), the IP address will change during routine service restarts, invalidating an existing ACL with your search service's IP address.

@@ -1,6 +1,6 @@
 ---
 title: Service Fabric Backup and Restore 
-description: Conceptual documentation for Service Fabric Backup and Restore
+description: Conceptual documentation for Service Fabric Backup and Restore, a service for configuring backup of Reliable Stateful services and Reliable Actors.
 author: mcoskun
 
 ms.topic: conceptual
@@ -59,7 +59,7 @@ As shown below, `BackupAsync` takes in a `BackupDescription` object, where one c
 
 ```csharp
 
-BackupDescription myBackupDescription = new BackupDescription(backupOption.Incremental,this.BackupCallbackAsync);
+BackupDescription myBackupDescription = new BackupDescription(BackupOption.Incremental,this.BackupCallbackAsync);
 
 await this.BackupAsync(myBackupDescription);
 

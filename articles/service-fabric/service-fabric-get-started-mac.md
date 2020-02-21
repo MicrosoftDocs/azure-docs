@@ -1,6 +1,6 @@
 ---
-title: Set up your development environment on Mac OS X to work with Azure Service Fabric
-description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on Mac OS X.
+title: Set up your dev environment on macOS
+description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on macOS.
 author: suhuruli
 
 ms.topic: conceptual
@@ -43,7 +43,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     
     >[!NOTE]
     >
-    >Modifying the daemon directly in Docker is reccommended because the location of the daemon.json file can vary from machine to machine. For example,
+    >Modifying the daemon directly in Docker is recommended because the location of the daemon.json file can vary from machine to machine. For example,
     > ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 

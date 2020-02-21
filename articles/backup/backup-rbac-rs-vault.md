@@ -30,25 +30,25 @@ The following table captures the Backup management actions and corresponding min
 | Create Recovery Services vault | Backup Contributor | Resource group containing the vault |
 | Enable backup of Azure VMs | Backup Operator | Resource group containing the vault |
 | | Virtual Machine Contributor | VM resource |
-| On-demand backup of VM | Backup Operator | Recovery vault resource |
+| On-demand backup of VM | Backup Operator | Recovery Services vault |
 | Restore VM | Backup Operator | Recovery Services vault |
 | | Contributor | Resource group in which VM will be deployed |
 | | Virtual Machine Contributor | Source VM that got backed up |
-| Restore unmanaged disks VM backup | Backup Operator | Recovery vault resource |
+| Restore unmanaged disks VM backup | Backup Operator | Recovery Services vault |
 | | Virtual Machine Contributor | Source VM that got backed up |
 | | Storage Account Contributor | Storage account resource where disks are going to be restored |
-| Restore managed disks from VM backup | Backup Operator | Recovery vault resource |
+| Restore managed disks from VM backup | Backup Operator | Recovery Services vault |
 | | Virtual Machine Contributor | Source VM that got backed up |
 | | Storage Account Contributor | Temporary Storage account selected as part of restore to hold data from vault before converting them to managed disks |
 | | Contributor | Resource group to which managed disk(s) will be restored |
-| Restore individual files from VM backup | Backup Operator | Recovery vault resource |
+| Restore individual files from VM backup | Backup Operator | Recovery Services vault |
 | | Virtual Machine Contributor | Source VM that got backed up |
-| Create backup policy for Azure VM backup | Backup Contributor | Recovery vault resource |
-| Modify backup policy of Azure VM backup | Backup Contributor | Recovery vault resource |
-| Delete backup policy of Azure VM backup | Backup Contributor | Recovery vault resource |
-| Stop backup (with retain data or delete data) on VM backup | Backup Contributor | Recovery vault resource |
-| Register on-premises Windows Server/client/SCDPM or Azure Backup Server | Backup Operator | Recovery vault resource |
-| Delete registered on-premises Windows Server/client/SCDPM or Azure Backup Server | Backup Contributor | Recovery vault resource |
+| Create backup policy for Azure VM backup | Backup Contributor | Recovery Services vault |
+| Modify backup policy of Azure VM backup | Backup Contributor | Recovery Services vault |
+| Delete backup policy of Azure VM backup | Backup Contributor | Recovery Services vault |
+| Stop backup (with retain data or delete data) on VM backup | Backup Contributor | Recovery Services vault |
+| Register on-premises Windows Server/client/SCDPM or Azure Backup Server | Backup Operator | Recovery Services vault |
+| Delete registered on-premises Windows Server/client/SCDPM or Azure Backup Server | Backup Contributor | Recovery Services vault |
 
 > [!IMPORTANT]
 > If you specify VM Contributor at a VM resource scope and click on Backup as part of VM settings, it will open 'Enable Backup' screen even though VM is already backed up as the call to verify backup status works only at subscription level. To avoid this, either go to vault and open the backup item view of the VM or specify VM Contributor role at a subscription level.

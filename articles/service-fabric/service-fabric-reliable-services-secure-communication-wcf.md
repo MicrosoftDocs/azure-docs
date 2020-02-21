@@ -1,5 +1,5 @@
 ---
-title: Secure WCF-based service communication in Azure Service Fabric 
+title: Secure WCF-based service communication
 description: Learn how to secure WCF-based communications for reliable services that are running in an Azure Service Fabric cluster.
 author: suchiagicha
 

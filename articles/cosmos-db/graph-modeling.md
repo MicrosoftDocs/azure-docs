@@ -18,7 +18,7 @@ The following document is designed to provide graph data modeling recommendation
 The process outlined in this guide is based on the following assumptions:
  * The **entities** in the problem-space are identified. These entities are meant to be consumed _atomically_ for each request. In other words, the database system isn't designed to retrieve a single entity's data in multiple query requests.
  * There is an understanding of **read and write requirements** for the database system. These requirements will guide the optimizations needed for the graph data model.
- * The principles of the [Apache Tinkerpop property graph standard](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) are well understood.
+ * The principles of the [Apache Tinkerpop property graph standard](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) are well understood.
 
 ## When do I need a graph database?
 
@@ -36,7 +36,7 @@ The next step is to determine if the graph is going to be used for analytic or t
 
 ## How to use graph objects
 
-The [Apache Tinkerpop property graph standard](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) defines two types of objects **Vertices** and **Edges**. 
+The [Apache Tinkerpop property graph standard](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) defines two types of objects **Vertices** and **Edges**. 
 
 The following are the best practices for the properties in the graph objects:
 
