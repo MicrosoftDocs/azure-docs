@@ -13,7 +13,7 @@ ms.author: rogarana
 
 # Understand how your reservation discount is applied to Azure Disk Storage
 
-After you purchase Azure disk reserved capacity, a reservation discount is automatically applied to disk resources that match the terms of your reservation. The reservation discount applies to disk capacity only. Disk snapshots are charged at pay-as-you-go rates.
+After you purchase Azure disk reserved capacity, a reservation discount is automatically applied to disk resources that match the terms of your reservation. The reservation discount applies to disk SKUs only. Disk snapshots are charged at pay-as-you-go rates.
 
 For more information about Azure Disk reservation, see [Save costs with Azure Disks Reservation](../../virtual-machines/linux/disks-reserved-capacity.md). For information about Azure Disk reservation pricing, see [Azure Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -29,7 +29,7 @@ The following examples show how the Azure Disk reservation discount applies depe
 
 Suppose you purchase and reserve 100 P30 disks in the US West 2 region for a one-year term. Each disk has approximately 1 TiB of storage. Assume the cost of this sample reservation is $140,100‬. You can choose to pay either the full amount up front or fixed monthly installments of $11,675‬ for the next 12 months.
 
-For these examples, assume you've signed up for a monthly reservation-payment plan. The following scenarios describe what happens if you underuse, overuse, or tier your reserved capacity.
+The following scenarios describe what happens if you underuse, overuse, or tier your reserved capacity. For these examples, assume you've signed up for a monthly reservation-payment plan.
 
 ### Underusing your capacity
 
@@ -41,9 +41,7 @@ Suppose that for an hour within the reservation period, you use 101 premium SSD 
 
 ### Tiering your capacity
 
-Suppose you use 200 premium SSD P30 disks for an hour within your reservation period. Also suppose you use only 100 disks for the first 30 minutes. Because you reserved 100 P30 disks, your use is fully covered for this period.
-
-If you switch to the other 100 disks for the remaining 30 minutes, your reservation also covers that usage.
+Suppose that in a given hour within your reservation period, you want to use a total of 200 P30 premium SSDs. Also suppose you use only 100 for the first 30 minutes. During this period, your use is fully covered because you made a reservation for 100 P30 disks. If you then discontinue the use of the first 100 (so that you're using zero) and then begin to use the other 100 for the remaining 30 minutes, that usage is also covered under your reservation.
 
 ![Example of underusing, overusing, and tiering capacity](media/understand-disk-reservations/reserved-disks-example-scenarios.png)
 
