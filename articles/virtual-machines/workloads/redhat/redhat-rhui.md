@@ -101,7 +101,7 @@ Use the following instructions to lock a RHEL VM to a particular minor release (
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
-1. Lock the releasever variable (run as root):
+1. Lock the `releasever` variable (run as root):
     ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
@@ -116,7 +116,7 @@ Use the following instructions to lock a RHEL VM to a particular minor release (
 
 ### Switch a RHEL VM back to non-EUS (remove a version lock)
 Run the following as root:
-1. Remove the releasever file:
+1. Remove the `releasever` file:
     ```bash
     rm /etc/yum/vars/releasever
      ```
