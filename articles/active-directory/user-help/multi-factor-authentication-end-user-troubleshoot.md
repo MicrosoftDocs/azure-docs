@@ -9,7 +9,7 @@ ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.author: curtand
 ms.reviewer: kexia
@@ -32,7 +32,7 @@ There are some common two-factor verification problems that seem to happen more 
 
 ## I don't have my mobile device with me
 
-It happens. You left your mobile device at home and now you can't use your phone to verify who you are. If you previously added another method to sign in to your account, such as your office phone, you should be able to use that method now. If you never added an additional verification method, you'll have to contact your Help desk and have them help you get back into your account.
+It happens. You left your mobile device at home and now you can't use your phone to verify who you are. If you previously added another method to sign in to your account, such as your office phone, you should be able to use that method now. If you never added an additional verification method, you'll have to contact your organization's Help desk and have them help you get back into your account.
 
 ### To sign in to your work or school account using another verification method
 
@@ -46,7 +46,7 @@ It happens. You left your mobile device at home and now you can't use your phone
 
 ## I lost my mobile device or it was stolen
 
-If you've lost or had your mobile device stolen, you can either sign in using a different method or you can ask your Help desk to clear your settings. We strongly recommend letting your Help desk know if your phone was lost or stolen, so the appropriate updates can be made to your account. After your settings are cleared, you'll be prompted to [register for two-factor verification](multi-factor-authentication-end-user-first-time.md) the next time you sign in.
+If you've lost or had your mobile device stolen, you can either sign in using a different method or you can ask your organization's Help desk to clear your settings. We strongly recommend letting your organization's Help desk know if your phone was lost or stolen, so the appropriate updates can be made to your account. After your settings are cleared, you'll be prompted to [register for two-factor verification](multi-factor-authentication-end-user-first-time.md) the next time you sign in.
 
 ## I'm not getting the verification code sent to my mobile device
 
@@ -98,7 +98,7 @@ If you're using two-factor verification with your work or school account (for ex
 
 ## I didn't find an answer to my problem
 
-If you've tried these steps but are still running into problems, contact your Help desk for assistance.
+If you've tried these steps but are still running into problems, contact your organization's Help desk for assistance.
 
 ## Related articles
 

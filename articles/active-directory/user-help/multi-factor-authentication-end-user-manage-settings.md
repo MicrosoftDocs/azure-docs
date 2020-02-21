@@ -23,18 +23,18 @@ After you set up your security verification methods for your work or school acco
 
 - Security verification method details, like your phone number
 
-- New authenticator app setup or deleting a device from the authenticator app
+- Authenticator app setup or deleting a device from the authenticator app
 
 ## Using the Additional security verification page
 
-If your organization provided you with specific steps about how to turn on and manage your two-factor verification, you should follow those instructions. Otherwise, you can get to your security verification method settings from the [Additional security verification](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) page.
+If your organization provided you with specific steps about how to turn on and manage your two-factor verification, you should follow those instructions first. Otherwise, you can get to your security verification method settings from the [Additional security verification](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) page.
 
 >[!Note]
->If what you're seeing on your screen doesn't match what's being covered in this article, it means that either your administrator has turned on the **Security info (preview)** experience or that your organization has provided your own custom portal. For more information about the new security info experience, see [Security info (preview) overview](user-help-security-info-overview.md). For more information about your organization's custom portal, you must contact your Help desk.
+>If what you're seeing on your screen doesn't match what's being covered in this article, it means that either your administrator has turned on the **Security info (preview)** experience or that your organization has provided your own custom portal. For more information about the new security info experience, see [Security info (preview) overview](user-help-security-info-overview.md). For more information about your organization's custom portal, you must contact your organization's Help desk.
 
 ### To get to the Additional security verification page
 
-Open the [Additional security verification page](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1). The **Additional security verification** page appears.
+You can follow this link to the [Additional security verification page](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
 
 ![Additional security verification page, with the available security verification method details](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
 
@@ -49,7 +49,7 @@ You can also get to the **Additional security verification** page by following t
     ![My Apps link to the Additional security verification page](./media/multi-factor-authentication-end-user-manage-settings/mfa-myapps-link.png)
 
 >[!Note]
->For information about using the **App passwords** section of **Additional security verification** page, see [Manage app passwords for two-factor verification](multi-factor-authentication-end-user-app-passwords.md). App passwords should only be used for apps that don't yet support two-factor verification.
+>For information about using the **App passwords** section of **Additional security verification** page, see [Manage app passwords for two-factor verification](multi-factor-authentication-end-user-app-passwords.md). App passwords should be used only for apps that don't support two-factor verification.
 
 ## Change your default security verification method
 
@@ -124,7 +124,7 @@ Depending on your organization settings, you may see a check box that says **Don
 
 ### To turn two-factor verification prompts back on for your devices
 
-From the **Additional security verification** page, select **Restore multi-factor authentication on previously trusted devices**. The next time you sign in on any device, you'll be prompted to perform two-factor verification.
+From the [**Additional security verification** page](#to-get-to-the-additional-security-verification-page), select **Restore multi-factor authentication on previously trusted devices**. The next time you sign in on any device, you'll be prompted to perform two-factor verification.
 
 ## Next steps
 
