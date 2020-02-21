@@ -2,7 +2,7 @@
 title: Azure Migrate appliance 
 description: Provides an overview of the Azure Migrate appliance used in server assessment and migration.
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 02/17/2020
 ---
 
 
@@ -51,7 +51,7 @@ Physical machine |  Azure Migrate: Server Assessment |  Discover physical server
 **Hash value** | MD5: 29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256: 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Hyper-V host** | Running Windows Server 2012 R2 or later.
 **Azure Migrate project** | An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
-**Discovery** | An appliance can discover up to 5000 VMware VMs on a vCenter Server.<br/> An appliance can connect to up to 300 Hyper-V hosts.
+**Discovery** | An appliance can discover up to 5000 Hyper-V VMs.<br/> An appliance can connect to up to 300 Hyper-V hosts.
 **Appliance components** | Management app: Web app in appliance for user input during deployment.<br/> Discovery agent: Gathers machine configuration data.<br/> Assessment agent: Collect performance data.<br/>  Auto update service: Update components (runs every 24 hours).
 
 
@@ -59,12 +59,12 @@ Physical machine |  Azure Migrate: Server Assessment |  Discover physical server
 
 **Requirement** | **Physical** 
 --- | ---
-**Download format** | Zipped folder (with PowerShell installer script)
+**Download format** | Zipped folder (with PowerShell based installer script)
 **Download link** | [Download link](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Download size** | 59.7 MB
-**Hardware** | Dedicated physical machine, or VM. The machine running appliance needs 16-GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch.<br/> The appliance needs a static or dynamic IP address, and internet access.
+**Hardware** | Dedicated physical machine, or use a Virtual Machine. The machine running appliance needs 16-GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch.<br/> The appliance needs a static or dynamic IP address, and internet access.
 **Hash value** | MD5: 1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-**Software** | Appliance machine should run Windows Server 2016. 
+**Operating System** | Appliance machine should be running Windows Server 2016. 
 **Appliance deployment**   |  The appliance installer script is downloaded from the portal (in a zipped folder). <br/> You unzip the folder, and run the PowerShell script (AzureMigrateInstaller.ps1).
 **Discovery** | An appliance can discover up to 250 physical servers.
 **Appliance components** | Management app: Web app in appliance for user input during deployment.<br/> Discovery agent: Gathers machine configuration data.<br/> Assessment agent: Collect performance data.<br/>  Auto update service: Update components (runs every 24 hours).
@@ -87,9 +87,10 @@ dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to aka links. Used for Azure Migrate appliance updates.
 download.microsoft.com/download | Allow downloads from Microsoft download.
-*.servicebus.windows.net | **Used for VMware agentless migration**<br/><br/> Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
-*.blob.core.windows.net |  **Used for VMware agentless migration**<br/><br/>Upload data to storage.
+*.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Connect to Azure Migrate service URLs.
+*.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
+*.blob.core.windows.net |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
 
 
 

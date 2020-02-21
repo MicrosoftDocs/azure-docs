@@ -132,7 +132,7 @@ At this point, you've created a new virtual machine and attached a data disk. Ne
 
 For the Windows Server 2016 Datacenter server, disable Internet Explorer Enhanced Security Configuration. This step is required only for initial server registration. You can re-enable it after the server has been registered.
 
-In the Windows Server 2016 Datacenter VM, Server Manager opens automatically.  If Server Manager doesn't open by default, search for it in File Explorer.
+In the Windows Server 2016 Datacenter VM, Server Manager opens automatically.  If Server Manager doesn't open by default, search for it in Start Menu.
 
 1. In **Server Manager**, select **Local Server**.
 

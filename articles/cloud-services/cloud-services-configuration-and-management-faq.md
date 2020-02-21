@@ -168,11 +168,11 @@ See [New: Configurable Idle Timeout for Azure Load Balancer](https://azure.micro
 
 ### How do I associate a static IP address to my Cloud Service?
 To set up a static IP address, you need to create a reserved IP. This reserved IP can be associated to a new Cloud Service or to an existing deployment. See the following documents for details:
-* [How to create a reserved IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
-* [Reserve the IP address of an existing Cloud Service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-* [Associate a reserved IP to a new Cloud Service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
-* [Associate a reserved IP to a running deployment](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
-* [Associate a reserved IP to a Cloud Service by using a service configuration file](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+* [How to create a reserved IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#manage-reserved-vips)
+* [Reserve the IP address of an existing Cloud Service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
+* [Associate a reserved IP to a new Cloud Service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-new-cloud-service)
+* [Associate a reserved IP to a running deployment](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-running-deployment)
+* [Associate a reserved IP to a Cloud Service by using a service configuration file](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ### What are the features and capabilities that Azure basic IPS/IDS and DDOS provides?
 Azure has IPS/IDS in datacenter physical servers to defend against threats. In addition, customers can deploy third-party security solutions, such as web application firewalls, network firewalls, antimalware, intrusion detection, prevention systems (IDS/IPS), and more. For more information, see [Protect your data and assets and comply with global security standards](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).

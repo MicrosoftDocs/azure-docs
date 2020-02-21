@@ -5,7 +5,7 @@ author: paulbouwer
 
 ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ---
@@ -95,7 +95,6 @@ The [Helm][helm] installation approach for Istio will be deprecated in the futur
 
 > [!CAUTION]
 > The [SDS (secret discovery service)][istio-feature-sds] and [Istio CNI][istio-feature-cni] Istio features are currently in [Alpha][istio-feature-stages], so thought should be given before enabling these. In addition, the [Service Account Token Volume Projection][kubernetes-feature-sa-projected-volume] Kubernetes feature (a requirement for SDS) is not enabled in current AKS versions.
-
 Create a file called `istio.aks.yaml` with the following content. This file will hold the [Istio control plane spec][istio-control-plane] details for configuring Istio.
 
 ```yaml
