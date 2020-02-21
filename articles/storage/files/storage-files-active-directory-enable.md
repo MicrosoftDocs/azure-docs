@@ -54,7 +54,7 @@ Before you enable Azure AD over SMB for Azure file shares, make sure you have co
 
 Before you enable Azure AD DS Authentication over SMB for Azure file shares, verify that your Azure AD and Azure Storage environments are properly configured. We recommend that you walk through the [prerequisites](#prerequisites) to make sure you've completed all the required steps.
 
-Next, grant access to Azure Files resources with Azure AD credentials by following these steps:
+Next, do the following things to grant access to Azure Files resources with Azure AD credentials:
 
 - Enable Azure AD DS authentication over SMB for your storage account to register the storage account with the associated Azure AD DS deployment.
 - Assign access permissions for a share to an Azure AD identity (a user, group, or service principal).

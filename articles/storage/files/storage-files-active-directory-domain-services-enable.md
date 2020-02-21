@@ -184,3 +184,10 @@ To trigger password rotation, you can run the `Update-AzStorageAccountADObjectPa
 #Update the password of the AD account registered for the storage account
 Update-AzStorageAccountADObjectPassword -RotateToKerbKey kerb2 -ResourceGroupName "your-resource-group-name-here" -StorageAccountName "your-storage-account-name-here"
 ```
+
+## Next steps
+
+For more information about Azure Files and how to use AD over SMB, see these resources:
+
+- [ Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md)
+- [FAQ](storage-files-faq.md)

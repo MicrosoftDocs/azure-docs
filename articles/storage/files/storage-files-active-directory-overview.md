@@ -19,20 +19,24 @@ To learn how to enable Azure AD DS authentication for Azure file shares, see [En
 It's helpful to understand some key terms relating to Azure AD Domain Service authentication over SMB for Azure file shares:
 
 -   **Kerberos authentication**
+
     Kerberos is an authentication protocol that is used to verify the identity of a user or host. For more information on Kerberos, see [Kerberos Authentication Overview](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
 
--  **Server Message Block (SMB) protocol**  
+-  **Server Message Block (SMB) protocol**
+
     SMB is an industry-standard network file-sharing protocol. SMB is also known as Common Internet File System or CIFS. For more information on SMB, see [Microsoft SMB Protocol and CIFS Protocol Overview](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
 
--   **Azure Active Directory (Azure AD)**  
+-   **Azure Active Directory (Azure AD)**
+
     Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud-based directory and identity management service. Azure AD combines core directory services, application access management, and identity protection into a single solution. Azure AD enables your domain-joined Windows virtual machines (VMs) to access Azure file shares with your Azure AD credentials. For more information, see [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
--   **Azure AD Domain Services (Azure AD DS)**  
+-   **Azure AD Domain Services (Azure AD DS)**
+
     Azure AD Domain Services (GA) provides managed domain services such as domain join, group policies, LDAP, and Kerberos/NTLM authentication. These services are fully
     compatible with Windows Server Active Directory. For more information, see [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md).
 
 - **Active Directory Domain Services (AD DS, also referred as AD)**
-    Active directory (AD) (preview) provides the methods for storing directory data while making it available to network users and administrators. Security is integrated with Active Directory through logon authentication and access control to objects in the directory. With a single network logon, administrators can manage directory data and organization throughout their network, and authorized network users can access resources anywhere on the network. AD is commonly adopted by enterpises in on-premises and use AD credentials as the identity for access control. For more information, see [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+    Active directory (AD) (preview) provides the methods for storing directory data while making it available to network users and administrators. Security is integrated with Active Directory through logon authentication and access control to objects in the directory. With a single network logon, administrators can manage directory data and organization throughout their network, and authorized network users can access resources anywhere on the network. AD is commonly adopted by enterprises in on-premises and use AD credentials as the identity for access control. For more information, see [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 -   **Azure Role Based Access Control (RBAC)**  
     Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs. For more information on RBAC, see [What is role-based access control (RBAC) in Azure?](../../role-based-access-control/overview.md).
