@@ -18,7 +18,6 @@ In this Azure Cognitive Search skillset example, you'll learn how to create a Fo
 ## Prerequisites
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).
-- Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - At least five forms of the same type. You can use sample data provided with this guide.
 
 ## Create a Form Recognizer resource
@@ -31,7 +30,7 @@ You'll need to train a Form Recognizer model with your input forms before you us
 
 ## Set up the custom skill
 
-Clone the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) repository to your local machine. Then navigate to **Vision/AnalyzeForm/** and open _AnalyzeForm.csproj_ in Visual Studio. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes form documents as inputs, and it outputs (as text) the key/value pairs that you specify.
+Clone the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository to your local machine. Then navigate to **Vision/AnalyzeForm/** and open _AnalyzeForm.csproj_ in Visual Studio. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes form documents as inputs, and it outputs (as text) the key/value pairs that you specify.
 
 Open _AnalyzeForm.cs_ and make the following changes.
 * Set the `formsRecognizerApiEndpoint` variable to your resource endpoint.
