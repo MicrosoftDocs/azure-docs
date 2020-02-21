@@ -30,15 +30,15 @@ After you set up your security verification methods for your work or school acco
 If your organization provided you with specific steps about how to turn on and manage your two-factor verification, you should follow those instructions. Otherwise, you can get to your security verification method settings from the [Additional security verification](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) page.
 
 >[!Note]
->If what you're seeing on your screen doesn't match what's being covered in this article, it means that either your administrator has turned on the **Security info (preview)** experience or that your organization has their own custom portal. For more information about the security info experience, see [Security info (preview) overview](user-help-security-info-overview.md). For more information about your organization's custom portal, you must contact your Help desk.
+>If what you're seeing on your screen doesn't match what's being covered in this article, it means that either your administrator has turned on the **Security info (preview)** experience or that your organization has provided your own custom portal. For more information about the new security info experience, see [Security info (preview) overview](user-help-security-info-overview.md). For more information about your organization's custom portal, you must contact your Help desk.
 
 ### To get to the Additional security verification page
 
-Go to the [Additional security verification](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) page.
+Open the [Additional security verification page](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1). The **Additional security verification** page appears.
 
 ![Additional security verification page, with the available security verification method details](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
 
-If clicking that link doesn't work for you, you can also get to the **Additional security verification** page by following these steps:
+You can also get to the **Additional security verification** page by following these steps:
 
 1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
@@ -59,17 +59,17 @@ If you decide that you want to change the default security verification method y
 
 ### To change your default security verification method
 
-1. From the **Additional security verification** page, select the method to use from the **What's your preferred option** list. You'll see all of the options, but you'll only be able to select the ones that are made available to you by your organization.
+1. From the **Additional security verification** page, select the method to use from the **What's your preferred option** list. You'll see all of the options, but you can select only the ones that are made available to you by your organization.
 
-    - **Notify me through app.** You'll be notified through your authenticator app that you have a waiting verification prompt.
+    - **Notify me through app**: You'll be notified through your authenticator app that you have a waiting verification prompt.
 
-    - **Call my authentication phone.** You'll get a phone call on your mobile device, asking you to verify your information.
+    - **Call my authentication phone**: You'll get a phone call on your mobile device, asking you to verify your information.
 
-    - **Text code to my authentication phone.** You'll get a verification code as part of a text message on your mobile device. You must enter this code into the verification prompt for your work or school account.
+    - **Text code to my authentication phone**: You'll get a verification code as part of a text message on your mobile device. You must enter this code into the verification prompt for your work or school account.
 
-    - **Call my office phone.** You'll get a phone call on your office phone, asking you to verify your information.
+    - **Call my office phone**: You'll get a phone call on your office phone, asking you to verify your information.
 
-    - **Use verification code from app.** You'll use your authenticator app to get a verification code you'll type into the prompt from your work or school account.
+    - **Use verification code from app**: You'll use your authenticator app to get a verification code you'll type into the prompt from your work or school account.
 
 2. Select **Save**.
 
@@ -116,11 +116,11 @@ You can delete your account from the Microsoft Authenticator app, and you can de
 
 ### To delete your account from the Microsoft Authenticator app
 
-- From the Microsoft Authenticator app, select the **Delete** button next to the device you want to delete.
+From the Microsoft Authenticator app, select the **Delete** button next to the device you want to delete.
 
 ## Turn on two-factor verification prompts on a trusted device
 
-Depending on your organization settings, you may see a check box that says **Don't ask again for X days** when you perform two-factor verification on your browser. If you've checked this box to stop two-factor verification prompts, and then you lose your device or your device is potentially compromised, you should turn the two-factor verification prompts back on to help protect your account. Unfortunately, you can't turn the prompts back on for a single device. You must turn the prompts on for all of your devices at the same time.
+Depending on your organization settings, you may see a check box that says **Don't ask again for X days** when you perform two-factor verification on your browser. If you've selected this option to stop two-factor verification prompts, and then you lose your device or your device is potentially compromised, you should turn two-factor verification prompts back on to help protect your account. You must turn the prompts on for all of your devices at the same time. Unfortunately, you can't turn the prompts back on for a single device.
 
 ### To turn two-factor verification prompts back on for your devices
 
@@ -128,10 +128,10 @@ From the **Additional security verification** page, select **Restore multi-facto
 
 ## Next steps
 
-After you add or update your two-factor verification settings, you can manage your app passwords, sign-in, or get help with some common two-factor verification-related problems.
+After you add or update your two-factor verification settings, you can manage your app passwords, sign in, or get help with some common two-factor verification-related problems.
 
 - [Manage app passwords for two-factor verification](multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-factor verification.
 
-- [Sign-in using two-factor verification](multi-factor-authentication-end-user-signin.md)
+- [How to sign in using two-factor verification](multi-factor-authentication-end-user-signin.md)
 
-- [Get help with two-factor verification](multi-factor-authentication-end-user-troubleshoot.md)
+- [Solve common problems with two-factor verification](multi-factor-authentication-end-user-troubleshoot.md)
