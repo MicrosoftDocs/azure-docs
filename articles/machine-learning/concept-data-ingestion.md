@@ -24,7 +24,7 @@ Data ingestion is the process in which unstructured data is extracted from one o
 Azure Machine Learning offers two solutions to automatically trigger data ingestion:
 
 1. Trigger [Azure Data Factory](#use-azure-data-factory) pipelines for data ingestion based on source data changes
-2. Use [Azure Machine Learning Python SDK with Azure Pipelines](#use-python-sdk-with-azure-pipelines) to trigger data ingestion workflows based on scheduled events
+2. Perform and trigger data ingestion as part of an Azure Machine Learning pipeline step using the[Azure Machine Learning Python SDK ](#use-python-sdk) 
 
 You can also rely on different tools throughout the process, for example:
 
