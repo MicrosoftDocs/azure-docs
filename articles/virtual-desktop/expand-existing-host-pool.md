@@ -58,7 +58,7 @@ Here's how to redeploy the Azure Resource Manager template to expand a host pool
 
 ## Run the Azure Marketplace offering
 
-Follow the instructions in [Run the Azure Marketplace offering to provision a new host pool](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool), with the following guidance per blade:
+Follow the instructions in [Create a host pool by using the Azure Marketplace](./create-host-pools-azure-marketplace.md) until you reach [Run the Azure Marketplace offering to provision a new host pool](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). When you get to that point, you'll need to enter the following information for each blade:
 
 ### Basics
 
@@ -79,20 +79,21 @@ All values in this section should match what you provided when you first created
 
 All parameter values in this section should match what you provided when you first created the host pool and session host VMs, except for the total number of VMs. The number of VMs you enter will be the number of VMs in your expanded host pool:
 
-1. Either accept the defaults or customize the number and size of the VMs.
+1. Select the VM size that matches the existing session host VMs.
     
     >[!NOTE]
     >If the specific VM size you're looking for doesn't appear in the VM size selector, that's because we haven't onboarded it to the Azure Marketplace tool yet. To request a VM size, create a request or upvote an existing request in the [Windows Virtual Desktop UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
-    
-2. Enter a prefix for the names of the virtual machines. For example, if you enter the name "prefix," the virtual machines will be called "prefix-0," "prefix-1," and so on.
-3. Select **Next : Virtual machine settings**.
+
+2. Customize the *Usage Profile*, *Total users*, and *Number of virtual machines* parameters to select the total number of session hosts you would like to have in your host pool. For example, if you're expanding your host pool from five session hosts to eight, configure these options to get to 8 virtual machines.
+3. Enter a prefix for the names of the virtual machines. For example, if you enter the name "prefix," the virtual machines will be called "prefix-0," "prefix-1," and so on.
+4. Select **Next : Virtual machine settings**.
 
 ### Virtual machine settings
 
 All parameter values in this section should match what you provided when you first created the host pool and session host VMs:
 
 1. For *Image source* and *Image OS version*, enter the same information that you provided when you first created the host pool.
-2. For *AD domain join UPN* and the associated passwords, enter the same information that you provided when you first created the host pool to join the VMs to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.
+2. For *AD domain join UPN* and the associated passwords, enter the same information that you provided when you first created the host pool to join the VMs to the Active Directory domain. These credentials will be used to create a local account on your virtual machines. You can reset these local accounts to change their credentials later.
 3. For the virtual network information, select the same virtual network and subnet for where your existing host pool session host VMs are located.
 4. Select **Next: Configure Windows Virtual Desktop information**.
 
@@ -100,11 +101,10 @@ All parameter values in this section should match what you provided when you fir
 
 All parameter values in this section should match what you provided when you first created the host pool and session host VMs:
 
-1. For **Windows Virtual Desktop tenant group name**, enter the name for the tenant group that contains your tenant. Leave it as the default unless you were provided a specific tenant group name.
-2. For **Windows Virtual Desktop tenant name**, enter the name of the tenant where you'll be creating this host pool.
-3. Specify the type of credentials that you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. If you completed the [Create service principals and role assignments with PowerShell tutorial](./create-service-principal-role-powershell.md), select **Service principal**. When **Azure AD tenant ID** appears, enter the ID for the Azure Active Directory instance that contains the service principal.
-4. Enter the credentials for the tenant admin account. Only service principals with a password credential are supported.
-5. Select **Next : Review + create**.
+1. For *Windows Virtual Desktop tenant group name*, enter the name for the tenant group that contains your tenant. Leave it as the default unless you were provided a specific tenant group name.
+2. For *Windows Virtual Desktop tenant name*, enter the name of the tenant where you'll be creating this host pool.
+3. Specify the same credentials you used when you first created the host pool and session host VMs. If you are using a service principal, enter the ID of the Azure Active Directory instance where your service principal is located.
+4. Select **Next : Review + create**.
 
 ## Run the GitHub Azure Resource Manager template
 
