@@ -1,5 +1,5 @@
 ---
-title: Concepts, terms, and entities - Azure Scheduler  | Microsoft Docs
+title: Concepts, terms, and entities
 description: Learn the concepts, terminology, and entity hierarchy, including jobs and job collections, in Azure Scheduler
 services: scheduler
 ms.service: scheduler
@@ -7,7 +7,6 @@ ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
 ms.reviewer: klam
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
 ---

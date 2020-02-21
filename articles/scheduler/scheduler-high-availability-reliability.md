@@ -1,12 +1,11 @@
 ---
-title: High availability and reliability - Azure Scheduler 
+title: High availability and reliability
 description: Learn about high availability and reliability in Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
 ms.reviewer: klam
-ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
 ---

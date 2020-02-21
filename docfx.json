@@ -658,6 +658,7 @@
         "articles/advisor/*.yml": "Azure Advisor",
         "articles/connectors/*.md": "Azure Logic Apps",
         "articles/logic-apps/*.md": "Azure Logic Apps",
+        "articles/scheduler/*.md": "Azure Scheduler",
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",

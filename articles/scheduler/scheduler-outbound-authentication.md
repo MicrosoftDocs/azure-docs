@@ -1,12 +1,11 @@
 ---
-title: Outbound authentication - Azure Scheduler 
+title: Outbound authentication
 description: Learn how to set up or remove outbound authentication for Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
 ms.reviewer: klam
-ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
 ---

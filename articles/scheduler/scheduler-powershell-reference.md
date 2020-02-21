@@ -1,12 +1,11 @@
 ﻿---
-title: PowerShell cmdlets reference - Azure Scheduler
+title: PowerShell cmdlets reference
 description: Learn about PowerShell cmdlets for Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
 ms.reviewer: klam
-ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.topic: article
 ms.date: 08/18/2016
 ---
