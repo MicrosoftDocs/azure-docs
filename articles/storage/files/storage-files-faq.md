@@ -156,7 +156,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id="ad-support"></a>
 **Is identity-based authentication and access control supported by Azure Files?**  
     
-    Yes, Azure Files supports identity-based authentication and access control. You can choose one of two ways to use identity-based access control: Azure Active Directory Domain Services (Azure AD DS) (GA) or active directory (AD) (preview). Azure AD DS authentication over SMB for Azure Files enables Azure AD DS domain-joined Windows VMs to access shares, directories, and files using Azure AD credentials. AD supports authentication using AD domain joined machines, either on-premises or in Azure, to access Azure file shares over SMB. For more details, see [Overview of Azure Files authentication support for SMB access](storage-files-active-directory-overview.md). 
+    Yes, Azure Files supports identity-based authentication and access control. You can choose one of two ways to use identity-based access control: Azure Active Directory Domain Services (Azure AD DS) (GA) or Active Directory (AD) (preview). Azure AD DS authentication over SMB for Azure Files enables Azure AD DS domain-joined Windows VMs to access shares, directories, and files using Azure AD credentials. AD supports authentication using AD domain joined machines, either on-premises or in Azure, to access Azure file shares over SMB. For more details, see [Overview of Azure Files authentication support for SMB access](storage-files-active-directory-overview.md). 
 
     Azure Files offers two additional ways to manage access control:
 
@@ -182,7 +182,7 @@ This article answers common questions about Azure Files features and functionali
     If the subscription under which the file share is deployed is associated with the same Azure AD tenant as the Azure AD Domain Services deployment to which the VM is domain-joined, then you can then access Azure Files using the same Azure AD credentials. The limitation is imposed not on the subscription but on the associated Azure AD tenant.    
     
 * <a id="ad-support-subscription"></a>
-**Can I enable either Azure Files Azure AD DS or AD authentication with an Azure AD tenant that is different from the primary tenant with which the file share is associated?**
+**Can I enable either Azure Files Azure AD DS or AD authentication with an Azure AD tenant that is different from the primary tenant which the file share is associated with?**
 
     No, Azure Files only supports Azure AD DS or AD integration with an Azure AD tenant that resides in the same subscription as the file share. Only one subscription can be associated with an Azure AD tenant. This limitation applies to both Azure AD DS and AD authentication methods. When using AD for authentication, the AD credential must be synced to the Azure AD that the storage account is associated with.
 
@@ -199,7 +199,7 @@ This article answers common questions about Azure Files features and functionali
     Consult your domain administrator to see if any update to your DNS routing policy is required to enable multiple forest authentication.
 
 * <a id="ad-aad-smb-afs"></a>
-**Can I leverage Azure Files Azure AD DS authentication or active directory (AD) authentication (preview) on file shares managed by Azure File Sync?**
+**Can I leverage Azure Files Azure AD DS authentication or Active Directory (AD) authentication (preview) on file shares managed by Azure File Sync?**
 
     Yes, you can enable Azure AD DS or AD authentication on a file share managed by Azure file sync. Changes to the directory/file NTFS ACLs on local file servers will be tiered to Azure Files and vice-versa.
 

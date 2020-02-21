@@ -8,10 +8,12 @@ ms.date: 02/21/2020
 ms.author: rogarana
 ---
 
-# Overview of Azure Files Azure Active Directory Domain Service (Azure AD DS) Authentication Support for SMB Access
+# Overview of Azure Files identity-based authentication support for SMB access
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 To learn how to enable Azure AD DS authentication for Azure file shares, see [Enable Azure Active Directory Domain Service Authentication over SMB for Azure Files](storage-files-active-directory-enable.md).
+
+To learn how to enable AD authentication for Azure file shares, see [Enable Active Directory authentication over SMB for Azure file shares](storage-files-active-directory-domain-services-enable.md).
 
 ## Glossary 
 It's helpful to understand some key terms relating to Azure AD Domain Service authentication over SMB for Azure file shares:

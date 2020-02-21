@@ -8,7 +8,7 @@ ms.date: 02/21/2020
 ms.author: rogarana
 ---
 
-# Enable Active Directory over SMB for Azure file shares
+# Enable Active Directory authentication over SMB for Azure file shares
 
 [Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and Active Directory (AD) (preview). This article focuses on the newly introduced (preview) support of leveraging Active Directory Domain Service for authentication to Azure file shares. If you are interested in enabling Azure AD DS (GA) authentication for Azure file shares refer to [our article on the subject](storage-files-active-directory-enable.md). 
 
@@ -98,17 +98,17 @@ You can use the following script to perform the registration and enable the feat
 
 ### Script prerequisites
 
-- [Download the AzureFilesActiveDirectoryUtilities.psm1 module](https://github.com/Azure-Samples/azure-files-samples)
+- [Download the AzFilesHybrid.psm1 module](https://github.com/Azure-Samples/azure-files-samples)
 - Install and execute the module in a device that is domain joined to AD with AD credentials that have permissions to create a service logon account or a computer account in the target AD.
 -  Run the script using an AD credential that is synced to your Azure AD. The AD credential must have either the storage account owner or the contributor RBAC role permissions.
 - Make sure your storage account is in a [supported region](#regional-availability).
 
 ```PowerShell 
-#Change the execution policy to unblock importing AzureFilesActiveDirectoryUtilities.psm1 module
+#Change the execution policy to unblock importing AzFilesHybrid.psm1 module
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Currentuser
 
 #Import AzureFilesActiveDirectoryUtilities module, it includes Az.Storage 1.8.2-preview version
-Import-module -name .\AzureFilesActiveDirectoryUtilities.psm1 -ArgumentList Verbose
+Import-module -name .\AzFilesHybrid.psm1 -ArgumentList Verbose
 
 #Login with an Azure AD credential that has either storage account owner or contributer RBAC assignment
 connect-AzAccount
@@ -169,13 +169,13 @@ You've now successfully enabled the feature on your storage account. Even though
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-You have now successfully enabled Azure AD authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in the [Assign access permissions](#assign-access-permissions-to-an-identity) to use an identity and [Configure NTFS permissions over SMB sections](#configure-ntfs-permissions-over-smb)
+You have now successfully enabled Azure AD authentication over SMB and assigned a custom role that provides access to an Azure file share with an AD identity. To grant additional users access to your file share, follow the instructions in the [Assign access permissions](#assign-access-permissions-to-an-identity) to use an identity and [Configure NTFS permissions over SMB sections](#configure-ntfs-permissions-over-smb)
 
 ## Update AD account password
 
 If you registered the AD account representing your storage account under an OU that enforces password expiration time, you must rotate the password before the maximum password age. Failing to update the password of the AD account will result in authentication failures to access Azure file shares.  
 
-To trigger password rotation, you can run the `Update-AzStorageAccountADObjectPassword` command from the AzureFilesActiveDirectoryUtilities.psm1. The cmdlet performs actions similar to storage account key rotation. It gets the second kerberos key of the storage account and uses it to update the password of the registered account in AD. Then it regenerates the target kerberos key of the storage account and updates the password of the registered account in AD. You must run this cmdlet in an AD domain joined environment.
+To trigger password rotation, you can run the `Update-AzStorageAccountADObjectPassword` command from the AzFilesHybrid.psm1. The cmdlet performs actions similar to storage account key rotation. It gets the second kerberos key of the storage account and uses it to update the password of the registered account in AD. Then it regenerates the target kerberos key of the storage account and updates the password of the registered account in AD. You must run this cmdlet in an AD domain joined environment.
 
 ```PowerShell
 #Update the password of the AD account registered for the storage account
