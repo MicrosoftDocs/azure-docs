@@ -90,4 +90,4 @@ The accuracy of text recognition operations depends on the quality of the images
 
 ## Next steps
 
-Follow the [Extract text (Read)](./quickstarts/csharp-hand-text) quickstart to implement text recognition in a simple C# app.
+Follow the [Extract text (Read)](.QuickStarts/CSharp-hand-text.md) quickstart to implement text recognition in a simple C# app.
