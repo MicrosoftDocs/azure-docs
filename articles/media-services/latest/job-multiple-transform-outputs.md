@@ -23,7 +23,7 @@ This topic shows how to create a Transform with two outputs. The first output sp
 
 ## Create a transform
 
-The following code shows how to create a tranform that produces two outputs.
+The following code shows how to create a transform that produces two outputs.
 
 ```csharp
 private static async Task<Transform> GetOrCreateTransformAsync(
