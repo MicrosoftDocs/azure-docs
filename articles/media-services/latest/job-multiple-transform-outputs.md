@@ -16,7 +16,7 @@ ms.author: juliako
 
 # Create a job with multiple transform outputs
 
-This topic shows how to create a Transform with two outputs. The first output specifies to encode a video with adaptive bitrate streaming. The second output specifies to get the video insights with `VideoAnalyzerPreset`. Once you set up your transform you can submit a job that will process your video according to the transform. Since in this example we are specifying two Transform outputs, we must specify two Job outputs.
+This topic shows how to create a Transform with two outputs. The first output specifies to encode a video with adaptive bitrate streaming. The second output specifies to process the video with `AudioAnalyzerPreset`. Once you set up your transform you can submit a job that will process your video according to the transform. Since in this example we are specifying two Transform outputs, we must specify two Job outputs.
 
 > [!TIP]
 > Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
@@ -50,7 +50,7 @@ private static async Task<Transform> GetOrCreateTransformAsync(
                 }
             },
             // Create an analyzer preset with video insights.
-            new TransformOutput(new VideoAnalyzerPreset("en-US"))
+            new TransformOutput(new AudioAnalyzerPreset("en-US"))
         };
 
         // Create the Transform with the output defined above
