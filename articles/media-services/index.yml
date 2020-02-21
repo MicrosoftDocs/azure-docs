@@ -54,7 +54,7 @@ conceptualContent:
           - url: ./latest/media-services-apis-overview.md
             itemType: concept
             text: Develop with Media Services v3
-          - url: https://docs.microsoft.com/en-us/samples/browse/?products=azure-media-services
+          - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
             itemType: sample
             text: Code samples
             
@@ -114,10 +114,10 @@ additionalContent:
         url: https://docs.microsoft.com/azure/storage/        
       - title: CDN
         summary: Use the power of the Azure CDN to stream content at scale with services from Akamai and Verizon or load balance across multiple content delivery networks
-        url: https://docs.microsoft.com/en-us/azure/cdn         
+        url: https://docs.microsoft.com/azure/cdn         
       - title: Event Grid
         summary: Learn how to use Azure Event Grid to react to relevant events     
-        url: https://docs.microsoft.com/en-us/azure/event-grid/
+        url: https://docs.microsoft.com/azure/event-grid/
       - title:  Azure Media Player
         summary: Learn about a web video player built to playback media content from Microsoft Azure Media Services on a wide variety of browsers and devices
         url: https://amp.azure.net/libs/amp/latest/docs/index.html          
