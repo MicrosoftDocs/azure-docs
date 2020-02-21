@@ -1,13 +1,12 @@
 ---
-title: Build advanced job schedules and recurrences - Azure Scheduler
+title: Build advanced job schedules and recurrences
 description: Learn how to create advanced schedules and recurrences for jobs in Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
+ms.reviewer: klam, estfan
 ms.suite: infrastructure-services
-ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
 ---
@@ -18,7 +17,11 @@ ms.date: 11/14/2018
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
 > [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
 > To continue working with the jobs that you set up in Scheduler, please 
-> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible.
+> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
+>
+> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
+> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
+> for managing your jobs and job collections at this time.
 
 Within an [Azure Scheduler](../scheduler/scheduler-intro.md) job, 
 the schedule is the core that determines when and how the Scheduler 

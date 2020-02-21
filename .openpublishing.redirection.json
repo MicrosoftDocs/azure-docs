@@ -6662,7 +6662,7 @@
     },
     {
       "source_path": "articles/scheduler/get-started-portal.md",
-      "redirect_url": "/azure/scheduler/scheduler-powershell-reference",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": true
     },
     {

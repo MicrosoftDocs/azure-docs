@@ -5,7 +5,7 @@ services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
 ---
@@ -17,7 +17,10 @@ ms.date: 08/16/2016
 > [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
 > To continue working with the jobs that you set up in Scheduler, please 
 > [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
-> Scheduler is no longer available in the Azure portal.
+>
+> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
+> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
+> for managing your jobs and job collections at this time.
 
 Azure Scheduler provides both [high availability](https://docs.microsoft.com/azure/architecture/framework/#resiliency) 
 and reliability for your jobs. For more information, see 
