@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over SMB for Azur
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 02/21/2020
 ms.author: rogarana
 ---
 

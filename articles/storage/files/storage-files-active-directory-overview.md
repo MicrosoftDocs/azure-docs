@@ -4,7 +4,7 @@ description: Azure Files supports identity-based authentication over SMB (Server
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 02/21/2020
 ms.author: rogarana
 ---
 
