@@ -399,7 +399,7 @@
 - name: How to
   items:
   - name: Get started with Azure Synapse Analytics
-    href: get-started-synapse-analytics.md 
+    href: get-started.md 
   - name: Secure
     items:
     - name: Manage access control 
