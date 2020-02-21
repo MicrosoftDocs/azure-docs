@@ -2,9 +2,9 @@
 # Mandatory fields.
 title: Using the Azure Digital Twins graph
 description: Understand the graph aspect of Azure Digital Twins, and how to query the graph for information.
-author: philmea
-ms.author: philmea # Microsoft employees only
-ms.date: 2/12/2020
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 2/21/2020
 ms.topic: conceptual
 ms.service: digital-twins
 

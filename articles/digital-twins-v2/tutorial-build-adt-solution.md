@@ -2,9 +2,9 @@
 # Mandatory fields.
 title: 'Tutorial: Build out an Azure Digital Twin solution'
 description: Step-by-step view of the process to build out a digital twin representation of your space.
-author: philmea
-ms.author: philmea # Microsoft employees only
-ms.date: 2/12/2020
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 2/21/2020
 ms.topic: tutorial
 ms.service: digital-twins
 

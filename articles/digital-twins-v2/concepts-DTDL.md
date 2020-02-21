@@ -2,9 +2,9 @@
 # Mandatory fields.
 title: DTDL modeling language
 description: Learn more details about DTDL, the language used by Azure Digital Twins to define object models.
-author: philmea
-ms.author: philmea # Microsoft employees only
-ms.date: 2/12/2020
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 2/21/2020
 ms.topic: conceptual
 ms.service: digital-twins
 

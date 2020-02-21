@@ -2,9 +2,9 @@
 # Mandatory fields.
 title: Manage an object model in Azure Digital Twins
 description: See how to create, edit, and delete an object model within Azure Digital Twins.
-author: philmea
-ms.author: philmea # Microsoft employees only
-ms.date: 2/12/2020
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 2/21/2020
 ms.topic: how-to
 ms.service: digital-twins
 

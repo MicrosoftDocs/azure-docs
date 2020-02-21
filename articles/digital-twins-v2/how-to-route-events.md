@@ -2,9 +2,9 @@
 # Mandatory fields.
 title: Route event data
 description: See how to route Azure Digital Twins telemetry and event data to external Azure services.
-author: philmea
-ms.author: philmea # Microsoft employees only
-ms.date: 2/12/2020
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 2/21/2020
 ms.topic: how-to
 ms.service: digital-twins
 

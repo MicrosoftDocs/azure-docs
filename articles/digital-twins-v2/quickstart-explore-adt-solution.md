@@ -2,9 +2,9 @@
 # Mandatory fields.
 title: 'Quickstart: Explore a Azure Digital Twin solution'
 description: In this quickstart, you will build an existing Azure Digital Twin sample scenario and explore it to get data insights.
-author: philmea
-ms.author: philmea # Microsoft employees only
-ms.date: 2/12/2020
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 2/21/2020
 ms.topic: quickstart
 ms.service: digital-twins
 

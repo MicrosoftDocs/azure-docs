@@ -2,9 +2,9 @@
 # Mandatory fields.
 title: Manage an Azure Digital Twins graph
 description: See how to combine Azure Digital Twins concepts to build out a full graph representation, as well as modify and delete when necessary.
-author: philmea
-ms.author: philmea # Microsoft employees only
-ms.date: 2/12/2020
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 2/21/2020
 ms.topic: how-to
 ms.service: digital-twins
 
