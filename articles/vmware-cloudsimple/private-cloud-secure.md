@@ -68,4 +68,4 @@ Firewall tables and rules control network traffic in the Private Cloud.  The fir
 
 1. Create a [firewall table](firewall.md#add-a-new-firewall-table).
 2. [Add rules](firewall.md#create-a-firewall-rule) to the firewall table.
-3. [Attach a firewall table to a VLAN/subnet](firewall.md#attach-vlans-subnet.)
+3. [Attach a firewall table to a VLAN/subnet](firewall.md#attach-vlans-subnet).
