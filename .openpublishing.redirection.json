@@ -18485,6 +18485,21 @@
       "redirect_url": "/azure/backup/backup-azure-arm-vms-prepare",
       "redirect_document_id": false
     },
+	{
+      "source_path": "articles/backup/backup-azure-configure-reports.md",
+      "redirect_url": "/azure/backup/configure-reports.md",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/backup/backup-azure-log-analytics-data-model.md",
+      "redirect_url": "/azure/backup/backup-azure-diagnostics-mode-data-model.md",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/backup/backup-azure-log-analytics-new-data-model.md",
+      "redirect_url": "/azure/backup/backup-azure-reports-data-model.md",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/app-service/api/index.md",
       "redirect_url": "/azure/app-service-api/",
@@ -37201,11 +37216,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md",
-      "redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/authentication/quickstart-sspr.md",
       "redirect_url": "/azure/active-directory/authentication/tutorial-enable-sspr",
       "redirect_document_id": false
@@ -45542,12 +45552,12 @@
     },
     {
       "source_path": "articles/iot-central/core/howto-export-data-blob-storage.md",
-      "redirect_url": "/azure/iot-central/core/",
+      "redirect_url": "/azure/iot-central/core/howto-export-data/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/howto-export-data-event-hubs-service-bus.md",
-      "redirect_url": "/azure/iot-central/core/",
+      "redirect_url": "/azure/iot-central/core/howto-export-data/",
       "redirect_document_id": false
     },
     {
