@@ -32,11 +32,11 @@ There are some common two-factor verification problems that seem to happen more 
 
 ## I don't have my mobile device with me
 
-It happens. You left your mobile device at home and now you can't use your phone to verify you are who you say you are. If you previously added another method to sign in to your account, such as your office phone, you should be able to use that method now. If you never added an additional verification method, you'll have to contact your Help desk and have them help you get back into your account.
+It happens. You left your mobile device at home and now you can't use your phone to verify who you are. If you previously added another method to sign in to your account, such as your office phone, you should be able to use that method now. If you never added an additional verification method, you'll have to contact your Help desk and have them help you get back into your account.
 
 ### To sign in to your work or school account using another verification method
 
-1. Sign in to your account normally and choose the **Sign in another way** link on the **Two-factor verification** page.
+1. Sign in to your account but select the **Sign in another way** link on the **Two-factor verification** page.
 
     ![Change sign in verification method](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 
@@ -52,8 +52,8 @@ If you've lost or had your mobile device stolen, you can either sign in using a 
 
 Not getting your verification code is a common problem and it's typically related to your mobile device and its settings. Some possible things to try:
 
-Action | Guidance
---------- | --------
+Try this | Guidance info
+--------- | ------------
 Restart your mobile device | Sometimes your device just needs a refresh. Restarting your device ends any background processes or services that are currently running and could cause problems, along with refreshing your device's core components, restarting them in case they crashed at some point.
 Verify your security information is correct | Make sure your security verification method information is accurate, especially your phone numbers. If you put in the wrong phone number, all of your alerts will go to that incorrect number. Fortunately, that user won't be able to do anything with the alerts, but it also won't help you sign in to your account. To make sure your information is correct, see the instructions in the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article.
 Verify your notifications are turned on | Make sure your mobile device has notifications turned on and that you've selected a notification method that allows phone calls, your authentication app, and your messaging app (for text messages) to send visible alert notifications to your mobile device.

@@ -92,9 +92,9 @@ You can add new phone numbers, or update existing numbers, from the **Additional
 
 You can set up your work or school account on the Microsoft Authenticator app for [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) or [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).
 
-If you've previously set up your work or school account in the Microsoft Authenticator app, you don't need to do it again.
+If you already set up your work or school account in the Microsoft Authenticator app, you don't need to do it again.
 
-1. From the **How would you like to respond?** section of the **Additional security verification** page, select the **Set up Authenticator app** button.
+1. From the **How would you like to respond?** section of the **Additional security verification** page, select **Set up Authenticator app**.
 
     ![Set up your work or school account in the Microsoft Authenticator app](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page-auth-app.png)
 
@@ -120,7 +120,7 @@ From the Microsoft Authenticator app, select the **Delete** button next to the d
 
 ## Turn on two-factor verification prompts on a trusted device
 
-Depending on your organization settings, you may see a check box that says **Don't ask again for X days** when you perform two-factor verification on your browser. If you've selected this option to stop two-factor verification prompts, and then you lose your device or your device is potentially compromised, you should turn two-factor verification prompts back on to help protect your account. You must turn the prompts on for all of your devices at the same time. Unfortunately, you can't turn the prompts back on for a single device.
+Depending on your organization settings, you may see a check box that says **Don't ask again for X days** when you perform two-factor verification on your browser. If you've selected this option to stop two-factor verification prompts, and then you lose your device or your device is potentially compromised, you should turn two-factor verification prompts back on to help protect your account. You must turn the prompts on for all of your devices at the same time. Unfortunately, you can't turn the prompts back on for only a specific device.
 
 ### To turn two-factor verification prompts back on for your devices
 
