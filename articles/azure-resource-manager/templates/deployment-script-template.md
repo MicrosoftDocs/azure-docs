@@ -110,7 +110,7 @@ The following json is an example.  The latest template schema can be found [here
 Property value details:
 
 - **Identity**: The deployment script service uses a user-assigned managed identity to execute the scripts. Currently, only user-assigned managed identity is supported.
-- **kind**: Specify the type of script. Currently, Azure PowerShell and Azure CLI scripts are support. The value are **AzurePowerShell** and **AzureCLI**.
+- **kind**: Specify the type of script. Currently, Azure PowerShell and Azure CLI scripts are support. The values are **AzurePowerShell** and **AzureCLI**.
 - **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. Use the newGuid() or utcNow() function that needs to be set as the defaultValue of a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
 - **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. Deployment script currently supports Azure PowerShell version 2.7.0, 2.8.0, 3.0.0 and Azure CLI version 2.0.80, 2.0.79, 2.0.78, 2.0.77.
 - **arguments**: Specify the parameter values. The values are separated by spaces.
@@ -196,7 +196,7 @@ reference('<ResourceName>').output.text
 
 ## Work with outputs from CLI script
 
-Different from the PowerShell deployment script, CLI/bash support does not expose a common variable to store script outputs, instead, there is an environment variable called **AZ_SCRIPTS_OUTPUT_PATH** that stores the location where the script outputs file resides. If a deployment script is ran from a Resource Manager template, this environment variable is set automatically for you by the Bash shell.
+Different from the PowerShell deployment script, CLI/bash support does not expose a common variable to store script outputs, instead, there is an environment variable called **AZ_SCRIPTS_OUTPUT_PATH** that stores the location where the script outputs file resides. If a deployment script is run from a Resource Manager template, this environment variable is set automatically for you by the Bash shell.
 
 Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, an array of strings is stored as { “MyResult”: [ “foo”, “bar”] }.  Storing just the array results, for example [ “foo”, “bar” ], is invalid.
 
