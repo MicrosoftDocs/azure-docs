@@ -697,7 +697,7 @@
     items:
     - name: Create a storage account for your Data Lake
       href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Secure blob data
+    - name: Secure data
       items:
       - name: Authorize access to data
         items:
