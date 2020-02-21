@@ -123,8 +123,8 @@ Read BitLocker keys | Security Reader | Password administrator, Security adminis
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Consent to any delegated permissions | Cloud application administrator | Application administrator
-Consent to application permissions not including Microsoft Graph or Azure AD Graph | Cloud application administrator | Application administrator
-Consent to application permissions to Microsoft Graph or Azure AD Graph | Global Administrator | 
+Consent to application permissions not including Microsoft Graph | Cloud application administrator | Application administrator
+Consent to application permissions to Microsoft Graph | Global Administrator | 
 Consent to applications accessing own data | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Create enterprise application | Cloud application administrator | Application administrator
 Manage Application Proxy | Application administrator | 
