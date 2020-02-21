@@ -53,6 +53,8 @@ Use the following steps to create a new support request from the Azure portal fo
 
    ![The "Provide details" link](./media/sql-data-warehouse-get-started-create-support-ticket/provide-details-link.png)
 
+## Quota request types
+
 Clicking **Provide details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different quota requests available for Azure Synapse Analytics.
 
 ### Data Warehouse Units (DWUs) per server
