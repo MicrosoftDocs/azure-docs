@@ -15,7 +15,7 @@ ms.reviewer: carlrab
 
 ![Azure SQL Analytics symbol](./media/azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics is an advanced cloud monitoring solution for monitoring performance of single databases, elastic pools, and managed instance databases in Azure SQL at scale and across multiple subscriptions in a single view. Azure SQL Analytics collects and visualizes key performance metrics with built-in intelligence for performance troubleshooting.
+Azure SQL Analytics is an advanced cloud monitoring solution for monitoring performance of all of your Azure SQL databases at scale and across multiple subscriptions in a single view. Azure SQL Analytics collects and visualizes key performance metrics with built-in intelligence for performance troubleshooting.
 
 By using these collected metrics, you can create custom monitoring rules and alerts. Azure SQL Analytics helps you to identify issues at each layer of your application stack. It uses Azure Diagnostic metrics along with Azure Monitor views to present data about all your Azure SQL databases in a single Log Analytics workspace. Azure Monitor helps you to collect, correlate, and visualize structured and unstructured data.
 
@@ -38,9 +38,9 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 
 ## Azure SQL Analytics options
 
-The below table outlines supported options for two versions of the Azure SQL Analytics dashboard, one for single databases and elastic pools, and the other one for managed instance databases.
+The below table outlines supported options for two versions of the Azure SQL Analytics dashboard, one for single and pooled databases and elastic pools, and the other one for managed instances and instance databases.
 
-| Azure SQL Analytics option | Description | Single database and elastic pools support | Managed instance database support |
+| Azure SQL Analytics option | Description | Single and pooled database and elastic pools support | Managed instances and instances database support |
 | --- | ------- | ----- | ----- |
 | Resource by type | Perspective that counts all the resources monitored. | Yes | Yes |
 | Insights | Provides hierarchical drill-down into Intelligent Insights into performance. | Yes | Yes |
@@ -55,9 +55,9 @@ The below table outlines supported options for two versions of the Azure SQL Ana
 
 Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md) to add Azure SQL Analytics (Preview) to your Log Analytics workspace.
 
-### Configure single databases, elastic pools and managed instance databases to stream diagnostics telemetry
+### Configure Azure SQL databases to stream diagnostics telemetry
 
-Once you have created Azure SQL Analytics solution in your workspace, you need to **configure each** resources that you want to monitor to stream its diagnostics telemetry to Azure SQL Analytics. Follow detailed instructions on this page:
+Once you have created Azure SQL Analytics solution in your workspace, you need to **configure each** resource that you want to monitor to stream its diagnostics telemetry to Azure SQL Analytics. Follow detailed instructions on this page:
 
 - Enable Azure Diagnostics for your Azure SQL database to [stream diagnostics telemetry to Azure SQL Analytics](../../sql-database/sql-database-metrics-diag-logging.md).
 
@@ -69,21 +69,21 @@ When you add Azure SQL Analytics to your workspace, the Azure SQL Analytics tile
 
 ![Azure SQL Analytics summary tile](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-Once loaded, the tile shows the number of single databases, elastic pools, managed instance, and managed instance databases from which Azure SQL Analytics is receiving diagnostics telemetry.
+Once loaded, the tile shows the number of single and pooled databases, elastic pools, managed instances, and managed instance databases from which Azure SQL Analytics is receiving diagnostics telemetry.
 
 ![Azure SQL Analytics tile](./media/azure-sql/azure-sql-sol-tile-02.png)
 
-Azure SQL Analytics provides two separate views -- one for monitoring single databases and elastic pools, and the other view for monitoring managed instances and its databases.
+Azure SQL Analytics provides two separate views -- one for monitoring single databases and pooled databases and elastic pools, and the other view for monitoring managed instances and instance databases.
 
-To view Azure SQL Analytics monitoring dashboard for single databases and elastic pools, click on the upper part of the tile. To view Azure SQL Analytics monitoring dashboard for managed instances and its databases, click on the lower part of the tile.
+To view Azure SQL Analytics monitoring dashboard for single and pooled databases and elastic pools, click on the upper part of the tile. To view Azure SQL Analytics monitoring dashboard for managed instances and instance databases, click on the lower part of the tile.
 
 ### Viewing Azure SQL Analytics data
 
 The dashboard includes the overview of all databases that are monitored through different perspectives. For different perspectives to work, you must enable proper metrics or logs on your SQL resources to be streamed to Log Analytics workspace.
 
-Note that if some metrics or logs are not streamed into Azure Monitor, the tiles in Azure SQL Analytics are not populated with monitoring information.
+If some metrics or logs are not streamed into Azure Monitor, the tiles in Azure SQL Analytics are not populated with monitoring information.
 
-### Single database and elastic pool view
+### Single and pooled databases and elastic pools view
 
 Once the Azure SQL Analytics tile for the database is selected, the monitoring dashboard is shown.
 
@@ -95,7 +95,7 @@ Selecting any of the tiles, opens a drill-down report into the specific perspect
 
 Each perspective in this view provides summaries at the subscription, server, elastic pool, and database levels. In addition, each perspective shows a perspective specific to the report on the right. Selecting subscription, server, pool, or database from the list continues the drill-down.
 
-### Managed instance and databases view
+### Managed instance and instances databases view
 
 Once the Azure SQL Analytics tile for the databases is selected, the monitoring dashboard is shown.
 
@@ -113,9 +113,9 @@ Azure SQL Database [Intelligent Insights](../../sql-database/sql-database-intell
 
 ![Azure SQL Analytics Insights](./media/azure-sql/azure-sql-sol-insights.png)
 
-### Elastic pool and single database reports
+### Elastic pools and database reports
 
-Both elastic pools and single databases have their own specific reports that show all the data that is collected for the resource in the specified time.
+Both elastic pools and databases have their own specific reports that show all the data that is collected for the resource in the specified time.
 
 ![Azure SQL Analytics Database](./media/azure-sql/azure-sql-sol-database.png)
 
@@ -287,7 +287,7 @@ AzureDiagnostics
 
 ### Pricing
 
-While Azure SQL Analytics is free to use, consumption of diagnostics telemetry above the free units of data ingestion allocated each month applies, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor). The free units of data ingestion provided enable free monitoring of several databases each month. Note that more active databases with heavier workloads ingest more data versus idle databases. You can easily monitor your data ingestion consumption in Azure SQL Analytics by selecting OMS Workspace on the navigation menu of Azure SQL Analytics, and then selecting Usage and Estimated Costs.
+While Azure SQL Analytics is free to use, consumption of diagnostics telemetry above the free units of data ingestion allocated each month applies, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor). The free units of data ingestion provided enable free monitoring of several databases each month. More active databases with heavier workloads ingest more data versus idle databases. You can easily monitor your data ingestion consumption in Azure SQL Analytics by selecting OMS Workspace on the navigation menu of Azure SQL Analytics, and then selecting Usage and Estimated Costs.
 
 ## Next steps
 
