@@ -205,7 +205,7 @@ Follow these steps to add or remove permissions for your custom role.
 
 ### Add wildcard permissions
 
-Depending on how you chose to start, you might have permissions with wildcards (*) in your list of permissions. A wildcard (*) extends a permission to everything that matches the string you provide. For example, suppose that you wanted to add all the permissions related to Azure Cost Management and exports. You could add all of these permissions:
+Depending on how you chose to start, you might have permissions with wildcards (\*) in your list of permissions. A wildcard (\*) extends a permission to everything that matches the string you provide. For example, suppose that you wanted to add all the permissions related to Azure Cost Management and exports. You could add all of these permissions:
 
 ```
 Microsoft.CostManagement/exports/action
@@ -225,7 +225,7 @@ If you want to add a new wildcard permission, you can't add it using the Add per
 
 ### Exclude permissions
 
-If your role has a wildcard (*) permission and you want to exclude or subtract specific permissions from that wildcard permission, you can exclude them. For example, let's say that you have the following wildcard permission:
+If your role has a wildcard (\*) permission and you want to exclude or subtract specific permissions from that wildcard permission, you can exclude them. For example, let's say that you have the following wildcard permission:
 
 ```
 Microsoft.CostManagement/exports/*
@@ -270,7 +270,7 @@ On the **Assignable scopes** tab, you specify where your custom role is availabl
 
 ## Step 6: JSON
 
-On the **JSON** tab, you see your custom role formatted in JSON. If you want, you can directly edit the JSON. If you want to add a wildcard (*) permission, you must use this tab.
+On the **JSON** tab, you see your custom role formatted in JSON. If you want, you can directly edit the JSON. If you want to add a wildcard (\*) permission, you must use this tab.
 
 1. To edit the JSON, click **Edit**.
 
