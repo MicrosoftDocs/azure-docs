@@ -492,10 +492,12 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
-  - name: Azure PowerShell classic
-    href: /powershell/module/azure/?view=azuresmps-3.7.0
+  - name: AzureRM PowerShell
+    href: /powershell/module/AzureRM.RecoveryServices
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.recoveryservices/allversions
   - name: REST
-    href: https://msdn.microsoft.com/library/mt750497
+    href: /rest/api/site-recovery
 - name: Related
   items:
   - name: Azure Automation
@@ -509,7 +511,7 @@
   - name: Forum
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr
   - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/site-recovery/
+    href: /learn/azure/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/site-recovery/
   - name: Pricing calculator
