@@ -47,7 +47,7 @@ The following steps will help create a Conditional Access policy to require devi
 1. Select **Create** to create to enable your policy.
 
 > [!NOTE]
-> You can enroll your new devices to Intune even if you select "Require device to be marked as compliant" for "All users" and "All cloud apps" using the steps above. "Require device to be marked as compliant" control does not block Intune enrollment. 
+> You can enroll your new devices to Intune even if you select **Require device to be marked as compliant** for **All users** and **All cloud apps** using the steps above. **Require device to be marked as compliant** control does not block Intune enrollment. 
 
 ### Known behavior
 
