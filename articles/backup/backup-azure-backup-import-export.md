@@ -27,26 +27,26 @@ The following Azure Backup features or workloads support the use of offline back
 
 > [!div class="checklist"]
 >
-> * Backup of files and folders with the Microsoft Azure Recovery Services (MARS) agent, also referred to as the Azure Backup agent.
+> * Backup of files and folders with the Microsoft Azure Recovery Services (MARS) Agent, also referred to as the Azure Backup Agent.
 > * Backup of all workloads and files with System Center Data Protection Manager (DPM).
 > * Backup of all workloads and files with Microsoft Azure Backup Server.
  
    > [!NOTE]
-   > Offline backup isn't supported for system state backups done by using the Azure Backup agent.
+   > Offline backup isn't supported for system state backups done by using the Azure Backup Agent.
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## Prerequisites
 
   > [!NOTE]
-  > The following prerequisites and workflow apply only to offline backup of files and folders using the [latest Azure Recovery Services agent](https://aka.ms/azurebackup_agent). To perform offline backups for workloads using System Center DPM or Azure Backup Server, see [Offline backup workflow for DPM and Azure Backup Server](backup-azure-backup-server-import-export-.md).
+  > The following prerequisites and workflow apply only to offline backup of files and folders using the [latest Azure Recovery Services Agent](https://aka.ms/azurebackup_agent). To perform offline backups for workloads using System Center DPM or Azure Backup Server, see [Offline backup workflow for DPM and Azure Backup Server](backup-azure-backup-server-import-export-.md).
 
 Before you start the offline backup workflow, complete the following prerequisites:
 
 * Create a [Recovery Services vault](backup-azure-recovery-services-vault-overview.md). To create a vault, follow the steps in [Create a Recovery Services vault](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault).
-* Make sure that only the [latest version of the Azure Backup agent](https://aka.ms/azurebackup_agent) is installed on the Windows Server or Windows client, as applicable, and the computer is registered with the Recovery Services vault.
-* Azure PowerShell 3.7.0 is required on the computer running the Azure Backup agent. Download and [install the 3.7.0 version of Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
-* On the computer running the Azure Backup agent, make sure that Microsoft Edge or Internet Explorer 11 is installed and JavaScript is enabled.
+* Make sure that only the [latest version of the Azure Backup Agent](https://aka.ms/azurebackup_agent) is installed on the Windows Server or Windows client, as applicable, and the computer is registered with the Recovery Services vault.
+* Azure PowerShell 3.7.0 is required on the computer running the Azure Backup Agent. Download and [install the 3.7.0 version of Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
+* On the computer running the Azure Backup Agent, make sure that Microsoft Edge or Internet Explorer 11 is installed and JavaScript is enabled.
 * Create an Azure storage account in the same subscription as the Recovery Services vault.
 * Make sure you have the [necessary permissions](../active-directory/develop/howto-create-service-principal-portal.md) to create the Azure Active Directory application. The offline backup workflow creates an Azure Active Directory application in the subscription associated with the Azure storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import/Export service, which is required for the offline backup workflow.
 * Register the *Microsoft.ImportExport* resource provider with the subscription that contains the Azure storage account. To register the resource provider:
@@ -59,7 +59,7 @@ Before you start the offline backup workflow, complete the following prerequisit
 
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you want to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
 * When you send disks to Azure, use only 2.5-inch SSD or 2.5-inch or 3.5-inch SATA II/III internal hard drives. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
-* The SATA drives must be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the staging location to the SATA drives is done. Ensure that Azure BitLocker is enabled on the copy computer.
+* The SATA drives must be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the staging location to the SATA drives is done. Ensure that BitLocker is enabled on the copy computer.
 
 ## Workflow
 
@@ -67,14 +67,14 @@ This section describes the offline backup workflow so that your data can be deli
 
 ## Initiate offline backup
 
-1. When you schedule a backup on the Azure Recovery Services agent, you see this page.
+1. When you schedule a backup on the Recovery Services Agent, you see this page.
 
     ![Import page](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
 1. Select the option **Transfer using my own disks**.
 
     > [!NOTE]
-    > Use the Azure Data Box option to transfer initial backup data offline. This option saves the effort required to procure your own Azure-compatible disks. It delivers Microsoft-proprietary, secure, and tamperproof Azure Data Box devices to which backup data can be directly written to by the Azure Recovery Services agent.
+    > Use the Azure Data Box option to transfer initial backup data offline. This option saves the effort required to procure your own Azure-compatible disks. It delivers Microsoft-proprietary, secure, and tamperproof Azure Data Box devices to which backup data can be directly written to by the Recovery Services Agent.
 
 1. Select **Next**, and fill in the boxes carefully.
 
@@ -94,7 +94,7 @@ This section describes the offline backup workflow so that your data can be deli
 
     ![Azure subscription sign-in page](./media/backup-azure-backup-import-export/azure-login.png)
 
-1. Finish the workflow. On the Azure Backup agent console, select **Back Up Now**.
+1. Finish the workflow. On the Azure Backup Agent console, select **Back Up Now**.
 
     ![Back Up Now](./media/backup-azure-backup-import-export/backupnow.png)
 
@@ -108,7 +108,7 @@ This section describes the offline backup workflow so that your data can be deli
 
 ## Prepare SATA drives and ship to Azure
 
-The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent to the nearest Azure datacenter. This utility is available in the Azure Backup agent installation directory in the following path:
+The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent to the nearest Azure datacenter. This utility is available in the Azure Backup Agent installation directory in the following path:
 
     *\Microsoft Azure Recovery Services Agent\Utils\\*
 

@@ -12,7 +12,7 @@ Azure Backup has several built-in efficiencies that save network and storage cos
 The offline-seeding process of Azure Backup is tightly integrated with the [Azure Import/Export service](../storage/common/storage-import-export-service.md). You can use this service to transfer data to Azure by using disks. If you have terabytes (TBs) of initial backup data that need to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy on one or more hard drives to an Azure datacenter. This article provides an overview and further steps that finish this workflow for System Center Data Protection Manager (DPM) and Microsoft Azure Backup Server (MABS).
 
 > [!NOTE]
-> The process of offline backup for the Microsoft Azure Recovery Services (MARS) agent is distinct from DPM and MABS. For information on using offline backup with the MARS agent, see [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md). Offline backup isn't supported for system state backups done by using the Azure Backup agent.
+> The process of offline backup for the Microsoft Azure Recovery Services (MARS) Agent is distinct from DPM and MABS. For information on using offline backup with the MARS Agent, see [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md). Offline backup isn't supported for system state backups done by using the Azure Backup Agent.
 >
 
 ## Overview
@@ -33,7 +33,7 @@ Offline backup is supported for all deployment models of Azure Backup that back 
 
 > [!div class="checklist"]
 >
-> * Backup of files and folders with the MARS agent or the Azure Backup agent.
+> * Backup of files and folders with the MARS Agent or the Azure Backup Agent.
 > * Backup of all workloads and files with DPM.
 > * Backup of all workloads and files with MABS.
 
@@ -42,7 +42,7 @@ Offline backup is supported for all deployment models of Azure Backup that back 
 Ensure that the following prerequisites are met before you start the offline backup workflow:
 
 * A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) has been created. To create one, follow the steps in [Create a Recovery Services vault](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
-* An Azure Backup agent or MABS or DPM has been installed on either Windows Server or a Windows client, as applicable, and the computer is registered with the Recovery Services vault. Ensure that only the [latest version of Azure Backup](https://go.microsoft.com/fwlink/?linkid=229525) is used.
+* An Azure Backup Agent or MABS or DPM has been installed on either Windows Server or a Windows client, as applicable, and the computer is registered with the Recovery Services vault. Ensure that only the [latest version of Azure Backup](https://go.microsoft.com/fwlink/?linkid=229525) is used.
 * [Download the Azure publish settings file](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) on the computer from which you plan to back up your data. The subscription from which you download the publish settings file can be different from the subscription that contains the Recovery Services vault. If your subscription is on sovereign Azure clouds, then use the following links as appropriate to download the Azure publish settings file.
 
     | Sovereign cloud region | Azure publish settings file link |
@@ -56,12 +56,12 @@ Ensure that the following prerequisites are met before you start the offline bac
 
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you want to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
 * For disks sent to Azure, ensure that only 2.5-inch SSD or 2.5-inch or 3.5-inch SATA II/III internal hard drives are used. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
-* The SATA drives must be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the staging location to the SATA drives is done. Ensure that Azure BitLocker is enabled on the copy computer.
+* The SATA drives must be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the staging location to the SATA drives is done. Ensure that BitLocker is enabled on the copy computer.
 
 ## Prepare the server for the offline backup process
 
 >[!NOTE]
-> If you can't find the listed utilities, such as *AzureOfflineBackupCertGen.exe*, in your installation of the MARS agent, write to AskAzureBackupTeam@microsoft.com to get access to them.
+> If you can't find the listed utilities, such as *AzureOfflineBackupCertGen.exe*, in your installation of the MARS Agent, write to AskAzureBackupTeam@microsoft.com to get access to them.
 
 * Open an elevated command prompt on the server, and run the following command:
 
@@ -74,7 +74,7 @@ Ensure that the following prerequisites are met before you start the offline bac
     If an application already exists, this executable asks you to manually upload the certificate to the application in the tenant. Follow the steps in [this section](#manually-upload-an-offline-backup-certificate) to upload the certificate manually to the application.
 
 * The *AzureOfflineBackup.exe* tool generates an *OfflineApplicationParams.xml* file. Copy this file to the server with MABS or DPM.
-* Install the [latest MARS agent](https://aka.ms/azurebackup_agent) on the DPM instance or the Azure Backup server.
+* Install the [latest MARS Agent](https://aka.ms/azurebackup_agent) on the DPM instance or the Azure Backup server.
 * Register the server to Azure.
 * Run the following command:
 
@@ -145,7 +145,7 @@ The information in this section helps you finish the offline backup workflow so 
 
    Save the **Staging Location** and the **Azure Import Job Name** information you provided. It's required to prepare the disks.
 
-1. Finish the workflow. To initiate the offline backup copy, select **Back Up Now** on the Azure Backup agent management console. The initial backup is written to the staging area as part of this step.
+1. Finish the workflow. To initiate the offline backup copy, select **Back Up Now** on the Azure Backup Agent management console. The initial backup is written to the staging area as part of this step.
 
     ![Backup now](./media/backup-azure-backup-import-export/backupnow.png)
 
@@ -159,7 +159,7 @@ The information in this section helps you finish the offline backup workflow so 
 
 ### Prepare SATA drives and ship to Azure
 
-The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that are sent to the nearest Azure datacenter. This utility is available in the installation directory of the Recovery Services agent in the following path:
+The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that are sent to the nearest Azure datacenter. This utility is available in the installation directory of the Recovery Services Agent in the following path:
 
 `*\\Microsoft Azure Recovery Services Agent\Utils\*`
 
@@ -246,7 +246,7 @@ The amount of time it takes to process an Azure import job varies. The process t
 
 ### Monitor Azure import job status
 
-While your drives are in transit or at the Azure datacenter to be copied to the storage account, the Azure Backup agent or DPM or the MABS console on the source computer shows the following job status for your scheduled backups:
+While your drives are in transit or at the Azure datacenter to be copied to the storage account, the Azure Backup Agent or DPM or the MABS console on the source computer shows the following job status for your scheduled backups:
 
   `Waiting for Azure Import Job to complete. Please check on Azure Management portal for more information on job status`
 
