@@ -150,7 +150,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Symptoms**: When trying to download huge amount of data (say several GBs) through JDBC/ODBC, the connection is disconnected by HDInsight unexpectedly while downloading. 
 
-**Cause**: This error is caused by the limitation on Gateway nodes. When getting data from JDBC/ODBC, all data needs to pass through Gateway node. However, Gateway is not designed in a way to download huge amount of data, so the connection might be closed by Gateway if it cannot handle the traffic.
+**Cause**: This error is caused by the limitation on Gateway nodes. When getting data from JDBC/ODBC, all data needs to pass through the Gateway node. However, a gateway is not designed to download a huge amount of data, so the connection might be closed by the Gateway if it cannot handle the traffic.
 
 **Resolution**: Avoid using JDBC/ODBC driver to download huge amount data, copy data directly from blob storage instead.
 
