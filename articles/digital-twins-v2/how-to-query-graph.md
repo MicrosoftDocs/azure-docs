@@ -49,4 +49,6 @@ IAsynEnumerable<Result<JsonDocument>> result = client.Query(“querystring”);
 
 This returns the query results in form of a JSON string. 
 To parse the JSON results returned, use the Json parser of your choice. 
-Documentation of the query results
+
+> [!NOTE]
+> Documentation of the query results

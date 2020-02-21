@@ -53,7 +53,7 @@ The first step towards the solution is to model the twin types used to represent
 }
 ```
 
-This description defines a name and a unique id for the patient room, a few properties to represent handwash status (counters that will be updated from motion sensors and soap dispensers, as well as a computed “handwash percentage” property). The type also defines a relationship “hasDevices” that will be used to connect to the actual devices.
+This description defines a name and a unique id for the patient room, a few properties to represent handwash status (counters that will be updated from motion sensors and soap dispensers, as well as a computed *handwash percentage* property). The type also defines a relationship *hasDevices* that will be used to connect to the actual devices.
 In a similar manner, types for the hospital itself, as well as hospital wards or zones can be defined.
 
 ## Uploading Models
@@ -101,7 +101,9 @@ The DTDL upload API provides two overloads for loading DTDL. One overload lets y
 ```
  
 On upload, model files are validated. 
-Add up-to-date information on validation of DTDL on upload
+
+> [!NOTE]
+> Add up-to-date information on validation of DTDL on upload
 
 ## Retrieve Model(s)
 
@@ -127,8 +129,8 @@ IAsyncEnumerable<Response<ModelData>> oneModelWithDependencies =
                         client.RetrieveModelWithDependenciesAsync(modelId, IncludeModels.All);
 ```
 
-The API calls to retrieve models return ModelData objects. ModelData contains metadata about the model stored in the ADT service instance, such as name, DTMI, and creation date of the model. The ModelData object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire models.  
-The RetrieveModelWithDependencies call returns not just the requested model, but also all models that the requested model is dependent on.
+The API calls to retrieve models return `ModelData` objects. `ModelData` contains metadata about the model stored in the ADT service instance, such as name, DTMI, and creation date of the model. The `ModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire models.  
+The `RetrieveModelWithDependencies` call returns not just the requested model, but also all models that the requested model is dependent on.
 Models are not necessarily returned in exactly the document form they have been uploaded in. ADT makes no guarantees about the form a document is returned in, beyond that the document will be returned in semantically equivalent form. 
 
 ## Parse Models
@@ -146,12 +148,11 @@ To use the parser library, you provide a set of DTDL documents to the library. T
     - Get all complex type definitions
     - Ascertain if a type is assignable from another type 
 
-Note for Plug and Play device users: 
-Plug and play devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of DTDL as used in ADT. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your twin. The parser will always, by default, return the same object model for both PnP and Digital Twins syntax.
+*Note for Plug and Play device users: Plug and play devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of DTDL as used in ADT. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your twin. The parser will always, by default, return the same object model for both PnP and Digital Twins syntax.*
 
 ### An example
 
-The following models are defined in the service (the dtmi:com:example:coffeeMaker model is using the capability model syntax, which implies that it was installed in the service by connecting a Plug and Play device exposing that model):
+The following models are defined in the service (the `dtmi:com:example:coffeeMaker` model is using the capability model syntax, which implies that it was installed in the service by connecting a Plug and Play device exposing that model):
 
 ```csharp
 {
@@ -231,7 +232,8 @@ public void ParseModels()
 }
 ```
 
-Add an example that shows how the parser coalesces properties in the presence of inheritance. That is, when reflecting over properties of ConferenceRoom, we’d see all the properties of the types that ConferenceRoom extends. 
+> [!NOTE]
+> Add an example that shows how the parser coalesces properties in the presence of inheritance. That is, when reflecting over properties of ConferenceRoom, we’d see all the properties of the types that ConferenceRoom extends. 
 
 ## Model Deletion
 

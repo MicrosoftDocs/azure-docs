@@ -20,12 +20,16 @@ The Twin APIs let developers create, modify and delete twins and their relations
 
 ## Creating a Graph (Private Preview, Public Preview)
 Once we have a set of types, we can create a graph representing a complete hospital. For a small hospital, this graph might look like this:
-Replace with better picture
+
+> [!NOTE]
+> Replace with better picture
 
 ![Graph of a sample hospital](./media/how-to-manage-graph/hospital-graph.png)
 
 For illustration purposes, here is an example code snippet, using the ADT C# SDK, that might be used to create the graph programmatically. In reality, code like this would most likely be driven by information from another pre-existing data system, such as a building information management system:
-Need to update the examples with final signatures
+
+> [!NOTE]
+> Need to update the examples with final signatures
 
 ```csharp
 var client = new DigitalTwinsClient("...Authentication Info...");
@@ -62,13 +66,13 @@ Response rR = client.CreateRelationship("idMyPlanet01", "IsCircledBy", "idMyMoon
                                         “idRel01”);
 ```
 
-
-This code creates two instances of twins, one using model type planet, the other using model type moon. In addition to the model type id (`dtmi:Planet` and `dtmi:Moon`), you need to pass in a unique ID, and data to initialize the twin instance during creation. More on initialization in the next section. The sample also creates a relationship between the two instances, connecting them to each other.
+This code creates two instances of twins, one using model type *Planet*, the other using model type *Moon*. In addition to the model type id (`dtmi:Planet` and `dtmi:Moon`), you need to pass in a unique ID, and data to initialize the twin instance during creation. More on initialization in the next section. The sample also creates a relationship between the two instances, connecting them to each other.
 
 ## Initializing Properties
 
 All non-optional properties and components of twins must be initialized at creation time. Relationships may be initialized, but do not need to be. 
 The Twin creation API accepts a JSON string to initialize the twin instance. You will typically create this JSON string by serializing an object that holds the initialization data into JSON, for example using the JSON functionality in System.Text.Json (built-in for .NET Core 3.0, and available as a nuget package for many other versions of the .NET framework).
+
 The following code shows an example for the creation of the JSON string:
 
 ```csharp
@@ -99,6 +103,7 @@ string s = JsonSerializer.Serialize(moonData);
 ## Creating Twins: A More Complete Example
 
 A slightly more complete example, reading a topology from a spreadsheet. Assumption is that there are a number of rows in the excel file that list floors or rooms (and the parent floor for each room):
+
 | Type	| Id | Parent | RelName | OtherData | OtherData |
 | --- | --- | --- | --- | --- | --- |
 | floor	| Floor01 | | | … | … |

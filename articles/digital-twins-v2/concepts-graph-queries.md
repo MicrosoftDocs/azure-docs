@@ -17,12 +17,17 @@ ms.service: digital-twins
 # Understand the Azure Digital Twins graph
 
 At the heart of Digital Twins is a graph constructed from twins and relationships. Every twin in the graph is an instance of a model. Think of a model as a template that describes the characteristics of a particular type of twin in terms of properties, telemetry/events, commands etc. 
-Twins are connected via relationships, forming a graph. The model definition for each twin declares which relationships are possible between twins. For example, a Floor twin might have a “contains” relationship that allows it to connect to several instances of Room. A cooling device might have a “cools” relationship with a motor.  
- Need a picture for a graph here
+Twins are connected via relationships, forming a graph. The model definition for each twin declares which relationships are possible between twins. For example, a Floor twin might have a *contains* relationship that allows it to connect to several instances of Room. A cooling device might have a “cools” relationship with a motor. 
+
+> [!NOTE]
+> Need a picture for a graph here
 
 ## Query Digital Twins
 
-ADT provides extensive query capabilities against the Digital Twins graph. Queries are described using SQL-LIKE syntax, as a superset of the capabilities of the IoT Hub query language Add references to the Hub Query documentation.
+ADT provides extensive query capabilities against the Digital Twins graph. Queries are described using SQL-LIKE syntax, as a superset of the capabilities of the IoT Hub query language 
+
+> [!NOTE]
+> Add references to the Hub Query documentation.
 
 Query capabilities:
 * Get twins by properties

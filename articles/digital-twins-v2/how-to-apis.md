@@ -16,13 +16,19 @@ ms.service: digital-twins
 
 # Developer overview of Azure Digital Twins APIs
 
-This section gives a brief overview of the API surface of ADT as provided by the C# SDK. Please see the reference documentation for additional details.
-Documentation needs to be extended with examples and snippets in all SDK languages
-SDK Overview
+This section gives a brief overview of the API surface of ADT as provided by the C# SDK. 
+
+> [!WARNING]
+> Please see the reference documentation for additional details.
+
+> [!NOTE]
+> Documentation needs to be extended with examples and snippets in all SDK languages
+
+## SDK Overview
 Like all ADT language SDKs, the C# SDK follows the latest iteration of the Azure API guidelines. These are documented here:
-https://azure.github.io/azure-sdk/general_introduction.html
+* https://azure.github.io/azure-sdk/general_introduction.html
 The specific documentation for C# is here:
-https://azure.github.io/azure-sdk/dotnet_introduction.html
+* https://azure.github.io/azure-sdk/dotnet_introduction.html
 
 As a summary:
 * For C#, all SDK calls are available in synchronous and asynchronous versions. This overview documentations mostly uses the synchronous versions for brevity.
@@ -33,7 +39,9 @@ As a summary:
 * All service calls in the C# service SDK for ADT will throw ResponseFailedExceptions on return of a non-success status code. 
 
 In the code snippets below, we have omitted try/catch clauses for clarity and brevity.
-Add a reference to user guidelines for APIs following the SDK guidelines
+
+> [!NOTE]
+> Add a reference to user guidelines for APIs following the SDK guidelines
 
 ## Twin Data Returned from ADT APIs
 

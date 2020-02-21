@@ -16,8 +16,7 @@ ms.service: digital-twins
 
 # Using twin-to-twin event handlers (Public Preview)
 
-*Note: Not all event handler and event routing functionality will be available in initial previews*
-*For Private Preview, please use event routes instead of Twin-2-Twin event handlers*
+*Note: Not all event handler and event routing functionality will be available in initial previews. For Private Preview, please use event routes instead of Twin-2-Twin event handlers*
 
 To process data with ADT, you will wire-up event handlers to twins. In this example, we will use two event handlers – one to be triggered when an event is fired on the devices attached to a patient room (indicating that either a motion sensor or soap dispensing event occurred), the other is used to update higher level entities in the graph (such as wards and hospital) with aggregated hand wash percentages.
 There are two parts to event handling with ADT:
@@ -25,7 +24,9 @@ There are two parts to event handling with ADT:
 * You need to define a function to be executed when the event occurs. 
 * ADT has a small set of built-in functions that you can use for simple event propagation and transformation. 
 * For more complex computation, you can provide your own event handler functions using webhooks, or Azure Functions. Whatever compute resource you choose for custom processing will run in your own subscription. 
-Add picture illustrating the workflow
+
+> [!NOTE]
+> Add picture illustrating the workflow
 
 ![Event handling workflow](./media/how-to-handle-events/workflow.png)
 
@@ -59,9 +60,15 @@ var client = new DigitalTwinsClient("...Authentication Info...");
     client.RegisterEventHandler("SoapDispenserP01", "RoomPed01", "Egrid1.MotionOrSoapEvent");
 ```
 
-The new lines are marked with red arrows. Basically, an event handler registration lets you specify a source twin (the twin that fires event), and a twin that you want to modify with the event handler (the target twin). Exactly which event handler function is targeted is specified with the 3rd argument in the registration call (i.e. `Egrid1.UpdateHandWashAverage`in this example). This will be explained in detail below Add reference to details section
+The new lines are marked with red arrows. Basically, an event handler registration lets you specify a source twin (the twin that fires event), and a twin that you want to modify with the event handler (the target twin). Exactly which event handler function is targeted is specified with the 3rd argument in the registration call (i.e. `Egrid1.UpdateHandWashAverage`in this example). This will be explained in detail below 
+
+> [!NOTE]
+> Add reference to details section
+
 As you can see in the example, the same event handler function can be used in multiple places.
-Please see the detailed sections on event handling for more details on the wire up of compute resources.
+
+> [!WARNING]
+> Please see the detailed sections on event handling for more details on the wire up of compute resources.
 
 ## Registering event handlers
 
@@ -105,8 +112,11 @@ var client = new DigitalTwinsClient("...Authentication Info...");
 
 ## Compute Setup and Preparation
 
-Add more detail to the setup workflow of compute 
+> [!NOTE]
+> Add more detail to the setup workflow of compute 
+
 To run compute from ADT event handlers, you need to prepare an event grid as the broker between ADT and your compute resource. You can then use subscriptions to this EventGrid to handle events from ADT, for example using Azure functions. 
+
 The steps to do so are: 
 * Attach an event grid in your subscription to ADT. This is typically done as part of deployment. As a result, you now have a named endpoint in ADT (e.g. “MyEventGrid1”). 
 * Create an Event Grid Topic for each function you want to call. This is also typically done as part of deployment operations. We recommend using Event Domains, as this allows for greater numbers of topics, and provides additional security via Event Grid RBAC.
@@ -168,12 +178,15 @@ This object provides context to your function:
 * The original event payload that caused the event to fire (for example, telemetry data)
 * The parameter data that was specified in the event handler registration. This data can be used to customize execution of an event handler function that is re-used throughout a graph for a particular instantiation
 * A security context that allows the event handler access to the graph
+
 In this particular example, the function only uses the security context to connect to ADT, and the target twin id. This is used to find all connected patient rooms, and then calculate the average handwash ratio, extracting data from all the rooms.
 
 ### Compute Example
 
 The following example snippet shows the event handler function associated with updating the handwash averages of the ward and the hospital:
-ToDo: Need to update the below with the final signature for the function, and a few other details
+
+> [!NOTE]
+> ToDo: Need to update the below with the final signature for the function, and a few other details
 
 ```csharp
 [FunctionName("HandlePercentageUpdate")]
@@ -201,21 +214,26 @@ This function receives a DigitalTwinsEventData object wrapped into the EventGrid
 * The event payload
 * The context information that was specified in the RegisterEventHandler() call, in particular the twin id of the event source and the twin id of the target twin
 * A security context that provides access to the ADT service. 
+
 The code first connects to the ADT service, using the security context passed in as part of the event message. It then retrieves the relationships from the target twin, and averages the HandWashPercentage property of the source twins (error handling omitted for brevity).
 Finally, it sets the averages HandWashPercentage property on the twin identified by the target Id.
 
 ## React to live cycle events to handle device creation
 
-Document APIs for life cycle event creation
-You can also register event handlers for life cycle events as well.
-Life cycle events are sent for the following reasons:
+> [!NOTE]
+> Document APIs for life cycle event creation
+
+You can also register event handlers for life cycle events as well. Life cycle events are sent for the following reasons:
 * A new twin has been created or deleted
 * A new relationship has been created or deleted
 * A new event handler subscription has been created or deleted
 * A new event route has been created or deleted
 * A new device has been connected to IoT Hub
 * A model has changed, either in the ADT instance or a connected IoT Hub
-Need to update the exact list of event types with exact names
+
+> [!NOTE]
+> Need to update the exact list of event types with exact names
+
 The signature is:
 
 ```csharp

@@ -18,9 +18,14 @@ ms.service: digital-twins
 
 As part of the Digital Twins graph, in addition to your business twins, you can also have twins that represent IoT devices placed in your environment. IoT device might be simple sensors such as thermostats, or complex machines. 
 If you attach an IoT Hub to ADT, each device connected to IoT Hub can become visible as a node in the twin graph and can then be connected to other nodes to form a topology. Typically, incoming data from devices triggers event handler that are then used to drive properties on other twins.
-ADT makes it easy to work with devices by automatically mapping devices from a connected IoT Hub into the ADT instance graph. Please see Working with Devices on page 50 for more information.
+ADT makes it easy to work with devices by automatically mapping devices from a connected IoT Hub into the ADT instance graph. 
 
-Add a section to describe ADT – IoT Hub integration
+> [!WARNING]
+> Please see Working with Devices on page 50 for more information.
+
+> [!NOTE]
+> Add a section to describe ADT – IoT Hub integration
+
 An ADT graph contains not just twins based on the models you create and instantiate. ADT also automatically creates nodes for every device registered on an IoT Hub attached to ADT. You can connect these twins to the twins you create using relationships.
 Devices can be:
 * Plug and Play devices that are represented by a DTDL model. Devices with a DTDL model have a well-defined interface, allowing you to reflect on the messages the device can be expect to set, and the properties, etc. exposed on its twin in ADT.
@@ -36,8 +41,8 @@ As described in the section on the JSON data format for messages and query resul
 
 For PnP devices, it is possible that the DTDL description of the device changes without your direct input, for example if the device receives an over-the-air firmware update. Such changes may invalidate the twins graph.
 For example:
-* A Room twin declares an “isEquippedWith” relationship with a temperature sensor with a target type of *dtmi:example:ContosoTemperatureSensor;1*.
-* During a firmware update, the manufacturer decided to change the urn to *dtmi:example:ContosoTemperatureSensor;1*.
+* A Room twin declares an *isEquippedWith* relationship with a temperature sensor with a target type of `dtmi:example:ContosoTemperatureSensor;1`.
+* During a firmware update, the manufacturer decided to change the urn to `dtmi:example:ContosoTemperatureSensor;1`.
 * At this point, any existing relationship between instances of room and instances of Contoso temperature  sensors is not valid any longer.
 
 ADT reacts to this event as follows:

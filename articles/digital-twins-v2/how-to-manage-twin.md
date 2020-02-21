@@ -20,9 +20,8 @@ The Twin APIs let developers create, modify and delete twins and their relations
 
 ## Getting Twin Data for an Entire Twin
 
-You can access data on any twin by calling 
-`Response<JsonDocument> GetTwin(string id);`
-This returns twin data in JSON form. Assuming the following DTDL for a twin of type moon:
+You can access data on any twin by calling `Response<JsonDocument> GetTwin(string id);`
+This returns twin data in JSON form. Assuming the following DTDL for a twin of type *Moon*:
 
 ```json
 {
@@ -75,17 +74,16 @@ The call `GetTwin("myMoon-001");` might return:
 
 The defined properties of the twin are returned as top level properties on the twin. Metadata or system information that is not part of the DTDL definition is returned with a $ prefix:
 * The id of the twin as stored in this ADT instance
-* The conformance flag, indicating if the current data in the twin is conforming to the defined model. In the ADT service, twins defined in the ADT service will always be conformant, but twins controlled by devices Add reference to the chapter explaining device relationships may in fact have data not conforming with the model definition.
-The conformance flag has 3 possible values:
-* Conformant: The defined model is available, and the data in the twin conforms with the model definition
-* Non-Conformant: The defined model is available, and the data in the twin does not conform with the model definition. For example, a property with an expected type of double has in fact been set by a device to a string value
-* Unknown: The defined model can not be found, so conformance cannot be validated
+* The conformance flag, indicating if the current data in the twin is conforming to the defined model. In the ADT service, twins defined in the ADT service will always be conformant, but twins controlled by devices Add reference to the chapter explaining device relationships may in fact have data not conforming with the model definition. The conformance flag has 3 possible values:
+ - Conformant: The defined model is available, and the data in the twin conforms with the model definition
+ - Non-Conformant: The defined model is available, and the data in the twin does not conform with the model definition. For example, a property with an expected type of double has in fact been set by a device to a string value
+ - Unknown: The defined model can not be found, so conformance cannot be validated
 * Metadata. The metadata section contains a variety of metadata. For example:
-* The DTMI of the model of the twin
-* Synchronization status for each writeable property. This is generally of interest only with devices, where it is possible that the service and the device have diverging status, for example when a device has been or is offline. Today, this only applies to physical devices connected to IoT Hub, but in the future, it may also apply to non-device twins running in distributed scenarios. 
-With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. 
-Reference to a section explaining sync status
-* Service specific metadata, for example from IoT Hub or ADT. 
+ - The DTMI of the model of the twin
+ - Synchronization status for each writeable property. This is generally of interest only with devices, where it is possible that the service and the device have diverging status, for example when a device has been or is offline. Today, this only applies to physical devices connected to IoT Hub, but in the future, it may also apply to non-device twins running in distributed scenarios. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. 
+ > [!NOTE]
+ > Reference to a section explaining sync status
+- Service specific metadata, for example from IoT Hub or ADT. 
 
 ## Patching Twins
 
@@ -251,7 +249,7 @@ In other words, the property name for component access is a property path consis
 ## Relationships
 
 To access relationships, see the following example.
-Recall the definitions of moon and planet twins:
+Recall the definitions of *Moon* and *Planet* twins:
 
 ```csharp
 {

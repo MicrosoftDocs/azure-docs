@@ -42,22 +42,27 @@ In this section, we will walk through aspects of creating a Digital Twins soluti
 * Query the Digital Twins graph
 * Event processing and routing
 * Updating a solution
-Unless otherwise mentioned, the code samples in the following sections would typically be part of a client app controlling and operating an ADT instance. See the Getting Started section above for more information on how to create and set up an ADT instance.
+Unless otherwise mentioned, the code samples in the following sections would typically be part of a client app controlling and operating an ADT instance. 
+See the Getting Started section for more information on how to create and set up an ADT instance.
 
 ## Getting Started
 
-This section is still sketch content. Update pending 
+> [!NOTE]
+> This section is still sketch content. Update pending 
+
 To get started with ADT development you will need:
 * An Azure subscription. Add link for free subscription
 * Azure CLI with Azure IoT CLI extensions, if you want to use command line tools or automation Add description and link for how to get 
 * A development environment of your choice. 
-TBD – what are we going to use in the manual? VS/VS Code
+> [!NOTE]
+> TBD – what are we going to use in the manual? VS/VS Code
 * An ADT language SDK of your choice (C#, Java, JavaScript or Python), unless you want to use the REST APIs directly. The ADT language SDK also contains the DTDL parser client library.
 
 ### Creating an ADT Instance
 
 You can use Azure Portal to create a new instance of ADT
-Describe how to find the ADT PaaS offering in the portal and create an instance using the portal (public preview)
+> [!NOTE]
+> Describe how to find the ADT PaaS offering in the portal and create an instance using the portal (public preview)
  
 For production projects, however, we recommend using an automation-centric approach, where all artifacts – not just code, but also configuration scripts – are stored in version-controlled repositories. developer experience support. This approach makes it easier to implement a reliable development cycle.
  
@@ -68,14 +73,18 @@ Alternatively, there are also several pre-built starter projects you can begin w
 `az dt init --quickstart <project name>`
 Exact set of projects still TBD 
 
-Documentation on how to work with the starter project or init project still outstanding
+> [!NOTE]
+> Documentation on how to work with the starter project or init project still outstanding
 
 ### Setting Up IoT Hub
 
-Description on how to connect to IoT Hub
+> [!NOTE]
+> Description on how to connect to IoT Hub
 
 As part of the configuration of an ADT instance (in the portal or via CLI/ARM), you can connect a pre-existing IoT Hub to ADT. Once an IoT Hub is attached to ADT, ADT will automatically create special twins for all devices newly registered on IoT Hub. For PnP devices, it will also synchronize properties to the ADT graph. Finally, all telemetry from devices will produce telemetry messages in ADT.
-See the section on IoT Hub Integration for more information.  
+
+> [!WARNING]
+> See the section on IoT Hub Integration for more information.  
 
 ### Setting up Endpoints
 
@@ -86,4 +95,5 @@ To connect ADT to downstream data consumers, you need to set up consumer endpoin
 To attach an endpoint to ADT, you need to create the endpoint in your subscription first, using the portal, command line or ARM. 
 You can then use the ADT portal page or ARM/CLI to attach the endpoints to ADT.
 
-Provide more detail on endpoint set up
+> [!NOTE]
+> Provide more detail on endpoint set up
