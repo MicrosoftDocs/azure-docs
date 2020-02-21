@@ -80,7 +80,7 @@ The following snippets are all taken from the Program.cs file.
 
 * Set your connection parameters based on the account created above: 
 
-   :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="onfigureConnectivity":::
+   :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="configureConnectivity":::
 
 * The Gremlin commands to be executed are listed in a Dictionary:
 
