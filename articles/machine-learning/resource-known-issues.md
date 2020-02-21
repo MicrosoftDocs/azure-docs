@@ -67,9 +67,9 @@ This exception should come from your training scripts. You can look at the log f
 In most cases if you encounter "AbortedError: Horovod has been shut down" this exception means there was an underlying exception in one of the processes that caused Horovod to shut down. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easier to differentiate the logs. To find the exact error that caused Horovod to shut down, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
 
 ### SR-IOV availability on NCv3 machines in AmlCompute for distributed training
-Azure Compute has been rolling out an [SR-IOV upgrade](https://azure.microsoft.com/en-us/updates/sriov-availability-on-ncv3-virtual-machines-sku/) of NCv3 machines, which customers can leverage with Azure ML's managed compute offering (AmlCompute). The updates will enable the support of the entire MPI stack and the use of Infiniband RDMA network for improved multi-node distributed training performance, particularly for deep learning.
+Azure Compute has been rolling out an [SR-IOV upgrade](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku/) of NCv3 machines, which customers can leverage with Azure ML's managed compute offering (AmlCompute). The updates will enable the support of the entire MPI stack and the use of Infiniband RDMA network for improved multi-node distributed training performance, particularly for deep learning.
 
-View the [update schedule](https://azure.microsoft.com/en-us/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku/) to see when support will be rolled out for your region.
+View the [update schedule](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku/) to see when support will be rolled out for your region.
 
 ### Run or experiment deletion
 
