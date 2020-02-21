@@ -79,14 +79,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://global.hgncloud.com/[companyname]/saml/login`
+
+	b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://global.hgncloud.com/[companyname]/saml/metadata`
 
-    b. In the **Reply URL (Assertion Consumer Service URL)** text box, type a URL using the following pattern:
+    c. In the **Reply URL (Assertion Consumer Service URL)** text box, type a URL using the following pattern:
     `https://global.hgncloud.com/[companyname]/saml/SSO`
-
-    c. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://global.hgncloud.com/[companyname]/saml/login`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Saba TalentSpace Client support team](https://support.saba.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
