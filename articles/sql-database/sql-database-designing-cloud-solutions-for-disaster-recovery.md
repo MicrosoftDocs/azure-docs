@@ -113,7 +113,7 @@ The application’s resources should be deployed in each geography where you hav
 
 ![Scenario 3. Configuration with primary in East US.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-At the end of the day (for example at 11PM local time) the active databases should be switched to the next region (North Europe). This task can be fully automated by using [Azure scheduling service](../scheduler/scheduler-intro.md).  The task involves the following steps:
+At the end of the day, for example at 11 PM local time, the active databases should be switched to the next region (North Europe). This task can be fully automated by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). The task involves the following steps:
 
 * Switch primary server in the failover group to North Europe using friendly failover (1)
 * Remove the failover group between East US and North Europe
@@ -124,7 +124,7 @@ The following diagram illustrates the new configuration after the planned failov
 
 ![Scenario 3. Transitioning the primary to North Europe.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-If an outage happens in North Europe for example, the automatic database failover is initiated by the failover group, which effectively results in moving the application to the next region ahead of schedule (1).  In that case the US East is the only remaining secondary region until North Europe is back online. The remaining two regions serve the customers in all three geographies by switching roles. Azure scheduler has to be adjusted accordingly. Because the remaining regions get additional user traffic from Europe, the application's performance is impacted not only by additional latency but also by an increased number of end user connections. Once the outage is mitigated in North Europe, the secondary database there is immediately synchronized with the current primary. The following diagram illustrates an outage in North Europe:
+If an outage happens in North Europe for example, the automatic database failover is initiated by the failover group, which effectively results in moving the application to the next region ahead of schedule (1).  In that case the US East is the only remaining secondary region until North Europe is back online. The remaining two regions serve the customers in all three geographies by switching roles. Azure Logic Apps has to be adjusted accordingly. Because the remaining regions get additional user traffic from Europe, the application's performance is impacted not only by additional latency but also by an increased number of end user connections. Once the outage is mitigated in North Europe, the secondary database there is immediately synchronized with the current primary. The following diagram illustrates an outage in North Europe:
 
 ![Scenario 3. Outage in North Europe.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 
