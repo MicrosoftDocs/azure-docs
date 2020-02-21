@@ -1,20 +1,18 @@
 ---
-title: Use PowerShell to onboard Azure Security Center and protect your network | Microsoft Docs
+title: Onboard to Azure Security Center with PowerShell
 description: This document walks you through the process of onboarding Azure Security Center using PowerShell cmdlets.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/2/2018
-ms.author: rkarlin
+ms.date: 10/02/2018
+ms.author: memildin
 
 ---
 # Automate onboarding of Azure Security Center using PowerShell
@@ -28,13 +26,13 @@ This article provides a sample PowerShell script that can be modified and used i
 
 In this example, we will enable Security Center on a subscription with ID: d07c0080-170c-4c24-861d-9c817742786c and apply the recommended settings that provide a high level of protection, by implementing the Standard tier of Security Center, which provides advanced threat protection and detection capabilities:
 
-1. Set the [ASC standard level of protection](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Set the [Security Center standard level of protection](https://azure.microsoft.com/pricing/details/security-center/). 
  
 2. Set the Log Analytics workspace to which the Microsoft Monitoring Agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
 
 3. Activate Security Center’s automatic agent provisioning which [deploys the Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Set the organization’s [CISO as the security contact for ASC alerts and notable events](security-center-provide-security-contact-details.md).
+5. Set the organization’s [CISO as the security contact for Security Center alerts and notable events](security-center-provide-security-contact-details.md).
 
 6. Assign Security Center’s [default security policies](tutorial-security-policy.md).
 

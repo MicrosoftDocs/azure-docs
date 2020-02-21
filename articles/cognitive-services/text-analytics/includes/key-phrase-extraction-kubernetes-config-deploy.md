@@ -6,12 +6,12 @@ services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 08/21/2019
+ms.topic: include
+ms.date: 11/21/2019
 ms.author: dapine
 ---
 
-## Deploy the Key Phrase Extraction container to an AKS cluster
+### Deploy the Key Phrase Extraction container to an AKS cluster
 
 1. Open the Azure CLI, and sign in to Azure.
 
@@ -61,6 +61,13 @@ ms.author: dapine
             image: mcr.microsoft.com/azure-cognitive-services/keyphrase
             ports:
             - containerPort: 5000
+            resources:
+              requests:
+                memory: 2Gi
+                cpu: 1
+              limits:
+                memory: 4Gi
+                cpu: 1
             env:
             - name: EULA
               value: "accept"
@@ -86,7 +93,7 @@ ms.author: dapine
 1. Run the Kubernetes `apply` command with the *keyphrase.yaml* file as its target:
 
     ```console
-    kuberctl apply -f keyphrase.yaml
+    kubectl apply -f keyphrase.yaml
     ```
 
     After the command successfully applies the deployment configuration, a message appears similar to the following output:
@@ -114,7 +121,7 @@ ms.author: dapine
     kubectl get services
     ```
 
-    The output for the running status of the *sentiment* service in the pod:
+    The output for the running status of the *keyphrase* service in the pod:
 
     ```console
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

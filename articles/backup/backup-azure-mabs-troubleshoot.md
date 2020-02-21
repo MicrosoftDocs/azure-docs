@@ -2,12 +2,8 @@
 title: Troubleshoot Azure Backup Server
 description: Troubleshoot installation, registration of Azure Backup Server, and backup and restore of application workloads.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: dacurwin
 ---
 
 # Troubleshoot Azure Backup Server
@@ -27,7 +23,6 @@ We recommend you perform the below validation, before you start troubleshooting 
 - [Ensure no other process or antivirus software is interfering with Azure Backup](https://aka.ms/AA4nyr4)<br>
 - Ensure that the SQL Agent service is running and set to automatic in MAB server<br>
 
-
 ## Invalid vault credentials provided
 
 | Operation | Error details | Workaround |
@@ -46,18 +41,17 @@ We recommend you perform the below validation, before you start troubleshooting 
 | --- | --- | --- |
 | Backup | Online recovery point creation failed | **Error Message**: Windows Azure Backup Agent was unable to create a snapshot of the selected volume. <br> **Workaround**: Try increasing the space in replica and recovery point volume.<br> <br> **Error Message**: The Windows Azure Backup Agent cannot connect to the OBEngine service <br> **Workaround**: verify that the OBEngine exists in the list of running services on the computer. If the OBEngine service is not running, use the "net start OBEngine" command to start the OBEngine service. <br> <br> **Error Message**: The encryption passphrase for this server is not set. Please configure an encryption passphrase. <br> **Workaround**: Try configuring an encryption passphrase. If it fails, take the following steps: <br> <ol><li>Verify that the scratch location exists. This is the location that's mentioned in the registry **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**, with the name **ScratchLocation** should exist.</li><li> If the scratch location exists, try re-registering by using the old passphrase. *Whenever you configure an encryption passphrase, save it in a secure location.*</li><ol>|
 
-## The vault credentials provided are different from the vault the server is registered
+## The original and external DPM servers must be registered to the same vault
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The vault credentials provided are different from the vault the server is registered | **Cause**: This issue occurs when you are trying to restore files to the alternate server from the original server using External DPM recovery option and if the server that is being recovered and the original server from where the data is backed-up are not associated with the same Recovery Service vault.<br/> <br/>**Workaround** To resolve this issue ensure both the original and alternate server is registered to the same vault.|
+| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The original and external DPM servers must be registered to the same vault | **Cause**: This issue occurs when you are trying to restore files to the alternate server from the original server using External DPM recovery option and if the server that is being recovered and the original server from where the data is backed-up are not associated with the same Recovery Service vault.<br/> <br/>**Workaround** To resolve this issue ensure both the original and alternate server is registered to the same vault.|
 
 ## Online recovery point creation jobs for VMware VM fail
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
 | Backup | Online recovery point creation jobs for VMware VM fail. DPM encountered an error from VMware while trying to get ChangeTracking information. ErrorCode - FileFaultFault (ID 33621) |  <ol><li> Reset the CTK on VMware for the affected VMs.</li> <li>Check that independent disk is not in place on VMware.</li> <li>Stop protection for the affected VMs and reprotect with the **Refresh** button. </li><li>Run a CC for the affected VMs.</li></ol>|
-
 
 ## The agent operation failed because of a communication error with the DPM agent coordinator service on the server
 
@@ -80,7 +74,6 @@ We recommend you perform the below validation, before you start troubleshooting 
 | Azure Backup Agent was unable to connect to the Azure Backup service (ID: 100050) | The Azure Backup Agent was unable to connect to the Azure Backup service. | **If the recommended action that's shown in the product doesn't work, take the following steps**: <br>1. Run the following command from an elevated prompt: **psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**. This opens the Internet Explorer window. <br/> 2. Go to **Tools** > **Internet Options** > **Connections** > **LAN settings**. <br/> 3. Change the settings to use a proxy server. Then provide the proxy server details.<br/> 4. If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these [URLs](backup-configure-vault.md#verify-internet-access) and [IP address](backup-configure-vault.md#verify-internet-access).|
 | Azure Backup Agent installation failed | The Microsoft Azure Recovery Services installation failed. All changes that were made to the system by the Microsoft Azure Recovery Services installation were rolled back. (ID: 4024) | Manually install Azure Agent.
 
-
 ## Configuring protection group
 
 | Operation | Error details | Workaround |
@@ -100,7 +93,6 @@ We recommend you perform the below validation, before you start troubleshooting 
 | Backup | The option to reprotect a VMware VM on a new Microsoft Azure Backup Server does not show as available to add. | VMware properties are pointed at an old, retired instance of Microsoft Azure Backup Server. To resolve this issue:<br><ol><li>In VCenter (SC-VMM equivalent), go to the **Summary** tab, and then to **Custom Attributes**.</li>  <li>Delete the old Microsoft Azure Backup Server name from the **DPMServer** value.</li>  <li>Go back to the new Microsoft Azure Backup Server and modify the PG.  After you select the **Refresh** button, the VM appears with a check box as available to add to protection.</li></ol> |
 | Backup | Error while accessing files/shared folders | Try modifying the antivirus settings as suggested in the TechNet article [Run antivirus software on the DPM server](https://technet.microsoft.com/library/hh757911.aspx).|
 
-
 ## Change passphrase
 
 | Operation | Error details | Workaround |
@@ -108,18 +100,15 @@ We recommend you perform the below validation, before you start troubleshooting 
 | Change passphrase |The security PIN that was entered is incorrect. Provide the correct security PIN to complete this operation. |**Cause:**<br/> This error occurs when you enter an invalid or expired security PIN while you are performing a critical operation (such as changing a passphrase). <br/>**Recommended action:**<br/> To complete the operation, you must enter a valid security PIN. To get the PIN, sign in to the Azure portal and go to the Recovery Services vault. Then go to **Settings** > **Properties** > **Generate Security PIN**. Use this PIN to change the passphrase. |
 | Change passphrase |Operation failed. ID: 120002 |**Cause:**<br/>This error occurs when security settings are enabled, or when you try to change the passphrase when you're using an  unsupported version.<br/>**Recommended action:**<br/> To change the passphrase, you must first update the backup agent to the minimum version, which is 2.0.9052. You also need to update Azure Backup Server to the minimum of update 1, and then enter a valid security PIN. To get the PIN, sign into the Azure portal and go to the Recovery Services vault. Then go to **Settings** > **Properties** > **Generate Security PIN**. Use this PIN to change the passphrase. |
 
-
 ## Configure email notifications
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
 | Setting up email notifications using an Office 365 account |Error ID: 2013| **Cause:**<br> Trying to use Office 365 account <br>**Recommended action:**<ol><li> The first thing to ensure is that “Allow Anonymous Relay on a Receive Connector” for your DPM server is set up on Exchange. For more information about how to configure this, see [Allow Anonymous Relay on a Receive Connector](https://technet.microsoft.com/library/bb232021.aspx) on TechNet.</li> <li> If you can't use an internal SMTP relay and need to set up by using your Office 365 server, you can set up IIS to be a relay. Configure the DPM server to [relay the SMTP to O365 using IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **IMPORTANT:** Be sure to use the user\@domain.com format and *not* domain\user.<br><br><li>Point DPM to use the local server name as SMTP server, port 587. Then point it to the user email that the emails should come from.<li> The username and password on the DPM SMTP setup page should be for a domain account in the domain that DPM is on. </li><br> **NOTE**: When you are changing the SMTP server address, make the change to the new settings, close the settings box, and then reopen it to be sure it reflects the new value.  Simply changing and testing might not always cause the new settings to take effect, so testing it this way is a best practice.<br><br>At any time during this process, you can clear these settings by closing the DPM console and editing the following registry keys: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Delete SMTPPassword and SMTPUserName keys**. You can add them back to the UI when you launch it again.
 
-
 ## Common issues
 
 This section covers the common errors that you might encounter while using Azure Backup Server.
-
 
 ### CBPSourceSnapshotFailedReplicaMissingOrInvalid
 

@@ -1,19 +1,21 @@
 ---
-title: Client-Side Encryption with Python for Microsoft Azure Storage | Microsoft Docs
+title: Client-side encryption with Python
+titleSuffix: Azure Storage
 description: The Azure Storage Client Library for Python supports client-side encryption for maximum security for your Azure Storage applications.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.devlang: python
-ms.topic: article
-ms.date: 05/11/2017
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Client-Side Encryption with Python for Microsoft Azure Storage
+# Client-side encryption with Python
+
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Overview

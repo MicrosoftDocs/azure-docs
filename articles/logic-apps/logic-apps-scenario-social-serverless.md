@@ -1,18 +1,16 @@
 ---
-title: Serverless scenario - Create customer insights dashboard with Azure services | Microsoft Docs
+title: Create customer insights dashboard
 description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: estfan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
 ---
 
-# Create streaming customer insights dashboard with Azure Logic Apps and Azure Functions
+# Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions
 
 Azure offers [serverless](https://azure.microsoft.com/solutions/serverless/) tools that help you quickly build 
 and host apps in the cloud, without having to think about infrastructure. 
@@ -170,7 +168,7 @@ On your logic app's menu, choose **Overview**.
 
 After you create a logic app solution, 
 you can capture and deploy your app as an 
-[Azure Resource Manager template](../azure-resource-manager/template-deployment-overview.md) 
+[Azure Resource Manager template](../azure-resource-manager/templates/overview.md) 
 to any Azure region in the world. 
 You can use this capability both to modify parameters 
 for creating different versions of your app and for 

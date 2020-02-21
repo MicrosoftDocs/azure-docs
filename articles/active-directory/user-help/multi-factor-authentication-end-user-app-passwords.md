@@ -2,7 +2,7 @@
 title: How to manage app passwords - Azure Active Directory | Microsoft Docs
 description: Learn about app passwords and what they are used for with regard to two-step verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: lizross
+ms.author: curtand
 ms.custom: "user-help, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 
 # Manage app passwords for two-step verification
@@ -24,11 +23,9 @@ ms.collection: M365-identity-device-management
 
 When using app passwords, it's important to remember:
 
-- App passwords are auto-generated and only entered once per app.
+- App passwords are auto-generated, and should be created and entered once per app.
 
 - There's a limit of 40 passwords per user. If you try to create one after that limit, you'll be prompted to delete an existing password before being allowed to create the new one.
-
-- Use one app password per device, not per app. For example, create a single password for all the apps on your laptop, and then another single password for all the apps on your desktop.
 
     >[!Note]
     >Office 2013 clients (including Outlook) support new authentication protocols and can be used with two-step verification. This support means that after two-step verification is turned on, you'll no longer need app passwords for Office 2013 clients. For more info, see the [How modern authentication works for Office 2013 and Office 2016 client apps](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) article.

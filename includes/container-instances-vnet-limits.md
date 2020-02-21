@@ -2,15 +2,15 @@
 author: dlepow
 ms.service: container-instances
 ms.topic: include
-ms.date: 08/19/2019
+ms.date: 01/31/2020
 ms.author: danlep
 ---
 ### Regions and resource availability
 
-| Location | OS | CPU | Memory (GB) |
-| -------- | :---: | :---: | :-----------: |
-| North Europe, Southeast Asia, Central US, East US, East US 2, South Central US, West US 2 | Linux | 4 | 16 |
-| West Europe | Linux | 4 | 14 |
-| Japan East | Linux | 2 | 8 |
-| West US | Linux | 2 | 3.5 |
-| Australia East, West Central US | Linux | 1 | 1.5 |
+| Regions | OS | Max CPU | Max Memory (GB) | Storage (GB) |
+| -------- | :---: | :---: | :-----------: | :---: |
+| Australia East, Canada Central, Central US, East US<sup>1</sup>, East US 2, North Europe, South Central US<sup>1</sup>, Southeast Asia, West Europe, West US 2<sup>1</sup> | Linux | 4 | 16 | 50 |
+| Japan East | Linux | 2 | 8 | 50 |
+| North Central US, South India, West US | Linux | 2 | 3.5 | 50 |
+
+<sup>1</sup>Region in which container group deployments to a virtual network are generally available for production workloads. In other regions, virtual network deployments are in preview.

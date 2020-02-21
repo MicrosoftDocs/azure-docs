@@ -1,24 +1,20 @@
 ---
-title: Client application configuration (Microsoft Authentication Library) | Azure
-description: Learn about the configuration options for public client and confidential client applications in the Microsoft Authentication Library (MSAL).
+title: Client application configuration (MSAL) | Azure
+titleSuffix: Microsoft identity platform
+description: Learn about configuration options for public client and confidential client applications using the Microsoft Authentication Library (MSAL).
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2019
-ms.author: twhitney
+ms.date: 09/27/2019
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the types of client applications so I can decide if this platform meets my app development needs.
-ms.collection: M365-identity-device-management
 ---
 
 # Application configuration options
@@ -33,6 +29,7 @@ In your code, you initialize a new public or confidential client application (or
 - [Logging options](#logging), including log level, control of personal data, and the name of the component using the library.
 
 ## Authority
+
 The authority is a URL that indicates a directory that MSAL can request tokens from. Common authorities are:
 
 - https\://login.microsoftonline.com/\<tenant\>/, where &lt;tenant&gt; is the tenant ID of the Azure Active Directory (Azure AD) tenant or a domain associated with this Azure AD tenant. Used only to sign in users of a specific organization.
@@ -58,6 +55,7 @@ The instance and audience can be concatenated and provided as the authority URL.
 ![How the authority URL is composed](media/msal-client-application-configuration/authority.png)
 
 ## Cloud instance
+
 The *instance* is used to specify if your app is signing users from the Azure public cloud or from national clouds. Using MSAL in your code, you can set the Azure cloud instance by using an enumeration or by passing the URL to the [national cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints) as the `Instance` member (if you know it).
 
 MSAL.NET will throw an explicit exception if both `Instance` and `AzureCloudInstance` are specified.
@@ -71,6 +69,7 @@ The sign-in audience depends on the business needs for your app:
 - If you're an ISV, you might want to sign in users with their work and school accounts in any organization or in some organizations (multitenant app). But you might also want to have users sign in with their personal Microsoft accounts.
 
 ### How to specify the audience in your code/configuration
+
 Using MSAL in your code, you specify the audience by using one of the following values:
 - The Azure AD authority audience enumeration
 - The tenant ID, which can be:
@@ -86,6 +85,7 @@ MSAL will throw a meaningful exception if you specify both the Azure AD authorit
 If you don't specify an audience, your app will target Azure AD and personal Microsoft accounts as an audience. (That is, it will behave as though `common` were specified.)
 
 ### Effective audience
+
 The effective audience for your application will be the minimum (if there's an intersection) of the audience you set in your app and the audience that's specified in the app registration. In fact, the [App registrations](https://aka.ms/appregistrations) experience lets you specify the audience (the supported account types) for the app. For more information, see [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
 
 Currently, the only way to get an app to sign in users with only personal Microsoft accounts is to configure both of these settings:
@@ -93,12 +93,15 @@ Currently, the only way to get an app to sign in users with only personal Micros
 - Set the audience in your code/configuration to `AadAuthorityAudience.PersonalMicrosoftAccount` (or `TenantID` ="consumers").
 
 ## Client ID
+
 The client ID is the unique application (client) ID assigned to your app by Azure AD when the app was registered.
 
 ## Redirect URI
+
 The redirect URI is the URI the identity provider will send the security tokens back to.
 
 ### Redirect URI for public client apps
+
 If you're a public client app developer who's using MSAL:
 - You'd want to use `.WithDefaultRedirectUri()` in desktop or UWP applications (MSAL.NET 4.1+). This method will set the public client application's 
   redirect uri property to the default recommended redirect uri for public client applications. 
@@ -121,20 +124,24 @@ You can override the redirect URI by using the `RedirectUri` property (for examp
 - `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
 - `RedirectUriOnIos` = $"msauth.{Bundle.ID}://auth";
 
-For details, see the [documentation for Android and iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
+For additional iOS details, see [Migrate iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET](msal-net-migration-ios-broker.md) and [Leveraging the broker on iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
+For additional Android details, see [Brokered auth in Android](brokered-auth.md).
 
 ### Redirect URI for confidential client apps
+
 For web apps, the redirect URI (or reply URI) is the URI that Azure AD will use to send the token back to the application. This URI can be the URL of the web app/Web API if the confidential app is one of these. The redirect URI needs to be registered in app registration. This registration is especially important when you deploy an app that you've initially tested locally. You then need to add the reply URL of the deployed app in the application registration portal.
 
 For daemon apps, you don't need to specify a redirect URI.
 
 ## Client secret
+
 This option specifies the client secret for the confidential client app. This secret (app password) is provided by the application registration portal or provided to Azure AD during app registration with PowerShell AzureAD, PowerShell AzureRM, or Azure CLI.
 
 ## Logging
+
 The other configuration options enable logging and troubleshooting. See the [Logging](msal-logging.md) article for details on how to use them.
 
 ## Next steps
-Learn about [instantiating client applications by using MSAL.NET](msal-net-initializing-client-applications.md).
 
+Learn about [instantiating client applications by using MSAL.NET](msal-net-initializing-client-applications.md).
 Learn about [instantiating client applications by using MSAL.js](msal-js-initializing-client-applications.md).

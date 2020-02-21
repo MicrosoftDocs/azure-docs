@@ -1,19 +1,16 @@
 ---
-title: Schedule recurring tasks with Sliding Window trigger - Azure Logic Apps
-description: Schedule and run recurring automated tasks and workflows with the Sliding Window trigger in Azure Logic Apps
+title: Schedule tasks to handle contiguous data
+description: Create and run recurring tasks that handle contiguous data by using sliding windows in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: deli, klam, LADocs
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
 ---
 
-# Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger in Azure Logic Apps
+# Schedule and run tasks for contiguous data by using the Sliding Window trigger in Azure Logic Apps
 
-To regularly run tasks, processes, or jobs that must handle data in continuous chunks, you can start your logic app workflow with the **Sliding Window - Schedule** trigger. You can set a date and time as well as a time zone for starting the workflow and a recurrence for repeating that workflow. If recurrences are missed for whatever reason, this trigger processes those missed recurrences. For example, when synchronizing data between your database and backup storage, use the Sliding Window trigger so that the data gets synchronized without incurring gaps. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+To regularly run tasks, processes, or jobs that must handle data in contiguous chunks, you can start your logic app workflow with the **Sliding Window** trigger. You can set a date and time as well as a time zone for starting the workflow and a recurrence for repeating that workflow. If recurrences are missed for whatever reason, this trigger processes those missed recurrences. For example, when synchronizing data between your database and backup storage, use the Sliding Window trigger so that the data gets synchronized without incurring gaps. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Here are some patterns that this trigger supports:
 

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Call your Bing Custom Search endpoint using the Python SDK | Microsoft Docs"
+title: "Quickstart: Call your Bing Custom Search endpoint using the Python SDK"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using the Python SDK. 
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 02/12/2020
 ms.author: aahi
 ---
 
@@ -42,16 +42,17 @@ from msrest.authentication import CognitiveServicesCredentials
 
 ## Create a search client and send a request
 
-1. Create a variable for your subscription key.
+1. Create a variable for your subscription key and endpoint.
 
     ```python
     subscription_key = 'your-subscription-key'
+    endpoint = 'your-endpoint'
     ```
 
 2. Create an instance of `CustomSearchClient`, using a `CognitiveServicesCredentials` object with the subscription key. 
 
     ```python
-    client = CustomSearchClient(CognitiveServicesCredentials(subscription_key))
+    client = CustomSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 3. Send a search request with `client.custom_instance.search()`. Append your search term to the `query` parameter, and set `custom_config` to your Custom Configuration ID to use your search instance. You can get your ID from the [Bing Custom Search portal](https://www.customsearch.ai/), by clicking the **Production** tab.

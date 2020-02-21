@@ -82,9 +82,9 @@ Build tasks can download the tools' NuGet packages from the [Azure DevOps Packag
 
 ### What effect does installing the extension have on my Azure DevOps organization? 
 
-Upon their installation, the security build tasks provided by the extension becomes available to all users in your organization. When you create or edit an Azure pipeline, these tasks are available from the build-task collection list. Otherwise, installing the extension in your Azure DevOps organization has no effect. The installation doesn't modify any account settings, project settings, or pipelines.
+Upon their installation, the security build tasks provided by the extension becomes available to all users in your organization. When you create or edit an Azure Pipeline, these tasks are available from the build-task collection list. Otherwise, installing the extension in your Azure DevOps organization has no effect. The installation doesn't modify any account settings, project settings, or pipelines.
 
-### Does installing the extension modify my existing Azure pipelines? 
+### Does installing the extension modify my existing Azure Pipelines? 
 
 No. Installing the extension makes the security build tasks available for addition to your pipelines. You're still required to add or update build definitions, so that the tools can work with your build process.
 
@@ -148,12 +148,6 @@ Examples of valid suppression rules:
 
 #### What are recommended guidelines for managing secrets?
 
-It's helpful to detect hard-coded secrets quickly and to mitigate the risks. But preventing secrets from getting checked in at all is even better.
-
-To help in this regard, Microsoft has released an early preview of Credential Scanner Code Analyzer as part of the [Microsoft DevLabs extension](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) for Visual Studio. The analyzer is an early-preview release. It gives developers an inline experience for detecting potential secrets in their code. By doing so, the analyzer also gives developers the chance to fix those issues in real time.
-
-For more information, see the blog post [Managing Secrets Securely in the Cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
-
 The following resources help you securely manage secrets and access sensitive information from within your applications:
 
  - [Azure Key Vault](../../key-vault/index.yml)
@@ -162,6 +156,9 @@ The following resources help you securely manage secrets and access sensitive in
  - [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Managed identities in Azure App Service and Azure Functions](../../app-service/overview-managed-identity.md)
  - [AppAuthentication library](../../key-vault/service-to-service-authentication.md)
+
+
+For more information, see the blog post [Managing Secrets Securely in the Cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
 
 #### Can I write my own custom searchers?
 
@@ -221,9 +218,6 @@ The Roslyn Analyzers build task needs to query Azure DevOps for the MSBuild log 
 
 If you need additional assistance, Microsoft Security Code Analysis Support is available Monday to Friday from 9:00 AM to 5:00 PM Pacific Standard Time.
 
-  - Onboarding: Contact your Technical Account Managers to get started.
+- Onboarding: Refer to our [Onboarding documentation](security-code-analysis-onboard.md)
   
-  - Support: Email our team at [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
-
-  >[!NOTE] 
-  >You might not have a paid support relationship with Microsoft. Or you might have a support offering that prevents you from purchasing services from the Phoenix catalog. If either of these conditions is true, please visit our [support services home page](https://www.microsoft.com/enterprise/services/support) for more information.
+- Support: Email our team at [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)

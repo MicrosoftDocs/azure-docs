@@ -1,13 +1,9 @@
 ---
-title: Tutorial - Configure kubenet networking in Azure Kubernetes Service (AKS) using Ansible | Microsoft Docs
+title: Tutorial - Configure kubenet networking in Azure Kubernetes Service (AKS) using Ansible
 description: Learn how to use Ansible to configure kubenet networking in Azure Kubernetes Service (AKS) cluster
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
-ms.date: 04/30/2019
+ms.date: 10/23/2019
 ---
 
 # Tutorial: Configure kubenet networking in Azure Kubernetes Service (AKS) using Ansible
@@ -104,7 +100,7 @@ Here are some key notes to consider when working with the sample playbook:
 
 - Use `azure_rm_aks_version` module to find the supported version.
 - The `vnet_subnet_id` is the subnet created in the previous section.
-- The `network_profile` defines the properties for the kubenet network plugin.
+- The `network_profile` defines the properties for the kubenet network plug-in.
 - The `service_cidr` is used to assign internal services in the AKS cluster to an IP address. This IP address range should be an address space that isn't used elsewhere in your network. 
 - The `dns_service_ip` address should be the ".10" address of your service IP address range.
 - The `pod_cidr` should be a large address space that isn't in use elsewhere in your network environment. The address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed.

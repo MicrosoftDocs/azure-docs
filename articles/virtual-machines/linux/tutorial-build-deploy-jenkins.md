@@ -1,8 +1,8 @@
 ---
-title: Tutorial - CI/CD from Jenkins to Azure VMs with Azure DevOps Services | Microsoft Docs
+title: Tutorial - CI/CD from Jenkins to Azure VMs with Azure DevOps Services 
 description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app by using Jenkins to Azure VMs from Release Management in Visual Studio Team Services or Microsoft Team Foundation Server
 author: tomarchermsft
-manager: jpconnock
+
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -53,7 +53,7 @@ to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/releas
 ## Get the sample app
 
 You need an app to deploy, stored in a Git repository.
-For this tutorial, we recommend that you use [this sample app available from GitHub](https://github.com/azooinmyluggage/fabrikam-node). This tutorial contains a sample script that's used for installing Node.js and an application. If you want to work with your own repository, you should configure a similar sample.
+For this tutorial, we recommend that you use [this sample app available from GitHub](https://github.com/azure-devops/fabrikam-node). This tutorial contains a sample script that's used for installing Node.js and an application. If you want to work with your own repository, you should configure a similar sample.
 
 Create a fork of this app and take note of the location (URL) for use in later steps of this tutorial. For more information, see [Fork a repo](https://help.github.com/articles/fork-a-repo/).    
 
@@ -181,9 +181,11 @@ In this tutorial, you automated the deployment of an app to Azure by using Jenki
 > * Build your app in Jenkins.
 > * Configure Jenkins for Azure DevOps Services integration.
 > * Create a deployment group for the Azure virtual machines.
-> * Create a release pipeline that configures the VMs and deploys the app.
+> * Create an Azure Pipeline that configures the VMs and deploys the app.
 
-To learn about how to deploy a LAMP (Linux, Apache, MySQL, and PHP) stack, advance to the next tutorial.
+To learn about how to use Azure Pipelines for both Build and Release steps, refer to [this](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups).
+
+To learn about how to author a YAML based CI/CD pipeline to deploy to VMs, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Deploy LAMP stack](tutorial-lamp-stack.md)
+> [CI/CD using Azure Pipelines](tutorial-build-deploy-azure-pipelines.md)

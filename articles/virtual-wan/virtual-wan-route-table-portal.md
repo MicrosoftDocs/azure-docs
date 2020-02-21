@@ -1,19 +1,19 @@
 ---
-title: 'Create an Azure Virtual WAN virtual hub route table - Azure portal | Microsoft Docs'
+title: 'Virtual WAN: Create virtual hub route table to NVA: Azure portal'
 description: Virtual WAN virtual hub route table to steer traffic to a network virtual appliance using the portal.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ---
 
 # Create a Virtual WAN hub route table for NVAs: Azure portal
 
-This article shows you how to steer traffic from a hub to a Network Virtual Appliance (NVA).
+This article shows you how to steer traffic from a branch (on-premises site) connected to the Virtual WAN hub to a Spoke Vnet via a Network Virtual Appliance (NVA).
 
 ![Virtual WAN diagram](./media/virtual-wan-route-table/vwanroute.png)
 
@@ -27,7 +27,7 @@ Verify that you have met the following criteria:
 
     * The NVA is not deployed in the virtual hub. It must be deployed in a separate VNet.
 
-    *  The NVA VNet may have one or many virtual networks connected to it. In this article, we refer to the NVA VNet as an 'indirect spoke VNet'. These VNets can be connected to the NVA VNet by using VNet peering.
+    *  The NVA VNet may have one or many virtual networks connected to it. In this article, we refer to the NVA VNet as an 'indirect spoke VNet'. These VNets can be connected to the NVA VNet by using VNet peering. The Vnet Peering links are depicted by black arrows in the above figure between Vnet 1, Vnet 2 and NVA Vnet.
 *  You have created 2 VNets. They will be used as spoke VNets.
 
     * For this exercise, the VNet spoke address spaces are: VNet1: 10.0.2.0/24 and VNet2: 10.0.3.0/24. If you need information on how to create a VNet, see [Create a virtual network](../virtual-network/quick-create-portal.md).
@@ -63,7 +63,7 @@ Create the hub. For the purposes of this exercise, you can use the following val
 
 Update the hub with a hub route table. For the purposes of this exercise, you can use the following values:
 
-* **Indirect spoke VNet address spaces:** (VNet1 and VNet2) 10.0.2.0/24 and 10.0.3.0/24
+* **Spoke VNet address spaces:** (VNet1 and VNet2) 10.0.2.0/24 and 10.0.3.0/24
 * **DMZ NVA network interface private IP address:** 10.0.4.5
 
 1. Navigate to your virtual WAN.
@@ -75,7 +75,7 @@ Update the hub with a hub route table. For the purposes of this exercise, you ca
 
 ## <a name="connections"></a>5. Create the VNet connections
 
-Create a connection from each indirect spoke VNet (VNet1 and VNet2) to the hub. Then, create a connection from the NVA VNet to the hub.
+Create a Vnet connection from each indirect spoke VNet (VNet1 and VNet2) to the hub. These Vnet connections are depicted by the blue arrows in the above figure. Then, create a Vnet connection from the NVA VNet to the hub (black arrow in the figure). 
 
  For this step, you can use the following values:
 

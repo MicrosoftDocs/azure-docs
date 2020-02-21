@@ -352,7 +352,7 @@ A: No, if an administrator edits the details for a terms of use (name, display n
 A: Currently, you can't update an existing terms of use document. To change a terms of use document, you will have to create a new terms of use instance.
 
 **Q: If hyperlinks are in the terms of use PDF document, will end users be able to click them?**<br />
-A: The PDF is rendered by default as a JPEG, so hyperlinks are not clickable. Users have the option to select **Having trouble viewing? Click here**, which renders the PDF natively where hyperlinks are supported.
+A: Yes, end users are able to select hyperlinks to additional pages but links to sections within the document are not supported.
 
 **Q: Can a terms of use support multiple languages?**<br />
 A: Yes. Currently there are 108 different languages an administrator can configure for a single terms of use. An administrator can upload multiple PDF documents and tag those documents with a corresponding language (up to 108). When end users sign in, we look at their browser language preference and display the matching document. If there is no match, we will display the default document, which is the first document that is uploaded.

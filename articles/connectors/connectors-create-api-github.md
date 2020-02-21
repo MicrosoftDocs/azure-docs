@@ -1,19 +1,15 @@
 ---
-title: Connect to GitHub - Azure Logic Apps
-description: Monitor GitHub events with GitHub REST APIs and Azure Logic Apps
+title: Access, monitor, and manage your GitHub repo
+description: Monitor GitHub events and manage your GitHub repo by creating automated workflows with Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/02/2018
 tags: connectors
 ---
 
-# Connect to GitHub from Azure Logic Apps
+# Monitor and manage your GitHub repo by using Azure Logic Apps
 
 GitHub is a web-based Git repository hosting service that offers all of the distributed 
 revision control and source code management (SCM) functionality in Git plus other features.

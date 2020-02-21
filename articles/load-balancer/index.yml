@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: asudbring
   ms.author: allensu
-  ms.date: 08/20/2019 #Required; mm/dd/yyyy format.
+  ms.date: 12/05/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -26,24 +26,20 @@ landingContent:
         links:
           - text: What is Load Balancer?
             url: load-balancer-overview.md
-          - text: What is Standard Load Balancer?
-            url: load-balancer-standard-overview.md
       
   # Card (optional)
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Basic Load Balancer
-            url: quickstart-create-basic-load-balancer-portal.md
           - text: Create a Standard Load Balancer to load balance VMs
             url: quickstart-load-balancer-standard-public-portal.md
       - linkListType: tutorial
         links:
           - text: Load balance internet traffic to VMs
             url: tutorial-load-balancer-standard-manage-portal.md
-          - text: Balance internal traffic load with a Basic load balancer
-            url: tutorial-load-balancer-basic-internal-portal.md
+          - text: Load balance VMs across availability zones with a Standard Load Balancer
+            url: tutorial-load-balancer-standard-public-zone-redundant-portal.md
           - text: Configure port forwarding in Azure Load Balancer
             url: tutorial-load-balancer-port-forwarding-portal.md
 

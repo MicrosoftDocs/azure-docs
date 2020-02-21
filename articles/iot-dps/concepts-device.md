@@ -1,9 +1,9 @@
 ---
 title: Device concepts in Azure device provisioning | Microsoft Docs
-description: Describes device provisioning concepts specific to devices with Device Provisioning Service and IoT Hub
+description: Describes device provisioning concepts specific to devices with Device Provisioning Service (DPS) and IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -39,14 +39,14 @@ Device secrets may also be stored in software (memory), but it is a less secure 
 
 ## Registration ID
 
-The registration ID is used to uniquely identify a device in the Device Provisioning Service. The device ID must be unique in the provisioning service [ID scope](#id-scope). Each device must have a registration ID. The registration ID is alphanumeric, lowercase, and may contain hyphens.
+The registration ID is used to uniquely identify a device in the Device Provisioning Service. The device ID must be unique in the provisioning service [ID scope](#id-scope). Each device must have a registration ID. The registration ID is alphanumeric, case insensitive, and may contain special characters including colon, period, underscore and hyphen.
 
 * In the case of TPM, the registration ID is provided by the TPM itself.
 * In the case of X.509-based attestation, the registration ID is provided as the subject name of the certificate.
 
 ## Device ID
 
-The device ID is the ID as it appears in IoT Hub. The desired device ID may be set in the enrollment entry, but it is not required to be set. If no desired device ID is specified in the enrollment list, the registration ID is used as the device ID when registering the device. Learn more about [device IDs in IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
+The device ID is the ID as it appears in IoT Hub. The desired device ID may be set in the enrollment entry, but it is not required to be set. Setting the desired device ID is only supported in individual enrollments. If no desired device ID is specified in the enrollment list, the registration ID is used as the device ID when registering the device. Learn more about [device IDs in IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
 
 ## ID scope
 

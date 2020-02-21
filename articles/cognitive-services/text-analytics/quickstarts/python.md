@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Using Python to call the Text Analytics API"
 titleSuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
+description: This quickstart shows how to get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ---
 
@@ -18,7 +18,7 @@ ms.author: aahi
 
 Use this quickstart to begin analyzing language with the Text Analytics REST API and Python. This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities).
 
-Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## Prerequisites
 
@@ -45,20 +45,13 @@ import requests
 from pprint import pprint
 ```
 
-Create variables for your resource's Azure endpoint and subscription key. Obtain these values from the environment variables TEXT_ANALYTICS_SUBSCRIPTION_KEY and TEXT_ANALYTICS_ENDPOINT. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
+Create variables for your resource's Azure endpoint and subscription key.
     
 ```python
 import os
 
-key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
-if not key_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
-subscription_key = os.environ[key_var_name]
-
-endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
-if not endpoint_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
-endpoint = os.environ[endpoint_var_name]
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
 The following sections describe how to call each of the API's features.
@@ -67,8 +60,8 @@ The following sections describe how to call each of the API's features.
 
 ## Detect languages
 
-Append `languages` to the Text Analytics base endpoint to form the language detection URL. For example:
-    `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+Append `/text/analytics/v2.1/languages` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
     
 ```python
 language_api_url = endpoint + "/text/analytics/v2.1/languages"
@@ -137,8 +130,8 @@ pprint(languages)
 
 ## Analyze sentiment
 
-To detect the sentiment (which ranges between positive or negative) of a set of documents, append `sentiment` to the Text Analytics base endpoint to form the language detection URL. For example:
-    `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+To detect the sentiment (which ranges between positive or negative) of a set of documents, append `/text/analytics/v2.1/sentiment` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
     
 ```python
 sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
@@ -200,8 +193,8 @@ The sentiment score for a document is between 0.0 and 1.0, with a higher score i
 
 ## Extract key phrases
  
-To extract the key phrases from a set of documents, append `keyPhrases` to the Text Analytics base endpoint to form the language detection URL. For example:
-    `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+To extract the key phrases from a set of documents, append `/text/analytics/v2.1/keyPhrases` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
     
 ```python
 keyphrase_url = endpoint + "/text/analytics/v2.1/keyphrases"
@@ -277,8 +270,8 @@ pprint(key_phrases)
 
 ## Identify Entities
 
-To identify well-known entities (people, places, and things) in text documents, append `entities` to the Text Analytics base endpoint to form the language detection URL. For example:
-    `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
+To identify well-known entities (people, places, and things) in text documents, append `/text/analytics/v2.1/entities` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
     
 ```python
 entities_url = endpoint + "/text/analytics/v2.1/entities"

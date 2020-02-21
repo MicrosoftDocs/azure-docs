@@ -1,12 +1,12 @@
 ---
-title: How to require approved client apps for cloud app access with Conditional Access in Azure Active Directory | Microsoft Docs
+title: Approved client apps with Conditional Access - Azure Active Directory
 description: Learn how to require approved client apps for cloud app access with Conditional Access in Azure Active Directory.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -35,7 +35,7 @@ In the Conditional Access terminology, these client apps are known as **approved
 
 ![Conditional Access](./media/app-based-conditional-access/05.png)
 
-For a list of approved client apps, see [approved client app requirement](technical-reference.md#approved-client-app-requirement).
+For a list of approved client apps, see [approved client app requirement](concept-conditional-access-grant.md).
 
 You can combine app-based Conditional Access policies with other policies such as [device-based Conditional Access policies](require-managed-devices.md) to provide flexibility in how to protect data for both personal and corporate devices.
 
@@ -43,7 +43,7 @@ You can combine app-based Conditional Access policies with other policies such a
 
 This topic assumes that you are familiar with:
 
-- The [approved client app requirement](technical-reference.md#approved-client-app-requirement) technical reference.
+- The [approved client app requirement](concept-conditional-access-grant.md).
 - The basic concepts of [Conditional Access in Azure Active Directory](overview.md).
 - How to [configure a Conditional Access policy](app-based-mfa.md).
 - The [migration of Conditional Access policies](best-practices.md#policy-migration).

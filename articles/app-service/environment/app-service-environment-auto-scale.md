@@ -1,16 +1,9 @@
 ---
-title: Autoscaling and App Service Environment v1 - Azure
-description: Autoscaling and App Service Environment
-services: app-service
-documentationcenter: ''
+title: Autoscaling v1
+description: Autoscaling and App Service Environment v1. This doc is provided only for customers who use the legacy v1 ASE.
 author: btardif
-manager: erikre
-editor: ''
 
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy

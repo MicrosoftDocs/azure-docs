@@ -1,16 +1,15 @@
 ---
-title: Azure Data Share Preview terminology 
-description: Azure Data Share Preview terminology
-author: joannapea
-
+title: Azure Data Share terminology 
+description: Learn about common terms used to describe resources used in Azure Data Share (data provider, data consumer, data share, share subscription, snapshot, invitation, recipient.)
 ms.service: data-share
+author: joannapea
+ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
 ---
-# Azure Data Share Preview Concepts 
+# Azure Data Share Concepts 
 
-Azure Data Share Preview introduces some new terminology related to data sharing. This article explains some frequently used terms that you may see used throughout the service. 
+Azure Data Share introduces some new terminology related to data sharing. This article explains some frequently used terms that you may see used throughout the service. 
 
 ## Data provider
 
@@ -48,7 +47,9 @@ A data consumer has the option to opt-in to this snapshot schedule to receive in
 
 A data provider can invite multiple recipients to their data share. They can do so by adding recipients to the data share. Invitations can also be added after a data share has been created. 
 
-A data provider can delete an invitation after it has been sent. Note that if a data provider deletes an invitation after it has been accepted, the data consumer can still have an active share subscription. If the data provider deletes an invitation and it has not yet been accepted, the data consumer will not be able to accept it. 
+A data provider can delete an invitation after it has been sent if it has not been accepted. If the data provider deletes an invitation and it has not yet been accepted, the data consumer will not be able to accept it. 
+
+Invitations can be resent up to five times a day. 
 
 ## Recipient
 
@@ -57,4 +58,3 @@ A recipient is someone that receives an invitation to a data share. Typically, a
 ## Next steps
 
 To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.
-

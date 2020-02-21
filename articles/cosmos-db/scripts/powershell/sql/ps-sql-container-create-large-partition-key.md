@@ -1,8 +1,9 @@
 ---
-title: Azure PowerShell script - Create a container with a large partition key in an Azure Cosmos account
+title: PowerShell script to create an Azure Cosmos container with a large partition key
 description: Azure PowerShell script sample - Create a container with a large partition key in an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown

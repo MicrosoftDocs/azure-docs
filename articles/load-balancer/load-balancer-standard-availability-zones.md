@@ -1,7 +1,7 @@
 ---
 title: Azure Standard Load Balancer and Availability Zones
-titlesuffix: Azure Load Balancer
-description: Standard Load Balancer and Availability Zones
+titleSuffix: Azure Load Balancer
+description: With this learning path, get started with Azure Standard Load Balancer and Availability Zones.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -17,7 +17,7 @@ ms.author: allensu
 
 # Standard Load Balancer and Availability Zones
 
-Azure Standard Load Balancer supports [availability zones](../availability-zones/az-overview.md) scenarios. You can use Standard Load Balancer to optimize availability in your end-to-end scenario by aligning resources with zones and distributing them across zones.  Review [availability zones](../availability-zones/az-overview.md) for guidance on what availability zones are, which regions currently support availability zones, and other related concepts and products. availability zones in combination with Standard Load Balancer is an expansive and flexible feature set that can create many different scenarios.  Review this document to understand these [concepts](#concepts) and fundamental scenario [design guidance](#design).
+Azure Standard Load Balancer supports [availability zones](../availability-zones/az-overview.md) scenarios. You can use Standard Load Balancer to optimize availability in your end-to-end scenario by aligning resources with zones and distributing them across zones.  Review [availability zones](../availability-zones/az-overview.md) for guidance on what availability zones are, which regions currently support availability zones, and other related concepts and products. Availability zones in combination with Standard Load Balancer is an expansive and flexible feature set that can create many different scenarios.  Review this document to understand these [concepts](#concepts) and fundamental scenario [design guidance](#design).
 
 >[!IMPORTANT]
 >Review [Availability Zones](../availability-zones/az-overview.md) for related topics, including any region specific information.
@@ -83,7 +83,7 @@ The following excerpt is an illustration for how to define a zone-redundant fron
                 ],
 ```
 
-The preceeding excerpts are not complete templates but intended to show how to express availability zones properties.  You need to incorporate these statements into your templates.
+The preceding excerpts are not complete templates but intended to show how to express availability zones properties.  You need to incorporate these statements into your templates.
 
 #### Optional zone isolation
 
@@ -138,7 +138,7 @@ The following excerpt is an illustration for how to define an internal Standard 
                 ],
 ```
 
-The preceeding excerpts are not complete templates but intended to show how to express availability zones properties.  You need to incorporate these statements into your templates.
+The preceding excerpts are not complete templates but intended to show how to express availability zones properties.  You need to incorporate these statements into your templates.
 
 ### Cross-zone Load-Balancing
 
@@ -204,10 +204,6 @@ Zone-redundant can provide a simplicity with a zone-agnostic option and at the s
 Zonal can provide an explicit guarantee to a zone, explicitly sharing fate with the health of the zone. Creating a Load Balancer rule with a zonal IP address frontend or zonal internal Load Balancer frontend can be a desirable especially if your attached resource is a zonal virtual machine in the same zone.  Or perhaps your application requires explicit knowledge about which zone a resource is located in ahead of time and you wish to reason about availability in separate zones explicitly.  You can choose to expose multiple zonal frontends for an end-to-end service distributed across zones (that is, per zone zonal frontends for multiple zonal virtual machine scale sets).  And if your zonal frontends are public IP addresses, you can use these multiple zonal frontends for exposing your service with [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Or you can use multiple zonal frontends to gain per zone health and performance insights through third party monitoring solutions and expose the overall service with a zone-redundant frontend. You should only serve zonal resources with zonal frontends aligned to the same zone and avoid potentially harmful cross-zone scenarios for zonal resources.  Zonal resources only exist in regions where availability zones exist.
 
 There's no general guidance that one is a better choice than the other without knowing the service architecture.  Review [Azure cloud design patterns](https://docs.microsoft.com/azure/architecture/patterns/) to improve the resiliency of your application to failure scenarios.
-
-## Limitations
-
-- While data plane is fully zone-redundant (unless zonal guarantee was specified), control plane operations aren't fully zone-redundant.
 
 ## Next steps
 - Learn more about [Availability Zones](../availability-zones/az-overview.md)

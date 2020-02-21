@@ -1,5 +1,5 @@
 ---
-title: Expand virtual hard disks on a Linux VM in Azure | Microsoft Docs
+title: Expand virtual hard disks on a Linux VM in Azure 
 description: Learn how to expand virtual hard disks on a Linux VM with the Azure CLI
 author: roygara
 ms.service: virtual-machines-linux
@@ -137,4 +137,4 @@ To use an expanded disk, expand the underlying partition and filesystem.
 
 ## Next steps
 * If you need additional storage, you can also [add data disks to a Linux VM](add-disk.md). 
-* For more information about disk encryption, see [Encrypt disks on a Linux VM using the Azure CLI](encrypt-disks.md).
+* For more information about disk encryption, see [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md).

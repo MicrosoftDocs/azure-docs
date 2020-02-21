@@ -1,9 +1,9 @@
 ---
-title: Azure CLI Script Sample - Quick Create a Windows Server 2016 VM | Microsoft Docs
+title: Azure CLI Script Sample - Quick Create a Windows Server 2016 VM 
 description: Azure CLI Script Sample - Quick Create a Windows Server 2016 VM 
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
-author: rickstercdn
+author: cynthn
 manager: gwallace
 editor: tysonn
 tags: 
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
-ms.author: gwallace
+ms.author: cynthn
 ms.custom: mvc
 ---
 

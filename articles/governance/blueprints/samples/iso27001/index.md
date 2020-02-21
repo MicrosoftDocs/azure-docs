@@ -1,12 +1,8 @@
 ---
-title: Samples - ISO 27001 blueprint - Overview
-description: Overview of the ISO 27001 blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 07/22/2019
+title: ISO 27001 blueprint sample overview
+description: Overview of the ISO 27001 blueprint sample. This blueprint sample helps customers assess specific ISO 27001 controls.
+ms.date: 01/13/2020
 ms.topic: sample
-ms.service: blueprints
-manager: carmonm
 ---
 # Overview of the ISO 27001 blueprint sample
 
@@ -33,7 +29,7 @@ sample:
 > [ISO 27001 blueprint - Control mapping](./control-mapping.md)
 > [ISO 27001 blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

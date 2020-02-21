@@ -10,7 +10,8 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high 
-#Customer intent: As an IT admin, I need to be able to set up Data Box Heavy to upload on-premises data from my server onto Azure.
+
+# Customer intent: As an IT admin, I need to be able to set up Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
 ::: zone target = "docs"
 
@@ -20,7 +21,7 @@ ms.localizationpriority: high
 
 ::: zone target = "chromeless"
 
-## Get started with Azure Data Box Heavy
+# Get started with Azure Data Box Heavy
 
 ::: zone-end
 

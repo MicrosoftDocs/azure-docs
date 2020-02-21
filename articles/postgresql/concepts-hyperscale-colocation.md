@@ -1,6 +1,6 @@
 ---
-title: Server concepts in Azure Database for PostgreSQL
-description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL servers.
+title: Table colocation - Hyperscale (Citus) - Azure Database for PostgreSQL
+description: How to store related information together for faster queries
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -15,7 +15,7 @@ Colocation means storing related information together on the same nodes. Queries
 
 ## Data colocation for hash-distributed tables
 
-In Azure Database for PostgreSQL – Hyperscale (Citus) Preview, a row is stored in a shard if the hash of the value in the distribution column falls within the shard's hash range. Shards with the same hash range are always placed on the same node. Rows with equal distribution column values are always on the same node across tables.
+In Azure Database for PostgreSQL – Hyperscale (Citus), a row is stored in a shard if the hash of the value in the distribution column falls within the shard's hash range. Shards with the same hash range are always placed on the same node. Rows with equal distribution column values are always on the same node across tables.
 
 ![Shards](media/concepts-hyperscale-colocation/colocation-shards.png)
 

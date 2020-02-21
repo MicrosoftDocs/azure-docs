@@ -1,12 +1,10 @@
 ---
 title: Cross-tenant management in Azure Security Center | Microsoft Docs
-description: " Learn how to enable data collection in Azure Security Center. "
+description: Learn how to set up cross-tenant management to manage the security posture of multiple tenants in Security Center using Azure delegated resource management.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
-
 ms.assetid: 7d51291a-4b00-4e68-b872-0808b60e6d9c
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
-ms.author: v-mohabe
+ms.author: memildin
 
 ---
 
@@ -54,5 +52,6 @@ The views and actions are basically the same. Here are some examples:
 ## Next steps
 This article explains how cross-tenant management works in Security Center. To learn more about Security Center, see the following:
 
-* [Strengthen your security posture with Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-* [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
+* [Strengthen your security posture with Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
+* [Azure Security Center FAQ](security-center-faq.md) - Find frequently asked questions about using the service.
+* [Learn about Azure Lighthouse in enterprise scenarios](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) - Discover how Azure Lighthouse can simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.

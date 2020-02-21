@@ -1,10 +1,11 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB create SQL (Core) API database and container
+title: PowerShell script to create Azure Cosmos DB SQL (Core) API database and container
 description: Azure PowerShell script - Azure Cosmos DB create SQL (Core) API database and container
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
 ---
 
@@ -16,7 +17,9 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-create.ps1 "Create a database and container for SQL (Core) API")]
+This script creates a Cosmos account for SQL (Core) API in two regions with session level consistency, a database with shared throughput, and a container with a partition key, custom indexing policy, unique key policy, TTL, dedicated throughput, and last writer wins conflict resolution policy with a custom conflict resolution path that will be used when `multipleWriteLocations=true`.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-create.ps1 "Create an account, database, and container for SQL (Core) API")]
 
 ## Clean up deployment
 

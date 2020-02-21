@@ -1,20 +1,11 @@
 ---
-title: Azure Service Fabric CLI- sfctl store | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl store commands.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
+title: Azure Service Fabric CLI- sfctl store
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for performing file level operations on the cluster image store.
+author: jeffj6123
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-
+ms.date: 1/16/2020
+ms.author: jejarry
 ---
 
 # sfctl store
@@ -38,7 +29,7 @@ Deletes existing image store content being found within the given image store re
 |Argument|Description|
 | --- | --- |
 | --content-path [Required] | Relative path to file or folder in the image store from its root. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -59,7 +50,7 @@ Returns the information about the image store content at the root of the image s
 
 |Argument|Description|
 | --- | --- |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -81,7 +72,7 @@ Returns the information about the image store content at the specified contentPa
 |Argument|Description|
 | --- | --- |
 | --content-path [Required] | Relative path to file or folder in the image store from its root. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 

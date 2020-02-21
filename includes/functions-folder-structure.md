@@ -1,9 +1,7 @@
 ---
 title: include file
 description: include file
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 09/12/2018
@@ -16,17 +14,17 @@ The code for all the functions in a specific function app is located in a root p
 ```
 FunctionApp
  | - host.json
- | - Myfirstfunction
+ | - MyFirstFunction
  | | - function.json
  | | - ...  
- | - mysecondfunction
+ | - MySecondFunction
  | | - function.json
  | | - ...  
  | - SharedCode
  | - bin
 ```
 
-In version 2.x of the Functions runtime, all functions in the function app must share the same language stack.  
+In version 2.x and higher of the Functions runtime, all functions in the function app must share the same language stack.  
 
 The [host.json](../articles/azure-functions/functions-host-json.md) file contains runtime-specific configurations and is in the root folder of the function app. A *bin* folder contains packages and other library files that the function app requires. See the language-specific requirements for a function app project:
 
@@ -35,6 +33,4 @@ The [host.json](../articles/azure-functions/functions-host-json.md) file contain
 * [F# script](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
 * [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
 * [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
-
-
-
+* [Python](../articles/azure-functions/functions-reference-python.md#folder-structure)

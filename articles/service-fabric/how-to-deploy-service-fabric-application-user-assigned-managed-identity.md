@@ -1,13 +1,9 @@
 ---
-title: Azure Service Fabric - Deploy application with a user-assigned managed identity | Microsoft Docs
+title: Deploy app with a user-assigned managed identity
 description: This article shows you how to deploy Service Fabric application with a user-assigned managed identity
-services: service-fabric
-author: athinanthny
 
-ms.service: service-fabric
 ms.topic: article
-ms.date: 08/09/2019
-ms.author: atsenthi
+ms.date: 12/09/2019
 ---
 # Deploy Service Fabric application with a User-Assigned Managed Identity (preview)
 
@@ -22,7 +18,7 @@ To deploy a Service Fabric application with managed identity, the application ne
 
 ## User-Assigned Identity
 
-To enable application with User-Assigned identity, first add the **identity** property to the application resource with type **userAssigned** and the referenced user-assigned identities. Then add a **managedIdentities** section inside the **properties** section for the **application** resource which contains a list of friendly name to principalId mapping for each of the user-assigned identities.
+To enable application with User-Assigned identity, first add the **identity** property to the application resource with type **userAssigned** and the referenced user-assigned identities. Then add a **managedIdentities** section inside the **properties** section for the **application** resource which contains a list of friendly name to principalId mapping for each of the user-assigned identities. For more information about User Assigned Identities see [Create, list or delete a user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell).
 
 ### Application template
 

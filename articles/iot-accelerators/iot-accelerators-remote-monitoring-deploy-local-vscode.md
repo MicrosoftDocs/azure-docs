@@ -1,5 +1,5 @@
 ---
-title: Deploy the remote monitoring solution locally (Visual Studio Code) - Azure | Microsoft Docs 
+title: Deploy Remote Monitoring solution locally - Visual Studio Code - Azure | Microsoft Docs 
 description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine using Visual Studio Code for testing and development.
 author: avneet723
 manager: hegate

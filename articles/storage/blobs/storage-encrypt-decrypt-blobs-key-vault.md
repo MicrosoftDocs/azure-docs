@@ -1,24 +1,25 @@
 ---
-title: 'Tutorial: Encrypt and decrypt blobs in Azure Storage using Azure Key Vault | Microsoft Docs'
-description: How to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault.
+title: Tutorial - Encrypt and decrypt blobs using Azure Key Vault
+titleSuffix: Azure Storage
+description: Learn how to encrypt and decrypt a blob using client-side encryption with Azure Key Vault.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: tutorial
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ---
-# Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault
 
-## Introduction
+# Tutorial - Encrypt and decrypt blobs using Azure Key Vault
+
 This tutorial covers how to make use of client-side storage encryption with Azure Key Vault. It walks you through how to encrypt and decrypt a blob in a console application using these technologies.
 
 **Estimated time to complete:** 20 minutes
 
-For overview information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-whatis.md).
+For overview information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
 For overview information about client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -116,7 +117,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## Access Storage and Key Vault in your program
+## Access Azure Storage and Key Vault in your program
 
 In the Main() method, add the following code.
 
@@ -224,6 +225,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
+
 That's it. Enjoy!
 
 ## Next steps
