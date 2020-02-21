@@ -8,7 +8,7 @@ ms.date: 02/13/2020
 ms.author: rogarana
 ---
 
-# Enable active directory over SMB for Azure file shares
+# Enable Active Directory over SMB for Azure file shares
 
 [Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and Active Directory (AD) (preview). This article focuses on the newly introduced (preview) support of leveraging Active Directory Domain Service for authentication to Azure file shares. If you are interested in enabling Azure AD DS (GA) authentication for Azure file shares refer to [our article on the subject](storage-files-active-directory-enable.md). 
 
@@ -43,8 +43,6 @@ Before you enable AD authentication for Azure file shares, make sure you have co
 
 - Select or create an Azure storage account in [a supported region](#regional-availability). 
 
-    The France Central region is the only available region for this preview feature, so your storage account must be in that region to use the feature. Also, make sure your storage account is associated with the same subscription as your Azure AD tenant.
-
     Make sure that the storage account containing your file shares is not already configured for Azure AD DS Authentication. If Azure Files Azure AD DS Authentication is enabled on the storage account, it needs to be disabled before changing to use AD. This implies that existing ACLs configured in Azure AD DS environment will need to be reconfigured for proper permission enforcement.
     
     For information about creating a new file share, see [Create a file share in Azure Files](storage-how-to-create-file-share.md).
@@ -57,7 +55,7 @@ Before you enable AD authentication for Azure file shares, make sure you have co
 
 ## Regional availability
 
-AD is available in [most public regions](https://azure.microsoft.com/global-infrastructure/regions/), the subset of regions that it is not yet available in is:
+Azure Files AD authentication is available in [most public regions](https://azure.microsoft.com/global-infrastructure/regions/), the subset of regions that it is not yet available in is:
 
 - West US
 - West US 2
