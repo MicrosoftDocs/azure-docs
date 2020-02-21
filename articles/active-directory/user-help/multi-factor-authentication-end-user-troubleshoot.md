@@ -21,7 +21,7 @@ When your Azure Active Directory (Azure AD) organization turns on two-factor ver
 
 <center>
 
-![Conceptual authentication methods image](../authenticatio/media/concept-mfa-howitworks/methods.png)</center>
+![Conceptual authentication methods image](../authentication/media/concept-mfa-howitworks/methods.png)</center>
 
 There are some common two-factor verification problems that seem to happen more frequently than any of us would like. We've put together this article to address the most common problems and some possible fixes.
 
