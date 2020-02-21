@@ -1,5 +1,5 @@
 ---
-title: Common problems & solutions with account authentication - Azure AD
+title: Common problems with account two factor authentication - Azure AD
 description: Solutions for some of the more common two-factor verification problems and your work or school account.
 services: active-directory
 author: curtand
@@ -17,7 +17,7 @@ ms.reviewer: kexia
 
 # Common problems with two-factor verification and your work or school account
 
-When your Azure Active Directory (Azure AD) organization turns on two-factor verification, your work or school account sign-in requires a combination of your user name, your password, and a mobile device or phone. Your organization turned on this extra verification because it's more secure than just a password, relying on two forms of authentication: something you know, and something you have with you. Two-factor verification can help to stop malicious hackers from pretending to be you, because even if they have your password, the odds are that they don't have your device, too.
+When your Azure Active Directory (Azure AD) organization turns on two-factor verification, your work or school account sign-in requires a combination of your user name, your password, and a mobile device or phone. It's more secure than just a password, relying on two forms of authentication: something you know, and something you have with you. Two-factor verification can help to stop malicious hackers from pretending to be you, because even if they have your password, the odds are that they don't have your device, too.
 
 <center>
 
@@ -26,9 +26,9 @@ When your Azure Active Directory (Azure AD) organization turns on two-factor ver
 There are some common two-factor verification problems that seem to happen more frequently than any of us would like. We've put together this article to address the most common problems and some possible fixes.
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure AD Azure AD environment in the [Azure AD documentation](https://docs.microsoft.com/azure/active-directory).
+>If you're an administrator, you can find more information about how to set up and manage your Azure AD Azure AD environment in the [Azure AD documentation](https://docs.microsoft.com/azure/active-directory).
 >
->This content is also intended only for use with your work or school account, which is the account provided to you by your organization (for example, alain@contoso.com). If you're having problems with two-factor verification and your personal account, which is an account that you set up for yourself (for example, danielle@outlook.com), see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>This content is also intended only for use with your work or school account, which is the account provided to you by your organization (for example, alain@contoso.com). If you're having problems with two-factor verification and your personal Microsoft account, which is an account that you set up for yourself (for example, danielle@outlook.com), see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## I don't have my mobile device with me
 
