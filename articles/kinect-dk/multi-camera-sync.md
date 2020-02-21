@@ -11,27 +11,26 @@ keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, I
 
 # Synchronize multiple Azure Kinect DK devices
 
-Each Azure Kinect DK device includes 3.5-mm synchronization ports (**Sync in** and **Sync out**) that you can use to link multiple units together. When linked, cameras can coordinate the trigger timing of multiple depth cameras and RGB cameras. 
+Each Azure Kinect DK device includes 3.5-mm synchronization ports (**Sync in** and **Sync out**) that you can use to link multiple units together. When linked, your software can coordinate the trigger timing of multiple depth cameras and RGB cameras. 
 
-In this article, we will explore the benefits of multi device synchronization and its details.
+In this article, we will explore the benefits of multi-device synchronization and its details.
 
 ## Why use multiple Azure Kinect DK devices?
 
-There are many reasons to use multiple Azure Kinect DK devices. Some examples are
-- Fill in occlusions.
-   *Occlusion* means that there is something you want to see, but can't see it due to some interference. In our case Azure Kinect DK device has two cameras (depth and color cameras) that do not share the same origin, so one camera can see part of an object that other cannot. Therefore, when transforming depth to color image, you may see a shadow around an object.
-   On the image below, the left camera sees the grey pixel P2, but the ray from the right camera to P2 hits the white foreground object. As a result the right camera cannot see P2.  
-   ![Occlusion](./media/occlusion.png)  
-   Using additional Azure Kinect DK devices will solve this issue and fill out an occlusion problem.
+There are many reasons to use multiple Azure Kinect DK devices. Examples include the following:
 
+- Fill in occlusions. An occlusion occurs when a foreground object blocks the view of part of a background object for one of the two cameras. In the resulting color image, the foreground object appears to cast a shadow on the background object. Although the Azure Kinect DK data transformations produce a single image, the two cameras (Depth and RGB) are actually a small distance apart. The offset makes occlusions possible.  
+   For example, in the following diagram, the left camera sees the grey pixel "P2." However, the white foreground object blocks the right camera IR beam. The right camera has no data for "P2."
+   ![Occlusion](./media/occlusion.png)  
+   Additional synchronized devices can fill in the occluded data.
 - Scan objects in three dimensions.
-- Increase the effective frame rate to something higher than the 30 FPS
-- Capture multiple 4K color images of the same scene, all aligned within 100 microseconds of the start of exposure.
+- Increase the effective frame rate to something higher than 30 frames per second (FPS).
+- Capture multiple 4K color images of the same scene, all aligned within 100 microseconds (&mu;s) of the start of exposure.
 - Increase camera coverage within the space.
 
 ## Plan your multi-device configuration
 
-Before you start, make sure to review [Azure Kinect DK Hardware specification](hardware-specification.md). 
+Before you start, make sure to review [Azure Kinect DK Hardware specification](hardware-specification.md) and [Azure Kinect DK depth camera](depth-camera.md).
 
 ### Select a camera configuration
 
@@ -45,42 +44,42 @@ You can use two different approaches for your camera configuration:
 ### Plan your camera settings and software configuration
 
 #### Exposure
-We recommend using a manual exposure setting if you want to control the precise timing of each device. Automatic exposure allows each color camera to dynamically change exposure, as a result it is impossible for the timing between the two devices to stay exactly the same.  
+If you want to control the precise timing of each device, we recommend that you use a manual exposure setting. Under the automatic exposure setting, each color camera can dynamically change the actual exposure. Because the exposure affects the timing, such changes quickly push the cameras out of synch.
 
-Do not repeatedly set the same exposure setting in the image capture loop.  
-
-Do set the exposure when needed, just call the API once.
+In the image capture loop, avoid repeatedly setting the same exposure setting. When needed, just call the API once.
 
 #### Timestamps
-The device timestamp reported for images changes meaning to ‘Start of Frame’ from ‘Center of Frame’ when using master or subordinate modes.
+Cameras that are acting in master or subordinate roles report image timestamps in terms of *Start of Frame* instead of *Center of Frame*.
 
-#### Interference between IR cameras
+#### Interference between multiple IR cameras
 
-Avoid IR camera interference between different cameras. 
+When multiple IR cameras image overlapping fields of view, each camera must image its own associated laser. To prevent the lasers from interfering with each other, the camera captures should be offset from one another by 160μs or more.
 
-Interference happens when the depth sensor's ToF lasers are on at the same time as another depth camera.
-To avoid it, cameras that have overlapping areas of interest need to have their timing shifted by the "laser on time" so they are not on at the same time.  For each capture, the laser turns on nine times and is active for only 125us and is then idle for 1450us or 2390us depending on the mode of operation. As a result, depth cameras need their "laser on time" shifted by a minimum of 125us and that on time needs to fall into the idle time of the other depth sensors in use. 
+For each depth camera capture, the laser turns on nine times and is active for only 125&mu;s each time. The laser is then idle for either 14505&mu;s or 23905&mu;s, depending on the mode of operation. This behavior means that the starting point for the offset calculation is 125&mu;s.
 
-Due to the differences in the clock used by the firmware and the clock used by the camera, 125&mu;s cannot be used directly. Instead the software setting required to ensure sure there is no camera interference is 160&mu;s. It allows nine more depth cameras to be scheduled into the 1450&mu;s of idle time of NFOV. The exact timing changes based on the depth mode you are using.
-
-Using the [depth sensor raw timing table](hardware-specification.md) the exposure time can be calculated as:
+Additionally, difference between the camera clock and the device firmware clock increase the minimum offset to 160&mu;s. To calculate a more precise offset for your configuration, note the depth mode that you are using and refer to the [depth sensor raw timing table](hardware-specification.md). Using the data from this table, you can calculate the minimum offset (the exposure time of each camera) by using the following equation:
 
 > *Exposure Time* = (*IR Pulses* &times; *Pulse Width*) + (*Idle Periods* &times; *Idle Time*)
 
-In your software, use ```depth_delay_off_color_usec``` or ```subordinate_delay_off_master_usec``` to make sure that each IR laser fires in its own 160&mu;s window or has a different field of view.
+When you use an offset of 160&mu;s, you can configure up to nine additional depth cameras so that each laser fires while the other lasers are idle.
 
-When using multiple depth cameras in synchronized captures, depth camera captures should be offset from one another by 160μs or more to avoid depth cameras interference.
+In your software, use ```depth_delay_off_color_usec``` or ```subordinate_delay_off_master_usec``` to make sure that each IR laser fires in its own 160&mu;s window or has a different field of view.
 
 #### Using an external sync trigger
 
-A custom sync source can be used to replace the master Azure Kinect DK. It is helpful when the image captures need to be synchronized with other equipment. The custom trigger must create a sync signal, similar to the master device, via the 3.5-mm port.
+Instead of designating a master Azure Kinect DK device, you can use a custom external source for the synchronization trigger. For example, you can use this option to synchronize image captures with other equipment.
 
-- The SYNC signals are active high and pulse width should be greater than 8us.
-- Frequency support must be precisely 30 fps, 15 fps, and 5 fps, the frequency of color camera's master VSYNC signal.
-- SYNC signal from the board should be 5 V TTL/CMOS with maximum driving capacity no less than 8 mA.
-- All styles of 3.5-mm port can be used with Kinect DK, including "mono", that is not pictured. All sleeves and rings are shorted together inside Kinect DK and they are connected to ground of the master Azure Kinect DK. The tip is the sync signal.
+Your external trigger source must function in the same manner as the master device: it must deliver a sync signal that has the following characteristics:
 
-![Camera trigger signal externally](./media/resources/camera-trigger-signal.jpg)
+- Active high
+- Pulse width: greater than 8&mu;s
+- 5V TTL/CMOS
+- Maximum driving capacity: no less than 8 milliamps (mA)
+- Frequency support: precisely 30 FPS, 15 FPS, and 5 FPS (the frequency of the color camera master VSYNC signal)
+
+The trigger source must deliver the signal to the master device **Sync in** port by using a 3.5-mm audio cable. You can use a stereo or mono cable. The Azure Kinect DK shorts all of the sleeves and rings of the audio cable connector together, and grounds them. As shown in the following diagram, the device receives the sync signal from the connector tip only.
+
+![Cable configurations for an external trigger signal](./media/resources/camera-trigger-signal.jpg)
 
 ## Prepare your devices and other hardware
 
