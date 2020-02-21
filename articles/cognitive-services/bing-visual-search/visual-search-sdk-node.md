@@ -22,7 +22,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 * The Bing Visual Search SDK for Node.js
     * To set up a console application using the Bing Visual Search SDK, run the following commands:
         1. `npm install ms-rest-azure`
-        2. `npm install azure-cognitiveservices-search-visualSearch`.
+        2. `npm install azure-cognitiveservices-visualsearch`.
 
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
