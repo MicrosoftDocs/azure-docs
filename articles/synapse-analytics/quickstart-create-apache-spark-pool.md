@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https:/portal.azure.com/)
 1. From the list of workspaces, type the name (or part of the name) of the workspace to open -- in this case, we will use a workspace named **contosoanalytics**
 ![Listing of Synapse workspaces filtered to show those containing the name Contoso.](media/quickstart-create-sql-pool/quickstart-create-sql-pool-00b.png)
 1. Click on the **New Apache Spark pool** command in the top bar.
-![Overview of Synapse workspace with a red box around the command to create a new Apache Spark pool.](media/quickstart-create-apache-spark-pool/quickstart-create-sparkpool-01.png)
+![Overview of Synapse workspace with a red box around the command to create a new Apache Spark pool.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-01.png)
 1. Enter the following details in the **Basics** tab:
 
     |Setting | Suggested value | Description |
@@ -46,23 +46,23 @@ Sign in to the [Azure portal](https:/portal.azure.com/)
     | **Number of nodes** | 8 | Use a small size to limit costs in this quickstart|
     ||||
 
-    ![SQL Analytics pool create flow - basics tab.](media/quickstart-create-apache-spark-pool/quickstart-create-sparkpool-02.png)
+    ![SQL Analytics pool create flow - basics tab.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-02.png)
     > [!IMPORTANT]
     > Note that there are specific limitations for the names that Apache Spark pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
 
 4. In the next tab (Additional settings), leave all defaults, and press **Next: tags**.
-![Apache Spark pool create flow - additional settings tab.](media/quickstart-create-apache-spark-pool/quickstart-create-sparkpool-03.png)
+![Apache Spark pool create flow - additional settings tab.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-03.png)
 
 1. We will not add any tags for now, so click on **Next: Review + create**.
 
 1. In the **Review + create** tab, make sure that the details look correct based on what was previously entered, and press **create**. 
-![Apache Spark pool create flow - review settings tab.](media/quickstart-create-apache-spark-pool/quickstart-create-sparkpool-05.png)
+![Apache Spark pool create flow - review settings tab.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-05.png)
 
 1. At this point, the resource provisioning flow will start, indicating once it's complete
- ![Apache Spark pool create flow - resource provisioning.](media/quickstart-create-apache-spark-pool/quickstart-create-sparkpool-06.png)
+ ![Apache Spark pool create flow - resource provisioning.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-06.png)
 
 1. After the provisioning completes, navigating back to the workspace will show a new entry for the newly created SQL pool.
- ![Apache Spark pool create flow - resource provisioning.](media/quickstart-create-apache-spark-pool/quickstart-create-sparkpool-07.png)
+ ![Apache Spark pool create flow - resource provisioning.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-07.png)
 
 
 ## Clean up resources
@@ -76,9 +76,9 @@ If you want to delete the Apache Spark pool, do the following:
 1. Navigate to the Apache Spark pools blade in the workspace.
 1. Select the Apache pool to be deleted (in this case, **contosospark**)
 1. Press **delete**.
- ![Listing of Apache Spark pools, with the recently created pool selected.](media/quickstart-create-apache-spark-pool/quickstart-create-sparkpool-08.png)
+ ![Listing of Apache Spark pools, with the recently created pool selected.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-08.png)
 1. Confirm the deletion, and press **Delete** button.
- ![Confirmation dialog to delete the selected Apache Spark pool.](media/quickstart-create-apache-spark-pool/quickstart-create-sparkpool-10.png)
+ ![Confirmation dialog to delete the selected Apache Spark pool.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-10.png)
 1. When the process completes successfully, the Apache Spark pool will no longer be listed in the workspace resources. 
 
 ## Next steps

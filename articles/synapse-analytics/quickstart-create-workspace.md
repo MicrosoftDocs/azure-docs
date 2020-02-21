@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 1. Navigate to the Azure Synapse workspace listing by typing the service name into the search bar:
 ![Azure portal search bar with Azure Synapse workspaces typed in.](media/quickstart-create-synapse-workspace/workspace-search.png).
 1. Click on **+ Add** from the left navigation menu (top-left part of the Azure portal page).
-![Command to create new Azure Synapse workspace highlighted.](media/quickstart-create-synapse-workspace/quickstart-create-a-synapseworkspace-02.png).
+![Command to create new Azure Synapse workspace highlighted.](media/quickstart-create-synapse-workspace/create-workspace-02.png).
 1. Fill out the **Azure Synapse workspace** form with the following information:
 
     | Setting | Suggested value | Description |
@@ -42,7 +42,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     | **Data Lake Storage Gen2** | Account: `storage account name` </br> File system: `root file system to use` | Specifies the ADLS Gen2 storage account name to use as primary storage and the file system to use.|
     ||||
 
-    ![Workspace provisioning flow - Basics tab.](media/quickstart-create-synapse-workspace/quickstart-create-a-synapseworkspace-03.png).
+    ![Workspace provisioning flow - Basics tab.](media/quickstart-create-synapse-workspace/create-workspace-03.png).
 
     The storage account can be selected from: 
     - A list of ADLS Gen2 accounts available in your subscription
@@ -59,8 +59,8 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 1. (Optional) Modify any of the **Security + networking defaults** tab:
 1. (Optional) Add any tags in the **Tags** tab.
-1. The **Summary** tab will run the necessary validations to ensure that the workspace can be successfully created. Once the validation succeeds, press **Create** ![Workspace provisioning flow - confirmation tab.](media/quickstart-create-synapse-workspace/quickstart-create-a-synapseworkspace-05.png).
-1. Once the resource provisioning process completes successfully, you'll see an entry for the created workspace in the list of Synapse workspaces. ![Listing of Synapse workspaces showing the newly provisioned workspace.](media/quickstart-create-synapse-workspace/quickstart-create-a-synapseworkspace-07.png).
+1. The **Summary** tab will run the necessary validations to ensure that the workspace can be successfully created. Once the validation succeeds, press **Create** ![Workspace provisioning flow - confirmation tab.](media/quickstart-create-synapse-workspace/create-workspace-05.png).
+1. Once the resource provisioning process completes successfully, you'll see an entry for the created workspace in the list of Synapse workspaces. ![Listing of Synapse workspaces showing the newly provisioned workspace.](media/quickstart-create-synapse-workspace/create-workspace-07.png).
 
 ## Clean up resources
 
@@ -74,9 +74,9 @@ If you want to delete the  Azure Synapse workspace, complete the following steps
 
 1. Navigate to the Azure Synapse workspace to delete.
 1. Press **delete** on the command bar.
- ![Azure Synapse workspace overview - delete command highlighted.](media/quickstart-create-synapse-workspace/quickstart-create-a-synapseworkspace-10.png)
+ ![Azure Synapse workspace overview - delete command highlighted.](media/quickstart-create-synapse-workspace/create-workspace-10.png)
 1. Confirm the deletion, and press **Delete** button.
- ![Azure Synapse workspace overview - delete workspace confirmation dialog.](media/quickstart-create-synapse-workspace/quickstart-create-a-synapseworkspace-11.png)
+ ![Azure Synapse workspace overview - delete workspace confirmation dialog.](media/quickstart-create-synapse-workspace/create-workspace-11.png)
 1. When the process completes successfully, the Azure Synapse workspace will no longer be listed in the list of workspaces. 
 
 ## Next steps
