@@ -48,7 +48,7 @@ To create an app in an ASE:
 	a. From the Azure portal left side menu, select **Create a resource > Web App**.
 
 	b. Select the subscription.
-	,
+	
 	c. Select or create the resource group.
 	
 	d. Provide the name of your web app.
