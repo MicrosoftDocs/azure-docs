@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Using the ADT APIs
+title: Use the ADT APIs
 description: See details about using the Azure Digital Twins API surface
 author: baanders
 ms.author: baanders # Microsoft employees only

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Handling events
+title: Using event handlers
 description: Understand what you can do with event handlers in Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
