@@ -756,6 +756,7 @@ Text recognition result response:
   "lastUpdatedDateTime": "2020-02-11T21:21:19Z",
   "status": "succeeded"
 }
+```
 
 ---
 
