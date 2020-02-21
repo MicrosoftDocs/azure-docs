@@ -10,42 +10,39 @@
  ms.custom: include file
 ---
 
-Save on your Azure Premium SSD usage. With reserved capacity and Azure Reserved Virtual Machine Instances, you can lower your total virtual machine costs.
+Save on your Azure premium solid-state drive (SSD) usage. With reserved capacity and Azure Reserved Virtual Machine Instances, you can lower your total virtual machine (VM) costs. The reservation discount is applied automatically to the matching disks in the selected reservation scope. Because of this automatic application, you don't need to assign a reservation to a managed disk to get the discounts.
 
-The reservation discount is applied automatically to the matching disks in the selected reservation scope. Because of this automatic application, you don't need to assign a reservation to a managed disk to get the discounts.
-
-Discounts are applied hourly depending on the disk usage. Unused reserved capacity doesn't carry over. Azure Managed Disk Reservation discounts don't apply to Unmanaged Disks, Ultra Disks, or Page-Blob consumption.
+Discounts are applied hourly depending on the disk usage. Unused reserved capacity doesn't carry over. Azure Disk Storage reservation discounts don't apply to unmanaged disks, ultra disks, or page blob consumption.
 
 ## Determine your storage needs
 
-Before you purchase a reservation, determine your storage needs. Currently, Azure Managed Disk Reservation is available only for select Azure Premium SSD SKUs. The SKU of a premium SSD determines the disk's size and performance.
+Before you purchase a reservation, determine your storage needs. Currently, Azure Disk Storage reservations are available only for select Azure premium SSD SKUs. The SKU of a premium SSD determines the disk's size and performance.
 
-When determining your storage needs, don't think of disks based on just capacity. For example, you can't have a reservation for a P40 disk and use that to pay for two smaller P30 disks. When you purchase a reservation, you purchase only the total number of disks per SKU.
+When determining your storage needs, don't think of disks based on just capacity. For example, you can't have a reservation for a P40 disk and use that to pay for two smaller P30 disks. When purchasing a reservation, you're only purchasing a reservation for the total number of disks per SKU.
 
-A disk reservation is made per Premium SSD SKU. As a result, the reservation consumption is based on the unit of the Premium SSD SKUs instead of the provided size.
+A disk reservation is made per disk SKU. As a result, the reservation consumption is based on the unit of the disk SKUs instead of the provided size.
 
-For example, assume you reserve one P40 disk that has 2 TiB of provisioned storage capacity. Also assume you allocate only two P30 disks. The P40 reservation in that case doesn't account for P30 consumption, and you pay the pay-as-you-go rate.
-
+For example, assume you reserve one P40 disk that has 2 TiB of provisioned storage capacity. Also assume you allocate only two P30 disks. The P40 reservation in that case doesn't account for P30 consumption, and you pay the pay-as-you-go rate on the P30 disks.
+<br/>
+<br/>
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 ## Purchase considerations
 
 We recommend the following practices when considering disk reservation purchase:
 
-- Analyze your usage information to help determine which reservations you should purchase. Make sure you track the usage in Premium SSD SKUs instead of provisioned or used disk capacity.
-- Examine your disk reservation along with your VM reservation. We highly recommend making reservations for both VM usage and disk usage for maximum savings. You can start with determining the right VM reservation, then evaluate the disk reservation.
-
-  Generally, you'll have a standard configuration for each of your workloads. For example, a SQL Server server might have two P40 data disks and one P30 operating system disk.
+- Analyze your usage information to help determine which reservations you should purchase. Make sure you track the usage in disk SKUs instead of provisioned or used disk capacity.
+- Examine your disk reservation along with your VM reservation. We highly recommend making reservations for both VM usage and disk usage for maximum savings. You can start with determining the right VM reservation and then evaluate the disk reservation. Generally, you'll have a standard configuration for each of your workloads. For example, a SQL Server server might have two P40 data disks and one P30 operating system disk.
   
   This kind of pattern can help you determine the reserved amount you might purchase. This approach can simplify the evaluation process and ensure that you have an aligned plan for both your VM and disks. The plan contains considerations like subscriptions or regions.
 
 ## Purchase restrictions
 
-Reservation discounts are currently unavailable for the following disk types:
+Reservation discounts are currently unavailable for the following:
 
-- Azure Unmanaged Disks or Azure Page Blobs.
-- Azure Standard SSD or Azure Standard HDD.
-- Azure Premium SSD SKUs smaller than P30: P1, P2, P3, P4, P6, P10, P15, and P20 Premium SSD SKUs.
+- Unmanaged disks or page blobs.
+- Standard SSDs or standard hard-disk drives (HDDs).
+- Premium SSD SKUs smaller than P30: P1, P2, P3, P4, P6, P10, P15, and P20 SSD SKUs.
 - Disks in Azure Government, Azure Germany, or Azure China regions.
 
 In rare circumstances, Azure limits the purchase of new reservations to a subset of disk SKUs because of low capacity in a region.
@@ -90,9 +87,9 @@ You can cancel, exchange, or refund reservations within certain limitations. For
 
 ## Expiration of a reservation
 
-When a reservation expires, any Disk Storage capacity that you use under that reservation is billed at the pay-as-you-go rate. Reservations don't renew automatically.
+When a reservation expires, any Azure Disk Storage capacity that you use under that reservation is billed at the pay-as-you-go rate. Reservations don't renew automatically.
 
-You receive an email notification 30 days before the expiration of the reservation and again on the expiration date. To take advantage of the cost savings that a reservation provides, renew it no later than the expiration date.
+You'll receive an email notification 30 days before the expiration of the reservation and again on the expiration date. To continue taking advantage of the cost savings that a reservation provides, renew it no later than the expiration date.
 
 ## Need help? Contact us
 
