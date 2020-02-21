@@ -59,6 +59,7 @@ Original query
 ```KQL
 search * 
 | summarize AggregatedValue = count() by Type
+```
 
 Updated query
 ```KQL
