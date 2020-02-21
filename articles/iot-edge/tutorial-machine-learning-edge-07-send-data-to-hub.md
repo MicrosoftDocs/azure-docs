@@ -4,7 +4,7 @@ description: 'This tutorial shows how you can use your development machine as a 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 2/14/2020
+ms.date: 2/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -52,7 +52,7 @@ Look at the code to see how these two items are implemented.
 
 1. Find the fully qualified domain name (FQDN) for your edge gateway by navigating to your IoT Edge device (Linux VM) in the Azure portal and copying the value for **DNS name** from the overview page.
 
-1. Start the VM if it is not already running.
+1. Start your IoT device (Linux VM) VM if it is not already running.
 
 1. Open the Visual Studio Code terminal. From the **Terminal** menu, select **New Terminal** and run the following command, replacing `<edge_device_fqdn>` with the DNS name that you copied from the development VM:
 
