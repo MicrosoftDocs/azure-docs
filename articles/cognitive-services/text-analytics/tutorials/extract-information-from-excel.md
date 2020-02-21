@@ -96,7 +96,7 @@ Add an **Apply to each** action.
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-an-apply.png" alt-text="add an apply command.":::
 
-Select output from spreadsheet. Click inside the box and select value.
+Click on **Select an output from previous step**. In the Dynamic content box that appears, select **value**.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="Select output from the excel file.":::
@@ -107,11 +107,16 @@ If you haven’t already, you need to create a [Text Analytics resource](https:/
 
 ### Create a Text Analytics connection
 
-You can skip this step if you have already created a Text Analytics connection. Click on the ellipsis on the top right corner, the click  + Add new connection under My Connections.
+In the **Apply to each**, click **Add an action**. 
 
-Go to the Azure Portal’s Quickstart Page, and get the following information for your Text Analytics resource (see here how to create a resource):
+
+
+Go to the Azure Portal’s Quickstart Page, and get the following information for your Text Analytics resource.
 
 In your flow, enter the following information to create a new Text Analytics connection.
+
+> [!NOTE]
+> If you already have created a Text Analytics connection and want to change your connection details, Click on the ellipsis on the top right corner, and click **+ Add new connection**.
 
 | Field           | Value                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
@@ -138,8 +143,8 @@ Enter `en` for Language. (Click Show advanced options if you don’t see Languag
 
 ## Extract the person name
 
-Next, we will find the person entity type in the Text Analytics output. 
-1. Apply to each 2. 
+Next, we will find the person entity type in the Text Analytics output. Within the **Apply to each**, create a new **Apply to each two** action.
+
 2. Click inside the input box to select the output and select Entities under Dynamic Content.
 3. Next, click Add an action and type condition, then select Condition Control from Actions.
 
