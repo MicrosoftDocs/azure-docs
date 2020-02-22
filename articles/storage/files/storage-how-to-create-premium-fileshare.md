@@ -207,4 +207,4 @@ az group delete --name myResourceGroup
 In this article, you've created a premium file share. To learn about the performance this account offers, continue to the performance tier section of the planning guide.
 
 > [!div class="nextstepaction"]
-> [File share performance tiers](storage-files-planning.md#file-share-performance-tiers)
+> [File share tiers](storage-files-planning.md#storage-tiers)
