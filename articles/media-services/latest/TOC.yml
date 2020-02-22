@@ -99,6 +99,8 @@
     - name: Streaming Endpoints 
       displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
+    - name: Scaling streaming with CDN
+      href: scale-streaming-cdn.md
     - name: Streaming Locators 
       displayName: URLs
       href: streaming-locators-concept.md
@@ -228,7 +230,9 @@
       href: cli-create-transform.md
     - name: Create jobs - CLI
       href: cli-create-jobs.md
-  - name: Encode content
+    - name: Jobs with multiple transform outputs
+      href: job-multiple-transform-outputs.md
+  - name: Encode content 
     items:
     - name: HTTPS as Job input - .NET
       displayName: encode, encoding
