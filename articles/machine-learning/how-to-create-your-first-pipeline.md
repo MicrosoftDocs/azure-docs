@@ -337,6 +337,8 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 To use either a `TabularDataset` or `FileDataset` in your pipeline, you need to turn it into a  [DatasetConsumptionConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_consumption_config.datasetconsumptionconfig?view=azure-ml-py) object by calling [as_named_input(name)](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#as-named-input-name-). You pass this `DatasetConsumptionConfig` object as one of the `inputs` to your pipeline step. 
 
+Datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1,  Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL can be used as input to any pipeline step. With the exception of [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) and [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py), output data ([PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)) can only be written to Azure Blob and Azure File share datastores.
+
 ```python
 dataset_consuming_step = PythonScriptStep(
     script_name="iris_train.py",
@@ -356,9 +358,6 @@ run_context = Run.get_context()
 iris_dataset = run_context.input_datasets['iris_data']
 dataframe = iris_dataset.to_pandas_dataframe()
 ```
-
->[!NOTE]
-> All types of datasets (Blob, File Share, ADLS Gen 2, etc. ) can be used as input to any pipeline step, and output can be used in the DataTransferStep. However, writing output data (PipelineData) back to your ADLS Gen 2 dataset is not supported. 
 
 For more information, see the [azure-pipeline-steps package](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) and [Pipeline class](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) reference.
 
