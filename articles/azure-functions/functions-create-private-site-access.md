@@ -10,9 +10,9 @@ ms.date: 02/15/2020
 
 # Tutorial: establish Azure Functions private site access
 
-This tutorial will show you how to create an Azure Function with private site access. Configuring private site access ensures that the specified Azure Function is not able to be triggered via the public internet. By enabling private site access, the function can only be triggered via a specific virtual network.
+This tutorial will show you how to create an Azure Function with private site access. Configuring private site access ensures that the specified Azure Function is not able to be triggered via the internet. By enabling private site access, the function can only be triggered via a specific virtual network.
 
-TODO: ADD TEXT ON WHY THIS IS HELPFUL / POTENTIAL SCENARIOS
+Private site access is useful in scenarios when access to the function needs to be limited to a specific virtual network. For example, the function may be applicable to only employees of a specific organization, or services residing within the specified virtual network (such as another Azure Function, Azure Virtual Machine, or an AKS cluster).
 
 If an Azure Function needs to access Azure resources within the virtual network, or connected via [service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview), then [virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet) is needed.
 
