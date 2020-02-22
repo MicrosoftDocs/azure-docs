@@ -55,15 +55,16 @@ Sign in to the [Azure portal](https:/portal.azure.com/)
 
 1. We will not add any tags for now, so click on **Next: Review + create**.
 
-1. In the **Review + create** tab, make sure that the details look correct based on what was previously entered, and press **create**. 
+1. In the **Review + create** tab, make sure that the details look correct based on what was previously entered, and press **create**.
 ![Apache Spark pool create flow - review settings tab.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-05.png)
 
 1. At this point, the resource provisioning flow will start, indicating once it's complete
  ![Apache Spark pool create flow - resource provisioning.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-06.png)
 
-1. After the provisioning completes, navigating back to the workspace will show a new entry for the newly created SQL pool.
+1. After the provisioning completes, navigating back to the workspace will show a new entry for the newly created Spark pool.
  ![Apache Spark pool create flow - resource provisioning.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-07.png)
 
+1. At this point, there are no resources running, no charges for Spark, you have created metadata about the Spark instances you want to create.
 
 ## Clean up resources
 
@@ -79,9 +80,10 @@ If you want to delete the Apache Spark pool, do the following:
  ![Listing of Apache Spark pools, with the recently created pool selected.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-08.png)
 1. Confirm the deletion, and press **Delete** button.
  ![Confirmation dialog to delete the selected Apache Spark pool.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-10.png)
-1. When the process completes successfully, the Apache Spark pool will no longer be listed in the workspace resources. 
+1. When the process completes successfully, the Apache Spark pool will no longer be listed in the workspace resources.
 
 ## Next steps
+
 Once the SQL pool is created, it will be available in the workspace for loading data, processing streams, reading from the lake, etc.
 
 See the other Synapse quickstarts to get started using the Apache Spark pool.

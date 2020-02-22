@@ -1,27 +1,27 @@
 ---
-title: Azure Synapse Spark version support 
-description: This article lists the supported runtime and service versions of Apache Spark in Azure Synapse Analytics.
+title: Arcadia Spark version support 
+description: Supported versions of Spark, Scala, Python
 services: sql-data-warehouse 
 author: euangMS 
 ms.service: sql-data-warehouse 
 ms.topic: reference
 ms.subservice: design
-ms.date: 09/15/2019 
+ms.date: 2/21/2020 
 ms.author: euang 
 ms.reviewer: euang
 ---
 
-# Supported language and runtime versions for Apache Spark and dependent components in Azure Synapse Analytics
+# Supported language and runtime versions for Apache Spark and dependent components  
 
-This article lists the supported runtime and service versions of Apache Spark in Azure Synapse Analytics. 
+The Apache Spark in Arcadia service supports several different run times and services this document lists the versions.
 
 ## Spark version
 
 Spark 2.4 is the currently supported version.
 
-## Operating system version
+## Operating System version
 
-Apache Spark in Azure Synapse runs on Ubuntu version 16.04.
+Apache Spark in Arcadia runs on Ubuntu version 16.04.
 
 ## Java version
 
@@ -41,7 +41,7 @@ Synapse Analytics includes .Net Support for Apache Spark 0.5.0
 
 ## Delta Lake
 
-Synapse Analytics includes support for Delta Lake 0.4.0
+Synapse Analytics includes support for Delta Lake 0.5.0
 
 ## Python version
 
@@ -562,7 +562,6 @@ zookeeper-3.4.11.2.6.99.201-1240.jar
 zstd-jni-1.3.2-2.jar
 
 ## Python libraries
-
 _license==1.1
 
 absl-py==0.8.1
@@ -1244,8 +1243,3 @@ zict==0.1.2
 zipp==0.6.0
 
 zlib==1.2.8
-
-## Next steps
-
-- [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

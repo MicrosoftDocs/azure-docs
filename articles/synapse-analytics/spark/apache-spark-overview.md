@@ -38,7 +38,7 @@ Spark pools in Synapse Analytics offer a fully managed Spark service. The benefi
 
 Apache Spark pools in Synapse Analytics include the following components that are available on the pools by default:
 
-* [Spark Core](https://spark.apache.org/docs/latest/). Includes Spark Core, Spark SQL, Spark streaming APIs, GraphX, and MLlib.
+* [Spark Core](https://spark.apache.org/docs/latest/). Includes Spark Core, Spark SQL, GraphX, and MLlib.
 * [Anaconda](https://docs.continuum.io/anaconda/)
 * [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
 * [Nteract notebook](https://nteract.io/)
@@ -62,7 +62,7 @@ The SparkContext connects to the Spark pool and is responsible for converting an
 
 ## Apache Spark in Synapse Analytics use cases
 
-Spark instances in Synapse Analytics enable the following key scenarios:
+Spark pools in Synapse Analytics enable the following key scenarios:
 
 ### Data Engineering/Data Preparation
 
@@ -70,7 +70,7 @@ Apache Spark includes many language features to support preparation and processi
 
 ### Machine Learning
 
-Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine learning library built on top of Spark that you can use from a Spark pool in Synapse Analytics. Spark pools in Synapse Analytics also includes Anaconda, a Python distribution with a variety of packages for data science including machine learning. When combined with built-in support for notebooks, you have an environment for creating machine learning applications.
+Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine learning library built on top of Spark that you can use from a Spark pool in Synapse Analytics. Spark pools in Synapse Analytics also include Anaconda, a Python distribution with a variety of packages for data science including machine learning. When combined with built-in support for notebooks, you have an environment for creating machine learning applications.
 
 <!--- TODO: add this back in when streaming is enabled
 * Spark streaming and real-time data analysis
@@ -82,13 +82,18 @@ Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine lear
 
 Use the following articles to learn more about Apache Spark in Synapse Analytics:
 
-* [Quickstart: Create an Apache Spark cluster in HDInsight and run interactive query using Jupyter](./apache-spark-notebook-create-spark-use-sql.md)
+* [Quickstart: Create an Apache Spark pool in Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
 <!---TODO: * [Tutorial: Run an Apache Spark job using Jupyter](./apache-spark-load-data-run-query.md)--->
 * [Tutorial: Machine learning using Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
 <!---TODO: * [Tutorial: Create a Scala Maven application using IntelliJ](./apache-spark-create-standalone-application.md)--->
 
+* [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
+
+>[!NOTE]
+> Some of the official Apache Spark documentation relies on using the spark console, this is not available on Azure Synapse Spark, use the notebook or IntelliJ experiences instead
+
 ## Next steps
 
-In this overview, you get a basic understanding of Apache Spark in Azure Synapse Analytics. Advance to the next article to learn how to create an Apache Spark cluster in Azure Synapse Analytics:
+In this overview, you get a basic understanding of Apache Spark in Azure Synapse Analytics. Advance to the next article to learn how to create an Apache Spark pool in Azure Synapse Analytics:
 
-* [Create an Apache Spark cluster in Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
+* [Create an Apache Spark pool in Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)

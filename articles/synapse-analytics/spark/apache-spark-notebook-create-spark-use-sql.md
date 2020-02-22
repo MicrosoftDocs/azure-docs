@@ -7,7 +7,7 @@ ms.reviewer: euang
 ms.service: sql-data-warehouse
 ms.subservice: design
 ms.topic: quickstart
-ms.date: 01/02/2020
+ms.date: 02/20/2020
 
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark pool and query some data.
 ---
@@ -17,9 +17,6 @@ ms.date: 01/02/2020
 Learn how to create an Apache Spark pool in Azure Synapse Analytics and run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on Synapse Analytics, see [Overview: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md).
 
 In this Quickstart, you use the Synapse Analytics tools to create a Spark pool and then connect to a Spark pool created from that template.
-<!---For more information on using Data Lake Storage Gen2, see the following article:--->
-
-<!---Need a link to a Gen 2 Storage in Synapse Analytics article--->
 
 > [!IMPORTANT]  
 > Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
@@ -28,48 +25,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Create a Synapse Analytics Apache Spark pool
 
-<!---If you do not already have a Synapse Analytics workspace created, go to
-
-> TODO Need a link to a create a workspace article
---->
-
-1. In the Azure portal, select the correct Azure Synapse Analytics workspace.
-
-    ![Synapse Analytics on Azure portal](./media/apache-spark-notebook-create-spark-use-sql/create-spark-pool-portal.png "Synapse Analytics on Azure portal")
-2. From the toolbar, select **+ New Apache Spark pool**.
-3. Under **Basics**, provide the following values:
-
-    |Property  |Description  |
-    |---------|---------|
-    |**Apache Spark pool name**     | Give a name to your Synapse Analytics Spark pool. The pool name used for this quickstart is **mysynapasespark**.|
-    |**Node size**     | From the drop-down, select a node size to be used for all the nodes in the pool.
-    |**Autoscale**| If enabled, your Spark pool automatically scales up and down based on the amount of activity|
-    |**Number of nodes**| This sets the minimum and maximum node count for pool. If auto scale is enabled, the pool node count does not grow to be greater than the maximum|
-
-    ![Create Synapse Analytics Apache Spark pool basic configurations](./media/apache-spark-notebook-create-spark-use-sql/azure-portal-create-spark-pool-basics.png "Create Apache Spark pool in Synapse Analytics the Basic configurations")
-
-    Select **Next** to continue to the **Additional settings** page.
-4. Under **Additional Settings**, provide the following values:
-
-    |Property  |Description  |
-    |---------|---------|
-    |**Autopause**| If enabled, the Spark pools created from this template automatically pause after a specified amount of idle time|
-    |**Number of minutes idle**| The amount of time before a pool automatically pauses|
-    |**Packages**| Add additional Python libraries. For more information, see [Adding additional Python libraries](apache-spark-azure-portal-add-libraries.md)|
-
-    ![Create Synapse Analytics Spark pool configurations](./media/apache-spark-notebook-create-spark-use-sql/create-spark-pool-additional.png "Create Spark pool in Synapse Analytics the additional settings")
-
-     Select **Next** to continue to the **Tags** page.
-
-5. Select **Next** to continue to the **Summary** page.
-
-6. On **Summary**, select **Create**. The creation of a Spark pool should be fast, in the order of seconds.
-
-At this point, there are no resources running, you have created metadata about the Spark instances you want to create.
-
-![Apache Spark pool on Azure Synapse Analytics](./media/apache-spark-notebook-create-spark-use-sql/create-spark-pool-portal2.png "Apache Spark pool on Azure Synapse Analytics with new pool after creation")
-
-Once an Apache Spark pool has been created it can't be edited, only deleted and recreated.
+This article outlines how to create a Spark pool if you do not already have one [Create a new Spark pool](../quickstart-create-apache-spark-pool.md)
 
 ## Create a notebook
 
@@ -192,3 +148,7 @@ In this quickstart, you learned how to create a Synapse Analytics Spark pool and
 
 * [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
 * [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
+
+>[!NOTE]
+> Some of the official Apache Spark documentation relies on using the spark console, this is not available on Azure Synapse Spark, use the notebook or IntelliJ experiences instead
