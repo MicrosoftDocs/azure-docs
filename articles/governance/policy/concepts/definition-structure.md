@@ -405,7 +405,11 @@ Conditions can also be formed using **value**. **value** checks conditions again
 
 > [!WARNING]
 > If the result of a _template function_ is an error, policy evaluation fails. A failed evaluation
-> is an implicit **deny**. For more information, see [avoiding template failures](#avoiding-template-failures).
+> is an implicit **deny**. For more information, see
+> [avoiding template failures](#avoiding-template-failures). Use
+> [enforcementMode](./assignment-structure.md#enforcement-mode) of **DoNotEnforce** to prevent
+> impact of a failed evaluation on new or updated resources while testing and validating a new
+> policy definition.
 
 #### Value examples
 
