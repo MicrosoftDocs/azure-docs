@@ -27,7 +27,7 @@ Use the information in this article to help you plan for, generate, and transfer
 > 
 > This import method is available only for [supported HSMs](#supported-hsms). 
 
-For more information, and for a tutorial to get started using Key Vault (including how to create a key vault for HSM-protected keys), see [What is Azure Key Vault?](key-vault-overview.md)
+For more information, and for a tutorial to get started using Key Vault (including how to create a key vault for HSM-protected keys), see [What is Azure Key Vault?](key-vault-overview.md).
 
 ## Overview
 
@@ -126,7 +126,7 @@ If the upload is successful, Azure CLI displays the properties of the imported k
 
 ## Next steps
 
-You can now use this HSM-protected key in your key vault. For more information, see this [price and feature comparison](https://azure.microsoft.com/pricing/details/key-vault/).
+You can now use this HSM-protected key in your key vault. For more information, see [this price and feature comparison](https://azure.microsoft.com/pricing/details/key-vault/).
 
 
 
