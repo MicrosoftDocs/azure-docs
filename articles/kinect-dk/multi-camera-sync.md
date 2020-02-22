@@ -149,58 +149,38 @@ If you're connecting the devices in the star configuration, you also need one he
 1. Connect 3.5-mm audio cables to the "split" ends of the headphone splitter.
 1. Plug the other end of each cable into the **Sync in** port of one of the subordinate devices.
 
+## Verify that the devices are connected and communicating
+
+To verify that the devices are connected correctly, use [Azure Kinect Viewer](azure-kinect-viewer.md). Repeat this procedure as needed to test each subordinate device in combination with the master device
+
+> [!IMPORTANT]  
+> For this procedure, you need the serial number of each Azure Kinect DK.
+
+1. Open two instances of Azure Kinect Viewer.
+1. Under **Open Device**, select the serial number of the subordinate device that you want to test.  
+   ![Open device](./media/open-devices.png)
+   > [!IMPORTANT]  
+   > To get precise image capture alignment between all devices, you have to start the master device last.  
+1. Under **External Sync**, select **Sub**.  
+   ![Subordinate camera start](./media/sub-device-start.png)
+1.  Select **Start**.  
+    > [!NOTE]  
+    > Because this is a subordinate device, Azure Kinect Viewer does not display an image after the device starts. No image is displayed until the subordinate device receives a sync signal from the master device.
+1. After the subordinate device has started, use the other instance of Azure Kinect Viewer to open the master device.
+1. Under **External Sync**, select **Master**.
+1. Select **Start**.
+
+When the master Azure Kinect Device starts, both instances of Azure Kinect Viewer should display images.
+
 ## Calibrate the devices as a synchronized set
+
+When you have verified that the devices are communicating correctly, you are ready to calibrate them to produce images in a single domain.
 
 In a single device, the depth and RGB cameras are factory calibrated to work together. However, when multiple devices have to work together, they need to be calibrated in order to determine how to transform an image from the domain of the camera that captured it to the domain of the camera you want to use to process images.
 
 There are multiple options for cross-calibrating devices. Microsoft provides the [GitHub green screen code sample](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/green_screen), which uses the OpenCV method. The Readme file for this code sample provides more details and instructions for calibrating the devices.
 
 For more general information about calibration, see [Use Azure Kinect calibration functions](use-calibration-functions.md).
-
-## Verify that the devices are connected and communicating
-
-To verify that the devices are connected correctly, use [Azure Kinect Viewer](azure-kinect-viewer.md). 
-
-> [!IMPORTANT]  
-> For this procedure, you need the serial number of each Azure Kinect DK.
-
-**To verify a daisy-chain configuration**
-
-1. For each subordinate device in the chain, follow these steps. Start with the device furthest from the master device, and work back toward the master device.
-   > [!IMPORTANT]  
-   > To get precise image capture alignment between all devices, you have to start the master device last. 
-   1. Open an instance of Azure Kinect Viewer.
-   1. Under **Open Device**, select the serial number of the device that you want to open.  
-      ![Open device](./media/open-devices.png)
-   1. Under **External Sync**, select **Sub**.  
-      ![Subordinate camera start](./media/sub-device-start.png)
-   1.  Select **Start**.  
-   > [!NOTE]  
-   > Because this is a subordinate device, Azure Kinect Viewer does not display an image after the device starts. No image is displayed until the subordinate device receives a sync signal from the master device.
-1. After you have started all of the subordinate devices, open an instance of Azure Kinect Viewer and then open the master device.
-1. Under **External Sync**, select **Master**.
-1. Select **Start**.
-
-When the master Azure Kinect Device starts, the synchronized image from each of the Azure Kinect devices should appear.
-
-**To verify a star configuration**
-
-1. For each of the subordinate devices, follow these steps. 
-   > [!IMPORTANT]  
-   > To get precise image capture alignment between all devices, you have to start the master device last. 
-   1. Open an instance of Azure Kinect Viewer.
-   1. Under **Open Device**, select the serial number of the device that you want to open.  
-      ![Open device](./media/open-devices.png)
-   1. Under **External Sync**, select **Sub**.  
-      ![Subordinate camera start](./media/sub-device-start.png)
-   1.  Select **Start**.  
-   > [!NOTE]  
-   > Because this is a subordinate device, Azure Kinect Viewer does not display an image after the device starts. No image is displayed until the subordinate device receives a sync signal from the master device.
-1. After you have started both subordinate devices, open an instance of Azure Kinect Viewer and then open the master device.
-1. Under **External Sync**, select **Master**.
-1. Select **Start**.
-
-When the master Azure Kinect Device starts, the synchronized image from all of the Azure Kinect DK devices should appear.
 
 ## Next steps
 
