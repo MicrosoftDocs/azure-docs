@@ -13811,6 +13811,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/geospatial.md",
+      "redirect_url": "/azure/cosmos-db/sql-query-geospatial-intro",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/documentdb/documentdb-get-started-quickstart.md",
       "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-documentdb-dotnet",
       "redirect_document_id": false
