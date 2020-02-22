@@ -1,6 +1,6 @@
 ---
 title: SRE Book list | Microsoft Docs
-description: Increase your knowledge of site reliiabiliy engineering with these books
+description: Increase your knowledge of site reliability engineering with these books
 author: dnblankedelman
 manager: efreeman
 ms.service: site-reliability-engineering
@@ -25,4 +25,4 @@ Each of those books provides an important set of information:
 
 - Seeking SRE - provides a more expansive view of the SRE world beyond its origin including information on how it has been implemented in other environments.
 
-Because these books describe the experience, environments and culture of organzations that may or may not resemble the one you are in, it is important to read these books with a critical eye. As you read, try to determine which practices would or would not succeed in your organization. Take some time to identify the information that you are certain can provide some positive value. Think about which parts of your organization's culture and values can support SRE work as described and which might make it more challenging. A careful, interative embracing of SRE will almost always yield better results than a wholesale duplication of something you read in these books.
+Because these books describe the experience, environments and culture of organizations that may or may not resemble the one you are in, it is important to read these books with a critical eye. As you read, try to determine which practices would or would not succeed in your organization. Take some time to identify the information that you are certain can provide some positive value. Think about which parts of your organization's culture and values can support SRE work as described and which might make it more challenging. A careful, interactive embracing of SRE will almost always yield better results than a wholesale duplication of something you read in these books.
