@@ -130,7 +130,7 @@ Subscribe to Service Bus events to respond to messages without an active listene
 Subscribe to Blob Storage events to respond to blob created and deleted events.
 
 >[!NOTE]
-> Only storage accounts of kind **StorageV2 (general purpose v2)** and **BlobStorage** support event integration. **Storage (genral purpose v1)** does *not* support integration with Event Grid.
+> Only storage accounts of kind **StorageV2 (general purpose v2)** and **BlobStorage** support event integration. **Storage (general purpose v1)** does *not* support integration with Event Grid.
 
 |Title  |Description  |
 |---------|---------|
