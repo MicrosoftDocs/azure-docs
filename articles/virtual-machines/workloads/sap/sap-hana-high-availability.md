@@ -1,10 +1,10 @@
 ---
-title: High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server | Microsoft Docs
+title: High availability of SAP HANA on Azure VMs on SLES | Microsoft Docs
 description: High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: 
-author: MSSedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor:
 
 ms.service: virtual-machines-linux
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/06/2019
-ms.author: sedusch
+ms.author: radeltch
 
 ---
 # High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server

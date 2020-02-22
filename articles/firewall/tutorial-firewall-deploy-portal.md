@@ -210,7 +210,7 @@ This is the network rule that allows outbound access to two IP addresses at port
 7. For **Protocol**, select **UDP**.
 9. For **Source type**, select **IP address**.
 1. For **Source**, type **10.0.2.0/24**.
-2. For Destination address, type **209.244.0.3,209.244.0.4**
+2. For **Destination address**, type **209.244.0.3,209.244.0.4**
 
    These are public DNS servers operated by CenturyLink.
 1. For **Destination Ports**, type **53**.
