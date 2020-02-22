@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -119,7 +119,7 @@ For information on integration of Azure services into SAP components, see:
 
 
 ## Change Log
-
+- 02/21/2020: Change in [Azure VMs high availability for SAP NetWeaver on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) and [Azure VMs high availability for SAP NetWeaver on RHEL with Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) to adjust the cluster constraints for enqueue server replication 2 architecture (ENSA2)
 - 02/20/2020: Change in [High availability for SAP NetWeaver on Azure VMs on SLES multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) to add a link to the SUSE multi-SID cluster guide
 - 02/13/2020: Change in [Azure VMs high availability for SAP NetWeaver on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) and [Azure VMs high availability for SAP NetWeaver on RHEL with Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) to align the cluster resources timeouts to the Red Hat timeout recommendations
 - 02/11/2020: Release of [SAP HANA on Azure Large Instance migration to Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration)

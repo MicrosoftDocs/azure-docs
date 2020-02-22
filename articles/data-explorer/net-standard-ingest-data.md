@@ -1,5 +1,5 @@
 ---
-title: 'Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)'
+title: 'Ingest data with Azure Data Explorer .NET Standard SDK (Preview)'
 description: In this article, you learn how to ingest (load) data into Azure Data Explorer using .NET Standard SDK.
 author: orspod
 ms.author: orspodek
