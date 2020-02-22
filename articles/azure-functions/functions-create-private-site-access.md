@@ -65,6 +65,7 @@ The first step is to create a new resource group, and then a new virtual network
 
 [!div class="mx-imgBorder"]
 ![Provide a name and address space for the new virtual network](./media/functions-create-private-site-access/create-virtual-network-3.png)
+
 6. Press the **Create** button when finished.
 
 ## Create a Virtual Machine
@@ -83,9 +84,9 @@ The next step is to create a new virtual machine within one subnet of the virtua
 | ------------ | ---------------- | ---------------- |
 | **Subscription** | Your subscription | The subscription under which your resources are created. |
 | **Resource group** | _functions-private-access_ | Choose the resource group to contain all the resources for this tutorial.  Using the same resource group for the function app and VM makes it easier to clean up resources when you are done with this tutorial. |
-| **Virtual machine name** | myVM | The VM name needs to be unique in the resource group |
+| **Virtual machine name** | _myVM_ | The VM name needs to be unique in the resource group |
 | **Region** | (US) North Central US | Choose a region near you or near the functions to be accessed. |
-| **Public inbound ports** | None | todo |
+| **Public inbound ports** | None | Select **None** to ensure there is no inbound connectivity to the VM from the internet. |
 
 5. Leave the defaults in the **Disk** tab.
 6. In the **Networking** tab, select the previously created virtual network and subnet. Change the IP address setting to not have a public IP address. Remote access to the VM will be configured via the Azure Bastion service.
@@ -114,10 +115,10 @@ The next step is to create a new virtual machine within one subnet of the virtua
 
 | Setting      | Suggested value  | Description      |
 | ------------ | ---------------- | ---------------- |
-| Name | myBastion | TODO |
+| Name | _myBastion_ | The name of the new Bastion resource |
 | Region | North Central US | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
-| Virtual network | function-private-vnet | TODO |
-| Subnet | AzureBastionSubnet | TODO |
+| Virtual network | function-private-vnet | The virtual network in which the Bastion resource will be created in |
+| Subnet | _AzureBastionSubnet_ | The subnet in your virtual network to which the new Bastion host resource will be deployed. You must create a subnet using the name value AzureBastionSubnet. This value lets Azure know which subnet to deploy the Bastion resources to. You must use a subnet of at least /27 or larger (/27, /26, and so on). |
 
 5. You will need to create a subnet where Azure can provision the Azure Bastion host. Clicking on **Manage subnet configuration** will open a new blade to allow you to define a new subnet.  Click on **+Subnet** to create a new subnet. The subnet must be of the name **AzureBastionSubnet** and the subnet prefix must be at least /27.  Click **OK** to create the subnet.
 
@@ -137,12 +138,6 @@ The next step is to create a new virtual machine within one subnet of the virtua
 ## Create an Azure Function App
 
 With the virtual network in place, the next step is to create an Azure Function App using a Consumption plan. The function code will be deployed to the Function App later in this tutorial.
-
-To summarize, the following is being created:
-
-* **Plan**: Azure Function Consumption plan
-* **OS**: Windows
-* **Runtime**: .NET Core
 
 1. In the portal, choose **Add** at the top of the resource group view.
 2. Select **Compute > Function App**
@@ -175,7 +170,7 @@ Select the **Next:Hosting >** button.
 | ------------ | ---------------- | ---------------- |
 | Storage account | Globally unique name | Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](https://docs.microsoft.com/azure/azure-functions/functions-scale#storage-account-requirements). |
 | Operating system | Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
-| Plan | Consumption | TODO |
+| Plan | Consumption | The [hosting plan](https://docs.microsoft.com/azure/azure-functions/functions-scale) dictates how the function app is scaled and resources available to each instance. |
 
 Select the **Next:Monitoring >** button.
 
@@ -220,13 +215,12 @@ The next step is to configure access restrictions to ensure only resources on th
 
 | Setting      | Suggested value  | Description      |
 | ------------ | ---------------- | ---------------- |
-| Name | TODO | TODO |
-| Priority | 100 | TODO |
-| Description | Brief description of the rule. | TODO |
-| Type | Virtual Network | TODO |
-| Subscription | TODO | TODO |
-| Virtual Network | TODO | TODO |
-| Subnet | TODO | TODO |
+| Name | Private VNet Access Only | The name for the access rule.  |
+| Priority | 100 | The priority of the access rule. Rules are enforced in priority order starting from the lowest number and going up. |
+| Description | My vnet only |  Brief description of the rule. |
+| Type | Virtual Network | The type of access rule (IPv4, IPv6, or Virtual Network) |
+| Virtual Network | function-private-vnet | The virtual network to which access should be restricted. |
+| Subnet | default | The virtual network subnet to which access should be restricted. |
 
 Notice in the above screenshot the information block indicating a service endpoint has not yet been enabled for Microsoft.Web. The service endpoint will automatically be created.
 
