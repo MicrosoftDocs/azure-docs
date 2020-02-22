@@ -209,7 +209,7 @@ When the master Azure Kinect Device starts, the synchronized image from all of t
 
 ## Related topics
 
-- [Azure Kinect DK hardware specifications](hardware-specifications.md) 
+- [Azure Kinect DK hardware specifications](hardware-specification.md) 
 - [Quickstart: Set up your Azure Kinect DK](set-up-azure-kinect-dk.md) 
 - [Update Azure Kinect DK firmware](update-device-firmware.md) 
 - [Reset Azure Kinect DK](reset-azure-kinect-dk.md) 
