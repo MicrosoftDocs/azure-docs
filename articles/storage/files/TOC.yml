@@ -67,7 +67,7 @@
   items:
   - name: Create
     items:
-    - name: Create a standard file share
+    - name: Create a file share
       href: storage-how-to-create-file-share.md
     - name: Enable large file shares
       href: storage-files-how-to-create-large-file-share.md
