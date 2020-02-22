@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 02/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -66,7 +66,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 1.4: Deny communications with known malicious IP addresses
 
@@ -129,7 +129,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
@@ -1036,7 +1036,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 **Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 6.13: Physically or logically segregate high risk applications
 
@@ -1044,7 +1044,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 **Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ## Secure Configuration
 
@@ -1128,7 +1128,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 7.7: Deploy system configuration management tools
 

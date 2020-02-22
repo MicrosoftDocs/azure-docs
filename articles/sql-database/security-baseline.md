@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 02/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -82,7 +82,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 1.4: Deny communications with known malicious IP addresses
 
@@ -116,7 +116,7 @@ How to enable Network Watcher:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -139,7 +139,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-over
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
@@ -158,7 +158,7 @@ Understand and using Service Tags:
 
 https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -287,7 +287,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 2.5: Configure security log storage retention
 
@@ -353,7 +353,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 2.9: Enable DNS query logging
 
@@ -361,7 +361,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 2.10: Enable command-line audit logging
 
@@ -369,7 +369,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ## Identity and Access Control
 
@@ -426,7 +426,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
@@ -504,7 +504,7 @@ How to configure Named Locations in Azure:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -553,7 +553,7 @@ How to integrate Azure Activity Logs into Azure Monitor:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -571,7 +571,7 @@ How to configure and enable Identity Protection risk policies:
 
 https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -601,7 +601,7 @@ How to create and use tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -633,7 +633,7 @@ How to set up Private Link for Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -657,7 +657,7 @@ Understand customer data protection in Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -717,7 +717,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 4.8: Encrypt sensitive information at rest
 
@@ -742,7 +742,7 @@ How to create alerts for Azure Activity Log events:
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -782,7 +782,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 5.3: Deploy automated third-party software patch management solution
 
@@ -790,7 +790,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 5.4: Compare back-to-back vulnerability scans
 
@@ -861,7 +861,7 @@ How to create and use Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -887,7 +887,7 @@ How to create and use Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -897,7 +897,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 6.5: Monitor for unapproved Azure resources
 
@@ -931,7 +931,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 6.7: Remove unapproved Azure resources and software applications
 
@@ -939,7 +939,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 6.8: Use only approved applications
 
@@ -947,7 +947,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 6.9: Use only approved Azure services
 
@@ -981,7 +981,7 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 6.11: Limit users' ability to interact with Azure Resources Manager via scripts
 
@@ -992,7 +992,7 @@ How to configure Conditional Access to block access to ARM:
 
 https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -1002,7 +1002,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 6.13: Physically or logically segregate high risk applications
 
@@ -1010,7 +1010,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ## Secure Configuration
 
@@ -1031,11 +1031,11 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### 7.2: Establish secure operating system configurations
 
-**Guidance**: N/A; benchmark intended for compute resources.
+**Guidance**: Not applicable; this recommendation intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 7.3: Maintain secure Azure resource configurations
 
@@ -1063,7 +1063,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 7.5: Securely store configuration of Azure resources
 
@@ -1091,7 +1091,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 7.7: Deploy system configuration management tools
 
@@ -1113,7 +1113,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 7.9: Implement automated configuration monitoring for Azure services
 
@@ -1135,7 +1135,7 @@ https://docs.microsoft.com/azure/security-center/security-center-sql-service-rec
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 7.11: Manage Azure secrets securely
 
@@ -1147,7 +1147,7 @@ How to protect sensitive data being stored in Azure SQL Server and store the enc
 
 https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -1190,7 +1190,7 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: N/A
+**Responsibility**: Not applicable
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
@@ -1212,7 +1212,7 @@ Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines: 
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: NA
+**Responsibility**: Not applicable
 
 ## Data Recovery
 
@@ -1282,7 +1282,7 @@ How to enable soft delete in Key Vault:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -1356,7 +1356,7 @@ How to stream alerts into Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
