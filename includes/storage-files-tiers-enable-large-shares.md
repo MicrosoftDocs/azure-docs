@@ -11,7 +11,7 @@
 ---
 By default, standard file shares can span only up to 5 TiB, although the share limit can be increased to 100 TiB. To do this, *large file share* feature must be enabled at the storage account-level. The large file share feature flag is only required for standard file shares as all premium file shares are already enabled for provisioning up to the full 100 TiB capacity.
 
-You can enable large file shares when you create a new storage account or on an existing storage account, however this can only be done on a locally redundant or zone redundant storage account. GPv2 storage accounts with the large file share feature don't have the ability to change the redundancy level to geo-redundant or geo-zone-redundant storage.
+You can only enable large file shares on locally redundant or zone redundant standard storage accounts. Once you have enabled the large file share feature flag, you can't change the redundancy level to geo-redundant or geo-zone-redundant storage.
 
 You can learn more about how to enable large file shares on a new storage account by following the steps in the [creating an Azure file share](../articles/storage/files/storage-how-to-create-file-share.md) how to guide. To enable large file shares on an existing storage account, navigate to the **Configuration** view in the storage account's table of contents, and switch the large file share rocker switch to enabled:
 
