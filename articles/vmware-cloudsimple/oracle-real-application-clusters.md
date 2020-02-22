@@ -1,5 +1,5 @@
 --- 
-title: Azure VMware Solutions (AVS) - Optimize your AVS Private Cloud for Oracle RAC
+title: Azure VMware Solution by CloudSimple - Optimize your CloudSimple Private Cloud for Oracle RAC
 description: Describes how to deploy a new cluster and optimize a VM for Oracle Real Application Clusters (RAC) installation and configuration
 author: sharaths-cs
 ms.author: b-shsury 
@@ -10,22 +10,22 @@ ms.reviewer: cynthn
 manager: dikamath 
 ---
 
-# Optimize your AVS Private Cloud for installing Oracle RAC
+# Optimize your CloudSimple Private Cloud for installing Oracle RAC
 
-You can deploy Oracle Real Application Clusters (RAC) in your AVS Private Cloud environment. This guide describes how to deploy a new cluster and to optimize a VM for the Oracle RAC solution. After completing the steps in this topic, you can install and configure Oracle RAC.
+You can deploy Oracle Real Application Clusters (RAC) in your CloudSimple Private Cloud environment. This guide describes how to deploy a new cluster and to optimize a VM for the Oracle RAC solution. After completing the steps in this topic, you can install and configure Oracle RAC.
 
 ## Storage Policy
 
-Successful implementation of Oracle RAC requires an adequate number of nodes in the cluster. In vSAN storage policy, failures to tolerate (FTT) is applied to data disks used for storing the database, log, and redo disks. The required number of nodes to effectively tolerate failures is 2N+1 where N is the value of FTT.
+Successful implementation of Oracle RAC requires an adequate number of nodes in the cluster.  In vSAN storage policy, failures to tolerate (FTT) is applied to data disks used for storing the database, log, and redo disks.  The required number of nodes to effectively tolerate failures is 2N+1 where N is the value of FTT.
 
 Example: If the desired FTT is 2, then the total number of nodes in the cluster must be 2*2+1 = 5.
 
 ## Overview of deployment
 
-The following sections describe how to set up your AVS Private Cloud environment for Oracle RAC.
+The following sections describe how to set up your CloudSimple Private Cloud environment for Oracle RAC.
 
 1. Best practices for disk configuration
-2. Deploy AVS Private Cloud vSphere Cluster
+2. Deploy CloudSimple Private Cloud vSphere Cluster
 3. Set up Networking for Oracle RAC
 4. Setup vSAN storage policies
 5. Create Oracle VMs and create shared VM disks
@@ -33,7 +33,7 @@ The following sections describe how to set up your AVS Private Cloud environment
 
 ## Best practices for disk configuration
 
-Oracle RAC virtual machines have multiple disks, which are used for specific function. Shared disks are mounted on all virtual machines, which are used by Oracle RAC Cluster. Operating system and software installation disks are mounted only on the individual virtual machines. 
+Oracle RAC virtual machines have multiple disks, which are used for specific function.  Shared disks are mounted on all virtual machines, which are used by Oracle RAC Cluster.  Operating system and software installation disks are mounted only on the individual virtual machines.  
 
 ![Oracle RAC virtual machine disks overview](media/oracle-vm-disks-overview.png)
 
@@ -63,44 +63,44 @@ Following example uses the disks defined in the table below.
 
 ### Operating system and software disk configuration
 
-Each Oracle virtual machine is configured with multiple disks for the host operating system, swap, software installation and other OS functions. These disks are not shared between the virtual machines. 
+Each Oracle virtual machine is configured with multiple disks for the host operating system, swap, software installation and other OS functions.  These disks are not shared between the virtual machines.  
 
 * Three disks for each virtual machine are configured as virtual disks and mounted on Oracle RAC virtual machines.
     * OS Disk
     * Disk for storing Oracle Grid installs files
     * Disk for storing Oracle database install files
 * Disks can be configured as **Thin Provisioned**.
-* Each disk is mounted on the first SCSI controller (SCSI0). 
+* Each disk is mounted on the first SCSI controller (SCSI0).  
 * Sharing is set to **No sharing**.
-* Redundancy is defined on the storage using vSAN policies. 
+* Redundancy is defined on the storage using vSAN policies.  
 
 ![Oracle RAC data disk group configuration](media/oracle-vm-os-disks.png)
 
 ### Data disk configuration
 
-Data disks are primarily used for storing database files. 
+Data disks are primarily used for storing database files.  
 
 * Four disks are configured as virtual disks and mounted on all Oracle RAC virtual machines.
 * Each disk is mounted on a different SCSI controller.
-* Each virtual disk is configured as **Thick Provision Eager Zeroed**. 
-* Sharing is set to **Multi-writer**. 
-* The disks must be configured as an Automatic Storage Management (ASM) disk group. 
-* Redundancy is defined on the storage using vSAN policies. 
+* Each virtual disk is configured as **Thick Provision Eager Zeroed**.  
+* Sharing is set to **Multi-writer**.  
+* The disks must be configured as an Automatic Storage Management (ASM) disk group.  
+* Redundancy is defined on the storage using vSAN policies.  
 * ASM redundancy is set to **External** redundancy.
 
 ![Oracle RAC data disk group configuration](media/oracle-vm-data-disks.png)
 
 ### Redo log disk configuration
 
-Redo log files are used for storing a copy of the changes made to the database. The log files are used when data needs to be recovered after any failures.
+Redo log files are used for storing a copy of the changes made to the database.  The log files are used when data needs to be recovered after any failures.
 
-* Redo log disks must be configured as multiple disk groups. 
+* Redo log disks must be configured as multiple disk groups.  
 * Six disks are created and mounted on all Oracle RAC virtual machines.
 * Disks are mounted on different SCSI controllers
 * Each virtual disk is configured as **Thick Provision Eager Zeroed**.
-* Sharing is set to **Multi-writer**. 
+* Sharing is set to **Multi-writer**.  
 * The disks must be configured as two ASM disk groups.
-* Each ASM disk group contains three disks, which are on different SCSI controllers. 
+* Each ASM disk group contains three disks, which are on different SCSI controllers.  
 * ASM redundancy is set to **Normal** redundancy.
 * Five redo log files are created on both ASM Redo log group
 
@@ -134,7 +134,7 @@ Voting disks provide quorum disk functionality as an additional communication ch
 
 ### Oracle fast recovery area disk configuration (optional)
 
-The fast recovery area (FRA) is file system managed by Oracle ASM disk group. FRA provides a shared storage location for backup and recovery files. Oracle creates archived logs and flashback logs in the fast recovery area. Oracle Recovery Manager (RMAN) can optionally store its backup sets and image copies in the fast recovery area, and it uses it when restoring files during media recovery.
+The fast recovery area (FRA) is file system managed by Oracle ASM disk group.  FRA provides a shared storage location for backup and recovery files. Oracle creates archived logs and flashback logs in the fast recovery area. Oracle Recovery Manager (RMAN) can optionally store its backup sets and image copies in the fast recovery area, and it uses it when restoring files during media recovery.
 
 * Two disks are created and mounted on all Oracle RAC virtual machines.
 * Disks are mounted on different SCSI controller
@@ -145,26 +145,26 @@ The fast recovery area (FRA) is file system managed by Oracle ASM disk group. FR
 
 ![Oracle RAC voting disk group configuration](media/oracle-vm-fra-disks.png)
 
-## Deploy AVS Private Cloud vSphere cluster
+## Deploy CloudSimple Private Cloud vSphere cluster
 
-To deploy a vSphere cluster on your AVS Private Cloud, follow this process:
+To deploy a vSphere cluster on your Private Cloud, follow this process:
 
-1. From the AVS portal, [create an AVS Private Cloud](create-private-cloud.md). AVS creates a default vCenter user named 'cloudowner' in the newly created AVS Private Cloud. For details on the default AVS Private Cloud user and permission model, see [Learn the AVS Private Cloud permission model](learn-private-cloud-permissions.md). This step creates the primary management cluster for your AVS Private Cloud.
+1. From the CloudSimple portal, [create a Private Cloud](create-private-cloud.md). CloudSimple creates a default vCenter user named 'cloudowner' in the newly created Private Cloud. For details on the default Private Cloud user and permission model, see [Learn the Private Cloud permission model](learn-private-cloud-permissions.md).  This step creates the primary management cluster for your Private Cloud.
 
-2. From the AVS portal, [expand the AVS Private Cloud](expand-private-cloud.md) with a new cluster. This cluster will be used to deploy Oracle RAC. Select the number of nodes based on the desired fault tolerance (minimum three nodes).
+2. From the CloudSimple portal, [expand the Private Cloud](expand-private-cloud.md) with a new cluster.  This cluster will be used to deploy Oracle RAC.  Select the number of nodes based on the desired fault tolerance (minimum three nodes).
 
 ## Set up networking for Oracle RAC
 
-1. In your AVS Private Cloud, [create two VLANs](create-vlan-subnet.md), one for the Oracle public network and one for the Oracle private network and assign appropriate subnet CIDRs.
-2. After the VLANs are created, create the [distributed port groups on the AVS Private Cloud vCenter](create-vlan-subnet.md#use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere).
+1. In your Private Cloud, [create two VLANs](create-vlan-subnet.md), one for the Oracle public network and one for the Oracle private network and assign appropriate subnet CIDRs.
+2. After the VLANs are created, create the [distributed port groups on the Private Cloud vCenter](create-vlan-subnet.md#use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere).
 3. Set up a [DHCP and DNS server virtual machine](dns-dhcp-setup.md) on your management cluster for the Oracle environment.
-4. [Configure DNS forwarding on the DNS server](on-premises-dns-setup.md#create-a-conditional-forwarder) installed in the AVS Private Cloud.
+4. [Configure DNS forwarding on the DNS server](on-premises-dns-setup.md#create-a-conditional-forwarder) installed in the Private Cloud.
 
 ## Set up vSAN storage policies
 
-vSAN policies define the failures to tolerate and disk striping for the data stored on the VM disks. The storage policy created must be applied on the VM disks while creating the VM.
+vSAN policies define the failures to tolerate and disk striping for the data stored on the VM disks.  The storage policy created must be applied on the VM disks while creating the VM.
 
-1. [Sign in to the vSphere client](https://docs.azure.cloudsimple.com/vsphere-access) of your AVS Private Cloud.
+1. [Sign in to the vSphere client](https://docs.azure.cloudsimple.com/vsphere-access) of your Private Cloud.
 2. From the top menu, select **Policies and Profiles**.
 3. From the left menu, select **VM Storage Policies** and then select **Create a VM storage Policy**.
 4. Enter a meaningful name for the policy and click **NEXT**.
@@ -176,7 +176,7 @@ vSAN policies define the failures to tolerate and disk striping for the data sto
 
 ## Create Oracle VMs and create shared VM disks for Oracle
 
-To create a VM for Oracle, clone an existing VM or create a new one. This section describes how to create a new VM and then clone it to create a second one after installing the base operating system. After the VMs are created, you can create an add disks to them. Oracle cluster uses shared disks for storing, data, logs, and redo logs.
+To create a VM for Oracle, clone an existing VM or create a new one.  This section describes how to create a new VM and then clone it to create a second one after installing the base operating system.  After the VMs are created, you can create an add disks to them.  Oracle cluster uses shared disks for storing, data, logs, and redo logs.
 
 ### Create VMs
 
@@ -200,7 +200,7 @@ After the operating system is installed, you can clone a second VM. Right-click 
 
 ### Create shared disks for VMs
 
-Oracle uses shared disk to store the data, log, and redo log files. You can create a shared disk on vCenter and mount it on both the VMs. For higher performance, place the data disks on different SCSI controllers  Steps below show how to create a shared disk on vCenter and then attach it to a virtual machine. vCenter Flash client is used for modifying the VM properties.
+Oracle uses shared disk to store the data, log, and redo log files.  You can create a shared disk on vCenter and mount it on both the VMs.  For higher performance, place the data disks on different SCSI controllers  Steps below show how to create a shared disk on vCenter and then attach it to a virtual machine. vCenter Flash client is used for modifying the VM properties.
 
 #### Create disks on the first VM
 
@@ -236,10 +236,10 @@ Repeat steps 2 – 7 for all the new disks required for the Oracle data, logs, a
 
 ## Set up VM host affinity rules
 
-VM-to-host affinity rules ensure that the VM runs on the desired host. You can define rules on vCenter to ensure the Oracle VM runs on the host with adequate resources and to meet any specific licensing requirements.
+VM-to-host affinity rules ensure that the VM runs on the desired host.  You can define rules on vCenter to ensure the Oracle VM runs on the host with adequate resources and to meet any specific licensing requirements.
 
-1. In the AVS portal, [escalate the privileges](escalate-private-cloud-privileges.md) of the cloudowner user.
-2. [Log in to the vSphere client](https://docs.azure.cloudsimple.com/vsphere-access) of your AVS Private Cloud.
+1. In the CloudSimple portal, [escalate the privileges](escalate-private-cloud-privileges.md) of the cloudowner user.
+2. [Log in to the vSphere client](https://docs.azure.cloudsimple.com/vsphere-access) of your Private Cloud.
 3. In the vSphere client, select the cluster where Oracle VMs are deployed and click **Configure**.
 4. Under Configure, select **VM/Host Groups**.
 5. Click **+**.

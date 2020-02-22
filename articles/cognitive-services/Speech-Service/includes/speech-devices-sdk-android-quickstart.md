@@ -1,22 +1,15 @@
 ---
-title: 'Quickstart: Run the Speech Devices SDK on Android - Speech service'
-titleSuffix: Azure Cognitive Services
-description: Prerequisites and instructions for getting started with an Android Speech Devices SDK.
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 02/12/2020
-ms.author: erhopf
+ms.topic: include
+ms.date: 02/20/2020
+ms.author: dapine
 ---
 
-# Quickstart: Run the Speech Devices SDK sample app on Android
+In this quickstart, you'll learn how to use the Speech Devices SDK for Android to build a speech-enabled product or use it as a [Conversation Transcription](../conversation-transcription-service.md) device.
 
-In this quickstart, you'll learn how to use the Speech Devices SDK for Android to build a speech-enabled product or use it as a [Conversation Transcription](conversation-transcription-service.md) device.
-
-This guide requires an [Azure Cognitive Services](get-started.md) account with a Speech service resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
+This guide requires an [Azure Cognitive Services](../get-started.md) account with a Speech service resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
 The source code for the sample application is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -24,16 +17,16 @@ The source code for the sample application is included with the Speech Devices S
 
 Before you start using the Speech Devices SDK, you'll need to:
 
-- Follow the instructions provided with your [development kit](get-speech-devices-sdk.md) to power on the device.
+- Follow the instructions provided with your [development kit](../get-speech-devices-sdk.md) to power on the device.
 
 - Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download), and extract the .zip to your working directory.
 
   > [!NOTE]
   > This quickstart assumes that the app is extracted to C:\SDSDK\Android-Sample-Release
 
-- To get an [Azure subscription key for Speech service](get-started.md)
+- To get an [Azure subscription key for Speech service](../get-started.md)
 
-- If you plan to use the Conversation Transcription you must use a [circular microphone device](get-speech-devices-sdk.md) and this feature is currently only available for "en-US" and "zh-CN" in regions, “centralus” and “eastasia”. You must have a speech key in one of those regions to use Conversation Transcription.
+- If you plan to use the Conversation Transcription you must use a [circular microphone device](../get-speech-devices-sdk.md) and this feature is currently only available for "en-US" and "zh-CN" in regions, “centralus” and “eastasia”. You must have a speech key in one of those regions to use Conversation Transcription.
 
 - If you plan to use the Speech service to identify intents (or actions) from user utterances, you'll need a [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) subscription. To learn more about LUIS and intent recognition, see [Recognize speech intents with LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
@@ -45,24 +38,24 @@ Before you start using the Speech Devices SDK, you'll need to:
 
 1. Start Vysor on your computer.
 
-   ![Vysor](media/speech-devices-sdk/qsg-3.png)
+   ![Vysor](../media/speech-devices-sdk/qsg-3.png)
 
 1. Your device should be listed under **Choose a device**. Select the **View** button next to the device.
 
 1. Connect to your wireless network by selecting the folder icon, and then select **Settings** > **WLAN**.
 
-   ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
+   ![Vysor WLAN](../media/speech-devices-sdk/qsg-4.png)
 
    > [!NOTE]
    > If your company has policies about connecting devices to its Wi-Fi system, you need to obtain the MAC address and contact your IT department about how to connect it to your company's Wi-Fi.
    >
    > To find the MAC address of the dev kit, select the file folder icon on the desktop of the dev kit.
    >
-   > ![Vysor file folder](media/speech-devices-sdk/qsg-10.png)
+   > ![Vysor file folder](../media/speech-devices-sdk/qsg-10.png)
    >
    > Select **Settings**. Search for "mac address", and then select **Mac address** > **Advanced WLAN**. Write down the MAC address that appears near the bottom of the dialog box.
    >
-   > ![Vysor MAC address](media/speech-devices-sdk/qsg-11.png)
+   > ![Vysor MAC address](../media/speech-devices-sdk/qsg-11.png)
    >
    > Some companies might have a time limit on how long a device can be connected to their Wi-Fi system. You might need to extend the dev kit's registration with your Wi-Fi system after a specific number of days.
 
@@ -74,7 +67,7 @@ To validate your development kit setup, build and install the sample application
 
 1. Select **Open an existing Android Studio project**.
 
-   ![Android Studio - Open an existing project](media/speech-devices-sdk/qsg-5.png)
+   ![Android Studio - Open an existing project](../media/speech-devices-sdk/qsg-5.png)
 
 1. Go to C:\SDSDK\Android-Sample-Release\example. Select **OK** to open the example project.
 
@@ -124,7 +117,7 @@ To validate your development kit setup, build and install the sample application
 1. The default keyword is "Computer". You can also try one of the other provided keywords, like "Machine" or "Assistant". The resource files for these alternate keywords are in the Speech Devices SDK, in the keyword folder. For example, C:\SDSDK\Android-Sample-Release\keyword\Computer contains the files used for the keyword "Computer".
 
    > [!TIP]
-   > You can also [create a custom keyword](speech-devices-sdk-create-kws.md).
+   > You can also [create a custom keyword](../speech-devices-sdk-create-kws.md).
 
    To use a new keyword, update the following two lines in `MainActivity.java`, and copy the keyword package to your app. For example, to use the keyword 'Machine' from the keyword package kws-machine.zip:
 
@@ -158,15 +151,15 @@ To validate your development kit setup, build and install the sample application
 
 1. Select your device, and then select **OK** to deploy the application to the device.
 
-   ![Select Deployment Target dialog box](media/speech-devices-sdk/qsg-7.png)
+   ![Select Deployment Target dialog box](../media/speech-devices-sdk/qsg-7.png)
 
 1. The Speech Devices SDK example application starts and displays the following options:
 
-   ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/qsg-8.png)
+   ![Sample Speech Devices SDK example application and options](../media/speech-devices-sdk/qsg-8.png)
 
-1. Try the new Conversation Transcription demo. Start transcribing with 'Start Session'. By default everyone is a guest. However, if you have participant’s voice signatures they can be put into a file `/video/participants.properties` on the device. To generate the voice signature, look at [Transcribe conversations (SDK)](how-to-use-conversation-transcription-service.md).
+1. Try the new Conversation Transcription demo. Start transcribing with 'Start Session'. By default everyone is a guest. However, if you have participant’s voice signatures they can be put into a file `/video/participants.properties` on the device. To generate the voice signature, look at [Transcribe conversations (SDK)](../how-to-use-conversation-transcription-service.md).
 
-   ![Demo Conversation Transcription application](media/speech-devices-sdk/qsg-15.png)
+   ![Demo Conversation Transcription application](../media/speech-devices-sdk/qsg-15.png)
 
 1. Experiment!
 
@@ -182,8 +175,3 @@ If you cannot connect to the Speech Device. Type the following command in a Comm
 > This command uses the Android Debug Bridge, `adb.exe`, which is part of the Android Studio installation. This tool is located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
 >
 > If you see an error `no devices/emulators found` then check your USB cable is connected and ensure a high quality cable is used.
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Review the release notes](devices-sdk-release-notes.md)
