@@ -6,7 +6,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 
 ---
 
@@ -93,9 +93,9 @@ Heartbeat
 | summarize count() by Computer
 ```
 
-While some aggregation commands like [max()](/azure/kusto/query/max-aggfunction), [sum()](/azure/kusto/query/sum-aggfunction), [count()](/azure/kusto/query/count-aggfunction)) and [avg()](/azure/kusto/query/avg-aggfunction) have low CPU impact due to their logic, other are  more complex and include heuristics and estimations that allow them to be executed efficiently. For example, [dcount()](/azure/kusto/query/dcount-aggfunction) uses the HyperLogLog algorithm to provide close estimation to distinct count of very large sets of data without actually counting each value; the percentile functions are doing similar approximations using the nearest rank percentile algorithm. Several of the commands include optional parameters to reduce their impact. For example, the [makeset()](/azure/kusto/query/makeset-aggfunction) function has an optional parameter to define the maximum set size, which highly effect the CPU and memory.
+While some aggregation commands like [max()](/azure/kusto/query/max-aggfunction), [sum()](/azure/kusto/query/sum-aggfunction), [count()](/azure/kusto/query/count-aggfunction) and [avg()](/azure/kusto/query/avg-aggfunction) have low CPU impact due to their logic, other are  more complex and include heuristics and estimations that allow them to be executed efficiently. For example, [dcount()](/azure/kusto/query/dcount-aggfunction) uses the HyperLogLog algorithm to provide close estimation to distinct count of very large sets of data without actually counting each value; the percentile functions are doing similar approximations using the nearest rank percentile algorithm. Several of the commands include optional parameters to reduce their impact. For example, the [makeset()](/azure/kusto/query/makeset-aggfunction) function has an optional parameter to define the maximum set size, which highly effect the CPU and memory.
 
-[Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) and [summarize](/azure/kusto/query/summarizeoperator) commands may cause high CPU utilization when they are processing a very large set of data. Their complexity is directly related to the number of possible values , referred to as *cardinality*, of the fields that are using as the `by` in summarize or as the join attributes. For explanation and optimization of join and summarize, see their documentation articles and optimization tips.
+[Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) and [summarize](/azure/kusto/query/summarizeoperator) commands may cause high CPU utilization when they are processing a very large set of data. Their complexity is directly related to the number of possible values , referred to as *cardinality*, of the columns that are using as the `by` in summarize or as the join attributes. For explanation and optimization of join and summarize, see their documentation articles and optimization tips.
 
 For example, the following queries produce exactly the same result because **CounterPath** is always one-to-one mapped to **CounterName** and **ObjectName**. The second one is more efficient as the aggregation dimension is smaller:
 
@@ -182,7 +182,7 @@ SecurityEvent
 | summarize LoginSessions = dcount(LogonGuid) by Account
 ```
 
-Since Azure Data Explorer is a columnar data store, retrieval of every column is independent of the others. The number of columns that are retrieved directly influences the overall data volume. It is recommended to have in the query output only the columns that are needed. Azure Data Explorer has several optimizations to reduce the number of retrieved columns. If it determines that a column isn’t needed, for example if it's not referenced in the summarize, it won’t retrieve it.
+Since Azure Data Explorer is a columnar data store, retrieval of every column is independent of the others. The number of columns that are retrieved directly influences the overall data volume. It is recommended to only include the columns in the output that are needed by [summarizing](/azure/kusto/query/summarizeoperator) the results or [projecting](/azure/kusto/query/projectoperator) the specific columns. Azure Data Explorer has several optimizations to reduce the number of retrieved columns. If it determines that a column isn’t needed, for example if it's not referenced in the summarize, it won’t retrieve it.
 
 For example, the second query may process three times more data since it needs to fetch not one column but three:
 
