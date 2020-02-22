@@ -13,7 +13,7 @@ keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, I
 
 Each Azure Kinect DK device includes 3.5-mm synchronization ports (**Sync in** and **Sync out**) that you can use to link multiple units together. When linked, your software can coordinate the trigger timing of multiple depth cameras and RGB cameras. 
 
-In this article, we will explore the benefits of multi-device synchronization and its details.
+This article introduces some of the benefits of synchronizing multiple devices, and provides instructions for how to connect the devices.
 
 ## Why use multiple Azure Kinect DK devices?
 
@@ -32,9 +32,9 @@ There are many reasons to use multiple Azure Kinect DK devices. Examples include
 
 Before you start, make sure to review [Azure Kinect DK Hardware specification](hardware-specification.md) and [Azure Kinect DK depth camera](depth-camera.md).
 
-### Select a camera configuration
+### Select a device configuration
 
-You can use two different approaches for your camera configuration:
+You can use two different approaches for your device configuration:
 
 - **Daisy-chain configuration**. Synchronize one master device and up to eight subordinate devices.  
    ![Diagram that shows how to connect Azure Kinect DK devices in a daisy-chain configuration.](./media/multicam-sync-daisychain.png)
@@ -57,19 +57,21 @@ The trigger source must deliver the signal to the master device **Sync in** port
 
 ![Cable configurations for an external trigger signal](./media/resources/camera-trigger-signal.jpg)
 
+For more information about working with external equipment, see [Use Azure Kinect recorder with external synchronized devices](record-external-synchronized-units.md)
+
 ### Plan your camera settings and software configuration
 
 For information about how to set up your software to control the cameras and use the image data, see the [Azure Kinect Sensor SDK](about-sensor-sdk.md).
 
-When you are working with multiple synchronized devices,
+This section addresses several factors that affect synchronized devices (but not single devices). Your software should take these factors into account.
 
 #### Exposure considerations
-If you want to control the precise timing of each device, we recommend that you use a manual exposure setting. Under the automatic exposure setting, each color camera can dynamically change the actual exposure. Because the exposure affects the timing, such changes quickly push the cameras out of synch.
+If you want to control the precise timing of each device, we recommend that you use a manual exposure setting. Under the automatic exposure setting, each color camera can dynamically change the actual exposure. Because the exposure affects the timing, such changes quickly push the cameras out of sync.
 
 In the image capture loop, avoid repeatedly setting the same exposure setting. When needed, just call the API once.
 
 #### Timestamp considerations
-Cameras that are acting in master or subordinate roles report image timestamps in terms of *Start of Frame* instead of *Center of Frame*.
+Devices that are acting in master or subordinate roles report image timestamps in terms of *Start of Frame* instead of *Center of Frame*.
 
 #### Avoiding interference between multiple depth cameras
 
@@ -77,7 +79,7 @@ When multiple depth cameras image overlapping fields of view, each camera must i
 
 For each depth camera capture, the laser turns on nine times and is active for only 125&mu;s each time. The laser is then idle for either 14505&mu;s or 23905&mu;s, depending on the mode of operation. This behavior means that the starting point for the offset calculation is 125&mu;s.
 
-Additionally, difference between the camera clock and the device firmware clock increase the minimum offset to 160&mu;s. To calculate a more precise offset for your configuration, note the depth mode that you are using and refer to the [depth sensor raw timing table](hardware-specification.md). Using the data from this table, you can calculate the minimum offset (the exposure time of each camera) by using the following equation:
+Additionally, difference between the camera clock and the device firmware clock increase the minimum offset to 160&mu;s. To calculate a more precise offset for your configuration, note the depth mode that you are using and refer to the [depth sensor raw timing table](hardware-specification.md#depth-sensor-raw-timing). Using the data from this table, you can calculate the minimum offset (the exposure time of each camera) by using the following equation:
 
 > *Exposure Time* = (*IR Pulses* &times; *Pulse Width*) + (*Idle Periods* &times; *Idle Time*)
 
@@ -87,11 +89,13 @@ In your software, use ```depth_delay_off_color_usec``` or ```subordinate_delay_o
 
 ## Prepare your devices and other hardware
 
+In addition to multiple Azure Kinect DK devices, you may have to obtain additional host computers and other hardware in order to support the configuration you want to build. Use the information in this section to make sure that all of your devices and hardware are ready before you begin setting up.
+
 ### Azure Kinect DK devices
 
 For each of the Azure Kinect DK devices that you want to synchronize, do the following:
 
-- Ensure that the latest firmware is installed on the device. For more info about updating your devices, go to [Update Azure Kinect DK](). 
+- Ensure that the latest firmware is installed on the device. For more info about updating your devices, go to [Update Azure Kinect DK firmware](update-device-firmware.md). 
 - Remove the device cover to reveal the sync ports.
 - Note the serial number for each device. You will use this number later in the setup process.
 
@@ -99,7 +103,7 @@ For each of the Azure Kinect DK devices that you want to synchronize, do the fol
 
 Typically, each Azure Kinect DK uses its own host computer. You can use a dedicated host controller, depending on how you're using the device and the amount of data being transferred over USB. 
 
-Make sure that the Azure Kinect Sensor SDK is installed on each host computer. For more info on installing Sensor SDK, go to [Set up Azure Kinect DK](). 
+Make sure that the Azure Kinect Sensor SDK is installed on each host computer. For more info on installing the Sensor SDK, go to [Quickstart: Set up your Azure Kinect DK](set-up-azure-kinect-dk.md). 
 
 #### Linux computers: USB memory on Ubuntu
 
@@ -120,15 +124,13 @@ By default, Linux-based host computers allocate the USB controller only 16 MB of
 
 ### Cables
 
-To connect the cameras to each other and to the host computers, you need 3.5-mm male-to-male cables (also known as 3.5-mm audio cable). The cables should be less than 10 meters long, and may be stereo or mono.
+To connect the devices to each other and to the host computers, you need 3.5-mm male-to-male cables (also known as 3.5-mm audio cable). The cables should be less than 10 meters long, and may be stereo or mono.
 
-The number of cables that you need depends on the number of cameras that you are using as well as the specific device configuration. The Azure Kinect DK box does not include cables&mdash;you must purchase them separately.
+The number of cables that you need depends on the number of devices that you are using as well as the specific device configuration. The Azure Kinect DK box does not include cables&mdash;you must purchase them separately.
 
-If you're connecting the cameras in the star configuration, you also need one headphone splitter.
+If you're connecting the devices in the star configuration, you also need one headphone splitter.
 
-## Set up multiple Azure Kinect DK devices
-
-### Connect your devices
+## Connect your devices
 
 **To connect Azure Kinect DK devices in a daisy chain configuration**
 
@@ -147,11 +149,13 @@ If you're connecting the cameras in the star configuration, you also need one he
 1. Connect 3.5-mm audio cables to the "split" ends of the headphone splitter.
 1. Plug the other end of each cable into the **Sync in** port of one of the subordinate devices.
 
-### Calibrate the devices as a synchronized set
+## Calibrate the devices as a synchronized set
 
 In a single device, the depth and RGB cameras are factory calibrated to work together. However, when multiple devices have to work together, they need to be calibrated in order to determine how to transform an image from the domain of the camera that captured it to the domain of the camera you want to use to process images.
 
 There are multiple options for cross-calibrating devices. Microsoft provides the [GitHub green screen code sample](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/green_screen), which uses the OpenCV method. The Readme file for this code sample provides more details and instructions for calibrating the devices.
+
+For more general information about calibration, see [Use Azure Kinect calibration functions](use-calibration-functions.md).
 
 ## Verify that the devices are connected and communicating
 
@@ -165,7 +169,7 @@ To verify that the devices are connected correctly, use [Azure Kinect Viewer](az
 1. For each subordinate device in the chain, follow these steps. Start with the device furthest from the master device, and work back toward the master device.
    > [!IMPORTANT]  
    > To get precise image capture alignment between all devices, you have to start the master device last. 
-   1. Open an instance of [Azure Kinect Viewer](azure-kinect-viewer.md).
+   1. Open an instance of Azure Kinect Viewer.
    1. Under **Open Device**, select the serial number of the device that you want to open.  
       ![Open device](./media/open-devices.png)
    1. Under **External Sync**, select **Sub**.  
@@ -184,7 +188,7 @@ When the master Azure Kinect Device starts, the synchronized image from each of 
 1. For each of the subordinate devices, follow these steps. 
    > [!IMPORTANT]  
    > To get precise image capture alignment between all devices, you have to start the master device last. 
-   1. Open an instance of [Azure Kinect Viewer](azure-kinect-viewer.md).
+   1. Open an instance of Azure Kinect Viewer.
    1. Under **Open Device**, select the serial number of the device that you want to open.  
       ![Open device](./media/open-devices.png)
    1. Under **External Sync**, select **Sub**.  
@@ -200,15 +204,13 @@ When the master Azure Kinect Device starts, the synchronized image from all of t
 
 ## Next steps
 
-- [Use Azure Kinect Sensor SDK](about-sensor-sdk.md)
+- [About Azure Kinect Sensor SDK](about-sensor-sdk.md)
 - [Capture Azure Kinect device synchronization](capture-device-synchronization.md)
-- [Set up hardware](set-up-azure-kinect-dk.md)
 
 ## Related topics
 
-- [Meet Azure Kinect DK]() 
-- [Set up Azure Kinect DK]() 
-- [Update Azure Kinect DK]() 
-- [Where to use Azure Kinect DK]() 
+- [Azure Kinect DK hardware specifications](hardware-specifications.md) 
+- [Quickstart: Set up your Azure Kinect DK](set-up-azure-kinect-dk.md) 
+- [Update Azure Kinect DK firmware](update-device-firmware.md) 
 - [Reset Azure Kinect DK](reset-azure-kinect-dk.md) 
-- [Use Azure Kinect Viewer]() 
+- [Azure Kinect Viewer](azure-kinect-viewer.md) 
