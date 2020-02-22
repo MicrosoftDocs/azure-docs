@@ -16,16 +16,16 @@ ms.collection: M365-identity-device-management
 
 # Assign a user or group to an enterprise app in Azure Active Directory
 
-This article shows you how to assign users or groups to enterprise applications in Azure Active Directory (Azure AD), either from within the Azure portal or by using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps](https://myapps.microsoft.com/) access panel so they can easily access it. 
+This article shows you how to assign users or groups to enterprise applications in Azure Active Directory (Azure AD), either from within the Azure portal or by using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps access panel](https://myapps.microsoft.com/) for easy access.
 
-For greater control over who can access an application, certain types of enterprise applications can be configured to *require* user assignment. With this option, you can limit access to only those users or groups that you've assigned to the application. If you don't require user assignment, all your users can navigate directly to the application’s URL (known as service provider-initiated sign-on), or they can use the **User Access URL** on an application’s **Properties** page (known as identity provider-initiated sign on). But by requiring user assignment, only those users you've assigned to the application can access it.
+For greater control, certain types of enterprise applications can be configured to *require* user assignment. With this option, you limit access to only those users you've assigned to the application. When user assignment isn't required, any user who's not assigned to the application can still sign in by using a direct app URL (known as service provider-initiated sign-on) or by using the **User Access URL** in the application’s **Properties** page (known as identity provider-initiated sign on). But if you require user assignment, any unassigned users will be blocked from signing in.
 
-To assign a user or group to an enterprise app, you'll need to sign in as a global administrator, application administrator, cloud application administrator, or the assigned owner of the enterprise app. 
+To assign a user or group to an enterprise app, you'll need to sign in as a global administrator, application administrator, cloud application administrator, or the assigned owner of the enterprise app.
 
 If you want to assign users to Microsoft Applications such as Office 365 apps, use PowerShell. You can also show or hide Office 365 applications in the My Apps access panel by [setting an option in the Enterprise applications **User settings**](hide-application-from-user-portal.md). 
 
 > [!NOTE]
-> Group-based assignment requires a paid Azure AD subscription and is determined by your [license agreement](https://azure.microsoft.com/pricing/details/active-directory). Group-based assignment is supported for Security groups only. Nested group memberships and Office 365 groups are not currently supported. 
+> Group-based assignment requires a paid Azure AD subscription. See  and is determined by your [license agreement](https://azure.microsoft.com/pricing/details/active-directory). Group-based assignment is supported for Security groups only. Nested group memberships and Office 365 groups are not currently supported. 
 
 ## Configure an application to require user assignment
 
@@ -35,11 +35,11 @@ With the following types of applications, you have the option of requiring users
 - Application Proxy applications that use Azure Active Directory Pre-Authentication
 - Applications built on the Azure AD application platform that use OAuth 2.0 / OpenID Connect Authentication after a user or admin has consented to that application.
 
-When assignment is not required, either because you've set this option to **No** or because the application uses another SSO mode, users can access the application with a direct link. Note that this setting doesn't affect whether or not an application appears on the My Apps access panel. Applications appear on users' My Apps access panels once you've assigned a user or group to the application.
+When assignment is not required, either because you've set this option to **No** or because the application uses another SSO mode, users can access the application with a direct link. This setting doesn't affect whether or not an application appears on the My Apps access panel. Applications appear on users' My Apps access panels once you've assigned a user or group to the application.
 
-To require assignment:
+To require user assignment for an application:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an administrator account, or as an owner of the application.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an administrator account or as an owner of the application.
 
 2. Select **Azure Active Directory**. In the left navigation menu, select **Enterprise applications**.
 
@@ -65,8 +65,12 @@ To require assignment:
    ![Assign a user or group to the app](./media/assign-user-or-group-access-portal/assign-users.png)
 
 9. On the **Users and groups** pane, select one or more users or groups from the list and then choose the **Select** button at the bottom of the pane.
-10. If the application supports it, you can assign a role to the user or group. On the **Add Assignment** pane, select **Role**. Then, on the **Select Role** pane, choose a role to apply to the selected users or groups, then select **OK** at the bottom of the pane. Otherwise, the default access role is assigned, which means the application manages the level of access users have.
-11. On the **Add Assignment** pane, select the **Assign** button at the bottom of the pane.
+10. If the application supports it, you can assign a role to the user or group. On the **Add Assignment** pane, choose **Select Role**. Then, on the **Select Role** pane, choose a role to apply to the selected users or groups, then select **OK** at the bottom of the pane. 
+
+    > [!NOTE]
+    > If the application doesn't support role selection, the default access role is assigned. In this case, the application manages the level of access users have.
+
+2. On the **Add Assignment** pane, select the **Assign** button at the bottom of the pane.
 
 ## Assign users or groups to an app via PowerShell
 
@@ -141,8 +145,8 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
 - [Learn more about end-user access to applications](end-user-experiences.md)
 - [Plan an Azure AD access panel deployment](access-panel-deployment-plan.md)
 - [Managing access to apps](what-is-access-management.md)
-- 
-- ## Next steps
+ 
+## Next steps
 
 - [See all of my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
