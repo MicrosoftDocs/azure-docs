@@ -94,11 +94,9 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 - Before you can associate a policy to a subnet, you have to create a virtual network and subnet. Please refer to the [Create a Virtual Network](./quick-create-portal.md) article for help with this.
 
-- Once you have the virtual network and subnet are setup, you need to configure Virtual Network Service Endpoints for Azure Storage. As shown in the following picture, select **Service endpoints**, and in the next pane select **Microsoft.Storage** and under **Subnets** select the desired VNet or Subnet
+- Once you have the virtual network and subnet are setup, you need to configure Virtual Network Service Endpoints for Azure Storage. On the Virtual Network blade, select **Service endpoints**, and in the next pane select **Microsoft.Storage** and under **Subnets** select the desired VNet or Subnet
 
-   ![Configure Service Endpoint](./media/virtual-network-service-endpoint-policies-portal/vnet-config-service-endpoint-add.png)
-
-- Now, you can either choose to select the Service Endpoint POlicy from the drop-down in the above pane if you have already created Service Endpoint policies before configuring Service Endpoint for the Subnet as shown below
+- Now, you can either choose to select the Service Endpoint Policy from the drop-down in the above pane if you have already created Service Endpoint policies before configuring Service Endpoint for the Subnet as shown below
 
     ![Associate subnet while creating service endpoint](./media/virtual-network-service-endpoint-policies-portal/vnet-config-service-endpoint-add-sep.png)
 
