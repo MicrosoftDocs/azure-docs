@@ -36,6 +36,9 @@ This article outlines, for IoT Central:
 - Only the C device SDK and the Node.js device and service SDKs are supported.
 - It's only available in the United States and Europe locations.
 - Device capability models must have all the interfaces defined inline in the same file.
+- Support for Plug and Play is in preview and supported only in selected regions, please contact technical support to get access to this feature.
+> [!NOTE]
+> Contact technical support to get access to create Preview application with support for IoT Plug and Play devices.
 
 ## Personas
 
