@@ -27,12 +27,6 @@ In this tutorial, the following steps will be performed in order to configure pr
 > * Create and deploy an Azure Function
 > * Invoke the function from outside and within the virtual network
 
-<!---Required:
-The outline of the tutorial should be included in the beginning and at
-the end of every tutorial. These will align to the **procedural** H2
-headings for the activity. You do not need to include all H2 headings.
-Leave out the prerequisites, clean-up resources and next steps--->
-
 ## Topology
 
 The following diagram shows the architecture of the solution to be created:
@@ -50,23 +44,6 @@ For this tutorial, it's important that you understand IP addressing and subnetti
 Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Virtual Network
-
-<!---Required:
-Tutorials are prescriptive and guide the customer through an end-to-end
-procedure. Make sure to use specific naming for setting up accounts and
-configuring technology.
-Don't link off to other content - include whatever the customer needs to
-complete the scenario in the article. For example, if the customer needs
-to set permissions, include the permissions they need to set, and the
-specific settings in the tutorial procedure. Don't send the customer to
-another article to read about it.
-In a break from tradition, do not link to reference topics in the
-procedural part of the tutorial when using cmdlets or code. Provide customers what they need to know in the tutorial to successfully complete
-the tutorial.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
 
 The first step is to create a new resource group, and then a new virtual network within the resource group. The virtual network will contain one subnet (with a name of "default"), and a new virtual machine within that subnet. The VM will be used to test invoking the function app.
 
@@ -305,31 +282,32 @@ The next step in this tutorial is to creates a HTTP-triggered Azure Function. In
 2. When publishing the Azure Function, select the Azure Function Consumption plan previously created in this tutorial. For this tutorial, the Azure Function is deployed from a development laptop which is not connected to the virtual network used in the tutorial. It is possible to do this because access restrictions where not configured for the SCM endpoint.
 3. Verify the function is deployed.
 
-<!-- INSERT SCREENSHOT -->
+[!div class="mx-imgBorder"]
+![Deployed function in list of functions](./media/functions-create-private-site-access/deploy-function-1.png)
 
 ## Invoke the Azure Function
 
-With the function deployed, it is time to go back to the Azure Portal. There should now be a function in the list of functions.
+1. In order to test access to the function, copy the function URL.
 
-<!-- INSERT SCREENSHOT -->
+[!div class="mx-imgBorder"]
+![Copy the function URL](./media/functions-create-private-site-access/invoke-function-get-url.png)
 
-In order to test access to the function, copy the function URL and try to invoke it from a web browser. Doing so from a local machine will result in a 403 web app is stopped message.
+2. Paste the URL into a web browser. Doing so from a local machine will result in a HTTP 403 web app is stopped message.
 
-<!-- INSERT SCREENSHOT -->
+[!div class="mx-imgBorder"]
+![Function app stoppedL](./media/functions-create-private-site-access/function-app-stopped-1.png)
+
+Note: You will receive an error in the portal which indicates the function runtime is unable to start. The function runtime is actually running. Due to the previously created access restrictions, the Azure Portal isn't able to make the query to check the runtime. This will be fixed in a future update to the Azure Portal.
+
+[!div class="mx-imgBorder"]
+![Azure Portal error querying the function](./media/functions-create-private-site-access/invoke-function-portal-error.png)
+
+## Invoke the Azure Function from the Virtual Network
 
 However, accessing the function via a web browser (by using the Azure Bastion service) on the configured VM on the virtual network results in success!!
 
-<!-- INSERT SCREENSHOT -->
-
-## Invoke the Azure Function
-
-<!---Code requires specific formatting. Here are a few useful examples of
-commonly used code blocks. Make sure to use the interactive functionality
-where possible.
-
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
+[!div class="mx-imgBorder"]
+![Access the Azure Function via Azure Bastion](./media/functions-create-private-site-access/access-function-via-bastion-1.png)
 
 ## Summary
 
@@ -346,12 +324,3 @@ In this tutorial, . . .
 > [Integrate Azure Functions with a Virtual Network](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet)
 > [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 > [Next steps button](contribute-get-started-mvc.md)
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next
-logical tutorial in a series, or, if there are no other tutorials, to
-some other cool thing the customer can do. A single link in the blue box
-format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also
-section". --->
