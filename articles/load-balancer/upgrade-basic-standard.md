@@ -65,17 +65,8 @@ To run the script:
 
 1. Use `Import-Module Az` to import the Az modules.
 
-1. Run `Get-Help AzureLBUpgrade.ps1` to examine the required parameters:
+1. Examine the required parameters:
 
-   ```
-   AzurePublicLBUpgrade.ps1
-    -oldRgName <name of the Resource Group where Basic Load Balancer exists>
-    -oldLBName <name of existing Basic Load Balancer>
-    -newrgName <Name of the Resource Group where the new Standard Load Balancer will be created>
-    -newlocation <Name of the location where the new Standard Load Balancer will be created>
-    -newLBName <Name of the Standard Load Balancer to be created>
-   ```
-   Parameters for the script:
    * **oldRgName: [String]: Required** – This is the resource group for your existing Basic Load Balancer you want to upgrade. To find this string value, navigate to Azure Portal, select your Basic Load Balancer source, and click the **Overview** for the load balancer. The Resource Group is located on that page.
    * **oldLBName: [String]: Required** – This is the name of your existing Basic Balancer you want to upgrade. 
    * **newrgName: [String]: Required** – This is the resource group in which the Standard Load Balancer will be created. It can be a new resource group or an existing one. If you pick an existing resource group, note that the name of the Load Balancer has to be unique within the resource group. 
