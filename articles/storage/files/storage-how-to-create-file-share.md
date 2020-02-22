@@ -5,7 +5,7 @@ description: How to create an Azure file share by using the Azure portal, PowerS
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/23/2019
+ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -20,7 +20,7 @@ To create an Azure file share, you need to answer three questions about how you 
     Standard file shares can span up to 100 TiB, however this feature is not enabled by default; if you need a file share that is larger than 5 TiB, you will need to enable the large file share feature for your storage account. Premium file shares can span up to 100 TiB without any special setting, however premium file shares are provisioned, rather than pay as you go like standard file shares. This means that provisioning a file share much larger than what you need will increase the total cost of storage.
 
 3. **What are your redundancy requirements for your Azure file share?**  
-    Standard file shares can be locally redundant (LRS), zone redundant (ZRS), geo-redundant (GRS), or geo-zone-redundant (GZRS), however the large file share feature is only supported on locally redundant and zone redundant file shares. Premium file shares do not support any form of geo-redundancy.
+    Standard file shares offer locally-redundant (LRS), zone redundant (ZRS), geo-redundant (GRS), or geo-zone-redundant (GZRS) storage, however the large file share feature is only supported on locally redundant and zone redundant file shares. Premium file shares do not support any form of geo-redundancy.
 
     Premium file shares are available with locally redundancy in most regions that offer storage accounts and with zone redundancy in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. For information about regions that support ZRS, see [Azure Storage redundancy](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
@@ -41,7 +41,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 2. **FileStorage storage accounts**: FileStorage storage accounts allow you to deploy Azure file shares on premium/solid-state disk-based (SSD-based) hardware. FileStorage accounts can only be used to store Azure file shares; no other storage resources (blob containers, queues, tables, etc.) can be deployed in a FileStorage account.
 
 # [Portal](#tab/azure-portal)
-To create a storage account via the Azure portal, select **+ Create a resource** from the dashboard. In the resulting Azure Marketplace search window, search for **storage account** and select the resulting search result. This will lead to an overview page for storage accounts; click **Create** to proceed with the storage account creation wizard.
+To create a storage account via the Azure portal, select **+ Create a resource** from the dashboard. In the resulting Azure Marketplace search window, search for **storage account** and select the resulting search result. This will lead to an overview page for storage accounts; select **Create** to proceed with the storage account creation wizard.
 
 ![A screenshot of the storage account quick create option in a browser](media/storage-how-to-create-file-share/create-storage-account-0.png)
 
@@ -50,13 +50,13 @@ The first section to complete to create a storage account is labeled **Basics**.
 
 ![A screenshot of the Performance radio button with Standard selected and Account kind with StorageV2 selected](media/storage-how-to-create-file-share/create-storage-account-1.png)
 
-The create a FileStorage storage account, ensure the **Performance** radio button is set to *Premium* and the **Account kind** drop-down list is selected to *FileStorage*.
+To create a FileStorage storage account, ensure the **Performance** radio button is set to *Premium* and the **Account kind** drop-down list is selected to *FileStorage*.
 
 ![A screen shot of the Performance radio button with Premium selected and Account kind with FileStorage selected](media/storage-how-to-create-file-share/create-storage-account-2.png)
 
 The other basics fields are independent from the choice of storage account:
 - **Subscription**: The subscription for the storage account to be deployed into. 
-- **Resource group**: The resource group for teh storage account to be deployed into. You may either create a new resource group or use an existing resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group.
+- **Resource group**: The resource group for the storage account to be deployed into. You may either create a new resource group or use an existing resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group.
 - **Storage account name**: The name of the storage account resource to be created. This name must be globally unique, but otherwise can any name you desire. The storage account name will be used as the server name when you mount an Azure file share via SMB.
 - **Location**: The region for the storage account to be deployed into. This can be the region associated with the resource group, or any other available region.
 - **Replication**: Although this is labeled replication, this field actually means **redundancy**; this is the desired redundancy level: locally redundancy (LRS), zone redundancy (ZRS), geo-redundancy (GRS), and geo-zone-redundancy. This drop-down list also contains read-access geo-redundancy (RA-GRS) and read-access geo-zone redundancy (RA-GZRS), which do not apply to Azure file shares; any file share created in a storage account with these selected will actually be either geo-redundant or geo-zone-redundant, respectively. Depending on your region or selected storage account type, some redundancy options may not be allowed.
@@ -68,8 +68,8 @@ The networking section allows you to configure networking options. These setting
 #### The Advanced blade
 The advanced section contains several important settings for Azure file shares:
 
-- **Secure transfer required**: This field indicates whether the storage account requires encryption in transit for communication to the storage account. We recommend this is always left to enabled, however, if you require SMB 2.1 support, you must disable this. We recommend if you disable encryption that you constrain your storage account access to a virtual network.
-- **Large file shares**: This setting controls whether the storage account will be enabled for shares spanning up to 100 TiB. It will only be visible for GPv2 storage accounts (standard storage accounts) because all FileStorage storage accounts (premium storage accounts) support 100 TiB. As previously noted, file shares larger than 5 TiB are only supported on locally redundant and zone redundant storage, so enabling this switch means that you will not be able to convert your storage account to geo-redundant storage.
+- **Secure transfer required**: This field indicates whether the storage account requires encryption in transit for communication to the storage account. We recommend this is left enabled, however, if you require SMB 2.1 support, you must disable this. We recommend if you disable encryption that you constrain your storage account access to a virtual network with service endpoints and/or private endpoints.
+- **Large file shares**: This field enables the storage account for file shares spanning up to 100 TiB. Enabling this feature will limit your storage account to only locally redundant and zone redundant storage options. Once a GPv2 storage account has been enabled for large file shares, you cannot disable the large file share capability. FileStorage storage accounts (storage accounts for premium file shares) do not have this option, as all premium file shares can scale up to 100 TiB. 
 
 ![A screenshot of the important advanced settings that apply to Azure Files](media/storage-how-to-create-file-share/create-storage-account-3.png)
 
@@ -79,7 +79,7 @@ The other settings that are available in the advanced tab (blob soft-delete, hie
 Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. These are optional and can be applied after storage account creation.
 
 #### Review + create
-The final step to create the storage account is to click the **Create** button on the **Review + create** tab. This button won't be available if all of the required fields for a storage account are not filled.
+The final step to create the storage account is to select the **Create** button on the **Review + create** tab. This button won't be available if all of the required fields for a storage account are not filled.
 
 # [PowerShell](#tab/azure-powershell)
 To create a storage account using PowerShell, we will use the `New-AzStorageAccount` cmdlet. This cmdlet has many options; only the required options are shown. To learn more about advanced options, see the [`New-AzStorageAccount` cmdlet documentation](/powershell/module/az.storage/new-azstorageaccount).
@@ -159,18 +159,18 @@ For standard file shares, it's an upper boundary of the Azure file share, beyond
 For premium file shares, quota is overloaded to mean **provisioned size**. The provisioned size is the amount that you will be billed for, regardless of actual usage. When you provision a premium file share, you want to consider two factors: 1) the future growth of the share from a space utilization perspective and 2) the IOPS required for your workload. Every provisioned GiB entitles you to additional  reserved and burst IOPS. For more information on how to plan for a premium file share, see [provisioning premium file shares](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
 
 # [Portal](#tab/azure-portal)
-If you just created your storage account, you can navigate to it from the deployment screen by clicking **Go to resource**. If you have previously created the storage account, you can navigate to it via the resource group containing it. Once in the storage account, select the tile labeled **File shares** (you can also navigate to **File shares** via the table of contents for the storage account).
+If you just created your storage account, you can navigate to it from the deployment screen by selecting **Go to resource**. If you have previously created the storage account, you can navigate to it via the resource group containing it. Once in the storage account, select the tile labeled **File shares** (you can also navigate to **File shares** via the table of contents for the storage account).
 
 ![Screenshot of the File shares tile](media/storage-how-to-create-file-share/create-file-share-1.png)
 
-In the file share listing, you should see any file shares you have previously created in this storage account; an empty table if no file shares have been created yet. Click **+ File share** to create a new file share.
+In the file share listing, you should see any file shares you have previously created in this storage account; an empty table if no file shares have been created yet. Select **+ File share** to create a new file share.
 
 The new file share blade should appear on the screen. Complete the fields in the new file share blade to create a file share:
 
 - **Name**: the name of the file share to be created.
 - **Quota**: The quota of the file share for standard file shares; the provisioned size of the file share for premium file shares.
 
-Click **Create** to finishing creating the new share. Note that if your storage account is in a virtual network, you will not be able to successfully create an Azure file share unless your client is also in the virtual network. You can also work around this point-in-time limitation by using the Azure PowerShell `New-AzRmStorageShare` cmdlet.
+Select **Create** to finishing creating the new share. Note that if your storage account is in a virtual network, you will not be able to successfully create an Azure file share unless your client is also in the virtual network. You can also work around this point-in-time limitation by using the Azure PowerShell `New-AzRmStorageShare` cmdlet.
 
 # [PowerShell](#tab/azure-powershell)
 You can create the Azure file share with the [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. The following PowerShell commands assume you have set the variables `$resourceGroupName` and `$storageAccountName` as defined above in the creating a storage account with Azure PowerShell section. 
