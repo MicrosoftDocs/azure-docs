@@ -25,6 +25,8 @@ Before you link your partner ID, your customer must give you access to their Azu
 
 - **Service principal**: Your customer can add an app or script from your organization in their directory and assign any RBAC role. The identity of the app or script is known as a service principal.
 
+- **Azure Lighthouse**: Your customer can delegate a subscription (or resource group) so that your users can work on it from within your tenant. For more information, see [Azure delegated resource management](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
+
 ## Link to a partner ID
 
 When you have access to the customer's resources, use the Azure portal, PowerShell, or the Azure CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. Link the partner ID in each customer tenant.
@@ -149,3 +151,7 @@ You can't see the customer in the reports due to following reasons
 **Does link partner ID works with Azure Stack?**
 
 Yes, You can link your partner ID for Azure Stack.
+
+**How do I link my partner ID if my company uses [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) to access customer resources?**
+
+
