@@ -65,7 +65,7 @@ For your reference, the Spark memory structure and some key executor memory para
 
 ### Spark memory considerations
 
-Apache Spark in Azure Synapse uses YARN[Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), YARN controls the maximum sum of memory used by all containers on each Spark node.  The following diagram shows the key objects and their relationships.
+Apache Spark in Azure Synapse uses YARN [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), YARN controls the maximum sum of memory used by all containers on each Spark node.  The following diagram shows the key objects and their relationships.
 
 ![YARN Spark Memory Management](./media/apache-spark-perf/apache-yarn-spark-memory.png)
 
