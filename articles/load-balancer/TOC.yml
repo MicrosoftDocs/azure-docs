@@ -64,6 +64,8 @@
   items:
   - name: Upgrade a Basic Load Balancer to Standard Load Balancer
     items:
+    - name: Overview
+      href: LBUpgradeGeneral.md
     - name: Upgrade a Basic Public Load Balancer to Standard Public Load Balancer
       href: upgrade-basic-standard.md
     - name: Upgrade a Basic Internal Load Balancer to Standard Internal Load Balancer
