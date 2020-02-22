@@ -20,7 +20,7 @@ This article introduces some of the benefits of synchronizing multiple devices, 
 There are many reasons to use multiple Azure Kinect DK devices. Examples include the following:
 
 - Fill in occlusions. An occlusion occurs when a foreground object blocks the view of part of a background object for one of the two cameras. In the resulting color image, the foreground object appears to cast a shadow on the background object. Although the Azure Kinect DK data transformations produce a single image, the two cameras (Depth and RGB) are actually a small distance apart. The offset makes occlusions possible.  
-   For example, in the following diagram, the left camera sees the grey pixel "P2." However, the white foreground object blocks the right camera IR beam. The right camera has no data for "P2."
+   For example, in the following diagram, the left camera sees the grey pixel "P2." However, the white foreground object blocks the right camera IR beam. The right camera has no data for "P2."  
    ![Occlusion](./media/occlusion.png)  
    Additional synchronized devices can fill in the occluded data.
 - Scan objects in three dimensions.
