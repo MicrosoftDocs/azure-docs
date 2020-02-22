@@ -109,7 +109,6 @@ To play a video, point your browser at the basicPlayback.html file and click pla
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## See Also
-[Develop video player applications](media-services-develop-video-players.md)
 
 [GitHub dash.js repository](https://github.com/Dash-Industry-Forum/dash.js) 
 
