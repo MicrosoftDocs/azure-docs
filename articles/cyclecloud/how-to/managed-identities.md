@@ -8,7 +8,7 @@ ms.author: rokeptne
 
 # Using Managed Identities
 
-Azure AD Managed Identities may be used to permission Azure CycleCloud to manage clusters in your subscription (as an alternative to using a Service Principal), and they may also be assigned to VMs in the clusters created by CycleCloud to provide access to Azure resources (such as Storage, Key Vault, or Azure Container Registries) from  the cluster VMs.
+Azure AD Managed Identities may be used to permission Azure CycleCloud to manage clusters in your subscription (as an alternative to using a [Service Principal](service-principals.md)), and they may also be assigned to VMs in the clusters created by CycleCloud to provide access to Azure resources (such as Storage, Key Vault, or Azure Container Registries) from  the cluster VMs.
 
 
 ## CycleCloud VM Permissions with Managed Identity
@@ -25,7 +25,7 @@ It is still possible to enter the standard set of credentials by simply unchecki
 
 ### Create a custom role and managed identity for CycleCloud
 
-The simplest option (with sufficient access rights) is to assigned the Contributor Role for the Subscription to the CycleCloud VM as a System-Assigned Managed Identity.  However, the Contributor Role has a higher privilege level than CycleCloud requires.  A [custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) may be created and assigned to the VM.
+The simplest option (with sufficient access rights) is to assign the Contributor Role for the Subscription to the CycleCloud VM as a System-Assigned Managed Identity.  However, the Contributor Role has a higher privilege level than CycleCloud requires.  A [custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) may be created and assigned to the VM.
 
 A sufficient policy for most CycleCloud features is posted below.
 
