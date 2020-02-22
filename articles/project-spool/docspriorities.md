@@ -9,3 +9,7 @@
 3. With this time-cost awareness, plan out our other use-cases and content plan with weekly goals along the Private Preview / Build / General Availability timeline.
 4. Review and adjust on at least a weekly basis - ideally incorporating MVP or internal user feedback along the way.
 
+## Backlog
+
+ - REST API: https://github.com/Azure/adx-documentation-pr/wiki
+
