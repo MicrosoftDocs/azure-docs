@@ -1,6 +1,6 @@
 ---
 title: SRE Link list | Microsoft Docs
-description: Expand your knowledge of site reliiabiliy engineering with these resources
+description: Expand your knowledge of site reliability engineering with these resources
 author: dnblankedelman
 manager: efreeman
 ms.service: site-reliability-engineering
