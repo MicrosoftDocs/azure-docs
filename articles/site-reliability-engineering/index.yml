@@ -156,8 +156,14 @@ conceptualContent:
         url: https://docs.microsoft.com/en-us/azure/azure-monitor/
         text: See more about Azure Monitor
     # Card
-    - title: Delivery
+    - title: Provisioning and Delivery
       links:
+        - url: https://docs.microsoft.com/azure/azure-resource-manager/
+          itemType: get-started
+          text: Azure Resource Manager
+        - url: https://docs.microsoft.com/azure/terraform/
+          itemType: get-started
+          text: Terraform on Azure
         - url: https://help.github.com/actions
           itemType: get-started
           text: GitHub Actions
