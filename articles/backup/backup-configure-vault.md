@@ -21,10 +21,10 @@ In this article, you learn how to:
 
 ## About the MARS agent
 
-Azure Backup uses the MARS agent to back up files, folders, and system state from on-premises machines and Azure VMs. Those backups are stored in a backup Recovery Services vault in Azure. You can run the agent:
+Azure Backup uses the MARS agent to back up files, folders, and system state from on-premises machines and Azure VMs. Those backups are stored in a Recovery Services vault in Azure. You can run the agent:
 
 * Directly on on-premises Windows machines. These machines can back up directly to a Recovery Services vault in Azure.
-* On Azure VMs running Windows side by side with the Azure VM backup extension. The agent backs up specific files and folders on the VM.
+* On Azure VMs that run Windows side by side with the Azure VM backup extension. The agent backs up specific files and folders on the VM.
 * On a Microsoft Azure Backup Server (MABS) instance or a System Center Data Protection Manager server. In this scenario, machines and workloads back up to MABS or Data Protection Manager. Then MABS or Data Protection Manager uses the MARS agent to back up to a vault in Azure.
 
 What you can back up depends on where the agent is installed.
@@ -37,12 +37,10 @@ What you can back up depends on where the agent is installed.
 ## Before you start
 
 * Learn how [Azure Backup uses the MARS agent to back up Windows machines](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
-* Learn about [the backup architecture](backup-architecture.md#architecture-back-up-to-dpmmabs) that runs the MARS agent on a secondary MABS or Data Protection Manager server.
+* Learn about the [backup architecture](backup-architecture.md#architecture-back-up-to-dpmmabs) that runs the MARS agent on a secondary MABS or Data Protection Manager server.
 * Review [what's supported and what you can back up](backup-support-matrix-mars-agent.md) by using the MARS agent.
-* Verify internet access on the machines that you want to back up.
 * Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/free/) in just a few minutes.
-
-### Verify internet access
+* Verify internet access on the machines that you want to back up.
 
 If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
 
@@ -78,37 +76,37 @@ To create a vault:
 
    * The name needs to be unique for the Azure subscription.
    * It can contain 2 to 50 characters.
-   * It must start with a letter, and it can contain only letters, numbers, and hyphens.
+   * It must start with a letter.
+   * It can contain only letters, numbers, and hyphens.
 
-1. Select the Azure subscription, resource group, and geographic region in which the vault should be created. Backup data is sent to the vault. Then select **Create**.
+1. Select the Azure subscription, resource group, and geographic region in which the vault should be created. Backup data is sent to the vault. Select **Create**.
 
     ![Add identifying info for the Recovery Services vault](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-   * It can take a while for the vault to be created.
-   * Monitor the status notifications in the upper-right area of the portal. If you don't see the vault after several minutes, select **Refresh**.
+    The system might take a while to create the vault. Monitor the status notifications in the upper-right area of the portal. If you don't see the vault after several minutes, select **Refresh**.
 
-     ![Select the Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
+    ![Select the Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
 
 ### Set storage redundancy
 
 Azure Backup automatically handles storage for the vault. You need to specify how that storage is replicated.
 
-1. From the **Recovery Services vaults** blade, select the new vault. Under **Settings**, select  **Properties**.
+1. On the **Recovery Services vaults** blade, select the new vault. Under **Settings**, select  **Properties**.
 1. In **Properties**, under **Backup Configuration**, select **Update**.
 
 1. Select the storage replication type, and select **Save**.
 
       ![Set the storage configuration for a new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-We recommend that if you use Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs.
+We recommend that if you use Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting. If you don't use Azure as a primary backup storage endpoint, choose **Locally-redundant** to reduce the Azure storage costs.
 
 For more information, see [Geo-redundancy](../storage/common/storage-redundancy-grs.md) and [Local redundancy](../storage/common/storage-redundancy-lrs.md).
 
 ## Download the MARS agent
 
-Download the MARS agent so you can install it on the machines that you want to back up.
+Download the MARS agent so that you can install it on the machines that you want to back up.
 
-If you've already installed the agent on any machines, make sure you're running the latest version of the agent. Find the latest version in the portal, or go directly to the [download](https://aka.ms/azurebackup_agent).
+If you've already installed the agent on any machines, make sure that you're running the latest version of the agent. Find the latest version in the portal, or go directly to the [download](https://aka.ms/azurebackup_agent).
 
 1. In the vault, under **Getting Started**, select **Backup**.
 
@@ -117,23 +115,23 @@ If you've already installed the agent on any machines, make sure you're running 
 1. Under **Where is your workload running?**, select **On-premises**. Select this option even if you want to install the MARS agent on an Azure VM.
 1. Under **What do you want to backup?**, select **Files and folders**. You can also select **System State**. Many other options are available, but these are supported only if you're running a secondary backup server. Select **Prepare Infrastructure**.
 
-      ![Configure files and folders](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
+    ![Configure files and folders](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
 
 1. For **Prepare infrastructure**, under **Install Recovery Services agent**, download the MARS agent.
 
     ![Prepare the infrastructure](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-1. In the download menu, select **Save**. By default, the **MARSagentinstaller.exe** file is saved to your Downloads folder.
+1. In the download menu, select **Save**. By default, the *MARSagentinstaller.exe* file is saved to your Downloads folder.
 
 1. Select **Already download or using the latest Recovery Services Agent**, and then download the vault credentials.
 
     ![Download vault credentials](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-1. Select **Save**. The file is downloaded to your Download folder. You can't open the vault credentials file.
+1. Select **Save**. The file is downloaded to your Downloads folder. You can't open the vault credentials file.
 
 ## Install and register the agent
 
-1. Run the **MARSagentinstaller.exe** file on the machines that you want to back up.
+1. Run the *MARSagentinstaller.exe* file on the machines that you want to back up.
 1. In the MARS Agent Setup Wizard, select **Installation Settings**. There, choose where to install the agent, and choose a location for the cache. Then select **Next**.
    * Azure Backup uses the cache to store data snapshots before sending them to Azure.
    * The cache location should have free space equal to at least 5 percent of the size of the data you'll back up.
@@ -143,31 +141,31 @@ If you've already installed the agent on any machines, make sure you're running 
 1. For **Proxy Configuration**, specify how the agent that runs on the Windows machine will connect to the internet. Then select **Next**.
 
    * If you use a custom proxy, specify any necessary proxy settings and credentials.
-   * Remember that the agent needs access to [specific URLs](#verify-internet-access).
+   * Remember that the agent needs access to [specific URLs](#before-you-start).
 
-     ![Set up internet access in the MARS wizard](./media/backup-configure-vault/mars2.png)
+    ![Set up internet access in the MARS wizard](./media/backup-configure-vault/mars2.png)
 
 1. For **Installation**, review the prerequisites, and select **Install**.
 1. After the agent is installed, select **Proceed to Registration**.
-1. In **Register Server Wizard** > **Vault Identification**, browse and select the credentials file that you downloaded. Then select **Next**.
+1. In **Register Server Wizard** > **Vault Identification**, browse to and select the credentials file that you downloaded. Then select **Next**.
 
-    ![Add vault credentials in the Register Server Wizard](./media/backup-configure-vault/register1.png)
+    ![Add vault credentials by using the Register Server Wizard](./media/backup-configure-vault/register1.png)
 
 1. On the **Encryption Setting** page, specify a passphrase that will be used to encrypt and decrypt backups for the machine.
 
     * Save the encryption passphrase in a secure location.
-    * If you lose or forget the passphrase, Microsoft can't help recover the backup data. Save the file in a secure location. You need it to restore a backup.
+    * If you lose or forget the passphrase, Microsoft can't help you recover the backup data. Save the file in a secure location. You need it to restore a backup.
 
 1. Select **Finish**. The agent is now installed, and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
 ## Create a backup policy
 
-The backup policy specifies when to take snapshots of the data to create recovery points. It also specifies how long to keep recovery points. You the MARS agent to configure a backup policy.
+The backup policy specifies when to take snapshots of the data to create recovery points. It also specifies how long to keep recovery points. You use the MARS agent to configure a backup policy.
  
-Azure Backup doesn't automatically take daylight saving time (DST) into account. This could cause some discrepancy between the actual time and the scheduled backup time.
+Azure Backup doesn't automatically take daylight saving time (DST) into account. This default could cause some discrepancy between the actual time and the scheduled backup time.
 
 To create a backup policy:
-1. After downloading and registering the MARS agent, open the agent console. You can find it by searching your machine for **Microsoft Azure Backup**.  
+1. After you download and register the MARS agent, open the agent console. You can find it by searching your machine for **Microsoft Azure Backup**.  
 1. Under **Actions**, select **Schedule Backup**.
 
     ![Schedule a Windows Server backup](./media/backup-configure-vault/schedule-first-backup.png)
@@ -180,34 +178,32 @@ To create a backup policy:
 
     ![Select items to back up](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
-1. On the **Select Items to Back up** page, select **Next**.
-1. On the **Specify Backup Schedule** page, specify when you want to take daily or weekly backups. Then select **Next**.
+1. On the **Select Items to Back Up** page, select **Next**.
+1. On the **Specify Backup Schedule** page, specify when to take daily or weekly backups. Then select **Next**.
 
-    - A recovery point is created when a backup is taken.
-    - The number of recovery points created in your environment depends on your backup schedule.
+    * A recovery point is created when a backup is taken.
+    * The number of recovery points created in your environment depends on your backup schedule.
+    * You can schedule up to three daily backups per day. In the following example, two daily backups occur, one at midnight and one at 6:00 PM.
 
-
-1. You can schedule daily backups, up to three times a day. In the following example, two daily backups occur, one at midnight and one at 6:00 PM.
-
-    ![Set up a daily backup schedule](./media/backup-configure-vault/day-schedule.png)
+        ![Set up a daily backup schedule](./media/backup-configure-vault/day-schedule.png)
 
 
-1. You can run weekly backups too. In the following example, backups are taken every alternate Sunday and Wednesday at 9:30 AM and 1:00 AM.
+    * You can run weekly backups too. In the following example, backups are taken every alternate Sunday and Wednesday at 9:30 AM and 1:00 AM.
 
-    ![Set up a weekly backup schedule](./media/backup-configure-vault/week-schedule.png)
+        ![Set up a weekly backup schedule](./media/backup-configure-vault/week-schedule.png)
 
 
-1. On the **Select Retention Policy** page, specify how you store historical copies of your data. Then select **Next**.
+1. On the **Select Retention Policy** page, specify how to store historical copies of your data. Then select **Next**.
 
-    - Retention settings specify which recovery points should be stored, and how long they should be stored.
-    - For example, when you set a daily retention setting, you indicate that at the time specified for the daily retention, the latest recovery point will be retained for the specified number of days. Alternatively, you could specify a monthly retention policy to indicate that the recovery point created on the 30th of every month should be stored for 12 months.
-    - Daily and weekly recovery point retention usually coincides with the backup schedule. So when the schedule triggers a backup, the recovery point that the backup creates is stored for the duration that the daily or weekly retention policy specifies.
+    - Retention settings specify which recovery points should be stored, and how long they should be stored. 
+    - For a daily retention setting, you indicate that at the time specified for the daily retention, the latest recovery point will be retained for the specified number of days. Alternatively, you could specify a monthly retention policy to indicate that the recovery point created on the 30th of every month should be stored for 12 months.
+    - Retention for daily and weekly recovery points usually coincides with the backup schedule. So when the schedule triggers a backup, the recovery point that the backup creates is stored for the duration that the daily or weekly retention policy specifies.
     - In the following example:
 
-        1. Daily backups at midnight and 6:00 PM are kept for seven days.
-        1. Backups taken on a Saturday at midnight and 6:00 PM are kept for four weeks.
-        1. Backups taken on Saturday on the last week of the month at midnight and 6:00 PM are kept for 12 months.
-        1. Backups taken on a Saturday in the last week of March are kept for 10 years.
+        * Daily backups at midnight and 6:00 PM are kept for seven days.
+        * Backups taken on a Saturday at midnight and 6:00 PM are kept for four weeks.
+        * Backups taken on the last Saturday of the month at midnight and 6:00 PM are kept for 12 months.
+        * Backups taken on the last Saturday in March are kept for 10 years.
 
         ![Example of a retention policy](./media/backup-configure-vault/retention-example.png)
 
