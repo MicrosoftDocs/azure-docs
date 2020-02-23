@@ -26,8 +26,9 @@ This topic describes how to install and configure the Azure Data Explorer Spark 
 
 * [Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal) 
 * Create a Spark cluster
-* Install Azure Data Explorer connector library
-* Pre-built libraries for [Spark 2.4, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases) and [Maven repo](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector)
+* Install Azure Data Explorer connector library:
+    * Pre-built libraries for [Spark 2.4, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases) 
+    * [Maven repo](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector)
 * [Maven 3.x](https://maven.apache.org/download.cgi) installed
 
 > [!TIP]
@@ -118,7 +119,7 @@ Azure AD application authentication is the simplest and most common authenticati
 Grant the following privileges on an Azure Data Explorer cluster:
 
 * For reading (data source), the Azure AD identity must have *viewer* privileges on the target database, or *admin* privileges on the target table.
-* For writing (data sink), the Azure AD identity must have *ingestor* privileges on the target database. It must also have *user* privileges on the target database to create new tables. If the target table already exists, you can configure *admin* privileges on the target table.
+* For writing (data sink), the Azure AD identity must have *ingestor* privileges on the target database. It must also have *user* privileges on the target database to create new tables. If the target table already exists, you must configure *admin* privileges on the target table.
  
 For more information on Azure Data Explorer principal roles, see [role-based authorization](/azure/kusto/management/access-control/role-based-authorization). For managing security roles, see [security roles management](/azure/kusto/management/security-roles).
 
@@ -175,7 +176,7 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
     import java.util.concurrent.TimeUnit
     import org.apache.spark.sql.streaming.Trigger
 
-    // Set up a checkpoint and disable codeGen. Set up a checkpoint and disable codeGen as a workaround for an known issue 
+    // Set up a checkpoint and disable codeGen. 
     spark.conf.set("spark.sql.streaming.checkpointLocation", "/FileStore/temp/checkpoint")
         
     // Write to a Kusto table from a streaming source
@@ -219,7 +220,8 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
     display(df2)
     ```
 
-1. Optional: If **you** provide the transient blob storage (and not Microsoft) for reading [large amounts of data](/azure/kusto/concepts/querylimits), you must provide the storage container SAS key, or storage account name, account key, and container name. 
+1. Optional: If **you** provide the transient blob storage (and not Azure Data Explorer) the blobs are created are under the caller's responsibility. This includes provisioning the storage, rotating access keys, deleting transient artifacts etc. 
+    The KustoBlobStorageUtils module contains helper functions for deleting blobs based on either account and container coordinates and account credentials, or a full SAS URL with write, read and list permissions. When the corresponding RDD is no longer needed, each transaction stores transient blob artifacts in a separate directory. This directory is captured as part of read-transaction information logs reported on the Spark Driver node.
 
     ```scala
     // Use either container/account-key/account name, or container SaS
@@ -251,7 +253,7 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
         display(dfFiltered)
         ```
 
-    * If **Microsoft** provides the transient blob storage, read from Azure Data Explorer as follows:
+    * If **Azure Data Explorer** provides the transient blob storage, read from Azure Data Explorer as follows:
     
         ```scala
         val dfFiltered = df2
@@ -266,4 +268,4 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
 ## Next steps
 
 * Learn more about the [Azure Data Explorer Spark Connector](https://github.com/Azure/azure-kusto-spark/tree/master/docs)
-* [Sample code](https://github.com/Azure/azure-kusto-spark/tree/master/samples/src/main)
+* [Sample code for Java and Python](https://github.com/Azure/azure-kusto-spark/tree/master/samples/src/main)
