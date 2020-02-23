@@ -1,5 +1,5 @@
 ---
-title: SRE Event list | Microsoft Docs
+title: SRE event list | Microsoft Docs
 description: Participate in the global SRE community by attending these events.
 author: dnblankedelman
 manager: efreeman
@@ -9,7 +9,7 @@ ms.date: 02/18/2020
 ms.author: dnb
 
 ---
-# Talk to other Site Reliability Engineers (SREs)
+# Talk to other site reliability engineers (SREs)
 
 As important as reading up on SRE is, it can often be more important to talk about it with your peers. Discussing your challenges, successes and failures around SRE can be crucial to gaining a nuanced understanding of the subject.
 

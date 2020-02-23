@@ -1,5 +1,5 @@
 ---
-title: SRE Link list | Microsoft Docs
+title: SRE link list | Microsoft Docs
 description: Expand your knowledge of site reliability engineering with these resources
 author: dnblankedelman
 manager: efreeman
@@ -9,13 +9,13 @@ ms.date: 02/18/2020
 ms.author: dnb
 
 ---
-# Concentrated sources for Site Reliability Engineering (SRE) information
+# Concentrated sources for site reliability engineering (SRE) information
 
 There are many, many sources for site reliability engineering information on the web.
 
-## Curated Link Lists
+## Curated link lists
 
-Here are some good curated links of links for SRE and SRE-related topics:
+Here are some good curated lists of links for SRE and SRE-related topics:
 
 * [Awesome Site Reliability Engineering](https://github.com/dastergon/awesome-sre)
 * [Awesome Site Reliability Engineering Tools](https://github.com/squadcastHQ/awesome-sre-tools)
@@ -25,7 +25,7 @@ Here are some good curated links of links for SRE and SRE-related topics:
 * [awesome-monitoring](https://github.com/crazy-canux/awesome-monitoring)
 * [Awesome Observability](https://github.com/adriannovegil/awesome-observability)
 
-## Weekly Digests of interest to Site Reliability Engineers
+## Weekly digests of interest to site reliability engineers
 
 * [SRE Weekly](https://sreweekly.com) - "SRE Weekly is a newsletter devoted to everything related to keeping a site or service available as consistently as possible."
 * [Devops Weekly](https://www.devopsweekly.com) - "A weekly slice of devops news brought to you by Gareth Rushgrove."

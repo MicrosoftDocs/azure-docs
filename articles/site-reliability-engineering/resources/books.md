@@ -1,5 +1,5 @@
 ---
-title: SRE Book list | Microsoft Docs
+title: SRE book list | Microsoft Docs
 description: Increase your knowledge of site reliability engineering with these books
 author: dnblankedelman
 manager: efreeman
@@ -9,13 +9,13 @@ ms.date: 02/18/2020
 ms.author: dnb
 
 ---
-# Books for Learning About Site Reliability Engineering (SRE)
+# Books for learning about site reliability engineering (SRE)
 
 For more detailed information about SRE, the best source is a trio of books that have been published on the subject
 
-1. [_Site Reliability Engineering: How Google Runs Production Systems_](https://shop.oreilly.com/product/0636920041528.do) (known as "The SRE Book")
-1. [_The Site Reliability Workbook: Practical Ways to Implement SRE_](https://shop.oreilly.com/product/0636920132448.do) (known as "The SRE Workbook")
-1. [_Seeking SRE: Conversations About Running Production Systems at Scale_](https://shop.oreilly.com/product/0636920063964.do)
+- [_Site Reliability Engineering: How Google Runs Production Systems_](https://shop.oreilly.com/product/0636920041528.do) (known as "The SRE Book")
+- [_The Site Reliability Workbook: Practical Ways to Implement SRE_](https://shop.oreilly.com/product/0636920132448.do) (known as "The SRE Workbook")
+- [_Seeking SRE: Conversations About Running Production Systems at Scale_](https://shop.oreilly.com/product/0636920063964.do)
 
 Each of those books provides an important set of information:
 
