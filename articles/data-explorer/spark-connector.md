@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 1/14/2020
 ---
 
-# Azure Data Explorer Connector for Apache Spark (Preview)
+# Azure Data Explorer Connector for Apache Spark
 
 [Apache Spark](https://spark.apache.org/) is a unified analytics engine for large-scale data processing. Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data. 
 
@@ -26,9 +26,7 @@ This topic describes how to install and configure the Azure Data Explorer Spark 
 
 * [Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal) 
 * Create a Spark cluster
-* Install Azure Data Explorer connector library, and libraries listed in [dependencies](https://github.com/Azure/azure-kusto-spark#dependencies) including the following [Kusto Java SDK](/azure/kusto/api/java/kusto-java-client-library) libraries:
-    * [Kusto Data Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
-    * [Kusto Ingest Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
+* Install Azure Data Explorer connector library
 * Pre-built libraries for [Spark 2.4, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases) and [Maven repo](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector)
 * [Maven 3.x](https://maven.apache.org/download.cgi) installed
 
@@ -37,20 +35,26 @@ This topic describes how to install and configure the Azure Data Explorer Spark 
 
 ## How to build the Spark connector
 
-Spark Connector can be built from [sources](https://github.com/Azure/azure-kusto-spark) as detailed below.
-
 > [!NOTE]
 > This step is optional. If you are using pre-built libraries go to [Spark cluster setup](#spark-cluster-setup).
 
-For Scala/Java applications using Maven project definitions, link your application with the following artifact (latest version may differ):
+**Before you begin**
 
-```Maven
-   <dependency>
-     <groupId>com.microsoft.azure</groupId>
-     <artifactId>spark-kusto-connector</artifactId>
-     <version>1.0.0-Beta-02</version>
-   </dependency>
-```
+1. Install the libraries listed in [dependencies](https://github.com/Azure/azure-kusto-spark#dependencies) including the following [Kusto Java SDK](/azure/kusto/api/java/kusto-java-client-library) libraries:
+    * [Kusto Data Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
+    * [Kusto Ingest Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
+
+1. Refer to [this source](https://github.com/Azure/azure-kusto-spark) for building the Spark Connector.
+
+1. For Scala/Java applications using Maven project definitions, link your application with the following artifact (latest version may differ):
+    
+    ```Maven
+       <dependency>
+         <groupId>com.microsoft.azure</groupId>
+         <artifactId>spark-kusto-connector</artifactId>
+         <version>1.1.0</version>
+       </dependency>
+    ```
 
 ### Build commands
 
@@ -78,12 +82,17 @@ For more information, see [connector usage](https://github.com/Azure/azure-kusto
     ![Databricks cluster settings](media/spark-connector/databricks-cluster.png)
     
 1. Install the latest spark-kusto-connector library from Maven:
-
-    ![Import Azure Data Explorer library](media/spark-connector/db-create-library.png)
+    
+    ![Import libraries](media/spark-connector/db-libraries-view.png)
+    ![Select Spark-Kusto-Connector](media/spark-connector/db-dependencies.png)
 
 1. Verify that all required libraries are installed:
 
     ![Verify libraries installed](media/spark-connector/db-libraries-view.png)
+
+1. For installation using a JAR file, verify that additional dependencies were installed:
+
+    ![Add dependencies](media/spark-connector/db-not-maven.png)
 
 ## Authentication
 
@@ -103,8 +112,8 @@ Azure AD application authentication is the simplest and most common authenticati
 
 Grant the following privileges on an Azure Data Explorer cluster:
 
-* For reading (data source), Azure AD application must have *viewer* privileges on the target database, or *admin* privileges on the target table.
-* For writing (data sink), Azure AD application must have *ingestor* privileges on the target database. It must also have *user* privileges on the target database to create new tables. If the target table already exists, you can configure *admin* privileges on the target table.
+* For reading (data source), the Azure AD identity must have *viewer* privileges on the target database, or *admin* privileges on the target table.
+* For writing (data sink), the Azure AD identity must have *ingestor* privileges on the target database. It must also have *user* privileges on the target database to create new tables. If the target table already exists, you can configure *admin* privileges on the target table.
  
 For more information on Azure Data Explorer principal roles, see [role-based authorization](/azure/kusto/management/access-control/role-based-authorization). For managing security roles, see [security roles management](/azure/kusto/management/security-roles).
 
@@ -163,8 +172,7 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
 
     // Set up a checkpoint and disable codeGen. Set up a checkpoint and disable codeGen as a workaround for an known issue 
     spark.conf.set("spark.sql.streaming.checkpointLocation", "/FileStore/temp/checkpoint")
-    spark.conf.set("spark.sql.codegen.wholeStage","false") // Use in case a NullPointerException is thrown inside codegen iterator
-    
+        
     // Write to a Kusto table from a streaming source
     val kustoQ = df
           .writeStream
@@ -177,7 +185,7 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
 
 ## Spark source: reading from Azure Data Explorer
 
-1. When reading small amounts of data (less than 50,000 rows), define the data query:
+1. When reading [small amounts of data](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits), define the data query:
 
     ```scala
     import com.microsoft.kusto.spark.datasource.KustoSourceOptions
@@ -206,12 +214,9 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
     display(df2)
     ```
 
-1. When reading large amounts of data (50,000 rows or more), you must provide transient blob storage. Provide the storage container SAS key, or storage account name, account key, and container name. 
+1. Optional: If **you** provide the transient blob storage (and not Microsoft), for reading [large amounts of data](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits), you must provide the storage container SAS key, or storage account name, account key, and container name. 
 
-    > [!NOTE]
-    > This step is only required for the current preview release of the Spark connector.
-
-    ```scala
+        ```scala
     // Use either container/account-key/account name, or container SaS
     val container = dbutils.secrets.get(scope = "KustoDemos", key = "blobContainer")
     val storageAccountKey = dbutils.secrets.get(scope = "KustoDemos", key = "blobStorageAccountKey")
@@ -221,23 +226,37 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
 
     In the example above, the Key Vault isn't accessed using the connector interface; a simpler method of using the Databricks secrets is used.
 
-1. Read from Azure Data Explorer:
+1. Read from Azure Data Explorer.
 
-    ```scala
-     val conf3 = Map(
-          KustoSourceOptions.KUSTO_AAD_CLIENT_ID -> appId,
-          KustoSourceOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey
-          KustoSourceOptions.KUSTO_BLOB_STORAGE_SAS_URL -> storageSas)
-    val df2 = spark.read.kusto(cluster, database, "ReallyBigTable", conf3)
+    * If **you** provide the transient blob storage, read from Azure Data Explorer as follows:
+
+        ```scala
+         val conf3 = Map(
+              KustoSourceOptions.KUSTO_AAD_CLIENT_ID -> appId,
+              KustoSourceOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey
+              KustoSourceOptions.KUSTO_BLOB_STORAGE_SAS_URL -> storageSas)
+        val df2 = spark.read.kusto(cluster, database, "ReallyBigTable", conf3)
+        
+        val dfFiltered = df2
+          .where(df2.col("ColA").startsWith("row-2"))
+          .filter("ColB > 12")
+          .filter("ColB <= 21")
+          .select("ColA")
+        
+        display(dfFiltered)
+        ```
+
+    * If **Microsoft** provides the transient blob storage, read from Azure Data Explorer as follows:
     
-    val dfFiltered = df2
-      .where(df2.col("ColA").startsWith("row-2"))
-      .filter("ColB > 12")
-      .filter("ColB <= 21")
-      .select("ColA")
-    
-    display(dfFiltered)
-    ```
+        ```scala
+        val dfFiltered = df2
+          .where(df2.col("ColA").startsWith("row-2"))
+          .filter("ColB > 12")
+          .filter("ColB <= 21")
+          .select("ColA")
+        
+        display(dfFiltered)
+        ```
 
 ## Next steps
 
