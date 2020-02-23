@@ -303,15 +303,12 @@ Accessing the function via a web browser (by using the Azure Bastion service) on
 [!div class="mx-imgBorder"]
 ![Access the Azure Function via Azure Bastion](./media/functions-create-private-site-access/access-function-via-bastion-1.png)
 
-## Summary
-
-In order to restrict access to an Azure Function to a specified virtual network, it is necessary to configure access restrictions via a virtual network service endpoint. Doing so will ensure that only resources from within the specified virtual network can trigger the Azure Function.
-
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 
-In this tutorial, . . .
+In this tutorial, you configured an Azure Function to only be accessible from a specific virtual network.  In order to restrict access to an Azure Function to a specified virtual network, it is necessary to configure access restrictions via a virtual network service endpoint. Doing so will ensure that only resources from within the specified virtual network, such as an Azure VM, can trigger the Azure Function.
+
 > [!div class="nextstepaction"]
 > [Azure Functions networking options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
 > [Azure App Service Access Restrictions](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
