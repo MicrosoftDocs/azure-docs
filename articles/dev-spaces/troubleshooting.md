@@ -389,7 +389,7 @@ To update the user's RBAC role for the controller:
 
 ### DNS name resolution fails for a public URL associated with a Dev Spaces service
 
-You can configure a public URL endpoint for your service by specifying the `--public` switch to the `azds prep` command, or by selecting the `Publicly Accessible` checkbox in Visual Studio. The public DNS name is automatically registered when you run your service in Dev Spaces. If this DNS name is not registered, you see a *Page cannot be displayed* or *Site cannot be reached* error in your web browser when connecting to the public URL.
+You can configure a public URL endpoint for your service by specifying the `--enable-ingress` switch to the `azds prep` command, or by selecting the `Publicly Accessible` checkbox in Visual Studio. The public DNS name is automatically registered when you run your service in Dev Spaces. If this DNS name is not registered, you see a *Page cannot be displayed* or *Site cannot be reached* error in your web browser when connecting to the public URL.
 
 To fix this issue:
 
