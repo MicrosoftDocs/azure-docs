@@ -301,6 +301,14 @@ If you have a firewall or a proxy that is preventing access to Azure, you need t
 * \*.microsoftonline.com
 * \*.windows.net
 
+If you are using ExpressRoute Microsoft peering, please select the following services/regions:
+
+* Azure Active Directory (12076:5060)
+* Microsoft Azure Region (as per the location of your Recovery Services vault)
+* Azure Storage (as per the location of your Recovery Services vault)
+
+For more details, visit [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
 Once connectivity to Azure has been restored to the Azure Backup Server machine, the operations that can be performed are determined by the Azure subscription state. The table above has details about the operations allowed once the machine is "Connected".
 
 ### Handling subscription states
