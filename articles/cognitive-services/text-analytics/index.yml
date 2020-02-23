@@ -14,7 +14,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: text-analytics
   ms.topic: landing-page
-  ms.date: 07/29/2019
+  ms.date: 01/29/2019
   ms.author: aahi
 
 landingContent:
@@ -45,7 +45,7 @@ landingContent:
         - text: Using Python   
           url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#sentiment-analysis
         - text: Using Node.js
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs#sentiment-analysis
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript#sentiment-analysis
         - text: Using Go   
           url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#sentiment-analysis    
         - text: Using Ruby   
@@ -71,7 +71,7 @@ landingContent:
         - text: Using Python   
           url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#language-detection 
         - text: Using Node.js
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs#language-detection 
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript#language-detection 
         - text: Using Go   
           url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#language-detection 
         - text: Using Ruby   
@@ -90,7 +90,7 @@ landingContent:
         - text: Using Python   
           url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#key-phrase-extraction
         - text: Using Node.js
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs#key-phrase-extraction
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript#key-phrase-extraction
         - text: Using Go   
           url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#key-phrase-extraction
         - text: Using Ruby   
@@ -105,15 +105,15 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Using C#   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#entity-recognition
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#named-entity-recognition-ner
         - text: Using Python   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#entity-recognition
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#named-entity-recognition-ner
         - text: Using Node.js
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs#entity-recognition
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs#named-entity-recognition-ner
         - text: Using Go   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#entity-recognition
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#named-entity-recognition-ner
         - text: Using Ruby   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#entity-recognition
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#named-entity-recognition-ner
     - linkListType: how-to-guide
       links:
         - text: Entity recognition

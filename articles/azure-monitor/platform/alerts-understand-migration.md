@@ -1,11 +1,11 @@
 ---
 title: "Understand how the voluntary migration tool works for Azure Monitor alerts"
 description: Understand how the alerts migration tool works and troubleshoot problems.
-author: snehithm
+author: yalavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
 ---
 # Understand how the migration tool works
@@ -33,7 +33,7 @@ Although the tool can migrate almost all [classic alert rules](monitoring-classi
 If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. You can also continue to create new classic alerts on the above listed exceptions till June 2020. However for everything else, no new classic alerts can be created after August 2019.
 
 > [!NOTE]
-> Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic-alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated during voluntary migration. Any such invalid classic alert rules will be deleted when automatic migration happens.
+> Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic-alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated and will not be available after service is retired.
 
 ### Guest metrics on virtual machines
 

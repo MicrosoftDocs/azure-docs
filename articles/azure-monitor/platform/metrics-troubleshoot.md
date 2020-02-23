@@ -32,7 +32,7 @@ Sometimes the charts might show no data after selecting correct resources and me
 
 ### Microsoft.Insights resource provider isn't registered for your subscription
 
-Exploring metrics requires *Microsoft.Insights* resource provider registered in your subscription. In many cases, it is registered automatically (that is, after you configure an alert rule, customize diagnostic settings for any resource, or configure an autoscale rule). If the Microsoft.Insights resource provider is not registered, you must manually register it by  following steps described in [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
+Exploring metrics requires *Microsoft.Insights* resource provider registered in your subscription. In many cases, it is registered automatically (that is, after you configure an alert rule, customize diagnostic settings for any resource, or configure an autoscale rule). If the Microsoft.Insights resource provider is not registered, you must manually register it by  following steps described in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 **Solution:** Open **Subscriptions**, **Resource providers** tab, and verify that *Microsoft.Insights* is registered for your subscription.
 

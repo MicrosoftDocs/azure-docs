@@ -1,10 +1,10 @@
 ﻿### YamlMime:Landing
 
 title: Azure Cognitive Search documentation # < 60 chars
-summary: Cloud search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
+summary: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
 metadata:
   title: Azure Cognitive Search documentation
-  description: Cloud search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
+  description: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
   services: search
   ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required

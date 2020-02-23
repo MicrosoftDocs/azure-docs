@@ -1,18 +1,9 @@
 ---
-title: Monitor your StorSimple 8000 series device | Microsoft Docs
+title: Monitor your StorSimple 8000 series device
 description: Describes how to use the StorSimple Device Manager service to monitor usage, I/O performance, and capacity utilization.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: alkohli
 

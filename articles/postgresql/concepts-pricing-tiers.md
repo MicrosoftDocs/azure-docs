@@ -18,7 +18,6 @@ You can create an Azure Database for PostgreSQL server in one of three different
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memory per vCore | 2 GB | 5 GB | 10 GB |
 | Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |
-| Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |
 
 To choose a pricing tier, use the following table as a starting point.
@@ -41,13 +40,13 @@ The storage you provision is the amount of storage capacity available to your Az
 
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
-| Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
+| Storage type | Basic Storage | General Purpose Storage | General Purpose Storage |
 | Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |
 | Storage increment size | 1 GB | 1 GB | 1 GB |
 | IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
 
 > [!NOTE]
-> Storage up to 16TB and 20,000 IOPS is supported in the following regions: East US, East US 2, Central US, West US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East.
+> Storage up to 16TB and 20,000 IOPS is supported in the following regions: East US, East US 2, Central US, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East.
 >
 > All other regions support up to 4TB of storage and 6000 IOPS.
 >

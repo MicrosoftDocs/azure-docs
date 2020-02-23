@@ -1,21 +1,15 @@
 ---
-title: DNS Zones and Records overview - Azure DNS | Microsoft Docs
+title: DNS Zones and Records overview - Azure DNS
 description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
-services: dns
-documentationcenter: na
-author: asudbring
-manager: jeconnoc
-editor: ''
+author: rohinkoul
 
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: allensu
+ms.author: rohink
 ---
 
 # Overview of DNS zones and records
@@ -111,7 +105,7 @@ The multiple strings in a DNS record should not be confused with the multiple TX
 
 ### Tags
 
-Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources.  Azure Resource Manager uses tags to enable filtered views of your Azure bill, and also enables you to set a policy on which tags are required. For more information about tags, see [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md).
+Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources.  Azure Resource Manager uses tags to enable filtered views of your Azure bill, and also enables you to set a policy on which tags are required. For more information about tags, see [Using tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
 Azure DNS supports using Azure Resource Manager tags on DNS zone resources.  It does not support tags on DNS record sets, although as an alternative 'metadata' is supported on DNS record sets as explained below.
 

@@ -5,7 +5,7 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2019
+ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 >[!TIP]
 >This tutorial is a simplified version of the [Custom Vision and Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) sample project. This tutorial was designed to run on a cloud VM and uses static images to train and test the image classifier, which is useful for someone just starting to evaluate Custom Vision on IoT Edge. The sample project uses physical hardware and sets up a live camera feed to train and test the image classifier, which is useful for someone who wants to try a more detailed, real-life scenario.
 
-Before beginning this tutorial, you should have gone through the previous tutorial to set up your environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place: 
+Before beginning this tutorial, you should have gone through the previous tutorial to set up your environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A [Linux device running Azure IoT Edge](quickstart-linux.md)
@@ -46,23 +46,23 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
 
-To develop an IoT Edge module with the Custom Vision service, install the following additional prerequisites on your development machine: 
+To develop an IoT Edge module with the Custom Vision service, install the following additional prerequisites on your development machine:
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 
+* [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 ## Build an image classifier with Custom Vision
 
 To build an image classifier, you need to create a Custom Vision project and provide training images. For more information about the steps that you take in this section, see [How to build a classifier with Custom Vision](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md).
 
-Once your image classifier is built and trained, you can export it as a Docker container and deploy it to an IoT Edge device. 
+Once your image classifier is built and trained, you can export it as a Docker container and deploy it to an IoT Edge device.
 
 ### Create a new project
 
 1. In your web browser, navigate to the [Custom Vision web page](https://customvision.ai/).
 
-2. Select **Sign in** and sign in with the same account that you use to access Azure resources. 
+2. Select **Sign in** and sign in with the same account that you use to access Azure resources.
 
 3. Select **New project**.
 
@@ -82,21 +82,21 @@ Once your image classifier is built and trained, you can export it as a Docker c
 
 ### Upload images and train your classifier
 
-Creating an image classifier requires a set of training images, as well as test images. 
+Creating an image classifier requires a set of training images, as well as test images.
 
-1. Clone or download sample images from the [Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows) repo onto your local development machine. 
+1. Clone or download sample images from the [Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows) repo onto your local development machine.
 
    ```cmd/sh
    git clone https://github.com/Microsoft/Cognitive-CustomVision-Windows.git
    ```
 
-2. Return to your Custom Vision project and select **Add images**. 
+2. Return to your Custom Vision project and select **Add images**.
 
-3. Browse to the git repo that you cloned locally, and navigate to the first image folder, **Cognitive-CustomVision-Windows / Samples / Images / Hemlock**. Select all 10 images in the folder and then **Open**. 
+3. Browse to the git repo that you cloned locally, and navigate to the first image folder, **Cognitive-CustomVision-Windows / Samples / Images / Hemlock**. Select all 10 images in the folder and then **Open**.
 
-4. Add the tag **hemlock** to this group of images and press **enter** to apply the tag. 
+4. Add the tag **hemlock** to this group of images and press **enter** to apply the tag.
 
-5. Select **Upload 10 files**. 
+5. Select **Upload 10 files**.
 
    ![Upload hemlock tagged files to Custom Vision](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
@@ -104,17 +104,17 @@ Creating an image classifier requires a set of training images, as well as test 
 
 7. Select **Add images** again.
 
-8. Browse to the second image folder, **Cognitive-CustomVision-Windows / Samples / Images / Japanese Cherry**. Select all 10 images in the folder and then **Open**. 
+8. Browse to the second image folder, **Cognitive-CustomVision-Windows / Samples / Images / Japanese Cherry**. Select all 10 images in the folder and then **Open**.
 
-9. Add the tag **japanese cherry** to this group of images and press **enter** to apply the tag. 
+9. Add the tag **japanese cherry** to this group of images and press **enter** to apply the tag.
 
-10. Select **Upload 10 files**. When the images are uploaded successfully, select **Done**. 
+10. Select **Upload 10 files**. When the images are uploaded successfully, select **Done**.
 
-11. When both sets of images are tagged and uploaded, select **Train** to train the classifier. 
+11. When both sets of images are tagged and uploaded, select **Train** to train the classifier.
 
 ### Export your classifier
 
-1. After training your classifier, select **Export** on the Performance page of the classifier. 
+1. After training your classifier, select **Export** on the Performance page of the classifier.
 
    ![Export your trained image classifier](./media/tutorial-deploy-custom-vision/export.png)
 
@@ -259,7 +259,8 @@ In this section, you add a new module to the same CustomVisionSolution and provi
                 print("Response from classification service: (" + str(response.status_code) + ") " + json.dumps(response.json()) + "\n")
             except Exception as e:
                 print(e)
-                print("Response from classification service: (" + str(response.status_code))
+                print("No response from classification service")
+                return None
 
         return json.dumps(response.json())
 
@@ -278,7 +279,8 @@ In this section, you add a new module to the same CustomVisionSolution and provi
 
             while True:
                 classification = sendFrameForProcessing(imagePath, imageProcessingEndpoint)
-                send_to_hub(classification)
+                if classification:
+                    send_to_hub(classification)
                 time.sleep(10)
 
         except KeyboardInterrupt:
@@ -322,15 +324,15 @@ Instead of using a real camera to provide an image feed for this scenario, we're
 
 3. Browse to your IoT Edge solution directory and paste the test image in the **modules** / **cameraCapture** folder. The image should be in the same folder as the main.py file that you edited in the previous section. 
 
-3. In Visual Studio Code, open the **Dockerfile.amd64** file for the cameraCapture module. 
+4. In Visual Studio Code, open the **Dockerfile.amd64** file for the cameraCapture module.
 
-4. After the line that establishes the working directory, `WORKDIR /app`, add the following line of code: 
+5. After the line that establishes the working directory, `WORKDIR /app`, add the following line of code:
 
    ```Dockerfile
    ADD ./test_image.jpg .
    ```
 
-5. Save the Dockerfile. 
+6. Save the Dockerfile.
 
 ### Prepare a deployment manifest
 
@@ -354,7 +356,7 @@ The IoT Edge extension for Visual Studio Code provides a template in each IoT Ed
 
     If you named your Custom Vision module something other than *classifier*, update the image-processing endpoint value to match. 
 
-5. At the bottom of the file, update the **routes** parameter for the $edgeHub module. You want to route the prediction results from cameraCapture to IoT Hub. 
+6. At the bottom of the file, update the **routes** parameter for the $edgeHub module. You want to route the prediction results from cameraCapture to IoT Hub.
 
     ```json
         "routes": {
@@ -406,7 +408,6 @@ From Visual Studio Code, right-click on the name of your IoT Edge device and sel
 
 The results from the Custom Vision module, which are sent as messages from the cameraCapture module, include the probability that the image is of either a hemlock or cherry tree. Since the image is hemlock, you should see the probability as 1.0. 
 
-
 ## Clean up resources
 
 If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
@@ -414,7 +415,6 @@ If you plan to continue to the next recommended article, you can keep the resour
 Otherwise, you can delete the local configurations and the Azure resources that you used in this article to avoid charges. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
 
 ## Next steps
 

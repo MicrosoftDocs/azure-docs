@@ -36,26 +36,43 @@ ws = Workspace.from_config()
 
 ## Create resource
 
-Create the AmlCompute target in your workspace (`ws`) if it doesn't already exist.
+Create the [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) target in your workspace (`ws`) if it doesn't already exist.
 
 **Time estimate**: Creation of the AmlCompute target takes approximately 5 minutes.
 
 ```python
 from azureml.core.compute import AmlCompute
 from azureml.core.compute import ComputeTarget
+import os
 
-amlcompute_cluster_name = "automlcl"  # Name your cluster
-provisioning_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2_V2",
-                                                            # for GPU, use "STANDARD_NC6"
-                                                            # vm_priority = 'lowpriority', # optional
-                                                            max_nodes=6)
-compute_target = ComputeTarget.create(
-    ws, amlcompute_cluster_name, provisioning_config)
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpu-cluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
-# Can poll for a minimum number of nodes and for a specific timeout.
-# If no min_node_count is provided, it will use the scale settings for the cluster.
-compute_target.wait_for_completion(
-    show_output=True, min_node_count=None, timeout_in_minutes=20)
+# This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
+
+
+if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('found compute target. just use it. ' + compute_name)
+else:
+    print('creating a new compute target...')
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
+                                                                min_nodes = compute_min_nodes, 
+                                                                max_nodes = compute_max_nodes)
+
+    # create the cluster
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+    
+    # can poll for a minimum number of nodes and for a specific timeout. 
+    # if no min node count is provided it will use the scale settings for the cluster
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    
+     # For a more detailed view of current AmlCompute status, use get_status()
+    print(compute_target.get_status().serialize())
 ```
 
 You can now use the `compute_target` object as the remote compute target.
@@ -67,9 +84,9 @@ Cluster name restrictions include:
 
 ## Access data using TabularDataset function
 
-Defined training_data as  `TabularDataset`and the label , which are passed to Automated ML in the AutoMLConfig. `from_delimited_files` by default sets the `infer_column_types` to true, which will infer the columns type automatically. 
+Defined training_data as [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and the label, which are passed to Automated ML in the [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). The `TabularDataset` method `from_delimited_files`, by default, sets the `infer_column_types` to true, which will infer the columns type automatically. 
 
-If you do wish to manually set the column types, you can set the `set_column_types` argument to manually set the type of each columns. In the following code sample, the data comes from the sklearn package.
+If you do wish to manually set the column types, you can set the `set_column_types` argument to manually set the type of each column. In the following code sample, the data comes from the sklearn package.
 
 ```python
 from sklearn import datasets
@@ -83,8 +100,8 @@ import os
 if not os.path.isdir('data'):
     os.mkdir('data')
     
-if not os.path.exists(project_folder):
-    os.makedirs(project_folder)
+if not os.path.exists('project_folder'):
+    os.makedirs('project_folder')
 
 X = pd.DataFrame(data_train.data[100:,:])
 y = pd.DataFrame(data_train.target[100:])

@@ -52,6 +52,10 @@ If everything is set up correctly, a window with a 3D point cloud and tracked bo
 
 ![Body Tracking 3D Viewer](./media/quickstarts/samples-simple3dviewer.png)
 
+## Examples
+
+You can find the examples about how to use the body tracking SDK [here](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples).
+
 ## Next steps
 
 > [!div class="nextstepaction"]

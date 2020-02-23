@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
 ---
 
@@ -82,13 +82,13 @@ Per **step 3**, separating your application's and your user credentials allows y
 
    1. Use the **Application ID** and **Client Secret** (Application Key) from the Azure Active Directory app registration section to acquire the token on behalf of the application.
 
-   1. In C#, the following code can acquire the token on behalf of the application. For a complete sample, see [Query data using C#](time-series-insights-query-data-csharp.md).
+   1. In C#, the following code can acquire the token on behalf of the application. For a complete sample, read [Query data using C#](time-series-insights-query-data-csharp.md).
 
         [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
    1. The token can then be passed in the `Authorization` header when the application calls the Time Series Insights API.
 
-* Alternatively, developers may choose to authenticate using MSAL. Read about [migrating to MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) to learn more. 
+* Alternatively, developers may choose to authenticate using MSAL. Read about [migrating to MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) and see our [Manage GA reference data for an Azure Time Series Insights environment using C#](time-series-insights-manage-reference-data-csharp.md) article to learn more. 
 
 ## Common headers and parameters
 
@@ -102,7 +102,7 @@ This section describes common HTTP request headers and parameters used to make q
 To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#). 
 
 > [!TIP]
-> See the hosted Azure Time Series Insights [client SDK sample visualization](https://tsiclientsample.azurewebsites.net/) to see how to authenticate with the Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) along with charts and graphs.
+> Read the hosted Azure Time Series Insights [client SDK sample visualization](https://tsiclientsample.azurewebsites.net/) to learn how to authenticate with the Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) along with charts and graphs.
 
 ### HTTP headers
 
@@ -156,10 +156,10 @@ Optional URL query string parameters include setting a timeout for HTTP request 
 
 ## Next steps
 
-- For sample code that calls the GA Time Series Insights API, see [Query data using C#](./time-series-insights-query-data-csharp.md).
+- For sample code that calls the GA Time Series Insights API, read [Query data using C#](./time-series-insights-query-data-csharp.md).
 
-- For Preview Time Series Insights API code samples, see [Query Preview data using C#](./time-series-insights-update-query-data-csharp.md).
+- For Preview Time Series Insights API code samples, read [Query Preview data using C#](./time-series-insights-update-query-data-csharp.md).
 
-- For API reference information, see the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) documentation.
+- For API reference information, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) documentation.
 
 - Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).

@@ -2,7 +2,7 @@
 title: Enable Azure Monitor (preview) for a hybrid environment | Microsoft Docs
 description: This article describes how you enable Azure Monitor for VMs for a hybrid cloud environment that contains one or more virtual machines.
 ms.service:  azure-monitor
-ms.subservice: 
+ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -14,7 +14,7 @@ ms.date: 10/15/2019
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article explains how to enable Azure Monitor for VMs (preview) for virtual machines or physical computers hosted in your datacenter or other cloud environment. At the end of this process, you will have successfully begun monitoring your virtual machines in your environment and learn if they are experiencing any performance or availability issues. 
+This article explains how to enable Azure Monitor for VMs (preview) for virtual machines or physical computers hosted in your datacenter or other cloud environment. At the end of this process, you will have successfully begun monitoring your virtual machines in your environment and learn if they are experiencing any performance or availability issues.
 
 Before you get started, be sure to review the [prerequisites](vminsights-enable-overview.md) and verify that your subscription and resources meet the requirements. Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md).
 
@@ -117,7 +117,7 @@ configuration ServiceMap {
     Node localhost
     {
         # Download and install the Dependency agent
-        xRemoteFile DAPackage 
+        xRemoteFile DAPackage
         {
             Uri = "https://aka.ms/dependencyagentwindows"
             DestinationPath = $DAPackageLocalPath
@@ -150,8 +150,8 @@ If the Log Analytics workspace that's referenced by the solution isn't already c
 This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace.
 
 If you don't know how to deploy resources by using a template, see:
-* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
 To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -228,13 +228,13 @@ If your Dependency agent installation succeeded, but you don't see your computer
 
 1. Is the Dependency agent installed successfully? You can validate this by checking to see if the service is installed and running.
 
-    **Windows**: Look for the service named "Microsoft Dependency agent." 
+    **Windows**: Look for the service named "Microsoft Dependency agent."
 
     **Linux**: Look for the running process "microsoft-dependency-agent."
 
 2. Are you on the [Free pricing tier of Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
 
-3. Is the computer sending log and perf data to Azure Monitor Logs? Perform the following query for your computer: 
+3. Is the computer sending log and perf data to Azure Monitor Logs? Perform the following query for your computer:
 
     ```Kusto
 	Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
@@ -244,7 +244,7 @@ If your Dependency agent installation succeeded, but you don't see your computer
 
 #### Computer appears on the map but has no processes
 
-If you see your server on the map, but it has no process or connection data, that indicates that the Dependency agent is installed and running, but the kernel driver didn't load. 
+If you see your server on the map, but it has no process or connection data, that indicates that the Dependency agent is installed and running, but the kernel driver didn't load.
 
 Check the C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file (Windows) or /var/opt/microsoft/dependency-agent/log/service.log file (Linux). The last lines of the file should indicate why the kernel didn't load. For example, the kernel might not be supported on Linux if you updated your kernel.
 
@@ -252,7 +252,7 @@ Check the C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file (Win
 ## Next steps
 
 Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs.
- 
+
 - To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
 
 - To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM performance](vminsights-performance.md).

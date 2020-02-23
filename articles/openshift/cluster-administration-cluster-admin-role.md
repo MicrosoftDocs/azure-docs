@@ -20,7 +20,6 @@ When your account has the customer-admin-cluster authorization role bound to it,
 > [!Note] 
 > The customer-admin-cluster cluster role is not the same as the cluster-admin cluster role.
 
-
 For example, you can execute actions associated with a set of verbs (`create`) to operate on a set of resource names (`templates`). To view the details of these roles and their sets of verbs and resources, run the following command:
 
 `$ oc get clusterroles customer-admin-cluster -o yaml`
@@ -31,7 +30,13 @@ For example, having the `list` verb means that you can display a list of all obj
 
 ## Configure the customer administrator role
 
-You can configure the customer-admin-cluster cluster role only during cluster creation by providing the flag `--customer-admin-group-id`. To learn how to configure Azure Active Directory and the Administrators group, see [Azure Active Directory integration for Azure Red Hat OpenShift](howto-aad-app-configuration.md).
+You can configure the customer-admin-cluster cluster role only during cluster creation by providing the flag `--customer-admin-group-id`. This field is not currently configurable in the Azure portal. To learn how to configure Azure Active Directory and the Administrators group, see [Azure Active Directory integration for Azure Red Hat OpenShift](howto-aad-app-configuration.md).
+
+## Confirm membership in the customer administrator role
+
+To confirm your membership in the customer admin group, try the OpenShift CLI commands `oc get nodes` or `oc projects`. `oc get nodes` will show a list of nodes if you have the customer-admin-cluster role, and a permission error if you only have the customer-admin-project role. `oc projects` will show all projects in the cluster as opposed to just the projects you are working in.
+
+To further explore roles and permissions in your cluster, you can use the [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings) command.
 
 ## Next steps
 

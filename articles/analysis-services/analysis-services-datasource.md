@@ -4,7 +4,7 @@ description: Describes data sources and connectors supported for tabular 1200 an
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -18,7 +18,7 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 |Data source  |In-memory  |DirectQuery  |Notes |
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Yes      |    Yes      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
-|Azure SQL Data Warehouse      |   Yes      |   Yes       |<sup>[2](#azprovider)</sup>|
+|Azure Synapse Analytics (SQL Data Warehouse)      |   Yes      |   Yes       |<sup>[2](#azprovider)</sup>|
 |Azure Blob Storage      |   Yes       |    No      | <sup>[1](#tab1400a)</sup> |
 |Azure Table Storage     |   Yes       |    No      | <sup>[1](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Yes        |  No        |<sup>[1](#tab1400a)</sup> |
@@ -115,7 +115,9 @@ For cloud data sources:
 
 ## OAuth credentials
 
-For tabular models at the 1400 and higher compatibility level, Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365, and SharePoint List support OAuth credentials. Azure Analysis Services manages token refresh for OAuth data sources to avoid timeouts for long-running refresh operations. To generate valid tokens, set credentials by using SSMS.
+For tabular models at the 1400 and higher compatibility level using in-memory mode, Azure SQL Database, Azure Synapse Analytics (SQL Data Warehouse), Dynamics 365, and SharePoint List support OAuth credentials. Azure Analysis Services manages token refresh for OAuth data sources to avoid timeouts for long-running refresh operations. To generate valid tokens, set credentials by using SSMS.
+
+Direct Query mode is not supported with OAuth credentials.
 
 ## Next steps
 [On-premises gateway](analysis-services-gateway.md)   

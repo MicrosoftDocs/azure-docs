@@ -20,7 +20,11 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
-     # Card
+    # Card
+    - title: What is Resource Manager?
+      itemType: overview
+      url: management/overview.md
+    # Card
     - title: What are templates?
       itemType: overview
       url: templates/overview.md
@@ -28,10 +32,6 @@ highlightedContent:
     - title: Create your first template
       itemType: tutorial
       url: templates/template-tutorial-create-first-template.md
-    # Card
-    - title: What is Resource Manager?
-      itemType: overview
-      url: management/overview.md
     
 # conceptualContent section (optional)
 conceptualContent:
@@ -48,10 +48,13 @@ conceptualContent:
           text: Beginner tutorial series
         - url: templates/template-syntax.md
           itemType: reference
-          text: Template file structure
+          text: Template syntax
         - url: templates/template-functions.md
           itemType: reference
           text: Template functions
+        - url: /azure/templates/
+          itemType: reference
+          text: Template reference
         - url: templates/deploy-powershell.md
           itemType: how-to-guide
           text: Deploy
@@ -80,6 +83,9 @@ conceptualContent:
         - url: management/resource-providers-and-types.md
           itemType: concept
           text: Resource providers and types
+        - url: management/azure-subscription-service-limits.md
+          itemType: concept
+          text: Subscription and service limits
       # footerLink (optional)
       footerLink:
         url: management/index.yml
@@ -92,13 +98,13 @@ conceptualContent:
           text: Overview
         - url: managed-applications/publish-service-catalog-app.md
           itemType: tutorial
-          text: Publish service catalog app
+          text: Publish app to service catalog
         - url: managed-applications/create-uidefinition-overview.md
           itemType: how-to-guide
-          text: Create UI definition
+          text: Define portal pane for creating app
         - url: managed-applications/publish-marketplace-app.md
           itemType: tutorial
-          text: Add to Marketplace
+          text: Add app to Marketplace
       # footerLink (optional)
       footerLink:
         url: managed-applications/index.yml
