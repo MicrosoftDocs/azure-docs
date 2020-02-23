@@ -5776,6 +5776,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/view-usage-reports.md",
+      "redirect_url": "/azure/active-directory-b2c/view-audit-logs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-audit-logs.md",
       "redirect_url": "/azure/active-directory-b2c/view-audit-logs",
       "redirect_document_id": true
@@ -13806,6 +13811,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/geospatial.md",
+      "redirect_url": "/azure/cosmos-db/sql-query-geospatial-intro",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/documentdb/documentdb-get-started-quickstart.md",
       "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-documentdb-dotnet",
       "redirect_document_id": false
@@ -18119,6 +18129,11 @@
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md",
       "redirect_url": "/azure/virtual-machine-scale-sets/disk-encryption-powershell",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/update-infrastructure-redhat.md",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/redhat-rhui",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-advanced-autoscale.md",
@@ -23527,7 +23542,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md",
-      "redirect_url": "/azure/virtual-machines/linux/update-infrastructure-redhat",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/redhat-rhui",
       "redirect_document_id": false
     },
     {
@@ -35546,6 +35561,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/conditional-access/app-based-mfa.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-enable-azure-mfa",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/conditional-access/technical-reference.md",
       "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
       "redirect_document_id": false
@@ -36297,8 +36317,13 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-sso.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-portal",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-single-sign-on-portal.md",
+      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-advance-certificate-options.md",
@@ -36492,8 +36517,13 @@
     },
     {
       "source_path": "articles/active-directory/application-config-add-app-problem-how-to-choose-application-type.md",
-      "redirect_url": "/azure/active-directory/manage-apps/choose-application-type",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-provisioning/isv-automatic-provisioning-multi-tenant-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/choose-application-type.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/isv-automatic-provisioning-multi-tenant-apps",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-add-app-problem-problem-adding-gallery-app.md",
@@ -36512,8 +36542,13 @@
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-federated-sso-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-federated-single-sign-on-gallery-applications",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-federated-single-sign-on-gallery-applications.md",
+      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery.md",
@@ -36522,8 +36557,13 @@
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-password-sso-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-password-single-sign-on-gallery-applications",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-password-single-sign-on-gallery-applications.md",
+      "redirect_url": "/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery.md",
@@ -36552,8 +36592,13 @@
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-how-to",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-how-to.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-no-users-provisioned.md",
@@ -37213,11 +37258,6 @@
     {
       "source_path": "articles/active-directory/user-help/myprofile-portal-recent-activity-page.md",
       "redirect_url": "/azure/active-directory/user-help/myprofile-portal-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md",
-      "redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows",
       "redirect_document_id": false
     },
     {
@@ -45557,12 +45597,12 @@
     },
     {
       "source_path": "articles/iot-central/core/howto-export-data-blob-storage.md",
-      "redirect_url": "/azure/iot-central/core/",
+      "redirect_url": "/azure/iot-central/core/howto-export-data/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/howto-export-data-event-hubs-service-bus.md",
-      "redirect_url": "/azure/iot-central/core/",
+      "redirect_url": "/azure/iot-central/core/howto-export-data/",
       "redirect_document_id": false
     },
     {
@@ -48804,6 +48844,21 @@
     {
       "source_path": "articles/terraform/terraform-vm-managed-identities-for-azure-resources.md",
       "redirect_url": "/azure/terraform/terraform-create-complete-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-android-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-devices-sdk-quickstart?pivots=platform-android",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-linux-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-devices-sdk-quickstart?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-windows-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-devices-sdk-quickstart?pivots=platform-windows",
       "redirect_document_id": false
     }
   ]
