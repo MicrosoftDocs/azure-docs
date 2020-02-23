@@ -10,13 +10,13 @@ ms.date: 02/15/2020
 
 # Tutorial: establish Azure Functions private site access
 
-This tutorial will show you how to create an Azure Function with private site access. Configuring private site access ensures the specified Azure Function isn't able to be triggered via the internet. By enabling private site access, the function can only be triggered via a specific virtual network.
+This tutorial will show you how to create an Azure Function with private site access. Private site access ensures the Azure Function only be triggered via a specific virtual network.
 
 Private site access is useful in scenarios when access to the function needs to be limited to a specific virtual network. For example, the function may be applicable to only employees of a specific organization, or services which reside within the specified virtual network (such as another Azure Function, Azure Virtual Machine, or an AKS cluster).
 
 If an Azure Function needs to access Azure resources within the virtual network, or connected via [service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview), then [virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet) is needed.
 
-In this tutorial, the following steps will be performed in order to configure private site access for an Azure Function:
+In this tutorial, you will perform the following steps in order to configure private site access for an Azure Function:
 
 > [!div class="checklist"]
 > * Create a virtual network
@@ -208,7 +208,7 @@ The next step is to configure access restrictions to ensure only resources on th
 [!div class="mx-imgBorder"]
 ![Configure access restrictions](./media/functions-create-private-site-access/configure-access-restrictions-3.png)
 
-4. This will open new **Add Access Restriction** blade on the right side of the portal. The key configuration in this blade is to select **Virtual Network** from the Type drop-down selection box. Once Virtual Network is selected, select the desired virtual network and subnet.
+4. This will open new **Add Access Restriction** blade on the right side of the portal. The key configuration in this blade is to select **Virtual Network** from the Type drop-down selection box. Once **Virtual Network** is selected, select the desired virtual network and subnet.
 
 [!div class="mx-imgBorder"]
 ![Configure access restrictions](./media/functions-create-private-site-access/configure-access-restrictions-4.png)
@@ -229,21 +229,21 @@ Notice in the above screenshot the information block indicating a service endpoi
 [!div class="mx-imgBorder"]
 ![Access restrictions with newly created rule](./media/functions-create-private-site-access/configure-access-restrictions-5.png)
 
-It is important to note that access restrictions have not been enabled on the [SCM site](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions#scm-site), private-site.scm.azurewebsites.net. By not enabling access restrictions the SCM site, it will be possible to deploy the Azure Function code from a local developer workstation or another build service without needing to take extra steps to provision an agent within the virtual network.
+It is important to note that access restrictions have not been enabled on the [SCM site](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions#scm-site), private-site.scm.azurewebsites.net. By not enabling access restrictions the SCM site, it is possible to deploy the Azure Function code from a local developer workstation or another build service without needing to provision an agent within the virtual network.
 
 ## Access the Function app
 
-1. Proceed back to the previously created Azure Function app.  In the **Overview** section, copy the URL.
+1. Return to the previously created Azure Function app.  In the **Overview** section, copy the URL.
 
 [!div class="mx-imgBorder"]
 ![Get the Function app URL](./media/functions-create-private-site-access/access-function-1.png)
 
-2. If you try to access the function app now, you will receive an HTTP 403 page indicating that the app is stopped.  The app isn't really stopped. The response is actually a HTTP 403 IP Forbidden status.
+2. If you try to access the function app now, you'll receive an HTTP 403 page indicating that the app is stopped.  The app isn't stopped. The response is actually an HTTP 403 IP Forbidden status.
 
 [!div class="mx-imgBorder"]
 ![Forbidden from accessing the Azure Function](./media/functions-create-private-site-access/access-function-2.png)
 
-3. Proceed to the previously created virtual machine. In order to access the site from the VM, connect to the VM via the Azure Bastion service.  First select **Connect** and then choose **Bastion**.
+3. Return to the previously created virtual machine. In order to access the site from the VM, connect to the VM via the Azure Bastion service.  First select **Connect** and then choose **Bastion**.
 
 [!div class="mx-imgBorder"]
 ![Access virtual machine via Bastion](./media/functions-create-private-site-access/access-function-3.png)
@@ -260,11 +260,11 @@ It is important to note that access restrictions have not been enabled on the [S
 
 From the VM on the virtual network it is possible to access the default Azure Function site. The next step is to create an Azure Function and deploy it.
 
-It is important to note that while the function app is only accessible from within the designated virtual network, a public DNS entry remains. As shown above, attempting to access the site will result in a HTTP 403 response.
+It is important to note that while the function app is only accessible from within the designated virtual network, a public DNS entry remains. As shown above, attempting to access the site will result in an HTTP 403 response.
 
 ## Create an Azure Function
 
-The next step in this tutorial is to create a HTTP-triggered Azure Function. Invoking the function via an HTTP GET or POST should result in a response of "Hello, {name}".  
+The next step in this tutorial is to create an HTTP-triggered Azure Function. Invoking the function via an HTTP GET or POST should result in a response of "Hello, {name}".  
 
 1. Follow one of the following quickstarts to create and deploy your Azure Function.
 
@@ -286,7 +286,7 @@ The next step in this tutorial is to create a HTTP-triggered Azure Function. Inv
 [!div class="mx-imgBorder"]
 ![Copy the function URL](./media/functions-create-private-site-access/invoke-function-get-url.png)
 
-2. Paste the URL into a web browser. Doing so from a local machine will result in a HTTP 403 web app is stopped message.
+2. Paste the URL into a web browser. Doing so from a local machine will result in an HTTP 403 web app is stopped message.
 
 [!div class="mx-imgBorder"]
 ![Function app stoppedL](./media/functions-create-private-site-access/function-app-stopped-1.png)
@@ -298,7 +298,7 @@ Note: You will receive an error in the portal which indicates the function runti
 
 ## Invoke the Azure Function from the Virtual Network
 
-However, accessing the function via a web browser (by using the Azure Bastion service) on the configured VM on the virtual network results in success!
+Accessing the function via a web browser (by using the Azure Bastion service) on the configured VM on the virtual network results in success!
 
 [!div class="mx-imgBorder"]
 ![Access the Azure Function via Azure Bastion](./media/functions-create-private-site-access/access-function-via-bastion-1.png)
