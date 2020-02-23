@@ -12,7 +12,7 @@ ms.date: 02/18/2020
 ms.author: dapine
 ---
 
-# Speech Synthesis Markup Language (SSML)
+# Improve synthesis with Speech Synthesis Markup Language (SSML)
 
 Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech using the text-to-speech service. Compared to plain text, SSML allows developers to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output. Normal punctuation, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark are automatically handled.
 
