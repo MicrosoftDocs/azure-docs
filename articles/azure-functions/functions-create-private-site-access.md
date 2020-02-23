@@ -102,7 +102,7 @@ The next step is to create a new virtual machine within one subnet of the virtua
 
 ## Configure Azure Bastion
 
-[Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) is a fully-managed Azure service which provides secure RDP and SSH access to virtual machines directly from the Azure Portal. Using the Azure Bastion service removes the need to configure network settings related to RDP access.
+[Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) is a fully-managed Azure service which provides secure RDP and SSH access to virtual machines directly from the Azure portal. Using the Azure Bastion service removes the need to configure network settings related to RDP access.
 
 1. In the portal, choose **Add** at the top of the resource group view.
 2. In the search field, type "Bastion".  Select "Bastion".
@@ -294,10 +294,10 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
 >[!div class="mx-imgBorder"]
 >![Function app stoppedL](./media/functions-create-private-site-access/function-app-stopped-1.png)
 
-Note: You will receive an error in the portal which indicates the function runtime is unable to start. The function runtime is actually running. Due to the previously created access restrictions, the Azure Portal isn't able to make the query to check the runtime. THe error message will be fixed in a future update to the Azure Portal.
+Note: You will receive an error in the portal which indicates the function runtime is unable to start. The function runtime is actually running. Due to the previously created access restrictions, the Azure portal isn't able to make the query to check the runtime. The error message will be fixed in a future update to the Azure portal.
 
 >[!div class="mx-imgBorder"]
->![Azure Portal error querying the function](./media/functions-create-private-site-access/invoke-function-portal-error.png)
+>![Azure portal error querying the function](./media/functions-create-private-site-access/invoke-function-portal-error.png)
 
 ## Invoke the Azure Function from the Virtual Network
 
