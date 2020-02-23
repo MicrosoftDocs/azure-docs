@@ -9,7 +9,7 @@ ms.date: 02/18/2020
 ms.author: dnb
 
 ---
-# Books for Learning About SRE
+# Books for Learning About Site Reliability Engineering (SRE)
 
 For more detailed information about SRE, the best source is a trio of books that have been published on the subject
 
