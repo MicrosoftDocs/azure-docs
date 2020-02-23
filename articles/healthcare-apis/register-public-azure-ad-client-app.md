@@ -38,7 +38,11 @@ Client application registrations are Azure Active Directory representations of a
 
 Similarly to the [confidential client application](register-confidential-azure-ad-client-app.md), you'll need to select which API permissions this application should be able to request on behalf of users:
 
-1. Open the **API permissions**. If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for Azure Healthcare APIs under **APIs my organization uses** (image below). If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**:
+1. Open the **API permissions**.
+
+    > If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for Azure Healthcare APIs under **APIs my organization uses** (image below).
+    
+    If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**:
 
     ![Azure portal. New public API permissions - Azure API for FHIR Default](media/public-client-app/api-permissions.png)
 
