@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 02/15/2020
 ---
 
-# Tutorial: establish Azure Functions private site access
+# Tutorial: Establish Azure Functions private site access
 
 This tutorial will show you how to create an Azure Function with private site access. Private site access ensures the Azure Function only be triggered via a specific virtual network.
 
@@ -16,7 +16,7 @@ Private site access is useful in scenarios when access to the function needs to 
 
 If an Azure Function needs to access Azure resources within the virtual network, or connected via [service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview), then [virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet) is needed.
 
-In this tutorial, you will perform the following steps in order to configure private site access for an Azure Function:
+In this tutorial, you learn how to configure private site access for an Azure Function:
 
 > [!div class="checklist"]
 > * Create a virtual network
@@ -27,6 +27,8 @@ In this tutorial, you will perform the following steps in order to configure pri
 > * Create and deploy an Azure Function
 > * Invoke the function from outside and within the virtual network
 
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Topology
 
 The following diagram shows the architecture of the solution to be created:
@@ -36,8 +38,6 @@ The following diagram shows the architecture of the solution to be created:
 ## Prerequisites
 
 For this tutorial, it's important that you understand IP addressing and subnetting. You can start with [this article that covers the basics of addressing and subnetting](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Many more articles and videos are available online.
-
-> If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure portal
 
@@ -314,4 +314,3 @@ In this tutorial, you configured an Azure Function to only be accessible from a 
 > [Azure App Service Access Restrictions](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 > [Integrate Azure Functions with a Virtual Network](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet)
 > [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
-> [Next steps button](contribute-get-started-mvc.md)
