@@ -113,7 +113,7 @@ Max length: 256
 
 ## Internal: SDK version
 
-SDK version. See https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SDK-AUTHORING.md#sdk-version-specification for information.
+SDK version. See [this article](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) for information.
 
 Max length: 64
 

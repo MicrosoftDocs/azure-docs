@@ -914,7 +914,7 @@ You can view the queue in the [Azure portal](../storage/queues/storage-quickstar
     
     ---
 
-1. Use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view the messages in this queue, which should be the first name you used when testing the function earlier. The command retrieves the first message in the queue in [base64 encoding](functions-bindings-storage-queue.md#encoding), so you must also decode the message to view as text.
+1. Use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view the messages in this queue, which should be the first name you used when testing the function earlier. The command retrieves the first message in the queue in [base64 encoding](functions-bindings-storage-queue-trigger.md#encoding), so you must also decode the message to view as text.
 
     # [bash](#tab/bash)
     

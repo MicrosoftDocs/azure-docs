@@ -54,7 +54,7 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](http
 
 Only the following regions are currently supported:
 
-- Available as a GA offering in the East US, West US 2, and South Central US regions.
+- Available as a GA offering in the East US, West US 2, South Central US, UK South regions.
 - Available as a public preview in the West Central US, East US 2, Canada Central, and North Europe regions.
 
 ### Restrictions

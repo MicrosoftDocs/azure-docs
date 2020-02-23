@@ -113,6 +113,10 @@
       href: dns-sdk.md
     - name: Custom domains for Azure resources
       href: dns-custom-domain.md
+  - name: Private DNS
+    items:
+    - name: Protect private DNS zones and records
+      href: dns-protect-private-zones-recordsets.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
