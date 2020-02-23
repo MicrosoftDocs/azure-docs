@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Protect a Node.js Web API using Azure Active Directory B2C and grant access to SPA"
+title: "Tutorial: Protect a Node.js web API using Azure Active Directory B2C and grant access to SPA"
 titleSuffix: Azure AD B2C
 description: In this tutorial, learn how to use Active Directory B2C to protect a Node.js web API and call it from a single-page application.
 services: active-directory-b2c
@@ -14,7 +14,7 @@ ms.service: active-directory
 ms.subservice: B2C
 ---
 
-# Tutorial: Tutorial: Protect a Node.js Web API using Azure Active Directory B2C and grant access to SPA
+# Tutorial: Protect a Node.js Web API using Azure Active Directory B2C and grant access to SPA
 
 This tutorial shows you how to call an Azure Active Directory B2C (Azure AD B2C)-protected Node.js web API from a single-page application.
 
@@ -123,9 +123,7 @@ Although both applications run locally in this tutorial, they use Azure AD B2C f
 
 ### Run the Node.js web API
 
-1. Open a console window and change to the directory containing the Node.js web API sample. For example:
-
-    `cd active-directory-b2c-javascript-nodejs-webapi`
+1. Open a console window and change to the directory containing the Node.js web API sample. For example: `cd active-directory-b2c-javascript-nodejs-webapi`
 
 1. Run the following commands:
 
@@ -134,7 +132,7 @@ Although both applications run locally in this tutorial, they use Azure AD B2C f
     npm start
     ```
 
-    The console window displays the port number of where the application is hosted.
+    The console window displays the port number where the application is hosted.
 
     ```console
     Listening on port 5000...
