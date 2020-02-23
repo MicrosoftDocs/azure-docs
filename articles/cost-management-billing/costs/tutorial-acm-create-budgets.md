@@ -163,7 +163,7 @@ Select the following image to sign in to the Azure portal and open the template:
 
 [![Deploy the Create budget template to Azure](./media/tutorial-acm-create-budgets/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
 
-To view a list of all the parameters and their descriptions, see the [Create a budget](https://azure.microsoft.com/resources/templates/create-budget/) template.
+To view a list of all the template parameters and their descriptions, see the [Create a budget](https://azure.microsoft.com/resources/templates/create-budget/) template.
 
 
 ## Next steps
