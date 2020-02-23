@@ -190,7 +190,7 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
 
 ## Spark source: reading from Azure Data Explorer
 
-1. When reading [small amounts of data](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits), define the data query:
+1. When reading [small amounts of data](/azure/kusto/concepts/querylimits), define the data query:
 
     ```scala
     import com.microsoft.kusto.spark.datasource.KustoSourceOptions
@@ -219,7 +219,7 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
     display(df2)
     ```
 
-1. Optional: If **you** provide the transient blob storage (and not Microsoft) for reading [large amounts of data](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits), you must provide the storage container SAS key, or storage account name, account key, and container name. 
+1. Optional: If **you** provide the transient blob storage (and not Microsoft) for reading [large amounts of data](/azure/kusto/concepts/querylimits), you must provide the storage container SAS key, or storage account name, account key, and container name. 
 
     ```scala
     // Use either container/account-key/account name, or container SaS
