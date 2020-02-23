@@ -148,7 +148,7 @@ Keep the SID of the newly created account, you'll need it for the next step.
 
 ##### c. Enable the feature on your storage account
 
-The script would then enable the feature on your storage account. To perform this setp manually, provide some configuration details for the domain properties in the following command, then run it. The storage account SID required in the following command is the SID of the identity you created in AD (section b above).
+The script would then enable the feature on your storage account. To perform this setup manually, provide some configuration details for the domain properties in the following command, then run it. The storage account SID required in the following command is the SID of the identity you created in AD (section b above).
 
 ```PowerShell
 #Set the feature flag on the target storage account and provide the required AD domain information
