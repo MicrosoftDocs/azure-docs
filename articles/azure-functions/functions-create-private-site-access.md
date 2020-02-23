@@ -192,7 +192,7 @@ Select **Review + Create** to review the app configuration selections.
 
 ## Configure Access Restrictions
 
-The next step is to configure access restrictions to ensure only resources on the virtual network can invoke the function.
+The next step is to configure [access restrictions](./app-service/app-service-ip-restrictions.md) to ensure only resources on the virtual network can invoke the function.
 
 [Private site](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#private-site-access) access is enabled by creating an Azure [virtual network service endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) between the App Service plan (consumption) and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure that only traffic originating from within the specified virtual network can access the designated resource. In this case, the designed resource is the Azure Function.
 
@@ -313,7 +313,4 @@ Accessing the function via a web browser (by using the Azure Bastion service) on
 In this tutorial, you configured an Azure Function to only be accessible from a specific virtual network.  In order to restrict access to an Azure Function to a specified virtual network, it is necessary to configure access restrictions via a virtual network service endpoint. Doing so will ensure that only resources from within the specified virtual network, such as an Azure VM, can trigger the Azure Function.
 
 > [!div class="nextstepaction"]
-> [Azure Functions networking options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
-> [Azure App Service Access Restrictions](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
-> [Integrate Azure Functions with a Virtual Network](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet)
-> [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+> [Learn more about the networking options in Functions](./functions-networking-options.md)
