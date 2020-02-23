@@ -7,7 +7,7 @@ ms.author: rgarcia
 ---
 ## Set up authentication
 
-To access the service, you need to provide an account key, access token, or Azure Active Directory auth token.
+To access the service, you need to provide an account key, access token, or Azure Active Directory auth token. You can also read more about this in the [Authentication concept page](/azure/spatial-anchors/concepts/authentication).
 
 ### Account Keys
 

@@ -38,7 +38,7 @@ Request:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 Response:

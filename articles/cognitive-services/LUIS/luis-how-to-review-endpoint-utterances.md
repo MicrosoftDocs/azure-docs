@@ -1,7 +1,7 @@
 ---
 title: Review user utterances - LUIS
 titleSuffix: Azure Cognitive Services
-description: Review utterances captured by active learning to select intent and mark entities for read-world utterances; accept changes, train and publish.
+description: Review utterances captured by active learning to select intent and mark entities for read-world utterances; accept changes, train, and publish.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 01/27/2020
 ms.author: diberry
 ---
 
@@ -22,6 +22,22 @@ The process of reviewing endpoint utterances for correct predictions is called [
 ## Enable active learning
 
 To enable active learning, you must log user queries. This is accomplished by calling the [endpoint query](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) with the `log=true` querystring parameter and value.
+
+Use the LUIS portal to construct the correct endpoint query.
+
+1. In the [preview LUIS portal](https://preview.luis.ai/), select your app from the list of apps.
+1. Go to the **Manage** section, then select **Azure resources**.
+1. For the assigned prediction resource, select **Change query parameters**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Use LUIS portal to save logs, which is required for active learning.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+
+1. Toggle **Save logs** then save by selecting **Done**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Use LUIS portal to save logs, which is required for active learning.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
+
+     This action changes the example URL by adding the `log=true` querystring parameter. Copy and use the changed example query URL when making prediction queries to the runtime endpoint.
 
 ## Correct intent predictions to align utterances
 

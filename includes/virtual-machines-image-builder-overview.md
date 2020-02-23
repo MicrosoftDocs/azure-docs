@@ -1,7 +1,7 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 11/25/2019
+ms.date: 01/23/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
@@ -41,8 +41,10 @@ The Azure Image Builder Service will be available for preview in these regions. 
 AIB will support Azure Marketplace base OS images:
 - Ubuntu 18.04
 - Ubuntu 16.04
-- RHEL 7.6
-- CentOS 7.6
+- RHEL 7.6, 7.7
+- CentOS 7.6, 7.7
+- SLES 12 SP4
+- SLES 15, SLES 15 SP1
 - Windows 10 RS5 Enterprise/Professional/Enterprise for Virtual Desktop (EVD) 
 - Windows 2016
 - Windows 2019
@@ -87,6 +89,13 @@ az role assignment create \
     --role Contributor \
     --scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName>
 ```
+
+You can assign access using the PowerShell:
+
+```azurePowerShell-interactive
+New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName> -RoleDefinitionName Contributor
+```
+
 
 If the service account is not found, that may mean that the subscription where you are adding the role assignment has not yet registered for the resource provider.
 

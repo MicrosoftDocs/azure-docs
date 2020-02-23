@@ -5,7 +5,7 @@ description: Follow this example build a no-code classifier to predict income wi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
@@ -74,7 +74,7 @@ Explore the other samples available for the designer:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](service/how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](service/how-to-designer-sample-classification-flight-delay.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
+- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
 - [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

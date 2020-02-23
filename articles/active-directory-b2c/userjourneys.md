@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -79,7 +79,7 @@ The **Preconditions** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- | 
-| Precondition | 0:n | Depending on the technical profile being used, either redirects the client according to the claims provider selection or makes a server call to exchange claims. | 
+| Precondition | 1:n | Depending on the technical profile being used, either redirects the client according to the claims provider selection or makes a server call to exchange claims. | 
 
 
 #### Precondition
@@ -158,11 +158,17 @@ Preconditions can check multiple preconditions. The following example checks whe
 
 An orchestration step of type `ClaimsProviderSelection` or `CombinedSignInAndSignUp` may contain a list of claims providers that a user can sign in with. The order of the elements inside the `ClaimsProviderSelections` elements controls the order of the identity providers presented to the user.
 
-The **ClaimsProviderSelection** element contains the following element:
+The **ClaimsProviderSelections** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ClaimsProviderSelection | 0:n | Provides the list of claims providers that can be selected.|
+| ClaimsProviderSelection | 1:n | Provides the list of claims providers that can be selected.|
+
+The **ClaimsProviderSelections** element contains the following attributes: 
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| DisplayOption| No | Controls the behavior of a case where a single claims provider selection is available. Possible values: `DoNotShowSingleProvider` (default) , the user is redirected immediately to the federated identity provider. Or `ShowSingleProvider` Azure AD B2C presents the sign-in page with the single identity provider selection. To use this attribute, the [content definition version](page-layout.md) must be `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` and above.| 
 
 The **ClaimsProviderSelection** element contains the following attributes: 
 
@@ -214,7 +220,7 @@ The **ClaimsExchanges** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ClaimsExchange | 0:n | Depending on the technical profile being used, either redirects the client according to the ClaimsProviderSelection that was selected, or makes a server call to exchange claims. | 
+| ClaimsExchange | 1:n | Depending on the technical profile being used, either redirects the client according to the ClaimsProviderSelection that was selected, or makes a server call to exchange claims. | 
 
 The **ClaimsExchange** element contains the following attributes:
 

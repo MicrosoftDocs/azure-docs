@@ -24,7 +24,7 @@ To create a large partition key, when you create a new container using the Azure
 
 To create a container with large partition key support see,
 
-* [Create an Azure Cosmos container with a large partition key size](manage-with-powershell.md##create-container-big-pk)
+* [Create an Azure Cosmos container with a large partition key size](manage-with-powershell.md#create-container-big-pk)
 
 ## Create a large partition key (.Net SDK)
 

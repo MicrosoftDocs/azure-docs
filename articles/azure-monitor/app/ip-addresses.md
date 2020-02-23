@@ -4,8 +4,8 @@ description: Server firewall exceptions required by Application Insights
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 12/19/2019
 
 ---
@@ -52,6 +52,14 @@ Status Monitor Configuration - needed only when making changes.
 
 ## Availability tests
 This is the list of addresses from which [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.
+
+If you are using Azure Network Security Groups, simply add an **inbound port rule** to allow traffic from Application Insights availability tests by selecting **Service Tag** as the **Source** and **ApplicationInsightsAvailability** as the **Source service tag**.
+
+>[!div class="mx-imgBorder"]
+>![Under settings select Inbound security rules and then select add at the top of the tab ](./media/ip-addresses/add-inbound-security-rule.png)
+
+>[!div class="mx-imgBorder"]
+>![Add inbound security rule tab](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Open ports 80 (http) and 443 (https) for incoming traffic from these addresses (IP addresses are grouped by location):
 

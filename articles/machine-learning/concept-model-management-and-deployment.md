@@ -30,9 +30,9 @@ Azure Machine Learning provides the following MLOps capabilities:
 
 Use ML pipelines from Azure Machine Learning to stitch together all of the steps involved in your model training process.
 
-An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](service/concept-ml-pipelines.md).
+An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](concept-ml-pipelines.md).
 
-If you use the [Designer](service/concept-designer.md) to create your ML pipelines, you may at any time click the **"..."** at the top-right of the Designer page and then select **Clone**. Cloning your pipeline allows you to iterate your pipeline design without losing your old versions.  
+If you use the [Designer](concept-designer.md) to create your ML pipelines, you may at any time click the **"..."** at the top-right of the Designer page and then select **Clone**. Cloning your pipeline allows you to iterate your pipeline design without losing your old versions.  
 
 ## Register, package, and deploy models from anywhere
 
@@ -85,7 +85,7 @@ You also provide the configuration of the target deployment platform. For exampl
 When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service and interact with IoT Edge.
 
 #### Batch scoring
-Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](how-to-run-batch-predictions.md).
+Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](how-to-use-parallel-run-step.md).
 
 #### Real-time web services
 
@@ -133,6 +133,19 @@ Monitoring enables you to understand what data is being sent to your model, and 
 This information helps you understand how your model is being used. The collected input data may also be useful in training future versions of the model.
 
 For more information, see [How to enable model data collection](how-to-enable-data-collection.md).
+
+## Retrain your model on new data
+
+Often, you'll want to update your model, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](how-to-monitor-datasets.md), model performance can degrade in the face of such things as changes to a particular sensor, natural data changes such as seasonal effects, or features shifting in their relation to other features. 
+
+There is no universal answer to "How do I know if I should retrain?" but Azure ML event and monitoring tools previously discussed are good starting points for automation. Once you have decided to retrain, you should: 
+
+- Preprocess your data using a repeatable, automated process
+- Train your new model
+- Compare the outputs of your new model to those of your old model
+- Use predefined criteria to choose whether to replace your old model 
+
+A theme of the above steps is that your retraining should be automated, not ad hoc. [Azure Machine Learning pipelines](concept-ml-pipelines.md) are a good answer for creating workflows relating to data preparation, training, validation, and deployment. Read [Retrain models with Azure Machine Learning designer (preview)](how-to-retrain-designer.md) to see how pipelines and the Azure Machine Learning designer fit into a retraining scenario. 
 
 ## Automate the ML lifecycle 
 

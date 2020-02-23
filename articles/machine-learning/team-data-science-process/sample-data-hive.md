@@ -3,17 +3,17 @@ title: Sample data in Azure HDInsight Hive tables - Team Data Science Process
 description: Down-sample data stored in Azure HDInsight Hive tables using Hive queries to reduce the data to a size more manageable for analysis.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Sample data in Azure HDInsight Hive tables
-This article describes how to down-sample data stored in Azure HDInsight Hive tables using Hive queries to reduce it to a size more manageable for analysis. It cover three popularly used sampling methods:
+This article describes how to down-sample data stored in Azure HDInsight Hive tables using Hive queries to reduce it to a size more manageable for analysis. It covers three popularly used sampling methods:
 
 * Uniform random sampling
 * Random sampling by groups
@@ -25,7 +25,7 @@ If the dataset you plan to analyze is large, it's usually a good idea to down-sa
 This sampling task is a step in the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## How to submit Hive queries
-Hive queries can be submitted from the Hadoop Command-Line console on the head node of the Hadoop cluster. To do this, log into the head node of the Hadoop cluster, open the Hadoop Command-Line console, and submit the Hive queries from there. For instructions on submitting Hive queries in the Hadoop Command-Line console, see [How to Submit Hive Queries](move-hive-tables.md#submit).
+Hive queries can be submitted from the Hadoop Command-Line console on the head node of the Hadoop cluster.  Log into the head node of the Hadoop cluster, open the Hadoop Command-Line console, and submit the Hive queries from there. For instructions on submitting Hive queries in the Hadoop Command-Line console, see [How to Submit Hive Queries](move-hive-tables.md#submit).
 
 ## <a name="uniform"></a> Uniform random sampling
 Uniform random sampling means that each row in the data set has an equal chance of being sampled. It can be implemented by adding an extra field rand() to the data set in the inner "select" query, and in the outer "select" query that condition on that random field.
