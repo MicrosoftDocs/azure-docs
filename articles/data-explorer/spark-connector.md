@@ -96,7 +96,12 @@ For more information, see [connector usage](https://github.com/Azure/azure-kusto
 
 ## Authentication
 
-Azure Data Explorer Spark connector enables you to authenticate with Azure Active Directory (Azure AD) using an [Azure AD application](#azure-ad-application-authentication), [Azure AD access token](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [device authentication](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (for non-production scenarios), or [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). To access the Key Vault resource, install azure-keyvault package and provide application credentials.
+Azure Data Explorer Spark connector enables you to authenticate with Azure Active Directory (Azure AD) using one of the following methods:
+* An [Azure AD application](#azure-ad-application-authentication)
+* An [Azure AD access token](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token)
+* [Device authentication](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (for non-production scenarios)
+* An [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault) 
+    To access the Key Vault resource, install the azure-keyvault package and provide application credentials.
 
 ### Azure AD application authentication
 
@@ -214,9 +219,9 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
     display(df2)
     ```
 
-1. Optional: If **you** provide the transient blob storage (and not Microsoft), for reading [large amounts of data](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits), you must provide the storage container SAS key, or storage account name, account key, and container name. 
+1. Optional: If **you** provide the transient blob storage (and not Microsoft) for reading [large amounts of data](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits), you must provide the storage container SAS key, or storage account name, account key, and container name. 
 
-        ```scala
+    ```scala
     // Use either container/account-key/account name, or container SaS
     val container = dbutils.secrets.get(scope = "KustoDemos", key = "blobContainer")
     val storageAccountKey = dbutils.secrets.get(scope = "KustoDemos", key = "blobStorageAccountKey")
