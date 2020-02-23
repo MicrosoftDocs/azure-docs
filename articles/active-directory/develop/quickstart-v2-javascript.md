@@ -38,8 +38,8 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > 1. If your account gives you access to more than one tenant, select the account at the top right, and then set your portal session to the Azure Active Directory (Azure AD) tenant you want to use.
 > 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) pane.
 > 1. Enter a name for your application. 
-> 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**
-> 1. Click on **Register**.
+> 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+> 1. Select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application.
 >
 > ### Option 2 (Manual): Register and manually configure your application and code sample
@@ -55,13 +55,13 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
 > 1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. In the left pane of the registered application, select **Authentication**.
-> 1. Under the **Platform Configurations** heading, click on the **Add a platform** button. A panel will open to your left. There, click on the **Web Applications** region.
-> 1. Still on the left panel, set the **Redirect URI** value to http://localhost:3000/, then check the boxes **Access Token** and **ID Token** below.
-> 1. Click on **Configure** and you are good to go.
+> 1. Under **Platform Configurations**, select **Add a platform**. A panel opens on the left. There, select the **Web Applications** region.
+> 1. Still on the left, set the **Redirect URI** value to http://localhost:3000/. Then select **Access Token** and **ID Token**.
+> 1. Select **Configure**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
-> For the code sample for this quickstart to work, you need to add a `redirectUri` as `http://localhost:3000/` and enable **Implicit grant**.
+> To make the code sample in this quickstart work, you need to add a `redirectUri` as `http://localhost:3000/` and enable **Implicit grant**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -107,7 +107,7 @@ Select the option that's suitable to your development environment:
 >
 > Where:
 > - *\<Enter_the_Application_Id_Here>* is the **Application (client) ID** for the application you registered.
-> - *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of Azure Cloud. For the main/global Azure cloud, simply enter *https://login.microsoftonline.com*. For **national clouds** clouds (e.g. China), refer to the documantation entry for [national clouds](https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-national-cloud).
+> - *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, simply enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
 > - *\<Enter_the_Tenant_info_here>* is set to one of the following options:
 >    - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
 >    - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
@@ -193,7 +193,7 @@ For more information about available configurable options, see [Initialize clien
 The following code snippet shows how to sign in users:
 
 ```javascript
-// Add here scopes for id token to be used at MS Identity Platform endpoints.
+// Add scopes for the id token to be used at Microsoft identity platform endpoints.
 const loginRequest = {
     scopes: ["openid", "profile", "User.Read"],
 };
@@ -222,7 +222,7 @@ MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireToken
 The `acquireTokenSilent` method handles token acquisitions and renewal without any user interaction. After the `loginRedirect` or `loginPopup` method is executed for the first time, `acquireTokenSilent` is the method commonly used to obtain tokens that are used to access protected resources for subsequent calls. Calls to request or renew tokens are made silently.
 
 ```javascript
-// Add here scopes for access token to be used at MS Graph API endpoints.
+// Add scopes for the access token to be used at Microsoft Graph API endpoints.
 const tokenRequest = {
     scopes: ["Mail.Read"]
 };
