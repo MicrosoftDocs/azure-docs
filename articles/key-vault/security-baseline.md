@@ -385,10 +385,9 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 **Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) configured to log into and configure Key Vault enabled resources.
 
 
-Privileged Access Workstations:
-https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
-Planning a cloud-based Azure Multi-Factor Authentication deployment:
-https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Privileged Access Workstations: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
+
+Planning a cloud-based Azure Multi-Factor Authentication deployment: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -740,23 +739,14 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Guidance**: Use Azure policies to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
-
-Not allowed resource types
-
-Allowed resource types
-
+- Not allowed resource types
+- Allowed resource types
 
 In addition, use the Azure Resource Graph to query/discover resources within the subscription(s).
 
+Tutorial: Create and manage policies to enforce compliance: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Tutorial: Create and manage policies to enforce compliance:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer:
-
-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
-
+Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -790,19 +780,12 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Guidance**: Use Azure policies to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
+- Not allowed resource types
+- Allowed resource types
 
-Not allowed resource types
+Tutorial: Create and manage policies to enforce compliance: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Allowed resource types
-
-
-Tutorial: Create and manage policies to enforce compliance:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-Azure Policy Samples:
-
-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Azure Policy Samples: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Azure Security Center monitoring**: Not applicable
 
