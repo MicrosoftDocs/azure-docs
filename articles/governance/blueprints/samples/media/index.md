@@ -1,14 +1,14 @@
 ---
-title: HIPAA HITRUST blueprint sample overview
-description: Overview of the HIPAA HITRUST blueprint sample. This blueprint sample helps customers assess specific HIPAA HITRUST controls.
+title: Media blueprint sample overview
+description: Overview of the Media blueprint sample. This blueprint sample helps customers assess specific Media controls.
 ms.date: 12/3/2019
 ms.topic: sample
 ---
-# Overview of the HIPAA HITRUST blueprint sample
+# Overview of the Media blueprint sample
 
-HIPAA HITRUST blueprint sample provides a
+Media blueprint sample provides a
 set of governance guard-rails using [Azure Policy](../../../policy/overview.md) that help towards
-[HIPAA HITRUST](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)
+[Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)
 attestation. 
 
 ## Blueprint sample
@@ -21,12 +21,12 @@ compliance with assigned policies.
 
 ## Next steps
 
-You've reviewed the overview of the HIPAA HITRUST blueprint sample. Next, visit the following
+You've reviewed the overview of the Media blueprint sample. Next, visit the following
 articles to learn about the control mapping and how to deploy this sample:
 
 > [!div class="nextstepaction"]
-> [HIPAA HITRUST blueprint - Control mapping](./control-mapping.md)
-> [HIPAA HITRUST blueprint - Deploy steps](./deploy.md)
+> [Media blueprint - Control mapping](./control-mapping.md)
+> [Media blueprint - Deploy steps](./deploy.md)
 
 Additional articles about blueprints and how to use them:
 

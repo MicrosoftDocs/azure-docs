@@ -1,19 +1,19 @@
 ---
-title: HIPAA HITRUST blueprint sample controls
-description: Control mapping of the HIPAA HITRUST blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 11/26/2019
+title: Media blueprint sample controls
+description: Control mapping of the Media blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
+ms.date: 02/24/2020
 ms.topic: sample
 ---
-# Control mapping of the HIPAA HITRUST blueprint sample
+# Control mapping of the Media blueprint sample
 
-The following article details how the Azure Blueprints HIPAA HITRUST blueprint sample maps to the HIPAA HITRUST controls. For more
+The following article details how the Azure Blueprints Media blueprint sample maps to the Media controls. For more
 information about the controls, see
-[HIPAA HITRUST](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+[Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
 
-The following mappings are to the **HIPAA HITRUST** controls. Use the navigation on the right
+The following mappings are to the **Media** controls. Use the navigation on the right
 to jump directly to a specific control mapping. Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md)
 initiative. To review the complete initiative, open **Policy** in the Azure portal and select the
-**Definitions** page. Then, find and select the **\[Preview\]: Audit HIPAA HITRUST controls**
+**Definitions** page. Then, find and select the **\[Preview\]: Audit Media controls**
 built-in policy initiative.
 
 > [!IMPORTANT]
@@ -212,12 +212,12 @@ The organization identifies its critical business processes and integrates the i
 
 ## Next steps
 
-You've reviewed the control mapping of the HIPAA HITRUST blueprint sample. Next, visit the
+You've reviewed the control mapping of the Media blueprint sample. Next, visit the
 following articles to learn about the overview and how to deploy this sample:
 
 > [!div class="next step action"]
-> [HIPAA HITRUST blueprint - Overview](./control-mapping.md)
-> [HIPAA HITRUST blueprint - Deploy steps](./deploy.md)
+> [Media blueprint - Overview](./control-mapping.md)
+> [Media blueprint - Deploy steps](./deploy.md)
 
 Additional articles about blueprints and how to use them:
 
