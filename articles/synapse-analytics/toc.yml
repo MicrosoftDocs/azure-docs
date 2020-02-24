@@ -392,6 +392,8 @@
     #   href: article-template.md
     - name: Troubleshooting Synapse Analytics Studio
       href: troubleshooting/troubleshooting-synapse-studio.md
+    - name: Troubleshooting Synapse Analytics Studio with PowerShell
+      href: troubleshooting/troubleshooting-synapse-studio-powershell.md
     # - name: Integrate with AML
     #   href: article-template.md
     - name: Integrate with Power BI
