@@ -54,11 +54,12 @@ If your source data changes, you can refresh the dataset and add new data by rer
 
     ![import-data-preview](media/module/import-data.png)
 
-1. The checkbox, **Regenerate output**, decides whether execute the module with rewriting results each time. The checkbox is by default unselected, to save resource.
+1. The checkbox, **Regenerate output**, decides whether to execute the module to regenerate output at running time. 
 
-If you select this option, results are written to storage each time the module is run, regardless of whether the output data has changed.
+    It's by default unselected, which means if the module has been executed with the same parameters previously, the system will reuse the output from last run to reduce run time. 
 
-If you deselect this option, Import Data uses cached data, if available. New results are generated only when there is an upstream change that would affect the results.
+    If it is selected, the system will execute the module again to regenerate output. So select this option when underlying data in storage is updated, it can help to get the latest data.
+
 
 1. Run the pipeline.
 
