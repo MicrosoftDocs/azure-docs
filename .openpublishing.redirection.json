@@ -48860,6 +48860,16 @@
       "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-windows-quickstart.md",
       "redirect_url": "/azure/cognitive-services/speech-service/speech-devices-sdk-quickstart?pivots=platform-windows",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-develop-video-players.md",
+      "redirect_url": "/azure/media-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/chef-automation.md",
+      "redirect_url": "/azure/chef/chef-automation",
+      "redirect_document_id": true
     }
   ]
 }

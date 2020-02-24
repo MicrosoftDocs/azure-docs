@@ -40,13 +40,19 @@ For customers migrating from on-premises file servers, or creating new file shar
 If you intend to use the storage account key to access your Azure file shares, we recommend using service endpoints as described in the [Networking](#networking) section.
 
 ## Networking
-By default, Azure services including Azure Files can be accessed over the internet. Since by default traffic to your storage account is encrypted (and SMB 2.1 mounts are never allowed outside of an Azure region), there is nothing inherently insecure about accessing your Azure file shares over the internet. Based on your organization's policy or unique regulatory requirements, you may require more restrictive communication with Azure, and therefore Azure provides several ways to restrict how traffic from outside of Azure gets to Azure Files. For example, many organizations and internet service providers (ISPs) block port 445 outbound, the port used by SMB to communicate.
+Azure file shares are accessible from anywhere via the storage account's public endpoint. This means that authenticated requests, such as requests authorized by a user's logon identity, can originate securely from inside or outside of Azure. In many customer environments, an initial mount of the Azure file share on your on-premises workstation will fail, even though mounts from Azure VMs succeed. The reason for this is that many organizations and internet service providers (ISPs) block the port that SMB uses to communicate, port 445. 
 
-Based on the commonality of customer requirements to restrict access at the network level (in addition to the identity level as described above), most customers will need to combine the following Azure networking features to deploy Azure Files within their organization:
+To unblock access to your Azure file share, you have two main options:
 
-- **Service endpoints**: Service endpoints provide a method for restricting traffic to your storage account to a virtual network. Mount requests coming from outside the virtual network boundary (excluding requests tunneled into the virtual network) are rejected, even if the user/application performing the mount has otherwise valid credentials.
-- **Private endpoints**: Private endpoints give your storage account a dedicated IP address from within the address space of the virtual network. This enables network tunneling without needing to open on-premises networks up to all the of the IP address ranges owned by the Azure storage clusters. 
+1. Unblock port 445 for your organization's on-premises network. Azure file shares may only be externally accessed via the public endpoint using internet safe protocols such as SMB 3.0 and the FileREST API. This is the easiest way to access your Azure file share from on-premises since it doesn't require advanced networking configuration beyond changing your organization's outbound port rules, however, we recommend you remove legacy and deprecated versions of the SMB protocol, namely SMB 1.0. To learn how to do this, see [Securing Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) and [Securing Linux](storage-how-to-use-files-linux.md#securing-linux).
+
+2. Access Azure file shares over an ExpressRoute or VPN connection. When you access your Azure file share via a network tunnel, you are able to mount your Azure file share like an on-premises file share since SMB traffic does not traverse your organizational boundary.   
+
+Although from a technical perspective it's considerably easier to mount your Azure file shares via the public endpoint, we expect most customers will opt to mount their Azure file shares over an ExpressRoute or VPN connection. To do this, you will need to configure the following for your environment:  
+
 - **Network tunneling using ExpressRoute, Site-to-Site, or Point-to-Site VPN**: Tunneling into a virtual network allows accessing Azure file shares from on-premises, even if port 445 is blocked.
+- **Private endpoints**: Private endpoints give your storage account a dedicated IP address from within the address space of the virtual network. This enables network tunneling without needing to open on-premises networks up to all the of the IP address ranges owned by the Azure storage clusters. 
+- **DNS forwarding**: Configure your on-premises DNS to resolve the name of your storage account (i.e. `storageaccount.file.core.windows.net` for the public cloud regions) to resolve to the IP address of your private endpoints.
 
 To plan for the networking associated with deploying an Azure file share, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
