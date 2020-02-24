@@ -38,6 +38,12 @@ Locate the `StorageConnectionString` property, and set the value to be the same 
 
 You can publish the Sharing Service again and run the sample app.
 
+## Troubleshooting
+
+### Unity 2019.3
+
+Due to breaking changes, Unity 2019.3 is not currently supported. Please use Unity 2019.1 or 2019.2.
+
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## Next steps
