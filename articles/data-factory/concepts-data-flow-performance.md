@@ -93,7 +93,7 @@ To avoid row-by-row inserts into your DW, check **Enable staging** in your Sink 
 
 ## Optimizing for files
 
-At each transformation, you can set the partitioning scheme you wish data factory to use in the Optimize tab. It is a good practice to first test file-based sinks keeping the default paritioning and optimizations.
+At each transformation, you can set the partitioning scheme you wish data factory to use in the Optimize tab. It is a good practice to first test file-based sinks keeping the default partitioning and optimizations.
 
 * For smaller files, you may find selecting *Single Partition* can sometimes work better and faster than asking Spark to partition your small files.
 * If you don't have enough information about your source data, choose *Round Robin* partitioning and set the number of partitions.
