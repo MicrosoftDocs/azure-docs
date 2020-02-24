@@ -46,17 +46,15 @@ For years statisticians have been developing increasingly advanced methods for r
 
 This module supports two methods for fitting a regression model, with different options:
 
-+ [Create a regression model using online gradient descent](#bkmk_GradientDescent)
++ [Fit a regression model using ordinary least squares](#create-a-regression-model-using-ordinary-least-squares)
+
+    For small datasets, it is best to select ordinary least squares. This should give similar results to Excel.
+    
++ [Create a regression model using online gradient descent](#create-a-regression-model-using-online-gradient-descent)
 
     Gradient descent is a better loss function for models that are more complex, or that have too little training data given the number of variables.
 
-
-
-+ [Fit a regression model using ordinary least squares](#bkmk_OrdinaryLeastSquares)
-
-    For small datasets, it is best to select ordinary least squares. This should give similar results to Excel.
-
-## Create a regression model using ordinary least squares
+### Create a regression model using ordinary least squares
 
 1. Add the **Linear Regression Model** module to your pipeline in the designer.
 
@@ -81,7 +79,7 @@ This module supports two methods for fitting a regression model, with different 
 
 8. Run the pipeline.
 
-## Results for ordinary least squares model
+### Results for ordinary least squares model
 
 After training is complete:
 
@@ -89,7 +87,7 @@ After training is complete:
 + To make predictions, connect the trained model to the [Score Model](./score-model.md) module, along with a dataset of new values. 
 
 
-## Create a regression model using online gradient descent
+### Create a regression model using online gradient descent
 
 1. Add the **Linear Regression Model** module to your pipeline in the designer.
 
@@ -130,7 +128,7 @@ After training is complete:
 
 13. Run the pipeline.
 
-## Results for online gradient descent
+### Results for online gradient descent
 
 After training is complete:
 

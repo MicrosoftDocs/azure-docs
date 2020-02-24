@@ -46,15 +46,9 @@ After training is complete:
 
 + To save a snapshot of the trained model, select the module, and click on the **Register dataset** icon under **Outputs+logs** tab in the right panel.   
 
-
-##  Exceptions  
-
-| Exception                          | Description                              |
-| ---------------------------------- | ---------------------------------------- |
-| [Error 0003](errors/error-0003.md) | Exception occurs if one or more of inputs are null or empty. |
-
-For a list of errors specific to the designer modules, see [Exceptions and error codes for the designer (preview)](designer-error-codes.md).
  
 ## Next steps
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+
+See [Exceptions and error codes for the designer (preview)](designer-error-codes.md) for a list of errors specific to the designer modules.

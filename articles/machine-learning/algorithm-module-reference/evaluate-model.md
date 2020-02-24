@@ -78,7 +78,7 @@ This section describes the metrics returned for the specific types of models sup
 
 + [classification models](#metrics-for-classification-models)
 + [regression models](#metrics-for-regression-models)
-+ [clustering models](#metrics-for-clsutering-models)
++ [clustering models](#metrics-for-clustering-models)
 
 ### Metrics for classification models
 

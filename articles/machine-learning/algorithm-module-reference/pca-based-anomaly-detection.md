@@ -99,17 +99,8 @@ To evaluate the results of an anomaly detection models requires some additional 
 This algorithm uses PCA to approximate the subspace containing the normal class. The subspace is spanned by eigenvectors associated with the top eigenvalues of the data covariance matrix. For each new input, the anomaly detector first computes its projection on the eigenvectors, and then computes the normalized reconstruction error. This error is the anomaly score. The higher the error, the more anomalous the instance. For details on how the normal space is computed, see Wikipedia: [Principal Component Analysis](https://wikipedia.org/wiki/Principal_component_analysis) 
 
 
-## Exceptions
-
-| Exception                          | Description                              |
-| ---------------------------------- | ---------------------------------------- |
-| [Error 0017](errors/error-0017.md) | Exception occurs if one or more specified columns have type unsupported by current module. |
-| [Error 0062](errors/error-0062.md) | Exception occurs when attempting to compare two models with different learner types. |
-| [Error 0047](errors/error-0047.md) | Exception occurs if number of feature columns in some of the datasets passed to the module is too small. |
-
-For a list of errors specific to the designer modules, see [Exceptions and error codes for the designer (preview)](designer-error-codes.md).
-
-
 ## Next steps
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+
+See [Exceptions and error codes for the designer (preview)](designer-error-codes.md) for a list of errors specific to the designer modules.
