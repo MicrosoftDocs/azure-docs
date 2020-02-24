@@ -43,9 +43,7 @@ If your source data changes, you can refresh the dataset and add new data by rer
 
 1. Add the **Import Data** module to your pipeline. You can find this module in the **Data Input and Output** category in the designer.
 
-1. Click **Launch Data Import Wizard** to configure the data source using a wizard.
-
-    The wizard gets the account name and credentials, and help you configure other options. If you are editing an existing configuration, it loads the current values first.
+1. Select the module to open the right pane.
 
 1. Select **Data source**, and choose the data source type. It could be HTTP or datastore.
 
@@ -56,7 +54,11 @@ If your source data changes, you can refresh the dataset and add new data by rer
 
     ![import-data-preview](media/module/import-data.png)
 
+1. The checkbox, **Regenerate output**, decides whether execute the module with rewriting results each time. The checkbox is by default unselected, to save resource.
 
+If you select this option, results are written to storage each time the module is run, regardless of whether the output data has changed.
+
+If you deselect this option, Import Data uses cached data, if available. New results are generated only when there is an upstream change that would affect the results.
 
 1. Run the pipeline.
 

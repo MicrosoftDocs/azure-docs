@@ -9,13 +9,13 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
+ms.date: 02/22/2020
 ---
 # Export Data module
 
 This article describes a module in Azure Machine Learning designer (preview).
 
-Use this module to save results, intermediate data, and working data from your pipelines into cloud storage destinations outside Azure Machine Learning. 
+Use this module to save results, intermediate data, and working data from your pipelines into cloud storage destinations. 
 
 This module supports exporting your data to the following cloud data services:
 
@@ -24,7 +24,7 @@ This module supports exporting your data to the following cloud data services:
 - Azure Data Lake
 - Azure Data Lake Gen2
 
-Before exporting your data, you need to first register a datastore in your Azure Machine Learning workspace first. For more information, see [Access data in Azure storage services](../how-to-access-data.md).
+Before exporting your data, you need to first register a datastore in your Azure Machine Learning workspace. For more information, see [Access data in Azure storage services](../how-to-access-data.md).
 
 ## How to configure Export Data
 
@@ -36,7 +36,13 @@ Before exporting your data, you need to first register a datastore in your Azure
 
 1. For **Datastore**, select an existing datastore from the dropdown list. You can also create a new datastore. Check how by visiting [Access data in Azure storage services](../how-to-access-data.md).
 
-1. Define the path in the datastore to write the data to. 
+1. The checkbox, **Regenerate output**, decides whether execute the module with rewriting results each time. The checkbox is by default unselected, to save resource.
+
+If you select this option, results are written to storage each time the module is run, regardless of whether the output data has changed.
+
+If you deselect this option, Export Data uses cached data, if available. New results are generated only when there is an upstream change that would affect the results.
+
+1. Define the path in the datastore where the data is. The path is a relative path. The empty paths or a URL paths are not allowed.
 
 
 1. For **File format**, select the format in which data should be stored.
