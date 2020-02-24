@@ -189,7 +189,7 @@ In the **If yes** condition, add an **Update a row** action. Then enter the info
 * This time enter set the Phone Number column to be updated.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-if-yes-column.png" alt-text="Add Text Analytics credentials to your flow.":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Add Text Analytics credentials to your flow.":::
 
 
 ## Get the plumbing issues
