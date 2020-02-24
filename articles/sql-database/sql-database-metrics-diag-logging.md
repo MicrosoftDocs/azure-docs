@@ -117,7 +117,7 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 > [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for an elastic pool, you also need to configure diagnostics telemetry for each database in the elastic pool.
 
-**Single and pooled databases**
+### Single and pooled databases
 
 You can set up a single or pooled database resource to collect the following diagnostics telemetry:
 
@@ -146,7 +146,7 @@ To enable streaming of diagnostics telemetry for a single or a pooled database, 
 > [!TIP]
 > Repeat these steps for each single and pooled database you want to monitor.
 
-**Managed instance**
+### Managed instance
 
 You can set up a managed instance resource to collect the following diagnostics telemetry:
 
@@ -182,7 +182,7 @@ To enable streaming of diagnostics telemetry for a managed instance resource, fo
 > [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for a managed instance, you also need to configure diagnostics telemetry for each instance database.
 
-**Instance database**
+### Instance database
 
 You can set up an instance database resource to collect the following diagnostics telemetry:
 
