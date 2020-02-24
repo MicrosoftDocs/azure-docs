@@ -9,7 +9,7 @@ ms.date: 02/24/2020
 
 This article describes dependency visualization in Azure Migrate:Server Assessment.
 
-## What is it?
+## What is dependency visualization?
 
 Dependency visualization helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. 
 
@@ -22,11 +22,11 @@ Dependency visualization helps you to identify dependencies between on-premises 
 > [!NOTE]
 > Dependency visualization isn't available in Azure Government.
 
-## Agent-based or agentless?
+## Agent-based/agentless visualization
 
 There are two options for deploying dependency visualization:
 
-- **Agent-based**: Agent-based dependency visualization, requires agents to be installed on each on-premises machine that you want to analyze.
+- **Agent-based**: Agent-based dependency visualization requires agents to be installed on each on-premises machine that you want to analyze.
 - **Agentless**: With this option, you don't need to install agents on machines you want to cross-check. This option is currently in preview, and is only available for VMware VMs.
 
 

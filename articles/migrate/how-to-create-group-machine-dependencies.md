@@ -7,7 +7,7 @@ ms.date: 2/24/2020
 
 # Set up dependency visualization
 
-This article describes how to set up dependency visualization in Azure Migrate:Server Assessment. [Dependency visualization](concepts-dependency-visualization.md#what-is-it) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up dependency visualization in Azure Migrate:Server Assessment. [Dependency visualization](concepts-dependency-visualization.md#what-is-dependency-visualization) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
 ## Before you start
 
