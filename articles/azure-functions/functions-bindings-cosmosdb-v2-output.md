@@ -7,6 +7,8 @@ ms.date: 02/24/2020
 ms.author: cshoe
 ---
 
+# Azure Cosmos DB output binding for Azure Functions 2.x
+
 The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
