@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
+ms.date: 02/22/2020
 ---
 
 # Two-Class Support Vector Machine module
@@ -39,6 +39,8 @@ For this model type, it is recommended that you normalize the dataset before usi
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.  
+
+    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.
 
 3.  For **Number of iterations**, type a number that denotes the number of iterations used when building the model.  
   

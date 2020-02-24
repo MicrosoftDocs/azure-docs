@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
+ms.date: 02/22/2020
 ---
 # Feature Hashing module reference
 
@@ -106,7 +106,7 @@ After processing is complete, the module outputs a transformed dataset in which 
 
 After you create the transformed dataset, you can use it as the input to the Train Model module.
  
-### Best practices
+## Best practices
 
 The following best practices can help you get the most out of the Feature Hashing module:
 

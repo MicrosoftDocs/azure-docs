@@ -9,9 +9,9 @@ ms.topic: reference
 
 author: peterclu
 ms.author: peterlu
-ms.date: 12/17/2019
+ms.date: 02/22/2020
 ---
-# Algorithm & module reference for Azure Machine Learning designer
+# Algorithm & module reference for Azure Machine Learning designer (preview)
 
 This reference content provides the technical background on each of the machine learning algorithms and modules available in Azure Machine Learning designer (preview).
 
@@ -52,6 +52,7 @@ For help with choosing algorithms, see
 | R language | Write code and embed it in a module to integrate R with your pipeline. | [Execute R Script](execute-r-script.md) |
 | Text Analytics | Provide specialized computational tools for working with both structured and unstructured text. | [Extract N Gram Features from Text](extract-n-gram-features-from-text.md) <br/> [Feature Hashing](feature-hashing.md) <br/> [Preprocess Text](preprocess-text.md) |
 | Recommendation | Build recommendation models. | [Evaluate Recommender](evaluate-recommender.md) <br/> [Score SVD Recommender](score-svd-recommender.md) <br/> [Train SVD Recommender](train-SVD-recommender.md) |
+| Anomaly detection | Build anomaly detection models. | [PCA-Based Anomaly Detection](pca-based-anomaly-detection.md) <br/> [Train Anomaly Detection Model](train-anomaly-detection-model.md) |
 
 ## Error messages
 
