@@ -1,0 +1,69 @@
+### YamlMime:Landing
+
+title: Voice assistants documentation
+summary: Voice assistants using the Speech service empowers developers to create natural, human-like conversational interfaces for their applications and experiences.
+metadata:
+  title: Voice assistants documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+
+landingContent:
+- title: Get started
+  linkLists:
+    - linkListType: overview
+      links:
+      - text: About voice assistants
+        url: voice-assistants.md
+      - text: About direct line speech
+        url: direct-line-speech.md
+    - linkListType: quickstart
+      links:
+        - text: C# (UWP)
+          url: quickstart-voice-assistant-csharp-uwp.md
+        - text: Java (Windows, macOS, Linux)
+          url: quickstart-voice-assistant-java-jre.md
+        - text: Java (Android)
+          url: quickstart-voice-assistant-java-android.md
+        - text: Create a Custom Command (preview)
+          url: quickstart-custom-speech-commands-create-new.md
+        - text: Create a Custom Command with parameters (preview)
+          url: quickstart-custom-speech-commands-create-parameters.md
+        - text: Use Custom Commands with Custom Voice (preview)
+          url: quickstart-custom-speech-commands-select-custom-voice.md
+        - text: Use Custom Commands with the Speech SDK (preview)
+          url: quickstart-custom-speech-commands-speech-sdk.md
+- title: Step-by-step guides
+  linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Voice enable your bot with Speech SDK
+          url: tutorial-voice-enable-your-bot-speech-sdk.md
+    - linkListType: how-to-guide
+      links:
+      - text: Custom Commands (Preview)
+        url: custom-commands.md
+      - text: Custom Commands with the Speech SDK
+        url: how-to-custom-speech-commands-fulfill-sdk.md
+      - text: Fulfill Custom Commands with the Speech SDK
+        url: how-to-custom-speech-commands-fulfill-sdk.md
+      - text: Add parameter validation to a Custom Command
+        url: how-to-custom-speech-commands-validations.md
+      - text: Add a confirmation to a Custom Command
+        url: how-to-custom-speech-commands-confirmations.md
+      - text: Add a one-step correction to a Custom Command
+        url: how-to-custom-speech-commands-one-step-correction.md
+- title: Reference
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+        - text: Voice assistants FAQ
+          url: faq-voice-assistants.md
