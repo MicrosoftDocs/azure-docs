@@ -164,24 +164,13 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Define and implement network security configurations for your Azure SQL Database server instances with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions, or use any of the built-in policy definitions designed for Azure SQL Database server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be:
+**Guidance**: Define and implement network security configurations for your Azure SQL Database server instances with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions, or use any of the built-in policy definitions designed for Azure SQL Database server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint"
 
+Use Azure Blueprints to simplify largescale Azure deployments by packaging key environment artifacts, such as Azure Resource Management templates, Role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
-SQL Server should use a virtual network service endpoint
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
- 
-
-Use Azure Blueprints to simplify largescale Azure deployments by packaging key environment artifacts, such as Azure Resource Management (ARM) templates, Role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
-
-
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-
-How to create an Azure Blueprint:
-
-https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Azure Security Center monitoring**: Yes
 
@@ -903,23 +892,14 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
-
-Not allowed resource types
-
-Allowed resource types
-
+- Not allowed resource types
+- Allowed resource types
 
 Use Azure Resource Graph to query/discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
 
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-
-How to create queries with Azure Graph:
-
-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: Not applicable
 

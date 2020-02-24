@@ -234,7 +234,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 **Guidance**: Within Azure Monitor, for the Log Analytics workspace being used to hold your Azure Key Vault logs, set the retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-Change the data retention period:https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+Change the data retention period: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -310,7 +310,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 ### 3.1: Maintain an inventory of administrative accounts
 
-**Guidance**: Maintain an inventory of your Azure Active Directory-registered applications, as well as any user accounts that have access to your Azure Key Vault keys, secrets, and certificates. You may use either the Azure Portal or PowerShell to query and reconcile Key Vault access. To view access in PowerShell, use the following command:
+**Guidance**: Maintain an inventory of your Azure Active Directory-registered applications, as well as any user accounts that have access to your Azure Key Vault keys, secrets, and certificates. You may use either the Azure portal or PowerShell to query and reconcile Key Vault access. To view access in PowerShell, use the following command:
 
 
 (Get-AzResource -ResourceId [KeyVaultResourceID]).Properties.AccessPolicies
@@ -431,8 +431,8 @@ https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 ### 3.8: Manage Azure resources from only approved locations
 
 **Guidance**: Configure the location condition of a Conditional Access policy and manage your named locations. With named locations, you can create logical groupings of IP address ranges or countries and regions. You can restrict access to sensitive resources, such as your Key Vault secrets, to your configured named locations.
-What is the location condition in Azure Active Directory Conditional Access?:
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+
+What is the location condition in Azure Active Directory Conditional Access?: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -442,10 +442,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-
 
 **Guidance**: Use Azure Active Directory (AAD) as the central authentication and authorization system for Azure resources such as Key Vault. This allows for Role-based access control (RBAC) to administrate sensitive resources.
 
- 
-
-Quickstart: Create a new tenant in Azure Active Directory:
-https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+Quickstart: Create a new tenant in Azure Active Directory: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -456,14 +453,10 @@ https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-
 **Guidance**: Review Azure Active Directory (AAD) logs to help discover stale accounts with Azure Key Vault administrative roles. In addition, use AAD access reviews to efficiently manage group memberships, access to enterprise applications that may be used to access Azure Key Vault, and role assignments. User access should be reviewed on a regular basis such as every 90 days to make sure only the right users have continued access.
 
 
-Azure Active Directory reports and monitoring documentation:
-
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+Azure Active Directory reports and monitoring documentation: https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
 
-What are Azure AD access reviews?:
-
-https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+What are Azure AD access reviews?: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 **Azure Security Center monitoring**: Yes
 
@@ -474,8 +467,8 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 **Guidance**: Enable diagnostic settings for Azure Key Vault and Azure Active Directory, sending all logs to a Log Analytics workspace. Configure desired alerts (such as attempts to access disabled secrets) within Log Analytics.
 
 Integrate Azure AD logs with Azure Monitor logs: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
-Migrating from the old Key Vault solution:https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault#migrating-from-the-old-key-vault-solution
 
+Migrating from the old Key Vault solution: https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault#migrating-from-the-old-key-vault-solution       
 
 **Azure Security Center monitoring**: Yes
 
@@ -486,10 +479,9 @@ Migrating from the old Key Vault solution:https://docs.microsoft.com/azure/azure
 **Guidance**: Use Azure Active Directory's Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to your Azure Key Vault protected resources. You should enable automated responses through Azure Sentinel to implement your organization's security responses.
 
 
-Risky sign-ins report in the Azure Active Directory portal:
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins 
-How To: Configure and enable risk policies:
-https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Risky sign-ins report in the Azure Active Directory portal: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins 
+
+How To: Configure and enable risk policies: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
 
 How to onboard Azure Sentinel:
@@ -549,9 +541,11 @@ https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpo
 
 **Guidance**: All data stored within Azure Key Vault is considered sensitive. Use Azure Key Vault data plane access controls to control access to Azure Key Vault secrets. You may also use Key Vault's built-in firewall to control access at the network layer. To monitor access to Azure Key Vault, enable Key Vault Diagnostic Settings and send logs to an Azure Storage Account or Log Analytics workspace.
 
-Secure access to a key vault:https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
-Configure Azure Key Vault firewalls and virtual networks:https://docs.microsoft.com/azure/key-vault/key-vault-network-security
-Azure Key Vault logging:https://docs.microsoft.com/azure/key-vault/key-vault-logging
+Secure access to a key vault: https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+
+Configure Azure Key Vault firewalls and virtual networks: https://docs.microsoft.com/azure/key-vault/key-vault-network-security
+
+Azure Key Vault logging: https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 **Azure Security Center monitoring**: Yes
 
@@ -824,11 +818,9 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 ### 6.11: Limit users' ability to interact with AzureResources Manager via scripts
 
-**Guidance**: Use the Azure Conditional Access to limit users' ability to interact with Azure Resource Manager (ARM) by configuring "Block access" for the "Microsoft Azure Management" App. This can prevent the creation and changes to resources within a high security environment, such as those with Key Vault configuration.
+**Guidance**: Use the Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App. This can prevent the creation and changes to resources within a high security environment, such as those with Key Vault configuration.
 
-
-Manage access to Azure management with Conditional Access:
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Manage access to Azure management with Conditional Access: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -858,29 +850,17 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.KeyVault" namespace to create custom policies to audit or enforce the configuration of your Azure Key Vault instances. You may also use built-in Azure Policy definitions for Azure Key Vault such as:
 
-
-Key Vault objects should be recoverable
-
-Deploy Diagnostic Settings for Key Vault to Log Analytics workspace
-
-Diagnostic logs in Key Vault should be enabled
-
-Key Vault should use a virtual network service endpoint
-
-Deploy Diagnostic Settings for Key Vault to Event Hub
-
+- Key Vault objects should be recoverable
+- Deploy Diagnostic Settings for Key Vault to Log Analytics workspace
+- Diagnostic logs in Key Vault should be enabled
+- Key Vault should use a virtual network service endpoint
+- Deploy Diagnostic Settings for Key Vault to Event Hub
 
 Use recommendations from Azure Security Center as a secure configuration baseline for your Azure Key Vault instances.
 
+How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-How to view available Azure Policy Aliases:
-
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-
-Tutorial: Create and manage policies to enforce compliance:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Tutorial: Create and manage policies to enforce compliance: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center monitoring**: Yes
 
@@ -1089,7 +1069,24 @@ Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines:
 
 ### 9.1: Ensure regular automated back ups
 
-**Guidance**: Ensure regular automated backups of your Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with the following PowerShell commands:Backup-AzKeyVaultCertificateBackup-AzKeyVaultKeyBackup-AzKeyVaultManagedStorageAccountBackup-AzKeyVaultSecretOptionally, you may store your Key Vault backups within Azure Backup.How to backup Key Vault Certificates:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificateHow to backup Key Vault Keys:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkeyHow to backup Key Vault Managed Storage Accounts:https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccountHow to backup Key Vault Secrets:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecretHow to enable Azure Backup:https://docs.microsoft.com/azure/backup
+**Guidance**: Ensure regular automated backups of your Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with the following PowerShell commands:
+
+- Backup-AzKeyVaultCertificate
+- Backup-AzKeyVaultKey
+- Backup-AzKeyVaultManagedStorageAccount
+- Backup-AzKeyVaultSecret
+
+Optionally, you may store your Key Vault backups within Azure Backup.
+
+How to backup Key Vault Certificates: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate
+
+How to backup Key Vault Keys: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
+
+How to backup Key Vault Managed Storage Accounts: https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount
+
+How to backup Key Vault Secrets: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
+
+How to enable Azure Backup: https://docs.microsoft.com/azure/backup
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1099,42 +1096,22 @@ Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines:
 
 **Guidance**: Perform backups of your Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with the following PowerShell commands:
 
-
-Backup-AzKeyVaultCertificate
-
-Backup-AzKeyVaultKey
-
-Backup-AzKeyVaultManagedStorageAccount
-
-Backup-AzKeyVaultSecret
-
+- Backup-AzKeyVaultCertificate
+- Backup-AzKeyVaultKey
+- Backup-AzKeyVaultManagedStorageAccount
+- Backup-AzKeyVaultSecret
 
 Optionally, you may store your Key Vault backups within Azure Backup.
 
+How to backup Key Vault Certificates: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate
 
-How to backup Key Vault Certificates:
+How to backup Key Vault Keys: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate
+How to backup Key Vault Managed Storage Accounts: https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount
 
+How to backup Key Vault Secrets: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
 
-How to backup Key Vault Keys:
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
-
-
-How to backup Key Vault Managed Storage Accounts:
-
-https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount
-
-
-How to backup Key Vault Secrets:
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
-
-
-How to enable Azure Backup:
-
-https://docs.microsoft.com/azure/backup
+How to enable Azure Backup: https://docs.microsoft.com/azure/backup
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1144,39 +1121,18 @@ https://docs.microsoft.com/azure/backup
 
 **Guidance**: Periodically perform data restoration of your Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with the following PowerShell commands:
 
+- Restore-AzKeyVaultCertificate
+- Restore-AzKeyVaultKey
+- Restore-AzKeyVaultManagedStorageAccount
+- Restore-AzKeyVaultSecret
 
+How to restore Key Vault Certificates:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
 
-Restore-AzKeyVaultCertificate
+How to restore Key Vault Keys: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0 
 
-Restore-AzKeyVaultKey
+How to restore Key Vault Managed Storage Accounts: https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount
 
-Restore-AzKeyVaultManagedStorageAccount
-
-Restore-AzKeyVaultSecret
-
-
-
-How to restore Key Vault Certificates: 
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
-
-
-
-How to restore Key Vault Keys: 
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0  
-
-
-
-How to restore Key Vault Managed Storage Accounts:
-
-https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount
-
-
-
-How to restore Key Vault Secrets: 
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0
+How to restore Key Vault Secrets: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1185,7 +1141,6 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 ### 9.4: Ensure protection of backups and customer managed keys
 
 **Guidance**: Ensure that soft delete is enabled for Azure Key Vault. Soft delete allows recovery of deleted key vaults and vault objects such as keys, secrets, and certificates. 
-
 
 How to use Azure Key Vault's Soft Delete: 
 

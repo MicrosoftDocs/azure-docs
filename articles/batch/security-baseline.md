@@ -377,7 +377,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### 3.2: Change Default Passwords where Applicable
 
-**Guidance**: When provisioning a Azure Batch pool, you are given the option to create local machine accounts. There are no default passwords to change, however you can specify different passwords for Secured Shell (SSH) and Remote Desktop Protocol (RDP) access. After Azure Batch Pool has been configured, you can generate a random user for individual nodes within the Azure Portal, or via Azure Resource Manager (ARM) API.
+**Guidance**: When provisioning a Azure Batch pool, you are given the option to create local machine accounts. There are no default passwords to change, however you can specify different passwords for Secured Shell (SSH) and Remote Desktop Protocol (RDP) access. After Azure Batch Pool has been configured, you can generate a random user for individual nodes within the Azure portal, or via Azure Resource Manager API.
 
 
 How to add a user to specific compute node:
@@ -553,7 +553,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Responsibility**: Customer
 
-### 3.13: <span style="font-family:Calibri, &quot;Segoe UI&quot;, Calibri, Thonburi, Arial, Verdana, sans-serif, &quot;Mongolian Baiti&quot;, &quot;Microsoft Yi Baiti&quot;, &quot;Javanese Text&quot;;font-size:14.6667px;background-color:rgb(221, 235, 247);display:inline !important;">Provide Microsoft with access to relevant customer data during support scenarios</span>
+### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
 **Guidance**: Not available; Customer Lockbox not yet supported for Azure Batch. List of Customer Lockbox supported services: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
@@ -790,7 +790,7 @@ Optionally, if you have a Rapid7, Qualys, or any other vulnerability management 
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, etc.) within your subscription(s). Ensure that you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager (ARM) resources going forward.
+Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
 
 How to create queries with Azure Graph:
@@ -862,27 +862,14 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
-
-
-Not allowed resource types
-
-Allowed resource types
-
-
+- Not allowed resource types
+- Allowed resource types
 
 Use Azure Resource Graph to query/discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
 
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-
-
-How to create queries with Azure Graph:
-
-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -916,19 +903,12 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
-
-
-Not allowed resource types
-
-Allowed resource types
-
-
+- Not allowed resource types
+- Allowed resource types
 
 How to configure and manage Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-
 
 How to deny a specific resource type with Azure Policy:
 
@@ -946,12 +926,12 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 **Responsibility**: Customer
 
-### 6.11: Limit Users' Ability to interact with ARM via Scripts
+### 6.11: Limit Users' Ability to interact with Azure Resource Manager via Scripts
 
-**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager (ARM) by configuring "Block access" for the "Microsoft Azure Management" App.
+**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 
-How to configure Conditional Access to block access to ARM:
+How to configure Conditional Access to block access to Azure Resource Manager:
 
 https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
@@ -988,14 +968,10 @@ Benchmark is intended for web applications running on Azure App Service or IaaS 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.Batch" namespace to create custom policies to audit or enforce the configuration of your Azure Batch accounts and pools.
 
 
-How to view available Azure Policy Aliases:
-
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1013,22 +989,13 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings for the Azure resources related to your Batch account and pools (such as virtual networks, subnets, Azure Firewalls, Azure Storage Accounts, etc.). You may use Azure Policy Aliases from the following namespaces to create custom policies:
 
+- Microsoft.Batch
+- Microsoft.Storage
+- Microsoft.Network
 
-Microsoft.Batch
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Microsoft.Storage
-
-Microsoft.Network
-
-
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-
-Understand Azure Policy Effects:
-
-https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1046,17 +1013,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Guidance**: If using custom Azure policy definitions for your Azure Batch accounts, pools, or related resources, use Azure DevOps/Repos to securely store and manage your code.
 
+How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-
-How to store code in Azure DevOps:
-
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-
-
-Azure Repos Documentation:
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1067,14 +1026,9 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 **Guidance**: If using custom images for your Azure Batch pools, use Role-based access control (RBAC) to ensure only authorized users may access the images.
 
 
-Understand RBAC in Azure:
+Understand RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
-https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
-
-
-How to configure RBAC in Azure:
-
-https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
+How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
 **Azure Security Center monitoring**: Currently not available
 

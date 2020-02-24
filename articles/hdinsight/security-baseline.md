@@ -987,23 +987,12 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
+- Not allowed resource types
+- Allowed resource types
 
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Not allowed resource types
-
-Allowed resource types
-
-
-
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-
-
-How to deny a specific resource type with Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+How to deny a specific resource type with Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Azure Security Center monitoring**: Currently not available
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Security Benchmark Overview
+title: Azure Security Benchmark overview
 description: Security Benchmark overview
 author: msmbaldwin
 manager: rkarlin
@@ -26,4 +26,3 @@ Each recommendation includes the following information:
 - **Azure Security Center monitoring**: Whether the control is monitored by Azure Security Center, with link to reference.
 
 All recommendations, including recommendations that are not applicable to this specific service, are included in the baseline to provide you a complete picture of how the Azure Security Benchmark relates to each service. There may occasionally be controls that are not applicable for various reasons—for example, IaaS/compute centric controls (such as controls specific to OS configuration management) may not be applicable to PaaS services.
-
