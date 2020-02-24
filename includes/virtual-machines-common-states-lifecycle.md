@@ -121,7 +121,7 @@ Instance usage billing
  ]</code><br>
 </td>
 <td>
-<p><b>Not billed&#42;</b></p>
+<p><b>Not billed&#42;&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -139,14 +139,17 @@ Instance usage billing
  ]</code><br>
 </td>
 <td>
-<p><b>Not billed</b></p>
+<p><b>Not billed&#42;&#42;</b></p>
 </td>
 </tr>
 </tbody>
 </table>
 
 
-&#42;Some Azure resources, such as Disks and Networking, incur charges. Software licenses on the instance do not incur charges.
+&#42;You are still charged for the chosen instance size of the VM. Additional Azure resources, such as Disks and Networking, also incur charges. Software licenses on the instance do not incur charges.
+
+&#42;&#42;Some Azure resources, such as Disks and Networking, incur charges. VM Instance itself and Software licenses on the instance do not incur charges.
+
 
 ## Provisioning states
 
