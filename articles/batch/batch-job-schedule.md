@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 # Schedule jobs for efficiency
 
-Scheduling Batch jobs enables you to prioritize the jobs you want to run first while taking into account tasks that have dependencies on other tasks. By scheduling your jobs you can make sure you use the least amount of resources. Nodes can be decommissioned when not needed, tasks that are dependent on other tasks are spun up just in time optimizing the workflows. Only one job at a time runs. A new one won't start until the previous one completes. You can set your job to auto-complete. 
+Scheduling Batch jobs enables you to prioritize the jobs you want to run first while taking into account tasks that have dependencies on other tasks. By scheduling your jobs, you can make sure you use the least amount of resources. Nodes can be decommissioned when not needed, tasks that are dependent on other tasks are spun up just in time optimizing the workflows. Only one job at a time runs. A new one won't start until the previous one completes. You can set your job to autocomplete. 
 
 ## Benefit of job scheduling
 
@@ -41,7 +41,7 @@ b **Display name**: The display name for the job doesn't have to be unique but h
 
 Schedule the job.
 
-c. **Do not run until**: This specifies the earliest time the job will run. If you don't set this, the schedule becomes ready to run jobs immediately.
+c. **Do not run until**: Specifies the earliest time the job will run. If you don't set this, the schedule becomes ready to run jobs immediately.
 
 d. **Do not run after**: No jobs run after the time you set here. If you don't specify a time, then you are creating a recurring job schedule which remains active until you explicitly terminate it.
 
@@ -62,7 +62,7 @@ i. **Priority**: Give the job a priority.
 
 j. **Max wall clock time**: Set the maximum amount of time the job can run for. If it doesn't complete within the time frame, Batch terminates the job. If you don't set this, then there is no time limit for the job.
 
-k. **Max task retry count**: Specify the number of times a task can be retried up to a maximum of 4 times. This is not the same as the number of retries an API call might have.
+k. **Max task retry count**: Specify the number of times a task can be retried up to a maximum of four times. This is not the same as the number of retries an API call might have.
 
 l. **When all tasks complete**: The default is no action.
 
