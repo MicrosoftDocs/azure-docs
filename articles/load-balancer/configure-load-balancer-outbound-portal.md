@@ -48,10 +48,10 @@ In this section, you create a load balancer that will load balance virtual machi
 3. Accept the defaults for the rest of the configuration.
 4. Select **Review + create**
 
-> [!IMPORTANT]
-> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
+ > [!IMPORTANT]
+ > The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
 
-3. In the **Review + create** tab, select **Create**.   
+5. In the **Review + create** tab, select **Create**.   
 
     ![Create a Standard Load Balancer](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
 
@@ -59,7 +59,7 @@ In this section, you create a load balancer that will load balance virtual machi
 
 In this section, you configure load balancer settings for a backend address pool, a health probe, and specify a balancer rule.
 
-### Create a Backend pool
+### Create a backend pool
 
 A backend address pool contains the IP addresses of the virtual NICs in the backend pool. Create the backend address pool **myBackendPool** to include virtual machines for load-balancing internet traffic.
 
