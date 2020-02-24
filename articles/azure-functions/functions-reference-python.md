@@ -27,7 +27,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-Y                                                                                                                                                                                                                                                                    ou can also explicitly declare the attribute types and return type in the function using Python type annotations. This helps you use the intellisense and autocomplete features provided by many Python code editors.
+You can also explicitly declare the attribute types and return type in the function using Python type annotations. This helps you use the intellisense and autocomplete features provided by many Python code editors.
 
 ```python
 import azure.functions

@@ -15,7 +15,7 @@ This article shows you how to use Visual Studio Code to connect the function you
 
 Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
-## Configure your environment
+## Configure your local environment
 
 Before you start this article, you must meet the following requirements:
 

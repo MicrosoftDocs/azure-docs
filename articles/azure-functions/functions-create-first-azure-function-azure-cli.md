@@ -12,7 +12,7 @@ In this article, you use command-line tools to create a function that responds t
 
 There is also a [Visual Studio Code-based version](functions-create-first-function-vs-code.md) of this article.
 
-## Configure your environment
+## Configure your local environment
 
 Before you begin, you must have the following:
 
@@ -34,7 +34,7 @@ Before you begin, you must have the following:
 + The [.NET Core SDK 2.2+](https://www.microsoft.com/net/download)
 ::: zone-end
 
-### Prerequisite check
+### Check your environment
 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 2.7.1846 or a later 2.x version.
 
@@ -43,7 +43,7 @@ Before you begin, you must have the following:
 + Run `az login` to sign in to Azure and verify an active subscription.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-Run `node --version` to check your Node.js version reports 8.x or 10.x.
++ Run `node --version` to check your Node.js version reports 8.x or 10.x.
 ::: zone-end
 ::: zone pivot="programming-language-python"
 + Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.7.x or 3.6.x.
@@ -154,7 +154,7 @@ In Azure Functions, a function project is a container for one or more individual
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
 
 ::: zone pivot="programming-language-csharp"
-### HttpExample.cs
+#### HttpExample.cs
 
 *HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior. 
 
