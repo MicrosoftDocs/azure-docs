@@ -39,7 +39,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     > 1. Visual studio defaults new projects to Any CPU. It's recommend to set the project to x64 to avoid it switching to x86. Any CPU project can easily switch to x86 if any dependency is added that is x86 only.
     > 2. The ServiceInterop.dll needs to be in the same folder as the SDK dll is being executed from. This should only need to be done for users manually coping dlls or have custom build/deployment systems.
     
-2. **Turn on server-side GC**
+2. **Turn on server-side Garbage Collection(GC)**
 
     Reducing the frequency of garbage collection may help in some cases. In .NET, set [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) to true.
 
