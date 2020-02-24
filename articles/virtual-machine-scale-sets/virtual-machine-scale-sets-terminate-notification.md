@@ -98,7 +98,8 @@ After enabling scheduled events on the scale set model and setting the timeout, 
 
 The following example is for enabling termination notification while creating a new scale set.
 
-```az group create --name <myResourceGroup> --location <VMSSLocation>
+```azurecli-interactive
+az group create --name <myResourceGroup> --location <VMSSLocation>
 az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \

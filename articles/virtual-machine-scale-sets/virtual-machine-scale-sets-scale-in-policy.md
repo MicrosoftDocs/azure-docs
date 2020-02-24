@@ -72,7 +72,8 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 
 Create a resource group, then create a new scale set with scale-in policy set as *OldestVM*.
 
-```New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
+```azurepowershell-interactive
+New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "<VMSS location>" `
@@ -84,7 +85,8 @@ New-AzVmss `
 
 The following example adds a scale-in policy while creating a new scale set. First create a resource group, then create a new scale set with scale-in policy as *OldestVM*. 
 
-```az group create --name <myResourceGroup> --location <VMSSLocation>
+```azurecli-interactive
+az group create --name <myResourceGroup> --location <VMSSLocation>
 az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
