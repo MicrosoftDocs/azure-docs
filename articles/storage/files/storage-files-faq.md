@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Find answers to frequently asked questions about Azure Files.
 author: roygara
 ms.service: storage
-ms.date: 02/19/2020
+ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
@@ -150,13 +150,13 @@ This article answers common questions about Azure Files features and functionali
 
     If you have enabled Azure Backup on your file sync managed file shares, file ACLs can continue to be restored as part of the backup restore workflow. This works either for the entire share or individual files/directories.
 
-    If you are using snapshots as part of the self-managed backup solution for file shares managed by file sync, your ACLs may not be restored properly to NTFS ACLs if the snapshots were taken prior to February 24, 2020. If this occurs, consider contacting Azure Support.
+    If you are using snapshots as part of the self-managed backup solution for file shares managed by file sync, your ACLs may not be restored properly to NTFS ACLs if the snapshots were taken prior to February 24th, 2020. If this occurs, consider contacting Azure Support.
     
 ## Security, authentication, and access control
 * <a id="ad-support"></a>
 **Is identity-based authentication and access control supported by Azure Files?**  
     
-    Yes, Azure Files supports identity-based authentication and access control. You can choose one of two ways to use identity-based access control: Azure Active Directory Domain Services (Azure AD DS) (GA) or Active Directory (AD) (preview). Azure AD DS authentication over SMB for Azure Files enables Azure AD DS domain-joined Windows VMs to access shares, directories, and files using Azure AD credentials. AD supports authentication using AD domain joined machines, either on-premises or in Azure, to access Azure file shares over SMB. For more details, see [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md). 
+    Yes, Azure Files supports identity-based authentication and access control. You can choose one of two ways to use identity-based access control: Active Directory (AD) (preview) or Azure Active Directory Domain Services (Azure AD DS) (GA). AD supports authentication using AD domain joined machines, either on-premises or in Azure, to access Azure file shares over SMB. Azure AD DS authentication over SMB for Azure Files enables Azure AD DS domain-joined Windows VMs to access shares, directories, and files using Azure AD credentials. For more details, see [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md). 
 
     Azure Files offers two additional ways to manage access control:
 
@@ -194,9 +194,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id="ad-multiple-forest"></a>
 **Does Azure Files AD authentication support integration with an AD environment using multiple forests?**    
 
-    Azure Files AD authentication only integrates with the forest of the AD domain service that the storage account is registered to. To support authentication from another AD forest, your environment must have forest trust configured properly. Azure Files registration to an AD domain service is the mostly same as a regular file server, where it creates an account in AD for authentication. The only difference is that the registered SPN of the storage account ends with "file.core.windows.net" which does not match with the domain suffix.
-
-    Consult your domain administrator to see if any update to your DNS routing policy is required to enable multiple forest authentication.
+    Azure Files AD authentication only integrates with the forest of the AD domain service that the storage account is registered to. To support authentication from another AD forest, your environment must have forest trust configured properly. The way Azure Files register to an AD domain service is mostly the same as a regular file server, where it creates an identity (computer or service logon account) in AD for authentication. The only difference is that the registered SPN of the storage account ends with "file.core.windows.net" which does not match with the domain suffix. Consult your domain administrator to see if any update to your DNS routing policy is required to enable multiple forest authentication due to the different domain suffix.
 
 * <a id=""></a>
 **What regions are available for Azure Files AD authentication (preview)?**

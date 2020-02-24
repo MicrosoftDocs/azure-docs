@@ -31431,8 +31431,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/key-vault/key-vault-security-attributes.md",
-      "redirect_url": "/azure/key-vault/key-vault-security-controls",
+      "source_path": "articles/key-vault/key-vault-security-controls.md",
+      "redirect_url": "/azure/key-vault/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -41420,6 +41420,11 @@
       "redirect_url": "/azure/azure-monitor/cloud-services/diagnostics-extension-to-storage",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/azure-monitor/log-query/log-query-performance.md",
+      "redirect_url": "/azure/azure-monitor/log-query/query-optimization",
+      "redirect_document_id": false
+    },   
     {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",

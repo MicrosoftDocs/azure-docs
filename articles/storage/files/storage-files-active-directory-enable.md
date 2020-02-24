@@ -16,6 +16,9 @@ ms.subservice: files
 
 For an overview of Azure AD authentication over SMB for Azure file shares, see [Overview of Azure Active Directory authentication over SMB for Azure Files](storage-files-active-directory-overview.md). This article is focused on how to enable authentication with Azure Active Directory Domain Services (Azure AD DS) on Azure Files.
 
+> [!NOTE]
+> Azure Files supports Kerberos authentication with Azure AD DS with RC4-HMAC encryption. AES Kerberos encryption is not yet supported.
+
 ## Prerequisites
 
 Before you enable Azure AD over SMB for Azure file shares, make sure you have completed the following prerequisites:
