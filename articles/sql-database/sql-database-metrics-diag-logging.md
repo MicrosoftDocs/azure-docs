@@ -42,9 +42,9 @@ You can enable and manage metrics and diagnostics telemetry logging by using one
 
 When you enable metrics and diagnostics logging, you need to specify the Azure resource destination for collecting the diagnostics telemetry. Available options include:
 
-- [Azure SQL Analytics](#stream-into-sql-analytics)
-- [Azure Event Hubs](#stream-into-event-hubs)
-- [Azure Storage](#stream-into-storage)
+- [Azure SQL Analytics](#stream-diagnostic-telemetry-into-sql-analytics)
+- [Azure Event Hubs](#stream-diagnostic-telemetry-into-event-hubs)
+- [Azure Storage](#stream-diagnostic-telemetry-into-azure-storage)
 
 You can provision a new Azure resource or select an existing resource. After you choose a resource by using the **Diagnostic settings** option, specify which data to collect.
 
@@ -310,7 +310,7 @@ Read about how to [enable diagnostics settings at resource creation by using a R
 
 ---
 
-## Stream into SQL Analytics
+## Stream diagnostic telemetry into SQL Analytics
 
 Azure SQL Analytics is a cloud solution that monitors the performance of single databases, elastic pools and pooled databases, and managed instances and instance databases at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
 
@@ -353,7 +353,7 @@ You can use SQL Analytics as a hierarchical dashboard to view your SQL database 
 - To learn how to use Azure SQL Analytics, see [Monitor SQL Database by using SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 - To learn how to set up alerts for in SQL Analytics, see [Creating alerts for database, elastic pools, and managed instances](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
 
-## Stream into Event Hubs
+## Stream diagnostic telemetry into Event Hubs
 
 You can stream SQL Database metrics and diagnostics logs into Event Hubs by using the built-in **Stream to an event hub** option in the Azure portal. You also can enable the Service Bus rule ID by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
 
@@ -378,7 +378,7 @@ You can use streamed metrics in Event Hubs to:
 
    Do you already have a custom-built telemetry platform or are considering building one? The highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest diagnostics logs. See [Dan Rosanova's guide to using Event Hubs in a global-scale telemetry platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
-## Stream into Storage
+## Stream diagnostic telemetry into Azure Storage
 
 You can store metrics and diagnostics logs in Azure Storage by using the built-in **Archive to a storage account** option in the Azure portal. You can also enable Storage by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
 
