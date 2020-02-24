@@ -113,6 +113,10 @@ The following FQDN / application rules are recommended for AKS clusters to funct
 |-----------------------------------------|-----------|----------|
 | security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com | HTTP:80   | This address lets the Linux cluster nodes download the required security patches and updates. |
 
+
+For communication between kubelet and metrics server, before AKS 1.16, 10255 port on the node is required to be open. After 1.16, port 10250 is required. Port 10250 is also required for other functionality of kubelet.
+
+
 ## Required addresses and ports for GPU enabled AKS clusters
 
 The following FQDN / application rules are required for AKS clusters that have GPU enabled:
