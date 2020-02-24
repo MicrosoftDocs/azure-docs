@@ -82,7 +82,7 @@ The following properties are supported in the copy activity ***\*sink\**** secti
 ## Using Self-hosted Integration Runtime
 
 > [!IMPORTANT]
-> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying ORC files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** and **Microsoft Visual C++ 2010 Redistributable Package** on your IR machine. See the following paragraph with more details.
+> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying ORC files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** and **Microsoft Visual C++ 2010 Redistributable Package** on your IR machine. Check the following paragraph with more details.
 
 For copy running on Self-hosted IR with ORC file serialization/deserialization, ADF locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
 
