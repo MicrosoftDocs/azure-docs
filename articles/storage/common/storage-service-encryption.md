@@ -177,6 +177,8 @@ To rotate an encryption key passed on the request, download the blob and re-uplo
 
 Azure Storage encryption encrypts the page blobs that back Azure virtual machine disks. Additionally, all Azure virtual machine disks, including local temp disks, may optionally be encrypted with [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). Azure Disk Encryption uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide operating system-based encryption solutions that are integrated with Azure Key Vault.
 
+**Please note that advice from Microsoft give to security testing firms is that Encryption at Rest is not compliant and that VM Disk encryption using Axure Disk Encryption is required to meet acceptable security standards. However, Azure Disk Encryption on Linux only supports Azure Optimised Kernels and has a high risk of data loss during activation.
+
 ## Next steps
 
 - [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
