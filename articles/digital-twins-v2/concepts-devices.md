@@ -22,7 +22,7 @@ ADT makes it easy to work with devices by automatically mapping devices from a c
 
 An ADT graph contains more than twins based on the models you create and instantiate. ADT also automatically creates nodes for every device registered on an IoT hub attached to ADT. You can connect these twins to the modeled twins you create using relationships.
 Devices can be:
-* **[IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play) devices** — These are devices that are represented by a [Digital Twin Definition Language (DTDL)](concepts-DTDL.md) model. Devices with a DTDL model have a well-defined interface, allowing you to reflect on the messages the device can be expected to set, and the properties etc., exposed on its twin in ADT.
+* **[IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) devices** — These are devices that are represented by a [Digital Twin Definition Language (DTDL)](concepts-DTDL.md) model. Devices with a DTDL model have a well-defined interface, allowing you to reflect on the messages the device can be expected to set, and the properties etc., exposed on its twin in ADT.
 * **Devices without PnP** — For these devices, we have no information about the messages the device can send, or properties or commands available on it. 
 Devices send messages for telemetry, or whenever a property is changed. There are also messages for life cycle events, such as device registration, connection, etc.
 

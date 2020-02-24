@@ -18,7 +18,7 @@ ms.service: digital-twins
 
 Data from Azure Digital Twins (ADT) often needs to be sent to downstream data services. For example, a hospital may want to send ADT event data to a [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md) instance to record time series data of handwashing-related events for bulk analytics.
 
-Data egress is handled using **event routes**. An event route lets you send event data, such as telemetry events, life-cycle events, and property change events from twins to defined endpoints in your subscriptions, such as an [Event Hub](../event-hubs/event-hubs-about), an [Event Grid](../event-grid/overview.md), or a [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). 
+Data egress is handled using **event routes**. An event route lets you send event data, such as telemetry events, life-cycle events, and property change events from twins to defined endpoints in your subscriptions, such as an [Event Hub](../event-hubs/event-hubs-about.md), an [Event Grid](../event-grid/overview.md), or a [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). 
 
 Event routes also allow ADT to send telemetry and notifications to external endpoints.
 ADT will emit the following events (notifications and telemetry messages) and they will be routed to custom endpoints:

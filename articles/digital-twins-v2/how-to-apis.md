@@ -39,8 +39,8 @@ In the code snippets below, try/catch clauses are omitted for clarity and brevit
 
 In general, SDKs for strongly-typed languages in Azure should return strongly-typed objects for data returned by REST APIs. ADT follows these guidelines for statically defined classes. However, in ADT, most data is based on types that are defined dynamically in [Digital Twin Definition Language (DTDL)](concepts-DTDL.md). These types are not known to the SDK. In all cases where DTDL-defined twin data is returned by the ADT APIs, the C# SDK for ADT will return JSON data in form of a JSON document (`System.Text.Json.JsonDocument`). 
 For more information on `System.Text.Json.JsonDocument`, see:
-* https://docs.microsoft.com/en-us/dotnet/api/system.text.json?view=netcore-3.0
-* https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to?view=netcore-3.0
+* https://docs.microsoft.com/dotnet/api/system.text.json?view=netcore-3.0
+* https://docs.microsoft.com/dotnet/standard/serialization/system-text-json-how-to?view=netcore-3.0
 
 In the same way, you will need to provide twin information to the SDK in form of JSON or JSON Patch documents.
 

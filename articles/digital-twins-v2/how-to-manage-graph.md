@@ -109,7 +109,7 @@ A slightly more complete example is outlined below, to read topology from a spre
 | room	| Room21 | Floor02 | contains | … | … |
 | room	| Room22 | Floor02 | contains | … | … |
 
-The following code uses the [Microsoft Graph API](https://docs.microsoft.com/en-us/graph/overview) to read a spreadsheet and construct an ADT graph from the results:
+The following code uses the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to read a spreadsheet and construct an ADT graph from the results:
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");

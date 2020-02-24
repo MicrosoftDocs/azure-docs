@@ -153,7 +153,7 @@ The functionalities of the parser are:
 
 ### An example
 
-The following models are defined in the service (the `dtmi:com:example:coffeeMaker` model is using the capability model syntax, which implies that it was installed in the service by connecting an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play) device exposing that model):
+The following models are defined in the service (the `dtmi:com:example:coffeeMaker` model is using the capability model syntax, which implies that it was installed in the service by connecting an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device exposing that model):
 
 ```csharp
 {

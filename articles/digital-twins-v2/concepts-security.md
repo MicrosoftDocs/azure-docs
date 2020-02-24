@@ -16,4 +16,4 @@ ms.service: digital-twins
 
 # Understand security best practices
 
-Security best practices for Azure Digital Twins are outlined along with the previous release documentation, located [here](../digital-twins/security-best-practices).
+Security best practices for Azure Digital Twins are outlined along with the previous release documentation, located [here](../digital-twins/security-best-practices.md).

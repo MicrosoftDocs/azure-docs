@@ -36,7 +36,7 @@ The endpoint APIs that are available in control plane are:
 2.	Get list of endpoints
 3.	Get endpoint by ID (similar to above, but pass in endpointID)
 4.	Delete endpoint by ID
-5.	Get endpoint health (this function is similar to the Hub API's [`GetEndpointHealth`](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/getendpointhealth)
+5.	Get endpoint health (this function is similar to the Hub API's [`GetEndpointHealth`](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth)
 
 ## Routes
 
