@@ -27,7 +27,7 @@ landingContent:
             url: search-what-is-azure-search.md
           - text: What is AI enrichment
             url: cognitive-search-concept-intro.md
-          - text: What are indexers
+          - text: What is an indexer
             url: search-indexer-overview.md
       - linkListType: video
         links:
@@ -35,11 +35,11 @@ landingContent:
             url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
 
   # Card
-  - title: Indexing Azure data
+  - title: Index Azure data
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Index from Azure Storage
+          - text: Index from Azure Blob storage
             url: search-blob-storage-integration.md
           - text: Index from Azure SQL Database
             url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
@@ -61,7 +61,7 @@ landingContent:
             url: search-get-started-portal.md
           - text: Create an app
             url: search-create-app-portal.md
-          - text: Process blobs and images
+          - text: Process blobs and images for search
             url: cognitive-search-quickstart-blob.md
             
   # Card
