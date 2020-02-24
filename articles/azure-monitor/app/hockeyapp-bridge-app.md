@@ -4,8 +4,8 @@ description: Analyze usage and performance of your Azure app with Application In
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 03/30/2017
 
 ---
