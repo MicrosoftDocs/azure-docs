@@ -318,7 +318,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-For a complete example, see [Trigger - C# example](#trigger).
+For a complete example, see [Trigger - C# example](#example).
 
 # [C# Script](#tab/csharp-script)
 

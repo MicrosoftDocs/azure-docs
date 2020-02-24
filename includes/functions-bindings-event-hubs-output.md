@@ -10,6 +10,8 @@ Use the Event Hubs output binding to write events to an event stream. You must h
 
 Make sure the required package references are in place before you try to implement an output binding.
 
+<a id="example" name="example"></a>
+
 # [C#](#tab/csharp)
 
 The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that writes a message to an event hub, using the method return value as the output:
@@ -212,7 +214,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-For a complete example, see [Output - C# example](#output).
+For a complete example, see [Output - C# example](#example).
 
 # [C# Script](#tab/csharp-script)
 
