@@ -227,13 +227,15 @@ Azure Monitor can be used in Azure Government supporting all impact levels with 
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Monitor** | X | X | X | X | X | X |
 
-### Azure Scheduler, replaced by Azure Logic Apps
+### Azure Scheduler, replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 
 Azure Scheduler is being retired and replaced by [Azure Logic Apps](../logic-apps/logic-apps-overview.md), which can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Logic Apps** | X | | X | X | | |
+
+To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible by following this article, [Migrate Azure Scheduler jobs to Azure Logic Apps](https://docs.microsoft.com/scheduler/migrate-from-scheduler-to-logic-apps).
 
 ## Media services
 
