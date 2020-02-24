@@ -40,7 +40,7 @@ You can add files to a knowledge base from a public source, or your local file s
 
 ## Content format guidelines
 
-Learn more about the [format guidelines](reference-document-format-guidelines.md) for the different files.
+Learn more about the [format guidelines](../reference-document-format-guidelines.md) for the different files.
 
 ## Next steps
 

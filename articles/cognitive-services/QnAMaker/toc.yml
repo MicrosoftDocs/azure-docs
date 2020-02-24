@@ -145,7 +145,7 @@
   - name: Use with a client application
     items:
     - name: Bot framework
-      href: Tutorials/integrate-with-bot-framework.md
+      href: Tutorials/create-qna-bot.md
     - name: LUIS and QnA Maker
       href: Tutorials/integrate-qnamaker-luis.md
   - name: Analytics and telemetry
