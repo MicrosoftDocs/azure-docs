@@ -272,7 +272,6 @@ Your custom policy and Azure AD B2C tenant are now ready. Next, create an applic
 1. Enter a **Name** for the application. For example, *SAMLApp1*.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**
 1. Under **Redirect URI**, select **Web**, and then enter `https://localhost`. You modify this value later in the application registration's manifest.
-1. Select **Grant admin consent to openid and offline_access permissions**.
 1. Select **Register**.
 
 ### 4.2 Update the app manifest
@@ -334,7 +333,7 @@ The last step is to enable Azure AD B2C as a SAML IdP in your SAML relying party
 Some or all the following are typically required:
 
 * **Metadata**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Issuer**: `https://tenant-name.onmicrosoft.com/policy-name`
+* **Issuer**:   `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name`
 * **Login Url/SAML endpoint/SAML Url**: Check the value in the metadata file
 * **Certificate**: This is *B2C_1A_SamlIdpCert*, but without the private key. To get the public key of the certificate:
 
