@@ -6,7 +6,7 @@ author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 1/24/2020
+ms.date: 2/21/2020
 ms.author: mlearned
 ---
 
@@ -27,13 +27,33 @@ The control plane or API server is in an Azure Kubernetes Service (AKS)-managed 
 * The Azure CLI version 2.0.77 or later, and the Azure CLI AKS Preview extension version 0.4.18
 
 ## Currently supported regions
+
+* Australia East
+* Australia Southeast
+* Brazil South
+* Canada Central
+* Canada East
+* Cenral US
+* East Asia
+* East US
+* East US 2
+* East US 2 EUAP
+* France Central
+* Germany North
+* Japan East
+* Japan West
+* Korea Central
+* Korea South
+* North Central US
+* North Europe
+* North Europe
+* South Central US
+* UK South
+* West Europe
 * West US
 * West US 2
 * East US 2
-* Canada Central
-* North Europe
-* West Europe
-* Australia East
+
 
 ## Install the latest Azure CLI AKS Preview extension
 

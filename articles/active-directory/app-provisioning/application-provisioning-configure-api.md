@@ -1,6 +1,6 @@
 ---
-title: Use MS Graph APIs to configure provisioning - Azure Active Directory | Microsoft Docs
-description: Need to set up provisioning for multiple instances of an application? Learn how to save time by using MS Graph APIs to automate the configuration of automatic provisioning.
+title: Use Microsoft Graph APIs to configure provisioning - Azure Active Directory | Microsoft Docs
+description: Need to set up provisioning for multiple instances of an application? Learn how to save time by using the Microsoft Graph APIs to automate the configuration of automatic provisioning.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Configure provisioning using Microsoft Graph APIs
 
-The Azure portal is a convenient way to configure provisioning for individual apps one at a time. But if you're creating several—or even hundreds—of instances of an application, it can be easier to automate app creation and configuration with Microsoft Graph APIs. This article outlines how to automate provisioning configuration through APIs. This method is commonly used for applications like [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
+The Azure portal is a convenient way to configure provisioning for individual apps one at a time. But if you're creating several—or even hundreds—of instances of an application, it can be easier to automate app creation and configuration with the Microsoft Graph APIs. This article outlines how to automate provisioning configuration through APIs. This method is commonly used for applications like [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
 
 **Overview of steps for using Microsoft Graph APIs to automate provisioning configuration**
 

@@ -102,7 +102,7 @@ No, you can only install one Pass-through Authentication Agent on a single serve
 
 ## Do I have to manually renew certificates used by Pass-through Authentication Agents?
 
-The communication between each Pass-through Authentication Agent and Azure AD is secured using certificate-based authentication. These [certificates are automatically renewed every few months by Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). There is no need to manually renew these certificates. You can clean up older expired certificates as required.
+The communication between each Pass-through Authentication Agent and Azure AD is secured using certificate-based authentication. These [certificates are automatically renewed every few months by Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents). There is no need to manually renew these certificates. You can clean up older expired certificates as required.
 
 ## How do I remove a Pass-through Authentication Agent?
 

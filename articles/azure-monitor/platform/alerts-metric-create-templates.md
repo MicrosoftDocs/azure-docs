@@ -5,7 +5,7 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 1/14/2020
+ms.date: 2/24/2020
 ms.author: harelbr
 ms.subservice: alerts
 ---
@@ -101,8 +101,8 @@ Save the json below as simplestaticmetricalert.json for the purpose of this walk
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -1245,7 +1245,7 @@ You can use the following template to create a more advanced static threshold me
 
 To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
 
-When creating an alert rule on a custom metric, you need to specify both the metric name and the metric namespace.
+When creating an alert rule on a custom metric, you need to specify both the metric name and the metric namespace. You should also make sure that the custom metric is already being reported, as you cannot create an alert rule on a custom metric that doesn't yet exist.
 
 Save the json below as customstaticmetricalert.json for the purpose of this walkthrough.
 
@@ -1504,15 +1504,15 @@ az group deployment create \
 
 ## Template for a metric alert that monitors multiple resources
 
-The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This feature is currently only supported in Azure public cloud and only for virtual Machines, SQL Databases, SQL Elastic Pools and Databox Edge Devices.
+The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources (of the same type) with a single metric alert rule, for resources that exist in the same Azure region. This feature is currently only supported in Azure public cloud and only for Virtual machines, SQL server databases, SQL server elastic pools and Databox edge devices. Also, this feature is only available for platform metrics, and isn't supported for custom metrics.
 
 Dynamic Thresholds alerts rule can also help create tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
 
 This section will describe Azure Resource Manager templates for three scenarios to monitor multiple resources with a single rule.
 
 - Monitoring all virtual machines (in one Azure region) in one or more resource groups.
-- Monitoring all virtual machines (in one Azure region) in a subscription
-- Monitoring a list of virtual machines (in one Azure region) in  a subscription.
+- Monitoring all virtual machines (in one Azure region) in a subscription.
+- Monitoring a list of virtual machines (in one Azure region) in a subscription.
 
 ### Static threshold alert on all virtual machines in one or more resource groups
 
@@ -1651,8 +1651,8 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2298,8 +2298,8 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2940,8 +2940,8 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
