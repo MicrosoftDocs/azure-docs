@@ -29,7 +29,7 @@ If you have a default route advertised via BGP to force traffic to on-premises, 
 
 Within this configuration, the *AzureFirewallSubnet* can now include routes to any on-premise firewall or NVA to process traffic before it's passed to the Internet. You can also publish these routes via BGP to *AzureFirewallSubnet* if **Virtual network gateway route propagation** is enabled on this subnet.
 
-For example, you can create a default route on your *AzureFirewallSubnet* with your VPN gateway as the next hop to get to your on-premise device. Or you can enable **Virtual network gateway route propagation** on the *AzureFirewallSubnet* to get the appropriate routes to the on-premise network.
+For example, you can create a default route on the *AzureFirewallSubnet* with your VPN gateway as the next hop to get to your on-premise device. Or you can enable **Virtual network gateway route propagation** to get the appropriate routes to the on-premise network.
 
 ![Virtual network gateway route propagation](media/forced-tunneling/route-propagation.png)
 
