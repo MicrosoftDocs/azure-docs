@@ -30,7 +30,7 @@ There are two options for deploying dependency visualization:
 - **Agentless**: With this option, you don't need to install agents on machines you want to cross-check. This option is currently in preview, and is only available for VMware VMs.
 
 
-## Agent-based requirements
+## Agent-based visualization
 
 **Requirement** | **Details** | **Learn more**
 --- | --- | ---
@@ -40,7 +40,8 @@ There are two options for deploying dependency visualization:
 **Costs** | The Service Map solution doesn't incur any charges for the first 180 days (from the day that you associate the Log Analytics workspace with the Azure Migrate project)/<br/><br/> After 180 days, standard Log Analytics charges will apply.<br/><br/> Using any solution other than Service Map in the associated Log Analytics workspace will incur [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br/><br/> When the Azure Migrate project is deleted, the workspace is not deleted along with it. After deleting the project, Service Map usage isn't free, and each node will be charged as per the paid tier of Log Analytics workspace/<br/><br/>If you have projects that you created before Azure Migrate general availability (GA- 28 February 2018), you might have incurred additional Service Map charges. To ensure payment after 180 days only, we recommend that you create a new project, since existing workspaces before GA are still chargeable.
 **Management** | When you register agents to the workspace, you use the ID and key provided by the Azure Migrate project.<br/><br/> You can use the Log Analytics workspace outside Azure Migrate.<br/><br/> If you delete the associated Azure Migrate project, the workspace isn't deleted automatically. [Delete it manually](../azure-monitor/platform/manage-access.md).<br/><br/> Don't delete the workspace created by Azure Migrate, unless you delete the Azure Migrate project. If you do, the dependency visualization functionality will not work as expected.
 
-## Agentless requirements
+## Agentless visualization
+
 
 **Requirement** | **Details** | **Learn more**
 --- | --- | ---
