@@ -28,7 +28,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a load balancer
 
-In this section, you create a load balancer that will load balance virtual machines. You can create a public load balancer or an internal Load Balancer. When you create a public load balancer, you create a new Public IP address that is configured as the frontend for the load balancer. The frontend will be named **LoadBalancerFrontEnd** by default.
+In this section, you create a load balancer that will load balance virtual machines. You can create a public load balancer or an internal load balancer. When you create a public load balancer, you create a new Public IP address that is configured as the frontend for the load balancer. The frontend will be named **LoadBalancerFrontEnd** by default.
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information:
@@ -55,9 +55,9 @@ In this section, you create a load balancer that will load balance virtual machi
 
     ![Create a Standard Load Balancer](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
 
-## Create Load Balancer resources
+## Create load balancer resources
 
-In this section, you configure Load Balancer settings for a backend address pool, a health probe, and specify a balancer rule.
+In this section, you configure load balancer settings for a backend address pool, a health probe, and specify a balancer rule.
 
 ### Create a Backend pool
 
@@ -84,8 +84,8 @@ A health probe is used to monitor the status of your app. The health probe adds 
     | | |
 4. Select **OK**.
 
-### Create a Load Balancer rule
-A Load Balancer rule is used to define how traffic is distributed to the VMs. 
+### Create a load balancer rule
+A load balancer rule is used to define how traffic is distributed to the VMs. 
 
 You define the:
  - Frontend IP configuration for the incoming traffic.
