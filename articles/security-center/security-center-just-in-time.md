@@ -25,7 +25,7 @@ If you're on Security Center's standard pricing tier (see [pricing](/azure/secur
 There are three ways to configure a JIT policy on a VM:
 
 - [Configure JIT access in Azure Security Center](#jit-asc)
-- [Configure JIT access in an Azure VM blade](#jit-vm)
+- [Configure JIT access in an Azure VM page](#jit-vm)
 - [Configure a JIT policy on a VM programmatically](#jit-program)
 
 ## Configure JIT in Security Center
@@ -36,15 +36,11 @@ From Security Center, you can configure a JIT policy and request access to a VM 
 
 1. Open the **Security Center** dashboard.
 
-2. In the left pane, select **Just-in-time VM access**.
+1. In the left pane, select **Just-in-time VM access**.
 
     ![Just-in-time VM access tile](./media/security-center-just-in-time/just-in-time.png)
 
-    The **Just-in-time VM access** window opens.
-
-      ![Enable just-in-time access](./media/security-center-just-in-time/enable-just-in-time.png)
-
-    **Just-in-time VM access** provides information on the state of your VMs:
+    The **Just-in-time VM access** window opens and shows information on the state of your VMs:
 
     - **Configured** - VMs that have been configured to support just-in-time VM access. The data presented is for the last week and includes for each VM the number of approved requests, last access date and time, and last user.
     - **Recommended** - VMs that can support just-in-time VM access but haven't been configured to. We recommend that you enable just-in-time VM access control for these VMs.
@@ -53,26 +49,26 @@ From Security Center, you can configure a JIT policy and request access to a VM 
       - Classic VM - Security Center just-in-time VM access currently supports only VMs deployed through Azure Resource Manager. A classic deployment is not supported by the just-in-time solution. 
       - Other - A VM is in this category if the just-in-time solution is turned off in the security policy of the subscription or the resource group, or if the VM is missing a public IP and doesn't have an NSG in place.
 
-3. Select the **Recommended** tab.
+1. Select the **Recommended** tab.
 
-4. Under **VIRTUAL MACHINE**, click the VMs that you want to enable. This puts a checkmark next to a VM.
+1. Under **VIRTUAL MACHINE**, click the VMs that you want to enable. This puts a checkmark next to a VM.
 
-5. Click **Enable JIT on VMs**.
-   -. This blade displays the default ports recommended by Azure Security Center:
-      - 22 - SSH
-      - 3389 - RDP
-      - 5985 - WinRM 
-      - 5986 - WinRM
-6. You can also configure custom ports:
+      ![Enable just-in-time access](./media/security-center-just-in-time/enable-just-in-time.png)
+
+1. Click **Enable JIT on VMs**. A pane opens displaying the default ports recommended by Azure Security Center:
+    - 22 - SSH
+    - 3389 - RDP
+    - 5985 - WinRM 
+    - 5986 - WinRM
+1. Optionally, you can add custom ports to the list:
 
       1. Click **Add**. The **Add port configuration** window opens.
-      2. For each port you choose to configure, both default and custom, you can customize the following settings:
+      1. For each port you choose to configure, both default and custom, you can customize the following settings:
+            - **Protocol type**- The protocol that is allowed on this port when a request is approved.
+            - **Allowed source IP addresses**- The IP ranges that are allowed on this port when a request is approved.
+            - **Maximum request time**- The maximum time window during which a specific port can be opened.
 
-    - **Protocol type**- The protocol that is allowed on this port when a request is approved.
-    - **Allowed source IP addresses**- The IP ranges that are allowed on this port when a request is approved.
-    - **Maximum request time**- The maximum time window during which a specific port can be opened.
-
-     3. Click **OK**.
+     1. Click **OK**.
 
 1. Click **Save**.
 
@@ -121,7 +117,7 @@ To edit an existing just-in-time policy of a VM:
 You can gain insights into VM activities using log search. To view logs:
 
 1. Under **Just-in-time VM access**, select the **Configured** tab.
-2. Under **VMs**, select a VM to view information about by clicking on the three dots within the row for that VM and select **Activity Log** in the menu. The **Activity log** opens.
+2. Under **VMs**, select a VM to view information about by clicking on the three dots within the row for that VM and select **Activity Log** from the menu. The **Activity log** opens.
 
    ![Select activity log](./media/security-center-just-in-time/select-activity-log.png)
 
@@ -144,7 +140,7 @@ To make it easy to roll out just-in-time access across your VMs, you can set a V
 1. From the [Azure portal](https://ms.portal.azure.com), search for and select **Virtual machines**. 
 2. Select the virtual machine you want to limit to just-in-time access.
 3. In the menu, select **Configuration**.
-4. Under **Just-in-time-access**, select **Enable just-in-time**. 
+4. Under **Just-in-time access**, select **Enable just-in-time**. 
 
 This enables just-in-time access for the VM using the following settings:
 
@@ -161,11 +157,11 @@ If a VM already has just-in-time enabled, when you go to its configuration page 
 
 ![jit config in vm](./media/security-center-just-in-time/jit-vm-config.png)
 
-### Request JIT access to a VM via the Azure VM blade
+### Request JIT access to a VM via an Azure VM's page
 
 In the Azure portal, when you try to connect to a VM, Azure checks to see if you have a just-in-time access policy configured on that VM.
 
-- If you do have a JIT policy configured on the VM, you can click **Request access** to enable you to have access in accordance with the JIT policy set for the VM. 
+- If you have a JIT policy configured on the VM, you can click **Request access** to enable you to have access in accordance with the JIT policy set for the VM. 
 
   >![jit request](./media/security-center-just-in-time/jit-request.png)
 
@@ -186,11 +182,11 @@ In the Azure portal, when you try to connect to a VM, Azure checks to see if you
 
 You can set up and use just-in-time via REST APIs and via PowerShell.
 
-## JIT VM access via REST APIs
+### JIT VM access via REST APIs
 
 The just-in-time VM access feature can be used via the Azure Security Center API. You can get information about configured VMs, add new ones, request access to a VM, and more, via this API. See [Jit Network Access Policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies), to learn more about the just-in-time REST API.
 
-## JIT VM access via PowerShell
+### JIT VM access via PowerShell
 
 To use the just-in-time VM access solution via PowerShell, use the official Azure Security Center PowerShell cmdlets, and specifically `Set-AzJitNetworkAccessPolicy`.
 
@@ -226,7 +222,7 @@ Run the following in PowerShell to accomplish this:
 	
         Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
-#### Request access to a VM via PowerShell
+### Request access to a VM via PowerShell
 
 In the following example, you can see a just-in-time VM access request to a specific VM in which port 22 is requested to be opened for a specific IP address and for a specific amount of time:
 
@@ -251,13 +247,12 @@ For more information, see the PowerShell cmdlet documentation.
 
 ## Automatic cleanup of redundant JIT rules 
 
-Whenever you update a JIT policy, a cleanup tool automatically runs to check the validity of your entire ruleset. If it finds a mismatch between a rule in your policy and a rule in the NSG, it determines the cause and removes the rule when safe to do so.
+Whenever you update a JIT policy, a cleanup tool automatically runs to check the validity of your entire ruleset. The tool looks for mismatches between rules in your policy and rules in the NSG. If the cleanup tool finds a mismatch, it determines the cause and, when it's safe to do so, removes built-in rules that aren't needed any more. The cleaner never deletes rules that you've created.
 
-Examples scenarios when the cleaner might remove a rule:
+Examples scenarios when the cleaner might remove a built-in rule:
 
 - When two rules with identical definitions exist and one has a higher priority than the other (meaning, the lower priority rule will never be used)
 - When a rule description includes the name of a VM which doesn't match the destination IP in the rule 
-
 
 ## Next steps
 In this article, you learned how just-in-time VM access in Security Center helps you control access to your Azure virtual machines.
