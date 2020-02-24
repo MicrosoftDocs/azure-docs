@@ -7,7 +7,7 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/24/2020
 ---
 
 # Visualizing Azure Cognitive Search Logs and Metrics with Power BI
@@ -41,7 +41,7 @@ You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs an
 
     ![](media/search-monitor-logs-powerbi/get-started-with-new-app.png)
 
-1. Input the name of the storage account that contains your logs and metrics.
+1. Input the name of the storage account that contains your logs and metrics. By default the app will look at the last 10 days of data but this value can be changed with the **Days** parameter.
 
     ![](media/search-monitor-logs-powerbi/connect-to-storage-account.png)
 
@@ -62,7 +62,15 @@ You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs an
     ![](media/search-monitor-logs-powerbi/Search.png)
 
 ## Troubleshooting
-Ensure the storage account name and access key you provided is correct. The storage account name should correspond to the account configured with your search service logs.
+If you find that you cannot see your data follow these troubleshooting steps:
+
+1. Open the report and refresh the page to make sure you're viewing the latest data. There's an option in the report to refresh the data. Select this to get the latest data.
+
+1. Ensure the storage account name and access key you provided are correct. The storage account name should correspond to the account configured with your search service logs.
+
+1. Confirm that your storage account contains the  containers **insights-logs-operationlogs** and **insights-metrics-pt1m** and each container has data. The logs and metrics will be within a couple layers of folders.
+
+1. Check to see if the dataset is still refreshing. The refresh status indicator is shown in step 8 above. If it is still refreshing, wait until the refresh is complete to open and refresh the report.
 
 ## Next steps
 [Learn more about Azure Cognitive Search](https://docs.microsoft.com/azure/search/)
