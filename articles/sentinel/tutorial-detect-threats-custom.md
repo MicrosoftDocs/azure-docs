@@ -3,7 +3,7 @@ title: Create custom analytic rules to detect suspicious threats with Azure Sent
 description: Use this tutorial to learn how to Create custom analytic rules to detect suspicious threats with Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Tutorial: Create custom analytic rules to detect suspicious threats
@@ -36,7 +36,7 @@ You can create custom analytic rules to help you search for the types of threats
 
     ![Create scheduled query](media/tutorial-detect-threats-custom/create-scheduled-query.png)
 
-1. In the **General** tab, provide a unique **Name**, and a **Description**. In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. Set the alert **Severity** as necessary.When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
+1. In the **General** tab, provide a unique **Name**, and a **Description**. In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. Set the alert **Severity** as necessary. When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
     ![Start creating a custom analytic rule](media/tutorial-detect-threats-custom/general-tab.png)
 
@@ -44,7 +44,7 @@ You can create custom analytic rules to help you search for the types of threats
  
    ![Create query in Azure Sentinel](media/tutorial-detect-threats-custom/settings-tab.png)
 
-   - See the **Results preview** area to the right, where Azure Sentinel shows the number of results (log events) the query will generate,changing on-the-fly as you write and configure your query. The graph shows the number of results over the defined time period, which is determined by the settings in the **Query scheduling** section.
+   - See the **Results preview** area to the right, where Azure Sentinel shows the number of results (log events) the query will generate, changing on-the-fly as you write and configure your query. The graph shows the number of results over the defined time period, which is determined by the settings in the **Query scheduling** section.
     - If you see that your query would trigger too many or too frequent alerts, you can set a baseline in the **Alert threshold** section.
 
       Here's a sample query that would alert you when an anomalous number of resources is created in Azure Activity.
