@@ -16,13 +16,13 @@ ms.author: spelluru
 
 ---
 
-# Deprecation of Azure Service Manager support for Azure Service Bus, Relay and Event Hubs
+# Deprecation of Azure Service Manager support for Azure Service Bus, Relay, and Event Hubs
 
-Resource Manager, our next-generation cloud infrastructure stack, is fully replacing the "classic" Azure Service Management model. As a result, Azure Service Management REST APIs and support for Service Bus, Relay, and Event Hubs will be retired on November 1, 2021. This was first announced on a [Microsoft Tech Community announcement](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Deprecating-Service-Management-support-for-Azure-Service-Bus/ba-p/370909), but we have recently decided to extend the deprecation period two more years from the time of the original announcement. For easy identification, these APIs have `management.core.windows.net` in their URI. Refer to the following table for a list of the deprecated APIs and their Azure Resource Manager API version that you should now use.
+Resource Manager, our next-generation cloud infrastructure stack, is fully replacing the "classic" Azure Service Management model (classic deployment model). As a result, classic deployment model REST APIs and support for Service Bus, Relay, and Event Hubs will be retired on November 1, 2021. This deprecation was first announced on a [Microsoft Tech Community announcement](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Deprecating-Service-Management-support-for-Azure-Service-Bus/ba-p/370909), but we have recently decided to extend the deprecation period two more years from the time of the original announcement. For easy identification, these APIs have `management.core.windows.net` in their URI. Refer to the following table for a list of the deprecated APIs and their Azure Resource Manager API version that you should now use.
 
-To continue using Service Bus, Relay, and Event Hubs, move to Resource Manager by October 31, 2021. We encourage all customers who are still using Service Management APIs to make the switch soon to take advantage of the additional benefits of Resource Manager, which include resource grouping, tags, a streamlined deployment and management process, and fine-grained access control using role-based access control (RBAC).
+To continue using Service Bus, Relay, and Event Hubs, move to Resource Manager by October 31, 2021. We encourage all customers who are still using old APIs to make the switch soon to take advantage of the additional benefits of Resource Manager, which include resource grouping, tags, a streamlined deployment and management process, and fine-grained access control using role-based access control (RBAC).
 
-For more information on Azure Resource Manager vs Azure Service Manager, please see the [TechNet Blog](https://blogs.technet.microsoft.com/meamcs/2016/12/22/difference-between-azure-service-manager-and-azure-resource-manager/).
+For more information on Azure Resource Manager vs Azure Service Manager, see the [TechNet Blog](https://blogs.technet.microsoft.com/meamcs/2016/12/22/difference-between-azure-service-manager-and-azure-resource-manager/).
 
 For more information on Service Manager and Resource Manager APIs for Azure Service Bus, Relay and Event Hubs, see our REST API documentation:
 
