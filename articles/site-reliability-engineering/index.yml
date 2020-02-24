@@ -119,9 +119,9 @@ conceptualContent:
 
         - url: https://docs.microsoft.com/azure/architecture/aws-professionals
           itemType: reference
-          text: Azure for AWS Professionals   
-g
-        - url: https://docs.microsoft.com/en-us/azure/architecture/performance
+          text: Azure for AWS Professionals
+          
+        - url: https://docs.microsoft.com/azure/architecture/performance
           itemType: reference
           text: Performance tuning   
       # footerLink (optional)
