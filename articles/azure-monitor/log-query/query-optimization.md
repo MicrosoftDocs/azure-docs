@@ -100,9 +100,9 @@ Heartbeat
 | summarize count() by Computer
 ```
 
-While some aggregation commands like [max()](/azure/kusto/query/max-aggfunction), [sum()](/azure/kusto/query/sum-aggfunction), [count()](/azure/kusto/query/count-aggfunction), and [avg()](/azure/kusto/query/avg-aggfunction) have low CPU impact due to their logic, other are  more complex and include heuristics and estimations that allow them to be executed efficiently. For example, [dcount()](/azure/kusto/query/dcount-aggfunction) uses the HyperLogLog algorithm to provide close estimation to distinct count of very large sets of data without actually counting each value; the percentile functions are doing similar approximations using the nearest rank percentile algorithm. Several of the commands include optional parameters to reduce their impact. For example, the [makeset()](/azure/kusto/query/makeset-aggfunction) function has an optional parameter to define the maximum set size, which significantly affect the CPU and memory.
+While some aggregation commands like [max()](/azure/kusto/query/max-aggfunction), [sum()](/azure/kusto/query/sum-aggfunction), [count()](/azure/kusto/query/count-aggfunction), and [avg()](/azure/kusto/query/avg-aggfunction) have low CPU impact due to their logic, other are  more complex and include heuristics and estimations that allow them to be executed efficiently. For example, [dcount()](/azure/kusto/query/dcount-aggfunction) uses the HyperLogLog algorithm to provide close estimation to distinct count of large sets of data without actually counting each value; the percentile functions are doing similar approximations using the nearest rank percentile algorithm. Several of the commands include optional parameters to reduce their impact. For example, the [makeset()](/azure/kusto/query/makeset-aggfunction) function has an optional parameter to define the maximum set size, which significantly affects the CPU and memory.
 
-[Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) and [summarize](/azure/kusto/query/summarizeoperator) commands may cause high CPU utilization when they are processing a very large set of data. Their complexity is directly related to the number of possible values, referred to as *cardinality*, of the columns that are using as the `by` in summarize or as the join attributes. For explanation and optimization of join and summarize, see their documentation articles and optimization tips.
+[Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) and [summarize](/azure/kusto/query/summarizeoperator) commands may cause high CPU utilization when they are processing a large set of data. Their complexity is directly related to the number of possible values, referred to as *cardinality*, of the columns that are using as the `by` in summarize or as the join attributes. For explanation and optimization of join and summarize, see their documentation articles and optimization tips.
 
 For example, the following queries produce exactly the same result because **CounterPath** is always one-to-one mapped to **CounterName** and **ObjectName**. The second one is more efficient as the aggregation dimension is smaller:
 
@@ -149,10 +149,10 @@ Heartbeat
 
 ## Data used for query processing
 
-A critical factor in the processing of the query is the volume of data that is scanned and used for the query processing. Azure Data Explorer uses very aggressive optimizations that dramatically reduce the data volume compared to other data platforms. Still, there are critical factors in the query that can impact the data volume that is used.
+A critical factor in the processing of the query is the volume of data that is scanned and used for the query processing. Azure Data Explorer uses aggressive optimizations that dramatically reduce the data volume compared to other data platforms. Still, there are critical factors in the query that can impact the data volume that is used.
 In Azure Monitor Logs, the **TimeGenerated** column is used as a way to index the data. Restricting the **TimeGenerated** values to as narrow a range as possible will make a significant improvement to query performance by significantly limiting the amount of data that has to be processed.
 
-Another factor that increases the data that is process is the use of very large number of tables. This usually happens when `search *` and `union *` commands are used. These commands force the system to evaluate and scan data from all tables in the workspace. In some cases, there might be hundreds of tables in the workspace. Try to avoid as much as possible using “search *” or any search without scoping it to a specific table.
+Another factor that increases the data that is process is the use of large number of tables. This usually happens when `search *` and `union *` commands are used. These commands force the system to evaluate and scan data from all tables in the workspace. In some cases, there might be hundreds of tables in the workspace. Try to avoid as much as possible using “search *” or any search without scoping it to a specific table.
 
 For example, the following queries produce exactly the same result but the last one is by far the most efficient:
 
@@ -265,7 +265,7 @@ There are several cases where the system cannot provide an accurate measurement 
 ## Age of the oldest data used
 Azure Data Explorer uses several storage tiers: in-memory, local SSD disks and much slower Azure Blobs. The newer the data, the higher is the chance that it is stored in a more performant tier with smaller latency, reducing the query duration and CPU. Other than the data itself, the system also has a cache for metadata. The older the data, the less chance its metadata will be in cache.
 
-While some queries require usage of old data, there are cases where old data is used by mistake. This happens when queries are executed without providing time range in their meta-data and not all table references include filter on the **TimeGenerated** column. In these cases, the system will scan all the data that is stored in that table. When the data retention is long, it can cover very long time ranges and thus data that is as old as the data retention period.
+While some queries require usage of old data, there are cases where old data is used by mistake. This happens when queries are executed without providing time range in their meta-data and not all table references include filter on the **TimeGenerated** column. In these cases, the system will scan all the data that is stored in that table. When the data retention is long, it can cover long time ranges and thus data that is as old as the data retention period.
 
 Such cases can be for example:
 
@@ -303,15 +303,15 @@ Cross-region and cross-cluster execution of queries requires the system to seria
 ## Parallelism
 Azure Monitor Logs is using large clusters of Azure Data Explorer to execute the queries. These clusters vary in scale, potentially getting up to 140 compute nodes. The system automatically scales the clusters according to workspace placement logic and capacity.
 
-To efficiently execute a query, it is partitioned and distributed to compute nodes based on the data that is required for its processing. There are some situations where the system cannot do this efficiently. This can lead to a very long duration of the query. 
+To efficiently execute a query, it is partitioned and distributed to compute nodes based on the data that is required for its processing. There are some situations where the system cannot do this efficiently. This can lead to a long duration of the query. 
 
 Query behaviors that can reduce parallelism include:
 
 - Use of serialization and window functions such as the [serialize operator](/azure/kusto/query/serializeoperator), [next()](/azure/kusto/query/nextfunction), [prev()](/azure/kusto/query/prevfunction), and the [row](/azure/kusto/query/rowcumsumfunction) functions. Time series and user analytics functions can be used in some of these cases. Inefficient serialization may also happen if the following operators are used not at the end of the query: [range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [top](/azure/kusto/query/topoperator), [top-hitters](/azure/kusto/query/tophittersoperator), [getschema](/azure/kusto/query/getschemaoperator).
--	Usage of [dcount()](/azure/kusto/query/dcount-aggfunction) aggregation function force the system to have central copy of the distinct values. When the scale of data is very high, consider using the dcount function optional parameters to reduced accuracy.
+-	Usage of [dcount()](/azure/kusto/query/dcount-aggfunction) aggregation function force the system to have central copy of the distinct values. When the scale of data is high, consider using the dcount function optional parameters to reduced accuracy.
 -	In many cases, the [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) operator lowers overall parallelism. Examine shuffle join as an alternative when performance is problematic.
 -	In resource-scope queries, the pre-execution RBAC checks may linger in situations where there is very large number of RBAC assignments. This may lead to longer checks that would result in lower parallelism. For example, a query is executed on a subscription where there are thousands of resources and each resource has many role assignments in the resource level, not on the subscription or resource group.
--	If a query is processing very small chunks of data, its parallelism will be low as the system will not spread it across many compute nodes.
+-	If a query is processing small chunks of data, its parallelism will be low as the system will not spread it across many compute nodes.
 
 
 
