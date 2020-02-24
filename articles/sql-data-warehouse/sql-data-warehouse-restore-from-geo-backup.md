@@ -77,7 +77,7 @@ resource**.
 
 ![New DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Click **Databases** and then **Azure Synapse Analytics**.
+3. Click **Databases** and then **Azure Synapse Analytics (formerly SQL DW) **.
 
 ![New DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
