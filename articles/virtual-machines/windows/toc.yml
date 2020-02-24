@@ -352,7 +352,7 @@
     - name: Use a template with C#
       href: csharp-template.md
     - name: Create VM with Chef
-      href: chef-automation.md
+      href: ../../chef/chef-automation.md
     - name: Use Java
       href: java.md
     - name: Use Python
@@ -710,7 +710,7 @@
       - name: FAQ
         href: migration-classic-resource-manager-faq.md
 - name: Troubleshoot
-  href: ../troubleshooting/index.md
+  href: ../troubleshooting/index.yml
 - name: Reference
   items:
   - name: Azure CLI

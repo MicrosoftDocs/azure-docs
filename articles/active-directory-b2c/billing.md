@@ -136,4 +136,4 @@ Before you initiate the move, be sure to read the entire article to fully unders
 
 ## Next steps
 
-In addition to reviewing the usage and billing details within a selected Azure subscription, you can review detailed day-by-day usage reports by using the [usage reporting API](view-usage-reports.md).
+For the latest pricing information, see [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
