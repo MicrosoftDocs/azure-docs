@@ -41,6 +41,10 @@
     href: cli-samples.md
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Developer features
     href: batch-api-basics.md
   - name: APIs and tools
@@ -71,6 +75,8 @@
       href: batch-aad-auth.md
     - name: Azure AD with Batch Management
       href: batch-aad-auth-management.md
+    - name: Securely access Key Vault with Batch
+      href: credential-access-key-vault.md
   - name: Using application packages
     href: batch-application-packages.md
   - name: Create and manage pools

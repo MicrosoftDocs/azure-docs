@@ -105,9 +105,9 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Scale partitions and replicas
+    - name: Adjust capacity
       href: search-capacity-planning.md
-    - name: Deployment strategies and best practices
+    - name: Scale for performance
       href: search-performance-optimization.md
     - name: Multitenant architecture
       href: search-modeling-multitenant-saas-applications.md
@@ -323,10 +323,10 @@
     items:
     - name: Fundamentals
       href: search-monitor-usage.md
-    - name: Monitor query activity
-      href: search-monitor-queries.md 
     - name: Diagnostic logging
       href: search-monitor-logs.md   
+    - name: Monitor query activity
+      href: search-monitor-queries.md 
     - name: Search traffic analytics
       href: search-traffic-analytics.md
   - name: Troubleshoot
