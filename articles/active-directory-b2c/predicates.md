@@ -170,7 +170,7 @@ The **PredicateReferences** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| MatchAtLeast | No | Specifies that the value must match at least that many predicate definitions for the input to be accepted. |
+| MatchAtLeast | No | Specifies that the value must match at least that many predicate definitions for the input to be accepted. If not specified, the value must match all predicate definitions. |
 
 The **PredicateReferences** element contains the following elements:
 

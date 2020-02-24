@@ -7,7 +7,7 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.topic: overview
 ---
 
@@ -46,6 +46,10 @@ The following versions of the Windows and Linux operating system are officially 
 
 - Windows Server 2012 R2 and higher (including Windows Server Core)
 - Ubuntu 16.04 and 18.04
+- CentOS Linux 7
+- SUSE Linux Enterprise Server (SLES) 15
+- Red Hat Enterprise Linux (RHEL) 7
+- Amazon Linux 7
 
 >[!NOTE]
 >This preview release of the Connected Machine agent for Windows only supports Windows Server configured to use the English language.
