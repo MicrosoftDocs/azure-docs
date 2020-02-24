@@ -149,7 +149,7 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 **Guidance**: Define and implement standard security configurations for network resources related to your Azure HDInsight cluster. Use Azure Policy aliases in the "Microsoft.HDInsight" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure HDInsight cluster.
 
 
-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as ARM templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 
 How to view available Azure Policy Aliases:
@@ -859,7 +859,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.), including Azure HDInsight clusters, within your subscription(s).  Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use ARM resources going forward.
+Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
 
 How to create queries with Azure Graph:
@@ -1008,10 +1008,10 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 
 ### 6.11: Limit users' ability to interact with Azure Resources Manager via scripts
 
-**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource manager (ARM) by configuring "Block access" for the "Microsoft Azure Management" App.
+**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 
-How to configure Conditional Access to block access to ARM:
+How to configure Conditional Access to block access to Azure Resource Manager:
 
 https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 

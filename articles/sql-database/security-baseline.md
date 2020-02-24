@@ -457,27 +457,13 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 **Guidance**: Use Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
-
-
 Use  Advanced Threat Protection for Azure SQL Database to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
+How to identify Azure AD users flagged for risky activity: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
+How to monitor users identity and access activity in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-How to identify Azure AD users flagged for risky activity:
-
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
-
-
-
-How to monitor users identity and access activity in Azure Security Center:
-
-https://docs.microsoft.com/azure/security-center/security-center-identity-access
-
-
-
-Review Advanced Threat Protection and potential alerts:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
+Review Advanced Threat Protection and potential alerts: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
 
 
 **Azure Security Center monitoring**: Yes
@@ -486,12 +472,9 @@ https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-over
 
 ### 3.8: Manage Azure resources from only approved locations
 
-**Guidance**: Use Conditional Access Named Locations to allow Portal and Azure Resource Management (ARM) access from only specific logical groupings of IP address ranges or countries/regions.
+**Guidance**: Use Conditional Access Named Locations to allow Portal and Azure Resource Management access from only specific logical groupings of IP address ranges or countries/regions.
 
-
-How to configure Named Locations in Azure:
-
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+How to configure Named Locations in Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -814,27 +797,13 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 **Guidance**: Use Azure Resource Graph to query and discover all resources (including Azure SQL Server instances) within your subscription(s).  Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
+Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
+How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use ARM resources going forward.
+How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-
-
-How to create queries with Azure Graph:
-
-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
-
-
-
-How to view your Azure Subscriptions:
-
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
-
-
-
-Understand Azure RBAC:
-
-https://docs.microsoft.com/azure/role-based-access-control/overview
+Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -844,11 +813,7 @@ https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-
-
-How to create and use Tags:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -858,23 +823,11 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
+How to create additional Azure subscriptions: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
+How to create Management Groups: https://docs.microsoft.com/azure/governance/management-groups/create
 
-How to create additional Azure subscriptions:
-
-https://docs.microsoft.com/azure/billing/billing-create-subscription
-
-
-
-How to create Management Groups:
-
-https://docs.microsoft.com/azure/governance/management-groups/create
-
-
-
-How to create and use Tags:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -933,23 +886,14 @@ How to create queries with Azure Graph: https://docs.microsoft.com/azure/governa
 
 **Guidance**: Use Azure Policy to place restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
-
-Not allowed resource types
-
-Allowed resource types
-
+- Not allowed resource types
+- Allowed resource types
 
 Use Azure Resource Graph to query/discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
 
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-
-How to deny a specific resource type with Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+How to deny a specific resource type with Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -965,10 +909,10 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 ### 6.11: Limit users' ability to interact with Azure Resources Manager via scripts
 
-**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager (ARM) by configuring "Block access" for the "Microsoft Azure Management" App.
+**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 
-How to configure Conditional Access to block access to ARM:
+How to configure Conditional Access to block access to Azure Resource Manager:
 
 https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
