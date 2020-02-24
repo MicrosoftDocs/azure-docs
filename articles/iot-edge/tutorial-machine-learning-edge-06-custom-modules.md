@@ -134,7 +134,7 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
 
 1. Notice that this command creates a config folder with a deployment.amd64.json file. This file is the concrete deployment template for the solution.
 
-If the close and reopen Visual Studio Code, open the folder **C:\source\IoTEdgeAndMlSample\EdgeSolution** to return to the solution we are building.
+To you close Visual Studio Code, open the folder **C:\source\IoTEdgeAndMlSample\EdgeSolution** to return to return to this solution.
 
 ## Add Router module
 
@@ -167,7 +167,7 @@ Next, we add the Router module to our solution. The Router module handles severa
     copy c:\source\IoTEdgeAndMlSample\EdgeModules\modules\turbofanRouter\*.cs c:\source\IoTEdgeAndMlSample\EdgeSolution\modules\turbofanRouter\
     ```
 
-1. When prompted to overwrite program.cs, press `y` and then hit `Enter`.
+1. Accept the overwrite of program.cs.
 
 ### Build router module
 
@@ -177,7 +177,7 @@ Next, we add the Router module to our solution. The Router module handles severa
 
 1. Select **.NET Core**.
 
-1. Replace the content of tasks.json with the following code:
+1. Replace the contents of tasks.json with the following code:
 
     ```json
     {
@@ -259,10 +259,6 @@ As mentioned above, the IoT Edge runtime uses routes configured in the *deployme
   > [!NOTE]
   > Adding the turbofanRouter module created the following additional route: `turbofanRouterToIoTHub": "FROM /messages/modules/turbofanRouter/outputs/* INTO $upstream`. Remove this route, leaving only the routes listed above in your deployment.template.json file.
 
-### Copy routes to deployment.debug.template.json
-
-As a final step, to keep our files in sync, copy the changes you made to deployment.template.json to deployment.debug.template.json.
-
 ## Add Avro Writer module
 
 The Avro Writer module has two responsibilities in our solution, to store messages and upload files.
@@ -273,7 +269,7 @@ The Avro Writer module has two responsibilities in our solution, to store messag
 
 ### Create module and copy files
 
-1. In Visual Studio Code, select **Command Palette** from the **View** menu, and then search for and select **Python: Select Interpreter**.
+1. In Visual Studio Code, from the **View** menu, select **Command Palette**, and then search for and select **Python: Select Interpreter**.
 
 1. Select your installed Python version 3.7 or later.
 
@@ -281,7 +277,7 @@ The Avro Writer module has two responsibilities in our solution, to store messag
 
 1. Choose **Python Module**.
 
-1. Name the module "avroFileWriter".
+1. Name the module **avroFileWriter**.
 
 1. When prompted for your Docker Image Repository, use the same registry as you used when adding the Router module.
 
@@ -291,7 +287,7 @@ The Avro Writer module has two responsibilities in our solution, to store messag
    copy C:\source\IoTEdgeAndMlSample\EdgeModules\modules\avroFileWriter\*.py C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avroFileWriter\
    ```
 
-1. If prompted to overwrite main.py, type `y` and then hit `Enter`.
+1. Accept the overwrite of main.py.
 
 1. Notice that filemanager.py and schema.py have been added to the solution and main.py has been updated.
 
@@ -567,7 +563,7 @@ With the router and classifier in place, we expect to receive regular messages c
 
 1. Click **Save**.
 
-#### Update turbofanDeviceToStorage route
+#### Update turbofanDeviceDataToStorage route
 
 We don't want to route the new prediction data to our old storage location, so update the route to prevent it.
 
