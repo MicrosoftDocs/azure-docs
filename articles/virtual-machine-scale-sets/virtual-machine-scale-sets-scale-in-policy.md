@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: avverma
 
