@@ -9,7 +9,7 @@ ms.date: 02/23/2020
 ms.author: irenehua
 ---
 
-# Upgrade Azure Internal Load Balancer from Basic SKU to Standard SKU
+# Upgrade Azure Internal Load Balancer- No Outbound Connection Required
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
 There are two stages in a upgrade:
@@ -19,9 +19,16 @@ There are two stages in a upgrade:
 
 This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#add-vms-to-backend-pools-of-standard-load-balancer).
 
+## Upgrade overview
+
+An Azure PowerShell script is available that does the following:
+
+* Creates a Standard Internal SKU Load Balancer in the location the you specify. Note that no [outbound connection](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections) will not be provided by the Standard Internal Load Balancer.
+* Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly create Standard Load Balancer.
+
 ### Caveats\Limitations
 
-* Script only supports Internal Load Balancer upgrade. For Internal Basic Load Balancer upgrade, create a Standard Internal Load Balancer if outbound connectivity is not desired, and create a Standard Internal Load Balancer and Standard Internal Load Balancer if outbound connectivity is required.
+* Script only supports Internal Load Balancer upgrade where no outbound connection is required. If you required [outbound connection](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections) for some of your VMs, please refer to this [page](upgrade-InternalBasic-To-PublicStandard.md) for instuctions. 
 * The Standard Load Balancer has new public addresses. It’s impossible to move the IP addresses associated with existing Basic Load Balancer seamlessly to Standard Load Balancer since they have different SKUs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
 * If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Please make sure they are not empty.
