@@ -117,7 +117,7 @@ conceptualContent:
           itemType: reference
           text: Cloud Design Patterns   
 
-        - url: https://docs.microsoft.com/eazure/architecture/aws-professionals
+        - url: https://docs.microsoft.com/azure/architecture/aws-professionals
           itemType: reference
           text: Azure for AWS Professionals   
 
