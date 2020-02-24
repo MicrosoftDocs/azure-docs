@@ -14,7 +14,7 @@ ms.date: 02/18/2020
 
 # Move your Azure Cognitive Search service to another Azure region
 
-To move your Azure Cognitive Service account from one region to another, you will create a copy of your service and then move your data.
+To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
 
 In this article, you'll learn how to:
 
@@ -22,16 +22,16 @@ In this article, you'll learn how to:
 > * Export a template.
 > * Modify the template: adding the target region, search and storage account names.
 > * Deploy the template to create the new search and storage accounts.
-> * Configure the new search and storage accounts.
-> * Delete the resources in the source region.
+> * Verify your service status in the new region
+> * Clean up resources in the source region.
 
 ## Prerequisites
 
 - Ensure that the services and features that your account uses are supported in the target region.
 
-- For preview features, ensure that your subscription is whitelisted for the target region.
+- For preview features, ensure that your subscription is whitelisted for the target region. For more information about preview features, see [knowledge stores](https://docs.microsoft.com/azure/search/knowledge-store-concept-intro), [incremental enrichment](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual), and [private endpoint](https://docs.microsoft.com/azure/search/service-create-private-endpoint).
 
-## Assessment and Planning
+## Assessment and planning
 
 When you move your search service to the new region, you will need to [move your data to the new storage service](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#configure-the-new-storage-account) and then rebuild your indexes, skillsets and knowledge stores. You should record current settings and copy json files to make the rebuilding of your service easier and faster.
 
@@ -58,7 +58,7 @@ To start you will export and then modify a Resource Manager template.
 
 The zip file contains the .json files that comprise the template and scripts to deploy the template.
 
-### Modify the export template
+### Modify the template
 
 You will modify the template by changing the search and storage account names and regions. The names must follow the rules for each service and region naming conventions. 
 
@@ -109,7 +109,7 @@ To obtain region location codes, see [Azure Locations](https://azure.microsoft.c
             },
 ```
 
-### Deploy your modified template
+### Deploy the template
 
 1. Save the **template.json** file.
 
@@ -123,9 +123,11 @@ To obtain region location codes, see [Azure Locations](https://azure.microsoft.c
 
 3. Click the **I agree to the terms and conditions stated above** checkbox, and then click the **Select Purchase** button.
 
-## Verifying your service's status in new region
+## Verifying your services' status in new region
 
 To verify the move, open the new resource group and your services will be listed with the new region.
+
+To move your data from your source region to the target region, please see this article's guidelines for [moving your data to the new storage account](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#move-data-to-the-new-storage-account).
 
 ## Clean up resources in your original region
 

@@ -109,6 +109,8 @@
       href: search-capacity-planning.md
     - name: Scale for performance
       href: search-performance-optimization.md
+    - name: Move service across regions
+      href: search-howto-move-across-regions.md
     - name: Multitenant architecture
       href: search-modeling-multitenant-saas-applications.md
   - name: Security
