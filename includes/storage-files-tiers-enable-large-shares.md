@@ -15,7 +15,7 @@ You can only enable large file shares on locally redundant or zone redundant sta
 
 To enable large file shares on an existing storage account, navigate to the **Configuration** view in the storage account's table of contents, and switch the large file share rocker switch to enabled:
 
-![A screenshot of the enable large file share rocker switch in the Azure portal](media/storage-files-tiers-enable-large-shares/enable-LFS-1.png)
+![A screenshot of the enable large file share rocker switch in the Azure portal](media/storage-files-tiers-enable-large-shares/enable-lfs-0.png)
 
 You can also enable 100 TiB file shares through the [`Set-AzStorageAccount`](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) PowerShell cmdlet and the [`az storage account update`](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) Azure CLI command.
 

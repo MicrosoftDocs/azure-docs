@@ -104,7 +104,7 @@ On the pane that opens, enter the following information:
 When you are finished, select **Create** to deploy the Storage Sync Service.
 
 # [PowerShell](#tab/azure-powershell)
-Replace **<Az_Region>**, **<RG_Name>**, and **<my_storage_sync_service>** with your own values, then use the following cmds to create and deploy a Storage Sync Service:
+Replace `<Az_Region>`, `<RG_Name>`, and `<my_storage_sync_service>` with your own values, then use the following commands to create and deploy a Storage Sync Service:
 
 ```powershell
 $hostType = (Get-Host).Name

@@ -73,7 +73,7 @@ If you would like to clean up the resources created in this article, you can sim
 
 First, install the latest version of the [PowerShellGet](/powershell/scripting/gallery/installing-psget) module.
 
-Then, upgrade your powershell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
+Then, upgrade your PowerShell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
 
 ### Upgrade your PowerShell module
 
@@ -109,7 +109,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ### Create a FileStorage storage account
 
-To create a filestorage storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
+To create a FileStorage storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
