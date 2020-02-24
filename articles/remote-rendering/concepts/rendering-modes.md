@@ -41,6 +41,7 @@ Antialiasing works properly between the sculpture and the curtain, because both 
 The biggest limitation of this mode is, that geometry parts cannot be switched to transparent materials dynamically nor does the **see-through** mode work for the [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md). Other state override features (outline, color tint, ...) do work, though. Also materials that were marked as transparent at conversion time do work properly in this mode.
 
 ### Performance
+
 The performance characteristics for both modes do vary based on the use case, and it is hard to reason or provide general recommendations. If you are not constrained by the limitations mentioned above (memory or transparency/see-through), it is recommended to try out both modes and monitor the performance using various camera positions.
 
 ## Setting the render mode
@@ -68,5 +69,5 @@ async void ExampleConnect(AzureSession session)
 
 ## Next steps
 
-* [SDK concepts](../concepts/sdk-concepts.md)
+* [Sessions](../concepts/sessions.md)
 * [Hierarchical state override component](../overview/features/override-hierarchical-state.md)

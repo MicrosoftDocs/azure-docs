@@ -48,7 +48,7 @@ void LoadMyTexture(AzureSession session, string textureUri)
 }
 ```
 
-The URI may point to a [builtin or external file](../concepts/sdk-concepts.md#built-in-and-external-resources). Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the roughness map of a [PBR material](../overview/features/pbr-materials.md) must be grayscale.
+The URI may point to a builtin or external file. Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the roughness map of a [PBR material](../overview/features/pbr-materials.md) must be grayscale.
 
 > [!CAUTION]
 > All *Async* functions in ARR return asynchronous operation objects. You must store a reference to those objects until the operation is completed. Otherwise the C# garbage collector may delete the operation early and it can never finish. In the sample code above the member variable '_textureLoad' is used to hold a reference until the *Completed* event arrives.

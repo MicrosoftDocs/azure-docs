@@ -1,5 +1,3 @@
-- name: SDK concepts
-  href: sdk-concepts.md
 - name: Remote Rendering Sessions
   href: sessions.md
 - name: Entities
