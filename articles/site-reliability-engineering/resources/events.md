@@ -9,7 +9,7 @@ ms.date: 02/18/2020
 ms.author: dnb
 
 ---
-# Participate in the global site reliability engineering community by attending these events
+# Participate in the global site reliability community
 
 As important as reading up on SRE is, it can often be more important to talk about it with your peers. Discussing your challenges, successes and failures around SRE can be crucial to gaining a nuanced understanding of the subject.
 

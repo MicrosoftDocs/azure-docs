@@ -9,9 +9,9 @@ ms.date: 02/18/2020
 ms.author: dnb
 
 ---
-# Books about site reliability engineering (SRE)
+# Books about site reliability engineering
 
-For more detailed information about SRE, the best source is a trio of books that have been published on the subject
+For more detailed information about site reliability engineering (SRE), the best source is a trio of books that have been published on the subject
 
 - [_Site Reliability Engineering: How Google Runs Production Systems_](https://shop.oreilly.com/product/0636920041528.do) (known as "The SRE Book")
 - [_The Site Reliability Workbook: Practical Ways to Implement SRE_](https://shop.oreilly.com/product/0636920132448.do) (known as "The SRE Workbook")

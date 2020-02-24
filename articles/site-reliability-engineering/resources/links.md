@@ -9,9 +9,9 @@ ms.date: 02/18/2020
 ms.author: dnb
 
 ---
-# Concentrated sources for site reliability engineering (SRE) information
+# Sources for site reliability engineering information
 
-There are many, many sources for site reliability engineering information on the web.
+There are many, many sources for site reliability engineering (SRE) information on the web.
 
 ## Curated link lists
 
