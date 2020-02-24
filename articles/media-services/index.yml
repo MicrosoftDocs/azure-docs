@@ -15,7 +15,7 @@ metadata:
   ms.collection: collection
   author: Juliako #Required; your GitHub user alias, with coacrrect capitalization.
   ms.author: juliako #Required; microsoft alias of author; optional team alias.
-  ms.date: 07/03/2019 #Required; mm/dd/yyyy format.
+  ms.date: 07//2020 #Required; mm/dd/yyyy format.
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -25,11 +25,11 @@ highlightedContent:
     # Card
     - title: About Azure Media Services v3
       itemType: overview
-      url: https://docs.microsoft.com/azure/media-services/latest
+      url: ./latest/media-services-overview.md
     # Card
     - title: Azure Media Services v3 concepts 
       itemType: concept
-      url: ./latest/media-services-overview.md
+      url: ./latest/concepts-overview.md
     - title: About Azure Media Services Video Indexer
       itemType: overview
       url: ./video-indexer/video-indexer-overview.md    
