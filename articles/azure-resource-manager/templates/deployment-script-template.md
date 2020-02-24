@@ -208,6 +208,12 @@ Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, 
 
 [jq](https://stedolan.github.io/jq/) is used in the previous sample. It comes with the container images. See [Configure development environment](#configure-development-environment).
 
+## Handle non-terminating errors
+
+You can control how PowerShell responds to non-terminating errors by using the [**$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
+) variable in your deployment script. The deployment script engine doesn't set/change the value.  Despite the value you set for $ErrorActionPreference, deployment script sets the resource provisioning state to *Failed* when the script encounters an error.
+
+
 ## Debug deployment scripts
 
 The script service creates a [storage account](../../storage/common/storage-account-overview.md) and a [container instance](../../container-instances/container-instances-overview.md) for script execution. Both resources have the **azscripts** suffix in the resource names.

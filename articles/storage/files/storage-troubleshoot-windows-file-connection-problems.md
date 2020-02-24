@@ -12,9 +12,6 @@ ms.subservice: files
 
 This article lists common problems that are related to Microsoft Azure Files when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
 
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 <a id="error5"></a>
 ## Error 5 when you mount an Azure file share
 
@@ -244,7 +241,7 @@ Use one of the following solutions:
 
 -	Mount the drive from the same user account that contains the application. You can use a tool such as PsExec.
 - Pass the storage account name and key in the user name and password parameters of the net use command.
-- Use the cmdkey command to add the credentials into Credential Manager. Perform this from a command line under the service account context, either through an interactive login or by using runas.
+- Use the cmdkey command to add the credentials into Credential Manager. Perform this from a command line under the service account context, either through an interactive login or by using `runas`.
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
 - Map the share directly without using a mapped drive letter. Some applications may not reconnect to the drive letter properly, so using the full UNC path may be more reliable. 
