@@ -6,12 +6,12 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/21/2019
+ms.date: 02/24/2019
 
 ---
 
 # Optimize log queries in Azure Monitor
-Azure Monitor Logs uses [Azure Data Explorer (ADX)](/azure/data-explorer/) to store and manage your logs and queries. It creates, manages, and maintains the ADX clusters for you, and optimizes them for your log analysis workload. When you run a query, it is optimized, and routed to the appropriate ADX cluster that stores the workspace. Both Azure Monitor Logs and Azure Data Explorer uses many automatic query optimization mechanisms. While automatic optimizations provide significant boost, they are in some cases where the user can dramatically improve the query performance. This article explains the performance considerations and several techniques to fix them.
+Azure Monitor Logs uses [Azure Data Explorer (ADX)](/azure/data-explorer/) to store and manage your logs and queries. It creates, manages, and maintains the ADX clusters for you, and optimizes them for your log analysis workload. When you run a query, it's optimized, and routed to the appropriate ADX cluster that stores the workspace. Both Azure Monitor Logs and Azure Data Explorer uses many automatic query optimization mechanisms. While automatic optimizations provide significant boost, they are in some cases where you can dramatically improve your query performance. This article explains the performance considerations and several techniques to fix them.
 
 Most of the techniques are common to queries that are run directly on Azure Data Explorer and Azure Monitor Logs though there are several unique Azure Monitor Logs considerations that are discussed here. For more Azure Data Explorer optimization tips, see [Query best practices](/azure/kusto/query/best-practices).
 
@@ -22,7 +22,13 @@ Optimized queries will:
 
 You should give particular attention to queries that are used for recurrent and bursty usage such as dashboards and PowerBI. The impact of an ineffective query in these cases is substantial.
 
-## Query Performance Indicator
+## Query performance pane
+After you run a query in Log Analytics, click the down arrow above the query results to view the query performance pane that shows the results of several performance indicators for the query. These performance indicators are each described in the following section.
+
+![Query performance pane](media/query-optimization/query-performance-pane.png)
+
+
+## Query performance indicators
 
 The following query performance indicators are available for every query that is executed:
 
@@ -309,5 +315,4 @@ Query behaviors that can reduce parallelism include:
 
 ## Next steps
 
-- [Writing efficient log queries in Azure Monitor](log-query-performance.md)
 - [Reference documentation for the Kusto query language](/azure/kusto/query/).
