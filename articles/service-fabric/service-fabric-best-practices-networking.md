@@ -1,10 +1,10 @@
 ---
 title: Azure Service Fabric networking best practices
-description: Best practices and design considerations for managing network connectivity using Azure Service Fabric.
-author: peterpogorski
+description: Rules and design considerations for managing network connectivity using Azure Service Fabric.
+author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.author: pepogors
+ms.author: chrpap
 ---
 
 # Networking
@@ -34,7 +34,7 @@ Maximize your Virtual Machine’s performance with Accelerated Networking, by de
 ```
 Service Fabric cluster can be provisioned on [Linux with Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), and [Windows with Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
 
-Accelerated Networking is supported for Azure Virtual Machine Series SKUs: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms. Accelerated Networking was tested successfully using the Standard_DS8_v3 SKU on 1/23/2019 for a Service Fabric Windows Cluster, and using Standard_DS12_v2 on 01/29/2019 for a Service Fabric Linux Cluster.
+Accelerated Networking is supported for Azure Virtual Machine Series SKUs: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms. Accelerated Networking was tested successfully using the Standard_DS8_v3 SKU on 01/23/2019 for a Service Fabric Windows Cluster, and using Standard_DS12_v2 on 01/29/2019 for a Service Fabric Linux Cluster.
 
 To enable Accelerated Networking on an existing Service Fabric cluster, you need to first [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), to perform the following:
 1. Provision a NodeType with Accelerated Networking enabled
@@ -54,7 +54,7 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 ## Network Security Rules
 
-The basic rules here are the minimum to lockdown an Azure managed Service Fabric cluster. Without opening those ports or whitelistening the IP/URL this will cause operation of the cluster, which may not be supported. It's strictly required to use [automatic OS image upgrades](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) on all scale sets.
+The basic rules here are the minimum to lockdown an Azure managed Service Fabric cluster. Without opening those ports or whitelistening the IP/URL this will cause operation of the cluster, which may not be supported. With this rule set it's strictly required to use [automatic OS image upgrades](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) on all scale sets.
 
 ### Inbound 
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action   
@@ -72,7 +72,7 @@ The basic rules here are the minimum to lockdown an Azure managed Service Fabric
 
 More information about the inbound security rules.
 
-* **Azure**. Access for the Service Fabric Explorer. 
+* **Azure**. This port is used by Service Fabric Explorer to browse and manage your cluster, and it is also used by the Service Fabric Resource Provider to query information about your cluster in order to display in the Azure Management Portal.  If this port is not accessible from the SFRP then you will see a message such as ‘Nodes Not Found’ in the management portal and your node and application list will appear empty.  This means that if you wish to have visibility of your cluster via the Azure Management Portal then your load balancer must expose a public IP address and your NSG must allow incoming 19080 traffic.  
 
 * **Client**. The client connection endpoint for APIs like REST/PowerShell/CLI. The Azure portal gather information about the cluster, nodes, and applications. 
 
@@ -98,8 +98,6 @@ More information about the inbound security rules.
 |3910       |Resource Provider  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Allow
 |3920       |Upgrade            |443         |TCP       |VirtualNetwork     |Internet          |Allow
 |3950       |Block Outbound     |Any         |Any       |Any                |Any               |Deny
-
-### Examples
 
 More information about the outbound security rules.
 
