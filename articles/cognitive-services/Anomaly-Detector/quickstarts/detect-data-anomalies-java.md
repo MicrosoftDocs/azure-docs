@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and Java"
 titleSuffix: Azure Cognitive Services
-description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
+description: In this quickstart, learn how to use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme

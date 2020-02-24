@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech into audio file, Python - Speech Service'
+title: 'Quickstart: Synthesize speech into audio file, Python - Speech service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,14 +7,14 @@ author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
 ---
 
 ## Prerequisites
 
-* An Azure subscription key for the Speech Services. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
+* An Azure subscription key for the Speech service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
 * [Python 3.5 or later](https://www.python.org/downloads/).
 * The Python Speech SDK package is available for these operating systems:
     * Windows: x64 and x86.
@@ -74,8 +74,7 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 
 import azure.cognitiveservices.speech as speechsdk
 
-# Creates an instance of a speech config with specified subscription key and service region.
-# Replace with your own subscription key and service region (e.g., "westus").
+# Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 
@@ -122,7 +121,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
    ![Create a file](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copy, paste, and save the [Python code](#sample-code) to the newly created file.
-1. Insert your Speech Services subscription information.
+1. Insert your Speech service subscription information.
 1. If selected, a Python interpreter displays on the left side of the status bar at the bottom of the window.
    Otherwise, bring up a list of available Python interpreters. Open the command palette (Ctrl+Shift+P) and enter **Python: Select Interpreter**. Choose an appropriate one.
 1. You can install the Speech SDK Python package from within Visual Studio Code. Do that if it's not installed yet for the Python interpreter you selected.

@@ -1,5 +1,5 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks from multiple dispate Azure data sources | Microsoft docs
+title: Azure Monitor workbooks data sources | Microsoft docs
 description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor Workbooks built from multiple data sources 
 services: azure-monitor
 documentationcenter: ''

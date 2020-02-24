@@ -82,5 +82,5 @@ For highly available web applications, consider placing your VMs behind an Azure
 In this article, you created a network security group, created an inbound rule that allows HTTP traffic on port 80, and then associated that rule with a subnet. 
 
 You can find information on creating more detailed environments in the following articles:
-- [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
+- [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md)
 - [Security groups](../../virtual-network/security-overview.md)

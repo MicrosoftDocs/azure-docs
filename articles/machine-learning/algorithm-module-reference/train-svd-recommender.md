@@ -1,7 +1,7 @@
 ---
 title: "Train SVD Recommender: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Train SVD Recommender module in the Azure Machine Learning service to train a Bayesian recommender by using the SVD algorithm.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Train SVD Recommender module in Azure Machine Learning to train a Bayesian recommender by using the SVD algorithm.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -72,4 +72,4 @@ From this sample, you can see that a single user has rated two separate restaura
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

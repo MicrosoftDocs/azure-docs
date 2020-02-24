@@ -1,12 +1,9 @@
 ---
-title: Group and run actions by scope - Azure Logic Apps
+title: Group and run actions by scope
 description: Create scoped actions that run based on group status in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ---

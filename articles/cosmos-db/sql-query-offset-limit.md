@@ -1,6 +1,6 @@
 ---
 title: OFFSET LIMIT clause in Azure Cosmos DB
-description: Learn about the OFFSET LIMIT clause for Azure Cosmos DB.
+description: Learn how to use the OFFSET LIMIT clause to skip and take some certain values when querying in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -32,7 +32,11 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## Remarks
   
-  Both the OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause. If an optional `ORDER BY` clause is used, the result set is produced by doing the skip over the ordered values. Otherwise, the query will return a fixed order of values. Currently this clause is supported for queries within a single partition only, cross-partition queries don't yet support it.
+  Both the `OFFSET` count and the `LIMIT` count are required in the `OFFSET LIMIT` clause. If an optional `ORDER BY` clause is used, the result set is produced by doing the skip over the ordered values. Otherwise, the query will return a fixed order of values.
+
+  The RU charge of a query with `OFFSET LIMIT` will increase as the number of terms being offset increases. For queries that have multiple pages of results, we typically recommend using continuation tokens. Continuation tokens are a "bookmark" for the place where the query can later resume. If you use `OFFSET LIMIT`, there is no "bookmark". If you wanted to return the query's next page, you would have to start from the beginning.
+  
+  You should use `OFFSET LIMIT` for cases when you would like to skip documents entirely and save client resources. For example, you should use `OFFSET LIMIT` if you want to skip to the 1000th query result and have no need to view results 1 through 999. On the backend, `OFFSET LIMIT` still loads each document, including those that are skipped. The performance advantage is a savings in client resources by avoiding processing documents that are not needed.
 
 ## Examples
 

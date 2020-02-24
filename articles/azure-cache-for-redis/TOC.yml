@@ -1,5 +1,5 @@
 - name: Azure Cache for Redis Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Azure Cache for Redis
@@ -53,6 +53,8 @@
       href: cache-how-to-premium-vnet.md
     - name: Set up geo-replication
       href: cache-how-to-geo-replication.md
+    - name: Save with reserved capacity
+      href: cache-reserved-pricing.md
     - name: Migrate from Managed Cache Service
       href: cache-migrate-to-redis.md
   - name: Automate

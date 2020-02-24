@@ -1,22 +1,9 @@
 ---
-title: Set up your development environment on Linux | Microsoft Docs
+title: Set up your development environment on Linux 
 description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you'll be ready to build applications.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
 
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-
 ---
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]

@@ -1,5 +1,5 @@
 ---
-title: Add a multitenant application to the Azure AD application gallery | Microsoft Docs
+title: Add multitenant app to Azure AD application gallery | Microsoft Docs
 description:  Explains how you can list your custom-developed multitenant application in the Azure AD application gallery.
 services: active-directory
 documentationCenter: na
@@ -18,7 +18,6 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 
-ms.collection: M365-identity-device-management
 ---
 
 # Add a multitenant application to the Azure AD application gallery

@@ -130,8 +130,8 @@ Use the downloaded profile to configure the remote access clients. The procedure
 1. Download and install the OpenVPN client from the official website.
 2. Download the VPN profile for the gateway. This can be done from the User VPN configurations tab in Azure portal, or New-AzureRmVpnClientConfiguration in PowerShell.
 3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
-4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
-5. Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.
+4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here [how to export a certificate to get the encoded public key.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site)
+5. Fill in the private key section with the P2S client certificate private key in base64. See here [how to extract private key.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients#windows)
 6. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
 7. Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
 8. Right-click the OpenVPN icon in the system tray and click connect.
@@ -141,7 +141,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package.
 2. Double-click the package to install it. If you see a SmartScreen popup, click More info, then Run anyway.
 3. On the client computer, navigate to Network Settings and click VPN. The VPN connection shows the name of the virtual network that it connects to.
-4. Before you attempt to connect, verify that you have installed a client certificate on the client computer. A client certificate is required for authentication when using the native Azure certificate authentication type. For more information about generating certificates, see Generate Certificates. For information about how to install a client certificate, see Install a client certificate.
+4. Before you attempt to connect, verify that you have installed a client certificate on the client computer. A client certificate is required for authentication when using the native Azure certificate authentication type. For more information about generating certificates, see [Generate Certificates](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site). For information about how to install a client certificate, see Install a client certificate.
 
 ## <a name="viewwan"></a>View your virtual WAN
 
@@ -160,7 +160,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Next steps

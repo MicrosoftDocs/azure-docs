@@ -1,28 +1,24 @@
 ---
-title: Understand  the Android Microsoft Authentication Library (MSAL) configuration file 
+title: Android MSAL configuration file | Azure
 titleSuffix: Microsoft identity platform
 description: An overview of the Android Microsoft Authentication Library (MSAL) configuration file, which represents an application's configuration in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
+
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
 ---
 
-# Android Microsoft Authentication Library (MSAL) configuration file
+# Android Microsoft Authentication Library configuration file
 
-MSAL ships with a [default configuration JSON file](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) that you customize to define the behavior of your public client app for things such as the default authority, which authorities you'll use, and so on.
+The Android Microsoft Authentication Library (MSAL) ships with a [default configuration JSON file](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) that you customize to define the behavior of your public client app for things such as the default authority, which authorities you'll use, and so on.
 
 This article will help you understand the various settings in the configuration file and how to specify the configuration file to use in your MSAL-based app.
 

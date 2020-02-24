@@ -1,5 +1,5 @@
 ---
-title: Use Python to connect to Azure Database for PostgreSQL - Single Server
+title: Connect with Python - Azure Database for PostgreSQL - Single Server
 description: This quickstart provides Python code samples that you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
@@ -10,15 +10,19 @@ ms.topic: quickstart
 ms.date: 11/07/2019
 ---
 
-# Use Python to connect and query data in Azure Database for PostgreSQL - Single Server
-This quickstart demonstrates how to work with an Azure Database for PostgreSQL using Python on macOS, Ubuntu Linux, or Windows. The quickstart shows how to connect to the database and use SQL statements to query, insert, update, and delete data. The article assumes that you're familiar with Python, but new to working with Azure Database for PostgreSQL.
+# Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Single Server
+
+In this quickstart, you work with an Azure Database for PostgreSQL using Python on macOS, Ubuntu Linux, or Windows. The quickstart shows how to connect to the database and use SQL statements to query, insert, update, and delete data. The article assumes that you're familiar with Python, but new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
-- An Azure Database for PostgreSQL - Single Server, created by using the steps in [Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal](quickstart-create-server-database-portal.md) or [Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI](quickstart-create-server-database-azure-cli.md). 
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+- Completion of [Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal](quickstart-create-server-database-portal.md) or [Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI](quickstart-create-server-database-azure-cli.md).
   
 - [Python](https://www.python.org/downloads/) 2.7.9+ or 3.4+.
   
-- The latest update of [pip](https://pip.pypa.io/en/stable/installing/) package installer, installed using `pip install -U pip`. 
+- Latest [pip](https://pip.pypa.io/en/stable/installing/) package installer.
 
 ## Install the Python libraries for PostgreSQL
 The [psycopg2](https://pypi.python.org/pypi/psycopg2/) module enables connecting to and querying a PostgreSQL database, and is available as a Linux, macOS, or Windows [wheel](https://pythonwheels.com/) package. Install the binary version of the module, including all the dependencies. For more information about `psycopg2` installation and requirements, see [Installation](http://initd.org/psycopg/docs/install.html). 

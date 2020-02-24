@@ -1,6 +1,6 @@
 ---
 title: LOG in Azure Cosmos DB query language
-description: Learn about SQL system function LOG in Azure Cosmos DB.
+description: Learn about the LOG SQL system function in Azure Cosmos DB to return the natural logarithm of the specified numeric expression
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

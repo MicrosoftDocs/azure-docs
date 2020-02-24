@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -31,8 +31,6 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Create and initialize a project
 
 1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
@@ -48,7 +46,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     import com.google.gson.JsonParser;
     ```
 
-2. Create a new class, with variables for the API endpoint, your subscription key, and search term.
+2. Create a new class, with variables for the API endpoint, your subscription key, and search term. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {

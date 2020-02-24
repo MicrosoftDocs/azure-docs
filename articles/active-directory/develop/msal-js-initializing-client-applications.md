@@ -1,25 +1,20 @@
 ---
-title: Initialize client applications (Microsoft Authentication Library for JavaScript) 
+title: Initialize MSAL.js client apps | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about initializing client applications using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Initialize client applications using MSAL.js
@@ -117,7 +112,7 @@ Below is the total set of configurable options that are supported currently in t
         * `https://login.microsoftonline.com/common`- Used to sign in users with work and school accounts or a Microsoft personal account.
         * `https://login.microsoftonline.com/organizations/`- Used to sign in users with work and school accounts.
         * `https://login.microsoftonline.com/consumers/` - Used to sign in users with only personal Microsoft account (live).
-    * In Azure AD B2C, it is of the form `https://<instance>/tfp/<tenant>/<policyName>/`, where instance is the Azure AD B2C domain, tenant is the name of the Azure AD B2C tenant, policyName is the name of the B2C policy to apply.
+    * In Azure AD B2C, it is of the form `https://<instance>/tfp/<tenant>/<policyName>/`, where instance is the Azure AD B2C domain i.e. {your-tenant-name}.b2clogin.com, tenant is the name of the Azure AD B2C tenant i.e. {your-tenant-name}.onmicrosoft.com, policyName is the name of the B2C policy to apply.
 
 
 - **validateAuthority**: Optional.  Validate the issuer of tokens. Default is `true`. For B2C applications, since the authority value is known and can be different per policy, the authority validation will not work and has to be set to `false`.

@@ -150,9 +150,9 @@
     - name: .NET custom activity
       href: data-factory-use-custom-activities.md
     - name: Invoke R scripts
-      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample
+      href: https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample
     - name: Reprocess models in Azure Analysis Services
-      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample
+      href: https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample
     - name: Compute Linked Services
       href: data-factory-compute-linked-services.md
   - name: Develop

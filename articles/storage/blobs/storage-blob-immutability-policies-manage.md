@@ -53,7 +53,7 @@ This article shows how to set and manage immutability policies and legal holds f
 
     !["Tag name" box under the policy type](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
 
-9. To clear a legal hold, simply remove the applied legal hold identifier tag.
+9. To clear a legal hold, remove the applied legal hold identifier tag.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -70,7 +70,7 @@ The Az.Storage module supports immutable storage.  To enable the feature, follow
 2. Remove any previous installation of Azure PowerShell.
 3. Install Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
-The following sample PowerShell script is for reference. This script creates a new storage account and container. It then shows you how to set and clear legal holds, create and lock a time-based retention policy (also known as an immutability policy), and extend the retention interval.
+The following sample PowerShell script is for reference. This script creates a new storage account and container. It then shows you how to set and clear legal holds, create, and lock a time-based retention policy (also known as an immutability policy), and extend the retention interval.
 
 First, create an Azure Storage account:
 
@@ -162,6 +162,20 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 ```
 
 ---
+
+## Enabling allow protected append blobs writes
+
+At this time, you can only access the `allowProtectedAppendWrites` setting for time-based retention policies through this specific [portal link](https://aka.ms/immutableappendblobs). 
+
+> [!IMPORTANT] 
+>  The allow protected append blobs writes setting under time-based retention is currently available and visible only in the following regions:
+> - East US
+> - South Central US
+> - West US 2
+>
+> For more information, see [Allow Protected Append Blobs Writes](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+![Allow additional append writes](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
 ## Next steps
 

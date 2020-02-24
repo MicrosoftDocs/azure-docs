@@ -54,7 +54,7 @@ You can also choose to have all *Global Administrators* of the Azure AD director
 To review the existing email notification recipients or add additional recipients, complete the following steps:
 
 1. In the Azure portal, search for and select **Azure AD Domain Services**.
-1. Select your Azure AD DS managed domain, such as *contoso.com*.
+1. Select your Azure AD DS managed domain, such as *aadds.contoso.com*.
 1. On the left-hand side of the Azure AD DS resource window, select **Notification settings**. The existing recipients for email notifications are shown.
 1. To add an email recipient, enter the email address in the additional recipients table.
 1. When done, select **Save** on the top-hand navigation.

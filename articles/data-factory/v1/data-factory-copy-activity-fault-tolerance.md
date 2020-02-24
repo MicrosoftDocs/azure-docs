@@ -4,12 +4,12 @@ description: Learn how to add fault tolerance in Azure Data Factory Copy Activit
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 03/27/2018

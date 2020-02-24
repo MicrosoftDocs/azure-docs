@@ -169,7 +169,7 @@ There are two ways to execute and debug Hive/LLAP queries within an HDInsight 3.
 
 In HDInsight 4.0, HiveCLI has been replaced with Beeline. HiveCLI is a thrift client for Hiveserver 1, and Beeline is a JDBC client that provides access to Hiveserver 2. Beeline can also be used to connect to any other JDBC-compatible database endpoint. Beeline is available out-of-box on HDInsight 4.0 without any installation needed.
 
-In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari Hive View. HDInsight 4.0 replaces the Hive View with Hortonworks Data Analytics Studio (DAS). DAS doesn't ship with HDInsight clusters out-of-box and isn't an officially supported package. However, DAS can be installed on the cluster using a [script action](../hdinsight-hadoop-customize-cluster-linux.md) as follows:
+In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari Hive View. HDInsight 4.0 does not ship with Ambari View. We have provided a way for our customers to use Data Analytics Studio (DAS), which is not a core HDInsight service. DAS doesn't ship with HDInsight clusters out-of-the-box and isn't an officially supported package. However, DAS can be installed on the cluster using a [script action](../hdinsight-hadoop-customize-cluster-linux.md) as follows:
 
 |Property | Value |
 |---|---|
@@ -178,7 +178,9 @@ In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari 
 |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |Node type(s)|Head|
 
-Wait 5 to 10 minutes, then launch Data Analytics Studio by using this URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
+Wait 10 to 15 minutes, then launch Data Analytics Studio by using this URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
+
+A refresh of the Ambari UI and/or a restart of all Ambari components may be required before accessing DAS.
 
 Once DAS is installed, if you don't see the queries you’ve run in the queries viewer, do the following steps:
 

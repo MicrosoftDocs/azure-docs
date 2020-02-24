@@ -3,7 +3,7 @@ title: Useful resources when working with Azure Sentinel| Microsoft Docs
 description: This document provides you with a list of useful resources when working with Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2019
-ms.author: rkarlin
+ms.date: 12/02/2019
+ms.author: yelevin
 
 ---
 # Useful resources for working with Azure Sentinel
@@ -28,7 +28,7 @@ Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
 
 
 ## Auditing and reporting
-Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/platform/activity-logs-overview.md).
+Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/platform/platform-logs-overview.md).
 
 The following supported operations can be audited.
 
@@ -40,17 +40,15 @@ The following supported operations can be audited.
 |Delete Workflow	|Microsoft.Logic/workflows|
 |Create Saved Search	|Microsoft.OperationalInsights/workspaces/savedSearches|
 |Delete Saved Search	|Microsoft.OperationalInsights/workspaces/savedSearches|
-|Set Dashboard	|Microsoft.Portal/dashboards|
-|Delete Dashboard	|Microsoft.Portal/dashboards|
 |Update Alert Rules	|Microsoft.SecurityInsights/alertRules|
 |Delete Alert Rules	|Microsoft.SecurityInsights/alertRules|
-|Update Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules|
-|Delete Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules|
+|Update Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules/actions|
+|Delete Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules/actions|
 |Update Bookmarks	|Microsoft.SecurityInsights/bookmarks|
 |Delete Bookmarks	|Microsoft.SecurityInsights/bookmarks|
 |Update Cases	|Microsoft.SecurityInsights/Cases|
-|Update Case Investigation	|Microsoft.SecurityInsights/Cases|
-|Create Case Comments	|Microsoft.SecurityInsights/Cases|
+|Update Case Investigation	|Microsoft.SecurityInsights/Cases/investigations|
+|Create Case Comments	|Microsoft.SecurityInsights/Cases/comments|
 |Update Data Connectors	|Microsoft.SecurityInsights/dataConnectors|
 |Delete Data Connectors	|Microsoft.SecurityInsights/dataConnectors|
 |Update Settings	|Microsoft.SecurityInsights/settings|

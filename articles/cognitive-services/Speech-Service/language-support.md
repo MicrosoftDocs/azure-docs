@@ -1,67 +1,76 @@
 ---
-title: Language support - Speech Service
+title: Language support - Speech service
 titleSuffix: Azure Cognitive Services
-description: The Speech Service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
+description: The Speech service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: erhopf
+ms.date: 01/31/2020
+ms.author: dapine
 ms.custom: seodec18
 ---
 
-# Language and region support for the Speech Services
+# Language and region support for the Speech service
 
-Language support varies by Speech Service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), and [Speech translation](#speech-translation) service offerings.
+Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), and [Speech translation](#speech-translation) service offerings.
 
 ## Speech-to-text
 
-Both the Microsoft Speech SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences.  Pronunciation customization is currently only available for `en-US` and `de-DE`. Learn more about customization [here](how-to-custom-speech.md).
+Both the Microsoft Speech SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences. Pronunciation customization is currently only available for `en-US` and `de-DE`. Learn more about customization [here](how-to-custom-speech.md).
 
- Locale | Language | Supported | Customizable
+<!--
+To get the AM and ML bits:
+https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
+
+To get pronunciation bits:
+https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
+-->
+
+ Locale | Language | Supported | Customizations
 ------|------------|-----------|-------------
-`ar-EG` | Arabic (Egypt), modern standard | Yes | Yes
-`ar-SA` | Arabic (Saudi Arabia) | Yes | Yes
-`ar-AE` | Arabic (UAE) | Yes | Yes
-`ar-KW` | Arabic (Kuwait) | Yes | Yes
-`ar-QA` | Arabic (Qatar) | Yes | Yes
-`ca-ES` | Catalan | Yes | No
-`da-DK` | Danish (Denmark) | Yes | No
-`de-DE` | German (Germany) | Yes | Yes
-`en-AU` | English (Australia) | Yes | Yes
-`en-CA` | English (Canada) | Yes | Yes
-`en-GB` | English (United Kingdom) | Yes | Yes
-`en-IN` | English (India) | Yes | Yes
-`en-NZ` | English (New Zealand) | Yes | Yes
-`en-US` | English (United States) | Yes | Yes
-`es-ES` | Spanish (Spain) | Yes | Yes
-`es-MX` | Spanish (Mexico) | Yes | Yes
-`fi-FI` | Finnish (Finland) | Yes | No
-`fr-CA` | French (Canada) | Yes | Yes
-`fr-FR` | French (France) | Yes | Yes
-`gu-IN` | Gujarati (Indian) | Yes | Yes
-`hi-IN` | Hindi (India) | Yes | Yes
-`it-IT` | Italian (Italy) | Yes | Yes
-`ja-JP` | Japanese (Japan) | Yes | Yes
-`ko-KR` | Korean (Korea) | Yes | Yes
-`mr-IN` | Marathi (India) | Yes | Yes
-`nb-NO` | Norwegian (Bokmål) (Norway) | Yes | No
-`nl-NL` | Dutch (Netherlands) | Yes | Yes
-`pl-PL` | Polish (Poland) | Yes | No
-`pt-BR` | Portuguese (Brazil) | Yes | Yes
-`pt-PT` | Portuguese (Portugal) | Yes | Yes
-`ru-RU` | Russian (Russia) | Yes | Yes
-`sv-SE` | Swedish (Sweden) | Yes | No
-`ta-IN` | Tamil (India) | Yes | Yes
-`te-IN` | Telugu (India) | Yes | Yes
-`zh-CN` | Chinese (Mandarin, simplified) | Yes | Yes
-`zh-HK` | Chinese (Cantonese, Traditional) | Yes | Yes
-`zh-TW` | Chinese (Taiwanese Mandarin) | Yes | Yes
+`ar-AE` | Arabic (UAE) | Yes | No
+`ar-BH` | Arabic (Bahrain) | Yes | Language model
+`ar-EG` | Arabic (Egypt), modern standard | Yes | Language model
+`ar-KW` | Arabic (Kuwait) | Yes | No
+`ar-QA` | Arabic (Qatar) | Yes | No
+`ar-SA` | Arabic (Saudi Arabia) | Yes | No
+`ca-ES` | Catalan | Yes | Language model
+`da-DK` | Danish (Denmark) | Yes | Language model
+`de-DE` | German (Germany) | Yes | Acoustic model<br>Language model<br>Pronunciation
+`en-AU` | English (Australia) | Yes | Acoustic model<br>Language model
+`en-CA` | English (Canada) | Yes | Acoustic model<br>Language model
+`en-GB` | English (United Kingdom) | Yes | Acoustic model<br>Language model<br>Pronunciation
+`en-IN` | English (India) | Yes | Acoustic model<br>Language model
+`en-NZ` | English (New Zealand) | Yes | Acoustic model<br>Language model
+`en-US` | English (United States) | Yes | Acoustic model<br>Language model<br>Pronunciation
+`es-ES` | Spanish (Spain) | Yes | Acoustic model<br>Language model
+`es-MX` | Spanish (Mexico) | Yes | Acoustic model<br>Language model
+`fi-FI` | Finnish (Finland) | Yes | Language model
+`fr-CA` | French (Canada) | Yes | Acoustic model<br>Language model
+`fr-FR` | French (France) | Yes | Acoustic model<br>Language model<br>Pronunciation
+`gu-IN` | Gujarati (Indian) | Yes | Language model
+`hi-IN` | Hindi (India) | Yes | Acoustic model<br>Language model
+`it-IT` | Italian (Italy) | Yes | Acoustic model<br>Language model<br>Pronunciation
+`ja-JP` | Japanese (Japan) | Yes | Language model
+`ko-KR` | Korean (Korea) | Yes | Language model
+`mr-IN` | Marathi (India) | Yes | Language model
+`nb-NO` | Norwegian (Bokmål) (Norway) | Yes | Language model
+`nl-NL` | Dutch (Netherlands) | Yes | Language model
+`pl-PL` | Polish (Poland) | Yes | Language model
+`pt-BR` | Portuguese (Brazil) | Yes | Acoustic model<br>Language model<br>Pronunciation
+`pt-PT` | Portuguese (Portugal) | Yes | Language model
+`ru-RU` | Russian (Russia) | Yes | Acoustic model<br>Language model
+`sv-SE` | Swedish (Sweden) | Yes | Language model
+`ta-IN` | Tamil (India) | Yes | Language model
+`te-IN` | Telugu (India) | Yes | No
 `th-TH` | Thai (Thailand) | Yes | No
-`tr-TR` | Turkey | Yes | Yes
+`tr-TR` | Turkish (Turkey) | Yes | No
+`zh-CN` | Chinese (Mandarin, simplified) | Yes | Acoustic model<br>Language model
+`zh-HK` | Chinese (Cantonese, Traditional) | Yes | Language model
+`zh-TW` | Chinese (Taiwanese Mandarin) | Yes | Language model
 
 ## Text-to-speech
 
@@ -76,7 +85,7 @@ Neural text-to-speech is a new type of speech synthesis powered by deep neural n
 
 Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
 
-For a full list of neural voices and regional availability, see [regions](regions.md#standard-and-neural-voices).
+For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
 
 Locale | Language | Gender | Full service name mapping | Short voice name
 --------|----------|--------|---------|------------
@@ -85,6 +94,8 @@ Locale | Language | Gender | Full service name mapping | Short voice name
 `en-US` | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
 `it-IT` | Italian (Italy) | Female |"Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" | "it-IT-ElsaNeural"
 `zh-CN` | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
+
+To learn how you can configure and adjust neural voices, see [Speech synthesis markup language](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!NOTE]
 > You can use either the full service name mapping or the short voice name in your speech synthesis requests.
@@ -95,7 +106,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 
 Locale | Language | Gender | Full service name mapping | Short name
 -------|----------|---------|----------|----------
-<sup>&dagger;</sup>`ar-EG` | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
+<sup>1</sup>`ar-EG` | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
 `ar-SA` | Arabic (Saudi Arabia) | Male | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
 `bg-BG` | Bulgarian | Male | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)" | "bg-BG-Ivan"
 `ca-ES` | Catalan (Spain) | Female | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ca-ES-HerenaRUS"
@@ -165,7 +176,7 @@ Locale | Language | Gender | Full service name mapping | Short name
 `ta-IN` | Tamil (India) | Male | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)" | "ta-IN-Valluvar"
 `te-IN` | Telugu (India) | Female | "Microsoft Server Speech Text to Speech Voice (te-IN, Chitra)" | "te-IN-Chitra"
 `th-TH` | Thai | Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)" | "th-TH-Pattara"
-`tr-TR` | Turkish | Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)" | "tr-TR-SedaRUS"
+`tr-TR` | Turkish (Turkey) | Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)" | "tr-TR-SedaRUS"
 `vi-VN` | Vietnamese | Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)" | "vi-VN-An"
 `zh-CN` | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)" | "zh-CN-HuihuiRUS"
 | | | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)" | "zh-CN-Yaoyao-Apollo"
@@ -177,7 +188,7 @@ Locale | Language | Gender | Full service name mapping | Short name
 | | | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS"
 | | | Male | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar-EG supports Modern Standard Arabic (MSA).*
+**1** *ar-EG supports Modern Standard Arabic (MSA).*
 
 > [!NOTE]
 > You can use either the full service name mapping or the short voice name in your speech synthesis requests.
@@ -224,8 +235,10 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Hmong Daw      | `mww`          |
 | Hungarian      | `hu`          |
 | Indonesian      | `id`          |
+| Irish      | `ga`          |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
+| Kannada      | `kn`          |
 | Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Klingon (plqaD)      | `tlh-Qaak`          |
@@ -234,11 +247,14 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Lithuanian      | `lt`          |
 | Malagasy      | `mg`          |
 | Malay      | `ms`          |
+| Malayalam      | `ml`          |
 | Maltese      | `mt`          |
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
-| Portuguese      | `pt`          |
+| Portuguese (Brazil)      | `pt-br`          |
+| Portuguese (Portugal)      | `pt-pt`          |
+| Punjabi      | `pa`          |
 | Queretaro Otomi      | `otq`          |
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
@@ -264,5 +280,5 @@ The **Speech Translation** API supports different languages for speech-to-speech
 
 ## Next steps
 
-* [Get your Speech Services trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [Get your Speech service trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 * [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

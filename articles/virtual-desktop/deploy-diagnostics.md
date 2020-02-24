@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/18/2019
 ms.author: helohr
 ---
 
@@ -32,8 +32,8 @@ You need to create an Azure Active Directory App Registration and a Log Analytic
 
 You also need to install these two PowerShell modules before you get started:
 
-- [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.4.0)
-- [Azure AD module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- [Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.4.0/)
+- [Azure AD module](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
 
 Make sure you have your Subscription ID ready for when you sign in.
 
@@ -249,6 +249,11 @@ You can also interact with users on the session host:
 
     - Threshold: Higher than 80% is marked as unhealthy.
 
-- [User Input Delay per Session(\*)\\Max Input Delay](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [User Input Delay per Session(\*)\\Max Input Delay](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
 
     - Threshold: Higher than 2000 ms is marked as unhealthy.
+
+## Next steps
+
+- Learn how to monitor activity logs at [Use diagnostics with Log Analytics](diagnostics-log-analytics.md).
+- Read about common error scenarios and how to fix them at [Identify and diagnose issues](diagnostics-role-service.md).

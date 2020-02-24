@@ -1,25 +1,20 @@
 ---
-title: Acquire a token and call Microsoft Graph API using console app's identity | Azure
+title: Get token & call Microsoft Graph with console app identity | Azure
 titleSuffix: Microsoft identity platform
-description: Learn how a .NET Core process can get an access token and call an API protected by Microsoft identity platform endpoint using the app's own identity
+description: Learn how to get a token and call a protected Microsoft Graph API with it from a .NET Core app
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40 
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API using console app's identity

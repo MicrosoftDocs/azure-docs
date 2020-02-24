@@ -401,7 +401,7 @@ When you submit a job to an HDInsight cluster by using Data Lake Storage Gen2, y
 
 > [!NOTE]
 >
-> You can get the access key for the storage account from the Azure portal. For more information, see [View and copy access keys](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
+> You can get the access key for the storage account from the Azure portal. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 
 ## Unlink cluster
 

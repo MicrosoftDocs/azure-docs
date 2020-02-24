@@ -1,10 +1,10 @@
 ---
 title: FROM clause in Azure Cosmos DB
-description: Learn about SQL FROM clause for Azure Cosmos DB
+description: Learn about the SQL syntax, and example for FROM clause for Azure Cosmos DB. This article also shows examples to scope results, and get sub items by using the FROM clause.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 12/02/2019
 ms.author: tisande
 
 ---
@@ -74,9 +74,9 @@ FROM <from_specification>
   
   Specifies that document should be retrieved from the other source defined by the provided alias.  
   
-- `<container_expression> '.' property_`  
+- `<container_expression> '.' property_name`  
   
-  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified container expression.  
+  Specifies that document should be retrieved by accessing the `property_name` property.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   

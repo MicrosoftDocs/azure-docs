@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -27,9 +27,6 @@ This page covers a new installation of the server and setting it up with on-prem
 > As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
 
 ## Plan your deployment
-
-> [!WARNING]
-> Starting in March of 2019 MFA Server downloads will only be available to paid tenants. Free/trial tenants will no longer be able to download or generate and use activation credentials.
 
 Before you download the Azure Multi-Factor Authentication Server, think about what your load and high availability requirements are. Use this information to decide how and where to deploy.
 
@@ -93,14 +90,11 @@ If you aren't using the Event Confirmation feature, and your users aren't using 
 
 ## Download the MFA Server
 
-> [!WARNING]
-> Starting in March of 2019 MFA Server downloads will only be available to paid tenants. Free/trial tenants will no longer be able to download or generate and use activation credentials.
-
 Follow these steps to download the Azure Multi-Factor Authentication Server from the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Search for and select *Azure Active Directory*. Select **MFA Server**.
-3. Select **Server settings**.
+2. Search for and select *Azure Active Directory*. Select **Security** > **MFA**.
+3. Under **Manager MFA Server**, select **Server settings**.
 4. Select **Download** and follow the instructions on the download page to save the installer. 
 
    ![Download MFA Server from the Azure portal](./media/howto-mfaserver-deploy/downloadportal.png)
@@ -119,6 +113,9 @@ Now that you have downloaded the server you can install and configure it. Be sur
    ![Skip using the Authentication Configuration Wizard](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Back on the page that you downloaded the server from, click the **Generate Activation Credentials** button. Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
+
+> [!NOTE]
+> Only global administrators are able to generate activation credentials in the Azure portal.
 
 ## Send users an email
 

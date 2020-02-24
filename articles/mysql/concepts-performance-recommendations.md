@@ -1,11 +1,11 @@
 ---
-title: Performance recommendations in Azure Database for MySQL
+title: Performance recommendations - Azure Database for MySQL
 description: This article describes the Performance Recommendation feature in Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/02/2019
 ---
 # Performance Recommendations in Azure Database for MySQL
 

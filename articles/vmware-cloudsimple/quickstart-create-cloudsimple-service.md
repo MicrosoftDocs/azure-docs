@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple Quickstart - Create service 
+title: "Quickstart: Create VMware CloudSimple service"
+titleSuffix: Azure VMware Solution by CloudSimple 
 description: Learn how to create the CloudSimple service, purchase nodes, and reserve nodes  
 author: sharaths-cs 
 ms.author: dikamath 

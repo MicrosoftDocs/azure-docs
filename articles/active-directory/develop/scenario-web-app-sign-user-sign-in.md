@@ -1,6 +1,6 @@
 ---
-title: Web app that signs in users (sign-in) - Microsoft identity platform
-description: Learn how to build a web app that signs in users (sign-in)
+title: Write a web app that signs in/out users - Microsoft identity platform | Azure
+description: Learn how to build a web app that signs in/out users
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,7 +16,6 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Web app that signs in users: Sign-in and sign-out
@@ -116,7 +115,7 @@ in [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/A
 
 In ASP.NET, signing out is triggered from the `SignOut()` method on a controller (for instance, [AccountController.cs#L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23)). This method isn't part of the ASP.NET framework (contrary to what happens in ASP.NET Core). It sends an OpenID sign-in challenge after proposing a redirect URI.
 
-```CSharp
+```csharp
 public void SignIn()
 {
     // Send an OpenID Connect sign-in request.
@@ -342,7 +341,7 @@ In ASP.NET, signing out is triggered from the `SignOut()` method on a controller
 - Clears the cache.
 - Redirects to the page that it wants.
 
-```CSharp
+```csharp
 /// <summary>
 /// Send an OpenID Connect sign-out request.
 /// </summary>
@@ -396,7 +395,7 @@ The post-logout URI enables applications to participate in the global sign-out.
 
 The ASP.NET Core OpenID Connect middleware enables your app to intercept the call to the Microsoft identity platform `logout` endpoint by providing an OpenID Connect event named `OnRedirectToIdentityProviderForSignOut`. For an example of how to subscribe to this event (to clear the token cache), see [Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156).
 
-```CSharp
+```csharp
     // Handling the global sign-out
     options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
     {
@@ -408,7 +407,7 @@ The ASP.NET Core OpenID Connect middleware enables your app to intercept the cal
 
 In ASP.NET, you delegate to the middleware to execute the sign-out, clearing the session cookie:
 
-```CSharp
+```csharp
 public class AccountController : Controller
 {
  ...

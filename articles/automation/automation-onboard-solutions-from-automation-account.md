@@ -2,12 +2,8 @@
 title: Learn how to onboard Update Management, Change Tracking, and Inventory solutions in Azure Automation
 description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
 services: automation
-ms.service: automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 4/11/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: mvc
 ---
 # Onboard Update Management, Change Tracking, and Inventory solutions
@@ -57,7 +53,7 @@ If the selected workspace already has the solution, the solution isn't re-deploy
 
 When a computer is added to the Update Management or the Change Tracking and Inventory solutions, they're added to one of two saved searches in your workspace. These saved searches are queries that contain the computers that are targeted for these solutions.
 
-Navigate to your Automation account and select **Saved searches** under **General**. The two saved searches used by these solutions can be seen in the following table:
+Navigate to your Log Analytics workspace and select **Saved searches** under **General**. The two saved searches used by these solutions can be seen in the following table:
 
 |Name     |Category  |Alias  |
 |---------|---------|---------|

@@ -4,7 +4,7 @@ description: 'Provides information about the Copy Data tool in Azure Data Factor
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 
 ms.service: data-factory

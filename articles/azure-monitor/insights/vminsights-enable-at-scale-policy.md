@@ -4,8 +4,8 @@ description: This article describes how you enable Azure Monitor for VMs for mul
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
 
 ---

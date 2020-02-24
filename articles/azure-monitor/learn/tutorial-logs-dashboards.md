@@ -4,8 +4,8 @@ description: This tutorial helps you understand how Log Analytics dashboards can
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/19/2019
 
 ms.custom: mvc

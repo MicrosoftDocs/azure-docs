@@ -219,4 +219,4 @@ To use parameterized Pig script, do the following:
 * [MapReduce Activity](data-factory-map-reduce.md)
 * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 * [Invoke Spark programs](data-factory-spark.md)
-* [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)

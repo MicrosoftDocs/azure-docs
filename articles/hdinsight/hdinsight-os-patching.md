@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.custom: hdinsightactive
+ms.date: 01/21/2020
 ---
 
 # Configure the OS patching schedule for Linux-based HDInsight clusters
@@ -22,6 +22,19 @@ HDInsight provides support for you to perform common tasks on your cluster such 
 
 > [!NOTE]  
 > Script actions won't automatically apply updates for all future update cycles. Run the scripts each time new updates must be applied to install the updates, and then restart the VM.
+
+## Preparation
+
+Patch on a representative non-production environment prior to  deploying to production. Develop a plan to adequately test your system prior to your actual patching.
+
+From time-to-time, from an ssh session with your cluster, you may receive a message that an upgrade is available. The message may looks something like:
+
+```
+New release '18.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade it
+```
+
+Patching is optional and at your discretion.
 
 ## Restart nodes
   
@@ -51,5 +64,5 @@ The `install-updates-schedule-reboots` script accepts two numeric parameters, as
 
 For specific steps on using script actions, see the following sections in [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md):
 
-* [Use a script action during cluster creation](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
-* [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
+- [Use a script action during cluster creation](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
+- [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

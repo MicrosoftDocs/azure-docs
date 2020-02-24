@@ -1,25 +1,25 @@
 ---
-title: "Quickstart: Recognize speech from a microphone, C# (.NET) - Speech Service"
+title: "Quickstart: Recognize speech from a microphone, C# (.NET) - Speech service"
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
 ---
 
 ## Prerequisites
 
-Before you get started, make sure to:
+Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * Make sure that you have access to a microphone for audio capture
 
 ## Open your project in Visual Studio
 
@@ -35,11 +35,12 @@ Let's add some code that works as a skeleton for our project. Make note that you
 
 ## Create a Speech configuration
 
-Before you can initialize a `SpeechRecognizer` object, you need to create a configuration that uses your subscription key and subscription region. Insert this code in the `RecognizeSpeechAsync()` method.
+Before you can initialize a `SpeechRecognizer` object, you need to create a configuration that uses your subscription key and subscription region (choose the **Region identifier** from [region](https://aka.ms/speech/sdkregion). Insert this code in the `RecognizeSpeechAsync()` method.
 
 > [!NOTE]
 > This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=16)]
+> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ## Initialize a SpeechRecognizer
 

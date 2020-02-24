@@ -1,6 +1,6 @@
 ---
 title: CEILING in Azure Cosmos DB query language
-description: Learn about SQL system function CEILING in Azure Cosmos DB.
+description: Learn about how the CEILING SQL system function in Azure Cosmos DB returns the smallest integer value greater than, or equal to, the specified numeric expression.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

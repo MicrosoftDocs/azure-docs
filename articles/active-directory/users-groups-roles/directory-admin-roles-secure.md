@@ -90,7 +90,7 @@ After you have turned on Azure AD Privileged Identity Management:
 
 2. To select the tenant where you want to use Privileged Identity Management, select your user name in the upper right-hand corner of the Azure portal.
 
-3. Select **All services** and filter the list for **Azure AD Privileged Identity Management**.
+3. On the Azure portal menu, select **All services** and filter the list for **Azure AD Privileged Identity Management**.
 
 4. Open Privileged Identity Management from the **All services** list and pin it to your dashboard.
 
@@ -257,7 +257,7 @@ If you’re already using Azure AD Privileged Identity Management, adjust timefr
 
 #### Determine exposure to password-based sign-in protocols (if using Exchange Online)
 
-In the past, protocols assumed that username/password combinations were embedded in devices, email accounts, phones, and so on. But now with the risk for cyber-attacks in the cloud, we recommend you identify every potential user who, if their credentials were compromised, could be catastrophic to the organization, and exclude them from being able to sign in to their email via username/password by implementing strong authentication requirements and Conditional Access. You can block [legacy authentication using Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Please check the details on [how to block basic authentication](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) through Exchnage online. 
+In the past, protocols assumed that username/password combinations were embedded in devices, email accounts, phones, and so on. But now with the risk for cyber-attacks in the cloud, we recommend you identify every potential user who, if their credentials were compromised, could be catastrophic to the organization, and exclude them from being able to sign in to their email via username/password by implementing strong authentication requirements and Conditional Access. You can block [legacy authentication using Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Please check the details on [how to block basic authentication](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) through Exchange online. 
 
 #### Complete a roles review assessment for Office 365 roles (if using Office 365)
 
@@ -294,7 +294,7 @@ Azure log integration enables you to integrate raw logs from your Azure resource
 
 #### Implement user provisioning for connected apps
 
-Azure AD allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Dropbox, Salesforce, ServiceNow, and so on. For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure AD](../manage-apps/user-provisioning.md).
+Azure AD allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Dropbox, Salesforce, ServiceNow, and so on. For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
 
 #### Integrate information protection
 
@@ -358,7 +358,7 @@ To improve upon your plan, Microsoft recommends you regularly validate that your
 
 ### Additional steps for organizations managing access to Azure 
 
-Determine if you need to [transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md).
+Determine if you need to [transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md).
 ‎
 
 ## "Break glass": what to do in an emergency
@@ -371,7 +371,7 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 3. Access your "break glass" account username/password combination to sign in to Azure AD. 
 
-4. Get help from Microsoft by [opening an Azure support request](../../azure-supportability/how-to-create-azure-support-request.md).
+4. Get help from Microsoft by [opening an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 5. Look at the [Azure AD sign-in reports](../reports-monitoring/overview-reports.md). There may be a lag between an event occurring and when it is included in the report.
 

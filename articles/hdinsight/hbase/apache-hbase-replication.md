@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 12/06/2019
 ---
 
 # Set up Apache HBase cluster replication in Azure virtual networks
@@ -46,7 +46,7 @@ You have three configuration options:
 
 This article covers the geo-replication scenario.
 
-To help you set up the environments, we have created some [Azure Resource Manager templates](../../azure-resource-manager/resource-group-overview.md). If you prefer to set up the environments by using other methods, see:
+To help you set up the environments, we have created some [Azure Resource Manager templates](../../azure-resource-manager/management/overview.md). If you prefer to set up the environments by using other methods, see:
 
 - [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Create Apache HBase clusters in Azure Virtual Network](apache-hbase-provision-vnet.md)
@@ -270,6 +270,10 @@ When you replicate a cluster, you must specify the tables that you want to repli
 
 To create a **Contacts** table and insert some data in the table, follow the instructions at [Apache HBase tutorial: Get started using Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
+> [!NOTE]
+> If you want to replicate tables from a custom namespace, you need to ensure that the appropriate custom namespaces are defined on the destination cluster as well.
+>
+
 ## Enable replication
 
 The following steps describe how to call the script action script from the Azure portal. For information about running a script action by using Azure PowerShell and the Azure Classic CLI, see [Customize HDInsight clusters by using script action](../hdinsight-hadoop-customize-cluster-linux.md).
@@ -291,6 +295,8 @@ The following steps describe how to call the script action script from the Azure
     
       > [!NOTE]
       > Use hostname instead of FQDN for both the source and destination cluster DNS name.
+      >
+      > This walkthrough assumes hn1 as active headnode. Please check your cluster to identify the active head node.
 
 6. Select **Create**. The script can take a while to run, especially when you use the **-copydata** argument.
 
@@ -310,7 +316,7 @@ Optional arguments:
 |-su, --src-ambari-user | Specifies the admin user name for Ambari on the source HBase cluster. The default value is **admin**. |
 |-du, --dst-ambari-user | Specifies the admin user name for Ambari on the destination HBase cluster. The default value is **admin**. |
 |-t, --table-list | Specifies the tables to be replicated. For example: --table-list="table1;table2;table3". If you don't specify tables, all existing HBase tables are replicated.|
-|-m, --machine | Specifies the head node where the script action runs. The value is either **hn0** or **hn1** and should be chosen based on which is the active head node. Use this option when you're running the $0 script as a script action from the HDInsight portal or Azure PowerShell.|
+|-m, --machine | Specifies the head node where the script action runs. The value should be chosen based on which is the active head node. Use this option when you're running the $0 script as a script action from the HDInsight portal or Azure PowerShell.|
 |-cp, -copydata | Enables the migration of existing data on the tables where replication is enabled. |
 |-rpm, -replicate-phoenix-meta | Enables replication on Phoenix system tables. <br><br>*Use this option with caution.* We recommend that you re-create Phoenix tables on replica clusters before you use this script. |
 |-h, --help | Displays usage information. |
@@ -388,6 +394,10 @@ The `print_usage()` section of the [script](https://raw.githubusercontent.com/Az
 - **Disable replication on specified tables (table1, table2, and table3)**:
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+
+> [!NOTE]
+> If you intend to delete the destination cluster, make sure you remove it from the peer list of the source cluster. This can be done by running the command remove_peer '1' at the hbase shell on the source cluster. Failing this the source cluster may not function properly.
+>
 
 ## Next steps
 

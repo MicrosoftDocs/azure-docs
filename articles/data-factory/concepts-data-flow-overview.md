@@ -1,12 +1,13 @@
 ---
-title: Mapping data flows in Azure Data Factory 
+title: Mapping data flows
 description: An overview of mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/7/2019
+ms.custom: seo-lt-2019
+ms.date: 12/19/2019
 ---
 
 # What are mapping data flows?
@@ -54,6 +55,8 @@ You can instruct ADF to maintain a pool of cluster resources (VMs) by setting a 
 If you execute data flows in a pipeline in parallel, ADF will spin-up separate Azure Databricks clusters for each activity execution based on the settings in your Azure Integration Runtime attached to each activity. To design parallel executions in ADF pipelines, add your data flow activities without precedence constraints in the UI.
 
 Of these three options, this option will likely execute in the shortest amount of time. However, each parallel data flow will execute at the same time on separate clusters, so the ordering of events is non-deterministic.
+
+If you are executing your data flow activities in parallel inside your pipelines, it is recommended to not use TTL. This is because parallel executions of data flows simultaneously using the same Azure Integration Runtime will result in multiple warm pool instances for your data factory.
 
 ##### Overload single data flow
 

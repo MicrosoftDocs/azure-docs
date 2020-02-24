@@ -1,14 +1,6 @@
 ---
-title: Deploy your container from a CI/CD pipeline with GitHub Actions - Azure App Service | Microsoft Docs
-description: Learn how to use GitHub Actions to deploy your container to App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Custom container CI/CD from GitHub Actions
+description: Learn how to use GitHub Actions to deploy your custom Linux container to App Service from a CI/CD pipeline.
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2019
@@ -104,7 +96,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
-    - name: 'Checkout Github Action' 
+    - name: 'Checkout GitHub Action' 
       uses: actions/checkout@master
     
     - name: 'Login via Azure CLI'
@@ -147,7 +139,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
-    - name: 'Checkout Github Action' 
+    - name: 'Checkout GitHub Action' 
       uses: actions/checkout@master
     
     - name: 'Login via Azure CLI'

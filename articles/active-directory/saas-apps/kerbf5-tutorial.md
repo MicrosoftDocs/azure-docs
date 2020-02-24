@@ -269,7 +269,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
  
     ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure12.png)
 
-1. Once the application has been click on **Finish**.
+1. Once the application has been configured click on **Finish**.
 
     ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure13.png)
 
@@ -371,7 +371,7 @@ This adds the new Active Directory server to the Active Directory Servers list.
     >[!Note]
     > You will need the Kerberos Delegation Account to be created and specified. Refer KCD Section (Refer Appendix for Variable References)
 
-    * **Username Source**: session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **Username Source**: session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
 
     * **User Realm Source**: session.logon.last.domain
 

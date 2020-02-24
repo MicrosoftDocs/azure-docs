@@ -1,5 +1,5 @@
 ---
-title: Debug applications with Azure Application Insights in Visual Studio | Microsoft Docs
+title: Debug in Visual Studio with Azure Application Insights
 description: Web app performance analysis and diagnostics during debugging and in production.
 ms.service:  azure-monitor
 ms.subservice: application-insights

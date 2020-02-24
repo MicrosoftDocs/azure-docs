@@ -59,6 +59,9 @@ Run the following commands on all **iSCSI target virtual machines**.
    <pre><code>sudo zypper update
    </code></pre>
 
+   > [!NOTE]
+   > You might need to reboot the OS after you upgrade or update the OS. 
+
 1. Remove packages
 
    To avoid a known issue with targetcli and SLES 12 SP3, uninstall the following packages. You can ignore errors about packages that cannot be found
@@ -543,7 +546,8 @@ Use the following content for the input file. You need to adapt the content to y
   "Actions": [
     "Microsoft.Compute/*/read",
     "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action"
+    "Microsoft.Compute/virtualMachines/start/action", 
+    "Microsoft.Compute/virtualMachines/powerOff/action" 
   ],
   "NotActions": [
   ],

@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell Script Sample - Add application cert to a cluster| Microsoft Docs
+title: Add application cert to a cluster in Powershell
 description: Azure PowerShell Script Sample - Add an application certificate to a Service Fabric cluster.
 services: service-fabric
 documentationcenter: 
@@ -59,7 +59,7 @@ $content = [System.Convert]::ToBase64String($contentbytes)
 $SecretValue = ConvertTo-SecureString -String $content -AsPlainText -Force
 
 # Upload the certificate to the key vault as a secret
-$Secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $CertName -SecretValue $SecretValue
+$Secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $CertName -SecretValue $SecretValue
 
 ```
 

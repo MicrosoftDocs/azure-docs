@@ -9,6 +9,7 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ""
 ms.date: 09/27/2019
+manager: dcscontentpm
 ---
 
 # Azure SQL Database Import/Export service takes a long time to import or export a database
@@ -17,7 +18,7 @@ When you use the Azure SQL Database Import/Export service, the process might tak
 
 ## Azure SQL Database Import/Export service
 
-The Azure SQL Database Import/Export service is a REST-based web service that runs in every Azure data center. This service is called when you use either the [Import database](https://docs.microsoft.com/azure/sql-database/sql-database-import#import-from-a-bacpac-file-in-the-azure-portal) or [Export](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) option to move your SQL database in the Azure portal. The service provides free request queuing and compute services to perform imports and exports between an Azure SQL database and Azure Blob storage.
+The Azure SQL Database Import/Export service is a REST-based web service that runs in every Azure data center. This service is called when you use either the [Import database](sql-database-import.md#using-azure-portal) or [Export](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) option to move your SQL database in the Azure portal. The service provides free request queuing and compute services to perform imports and exports between an Azure SQL database and Azure Blob storage.
 
 The import and export operations don't represent a traditional physical database backup but instead a logical backup of the database that uses a special BACPAC format. The BACPAC format lets you avoid having to use a physical format that might vary between versions of Microsoft SQL Server and Azure SQL Database. Therefore, you can use it to safely restore the database to a SQL Server database and to a SQL database.
 

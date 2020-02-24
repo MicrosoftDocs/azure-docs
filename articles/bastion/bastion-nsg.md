@@ -1,13 +1,13 @@
 ---
-title: Working with VMs and NSGs in Azure Bastion | Microsoft Docs
+title: Working with VMs and NSGs in Azure Bastion
 description: This article describes how to incorporate NSG access with Azure Bastion
 services: bastion
-author: cherylmc
+author: charwen
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.author: cherylmc
+ms.date: 02/03/2020
+ms.author: charwen
 ---
 # Working with NSG access and Azure Bastion
 
@@ -53,7 +53,7 @@ If you create and apply an NSG to ***AzureBastionSubnet***, make sure you have a
 * **Diagnostics logging and others:** Outbound on 443 to AzureCloud. Regional tags within this service tag are not supported yet.
 * **Target VM:** Outbound for 3389 and 22 to VirtualNetwork
 
-An NSG rule example is available for reference in this [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+An NSG rule example is available for reference in this [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 
 ## Next steps
 

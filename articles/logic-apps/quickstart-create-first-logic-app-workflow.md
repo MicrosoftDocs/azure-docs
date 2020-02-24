@@ -1,13 +1,9 @@
 ---
-title: Create your first automated workflow - Azure Logic Apps
+title: Create your first automated workflow
 description: Quickstart - Build your first automated workflow by using Azure Logic Apps for system integration and enterprise application integration (EAI) solutions
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
@@ -45,7 +41,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
    |----------|-------|-------------|
    | **Name** | <*logic-app-name*> | Your logic app name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "My-First-Logic-App". |
    | **Subscription** | <*Azure-subscription-name*> | Your Azure subscription name |
-   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize related resources. This example uses "My-First-LA-RG". |
+   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) used to organize related resources. This example uses "My-First-LA-RG". |
    | **Location** | <*Azure-region*> | The region where to store your logic app information. This example uses "West US". |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
@@ -117,8 +113,8 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
    > [!NOTE]
    > In this specific example, you manually authenticate your identity. However, connectors that require authentication differ in 
    > the authentication types that they support. You also have options to set up the way that you want to handle authentication. 
-   > For example, when you use Azure Resource Manager templates for deployment, you can parameterize and secure inputs that 
-   > you want to change often or easily, such as connection information. For more information, see these topics:
+   > For example, when you use Azure Resource Manager templates for deployment, you can parameterize and improve security on inputs 
+   > that you want to change often or easily, such as connection information. For more information, see these topics:
    >
    > * [Template parameters for deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
    > * [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)

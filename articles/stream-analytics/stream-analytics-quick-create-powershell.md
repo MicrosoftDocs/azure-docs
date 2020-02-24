@@ -1,7 +1,6 @@
 ---
-title: Create a Stream Analytics job using Azure PowerShell
+title: Quickstart - Create a Stream Analytics job using Azure PowerShell
 description: This quickstart demonstrates how to use the Azure PowerShell module to deploy and run an Azure Stream Analytics job.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 12/20/2018

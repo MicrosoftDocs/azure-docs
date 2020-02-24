@@ -1,13 +1,13 @@
 ---
-title: Create an Azure Cosmos database from the Azure portal.
-description: Create an Azure Cosmos database, container, and items by using the Azure portal.
+title: Quickstart - Create Azure Cosmos DB resources from the Azure portal
+description: This quickstart shows how to create an Azure Cosmos database, container, and items by using the Azure portal.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/01/2019
+ms.date: 01/05/2020
 ---
 # Quickstart: Create an Azure Cosmos account, database, container, and items from the Azure portal
 
@@ -94,6 +94,12 @@ Add data to your new database using Data Explorer.
 ## Clean up resources
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+
+If you wish to delete just the database and use the Azure Cosmos account in future, you can delete the database with the following steps:
+
+* Got to your Azure Cosmos account.
+* Open **Data Explorer**, right click on the database that you want to delete and select **Delete Database**.
+* Enter the Database ID/database name to confirm the delete operation. 
 
 ## Next steps
 

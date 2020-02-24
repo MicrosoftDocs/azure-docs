@@ -208,7 +208,7 @@ To test the feature for a specific user, ensure that all the following condition
   - The user signs in on a corporate device.
   - The device is joined to your Active Directory domain. The device _doesn't_ need to be [Azure AD Joined](../active-directory-azureadjoin-overview.md).
   - The device has a direct connection to your domain controller (DC), either on the corporate wired or wireless network or via a remote access connection, such as a VPN connection.
-  - You have [rolled out the feature](##step-3-roll-out-the-feature) to this user through Group Policy.
+  - You have [rolled out the feature](#step-3-roll-out-the-feature) to this user through Group Policy.
 
 To test the scenario where the user enters only the username, but not the password:
    - Sign in to `https://myapps.microsoft.com/` in a new private browser session.

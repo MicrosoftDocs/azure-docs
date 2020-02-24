@@ -1,24 +1,31 @@
 ---
-title: Authorize access to Azure blobs and queues using Azure Active Directory | Microsoft Docs
+title: Authorize access to blobs and queues using Active Directory
+titleSuffix: Azure Storage
 description: Authorize access to Azure blobs and queues using Azure Active Directory.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 2/23/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Authorize access to Azure blobs and queues using Azure Active Directory
+# Authorize access to blobs and queues using Azure Active Directory
 
-Azure Storage supports using Azure Active Directory (AD) to authorize requests to Blob and Queue storage. With Azure AD, you can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access a resource in Blob or Queue storage.
+Azure Storage supports using Azure Active Directory (Azure AD) to authorize requests to Blob and Queue storage. With Azure AD, you can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can then be used to authorize a request against Blob or Queue storage.
 
-Authorizing users or applications using an OAuth 2.0 token returned by Azure AD provides superior security and ease of use over Shared Key authorization and shared access signatures (SAS). With Azure AD, there is no need to store the account access key with your code and risk potential security vulnerabilities. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS. Microsoft recommends using Azure AD authorization with your Azure Storage applications when possible.
+Authorizing requests against Azure Storage with Azure AD provides superior security and ease of use over Shared Key authorization. Microsoft recommends using Azure AD authorization with your blob and queue applications when possible to minimize potential security vulnerabilities inherent in Shared Key.
 
-Authorization with Azure AD is available for all general-purpose and Blob storage accounts in all public regions and national clouds. Only storage accounts created with the Azure Resource Manager deployment model support Azure AD authorization. Authorization with Azure AD is not supported for Azure Table storage.
+Authorization with Azure AD is available for all general-purpose and Blob storage accounts in all public regions and national clouds. Only storage accounts created with the Azure Resource Manager deployment model support Azure AD authorization.
+
+Blob storage additionally supports creating shared access signatures (SAS) that are signed with Azure AD credentials. For more information, see [Grant limited access to data with shared access signatures](storage-sas-overview.md).
+
+Azure Files supports authorization with AD (preview) or Azure AD DS (GA) over SMB for domain-joined VMs only. To learn about using AD (preview) or Azure AD DS (GA) over SMB for Azure Files, see [Overview of Azure Files identity-based authentication support for SMB access](../files/storage-files-active-directory-overview.md).
+
+Authorization with Azure AD is not supported for Azure Table storage. Use Shared Key to authorize requests to Table storage.
 
 ## Overview of Azure AD for blobs and queues
 
@@ -72,11 +79,7 @@ The Azure portal indicates which authorization scheme is in use when you navigat
 
 ### Data access from PowerShell or Azure CLI
 
-Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in, your session runs under those credentials. To learn more, see [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](storage-auth-aad-script.md).
-
-## Azure AD authorization over SMB for Azure Files
-
-Azure Files supports authorization with Azure AD over SMB for domain-joined VMs only (preview). To learn about using Azure AD over SMB for Azure Files,see [Overview of Azure Active Directory authorization over SMB for Azure Files (preview)](../files/storage-files-active-directory-overview.md).
+Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in, your session runs under those credentials. To learn more, see [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](authorize-active-directory-powershell.md).
 
 ## Next steps
 

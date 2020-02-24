@@ -44,9 +44,9 @@
   - name: View and manage customers 
     displayName: my customers
     href: ./how-to/view-manage-customers.md
-  - name: View and manage service providers 
-    displayName: customer, update
-    href: ./how-to/view-manage-service-providers.md
+  - name: Use Azure Monitor Logs at scale
+    displayName: log, analytics, analyze, activity
+    href: ./how-to/monitor-at-scale.md
   - name: Azure Policy integration
     items:
     - name: Deploy a policy at scale
@@ -55,6 +55,14 @@
     - name: Deploy a policy that can be remediated
       displayName: deployIfNotExists, modify, managed identities, managed identity
       href: ./how-to/deploy-policy-remediation.md
+  - name: Customer actions
+    items:
+    - name: View and manage service providers 
+      displayName: customer, update
+      href: ./how-to/view-manage-service-providers.md
+    - name: View service provider activity
+      displayName: monitor, log
+      href: ./how-to/view-service-provider-activity.md
 - name: Reference
   items:
   - name: Azure CLI

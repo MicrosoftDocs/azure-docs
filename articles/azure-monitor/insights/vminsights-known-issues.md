@@ -4,8 +4,8 @@ description: This article covers known issues with Azure Monitor for VMs, a solu
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 04/02/2019
 
 ---

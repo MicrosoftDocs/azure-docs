@@ -27,11 +27,11 @@ Which method(s) you choose to deploy in your organization is your discretion.
 
 ## Azure AD access panel
 
-The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end user with [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), you can also utilize self-service group management capabilities through the Access Panel.
+The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch applications to which they have been granted access by the Azure AD administrator. If you are an end user with [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), you can also utilize self-service group management capabilities through the Access Panel.
 
 ![Screenshot shows the Azure AD Access Panel portal](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
-By default, all applications are listed together on a single page. But you can use workspaces to group together related applications and present them on a separate tab, making them easier to find. For example, you can use workspaces to create logical groupings of applications for specific job roles, tasks, projects, and so on. For information, see [How to use My Apps workspaces to customize user access panels (preview)](access-panel-workspaces.md). 
+By default, all applications are listed together on a single page. But you can use collections to group together related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on. For information, see [How to use My Apps collections to customize user access panels](access-panel-collections.md). 
 
 The Access Panel is separate from the Azure portal and does not require users to have an Azure subscription or Office 365 subscription.
 

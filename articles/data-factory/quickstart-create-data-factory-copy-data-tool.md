@@ -4,15 +4,15 @@ description: Create an Azure data factory and then use the Copy Data tool to cop
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+ms.author: yexu
+manager: anandsub
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 06/20/2018
-ms.author: yexu
+ms.date: 06/20/2018 
 ---
+
 # Quickstart: Use the Copy Data tool to copy data
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -49,7 +49,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
    - Select **Use existing**, and select an existing resource group from the list. 
    - Select **Create new**, and enter the name of a resource group.   
          
-   To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+   To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
 1. For **Version**, select **V2**.
 1. For **Location**, select the location for the data factory.
 

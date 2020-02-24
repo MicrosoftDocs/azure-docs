@@ -1,7 +1,7 @@
 ---
 title: Use the Video Indexer API
 titleSuffix: Azure Media Services
-description: A tutorial for getting started with Azure Media Services Video Indexer API.
+description: This article describes how to get started with Azure Media Services Video Indexer API.
 services: media-services
 author: Juliako
 manager: femila
@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 02/03/2020
 ms.author: juliako
 ---
 
@@ -82,7 +82,7 @@ The Account ID parameter is required in all operational API calls. Account ID is
 
 * Use **Video Indexer Developer Portal** to programmatically get the Account ID.
 
-    Use the [Get accounts](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
+    Use the [Get account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) API.
 
     > [!TIP]
     > You can generate access tokens for the accounts by defining `generateAccessTokens=true`.
@@ -210,4 +210,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## Next steps
 
-[Examine details of the output JSON](video-indexer-output-json-v2.md).
+- [Examine details of the output JSON](video-indexer-output-json-v2.md)
+- Check out the [sample code](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) that demonstrates important aspect of uploading and indexing a video. Following the code wil give you a good idea of how to use our API for basic functionalities. Make sure to read the inline comments and notice our best practices advices.
+

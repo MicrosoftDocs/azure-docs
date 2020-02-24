@@ -110,6 +110,9 @@ Microsoft Azure provides various cloud-based computing services that include a w
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 
+### Dedicated hosts
+In addition to the isolated hosts described in the preceding section, Azure also offers dedicated hosts. Dedicated hosts in Azure is a service that provides physical servers that can host one or more virtual machines, and which are dedicated to a single Azure subscription. Dedicated hosts provide hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same datacenters and share the same network and underlying storage infrastructure as other, non-isolated hosts. For more information, see the detailed overview of [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
+
 ### Hyper-V & Root OS Isolation Between Root VM & Guest VMs
 Azure’s compute platform is based on machine virtualization—meaning that all customer code executes in a Hyper-V virtual machine. On each Azure node (or network endpoint), there is a Hypervisor that runs directly over the hardware and divides a node into a variable number of Guest Virtual Machines (VMs).
 
@@ -177,7 +180,7 @@ Communication is permitted from the FC VLAN to the main VLAN, but cannot be init
 ### Logical Isolation Between Compute and Storage
 As part of its fundamental design, Microsoft Azure separates VM-based computation from storage. This separation enables computation and storage to scale independently, making it easier to provide multi-tenancy and isolation.
 
-Therefore, Azure Storage runs on separate hardware with no network connectivity to Azure Compute except logically. [This](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) means that when a virtual disk is created, disk space is not allocated for its entire capacity. Instead, a table is created that maps addresses on the virtual disk to areas on the physical disk and that table is initially empty. **The first time a customer writes data on the virtual disk, space on the physical disk is allocated, and a pointer to it is placed in the table.**
+Therefore, Azure Storage runs on separate hardware with no network connectivity to Azure Compute except logically. This means that when a virtual disk is created, disk space is not allocated for its entire capacity. Instead, a table is created that maps addresses on the virtual disk to areas on the physical disk and that table is initially empty. **The first time a customer writes data on the virtual disk, space on the physical disk is allocated, and a pointer to it is placed in the table.**
 ### Isolation Using Storage Access control
 **Access Control in Azure Storage** has a simple access control model. Each Azure subscription can create one or more Storage Accounts. Each Storage Account has a single secret key that is used to control access to all data in that Storage Account.
 
@@ -188,7 +191,7 @@ Therefore, Azure Storage runs on separate hardware with no network connectivity 
 The SAS means that we can grant a client limited permissions, to objects in our storage account for a specified period of time and with a specified set of permissions. We can grant these limited permissions without having to share your account access keys.
 
 ### IP Level Storage Isolation
-You can establish firewalls and define an IP address range for your trusted clients. With an IP address range, only clients that have an IP address within the defined range can connect to [Azure Storage](../../storage/common/storage-security-guide.md).
+You can establish firewalls and define an IP address range for your trusted clients. With an IP address range, only clients that have an IP address within the defined range can connect to [Azure Storage](../../storage/blobs/security-recommendations.md).
 
 IP storage data can be protected from unauthorized users via a networking mechanism that is used to allocate a dedicated or dedicated tunnel of traffic to IP storage.
 
@@ -201,18 +204,18 @@ Azure offers the following types of Encryption to protect data:
 #### Encryption in Transit
 Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage, you can secure data using:
 
--	[Transport-level encryption](../../storage/common/storage-security-guide.md), such as HTTPS when you transfer data into or out of Azure Storage.
+-	[Transport-level encryption](../../storage/blobs/security-recommendations.md), such as HTTPS when you transfer data into or out of Azure Storage.
 
--	[Wire encryption](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File shares.
+-	[Wire encryption](../../storage/blobs/security-recommendations.md), such as SMB 3.0 encryption for Azure File shares.
 
--	[Client-side encryption](../../storage/common/storage-security-guide.md), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
+-	[Client-side encryption](../../storage/blobs/security-recommendations.md), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 
 #### Encryption at Rest
 For many organizations, [data encryption at rest](isolation-choices.md) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that is “at rest”:
 
--	[Storage Service Encryption](../../storage/common/storage-security-guide.md) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
+-	[Storage Service Encryption](../../storage/blobs/security-recommendations.md) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
 
--	[Client-side Encryption](../../storage/common/storage-security-guide.md) also provides the feature of encryption at rest.
+-	[Client-side Encryption](../../storage/blobs/security-recommendations.md) also provides the feature of encryption at rest.
 
 -	[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
 
@@ -319,17 +322,6 @@ Azure deployment has multiple layers of network isolation. The following diagram
 
 ## Next Steps
 
-- [Network Isolation Options for Machines in Windows Azure Virtual Networks](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
+- Learn about [Network Isolation Options for Machines in Windows Azure Virtual Networks](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). This includes the classic front-end and back-end scenario where machines in a particular back-end network or subnetwork may only allow certain clients or other computers to connect to a particular endpoint based on an allow list of IP addresses.
 
-This includes the classic front-end and back-end scenario where machines in a particular back-end network or subnetwork may only allow certain clients or other computers to connect to a particular endpoint based on an allow list of IP addresses.
-
-- [Compute Isolation](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure provides a various cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise.
-
-- [Storage Isolation](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure separates customer VM-based computation from storage. This
-separation enables computation and storage to scale independently, making it easier to provide multi-tenancy and
-isolation. Therefore, Azure Storage runs on separate hardware with no network connectivity to Azure Compute
-except logically. All requests run over HTTP or HTTPS based on customer’s choice.
+- Learn about [virtual machine isolation in Azure](../../virtual-machines/windows/isolation.md). Azure Compute offers virtual machine sizes that are isolated to a specific hardware type and dedicated to a single customer.

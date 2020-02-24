@@ -34,9 +34,9 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
-          - text: Deploy container registry - CLI
+          - text: Create container registry - CLI
             url: container-registry-get-started-azure-cli.md
-          - text: Deploy container registry - Portal
+          - text: Create container registry - Portal
             url: container-registry-get-started-portal.md
           - text: Push and pull image with Docker
             url: container-registry-get-started-docker-cli.md

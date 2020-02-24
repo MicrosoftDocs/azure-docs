@@ -1,20 +1,11 @@
 ---
-title: ASP.NET Core with SQL Database - Azure App Service | Microsoft Docs 
+title: 'Tutorial: ASP.NET Core with SQL Database' 
 description: Learn how to get a .NET Core app working in Azure App Service, with connection to a SQL Database.
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: syntaxc4
-editor: ''
 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.author: cephalin
-ms.custom: mvc
+ms.custom: mvc, cli-validate
 ms.custom: seodec18
 
 ---

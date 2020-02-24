@@ -1,26 +1,11 @@
 ---
-title: Authentication and authorization in Azure App Service for mobile apps | Microsoft Docs
-description: Conceptual reference and overview of the Authentication / Authorization feature for Azure App Service, specifically for mobile apps
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: erikre
-editor: ''
+title: Authentication and authorization
+description: Conceptual reference and overview of the Authentication / Authorization feature for Azure App Service, specifically for mobile apps.
 
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: mahender
-
 ---
 # Authentication and authorization in Azure App Service for mobile apps
-
-> [!NOTE]
-> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
->
-> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
 
 This article describes how authentication and authorization works when developing native mobile apps with an App Service back end. App Service provides integrated authentication and authorization, so your mobile apps can sign users in without changing any code in App Service. It provides an easy way to protect your application and work with per-user data. 
 
