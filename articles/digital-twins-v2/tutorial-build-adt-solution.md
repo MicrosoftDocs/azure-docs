@@ -27,7 +27,7 @@ Tooling: Azure subscription, CLI*, VS Code, .NET core​
 Outline: ​
 * Update and extend an existing model​
 * Build simple .NET app for interacting with the Azure Digital Twins instance, integrate with AAD​
-* Add components to the Digital Twins graph (create twins, relationships, event routing)​
+* Add components to the Azure Digital Twins graph (create twins, relationships, event routing)​
 * Identify what to change that will affect customer projects and works in their scenario​
 * Potentially extend the Quickstart with custom code
 
@@ -36,9 +36,9 @@ Outline: ​
 In this section, we will walk through aspects of creating an Azure Digital Twins solution:
 * Connect to a service instance
 * Create and upload models
-* Write client app code to create twins, relationships and orchestrate IoT data processing
+* Write client app code to create twins and relationships, and orchestrate IoT data processing
 * Set properties on twins
-* React to live cycle events
+* React to life-cycle events
 * Query the Azure Digital Twins graph
 * Event processing and routing
 * Updating a solution
@@ -55,7 +55,7 @@ To get started with ADT development, you will need:
 * A development environment of your choice. 
 > [!NOTE]
 > TBD – what are we going to use in the manual? VS/VS Code
-* An ADT language SDK of your choice (C#, Java, JavaScript or Python), unless you want to use the REST APIs directly. The ADT language SDK also contains the DTDL parser client library.
+* An ADT language SDK of your choice (C#, Java, JavaScript, or Python), unless you want to use the REST APIs directly. The ADT language SDK also contains the [Digital Twin Definition Language (DTDL)](concepts-DTDL.md) parser client library.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -65,10 +65,10 @@ You can use Azure Portal to create a new instance of ADT.
  
 For production projects, however, we recommend using an automation-centric approach, where all artifacts – not just code, but also configuration scripts – are stored in version-controlled repositories. This approach makes it easier to implement a reliable development cycle.
  
-To get started with ADT using a command line approach, create an empty project directory on your machine and issue the following command:
+To get started with ADT using a command-line approach, create an empty project directory on your machine and issue the following command:
 `az dt dev init`
 
-This will create an empty project set up readily for ADT development.
+Now you have an empty project set up for ADT development.
 
 Alternatively, there are also several pre-built starter projects you can begin with:
 `az dt init --quickstart <project name>`
@@ -84,7 +84,7 @@ Alternatively, there are also several pre-built starter projects you can begin w
 > [!NOTE]
 > Description on how to connect to IoT Hub
 
-As part of the configuration of an ADT instance (in the portal or via CLI/ARM), you can connect a pre-existing IoT Hub to ADT. Once an IoT hub is attached to ADT, ADT will automatically create special twins for all devices newly registered on IoT Hub. For PnP devices, it will also synchronize properties to the ADT graph. Finally, all telemetry from devices will produce telemetry messages in ADT.
+As part of the configuration of an ADT instance (in the portal or via CLI/ARM), you can connect a pre-existing IoT hub to ADT. Once an IoT hub is attached to ADT, ADT will automatically create special twins for all devices newly registered on IoT Hub. For [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play) devices, it will also synchronize properties to the ADT graph. Finally, all telemetry from devices will produce telemetry messages in ADT.
 
 ### Setting up Endpoints
 
@@ -92,7 +92,8 @@ To connect ADT to downstream data consumers, you need to set up consumer endpoin
 * Event Hub
 * Event Grid
 * Service Bus
-To attach an endpoint to ADT, you need to create the endpoint in your subscription first, using the Azure portal, command line or ARM. 
+
+To attach an endpoint to ADT, you need to create the endpoint in your subscription first, using the Azure portal, command line, or ARM. 
 You can then use the ADT portal page or ARM/CLI to attach the endpoints to ADT.
 
 > [!NOTE]

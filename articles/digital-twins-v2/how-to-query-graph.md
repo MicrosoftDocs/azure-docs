@@ -1,7 +1,7 @@
 ---
 # Mandatory fields.
 title: Query the ADT graph
-description: See how to get information out of an Azure Digital Twins graph using Digital Twins Query Language.
+description: See how to get information out of an Azure Digital Twins (ADT) graph using the ADT query language.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 2/21/2020
@@ -16,7 +16,7 @@ ms.service: digital-twins
 
 # Query the digital twin graph
 
-The Query APIs let developers find sets of twins in the graph across relationships and applying filters.
+Azure Digital Twins **Query APIs** let developers find sets of twins in the graph across relationships and applying filters.
 
 Some example queries:
 
@@ -47,7 +47,7 @@ string results;
 IAsynEnumerable<Result<JsonDocument>> result = client.Query(“querystring”);
 ```
 
-This returns the query results in form of a JSON string. 
+This query returns results in the form of a JSON string. 
 To parse the JSON results returned, use the JSON parser of your choice. 
 
 > [!NOTE]

@@ -26,7 +26,7 @@ Model descriptions in DTDL are called **interfaces**. An interface describes a m
 * **Telemetry** — Telemetry fields represent measurements or events. Measurements are typically used for the equivalent of sensor readings. Telemetry is not stored on a twin; it is effectively sent as a stream of data events.
 * **Commands** — Commands represent methods that can be executed on a digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
 * **Relationships** — Relationships let you model how a given twin is involved with other twins. Relationships can represent different semantic meanings, such as “floor contains room”, “hvac cools rooms”, “Compressor is-billed-to user” etc. Relationships allow digital twins solutions to construct graphs of interrelated twins. 
-* **Components** — A component lets you build your model as an assembly of other interfaces. Use a component to describe something that is an integral part of your model, and that does not need to be created, deleted or re-arranged in your topology of twins independently. In contrast, use independent twins connected by a relationship when you want both parts to have an independent existence in the graph.
+* **Components** — A component lets you build your model as an assembly of other interfaces. Use a component to describe something that is an integral part of your model, and that does not need to be created, deleted, or rearranged in your topology of twins independently. In contrast, use independent twins connected by a relationship when you want both parts to have an independent existence in the graph.
 
 > [!NOTE]
 > Example that shows how to think about relationships versus components
@@ -64,11 +64,11 @@ A simple example model:
 }
 ```
 
-As the example shows, all content of an interface is described in the `contents` section of the DTDL file as an array of attribute definitions. Each attribute has a type (telemetry, property, relationship, etc...) and a set of properties that define the actual attribute (for example, name and schema to define a property).
+As the example shows, all content of an interface is described in the `contents` section of the DTDL file as an array of attribute definitions. Each attribute has a type (telemetry, property, relationship, etc.) and a set of properties that define the actual attribute (for example, name and schema to define a property).
 
 ## Inheritance
 
-Often it is desirable to specialize a given model. For example, a generic model *Room* might have specialized variants *ConferenceRoom* and *Gym*. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
+Sometimes it is desirable to specialize a given model. For example, a generic model *Room* might have specialized variants *ConferenceRoom* and *Gym*. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
 
 ```json
 {
@@ -126,6 +126,6 @@ Often it is desirable to specialize a given model. For example, a generic model 
 ```
 
 In this example, both *Planet* and *Moon* inherit from *CelestialBody*, which contributes a name, a mass and a location to both *Planet* and *Moon*. Inheritance is expressed in the DTDL files with the `extends` section, which points to an array of interface specifications.
-If inheritance is applied, the sub-type exposes all properties from the entire inheritance chain.
+If inheritance is applied, the subtype exposes all properties from the entire inheritance chain.
 
-The extending interface cannot change any of the definitions of the parent interfaces. It can only add to them. Note that an interface inheriting from one or more interfaces cannot define a capability already defined in one of those parent interfaces (even if the capabilities are defined the same). For example, if a parent interface defines a `double` property *foo*, the extending interface cannot contain a declaration of *foo*, even if it is also declared as a `double`.
+The extending interface cannot change any of the definitions of the parent interfaces, it can only add to them. An interface inheriting from one or more interfaces cannot define a capability already defined in one of those parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *foo*, the extending interface cannot contain a declaration of *foo*, even if it is also declared as a `double`.

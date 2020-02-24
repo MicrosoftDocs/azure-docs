@@ -16,7 +16,7 @@ ms.service: digital-twins
 
 # Manage the components of your digital twin graph
 
-The Twin APIs let developers create, modify and delete twins and their relationships in an ADT instance.
+Azure Digital Twins (ADT) **Twin APIs** let developers create, modify, and delete twins and their relationships in an ADT instance.
 
 ## Creating a Graph (Private Preview)
 Once we have a set of types, we can create a graph representing a complete hospital. For a small hospital, this graph might look like this:
@@ -55,7 +55,7 @@ var client = new DigitalTwinsClient("...Authentication Info...");
 
 ## Creating Twins and Graphs of Twin Instances 
 
-Once models are uploaded to the server, you can begin constructing a twin instance graph. In many cases, the data that determines the topology of the instance graph will come from an existing data source such as a CAD file, a BIM database or an Excel spreadsheet.
+Once models are uploaded to the server, you can begin constructing a twin instance graph. In many cases, the data that determines the topology of the instance graph will come from an existing data source, such as a CAD file, a BIM database, or an Excel spreadsheet.
 
 The following code shows a minimal example for instance graph creation:
 
@@ -67,7 +67,7 @@ Response rR = client.CreateRelationship("idMyPlanet01", "IsCircledBy", "idMyMoon
                                         “idRel01”);
 ```
 
-This code creates two instances of twins, one using model type *Planet*, the other using model type *Moon*. In addition to the model type id (`dtmi:Planet` and `dtmi:Moon`), you need to pass in a unique ID, and data to initialize the twin instance during creation. The sample also creates a relationship between the two instances, connecting them to each other.
+This code creates two instances of twins, one using model type *Planet*, the other using model type *Moon*. In addition to the model type ID (`dtmi:Planet` and `dtmi:Moon`), you need to pass in a unique ID, and data to initialize the twin instance during creation. The sample also creates a relationship between the two instances, connecting them to each other.
 
 ## Initializing Properties
 
@@ -103,9 +103,9 @@ string s = JsonSerializer.Serialize(moonData);
 
 ## Creating Twins: A More Complete Example
 
-A slightly more complete example is outlined below, to read topology from a spreadsheet. This assumes that there are a number of rows in the Excel file that list floors or rooms (and the parent floor for each room):
+A slightly more complete example is outlined below, to read topology from a spreadsheet. The example assumes that there are a number of rows in the Excel file that list floors or rooms (and the parent floor for each room):
 
-| Type	| Id | Parent | RelName | OtherData | OtherData |
+| Type	| ID | Parent | RelName | OtherData | OtherData |
 | --- | --- | --- | --- | --- | --- |
 | floor	| Floor01 | | | … | … |
 | room	| Room10 | Floor01 | contains | … | … |

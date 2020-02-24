@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: 'Quickstart: Explore a Azure Digital Twin solution'
+title: 'Quickstart: Explore an Azure Digital Twin solution'
 description: In this quickstart, you will build an existing Azure Digital Twin sample scenario and explore it to get data insights.
 author: baanders
 ms.author: baanders # Microsoft employees only
@@ -32,9 +32,9 @@ Outline: ​
 * Create Azure AD service principal​
 * Modify project with SP / connection info​
 * Dotnet run​
-* Explore a simple model and graph, run an example query
+* Explore a basic model and graph, run an example query
 
-## ADT: A Simple Example
+## ADT: A Basic Example
 
 In hospitals, it is crucial that medical personnel wash their hands regularly. However, actual compliance with hand-washing policies is traditionally hard to measure. Using IoT technology, a hospital aims to solve multiple business problems at once:
 

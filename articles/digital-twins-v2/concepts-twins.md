@@ -1,7 +1,7 @@
 ---
 # Mandatory fields.
 title: Twin representation
-description: Understand the concept of a digital twin, what its properties can be in Azure Digital Twins, and what role twins serve within the ADT graph.
+description: Understand the concept of a digital twin, what its properties can be in Azure Digital Twins (ADT), and what role twins serve within the ADT graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 2/21/2020
@@ -18,7 +18,7 @@ ms.service: digital-twins
 
 ## Digital Twin JSON Format
 
-The following section shows an example of Digital Twin data represented in JSON:
+The following section shows an example of a digital twin's data represented in JSON:
 
 ```json
 {
@@ -68,16 +68,16 @@ More formally, the JSON data has the following fields:
 
 | Field name | Description |
 | --- | --- |
-| `$dtId` | A user-provided string representing the id of the digital twin. In case of PnP digital twins, this is the same as a device identity id string. Syntactic restriction as specified in IoT Hub public docs. |
+| `$dtId` | A user-provided string representing the ID of the digital twin. For [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play) digital twins, this string is the same as a device identity ID string. Syntactic restriction as specified in IoT Hub public docs. |
 | `$conformance` | An enum containing the conformance status of this digital twin (conformant, non-conformant, unknown) |
-| `{propertyName}` | The value of a property in JSON (string, number, or object). Please refer to section Error! Reference source not found. for more information. |
+| `{propertyName}` | The value of a property in JSON (string, number, or object). |
 | `$relationships` | URL of the path to the relationships collection. This field is absent if the digital twin has no outgoing edges. |
 | `$metadata.$model` | [Optional] The URN of the capability model or interface that models this digital twin instance. |
 | `$metadata.{propertyName}.desiredValue` | [only for writable properties] The desired value of the specified property. |
 | `$metadata.{propertyName}.desiredVersion` | [only for writable properties] The version of the desired value. |
-| `$metadata.{propertyName}.ackVersion` | The version acked by the digital twin implementation (e.g. the device app). |
-| `$metadata.{propertyName}.ackCode` | [only for writable properties] The ack code returned by the digital twin implementation (e.g. the device app). |
-| `$metadata.{propertyName}.ackDescription` | [only for writable properties] The ack description returned by the digital twin implementation (e.g. the device app). |
+| `$metadata.{propertyName}.ackVersion` | The version acknowledged by the device app implementing the digital twin. |
+| `$metadata.{propertyName}.ackCode` | [only for writable properties] The `ack` code returned by the device app implementing the digital twin. |
+| `$metadata.{propertyName}.ackDescription` | [only for writable properties] The `ack` description returned by the device app implementing the digital twin. |
 | `{componentName}` | A JSON object containing the property values and metadata analogously to the root object. This object exists even if the component has no properties. |
 | `{componentName}.{propertyName}` | The value of the property in JSON (string, number, or object). |
 | `{componentName}.$metadata` | The metadata information for the component, analogous to the root-level $metadata. |
@@ -98,8 +98,8 @@ A relationship resource has the following format:
 
 | Field name | Description |
 | --- | --- |
-| `$edgeId` | A user-provided string representing the id of this edge, unique in the context of the source digital twin, i.e. `sourceId` + `edgeId` is unique in the context of the service. |
-| `$sourceId` | The id of the source digital twin. |
-| `$targetId` | The id of the target digital twin. |
+| `$edgeId` | A user-provided string representing the ID of this edge. This string is unique in the context of the source digital twin, which also means that `sourceId` + `edgeId` is unique in the context of the service. |
+| `$sourceId` | The ID of the source digital twin. |
+| `$targetId` | The ID of the target digital twin. |
 | `$relationshipName` | The name of the relationship. |
 | `{propertyName}` | The value of the property in JSON (string, number, or object) |

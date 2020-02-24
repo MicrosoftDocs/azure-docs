@@ -16,12 +16,12 @@ ms.service: digital-twins
 
 # Manage an individual twin in the graph
 
-The Twin APIs let developers create, modify and delete twins and their relationships in an ADT instance
+Azure Digital Twins (ADT) **Twin APIs** let developers create, modify, and delete twins and their relationships in an ADT instance
 
 ## Getting Twin Data for an Entire Twin
 
 You can access data on any twin by calling `Response<JsonDocument> GetTwin(string id);`.
-This returns twin data in JSON form. Assuming the following DTDL for a twin of type *Moon*:
+This returns twin data in JSON form. Assuming the following model (written in [Digital Twins Definition Language (DTDL)](concepts-DTDL.md)) defines a twin of type *Moon*:
 
 ```json
 {
@@ -72,15 +72,15 @@ The call `GetTwin("myMoon-001");` might return:
 }
 ```
 
-The defined properties of the twin are returned as top level properties on the twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix:
-* The id of the twin as stored in this ADT instance
-* The conformance flag, indicating if the current data in the twin is conforming to the defined model. In the ADT service, twins defined in the ADT service will always be conformant, but [twins controlled by devices](concepts-devices.md) may have data not conforming with the model definition. The conformance flag has 3 possible values:
-    - *Conformant*: The defined model is available, and the data in the twin conforms with the model definition
-    - *Non-Conformant*: The defined model is available, and the data in the twin does not conform with the model definition. For example, a property with an expected type of `double` has mistakenly been set by a device to a `string` value
-    - *Unknown*: The defined model can not be found, so conformance cannot be validated
+The defined properties of the twin are returned as top-level properties on the twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix:
+* The ID of the twin in this ADT instance.
+* The conformance flag, indicating if the current data in the twin is conforming to the defined model. In the ADT service, twins defined in the ADT service will always be conformant, but [twins controlled by devices](concepts-devices.md) may have data not conforming with the model definition. The conformance flag has three possible values:
+    - *Conformant*: The defined model is available, and the data in the twin conforms with the model definition.
+    - *Non-Conformant*: The defined model is available, and the data in the twin does not conform with the model definition. For example, a property with an expected type of `double` has mistakenly been set by a device to a `string` value.
+    - *Unknown*: The defined model cannot be found, so conformance cannot be validated.
 * Metadata. The metadata section contains a variety of metadata. For example:
-    - The DTMI of the model of the twin
-    - Synchronization status for each writeable property. This is generally of interest only with devices, where it is possible that the service and the device have diverging status, for example when a device has been or is offline. Today, this only applies to physical devices connected to IoT Hub, but in the future, it may also apply to non-device twins running in distributed scenarios. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. 
+    - The DTMI of the model of the twin.
+    - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Today, this property only applies to physical devices connected to IoT Hub, but in the future, it may also apply to non-device twins running in distributed scenarios. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. 
  > [!NOTE]
  > Reference to a section explaining sync status
     - Service-specific metadata, like from IoT Hub or ADT. 
@@ -140,7 +140,7 @@ To patch properties in components, use path syntax in JSON Patch:
 
  This operation will only succeed if the twin being modified after application of the patch is conformant with the new model. For example:
 * Imagine a twin instance with model *foo_old*. *Foo_old* defines a required property *temperature*.
-* The new model *foo* defines a property temperature, and adds a new required property *humidity*
+* The new model *foo* defines a property temperature, and adds a new required property *humidity*.
 * After the patch, the twin must have both a temperature and humidity property. The patch thus needs to be:
 
 ```json
@@ -236,7 +236,7 @@ Let’s say we have the following DTDL models that define a phone device with tw
 }
 ```
 
-To access properties on the *frontCamera* component you can write:
+To access properties on the *frontCamera* component, you can write:
 
 ```csharp
 var client = new DigitalTwinsServiceClient(“...”);
@@ -290,7 +290,7 @@ string rels;
 Response<JsonDocument> result = client.GetRelationshipAsJson(planetId, “satellites”);
 // Parse relationships as json as desired from result.Value
 ```
-Note that this returns an array of relationships, because each relationship can have a cardinality that is larger than 1. To navigate a relationship, you can follow the target of the returned relationship:
+This call returns an array of relationships, because each relationship can have a cardinality that is larger than one. To navigate a relationship, you can follow the target of the returned relationship:
 
 ```csharp
 var client = new DigitalTwinsServiceClient(“...”);

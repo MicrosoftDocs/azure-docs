@@ -22,7 +22,7 @@ Using ADT’s flexible modeling system, you can use digital twins to represent f
 
 ![Uses for Azure Digital Twins](./media/overview/use-cases.png)
  
-ADT does a lot of the hard work of translating a device-centric view of the world into always-up-to-date, business-focused insights, allowing you to focus on your business problems instead of complex distributed systems infrastructure. Azure Digital Twins delivers a live operational state model of your environment, driven and kept current by data from IoT and other data sources.
+ADT does numerous the hard work of translating a device-centric view of the world into always-up-to-date, business-focused insights, allowing you to focus on your business problems instead of complex distributed systems infrastructure. Azure Digital Twins delivers a live operational state model of your environment, driven and kept current by data from IoT and other data sources.
 
 ## ADT key capabilities
 
@@ -30,23 +30,23 @@ The Azure Digital Twins service is a Platform-as-a-Service (PaaS) offering that 
 
 ### Model your real-world business environment
 
-With ADT, you can define twin types that represent the people, places, and things in your physical environment, and the relationships between them. You can think of these types as a custom vocabulary to describe your business. Twin types are expressed in terms of persistent state properties, telemetry events, commands, relationships and components.
+With ADT, you can define twin types that represent the people, places, and things in your physical environment, and the relationships between them. You can think of these types as a custom vocabulary to describe your business. Twin types are expressed in terms of persistent state properties, telemetry events, commands, relationships, and components.
 For a building management solution, for instance, you might define types such as “building”, “floor”, “room”, “elevator” and “HVAC system”.
 
 Once you have defined the vocabulary for your business, you can model your concrete environment by creating a graph of twins from the types you previously defined.  
-For example, using the simple vocabulary from the previous paragraph, you can create a model that represent the office building you are in. 
+For example, using the simple vocabulary from the previous paragraph, you can create a model that represents the office building you are in. 
 
 The arrows in the illustration below show different semantic relationships between the twins in the model. For example, the Building “contains” three floors, and each floor contains several rooms. The building also “is-equipped-with” an HVAC system and an elevator. The HVAC system “cools” specific floors. You can think of the twin types as nouns in a description of your world, and the relationships as verbs.
 
 The following diagram represents this model scenario.
 ![An example model scenario](./media/overview/modeling-example.png)
 
-### Process incoming data and propagate state through the Digital Twins graph
+### Process incoming data and propagate state through the Azure Digital Twins graph
 
-Digital Twins models are meant to be live, up-to-date representations of the state of the real world. To keep twins updated, Azure Digital Twins provides a comprehensive event processing system. You can, for example, process events to manage incoming telemetry from devices, state changes within your ADT graph, or life cycle events generated when twins are created or modified. ADT provides a convenient data processing framework for you to apply custom code to incoming data streams of IoT and business data. 
+Azure Digital Twins models are meant to be live, up-to-date representations of the state of the real world. To keep twins updated, Azure Digital Twins provides a comprehensive event processing system. You can, for example, process events to manage incoming telemetry from devices, state changes within your ADT graph, or life-cycle events generated when twins are created or modified. ADT provides a convenient data processing framework for you to apply custom code to incoming data streams of IoT and business data. 
 
 You might use event data routing to:
-* Compute properties on a twin from sensor input (such as aggregating data from temperature, CO2, humidity and noise sensors into a comfort property on a “room” twin)
+* Compute properties on a twin from sensor input (such as aggregating data from temperature, CO2, humidity, and noise sensors into a comfort property on a “room” twin)
 * Propagate state through the ADT graph (such as calculating an average comfort for a floor in a building when the comfort property of any of the rooms on the floor changes)
 * Apply complex external simulation or machine learning processors (such as calculating the energy efficiency of a wind turbine based on current operational parameters)
 * Route data to downstream destination (such as storing it for long-term bulk analytics, or to trigger workflow integrations)
@@ -64,33 +64,32 @@ Using fine-grained, twin-level access control, you can define the policies for d
 
 ### Integrate with IoT Hub for device-centric scenarios
 
-ADT will automatically mirror devices connected to an attached IoT Hub into your ADT graph. For Plug-and-Play devices, it will also automatically replicate their state and proxy their commands, so that you can program against devices in virtually exactly the same way you program against all other twins.
+ADT will automatically mirror devices connected to an attached IoT hub into your ADT graph. For [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) devices, it will also automatically replicate their state and proxy their commands, so that you can program against devices in virtually the same way you program against all other twins.
 
 ## ADT in a Solution Context
 
 ADT is not often used on its own. Commonly, a complete ADT solution contains the following components:
 * The ADT service instance itself. It stores your models and your twins graph with all its state, and orchestrates event processing.
-* One or more client apps that drive the ADT instance by configuring models, creating topology and extracting insights from the graph
+* One or more client apps that drive the ADT instance by configuring models, creating topology, and extracting insights from the graph.
 * One or more external compute resources to process events generated by ADT, or connected data sources such as devices. One common way to provide compute resources is via Azure Functions.
-* An IoT Hub to provide device management and IoT data stream capabilities
-* Downstream services to handle tasks such as workflow integration (e.g. MS Flow), cold storage, time series integration, or analytics. 
+* An IoT hub to provide device management and IoT data stream capabilities.
+* Downstream services to handle tasks such as workflow integration (like [MS Flow](https://flow.microsoft.com/en-us/)), cold storage, time series integration, or analytics. 
 
 The following diagram shows where ADT lies in the context of a larger Azure IoT solution.
 ![ADT in a solution context](./media/overview/solution-context.png)
 
-## ADT: Differences from Public Preview 1
+## ADT: Differences from Preview 1
 
-The previous public preview version of ADT was released in October 2018. The new version of ADT (currently in private preview) marks a significant departure from the previous architecture. While all the core concepts are still the same, the developer interfaces and APIs are different, and the service provides improved capabilities and flexibility. The changes were strongly motivated by customer feedback. 
+The previous preview version of ADT was released in October 2018. The new version of ADT (currently in Private Preview) marks a significant departure from the previous architecture. While all the core concepts are still the same, the developer interfaces and APIs are different, and the service provides improved capabilities and flexibility. The changes were motivated by customer feedback. 
 
 The main changes are:
-* Free modeling of twin types and topology. ADT Public Preview 1 (ADT PP1) evolved from a solution designed for building management, and came with a built-in vocabulary for buildings. Twins could be connected using hierarchical relationships, effectively creating a tree topology. 
-Customers expressed great interest in applying the Digital Twins design pattern to a much broader set of business solutions. In response, the new ADT preview provides a modeling environment that lets you define your own custom vocabulary and custom twin types for your solution – out of the box, ADT is now completely domain agnostic. In addition, the individual digital twins you define can be connected into arbitrary graph topologies, giving you much more flexibility to express the complex relationships that exist in real world environments.
-* Flexible compute and event processing model. ADT PP1 had a compute model that relied on JavaScript user-defined functions. Based on customer feedback, this model has been replaced with a new compute model that relies on external, customer-provided processing such as Azure Functions. The enables developers to:
-    - Use a programming language of their choice
-    - Access custom code libraries without restriction
-    - Have access to a robust development and debugging story with supported serverless compute platforms such as Azure Functions
-    - Take advantage of a flexible event processing and routing model throughout the platform   
-* Full access to IoT Hub. In ADT PP1, IoT Hub was integrated into ADT, and not fully accessible to developers. In the new version of ADT, you bring your own IoT Hub and attach it to ADT. This leaves you in full control of all device management and gives you full access to IoT Hub’s capabilities. ADT automatically reflects Plug-and-Play devices connected to IoT Hub into the Digital Twins graph.
+* Free modeling of twin types and topology. ADT Preview 1 (ADT P1) evolved from a solution designed for building management, and came with a built-in vocabulary for buildings. Twins could be connected using hierarchical relationships, effectively creating a tree topology. Customers expressed great interest in applying the Azure Digital Twins design pattern to a much broader set of business solutions. In response, the new ADT preview provides a modeling environment that lets you define your own custom vocabulary and custom twin types for your solution – out of the box, ADT is now completely domain agnostic. In addition, the individual digital twins you define can be connected into arbitrary graph topologies, giving you much more flexibility to express the complex relationships that exist in real world environments.
+* Flexible compute and event processing model. ADT PP1 had a compute model that relied on JavaScript user-defined functions. Based on customer feedback, this model has been replaced with a new compute model that relies on external, customer-provided processing such as Azure Functions. The enables developers to...
+    - use a programming language of their choice.
+    - access custom code libraries without restriction.
+    - have access to a robust development and debugging story with supported serverless compute platforms such as Azure Functions.
+    - take advantage of a flexible event processing and routing model throughout the platform. 
+* Full access to IoT Hub. In ADT PP1, IoT Hub was integrated into ADT, and not fully accessible to developers. In the new version of ADT, you bring your own IoT hub and attach it to ADT. This change puts you in full control of all device management, and gives you full access to IoT Hub’s capabilities. ADT automatically reflects PnP devices connected to IoT Hub into the Azure Digital Twins graph.
 * Greater Scale. The new version of ADT is designed to run at greater scale.
 
 ## Next steps
@@ -99,5 +98,5 @@ To explore a working Azure Digital Twins solution, continue to the ADT quickstar
 * [Quickstart: Explore a Azure Digital Twin solution](quickstart-explore-adt-solution.md)
 
 To start learning more about core ADT concepts, visit:
-* [Modeling objects](concepts-models.md).
+* [Modeling objects](concepts-models.md)
 
