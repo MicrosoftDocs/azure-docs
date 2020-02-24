@@ -77,7 +77,8 @@ Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
 
 2. View or reset your keys:
 
-    ![Endpoint key manager](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Endpoint key manager](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]
     >Refresh your keys if you think they've been compromised. This may require corresponding changes to your client application or bot code.
@@ -142,11 +143,14 @@ You can check your current version at https://www.qnamaker.ai/UserSettings. If y
 
 1. Go to your QnAMaker service (resource group) in the [Azure portal](https://portal.azure.com).
 
-    ![QnAMaker Azure resource group](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+    > [!div class="mx-imgBorder"]
+    > ![QnAMaker Azure resource group](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
 1. Select the App Service instance and open the **Overview** section.
 
-    ![QnAMaker App Service instance](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+    > [!div class="mx-imgBorder"]
+    > ![QnAMaker App Service instance](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+
 
 1. Restart App Service. The update process should finish in a couple of seconds. Any dependent applications or bots that use this QnAMaker service will be unavailable to end users during this restart period.
 
