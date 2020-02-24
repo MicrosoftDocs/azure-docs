@@ -1,6 +1,7 @@
 ---
 # Mandatory fields.
-title: Modeling objects
+title: Model an object
+titleSuffix: Azure Digital Twins
 description: Understand how Azure Digital Twins uses user-defined models to describe objects within the graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
@@ -16,7 +17,7 @@ ms.service: digital-twins
 
 # Understand object modeling in Azure Digital Twins
 
-Think of a **model** as a template that describes the characteristics of a particular type of twin in terms of properties, telemetry/events, commands etc. They are defined using the JSON-based [Digital Twin Definition Language (DTDL)](concepts-DTDL.md).  
+Think of a **model** as a template that describes the characteristics of a particular type of twin in terms of properties, telemetry/events, commands etc. They are defined using the JSON-based [Digital Twin Definition Language (DTDL)](concepts-digital-twins-definition-language.md).  
 
 
 ## Interfaces
@@ -124,3 +125,12 @@ In this example, both *Planet* and *Moon* inherit from *CelestialBody*, which co
 If inheritance is applied, the subtype exposes all properties from the entire inheritance chain.
 
 The extending interface cannot change any of the definitions of the parent interfaces, it can only add to them. An interface inheriting from one or more interfaces cannot define a capability already defined in one of those parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *foo*, the extending interface cannot contain a declaration of *foo*, even if it is also declared as a `double`.
+
+## Next steps
+
+Learn about other key components of an Azure Digital Twins solution:
+* [Represent objects with a twin](concepts-twins.md)
+* [Use the Azure Digital Twins graph](concepts-graph-queries.md)
+
+Or, see how a model is managed with Model Management APIs:
+* [Manage an object model](how-to-manage-model.md)

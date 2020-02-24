@@ -1,6 +1,7 @@
 ---
 # Mandatory fields.
 title: Route event data
+titleSuffix: Azure Digital Twins
 description: See how to route Azure Digital Twins telemetry and event data to external Azure services.
 author: baanders
 ms.author: baanders # Microsoft employees only
@@ -16,11 +17,11 @@ ms.service: digital-twins
 
 # Route telemetry and event data to outside services
 
-Azure Digital Twins (ADT) **Event APIs** let developers wire-up event flow throughout the system, as well as to downstream services.
+Azure Digital Twins **Event APIs** let developers wire-up event flow throughout the system, as well as to downstream services.
 
 ## Endpoints
 
-To define an event route, developers first must define endpoints. An **endpoint** is a connection to a destination outside of ADT. Supported destinations in current preview release are 
+To define an event route, developers first must define endpoints. An **endpoint** is a connection to a destination outside of Azure Digital Twins. Supported destinations in current preview release are 
 * EventGrid custom topics
 * EventHub
 * Service Bus
@@ -32,11 +33,11 @@ Endpoints are set up using control plane APIs, or via the portal. An endpoint de
 * The topic path of the endpoint, such as *your-topic.westus.eventgrid.azure.net*
 
 The endpoint APIs that are available in control plane are:
-1.	Create endpoint
-2.	Get list of endpoints
-3.	Get endpoint by ID (similar to above, but pass in endpointID)
-4.	Delete endpoint by ID
-5.	Get endpoint health (this function is similar to the Hub API's [`GetEndpointHealth`](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth)
+* Create endpoint
+* Get list of endpoints
+* Get endpoint by ID (similar to above, but pass in endpointID)
+* Delete endpoint by ID
+* Get endpoint health (this function is similar to the Hub API's [`GetEndpointHealth`](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth)
 
 ## Routes
 
@@ -47,7 +48,7 @@ Event routes are defined using data plane APIs. A route definition contains:
 
 One route should allow multiple notifications and event types to be selected. 
 
-If there is no route, no messages are routed outside of ADT. If there is a route and the filter is `null`, all messages are routed to the endpoint. If there is a route and a filter is added, messages will be filtered based on the filter.
+If there is no route, no messages are routed outside of Azure Digital Twins. If there is a route and the filter is `null`, all messages are routed to the endpoint. If there is a route and a filter is added, messages will be filtered based on the filter.
 
 In SDK form:
 
@@ -69,15 +70,15 @@ List event routes:
 `GET {service}/eventroutes`
 `IEnumerable<Response<string>> ListEventRoutes();`
 
-## Message routing query/filter
+## Message routing query and filter
 Message routing query supports multiple categories of filters, all expressed in one single query language:
-1.	Filter on messages types
-2.	Filter on twin instances (no traversal of graph)
-3.	Filter on message/notification body
-4.	Filter on message properties
+* Filter on messages types
+* Filter on twin instances (no traversal of graph)
+* Filter on message/notification body
+* Filter on message properties
 
 > [!NOTE]
-> ADT messages are following CloudEvents standard.
+> Azure Digital Twins messages are following CloudEvents standard.
 
 In order to explain the message routing query, here are two sample messages of telemetry and notification:
 
@@ -124,17 +125,17 @@ Life cycle notifications message
 }
 ```
 
-### Filter based on Messages Types (Telemetry & Notification Types)
+### Filter based on message types
 
-In the query language for filtering on message type, `IS`, `AND`, and `OR` operators are supported. 
+You can query based on message type—telemetry vs. notifications. In the query language for filtering on message type, `IS`, `AND`, and `OR` operators are supported. 
 
 `type = ‘microsoft.digitaltwins.twin.create’ OR type = ‘microsoft.iot.telemetry’`
 You can also specify `IN` operator 
 `type IN [‘microsoft.iot.telemetry’, ‘microsoft.digitaltwins.twin.create’]`
 
-### Filtering based on Twins
+### Filter based on Twins
 
-The query language for this filtering scenario is compatible with ADT query language, and is a subset of it (ADT query language's `JOIN` is out of scope).
+The query language for this filtering scenario is compatible with Azure Digital Twins query language, and is a subset of it (Azure Digital Twins query language's `JOIN` is out of scope).
 
 `$dt.$metadata.$model = "urn:example:Thermostat:1"` OR 
 `$dt.$metadata.$model = "urn:contosocom:DigitalTwins:Space"`
@@ -146,7 +147,7 @@ or
 
 `$dt.firmareVersion = “1.0” AND $dt.location = “Redmond”`
 
-### Filtering based on message body
+### Filter based on message body
 
 This query language should be similar to the way IoT Hub supports filtering of messages. In the IoT Hub query language, the telemetry message itself is referred to as `$body`.
 
@@ -163,7 +164,7 @@ This query language should be similar to the way IoT Hub supports filtering of m
 }
 ```
 
-### Filtering based on message properties
+### Filter based on message properties
 This query language should be similar to IoT Hub's query language, filtering on message properties.
 
 ```sql
@@ -184,10 +185,10 @@ AND contentType = ‘UTF-8’
 ```
 
 Filtering on the routes is flat, with no traversal of the graph (out of scope for Azure Digital Twins Preview). 
-ADT should support at least 10 custom endpoints and 100 routes, like with IoT Hub.
+Azure Digital Twins should support at least 10 custom endpoints and 100 routes, like with IoT Hub.
 Complex filtering to traverse the graph is out of scope for preview release.
 
-## Route Event Types
+## Route event types
 
 | Notification/Event | Routing Source Name | Note |
 | --- | --- | --- |
@@ -198,7 +199,7 @@ Complex filtering to traverse the graph is out of scope for preview release.
 | Digital Twin Event Subscription Change Notification	| Digital Twin Event Subscription Change Notification	| |
 | Digital Twin Telemetry Messages| 	Telemetry Messages | This message includes any telemetry message, regardless if it’s coming from a Hub device or a logical digital twin. |
 
-## Notification / Message Formats
+## Notification and message formats
 
 Notifications allow the solution backend to be notified when below actions are happening. The sections that follow describe  the types of notifications emitted by IoT Hub and Azure Digital Twins, or other Azure IoT services. 
 
@@ -211,13 +212,13 @@ We aspire to have notifications conform to the CloudEvents standard. For practic
 * Notifications emitted from devices continue to follow the existing specifications for notifications
 * Notifications processed and emitted by IoT Hub continue to follow the existing specifications for notification, except where IoT Hub chooses to support CloudEvents, such as through Event Grid
 * Notifications emitted from logical digital twins conform to CloudEvents
-* Notifications processed and emitted by ADT conform to CloudEvents
+* Notifications processed and emitted by Azure Digital Twins conform to CloudEvents
 
-Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Notifications emitted by ADT to Event Grid are formatted into the Event Grid schema, until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload.  
+Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Notifications emitted by Azure Digital Twins to Event Grid are formatted into the Event Grid schema, until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload.  
 
 ### Digital twin life cycle notifications
 
-All digital twins are emitting notifications, regardless of whether they are proxies representing [real devices in ADT](concepts-devices.md) or not.
+All digital twins are emitting notifications, regardless of whether they are proxies representing [real devices in Azure Digital Twins](concepts-devices.md) or not.
 
 #### Trigger
 
@@ -350,7 +351,7 @@ Here is an example of an update edge notification to update a property:
 
 ### Digital twin model change notifications
 
-These notifications are triggered when a [Digital Twins Definition Language (DTDL)](concepts-DTDL.md) model is uploaded, reloaded, patched, decommissioned, or deleted.
+These notifications are triggered when a [Digital Twins Definition Language (DTDL)](concepts-digital-twins-definition-language.md) model is uploaded, reloaded, patched, decommissioned, or deleted.
 
 #### Properties
 
@@ -372,7 +373,7 @@ These notifications are triggered when a [Digital Twins Definition Language (DTD
 
 No body for upload, reload, and patch model. User must make a `GET` call to get the model content. 
 For `Model.Delete`, the request body is the same as a `GET` request, and it gets the latest state before deletion.
-For and `Model.Decom`, the body of the patch will be in JSON patch format, like all other patch APIs in the ADT API surface. That is, to decommission a model, you would use:
+For and `Model.Decom`, the body of the patch will be in JSON patch format, like all other patch APIs in the Azure Digital Twins API surface. That is, to decommission a model, you would use:
 
 ```json
 [
@@ -387,8 +388,8 @@ For and `Model.Decom`, the body of the patch will be in JSON patch format, like 
 ### Digital twin change notifications
 
 These notifications are triggered when a digital twin resource is being updated, for instance:
-1.	When property values or metadata changes.
-2.	When twin or component metadata changes. An example of this scenario is changing the model of a twin.
+* When property values or metadata changes.
+* When twin or component metadata changes. An example of this scenario is changing the model of a twin.
 
 #### Properties
 
@@ -418,7 +419,7 @@ For instance, for the following PATCH twin:
 ]
 ```
 
-The corresponding notification (if synchronously executed by the service, such as ADT updating a logical digital twin) would contain a body like:
+The corresponding notification (if synchronously executed by the service, such as Azure Digital Twins updating a logical digital twin) would contain a body like:
 
 ```json
 [
@@ -433,3 +434,8 @@ The corresponding notification (if synchronously executed by the service, such a
     }
 ]
 ```
+
+## Next steps
+
+Learn more about the Azure Digital Twins APIs
+* [Use the Azure Digital Twins APIs](how-to-apis.md)

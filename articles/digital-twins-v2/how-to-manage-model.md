@@ -1,6 +1,7 @@
 ---
 # Mandatory fields.
-title: Manage an object model in Azure Digital Twins
+title: Manage an object model
+titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete an object model within Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
@@ -16,12 +17,12 @@ ms.service: digital-twins
 
 # Manage your Azure Digital Twins model set
 
-Azure Digital Twins (ADT) **Model Management APIs** are APIs used to manage the models (types of twins and relationships) that a given ADT instance knows about. Management operations include upload, validation, and retrieval of twin models authored in [Digital Twins Definition language (DTDL)](concepts-DTDL.md). 
+Azure Digital Twins **Model Management APIs** are APIs used to manage the models (types of twins and relationships) that a given Azure Digital Twins instance knows about. Management operations include upload, validation, and retrieval of twin models authored in [Digital Twins Definition language (DTDL)](concepts-digital-twins-definition-language.md). 
 
-## Modeling (Private Preview)
+## Modeling
 
 Consider an example in which a hospital wants to model their rooms, complete with sensors to monitor traffic into/out of the rooms and handwashing stations in each room.
-The first step towards the solution is to model the twin types used to represent the hospital. Models for ADT are written in DTDL. A patient room might be described as:
+The first step towards the solution is to model the twin types used to represent the hospital. Models for Azure Digital Twins are written in DTDL. A patient room might be described as:
 
 ```json
 {
@@ -57,7 +58,7 @@ The first step towards the solution is to model the twin types used to represent
 This description defines a name and a unique ID for the patient room, a few properties to represent handwash status (counters that will be updated from motion sensors and soap dispensers, as well as a computed *handwash percentage* property). The type also defines a relationship *hasDevices* that will be used to connect to the actual devices.
 In a similar manner, types for the hospital itself, as well as hospital wards or zones can be defined.
 
-## Uploading Models
+## Upload models
 
 Once models are created, you can upload them to the service instance. 
 An example:
@@ -66,7 +67,7 @@ An example:
 DigitalTwinsClient client = new DigitalTwinsClient("...");
 // Read model file into string (not part of SDK)
 StreamReader r = new StreamReader("MyModelFile.dtdl"));
-string dtdl = r.ReadToEnd(); r.Close();
+string dtdl = r.ReAzure Digital TwinsoEnd(); r.Close();
 Task<Response> rUpload = client.UploadDTDLAsync(dtdl);
 Clients can also upload multiple files in one single transaction:
 DigitalTwinsClient client = new DigitalTwinsClient("connectionString");
@@ -77,7 +78,7 @@ foreach (string fileName in dtdlFiles)
 {
     // Read model file into string (not part of SDK)
     StreamReader r = new StreamReader("MyModelFile.dtdl"));
-    string dtdl = r.ReadToEnd(); r.Close();
+    string dtdl = r.ReAzure Digital TwinsoEnd(); r.Close();
     dtdlStrings.Add(dtdl); 
 }
 
@@ -103,9 +104,9 @@ The DTDL upload API provides two overloads for loading DTDL. One overload lets y
  
 On upload, model files are validated. 
 
-## Retrieve Model(s)
+## Retrieve models
 
-You can list and retrieve models stored on your ADT service instance. Your options are:
+You can list and retrieve models stored on your Azure Digital Twins service instance. Your options are:
 * Retrieve all models
 * Retrieve a single model
 * Retrieve a single model with dependencies
@@ -127,14 +128,14 @@ IAsyncEnumerable<Response<ModelData>> oneModelWithDependencies =
                         client.RetrieveModelWithDependenciesAsync(modelId, IncludeModels.All);
 ```
 
-The API calls to retrieve models return `ModelData` objects. `ModelData` contains metadata about the model stored in the ADT service instance, such as name, DTMI, and creation date of the model. The `ModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
+The API calls to retrieve models return `ModelData` objects. `ModelData` contains metadata about the model stored in the Azure Digital Twins service instance, such as name, DTMI, and creation date of the model. The `ModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
 
 The `RetrieveModelWithDependencies` call returns not only the requested model, but also all models that the requested model depends on.
-Models are not necessarily returned in exactly the document form they were uploaded in. ADT makes no guarantees about the form a document is returned in, beyond that the document will be returned in semantically equivalent form. 
+Models are not necessarily returned in exactly the document form they were uploaded in. Azure Digital Twins makes no guarantees about the form a document is returned in, beyond that the document will be returned in semantically equivalent form. 
 
-## Parse Models
+## Parse models
 
-As part of the ADT SDK, a DTDL parsing library is provided as a client-side library. This library provides object-model access to the DTDL type definitions – effectively, the equivalent of C# reflection on DTDL. This library can be used independently of the ADT SDK; for example, for validation in a visual or text editor for DTDL. 
+As part of the Azure Digital Twins SDK, a DTDL parsing library is provided as a client-side library. This library provides object-model access to the DTDL type definitions – effectively, the equivalent of C# reflection on DTDL. This library can be used independently of the Azure Digital Twins SDK; for example, for validation in a visual or text editor for DTDL. 
 
 To use the parser library, you provide a set of DTDL documents to the library. Typically, you would retrieve these model documents from the service, but you might also have them available locally, if your client was responsible for uploading them to the service in the first place. The overall workflow is as follows.
 * You retrieve all (or, potentially, some) DTDL documents from the service.
@@ -149,7 +150,7 @@ The functionalities of the parser are:
     - Ascertain if a type is assignable from another type 
 
 > [!NOTE]
-> IoT Plug and Play (PnP) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of DTDL as used in ADT. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your twin. The parser will always, by default, return the same object model for both PnP and Azure Digital Twins syntax.
+> IoT Plug and Play (PnP) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of DTDL as used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your twin. The parser will always, by default, return the same object model for both PnP and Azure Digital Twins syntax.
 
 ### An example
 
@@ -232,7 +233,7 @@ public void ParseModels()
     }
 }
 ```
-## Model Deletion
+## Delete models
 
 Models can also be deleted from the service. Deletion is a multi-step process:
 * First, **decommission** the model. A decommissioned model is still valid for use by existing twin instances, including the ability to change properties or add and delete relationships. However, new instances of this model type can't be created anymore.
@@ -247,3 +248,9 @@ client.DecommisionModel(dtmiOfPlanetInterface);
 ```
 
 `DecommissionModel()` can take one or more than one URN(s), so developers can process one or multiple ones in one statement. The decommissioning status is also included in the `ModelData` records returned by the model retrieval APIs.
+
+## Next steps
+
+Learn about managing the other key components of an Azure Digital Twins solution:
+* [Manage an Azure Digital Twins graph](how-to-manage-graph.md)
+* [Manage an individual twin](how-to-manage-twin.md)

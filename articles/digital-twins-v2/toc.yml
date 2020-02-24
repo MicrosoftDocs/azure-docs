@@ -9,13 +9,13 @@
   - name: Modeling objects
     href: concepts-models.md
   - name: DTDL modeling language
-    href: concepts-DTDL.md
+    href: concepts-digital-twins-definition-language.md
   - name: Twin representation
     href: concepts-twins.md
   - name: Representing real devices
     href: concepts-devices.md
   - name: Routing events
-    href: concepts-event-routing.md
+    href: concepts-route-events.md
   - name: Querying the ADT graph
     href: concepts-graph-queries.md
   - name: Securing digital twin solutions
@@ -33,7 +33,7 @@
   - name: Route event data
     href: how-to-route-events.md
   - name: Use the ADT APIs
-    href: how-to-apis.md
+    href: how-to-use-apis.md
 - name: Reference
   items:
 - name: Resources

@@ -1,7 +1,8 @@
 ---
 # Mandatory fields.
-title: Query the ADT graph
-description: See how to get information out of an Azure Digital Twins (ADT) graph using the ADT query language.
+title: Query the Azure Digital Twins graph
+titleSuffix: Azure Digital Twins
+description: See how to get information out of an Azure Digital Twins graph using the Azure Digital Twins query language.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 2/21/2020
@@ -49,3 +50,8 @@ IAsynEnumerable<Result<JsonDocument>> result = client.Query(“querystring”);
 
 This query returns results in the form of a JSON string. 
 To parse the JSON results returned, use the JSON parser of your choice.
+
+## Next steps
+
+Learn more about the Azure Digital Twins APIs
+* [Use the Azure Digital Twins APIs](how-to-use-apis.md)

@@ -1,6 +1,7 @@
 ---
 # Mandatory fields.
 title: Manage an Azure Digital Twins graph
+titleSuffix: Azure Digital Twins
 description: See how to combine Azure Digital Twins concepts to build out a full graph representation, as well as modify and delete when necessary.
 author: baanders
 ms.author: baanders # Microsoft employees only
@@ -16,14 +17,14 @@ ms.service: digital-twins
 
 # Manage the components of your digital twin graph
 
-Azure Digital Twins (ADT) **Twin APIs** let developers create, modify, and delete twins and their relationships in an ADT instance.
+Azure Digital Twins **Twin APIs** let developers create, modify, and delete twins and their relationships in an Azure Digital Twins instance.
 
-## Creating a Graph (Private Preview)
+## Create a graph (preview)
 Once we have a set of types, we can create a graph representing a complete hospital. For a small hospital, this graph might look like this:
 
-![Graph of a sample hospital](./media/how-to-manage-graph/hospital-graph.png)
+[![Graph of a sample hospital](./media/how-to-manage-graph/hospital-graph.png)](./media/how-to-manage-graph/hospital-graph.png#lightbox)
 
-For illustration purposes, here is an example code snippet, using the ADT C# SDK, that might be used to create the graph programmatically. In reality, code like this would most likely be driven by information from another pre-existing data system, such as a building information management system:
+For illustration purposes, here is an example code snippet, using the Azure Digital Twins C# SDK, that might be used to create the graph programmatically. In reality, code like this would most likely be driven by information from another pre-existing data system, such as a building information management system:
 
 ```csharp
 var client = new DigitalTwinsClient("...Authentication Info...");
@@ -47,7 +48,7 @@ var client = new DigitalTwinsClient("...Authentication Info...");
         client.Relationship("RoomPed01", "hasDevice", "SoapDispenserP01");
 ```
 
-## Creating Twins and Graphs of Twin Instances 
+## Create twins and graphs of twin instances 
 
 Once models are uploaded to the server, you can begin constructing a twin instance graph. In many cases, the data that determines the topology of the instance graph will come from an existing data source, such as a CAD file, a BIM database, or an Excel spreadsheet.
 
@@ -63,7 +64,7 @@ Response rR = client.CreateRelationship("idMyPlanet01", "IsCircledBy", "idMyMoon
 
 This code creates two instances of twins, one using model type *Planet*, the other using model type *Moon*. In addition to the model type ID (`dtmi:Planet` and `dtmi:Moon`), you need to pass in a unique ID, and data to initialize the twin instance during creation. The sample also creates a relationship between the two instances, connecting them to each other.
 
-## Initializing Properties
+## Initialize properties
 
 All non-optional properties and components of twins must be initialized at creation time. Relationships may be initialized, but do not need to be. 
 The Twin creation API accepts a JSON string to initialize the twin instance. You will typically create this JSON string by serializing an object that holds the initialization data into JSON; for example, using the JSON functionality in `System.Text.Json` (built-in for .NET Core 3.0, and available as a NuGet package for many other versions of the .NET framework).
@@ -95,7 +96,7 @@ MoonData moonData = new MoonData();
 string s = JsonSerializer.Serialize(moonData);
 ```
 
-## Creating Twins: A More Complete Example
+## Create twins: a more complete example
 
 A slightly more complete example is outlined below, to read topology from a spreadsheet. The example assumes that there are a number of rows in the Excel file that list floors or rooms (and the parent floor for each room):
 
@@ -109,7 +110,7 @@ A slightly more complete example is outlined below, to read topology from a spre
 | room	| Room21 | Floor02 | contains | … | … |
 | room	| Room22 | Floor02 | contains | … | … |
 
-The following code uses the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to read a spreadsheet and construct an ADT graph from the results:
+The following code uses the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to read a spreadsheet and construct an Azure Digital Twins graph from the results:
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");
@@ -158,3 +159,8 @@ With RelationshipRecord defined as:
             public string relName;
         }
 ```
+
+## Next steps
+
+See how to query an Azure Digital Twins graph:
+* [Query the Azure Digital Twins Graph](how-to-query-graph.md)

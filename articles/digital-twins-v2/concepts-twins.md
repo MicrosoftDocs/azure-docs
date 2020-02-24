@@ -1,7 +1,8 @@
 ---
 # Mandatory fields.
-title: Twin representation
-description: Understand the concept of a digital twin, what its properties can be in Azure Digital Twins (ADT), and what role twins serve within the ADT graph.
+title: Represent objects with a twin
+titleSuffix: Azure Digital Twins
+description: Understand the concept of a digital twin, what its properties can be in Azure Digital Twins, and what role twins serve within the Azure Digital Twins graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 2/21/2020
@@ -16,7 +17,9 @@ ms.service: digital-twins
 
 # Understand the concept of a digital twin
 
-## Digital Twin JSON Format
+Within an Azure Digital Twins solution, the entities in your environment are represented by **twins.** A twin is described by one of the user-created Azure Digital Twins [models](concepts-models.md); it is implemented and connected via relationships to form the Azure Digital Twins [graph](concepts-graph-queries.md). This article gives more information on what a twin representation entails.
+
+## Digital twin JSON format
 
 The following section shows an example of a digital twin's data represented in JSON:
 
@@ -82,7 +85,7 @@ More formally, the JSON data has the following fields:
 | `{componentName}.{propertyName}` | The value of the property in JSON (string, number, or object). |
 | `{componentName}.$metadata` | The metadata information for the component, analogous to the root-level $metadata. |
 
-## Relationship JSON Format
+## Relationship JSON format
 
 A relationship resource has the following format:
 
@@ -103,3 +106,12 @@ A relationship resource has the following format:
 | `$targetId` | The ID of the target digital twin. |
 | `$relationshipName` | The name of the relationship. |
 | `{propertyName}` | The value of the property in JSON (string, number, or object) |
+
+## Next steps
+
+Learn about other key components of an Azure Digital Twins solution:
+* [Model an object](concepts-models.md)
+* [Use the Azure Digital Twins graph](concepts-graph-queries.md)
+
+Or, see how a twin is managed with Twin APIs:
+* [Manage an individual twin](how-to-manage-twin.md)

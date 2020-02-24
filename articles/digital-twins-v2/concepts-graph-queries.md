@@ -1,6 +1,7 @@
 ---
 # Mandatory fields.
-title: Using the Azure Digital Twins graph
+title: Use the Azure Digital Twins graph
+titleSuffix: Azure Digital Twins
 description: Understand the graph aspect of Azure Digital Twins, and how to query the graph for information.
 author: baanders
 ms.author: baanders # Microsoft employees only
@@ -16,13 +17,13 @@ ms.service: digital-twins
 
 # Understand the Azure Digital Twins graph
 
-The center of Azure Digital Twins (ADT) is the **digital twin graph**, constructed from [twins](concepts-twins.md) and relationships. Every twin in the graph is an instance of a [model](concepts-models.md), which defines the twin's capabilities and also defines relationships that are possible between twins. Twin instances build out these relationships between them and the result is a graph.
+The center of Azure Digital Twins is the **digital twin graph**, constructed from [twins](concepts-twins.md) and relationships. Every twin in the graph is an instance of a [model](concepts-models.md), which defines the twin's capabilities and also defines relationships that are possible between twins. Twin instances build out these relationships between them and the result is a graph.
 
 For example, a *Floor* twin might have a *contains* relationship that allows it to connect to several instances of *Room*. A cooling device might have a *cools* relationship with a motor. 
 
 ## Query digital twins
 
-ADT provides extensive query capabilities against the Azure Digital Twins graph. Queries are described using SQL-like syntax, as a superset of the capabilities of the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md).
+Azure Digital Twins provides extensive query capabilities against the Azure Digital Twins graph. Queries are described using SQL-like syntax, as a superset of the capabilities of the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md).
 
 Query capabilities:
 * Get twins by properties
@@ -34,3 +35,15 @@ Query capabilities:
 * Support for query comparison operators: `AND`/`OR`/`NOT`,  `IN`/`NOT IN`, `STARTSWITH`/`ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`
 * Get twins based on actual state condition (information about twins and their last known property value)
 * Scalar Functions support: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`
+
+## Next steps
+
+Learn about other key components of an Azure Digital Twins solution:
+* [Represent objects with a twin](concepts-twins.md)
+* [Model an object](concepts-models.md)
+
+See how to use the query language to query an Azure Digital Twins graph:
+* [Query the Azure Digital Twins Graph](how-to-query-graph.md)
+
+Or, see how a graph is managed with Twin APIs:
+* [Manage an Azure Digital Twins graph](how-to-manage-grpah.md)
