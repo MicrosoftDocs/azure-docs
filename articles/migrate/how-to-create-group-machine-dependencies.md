@@ -56,6 +56,10 @@ On each machine you want to analyze, install the agents.
     ![Install the agents](./media/how-to-create-group-machine-dependencies/dependencies-install.png)
 
 
+## Install the MMA
+
+Install the MMA on each Windows or Linux machine you want to analyze.
+
 ### Install MMA on a Windows machine
 
 To install the agent on a Windows machine:
@@ -82,7 +86,7 @@ To install the MMA on a Linux machine:
 
 [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-linux-operating-systems) about the list of Linux operating systems support by MMA. 
 
-### Install the Dependency agent
+## Install the Dependency agent
 
 1. To install the Dependency agent on a Windows machine, double-click the setup file and follow the wizard.
 2. To install the Dependency agent on a Linux machine, install as root using the following command:
