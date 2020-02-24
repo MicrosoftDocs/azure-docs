@@ -119,7 +119,7 @@ Import-Module -name AzFilesHybrid
 Connect-AzAccount
 
 #Select the target subscription for the current session
-Select-AzureSubscription -SubscriptionId "<your-subscription-id-here>"
+Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
 
 #Register the target storage account with your active directory environment under the target OU
 join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationUnitName "<ou-name-here>"
