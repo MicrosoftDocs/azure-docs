@@ -64,6 +64,8 @@
   items:
   - name: Upgrade a Basic Public Load Balancer to Standard Public Load Balancer
     href: upgrade-basic-standard.md
+  - name: Upgrade a Basic Internal Load Balancer to Standard Internal Load Balancer
+    href: upgrade-basicInternal-standard.md
   - name: Configure outbound rules
     items:
     - name: Azure CLI

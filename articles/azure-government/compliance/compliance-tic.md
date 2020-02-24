@@ -2,13 +2,13 @@
 title: Trusted Internet Connections guidance for Azure
 description: Trusted Internet Connections guidance for Azure and SaaS services
 services: azure-government
-author: dlapiduz
+author: femila
 
 ms.assetid: 09511e03-a862-4443-81ac-ede815bdaf25
 ms.service: azure-government
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: dlap
+ms.author: femila
 ---
 
 # Trusted Internet Connections guidance

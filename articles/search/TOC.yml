@@ -323,12 +323,12 @@
     items:
     - name: Fundamentals
       href: search-monitor-usage.md
-    - name: Monitor query activity
-      href: search-monitor-queries.md 
     - name: Diagnostic logging
       href: search-monitor-logs.md
     - name: Visualize diagnostic logs
       href: search-monitor-logs-powerbi.md
+    - name: Monitor query activity
+      href: search-monitor-queries.md
     - name: Search traffic analytics
       href: search-traffic-analytics.md
   - name: Troubleshoot

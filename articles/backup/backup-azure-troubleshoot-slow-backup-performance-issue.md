@@ -39,7 +39,7 @@ We also strongly recommend that you review the [Azure Backup service FAQ](backup
 
 Bottlenecks on the computer that's being backed up can cause delays. For example, the computer's ability to read or write to disk, or available bandwidth to send data over the network, can cause bottlenecks.
 
-Windows provides a built-in tool that's called [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) to detect these bottlenecks.
+Windows provides a built-in tool called [Performance Monitor](https://docs.microsoft.com/previous-versions/technet-magazine/cc718984(v=msdn.10)) (Perfmon) to detect these bottlenecks.
 
 Here are some performance counters and ranges that can be helpful in diagnosing bottlenecks for optimal backups.
 

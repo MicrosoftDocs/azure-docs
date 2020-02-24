@@ -237,6 +237,8 @@
         href: cappm-tutorial.md
       - name: CakeHR
         href: cakehr-tutorial.md
+      - name: Campus Café
+        href: campus-cafe-tutorial.md
       - name: Canvas Lms
         href: canvas-lms-tutorial.md
       - name: Capriza Platform
@@ -315,6 +317,8 @@
         href: cobalt-tutorial.md
       - name: Coda
         href: coda-tutorial.md
+      - name: Code42
+        href: code42-tutorial.md
       - name: Cognidox
         href: cognidox-tutorial.md
       - name: Collaborative Innovation
@@ -435,6 +439,8 @@
         href: ebsco-tutorial.md
       - name: eCornell
         href: ecornell-tutorial.md
+      - name: E-days
+        href: e-days-tutorial.md
       - name: Edcor
         href: edcor-tutorial.md
       - name: eDigitalResearch
@@ -485,6 +491,8 @@
         href: expensein-tutorial.md
       - name: Expensify
         href: expensify-tutorial.md
+      - name: Experience Cloud
+        href: experience-cloud-tutorial.md
       - name: Explanation-Based Auditing System
         href: explanation-based-auditing-system-tutorial.md
       - name: Expiration Reminder
@@ -598,8 +606,6 @@
       items:
       - name: Hackerone
         href: hackerone-tutorial.md
-      - name: Halogen Software
-        href: halogen-software-tutorial.md
       - name: Halosys
         href: halosys-tutorial.md
       - name: HappyFox
@@ -652,6 +658,8 @@
         href: hype-tutorial.md
       - name: HyperAnna
         href: hyperanna-tutorial.md
+      - name: IamIP Patent Platform
+        href: iamip-patent-platform-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -976,6 +984,8 @@
         href: nomadic-tutorial.md
       - name: Novatus
         href: novatus-tutorial.md
+      - name: NS1 SSO for Azure
+        href: ns1-sso-azure-tutorial.md
       - name: Nuclino
         href: nuclino-tutorial.md
       - name: O.C. Tanner - AppreciateHub
@@ -1178,6 +1188,8 @@
         href: runmyprocess-tutorial.md
     - name: S
       items:
+      - name: Saba TalentSpace
+        href: halogen-software-tutorial.md
       - name: SafeConnect
         href: safeconnect-tutorial.md
       - name: SafetyNet
@@ -1298,7 +1310,7 @@
         href: skyhighnetworks-tutorial.md
       - name: SKYSITE
         href: skysite-tutorial.md
-      - name: Skytap
+      - name: Single Sign-on for Skytap
         href: skytap-tutorial.md
       - name: Skyward Qmlativ
         href: skyward-qmlativ-tutorial.md
@@ -1332,6 +1344,8 @@
         href: spaceiq-tutorial.md
       - name: Spacio
         href: spacio-tutorial.md
+      - name: Splashtop
+        href: splashtop-tutorial.md
       - name: Splunk Enterprise and Splunk Cloud
         href: splunkenterpriseandsplunkcloud-tutorial.md
       - name: Spotinst
