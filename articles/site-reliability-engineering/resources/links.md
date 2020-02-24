@@ -1,5 +1,5 @@
 ---
-title: SRE link list | Microsoft Docs
+title: SRE link collections and digests | Microsoft Docs
 description: Expand your knowledge of site reliability engineering with these resources
 author: dnblankedelman
 manager: efreeman

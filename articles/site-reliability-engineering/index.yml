@@ -1,13 +1,13 @@
 ### YamlMime:Hub
 
-title: Site Reliability Engineering documentation # < 60 chars
-summary: Site Reliability Engineering is an engineering discipline devoted to helping an organization sustainably achieve the appropriate level of reliability in their systems, services, and products. # < 160 chars
+title: Site reliability engineering documentation # < 60 chars
+summary: Site reliability engineering is an engineering discipline devoted to helping an organization sustainably achieve the appropriate level of reliability in their systems, services, and products. # < 160 chars
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-bi | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure
 
 metadata:
-  title: Site Reliability Engineering documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Site Reliability Engineering is an engineering discipline devoted to helping an organization sustainably achieve the appropriate level of reliability in their systems, services, and products. # Required; article description that is displayed in search results. < 160 chars.
+  title: Site reliability engineering documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Site reliability engineering is an engineering discipline devoted to helping an organization sustainably achieve the appropriate level of reliability in their systems, services, and products. # Required; article description that is displayed in search results. < 160 chars.
   services: site-reliability-engineering
   ms.service: site-reliability-engineering #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: hub-page # Required
