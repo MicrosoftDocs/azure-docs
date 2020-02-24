@@ -35,14 +35,14 @@ In order for your submission to be approved:
 - If you want a tailored experience for users in a regional store, you can add additional languages so that your add-in appears in another language store with localized metadata. Your service and your add-in manifest must be updated appropriately. You must also provide descriptions for each language you add.
 - If your free app or add-in contains an in-app purchase, the Microsoft AppSource listing for your add-in will reflect this by stating 'Additional purchase may be required' under the pricing options.
 
-For more details about Microsoft AppSource requirements, see the [Validation policies](validation-policies.md).
+For more details about Microsoft AppSource requirements, see the [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies).
 
 <a name="bk_Validation"> </a>
 ## Certification process
 
 After you submit your solution:
 
-1. Your submission goes through a series of automated checks to ensure that it complies with the [validation policies](validation-policies.md).
+1. Your submission goes through a series of automated checks to ensure that it complies with the [certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies).
 
 2. The validation team reviews your submission. This can take 3-5 working days, depending on the volume of submissions in the queue.
 

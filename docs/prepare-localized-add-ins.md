@@ -113,6 +113,6 @@ The following table lists the submission languages that AppSource is available i
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Validation policies](validation-policies.md) 
+- [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies) 
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)    
  
