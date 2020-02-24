@@ -56,6 +56,6 @@ The value that is sent to the document is the value of the  _mktcmpid_ parameter
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
+- [Make your solutions available in AppSource and within Office](submit-to-appsource-via-partner-center.md)
 - [Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-ins)  
 - [SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
