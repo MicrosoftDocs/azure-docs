@@ -7,15 +7,15 @@ ms.date: 02/20/2020
 
 # Active and inactive events
 
-An **active** event is any call to Rank where you know you are going to show the result to the customer and determine the reward score.
+An **active** event is any call to Rank where you know you are going to show the result to the customer and determine the reward score. This is the default behavior.
 
-An **inactive** event is a call to Rank where you will not show the result to the customer and determine the reward score. Inactive events should not call the Reward API.
+An **inactive** event is a call to Rank where you are not sure if the user will ever see the recommended action, due to business logic. This allows you to discard the event so Personalizer isn't trained with the default reward. Inactive events should not call the Reward API.
 
-It is important the that the learning loop know the actual type of event. An inactive event will not have a Reward call. An active event should have a Reward call but if the API call is never made, the default reward score is applied. You don't want the default applied reward score to impact training, if the customer never saw the Rank best-selected content.
+It is important the that the learning loop know the actual type of event. An inactive event will not have a Reward call. An active event should have a Reward call but if the API call is never made, the default reward score is applied. Change the status of an event from inactive to active as soon as you know it will influence the user experience.
 
 ## Typical active events scenario
 
-When your application calls the Rank API, you receive the action which the application should show in the **rewardActionId** field.  From that moment, Personalizer expects a Reward call with a reward score that has the same eventId. The reward score is used to train the model for future Rank calls. If no Reward call is received for the eventId, a default reward is applied. [Default rewards](how-to-settings.md#configure-rewards-for-the-feedback-loop) are set on your Personalizer resource in the Azure portal.
+When your application calls the Rank API, you receive the action, which the application should show in the **rewardActionId** field.  From that moment, Personalizer expects a Reward call with a reward score that has the same eventId. The reward score is used to train the model for future Rank calls. If no Reward call is received for the eventId, a default reward is applied. [Default rewards](how-to-settings.md#configure-rewards-for-the-feedback-loop) are set on your Personalizer resource in the Azure portal.
 
 ## Other event type scenarios
 
