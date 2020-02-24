@@ -214,5 +214,5 @@ This table provides details about storage-related fields.
 
 ## Next steps
 
-- [Learn how to send diagnostics data to Log Analytics](https://aka.ms/AzureBackupDiagnosticsDocs)
+- [Learn how to send diagnostics data to Log Analytics](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
 - [Learn how to write queries on Resource specific tables](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries)

@@ -88,7 +88,7 @@ You don't need these agents unless you're using dependency visualization.
 
 ## Can I use an existing workspace?
 
-Yes, you can attach an existing workspace to the migration project and use it for dependency visualization. [Learn more](concepts-dependency-visualization.md#how-does-it-work).
+Yes, you can attach an existing workspace to the migration project and use it for dependency visualization. 
 
 ## Can I export the dependency visualization report?
 
