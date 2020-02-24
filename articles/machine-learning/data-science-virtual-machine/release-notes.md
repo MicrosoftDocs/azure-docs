@@ -19,7 +19,7 @@ See the [list of known issues](reference-known-issues.md) to learn about known b
 
 ## 2020-02-24
 
-Data Science Virtual Machine images for [Ubuntu 18.04](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/data%20science%20) and [Windows 2019](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/data%20science%20) images are now available.
+Data Science Virtual Machine images for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview) and [Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview) images are now available.
 
 ## 2019-10-08
 
