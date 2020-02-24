@@ -25,6 +25,10 @@ Most resources can only be created indirectly, typically by loading them from a 
 
 Many resources are immutable, for instance [meshes](meshes.md) and [textures](textures.md). Some resources are mutable, though, for example [materials](materials.md). Since resources are often shared, modifying a resource may affect multiple objects. For instance, changing the color of a material will change the color of all objects that use meshes, which in turn reference that material.
 
+### Built-in resources
+
+Azure Remote Rendering contains some built-in resources, which can be loaded by prepending their respective identifier with `builtin://` during the call to `AzureSession.Actions.LoadXYZAsync()`. The available built-in resources are listed in the documentation for each respective feature. For example, the [sky chapter](../overview/features/sky.md) lists the built-in sky textures.
+
 ## General lifetime
 
 The lifetime of all objects and resources is bound to the connection. On disconnect everything is discarded. When reconnecting to the same session, the scene graph will be empty and all resources are purged.
