@@ -25,7 +25,7 @@ In this article, you will learn how to:
 
 ## Prerequisites
 
-Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [setting up permissions](tutorial-backup-sap-hana-db.md#setting-up-permissions) sections to set up the database for backup.
+Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and the [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections to set up the database for backup.
 
 ### Set up network connectivity
 

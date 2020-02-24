@@ -2,7 +2,7 @@
 title: Tutorial - Back up SAP HANA databases in Azure VMs 
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 02/24/2020
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM
@@ -33,20 +33,12 @@ Onboard to the public preview as follows:
 
 Make sure you do the following before configuring backups:
 
-1. On the VM running the SAP HANA database, install and enable ODBC driver packages from the official SLES package/media using zypper, as follows:
-
-```bash
-sudo zypper update
-sudo zypper install unixODBC
-```
-
->[!NOTE]
-> If you are not updating the repositories, make sure the version of unixODBC is minimum 2.3.4. To know the version of uniXODBC, run `odbcinst -j` as root
->
-
-2. Allow connectivity from the VM to the internet, so that it can reach Azure, as described in the [procedure below](#set-up-network-connectivity).
-
-3. Run the pre-registration script in the virtual machine where HANA is installed as a root user. [This script](https://aka.ms/scriptforpermsonhana) will set the [right permissions](#setting-up-permissions).
+* Allow connectivity from the VM to the internet, so that it can reach Azure, as described in the [set up network connectivity](#set-up-network-connectivity) procedure below.
+* A key should exist in the **hdbuserstore** that fulfills the following criteria:
+  * It should be present in the default **hdbuserstore**
+  * For MDC, the key should point to the SQL port of **NAMESERVER**. In the case of SDC it should point to the SQL port of **INDEXSERVER**
+  * It should have credentials to add and delete users
+* Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://aka.ms/scriptforpermsonhana) gets the HANA system ready for backup. Refer to the [What the pre-registration script does](#what-the-pre-registration-script-does) section to understand more about the pre-registration script.
 
 ## Set up network connectivity
 
@@ -105,27 +97,13 @@ Use NSG service tags | Easier to manage as range changes are automatically merge
 Use Azure Firewall FQDN tags | Easier to manage as the required FQDNs are automatically managed | Can be used with Azure Firewall only
 Use an HTTP proxy | Granular control in the proxy over the storage URLs is allowed <br/><br/> Single point of internet access to VMs <br/><br/> Not subject to Azure IP address changes | Additional costs to run a VM with the proxy software
 
-## Setting up permissions
+## What the pre-registration script does
 
-The pre-registration script performs the following actions:
+Running the pre-registration script performs the following functions:
 
-1. Creates AZUREWLBACKUPHANAUSER in the HANA system and adds these required roles and permissions:
-   * DATABASE ADMIN: to create new DBs during restore.
-   * CATALOG READ: to read the backup catalog.
-   * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables.
-2. Adds a key to Hdbuserstore for the HANA plug-in to handle all operations (database queries, restore operations, configuring and running backup).
-
-To confirm the key creation, run the HDBSQL command on the HANA machine with SIDADM credentials:
-
-```hdbsql
-hdbuserstore list
-```
-
-The command output should display the {SID}{DBNAME} key, with the user shown as AZUREWLBACKUPHANAUSER.
-
->[!NOTE]
-> Make sure you have a unique set of SSFS files under /usr/sap/{SID}/home/.hdb/. There should be only one folder in this path.
->
+* It installs or updates any necessary packages required by the Azure Backup agent on your distribution.
+* It performs outbound network connectivity checks with Azure Backup servers and dependent services like Azure Active Directory and Azure Storage.
+* It logs into your HANA system using the SYSTEM user key from your **hdbuserstore**, and creates a backup user and a key. This user will allow the backup agent to discover, backup and restore databases in your HANA system.
 
 ## Create a Recovery Service vault
 
