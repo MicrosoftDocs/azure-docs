@@ -13,7 +13,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 02/24/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
 ---
@@ -132,6 +132,7 @@ HTTP Status Code | Reason
 400 Bad Request | Missing `Metadata: true` header or missing the format when querying a leaf node
 404 Not Found | The requested element doesn't exist
 405 Method Not Allowed | Only `GET` requests are supported
+410 Gone | Retry after some time for a max of 70 seconds
 429 Too Many Requests | The API currently supports a maximum of 5 queries per second
 500 Service Error     | Retry after some time
 
@@ -833,14 +834,14 @@ sku | Specific SKU for the VM image, introduced in `2019-11-01`
 Once you get the signature above, you can verify that the signature is from Microsoft. Also you can verify the intermediate certificate and the certificate chain. Lastly, you can verify the subscription ID is correct.
 
 > [!NOTE]
-> The certificate for Public cloud and sovereign cloud will be different.
+> The certificate for Public cloud and sovereign cloud will be different. We have a known issue around the certificate used for signing and can be any certificates in the subdomain of `metadata.azure.com`. Hence the validation should allow a common name from any `.metadata.azure.com`subdomain, or just `metadata.azure.com` for public cloud.
 
  Cloud | Certificate
 ---------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | metadata.azure.com
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | metadata.azure.cn
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | *.metadata.azure.com
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
 
 ```bash
 
