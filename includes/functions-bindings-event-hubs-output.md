@@ -201,7 +201,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 # [C#](#tab/csharp)
 
-For [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attribute.
+For [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventHubAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubAttribute.cs) attribute.
 
 The attribute's constructor takes the name of the event hub and the name of an app setting that contains the connection string. For more information about these settings, see [Output - configuration](#configuration). Here's an `EventHub` attribute example:
 
