@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/24/2020
 ms.custom: seodec18
 ---
 
@@ -35,7 +35,7 @@ For the best query performance, adhere to the following rules of thumb:
 
 ## Column flattening
 
-During ingestion, payloads that contain nested columns (attributes) will be flattened so that the column name is a single value with a delineator.
+During ingestion, payloads that contain nested objects will be flattened so that the column name is a single value with a delineator.
 
 * For example, the following nested JSON:
 
@@ -104,7 +104,7 @@ There's a single Azure IoT Hub message sent where the outer array contains a sha
 Let's take a closer look at how to use [Time Series Instance](./time-series-insights-update-tsm.md#time-series-model-instances) to shape your JSON more optimally. 
 
 > [!NOTE]
-> The [Time Series IDs](./time-series-insights-update-how-to-id.md) below  *deviceIds*.
+> The [Time Series IDs](./time-series-insights-update-how-to-id.md) below are *deviceIds*.
 
 ```JSON
 [
@@ -139,7 +139,7 @@ Let's take a closer look at how to use [Time Series Instance](./time-series-insi
 ]
 ```
 
-Time Series Insights Preview joins a table (after flattening) during query time. The table includes additional columns, such as **Type**. The following example demonstrates [how you can shape](./time-series-insights-send-events.md#supported-json-shapes) your telemetry data.
+Time Series Insights Preview joins a table (after flattening) during query time. The table includes additional columns, such as **Type**.
 
 | deviceId	| Type | L1 | L2 | timestamp | series_Flow Rate ft3/s |	series_Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -188,6 +188,6 @@ In this case, the *latest* property value would overwrite the earlier one.
 
 ## Next steps
 
-* Read [Azure Time Series Insights Preview query syntax](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) to send well-shaped JSON to the [Preview APIs](https://docs.microsoft.com/rest/api/time-series-insights/preview).
+* To put these guidelines into practice, read [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights [Preview REST API](https://docs.microsoft.com/rest/api/time-series-insights/preview) for data access.
 
 * Combine JSON best practices with [How to Time Series Model](./time-series-insights-update-how-to-tsm.md).
