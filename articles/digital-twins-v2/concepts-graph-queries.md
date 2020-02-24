@@ -20,9 +20,6 @@ The center of Azure Digital Twins (ADT) is the **digital twin graph**, construct
 
 For example, a *Floor* twin might have a *contains* relationship that allows it to connect to several instances of *Room*. A cooling device might have a *cools* relationship with a motor. 
 
-> [!NOTE]
-> Need a picture for a graph here
-
 ## Query digital twins
 
 ADT provides extensive query capabilities against the Azure Digital Twins graph. Queries are described using SQL-like syntax, as a superset of the capabilities of the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md).

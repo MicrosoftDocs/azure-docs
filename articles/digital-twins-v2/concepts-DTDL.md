@@ -20,12 +20,11 @@ Digital twin models for Azure Digital Twins (ADT) are defined using the **Digita
 
 ### DTDL in ADT versus DTDL in IoT Plug and Play
 
-DTDL is also used as part of [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Developers of Plug and Play (PnP) devices use a subset of the same description language used for twins. This article describes DTDL as used in ADT.
+DTDL is also used as part of [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Developers of Plug and Play (PnP) devices use a subset of the same description language used for twins. The DTDL version used for PnP is semantically a subset of DTDL for ADT: Every CapabilityModel as defined by PnP is also a valid interface for use in ADT. 
 
-> [!NOTE]
-> please see Add reference to PnP DTDL specs.
+For more information about pure DTDL, see its [reference documentation](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
-The DTDL version used for PnP is semantically a subset of DTDL for ADT: Every CapabilityModel as defined by PnP is also a valid interface for use in ADT.  
+The remainder of this article describes DTDL as used in ADT.
 
 ## Writing in DTDL
 
@@ -42,12 +41,6 @@ DTDL constraints while in preview:
 ## DTDL Data Types
 
 Property and telemetry values can be of standard primitive types — `integer`, `double`, `string`, and `Boolean` — and others such as `DateTime` and `Duration`. 
-
-> [!NOTE]
-> Insert Reference to DTDL documentation for complete information.
-
-> [!NOTE]
-> Add information on mandatory versus optional properties
 
 In addition to primitive types, property and telemetry fields can have the following four complex types:
 * `Object`

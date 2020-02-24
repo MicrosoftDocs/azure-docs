@@ -81,8 +81,6 @@ The defined properties of the twin are returned as top-level properties on the t
 * Metadata. The metadata section contains a variety of metadata. For example:
     - The DTMI of the model of the twin.
     - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Today, this property only applies to physical devices connected to IoT Hub, but in the future, it may also apply to non-device twins running in distributed scenarios. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. 
- > [!NOTE]
- > Reference to a section explaining sync status
     - Service-specific metadata, like from IoT Hub or ADT. 
 
 ## Patching Twins

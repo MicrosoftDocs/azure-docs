@@ -20,9 +20,6 @@ As part of the Azure Digital Twins (ADT) graph, in addition to your business twi
 If you attach an IoT hub to ADT, each device connected to the hub can become visible as a node in the twin graph, which can then be connected to other nodes to form a topology. Typically, incoming data from devices triggers event handling functions that are then used to drive properties on other twins.
 ADT makes it easy to work with devices by automatically mapping devices from a connected IoT hub into the ADT instance graph. 
 
-> [!NOTE]
-> Add a section to describe ADT – IoT Hub integration
-
 An ADT graph contains more than twins based on the models you create and instantiate. ADT also automatically creates nodes for every device registered on an IoT hub attached to ADT. You can connect these twins to the modeled twins you create using relationships.
 Devices can be:
 * **[IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play) devices** — These are devices that are represented by a [Digital Twin Definition Language (DTDL)](concepts-DTDL.md) model. Devices with a DTDL model have a well-defined interface, allowing you to reflect on the messages the device can be expected to set, and the properties etc., exposed on its twin in ADT.

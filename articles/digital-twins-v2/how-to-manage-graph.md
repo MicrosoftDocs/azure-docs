@@ -21,15 +21,9 @@ Azure Digital Twins (ADT) **Twin APIs** let developers create, modify, and delet
 ## Creating a Graph (Private Preview)
 Once we have a set of types, we can create a graph representing a complete hospital. For a small hospital, this graph might look like this:
 
-> [!NOTE]
-> Replace with better picture
-
 ![Graph of a sample hospital](./media/how-to-manage-graph/hospital-graph.png)
 
 For illustration purposes, here is an example code snippet, using the ADT C# SDK, that might be used to create the graph programmatically. In reality, code like this would most likely be driven by information from another pre-existing data system, such as a building information management system:
-
-> [!NOTE]
-> Need to update the examples with final signatures
 
 ```csharp
 var client = new DigitalTwinsClient("...Authentication Info...");

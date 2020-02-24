@@ -30,10 +30,6 @@ Endpoints are set up using control plane APIs, or via the portal. An endpoint de
 * Endpoint type, such as Event Grid, Event Hub or other
 * Primary connection string and secondary connection string to authenticate 
 * The topic path of the endpoint, such as *your-topic.westus.eventgrid.azure.net*
->[!NOTE]
-> The inclusion of primary and secondary connection strings in the endpoint definition might be temporary for current preview release. Later, the MSI auth pass will be used to provide Azure ID for the service
->[!NOTE]
-> The above should only be mentioned if it is certain
 
 The endpoint APIs that are available in control plane are:
 1.	Create endpoint
@@ -80,9 +76,8 @@ Message routing query supports multiple categories of filters, all expressed in 
 3.	Filter on message/notification body
 4.	Filter on message properties
 
-Note: ADT messages are following CloudEvents standard, 
 > [!NOTE]
-> see doc Digital Twin x-team APIs 2 - Notifications.docx
+> ADT messages are following CloudEvents standard.
 
 In order to explain the message routing query, here are two sample messages of telemetry and notification:
 
@@ -141,9 +136,6 @@ You can also specify `IN` operator
 
 The query language for this filtering scenario is compatible with ADT query language, and is a subset of it (ADT query language's `JOIN` is out of scope).
 
-> [!NOTE]
-> QueryStore.Language.Syntax.docx example
-
 `$dt.$metadata.$model = "urn:example:Thermostat:1"` OR 
 `$dt.$metadata.$model = "urn:contosocom:DigitalTwins:Space"`
 
@@ -151,10 +143,6 @@ or
 
 `$dt.IS_OF_MODEL(urn:example:Thermostat:1')` OR
 `$dt.IS_OF_MODEL('urn:contosocom:DigitalTwins:Space;1')`
-
-> [!NOTE]
-> * The priority is to support filtering based on the model and support `OR` operations between multiple models
-> * Second priority is to support filtering by other properties of the twin (beside model above)
 
 `$dt.firmareVersion = “1.0” AND $dt.location = “Redmond”`
 
@@ -319,9 +307,6 @@ Here is another example of a logical digital twin not supporting components:
 
 These notifications are triggered when any relationship’s edge of a digital twin is created, updated, or deleted. 
 
-> [!NOTE]
-> See definition of relationship and edge here: Insert relationship resource
-
 #### Properties
 
 | Name	| Value |
@@ -367,9 +352,6 @@ Here is an example of an update edge notification to update a property:
 
 These notifications are triggered when a [Digital Twins Definition Language (DTDL)](concepts-DTDL.md) model is uploaded, reloaded, patched, decommissioned, or deleted.
 
-> [!NOTE]
->  See model APIs for Hub and DT Model API Discussion Notes.docx
-
 #### Properties
 
 | Name	| Value |
@@ -384,10 +366,7 @@ These notifications are triggered when a [Digital Twins Definition Language (DTD
 | sequence	| Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Sequence will be incremented for each subject, and will be reset to 1 every time the object gets recreated with the same ID (such as during delete and recreate operations). |
 | sequencetype	| The exact value and meaning of sequence. For example, this property may specify that the value must be a string-encoded, signed, 32-bit integer that starts with 1, and increases by 1 for each subsequent value |
 | modelstatus	| The resolution model status for resolving a model. Possible values: Successful/NotFound/Failed (IoT Hub only) | 
-| updatereason	| Update model reason in the schema. Possible values: Create/Reset/Override (IoT Hub only) |
-
->[!NOTE]
-> For IoT Hub only, see definitions here Azure IoT Digital Twin Model Resolution Design Spec.docx
+| updatereason	| Update model reason in the schema. Possible values: Create/Reset/Override (IoT Hub only) | 
 
 #### Body
 

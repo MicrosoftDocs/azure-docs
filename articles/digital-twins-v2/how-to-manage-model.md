@@ -103,9 +103,6 @@ The DTDL upload API provides two overloads for loading DTDL. One overload lets y
  
 On upload, model files are validated. 
 
-> [!NOTE]
-> Add up-to-date information on validation of DTDL on upload
-
 ## Retrieve Model(s)
 
 You can list and retrieve models stored on your ADT service instance. Your options are:
@@ -235,19 +232,12 @@ public void ParseModels()
     }
 }
 ```
-
-> [!NOTE]
-> Add an example that shows how the parser coalesces properties in the presence of inheritance. That is, when reflecting over properties of *ConferenceRoom*, we’d see all the properties of the types that *ConferenceRoom* extends. 
-
 ## Model Deletion
 
 Models can also be deleted from the service. Deletion is a multi-step process:
 * First, **decommission** the model. A decommissioned model is still valid for use by existing twin instances, including the ability to change properties or add and delete relationships. However, new instances of this model type can't be created anymore.
 * After decommissioning a model, you will typically either delete existing instances of that model, or transition the twin instance to a different model.
 * Once there are no more instances of a given model, and the model is not referenced by any other model any longer, you can **delete** it. 
-
-> [!NOTE]
-> Add an example for transitioning 
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");  

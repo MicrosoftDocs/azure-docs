@@ -15,6 +15,3 @@ ms.service: digital-twins
 ---
 
 # Understand security best practices
-
->[!NOTE]
-> No security data.

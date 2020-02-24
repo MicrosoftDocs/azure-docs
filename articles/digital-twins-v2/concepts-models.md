@@ -28,12 +28,7 @@ Model descriptions in DTDL are called **interfaces**. An interface describes a m
 * **Relationships** — Relationships let you model how a given twin is involved with other twins. Relationships can represent different semantic meanings, such as “floor contains room”, “hvac cools rooms”, “Compressor is-billed-to user” etc. Relationships allow digital twins solutions to construct graphs of interrelated twins. 
 * **Components** — A component lets you build your model as an assembly of other interfaces. Use a component to describe something that is an integral part of your model, and that does not need to be created, deleted, or rearranged in your topology of twins independently. In contrast, use independent twins connected by a relationship when you want both parts to have an independent existence in the graph.
 
-> [!NOTE]
-> Example that shows how to think about relationships versus components
-
 A simple example model: 
-> [!NOTE]
-> [TBA – should probably be a model that exposes a command too]
 
 ```json
 {
