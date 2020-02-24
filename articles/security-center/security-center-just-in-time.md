@@ -11,42 +11,14 @@ ms.date: 09/10/2019
 ms.author: memildin
 
 ---
-# Manage virtual machine access using just-in-time
+# Secure your management ports with just-in-time access
 
-Just-in-time (JIT) virtual machine (VM) access can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
-
-> [!NOTE]
-> The just-in-time feature is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
-
+If you're on Security Center's standard pricing tier (see [pricing](/azure/security-center/security-center-pricing)), you can lock down inbound traffic to your Azure VMs with just-in-time (JIT) virtual machine (VM) access. This reduces exposure to attacks while providing easy access to connect to VMs when needed.
 
 > [!NOTE]
 > Security Center just-in-time VM access currently supports only VMs deployed through Azure Resource Manager. To learn more about the classic and Resource Manager deployment models see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
-## Attack scenario
-
-Brute force attacks commonly target management ports as a means to gain access to a VM. If successful, an attacker can take control over the VM and establish a foothold into your environment.
-
-One way to reduce exposure to a brute force attack is to limit the amount of time that a port is open. Management ports don't need to be open at all times. They only need to be open while you're connected to the VM, for example to perform management or maintenance tasks. When just-in-time is enabled, Security Center uses [network security group](../virtual-network/security-overview.md#security-rules) (NSG) and Azure Firewall rules, which restrict access to management ports so they cannot be targeted by attackers.
-
-![Just-in-time scenario](./media/security-center-just-in-time/just-in-time-scenario.png)
-
-## How does JIT access work?
-
-When just-in-time is enabled, Security Center locks down inbound traffic to your Azure VMs by creating an NSG rule. You select the ports on the VM to which inbound traffic will be locked down. These ports are controlled by the just-in-time solution.
-
-When a user requests access to a VM, Security Center checks that the user has [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) permissions for that VM. If the request is approved, Security Center automatically configures the Network Security Groups (NSGs) and Azure Firewall to allow inbound traffic to the selected ports and requested source IP addresses or ranges, for the amount of time that was specified. After the time has expired, Security Center restores the NSGs to their previous states. Those connections that are already established are not being interrupted, however.
-
- > [!NOTE]
- > If a JIT access request is approved for a VM behind an Azure Firewall, then Security Center automatically changes both the NSG and firewall policy rules. For the amount of time that was specified, the rules allow inbound traffic to the selected ports and requested source IP addresses or ranges. After the time is over, Security Center restores the firewall and NSG rules to their previous states.
-
-
-## Permissions needed to configure and use JIT
-
-| To enable a user to: | Permissions to set|
-| --- | --- |
-| Configure or edit a JIT policy for a VM | *Assign these actions to the role:*  <ul><li>On the scope of a subscription or resource group that is associated with the VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> On the scope of a subscription or resource group of VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
-|Request JIT access to a VM | *Assign these actions to the user:*  <ul><li>On the scope of a subscription or resource group that is associated with the VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>On the scope of a subscription or resource group that is associated with the VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  On the scope of a subscription or resource group or VM:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  On the scope of a subscription or resource group or VM:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
-
+[!INCLUDE [security-center-jit-description](../../includes/security-center-jit-description.md)]
 
 ## Configure JIT on a VM
 
@@ -59,7 +31,6 @@ There are three ways to configure a JIT policy on a VM:
 ## Configure JIT in Security Center
 
 From Security Center, you can configure a JIT policy and request access to a VM using a JIT policy
-
 
 ### Configure JIT access on a VM in Security Center <a name="jit-asc"></a>
 
@@ -117,7 +88,6 @@ To request access to a VM via Security Center:
 
 2. Under **Virtual Machine**, click the VMs that you want to request access for. This puts a checkmark next to the VM.
 
-
     - The icon in the **Connection Details** column indicates whether JIT is enabled on the NSG or FW. If it’s enabled on both, only the Firewall icon appears.
 
     - The **Connection Details** column provides the information required to connect the VM, and its open ports.
@@ -174,7 +144,7 @@ To make it easy to roll out just-in-time access across your VMs, you can set a V
 1. From the [Azure portal](https://ms.portal.azure.com), search for and select **Virtual machines**. 
 2. Select the virtual machine you want to limit to just-in-time access.
 3. In the menu, select **Configuration**.
-4. Under **Just-in-time-access**, select **Enable just-in-time policy**. 
+4. Under **Just-in-time-access**, select **Enable just-in-time**. 
 
 This enables just-in-time access for the VM using the following settings:
 
@@ -277,6 +247,17 @@ Run the following in PowerShell:
         Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
 For more information, see the PowerShell cmdlet documentation.
+
+
+## Automatic cleanup of redundant JIT rules 
+
+Whenever you update a JIT policy, a cleanup tool automatically runs to check the validity of your entire ruleset. If it finds a mismatch between a rule in your policy and a rule in the NSG, it determines the cause and removes the rule when safe to do so.
+
+Examples scenarios when the cleaner might remove a rule:
+
+- When two rules with identical definitions exist and one has a higher priority than the other (meaning, the lower priority rule will never be used)
+- When a rule description includes the name of a VM which doesn't match the destination IP in the rule 
+
 
 ## Next steps
 In this article, you learned how just-in-time VM access in Security Center helps you control access to your Azure virtual machines.
