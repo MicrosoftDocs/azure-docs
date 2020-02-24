@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting for Azure Synapse Studio 
-description: Troubleshooting for Azure Synapse Studio
+title: Troubleshoot Azure Synapse Studio 
+description: Troubleshoot Azure Synapse Studio
 author: julieMSFT 
 ms.service: synapse-analytics 
 ms.topic: conceptual

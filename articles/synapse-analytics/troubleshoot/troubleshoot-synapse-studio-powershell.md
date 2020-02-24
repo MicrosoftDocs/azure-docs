@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Azure Synapse Studio connectivity PowerShell 
-description: Troubleshooting Azure Synapse Studio connectivity using PowerShell
+title: Troubleshoot Azure Synapse Studio connectivity PowerShell 
+description: Troubleshoot Azure Synapse Studio connectivity using PowerShell
 author: julieMSFT 
 ms.service: synapse-analytics 
 ms.topic: conceptual
@@ -53,4 +53,4 @@ If you're a network administrator and tuning your firewall configuration for Azu
 
 
 ## Next steps
-If the previous steps don't help to resolve you issue [Create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md)
+If the previous steps don't help to resolve you issue [Create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
