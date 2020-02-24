@@ -68,7 +68,7 @@ In this step, you create a lab for your class in Azure.
     4. **Stop** the template VM.  
 
 ## Publish the template VM
-In this step, you publish the template VM. The publishing process creates lab VMs that are basically copies of the template VM. 
+In this step, you publish the template VM. When you publish the template VM, Azure Lab Services creates VMs in the lab by using the template. All virtual machines have the same configuration as the template.
 
 1. On the **Template** page, select **Publish** on the toolbar. 
 

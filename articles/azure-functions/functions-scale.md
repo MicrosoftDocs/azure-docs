@@ -154,7 +154,7 @@ Scaling can vary on a number of factors, and scale differently based on the trig
 
 Different triggers may also have different scaling limits as well as documented below:
 
-* [Event Hub](functions-bindings-event-hubs.md#trigger---scaling)
+* [Event Hub](functions-bindings-event-hubs-trigger.md#scaling)
 
 ### Best practices and patterns for scalable apps
 
