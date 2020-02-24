@@ -10,7 +10,7 @@ If you want your Office solution to appear in Microsoft AppSource, you need to s
 
 If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, see [Create or update client IDs and secrets in Partner Center](create-or-update-client-ids-and-secrets.md).
 
-For information about the Microsoft AppSource approval process, see [Make your solutions available in Microsoft AppSource](submit-to-the-office-store.md).
+For information about the Microsoft AppSource approval process, see [Make your solutions available in Microsoft AppSource](submit-to-appsource-via-partner-center.md).
 
 ## Submission process
 
