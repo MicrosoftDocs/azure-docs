@@ -11,7 +11,7 @@ This article provides troubleshooting information for backing up SAP HANA databa
 
 ## Prerequisites and Permissions
 
-Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [setting up permissions](tutorial-backup-sap-hana-db.md#setting-up-permissions) sections before configuring backups.
+Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections before configuring backups.
 
 ## Common user errors
 
