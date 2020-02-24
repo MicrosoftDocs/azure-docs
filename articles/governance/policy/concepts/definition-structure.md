@@ -203,11 +203,15 @@ properties](#parameter-properties).
 ### strongType
 
 Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
-within the Azure portal. **strongType** can be either a supported _resource type_ or an allowed
+within the Azure portal. **strongType** can be a supported _resource type_ or an allowed
 value. To determine if a _resource type_ is valid for **strongType**, use
 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
 
-The non _resource type_ allowed values for **strongType** currently include:
+Some _resource types_ not returned by **Get-AzResourceProvider** are supported. Those are:
+
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
+
+The non _resource type_ allowed values for **strongType** are:
 
 - `location`
 - `resourceTypes`
