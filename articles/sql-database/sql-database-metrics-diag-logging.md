@@ -75,7 +75,7 @@ You can set up Azure SQL databases to collect the following diagnostics telemetr
 
 ## Configure streaming of diagnostic telemetry
 
-You can use the **Diagnostics settings** menu in the Azure portal to enable and configure streaming of diagnostics telemetry. Additionally, you can use PowerShell, the Azure CLI, the [REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)], and [Resource Manager templates](../azure-monitor/platform/diagnostic-settings-template.md)] to configure streaming of diagnostic telemetry. You can set the following destinations to stream the diagnostics telemetry: Azure Storage, Azure Event Hubs, and Azure Monitor logs.
+You can use the **Diagnostics settings** menu in the Azure portal to enable and configure streaming of diagnostics telemetry. Additionally, you can use PowerShell, the Azure CLI, the [REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings), and [Resource Manager templates](../azure-monitor/platform/diagnostic-settings-template.md) to configure streaming of diagnostic telemetry. You can set the following destinations to stream the diagnostics telemetry: Azure Storage, Azure Event Hubs, and Azure Monitor logs.
 
 > [!IMPORTANT]
 > Logging of diagnostic telemetry is not enabled by default.
