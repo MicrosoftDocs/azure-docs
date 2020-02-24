@@ -42,7 +42,7 @@ The data that's available for backup depends on where the agent is installed.
 * Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/free/) in just a few minutes.
 * Verify internet access on the machines that you want to back up.
 
-### Internet access
+### Verify internet access
 
 If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
 
@@ -56,7 +56,7 @@ If your machine has limited internet access, ensure that firewall settings on th
     * 20.190.128.0/18
     * 40.126.0.0/18
 
-### Azure ExpressRoute support
+### Use Azure ExpressRoute
 
 You can back up your data over Azure ExpressRoute by using public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.
 
