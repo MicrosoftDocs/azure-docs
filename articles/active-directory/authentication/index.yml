@@ -41,14 +41,14 @@ landingContent:
         links:
           - text: How self-service password reset works
             url: concept-sspr-howitworks.md
-          - text: Password writeback
+          - text: How password writeback works
             url: concept-sspr-writeback.md
       - linkListType: tutorial
         links:
           - text: Enable self-service password reset
             url: tutorial-enable-sspr.md
           - text: Enable password writeback to on-premises
-            url: tutorial-enable-writeback.md
+            url: tutorial-enable-sspr-writeback.md
       - linkListType: deploy
         links:
           - text: Deployment guide for self-service password reset

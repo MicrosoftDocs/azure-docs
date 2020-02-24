@@ -35,7 +35,7 @@ Learn how to:
 Learn how to:
 
 - [Deploy Chef Automate from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
-- [Install Chef on Windows and create Azure VMs](../articles/virtual-machines/windows/chef-automation.md).
+- [Install Chef on Windows and create Azure VMs](../articles/chef/chef-automation.md).
 
 
 ## Puppet
@@ -95,8 +95,8 @@ Learn how to:
 
 Learn how to:
 
-- [Install and configure Terraform with Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
-- [Create an Azure infrastructure with Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
+- [Install and configure Terraform with Azure](../articles/terraform/terraform-install-configure.md).
+- [Create an Azure infrastructure with Terraform](../articles/terraform/terraform-create-complete-vm.md).
 
 
 ## Azure Automation

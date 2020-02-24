@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/20/2019
+ms.date: 02/20/2020
 ms.author: spelluru
 
 ---
@@ -39,34 +39,10 @@ To complete this quickstart, make sure you have the following prerequisites:
 
 
 ## Create a Kafka enabled Event Hubs namespace
+When you create a **standard** tier Event Hubs namespace, the Kafka endpoint for the namespace is automatically enabled. You can stream events from your applications that use the Kafka protocol into standard tier Event Hubs. Follow step-by-step instructions in the [Create an event hub using Azure portal](event-hubs-create.md) to create a **standard** tier Event Hubs namespace. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and click **Create a resource** at the top left of the screen.
-2. Search for **Event Hubs** and select the options shown here:
-    
-    ![Search for Event Hubs in the portal](./media/event-hubs-kafka-stream-analytics/select-event-hubs.png) 
-3. On the **Event Hubs** page, select **Create**.
-4. On the **Create Namespace** page, do the following actions: 
-    1. Provide a unique **name** for the namespace. 
-    2. Select a **pricing tier**. 
-    3. Select **Enable Kafka**. This step is an **important** step. 
-    4. Select your **subscription** in which you want the event hub namespace to be created. 
-    5. Create a new **resource group** or select an existing resource group. 
-    6. Select a **location**. 
-    7. Click **Create**.
-    
-        ![Create a namespace](./media/event-hubs-kafka-stream-analytics/create-event-hub-namespace-page.png) 
-4. In the **notification message**, select the **resource group name**. 
-
-    ![Create a namespace](./media/event-hubs-kafka-stream-analytics/creation-station-message.png)
-1. Select the **event hub namespace** in the resource group. 
-2. Once the namespace is created, select **Shared access policies** under **SETTINGS**.
-
-    ![Click Shared access policies](./media/event-hubs-kafka-stream-analytics/shared-access-policies.png)
-5. You can choose the default **RootManageSharedAccessKey**, or add a new policy. Click the policy name and copy the **connection string**. You use the connection string to configure the Kafka client. 
-    
-    ![Select a policy](./media/event-hubs-kafka-stream-analytics/connection-string.png)  
-
-You can now stream events from your applications that use the Kafka protocol into Event Hubs.
+> [!NOTE]
+> Event Hubs for Kafka is available only on **standard** and **dedicated** tiers. The **basic** tier doesn't support Kafka on Event Hubs.
 
 ## Send messages with Kafka in Event Hubs
 

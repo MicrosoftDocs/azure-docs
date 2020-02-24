@@ -7,7 +7,7 @@ author: msmimart
 manager: CelesteDG
 
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -143,7 +143,7 @@ There are several endpoints defined in the SCIM RFC. You can get started with th
 
 ## Step 2: Understand the Azure AD SCIM implementation
 > [!IMPORTANT]
-> The behavior of the Azure AD SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](../manage-apps/application-provisioning-config-problem-scim-compatibility.md).
+> The behavior of the Azure AD SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](application-provisioning-config-problem-scim-compatibility.md).
 
 If you're building an application that supports a SCIM 2.0 user management API, this section describes in detail how the Azure AD SCIM client is implemented. It also shows how to model your SCIM protocol request handling and responses. Once you've implemented your SCIM endpoint, you can test it by following the procedure described in the previous section.
 
@@ -1450,12 +1450,13 @@ If you're building an application that will be used by more than one tenant, you
 ### Gallery onboarding checklist
 Follow the checklist below to ensure that your application is onboarded quicky and customers have a smooth deployment experience. The information will be gathered from you when onboarding to the gallery. 
 > [!div class="checklist"]
-> * [Support SCIM 2.0 ](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (Required)
+> * Support a [SCIM 2.0 ](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) user and group endpoint (Only one is required but both are recommended)
 > * Support at least 25 requests per second per tenant (Required)
-> * Support schema discovery (Recommended)
 > * Support the OAuth authorization code grant or a long lived token as described below (Required)
-> * Establish an engineering and support point of contact to support customer post gallery onboarding (Required)
+> * Establish an engineering and support point of contact to support customers post gallery onboarding (Required)
+> * Support updating multiple group memberships with a single PATCH (Recommended) 
 > * Document your SCIM endpoint publicly (Recommended) 
+> * [Support schema discovery](https://tools.ietf.org/html/rfc7643#section-6) (Recommended)
 
 
 ### Authorization for provisioning connectors in the application gallery
@@ -1490,7 +1491,7 @@ To help drive awareness and demand of our joint integration, we recommend you up
 * **Sales and customer support readiness.** Ensure your sales and support teams are aware and can speak to the integration capabilities. Brief your sales and support team, provide them with FAQs and include the integration into your sales materials. 
 * **Blog post and/or press release.** Craft a blog post or press release that describes the joint integration, the benefits and how to get started. [Example: Imprivata and Azure Active Directory Press Release](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
 * **Social media.** Leverage your social media like Twitter, Facebook or LinkedIn to promote the integration to your customers. Be sure to include @AzureAD so we can retweet your post. [Example: Imprivata Twitter Post](https://twitter.com/azuread/status/1123964502909779968)
-* **Marketing website.** Create or update your marketing pages (e.g. integration page, partner page, pricing page, etc…) to include the availability of the joint integration. [Example: Pingboard integration Page](https://pingboard.com/org-chart-for), [Smartsheet integration page](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), [Monday.com pricing page](https://monday.com/pricing/) 
+* **Marketing website.** Create or update your marketing pages (e.g. integration page, partner page, pricing page, etc.) to include the availability of the joint integration. [Example: Pingboard integration Page](https://pingboard.com/org-chart-for), [Smartsheet integration page](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), [Monday.com pricing page](https://monday.com/pricing/) 
 * **Technical documentation.** Create a help center article or technical documentation on how customers can get started. [Example: Envoy + Microsoft Azure Active Directory integration.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
 ) 
 * **Customer communication.** Alert customers of the new integration through your customer communication (monthly newsletters, email campaigns, product release notes). 
