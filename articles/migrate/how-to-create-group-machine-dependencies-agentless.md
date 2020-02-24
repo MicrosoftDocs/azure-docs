@@ -10,7 +10,7 @@ ms.date: 2/24/2020
 
 This article describes how to set up dependency visualization in Azure Migrate:Server Assessment. [Dependency visualization](concepts-dependency-visualization.md#what-is-it?) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
-Agentless dependency visualization allows to to identify machine dependencies without install any agents on machines. It works by capturing the TCP connection data from machines for which it's enabled.
+Agentless dependency visualization helps you to identify machine dependencies without install any agents on machines. It works by capturing the TCP connection data from machines for which it's enabled.
 
 > [!IMPORTANT]
 > Agentless dependency visualization is currently in preview for Azure VMware VMs only, discovered with the Azure Migrate:Server Assessment tool.

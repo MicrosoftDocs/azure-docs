@@ -7,8 +7,7 @@ ms.date: 2/24/2020
 
 # Set up dependency visualization
 
-This article describes how to set up dependency visualization in Azure Migrate:Server Assessment. [Dependency visualization](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
-
+This article describes how to set up dependency visualization in Azure Migrate:Server Assessment. [Dependency visualization](concepts-dependency-visualization.md#what-is-it?) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
 ## Before you start
 
@@ -32,7 +31,7 @@ This article describes how to set up dependency visualization in Azure Migrate:S
 2. In **Azure Migrate:Server Assessment**, click **Essentials**.
 3. In **OMS Workspace**, click **Requires configuration**.
 
-     ![Configure Log Analytics workspace](./media/how-to-create-group-machine-dependencies/oms-workspace.png)   
+     ![Configure Log Analytics workspace](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
 
 4. In **Configure OMS workspace**, specify whether you want to create a new workspace, or use an existing one.
     - You can select an existing workspace from all the workspaces in the migrate project subscription.
