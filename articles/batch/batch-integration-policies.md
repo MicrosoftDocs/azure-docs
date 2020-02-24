@@ -31,7 +31,7 @@ Azure Batch has two built-in extensions to help you manage policy compliance.
 
 Policy definitions describe the conditions that need to be met. A condition compares the resource property to a required value. Resource property fields are accessed using pre-defined aliases.You use property aliases to access specific properties for a resource type. Aliases enable you to restrict what values or conditions are allowed for a property on a resource. Each alias maps to paths in different API versions for a given resource type. During policy evaluation, the policy engine gets the property path for that API version.
 
-Batch pools are the compute resources for executing jobs on the Batch service. So, you would use property aliases to access specific properties for these resources. Learn more about [Aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+The resources required by Batch include: account, compute node, pool, job, and task. So, you would use property aliases to access specific properties for these resources. Learn more about [Aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
 To make sure you know the current aliases and review your resources and policies, use the Azure policy extension for Visual Studio Code. It can be installed on all platforms that are supported by Visual Studio Code. This support includes Windows, Linux, and macOS. See [installation guidelines](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode).
 
