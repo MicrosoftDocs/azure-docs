@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -126,6 +126,8 @@ The technical profile also returns claims, that aren't returned by the identity 
 | ClaimsFormat | No | Specifies the format for the output claims. Possible values: `Body` (default), `Form`, `Header`, or `QueryString`. The `Body` value is the output claim that is sent in the request body in JSON format. The `Form` value is the output claim that is sent in the request body in an ampersand '&' separated key value format. The `Header` value is the output claim that is sent in the request header. The `QueryString` value is the output claim that is sent in the request query string. |
 | ClaimUsedForRequestPayload| No | Name of a string claim that contains the payload to be sent to the REST API. |
 | DebugMode | No | Runs the technical profile in debug mode. Possible values: `true`, or `false` (default). In debug mode, the REST API can return more information. See the [Returning error message](#returning-error-message) section. |
+| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
+| ResolveJsonPathsInJsonTokens  | No | Indicates whether the technical profile resolves JSON paths. Possible values: `true`, or `false` (default). Use this metadata to read data from a nested JSON element. In an [OutputClaim](technicalprofiles.md#outputclaims), set the `PartnerClaimType` to the JSON path element you want to output. For example: `firstName.localized`, or `data.0.to.0.email`.|
 
 ## Cryptographic keys
 
@@ -257,7 +259,7 @@ public class ResponseContent
 
 See the following articles for examples of using a RESTful technical profile:
 
-- [Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input](active-directory-b2c-custom-rest-api-netfw.md)
-- [Secure your RESTful services by using HTTP basic authentication](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-- [Secure your RESTful service by using client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](active-directory-b2c-rest-api-validation-custom.md)
+- [Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input](rest-api-claims-exchange-dotnet.md)
+- [Secure your RESTful services by using HTTP basic authentication](secure-rest-api-dotnet-basic-auth.md)
+- [Secure your RESTful service by using client certificates](secure-rest-api-dotnet-certificate-auth.md)
+- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](custom-policy-rest-api-claims-validation.md)

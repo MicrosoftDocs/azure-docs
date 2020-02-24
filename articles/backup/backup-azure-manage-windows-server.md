@@ -267,4 +267,4 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 
 * [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
 * To learn more about Azure Backup, see [Azure Backup Overview](backup-introduction-to-azure-backup.md)
-* Visit the [Azure Backup Forum](https://go.microsoft.com/fwlink/p/?LinkId=290933)
+

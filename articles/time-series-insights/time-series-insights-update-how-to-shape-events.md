@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 02/14/2020
 ms.custom: seodec18
 ---
 
@@ -143,7 +143,7 @@ Consider the following JSON:
   "data_flow" : 1.76435072345733643
 }
 ```
-In the example above, the flattened `data_flow` property would present a naming collision with the `data_flow` property. In this case, the *latest* property value would overwrite the earlier one. If this behavior present a challenge for your business scenarios please contact the TSI team.
+In the example above, the flattened `data_flow` property would present a naming collision with the `data_flow` property. In this case, the *latest* property value would overwrite the earlier one. If this behavior presents a challenge for your business scenarios, please contact the TSI team.
 
 > [!WARNING] 
 > In cases where duplicate properties are present in the same event payload due to flattening or
@@ -152,5 +152,4 @@ In the example above, the flattened `data_flow` property would present a naming 
 
 ## Next steps
 
-- To put these guidelines into practice, read [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights Preview REST API for data access.
-- To learn about supported JSON shapes, read [Supported JSON shapes](./time-series-insights-send-events.md#supported-json-shapes).
+To put these guidelines into practice, read [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights Preview REST API for data access.
