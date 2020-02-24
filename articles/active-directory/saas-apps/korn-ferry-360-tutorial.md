@@ -40,7 +40,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Korn Ferry 360 supports **SP and IDP** initiated SSO
+* Korn Ferry 360 supports **SP** initiated SSO
 * Once you configure Korn Ferry 360 you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Korn Ferry 360 from the gallery
@@ -77,21 +77,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://surveys.kornferry.com/<customidentifier>`
+
+    b. In the **Identifier** text box, type a URL using the following pattern:
     `https://<customidentifier>.kornferry.com/`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://surveys.kornferry.com/<customidentifier>`
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://surveys.kornferry.com/<customidentifier>`
-
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Korn Ferry 360 Client support team](mailto:george.gold@kornferry.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Sign-on URL. Contact [Korn Ferry 360 Client support team](mailto:george.gold@kornferry.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
