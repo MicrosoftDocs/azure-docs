@@ -26986,6 +26986,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/files/storage-files-active-directory-enable.md",
+      "redirect_url": "/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/files/storage-files-active-directory-domain-services-enable.md",
+      "redirect_url": "/azure/storage/files/storage-files-identity-auth-active-directory-enable",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-files-introduction.md",
       "redirect_url": "/azure/storage/files/storage-files-introduction",
       "redirect_document_id": true
