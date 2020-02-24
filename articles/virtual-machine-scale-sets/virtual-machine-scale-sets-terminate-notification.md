@@ -112,7 +112,8 @@ The example above first creates a resource group, then creates a new scale set w
 
 The following example is for enabling termination notification in an existing scale set.
 
-```az vmss update \  
+```azurecli-interactive
+az vmss update \  
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --enable-terminate-notification true \

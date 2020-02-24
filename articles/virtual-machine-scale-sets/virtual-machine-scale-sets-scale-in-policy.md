@@ -157,7 +157,8 @@ Update-AzVmss `
 
 The following is an example for updating the scale-in policy of an existing scale set: 
 
-```az vmss update \  
+```azurecli-interactive
+az vmss update \  
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --scale-in-policy OldestVM
