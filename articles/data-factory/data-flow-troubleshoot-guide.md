@@ -23,8 +23,8 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 ### Error code: DF-Executor-SystemImplicitCartesian
 
 - **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
-- **Causes**: Implicit cartesian product for INNER join between logical plans is not supported. If the columns used in the join creates the unique key
-- **Recommendation**: For non-equality based joins you have to opt for CROSS JOIN.
+- **Causes**: Implicit cartesian product for INNER join between logical plans is not supported. If the columns used in the join creates the unique key, at least one column from both sides of the relationship are required.
+- **Recommendation**: For non-equality based joins you have to opt for CUSTOM CROSS JOIN.
 
 ### Error code: DF-Executor-SystemInvalidJson
 

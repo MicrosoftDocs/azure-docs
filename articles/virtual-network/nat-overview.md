@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/20/2020
 ms.author: allensu
 ---
 
@@ -45,7 +45,7 @@ NAT is compatible with standard SKU [public IP address resources](./virtual-netw
 
 All outbound traffic for the subnet is processed by NAT automatically without any customer configuration.  User-defined routes aren't necessary. NAT takes precedence over other [outbound scenarios](../load-balancer/load-balancer-outbound-connections.md) and replaces the default Internet destination of a subnet.
 
-## SNAT with multiple IP addresses for scale
+## On-demand SNAT with multiple IP addresses for scale
 
 NAT uses "port network address translation" (PNAT or PAT) and is recommended for most workloads. Dynamic or divergent workloads can be easily accommodated with on-demand outbound flow allocation. Extensive pre-planning, pre-allocation, and ultimately overprovisioning of outbound resources is avoided. SNAT port resources are shared and available across all subnets using a specific NAT gateway resource and are provided when needed.
 
@@ -164,7 +164,7 @@ Subscriptions must be registered to allow participation in the Public Preview.  
 2. activate registration
 
     ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network
+      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
     ```
 
 ## Pricing
@@ -187,21 +187,17 @@ NAT is supported through normal support channels.
 
 ## Feedback
 
-We want to know how we can improve the service. Share your [feedback on the Public Preview](https://aka.ms/natfeedback) with us.
+We want to know how we can improve the service. Share your [feedback on the Public Preview](https://aka.ms/natfeedback) with us.  And you can propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 
 ## Limitations
 
 - NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
 - IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.
-- NSG on subnet or NIC isn't honored for outbound flows to public endpoints using NAT.
 - NSG flow logging isn't supported when using NAT.
-- When a virtual network has multiple subnets, each subnet can have a different NAT configured.
 - NAT can't span multiple virtual networks.
 
 ## Next steps
 
 - Learn about [NAT gateway resource](./nat-gateway-resource.md).
-- Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
-- Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
-- Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
+- [Tell us what to build next in UserVoice](https://aka/natuservoice).
 - [Provide feedback on the Public Preview](https://aka.ms/natfeedback).

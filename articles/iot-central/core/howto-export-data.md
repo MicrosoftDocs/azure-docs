@@ -10,9 +10,7 @@ ms.service: iot-central
 manager: corywink
 ---
 
-# Export your Azure IoT Central data
-
-
+# Export IoT data to destinations in Azure
 
 *This topic applies to administrators.*
 

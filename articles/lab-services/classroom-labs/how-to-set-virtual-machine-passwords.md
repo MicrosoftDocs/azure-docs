@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 02/20/2020
 ms.author: spelluru
 
 ---
@@ -92,6 +92,9 @@ The lab creator (instructor/professor) can connect to a student VM if the follow
  To connect to the student VM, hover the mouse on the VM in the list and select the computer button.  
 
 ![Connect to student VM button](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
+
+> [!NOTE]
+> When the professor starts the VM and connects to it, the student quota is unaffected. 
 
 ## Next steps
 To learn about other student usage options you (as a lab owner) can configure, see the following article: [Configure student usage](how-to-configure-student-usage.md).

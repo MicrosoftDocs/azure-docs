@@ -176,6 +176,9 @@
       - name: Keywords
         displayName: keywords, distinct, between, in, top
         href: sql-query-keywords.md
+      - name: Constants
+        displayName: object, number,array
+        href: sql-query-constants.md        
       - name: Operators
         displayName: operators, operator, logical operators, equality, comparison
         href: sql-query-operators.md
@@ -423,6 +426,17 @@
             - name: IS_STRING
               displayName: IS_STRING, IsString, is string, built-in functions
               href: sql-query-is-string.md            
+      - name: Geospatial data
+        items:
+        - name: Geospatial overview
+          displayName: geospatial, spatial
+          href: sql-query-geospatial-intro.md
+        - name: Query geospatial data
+          displayName: geospatial, spatial, query
+          href: sql-query-geospatial-query.md
+        - name: Index geospatial data
+          displayName: geospatial, spatial, index
+          href: sql-query-geospatial-index.md
       - name: Parameterized query
         displayName: parameterized query, parameterized, parameter, parameters
         href: sql-query-parameterized-queries.md
@@ -454,8 +468,6 @@
         items:
         - name: DateTime
           href: working-with-dates.md
-        - name: Geospatial
-          href: geospatial.md
       - name: Time to live
         displayName: delete, delete data, ttl
         href: time-to-live.md
@@ -582,8 +594,7 @@
         - name: Change feed 
           href: cassandra-change-feed.md
         - name: Store and manage Spring Data 
-          href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db 
-          maintainContext: true
+          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Cassandra & Spark
           items:
           - name: Introduction
@@ -658,8 +669,7 @@
             href: tutorial-develop-mongodb-react.md
         - name: 2 - Migrate data
           displayName: import 
-          href: /azure/dms/tutorial-mongodb-cosmos-db
-          maintainContext: true 
+          href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
         - name: 3 - Query data
           href: tutorial-query-mongodb.md
         - name: 4 - Distribute data globally
@@ -690,8 +700,7 @@
         - name: Manage data indexing
           href: mongodb-indexing.md
         - name: Store and manage Spring Data 
-          href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
-          maintainContext: true
+          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: MongoDB extension commands
           href: mongodb-custom-commands.md
           displayName: custom commands
@@ -755,8 +764,7 @@
         - name: Visualize graph data
           href: graph-visualization.md
         - name: Store and manage Spring Data
-          href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
-          maintainContext: true
+          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Manage using Resource Manager templates
           href: manage-gremlin-with-resource-manager.md
         - name: Manage using PowerShell
@@ -951,8 +959,7 @@
       - name: Azure Databricks Spark connector
         href: spark-connector.md
       - name: Streaming with Apache Kafka and Cosmos DB
-        href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
-        maintainContext: true 
+        href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
     - name: Built-in Jupyter notebooks
       items:
       - name: Enable notebooks
@@ -976,8 +983,7 @@
       - name: Configure access from private endpoints
         href: how-to-configure-private-endpoints.md
       - name: Connect privately to a Cosmos DB account
-        href: /azure/private-link/create-private-endpoint-cosmosdb-portal
-        maintainContext: true 
+        href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Configure Cross Origin Resource Sharing(CORS)
         href: how-to-configure-cross-origin-resource-sharing.md
       - name: Secure Azure Cosmos keys using Key Vault
@@ -999,12 +1005,11 @@
       - name: Monitor with diagnostic logs
         href: cosmosdb-monitor-resource-logs.md
       - name: Azure Monitor for Cosmos (preview) 
-        href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
+        href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: View metrics from Cosmos DB account 
         href: use-metrics.md
       - name: Application logging with Logic Apps
-        href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
-        maintainContext: true 
+        href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Monitoring data reference
         href: monitor-cosmos-db-reference.md
     - name: Develop locally
@@ -1032,29 +1037,23 @@
       - name: Azure App Service
         href: create-website.md
       - name: Azure Cognitive Search indexer
-        href: /azure/search/search-howto-index-cosmosdb
-        maintainContext: true 
+        href: ../search/search-howto-index-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Azure Functions
         items:
         - name: Serverless computing
           href: serverless-computing-database.md
         - name: Azure Function bindings
-          href: /azure/azure-functions/functions-bindings-cosmosdb
-          maintainContext: true 
+          href: ../azure-functions/functions-bindings-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Azure Data Factory
-        href: /azure/data-factory/connector-azure-cosmos-db
-        maintainContext: true 
+        href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Azure Stream Analytics
-        href: /azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db
-        maintainContext: true 
+        href: ../stream-analytics/stream-analytics-documentdb-output.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json 
       - name: Azure Event Hubs and Azure Storage
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter
-        href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
-        maintainContext: true
+        href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Spring Data developer guide
-        href: /java/azure/spring-framework/how-to-guides-spring-data-cosmosdb
-        maintainContext: true
+        href: https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: ODBC driver 
         href: odbc-driver.md
     - name: Migrate data to Cosmos DB
