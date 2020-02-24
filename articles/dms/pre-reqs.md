@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 02/24/2020
+ms.date: 02/25/2020
 ---
 
 # Overview of prerequisites for using the Azure Database Migration Service
@@ -35,14 +35,18 @@ Azure Database Migration Service prerequisites that are common across all suppor
     > ```
     >
     > $readerActions = `
-    > "Microsoft.DataMigration/services/*/read", `
-    > "Microsoft.Network/networkInterfaces/ipConfigurations/read"
+    > "Microsoft.Network/networkInterfaces/ipConfigurations/read", `
+    > "Microsoft.DataMigration/*/read", `
+    > "Microsoft.Resources/subscriptions/resourceGroups/read"
     >
     > $writerActions = `
     > "Microsoft.DataMigration/services/*/write", `
     > "Microsoft.DataMigration/services/*/delete", `
-    > "Microsoft.DataMigration/services/*/action"", `
+    > "Microsoft.DataMigration/services/*/action", `
     > "Microsoft.Network/virtualNetworks/subnets/join/action", `
+    > "Microsoft.Network/virtualNetworks/write", `
+    > "Microsoft.Network/virtualNetworks/read", `
+    > "Microsoft.Resources/deployments/validate/action", `
     > "Microsoft.Resources/deployments/*/read", `
     > "Microsoft.Resources/deployments/*/write"
     >
@@ -104,7 +108,7 @@ In addition to Azure Database Migration Service prerequisites that are common to
 
 When using the Azure Database Migration Service to perform SQL Server to Azure SQL Database migrations, in addition to the prerequisites that are common to all migration scenarios, be sure to address the following additional prerequisites:
 
-* Create an instance of Azure SQL Database instance, which you do by following the detail in the article C[reate an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* Create an instance of Azure SQL Database instance, which you do by following the detail in the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * Download and install the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * Open your Windows Firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 * If you are running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
@@ -114,7 +118,7 @@ When using the Azure Database Migration Service to perform SQL Server to Azure S
 
    > [!NOTE]
    > For a complete listing of the prerequisites required to use the Azure Database Migration Service to perform migrations from SQL Server to Azure SQL Database, see the tutorial [Migrate SQL Server to Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).
-   > 
+   >
 
 ## Prerequisites for migrating SQL Server to an Azure SQL Database managed instance
 
