@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Set up Azure Machine Learning Visual Studio Code extension"
+title: "Tutorial: Set up the Visual Studio Code extension"
 titleSuffix: Azure Machine Learning
 description: Learn how to set up the Visual Studio Code Azure Machine Learning extension.
 services: machine-learning
@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/15/2020
-#Customer intent: As a professional data scientist, I want to learn how to get started with the Azure Machine Learning Visual Studio Code Extension.
+ms.date: 02/24/2020
+#Customer intent: As a professional data scientist, I want to Learn how to install and run scripts using the Azure Machine Learning Visual Studio Code extension.
 ---
 
 # Set up Azure Machine Learning Visual Studio Code extension
@@ -26,7 +26,7 @@ In this tutorial, you learn the following tasks:
 ## Prerequisites
 
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
-- Install [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), a lightweight, cross-platform code editor. 
+- Visual Studio Code. If you don't have it, [install it](https://code.visualstudio.com/docs/setup/setup-overview).
 - [Python 3](https://www.python.org/downloads/)
 
 ## Install the extension
@@ -106,7 +106,7 @@ Now that you have signed into Azure with your account credentials, Use the steps
     Azure ML: Submit Experiment
     ```
 
-This sends the `train.py` and configuration file to your Azure Machine Learning workspace. The training job is then started on a compute resource in Azure.
+    This sends the `train.py` and configuration file to your Azure Machine Learning workspace. The training job is then started on a compute resource in Azure.
 
 ### Track the progress of the training script
 
@@ -115,7 +115,7 @@ Running your script can take several minutes. To track its progress:
 1. Select the **Azure** icon from the activity bar.
 1. Expand your subscription node.
 1. Expand your currently running experiment's node. This is located inside the `{workspace}/Experiments/{experiment}` node where the values for your workspace and experiment are the same as the properties defined in the configuration file.
-1. All of the runs as well as their status for the experiment are listed. To get the most recent status, click the refresh icon at the top of the Azure Machine Learning View.
+1. All of the runs for the experiment are listed, as well as their status. To get the most recent status, click the refresh icon at the top of the Azure Machine Learning View.
 
     > [!div class="mx-imgBorder"]
     > ![Track Experiment Progress](./media/tutorial-setup-vscode-extension/track-experiment-progress.PNG)
