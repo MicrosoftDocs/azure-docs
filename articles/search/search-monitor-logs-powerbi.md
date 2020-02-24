@@ -15,7 +15,7 @@ ms.date: 02/24/2020
 
 You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs and Metrics** in the [Power BI Apps marketplace](https://appsource.microsoft.com/marketplace/apps).
 
-## How get started with the app
+## How to get started with the app
 1. Enable diagnostic logging for your search service:
     1. Create or identify an existing [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) where you can archive the logs
     1. Navigate to your Azure Cognitive Search service in the Azure Portal
