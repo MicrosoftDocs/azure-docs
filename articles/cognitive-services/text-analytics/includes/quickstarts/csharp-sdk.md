@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/15/2020
+ms.date: 02/24/2020
 ms.author: aahi
 ms.reviewer: assafi
 ---
@@ -148,7 +148,7 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
     DocumentSentiment documentSentiment = client.AnalyzeSentiment(inputText);
     Console.WriteLine($"Document sentiment: {documentSentiment.Sentiment}\n");
 
-    var si = new StringInfo(inputText);
+    var si = new System.Globalization.StringInfo(inputText);
     foreach (var sentence in documentSentiment.Sentences)
     {
         Console.WriteLine($"\tSentence [offset {sentence.Offset}, length {sentence.Length}]");
