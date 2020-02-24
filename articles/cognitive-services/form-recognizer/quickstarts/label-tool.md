@@ -112,17 +112,22 @@ Click **Run OCR on all files** on the left pane to get the text layout informati
 
 ### Apply labels to text
 
-Next, you'll create labels and apply them to the text elements that you want the model to recognize.
+Next, you'll create tags (labels) and apply them to the text elements that you want the model to recognize.
 
-1. First, use the tags editor pane to create the tags (labels) you'd like to identify.
+1. First, use the tags editor pane to create the tags you'd like to identify.
+  1. Click **+** to create a new tag.
+  1. Enter the tag name.
+  1. Press Enter to save the tag.
 1. In the main editor, click and drag to select one or multiple words from the highlighted text elements.
+1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
+    > [!Tip]
+    > Keep the following tips in mind when you're labeling your forms.
+    > * You can only apply one tag to each selected text element.
+    > * Each tag can only be applied once per page. If a value appears multiple times on the same form, create different tags for each instance. For example: "invoice# 1", "invoice# 2" and so on.
+    > * Tags cannot span across pages.
+    > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
+    > * Don't include keys in your tagged fields&mdash;only the values.
 
-    > [!NOTE]
-    > You cannot currently select text that spans across multiple pages.
-1. Click on the tag you want to apply, or press corresponding keyboard key. You can only apply one tag to each selected text element, and each tag can only be applied once per page.
-
-    > [!TIP]
-    > The number keys are assigned as hotkeys for the first ten tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
 
 Follow the above steps to label five of your forms, and then move on to the next step.
 
