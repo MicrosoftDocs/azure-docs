@@ -26,7 +26,7 @@ Agentless dependency visualization helps you to identify machine dependencies wi
 
 ## Before you start
 
-- [Review](concepts-dependency-visualization.md#agentless-requirements) the requirements and costs associated with agentless dependency visualization.
+- [Review](concepts-dependency-visualization.md#agentless-visualization) the requirements and costs associated with agentless dependency visualization.
 - Review the [support requirements](migrate-support-matrix-vmware.md#agentless-dependency-visualization) for setting up agentless dependency visualization.
 - Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool.
