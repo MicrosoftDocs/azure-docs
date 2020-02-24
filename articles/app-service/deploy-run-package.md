@@ -61,7 +61,7 @@ If you publish an updated package with the same name to Blob storage, you need t
 
 ### Use Key Vault References
 
-For added security, you can use Key Vault References in conjunction with your external URL. This keeps the URL encrypted at rest in Key Vault and allows you can leverage Key Vault for secret management and rotation. It is recommended to use Azure Blob storage so you can easily rotate the associated SAS key. Azure Blob storage is encrypted at rest, which keeps your application data secure when it is not deployed on App Service.
+For added security, you can use Key Vault References in conjunction with your external URL. This keeps the URL encrypted at rest and allows to leverage Key Vault for secret management and rotation. It is recommended to use Azure Blob storage so you can easily rotate the associated SAS key. Azure Blob storage is encrypted at rest, which keeps your application data secure when it is not deployed on App Service.
 
 1. Create an Azure Key Vault.
 
