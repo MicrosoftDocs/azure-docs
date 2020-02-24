@@ -4,17 +4,6 @@
   items:
   - name: About Azure Digital Twins
     href: overview.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Explore Azure Digital Twins
-    href: quickstart-explore-adt-solution.md
-- name: Tutorials
-  items:
-  - name: Build an ADT Solution
-    items:
-      - name: Build an ADT solution (1)
-        href: tutorial-build-adt-solution.md
 - name: Concepts
   items:
   - name: Modeling objects
