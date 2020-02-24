@@ -17,7 +17,9 @@ You can connect to an Azure file share in two ways:
 
 This article focuses on how to configure networking for when your use case calls for accessing the Azure file share directly rather than using Azure File Sync. For more information about networking considerations for an Azure File Sync deployment, see [configuring Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md).
 
-Networking configuration for Azure file shares is done on the Azure storage account. A storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. Storage accounts expose multiple settings that help you secure network access to your file shares: network endpoints, storage account firewall settings, and encryption in transit.
+Networking configuration for Azure file shares is done on the Azure storage account. A storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. Storage accounts expose multiple settings that help you secure network access to your file shares: network endpoints, storage account firewall settings, and encryption in transit. 
+
+We recommend reading [Planning for an Azure Files deployment](storage-files-planning.md) prior to reading this conceptual guide.
 
 ## Accessing your Azure file shares
 When you deploy an Azure file share within a storage account, your file share is immediately accessible via the storage account's public endpoint. This means that authenticated requests, such as requests authorized by a user's logon identity, can originate securely from inside or outside of Azure. 
@@ -60,6 +62,8 @@ Using private endpoints with Azure Files enables you to:
 - Securely connect to your Azure file shares from on-premises networks using a VPN or ExpressRoute connection with private-peering.
 - Secure your Azure file shares by configuring the storage account firewall to block all connections on the public endpoint. By default, creating a private endpoint does not block connections to the public endpoint.
 - Increase security for the virtual network by enabling you to block exfiltration of data from the virtual network (and peering boundaries).
+
+To create a private endpoint, see [Configuring private endpoints for Azure Files](storage-files-networking-endpoints.md).
 
 ### Private endpoints and DNS
 When you create a private endpoint, by default we also create a (or update an existing) private DNS zone corresponding to the `privatelink` subdomain. Strictly speaking, creating a private DNS zone is not required to use a private endpoint for your storage account, but it is highly recommended in general and explicitly required when mounting your Azure file share with an Active Directory user principal or accessing from the FileREST API.
@@ -121,7 +125,7 @@ This reflects the fact that the storage account can expose both the public endpo
 
 - Modifying the hosts file on your clients to make `storageaccount.file.core.windows.net` resolve to the desired private endpoint's private IP address. This is strongly discouraged for production environments, since you will need make these changes to every client that wants to mount your Azure file shares and changes to the storage account or private endpoint will not be automatically handled.
 - Creating an A record for `storageaccount.file.core.windows.net` in your on-premises DNS servers. This has the advantage that clients in your on-premises environment will be able to automatically resolve the storage account without needing to configure each client, however this solution is similarly brittle to modifying the hosts file because changes are not reflected. Although this solution is brittle, it may be the best choice for some environments.
-- Forward the `core.windows.net` zone from your on-premises DNS servers to your Azure private DNS zone. The Azure private DNS host can be reached through a special IP address (`168.63.129.16`) that is only accessible inside virtual networks that are linked to the Azure private DNS zone. To workaround this limitation, you can run additional DNS servers within your virtual network that will forward `core.windows.net` on to the Azure private DNS zone. To simplify this set up, we have provided PowerShell cmdlets that will auto-deploy DNS servers in your Azure virtual network and configure them as desired.
+- Forward the `core.windows.net` zone from your on-premises DNS servers to your Azure private DNS zone. The Azure private DNS host can be reached through a special IP address (`168.63.129.16`) that is only accessible inside virtual networks that are linked to the Azure private DNS zone. To workaround this limitation, you can run additional DNS servers within your virtual network that will forward `core.windows.net` on to the Azure private DNS zone. To simplify this set up, we have provided PowerShell cmdlets that will auto-deploy DNS servers in your Azure virtual network and configure them as desired. To learn how to set up DNS forwarding, see [Configuring DNS with Azure Files](storage-files-networking-dns.md).
 
 ## Storage account firewall settings
 A firewall is a network policy which controls which requests are allowed to access the public endpoint for a storage account. Using the storage account firewall, you can restrict access to the storage account's public endpoint to certain IP addresses or ranges or to a virtual network. In general, most firewall policies for a storage account will restrict networking access to one or more virtual networks. 
