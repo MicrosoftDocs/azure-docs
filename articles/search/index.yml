@@ -35,14 +35,16 @@ landingContent:
             url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
 
   # Card
-  - title: Index Blob data
+  - title: Index Azure data
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Analyze blobs with AI
-            url: search-blob-ai-integration.md
-          - text: Search your blob content
+          - text: Search over Azure blob content
             url: search-blob-storage-integration.md
+          - text: Search over Azure SQL Database
+            url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+          - text: Search over Cosmos DB data
+            url: search-howto-index-cosmosdb.md
       - linkListType: tutorial
         links:
           - text: Index semi-structured blob data
@@ -57,10 +59,10 @@ landingContent:
             url: search-create-service-portal.md
           - text: Create an index
             url: search-get-started-portal.md
-          - text: Create an enrichment pipeline
-            url: cognitive-search-quickstart-blob.md
           - text: Create an app
             url: search-create-app-portal.md
+          - text: Extract structure and information from raw content
+            url: cognitive-search-quickstart-blob.md
             
   # Card
   - title: Index any data
@@ -71,20 +73,15 @@ landingContent:
             url: search-what-is-an-index.md
           - text: Importing data
             url: search-what-is-data-import.md
-      - linkListType: how-to-guide
-        links:
-          - text: Index from Azure SQL Database
-            url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-          - text: Index from Cosmos DB data
-            url: search-howto-index-cosmosdb.md
       - linkListType: reference
         links:
           - text: Create Index (REST)
             url: https://docs.microsoft.com/rest/api/searchservice/create-index
           - text: Create Indexer (REST)
             url: https://docs.microsoft.com/rest/api/searchservice/create-indexer
+
   # Card
-  - title: Enrich your data
+  - title: Enrich with AI
     linkLists:
       - linkListType: concept
         links:
