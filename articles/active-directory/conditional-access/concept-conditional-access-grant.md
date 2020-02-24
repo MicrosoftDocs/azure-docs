@@ -62,7 +62,7 @@ Organizations can choose to use the device identity as part of their Conditional
 
 ### Require approved client app
 
-Organizations can require that an access attempt to the selected cloud apps needs to be made from an approved client app. These approved client aps support [Intune app protection policies](/intune/app-protection-policy) independent of any mobile-device management (MDM) solution.
+Organizations can require that an access attempt to the selected cloud apps needs to be made from an approved client app. These approved client apps support [Intune app protection policies](/intune/app-protection-policy) independent of any mobile-device management (MDM) solution.
 
 This setting applies to the following client apps:
 
