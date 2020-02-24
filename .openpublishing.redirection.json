@@ -31431,8 +31431,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/key-vault/key-vault-security-attributes.md",
-      "redirect_url": "/azure/key-vault/key-vault-security-controls",
+      "source_path": "articles/key-vault/key-vault-security-controls.md",
+      "redirect_url": "/azure/key-vault/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -41421,6 +41421,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/log-query/log-query-performance.md",
+      "redirect_url": "/azure/azure-monitor/log-query/query-optimization",
+      "redirect_document_id": false
+    },   
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -48860,6 +48865,16 @@
       "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-windows-quickstart.md",
       "redirect_url": "/azure/cognitive-services/speech-service/speech-devices-sdk-quickstart?pivots=platform-windows",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-develop-video-players.md",
+      "redirect_url": "/azure/media-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/chef-automation.md",
+      "redirect_url": "/azure/chef/chef-automation",
+      "redirect_document_id": true
     }
   ]
 }
