@@ -65,7 +65,7 @@ After a solution is unpublished, new customers will not be able to get it. Exist
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Microsoft AppSource submission FAQ](office-store-submission-faq.md)
+- [Microsoft AppSource submission FAQ](appsource-submission-faq.md)
 - [Create effective listings](create-effective-office-store-listings.md)
 - [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies)
  
