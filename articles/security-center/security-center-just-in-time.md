@@ -7,7 +7,7 @@ manager: rkarlin
 
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 02/25/2020
 ms.author: memildin
 
 ---
@@ -28,7 +28,7 @@ There are three ways to configure a JIT policy on a VM:
 - [Configure JIT access in an Azure VM page](#jit-vm)
 - [Configure a JIT policy on a VM programmatically](#jit-program)
 
-## Configure JIT in Security Center
+## Configure JIT in Azure Security Center
 
 From Security Center, you can configure a JIT policy and request access to a VM using a JIT policy
 
@@ -82,7 +82,7 @@ To request access to a VM via Security Center:
 
 1. Under **Just-in-time VM access**, select the **Configured** tab.
 
-2. Under **Virtual Machine**, click the VMs that you want to request access for. This puts a checkmark next to the VM.
+1. Under **Virtual Machine**, click the VMs that you want to request access for. This puts a checkmark next to the VM.
 
     - The icon in the **Connection Details** column indicates whether JIT is enabled on the NSG or FW. If it’s enabled on both, only the Firewall icon appears.
 
@@ -90,27 +90,33 @@ To request access to a VM via Security Center:
 
       ![Request just-in-time access](./media/security-center-just-in-time/request-just-in-time-access.png)
 
-3. Click **Request access**. The **Request access** window opens.
+1. Click **Request access**. The **Request access** window opens.
 
       ![JIT details](./media/security-center-just-in-time/just-in-time-details.png)
 
-4. Under **Request access**, for each VM, configure the ports that you want to open and the source IP addresses that the port is opened on and the time window for which the port will be open. It will only be possible to request access to the ports that are configured in the just-in-time policy. Each port has a maximum allowed time derived from the just-in-time policy.
+1. Under **Request access**, for each VM, configure the ports that you want to open and the source IP addresses that the port is opened on and the time window for which the port will be open. It will only be possible to request access to the ports that are configured in the just-in-time policy. Each port has a maximum allowed time derived from the just-in-time policy.
 
-5. Click **Open ports**.
+1. Click **Open ports**.
 
 > [!NOTE]
 > If a user who is requesting access is behind a proxy, the option **My IP** may not work. You may need to define the full IP address range of the organization.
+
+
 
 ## Edit a JIT access policy via Security Center
 
 You can change a VM's existing just-in-time policy by adding and configuring a new port to protect for that VM, or by changing any other setting related to an already protected port.
 
 To edit an existing just-in-time policy of a VM:
+
 1. In the **Configured** tab, under **VMs**, select a VM to which to add a port by clicking on the three dots within the row for that VM. 
 
 1. Select **Edit**.
+
 1. Under **JIT VM access configuration**, you can either edit the existing settings of an already protected port or add a new custom port. 
   ![jit vm access](./media/security-center-just-in-time/edit-policy.png)
+
+
 
 ## Audit JIT access activity in Security Center
 
@@ -161,11 +167,11 @@ If a VM already has just-in-time enabled, when you go to its configuration page 
 
 In the Azure portal, when you try to connect to a VM, Azure checks to see if you have a just-in-time access policy configured on that VM.
 
-- If you have a JIT policy configured on the VM, you can click **Request access** to enable you to have access in accordance with the JIT policy set for the VM. 
+- If you have a JIT policy configured on the VM, you can click **Request access** to grant access in accordance with the JIT policy set for the VM. 
 
   >![jit request](./media/security-center-just-in-time/jit-request.png)
 
-  The access is requested with the following default parameters:
+  Access is requested with the following default parameters:
 
   - **source IP**: ‘Any’ (*) (cannot be changed)
   - **time range**: Three hours (cannot be changed) <!--Isn't this set in the policy-->
@@ -174,7 +180,7 @@ In the Azure portal, when you try to connect to a VM, Azure checks to see if you
     > [!NOTE]
     > After a request is approved for a VM protected by Azure Firewall, Security Center provides the user with the proper connection details (the port mapping from the DNAT table) to use to connect to the VM.
 
-- If you do not have JIT configured on a VM, you will be prompted to configure a JIT policy it.
+- If you do not have JIT configured on a VM, you will be prompted to configure a JIT policy on it.
 
   ![jit prompt](./media/security-center-just-in-time/jit-prompt.png)
 
@@ -242,7 +248,7 @@ Run the following in PowerShell:
 
         Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
-For more information, see the PowerShell cmdlet documentation.
+For more information, see the [PowerShell cmdlet documentation](../../../powershell/scripting/developer/cmdlet/cmdlet-overview).
 
 
 ## Automatic cleanup of redundant JIT rules 
@@ -254,7 +260,9 @@ Examples scenarios when the cleaner might remove a built-in rule:
 - When two rules with identical definitions exist and one has a higher priority than the other (meaning, the lower priority rule will never be used)
 - When a rule description includes the name of a VM which doesn't match the destination IP in the rule 
 
+
 ## Next steps
+
 In this article, you learned how just-in-time VM access in Security Center helps you control access to your Azure virtual machines.
 
 To learn more about Security Center, see the following:
@@ -262,8 +270,4 @@ To learn more about Security Center, see the following:
 - [Setting security policies](tutorial-security-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Managing security recommendations](security-center-recommendations.md) — Learn how recommendations help you protect your Azure resources.
 - [Security health monitoring](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
-- [Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-- [Azure Security blog](https://blogs.msdn.microsoft.com/azuresecurity/) — Find blog posts about Azure security and compliance.
-
+- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
