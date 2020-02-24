@@ -129,7 +129,7 @@ Although both applications run locally in this tutorial, they use Azure AD B2C f
 
     ```console
     npm install && npm update
-    npm start
+    node index.js
     ```
 
     The console window displays the port number where the application is hosted.
