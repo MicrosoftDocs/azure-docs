@@ -2,8 +2,8 @@
   expanded: true
   items:
   - name: SRE books
-    href: resources/books.md
+    href: books.md
   - name: SRE events
-    href: resources/events.md
+    href: events.md
   - name: SRE link collections and digests
-    href: resources/links.md
+    href: links.md
