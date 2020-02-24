@@ -275,7 +275,7 @@ Named Entities:
                 Offset: 34,     Length: 9,      Score: 0.800
 ```
 
-## Personal Identifiable Information (PII)
+## Detect personal information
 
 Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. Similar to the previous function the returned `Response<IReadOnlyCollection<CategorizedEntity>>` object will contain the list of detected entities. If there was an error, it will throw a `RequestFailedException`.
 
