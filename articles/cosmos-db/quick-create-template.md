@@ -31,7 +31,7 @@ An Azure subscription or free Azure Cosmos DB trial account
 
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-cosmosdb-create/).
 
-[!code-json[<Resource Manager template create Azure Cosmos DB>](~/quickstart-templates/101-cosmosdb-create/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-create/azuredeploy.json":::
 
 Three Azure resources are defined in the template:
 

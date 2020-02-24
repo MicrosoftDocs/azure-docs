@@ -2,14 +2,14 @@
 title: 'Quickstart: Get started with Azure Sentinel'
 description: Azure Sentinel Quickstart - Get started with Azure Sentinel
 services: sentinel
-author: rkarlin
+author: yelevin
 manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 ms.custom: fasttrack-edit
 #As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
 ---
