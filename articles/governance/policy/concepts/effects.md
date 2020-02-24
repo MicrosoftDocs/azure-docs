@@ -407,9 +407,10 @@ when the condition is met.
 
 ### DeployIfNotExists evaluation
 
-DeployIfNotExists runs after a Resource Provider has handled a create or update resource request
-and has returned a success status code. A template deployment occurs if there are no related
-resources or if the resources defined by **ExistenceCondition** don't evaluate to true.
+DeployIfNotExists runs about 15 minutes after a Resource Provider has handled a create or update
+resource request and has returned a success status code. A template deployment occurs if there are
+no related resources or if the resources defined by **ExistenceCondition** don't evaluate to true.
+The duration of the deployment depends on the complexity of resources included in the template.
 
 During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources
 are marked as non-compliant, but no action is taken on that resource.
