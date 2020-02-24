@@ -59,15 +59,15 @@ productDirectory:
          - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
            text: Learn the basics of SRE in a free online course
      # Card
-     - title: SRE Resources
+     - title: SRE resources
        imageSrc: ./media/index/reference.svg
        links:
          - url: resources/books.md
-           text: books
+           text: Books
          - url: resources/events.md
-           text: events
+           text: Events
          - url: resources/links.md
-           text: links and digests
+           text: Links and digests
 # conceptualContent section (optional)
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -120,7 +120,7 @@ conceptualContent:
         - url: https://docs.microsoft.com/azure/architecture/aws-professionals
           itemType: reference
           text: Azure for AWS Professionals   
-
+g
         - url: https://docs.microsoft.com/en-us/azure/architecture/performance
           itemType: reference
           text: Performance tuning   
