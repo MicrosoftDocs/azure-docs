@@ -77,9 +77,13 @@ Enable the metrics and diagnostics logging on SQL databases. Diagnostic logging 
 
 ## Configure streaming of diagnostic telemetry
 
-You can use the **Diagnostics settings** menu for each single, pooled, or managed instance database in Azure portal to configure streaming of diagnostics telemetry. In addition, diagnostic telemetry can also be configured separately for database containers: elastic pools and managed instances.
+You can use the **Diagnostics settings** menu for each single, pooled, or managed instance database in Azure portal to configure streaming of diagnostics telemetry. In addition, diagnostic telemetry can also be configured separately for database containers: elastic pools and managed instances. Additionally, you can use PowerShell, the Azure CLI, the REST API, and Resource Manager templates to configure streaming of diagnostic telemetry.
 
-You can set the following destinations to stream the diagnostics telemetry: Azure Storage, Azure Event Hubs, and Azure Monitor logs.
+You can set the following destinations to stream the diagnostics telemetry: 
+
+- [SQL Analytics](#stream-into-sql-analytics)
+- [Azure Event Hubs](#stream-into-event-hubs)
+- [Azure Storage](#stream-into-storage)
 
 # [Elastic pool](#tab/elastic-pool)
 
@@ -309,6 +313,8 @@ Read about how to [change diagnostics settings by using the Azure Monitor REST A
 # [Resource Manager](#tab/resource-amanager)
 
 Read about how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/platform/diagnostic-settings-template.md).
+
+---
 
 ## Stream into SQL Analytics
 
