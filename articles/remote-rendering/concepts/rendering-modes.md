@@ -69,5 +69,5 @@ async void ExampleConnect(AzureSession session)
 
 ## Next steps
 
-* [SDK concepts](../concepts/sdk-concepts.md)
+* [Sessions](../concepts/sessions.md)
 * [Hierarchical state override component](../overview/features/override-hierarchical-state.md)

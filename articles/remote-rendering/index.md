@@ -20,7 +20,7 @@ To work with the service, make sure you have an [Azure Remote Rendering account]
 Learn key concepts to get started with Azure Remote Rendering:
 
 * [Authentication](how-tos/authentication.md)
-* [SDK concepts](concepts/sdk-concepts.md)
+* [Sessions](concepts/sessions.md)
 * [Entities](concepts/entities.md)
 * [Components](concepts/components.md)
 
