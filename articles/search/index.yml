@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: HeidiSteen #Required; your GitHub user alias, with correct capitalization.
   ms.author: heidist #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/20/2019 #Required; mm/dd/yyyy format.
+  ms.date: 02/25/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -23,11 +23,11 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Cognitive Search?
+          - text: What is Azure Cognitive Search
             url: search-what-is-azure-search.md
-          - text: What is AI enrichment?
+          - text: What is AI enrichment
             url: cognitive-search-concept-intro.md
-          - text: What are indexers?
+          - text: What are indexers
             url: search-indexer-overview.md
       - linkListType: video
         links:
@@ -35,15 +35,15 @@ landingContent:
             url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
 
   # Card
-  - title: Index Azure data
+  - title: Indexing Azure data
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Search over Azure blob content
+          - text: Index from Azure Storage
             url: search-blob-storage-integration.md
-          - text: Search over Azure SQL Database
+          - text: Index from Azure SQL Database
             url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-          - text: Search over Cosmos DB data
+          - text: Index from Cosmos DB
             url: search-howto-index-cosmosdb.md
       - linkListType: tutorial
         links:
@@ -61,7 +61,7 @@ landingContent:
             url: search-get-started-portal.md
           - text: Create an app
             url: search-create-app-portal.md
-          - text: Extract structure and information from raw content
+          - text: Process blobs and images
             url: cognitive-search-quickstart-blob.md
             
   # Card
@@ -69,9 +69,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Defining an index
+          - text: Define an index
             url: search-what-is-an-index.md
-          - text: Importing data
+          - text: Import data
             url: search-what-is-data-import.md
       - linkListType: reference
         links:
@@ -90,7 +90,7 @@ landingContent:
           - text: Knowledge stores
             url: knowledge-store-concept-intro.md
           - text: Projections
-            url: knowledge-store-projection-overview.md
+            url: knowledge-store-projections-examples.md
       - linkListType: how-to-guide
         links:
           - text: Attach Cognitive Services
@@ -105,7 +105,7 @@ landingContent:
             url: cognitive-search-predefined-skills.md
 
   # Card
-  - title: Query your data
+  - title: Query data
     linkLists:
       - linkListType: concept
         links:
