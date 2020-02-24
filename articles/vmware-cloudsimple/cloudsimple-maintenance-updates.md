@@ -1,7 +1,7 @@
 ---
-title: Azure VMware Solutions (AVS) - AVS maintenance and updates
-description: Describes the AVS service process for scheduled maintenance and updates
-titleSuffix: Azure VMware Solutions (AVS)
+title: CloudSimple maintenance and updates
+titleSuffix: Azure VMware Solution by CloudSimple
+description: Describes the CloudSimple service process for scheduled maintenance and updates
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -10,9 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ---
-# AVS maintenance and updates
+# CloudSimple maintenance and updates
 
-The AVS Private Cloud environment is designed to have no single point of failure.
+The Private Cloud environment is designed to have no single point of failure.
 
 * ESXi clusters are configured with vSphere High Availability (HA). The clusters are sized to have at least one spare node for resiliency.
 * Redundant primary storage is provided by vSAN, which requires at least three nodes to provide protection against a single failure. vSAN can be configured to provide higher resiliency for larger clusters.
@@ -20,14 +20,14 @@ The AVS Private Cloud environment is designed to have no single point of failure
 * ESXi hosts have redundant fans and NICs.
 * TOR and spine switches are configured in HA pairs to provide resiliency.
 
-AVS continuously monitors the following VMs for uptime and availability, and provides availability SLAs:
+CloudSimple continuously monitors the following VMs for uptime and availability, and provides availability SLAs:
 
 * ESXi hosts
 * vCenter
 * PSC
 * NSX Manager
 
-AVS also monitors the following continuously for failures:
+CloudSimple also monitors the following continuously for failures:
 
 * Hard disks
 * Physical NIC ports
@@ -39,7 +39,7 @@ AVS also monitors the following continuously for failures:
 
 If a disk or node fails, a new node is automatically added to the affected VMware cluster to bring it back to health immediately.
 
-AVS backs up, maintains, and updates these VMware elements in the AVS Private Clouds:
+CloudSimple backs up, maintains, and updates these VMware elements in the Private Clouds:
 
 * ESXi
 * vCenter Platform Services
@@ -49,7 +49,7 @@ AVS backs up, maintains, and updates these VMware elements in the AVS Private Cl
 
 ## Back up and restore
 
-AVS backup includes:
+CloudSimple backup includes:
 
 * Nightly incremental backups of vCenter, PSC, and DVS rules.
 * vCenter native APIs to back up components at the application layer.
@@ -60,15 +60,15 @@ You can request a restore by opening a [Support request](https://portal.azure.co
 
 ## Maintenance
 
-AVS does several types of planned maintenance.
+CloudSimple does several types of planned maintenance.
 
 ### Backend/internal maintenance
 
-This maintenance typically involves reconfiguring physical assets or installing software patches. It doesn’t affect normal consumption of the assets being serviced. With redundant NICs going to each physical rack, normal network traffic and AVS Private Cloud operations aren’t affected. You might notice a performance impact only if your organization expects to use the full redundant bandwidth during the maintenance interval.
+This maintenance typically involves reconfiguring physical assets or installing software patches. It doesn’t affect normal consumption of the assets being serviced. With redundant NICs going to each physical rack, normal network traffic and Private Cloud operations aren’t affected. You might notice a performance impact only if your organization expects to use the full redundant bandwidth during the maintenance interval.
 
-### AVS portal maintenance
+### CloudSimple portal maintenance
 
-Some limited service downtime is required when the AVS control plane or infrastructure is updated. Currently, maintenance intervals can be as frequent as once per month. The frequency is expected to decline over time. AVS provides notification for portal maintenance and keeps the interval as short as possible. During a portal maintenance interval, the following services continue to function without any impact:
+Some limited service downtime is required when the CloudSimple control plane or infrastructure is updated. Currently, maintenance intervals can be as frequent as once per month. The frequency is expected to decline over time. CloudSimple provides notification for portal maintenance and keeps the interval as short as possible. During a portal maintenance interval, the following services continue to function without any impact:
 
 * VMware management plane and applications
 * vCenter access
@@ -77,7 +77,7 @@ Some limited service downtime is required when the AVS control plane or infrastr
 
 ### VMware infrastructure maintenance
 
-Occasionally it's necessary to make changes to the configuration of the VMware infrastructure. Currently, these intervals can occur every 1-2 months, but the frequency is expected to decline over time. This type of maintenance can usually be done without interrupting normal consumption of the AVS services. During a VMware maintenance interval, the following services continue to function without any impact:
+Occasionally it's necessary to make changes to the configuration of the VMware infrastructure.  Currently, these intervals can occur every 1-2 months, but the frequency is expected to decline over time. This type of maintenance can usually be done without interrupting normal consumption of the CloudSimple services. During a VMware maintenance interval, the following services continue to function without any impact:
 
 * VMware management plane and applications
 * vCenter access
@@ -86,7 +86,7 @@ Occasionally it's necessary to make changes to the configuration of the VMware i
 
 ## Updates and Upgrades
 
-AVS is responsible for lifecycle management of VMware software (ESXi, vCenter, PSC, and NSX) in the AVS Private Cloud.
+CloudSimple is responsible for lifecycle management of VMware software (ESXi, vCenter, PSC, and NSX) in the Private Cloud.
 
 Software updates include:
 
@@ -94,9 +94,9 @@ Software updates include:
 * **Updates**. Minor version change of a VMware stack component.
 * **Upgrades**. Major version change of a VMware stack component.
 
-AVS tests a critical security patch as soon as it becomes available from VMware. Per SLA, AVS rolls out the security patch to AVS Private Cloud environments within a week.
+CloudSimple tests a critical security patch as soon as it becomes available from VMware. Per SLA, CloudSimple rolls out the security patch to Private Cloud environments within a week.
 
-AVS provides quarterly maintenance updates to VMware software components. When a new major version of VMware software is available, AVS works with customers to coordinate a suitable maintenance window for upgrade.
+CloudSimple provides quarterly maintenance updates to VMware software components. When a new major version of VMware software is available, CloudSimple works with customers to coordinate a suitable maintenance window for upgrade.
 
 ## Next steps
 
