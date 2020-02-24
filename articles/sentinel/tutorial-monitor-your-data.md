@@ -3,7 +3,7 @@ title: Visualize your data using dashboards based on Azure Monitor Workbooks in 
 description: Use this tutorial to learn how to visualize your data using dashboards based on workbooks in Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/01/2020
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Tutorial: Visualize and monitor your data
