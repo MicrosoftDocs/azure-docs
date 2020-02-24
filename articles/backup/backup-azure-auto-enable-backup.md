@@ -11,9 +11,9 @@ One of the key responsibilities of a Backup or Compliance Admin in an organizati
 
 Today, Azure Backup provides a built-in policy (using Azure Policy) that can be assigned to **all Azure VMs in a specified location within a subscription or resource group**. When this policy is assigned to a given scope, all new VMs created in that scope are automatically configured for backup to an **existing vault in the same location and subscription**. The user can specify the vault and the retention policy to which the backed up VMs should be associated.
 
-## Supported Scenarios 
+## Supported Scenarios
 
-* The built-in policy is currently supported only for Azure VMs. Users must take care to ensure that the retention policy specified during assignment is a VM retention policy. Refer to [this](https://aka.ms/PolicySupportedSKUs) document to see all the VM SKUs supported by this policy.
+* The built-in policy is currently supported only for Azure VMs. Users must take care to ensure that the retention policy specified during assignment is a VM retention policy. Refer to [this](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) document to see all the VM SKUs supported by this policy.
 
 * The policy can be assigned to a single location and subscription at a time. To enable backup for VMs across locations and subscriptions, multiple instances of the policy assignment need to be created, one for each combination of location and subscription.
 
