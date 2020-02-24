@@ -187,7 +187,7 @@ The attribute's constructor takes the database name and collection name. For inf
     }
 ```
 
-For a complete example, see [Trigger](#trigger).
+For a complete example, see [Trigger](#example).
 
 # [C# Script](#tab/csharp-script)
 

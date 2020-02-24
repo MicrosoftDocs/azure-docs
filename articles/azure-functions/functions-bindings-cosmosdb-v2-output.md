@@ -516,7 +516,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 ---
 
-## Output - attributes and annotations
+## Attributes and annotations
 
 # [C#](#tab/csharp)
 
@@ -552,7 +552,7 @@ The `CosmosDBOutput` annotation is available to write data to Cosmos DB. You can
 
 ---
 
-## Output - configuration
+## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `CosmosDB` attribute.
 
@@ -570,7 +570,7 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## Output - usage
+## Usage
 
 By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of the output document by specifying the `id` property in the JSON object passed to the output parameter.
 

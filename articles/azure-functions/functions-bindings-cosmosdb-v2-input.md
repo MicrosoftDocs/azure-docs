@@ -7,8 +7,6 @@ ms.date: 02/24/2020
 ms.author: cshoe
 ---
 
-## Input
-
 The Azure Cosmos DB input binding uses the SQL API to retrieve one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
@@ -1393,7 +1391,7 @@ public class DocsFromRouteSqlQuery {
 
  ---
 
-## Input - attributes and annotations
+## Attributes and annotations
 
 # [C#](#tab/csharp)
 
@@ -1419,7 +1417,7 @@ From the [Java functions runtime library](https://docs.microsoft.com/java/api/ov
 
 ---
 
-## Input - configuration
+## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `CosmosDB` attribute.
 
@@ -1437,7 +1435,7 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## Input - usage
+## Usage
 
 # [C#](#tab/csharp)
 
