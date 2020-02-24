@@ -29,7 +29,7 @@ highlightedContent:
     # Card
     - title: Azure Media Services v3 concepts 
       itemType: concept
-      url: ./latest/concepts-overview.md
+      url: ./latest/media-services-overview.md
     - title: About Azure Media Services Video Indexer
       itemType: overview
       url: ./video-indexer/video-indexer-overview.md    
@@ -38,9 +38,9 @@ highlightedContent:
       url: ./video-indexer/compare-video-indexer-with-media-services-presets.md    
     - title: About Azure Media Services v2 (legacy)
       itemType: overview
-      url: https://docs.microsoft.com/azure/media-services/previous   
+      url: ./previous/media-services-overview.md  
     - title: Migrate Media Services v2 to v3
-      itemType: overview
+      itemType: concept
       url: ./latest/migrate-from-v2-to-v3.md      
     - title: Azure Media Services specifications
       itemType: concept
