@@ -64,12 +64,12 @@
   items:
   - name: Upgrade a Basic Load Balancer to Standard Load Balancer
     items:
-    - name: Overview
-      href: LBUpgradeGeneral.md
-    - name: Upgrade a Basic Public Load Balancer to Standard Public Load Balancer
+    - name: Upgrade a Basic Public Load Balancer
       href: upgrade-basic-standard.md
-    - name: Upgrade a Basic Internal Load Balancer to Standard Internal Load Balancer
+    - name: Upgrade a Basic Internal Load Balancer - No Outbound Connection Required
       href: upgrade-basicInternal-standard.md
+    - name: Upgrade a Basic Internal Load Balancer - Outbound Connection Required
+      href: upgrade-InternalBasic-To-PublicStandard.md
   - name: Configure outbound rules
     items:
     - name: Azure CLI
