@@ -19,6 +19,13 @@ There are two stages in a upgrade:
 
 This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#add-vms-to-backend-pools-of-standard-load-balancer).
 
+## Upgrade overview
+
+An Azure PowerShell script is available that does the following:
+
+* Creates a Standard SKU Load Balancer in the resource group and location the you specify.
+* Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly create Standard Load Balancer.
+
 ### Caveats\Limitations
 
 * Script only supports Public Load Balancer upgrade. For Internal Basic Load Balancer upgrade, create a Standard Internal Load Balancer if outbound connectivity is not desired, and create a Standard Internal Load Balancer and Standard Public Load Balancer if outbound connectivity is required.
