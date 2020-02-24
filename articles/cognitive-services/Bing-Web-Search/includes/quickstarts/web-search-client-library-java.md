@@ -1,3 +1,15 @@
+---
+title: Bing Web Search Java client library quickstart 
+titleSuffix: Azure Cognitive Services
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 02/24/2020
+ms.author: aahi
+---
+
 The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Java application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
 
 Want to see the code right now? The [Bing Web Search SDK for Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/) are available on GitHub.

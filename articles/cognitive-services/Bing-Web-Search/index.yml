@@ -46,9 +46,9 @@ conceptualContent:
         - url: ./quickstarts/client-libraries.md?pivots=programming-language-java
           itemType: quickstart
           text: Use Java
-        - url: ./quickstarts/client-libraries.md?pivots=programming-language-nodejs
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-javascript
           itemType: quickstart
-          text: Use Node.js
+          text: Use JavaScript
         - url: ./quickstarts/client-libraries.md?pivots=programming-language-python
           itemType: quickstart
           text: Use Python
