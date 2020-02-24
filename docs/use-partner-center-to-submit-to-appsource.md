@@ -12,9 +12,6 @@ If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and c
 
 For information about the Microsoft AppSource approval process, see [Make your solutions available in Microsoft AppSource](submit-to-the-office-store.md).
 
->[!NOTE]
->If your solutions haven't been migrated to Partner center, you can use [Seller Dashboard](use-the-seller-dashboard-to-submit-to-the-office-store.md) to submit to Microsoft AppSource. For details about the Partner Center migration, see the [FAQ](partner-center-faq.md).
-
 ## Submission process
 
 Submitting your solution involves specifying your solution name and adding your solution details via Partner Center.
