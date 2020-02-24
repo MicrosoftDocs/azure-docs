@@ -102,7 +102,7 @@ Telemetry message
 }
 ```
 
-Life cycle notifications message
+Life-cycle notifications message
 
 ```json
 { 
@@ -193,7 +193,7 @@ Complex filtering to traverse the graph is out of scope for preview release.
 | Notification/Event | Routing Source Name | Note |
 | --- | --- | --- |
 | Digital Twin Change Notification | Digital Twin Change Notification	| This notification includes any digital twins property change, regardless if it’s a Hub device or not |
-| Digital Twin Life Cycle Notification | Digital Twin Life Cycle Notification	| This notification includes any digital twins property change, regardless if it’s a Hub device or not |
+| Digital Twin Life-Cycle Notification | Digital Twin Life-Cycle Notification	| This notification includes any digital twins property change, regardless if it’s a Hub device or not |
 | Digital Twin Edge Change Notification	| Digital Twin Edge Change Notification	| |
 | Digital Twin Model Change Notification	| Digital Twin Model Change Notification	| This notification includes any model change, regardless if it’s represented as capability model or interface. |
 | Digital Twin Event Subscription Change Notification	| Digital Twin Event Subscription Change Notification	| |
@@ -216,7 +216,7 @@ We aspire to have notifications conform to the CloudEvents standard. For practic
 
 Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Notifications emitted by Azure Digital Twins to Event Grid are formatted into the Event Grid schema, until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload.  
 
-### Digital twin life cycle notifications
+### Digital twin life-cycle notifications
 
 All digital twins are emitting notifications, regardless of whether they are proxies representing [real devices in Azure Digital Twins](concepts-devices.md) or not.
 
@@ -438,4 +438,4 @@ The corresponding notification (if synchronously executed by the service, such a
 ## Next steps
 
 Learn more about the Azure Digital Twins APIs
-* [Use the Azure Digital Twins APIs](how-to-apis.md)
+* [Use the Azure Digital Twins APIs](how-to-use-apis.md)

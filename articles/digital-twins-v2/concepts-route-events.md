@@ -24,7 +24,7 @@ Data egress is handled using **event routes**. An event route lets you send even
 Event routes also allow Azure Digital Twins to send telemetry and notifications to external endpoints.
 Azure Digital Twins will emit the following events (notifications and telemetry messages) and they will be routed to custom endpoints:
 * Digital Twin change notification
-* Digital Twin life cycle notification
+* Digital Twin life-cycle notification
 * Digital Twin edge Change notification
 * Digital Twin telemetry messages
 

@@ -46,4 +46,4 @@ See how to use the query language to query an Azure Digital Twins graph:
 * [Query the Azure Digital Twins Graph](how-to-query-graph.md)
 
 Or, see how a graph is managed with Twin APIs:
-* [Manage an Azure Digital Twins graph](how-to-manage-grpah.md)
+* [Manage an Azure Digital Twins graph](how-to-manage-graph.md)

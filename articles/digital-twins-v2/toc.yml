@@ -18,8 +18,6 @@
     href: concepts-route-events.md
   - name: Querying the ADT graph
     href: concepts-graph-queries.md
-  - name: Securing digital twin solutions
-    href: concepts-security.md
 - name: How-to guides
   items:
   - name: Manage an object model

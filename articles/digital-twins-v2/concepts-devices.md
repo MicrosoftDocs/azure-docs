@@ -25,7 +25,7 @@ An Azure Digital Twins graph contains more than twins based on the models you cr
 Devices can be:
 * **[IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) devices** — These are devices that are represented by a [Digital Twin Definition Language (DTDL)](concepts-digital-twins-definition-language.md) model. Devices with a DTDL model have a well-defined interface, allowing you to reflect on the messages the device can be expected to set, and the properties etc., exposed on its twin in Azure Digital Twins.
 * **Devices without PnP** — For these devices, we have no information about the messages the device can send, or properties or commands available on it. 
-Devices send messages for telemetry, or whenever a property is changed. There are also messages for life cycle events, such as device registration, connection, etc.
+Devices send messages for telemetry, or whenever a property is changed. There are also messages for life-cycle events, such as device registration, connection, etc.
 
 ## Working with PnP devices
 
@@ -42,7 +42,7 @@ Here is a possible scenario:
 
 Azure Digital Twins reacts to this event as follows:
 * The relationship is places in an invalid state. You can query for this state to find such relationships.
-* A life cycle message is generated that indicates that a breaking change has occurred in a device. This message contains the affected relationships and relationship source nodes. You can react to this message by updating your relationships or models as required.
+* A life-cycle message is generated that indicates that a breaking change has occurred in a device. This message contains the affected relationships and relationship source nodes. You can react to this message by updating your relationships or models as required.
 
 ## Next steps
 

@@ -58,4 +58,4 @@ The Azure Digital Twins SDK surface can be broadly divided into the following ca
 See how to use the APIs to manage models, twins, and graphs:
 * [Manage an object model](how-to-manage-model.md)
 * [Manage an individual twin](how-to-manage-twin.md)
-* [Manage an Azure Digital Twins graph](how-to-manage-grpah.md)
+* [Manage an Azure Digital Twins graph](how-to-manage-graph.md)

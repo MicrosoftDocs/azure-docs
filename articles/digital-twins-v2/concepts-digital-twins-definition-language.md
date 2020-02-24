@@ -52,7 +52,7 @@ In addition to primitive types, property and telemetry fields can have the follo
 ## Next steps
 
 Learn more about how DTDL models represent objects:
-* [Model an object](concepts-model.md)
+* [Model an object](concepts-models.md)
 
 Or, see how a model is managed with Model Management APIs:
 * [Manage an object model](how-to-manage-model.md)
