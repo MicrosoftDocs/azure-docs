@@ -4,34 +4,38 @@
   items:
   - name: About Azure Digital Twins
     href: overview.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Find available rooms
-    href: quickstart.md
-- name: Tutorials
-  items:
-  - name: Build an ADT Solution
-    items:
-      - name: Tutorial 1 
-        href: tutorial.md
-
 - name: Concepts
   items:
-  - name: Conceptual 1
-    href: conceptual.md
-
+  - name: Modeling objects
+    href: concepts-models.md
+  - name: DTDL modeling language
+    href: concepts-digital-twins-definition-language.md
+  - name: Twin representation
+    href: concepts-twins.md
+  - name: Representing real devices
+    href: concepts-devices.md
+  - name: Routing events
+    href: concepts-route-events.md
+  - name: Querying the ADT graph
+    href: concepts-graph-queries.md
 - name: How-to guides
   items:
-  - name: How-to 1
-    href: how-to.md
-
+  - name: Manage an object model
+    href: how-to-manage-model.md
+  - name: Manage a twin
+    href: how-to-manage-twin.md
+  - name: Manage an ADT graph
+    href: how-to-manage-graph.md
+  - name: Query the ADT graph
+    href: how-to-query-graph.md
+  - name: Route event data
+    href: how-to-route-events.md
+  - name: Use the ADT APIs
+    href: how-to-use-apis.md
 - name: Reference
   items:
-
 - name: Resources
   items:
-
 - name: Related
   items:
   - name: Solutions
