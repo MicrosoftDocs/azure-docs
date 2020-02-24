@@ -37,16 +37,16 @@ Azure Private Link provides the following benefits:
 
 |Scenario  |Supported services  |Available regions | Status  |
 |:---------|:-------------------|:-----------------|:--------|
-|Private Link for customer-owned services|Private Link services behind Standard Load Balancer | All public regions  | GA  |
-|Private Link for Azure PaaS services   | Azure Storage        |  All public regions      | Preview <br/> [Learn more](/azure/storage/common/storage-private-endpoints).  |
-|  | Azure Data Lake Storage Gen2        |  All public regions      | Preview <br/> [Learn more](/azure/storage/common/storage-private-endpoints).  |
-|  |  Azure SQL Database         | All public regions      |   Preview      |
-||Azure SQL Data Warehouse| All public regions |Preview|
-||Azure Cosmos DB| West Central US, WestUS, North Central US |Preview|
-|  |  Azure Database for PostgreSQL - Single server         | All public regions      |   Preview      |
-|  |  Azure Database for MySQL         | All public regions      |   Preview      |
-|  |  Azure Database for MariaDB         | All public regions      |   Preview      |
-|  |  Azure Key Vault         | All public regions      |   Preview      |
+|Private Link for customer-owned services|Private Link services behind Standard Load Balancer | All public regions  | GA <br/> [Learn more](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+|Private Link for Azure PaaS services   | Azure Storage        |  All public regions      | Preview <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
+|  | Azure Data Lake Storage Gen2        |  All public regions      | Preview <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
+|  |  Azure SQL Database         | All public regions      |   Preview <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+||Azure SQL Data Warehouse| All public regions |Preview <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+||Azure Cosmos DB| West Central US, WestUS, North Central US |Preview <br/> [Learn more](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  |  Azure Database for PostgreSQL - Single server         | All public regions      |   Preview <br/> [Learn more](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  |  Azure Database for MySQL         | All public regions      |   Preview <br/> [Learn more](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  |  Azure Database for MariaDB         | All public regions      |   Preview <br/> [Learn more](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|  |  Azure Key Vault         | All public regions      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network).
 
