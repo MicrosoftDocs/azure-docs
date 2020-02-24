@@ -5,6 +5,9 @@
 ### Content Strategy Questions
 
 - {mick} **Would you prefer to keep meta-documentation here, or in our OneNote?**
+
+> Test response
+
 - {mick} Our [Azure Content Contributor's Guide](https://review.docs.microsoft.com/en-us/help/contribute/contribute-get-started-mvc?branch=master) recommends starting out with 10-15 use-cases.  **What are those use-cases?**  Some ideas:
   - Send and receive MMS/SMS text messages.
   - Make and receive voice calls to phone numbers through PSTNs.
