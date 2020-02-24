@@ -63,7 +63,7 @@ The example template has two parameters:
 >
 > You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one.
 
-[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-ac.md)]
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 For more information on templates, see the following articles:
 
