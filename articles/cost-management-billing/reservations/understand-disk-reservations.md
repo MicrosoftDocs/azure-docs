@@ -1,5 +1,5 @@
 ---
-title: Understand how a reservation discount is applied to Azure Disk Storage
+title: Understand how a reservation discount is applied to Azure disk storage
 description: Learn how an Azure reserved disks discount is applied to your Azure premium SSD managed disks.
 author: roygara
 ms.service: cost-management-billing
@@ -11,11 +11,11 @@ ms.date: 01/30/2020
 ms.author: rogarana
 ---
 
-# Understand how your reservation discount is applied to Azure Disk Storage
+# Understand how your reservation discount is applied to Azure disk storage
 
 After you purchase Azure disk reserved capacity, a reservation discount is automatically applied to disk resources that match the terms of your reservation. The reservation discount applies to disk SKUs only. Disk snapshots are charged at pay-as-you-go rates.
 
-For more information about Azure Disk reservation, see [Save costs with Azure Disks Reservation](../../virtual-machines/linux/disks-reserved-capacity.md). For information about Azure Disk reservation pricing, see [Azure Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+For more information about Azure disk reservation, see [Save costs with Azure disk reservation](../../virtual-machines/linux/disks-reserved-capacity.md). For information about pricing for Azure disk reservation, see [Azure Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## How the reservation discount is applied
 
@@ -25,7 +25,7 @@ When you delete a resource, the reservation discount automatically applies to an
 
 ## Discount examples
 
-The following examples show how the Azure Disk reservation discount applies depending on your deployment.
+The following examples show how the Azure disk reservation discount applies depending on your deployment.
 
 Suppose you purchase and reserve 100 P30 disks in the US West 2 region for a one-year term. Each disk has approximately 1 TiB of storage. Assume the cost of this sample reservation is $140,100‬. You can choose to pay either the full amount up front or fixed monthly installments of $11,675‬ for the next 12 months.
 
