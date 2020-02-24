@@ -9,7 +9,7 @@ ms.date: 01/23/2020
 ms.author: irenehua
 ---
 
-# Upgrade Azure Public Load Balancer from Basic SKU to Standard SKU
+# Upgrade Azure Public Load Balancer
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
 There are two stages in a upgrade:
