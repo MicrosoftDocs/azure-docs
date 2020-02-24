@@ -106,7 +106,7 @@ Here are a few scenarios of how you add VMs to backend pools of the newly create
     * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
 
 ### Create NSG rules for VMs which to refrain communication from or to the Internet
-If you would like to refrain Internet traffic from reaching to your VMs, you can create an [NSG rule](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group) on the Network Interface of the VMs.
+If you would like to refrain Internet traffic from reaching to your VMs, you can create an [NSG rule](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) on the Network Interface of the VMs.
 
 ## Common questions
 
