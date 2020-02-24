@@ -22,6 +22,8 @@ ms.author: rogarana
 > AD authentication can only be supported against one AD forest where the storage account is registered to. You can only access Azure file shares with the AD credentials from a single AD forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured, see [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) for details.  
 > 
 > AD authentication for SMB access and ACL persistence is supported for Azure file shares managed by Azure File Sync.
+>
+> Azure Files supports Kerberos authentication with AD with RC4-HMAC encryption. AES Kerberos encryption is not yet supported.
 
 When you enable AD for Azure file shares over SMB, your AD domain joined machines can mount Azure file shares using your existing AD credentials. This capability can be enabled with an AD environment hosted either in on-prem machines or hosted in Azure.
 
