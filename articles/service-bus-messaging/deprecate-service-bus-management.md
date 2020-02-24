@@ -26,7 +26,7 @@ For more information on Azure Resource Manager vs Azure Service Manager, see the
 
 For more information on Service Manager and Resource Manager APIs for Azure Service Bus, Relay and Event Hubs, see our REST API documentation:
 
-- [Azure Service Bus](/rest/api/servicebus/).
+- [Azure Service Bus](/rest/api/servicebus/)
 - [Azure Event Hubs](/rest/api/eventhub/)
 - [Azure Relay](/rest/api/relay/)
 
