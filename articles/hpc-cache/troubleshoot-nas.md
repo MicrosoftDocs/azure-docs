@@ -10,17 +10,18 @@ ms.author: rohogue
 
 # Troubleshoot NAS configuration and NFS storage target issues
 
-This article gives solutions for some common configuration errors and other issues that might prevent Azure HPC Cache from adding an NFS storage system as a storage target.
+This article gives solutions for some common configuration errors and other issues that could prevent Azure HPC Cache from adding an NFS storage system as a storage target.
 
-If your problem is not included here, please [open a support ticket](hpc-cache-support-ticket.md) so that Microsoft Service and Support can investigate and solve the problem.
+This article includes details about how to check ports and how to enable root access to a NAS system. It also includes detailed information about less common issues that might cause NFS storage target creation to fail.
 
-Before using this guide, read and check the [prerequisites for NFS storage targets](hpc-cache-prereqs.md#nfs-storage-requirements).
+> [!TIP]
+> Before using this guide, read [prerequisites for NFS storage targets](hpc-cache-prereqs.md#nfs-storage-requirements).
 
-This article includes details about how to check ports and how to enable root access, plus information about other issues that might cause NFS storage target creation to fail.
+If the solution to your problem is not included here, please [open a support ticket](hpc-cache-support-ticket.md) so that Microsoft Service and Support can work with you to investigate and solve the problem.
 
 ## Check port settings
 
-Azure HPC Cache needs read/write access to several UDP/TCP ports on the back-end storage system. Make sure these ports are accessible on the NAS system and that traffic is permitted through its firewalls. You might need to work with firewall and network administrators for your data center to verify this configuration.
+Azure HPC Cache needs read/write access to several UDP/TCP ports on the back-end NAS storage system. Make sure these ports are accessible on the NAS system and also that traffic is permitted to these ports through any firewalls between the storage system and the cache subnet. You might need to work with firewall and network administrators for your data center to verify this configuration.
 
 The ports are different for storage systems from different vendors, so check your system's requirements when setting up a storage target.
 
@@ -50,7 +51,7 @@ Check these settings both on the NAS itself as well as on any firewalls between 
 
 Azure HPC Cache needs access to your storage system's exports to create the storage target. Specifically, it mounts the exports as user ID 0.
 
-Different storage systems use different method to enable this access:
+Different storage systems use different methods to enable this access:
 
 * Linux servers generally add ``no_root_squash`` to the exported path in ``/etc/exports``.
 * NetApp and EMC systems typically control access with export rules that are tied to specific IP addresses or networks.
@@ -64,17 +65,21 @@ Work with your NAS storage vendor to enable the right level of access for the ca
 
 For NAS systems that export hierarchical directories, Azure HPC Cache needs root access to each export level.
 
-For example, a system might show three exports like these, where the ``/ifs/accounting/payroll`` export is a child of the export ``/ifs/accounting``:
+For example, a system might show three exports like these:
 
-```bash
-/ifs
-/ifs/accounting
-/ifs/accounting/payroll
-```
+* ``/ifs``
+* ``/ifs/accounting``
+* ``/ifs/accounting/payroll``
+
+The export ``/ifs/accounting/payroll`` is a child of ``/ifs/accounting``, and ``/ifs/accounting`` is itself a child of ``/ifs``.
 
 If you add the ``payroll`` export as an HPC cache storage target, the cache actually mounts ``/ifs/`` and accesses the payroll directory from there. So Azure HPC Cache needs root access to ``/ifs`` in order to access the ``/ifs/accounting/payroll`` export.
 
-This requirement is related to the way the cache indexes files and avoids file collisions. A NAS system with hierarchical exports can give clients different file handles for the same file, based on which export was used. The storage system aliases the file handles internally, but Azure HPC Cache cannot tell which file handles in its index reference the same item. So it is possible that the cache can have different writes cached for the same file, and apply them incorrectly because it does not know that they are the same file.
+This requirement is related to the way the cache indexes files and avoids file collisions, using file handles that the storage system provides.
+
+A NAS system with hierarchical exports can give different file handles for the same file if the file is retrieved from different exports. For example, a client could mount ``/ifs/accounting`` and access the file ``payroll/2011.txt``. Another client mounts ``/ifs/accounting/payroll`` and accesses the file ``2011.txt``. Depending on how the storage system assigns file handles, these two clients might receive the same file with different file handles (one for ``<mount2>/payroll/2011.txt`` and one for ``<mount3>/2011.txt``).
+
+The back-end storage system keeps internal aliases for file handles, but Azure HPC Cache cannot tell which file handles in its index reference the same item. So it is possible that the cache can have different writes cached for the same file, and apply the changes incorrectly because it does not know that they are the same file.
 
 To avoid this possible file collision for files in multiple exports, Azure HPC Cache automatically mounts the shallowest available export in the path (``/ifs`` in the example) and uses the file handle given from that export. If multiple exports use the same base path, Azure HPC Cache needs root access to that path.
 
@@ -94,7 +99,7 @@ If that command doesn't list the exports, the cache will have trouble connecting
 
 If you have a VPN between the cache and your NAS device, the VPN might block full-sized 1500-byte Ethernet packets. You might have this problem if large exchanges between the NAS and the Azure HPC Cache instance do not complete, but smaller updates work as expected.
 
-There isn't a simple way to tell whether or not your system has this problem, but here are a few methods to diagnose it.
+There isn't a simple way to tell whether or not your system has this problem unless you know the details of your VPN configuration. Here are a few methods that can help you check for this issue.
 
 * Use packet sniffers on both sides of the VPN to detect which packets transfer successfully.
 * If your VPN allows ping commands, you can test sending a full-sized packet.
