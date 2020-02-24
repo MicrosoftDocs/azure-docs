@@ -76,7 +76,7 @@ FROM <from_specification>
   
 - `<container_expression> '.' property_name`  
   
-  Specifies that document should be retrieved by accessing the `property_name` property for all documents retrieved by specified container expression.  
+  Specifies that document should be retrieved by accessing the `property_name` property.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
