@@ -80,7 +80,9 @@ You can use the **Diagnostics settings** menu in the Azure portal to enable and 
 > [!IMPORTANT]
 > Logging of diagnostic telemetry is not enabled by default.
 
-# [Elastic pool](#tab/elastic-pool)
+# [Azure portal](#tab/azure-portal)
+
+**Elastic pools**
 
 You can set up an elastic pool resource to collect the following diagnostics telemetry:
 
@@ -115,7 +117,7 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 > [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for an elastic pool, you also need to configure diagnostics telemetry for each database in the elastic pool.
 
-# [Single or pooled database](#tab/single-or-pooled-database)
+** Single and pooled databases**
 
 You can set up a single or pooled database resource to collect the following diagnostics telemetry:
 
@@ -144,7 +146,7 @@ To enable streaming of diagnostics telemetry for a single or a pooled database, 
 > [!TIP]
 > Repeat these steps for each single and pooled database you want to monitor.
 
-# [Managed instance](#tab/managed-instance)
+**Managed instance**
 
 You can set up a managed instance resource to collect the following diagnostics telemetry:
 
@@ -180,7 +182,7 @@ To enable streaming of diagnostics telemetry for a managed instance resource, fo
 > [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for a managed instance, you also need to configure diagnostics telemetry for each instance database.
 
-# [Instance database](#tab/instance-database)
+**Instance database**
 
 You can set up an instance database resource to collect the following diagnostics telemetry:
 
