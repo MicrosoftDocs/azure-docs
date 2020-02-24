@@ -133,9 +133,11 @@ To move your data from your source region to the target region, please see this 
 
 To commit the changes and complete the move of your service account, delete the source service account.
 
-## Next Steps
+## Next steps
 
 [Create an index](https://docs.microsoft.com/azure/search/search-get-started-portal)
+
 [Create a skillset](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob)
+
 [Create a knowledge store](https://docs.microsoft.com/azure/search/knowledge-store-create-portal)
 
