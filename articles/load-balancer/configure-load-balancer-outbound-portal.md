@@ -48,8 +48,8 @@ In this section, you create a load balancer that will load balance virtual machi
 3. Accept the defaults for the rest of the configuration.
 4. Select **Review + create**
 
-> [!IMPORTANT]
-> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
+    > [!IMPORTANT]
+    > The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
 
 3. In the **Review + create** tab, select **Create**.   
 
