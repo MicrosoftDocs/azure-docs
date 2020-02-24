@@ -292,6 +292,7 @@
     - name: Bing Search APIs
       tocHref: /azure/cognitive-services/bing-web-search/overview
       topicHref: /azure/cognitive-services/bing-web-search/overview
+      items:
       - name: Bing Autosuggest
         tocHref: /azure/cognitive-services/Bing-Autosuggest/get-suggested-search-terms
         topicHref: /azure/cognitive-services/Bing-Autosuggest/get-suggested-search-terms
