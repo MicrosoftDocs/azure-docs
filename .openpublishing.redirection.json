@@ -5776,6 +5776,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/view-usage-reports.md",
+      "redirect_url": "/azure/active-directory-b2c/view-audit-logs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-audit-logs.md",
       "redirect_url": "/azure/active-directory-b2c/view-audit-logs",
       "redirect_document_id": true
@@ -13805,6 +13810,11 @@
       "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/geospatial",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/cosmos-db/geospatial.md",
+      "redirect_url": "/azure/cosmos-db/sql-query-geospatial-intro",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/documentdb/documentdb-get-started-quickstart.md",
       "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-documentdb-dotnet",
@@ -36307,8 +36317,13 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-sso.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-portal",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-single-sign-on-portal.md",
+      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-advance-certificate-options.md",
@@ -36502,8 +36517,13 @@
     },
     {
       "source_path": "articles/active-directory/application-config-add-app-problem-how-to-choose-application-type.md",
-      "redirect_url": "/azure/active-directory/manage-apps/choose-application-type",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-provisioning/isv-automatic-provisioning-multi-tenant-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/choose-application-type.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/isv-automatic-provisioning-multi-tenant-apps",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-add-app-problem-problem-adding-gallery-app.md",
@@ -36522,8 +36542,13 @@
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-federated-sso-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-federated-single-sign-on-gallery-applications",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-federated-single-sign-on-gallery-applications.md",
+      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery.md",
@@ -36532,8 +36557,13 @@
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-password-sso-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-password-single-sign-on-gallery-applications",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-password-single-sign-on-gallery-applications.md",
+      "redirect_url": "/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery.md",
@@ -36562,8 +36592,13 @@
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-how-to",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-how-to.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-no-users-provisioned.md",
@@ -48824,6 +48859,11 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-windows-quickstart.md",
       "redirect_url": "/azure/cognitive-services/speech-service/speech-devices-sdk-quickstart?pivots=platform-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-develop-video-players.md",
+      "redirect_url": "/azure/media-services",
       "redirect_document_id": false
     }
   ]
