@@ -31,6 +31,12 @@
   4. A sample for one platform / language  
 5. Other article sets **[TBD]**
 
+- Add voice and video to your app in 15 mins!
+
+- For PP - we're just dropping them markdown files in teams - can we point them to the private preview repo. This way we don't have to drop markdown files. 
+
+- Review the list of priorities in the PM meeting - ask for feedback.  And the canonical scenarios from the beginning of the meeting. 
+
 
 
 
