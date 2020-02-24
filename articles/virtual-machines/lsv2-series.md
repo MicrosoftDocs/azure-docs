@@ -18,7 +18,7 @@ The Lsv2-series features high throughput, low latency, directly mapped local NVM
 >
 > The high throughput and IOPs of the local disk makes the Lsv2-series VMs ideal for NoSQL stores such as Apache Cassandra and MongoDB which replicate data across multiple VMs to achieve persistence in the event of the failure of a single VM.
 >
-> To learn more, see [Optimize performance on the Lsv2-series virtual machines](/linux/storage-performance.md).  
+> To learn more, see Optimize performance on the Lsv2-series virtual machines for [Windows](../virtual-machines/windows/storage-performance.md) or [Linux](../virtual-machines/linux/storage-performance.md).  
 
 ACU: 150-175
 
