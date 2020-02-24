@@ -43,16 +43,16 @@ Azure supports multiple types of storage accounts for different storage scenario
 # [Portal](#tab/azure-portal)
 To create a storage account via the Azure portal, select **+ Create a resource** from the dashboard. In the resulting Azure Marketplace search window, search for **storage account** and select the resulting search result. This will lead to an overview page for storage accounts; select **Create** to proceed with the storage account creation wizard.
 
-![A screen shot of the storage account quick create option in a browser](media/storage-how-to-create-file-share/create-storage-account-0.png)
+![A screenshot of the storage account quick create option in a browser](media/storage-how-to-create-file-share/create-storage-account-0.png)
 
 #### The Basics section
 The first section to complete to create a storage account is labeled **Basics**. This contains all of the required fields to create a storage account. To create a GPv2 storage account, ensure the **Performance** radio button is set to *Standard* and the **Account kind** drop-down list is selected to *StorageV2 (general purpose v2)*.
 
-![A screen shot of the Performance radio button with Standard selected and Account kind with StorageV2 selected](media/storage-how-to-create-file-share/create-storage-account-1.png)
+![A screenshot of the Performance radio button with Standard selected and Account kind with StorageV2 selected](media/storage-how-to-create-file-share/create-storage-account-1.png)
 
 To create a FileStorage storage account, ensure the **Performance** radio button is set to *Premium* and the **Account kind** drop-down list is selected to *FileStorage*.
 
-![A screen shot of the Performance radio button with Premium selected and Account kind with FileStorage selected](media/storage-how-to-create-file-share/create-storage-account-2.png)
+![A screenshot of the Performance radio button with Premium selected and Account kind with FileStorage selected](media/storage-how-to-create-file-share/create-storage-account-2.png)
 
 The other basics fields are independent from the choice of storage account:
 - **Subscription**: The subscription for the storage account to be deployed into. 
@@ -71,7 +71,7 @@ The advanced section contains several important settings for Azure file shares:
 - **Secure transfer required**: This field indicates whether the storage account requires encryption in transit for communication to the storage account. We recommend this is left enabled, however, if you require SMB 2.1 support, you must disable this. We recommend if you disable encryption that you constrain your storage account access to a virtual network with service endpoints and/or private endpoints.
 - **Large file shares**: This field enables the storage account for file shares spanning up to 100 TiB. Enabling this feature will limit your storage account to only locally redundant and zone redundant storage options. Once a GPv2 storage account has been enabled for large file shares, you cannot disable the large file share capability. FileStorage storage accounts (storage accounts for premium file shares) do not have this option, as all premium file shares can scale up to 100 TiB. 
 
-![A screen shot of the important advanced settings that apply to Azure Files](media/storage-how-to-create-file-share/create-storage-account-3.png)
+![A screenshot of the important advanced settings that apply to Azure Files](media/storage-how-to-create-file-share/create-storage-account-3.png)
 
 The other settings that are available in the advanced tab (blob soft-delete, hierarchical namespace for Azure Data Lake storage gen 2, and NFSv3 for blob storage) do not apply to Azure Files.
 
@@ -161,7 +161,7 @@ For premium file shares, quota is overloaded to mean **provisioned size**. The p
 # [Portal](#tab/azure-portal)
 If you just created your storage account, you can navigate to it from the deployment screen by selecting **Go to resource**. If you have previously created the storage account, you can navigate to it via the resource group containing it. Once in the storage account, select the tile labeled **File shares** (you can also navigate to **File shares** via the table of contents for the storage account).
 
-![A screen shot of the File shares tile](media/storage-how-to-create-file-share/create-file-share-1.png)
+![A screenshot of the File shares tile](media/storage-how-to-create-file-share/create-file-share-1.png)
 
 In the file share listing, you should see any file shares you have previously created in this storage account; an empty table if no file shares have been created yet. Select **+ File share** to create a new file share.
 
