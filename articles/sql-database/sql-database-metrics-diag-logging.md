@@ -82,7 +82,7 @@ You can use the **Diagnostics settings** menu in the Azure portal to enable and 
 
 # [Azure portal](#tab/azure-portal)
 
-**Elastic pools**
+### Elastic pools
 
 You can set up an elastic pool resource to collect the following diagnostics telemetry:
 
@@ -117,7 +117,7 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 > [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for an elastic pool, you also need to configure diagnostics telemetry for each database in the elastic pool.
 
-** Single and pooled databases**
+**Single and pooled databases**
 
 You can set up a single or pooled database resource to collect the following diagnostics telemetry:
 
