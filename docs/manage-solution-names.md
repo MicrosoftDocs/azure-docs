@@ -32,7 +32,7 @@ If your solution is already in Microsoft AppSource and you want to rename it, yo
 
 You must update your solution package to replace the old name with the new one and upload the updated package to your submission.
 
-To update a Microsoft AppSource listing to use the new name, go to the [Store listings](office-store-listing.md) page for that language and select the name from the **Product name** dropdown. Be sure to review your description and other parts of the listing for any mentions of the name and make updates if needed.
+To update a Microsoft AppSource listing to use the new name, go to the [Store listings](appsource-listing.md) page for that language and select the name from the **Product name** dropdown. Be sure to review your description and other parts of the listing for any mentions of the name and make updates if needed.
 
 > [!NOTE]
 > If your app has packages and/or listings in multiple languages, you'll need to update them for every language in which the name needs to be updated.

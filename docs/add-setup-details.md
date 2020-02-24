@@ -194,5 +194,5 @@ Make sure that any correspondence you send to customers includes an option to un
 
 ## See also
 
-- [Create your Microsoft AppSource listing](office-store-listing.md)
+- [Create your Microsoft AppSource listing](appsource-listing.md)
 - [Microsoft AppSource submission FAQ](office-store-submission-faq.md)
