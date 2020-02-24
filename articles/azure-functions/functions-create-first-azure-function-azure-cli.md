@@ -346,7 +346,7 @@ Copy the complete **Invoke URL** shown in the output of the publish command into
 
 # [curl](#tab/curl)
 
-Run [curl](https://curl.haxx.se/) with the **Invoke URL**, appending the parameter `&name=Functions`. The output of the command should be the text, "Hello Functions!".
+Run [`curl`](https://curl.haxx.se/) with the **Invoke URL**, appending the parameter `&name=Functions`. The output of the command should be the text, "Hello Functions."
 
 ![The output of the function run on Azure using curl](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-curl.png)
 
