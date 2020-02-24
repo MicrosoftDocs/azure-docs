@@ -164,11 +164,11 @@ Create a temporary CNAME record to point to your host name. A CNAME record is a 
 
 3. Create a CNAME record. As part of that record, provide the following items: 
 
-   - The subdomain alias such as `www` or `photos`. The subdomain is required, root domains are not supported.
+   - Name field :- The subdomain alias such as `www` or `photos`. The subdomain is required, root domains are not supported.
 
      Add the `asverify` subdomain to the alias. For example: `asverify.www` or `asverify.photos`.
        
-   - The host name that you obtained in the [Get the host name of your storage endpoint](#endpoint) section earlier in this article. 
+   - Alias field :- The host name that you obtained in the [Get the host name of your storage endpoint](#endpoint) section earlier in this article. 
 
      Add the subdomain `asverify` to the host name. For example: `asverify.mystorageaccount.blob.core.windows.net`.
 
