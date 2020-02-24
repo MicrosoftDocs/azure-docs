@@ -9,7 +9,7 @@ localization_priority: Normal
 
 This topic answers common questions about submitting add-ins to Microsoft AppSource via Partner Center. 
 
-For the most current version of the validation policies, see [Validation policies](validation-policies.md).
+For the most current version of the certification policies, see [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies).
 
 <a name="bk_q2"> </a>
 ## How can I avoid errors when submitting my add-in to Microsoft AppSource?

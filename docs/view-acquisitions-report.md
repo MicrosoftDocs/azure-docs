@@ -88,5 +88,5 @@ The Total campaign conversions chart shows the total number of app and add-on 
 
 ## See also
 
-- [Make your solutions available in Microsoft AppSource and within Office](submit-to-the-office-store.md)
+- [Make your solutions available in Microsoft AppSource and within Office](submit-to-appsource-via-partner-center.md)
 - [Promote your solution](promote-your-office-store-solution.md)

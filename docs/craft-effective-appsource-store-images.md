@@ -52,5 +52,5 @@ The images should clearly communicate value of your solution and its main featur
 ![Image with caption, closeup to focus on one user action and result next to an image with caption and callout that hides the result of the action](images/value-add-do-dont-3.png)
 
 ## See also
-* [Validation policies](validation-policies.md)
+* [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies)
 * [Create effective Microsoft AppSource listings](create-effective-office-store-listings.md)

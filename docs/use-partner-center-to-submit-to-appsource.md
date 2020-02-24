@@ -6,14 +6,11 @@ localization_priority: Priority
 
 # Submit your Office solution to Microsoft AppSource via Partner Center
 
-If you want your Office solution to appear in Microsoft AppSource, you need to submit it to [Partner Center](https://partner.microsoft.com/dashboard/office/products) for approval. First, familiarize yourself with the [validation policies](validation-policies.md). 
+If you want your Office solution to appear in Microsoft AppSource, you need to submit it to [Partner Center](https://partner.microsoft.com/dashboard/office/products) for approval. First, familiarize yourself with the [certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies). 
 
 If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, see [Create or update client IDs and secrets in Partner Center](create-or-update-client-ids-and-secrets.md).
 
-For information about the Microsoft AppSource approval process, see [Make your solutions available in Microsoft AppSource](submit-to-the-office-store.md).
-
->[!NOTE]
->If your solutions haven't been migrated to Partner center, you can use [Seller Dashboard](use-the-seller-dashboard-to-submit-to-the-office-store.md) to submit to Microsoft AppSource. For details about the Partner Center migration, see the [FAQ](partner-center-faq.md).
+For information about the Microsoft AppSource approval process, see [Make your solutions available in Microsoft AppSource](submit-to-appsource-via-partner-center.md).
 
 ## Submission process
 
@@ -68,8 +65,8 @@ After a solution is unpublished, new customers will not be able to get it. Exist
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Microsoft AppSource submission FAQ](office-store-submission-faq.md)
+- [Microsoft AppSource submission FAQ](appsource-submission-faq.md)
 - [Create effective listings](create-effective-office-store-listings.md)
-- [Validation policies](validation-policies.md)
+- [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies)
  
 

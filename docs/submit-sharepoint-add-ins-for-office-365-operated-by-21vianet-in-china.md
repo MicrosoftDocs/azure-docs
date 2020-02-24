@@ -31,7 +31,7 @@ Similarly, if you do not wish to distribute to China, you only need to submit on
 
 - [Submit your Office solution to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
 - [Create or update client IDs and secrets](create-or-update-client-ids-and-secrets.md)
-- [Validation policies](validation-policies.md)
+- [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies)
     
  
 
