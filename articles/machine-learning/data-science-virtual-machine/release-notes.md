@@ -6,8 +6,8 @@ author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-ms.author: gopalv
-ms.date: 10/10/2019
+ms.author: laobri
+ms.date: 02/24/2020
 ms.topic: reference
 ---
 
@@ -16,6 +16,10 @@ ms.topic: reference
 In this article, learn about Azure Data Science Virtual Machine releases. For a full list of tools included, along with version numbers, check out [this page](./tools-included.md).
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
+
+## 2020-02-24
+
+Data Science Virtual Machine images for [Ubuntu 18.04](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/data%20science%20) and (Windows 2019)[https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/data%20science%20] images are now available. 
 
 ## 2019-10-08
 
