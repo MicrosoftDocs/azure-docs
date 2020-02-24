@@ -154,4 +154,4 @@ Yes, You can link your partner ID for Azure Stack.
 
 **How do I link my partner ID if my company uses [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) to access customer resources?**
 
-
+To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to perform this association in your service provider tenant. For simplicity, we recommend creating a service principal account in your tenant that is associated your MPN ID, and granting it Reader access to every customer you onboard.
