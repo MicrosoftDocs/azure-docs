@@ -42,7 +42,7 @@ If you intend to use the storage account key to access your Azure file shares, w
 ## Networking
 Azure file shares are accessible from anywhere via the storage account's public endpoint. This means that authenticated requests, such as requests authorized by a user's logon identity, can originate securely from inside or outside of Azure. In many customer environments, an initial mount of the Azure file share on your on-premises workstation will fail, even though mounts from Azure VMs succeed. The reason for this is that many organizations and internet service providers (ISPs) block the port that SMB uses to communicate, port 445. 
 
-To enable your Azure file share to be used, you have two main options:
+To unblock access to your Azure file share, you have two main options:
 
 1. Unblock port 445 for your organization's on-premises network. Azure file shares may only be externally accessed via the public endpoint using internet safe protocols such as SMB 3.0 and the FileREST API. This is the easiest way to access your Azure file share from on-premises since it doesn't require advanced networking configuration beyond changing your organization's outbound port rules, however, we recommend you remove legacy and deprecated versions of the SMB protocol, namely SMB 1.0. To learn how to do this, see [Securing Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) and [Securing Linux](storage-how-to-use-files-linux.md#securing-linux).
 
