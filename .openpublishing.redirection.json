@@ -48875,6 +48875,11 @@
       "source_path": "articles/virtual-machines/windows/chef-automation.md",
       "redirect_url": "/azure/chef/chef-automation",
       "redirect_document_id": true
-    }
+    },
+	{
+		 "source_path": "articles/azure-monitor/app/hockeyapp-bridge-app.md",
+		"redirect_url": "/azure/azure-monitor/overview",
+		"redirect_document_id": false 
+	}
   ]
 }
