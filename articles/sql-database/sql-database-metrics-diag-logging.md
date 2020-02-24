@@ -81,7 +81,7 @@ You can use the **Diagnostics settings** menu for each single, pooled, or manage
 
 You can set the following destinations to stream the diagnostics telemetry: Azure Storage, Azure Event Hubs, and Azure Monitor logs.
 
-# [Portal-elastic pools](#tab/azure-portal-elastic-pools)
+# [Elastic pool](#tab/elastic-pool)
 
 You can set up an elastic pool resource to collect the following diagnostics telemetry:
 
@@ -116,7 +116,7 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 > [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for an elastic pool, you also need to configure diagnostics telemetry for each database in elastic pool.
 
-# [Portal-single and pooled databases](#tab/azure-portal-single-pooled-databases)
+# [Single database](#tab/single-database)
 
 You can set up a single or pooled database resource to collect the following diagnostics telemetry:
 
@@ -145,7 +145,7 @@ To enable streaming of diagnostics telemetry for a single a pooled database, fol
 > [!TIP]
 > Repeat these steps for each single and pooled database you want to monitor.
 
-# [Portal-managed instance](#tab/azure-portal-managed-instance)
+# [Managed instance](#tab/managed-instance)
 
 You can set up a managed instance resource to collect the following diagnostics telemetry:
 
@@ -181,7 +181,7 @@ To enable streaming of diagnostics telemetry for a managed instance resource, fo
 > [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for a managed instance, you also need to configure diagnostics telemetry for each instance database.
 
-# [Portal-instance database](#tab/azure-portal-instance-database)
+# [Instance database](#tab/instance-database)
 
 You can set up an instance database resource to collect the following diagnostics telemetry:
 
@@ -267,7 +267,7 @@ Provide the workspace resource ID \<$WSID\> as a parameter when executing the sc
 
    Replace \<subID\> with the subscription ID, \<RG_NAME\> with the resource group name, and \<WS_NAME\> with the workspace name.
 
-# [Azure CLI](#tab/azure-azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 You can enable metrics and diagnostics logging by using the Azure CLI.
 
@@ -302,11 +302,11 @@ You can enable metrics and diagnostics logging by using the Azure CLI.
 
 You can combine these parameters to enable multiple output options.
 
-# [REST API](#tab/azure-rest-api)
+# [REST API](#tab/rest-api)
 
 Read about how to [change diagnostics settings by using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
 
-# [Resource Manager template](#tab/azure-resource-amanager)
+# [Resource Manager](#tab/resource-amanager)
 
 Read about how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/platform/diagnostic-settings-template.md).
 
