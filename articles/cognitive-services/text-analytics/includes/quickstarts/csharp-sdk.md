@@ -109,7 +109,7 @@ If you're using version `3.0-preview`, you can use an optional `TextAnalyticsCli
 * [Sentiment analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Named Entity Recognition](#named-entity-recognition-ner)
-* [Personal Identifiable Information](#personal-identifiable-information-pii)
+* [Detect personal information](#detect-personal-information)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
