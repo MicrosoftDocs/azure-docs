@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting for Azure Synapse Studio 
-description: Troubleshooting for Azure Synapse Studio
+title: Troubleshoot Azure Synapse Studio 
+description: Troubleshoot Azure Synapse Studio
 author: julieMSFT 
 ms.service: synapse-analytics 
 ms.topic: conceptual
@@ -94,5 +94,4 @@ Certain browsers support showing timestamps in the “Console” tab. For Chromi
 ![show-time-stamp](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## Next steps
-<!---[Create a support ticket]()
---->
+If the previous steps don help to resolve you issue [Create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md)
