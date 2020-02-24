@@ -216,4 +216,5 @@ In this document, you learned how to use the Apache Kafka Producer and Consumer 
 
 > [!div class="nextstepaction"]
 > [Use Kafka REST Proxy](rest-proxy.md)
+> [!div class="nextstepaction"]
 > [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)
