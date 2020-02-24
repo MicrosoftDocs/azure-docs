@@ -1,5 +1,4 @@
 ---
-
 title: "Quickstart: Use Node.js to query from Azure Cosmos DB SQL API account"
 description: How to use Node.js to create an app that connects to Azure Cosmos DB SQL API account and queries data.
 author: deborahc
@@ -9,7 +8,9 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: dech
----# Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account
+---
+
+# Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 >
