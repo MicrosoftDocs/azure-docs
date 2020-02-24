@@ -20,6 +20,10 @@ ms.custom: seodec18
 
 Scheduling Batch jobs enables you to prioritize the jobs you want to run first while taking into account tasks that have dependencies on other tasks. By scheduling your jobs you can make sure you use the least amount of resources. Nodes can be decommissioned when not needed, tasks that are dependent on other tasks are spun up just in time optimizing the workflows. Only one job at a time runs. A new one won't start until the previous one completes. You can set your job to auto-complete. 
 
+## Benefit of job scheduling
+
+The benefit of scheduling jobs is that you can specify a schedule for job creation.The tasks you schedule using job manager task are associated with a job. The job manager task will create tasks for the job. To do so, the job manager task needs to authenticate with the Batch account. Use the the AZ_BATCH_AUTHENTICATION_TOKEN access token. The token will allow access to the rest of the job. 
+
 ## Use the portal to schedule a job
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
