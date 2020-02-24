@@ -31431,8 +31431,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/key-vault/key-vault-security-attributes.md",
-      "redirect_url": "/azure/key-vault/key-vault-security-controls",
+      "source_path": "articles/key-vault/key-vault-security-controls.md",
+      "redirect_url": "/azure/key-vault/security-baseline",
       "redirect_document_id": false
     },
     {
