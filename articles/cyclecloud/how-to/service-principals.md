@@ -45,6 +45,7 @@ The output will display a series of information. You will need to save the `appI
 The simplest option (with sufficient access rights) is to assign the Contributor Role for the Subscription to the new CycleCloud Service Principal.
 However, the Contributor Role has a higher privilege level than CycleCloud requires.  A [custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) may be created and assigned to the VM.
 
-See [Create a custom role and managed identity for CycleCloud](managed-identities.md) for details on creating an appropriate lower-privilege AD Role for the Service Principal.
+
+The [Managed Identity Guide](managed-identities.md) has details on creating an appropriate lower-privilege AD Role for the Service Principal.
 
 
