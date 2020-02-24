@@ -27,7 +27,7 @@ Azure Backup uses the MARS agent to back up files, folders, and system state fro
 * On Azure VMs that run Windows side by side with the Azure VM backup extension. The agent backs up specific files and folders on the VM.
 * On a Microsoft Azure Backup Server (MABS) instance or a System Center Data Protection Manager server. In this scenario, machines and workloads back up to MABS or Data Protection Manager. Then MABS or Data Protection Manager uses the MARS agent to back up to a vault in Azure.
 
-What you can back up depends on where the agent is installed.
+The data that's available for backup depends on where the agent is installed.
 
 > [!NOTE]
 > Generally, you back up an Azure VM by using an Azure Backup extension on the VM. This method backs up the entire VM. If you want to back up specific files and folders on the VM, install and use the MARS agent alongside the extension. For more information, see [Architecture of a built-in Azure VM backup](backup-architecture.md#architecture-built-in-azure-vm-backup).
@@ -38,9 +38,11 @@ What you can back up depends on where the agent is installed.
 
 * Learn how [Azure Backup uses the MARS agent to back up Windows machines](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 * Learn about the [backup architecture](backup-architecture.md#architecture-back-up-to-dpmmabs) that runs the MARS agent on a secondary MABS or Data Protection Manager server.
-* Review [what's supported and what you can back up](backup-support-matrix-mars-agent.md) by using the MARS agent.
+* Review [what's supported and what you can back up](backup-support-matrix-mars-agent.md) by the MARS agent.
 * Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/free/) in just a few minutes.
 * Verify internet access on the machines that you want to back up.
+
+### Internet access
 
 If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
 
@@ -53,12 +55,35 @@ If your machine has limited internet access, ensure that firewall settings on th
 * IP addresses
     * 20.190.128.0/18
     * 40.126.0.0/18
-    
-These URLs and IP addresses use the HTTPS protocol on port 443.
+
+### Azure ExpressRoute support
+
+You can back up your data over Azure ExpressRoute by using public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.
+
+To use public peering, first ensure access to the following domains and addresses:
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+To use Microsoft peering, select the following services, regions, and relevant community values:
+
+* Azure Active Directory (12076:5060)
+* Azure region, according to the location of your Recovery Services vault
+* Azure Storage, according to the location of your Recovery Services vault
+
+For more information, see [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+> [!NOTE]
+> Public peering is deprecated for new circuits.
+
+All of the preceding URLs and IP addresses use the HTTPS protocol on port 443.
 
 ## Create a Recovery Services vault
 
-A Recovery Services vault stores all the backups and recovery points that you create over time. It also contains the backup policy for the backed up machines. 
+A Recovery Services vault stores all the backups and recovery points that you create over time. It also contains the backup policy for the backed-up machines. 
 
 To create a vault:
 
@@ -89,16 +114,16 @@ To create a vault:
 
 ### Set storage redundancy
 
-Azure Backup automatically handles storage for the vault. You need to specify how that storage is replicated.
+Azure Backup automatically handles storage for the vault. You specify how to replicate that storage.
 
-1. On the **Recovery Services vaults** blade, select the new vault. Under **Settings**, select  **Properties**.
+1. Under **Recovery Services vaults**, select the new vault. Under **Settings**, select  **Properties**.
 1. In **Properties**, under **Backup Configuration**, select **Update**.
 
 1. Select the storage replication type, and select **Save**.
 
       ![Set the storage configuration for a new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-We recommend that if you use Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting. If you don't use Azure as a primary backup storage endpoint, choose **Locally-redundant** to reduce the Azure storage costs.
+We recommend that if you use Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting. If you don't use Azure as a primary backup storage endpoint, select **Locally redundant** to reduce the Azure storage costs.
 
 For more information, see [Geo-redundancy](../storage/common/storage-redundancy-grs.md) and [Local redundancy](../storage/common/storage-redundancy-lrs.md).
 
@@ -113,7 +138,7 @@ If you've already installed the agent on any machines, make sure that you're run
     ![Open the backup goal](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
 1. Under **Where is your workload running?**, select **On-premises**. Select this option even if you want to install the MARS agent on an Azure VM.
-1. Under **What do you want to backup?**, select **Files and folders**. You can also select **System State**. Many other options are available, but these are supported only if you're running a secondary backup server. Select **Prepare Infrastructure**.
+1. Under **What do you want to back up?**, select **Files and folders**. You can also select **System State**. Many other options are available, but these options are supported only if you're running a secondary backup server. Select **Prepare Infrastructure**.
 
     ![Configure files and folders](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
 
@@ -195,10 +220,10 @@ To create a backup policy:
 
 1. On the **Select Retention Policy** page, specify how to store historical copies of your data. Then select **Next**.
 
-    - Retention settings specify which recovery points should be stored, and how long they should be stored. 
-    - For a daily retention setting, you indicate that at the time specified for the daily retention, the latest recovery point will be retained for the specified number of days. Alternatively, you could specify a monthly retention policy to indicate that the recovery point created on the 30th of every month should be stored for 12 months.
-    - Retention for daily and weekly recovery points usually coincides with the backup schedule. So when the schedule triggers a backup, the recovery point that the backup creates is stored for the duration that the daily or weekly retention policy specifies.
-    - In the following example:
+    * Retention settings specify which recovery points to store and how long to store them. 
+    * For a daily retention setting, you indicate that at the time specified for the daily retention, the latest recovery point will be retained for the specified number of days. Or you could specify a monthly retention policy to indicate that the recovery point created on the 30th of every month should be stored for 12 months.
+    * Retention for daily and weekly recovery points usually coincides with the backup schedule. So when the schedule triggers a backup, the recovery point that the backup creates is stored for the duration that the daily or weekly retention policy specifies.
+    * In the following example:
 
         * Daily backups at midnight and 6:00 PM are kept for seven days.
         * Backups taken on a Saturday at midnight and 6:00 PM are kept for four weeks.
@@ -224,18 +249,18 @@ To create a backup policy:
 
     ![View the backup schedule progress](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
 
-You must create a policy on each machine where the agent is installed.
+Create a policy on each machine where the agent is installed.
 
 ### Do the initial backup offline
 
-You can run an initial backup automatically over the network, or you can back up offline. Offline seeding for an initial backup is useful if you have large amounts of data that will require lots of network bandwidth to transfer. 
+You can run an initial backup automatically over the network, or you can back up offline. Offline seeding for an initial backup is useful if you have large amounts of data that will require a lot of network bandwidth to transfer. 
 
 To do an offline transfer:
 
 1. Write the backup data to a staging location.
 1. Use the AzureOfflineBackupDiskPrep tool to copy the data from the staging location to one or more SATA disks. 
 
-    The tool creates an Azure Import job. For more information, see [What is Azure Import/Export service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    The tool creates an Azure Import job. For more information, see [What is the Azure Import/Export service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 1. Send the SATA disks to an Azure datacenter. 
 
     At the datacenter, the disk data is copied to an Azure storage account. Azure Backup copies the data from the storage account to the vault, and incremental backups are scheduled.
@@ -244,9 +269,9 @@ For more information about offline seeding, see [Use Azure Data Box for offline 
 
 ### Enable network throttling
 
-You can control how the MARS agent uses network bandwidth by enabling network throttling. Throttling is helpful if you need to back up data during work hours but want to control how much bandwidth is used for the backup and restore activity.
+You can control how the MARS agent uses network bandwidth by enabling network throttling. Throttling is helpful if you need to back up data during work hours but you want to control how much bandwidth the backup and restore activity uses.
 
-Azure Backup network throttling uses [Quality of Service (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) on the local operating system.
+Network throttling in Azure Backup uses [Quality of Service (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) on the local operating system.
 
 Network throttling for backups is available on Windows Server 2012 and later, and on Windows 8 and later. Operating systems should be running the latest service packs.
 
@@ -264,13 +289,14 @@ To enable network throttling:
 
     ![Back up now in Windows Server](./media/backup-configure-vault/backup-now.png)
 
-1. If the MARS agent version is 2.0.9169.0 or newer, then you can set a custom retention. In the **Retain Backup Till** section, choose a date from the calendar.
+1. If the MARS agent version is 2.0.9169.0 or newer, then you can set a custom retention date. In the **Retain Backup Till** section, choose a date from the calendar.
 
    ![Use the calendar to customize a retention date](./media/backup-configure-vault/mars-ondemand.png)
 
 1. On the **Confirmation** page, review the settings, and select **Back Up**.
 1. Select **Close** to close the wizard. If you close the wizard before the backup finishes, the wizard continues to run in the background.
-1. After the initial backup finishes, the **Job completed** status appears in the Backup console.
+
+After the initial backup finishes, the **Job completed** status appears in the Backup console.
 
 ## Set up on-demand backup policy retention behavior
 
@@ -280,8 +306,8 @@ To enable network throttling:
 
 | Backup-schedule option | Duration of data retention
 | -- | --
-| Schedule a backup every: Day | **Default retention**: Equivalent to the "retention in days for daily backups." <br/><br/> **Exception**: In case of a failure of a daily scheduled backup that's set for long-term retention (weeks, months, or years), an on-demand backup that's triggered right after the failure is considered for long-term retention. Otherwise, the next scheduled backup is considered for long-term retention.<br/><br/> **Example scenario**: The scheduled backup on Thursday at 8:00 AM failed. This backup was to be considered for weekly, monthly, or yearly retention. So the first on-demand backup triggered before the next scheduled backup on Friday at 8:00 AM is automatically tagged for weekly, monthly, or yearly retention. This on-demand backup substitutes for the Thursday 8:00 AM backup.
-| Schedule a backup every: Week | **Default retention**: 1 day. On-demand backups that are taken for a data source that has a weekly backup policy are deleted the next day. They're deleted even if they are the most recent backups for the data source. <br/><br/> **Exception**: In case of a failure of a weekly scheduled backup that's set for long-term retention (weeks, months, or years), an on-demand backup that's triggered right after the failure is considered for long-term retention. Otherwise, the next scheduled backup is considered for long-term retention. <br/><br/> **Example scenario**: The scheduled backup on Thursday at 8:00 AM failed. This backup was to be considered for monthly or yearly retention. So the first on-demand backup that's triggered before the next scheduled backup on Thursday at 8:00 AM is be automatically tagged for monthly or yearly retention. This backup substitutes for the Thursday 8:00 AM backup.
+| Day | **Default retention**: Equivalent to the "retention in days for daily backups." <br/><br/> **Exception**: If a daily scheduled backup that's set for long-term retention (weeks, months, or years) fails, an on-demand backup that's triggered right after the failure is considered for long-term retention. Otherwise, the next scheduled backup is considered for long-term retention.<br/><br/> **Example scenario**: The scheduled backup on Thursday at 8:00 AM failed. This backup was to be considered for weekly, monthly, or yearly retention. So the first on-demand backup triggered before the next scheduled backup on Friday at 8:00 AM is automatically tagged for weekly, monthly, or yearly retention. This backup substitutes for the Thursday 8:00 AM backup.
+| Week | **Default retention**: One day. On-demand backups that are taken for a data source that has a weekly backup policy are deleted the next day. They're deleted even if they're the most recent backups for the data source. <br/><br/> **Exception**: If a weekly scheduled backup that's set for long-term retention (weeks, months, or years) fails, an on-demand backup that's triggered right after the failure is considered for long-term retention. Otherwise, the next scheduled backup is considered for long-term retention. <br/><br/> **Example scenario**: The scheduled backup on Thursday at 8:00 AM failed. This backup was to be considered for monthly or yearly retention. So the first on-demand backup that's triggered before the next scheduled backup on Thursday at 8:00 AM is automatically tagged for monthly or yearly retention. This backup substitutes for the Thursday 8:00 AM backup.
 
 For more information, see [Create a backup policy](#create-a-backup-policy).
 
