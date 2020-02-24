@@ -928,27 +928,14 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
-
-
-Not allowed resource types
-
-Allowed resource types
-
-
+- Not allowed resource types
+- Allowed resource types
 
 Use Azure Resource Graph to query/discover resources within your subscription(s).  Ensure that all Azure resources present in the environment are approved.
 
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-
-
-How to create queries with Azure Graph:
-
-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1008,7 +995,7 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 
 ### 6.11: Limit users' ability to interact with Azure Resources Manager via scripts
 
-**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource manager by configuring "Block access" for the "Microsoft Azure Management" App.
+**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 
 How to configure Conditional Access to block access to Azure Resource Manager:

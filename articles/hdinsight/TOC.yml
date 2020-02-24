@@ -220,7 +220,7 @@
       href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
     - name: SDK for Go
       href: ./hdinsight-go-sdk-overview.md
-    - name: .NET (Apache HBASE)
+    - name: .NET (Apache HBase)
       href: https://www.nuget.org/packages/Microsoft.HBase.Client/
     - name: REST API
       href: /rest/api/hdinsight/

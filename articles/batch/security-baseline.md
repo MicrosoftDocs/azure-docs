@@ -1060,25 +1060,14 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.Batch" namespace to create custom policies to audit or enforce the configuration of your Azure Batch instance. You may also use any built-in policies created specifically for Azure Batch or the resources used by Azure Batch, such as:
 
+- Subnets should be associated with a Network Security Group
+- Storage Accounts should use a virtual network service endpoint
+- Diagnostic logs in Batch accounts should be enabled
 
+How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Subnets should be associated with a Network Security Group
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Storage Accounts should use a virtual network service endpoint
-
-Diagnostic logs in Batch accounts should be enabled
-
-
-
-How to view available Azure Policy Aliases:
-
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-
-
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center monitoring**: Currently not available
 
