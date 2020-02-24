@@ -44,7 +44,7 @@ When you enable metrics and diagnostics logging, you need to specify the Azure r
 
 - [Azure SQL Analytics](#stream-into-sql-analytics)
 - [Azure Event Hubs](#stream-into-event-hubs)
-- [Azure Storage](#stream-into-azure-storage)
+- [Azure Storage](#stream-into-storage)
 
 You can provision a new Azure resource or select an existing resource. After you choose a resource by using the **Diagnostic settings** option, specify which data to collect.
 
