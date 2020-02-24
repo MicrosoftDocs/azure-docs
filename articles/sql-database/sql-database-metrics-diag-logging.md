@@ -73,7 +73,7 @@ Enable the metrics and diagnostics logging on SQL databases. Diagnostic logging 
 >
 > To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2) and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 >
-> Diagnostic settings cannot be configured for the **system databases**, such are master, msdb, model, resoure and tempdb databases.
+> Diagnostic settings cannot be configured for the **system databases**, such are master, msdb, model, resource and tempdb databases.
 
 ## Configure streaming of diagnostic telemetry
 
@@ -118,9 +118,9 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 9. In addition, configure streaming of diagnostics telemetry for each database within the elastic pool you want to monitor by following steps described in the next section.
 
 > [!IMPORTANT]
-> In addition to configuring diagnostics telemetry for an elastic pool, you also need to configure diagnostics telemetry for each database in elastic pool.
+> In addition to configuring diagnostics telemetry for an elastic pool, you also need to configure diagnostics telemetry for each database in the elastic pool.
 
-# [Single database](#tab/single-database)
+# [Single or pooled database](#tab/single-or-pooled-database)
 
 You can set up a single or pooled database resource to collect the following diagnostics telemetry:
 
