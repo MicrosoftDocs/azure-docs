@@ -15,13 +15,13 @@ ms.date: 02/24/2020
 
 # Azure SQL Database metrics and diagnostics logging
 
-In this article, you will learn how to configure logging of diagnostics telemetry for Azure SQL databases through the Azure portal, PowerShell, Azure CLI, Azure Monitor REST API, and Azure Resource Manager template. These diagnostics can be used to gauge resource utilization and query execution statistics.
-
-Single databases, pooled databases, and managed instance databases can stream metrics and diagnostics logs for easier performance monitoring. You can configure an Azure SQL database to transmit resource usage, workers and sessions, and connectivity to one of the following Azure resources:
+In this article, you will learn how to enable and configure logging of diagnostics telemetry for Azure SQL databases through the Azure portal, PowerShell, Azure CLI, the REST API, and Azure Resource Manager template. Single databases, pooled databases, elastic pools, managed instances, and instance databases can stream metrics and diagnostics logs to one of the following Azure resources:
 
 - **Azure SQL Analytics**: Get intelligent monitoring of your databases that includes performance reports, alerts, and mitigation recommendations
 - **Azure Event Hubs**: Integrate database telemetry with your custom monitoring solutions or hot pipelines
 - **Azure Storage**: Archive vast amounts of telemetry for a fraction of the price
+
+These diagnostics can be used to gauge resource utilization and query execution statistics for easier performance monitoring.
 
 ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -29,8 +29,6 @@ For more information about the metrics and log categories supported by the vario
 
 - [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 - [Overview of Azure diagnostics logs](../azure-monitor/platform/platform-logs-overview.md)
-
-This article provides guidance to help you enable diagnostics telemetry for all of your Azure SQL databases.
 
 ## Enable logging of diagnostics telemetry
 
@@ -44,15 +42,15 @@ You can enable and manage metrics and diagnostics telemetry logging by using one
 
 When you enable metrics and diagnostics logging, you need to specify the Azure resource destination for collecting the diagnostics telemetry. Available options include:
 
-- Azure SQL Analytics
-- Azure Event Hubs
-- Azure Storage
+- [Azure SQL Analytics](#stream-into-sql-analytics)
+- [Azure Event Hubs](#stream-into-event-hubs)
+- [Azure Storage](#stream-into-azure-storage)
 
 You can provision a new Azure resource or select an existing resource. After you choose a resource by using the **Diagnostic settings** option, specify which data to collect.
 
 ## Supported diagnostic logging for Azure SQL databases
 
-Enable the metrics and diagnostics logging on SQL databases. Diagnostic logging isn't enabled by default. You can set up Azure SQL databases to collect the following diagnostics telemetry:
+You can set up Azure SQL databases to collect the following diagnostics telemetry:
 
 | Monitoring telemetry for databases | Single database and pooled database support | Managed instance database support |
 | :------------------- | ----- | ----- |
@@ -77,13 +75,9 @@ Enable the metrics and diagnostics logging on SQL databases. Diagnostic logging 
 
 ## Configure streaming of diagnostic telemetry
 
-You can use the **Diagnostics settings** menu for each single, pooled, or managed instance database in Azure portal to configure streaming of diagnostics telemetry. In addition, diagnostic telemetry can also be configured separately for database containers: elastic pools and managed instances. Additionally, you can use PowerShell, the Azure CLI, the REST API, and Resource Manager templates to configure streaming of diagnostic telemetry.
+Enable the metrics and diagnostics logging on SQL databases. Diagnostic logging isn't enabled by default.
 
-You can set the following destinations to stream the diagnostics telemetry: 
-
-- [SQL Analytics](#stream-into-sql-analytics)
-- [Azure Event Hubs](#stream-into-event-hubs)
-- [Azure Storage](#stream-into-storage)
+You can use the **Diagnostics settings** menu in the Azure portal to enable and configure streaming of diagnostics telemetry. Additionally, you can use PowerShell, the Azure CLI, the REST API, and Resource Manager templates to configure streaming of diagnostic telemetry. You can set the following destinations to stream the diagnostics telemetry: Azure Storage, Azure Event Hubs, and Azure Monitor logs
 
 # [Elastic pool](#tab/elastic-pool)
 
@@ -128,7 +122,7 @@ You can set up a single or pooled database resource to collect the following dia
 | :------------------- | ------------------- |
 | **Single or pooled database** | [Basic metrics](sql-database-metrics-diag-logging.md#basic-metrics) contains DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks. |
 
-To enable streaming of diagnostics telemetry for a single a pooled database, follow these steps:
+To enable streaming of diagnostics telemetry for a single or a pooled database, follow these steps:
 
 1. Go to Azure **SQL database** resource.
 2. Select **Diagnostics settings**.
@@ -318,7 +312,7 @@ Read about how to [enable diagnostics settings at resource creation by using a R
 
 ## Stream into SQL Analytics
 
-Azure SQL Analytics is a cloud solution that monitors the performance of single databases, elastic pools, managed instances, and instance databases at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
+Azure SQL Analytics is a cloud solution that monitors the performance of single databases, elastic pools and pooled databases, and managed instances and instance databases at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
 
 ![Azure SQL Analytics Overview](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
@@ -425,28 +419,28 @@ If you are using Azure SQL Analytics, you can monitor your data ingestion consum
 
 ## Metrics and logs available
 
-Monitoring telemetry available for single databases, elastic pools and managed instance is documented in this section of the article. Collected monitoring telemetry inside SQL Analytics can be used for your own custom analysis and application development using [Azure Monitor log queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) language.
+Monitoring telemetry available for single databases, pooled databases, elastic pools, managed instance, and instance databases is documented in this section of the article. Collected monitoring telemetry inside SQL Analytics can be used for your own custom analysis and application development using [Azure Monitor log queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) language.
 
-## Basic metrics
+### Basic metrics
 
 Refer to the following tables for details about Basic metrics by resource.
 
 > [!NOTE]
 > Basic metrics option was formerly known as All metrics. The change made was to the naming only and there was no change to the metrics monitored. This change was initiated to allow for introduction of additional metric categories in the future.
 
-### Basic metrics for elastic pools
+#### Basic metrics for elastic pools
 
 |**Resource**|**Metrics**|
 |---|---|
 |Elastic pool|eDTU percentage, eDTU used, eDTU limit, CPU percentage, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, XTP storage percentage |
 
-### Basic metrics for single and pooled databases
+#### Basic metrics for single and pooled databases
 
 |**Resource**|**Metrics**|
 |---|---|
 |Single and pooled database|DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks |
 
-## Advanced metrics
+### Advanced metrics
 
 Refer to the following table for details about advanced metrics.
 
@@ -456,11 +450,11 @@ Refer to the following table for details about advanced metrics.
 |tempdb_log_size| Tempdb Log File Size Kilobytes |Tempdb Log File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.|
 |tempdb_log_used_percent| Tempdb Percent Log Used |Tempdb Percent Log Used. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.|
 
-## Basic logs
+### Basic logs
 
 Details of telemetry available for all logs are documented in the following tables. See [supported diagnostic logging](#supported-diagnostic-logging-for-azure-sql-databases) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
 
-### Resource usage stats for managed instances
+#### Resource usage stats for managed instances
 
 |Property|Description|
 |---|---|
@@ -485,7 +479,7 @@ Details of telemetry available for all logs are documented in the following tabl
 |io_bytes_read_s|IOPS bytes read |
 |io_bytes_written_s|IOPS bytes written |
 
-### Query Store runtime statistics
+#### Query Store runtime statistics
 
 |Property|Description|
 |---|---|
@@ -536,7 +530,7 @@ Details of telemetry available for all logs are documented in the following tabl
 
 Learn more about [Query Store runtime statistics data](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
-### Query Store wait statistics
+#### Query Store wait statistics
 
 |Property|Description|
 |---|---|
@@ -574,7 +568,7 @@ Learn more about [Query Store runtime statistics data](https://docs.microsoft.co
 
 Learn more about [Query Store wait statistics data](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
-### Errors dataset
+#### Errors dataset
 
 |Property|Description|
 |---|---|
@@ -603,7 +597,7 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/s
 
 Learn more about [SQL Server error messages](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15).
 
-### Database wait statistics dataset
+#### Database wait statistics dataset
 
 |Property|Description|
 |---|---|
@@ -632,7 +626,7 @@ Learn more about [SQL Server error messages](https://docs.microsoft.com/sql/rela
 
 Learn more about [database wait statistics](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
-### Time-outs dataset
+#### Time-outs dataset
 
 |Property|Description|
 |---|---|
@@ -655,7 +649,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/sql/relat
 |query_hash_s|Query hash, if available |
 |query_plan_hash_s|Query plan hash, if available |
 
-### Blockings dataset
+#### Blockings dataset
 
 |Property|Description|
 |---|---|
@@ -679,7 +673,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/sql/relat
 |blocked_process_filtered_s|Blocked process report XML |
 |duration_d|Duration of the lock in microseconds |
 
-### Deadlocks dataset
+#### Deadlocks dataset
 
 |Property|Description|
 |---|---|
@@ -700,7 +694,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/sql/relat
 |ResourceId|Resource URI |
 |deadlock_xml_s|Deadlock report XML |
 
-### Automatic tuning dataset
+#### Automatic tuning dataset
 
 |Property|Description|
 |---|---|
@@ -730,7 +724,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/sql/relat
 |Event_s|Type of Automatic tuning event |
 |Timestamp_t|Last updated timestamp |
 
-### Intelligent Insights dataset
+#### Intelligent Insights dataset
 
 Learn more about the [Intelligent Insights log format](sql-database-intelligent-insights-use-diagnostics-log.md).
 
