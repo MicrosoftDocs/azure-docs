@@ -114,7 +114,7 @@ In the case where there are scheduled events, the response contains an array of 
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt" | "Terminate",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
@@ -128,7 +128,7 @@ In the case where there are scheduled events, the response contains an array of 
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there is no impact on memory or open files.<li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). <li>`Preempt`: The Spot Virtual Machine is being deleted (ephemeral disks are lost).|
+| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there is no impact on memory or open files.<li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). <li>`Preempt`: The Spot Virtual Machine is being deleted (ephemeral disks are lost). <li> `Terminate`: The virtual machine is scheduled to be deleted. |
 | ResourceType | Type of resource this event affects. <br><br> Values: <ul><li>`VirtualMachine`|
 | Resources| List of resources this event affects. The list is guaranteed to contain machines from at most one [update domain](manage-availability.md), but it might not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided. The event is no longer returned when the event is finished.
@@ -143,6 +143,7 @@ Each event is scheduled a minimum amount of time in the future based on the even
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
 | Preempt | 30 seconds |
+| Terminate | 5 minutes |
 
 ### Start an event 
 
