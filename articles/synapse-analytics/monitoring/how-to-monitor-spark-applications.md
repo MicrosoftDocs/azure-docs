@@ -1,21 +1,21 @@
 ---
 title: Monitor Spark applications
-description: Use the Synapse Studio to monitor your Spark applications.
+description: Use the Azure Synapse Studio to monitor your Spark applications.
 services: sql-data-warehouse 
 author: matt1883
 ms.service: sql-data-warehouse
-ms.topic: howto
+ms.topic: how-to
 ms.subservice: design
 ms.date: 01/01/2020
 ms.author: mahi
 ms.reviewer: mahi
 ---
 
-# Use the Synapse Studio to monitor your Spark applications
+# Use the Azure Synapse Studio to monitor your Spark applications
 
-With Azure Synapse Analytics, you can use Spark to run notebooks, jobs, and other kinds of applications on your workspace's Spark pools.
+With Azure Synapse Analytics, you can use Spark to run notebooks, jobs, and other kinds of applications on your Spark pools in your workspace.
 
-This article explains how to monitor your Spark applications, allowing you to keep an eye on their latest status, issues, and progress.
+This article explains how to monitor your Spark applications, allowing you to keep an eye on the latest status, issues, and progress.
 
 ## Accessing the list of Spark applications
 
@@ -27,16 +27,16 @@ To see the list of Spark applications in your workspace, first [open the Azure S
 Once you’ve opened your workspace, select the **Monitor** section on the left.
 
   [!div class="mx-imgBorder"]
-  ![Select Monitor hub](./media/common/leftnav.png)
+  ![Select Monitor hub](./media/common/left-nav.png)
 
 Select **Spark applications** to view the list of Spark applications.
 
   [!div class="mx-imgBorder"]
-  ![Select Spark applications](./media/howto-monitor-spark-applications/monitorhub-nav-sparkapplications.png)
+  ![Select Spark applications](./media/howto-monitor-spark-applications/monitor-hub-nav-sparkapplications.png)
 
 ## Filtering your Spark applications
 
-You can filter the list of Spark applications to just those you’re interested in. The filters at the top of the screen allow you to specify a field on which you’d like to filter.
+You can filter the list of Spark applications to the ones you’re interested in. The filters at the top of the screen allow you to specify a field on which you’d like to filter.
 
 For example, you can filter the view to see only the Spark applications that contain the name "sales":
 
@@ -48,7 +48,7 @@ For example, you can filter the view to see only the Spark applications that con
 
 ## Viewing details about a specific Spark application
 
-To view the details about one of your Spark applications, select the Spark application and view the details. You can also monitor the progress of the Spark application, if it is still running.
+To view the details about one of your Spark applications, select the Spark application and view the details. If the Spark application is still running, you can monitor the progress. 
   
 ## Next steps
 
