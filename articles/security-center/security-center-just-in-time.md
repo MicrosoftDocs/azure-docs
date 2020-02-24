@@ -248,7 +248,7 @@ Run the following in PowerShell:
 
         Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
-For more information, see the [PowerShell cmdlet documentation](../../../powershell/scripting/developer/cmdlet/cmdlet-overview).
+For more information, see the [PowerShell cmdlet documentation](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview).
 
 
 ## Automatic cleanup of redundant JIT rules 
