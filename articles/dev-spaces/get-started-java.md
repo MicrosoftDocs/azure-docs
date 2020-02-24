@@ -97,7 +97,7 @@ So far, you have a basic web app that can run locally. You'll now containerize i
 1. Run this command (be sure that **webfrontend** is your current folder):
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with default settings:
