@@ -16,7 +16,7 @@ This tutorial is a continuation of [sharing Azure Spatial Anchors across session
 
 ![GIF illustrating object persistence](./media/persistence.gif)
 
-It's worth noting that, though you'll be using Unity and Azure Cosmos DB in this tutorial, it's just to give you an example of how to share Spatial Anchors identifiers across devices. You can user other languages and back-end technologies to achieve the same goal. Also, the ASP.NET Core web app used in this tutorial requires the .NET Core 2.2 SDK. It runs fine on Web Apps for Windows, but it won't currently run on Web Apps for Linux.
+It's worth noting that, though you'll be using Unity and Azure Cosmos DB in this tutorial, it's just to give you an example of how to share Spatial Anchors identifiers across devices. You can user other languages and back-end technologies to achieve the same goal.
 
 ## Create a database account
 
