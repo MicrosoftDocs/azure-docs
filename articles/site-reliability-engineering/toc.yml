@@ -1,0 +1,11 @@
+- name: Site reliability engineering documentation
+  href: index.yml
+- name: Resources
+  expanded: true
+  items:
+  - name: SRE books
+    href: resources/books.md
+  - name: SRE events
+    href: resources/events.md
+  - name: SRE link collections and digests
+    href: resources/links.md
