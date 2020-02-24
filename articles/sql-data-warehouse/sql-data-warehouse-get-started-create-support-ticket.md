@@ -104,3 +104,4 @@ After you've submitted the support request, the Azure support team will contact 
 ## Other resources
 
 You can also connect with the SQL Data Warehouse community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/) or through the [Azure SQL Data Warehouse MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/).
+
