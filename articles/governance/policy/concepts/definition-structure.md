@@ -405,7 +405,11 @@ Conditions can also be formed using **value**. **value** checks conditions again
 
 > [!WARNING]
 > If the result of a _template function_ is an error, policy evaluation fails. A failed evaluation
-> is an implicit **deny**. For more information, see [avoiding template failures](#avoiding-template-failures).
+> is an implicit **deny**. For more information, see
+> [avoiding template failures](#avoiding-template-failures). Use
+> [enforcementMode](./assignment-structure.md#enforcement-mode) of **DoNotEnforce** to prevent
+> impact of a failed evaluation on new or updated resources while testing and validating a new
+> policy definition.
 
 #### Value examples
 
@@ -692,18 +696,24 @@ use within a policy rule, except the following functions and user-defined functi
 The following functions are available to use in a policy rule, but differ from use in an Azure
 Resource Manager template:
 
-- addDays(dateTime, numberOfDaysToAdd)
+- `addDays(dateTime, numberOfDaysToAdd)`
   - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.fffffffZ'
   - **numberOfDaysToAdd**: [Required] integer - Number of days to add
-- utcNow() - Unlike a Resource Manager template, this can be used outside defaultValue.
+- `utcNow()` - Unlike a Resource Manager template, this can be used outside defaultValue.
   - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
-Additionally, the `field` function is available to policy rules. `field` is primarily used with
-**AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
-evaluated. An example of this use can be seen in the [DeployIfNotExists
-example](effects.md#deployifnotexists-example).
+The following functions are only available in policy rules:
+
+- `field(fieldName)`
+  - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
+  - Returns the value of that field from the resource that is being evaluated by the If condition
+  - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being evaluated. An example of this use can be seen in the [DeployIfNotExists example](effects.md#deployifnotexists-example).
+- `requestContext().apiVersion`
+  - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`). This will be the API version that was used in the PUT/PATCH request for evaluations on resource creation/update. The latest API version is always used during compliance evaluation on existing resources.
+  
+
 
 #### Policy function example
 
