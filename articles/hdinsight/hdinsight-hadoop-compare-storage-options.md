@@ -52,7 +52,8 @@ You can create a cluster using different combinations of services for primary an
 
 *=This could be one or multiple Data Lake Storage Gen2 accounts, as long as they are all setup to use the same managed identity for cluster access.
 
-> [!Note] Data Lake Storage Gen2 primary storage is not supported for Spark 2.1 clusters. 
+> [!Note] 
+> Data Lake Storage Gen2 primary storage is not supported for Spark 2.1 clusters. 
 
 ## Use Azure Data Lake Storage Gen2 with Apache Hadoop in Azure HDInsight
 
