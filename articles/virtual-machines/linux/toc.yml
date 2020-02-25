@@ -42,9 +42,9 @@
   - name: 13 - Manage VM security
     href: tutorial-azure-security.md
   - name: 14a - Build with Jenkins
-    href: tutorial-jenkins-github-docker-cicd.md
+    href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
   - name: 14b - Integrate Jenkins with Azure DevOps
-    href: tutorial-build-deploy-jenkins.md
+    href: ../../jenkins/tutorial-build-deploy-jenkins.md
   - name: 15a - DevOps for IaaS and PaaS on Azure
     href: tutorial-devops-azure-pipelines-classic.md
   - name: 15b - CI/CD with Azure Pipelines(YAML)
@@ -79,35 +79,92 @@
       href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: VM types and sizes
     items:
-    - name: Size families
+    - name: VM sizes
       href: sizes.md
     - name: Generation 2 VMs
       href: generation-2.md
-    - name: General purpose
-      href: sizes-general.md
+    - name: General purpose     
       items:
+      - name: Overview
+        href: ../sizes-general.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Av2-series
+        href: ../av2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: B-series burstable
-        href: b-series-burstable.md
-    - name: Compute optimized
-      href: sizes-compute.md
-    - name: Memory optimized
-      href: sizes-memory.md
+        href: ../sizes-b-series-burstable.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: DCv2-series
+        href: ../dcv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Dv2 and DSv2-series
+        href: ../dv2-dsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Dv3 and Dsv3-series
+        href: ../dv3-dsv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Dav4 and Dasv4-series
+        href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Compute optimized  
       items:
+      - name: Overview
+        href: ../sizes-compute.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Fsv2-series
+        href: ../fsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Memory optimized
+      displayName: Esv3 Ev3 M-series GS G-series DSv2 Dv2     
+      items:
+      - name: Overview
+        href: ../sizes-memory.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Dv2 and DSv2-series 11-15
+        href: ../dv2-dsv2-series-memory.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Ev3 and Esv3-series
+        href: ../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Eav4 and Easv4-series
+        href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: M-series
+        href: ../m-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Mv2-series
+        href: ../mv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Constrained vCPUs
         href: constrained-vcpu.md
     - name: Storage optimized
-      href: sizes-storage.md
       items:
+      - name: Overview
+        href: ../sizes-storage.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json    
+      - name: Lsv2-series
+        href: ../lsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Optimize performance
         href: storage-performance.md
     - name: Accelerated compute
       items:
       - name: GPU optimized
-        href: sizes-gpu.md
+        items:
+        - name: Overview
+          href: ../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: NC-series
+          href: ../nc-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: NCv2-series
+          href: ../ncv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: NCv3-series
+          href: ../ncv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: ND-series
+          href: ../nd-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: NDv2-series
+          href: ../ndv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: NV-series
+          href: ../nv-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: NVv3-series
+          href: ../nvv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Setup GPU drivers
-        href: n-series-driver-setup.md
+        href: n-series-driver-setup.md      
     - name: High performance compute
-      href: sizes-hpc.md
+      displayName: H-series
+      items:
+        - name: Overview
+          href: ../sizes-hpc.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: H-series
+          href: ../h-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: HB-series
+          href: ../hb-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: HBv2-series
+          href: ../hbv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: HC-series
+          href: ../hc-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Reserved instances
       items:
       - name: Prepay for VMs
@@ -119,11 +176,11 @@
     - name: Spot VMs
       href: spot-vms.md
     - name: Previous generations
-      href: sizes-previous-gen.md
+      href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Isolated sizes
       href: isolation.md
     - name: Azure compute units (ACU)
-      href: acu.md
+      href: ../acu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: vCPU quotas
       href: quotas.md
     - name: Reserved instances
@@ -160,6 +217,8 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: Shared disks
+      href: disks-shared.md
     - name: Ephemeral OS disks
       href: ephemeral-os-disks.md
   - name: Networking
@@ -320,7 +379,7 @@
     - name: Updates and patches
       items:
       - name: Red Hat Update Infrastructure
-        href: update-infrastructure-redhat.md
+        href: ../workloads/redhat/redhat-rhui.md
     - name: Azure VM agent
       items:
       - name: Overview
@@ -448,9 +507,9 @@
     - name: Terraform
       items:
       - name: Install and configure
-        href: terraform-install-configure.md
+        href: ../../terraform/terraform-install-configure.md
       - name: Create a complete VM
-        href: terraform-create-complete-vm.md
+        href: ../../terraform/terraform-create-complete-vm.md
     - name: Cloud-init
       items:
       - name: Cloud-init overview
@@ -553,6 +612,8 @@
     - name: Deploy disks with template
       displayName: Azure Resource Manager, ARM
       href: using-managed-disks-template-deployments.md
+    - name: Enable shared disks
+      href: disks-shared-enable.md
     - name: Upload a vhd to a disk - CLI
       href: disks-upload-vhd-to-managed-disk-cli.md
     - name: Resize a disk
@@ -708,4 +769,4 @@
   - name: FAQ
     href: faq.md
 - name: Troubleshoot
-  href: ../troubleshooting/index.md
+  href: ../troubleshooting/index.yml

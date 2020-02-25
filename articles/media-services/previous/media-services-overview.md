@@ -23,7 +23,7 @@ ms.author: juliako
 > * [Version 2](media-services-overview.md)
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 Microsoft Azure Media Services (AMS) is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
@@ -49,7 +49,7 @@ To build Media Services solutions, you can use:
 	* Azure Media Services SDK for .NET
 	
 		* [NuGet package](https://www.nuget.org/packages/windowsazure.mediaservices/)
-		* [Github source code](https://github.com/Azure/azure-sdk-for-media-services)
+		* [GitHub source code](https://github.com/Azure/azure-sdk-for-media-services)
 	* [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java),
 	* [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
 	* [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs).

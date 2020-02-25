@@ -73,8 +73,9 @@ Here's what's supported if you want to back up Linux machines:
 --- | ---
 **Direct backup of on-premises machine that's running Linux** | Not supported. The MARS agent can be installed only on Windows machines.
 **Using agent extension to back up Azure VM that's running Linux** | App-consistent backup by using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> File-level recovery.<br/><br/> Restore by creating a VM from a recovery point or disk.
-**Using DPM to back up on-premises or Azure VM that's running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restoration of Hyper-V and VMWare Linux Guest VMs.<br/><br/> File-consistent backup not available for Azure VM.
-**Using MABS to back up on-premises machine or Azure VM that's running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restoration of Hyper-V and VMWare Linux guest VMs.<br/><br/> File-consistent backup not available for Azure VMs.
+**Using DPM to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restoration of Hyper-V and VMWare Linux Guest VMs.
+**Using MABS to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restoration of Hyper-V and VMWare Linux guest VMs.
+**Using MABS or DPM to back up Linux Azure VMs** | Not supported.
 
 ## Daylight saving time support
 

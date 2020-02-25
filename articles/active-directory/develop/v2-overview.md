@@ -39,7 +39,11 @@ With Microsoft identity platform, you can write code once and reach any user. Yo
 
 ## Getting started
 
-Working with identity doesn’t have to be hard. Choose a [scenario](authentication-flows-app-scenarios.md) that applies to you— each scenario path has a quickstart and an overview page to get you up and running in minutes:
+Working with identity doesn’t have to be hard. 
+
+Watch a [Microsoft identity platform video](identity-videos.md) to learn the basics. 
+
+Choose a [scenario](authentication-flows-app-scenarios.md) that applies to you— each scenario path has a quickstart and an overview page to get you up and running in minutes:
 
 - [Build a single-page app](scenario-spa-overview.md)
 - [Build a web app that signs in users](scenario-web-app-sign-user-overview.md)

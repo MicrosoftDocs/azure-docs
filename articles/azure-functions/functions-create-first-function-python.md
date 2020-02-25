@@ -92,7 +92,7 @@ In Azure Functions, a function project is a container for one or more individual
     cd LocalFunctionProj
     ```
     
-1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+1. Add a function to your project by using the following command, where the `--name` argument specifies the unique name of your function (HttpExample in this case) and the `--template` argument specifies the function's trigger (HTTP trigger). This `func new` command creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
@@ -162,7 +162,7 @@ For HTTP trigger, the function receives request data in the variable `req` as de
 }
 ```
 
-Each binding requires a direction, a type, and a unique name. The HTTP trigger has an input binding of type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) and output binding of type [`http`](functions-bindings-http-webhook.md#output).
+Each binding requires a direction, a type, and a unique name. The HTTP trigger has an input binding of type [`httpTrigger`](functions-bindings-http-webhook-trigger.md) and output binding of type [`http`](functions-bindings-http-webhook-output.md).
 
 
 ## Run the function locally

@@ -105,10 +105,12 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Scale partitions and replicas
+    - name: Adjust capacity
       href: search-capacity-planning.md
-    - name: Deployment strategies and best practices
+    - name: Scale for performance
       href: search-performance-optimization.md
+    - name: Move service across regions
+      href: search-howto-move-across-regions.md
     - name: Multitenant architecture
       href: search-modeling-multitenant-saas-applications.md
   - name: Security
@@ -313,14 +315,22 @@
       href: search-pagination-page-layout.md
     - name: Relevance tuning (scoring profiles)
       href: index-add-scoring-profiles.md
-  - name: Manage and monitor
+  - name: Manage a service
     items:
-    - name: Portal administration
+    - name: Portal
       href: search-manage.md
-    - name: PowerShell administration
+    - name: PowerShell
       href: search-manage-powershell.md
-    - name: Monitor activity and logging
+  - name: Monitor and logging
+    items:
+    - name: Fundamentals
       href: search-monitor-usage.md
+    - name: Diagnostic logging
+      href: search-monitor-logs.md
+    - name: Visualize diagnostic logs
+      href: search-monitor-logs-powerbi.md
+    - name: Monitor query activity
+      href: search-monitor-queries.md
     - name: Search traffic analytics
       href: search-traffic-analytics.md
   - name: Troubleshoot
