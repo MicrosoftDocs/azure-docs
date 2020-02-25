@@ -33,7 +33,6 @@ Multi-factor authentication is supported if Azure Active Directory (Azure AD) is
 
 For more information, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md). This article provides information and examples on authentication, including using service principals and automated workflows.
 
-
 ### Authentication for web service deployment
 
 Azure Machine Learning supports two forms of authentication for web services: key and token. Each web service can enable only one form of authentication at a time.
@@ -328,6 +327,11 @@ Here are the details:
 * Telemetry is also pushed to the Microsoft/Azure subscription.
 
 [![Inference workflow](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
+
+## Azure Active Directory B2B
+
+> [!WARNING]
+> Azure Machine Learning is not currently supported with Azure Active Directory business-to-business collaboration.
 
 ## Next steps
 
