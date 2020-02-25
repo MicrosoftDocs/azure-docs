@@ -5,7 +5,7 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 02/21/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -164,8 +164,8 @@ The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in 
 You'll need the following information when provisioning your device:
 
 * The DPS **ID Scope** value. You can retrieve this value from the Overview page of your DPS instance in the Azure portal.
-* The URI to the device identity certificate in the format `file:///path/identity_certificate.pem`.
-* The URI to the device identity key in the format `file:///path/identity_key.pem`.
+* The device identity certificate file on the device.
+* The device identity key file on the device.
 * An optional registration ID (pulled from the common name in the device identity certificate if not supplied).
 
 ### Linux device
@@ -173,6 +173,11 @@ You'll need the following information when provisioning your device:
 Use the following link to install the Azure IoT Edge runtime on your device, using the commands appropriate for your device's architecture. When you get to the section on configuring the security daemon, configure the IoT Edge runtime for X.509 automatic, not manual, provisioning. You should have all the information and certificate files that you need after completing the previous sections of this article.
 
 [Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
+
+When you add the X.509 certificate and key information to the config.yaml file, the paths should be provided as file URIs. For example:
+
+* `file:///<path>/identity_certificate.pem`
+* `file:///<path>/identity_key.pem`
 
 The section in the configuration file for X.509 automatic provisioning looks like this:
 
@@ -217,12 +222,15 @@ For more detailed information about installing IoT Edge on Windows, including pr
 
 1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning unless you use the `-Dps` flag to use automatic provisioning.
 
-   Replace the placeholder values for `{scope_id}`, `{identity cert URI}`, and `{identity key URI}` with the data you collected earlier. If you want to specify the registration ID, include `-RegistrationId {registration_id}` as well, replacing the placeholder as appropriate.
+   Replace the placeholder values for `{scope_id}`, `{identity cert path}`, and `{identity key path}` with the appropriate values from your DPS instance and the file paths on your device. If you want to specify the registration ID, include `-RegistrationId {registration_id}` as well, replacing the placeholder as appropriate.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert URI} -X509IdentityPrivateKey {identity key URI}
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert path} -X509IdentityPrivateKey {identity key path}
    ```
+
+  >[!TIP]
+  >The config.yaml file stores your certificate and key information as file URIs. However, the Initialize-IoTEdge command handles this formatting step for you, so you can provide the absolute path to the certificate and key files on your device.
 
 ## Verify successful installation
 
