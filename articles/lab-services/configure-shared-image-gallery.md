@@ -34,6 +34,7 @@ If you have a large number of managed images that you need to maintain and would
 
 ## Considerations
 - You can only attach one shared image gallery to a lab at a time. If you would like to attach another gallery, you'll need to detach the existing one and attach another. 
+- DevTest Labs currently supports shared image gallery generalized images only.
 - DevTest Labs currently doesn't support uploading images to the gallery through the lab. 
 - While creating a virtual machine using a shared image gallery image, DevTest Labs always uses the latest published version of this image. However if an image has multiple versions, user can chose to create a machine from an earlier version by going to the Advanced settings tab during virtual machine creation.  
 - Although DevTest Labs automatically makes a best attempt to ensure shared image gallery replicates images to the region in which the Lab exists, it’s not always possible. To avoid users having issues creating VMs from these images, ensure the images are already replicated to the lab’s region.”

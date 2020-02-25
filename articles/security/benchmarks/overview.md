@@ -12,7 +12,7 @@ ms.custom: security-baselines
 
 ---
 
-# Overview of Azure Security Controls
+# Overview of the Azure Security Benchmark
 
 The Azure Security Benchmark contains recommendations that help you improve the security of your applications and data on Azure.
 

@@ -3,7 +3,6 @@ title: Develop on Azure Kubernetes Service (AKS) with Draft
 description: Use Draft with AKS and Azure Container Registry
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
