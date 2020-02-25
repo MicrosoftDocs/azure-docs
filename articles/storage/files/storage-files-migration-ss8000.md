@@ -42,7 +42,7 @@ Once you are familiar with Azure File Sync, you know that a local Windows Server
 
 Migrating from a StorSimple 8100 or 8600 appliance to Azure File Sync requires the migration path to Azure File Sync we describe here. It may seem to you that there are other options, and we can assure you we have evaluated them and they all have drawbacks that go against either of the two main goals of any migration, described in the section above. There are numerous alternatives and it would create too long of an article to document all of them and illustrate why they bear risk or disadvantages over the route we do recommend you take.
 
-![Migration steps overview](articles\storage\files\media\storage-files-migration-storsimple-shared\ss8000-overview.png "Migration route overview of the steps further below in this article.")
+![Migration steps overview](articles/storage/files/media/storage-files-migration-storsimple-shared/ss8000-overview.png "Migration route overview of the steps further below in this article.")
 
 The image above describes multiple steps that correspond to the sections, following below.
 At its core, the migration approach chooses a cloud-side migration, to avoid unnecessary recall of files to your local StorSimple appliance, thus avoiding unnecessary use of your network bandwidth or impacting local caching behavior that can affect your production workloads.
@@ -65,7 +65,7 @@ The sequence is as follows:
 
 :::row:::
     :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](articles\storage\files\media\storage-files-migration-storsimple-shared\ss8000-step-1.png)
+        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](articles/storage/files/media/storage-files-migration-storsimple-shared/ss8000-step-1.png)
     :::column-end:::
     :::column:::
         The basis for the migration is a volume clone and a virtual cloud appliance, called a StorSimple 8020.
