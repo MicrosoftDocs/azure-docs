@@ -1,6 +1,6 @@
 ---
-title: Visualizing Azure Cognitive Search Logs and Metrics with Power BI
-description: Visualizing Azure Cognitive Search Logs and Metrics with Power BI
+title: Visualize Azure Cognitive Search Logs and Metrics with Power BI
+description: Visualize Azure Cognitive Search Logs and Metrics with Power BI
 
 manager: eladz
 author: MarkHeff
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ---
 
-# Visualizing Azure Cognitive Search Logs and Metrics with Power BI
+# Visualize Azure Cognitive Search Logs and Metrics with Power BI
 [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-what-is-azure-search) allows you to store operation logs and service metrics about your search service in an Azure Storage account. This page provides instructions for how you can visualize that information through a Power BI Template App. The app provides detailed insights about your search service, including information about Search, Indexing, Operations, and Service metrics.
 
 You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs and Metrics** in the [Power BI Apps marketplace](https://appsource.microsoft.com/marketplace/apps).
@@ -18,7 +18,7 @@ You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs an
 ## How to get started with the app
 1. Enable diagnostic logging for your search service:
     1. Create or identify an existing [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) where you can archive the logs
-    1. Navigate to your Azure Cognitive Search service in the Azure Portal
+    1. Navigate to your Azure Cognitive Search service in the Azure portal
     1. Under the Monitoring section on the left column, select **Diagnostic settings**
 
         ![](media/search-monitor-logs-powerbi/diagnostic-settings.png)
@@ -35,11 +35,11 @@ You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs an
 
 1. After installing the app, select the app from your list of apps in Power BI.
 
-    ![](media/search-monitor-logs-powerbi/azure-search-app.png)
+    ![](media/search-monitor-logs-powerbi/azure-search-app-tile.png)
 
 1. Select **Connect** to connect your data
 
-    ![](media/search-monitor-logs-powerbi/get-started-with-new-app.png)
+    ![](media/search-monitor-logs-powerbi/get-started-with-your-new-app.png)
 
 1. Input the name of the storage account that contains your logs and metrics. By default the app will look at the last 10 days of data but this value can be changed with the **Days** parameter.
 
@@ -59,7 +59,7 @@ You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs an
 
 1. Make sure to refresh the page after opening the report so that it opens with your data.
 
-    ![](media/search-monitor-logs-powerbi/Search.png)
+    ![](media/search-monitor-logs-powerbi/powerbi-search.png)
 
 ## Troubleshooting
 If you find that you cannot see your data follow these troubleshooting steps:
