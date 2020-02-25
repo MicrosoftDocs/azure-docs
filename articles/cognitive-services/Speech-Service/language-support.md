@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 02/25/2020
 ms.author: dapine
 ms.custom: seodec18
 ---
@@ -32,8 +32,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
  Locale | Language | Supported | Customizations
 ------|------------|-----------|-------------
 `ar-AE` | Arabic (UAE) | Yes | No
-`ar-BH` | Arabic (Bahrain) | Yes | Language model
-`ar-EG` | Arabic (Egypt), modern standard | Yes | Language model
+`ar-BH` | Arabic (Bahrain), modern standard | Yes | Language model
+`ar-EG` | Arabic (Egypt) | Yes | Language model
 `ar-KW` | Arabic (Kuwait) | Yes | No
 `ar-QA` | Arabic (Qatar) | Yes | No
 `ar-SA` | Arabic (Saudi Arabia) | Yes | No
