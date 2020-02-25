@@ -87,9 +87,9 @@ The prediction endpoint, represented by the `predictor` object here, is the refe
 
 ## Run the application
 
-To compile and run the solution using maven, navigate to the project directory and in PowerShell and execute the run command:
+To compile and run the solution using maven, navigate to the project directory in a command prompt and execute the run command:
 
-```powershell
+```bash
 cd Vision/CustomVision
 mvn compile exec:java
 ```
