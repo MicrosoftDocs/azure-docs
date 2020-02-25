@@ -4,7 +4,8 @@
 ## Short-Term Priorities
 
 1. Define our highest-priority use-cases. **[We are here]**
-2. Determine how to auto-generate SDK API Reference Docs [contact identified].
+2. Determine how to auto-generate SDK API Reference Docs [Robert Outlaw gave me some pointers here].
+   1. > Our SDK generation is base off shipped packages such as NuGet or npm modules.  It’s more or less as easy as you telling us what packages you have shipped, and we can generate docs for them.
 3. Determine how to auto-generate REST API Reference Docs [[instructions acquired](https://github.com/Azure/adx-documentation-pr/wiki)].
 4. Build a minimum-viable quickstart for one of our use-cases, including supporting reference, conceptual, and architecture materials.  Possibly including the corresponding sample in our demo app.  Get a feel for how long it takes to build out a MVP use-case from end-to-end.
 5. With this time-cost awareness, plan out our other use-cases and content plan with weekly goals along the Private Preview / Build / General Availability timeline.
@@ -31,11 +32,24 @@
   4. A sample for one platform / language  
 5. Other article sets **[TBD]**
 
-- Add voice and video to your app in 15 mins!
+The focus will be on `Add voice and video to your app in 15 mins!`
 
-- For PP - we're just dropping them markdown files in teams - can we point them to the private preview repo. This way we don't have to drop markdown files. 
+## Docs Weekly Digest
 
-- Review the list of priorities in the PM meeting - ask for feedback.  And the canonical scenarios from the beginning of the meeting. 
+
+### 2/28
+
+ - **Done**:
+   - Scaffolding for our docs is in place
+   - Guidance for docs contributors is in place 
+   - Canonical scenarios V1 selected
+ - **Planned**:
+   - Test out the auto-generated PDFs for private preview users
+ - **Impediments/Questions**: 
+   - Do you have any feedback on our docs priorities?
+   - Do you have any feedback on our canonical scenarios we've selected?
+   - Do you have any other feedback / questions for me?
+
 
 
 
