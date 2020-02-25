@@ -14,9 +14,9 @@ ms.date: 02/18/2019
 ms.author: juliako
 ---
 
-# Create a job input from a local file
+# Download the results of a job
 
-In Azure Media Services, when processing your videos (for example, encoding or analyzing) you need to create an output asset to store the result of your job. You can then download these results to a local folder using Media Service and Storage APIs. 
+In Azure Media Services, when processing your videos (for example, encoding or analyzing) you need to create an output [asset](assets-concept.md) to store the result of your [job](transforms-jobs-concept.md). You can then download these results to a local folder using Media Service and Storage APIs. 
 
 This article demonstrates how to download the results using Java and .NET SDKs.
 
@@ -63,7 +63,7 @@ private static void downloadResults(MediaManager manager, String resourceGroup, 
 }
 ```
 
-For the full code sample, see [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+For a full code sample, see [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
 
 ## .NET
 
@@ -112,7 +112,7 @@ private async static Task DownloadResults(IAzureMediaServicesClient client, stri
 }
 ```
 
-For the full code sample, see [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+For a full code sample, see [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
 ## Next steps
 
