@@ -23,25 +23,25 @@ The items that appear in this table will change over time as support for Blob fe
 
 Review the [Known Issues](#known-issues) section of this article for information about specific issues and workarounds. 
 
-||
-|----------|
-||
 ### Blob features
 
 :::row:::
    :::column span="":::
-      <pre>Blob feature</pre>
+      **Blob feature**
    :::column-end:::
    :::column span="":::
-      <pre>Support level</pre>
+      **Support level**
    :::column-end:::
       :::column span="":::
-      <pre>Blob feature</pre>
+      **Blob feature**
    :::column-end:::
    :::column span="":::
-      <pre>Support level</pre>
+      **Support level**
    :::column-end:::
 :::row-end:::
+
+<hr></hr>
+
 :::row:::
    :::column span="":::
       [Hot access tier](storage-blob-storage-tiers.md)
@@ -100,7 +100,7 @@ Review the [Known Issues](#known-issues) section of this article for information
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Change feed](storage-blob-change-feed)
+      [Change feed](storage-blob-change-feed.md)
    :::column-end:::
    :::column span="":::
       Not yet supported
@@ -171,21 +171,20 @@ Review the [Known Issues](#known-issues) section of this article for information
 
 ### Tools
 
-||
-|----------|
-||
+<hr></hr>
+
 :::row:::
    :::column span="":::
-      <kbd>Tool</kbd>
+      **Tool**
    :::column-end:::
    :::column span="":::
-      <kbd>Support level</kbd>
+      **Support level**
    :::column-end:::
       :::column span="":::
-      <kbd>Tool</kbd>
+      **Tool**
    :::column-end:::
    :::column span="":::
-      <kbd>Support level</kbd>
+      **Support level**
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -266,24 +265,23 @@ Review the [Known Issues](#known-issues) section of this article for information
       Limited support. 
    :::column-end:::
 :::row-end:::
-||
-|----------|
-||
+
+<hr></hr>
 
 ### Azure services
 
 :::row:::
    :::column span="":::
-      <blockquote>Service</blockquote>
+      **Service**
    :::column-end:::
    :::column span="":::
-      <blockquote>Support level</blockquote>
+      **Support level**
    :::column-end:::
       :::column span="":::
-      <blockquote>Service</blockquote>
+      **Service**
    :::column-end:::
    :::column span="":::
-      <blockquote>Support level</blockquote>
+      **Support level**
    :::column-end:::
 :::row-end:::
 
@@ -383,9 +381,6 @@ Review the [Known Issues](#known-issues) section of this article for information
    :::column span="":::
    :::column-end:::
 :::row-end:::
-||
-|----------|
-||
 
 <a id="known-issues" />
 
