@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines high availability for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files| Microsoft Docs
+title: Azure VMs high availability for SAP NW on SLES with Azure NetApp Files| Microsoft Docs
 description: High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
