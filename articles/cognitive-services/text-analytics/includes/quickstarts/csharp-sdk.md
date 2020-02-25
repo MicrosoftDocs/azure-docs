@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/15/2020
+ms.date: 02/24/2020
 ms.author: aahi
 ms.reviewer: assafi
 zone_pivot_groups: programming-languages-text-analytics
@@ -59,6 +59,7 @@ Open the *program.cs* file and add the following `using` directives:
 
 ```csharp
 using System;
+using System.Globalization;
 using Azure.AI.TextAnalytics;
 ```
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/25/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -61,6 +61,7 @@ Conditional Access policies by default apply to browser-based applications and a
    - Modern authentication clients
       - This option includes applications like the Office desktop and phone applications.
    - Exchange ActiveSync clients
+      - By default this includes all use of the Exchange ActiveSync (EAS) protocol. Choosing **Apply policy only to supported platforms** will limit to supported platforms like iOS, Android, and Windows.
       - When policy blocks the use of Exchange ActiveSync the affected user will receive a single quarantine email. This email with provide information on why they are blocked and include remediation instructions if able.
    - Other clients
       - This option includes clients that use basic/legacy authentication protocols including IMAP, MAPI, POP, SMTP, and legacy Office applications that do not support modern authentication.
