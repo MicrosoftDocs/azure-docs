@@ -1,10 +1,10 @@
 ---
-title: Setting up Pacemaker on SUSE Linux Enterprise Server in Azure | Microsoft Docs
+title: Setting up Pacemaker on SLES in Azure | Microsoft Docs
 description: Setting up Pacemaker on SUSE Linux Enterprise Server in Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
-ms.author: sedusch
+ms.author: radeltch
 
 ---
 

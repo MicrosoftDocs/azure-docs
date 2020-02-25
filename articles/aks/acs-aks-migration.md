@@ -2,12 +2,8 @@
 title: Migrate to Azure Kubernetes Service (AKS)
 description: Migrate to Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 11/07/2018
-ms.author: mlearned
 ms.custom: mvc
 ---
 
