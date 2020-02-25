@@ -2,12 +2,9 @@
 title: Quotas, SKUs, and region availability in Azure Kubernetes Service (AKS)
 description: Learn about the default quotas, restricted node VM SKU sizes, and region availability of the Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: mlearned
+
 ---
 # Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)
 
@@ -28,7 +25,7 @@ All other network, compute, and storage limitations apply to the provisioned inf
 
 ## Restricted VM sizes
 
-Each node in an AKS cluster contains a fixed amount of compute resources such as vCPU and memory. If an AKS node contains insufficient compute resources, pods might fail to run correctly. To ensure that the required *kube-system* pods and your applications can reliably be scheduled, don't use the following VM SKUs in AKS:
+Each node in an AKS cluster contains a fixed amount of compute resources such as vCPU and memory. If an AKS node contains insufficient compute resources, pods might fail to run correctly. To ensure that the required *kube-system* pods and your applications can reliably be scheduled, **don't use the following VM SKUs in AKS**:
 
 - Standard_A0
 - Standard_A1

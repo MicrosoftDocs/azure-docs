@@ -58,7 +58,7 @@ az group create --name MyResourceGroup --location <region>
 Create a Kubernetes cluster with the following command:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster.
@@ -87,7 +87,7 @@ In order to debug Java applications with Azure Dev Spaces, download and install 
 In this section, you'll create a Java web application and get it running in a container in Kubernetes.
 
 ### Create a Java web app
-Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/java/getting-started/webfrontend`.
+Download code from GitHub by navigating to [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/java/getting-started/webfrontend`.
 
 ## Preparing code for Docker and Kubernetes development
 So far, you have a basic web app that can run locally. You'll now containerize it by creating assets that define the app's container and how it will deploy to Kubernetes. This task is easy to do with Azure Dev Spaces: 
@@ -97,7 +97,7 @@ So far, you have a basic web app that can run locally. You'll now containerize i
 1. Run this command (be sure that **webfrontend** is your current folder):
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with default settings:

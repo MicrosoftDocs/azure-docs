@@ -106,7 +106,7 @@ microphones into a device:
 
 ## Electrical architecture considerations
 
-Where applicable, arrays may be connected to a USB host (such as an SoC that runs the Microsoft Audio Stack) and interfaces to speech services or other applications.
+Where applicable, arrays may be connected to a USB host (such as an SoC that runs the Microsoft Audio Stack) and interfaces to Speech services or other applications.
 
 Hardware components such as PDM-to-TDM conversion should ensure that the dynamic range and SNR of the microphones is preserved within re-samplers.
 

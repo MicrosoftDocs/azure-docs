@@ -62,6 +62,29 @@ And to these IP addresses:
 
 Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
 
+### Azure ExpressRoute support
+
+You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering is not supported.
+
+With public peering: Ensure access to the following domains/addresses:
+
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
+
+With Microsoft peering, please select the following services/regions and relevant community values:
+
+- Azure Active Directory (12076:5060)
+- Microsoft Azure Region (according to the location of your Recovery Services vault)
+- Azure Storage (according to the location of your Recovery Services vault)
+
+For more details, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>Public Peering is deprecated for new circuits.
+
 ### Throttling support
 
 **Feature** | **Details**
@@ -127,6 +150,7 @@ Encrypted and sparse |Not supported. Skipped.
 Compressed stream| Not supported. Skipped.
 Sparse stream| Not supported. Skipped.
 OneDrive (synced files are sparse streams)| Not supported.
+Folders with DFS Replication enabled | Not supported.
 
 ## Supported drives or volumes for backup
 

@@ -129,7 +129,7 @@ Yes. You can set up connection draining to change members within a backend pool 
 
 ### Can I change instance size from medium to large without disruption?
 
-Yes. Azure distributes instances across update and fault domains to ensure that instances don't fail all at the same time. Application Gateway supports scaling by adding multiple instances of the same gateway to share the load.
+Yes.
 
 ## Configuration
 
