@@ -96,7 +96,7 @@ FROM
 
 ### Query partitioned data
 
-The data set provided in this sample is divided (paritioned) into separate subfolders. You can target specific partitions using the filepath function. This example shows fare amounts by year, month, and payment_type for the first three months of 2017.
+The data set provided in this sample is divided (partitioned) into separate subfolders. You can target specific partitions using the filepath function. This example shows fare amounts by year, month, and payment_type for the first three months of 2017.
 
 > [!NOTE]
 > The SQL on-demand Query is compatible with Hive/Hadoop partitioning scheme.
@@ -127,6 +127,7 @@ ORDER BY
 ```
 ## Type mapping
 Parquet files contain type descriptions for every column. The following table describes how Parquet types are mapped to SQL native types.
+
 | Parquet type | Parquet logical type (annotation)   | SQL data type |
 | --- | --- | --- |
 | BOOLEAN |  | bit |
@@ -144,6 +145,24 @@ Parquet files contain type descriptions for every column. The following table de
 | BINARY |DECIMAL |decimal |
 | BINARY |JSON |varchar(max) \*(UTF8 collation) |
 | BINARY |BSON |varbinary(max)  |
+| FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
+| BYTE_ARRAY |INTERVAL |varchar(max), serialized into standardized format |
+| INT32 |INT(8, true) |smallint  |
+| INT32 |INT(16, true) |smallint |
+| INT32 |INT(32, true) |int |
+| INT32 |INT(8, false) |tinyint   |
+| INT32 |INT(16, false) |int |
+| INT32 |INT(32, false) |bigint |
+| INT32 |DATE |date |
+| INT32 |DECIMAL |decimal |
+| INT32 |TIME (MILLIS )|time |
+| INT64 |INT(64, true) |bigint |
+| INT64 |INT(64, false  ) |decimal(20,0) |
+| INT64 |DECIMAL |decimal |
+| INT64 |TIME (MICROS / NANOS) |time |
+|INT64 |TIMESTAMP (MILLIS / MICROS / NANOS) |datetime2 |
+|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LIST |varchar(max), serialized into JSON |
+|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), serialized into JSON |
 
 ## Next steps
 
