@@ -162,5 +162,5 @@ With RelationshipRecord defined as:
 
 ## Next steps
 
-See how to query an Azure Digital Twins graph:
-* [Query the Azure Digital Twins Graph](how-to-query-graph.md)
+Learn about querying an Azure Digital Twins graph:
+* [Query the Azure Digital Twins Graph](concepts-query-graph.md)

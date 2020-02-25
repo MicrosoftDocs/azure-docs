@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Query the Azure Digital Twins graph
 
-Recall that the center of Azure Digital Twins is the **digital twin graph**, constructed from [twins](concepts-twins.md) and relationships. This graph is queryable, to get information about the twins and relationships it contains. 
+Recall that the center of Azure Digital Twins is the **digital twin graph**, constructed from [twins](concepts-twins-graph.md) and relationships. This graph is queryable, to get information about the twins and relationships it contains. 
 
 Azure Digital Twins **Query APIs** let developers apply filters and find sets of twins in the graph across relationships.
 
@@ -73,4 +73,4 @@ To parse the JSON results returned, use the JSON parser of your choice.
 ## Next steps
 
 Learn about the Azure Digital Twins APIs:
-* [Use the Azure Digital Twins APIs](how-to-use-apis.md)
+* [Use the Azure Digital Twins APIs](concepts-use-apis.md)

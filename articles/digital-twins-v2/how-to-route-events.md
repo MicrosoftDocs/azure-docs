@@ -325,7 +325,7 @@ Here is an example of an update edge notification to update a property:
 
 ### Digital twin model change notifications
 
-These notifications are triggered when a [Digital Twins Definition Language (DTDL)](concepts-digital-twins-definition-language.md) model is uploaded, reloaded, patched, decommissioned, or deleted.
+These notifications are triggered when a Digital Twins Definition Language (DTDL) [model](concepts-models.md) is uploaded, reloaded, patched, decommissioned, or deleted.
 
 #### Properties
 
@@ -412,4 +412,4 @@ The corresponding notification (if synchronously executed by the service, such a
 ## Next steps
 
 Learn more about the Azure Digital Twins APIs
-* [Use the Azure Digital Twins APIs](how-to-use-apis.md)
+* [Use the Azure Digital Twins APIs](concepts-use-apis.md)
