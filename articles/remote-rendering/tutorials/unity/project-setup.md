@@ -98,7 +98,8 @@ Select the **Main Camera** node.
 1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*
 
     ![changing project graphics settings](media/settings-graphics-lwrp.png)
-
+    Sometimes the UI does not populate the list of available pipeline types from the packages, in which case the *HybridRenderingPipeline* asset must be dragged onto the field manually:
+    ![changing project graphics settings](media/hybrid-rendering-pipeline.png)
 1. Select **Player** on the left.
 1. Select the **Universal Windows Platform settings** tab
 1. Change the **XR Settings** to support Windows Mixed Reality:
