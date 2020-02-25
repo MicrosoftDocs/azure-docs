@@ -15,10 +15,10 @@ ms.date: 02/25/2020
 
 # Data ingestion in Azure Machine Learning
 
-In this article, you learn about the pros and cons of the following data ingestion options available with Azure Machine Learning. Depending on what data ingestion tasks you have, these options can be used individually for your data ingestion tasks, or together as part of your overall data ingestion workflow.
+In this article, you learn about the pros and cons of the following data ingestion options available with Azure Machine Learning. Depending on your data and data ingestion needs, you can use these options separately, or together as part of your overall data ingestion workflow.
 
 1. [Azure Data Factory](#use-azure-data-factory) pipelines
-2. [Azure Machine Learning Python SDK](#use-python-sdk)
+2. [Azure Machine Learning Python SDK](#use-the-python-sdk)
 
 ## What is data ingestion? 
 
@@ -38,7 +38,7 @@ Natively supports data source triggered data ingestion| Expensive to construct a
 Integrated with various Azure tools like [Azure Databricks](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook) and [Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity) | Doesn't natively run scripts, instead relies on separate compute for script runs 
 Data preparation and model training processes are separate.|
 Embedded data lineage capability for Azure Data Factory dataflows|
-Provides a low code experience user interface for non-scripting approaches |
+Provides a low code experience [user interface](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal) for non-scripting approaches |
 
 These steps and the following diagram illustrate Azure Data Factory's data ingestion workflow.
 
@@ -50,9 +50,9 @@ These steps and the following diagram illustrate Azure Data Factory's data inges
 
 ## Use the Python SDK 
 
-With the [Python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py), you can incorporate data ingestion tasks, such as simple data transformations with Python, into an [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) step.
+With the [Python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py), you can incorporate data ingestion tasks into an [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) step.
 
-The following table summarizes the pros and con for using the SDK for data ingestion tasks.
+The following table summarizes the pros and con for using the SDK and an ML pipelines step for data ingestion tasks.
 
 Pros| Cons
 ---|---
@@ -61,7 +61,7 @@ Data preparation as part of every model training execution|Requires development 
 ||Requires engineering practices to guarantee code quality and effectiveness
 ||Does not provide a user interface for creating the ingestion mechanism
 
-In the following diagram, the Azure Machine Learning pipeline consists of two steps: data ingestion and model training. Where the data ingestion step encompasses tasks that can be accomplished using Python libraries and the SDK, such as extracting the data from local/web sources, and data transformations, like missing value imputation. The training step then uses the prepared data as input to train your machine learning model. 
+In the following diagram, the Azure Machine Learning pipeline consists of two steps: data ingestion and model training. The data ingestion step encompasses tasks that can be accomplished using Python libraries and the SDK, such as extracting the data from local/web sources, and  basic data transformations, like missing value imputation. The training step then uses the prepared data as input to train your machine learning model. 
 
 ![Azure pipeline + SDK data ingestion](media/concept-data-ingestion/data-ingest-option-two.png)
 
