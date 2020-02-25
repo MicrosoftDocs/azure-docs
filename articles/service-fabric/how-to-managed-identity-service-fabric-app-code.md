@@ -125,8 +125,9 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
             var managedIdentityEndpoint = Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT");
             var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("IDENTITY_HEADER");
             var managedIdentityServerThumbprint = Environment.GetEnvironmentVariable("IDENTITY_THUMBPRINT");
+            // Latest api version, 2019-07-01-preview is still supported.
+            var managedIdentityApiVersion = Environment.GetEnvironmentVariable("IDENTITY_API_VERSION");
             var managedIdentityAuthenticationHeader = "secret";
-            var managedIdentityApiVersion = "2019-07-01-preview";
             var resource = "https://management.azure.com/";
 
             var requestUri = $"{managedIdentityEndpoint}?api-version={managedIdentityApiVersion}&resource={HttpUtility.UrlEncode(resource)}";
@@ -134,15 +135,20 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri);
             requestMessage.Headers.Add(managedIdentityAuthenticationHeader, managedIdentityAuthenticationCode);
             
-            // Validate managed identity token server's certificate thumbprint
-            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) =>
+            var handler = new HttpClientHandler();
+            string thumbprint = Environment.GetEnvironmentVariable("IDENTITY_SERVER_THUMBPRINT");
+            handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) =>
             {
-                return  0 == string.Compare(certificate.GetCertHashString(),  managedIdentityServerThumbprint, true);
+                if (policyErrors == SslPolicyErrors.None)
+                {
+                    return true;
+                }
+                return 0 == string.Compare(cert.GetCertHashString(), thumbprint, StringComparison.OrdinalIgnoreCase);
             };
 
             try
             {
-                var response = await new HttpClient().SendAsync(requestMessage)
+                var response = await new HttpClient(handler).SendAsync(requestMessage)
                     .ConfigureAwait(false);
 
                 response.EnsureSuccessStatusCode();
