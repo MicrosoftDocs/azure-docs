@@ -75,7 +75,7 @@ To fix this issue, [update your taint configuration](../aks/operator-best-practi
 An update to the Azure Dev Spaces CLI changed its installation path. If you're using a version of the Azure CLI earlier than 2.0.63, you may see this error. To display your version of the Azure CLI, use `az --version`.
 
 ```azurecli
-$ az --version
+az --version
 azure-cli                         2.0.60 *
 ...
 ```
