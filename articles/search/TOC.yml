@@ -131,7 +131,7 @@
       href: search-howto-complex-data-types.md
     - name: Model relational data
       href: index-sql-relational-data.md
-  - name: Ingest data
+  - name: Ingest any data
     items:
     - name: Data import overview
       href: search-what-is-data-import.md
@@ -143,16 +143,16 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-  - name: Ingest using indexers
+  - name: Ingest Azure data
     items:
     - name: Configure indexers
       href: search-indexer-overview.md
-    - name: Map fields
-      href: search-indexer-field-mappings.md
     - name: Monitor indexers
       href: search-howto-monitor-indexers.md
     - name: Schedule indexers
       href: search-howto-schedule-indexers.md
+    - name: Map fields
+      href: search-indexer-field-mappings.md
     - name: Data sources
       items:
       - name: Azure Blobs
@@ -169,14 +169,14 @@
           href: search-howto-index-csv-blobs.md
         - name: Index JSON blobs
           href: search-howto-index-json-blobs.md
+      - name: Azure Tables
+        href: search-howto-indexing-azure-tables.md
       - name: Azure Cosmos DB
         href: search-howto-index-cosmosdb.md
       - name: Azure Data Lake Storage Gen2
         href: search-howto-index-azure-data-lake-storage.md
-      - name: Azure SQL Database
+      - name: SQL Database
         href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-      - name: Azure Table Storage
-        href: search-howto-indexing-azure-tables.md
       - name: SQL Managed Instances
         href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
       - name: SQL Server VMs
