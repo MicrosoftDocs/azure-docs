@@ -17,11 +17,11 @@ If you have more shares than 30, it is often not necessary to map an on-premises
 Consider the following options:
 
 **Share grouping:**
-For instance, if your HR department has a total of 15 shares, then you could consider storing all of the HR data in a single Azure file share. This *will not* prevent you from creating the usual 15 SMB shares on your local Windows Server. It will only mean that you organize the root folders of these 15 shares under a common folder (as sub-folders) and you sync the common root. That way you would only need a single Azure file share in the cloud for this group of on-premises shares.
+For instance, if your HR department has a total of 15 shares, then you could consider storing all of the HR data in a single Azure file share. This *will not* prevent you from creating the usual 15 SMB shares on your local Windows Server. It will only mean that you organize the root folders of these 15 shares under a common folder (as subfolders) and you sync the common root. That way you would only need a single Azure file share in the cloud for this group of on-premises shares.
 
 **Volume sync:**
 Azure File Sync supports syncing the root of a volume to an Azure file share.
-All sub-folders and files will be ending up in the same Azure file share. This *will not* prevent you from creating the appropriate number of currently existing SMB/NFS shares on your local Windows Server.
+All subfolders and files will be ending up in the same Azure file share. This *will not* prevent you from creating the appropriate number of currently existing SMB/NFS shares on your local Windows Server.
 
 Other best practices to consider:
 Other than the 30 Azure file share sync limit per server, the leading consideration is the efficiency of sync.
