@@ -1,7 +1,7 @@
 ---
-title: Phone sign-up and sign-in with custom policies
+title: Phone sign-up and sign-in with custom policies (Preview)
 titleSuffix: Azure AD B2C
-description: Learn how to send one-time passwords in text messages to your application users' phones with custom policies in Azure Active Directory B2C.
+description: Send one-time passwords (OTP) in text messages to your application users' phones with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -9,12 +9,12 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/25/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Set up phone sign-up and sign-in with custom policies in Azure AD B2C
+# Set up phone sign-up and sign-in with custom policies in Azure AD B2C (Preview)
 
 Phone sign-up and sign-in in Azure Active Directory B2C (Azure AD B2C) enables your users to sign up and sign in to your applications by using a one-time password (OTP) sent in a text message to their phone. One-time passwords can help minimize the risk of your users forgetting or having their passwords compromised.
 
@@ -22,7 +22,13 @@ Follow the steps in this article to use the custom policies to enable your custo
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
+## Pricing
+
+One-time passwords are sent to your users by using SMS text messages, and you may be charged for each message sent. For pricing information, see the **Separate Charges** section of [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+
 ## Prerequisites
+
+You need the following resources in place before setting up OTP.
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md)
 * [Web application registered](tutorial-register-applications.md) in your tenant
