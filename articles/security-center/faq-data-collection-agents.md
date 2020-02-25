@@ -16,12 +16,12 @@ ms.author: memildin
 
 ---
 
-## FAQ - Questions about data collection, agents, and workspaces
+# FAQ - Questions about data collection, agents, and workspaces
 
 Security Center collects data from your Azure virtual machines (VMs), Virtual machine scale sets, IaaS containers, and non-Azure computers (including on-premises machines) to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
 
 
-### Am I billed for Azure Monitor logs on the workspaces created by Security Center?
+## Am I billed for Azure Monitor logs on the workspaces created by Security Center?
 
 No. Workspaces created by Security Center, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor logs charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
 
@@ -37,7 +37,7 @@ For more information on pricing, see [Security Center pricing](https://azure.mic
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
-### What qualifies a VM for automatic provisioning of the Microsoft Monitoring Agent installation?
+## What qualifies a VM for automatic provisioning of the Microsoft Monitoring Agent installation?
 
 Windows or Linux IaaS VMs qualify if:
 
@@ -46,12 +46,14 @@ Windows or Linux IaaS VMs qualify if:
 - The Windows or Linux [Azure Virtual Machine Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) is installed.
 - The VM is not used as an appliance such as web application firewall or next generation firewall.
 
-### Can I delete the default workspaces created by Security Center?
+
+## Can I delete the default workspaces created by Security Center?
+
 **Deleting the default workspace is not recommended.** Security Center uses the default workspaces to store security data from your VMs. If you delete a workspace, Security Center is unable to collect this data and some security recommendations and alerts are unavailable.
 
 To recover, remove the Microsoft Monitoring Agent on the VMs connected to the deleted workspace. Security Center reinstalls the agent and creates new default workspaces.
 
-### How can I use my existing Log Analytics workspace?
+## How can I use my existing Log Analytics workspace?
 
 You can select an existing Log Analytics workspace to store data collected by Security Center. To use your existing Log Analytics workspace:
 
@@ -79,7 +81,7 @@ To select an existing Log Analytics workspace:
 
     - To cancel the operation, select **Cancel**.
 
-### What if the Microsoft Monitoring Agent was already installed as an extension on the VM?<a name="mmaextensioninstalled"></a>
+## What if the Microsoft Monitoring Agent was already installed as an extension on the VM?<a name="mmaextensioninstalled"></a>
 
 When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Security Center does not override existing connections to user workspaces. Security Center will store security data from a VM in a workspace that is already connected, provided that the "Security" or "SecurityCenterFree" solution has been installed on it. Security Center may upgrade the extension version to the latest version in this process.
 
@@ -87,7 +89,7 @@ For more information, see [Automatic provisioning in cases of a pre-existing age
 
 
 
-### What if a Microsoft Monitoring Agent is directly installed on the machine but not as an extension (Direct Agent)?<a name="directagentinstalled"></a>
+## What if a Microsoft Monitoring Agent is directly installed on the machine but not as an extension (Direct Agent)?<a name="directagentinstalled"></a>
 
 If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center will install the Microsoft Monitoring Agent extension, and may upgrade the Microsoft Monitoring agent to the latest version.
 
@@ -101,17 +103,17 @@ For existing machines on subscriptions onboarded to Security Center before March
 
 For more information, see the next section [What happens if a System Center Operations Manager or OMS direct agent is already installed on my VM?](#scomomsinstalled)
 
-### What happens if a System Center Operations Manager agent is already installed on my VM?<a name="scomomsinstalled"></a>
+## What if a System Center Operations Manager agent is already installed on my VM?<a name="scomomsinstalled"></a>
 
 Security center will install the Microsoft Monitoring Agent extension side by side to the existing System Center Operations Manager agent. The existing agent will continue to report to the System Center Operations Manager server normally. Note that the Operations Manager agent and Microsoft Monitoring Agent share common run-time libraries, which will be updated to the latest version during this process. Note - If version 2012 of the Operations Manager agent is installed, do not turn on automatic provisioning (manageability capabilities can be lost when the Operations Manager server is also version 2012).
 
 
-### What is the impact of removing these extensions?
+## What is the impact of removing these extensions?
 
 If you remove the Microsoft Monitoring Extension, Security Center is not able to collect security data from the VM and some security recommendations and alerts are unavailable. Within 24 hours, Security Center determines that the VM is missing the extension and reinstalls the extension.
 
 
-### How do I stop the automatic agent installation and workspace creation?
+## How do I stop the automatic agent installation and workspace creation?
 
 You can turn off automatic provisioning for your subscriptions in the security policy but this is not recommended. Turning off automatic provisioning limits Security Center recommendations and alerts. To disable automatic provisioning:
 
@@ -123,7 +125,7 @@ You can turn off automatic provisioning for your subscriptions in the security p
    ![Data collection][2]
 
 
-### Should I opt out of the automatic agent installation and workspace creation?
+## Should I opt out of the automatic agent installation and workspace creation?
 
 > [!NOTE]
 > Be sure to review sections [What are the implications of opting out?](#what-are-the-implications-of-opting-out-of-automatic-provisioning) and [recommended steps when opting out](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning) if you choose to opt out of automatic provisioning.
@@ -140,12 +142,12 @@ You may want to opt out of automatic provisioning if the following applies to yo
    1. Or, you can allow the migration to complete, the Microsoft Monitoring Agent to be installed on the VMs, and the VMs connected to the created workspace. Then, select your own custom workspace by setting the default workspace setting with opting in to reconfiguring the already installed agents. For more information, see [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace)
 
 
-### What are the implications of opting out of automatic provisioning?
+## What are the implications of opting out of automatic provisioning?
 
 When migration is complete, Security Center can't collect security data from the VM and some security recommendations and alerts are unavailable. If you opt out, install the Microsoft Monitoring Agent manually. See [recommended steps when opting out](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 
-### What are the recommended steps when opting out of automatic provisioning?
+## What are the recommended steps when opting out of automatic provisioning?
 
 Manually install the Microsoft Monitoring Agent extension so Security Center can collect security data from your VMs and provide recommendations and alerts. See [agent installation for Windows VM](../virtual-machines/extensions/oms-windows.md) or [agent installation for Linux VM](../virtual-machines/extensions/oms-linux.md) for guidance on installation.
 
@@ -156,7 +158,7 @@ You can connect the agent to any existing custom workspace or Security Center cr
 Security Center will enable the correct solution on the workspace based on the selected pricing tier.
 
 
-### How do I remove OMS extensions installed by Security Center?<a name="remove-oms"></a>
+## How do I remove OMS extensions installed by Security Center?<a name="remove-oms"></a>
 
 You can manually remove the Microsoft Monitoring Agent. This is not recommended as it limits Security Center recommendations and alerts.
 
@@ -177,19 +179,19 @@ To manually remove the agent:
 > If a Linux VM already has a non-extension OMS agent, removing the extension removes the agent as well and you'll have to reinstall it.
 
 
-### How do I disable data collection?
+## How do I disable data collection?
 
 Automatic provisioning is off by default. You can disable automatic provisioning from resources at any time by turning off this setting in the security policy. Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection.
 
 To disable data collection, [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Select policy**. Select the subscription that you wish to disable automatic provisioning. When you select a subscription **Security policy - Data collection** opens. Under **Auto provisioning**, select **Off**.
 
 
-### How do I enable data collection?
+## How do I enable data collection?
 
 You can enable data collection for your Azure subscription in the Security policy. To enable data collection. [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Security policy**. Select the subscription that you wish to enable automatic provisioning. When you select a subscription **Security policy - Data collection** opens. Under **Auto provisioning**, select **On**.
 
 
-### What happens when data collection is enabled?
+## What happens when data collection is enabled?
 
 When automatic provisioning is enabled, Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but manual agent installation is also available. [Learn how to install the Microsoft Monitoring Agent extension](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
@@ -200,18 +202,18 @@ The agent also enables data collection for [Adaptive Application Controls](secur
 When Security Center detects suspicious activity on the VM, the customer is notified by email if [security contact information](security-center-provide-security-contact-details.md) has been provided. An alert is also visible in Security Center’s security alerts dashboard.
 
 
-### Will Security Center work using an OMS gateway?
+## Will Security Center work using an OMS gateway?
 
 Yes. Azure Security Center leverages Azure Monitor to collect data from Azure VMs and servers, using the Microsoft Monitoring Agent.
 To collect the data, each VM and server must connect to the Internet using HTTPS. The connection can be direct, using a proxy, or through the [OMS Gateway](../azure-monitor/platform/gateway.md).
 
 
-### Does the Monitoring Agent impact the performance of my servers?
+## Does the Monitoring Agent impact the performance of my servers?
 
 The agent consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 
-### Where is my data stored?
+## Where is my data stored?
 
 Data collected from this agent is stored in either an existing Log Analytics workspace associated with your subscription or a new workspace. For more information, see [Data Security](security-center-data-security.md).
 

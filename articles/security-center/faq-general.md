@@ -16,19 +16,19 @@ ms.author: memildin
 
 ---
 
-## FAQ - General questions about Azure Security Center
+# FAQ - General questions about Azure Security Center
 
-### What is Azure Security Center?
+## What is Azure Security Center?
 Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 Security Center uses the Microsoft Monitoring Agent to collect and store data. For in-depth details, see [Data collection in Azure Security Center](security-center-enable-data-collection.md).
 
 
-### How do I get Azure Security Center?
+## How do I get Azure Security Center?
 Azure Security Center is enabled with your Microsoft Azure subscription and accessed from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). To access it, [sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to **Security Center**.
 
 
-### Which Azure resources are monitored by Azure Security Center?
+## Which Azure resources are monitored by Azure Security Center?
 Azure Security Center monitors the following Azure resources:
 
 * Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
@@ -42,24 +42,24 @@ Azure Security Center monitors the following Azure resources:
 In addition, non-Azure (including on-premises) computers can also be monitored by Azure Security Center (Both [Windows computers](./quick-onboard-windows-computer.md) and [Linux computers](./quick-onboard-linux-computer.md) are supported)
 
 
-### How can I see the current security state of my Azure resources?
+## How can I see the current security state of my Azure resources?
 The **Security Center Overview** page shows the overall security posture of your environment broken down by Compute, Networking, Storage & data, and Applications. Each resource type has an indicator showing if any potential security vulnerabilities have been identified. Clicking each tile displays a list of security issues identified by Security Center, along with an inventory of the resources in your subscription.
 
 
 
-### What is a security policy?
+## What is a security policy?
 A security policy defines the set of controls that are recommended for resources within the specified subscription. In Azure Security Center, you define policies for your Azure subscriptions according to your company's security requirements and the type of applications or sensitivity of the data in each subscription.
 
 The security policies enabled in Azure Security Center drive security recommendations and monitoring. To learn more about security policies, see [Security health monitoring in Azure Security Center](security-center-monitoring.md).
 
 
-### Who can modify a security policy?
+## Who can modify a security policy?
 To modify a security policy, you must be a Security Administrator or an Owner or Contributor of that subscription.
 
 To learn how to configure a security policy, see [Setting security policies in Azure Security Center](tutorial-security-policy.md).
 
 
-### What is a security recommendation?
+## What is a security recommendation?
 Azure Security Center analyzes the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control. Examples are:
 
 * Provisioning of anti-malware to help identify and remove malicious software
@@ -72,7 +72,7 @@ Only recommendations that are enabled in Security Policies are shown here.
 
 
 
-### What triggers a security alert?
+## What triggers a security alert?
 Azure Security Center automatically collects, analyzes, and fuses log data from your Azure resources, the network, and partner solutions like antimalware and firewalls. When threats are detected, a security alert is created. Examples include detection of:
 
 * Compromised virtual machines communicating with known malicious IP addresses
@@ -81,11 +81,11 @@ Azure Security Center automatically collects, analyzes, and fuses log data from 
 * Security alerts from integrated partner security solutions such as Anti-Malware or Web Application Firewalls
 
 
-### Why did secure scores values change? <a name="secure-score-faq"></a>
+## Why did secure scores values change? <a name="secure-score-faq"></a>
 As of February 2019, Security Center adjusted the score of a few recommendations, in order to better fit their severity. As a result of this adjustment, there may be changes in overall secure score values.  For more information about secure score, see [Secure score calculation](security-center-secure-score.md).
 
 
-### What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?
+## What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?
 The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contacts specified in Azure Security Center or the Azure subscription owner if a security contact is not specified.
 
 Security Center is an Azure service that continuously monitors the customer’s Azure environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the Security Center dashboard.

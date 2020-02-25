@@ -229,7 +229,7 @@ If you switch off auto provision after it was previously on:
 -	Security Center stops collecting data from the default workspace.
  
 > [!NOTE]
->  Disabling automatic provisioning does not remove the Log Analytics Agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](./faq-data-collection-agents#remove-oms).
+>  Disabling automatic provisioning does not remove the Log Analytics Agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](faq-data-collection-agents#remove-oms).
 >
 	
 ## Manual agent provisioning <a name="manual-agent"></a>
