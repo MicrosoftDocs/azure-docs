@@ -26,7 +26,7 @@ We recommend that you configure business continuity disaster recovery (BCDR) acr
 Review:
 
 * [Azure Business Continuity Technical Guidance](https://docs.microsoft.com/azure/architecture/resiliency/) - describes a general framework to help you think about business continuity and disaster recovery
-* [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) - provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
+* [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) - provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR)
 
 ## Business continuity and disaster recovery (failover to a secondary account)
 
