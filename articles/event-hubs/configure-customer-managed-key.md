@@ -221,7 +221,7 @@ This section shows you how to create an Azure Event Hubs namespace with managed 
        }
     }
     ```
-2. Create a template parameter file named: **CreateEventHubClusterAndNamespaceParams.json**.
+2. Create a template parameter file named: **CreateEventHubClusterAndNamespaceParams.json**. Replace `<EventHubsClusterName>`, `<EventHubsNamespaceName>`, and `<Location>` with names of your Event Hubs cluster, namespace, and location. 
 
     ```json
     {
@@ -229,13 +229,13 @@ This section shows you how to create an Azure Event Hubs namespace with managed 
        "contentVersion":"1.0.0.0",
        "parameters":{
           "clusterName":{
-             "value":"EventHubBYOKTestCluster"
+             "value":"<EventHubsClusterName>"
           },
           "namespaceName":{
-             "value":"EventHubBYOKTestNamespace"
+             "value":"<EventHubsNamespaceName>"
           },
           "location":{
-             "value":"eastus"
+             "value":"<Location>"
           }
        }
     }
@@ -255,9 +255,9 @@ This section shows you how to create an Azure Event Hubs namespace with managed 
 
     ```powershell
     New-AzureRmKeyVault -Name {keyVaultName} -ResourceGroupName {RGName}  -Location {location} -EnableSoftDelete -EnablePurgeProtection    
-    ```
-        
-        (OR)
+    ```     
+    
+    (OR)    
     
     Run the following command to update an **existing key vault**. Specify values for resource group and key vault names before running the command. 
     
@@ -352,7 +352,7 @@ In this step, you will update the Event Hubs namespace with key vault informatio
     }
     ``` 
 
-2. Create a template parameter file: **UpdateEventHubClusterAndNamespaceParams.json**. 
+2. Create a template parameter file: **UpdateEventHubClusterAndNamespaceParams.json**. Replace `<EventHubsClusterName>`, <EventHubsNamespaceName>`, `<Location>`, `<KeyName>`, and `<KeyVaultName>` with the names of your Event Hubs cluster, namespace, location, key vault, and key in the key vault. 
 
     ```json
     {
@@ -360,19 +360,19 @@ In this step, you will update the Event Hubs namespace with key vault informatio
        "contentVersion":"1.0.0.0",
        "parameters":{
           "clusterName":{
-             "value":"EventHubBYOKTestCluster"
+             "value":"<EventHubsClusterName>"
           },
           "namespaceName":{
-             "value":"EventHubBYOKTestNamespace"
+             "value":"<EventHubsNamespaceName>"
           },
           "location":{
-             "value":"eastus"
+             "value":"<Location>"
           },
           "keyName":{
-             "value":"mygoldenkey"
+             "value":"<KeyName>"
           },
           "keyVaultUri":{
-             "value":"https://eventhubbyoktestkeyvault.vault.azure.net"
+             "value":"https://<KeyVaultName>.vault.azure.net"
           }
        }
     }
