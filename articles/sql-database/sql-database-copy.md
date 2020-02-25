@@ -27,11 +27,11 @@ A database copy is a snapshot of the source database as of the time of the copy 
 
 When you copy a database to the same SQL Database server, the same logins can be used on both databases. The security principal you use to copy the database becomes the database owner on the new database. All database users, their permissions, and their security identifiers (SIDs) are copied to the database copy.  
 
-When you copy a database to a different SQL Database server, the security principal on the new server becomes the database owner on the new database. If you use [contained database users](sql-database-manage-logins.md) for data access, ensure that both the primary and secondary databases always have the same user credentials, so that after the copy is complete you can immediately access it with the same credentials.
+When you copy a database to a different SQL Database server, the security principal on the target server that initiated the copy operation becomes the owner of the new database. Using [contained database users](sql-database-manage-logins.md) for data access ensures that the copied database has the same user credentials, so that after the copy is complete you can immediately access it with the same credentials.
 
-If you use [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), you can completely eliminate the need for managing credentials in the copy. However, when you copy the database to a new server, the login-based access might not work, because the logins do not exist on the new server. To learn about managing logins when you copy a database to a different SQL Database server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
+If you use server level logins for data access and copy the database to a new server, the login-based access might not work. This can happen because the logins do not exist on the new server, or because their passwords and security identifiers (SIDs) are different. To learn about managing logins when you copy a database to a different SQL Database server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
-After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner, can log in to the new database. To resolve logins after the copying operation is complete, see [Resolve logins](#resolve-logins).
+After the copying succeeds and before other users are remapped, only the login that initiated the copy operation can log in to the new database. To resolve logins and establish data access after the copying operation is complete, see [Resolve logins](#resolve-logins).
 
 ## Copy a database by using the Azure portal
 
@@ -39,7 +39,7 @@ To copy a database by using the Azure portal, open the page for your database, a
 
    ![Database copy](./media/sql-database-copy/database-copy.png)
 
-## Copy a database by using PowerShell
+## Copy a database by using PowerShell or Azure CLI
 
 To copy a database, use the following examples.
 
@@ -105,7 +105,7 @@ If you want to see the operations under deployments in the resource group on the
 
 ## Copy a database by using Transact-SQL
 
-Log in to the master database with the server-level principal login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server-level principal must be members of the dbmanager role. For more information about logins and connecting to the server, see [Manage logins](sql-database-manage-logins.md).
+Log in to the master database with the server administrator login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server administrator must be members of the `dbmanager` role. For more information about logins and connecting to the server, see [Manage logins](sql-database-manage-logins.md).
 
 Start copying the source database with the [CREATE DATABASE ... AS COPY OF](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#copy-a-database) statement. Executing this statement initiates the database copying process. The T-SQL statement continues running until the database copy operation is complete.
 
@@ -115,7 +115,7 @@ Start copying the source database with the [CREATE DATABASE ... AS COPY OF](http
 
 ### Copy a SQL database to the same server
 
-Log in to the master database with the server-level principal login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server-level principal must be members of the dbmanager role.
+Log in to the master database with the server administrator login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server administrator must be members of the `dbmanager` role.
 
 This command copies Database1 to a new database named Database2 on the same server. Depending on the size of your database, the copying operation might take some time to complete.
 
@@ -126,7 +126,7 @@ This command copies Database1 to a new database named Database2 on the same serv
 
 ### Copy a SQL database to a different server
 
-Log in to the master database of the destination server, the SQL Database server where the new database is to be created. Use a login that has the same name and password as the database owner of the source database on the source SQL Database server. The login on the destination server must also be a member of the dbmanager role or be the server-level principal login.
+Log in to the master database of the destination server, the SQL Database server where the new database is to be created. Use a login that has the same name and password as the database owner of the source database on the source SQL Database server. The login on the destination server must also be a member of the `dbmanager` role or be the server administrator login.
 
 This command copies Database1 on server1 to a new database named Database2 on server2. Depending on the size of your database, the copying operation might take some time to complete.
 
@@ -140,7 +140,7 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 ### Copy a SQL database to a different subscription
 
-You can use the steps described in the previous section to copy your database to a SQL Database server in a different subscription using T-SQL. Make sure you use a login that has the same name and password as the database owner of the source database and it is a member of the dbmanager role or is the server-level principal login. 
+You can use the steps described in the previous section to copy your database to a SQL Database server in a different subscription using T-SQL. Make sure you use a login that has the same name and password as the database owner of the source database and it is a member of the `dbmanager` role or is a server administrator login. 
 
 > [!NOTE]
 > The [Azure portal](https://portal.azure.com), PowerShell, and Azure CLI do not support database copy to a different subscription. For this scenario, use T-SQL as described in the previous sections.
