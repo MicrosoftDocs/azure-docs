@@ -125,6 +125,25 @@ ORDER BY
 	nyc.filepath(2),
 	payment_type
 ```
+## Type mapping
+Parquet files contain type descriptions for every column. The following table describes how Parquet types are mapped to SQL native types.
+| Parquet type | Parquet logical type (annotation)   | SQL data type |
+| --- | --- | --- |
+| BOOLEAN |  | bit |
+| BINARY / BYTE_ARRAY |  | varbinary |
+| DOUBLE |  | float |
+| FLOAT |  | real |
+| INT32 |  | int |
+| INT64 |  | bigint |
+| INT96 |  |datetime2 |
+| FIXED_LEN_BYTE_ARRAY |  |binary |
+| BINARY |UTF8 |varchar \*(UTF8 collation) |
+| BINARY |STRING |varchar \*(UTF8 collation) |
+| BINARY |ENUM|varchar \*(UTF8 collation) |
+| BINARY |UUID |uniqueidentifier |
+| BINARY |DECIMAL |decimal |
+| BINARY |JSON |varchar(max) \*(UTF8 collation) |
+| BINARY |BSON |varbinary(max)  |
 
 ## Next steps
 
