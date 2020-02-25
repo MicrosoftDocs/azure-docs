@@ -62,7 +62,7 @@ The following are the primary scenarios that would result in a Media Services ac
 
 ## Azure Storage firewall
 
-Azure Media Services does not support storage accounts with the Azure Storage firewall or [Private Endpoints](../storage/common/storage-private-endpoints.md) enabled on the storage account.
+Azure Media Services does not support storage accounts with the Azure Storage firewall or [Private Endpoints](https://docs.microsoft.com/azure/storage/common/storage-network-security) enabled on the storage account.
 
 ## Next steps
 
