@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Securing digital twin solutions
+title: Secure digital twin solutions
 titleSuffix: Azure Digital Twins
 description: Understand security best practices with Azure Digital Twins.
 author: baanders

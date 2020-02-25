@@ -48,6 +48,40 @@ You can also access Azure Digital Twins resources from compute resources connect
 
 Event routes also excel at sending bulk event data from Azure Digital Twins to downstream resources such as TSI, storage, and analytics solutions.
 
+### Route endpoints
+
+To define an event route, developers first must define endpoints. An **endpoint** is a connection to a destination outside of Azure Digital Twins. Supported destinations in current preview release are 
+* EventGrid custom topics
+* EventHub
+* Service Bus
+
+Endpoints are set up using control plane APIs, or via the portal. An endpoint definition gives:
+* The endpoint's ID (or friendly name)
+* Endpoint type, such as Event Grid, Event Hub or other
+* Primary connection string and secondary connection string to authenticate 
+* The topic path of the endpoint, such as *your-topic.westus.eventgrid.azure.net*
+
+The endpoint APIs that are available in control plane are:
+* Create endpoint
+* Get list of endpoints
+* Get endpoint by ID (similar to above, but pass in endpointID)
+* Delete endpoint by ID
+* Get endpoint health (this function is similar to the Hub API's [`GetEndpointHealth`](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth)
+
+### Types of messages
+
+There are several types of notification that are emitted by IoT Hub and Azure Digital Twins that can be used for routing:
+
+[!INCLUDE [digital-twins-v2-notifications.md](../../includes/digital-twins-v2-notifications.md)]
+
+### Message routing query and filter
+
+Message routing query supports multiple categories of filters, all expressed in one single query language:
+* Filter on messages types
+* Filter on twin instances (no traversal of graph)
+* Filter on message/notification body
+* Filter on message properties
+
 ## Next steps
 
 See how to design and set up an event route:

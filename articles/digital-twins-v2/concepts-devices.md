@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Representing real devices
+title: Device connectivity
 titleSuffix: Azure Digital Twins
 description: Understand how Azure Digital Twins deals with devices, both PnP and non-PnP.
 author: baanders
@@ -15,11 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Real IoT devices in Azure Digital Twins
+# Understand device connectivity in Azure Digital Twins
 
 As part of the Azure Digital Twins graph, in addition to your business twins, you can also have twin that represent IoT devices placed in your environment. IoT devices might be simple sensors, such as thermostats, or complex machines. 
 If you attach an IoT hub to Azure Digital Twins, each device connected to the hub can become visible as a node in the twin graph, which can then be connected to other nodes to form a topology. Typically, incoming data from devices triggers event handling functions that are then used to drive properties on other twins.
 Azure Digital Twins makes it easy to work with devices by automatically mapping devices from a connected IoT hub into the Azure Digital Twins instance graph. 
+
+## Working with real devices
 
 An Azure Digital Twins graph contains more than twins based on the models you create and instantiate. Azure Digital Twins also automatically creates nodes for every device registered on an IoT hub attached to Azure Digital Twins. You can connect these twins to the modeled twins you create using relationships.
 Devices can be:
@@ -27,7 +29,7 @@ Devices can be:
 * **Devices without PnP** — For these devices, we have no information about the messages the device can send, or properties or commands available on it. 
 Devices send messages for telemetry, or whenever a property is changed. There are also messages for life-cycle events, such as device registration, connection, etc.
 
-## Working with PnP devices
+### Working with PnP devices
 
 For PnP devices, you can get a description of the telemetry messages a device sends, as well as for properties you can read and write, and commands you can call. You manage device twins using the same APIs and practices used to [manage all twins](how-to-manage-twin.md). For non-PnP devices, the message payload is unknown to the system. 
 As described in the section on the JSON data format for messages and query results, each message also contains metadata. This metadata for devices contains information such as connection state, last update, and many other fields.
@@ -47,5 +49,5 @@ Azure Digital Twins reacts to this event as follows:
 ## Next steps
 
 Learn more about interacting with a twin representation:
-* [Represent objects with a twin](concepts-twins.md)
+* [Represent objects with a twin](concepts-twins-graph.md)
 

@@ -19,26 +19,6 @@ ms.service: digital-twins
 
 Azure Digital Twins **Event APIs** let developers wire-up event flow throughout the system, as well as to downstream services.
 
-## Endpoints
-
-To define an event route, developers first must define endpoints. An **endpoint** is a connection to a destination outside of Azure Digital Twins. Supported destinations in current preview release are 
-* EventGrid custom topics
-* EventHub
-* Service Bus
-
-Endpoints are set up using control plane APIs, or via the portal. An endpoint definition gives:
-* The endpoint's ID (or friendly name)
-* Endpoint type, such as Event Grid, Event Hub or other
-* Primary connection string and secondary connection string to authenticate 
-* The topic path of the endpoint, such as *your-topic.westus.eventgrid.azure.net*
-
-The endpoint APIs that are available in control plane are:
-* Create endpoint
-* Get list of endpoints
-* Get endpoint by ID (similar to above, but pass in endpointID)
-* Delete endpoint by ID
-* Get endpoint health (this function is similar to the Hub API's [`GetEndpointHealth`](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth)
-
 ## Routes
 
 Event routes are defined using data plane APIs. A route definition contains:
@@ -188,24 +168,18 @@ Filtering on the routes is flat, with no traversal of the graph (out of scope fo
 Azure Digital Twins should support at least 10 custom endpoints and 100 routes, like with IoT Hub.
 Complex filtering to traverse the graph is out of scope for preview release.
 
-## Route event types
+## Route event types and message formats
 
-| Notification/Event | Routing Source Name | Note |
-| --- | --- | --- |
-| Digital Twin Change Notification | Digital Twin Change Notification	| This notification includes any digital twins property change, regardless if it’s a Hub device or not |
-| Digital Twin Life-Cycle Notification | Digital Twin Life-Cycle Notification	| This notification includes any digital twins property change, regardless if it’s a Hub device or not |
-| Digital Twin Edge Change Notification	| Digital Twin Edge Change Notification	| |
-| Digital Twin Model Change Notification	| Digital Twin Model Change Notification	| This notification includes any model change, regardless if it’s represented as capability model or interface. |
-| Digital Twin Event Subscription Change Notification	| Digital Twin Event Subscription Change Notification	| |
-| Digital Twin Telemetry Messages| 	Telemetry Messages | This message includes any telemetry message, regardless if it’s coming from a Hub device or a logical digital twin. |
+Recall the types of notifications that can be generated and used for event routing:
 
-## Notification and message formats
+[!INCLUDE [digital-twins-v2-notifications.md](../../includes/digital-twins-v2-notifications.md)]
 
-Notifications allow the solution backend to be notified when below actions are happening. The sections that follow describe  the types of notifications emitted by IoT Hub and Azure Digital Twins, or other Azure IoT services. 
+Notifications allow the solution backend to be notified when below actions are happening. The sections that follow describe the types of notifications emitted by IoT Hub and Azure Digital Twins, or other Azure IoT services. 
 
 Notifications are made up of two parts: the headers and the body. 
 
 ### Notification headers
+
 In this section, we will discuss and illustrate notification message headers as key-value pairs and the message body as JSON. Depending on the protocol used (MQTT, AMQP, or HTTP), message headers will be serialized differently. Depending on the serialization desired for the message body (such as with JSON, CBOR, Protobuf, etc.), the message body may be serialized differently. This section discusses the format for telemetry messages, regardless of the specific protocol and serialization chosen.
 
 We aspire to have notifications conform to the CloudEvents standard. For practical reasons, we suggest a phased approach to CloudEvents conformance.
