@@ -28,7 +28,7 @@ This article shows you how to get started using the Custom Vision Java SDK to bu
 
 To write a Java app that uses Custom Vision, you'll need the Custom Vision maven packages. These packages are included in the sample project you'll download, but you can access them individually here.
 
-You can install the Custom Vision SDK from maven central repository:
+You can find the Custom Vision SDK in the maven central repository:
 
 - [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
