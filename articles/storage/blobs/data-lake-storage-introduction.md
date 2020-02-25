@@ -79,7 +79,9 @@ Several open source platforms support Data Lake Storage Gen2. Those platforms ap
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Databricks Runtime versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
 |[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configuring cloud data access](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
-### Supported Blob Storage features
+## Supported Blob Storage features
+
+This table lists the Blob storage features that you can use with your Data Lake Storage.
 
 > [!NOTE]
 > Support level refers only to how the feature is supported in Data Lake Storage Gen2.
@@ -88,7 +90,9 @@ Several open source platforms support Data Lake Storage Gen2. Those platforms ap
 
 [!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
 
-### Supported tools and SDKs
+## Supported tools and SDKs
+
+This table lists tools and SDKs that you can use with your Data Lake Storage. 
 
 > [!NOTE]
 > Support level refers only to how the tool or SDK is supported in Data Lake Storage Gen2.
@@ -97,7 +101,9 @@ Several open source platforms support Data Lake Storage Gen2. Those platforms ap
 
 [!INCLUDE [storage-data-lake-tool-support](../../../includes/storage-data-lake-tool-support.md)]
 
-### Supported Azure service connections
+## Supported Azure service connections
+
+This table lists Azure services that can integrate with your Data Lake Storage. 
 
 > [!NOTE]
 > Support level refers only to how the service is supported with Data Lake Storage Gen2.

@@ -35,7 +35,10 @@ Existing tools and applications that use the Blob API gain these benefits automa
 
 Multi-protocol access on Data Lake Storage enables you to use more Blob Storage features, more tools and APIs, and connect with in an increasing number of Azure services. 
 
-Even though multi-protocol access on Data Lake Storage is generally available, support for some features, tools and services remain in preview or are not yet supported. This table summarizes Data Lake Storage Gen2 support for Blob Storage features, tools, and Azure services.  The items that appear in this table will change over time as support for Blob Storage features continues to expand. 
+> [!NOTE]
+> Even though multi-protocol access on Data Lake Storage is generally available, support for some features, tools and services remain in preview or are not yet supported.
+
+The items that appear in this table will change over time as support for Blob Storage features continues to expand. 
 
 ### Blob Storage features
 

@@ -31,8 +31,8 @@
    :::column span="":::
       Generally available
    :::column-end:::
-    :::column span="":::
-      [CLI (Blob)]https://docs.microsoft.com/azure/storage/(storage-quickstart-blobs-cli)
+   :::column span="":::
+      [CLI (Blob)](https://docs.microsoft.com/azure/storage/storage-quickstart-blobs-cli)    
    :::column-end:::
    :::column span="":::
       Generally available
