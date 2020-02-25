@@ -16,6 +16,11 @@ ms.custom: mvc
 
 A _device capability model_ (DCM) describes the capabilities of an [IoT Plug and Play (preview)](../../iot-pnp/overview-iot-plug-and-play.md) device. IoT Central can use a DCM to create a device template and visualizations for a device when the device connects for the first time.
 
+Support for [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) is in preview and is only supported only in selected regions.
+
+> [!NOTE]
+> Contact technical support for access to create a preview application with support for IoT Plug and Play devices.
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
