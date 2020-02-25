@@ -12,7 +12,7 @@
 
 ## About Cognitive Services encryption
 
-Data is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. Encryption is enabled for all Face service subscriptions and cannot be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of encryption.
+Data is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. Encryption is enabled for all Cognitive Services resources and cannot be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of encryption.
 
 ## About encryption key management
 
