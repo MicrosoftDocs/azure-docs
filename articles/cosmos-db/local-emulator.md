@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
-ms.date: 07/26/2019
+ms.date: 01/31/2020
 ---
 
 # Use the Azure Cosmos Emulator for local development and testing
