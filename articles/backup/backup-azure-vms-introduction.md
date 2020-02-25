@@ -9,6 +9,12 @@ ms.date: 09/13/2019
 
 This article describes how the [Azure Backup service](backup-introduction-to-azure-backup.md) backs up Azure virtual machines (VMs).
 
+Azure Backup provides independent and isolated backups to guard against unintended destruction of the data on your VMs. Backups are stored in a Recovery Services vault with built-in management of recovery points. Configuration and scalability are simple, backups are optimized, and you can easily restore as needed.
+
+During backup, a [snapshot is created](#snapshot-creation), which protects the data on the VM with no impact on production workloads and no need to shut down the VM. No agent is required. The snapshot provides different levels of consistency, as described [here](#snapshot-consistency).
+
+Azure Backup also has specialized offerings for database workloads like [SQL Server](backup-azure-sql-database.md) and [SAP HANA](sap-hana-db-about.md) that are workload-aware, offer 15 minute RPO (recovery point objective), and allow backup and restore of individual databases.
+
 ## Backup process
 
 Here's how Azure Backup completes a backup for Azure VMs:
@@ -61,7 +67,7 @@ Azure Backup takes snapshots according to the backup schedule.
   - If the pre-scripts and post-scripts execute successfully, Azure Backup marks the recovery point as application-consistent. However, when you're using custom scripts, you're ultimately responsible for the application consistency.
   - [Learn more](backup-azure-linux-app-consistent.md) about how to configure scripts.
 
-### Snapshot consistency
+## Snapshot consistency
 
 The following table explains the different types of snapshot consistency:
 
