@@ -39,7 +39,7 @@ You need:
 * A blob storage container for your output data
 * A model to convert, see [sample models](../samples/sample-model.md)
   * See the list of [supported source formats](../how-tos/conversion/model-conversion.md#supported-source-formats)
-  * To use the sample conversion script, prefer a self-contained source model file with no external dependencies (textures, meshes)
+  * To use the sample conversion script make sure you prepare an input folder which contains the model and all external dependencies (like external textures or geometry)
 
 ## Azure setup
 
@@ -103,13 +103,14 @@ You should now have two blob storage containers:
 
 ## Run the conversion
 
-To make it easier to run the model conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Conversion.ps1**.
+To make it easier to call the asset conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Conversion.ps1**.
 
 In particular, this script
 
-1. uploads a source model from local disk to input storage
-1. calls the conversion API
-1. retrieves a link to the converted model in the output storage
+1. uploads all files in a given directory from local disk to the input storage container
+1. calls the [the asset conversion REST API](../how-tos/conversion/conversion-rest-api.md) which will retrieve the data from the input storage container and start a conversion which will return a conversion id
+1. poll the conversion status API with the retrieved conversion id until the conversion process terminates with success or failure
+1. retrieves a link to the converted asset in the output storage
 
 The script reads its configuration from the file *Scripts\arrconfig.json*. Open that JSON file in a text editor.
 
@@ -124,38 +125,34 @@ The script reads its configuration from the file *Scripts\arrconfig.json*. Open 
         "vmSize": "standard",
         "maxLeaseTime": "1:00:00"
     },
-    "azureStorageSettings": {
-        "azureSubscriptionId": "7*******-****-****-****-*********39b",
+    "assetConversionSettings": {
+        "localAssetDirectoryPath": "D:\\tmp\\robot",
         "resourceGroup": "ARR_Tutorial",
-        "storageAccountName": "arrtutorialstorage",
+        "storageAccountName": "arrexamplestorage",
         "blobInputContainerName": "arrinput",
-        "blobOutputContainerName": "arroutput"
-    },
-    "modelSettings": {
-        "modelLocation": "D:\\tmp\\robot.fbx"
+        "inputFolderPath": "robotConversion",
+        "inputAssetPath": "robot.fbx",
+        "blobOutputContainerName": "arroutput",
+        "outputFolderPath":"converted/robot",
+        "outputAssetFileName": "robot.arrAsset"
     }
 }
 ```
 
 The configuration within the **accountSettings** group (account ID and key) should be filled out analogous to the credentials in the [Render a model with Unity quickstart](render-model.md).
 
-Inside the **azureStorageSettings** group, make sure to change **resourceGroup**, **storageAccountName**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.
+Inside the **assetConversionSettings** group, make sure to change **resourceGroup**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.
 Note that the value **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
 
-To fill out **azureSubscriptionId**, go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate to the subscriptions:
+Change **localAssetDirectoryPath** to point to the directory on your disk which contains the model you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
 
-![Subscription](./media/azure-subscription-button.png)
+All data from the path given in **localAssetDirectoryPath** will be uploaded to the **blobInputContainerName** blob container under a subpath given by **inputFolderPath**. So in the example configuration above the content of the "D:\\tmp\\robot" directory will be uploaded to the blob container "arrinput" of the storage account "arrtutorialstorage" under the path "robotConversion". Already existing files will be overwritten.
 
-The next screen shows your subscription ID:
+Change **inputAssetPath** to the path of the model to be converted - the path is relative to localAssetDirectoryPath. Use "/" instead of "\\" as the path separator. So for a "robot.fbx" file which is located directly in "D:\\tmp\\robot" use "robot.fbx".
 
-![Subscription ID](./media/azure-subscription-id.png)
+Once the model was converted it will be written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example above the resulting "robot.arrAsset" will be copied to the output blob container under "converted/robot".
 
-You can click on the row to get to a screen where the subscription ID can be easily copied to clipboard.
-
-Change **modelLocation** to point to the file on your disk that you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
-
-> [!NOTE]
-> The example PowerShell script only allows handling one self contained file with the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, [the model conversion REST API](../how-tos/conversion/conversion-rest-api.md) supports handling external files as well. To upload files manually, refer to options in chapter [blob storage - upload an input model](../how-tos/conversion/blob-storage.md#upload-an-input-model).
+The config setting **outputAssetFileName** determines the name of the converted asset - the parameter is optional and the output filename will be deduced from the input file name otherwise. 
 
 Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the [prerequisites](#prerequisites). Then log into your subscription:
 
@@ -166,7 +163,7 @@ Connect-AzAccount -Subscription "<your Azure subscription id>"
 Change to the `arrClient\Scripts` directory and run the conversion script:
 
 ```PowerShell
-.\Conversion.ps1
+.\Conversion.ps1 -UseContainerSas
 ```
 
 You should see something like this:
