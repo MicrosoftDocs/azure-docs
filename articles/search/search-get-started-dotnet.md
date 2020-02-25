@@ -211,7 +211,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
     namespace AzureSearchQuickstart
     {
-        class Program
+        class Program {
             // Demonstrates index delete, create, load, and query
             // Commented-out code is uncommented in later steps
             static void Main(string[] args)
