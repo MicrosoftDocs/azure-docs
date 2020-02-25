@@ -105,9 +105,9 @@ To change the settings in the SPA:
 
     ```javascript
     const apiConfig = {
-    b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
-    webApi: "http://localhost:5000/"
-  };
+        b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
+        webApi: "http://localhost:5000/"
+    };
 
     // request to acquire a token for resource access
     const tokenRequest = {
