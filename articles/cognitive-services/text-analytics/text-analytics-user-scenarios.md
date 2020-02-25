@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 02/19/2020
+ms.date: 02/15/2020
 ms.author: aahi
 ---
 
@@ -44,7 +44,7 @@ Monitor user product feedback on your product’s twitter or Facebook page. Use 
 
 Use Entity Recognition to identify personal and sensitive information in documents. Use the data to classify documents or redact them so they can be shared safely.​
 
-![An image describing how to use NER to detect personal info and classify and redact documents](media/use-cases/sensitive-docs.jpg)
+![An image describing how to use NER to detect personal info and classify and redact documents](media/use-cases/sensitive-docs-2.jpg)
 
 ## Next steps
 
