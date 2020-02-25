@@ -69,6 +69,7 @@ Finally, click the sync button to push your changes up and kick off the staging:
 
 ![Confirm Sync](./media/confirm-sync.png)
 
+- Test
 
 - **If you aren't familiar with Markdown**, [here's a great resource](https://review.docs.microsoft.com/en-us/help/contribute/markdown-reference?branch=master).
 - **If you aren't familiar with git**, ping me directly!  I can help and then expand this doc accordingly.
