@@ -32,8 +32,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
 
 1. Please take care of this pre-requisites before you start the process.
     - The cluster is healthy.
-    - Sufficient capacity after the node type is removed.
-    - Sufficient number of nodes to place required replica count.
+    - There will still be sufficient capacity after the node type is removed, eg. number of nodes to place required replica count.
 
 2. Move all services that have placement constraints to use node type off the node type.
 
