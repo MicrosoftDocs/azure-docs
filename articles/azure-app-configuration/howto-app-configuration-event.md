@@ -40,7 +40,7 @@ The following example creates a resource group named `<resource_group_name>` in 
 az group create --name <resource_group_name> --location westus
 ```
 
-## Create an App Configuration
+## Create an App Configuration store
 
 Replace `<appconfig_name>` with a unique name for your configuration store, and `<resource_group_name>` with the resource group you created earlier. The name must be unique because it is used as a DNS name.
 
@@ -73,7 +73,7 @@ You should see the site with no messages currently displayed.
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## Subscribe to your App Configuration
+## Subscribe to your App Configuration store
 
 You subscribe to a topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the App Configuration you created, and passes the URL from your web app as the endpoint for event notification. Replace `<event_subscription_name>` with a name for your event subscription. For `<resource_group_name>` and `<appconfig_name>`, use the values you created earlier.
 
