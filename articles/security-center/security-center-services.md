@@ -33,9 +33,9 @@ The following sections show Security Center features that are available for thei
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|✔ (on supported versions)|✔ (on supported versions)|✔|Standard|
-|[Virtual Machine Behavioral Analytics threat detection alerts](security-center-alerts-iaas.md)|✔|✔|✔|Recommendations (Free) Threat Detection (Standard)|
+|[Virtual Machine Behavioral Analytics threat detection alerts](threat-protection.md)|✔|✔|✔|Recommendations (Free) Threat Detection (Standard)|
 |[Fileless threat detection alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
-|[Network-based threat detection alerts](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[Network-based threat detection alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
@@ -61,7 +61,7 @@ The following sections show Security Center features that are available for thei
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|-|-|-|Standard|
 |[Virtual Machine Behavioral Analytics threat detection alerts](security-center-alerts-iaas.md)|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
 |[Fileless threat detection alerts](alerts-reference.md#alerts-windows)|-|-|-|Standard|
-|[Network-based threat detection alerts](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[Network-based threat detection alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
