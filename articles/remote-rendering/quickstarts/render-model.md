@@ -77,7 +77,7 @@ nuget install com.microsoft.azure.remote_rendering -ExcludeVersion
 
 If the NuGet command results in authentication prompts, make sure you have NuGet and the NuGet Credential Provider installed as described in prerequisites above.
 
-The command above will download NuGet package, carrying Unity package. This operation adds the following directory to your ‘ARR/ArrClient/Unity’ folder:
+The command above will download a NuGet package, carrying a Unity package. This operation adds the following directory to your *ARR\arrClient\Unity* folder:
 
 * *com.microsoft.azure.remote_rendering* - The Unity package, which provides the client functionality of Azure Remote Rendering
 
