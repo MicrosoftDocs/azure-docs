@@ -46,13 +46,27 @@ You can enable slow query and audit logging on your server. These logs are also 
 ## Performance Recommendations
 The [Performance Recommendations](concepts-performance-recommendations.md) feature identifies opportunities to improve workload performance. Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes.
 
-## Service health
-[Azure Service health](../service-health/overview.md) provides a view of all service health notifications in your subscription. You can set up Service Health alerts to notify you via your preferred communication channels when there are issues or changes that may affect the Azure services and regions you use.
+## Planned maintenance notification
+The **planned maintenance notification** feature allows you to receive alerts for upcoming planned maintenance to your Azure Database for MySQL. This feature utilizes the Azure portal’s [Service Health](../service-health/overview.md) blade – planned maintenance section to allow you to view all scheduled maintenance for your subscriptions all in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different teams/contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
 
-You can view scheduled maintenance events for Azure Database for MySQL by using the **planned maintenance** event type. To learn how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
+> [!Note]
+We will make every attempt to provide **Planned maintenance notification** 72 hours before the event. In event of critical or security patch, we may have to proceed with the urgent deployment and can miss the 72 hours window for notifying you for this event.
+
+### To receive planned maintenance notification
+
+1. In the [portal](https://portal.azure.com), select **Service Health**.
+2. In the **Alerts** section, select **Health alerts**.
+3. Select **+ Add service health alert** and fill in the fields.
+4. Fill out the required fields. 
+5. Choose the **Event type**, select **Planned maintenance** or **Select all**
+6. In **Action groups** define how you would like to receive the alert (get an email, trigger a logic app etc.)  
+7. Ensure Enable rule upon creation is set to Yes.
+8. Select **Create alert rule** to complete your alert
+
+For detailed steps on how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
 
 > [!IMPORTANT]
-> The planned maintenance notifications is available in preview for EAST US and UK South only.
+> The planned maintenance notifications is in preview.
 
 ## Next steps
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
