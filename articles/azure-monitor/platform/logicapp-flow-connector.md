@@ -18,23 +18,14 @@ For example, you can use Microsoft Flow to use Azure Monitor log data in an emai
 ## Actions
 The following table describes the actions included with the Azure Monitor Logs connector. Both allow you to run a log query against a Log Analytics workspace or Application Insights application. The difference is in the way the data is returned.
 
+> [!NOTE]
+> The Azure Monitor Logs connector replaces the [Azure Log Analytics connector](https://docs.microsoft.com/connectors/azureloganalytics/) and the [Azure Application Insights connector](https://docs.microsoft.com/connectors/applicationinsights/). This connector allows you to select whether to run the query against a Log Analytics workspace or an Application Insights application.
+
 
 | Action | Description |
 |:---|:---|
-| Run query and and list results | Returns each row as its own object. Use this action when you want to work with each row separately in the rest of the workflow. The action is typically followed by a [For each activity](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
-| Run query and and visualize results | Returns all rows in the result set as a single formatted object. Use this action when you want to use the result set together in the rest of the workflow, such as sending the results in a mail.  |
-
-
-## Action settings
-
-| Setting | Description |
-|:---|:---|
-| Subscription   | Subscription with the Log Analytics workspace or Application Insights application. |
-| Resource Group | Resource group with the Log Analytics workspace or Application Insights application. |
-| Resource Type  | *Log Analytics workspace* or Application *Insights*. |
-| Resource Name  | The name of the Log Analytics workspace or Application Insights application. |
-| Query          | The query to run. You should test this query first using [Log Analytics]() and the copy and paste the query into this window. |
-| Time Range     | Time range of the records to include in the query results. Select a time range from the dropdown or select 
+| [Run query and and list results](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-list-results) | Returns each row as its own object. Use this action when you want to work with each row separately in the rest of the workflow. The action is typically followed by a [For each activity](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
+| [Run query and and visualize results](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returns all rows in the result set as a single formatted object. Use this action when you want to use the result set together in the rest of the workflow, such as sending the results in a mail.  |
 
 
 
@@ -100,12 +91,11 @@ Select **Send an email (V2)**.
 
 Specify the email address of a recipient in the **To** window and a subject for the email in **Subject**. Click anywhere in the **Body** box.  A **Dynamic content** window opens with values from the previous actions in the logic app. 
 
-
 7. Select **Body**.  This is the results of the query in the Log Analytics action.
 8. Click **Show advanced options**.
 9. In the **Is HTML** box, select **Yes**.<br><br>![Office 365 email configuration window](media/flow-tutorial/flow05.png)
 
-## Step 6: Save and test your flow
+### Save and test your flow
 1. In the **Flow name** box, add a name for your flow, and then click **Create flow**.<br><br>![Save flow](media/flow-tutorial/flow06.png)
 2. The flow is now created and will run after a day which is the schedule you specified. 
 3. To immediately test the flow, click **Run Now** and then **Run flow**.<br><br>![Run flow](media/flow-tutorial/flow07.png)
