@@ -525,16 +525,7 @@
       "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
       "redirect_document_id": false
     },
-    {
-      "source_path": "articles/site-recovery/scvmm-site-recovery-deprecation.md",
-      "redirect_url": "/azure/site-recovery/site-to-site-deprecation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/site-recovery/site-to-site-deprecation.md",
-      "redirect_url": "/azure/site-recovery/hyper-v-azure-tutorial",
-      "redirect_document_id": false
-    },
+ 
     {
       "source_path": "articles/machine-learning/service/quickstart-get-started.md",
       "redirect_url": "/azure/machine-learning/service/tutorial-1st-experiment-sdk-setup",
@@ -48896,10 +48887,20 @@
       "redirect_url": "/azure/chef/chef-automation",
       "redirect_document_id": true
     },
-	{
-		 "source_path": "articles/azure-monitor/app/hockeyapp-bridge-app.md",
-		"redirect_url": "/azure/azure-monitor/overview",
-		"redirect_document_id": false 
-	}
+    {
+      "source_path": "articles/azure-monitor/app/hockeyapp-bridge-app.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tutorial-build-deploy-jenkins.md",
+      "redirect_url": "/azure/jenkins/tutorial-build-deploy-jenkins",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md",
+      "redirect_url": "/azure/jenkins/tutorial-jenkins-github-docker-cicd",
+      "redirect_document_id": false 
+    }
   ]
 }
