@@ -61,7 +61,7 @@ SAP ASE for SAP NetWeaver Applications is supported on any VM type listed in [SA
 Typical VM types used for medium size SAP ASE database servers include Esv3.  Large multi-terabyte databases can leverage M-series VM types. 
 The SAP ASE transaction log disk write performance may be improved by enabling the M-series Write Accelerator. Write Accelerator should be tested carefully with SAP ASE due to the way that SAP ASE performs Log Writes.  Review [SAP support note #2816580](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) and consider running a performance test.  
 Write Accelerator is designed for transaction log disk only. The disk level cache should be set to NONE. Don't be surprised if Azure Write Accelerator does not show similar improvements as with other DBMS. Based on the way SAP ASE writes into the transaction log, it could be that there is little to no acceleration by Azure Write Accelerator.
-Separate disks are recommended for Data devices and Log Devices.  The system databases sybsecurity and `saptools` do not require dedicated disks and can be placed on the disks containing the SAP Database Data and Log devices 
+Separate disks are recommended for Data devices and Log Devices.  The system databases sybsecurity and `saptools` do not require dedicated disks and can be placed on the disks containing the SAP database data and log devices 
 
 ![Storage configuration for SAP ASE](./media/dbms-guide-sapase/sapase-disk-structure.png)
 
@@ -282,7 +282,7 @@ The starting page for [Sybase ASE 16.3 PL7 Documentation](https://help.sap.com/v
 - SAP ASE Learning Journey - Administration & Monitoring
 - SAP ASE Learning Journey - Installation & Upgrade
 
-are helpful. another useful document is [SAP Applications on SAP Adaptive Server Enterprise Best Practices for Migration and Runtime](https://assets.cdn.sap.com/sapcom/docs/2016/06/26450353-767c-0010-82c7-eda71af511fa.pdf).
+are helpful. Another useful document is [SAP Applications on SAP Adaptive Server Enterprise Best Practices for Migration and Runtime](https://assets.cdn.sap.com/sapcom/docs/2016/06/26450353-767c-0010-82c7-eda71af511fa.pdf).
 
 Other helpful SAP support notes are:
 
