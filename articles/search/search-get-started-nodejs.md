@@ -113,7 +113,7 @@ Begin by opening a Powershell console or other environment in which you've insta
 
     ```json
     {
-        "serviceName" : "[SERVICE_NAME]",
+        "serviceName" : "[SEARCH_SERVICE_NAME]",
         "adminKey" : "[ADMIN_KEY]",
         "queryKey" : "[QUERY_KEY]",
         "indexName" : "hotels-quickstart"
@@ -404,7 +404,7 @@ The [**nconf** package](https://github.com/indexzero/nconf) allows you to specif
 ```javascript
 function getAzureConfiguration() {
     const config = nconf.file({ file: 'azure_search_config.json' });
-    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME' ) {
+    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME]' ) {
         throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
     }
     return config;
@@ -434,7 +434,7 @@ Finally, specify and call the main asynchronous `run` function. This function ca
 const run = async () => {
     try {
         const cfg = getAzureConfiguration();
-        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get["serviceName"]);
+        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get("indexName));
         
         const exists = await client.indexExistsAsync();
         await exists ? client.deleteIndexAsync() : Promise.resolve();
