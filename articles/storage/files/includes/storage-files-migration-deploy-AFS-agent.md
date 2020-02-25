@@ -3,7 +3,7 @@ title: DO NOT INDEX.
 description: Deploying the Azure File Sync agent. A common text block, shared between migration docs.
 author: fauhse
 ms.service: storage
-ms.topic: migration
+ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
@@ -24,7 +24,7 @@ Requiring a proxy server to reach the internet is also supported. You can either
 
 If that means, you need to open up your firewalls for this server, then that might be an acceptable approach to you. At the end of the server installation, after completed server registration, there will be a network connectivity report showing you the exact endpoint URLs in Azure, that file sync needs to communicate with for the region you've selected. The report also tells you the reason why communication is needed. You can use the report to then lock down the firewalls around this server, to specific URLs.
 
-You can also follow a more conservative approach, in which you do not open the firewalls wide, but instead limit the server to communicate to higher-level DNS name spaces - there is more documentation and details available in the [Azure File Sync proxy and firewall settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) article. Since all this describes outbound firewall rules, that limits your exposure either way. Follow your own networking best practices.
+You can also follow a more conservative approach, in which you do not open the firewalls wide, but instead limit the server to communicate to higher-level DNS name spaces - there is more documentation and details available in the [Azure File Sync proxy and firewall settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) article. Since this topic describes outbound firewall rules, that limits your exposure either way. Follow your own networking best practices.
 
 At the end of the server *installation* wizard, a server *registration* wizard will pop up.
 Register the server to your storage sync service Azure resource from earlier.

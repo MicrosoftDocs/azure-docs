@@ -3,7 +3,7 @@ title: DO NOT INDEX.
 description: Configure Azure File Sync. Common text block for includes into migration docs.
 author: fauhse
 ms.service: storage
-ms.topic: migration
+ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
