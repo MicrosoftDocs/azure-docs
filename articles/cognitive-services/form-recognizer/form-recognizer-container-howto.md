@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: dapine
 ---
 
