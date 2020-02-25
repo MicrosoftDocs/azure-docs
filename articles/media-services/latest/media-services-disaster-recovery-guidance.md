@@ -12,7 +12,7 @@ ms.subservice:
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 02/242020
+ms.date: 02/24/2020
 ms.author: juliako
 ---
 # Handle Media Services business continuity and disaster recovery
