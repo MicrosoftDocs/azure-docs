@@ -13,7 +13,7 @@ ms.date: 09/29/2017
 # Azure Monitor Logs connector for Logic Apps and Flow
 [Azure Logic Apps](/azure/logic-apps/) and [Microsoft Flow](https://ms.flow.microsoft.com) allow you to create automated workflows using hundreds of actions for a variety of services. The Azure Monitor Logs connector allows you to build workflows that retrieve data from a Log Analytics workspace or an Application Insights application in Azure Monitor. This article describes the actions included with the connector and provides a walkthrough to build a workflow using this data.
 
-For example, you can use Microsoft Flow to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received. 
+For example, you can create a logic app to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received. 
 
 ## Actions
 The following table describes the actions included with the Azure Monitor Logs connector. Both allow you to run a log query against a Log Analytics workspace or Application Insights application. The difference is in the way the data is returned.
@@ -31,10 +31,10 @@ The following table describes the actions included with the Azure Monitor Logs c
 
 ## Walkthrough: Mail visualized results
 
-The tutorial in this article shows you how to create a flow that automatically sends the results of an Azure Monitor log query by email, just one example of how you can use the Log Analytics connector in Microsoft Flow. 
+The following tutorial shows you how to create a logic app that automatically sends the results of an Azure Monitor log query by email. You can perform this same example with Microsoft Flow, the only difference being how to you create the initial flow and run it when complete. Configuration of the workflow and actions is the same between both. See [Create a flow from a template in Power Automate](https://docs.microsoft.com/power-automate/get-started-logic-template) to get started.
 
 
-### Create a Flow or Logic App
+### Create a Logic App
 
 Go to **Logic Apps** in the Azure portal and click **Add**. Select a **Subscription**, **Resource group**, and **Region** to store the new logic app and then give it a unique name. You can turn on **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). This setting isn't required for using the Azure Monitor Logs connector.
 
@@ -89,22 +89,29 @@ Select **Send an email (V2)**.
 
 ![Office 365 Outlook selection window](media/logicapp-flow-connector/select-mail-action.png)
 
-Specify the email address of a recipient in the **To** window and a subject for the email in **Subject**. Click anywhere in the **Body** box.  A **Dynamic content** window opens with values from the previous actions in the logic app. 
+Click anywhere in the **Body** box to open a **Dynamic content** window opens with values from the previous actions in the logic app. Select **See more** and then **Body** which is the results of the query in the Log Analytics action.
 
-7. Select **Body**.  This is the results of the query in the Log Analytics action.
-8. Click **Show advanced options**.
-9. In the **Is HTML** box, select **Yes**.<br><br>![Office 365 email configuration window](media/flow-tutorial/flow05.png)
+![Select body](media/logicapp-flow-connector/select-body.png)
 
-### Save and test your flow
-1. In the **Flow name** box, add a name for your flow, and then click **Create flow**.<br><br>![Save flow](media/flow-tutorial/flow06.png)
-2. The flow is now created and will run after a day which is the schedule you specified. 
-3. To immediately test the flow, click **Run Now** and then **Run flow**.<br><br>![Run flow](media/flow-tutorial/flow07.png)
-3. When the flow completes, check the mail of the recipient that you specified.  You should have received a mail with a body similar to the following:<br><br>![Sample email](media/flow-tutorial/flow08.png)
+Specify the email address of a recipient in the **To** window and a subject for the email in **Subject**. 
+
+![Mail action](media/logicapp-flow-connector/mail-action.png)
+
+
+### Save and test your logic app
+Click **Save** and then **Run** to perform a test run of the logic app.
+
+![Save and run](media/logicapp-flow-connector/save-run.png)
+
+
+When the logic app completes, check the mail of the recipient that you specified.  You should have received a mail with a body similar to the following:
+
+![Sample email](media/logicapp-flow-connector/sample-mail.png)
 
 
 ## Next steps
 
 - Learn more about [log queries in Azure Monitor](../log-query/log-query-overview.md).
+- Learn more about [Logic Apps](/azure/logic-apps/)
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
-
 
