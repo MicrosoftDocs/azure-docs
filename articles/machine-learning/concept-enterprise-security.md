@@ -33,7 +33,6 @@ Multi-factor authentication is supported if Azure Active Directory (Azure AD) is
 
 For more information, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md). This article provides information and examples on authentication, including using service principals and automated workflows.
 
-
 ### Authentication for web service deployment
 
 Azure Machine Learning supports two forms of authentication for web services: key and token. Each web service can enable only one form of authentication at a time.
@@ -72,6 +71,9 @@ The following table lists some of the major Azure Machine Learning operations an
 | Call web service | ✓ | ✓ | ✓ |
 
 If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported only for operations on the workspace and Machine Learning Compute. Custom roles can have read, write, or delete permissions on the workspace and on the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
+
+> [!WARNING]
+> Azure Machine Learning is not currently supported with Azure Active Directory business-to-business collaboration.
 
 ### Securing compute targets and data
 
