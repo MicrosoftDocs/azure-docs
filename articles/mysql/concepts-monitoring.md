@@ -50,7 +50,7 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 The **planned maintenance notification** feature allows you to receive alerts for upcoming planned maintenance to your Azure Database for MySQL. This feature utilizes the Azure portal’s [Service Health](../service-health/overview.md) blade – planned maintenance section to allow you to view all scheduled maintenance for your subscriptions all in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different teams/contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
 
 > [!Note]
-We will make every attempt to provide **Planned maintenance notification** 72 hours before the event. In event of critical or security patch, we may have to proceed with the urgent deployment and can miss the 72 hours window for notifying you for this event.
+> We will make every attempt to provide **Planned maintenance notification** 72 hours before the event. In event of critical or security patch, we may have to proceed with the urgent deployment and can miss the 72 hours window for notifying you for this event.
 
 ### To receive planned maintenance notification
 
