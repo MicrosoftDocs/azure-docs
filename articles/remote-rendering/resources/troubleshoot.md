@@ -13,7 +13,7 @@ This page lists common issues interfering with Azure Remote Rendering, and ways 
 
 ## Client can't connect to server
 
-Make sure that your firewalls (on device, inside routers, etc) don't block the following ports:
+Make sure that your firewalls (on device, inside routers, etc.) don't block the following ports:
 
 * **50051 (TCP)** - required for initial connection (HTTP handshake)
 * **8266 (TCP+UDP)** - required for data transfer
@@ -23,13 +23,13 @@ Make sure that your firewalls (on device, inside routers, etc) don't block the f
 
 There are two reasons why the server might refuse to connect with a **codec not available** error.
 
-**The H265 codec is not installed:**
+**The H265 codec isn't installed:**
 
 In this case, refer to the [system requirements](../overview/system-requirements.md#development-pc) for installing the latest graphics drivers.
 
 **The codec is installed, but can't be used:**
 
-The reason for this is an incorrect security setting on the DLLs. This problem doesn't manifest when trying to watch videos encoded with H265. Furthermore, reinstalling the codec doesn't fix this either. Instead, perform the following steps:
+The reason for this issue is an incorrect security setting on the DLLs. This problem doesn't manifest when trying to watch videos encoded with H265. Reinstalling the codec doesn't fix the problem either. Instead, perform the following steps:
 
 1. Open a **PowerShell with admin rights** and run
 
@@ -37,7 +37,7 @@ The reason for this is an incorrect security setting on the DLLs. This problem d
     Get-AppxPackage -Name Microsoft.HEVCVideoExtension
     ```
   
-    That should output the `InstallLocation` of the codec, something like:
+    That command should output the `InstallLocation` of the codec, something like:
   
     ```cmd
     InstallLocation   : C:\Program Files\WindowsApps\Microsoft.HEVCVideoExtension_1.0.23254.0_x64__5wasdgertewe
@@ -68,7 +68,7 @@ The video quality can be compromised either by network quality or the missing H2
 
 If you are connected to the rendering runtime and loaded a model successfully, but only see a black screen afterwards, then this can have a few distinct causes.
 
-As a rule of thumb, we recommend testing the following two things before doing a more in-depth analysis:
+We recommend testing the following things before doing a more in-depth analysis:
 
 * Is the H265 codec installed? Although there should be a fallback to the H264 codec, we have seen cases where this fallback did not work properly. See the [system requirements](../overview/system-requirements.md#development-pc) for installing the latest graphics driver.
 * When using a Unity project, close Unity, delete the temporary *library* and *obj* folders in the project directory and load/build the project again. In some cases cached data caused the sample to not function properly for no obvious reason.
@@ -79,7 +79,7 @@ If these two steps did not help, it is required to find out whether video frames
 
 **The model is not inside the view frustum:**
 
-In many cases, the model is displayed correctly but located in a place outside the current camera frustum. A reason for that can be that the model has been exported with a far off-center pivot so it is clipped by the camera's far clipping plane. It helps to query the model's bounding box programmatically and visualize the box with Unity as a line box or print its values to the debug log.
+In many cases, the model is displayed correctly but located outside the camera frustum. A common reason is that the model has been exported with a far off-center pivot so it is clipped by the camera's far clipping plane. It helps to query the model's bounding box programmatically and visualize the box with Unity as a line box or print its values to the debug log.
 
 **The Unity render pipeline doesn't include the render hooks:**
 
@@ -91,11 +91,11 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 In case rendered objects seem to be moving along with head movements, you might be encountering issues with *Late Stage Reprojection* (LSR). Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.
 
-Another reason for unstable holograms (wobbling, warping, jittering, or jumping holograms) can be poor network connectivity, in particular insufficient network bandwidth, or too high latency. A good indicator for the quality of your network connection is the [performance statistics](../overview/features/performance-queries.md) value `ARRServiceStats.VideoFramesReused`. Reused frames indicate situations where an old video frame needed to be reused on the client side because no new video frame was available – for example because of packet loss or because of variations in network latency. If `ARRServiceStats.VideoFramesReused` is often or even consistently higher than 0, this indicates a network problem.
+Another reason for unstable holograms (wobbling, warping, jittering, or jumping holograms) can be poor network connectivity, in particular insufficient network bandwidth, or too high latency. A good indicator for the quality of your network connection is the [performance statistics](../overview/features/performance-queries.md) value `ARRServiceStats.VideoFramesReused`. Reused frames indicate situations where an old video frame needed to be reused on the client side because no new video frame was available – for example because of packet loss or because of variations in network latency. If `ARRServiceStats.VideoFramesReused` is frequently larger than zero, this indicates a network problem.
 
-Another value to look at is `ARRServiceStats.LatencyPoseToReceiveAvg`. This value should consistently be below 100 ms. If you see higher values, this indicates that you are connected to a data center that is too far away.
+Another value to look at is `ARRServiceStats.LatencyPoseToReceiveAvg`. It should consistently be below 100 ms. If you see higher values, this indicates that you are connected to a data center that is too far away.
 
-For a list of potential mitigations please read the [Guidelines for network connectivity](../reference/network-requirements.md#guidelines-for-network-connectivity).
+For a list of potential mitigations, see the [guidelines for network connectivity](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
 ## Next steps
 
