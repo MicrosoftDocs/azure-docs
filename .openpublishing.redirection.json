@@ -250,6 +250,11 @@
       "redirect_url": "/azure/virtual-machines/",
       "redirect_document_id": false
     },
+    {  
+      "source_path": "articles/virtual-machines/dc-series.md",
+      "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/virtual-machines/windows/maintenance-and-updates.md",
       "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
