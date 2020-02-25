@@ -88,7 +88,7 @@ Select **Storage Accounts** on the left pane, and choose the storage account tha
 
 * For authentication items, like account key or SAS token, go to **Account Keys** on the **Settings** pane. 
 
-* For service principal items like, tenant ID and client ID, go to your **App registrations**, select which app you want to use and its corresponding **Overview** page contains these items.
+* For service principal items like, tenant ID and client ID, go to your **App registrations**, select which app you want to use. Its corresponding **Overview** page will contain these items.
 
 > [!IMPORTANT]
 > If your storage account is in a virtual network, only creation of Blob, File share, ADLS Gen 1 and ADLS Gen 2 datastores **via the SDK** is supported. To grant your workspace access to your storage account, set the parameter `grant_workspace_access` to `True`.
@@ -175,7 +175,7 @@ You can find the information that you need to populate the form on the  [Azure p
 
 * For authentication items, like account key or SAS token, go to **Account Keys** on the **Settings** pane. 
 
-* For service principal items like, tenant ID and client ID, go to the **Overview** page of your **App registrations**. 
+* For service principal items like, tenant ID and client ID, go to your **App registrations** and select which app you want to use. Its corresponding **Overview** page will contain these items. 
 
 The following example demonstrates what the form looks like when you create an Azure blob datastore: 
     
