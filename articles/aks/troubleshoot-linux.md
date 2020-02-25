@@ -20,7 +20,7 @@ Many of these tools have an extensive history and wide set of configuration opti
 
 This document draws heavily on Brendan Gregg's ["Linux Performance Analysis in 60 seconds"](http://www.brendangregg.com/blog/2015-12-03/linux-perf-60s-video.html).
 
-### Guidance
+## Guidance
 
 Be systematic in your approach to investigating performance issues. Two common approaches are USE (utilization, saturation, errors) and RED (rate, errors, duration). RED is typically used in the context of services for request-based monitoring. USE is typically used for monitoring resources: for each resource in a machine, monitor utilization, saturation, and errors. The four main kinds of resources on any machine are cpu, memory, disk, and network. High utilization, saturation, or error rates for any of these resources indicates a possible problem with the system. When a problem exists, investigate the root cause: why is disk IO latency high? Are the disks or virtual machine SKU throttled? What processes are writing to the devices, and to what files?
 
