@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `urn:amazon:cognito:sp:<UNIQUE_ID>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier, which are explained later in this tutorial. Contact [Britive Client support team](mailto:support@britive.zendesk.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier, which are explained later in this tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
