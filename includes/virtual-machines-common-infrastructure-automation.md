@@ -124,7 +124,7 @@ Learn more about:
 
 Learn how to:
 
-- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
+- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/jenkins/tutorial-jenkins-github-docker-cicd.md).
 
 
 ## Next steps

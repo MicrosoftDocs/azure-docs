@@ -19,13 +19,16 @@ NDv2 instances provide excellent performance for HPC and AI workloads utilizing 
 
 Critically, the NDv2 is built for both computationally intense scale-up (harnessing 8 GPUs per VM) and scale-out (harnessing multiple VMs working together) workloads. The NDv2 series now supports 100-Gigabit InfiniBand EDR backend networking, similar to that available on the HB series of HPC VM, to allow high-performance clustering for parallel scenarios including distributed training for AI and ML. This backend network supports all major InfiniBand protocols, including those employed by NVIDIA’s NCCL2 libraries, allowing for seamless clustering of GPUs.
 
+
+> [!NOTE]
 > When [enabling InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) on the ND40rs_v2 VM, please use the 4.7-1.0.0.1 Mellanox OFED driver.
-
+>
 > Due to increased GPU memory, the new ND40rs_v2 VM requires the use of [Generation 2 VMs](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) and marketplace images. 
-
+>
 > [Sign-up to request early access to the NDv2 virtual machine preview.](https://aka.ms/AzureNDrv2Preview)
-
+>
 > Please note: The ND40s_v2 featuring 16 GB of per-GPU memory is no longer available for preview and has been superceded by the updated ND40rs_v2.
+
 <br>
 
 Premium Storage:  Supported

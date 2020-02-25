@@ -2,12 +2,13 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 08/19/2019	
+ms.date: 02/24/2020	
 ms.author: tomfitz
 ---
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Resources per [resource group](../articles/azure-resource-manager/management/overview.md#resource-groups), per resource type |800 |Some resource types can exceed the 800 limit. See [Resources not limited to 800 instances per resource group](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md). |
+| Resources per [resource group](../articles/azure-resource-manager/management/overview.md#resource-groups) | N/A | Resources aren't limited by resource group. Instead, they're limited by resource type in a resource group. See next row. | 
+| Resources per resource group, per resource type |800 |Some resource types can exceed the 800 limit. See [Resources not limited to 800 instances per resource group](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md). |
 | Deployments per resource group in the deployment history |800<sup>1</sup> |800 |
 | Resources per deployment |800 |800 |
 | Management locks per unique scope |20 |20 |
