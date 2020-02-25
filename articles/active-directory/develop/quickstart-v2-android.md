@@ -41,7 +41,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 >
 > ### Step 2: Download the project 
 > [!div class="sxs-lookup" renderon="portal"]
-> Run the project using Visual Studio 2019.
+> Run the project using Android Studio.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample]()
 >
