@@ -63,10 +63,9 @@ An example `ConversionSettings.json` file might be:
 
 ### Geometry parameters
 
-* `scaling` - This parameter scales a model.
-It can be used to grow or shrink a model, for example to display a building model on a table top.
-Since the rendering engine expects lengths to be specified in meters, another important use of this parameter arises when a model is defined in different units.
-For example, if a model is defined in centimeters, then applying a scale of 0.01 should render the model at the correct size.
+* `scaling` - This parameter scales a model uniformly. Scaling can be used to grow or shrink a model, for example to display a building model on a table top. Since the rendering engine expects lengths to be specified in meters, another important use of this parameter arises when a model is defined in different units. For example, if a model is defined in centimeters, then applying a scale of 0.01 should render the model at the correct size.
+Some source data formats (for example .fbx) provide a unit scaling hint, in which case the conversion implicitly scales the model to meter units. The implicit scaling provided by the source format will be applied on top of the scaling parameter.
+The final scaling factor is applied to the geometry vertices and the local transforms of the scene graph nodes. The scaling for the root entity's transform remains unmodified.
 
 * `recenterToOrigin` - States that a model should be converted so that its bounding box is centered at the origin.
 Centering is important if the source model is displaced far from the origin, since in that case floating point precision issues may cause rendering artifacts.
