@@ -103,7 +103,7 @@ To accomplish that,
 ### Step 1 summary
 
 At the end of Step 1, you now have a StorSimple 8020 virtual appliance deployed on an Azure VM, in the same region as your StorSimple cloud storage.
-You have also determined a volume clone to use for the initial migration. That volume clone either was very recently taken or is the oldest backup volume clone you've determined you must move.
+You have also determined a volume clone to use for the initial migration. That volume clone either was recently taken or is the oldest backup volume clone you've determined you must move.
 
 You then mounted the volume clone to the StorSimple 8020 virtual appliance in Azure and have it's data available.
 
@@ -194,7 +194,7 @@ You can add or remove storage to your Windows Server over time, thus allowing yo
 
 ### Configure Azure File Sync on the Windows Server
 
-For this, you need your registered, on-premises Windows Server ready and still internet connected.
+For this, you need your registered, on-premises Windows Server ready, and still internet connected.
 
 [!INCLUDE [storage-files-migration-configure-sync](articles/storage/files/includes/storage-files-migration-configure-sync.md)]
 
@@ -245,7 +245,7 @@ Data is not flowing from the Azure VM to the various Azure file shares and from 
 > [!IMPORTANT]
 > Ensure there are no changes made or user access granted to the Windows Server at this time.
 
-The initial volume clone data moving through the Azure VM to the Azure file shares can take a very long time. Weeks even. Estimating the time this will take is tricky and depends on many factors. Most notably the speed at which the Azure VM can access files on the StorSimple volumes and how fast Azure File Sync can process the files and folders that need syncing. From experience, we can assume that the bandwidth - therefore the actual data size - plays a subordinate role. The time this or any subsequent migration round will take is mostly dependent on the number of items that can be processed per second. So for example 1 TiB with a 100,000 files and folders will most likely finish slower than 1 TiB with only 50,000 files and folders.
+The initial volume clone data moving through the Azure VM to the Azure file shares can take a long time. Weeks even. Estimating the time this will take is tricky and depends on many factors. Most notably the speed at which the Azure VM can access files on the StorSimple volumes and how fast Azure File Sync can process the files and folders that need syncing. From experience, we can assume that the bandwidth - therefore the actual data size - plays a subordinate role. The time this or any subsequent migration round will take is mostly dependent on the number of items that can be processed per second. So for example 1 TiB with a 100,000 files and folders will most likely finish slower than 1 TiB with only 50,000 files and folders.
 
 ## Step 5: Am I done yet?
 
@@ -254,7 +254,7 @@ The initial volume clone data moving through the Azure VM to the Azure file shar
         ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](articles\storage\files\media\storage-files-migration-storsimple-shared\ss8000-step-5.png)
     :::column-end:::
     :::column:::
-        As discussed in the previous step, the initial sync can take a very long time. Your users and applications are still accessing the on-premises StorSimple 8100 or 8600 appliance. That means that changes are accumulating, and with every day a larger delta between the live data and the initial volume clone, you are currently migration, forms. In this section, you'll learn how to minimize downtime by using multiple volume clones and telling when sync is done.
+        As discussed in the previous step, the initial sync can take a long time. Your users and applications are still accessing the on-premises StorSimple 8100 or 8600 appliance. That means that changes are accumulating, and with every day a larger delta between the live data and the initial volume clone, you are currently migration, forms. In this section, you'll learn how to minimize downtime by using multiple volume clones and telling when sync is done.
     :::column-end:::
 :::row-end:::
 
