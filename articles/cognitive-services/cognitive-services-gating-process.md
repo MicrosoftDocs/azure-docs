@@ -26,16 +26,14 @@ Currently, the services below are offered through the gating process:
 
 ## Online Containers
 
-| Service                                        | Container(s)                                           |
-|------------------------------------------------|--------------------------------------------------------|
-| [Anomaly Detector][ad-containers]              | Anomaly Detector                                       |
-| [Computer Vision][cv-containers]               | Read, Recognize Text                                   |
-| [Face][fa-containers]                          | Face                                                   |
-| [Form Recognizer][fr-containers]               | Form Recognizer                                        |
-| [Language Understanding (LUIS)][lu-containers] | LUIS                                                   |
-| [Speech Service API][sp-containers]            | Speech-to-text and Text-to-speech                      |
-| [Text Analytics][ta-containers]                | Key Phrase, Language Detection, and Sentiment Analysis |
-| [Translator Text][tt-containers]               | Translator Text                                        |
+| Service                                        | Container(s)                                                                  |
+|------------------------------------------------|-------------------------------------------------------------------------------|
+| [Anomaly Detector][ad-containers]              | Anomaly Detector                                                              |
+| [Computer Vision][cv-containers]               | Read                                                                          |
+| [Face][fa-containers]                          | Face                                                                          |
+| [Form Recognizer][fr-containers]               | Form Recognizer                                                               |
+| [Speech Service API][sp-containers]            | Speech-to-text (Custom and Standard) and Text-to-speech (Custom and Standard) |
+| [Translator Text][tt-containers]               | Translator Text                                                               |
 
 ## Offline containers
 
@@ -46,10 +44,14 @@ Currently, the services below are offered through the gating process:
 | [Text Analytics][ta-containers]                | Sentiment Analysis |
 | [Translator Text][tt-containers]               | Translator Text    |
 
+> [!IMPORTANT]
+> If a service or containerized offering is not listed, it's either not available or generally available.
+
 ## Eligibility and Approval process
 
-The gating process is in place to help gauge interest and better understand customer needs. The Microsoft team accepts applications from customers with a valid Azure subscription and a valid business scenario. Customers will potentially have their applications denied when:
+The gating process is in place to help gauge interest and better understand customer needs. The Microsoft team accepts applications from Microsoft commercial customers with a valid Azure subscription and a valid business scenario. Customers will potentially have their applications denied when:
 
+ - They're not associated with any organization
  - They do not have a valid Azure subscription
  - The application was submitted through personal email (@hotmail.com, @gmail.com, @yahoo.com)
  - There was no proper justification or business scenario provided
@@ -60,10 +62,10 @@ If the application is approved, the Microsoft team will send an email with all d
 
 ## Next steps
 
-If you have questions, email the Microsoft team at <a href="mailto:containersupport@microsoft.com">containersupport@microsoft.com</a>.
+If you have questions, email the Microsoft team at <a href="mailto:email@microsoft.com">email@microsoft.com</a>.
 
 > [!div class="nextstepaction"]
-> [Submit application for gated services](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u)
+> [Sign up for gated services](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u)
 
 [ad-containers]: ./anomaly-detector/anomaly-detector-container-howto.md
 [cv-containers]: ./computer-vision/computer-vision-how-to-install-containers.md
