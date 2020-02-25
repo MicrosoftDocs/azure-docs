@@ -21,20 +21,25 @@ These tables describe the level of support for blob service features, tools, and
 
 The items that appear in this table will change over time as support for Blob features, tools, and Azure services continues to expand.
 
-Review the [Known Issues](#known-issues.md) section of this article for information about specific issues and workarounds. 
+Review the [Known Issues](#known-issues) section of this article for information about specific issues and workarounds. 
+
+||
+|----------|
+||
+### Blob features
 
 :::row:::
    :::column span="":::
-      **Blob feature**
+      <pre>Blob feature</pre>
    :::column-end:::
    :::column span="":::
-      **Support level**
+      <pre>Support level</pre>
    :::column-end:::
       :::column span="":::
-      **Blob feature**
+      <pre>Blob feature</pre>
    :::column-end:::
    :::column span="":::
-      **Support level**
+      <pre>Support level</pre>
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -95,7 +100,7 @@ Review the [Known Issues](#known-issues.md) section of this article for informat
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Change feed](../common/storage-blob-change-feed?tabs=azure-portal.md)
+      [Change feed](storage-blob-change-feed)
    :::column-end:::
    :::column span="":::
       Not yet supported
@@ -164,21 +169,25 @@ Review the [Known Issues](#known-issues.md) section of this article for informat
    :::column-end:::
 :::row-end:::
 
+### Tools
+
+||
+|----------|
+||
 :::row:::
    :::column span="":::
-      **Tool**
+      <kbd>Tool</kbd>
    :::column-end:::
    :::column span="":::
-      **Support level**
+      <kbd>Support level</kbd>
    :::column-end:::
       :::column span="":::
-      **Tool**
+      <kbd>Tool</kbd>
    :::column-end:::
    :::column span="":::
-      **Support level**
+      <kbd>Support level</kbd>
    :::column-end:::
 :::row-end:::
-
 :::row:::
     :::column span="":::
       [PowerShell (Blob)](storage-quickstart-blobs-powershell.md)
@@ -201,7 +210,7 @@ Review the [Known Issues](#known-issues.md) section of this article for informat
       Generally available
    :::column-end:::
    :::column span="":::
-      [File, directory, and ACL APIs](data-lake-storage-directory-file-acl-dotnet.m) 
+      [File, directory, and ACL APIs](data-lake-storage-directory-file-acl-dotnet.md) 
       :::column-end:::
    :::column span="":::
       Preview
@@ -257,19 +266,24 @@ Review the [Known Issues](#known-issues.md) section of this article for informat
       Limited support. 
    :::column-end:::
 :::row-end:::
+||
+|----------|
+||
+
+### Azure services
 
 :::row:::
    :::column span="":::
-      **Service**
+      <blockquote>Service</blockquote>
    :::column-end:::
    :::column span="":::
-      **Support level**
+      <blockquote>Support level</blockquote>
    :::column-end:::
       :::column span="":::
-      **Service**
+      <blockquote>Service</blockquote>
    :::column-end:::
    :::column span="":::
-      **Support level**
+      <blockquote>Support level</blockquote>
    :::column-end:::
 :::row-end:::
 
@@ -369,6 +383,9 @@ Review the [Known Issues](#known-issues.md) section of this article for informat
    :::column span="":::
    :::column-end:::
 :::row-end:::
+||
+|----------|
+||
 
 <a id="known-issues" />
 
@@ -400,7 +417,7 @@ Use only versions `1.6.0` or higher.There is currently a storage bug 
 
 <a id="explorer-in-portal" />
 
-### Storage Explorer in the Azure portal
+### Browsing directories and files in the Azure portal
 
 ACLs are not yet supported.
 
@@ -415,7 +432,7 @@ Applications that call Blob APIs will likely work.
 
 ### File system support in SDKs
 
-- [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md) support are in public preview. Other SDKs are not currently supported.
+- [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md), and [JavaScript](data-lake-storage-directory-file-acl-javascript.md) and support are in public preview. Other SDKs are not currently supported.
 - Get and set ACL operations are not currently recursive.
 
 ### File system support in PowerShell and Azure CLI
