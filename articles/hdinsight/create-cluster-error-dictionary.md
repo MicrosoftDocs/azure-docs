@@ -169,7 +169,7 @@ You didn't provide the permissions required to manage identity. The user-assigne
 1. Open the Azure portal.
 1. Go to your storage account.
 1. Look under **Access Control (IAM)**.
-1. Make sure that the Storage Blob Data Contributor role or the Storage Blob Data Owner role has "Assigned" access to the user-assigned managed identity for the subscription.
+1. Make sure that the user has the Storage Blob Data Contributor role or the Storage Blob Data Owner role assigned to them.
 
 For more information, see [Set up permissions for the managed identity on the Data Lake Storage Gen2 account](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 

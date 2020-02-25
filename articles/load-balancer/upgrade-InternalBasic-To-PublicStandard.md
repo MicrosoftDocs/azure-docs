@@ -1,6 +1,6 @@
 ---
 title: Upgrade from Basic Public to Standard Public - Azure Load Balancer
-description: This article shows you how to upgrade Azure Public Load Balancer from Basic SKU to Standard SKU
+description: This article shows you how to upgrade Azure Basic Internal Load Balancer to Standard Public Load Balancer
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
@@ -9,13 +9,14 @@ ms.date: 01/23/2020
 ms.author: irenehua
 ---
 
-# Upgrade Azure Public Load Balancer
-[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
+# Upgrade Azure Internal Load Balancer - Outbound Connection Required
+[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Since Standard Internal Load Balancer does not provide outbound connection, we provide a solution to create a Standard Public Load Balancer instead.
 
-There are two stages in a upgrade:
+There are three stages in a upgrade:
 
-1. Migrate the configuration
-2. Add VMs to backend pools of Standard Load Balancer
+1. Migrate the configuration to Standard Public Load Balancer
+2. Add VMs to backend pools of Standard Public Load Balancer
+3. Set up NSG rules for Subnet/VMs that should be refrained from/to the Internet
 
 This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -23,15 +24,15 @@ This article covers configuration migration. Adding VMs to backend pools may var
 
 An Azure PowerShell script is available that does the following:
 
-* Creates a Standard SKU Load Balancer in the resource group and location the you specify.
-* Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly create Standard Load Balancer.
+* Creates a Standard SKU Public Load Balancer in the resource group and location that you specify.
+* Seamlessly copies the configurations of the Basic SKU Internal Load Balancer to the newly create Standard Public Load Balancer.
 
 ### Caveats\Limitations
 
-* Script only supports Public Load Balancer upgrade. For Internal Basic Load Balancer upgrade, create a Standard Internal Load Balancer if outbound connectivity is not desired, and create a Standard Internal Load Balancer and Standard Public Load Balancer if outbound connectivity is required.
-* The Standard Load Balancer has a new public address. It’s impossible to move the IP addresses associated with existing Basic Load Balancer seamlessly to Standard Load Balancer since they have different SKUs.
+* Script supports Internal Load Balancer upgrade where outbound connection is required. If outbound connection is not required for any of the VMs, refer to [this page](upgrade-basicInternal-standard.md) for best practice.
+* The Standard Load Balancer has a new public address. It’s impossible to move the IP addresses associated with existing Basic Internal Load Balancer seamlessly to Standard Public Load Balancer since they have different SKUs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
-* If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Please make sure they are not empty.
+* If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script.  Make sure they are not empty.
 
 ## Download the script
 
@@ -70,7 +71,7 @@ To run the script:
    * **oldRgName: [String]: Required** – This is the resource group for your existing Basic Load Balancer you want to upgrade. To find this string value, navigate to Azure portal, select your Basic Load Balancer source, and click the **Overview** for the load balancer. The Resource Group is located on that page.
    * **oldLBName: [String]: Required** – This is the name of your existing Basic Balancer you want to upgrade. 
    * **newrgName: [String]: Required** – This is the resource group in which the Standard Load Balancer will be created. It can be a new resource group or an existing one. If you pick an existing resource group, note that the name of the Load Balancer has to be unique within the resource group. 
-   * **newlocation: [String]: Required** – This is the location in which the Standard Load Balancer will be created. It is recommended to inherit the same location of the chosen Basic Load Balancer to the Standard Load Balancer for better association with other existing resources.
+   * **newlocation: [String]: Required** – This is the location in which the Standard Load Balancer will be created. We recommend inheriting the same location of the chosen Basic Load Balancer to the Standard Load Balancer for better association with other existing resources.
    * **newLBName: [String]: Required** – This is the name for the Standard Load Balancer to be created.
 1. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
 
@@ -103,6 +104,9 @@ Here are a few scenarios of how you add VMs to backend pools of the newly create
 
 * **Creating new VMs to add to the backend pools of the newly created Standard Public Load Balancer**.
     * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+
+### Create NSG rules for VMs which to refrain communication from or to the Internet
+If you would like to refrain Internet traffic from reaching to your VMs, you can create an [NSG rule](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) on the Network Interface of the VMs.
 
 ## Common questions
 
