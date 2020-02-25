@@ -55,7 +55,7 @@ Linux Huge Pages should be enabled by default and can be verified with command
 The page size is typically 2048 KB. For details see the article [Huge Pages on Linux](https://help.sap.com/viewer/ecbccd52e7024feaa12f4e780b43bc3b/16.0.3.7/en-US/a703d580bc2b10149695f7d838203fad.html) 
 
 
-## Recommendations on VM and disk structure for SAP-related SAP ASE deployments
+## Recommendations on VM and disk structure for SAP ASE deployments
 
 SAP ASE for SAP NetWeaver Applications is supported on any VM type listed in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 Typical VM types used for medium size SAP ASE database servers include Esv3.  Large multi-terabyte databases can leverage M-series VM types. 
@@ -63,9 +63,9 @@ The SAP ASE transaction log disk write performance may be improved by enabling t
 Write Accelerator is designed for transaction log disk only. The disk level cache should be set to NONE. Don't be surprised if Azure Write Accelerator does not show similar improvements as with other DBMS. Based on the way SAP ASE writes into the transaction log, it could be that there is little to no acceleration by Azure Write Accelerator.
 Separate disks are recommended for Data devices and Log Devices.  The system databases sybsecurity and `saptools` do not require dedicated disks and can be placed on the disks containing the SAP database data and log devices 
 
-![Storage configuration for SAP ASE](./media/dbms-guide-sapase/sapase-disk-structure.png)
+![Storage configuration for SAP ASE](./media/dbms-guide-sap-ase/sap-ase-disk-structure.png)
 
-### File Systems, Stripe Size & IO balancing 
+### File systems, stripe size & IO balancing 
 SAP ASE writes data sequentially into disk storage devices unless configured otherwise. This means an empty SAP ASE database with four devices will write data into the first device only.  The other disk devices will only be written to when the first device is full.  The amount of READ and WRITE IO to each SAP ASE device is likely to be different. To balance disk IO across all available Azure disks either Windows Storage Spaces or Linux LVM2 needs to be used. On Linux, it is recommended to use XFS file system to format the disks. The LVM stripe size should be tested with a performance test. 128 KB stripe size is a good starting point. On Windows, the NTFS Allocation Unit Size (AUS) should be tested. 64 KB can be used as a starting value. 
 
 It is recommended to configure Automatic Database Expansion as described in the article [Configuring Automatic Database Space Expansion in SAP Adaptive Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/)  and [SAP support note #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
@@ -170,7 +170,7 @@ Increasing the number of data and backup devices increases backup and restore pe
 
 Do not use drive D:\ or /temp space as database or log dump destination.
 
-### Impact of Database Compression
+### Impact of database compression
 In configurations where I/O bandwidth can become a limiting factor, measures, which reduce IOPS might help to stretch the workload one can run in an IaaS scenario like Azure. Therefore, it is recommended to make sure that SAP ASE compression is used before uploading an existing SAP database to Azure.
 
 The recommendation to apply compression before uploading to Azure is given out of several reasons:
@@ -181,7 +181,7 @@ The recommendation to apply compression before uploading to Azure is given out o
 
 Data- and LOB-Compression work in a VM hosted in Azure Virtual Machines as it does on-premises. For more details on how to check if compression is already in use in an existing SAP ASE database, check [SAP support note 1750510](https://launchpad.support.sap.com/#/notes/1750510). For more details on SAP ASE database compression check [SAP support note #2121797](https://launchpad.support.sap.com/#/notes/2121797)
 
-## High Availability of SAP ASE on Azure 
+## High availability of SAP ASE on Azure 
 The HADR Users Guide details the setup and configuration of a 2 node SAP ASE “Always-on” solution.  In addition, a third disaster recovery node is also supported. SAP ASE supports many High Available configurations including shared disk and native OS clustering (floating IP). The only supported configuration on Azure is using Fault Manager without Floating IP.  The Floating IP Address method will not work on Azure.  The SAP Kernel is an “HA Aware” application and knows about the primary and secondary SAP ASE servers. There are no close integrations between the SAP ASE and Azure, the Azure Internal load balancer is not used. Therefore, the standard SAP ASE documentation should be followed starting with [SAP ASE HADR Users Guide](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html) 
 
 > [!NOTE]
@@ -190,7 +190,7 @@ The HADR Users Guide details the setup and configuration of a 2 node SAP ASE “
 ### Third node for disaster recovery
 Beyond using SAP ASE Always-On for local high availability, you might want to extend the configuration to an asynchronously replicated node in another Azure region. Documentation for such a scenario can be found [here](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
 
-## SAP ASE Database Encryption & SSL 
+## SAP ASE database encryption & SSL 
 SAP Software provisioning Manager (SWPM) is giving an option to encrypt the database during installation.  If you want to use encryption, it is recommended to use SAP Full Database Encryption.  See details documented in:
 
 - [SAP support note #2556658](https://launchpad.support.sap.com/#/notes/2556658)
@@ -201,24 +201,24 @@ SAP Software provisioning Manager (SWPM) is giving an option to encrypt the data
 > [!NOTE]
 > If a SAP ASE database is encrypted then Backup Dump Compression will not work. See also [SAP support note #2680905](https://launchpad.support.sap.com/#/notes/2680905) 
 
-## SAP ASE on Azure Deployment Checklist
+## SAP ASE on Azure deployment checklist
  
-1. Deploy SAP ASE 16.3 PL7 or higher
-1. Update to latest version and patches of FaultManager and SAPHostAgent
-1. Deploy on latest certified OS available such as Windows 2019, Suse 15.1 or Redhat 7.6 or higher
-1. Use SAP Certified VMs – high memory Azure VM SKUs such as Es_v3 or for x-large systems M-Series VM SKUs are recommended
-1. Match the disk IOPS and total VM aggregate throughput quota of the VM with the disk design.  Deploy sufficient number of disks
-1. Aggregate disks using Windows Storage Spaces or Linux LVM2 with correct stripe size and file system
-1. Create sufficient number of devices for data, log, temp, and backup purposes
-1. Consider using UltraDisk for x-large systems 
-1. Run `saptune` SAP-ASE on Linux OS 
-1. Secure the database with DB Encryption – manually store keys in Azure Key Vault 
-1. Complete the [SAP on Azure Checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist) 
-1. Configure log backup and full backup 
-1. Test HA/DR, backup and restore and perform stress & volume test 
-1. Confirm Automatic Database Extension is working 
+- Deploy SAP ASE 16.3 PL7 or higher
+- Update to latest version and patches of FaultManager and SAPHostAgent
+- Deploy on latest certified OS available such as Windows 2019, Suse 15.1 or Redhat 7.6 or higher
+- Use SAP Certified VMs – high memory Azure VM SKUs such as Es_v3 or for x-large systems M-Series VM SKUs are recommended
+- Match the disk IOPS and total VM aggregate throughput quota of the VM with the disk design.  Deploy sufficient number of disks
+- Aggregate disks using Windows Storage Spaces or Linux LVM2 with correct stripe size and file system
+- Create sufficient number of devices for data, log, temp, and backup purposes
+- Consider using UltraDisk for x-large systems 
+- Run `saptune` SAP-ASE on Linux OS 
+- Secure the database with DB Encryption – manually store keys in Azure Key Vault 
+- Complete the [SAP on Azure Checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist) 
+- Configure log backup and full backup 
+- Test HA/DR, backup and restore and perform stress & volume test 
+- Confirm Automatic Database Extension is working 
 
-## Using DBACockpit to monitor Database Instances
+## Using DBACockpit to monitor database instances
 For SAP systems, which are using SAP ASE as database platform, the DBACockpit is accessible as embedded browser windows in transaction DBACockpit or as Webdynpro. However, the full functionality for monitoring and administering the database is available in the Webdynpro implementation of the DBACockpit only.
 
 As with on-premises systems several steps are required to enable all SAP NetWeaver functionality used by the Webdynpro implementation of the DBACockpit. Follow [SAP support note #1245200](https://launchpad.support.sap.com/#/notes/1245200) to enable the usage of webdynpros and generate the required ones. When following the instructions in the above notes, you also configure the Internet Communication Manager (`ICM`) along with the ports to be used for http and https connections. The default setting for http looks like:
@@ -276,7 +276,7 @@ Further information about DBA Cockpit for SAP ASE can be found in the following 
 * [SAP support note #1956005](https://launchpad.support.sap.com/#/notes/1956005)
 
 
-## Useful Links, Notes & Whitepapers on SAP ASE
+## Useful links, notes & whitepapers for SAP ASE
 The starting page for [Sybase ASE 16.3 PL7 Documentation](https://help.sap.com/viewer/product/SAP_ASE/16.0.3.7/en-US) gives links to various documents of which the documents of:
 
 - SAP ASE Learning Journey - Administration & Monitoring
