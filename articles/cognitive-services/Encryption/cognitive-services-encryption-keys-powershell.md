@@ -6,7 +6,6 @@ services: cognitive-services
 author: erindormier
 
 ms.service: cognitive-services
-ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: egeaney

@@ -10,7 +10,6 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: egeaney
-ms.subservice: common
 ---
 
 # Configure customer-managed keys with Azure Key Vault by using Azure CLI
@@ -42,7 +41,7 @@ For more information about configuring system-assigned managed identities with A
 
 The key vault that you use to store customer-managed keys for Cognitive Services encryption must have two key protection settings enabled, **Soft Delete** and **Do Not Purge**. To create a new key vault using PowerShell or Azure CLI with these settings enabled, execute the following commands. Remember to replace the placeholder values in brackets with your own values.
 
-To create a new key vault using Azure CLI, call [az keyvault create](https://docs.microsoft.com/en-us/cli/azure/keyvault#az-keyvault-create). Remember to replace the placeholder values in brackets with your own values.
+To create a new key vault using Azure CLI, call [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-create). Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli-interactive
 az keyvault create \

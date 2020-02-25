@@ -26,12 +26,12 @@ A new Cognitive Services resource is always encrypted using Microsoft-managed ke
 
 To learn how to use customer-managed keys with Azure Key Vault for Cognitive Services encryption, see one of these articles:
 
-- [Configure customer-managed keys with Key Vault for Cognitive Services encryption from the Azure portal](cognitive-services-encryption-keys-portal.md)
-- [Configure customer-managed keys with Key Vault for Cognitive Services encryption from PowerShell](cognitive-services-encryption-keys-powershell.md)
-- [Configure customer-managed keys with Key Vault for Cognitive Services encryption from Azure CLI](cognitive-services-encryption-keys-cli.md)
+- [Configure customer-managed keys with Key Vault for Cognitive Services encryption from the Azure portal](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-portal.md)
+- [Configure customer-managed keys with Key Vault for Cognitive Services encryption from PowerShell](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-powershell.md)
+- [Configure customer-managed keys with Key Vault for Cognitive Services encryption from Azure CLI](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-cli.md)
 
 > [!IMPORTANT]
-> Customer-managed keys rely on managed identities for Azure resources, a feature of Azure AD. Managed identities do not currently support cross-directory scenarios. When you configure customer-managed keys in the Azure portal, a managed identity is automatically assigned under the covers. If you subsequently move the subscription, resource group, or resource from one Azure AD directory to another, the managed identity associated with the storage account is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see **Transferring a subscription between Azure AD directories** in [FAQs and known issues with managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
+> Customer-managed keys rely on managed identities for Azure resources, a feature of Azure AD. Managed identities do not currently support cross-directory scenarios. When you configure customer-managed keys in the Azure portal, a managed identity is automatically assigned under the covers. If you subsequently move the subscription, resource group, or resource from one Azure AD directory to another, the managed identity associated with the storage account is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see **Transferring a subscription between Azure AD directories** in [FAQs and known issues with managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories).  
 
 ### Store customer-managed keys in Azure Key Vault
 

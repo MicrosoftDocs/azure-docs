@@ -6,7 +6,6 @@ services: cognitive-services
 author: erindormier
 
 ms.service: cognitive-services
-ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: egeaney
@@ -27,7 +26,7 @@ To learn how to enable these properties on an existing key vault, see the sectio
 - [How to use soft-delete with PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell).
 - [How to use soft-delete with CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli).
 
-Only RSA keys of size 2048 are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
+Only RSA keys of size 2048 are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
 
 ## Enable customer-managed keys
 
@@ -49,12 +48,12 @@ To specify a key as a URI, follow these steps:
 1. To locate the key URI in the Azure portal, navigate to your key vault, and select the **Keys** setting. Select the desired key, then click the key to view its versions. Select a key version to view the settings for that version.
 1. Copy the value of the **Key Identifier** field, which provides the URI.
 
-    ![Screenshot showing key vault key URI](./media/cognitive-services-encryption-keys-portal/key-uri-portal.png)
+    ![Screenshot showing key vault key URI](../media/cognitive-services-encryption-keys-portal/key-uri-portal.png)
 
 1. In the **Encryption** settings for your storage account, choose the **Enter key URI** option.
 1. Paste the URI that you copied into the **Key URI** field.
 
-   ![Screenshot showing how to enter key URI](./media/cognitive-services-encryption-keys-portal/ssecmk2.png)
+   ![Screenshot showing how to enter key URI](../media/cognitive-services-encryption-keys-portal/ssecmk2.png)
 
 1. Specify the subscription that contains the key vault.
 1. Save your changes.
@@ -67,7 +66,7 @@ To specify a key from a key vault, first make sure that you have a key vault tha
 1. Select the key vault containing the key you want to use.
 1. Select the key from the key vault.
 
-   ![Screenshot showing customer-managed key option](./media/cognitive-services-encryption-keys-portal/ssecmk3.png)
+   ![Screenshot showing customer-managed key option](../media/cognitive-services-encryption-keys-portal/ssecmk3.png)
 
 1. Save your changes.
 
