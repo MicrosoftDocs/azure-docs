@@ -26,7 +26,7 @@ Be systematic in your approach to investigating performance issues. Two common a
 
 Some examples of common issues and indicators to diagnose them:
 - IOPS throttling: use iostat to measure per-device IOPS. Ensure no individual disk is above its limit, and the sum for all disks is less than the limit for the virtual machine.
-- Throughput throttling: use iostat as for IOPS, but measuring read/write throughput. Ensure both per-device and aggregate throughput are below their limits.
+- Bandwidth throttling: use iostat as for IOPS, but measuring read/write throughput. Ensure both per-device and aggregate throughput are below the bandwidth limits.
 - SNAT exhaustion: this can manifest as high active (outbound) connections in SAR. 
 - Packet loss: this can be measured by proxy via TCP retransmit count relative to sent/received count. Both `sar` and `netstat` can show this information.
 
@@ -162,6 +162,8 @@ On an Azure VM:
 - the sum of `rkB/s` and `wkB/s`  for an individual block device may not exceed that disk's SKU limits
 - the sum of `r/s` and `w/s` for all block devices may not exceed the limits for the VM SKU.
 - the sum of  `rkB/s` and `wkB/s for all block devices may not exceed the limits for the VM SKU.
+
+Note that the OS disk counts as as a managed disk of the the smallest SKU corresponding to its capacity. For example, a 1024GB OS Disk corresponds to a P30 disk. Ephemeral OS disks and temporary disks do not have individual disk limits; they are only limited by the full VM limits.
 
 Non-zero values of await or avgqu-sz are also good indicators of IO contention.
 
