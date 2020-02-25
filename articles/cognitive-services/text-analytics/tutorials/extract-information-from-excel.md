@@ -62,33 +62,31 @@ On the **Build a scheduled flow** page, initialize your flow with the following 
 
 ## Add variables to the flow
 
-Create variables representing the information that will be extracted from the Excel file.
-
-Click **New Step** and search for **Initialize variable**. Do this four times, to create four variables.
+Create variables representing the information that will be added to the Excel file. Click **New Step** and search for **Initialize variable**. Do this four times, to create four variables.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Initialize variables.":::
 
 Add the following information to the variables you created. They represent the columns of the Excel file. If any variables are collapsed, you can click on them to expand them.
 
+| Action |Name   | Type | Value |
+|---------|---------|---|---|
+| Initialize variable | var_person | String | Person |
+| Initialize variable 2 | var_phone | String | Phone_Number |
+| Initialize variable 3 | var_plumbing | String | plumbing |
+| Initialize variable 4 | var_other | String | other | 
+
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="information contained in the flow variables":::
 
-| Action |Name   | Type | Value |
-|---------|---------|---|---|
-| initialize variable | var_person | String | Person |
-| initialize variable 2 | var_phone | String | Phone_Number |
-| initialize variable 3 | var_plumbing | String | plumbing |
-| initialize variable 4 | var_other | String | other | 
-
 ## Read the excel file
 
-Click **New Step** and type **Excel**, then select **List rows present in a table** from Actions.
+Click **New Step** and type **Excel**, then select **List rows present in a table** from the list of actions.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="add excel rows.":::
 
-Select the options to fill in the fields as below. This requires the sample Excel file to have been uploaded to One Drive for Business.
+Add the Excel file to the flow by filling in the fields in this action. This tutorial requires the file to have been uploaded to OneDrive for Business.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="add excel rows.":::
@@ -109,11 +107,7 @@ If you haven’t already, you need to create a [Text Analytics resource](https:/
 
 ### Create a Text Analytics connection
 
-In the **Apply to each**, click **Add an action**. 
-
-
-
-Go to the Azure Portal’s Quickstart Page, and get the following information for your Text Analytics resource.
+In the **Apply to each**, click **Add an action**. Go to your Text Analytics resource's **key and endpoint** page in the Azure Portal, and get the key and endpoint for your Text Analytics resource.
 
 In your flow, enter the following information to create a new Text Analytics connection.
 
@@ -122,26 +116,25 @@ In your flow, enter the following information to create a new Text Analytics con
 
 | Field           | Value                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
-| Connection Name | enter the name of the Text Analytics Resource you created in the Azure Portal. For example, `TAforPowerAutomate`. |
-| Account key     | Copy the value from Key1 field.                                                                                   |
-| Site URL        | copy the value from Endpoint field.                                                                               |
+| Connection Name | A name for the connection to your Text Analytics resource. For example, `TAforPowerAutomate`. |
+| Account key     | The key for your Text Analytics resource. field.                                                                                   |
+| Site URL        | The endpoint for your Text Analytics resource.                                                       |
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Add Text Analytics credentials to your flow.":::
 
 ## Extract the excel content 
 
-After the connection is created, select Entities. We will now extract information from the Description of the issue.
+After the connection is created, search for **Text Analytics** and select **Entities**. This will extract information from the description column of the issue.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-Click in the Text field and select Description from Dynamic content on the right.
+Click in the **Text** field and select **Description** from the Dynamic content windows that appears. Enter `en` for Language. (Click Show advanced options if you don’t see Language)
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-Enter `en` for Language. (Click Show advanced options if you don’t see Language)
 
 ## Extract the person name
 
@@ -165,12 +158,12 @@ Make sure the second box says **is equal to**. Then select the third box, and se
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-In the **If yes** condition,  type in Excel then select Update a Row.
+In the **If yes** condition, type in Excel then select **Update a Row**.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/action-in-yes-column.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-Enter the Excel info. Note the Key Column, Key Value and Person Name fields.
+Enter the Excel info, and Update the **Key Column**, **Key Value** and **Person Name** fields.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/action-in-yes-column-options.png" alt-text="Add Text Analytics credentials to your flow.":::
@@ -201,7 +194,7 @@ Minimize **Apply to each 3** by clicking on the name. Then create another **Appl
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/apply-to-each-4-action.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-Next, we are going to check if the Issue Description from the Excel table row contains the word “plumbing”. If yes, we will enter “plumbing” in the IssueType column. If not, we will enter “other.”
+Next, the flow will check if the issue description from the Excel table row contains the word “plumbing”. If yes, it will add “plumbing” in the IssueType column. If not, we will enter “other.”
 
 Inside the **Apply to each 4** action, add a **Condition** Control. It will be named **Condition 3**. In the first text box, search for, and add **Description** from the Excel file, using the **Dynamic content** window. Be sure the center box says **contains**. Then, in the right text box, enter **var_plumbing**. 
 
