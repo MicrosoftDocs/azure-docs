@@ -34,7 +34,7 @@ All responses contain these headers:
 The conversion service provides three REST API endpoints to:
 
 - start model conversion using a storage account linked with your Azure Remote Rendering account. 
-- start model conversion using provided shared access *Shared Access Signatures (SAS)*.
+- start model conversion using provided *Shared Access Signatures (SAS)*.
 - query the conversion status
 
 ### Start conversion using a linked storage account
