@@ -23,15 +23,13 @@ In clusters enabled for managed identity, the Service Fabric runtime exposes a l
 Specifically, the environment of a managed-identity-enabled Service Fabric service will be seeded with the following variables:
 - 'IDENTITY_ENDPOINT': the localhost endpoint corresponding to service's managed identity
 - 'IDENTITY_HEADER': an unique authentication code representing the service on the current node
-- 'IDENTITY_THUMBPRINT' : Thumbprint of service fabric managed identity server
-> [!NOTE]
-> The names 'MSI_ENDPOINT' and 'MSI_SECRET' refer to the previous designation of managed identities ("Managed Service Identity"), and which is now deprecated. 'IDENTITY_ENDPOINT' and 'IDENTITY_HEADER' are the new respective variables. The names are consistent with the equivalent environment variable names used by other Azure services which support managed identities.
+- 'IDENTITY_SERVER_THUMBPRINT' : Thumbprint of service fabric managed identity server
 
 > [!IMPORTANT]
 > The application code should consider the value of the 'IDENTITY_HEADER' environment variable as sensitive data - it should not be logged or otherwise disseminated. The authentication code has no value outside of the local node, or after the process hosting the service has terminated, but it does represent the identity of the Service Fabric service, and so should be treated with the same precautions as the access token itself.
 
 To obtain a token, the client performs the following steps:
-- forms a URI by concatenating the managed identity endpoint (MSI_ENDPOINT value) with the API version and the resource (audience) required for the token
+- forms a URI by concatenating the managed identity endpoint (IDENTITY_ENDPOINT value) with the API version and the resource (audience) required for the token
 - creates a GET http(s) request for the specified URI
 - adds appropriate server certificate validation logic
 - adds the authentication code (IDENTITY_HEADER value) as a header to the request
@@ -51,10 +49,10 @@ where:
 | Element | Description |
 | ------- | ----------- |
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
-| `https://localhost:2377/metadata/identity/oauth2/token` | The managed identity endpoint for Service Fabric applications, provided via the MSI_ENDPOINT environment variable. |
+| `https://localhost:2377/metadata/identity/oauth2/token` | The managed identity endpoint for Service Fabric applications, provided via the IDENTITY_ENDPOINT environment variable. |
 | `api-version` | A query string parameter, specifying the API version of the Managed Identity Token Service; currently the only accepted value is `2019-07-01-preview`, and is subject to change. |
 | `resource` | A query string parameter, indicating the App ID URI of the target resource. This will be reflected as the `aud` (audience) claim of the issued token. This example requests a token to access Azure Key Vault, whose an App ID URI is https:\//keyvault.azure.com/. |
-| `Secret` | An HTTP request header field, required by the Service Fabric Managed Identity Token Service for Service Fabric services to authenticate the caller. This value is provided by the SF runtime via MSI_SECRET environment variable. |
+| `Secret` | An HTTP request header field, required by the Service Fabric Managed Identity Token Service for Service Fabric services to authenticate the caller. This value is provided by the SF runtime via IDENTITY_HEADER environment variable. |
 
 
 Sample response:
@@ -124,7 +122,7 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
         {
             var managedIdentityEndpoint = Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT");
             var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("IDENTITY_HEADER");
-            var managedIdentityServerThumbprint = Environment.GetEnvironmentVariable("IDENTITY_THUMBPRINT");
+            var managedIdentityServerThumbprint = Environment.GetEnvironmentVariable("IDENTITY_SERVER_THUMBPRINT");
             // Latest api version, 2019-07-01-preview is still supported.
             var managedIdentityApiVersion = Environment.GetEnvironmentVariable("IDENTITY_API_VERSION");
             var managedIdentityAuthenticationHeader = "secret";
@@ -136,14 +134,14 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
             requestMessage.Headers.Add(managedIdentityAuthenticationHeader, managedIdentityAuthenticationCode);
             
             var handler = new HttpClientHandler();
-            string thumbprint = Environment.GetEnvironmentVariable("IDENTITY_SERVER_THUMBPRINT");
             handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) =>
             {
+                // Do any addtional validation here
                 if (policyErrors == SslPolicyErrors.None)
                 {
                     return true;
                 }
-                return 0 == string.Compare(cert.GetCertHashString(), thumbprint, StringComparison.OrdinalIgnoreCase);
+                return 0 == string.Compare(cert.GetCertHashString(), managedIdentityServerThumbprint, StringComparison.OrdinalIgnoreCase);
             };
 
             try
