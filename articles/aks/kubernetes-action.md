@@ -3,8 +3,6 @@ title: Build, test, and deploy containers to Azure Kubernetes Service using GitH
 description:  Learn how to use GitHub Actions to deploy your container to Kubernetes
 services: container-service
 author: azooinmyluggage
-
-ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal

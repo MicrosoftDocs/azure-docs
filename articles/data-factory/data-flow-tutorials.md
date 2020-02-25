@@ -10,7 +10,7 @@ ms.date: 02/16/2020
 
 # Mapping data flow video tutorials
 
-Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team.
+Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team. 
 
 As updates are constantly made to the product, some features have added or different functionality in the current Azure Data Factory user experience.
 
@@ -27,6 +27,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Data preview quick actions](https://www.youtube.com/watch?v=CP0TnNmaLA0)
 
 [Monitor and manage mapping data flow performance](https://www.youtube.com/watch?v=fktIWdJiqTk)
+
+[Benchmark timings](http://youtu.be/6CSbWm4lRhw?hd=1)
 
 ## Transformation overviews
 

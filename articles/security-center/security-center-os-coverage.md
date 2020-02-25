@@ -121,5 +121,3 @@ Protection for Virtual Machines residing in Azure Stack is also supported. For m
 - Learn how to [plan and understand the design considerations to adopt Azure Security Center](security-center-planning-and-operations-guide.md).
 - Learn about [features available for the different cloud environments](security-center-services.md).
 - Learn more about [threat detection for VMs & servers in Azure Security Center](security-center-alerts-iaas.md).
-- Find [frequently asked questions about using Azure Security Center](security-center-faq.md).
-- Find [blog posts about Azure security and compliance](https://blogs.msdn.com/b/azuresecurity/).
