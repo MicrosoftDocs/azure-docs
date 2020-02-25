@@ -177,4 +177,4 @@ To learn about how to use Azure Pipelines for both Build and Release steps, refe
 To learn about how to author a YAML based CI/CD pipeline to deploy to VMs, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [CI/CD using Azure Pipelines](tutorial-build-deploy-azure-pipelines.md)
+> [Jenkins on Azure](/azure/Jenkins/)
