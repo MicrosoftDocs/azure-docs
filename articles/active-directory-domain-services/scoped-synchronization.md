@@ -217,7 +217,7 @@ When the Azure portal shows that the Azure AD DS managed domain has finished pro
     * To create the network security group and required rules, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically create and configure the network security group.
 * [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 
-## Modify scoped synchronization using Powershell
+## Modify scoped synchronization using PowerShell
 
 To modify the list of groups whose users should be synchronized to the Azure AD DS managed domain, re-run the [PowerShell script](#powershell-script-for-scoped-synchronization) and specify the new list of groups. In the following example, the groups to synchronize no longer includes *GroupName2*, and now includes *GroupName3*.
 
