@@ -1,6 +1,6 @@
 ---
 title: Threat protection in Azure Security Center
-description: This topic outlines the resources protected by Azure Security Center's threat protection features
+description: This topic describes the resources protected by Azure Security Center's threat protection features
 services: security-center
 documentationcenter: na
 author: memildin
