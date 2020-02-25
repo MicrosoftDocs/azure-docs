@@ -37,7 +37,7 @@ You need the following Azure AD B2C resources in place before continuing with th
 
 Additionally, you need the following in your local development environment:
 
-* Code editor, for example [Visual Studio Code](https://code.visualstudio.com/)
+* A code editor, for example [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/en/download/)
 
 ## Update the application
@@ -84,13 +84,13 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 Now that you've obtained the sample, update the code with your Azure AD B2C tenant name and the application ID you recorded in an earlier step.
 
 1. Open the `authConfig.js` file inside the `JavaScriptSPA` folder.
-1. In the `msalConfig` object, modify the **clientId** value with the Application ID you recorded in an earlier step. Next, update the **authority** URI value with your Azure AD B2C tenant name. Also update the URI with the name of the sign-up/sign-in user flow you created in one of the prerequisites (for example, *b2c_1_susi*).
+1. In the `msalConfig` object, modify the **clientId** value with the Application ID you recorded in an earlier step. Next, update the **authority** URI value with your Azure AD B2C tenant name. Also update the URI with the name of the sign-up/sign-in user flow you created in one of the prerequisites (for example, *B2C_1_signupsignin1*).
 
     ```javascript
     const msalConfig = {
         auth: {
-            clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902", //This is your client ID
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi", //This is your tenant info
+            clientId: "00000000-0000-0000-0000-000000000000", //This is your client ID
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/B2C_1_signupsignin1", //This is your tenant info
             validateAuthority: false
         },
         cache: {
@@ -101,7 +101,7 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
 
     ```
 
-    The name of the user flow used in this tutorial is **b2c_1_susi**. If you're using a different user flow name, specify that name in the `authority` value.
+    The name of the user flow used in this tutorial is **B2C_1_signupsignin1**. If you're using a different user flow name, specify that name in the `authority` value.
 
 ## Run the sample
 
@@ -129,7 +129,7 @@ The sample supports sign-up, sign-in and password reset. This tutorial highlight
 
 ### Sign up using an email address
 
-1. Select **Login** to initiate the *b2c_1_susi* user flow you specified in an earlier step.
+1. Select **Login** to initiate the *B2C_1_signupsignin1* user flow you specified in an earlier step.
 1. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't yet have an account, select the **Sign up now** link.
 1. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the user flow.
 
