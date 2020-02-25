@@ -4,7 +4,7 @@ description: Perform Operating system upgrade for SAP HANA on Azure (Large Insta
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor:
 
 ms.service: virtual-machines-linux

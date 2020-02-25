@@ -3,8 +3,8 @@ title: Know the terms of SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Know the terms of SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 
 ms.service: virtual-machines-linux
