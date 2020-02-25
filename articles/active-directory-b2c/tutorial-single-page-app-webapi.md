@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 ## Configure scopes
 
-Scopes provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, some users could have both read and write access, whereas other users might have read-only permissions. In this tutorial, you define a read permission for the web API.
+Scopes provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, some users could have both read and write access, whereas other users might have read-only permissions. In this tutorial, you define both read and write permissions for the web API.
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
@@ -73,12 +73,12 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
     var clientID = "93733604-cc77-4a3c-a604-87084dd55348"; 
     var b2cDomainHost = "fabrikamb2c.b2clogin.com";
     var tenantIdGuid = "775527ff-9a37-4307-8b3d-cc311f58d925";
-    var policyName = "B2C_1_SUSI";
+    var policyName = "B2C_1_signupsignin1";
     ```
 
 #### Enable CORS
 
-To allow your single-page application to call the Node.js web API, you need to enable [CORS](https://expressjs.com/en/resources/middleware/cors.html) in the web API. To do so, use following middleware:
+To allow your single-page application to call the Node.js web API, you need to enable [CORS](https://expressjs.com/en/resources/middleware/cors.html) in the web API. In a real application you should be careful about which domain is making the request, but for this example we will allow requests coming from any domain. To do so, use the following middleware:
 
     ```javascript
      app.use(function (req, res, next) {
