@@ -71,7 +71,7 @@ Cloud Shell machines exist in the following regions:
 Customers should choose a primary region, unless they have a requirement that their data at rest be stored in a particular region. If they have such a requirement, a secondary storage region should be used.
 
 ### Secondary storage regions
-If a secondary storage region is used, the associated Azure storage account resides in a different region as the Cloud Shell machine that you're mounting them to.For example, Jane can set her storage account to be located in Canada East, a secondary region, but the machine she is mounted to is still located in a primary region.Her data at rest is located in Canada, but it is processed in the United States.
+If a secondary storage region is used, the associated Azure storage account resides in a different region as the Cloud Shell machine that you're mounting them to. For example, Jane can set her storage account to be located in Canada East, a secondary region, but the machine she is mounted to is still located in a primary region. Her data at rest is located in Canada, but it is processed in the United States.
 
 > [!NOTE]
 > If a secondary region is used, file access and startup time for Cloud Shell may be slower.
