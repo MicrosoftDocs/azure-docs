@@ -23,7 +23,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 ## Hosting recommendations
 
-1.  ** Use Windows 64-bit instead of Linux or Windows 32 host processing for query intensive workloads  **
+1.  ** For query intensive workloads use Windows 64-bit instead of Linux or Windows 32 host processing **
 
     Windows 64-bit host processing is recommended for improved performance. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally, and is only supported on the Windows x64 platform. For linux and other unsupported platforms where the ServiceInterop.dll is not available it will do an additional network call to the gateway to get the optimized query. The following types of applications have 32-bit host process as the default, so in order to change that to 64-bit, follow these steps based on the type of your application:
 
