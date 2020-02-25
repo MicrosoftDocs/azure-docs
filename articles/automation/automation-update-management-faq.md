@@ -46,3 +46,11 @@ $sched = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAcc
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName <automationAccountName> -Schedule $sched -Windows -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+## Next steps
+
+If your question isn't answered here, you can refer to the following forum for additional questions and answers.
+
+- [Azure Automation](https://social.msdn.microsoft.com/Forums/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)
+
+For general feedback about the Update Management solution, please visit the [feedback forum](https://feedback.azure.com/forums/905242-update-management).
