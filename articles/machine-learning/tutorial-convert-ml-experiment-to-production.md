@@ -364,7 +364,7 @@ class TestTrain:
                      "test": {"X": [[4, 5, 6]], "y": [0]}}
         test_alpha = 0.5
         mock_ridge_fit = mocker.patch('Ridge.fit')
-        mock_ridge_predict = mocker.patch(Ridge.predict')
+        mock_ridge_predict = mocker.patch('Ridge.predict')
 
         # Act
         train_model(test_data, test_alpha)
@@ -405,4 +405,4 @@ Now that you understand how to convert from an experiment to production code, us
 
 > [!div class="nextstepaction"]
 > [Monitor Azure ML experiment runs and metrics](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-> [Monitor and collect data from ML web service endpoints](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insight)
+> [Monitor and collect data from ML web service endpoints](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)

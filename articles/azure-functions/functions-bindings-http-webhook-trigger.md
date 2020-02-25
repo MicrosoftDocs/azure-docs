@@ -485,11 +485,11 @@ The following table explains the binding configuration properties that you set i
 | **route** | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Supported only for the version 1.x runtime._<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. Don't set the `methods` property if you set this property. The webhook type can be one of the following values:<ul><li><code>genericJson</code>&mdash;A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.</li><li><code>github</code>&mdash;The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Do not use the  _authLevel_ property with GitHub webhooks. For more information, see the GitHub webhooks section later in this article.</li><li><code>slack</code>&mdash;The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Do not use the _authLevel_ property with Slack webhooks. For more information, see the Slack webhooks section later in this article.</li></ul>|
 
-## Usage
+## Payload
 
 The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
 
-### Customize the HTTP endpoint
+## Customize the HTTP endpoint
 
 By default when you create a function for an HTTP trigger, the function is addressable with a route of the form:
 
@@ -640,7 +640,7 @@ By default, all function routes are prefixed with *api*. You can also customize 
 }
 ```
 
-### Using route parameters
+## Using route parameters
 
 Route parameters that defined a function's `route` pattern are available to each binding. For example, if you have a route defined as `"route": "products/{id}"` then a table storage binding can use the value of the `{id}` parameter in the binding configuration.
 
@@ -657,7 +657,7 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 }
 ```
 
-### Working with client identities
+## Working with client identities
 
 If your function app is using [App Service Authentication / Authorization](../app-service/overview-authentication-authorization.md), you can view information about authenticated clients from your code. This information is available as [request headers injected by the platform](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
@@ -743,7 +743,7 @@ The authenticated user is available via [HTTP Headers](../app-service/app-servic
 
 ---
 
-### Authorization keys
+## Authorization keys
 
 Functions lets you use keys to make it harder to access your HTTP function endpoints during development.  A standard HTTP trigger may require such an API key be present in the request. 
 
@@ -765,7 +765,7 @@ Each function app also has a special **master key**. This key is a host key name
 > [!CAUTION]  
 > Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in native client applications. Use caution when choosing the admin authorization level.
 
-### Obtaining keys
+## Obtaining keys
 
 Keys are stored as part of your function app in Azure and are encrypted at rest. To view your keys, create new ones, or roll keys to new values, navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Manage**.
 
@@ -773,7 +773,7 @@ Keys are stored as part of your function app in Azure and are encrypted at rest.
 
 You may obtain function keys programmatically by using [Key management APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
-### API key authorization
+## API key authorization
 
 Most HTTP trigger templates require an API key in the request. So your HTTP request normally looks like the following URL:
 
@@ -787,7 +787,7 @@ You can allow anonymous requests, which do not require keys. You can also requir
 > When running functions locally, authorization is disabled regardless of the specified authorization level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced. Keys are still required when running [locally in a container](functions-create-function-linux-custom-image.md#build-the-container-image-and-test-locally).
 
 
-### Secure an HTTP endpoint in production
+## Secure an HTTP endpoint in production
 
 To fully secure your function endpoints in production, you should consider implementing one of the following function app-level security options:
 
@@ -799,24 +799,24 @@ To fully secure your function endpoints in production, you should consider imple
 
 When using one of these function app-level security methods, you should set the HTTP-triggered function authorization level to `anonymous`.
 
-### Webhooks
+## Webhooks
 
 > [!NOTE]
 > Webhook mode is only available for version 1.x of the Functions runtime. This change was made to improve the performance of HTTP triggers in version 2.x and higher.
 
 In version 1.x, webhook templates provide additional validation for webhook payloads. In version 2.x and higher, the base HTTP trigger still works and is the recommended approach for webhooks. 
 
-#### GitHub webhooks
+### GitHub webhooks
 
 To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the **webHookType** property to `github`. Then copy its URL and API key into the **Add webhook** page of your GitHub repository. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
-#### Slack webhooks
+### Slack webhooks
 
 The Slack webhook generates a token for you instead of letting you specify it, so you must configure a function-specific key with the token from Slack. See [Authorization keys](#authorization-keys).
 
-### Webhooks and keys
+## Webhooks and keys
 
 Webhook authorization is handled by the webhook receiver component, part of the HTTP trigger, and the mechanism varies based on the webhook type. Each mechanism does rely on a key. By default, the function key named "default" is used. To use a different key, configure the webhook provider to send the key name with the request in one of the following ways:
 

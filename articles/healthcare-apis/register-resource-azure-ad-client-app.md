@@ -16,6 +16,19 @@ In this article, you'll learn how to register a resource (or API) application in
 
 If you are using the Azure API for FHIR, a resource application is automatically created when you deploy the service. As long as you are using the Azure API for FHIR in the same Azure Active Directory tenant as you are deploying your application, you can skip this how-to-guide and instead deploy your Azure API for FHIR to get started.
 
+If you are using a different Azure Active Directory tenant (not associated with your subscription), you can import the Azure API for FHIR resource application into your tenant with 
+PowerShell:
+
+```azurepowershell-interactive
+New-AzADServicePrincipal -ApplicationId 4f6778d8-5aef-43dc-a1ff-b073724b9495
+```
+
+or you can use Azure CLI:
+
+```azurecli-interactive
+az ad sp create --id 4f6778d8-5aef-43dc-a1ff-b073724b9495
+```
+
 ## App registrations in Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.

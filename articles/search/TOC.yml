@@ -109,6 +109,8 @@
       href: search-capacity-planning.md
     - name: Scale for performance
       href: search-performance-optimization.md
+    - name: Move service across regions
+      href: search-howto-move-across-regions.md
     - name: Multitenant architecture
       href: search-modeling-multitenant-saas-applications.md
   - name: Security
@@ -323,10 +325,12 @@
     items:
     - name: Fundamentals
       href: search-monitor-usage.md
-    - name: Monitor query activity
-      href: search-monitor-queries.md 
     - name: Diagnostic logging
-      href: search-monitor-logs.md   
+      href: search-monitor-logs.md
+    - name: Visualize diagnostic logs
+      href: search-monitor-logs-powerbi.md
+    - name: Monitor query activity
+      href: search-monitor-queries.md
     - name: Search traffic analytics
       href: search-traffic-analytics.md
   - name: Troubleshoot

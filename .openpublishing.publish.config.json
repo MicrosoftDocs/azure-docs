@@ -420,6 +420,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-cosmosdb-graph-dotnet",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started",
+      "branch": "master"
+    },
+    {
       "path_to_root": "azure-cosmosdb-java-v4-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-getting-started",
       "branch": "master"

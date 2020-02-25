@@ -170,7 +170,7 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You add one or more messages to the collection. These messages are sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output) documentation.
+To learn more, see the [Queue storage output binding](functions-bindings-storage-queue-output.md) documentation.
 
 # [JavaScript](#tab/nodejs)
 
@@ -208,7 +208,7 @@ In your function code, the `msg` binding is accessed from the `context`, as in t
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output) reference.
+To learn more, see the [Queue storage output binding](functions-bindings-storage-queue-output.md) reference.
 
 ---
 
