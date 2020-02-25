@@ -29026,6 +29026,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-faq.md",
+      "redirect_url": "/azure/security-center/faq-general",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-playbooks.md",
       "redirect_url": "/azure/security-center/workflow-automation",
       "redirect_document_id": false

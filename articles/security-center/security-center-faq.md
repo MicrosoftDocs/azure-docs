@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center frequently asked questions (FAQ) | Microsoft Docs
+title: Azure Security Center frequently asked questions (FAQ)
 description: This FAQ answers questions about Azure Security Center, a product that helps you prevent, detect, and respond to threats.
 services: security-center
 documentationcenter: na
@@ -11,10 +11,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 02/25/2020
 ms.author: memildin
-
+ROBOTS: NOINDEX
 ---
+
 # Azure Security Center frequently asked questions (FAQ)
 This FAQ answers questions about Azure Security Center, a service that helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Microsoft Azure resources.
 
