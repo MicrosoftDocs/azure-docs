@@ -1,19 +1,17 @@
 ---
-title: Quickstart - Manual Installation
-description: Use this quickstart to learn about installing CycleCloud manually. 
-author: KimliW
-ms.date: 08/01/2018
+title: CycleCloud Manual Installation
+description: Instructions on installing CycleCloud manually. 
+author: adriankjohnson
+ms.date: 02/20/2020
 ms.author: adjohnso
 ---
 
-TODO: convert this into a quickstart that well documented steps that a user can follow.
-
 # Manual Installation
 
-Azure CycleCloud can be installed using an [ARM template](quickstart-install-cyclecloud.md), via [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud-vm?tab=Overview) or using a container in the [Azure Container Registry](https://hub.docker.com/r/microsoft/azure-cyclecloud/). For production instances of CycleCloud, we recommend installing the product manually as outlined below.
+Azure CycleCloud can be installed using an [ARM template](~/how-to/install-arm.md), via [Azure Marketplace](~/qs-install-marketplace.md) or using a container in the [Azure Container Registry](~/how-to/run-in-container.md). We recommend installing using the Azure Marketplace image, but for some production situations it may be useful to manually install CycleCloud as outlined below.
 
 > [!NOTE]
-> The CycleCloud product encompasses many pieces, including a command line transfer tool called [pogo](pogo-overview.md), node configuration software known as [Jetpack](jetpack.md), and a installable webserver platform called CycleServer. Because of this, you will find CycleServer referenced in many commands and directory names on the machine where the CycleCloud server is installed.
+> The CycleCloud product encompasses many pieces, including node configuration software known as [Jetpack](~/jetpack.md), and a installable webserver platform called CycleServer. Because of this, you will find CycleServer referenced in many commands and directory names on the machine where the CycleCloud server is installed.
 
 ## System Requirements
 
@@ -41,29 +39,29 @@ The default SSH key used in CycleCloud is */opt/cycle_server/.ssh/cyclecloud.pem
 First, install `wget` if its not already installed. This will be used to fetch the Microsoft signing key.
 
 ```CMD
-$ sudo apt update && sudo apt -y install wget
+sudo apt update && sudo apt -y install wget
 ```
 
 Next, download the Microsoft signing key to Apt's trusted keyring
 
 ```CMD
-$ sudo wget -O /etc/apt/trusted.gpg.d/microsoft.asc https://packages.microsoft.com/keys/microsoft.asc
+sudo wget -O /etc/apt/trusted.gpg.d/microsoft.asc https://packages.microsoft.com/keys/microsoft.asc
 ```
 
-Finally, configure a `cyclecloud.list` file, update the Apt cache, and install cyclecloud.
+Finally, configure a _cyclecloud.list_ file, update the Apt cache, and install CycleCloud.
 
 ```CMD
-$ sudo echo "'deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list"
-$ sudo apt update
-$ sudo apt -y install cyclecloud
+sudo echo "'deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list"
+sudo apt update
+sudo apt -y install cyclecloud
 ```
 
 > [!NOTE]
-> Although the Apt repository is published for the `bionic` release of Ubuntu, CycleCloud is officially supported on all Ubuntu LTS releases under support by Canonical.
+> Although the Apt repository is published for the "bionic" release of Ubuntu, CycleCloud is officially supported on all Ubuntu LTS releases under support by Canonical.
 
 ### Installing on Enterprise Linux (RHEL) clones
 
-First, configure a `cyclecloud.repo` file.
+First, configure a _cyclecloud.repo_ file.
 
 ```CMD
 $ sudo cat > /etc/yum.repos.d/cyclecloud.repo <<EOF
@@ -78,7 +76,7 @@ EOF
 Finally, install cyclecloud with `yum` or `dnf`.
 
 ```CMD
-$ sudo yum -y install cyclecloud
+sudo yum -y install cyclecloud
 ```
 
 ### Installing from the Microsoft Download center
@@ -98,7 +96,7 @@ dpkg -i <filename.deb>
 ```
 
 > [!NOTE]
->You must have write permission to the _/opt_ directory. The CycleCloud installer will create a `cycle_server` user and unix group, install into the */opt/cycle_server* directory by default, and assign `cycle_server:cycle_server` ownership to the directory.
+>You must have write permission to the _/opt_ directory. The CycleCloud installer will create a `cycle_server` user and unix group, install into the _/opt/cycle_server_ directory by default, and assign `cycle_server:cycle_server` ownership to the directory.
 
 Once the installer has finished running, you will be provided a link to complete the installation from your browser. Copy the link provided into your web browser and follow the configuration steps.
 
@@ -106,11 +104,11 @@ Once the installer has finished running, you will be provided a link to complete
 
 The default installation of CycleCloud uses non-encrypted HTTP running on port 8080. We strongly recommend [configuring SSL](ssl-configuration.md) for all installations.
 
-Do not install CycleCloud on a shared drive, or any drive in which non-admin users have access. Anyone with access to the CycleCloud group will gain access to unencrypted data. We recommend that non-admin users not be added to this group.
+Do not install CycleCloud on a shared drive, or any drive in which non-admin users have access. Anyone with access to the CycleCloud group will gain access to nonencrypted data. We recommend that non-admin users not be added to this group.
 
 ## Configuration
 
-After CycleCloud is installed, it is configured through your web browser. The login screen will load after the webserver has fully initialized, which can take several minutes.
+Once installed, you can configure CycleCloud through your web browser. The login screen will load after the webserver has fully initialized, which can take several minutes.
 
 ### Step 1: Welcome
 
@@ -139,9 +137,8 @@ You will now set up the local administrator account for CycleCloud. This account
 
 ### Step 4: Set Your SSH Key
 
-Once you have set up your administrator account, you can set your SSH public key so that you can easily access any Linux machines started by CycleCloud. To set your SSH public key, go to "My Profile" under the user menu in the top right and choose "Edit Profile". [Learn about creating SSH keys here.](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-
+Once you have set up your administrator account, you can set your SSH public key so that you can easily access any Linux machines started by CycleCloud. To set your SSH public key, go to **My Profile** under the user menu in the top right and choose **Edit Profile**. [Learn about creating SSH keys here.](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
 
 ## Update CycleCloud
 
-See the [Update Azure CycleCloud](~/cyclecloud-references/upgrade-and-migrate.md) page.
+See the [Update Azure CycleCloud](~/how-to/upgrade-and-migrate.md) page.

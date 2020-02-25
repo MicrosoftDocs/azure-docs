@@ -8,8 +8,6 @@
   items:
   - name: Install - via Marketplace
     href: qs-install-marketplace.md
-  - name: Install - manually
-    href: qs-install-manual.md
 - name: Tutorials
   items:
   - name: 1. Create a Cluster
@@ -51,7 +49,7 @@
   - name: CycleCloud
     items:
     - name: Manually Install Application
-      href: ./how-to/installation.md
+      href: ./how-to/install-manual.md
     - name: Install Azure CycleCloud CLI
       href: ./how-to/install-cyclecloud-cli.md
     - name: Run in a Container Instance
