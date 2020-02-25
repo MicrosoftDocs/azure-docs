@@ -23,7 +23,7 @@ This article covers configuration migration. Adding VMs to backend pools may var
 
 An Azure PowerShell script is available that does the following:
 
-* Creates a Standard Internal SKU Load Balancer in the location the you specify. Note that no [outbound connection](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections) will not be provided by the Standard Internal Load Balancer.
+* Creates a Standard Internal SKU Load Balancer in the location the you specify. Note that no [outbound connection](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) will not be provided by the Standard Internal Load Balancer.
 * Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly create Standard Load Balancer.
 
 ### Caveats\Limitations
