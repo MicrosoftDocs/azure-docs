@@ -300,6 +300,8 @@
     items:
     - name: Publish an asset - CLI
       href: cli-publish-asset.md
+    - name: Download results
+      href: download-results-howto.md
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
 - name: Reference
