@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 02/25/2020
 ms.author: areddish
 ---
 
@@ -90,9 +90,10 @@ The prediction endpoint, represented by the `predictor` object here, is the refe
 
 ## Run the application
 
-To compile and run the solution using maven, run the following command in the project directory in PowerShell:
+To compile and run the solution using maven, navigate to the project directory and in PowerShell and execute the run command:
 
 ```powershell
+cd Vision/CustomVision
 mvn compile exec:java
 ```
 
