@@ -44,6 +44,7 @@ Open the *program.cs* file and add the following `using` directives:
 
 ```csharp
 using System;
+using System.Globalization;
 using Azure.AI.TextAnalytics;
 ```
 
@@ -148,7 +149,7 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
     DocumentSentiment documentSentiment = client.AnalyzeSentiment(inputText);
     Console.WriteLine($"Document sentiment: {documentSentiment.Sentiment}\n");
 
-    var si = new System.Globalization.StringInfo(inputText);
+    var si = new StringInfo(inputText);
     foreach (var sentence in documentSentiment.Sentences)
     {
         Console.WriteLine($"\tSentence [offset {sentence.Offset}, length {sentence.Length}]");
