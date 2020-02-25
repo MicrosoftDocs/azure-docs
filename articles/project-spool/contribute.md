@@ -9,6 +9,21 @@ If you have any questions or feedback along the way, feel free to ping/email any
 *Note: I'm a new content developer, so we'll be learning the Azure docs contribution process together.  I've copied the documentation structure of the Spatial Anchors service to get started; we'll use that as scaffolding for our content set.*
 
 
+## The Happy Path
+
+The simple way to contribute changes to our docs is to visit our staging site and click "edit":
+
+![Edit File](./media/edit-click.png)
+
+Once you're brought to the file on GitHub, click the edit icon:
+
+![Edit File](./media/edit-file.png)
+
+Once you've made your changes, click Commit with the "direct" option selected:
+
+![Commit Changes](./media/commit-changes.png)
+
+
 ## Our Azure Docs Contribution Process
 
 ![Cross Platform](./media/pr-process.png)
