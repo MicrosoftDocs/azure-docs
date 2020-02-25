@@ -456,7 +456,7 @@ identity | Managed identities for Azure resources. See [acquire an access token]
 instance | See [Instance API](#instance-api) | 2017-04-02
 scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
 
-#### Instance API
+### Instance API
 
 The following Compute categories are available through the Instance API:
 
@@ -569,7 +569,6 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 
 The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 
-
 ## Example scenarios for usage  
 
 ### Tracking VM running on Azure
@@ -588,7 +587,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### Placement of containers, data-partitions based fault/update domain 
+### Placement of containers, data-partitions based fault/update domain
 
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
 or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) may you require to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
@@ -835,7 +834,7 @@ sku | Specific SKU for the VM image, introduced in `2019-11-01`
 Once you get the signature above, you can verify that the signature is from Microsoft. Also you can verify the intermediate certificate and the certificate chain. Lastly, you can verify the subscription ID is correct.
 
 > [!NOTE]
-> The certificate for Public cloud and sovereign cloud will be different. We have a known issue around the certificate used for signing and can be any certificates in the subdomain of `metadata.azure.com`. Hence the validation should allow a common name from any `.metadata.azure.com`subdomain, or just `metadata.azure.com` for public cloud.
+> The certificate for Public cloud and sovereign cloud will be different.
 
  Cloud | Certificate
 ---------|-----------------
@@ -843,6 +842,8 @@ Once you get the signature above, you can verify that the signature is from Micr
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
+
+There is a known issue around the certificate used for signing. The certificates may not have an exact match of `metadata.azure.com` for public cloud. Hence the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
 
 ```bash
 

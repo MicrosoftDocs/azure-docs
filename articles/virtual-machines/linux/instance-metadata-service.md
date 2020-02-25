@@ -456,7 +456,7 @@ identity | Managed identities for Azure resources. See [acquire an access token]
 instance | See [Instance API](#instance-api) | 2017-04-02
 scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
 
-#### Instance API
+### Instance API
 
 The following Compute categories are available through the Instance API:
 
@@ -568,7 +568,6 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 ```
 
 The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
-
 
 ## Example scenarios for usage  
 
@@ -717,9 +716,11 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 ```
 
 **Response**
+
 ```bash
 AzurePublicCloud
 ```
+
 The cloud and the values of the Azure Environment are listed below.
 
  Cloud   | Azure Environment
@@ -834,7 +835,7 @@ sku | Specific SKU for the VM image, introduced in `2019-11-01`
 Once you get the signature above, you can verify that the signature is from Microsoft. Also you can verify the intermediate certificate and the certificate chain. Lastly, you can verify the subscription ID is correct.
 
 > [!NOTE]
-> The certificate for Public cloud and sovereign cloud will be different. We have a known issue around the certificate used for signing and can be any certificates in the subdomain of `metadata.azure.com`. Hence the validation should allow a common name from any `.metadata.azure.com`subdomain, or just `metadata.azure.com` for public cloud.
+> The certificate for Public cloud and sovereign cloud will be different.
 
  Cloud | Certificate
 ---------|-----------------
@@ -842,6 +843,8 @@ Once you get the signature above, you can verify that the signature is from Micr
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
+
+There is a known issue around the certificate used for signing. The certificates may not have an exact match of `metadata.azure.com` for public cloud. Hence the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
 
 ```bash
 
@@ -871,7 +874,7 @@ For certain scenarios, when querying Instance Metadata Service with Failover Clu
 route print
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > The following example output from a Windows Server VM with Failover Cluster enabled contains only the IPv4 Route Table for simplicity.
 
 ```bat
