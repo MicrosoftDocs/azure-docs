@@ -25,6 +25,8 @@ Review the [Known Issues](#known-issues) section of this article for information
 
 ### Blob features
 
+<hr></hr>
+
 :::row:::
    :::column span="":::
       **Blob feature**
@@ -39,9 +41,6 @@ Review the [Known Issues](#known-issues) section of this article for information
       **Support level**
    :::column-end:::
 :::row-end:::
-
-<hr></hr>
-
 :::row:::
    :::column span="":::
       [Hot access tier](storage-blob-storage-tiers.md)
@@ -250,14 +249,6 @@ Review the [Known Issues](#known-issues) section of this article for information
    :::column span="":::
       Not yet supported
    :::column-end:::
-      :::column span="":::
-      Browsing directories and files in the Azure portal 
-   :::column-end:::
-   :::column span="":::
-      Limited support.  
-   :::column-end:::
-:::row-end:::
-:::row:::
    :::column span="":::
       Third party applications
    :::column-end:::
@@ -265,10 +256,22 @@ Review the [Known Issues](#known-issues) section of this article for information
       Limited support. 
    :::column-end:::
 :::row-end:::
-
-<hr></hr>
+:::row:::
+   :::column span="":::
+      File browsing in the Azure portal 
+   :::column-end:::
+   :::column span="":::
+      Limited support.  
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+:::row-end:::
 
 ### Azure services
+
+<hr></hr>
 
 :::row:::
    :::column span="":::
@@ -371,7 +374,7 @@ Review the [Known Issues](#known-issues) section of this article for information
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Azure Content Delivery Network](https://docs.microsoft.com/azure/cdn/cdn-overview)
+      [Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-overview)
    :::column-end:::
    :::column span="":::
       Not yet supported
