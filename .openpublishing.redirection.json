@@ -41421,6 +41421,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/log-query/log-query-performance.md",
+      "redirect_url": "/azure/azure-monitor/log-query/query-optimization",
+      "redirect_document_id": false
+    },   
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -48870,6 +48875,11 @@
       "source_path": "articles/virtual-machines/windows/chef-automation.md",
       "redirect_url": "/azure/chef/chef-automation",
       "redirect_document_id": true
-    }
+    },
+	{
+		 "source_path": "articles/azure-monitor/app/hockeyapp-bridge-app.md",
+		"redirect_url": "/azure/azure-monitor/overview",
+		"redirect_document_id": false 
+	}
   ]
 }
