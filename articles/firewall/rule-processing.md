@@ -13,12 +13,13 @@ ms.author: victorh
 You can configure NAT rules, network rules, and applications rules on Azure Firewall. The rules are processed according to the rule type. 
 
 > [!NOTE]
-> If you have enabled threat intelligence-based filtering, those rules are highest priority and are always processed first. For more information, see [Azure Firewall threat intelligence-based filtering](threat-intel.md).
+> If you enable threat intelligence-based filtering, those rules are highest priority and are always processed first. Threat-intelligence filtering may deny traffic before any configured rules are processed. For more information, see [Azure Firewall threat intelligence-based filtering](threat-intel.md).
 
 ## Outbound
 
-### Network rules and applications rules 
-If you have configured network rules and application rules, then network rules are applied in priority order before application rules. The rules are terminating. So if a match is found in a network rule, no other rules are processed.  If there is no network rule match, and if the protocol is HTTP/HTTPS, the the packet is then evaluated by the application rules in priority order. If still no match is found, then the packet is evaluated against the [infrastructure rule collection](infrastructure-fqdns.md). If there is still no match, then the packet is denied by default.
+### Network rules and applications rules
+
+If you configure network rules and application rules, then network rules are applied in priority order before application rules. The rules are terminating. So if a match is found in a network rule, no other rules are processed.  If there is no network rule match, and if the protocol is HTTP,HTTPS, or MSSQL, the the packet is then evaluated by the application rules in priority order. If still no match is found, then the packet is evaluated against the [infrastructure rule collection](infrastructure-fqdns.md). If there is still no match, then the packet is denied by default.
 
 ## Inbound
 
@@ -59,7 +60,7 @@ The connection to google.com is allowed because the packet matches the *Allow-we
 
 ### Example 2
 
-Web traffic is denied because a higher priority *Deny* network rule collection blocks it.
+SSH traffic is denied because a higher priority *Deny* network rule collection blocks it.
 
 **Network rule collection 1**
 
@@ -69,7 +70,7 @@ Web traffic is denied because a higher priority *Deny* network rule collection b
 
 |name  |Protocol  |Source type  |Source  |Destination type  |Destination address  |Destination ports|
 |---------|---------|---------|---------|----------|----------|--------|
-|Allow-web     |TCP|IP address|*|IP address|*|80,443
+|Allow-SSH     |TCP|IP address|*|IP address|*|22
 
 **Network rule collection 2**
 
@@ -79,11 +80,11 @@ Web traffic is denied because a higher priority *Deny* network rule collection b
 
 |name  |Protocol  |Source type  |Source  |Destination type  |Destination address  |Destination ports|
 |---------|---------|---------|---------|----------|----------|--------|
-|Deny-web     |TCP|IP address|*|IP address|*|80,443
+|Deny-SSH     |TCP|IP address|*|IP address|*|22
 
 **Result**
 
-Connections to web sites are denied because a higher priority network rule collection blocks it. Rule processing stops at this point.
+SSH connections are denied because a higher priority network rule collection blocks it. Rule processing stops at this point.
 
 ## Next steps
 
