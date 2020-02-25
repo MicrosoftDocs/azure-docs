@@ -42,13 +42,14 @@ az group create --name <resource_group_name> --location westus
 
 ## Create an App Configuration
 
-Replace `<appconfig_name>` with a unique name for your App Configuration, and `<resource_group_name>` with the resource group you created earlier. The name must be unique because it is used as a DNS name.
+Replace `<appconfig_name>` with a unique name for your configuration store, and `<resource_group_name>` with the resource group you created earlier. The name must be unique because it is used as a DNS name.
 
 ```azurecli-interactive
 az appconfig create \
   --name <appconfig_name> \
   --location westus \
-  --resource-group <resource_group_name>
+  --resource-group <resource_group_name> \
+  --sku free
 ```
 
 ## Create a message endpoint
@@ -116,7 +117,6 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
   "dataVersion": "1",
   "metadataVersion": "1"
 }]
-
 ```
 
 ## Clean up resources
