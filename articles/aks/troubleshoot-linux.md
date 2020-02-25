@@ -34,6 +34,8 @@ Some examples of common issues and indicators to diagnose them:
 
 ## General
 
+These tools are general purpose and cover basic system information. They are a good starting point for further investigation.
+
 ### uptime
 
 ```
@@ -85,6 +87,8 @@ KiB Swap:        0 total,        0 free,        0 used. 62739060 avail Mem
 
 ## CPU
 
+These tools provide CPU utilization information. This is especially useful with rolling output, where patterns become easy to spot.
+
 ### mpstat
 
 ```
@@ -118,6 +122,8 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 
 ## Memory
 
+Memory is a very important, and thankfully easy, resource to track. Some tools can report both CPU and memory, like `vmstat`. But tools like `free` may still be useful for quick debugging.
+
 ### free
 
 ```
@@ -130,6 +136,8 @@ Swap:             0           0           0
 `free` presents basic information about total memory as well as used and free memory. `vmstat` may be more useful even for basic memory analysis due to its ability to provide rolling output.
 
 ## Disk
+
+These tools measure disk IOPS, wait queues, and total throughput. 
 
 ### iostat
 
@@ -169,6 +177,8 @@ Note that the OS disk counts as as a managed disk of the the smallest SKU corres
 Non-zero values of await or avgqu-sz are also good indicators of IO contention.
 
 ## Network
+
+These tools measure network statistics like throughput, transmission failures, and utilization. Deeper analysis can expose fine-grained TCP statistics about congestion and dropped packets.
 
 ### sar
 
