@@ -40,7 +40,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SharePoint on-premises supports **SP** initiated SSO
 * Once you configure SharePoint on-premises you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-* Please refer the [Link](https://docs.microsoft.com/en-gb/archive/blogs/kaevans/sharepoint-2013-user-profile-sync-for-claims-users) for the **How to User Profile Sync from Azure AD**.
+* Please refer the [Link](https://docs.microsoft.com/archive/blogs/kaevans/sharepoint-2013-user-profile-sync-for-claims-users) for the **How to User Profile Sync from Azure AD**.
 
 ## Adding SharePoint on-premises from the gallery
 
