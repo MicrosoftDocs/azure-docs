@@ -191,6 +191,14 @@ Each field can have one of the following types of values:
 |`"30 9 * * 1-5"`|at 9:30 UTC every weekday|
 |`"30 9 * Jan Mon"`|at 9:30 UTC every Monday in January|
 
+## Clean up resources
+
+To remove all resources you've created in this tutorial series, including the container registry or registries, container instance, key vault, and service principal, issue the following commands:
+
+```azurecli-interactive
+az group delete --resource-group $RES_GROUP
+az ad sp delete --id http://$ACR_NAME-pull
+```
 
 ## Next steps
 
