@@ -70,9 +70,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 1. Modify the file to reflect your tenant name, the application ID of the web API application, the name of your sign-up/sign-in policy, and the scopes you defined earlier. The block should look similar to the following example (with appropriate `tenantIdGuid` and `clientId` values):
 
     ```javascript
-    var clientID = "93733604-cc77-4a3c-a604-87084dd55348"; 
+    var clientID = "<your-webapi-application-ID>"; 
     var b2cDomainHost = "fabrikamb2c.b2clogin.com";
-    var tenantIdGuid = "775527ff-9a37-4307-8b3d-cc311f58d925";
+    var tenantIdGuid = "<your-webapi-tenant-ID>";
     var policyName = "B2C_1_signupsignin1";
     ```
 
