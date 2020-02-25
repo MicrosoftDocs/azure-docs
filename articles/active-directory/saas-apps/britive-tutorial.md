@@ -54,7 +54,6 @@ To configure the integration of Britive into Azure AD, you need to add Britive f
 1. In the **Add from the gallery** section, type **Britive** in the search box.
 1. Select **Britive** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD single sign-on for Britive
 
 Configure and test Azure AD SSO with Britive using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Britive.
@@ -135,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Britive Configuration](./media/britive-tutorial/configure1.png)
 
-1. Select **SSO Configuration and perform the following steps:
+1. Select **SSO Configuration** and perform the following steps:
 
     ![Britive Configuration](./media/britive-tutorial/configure2.png)
 
