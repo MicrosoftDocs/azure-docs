@@ -199,6 +199,8 @@
       href: faq-data-collection-agents.md
     - name: Virtual Machines questions
       href: faq-vms.md      
+    - name: Existing users of Azure Log Analytics
+      href: faq-azure-monitor-logs.md      
   - name: Release notes
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Features and API retirement (July 2019)
