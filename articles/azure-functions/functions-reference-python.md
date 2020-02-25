@@ -72,6 +72,7 @@ The recommended folder structure for a Python Functions project looks like the f
  | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
+ | - Dockerfile
  tests
 ```
 The main project folder (\_\_app\_\_) can contain the following files:
@@ -81,10 +82,12 @@ The main project folder (\_\_app\_\_) can contain the following files:
 * *host.json*: Contains global configuration options that affect all functions in a function app. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *.funcignore*: (Optional) declares files that shouldn't get published to Azure.
 * *.gitignore*: (Optional) declares files that are excluded from a git repo, such as local.settings.json.
+* *Dockerfile*: (Optional) used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
 
 Each function has its own code file and binding configuration file (function.json). 
 
 When deploying your project to a function app in Azure, the entire contents of the main project (*\_\_app\_\_*) folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
+
 
 ## Import behavior
 
