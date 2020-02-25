@@ -33,4 +33,4 @@ Another consideration when deploying a storage account, is the redundancy of you
 The names of your resources are also important.
 For instance, if you group multiple shares for the HR department into an Azure storage account, name the storage account appropriately, while you name the individual Azure file shares similar to what you name the on-premises shares or directories.
 
-[Learn how to deploy an Azure storage accounts and 100TiB file shares.](../storage-files-how-to-create-large-file-share.md)
+[Learn how to deploy an Azure storage accounts and 100 TiB file shares.](../storage-files-how-to-create-large-file-share.md)
