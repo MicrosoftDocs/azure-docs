@@ -53,7 +53,7 @@ Connectors are available either as built-in triggers and actions or as managed c
 
 <a name="integration-service-environment"></a>
 
-For logic apps that need direct access to resources in an Azure virtual network, you can create an isolated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can deploy and run your logic apps on dedicated resources. In the Logic App Designer, when you browse the connectors that you want to use for logic apps in an ISE, a **CORE** or **ISE** label appears on some connectors:
+For logic apps that need direct access to resources in an Azure virtual network, you can create an isolated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can build, deploy, and run your logic apps on dedicated resources. In the Logic App Designer, when you browse the connectors that you want to use for logic apps in an ISE, a **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on some connectors:
 
 * **CORE**: Built-in triggers and actions with this label run in the same ISE as your logic apps.
 
@@ -163,7 +163,7 @@ Logic Apps provides these Enterprise connectors for accessing enterprise systems
 
 ## ISE connectors
 
-Along with the **CORE** built-in triggers and actions, here's a sample list with some connectors that have **ISE** versions:
+For logic apps that you create and run an isolated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. Here's a sample list that shows some connectors that provide ISE versions:
 
 |   |   |   |   |   |
 |---|---|---|---|---|
@@ -172,6 +172,11 @@ Along with the **CORE** built-in triggers and actions, here's a sample list with
 | [![API icon][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | [![API icon][as2-icon]<br/>**AS2**][as2-doc] | [![API icon][edifact-icon]<br/>**EDIFACT**](../logic-apps/logic-apps-enterprise-integration-edifact.md) | [![API icon][x12-icon]<br/>**X12**](../logic-apps/logic-apps-enterprise-integration-x12.md) | Not pictured: <p>- [Azure Cosmos DB](https://docs.microsoft.com/connectors/documentdb/) <br>- [Azure File Storage](https://docs.microsoft.com/connectors/azurefile/) <br>- [Azure Key Vault]() <br>- [Azure SQL Data Warehouse](https://docs.microsoft.com/connectors/sqldw/) <br>- [Azure Table Storage](https://docs.microsoft.com/connectors/azuretables/) <br>- [Azure Queues](https://docs.microsoft.com/connectors/azurequeues/) <br>- [SAP]() <br>- [SMTP](connectors-create-api-smtp.md) |
 ||||||
 
+For more information, see these topics:
+
+* [Access to Azure virtual network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
+* [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md)
+* [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 
 <a name="triggers-actions"></a>
 
