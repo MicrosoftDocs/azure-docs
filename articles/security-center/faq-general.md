@@ -81,8 +81,8 @@ Azure Security Center automatically collects, analyzes, and fuses log data from 
 * Security alerts from integrated partner security solutions such as Anti-Malware or Web Application Firewalls
 
 
-## Why did secure scores values change? <a name="secure-score-faq"></a>
-As of February 2019, Security Center adjusted the score of a few recommendations, in order to better fit their severity. As a result of this adjustment, there may be changes in overall secure score values.  For more information about secure score, see [Secure score calculation](security-center-secure-score.md).
+## Why did Secure Score values change? <a name="secure-score-faq"></a>
+As of February 2019, Security Center adjusted the score of a few recommendations, in order to better fit their severity. As a result of this adjustment, there may be changes in overall Secure Score values.  For more information about Secure Score, see [Secure Score calculation](security-center-secure-score.md).
 
 
 ## What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?
