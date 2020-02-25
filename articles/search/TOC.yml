@@ -221,7 +221,7 @@
         href: knowledge-store-connect-power-bi.md  
       - name: Projection examples
         href: knowledge-store-projections-examples.md  
-  - name: Query documents
+  - name: Query
     items:
     - name: Query types and composition
       href: search-query-overview.md
@@ -255,7 +255,7 @@
       href: search-query-understand-collection-filters.md
     - name: Example of multi-level facets
       href: search-example-adventureworks-multilevel-faceting.md
-  - name: Handle results
+  - name: Results
     items:
     - name: Page-related features
       href: search-pagination-page-layout.md
@@ -273,7 +273,7 @@
       href: search-performance-optimization.md
     - name: Multitenant architecture
       href: search-modeling-multitenant-saas-applications.md
-  - name: Program
+  - name: Develop
     items:
     - name: API versions
       href: search-api-versions.md
@@ -319,6 +319,8 @@
       href: search-manage.md
     - name: PowerShell
       href: search-manage-powershell.md
+    - name: Move service across regions
+      href: search-howto-move-across-regions.md
   - name: Monitor
     items:
     - name: Fundamentals
