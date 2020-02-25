@@ -262,7 +262,7 @@ The Generated Secret Value should be shown with Database Connected as true.
 
 ![Test and verify](./media/rotate11.png)
 
-##Learn more:
+## Learn more:
 
 - Overview: [Monitoring Key Vault with Azure Event Grid (preview)](event-grid-overview.md)
 - How to: [Receive email when a key vault secret changes](event-grid-logicapps.md)
