@@ -1,7 +1,7 @@
 ---
 title: Create & deploy Visual Studio resource group projects
 description: Use Visual Studio to create an Azure resource group project and deploy the resources to Azure.
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/16/2019
 ---
 # Creating and deploying Azure resource groups through Visual Studio
@@ -344,9 +344,9 @@ You aren't limited to only the resources that are available through the Visual S
           }
         }
       },
+      "type": "Microsoft.Portal/dashboards",
       "apiVersion": "2015-08-01-preview",
       "name": "[concat('ARM-',resourceGroup().name)]",
-      "type": "Microsoft.Portal/dashboards",
       "location": "[resourceGroup().location]",
       "tags": {
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
@@ -378,7 +378,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this quickstart, you learned how to create and deploy templates using Visual Studio. To learn more about template development, see our new beginner tutorial series:
+In this article, you learned how to create and deploy templates using Visual Studio. To learn more about template development, see our new beginner tutorial series:
 
 > [!div class="nextstepaction"]
 > [Beginner tutorials](./template-tutorial-create-first-template.md)

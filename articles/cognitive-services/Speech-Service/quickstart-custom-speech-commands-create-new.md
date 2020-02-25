@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Custom Command (Preview) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you create and test a hosted Custom Commands application.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -19,7 +19,7 @@ The application will recognize an utterance like "turn on the tv" and respond wi
 
 ## Prerequisites
 
-- A Speech subscription. 
+- A Speech subscription.
 
 If you don't have a speech subscription, you can create one by navigating to the [Speech Studio](https://speech.microsoft.com/) and selecting **Create a Speech Resource**.
 
@@ -68,7 +68,7 @@ Your view should now be an overview of your Custom Commands application.
 
 ## Update LUIS Resources (Optional)
 
-You can update the authoring resource set in the new project window, and set a prediction resource used to recognize inputs during runtime. 
+You can update the authoring resource set in the new project window, and set a prediction resource used to recognize inputs during runtime.
 
 > [!NOTE]
 > You will need to set a prediction resource before your application requests predictions beyond the 1,000 requests provided by the authoring resource.

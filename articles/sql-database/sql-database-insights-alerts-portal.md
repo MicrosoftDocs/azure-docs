@@ -112,5 +112,5 @@ Once you have created an alert, you can select it and:
 ## Next steps
 * [Get an overview of Azure monitoring](../monitoring-and-diagnostics/monitoring-overview.md) including the types of information you can collect and monitor.
 * Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).
-* Get an [overview of diagnostic logs](../azure-monitor/platform/resource-logs-overview.md) and collect detailed high-frequency metrics on your service.
+* Get an [overview of diagnostic logs](../azure-monitor/platform/platform-logs-overview.md) and collect detailed high-frequency metrics on your service.
 * Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

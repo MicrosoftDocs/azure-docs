@@ -44,18 +44,28 @@
       href: class-type-database-management.md
     - name: Python and Jupyter Notebooks
       href: class-type-jupyter-notebook.md
+    - name: Mobile app development with Android Studio
+      href: class-type-mobile-dev-android-studio.md
   - name: Create and configure lab accounts (lab account owner)
     items:
     - name: Create and manage lab accounts
       href: how-to-manage-lab-accounts.md
     - name: Configure lab accounts
       href: how-to-configure-lab-accounts.md
-    - name: Connect your labs to a peer virtual network
+    - name: Add a lab creator
+      href: add-lab-creator.md
+    - name: Allow lab creator to pick lab location
+      href: allow-lab-creator-pick-lab-location.md
+    - name: Connect to a peer virtual network
       href: how-to-connect-peer-virtual-network.md
     - name: Attach or detach a shared image gallery
       href: how-to-attach-detach-shared-image-gallery.md
-    - name: Add user as an owner to a classroom lab
+    - name: Add additional owners to a classroom lab
       href: how-to-add-user-lab-owner.md
+    - name: Configure firewall settings
+      href: how-to-configure-firewall-settings.md
+    - name: Specify Marketplace images for labs 
+      href: specify-marketplace-images.md
   - name: Create and configure classroom labs (instructor)
     items:        
     - name: Create and manage classroom labs

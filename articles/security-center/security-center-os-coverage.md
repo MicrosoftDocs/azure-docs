@@ -42,7 +42,11 @@ The following sections list the supported server operating systems on which the 
 |Windows Server 2012 R2|✔|✔|
 |Windows Server 2008 R2|✔|✔|
 
-To learn more about the supported features for the Windows operating systems, listed above, see [Virtual machine / server supported features](security-center-services.md##vm-server-features).
+To learn more about the supported features for the Windows operating systems, listed above, see [Virtual machine / server supported features](security-center-services.md#vm-server-features).
+
+### Windows operating systems <a name="os-windows (non-server)"></a>
+
+Azure Security Center integrates with Azure services to monitor and protect your Windows-based virtual machines.
 
 ### Linux operating systems <a name="os-linux"></a>
 
@@ -66,7 +70,7 @@ To learn more about the supported features for the Windows operating systems, li
 > [!NOTE]
 > Since the list of supported Linux operating systems is constantly changing, if you prefer, click [here](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) to view the most up-to-date list of supported versions, in case there have been changes since this topic was last published.
 
-To learn more about the supported features for the Linux operating systems, listed above, see [Virtual machine / server supported features](security-center-services.md##vm-server-features).
+To learn more about the supported features for the Linux operating systems, listed above, see [Virtual machine / server supported features](security-center-services.md#vm-server-features).
 
 ### Managed virtual machine services <a name="virtual-machine"></a>
 

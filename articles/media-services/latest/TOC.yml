@@ -77,7 +77,7 @@
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md       
     - name: Content-aware encoding
-      href: cae-experimental.md          
+      href: content-aware-encoding.md          
   - name: Analyzing content (Video Indexer)
     items:
     - name: Overview
@@ -90,7 +90,7 @@
   - name: Packaging and delivery
     items:
     - name: Dynamic packaging
-      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest      
+      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming  
       href: dynamic-packaging-overview.md
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 
@@ -99,6 +99,8 @@
     - name: Streaming Endpoints 
       displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
+    - name: Scaling streaming with CDN
+      href: scale-streaming-cdn.md
     - name: Streaming Locators 
       displayName: URLs
       href: streaming-locators-concept.md
@@ -145,7 +147,9 @@
     - name: States and billing
       href: live-event-states-billing.md
     - name: Latency
-      href: live-event-latency.md              
+      href: live-event-latency.md  
+    - name: Live Event error codes
+      href: live-event-error-codes.md
   - name: Monitoring
     items:
     - name: Events with Event Grid
@@ -173,6 +177,8 @@
       items:
       - name: Streaming Endpoint error codes  
         href: streaming-endpoint-error-codes.md
+      - name: Live Event error codes
+        href: live-event-error-codes.md
       - name: Job error codes
         href: job-error-codes.md
   - name: Migration guidance from v2 to v3
@@ -228,7 +234,9 @@
       href: cli-create-transform.md
     - name: Create jobs - CLI
       href: cli-create-jobs.md
-  - name: Encode content
+    - name: Jobs with multiple transform outputs
+      href: job-multiple-transform-outputs.md
+  - name: Encode content 
     items:
     - name: HTTPS as Job input - .NET
       displayName: encode, encoding
@@ -321,6 +329,8 @@
     items:
     - name: Streaming Endpoint error codes  
       href: streaming-endpoint-error-codes.md
+    - name: Live Event error codes
+      href: live-event-error-codes.md
     - name: Job error codes
       href: job-error-codes.md   
 - name: Resources

@@ -114,7 +114,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Back up and restore Azure file shares
-            url: backup-azure-files.md
+            url: backup-afs.md
           - text: FAQ - Back up Azure Files
             url: backup-azure-files-faq.md
  # Card
@@ -142,7 +142,18 @@ landingContent:
           - text: FAQ - MABS and DPM
             url: backup-azure-dpm-azure-server-faq.md
           - text: Install and upgrade MABS
-            url: backup-azure-microsoft-azure-backup.md   
+            url: backup-azure-microsoft-azure-backup.md
+# Card
+  - title: Manage at scale
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Govern at scale with Azure Policy
+            url: backup-azure-auto-enable-backup.md
+          - text: Monitor and operate at scale with Backup Explorer
+            url: monitor-azure-backup-with-backup-explorer.md
+          - text: Analyze at scale with Backup Reports
+            url: configure-reports.md
 # Card
   - title: Explore resources for Azure Backup
     linkLists:

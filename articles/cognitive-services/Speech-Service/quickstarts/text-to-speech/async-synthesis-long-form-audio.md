@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Quickstart: Asynchronous synthesis for long-form audio in Python (Preview)
 
-In this quickstart, you'll use the Long Audio API to asynchronously convert text to speech, and retrieve the audio output from a URI provided by the service. This REST API is ideal for content providers that need to convert text files greater than 10,000 characters or 50 paragraphs into synthesized speech. For more information, see [Long Audio API](../../long-audio-api.md).
+In this quickstart, you'll use the Long Audio API to asynchronously convert text to speech, and retrieve the audio output from a URI provided by the service. This REST API is ideal for content providers that need to synthesize audio from text greater than 5,000 character (or more than 10 minutes in length). For more information, see [Long Audio API](../../long-audio-api.md).
 
 > [!NOTE]
 > Asynchronous synthesis for long-form audio can only be used with [Custom Neural Voices](../../how-to-custom-voice.md#custom-neural-voices).
@@ -45,13 +45,13 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
 > [!NOTE]
-> If you haven't used these modules you'll need to install them before running your program. To install these packages, run: `pip install requests urllib3`.
+> If you haven't used these modules, you'll need to install them before running your program. To install these packages, run: `pip install requests urllib3`.
 
 These modules are used to parse arguments, construct the HTTP request, and call the text-to-speech long audio REST API.
 
 ## Get a list of supported voices
 
-This code gets a list of available voices that you can use to convert text-to-speech. Add this code  `voice_synthesis_client.py`:
+This code gets a list of available voices that you can use to convert text-to-speech. Add the code to `voice_synthesis_client.py`:
 
 ```python
 parser = argparse.ArgumentParser(description='Cris client tool to submit voice synthesis requests.')
@@ -75,13 +75,18 @@ if args.voices:
 
 ### Test your code
 
-Let's test what you've done so far. Run this command, replacing `<your_key>` with your Speech subscription key, and `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+Let's test what you've done so far. You'll need to update a few things in the request below:
+
+* Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+* Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+
+Run this command:
 
 ```console
 python voice_synthesis_client.py --voices -key <your_key> -region <Region>
 ```
 
-You should get an output that looks like this:
+You'll see an output that looks like this:
 
 ```console
 There are xx voices available:
@@ -90,14 +95,17 @@ Name: Microsoft Server Speech Text to Speech Voice (en-US, xxx), Description: xx
 Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xxx , Id: xxx, Locale: zh-CN, Gender: Female, PublicVoice: xxx, Created: 2019-08-26T04:55:39Z
 ```
 
+## Prepare input files
+
+Prepare an input text file. It can be either plain text or SSML text. For the input file requirements, see how to [prepare content for synthesis](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#prepare-content-for-synthesis).
+
 ## Convert text to speech
 
-The next step is to prepare an input text file. It can be either plain text or SSML, but must be more than 10,000 character or 50 paragraphs. For a complete list of requirements, see [Long Audio API](../../long-audio-api.md).
-
-After you've prepared the text file. The next step is to add code for speech synthesis to your project. Add this code to `voice_synthesis_client.py`:
+After preparing the input text file, add this code for speech synthesis to `voice_synthesis_client.py`:
 
 > [!NOTE]
-> By default, the audio output is set to riff-16khz-16bit-mono-pcm. For more information about supported audio outputs, see [Long Audio API](../../long-audio-api.md#audio-output-formats).
+> 'concatenateResult' is an optional parameter. If this parameter isn't set, the audio outputs will be generated per paragraph. You can also concatenate the audios into 1 output by setting the parameter. 
+> By default, the audio output is set to riff-16khz-16bit-mono-pcm. For more information about supported audio outputs, see [Audio output formats](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
@@ -118,7 +126,7 @@ def submitSynthesis():
 	    files = {'script': (scriptfilename, open(args.file, 'rb'), 'text/plain')}
     response = requests.post(baseAddress+"voicesynthesis", data, headers={"Ocp-Apim-Subscription-Key":args.key}, files=files, verify=False)
     if response.status_code == 202:
-        location = response.headers['Operation-Location']
+        location = response.headers['Location']
         id = location.split("/")[-1]
         print("Submit synthesis request successful")
         return id
@@ -160,13 +168,13 @@ if args.submit:
 
 ### Test your code
 
-Let's try making a request to synthesize text using your input file as a source. You'll need to update a few things in the request below:
+Let's make a request to synthesize text using your input file as the source. You'll need to update a few things in the request below:
 
 * Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
-* Replace `<input>` with the path to the text file you're looking to convert from text-to-speech.
+* Replace `<input>` with the path to the text file you've prepared for text-to-speech.
 * Replace `<locale>` with the desired output locale. For more information, see [language support](../../language-support.md#neural-voices).
-* Replace `<voice_guid>` with the desired voice for the audio output. Use one of the voices returned by [Get a list of supported voices](#get-a-list-of-supported-voices) or use the list of neural voices provided in [language support](../../language-support.md#neural-voices).
+* Replace `<voice_guid>` with the desired output voice. Use one of the voices returned by [Get a list of supported voices](#get-a-list-of-supported-voices).
 
 Convert text to speech with this command:
 
@@ -175,9 +183,11 @@ python voice_synthesis_client.py --submit -key <your_key> -region <Region> -file
 ```
 
 > [!NOTE]
-> 'concatenateResult' is an optional parameter, if this parameter isn't provided, the output will be provided as multiple wave files, one for each line.
+> If you have more than 1 input files, you will need to submit multiple requests. There are some limitations that needs to be aware. 
+> * The client is allowed to submit up to **5** requests to server per second for each Azure subscription account. If it exceeds the limitation, client will get a 429 error code(too many requests). Please reduce the request amount per second
+> * The server is allowed to run and queue up to **120** requests for each Azure subscription account. If it exceeds the limitation, server will return a 429 error code(too many requests). Please wait and avoid submitting new request until some requests are completed
 
-You should get an output that looks like this:
+You'll see an output that looks like this:
 
 ```console
 Submit synthesis request successful
@@ -195,13 +205,13 @@ Checking status
 Succeeded... Result file downloaded : xxxx.zip
 ```
 
-The result provided contains the input text and the audio output files generated by the service. These are downloaded as a zip.
+The result contains the input text and the audio output files that are generated by the service. You can download these files in a zip.
 
 ## Remove previous requests
 
-There is a limit of 2,000 requests for each subscription. As such, there will be times that you need to remove previously submitted requests before you can make new ones. If you don't remove existing requests, you'll receive an error when you exceed 2,000.
+The server will keep up to **20,000** requests for each Azure subscription account. If your request amount exceeds this limitation, please remove previous requests before making new ones. If you don't remove existing requests, you'll receive an error notification.
 
-Add this code to `voice_synthesis_client.py`:
+Add the code to `voice_synthesis_client.py`:
 
 ```python
 parser.add_argument('--syntheses', action="store_true", default=False, help='print synthesis list')
@@ -234,13 +244,18 @@ if args.delete:
 
 ### Test your code
 
-Run this command, replacing `<your_key>` with your Speech subscription key, and `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+Now, let's check to see what requests you've previously submitted. Before you continue, you'll need to update a few things in this request:
+
+* Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+* Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+
+Run this command:
 
 ```console
-python voice_synthesis_client.py – syntheses -key <your_key> -region <Region>
+python voice_synthesis_client.py --syntheses -key <your_key> -region <Region>
 ```
 
-This will return a list of syntheses you've requested. You should get an output that looks like this:
+This will return a list of synthesis requests that you've made. You'll see an output like this:
 
 ```console
 There are <number> synthesis requests submitted:
@@ -249,16 +264,22 @@ ID : xxx , Name : xxx, Status : Running
 ID : xxx , Name : xxx : Succeeded
 ```
 
-Now let's use some of these values to remove/delete previously submitted requests. Run this command, replacing `<your_key>` with your Speech subscription key, and `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal). The `<synthesis_id>` should be one of the values returned in the previous request.
+Now, let's remove a previously submitted request. You'll need to update a few things in the code below:
+
+* Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+* Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+* Replace `<synthesis_id>` with the value returned in the previous request.
 
 > [!NOTE]
 > Requests with a status of ‘Running’/'Waiting' cannot be removed or deleted.
 
+Run this command:
+
 ```console
-python voice_synthesis_client.py – delete -key <your_key> -region <Region> -synthesisId <synthesis_id>
+python voice_synthesis_client.py --delete -key <your_key> -region <Region> -synthesisId <synthesis_id>
 ```
 
-You should get an output that looks like this:
+You'll see an output like this:
 
 ```console
 delete voice synthesis xxx
@@ -267,7 +288,7 @@ delete successful
 
 ## Get the full client
 
-The complete `voice_synthesis_client.py` is available for download on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py).
+The completed `voice_synthesis_client.py` is available for download on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py).
 
 ## Next steps
 

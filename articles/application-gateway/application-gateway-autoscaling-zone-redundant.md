@@ -59,7 +59,7 @@ The following table shows example prices and are for illustration purposes only.
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-For more pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/). Billing is scheduled to start on July 1, 2019.
+For more pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/). 
 
 **Example 1**
 

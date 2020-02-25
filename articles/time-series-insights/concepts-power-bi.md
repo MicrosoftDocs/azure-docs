@@ -7,14 +7,22 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/06/2020
 ---
 
 # Connect Time Series Insights to Power BI  
- 
+
 Are you looking for a solution to help correlate your time-series data, create vivid visualizations, and share insights across your organization?
 
-Time Series Insights now seamlessly integrates with [Power BI](https://powerbi.microsoft.com/), providing you with more powerful visualization and dashboarding capabilities over your streaming data and allows you to share insights and results across your organization.
+Azure Time Series Insights now seamlessly integrates with [Power BI](https://powerbi.microsoft.com/), providing you with more powerful visualization and dashboarding capabilities over your streaming data and allows you to share insights and results across your organization.
+
+## Video
+
+### Learn more about integrating Azure Time Series Insights with Power BI.</br>
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Power-BI-integration-with-TSI/player]
+
+## Summary
 
    [![Export option in Time Series Insights](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png)](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png#lightbox)
 

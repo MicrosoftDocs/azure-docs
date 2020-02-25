@@ -56,10 +56,6 @@
     href: ../bing-web-search/resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7 of the API
     href: bing-news-upgrade-guide-v5-to-v7.md
-  - name: Work with Visual Studio
-    items:
-    - name: Use the Bing News Search Connected Service
-      href: vs-bing-news-search-connected-service.md
 - name: Concepts
   items:
     - name: Sending search queries

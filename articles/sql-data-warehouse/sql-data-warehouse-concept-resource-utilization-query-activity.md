@@ -7,7 +7,7 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 08/09/2019
+ms.date: 01/14/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
@@ -22,23 +22,25 @@ The following metrics are available in the Azure portal for SQL Data Warehouse. 
 
 | Metric Name             | Description                                                  | Aggregation Type |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
-| CPU percentage          | CPU utilization across all nodes for the data warehouse      | Maximum          |
-| Data IO percentage      | IO Utilization across all nodes for the data warehouse       | Maximum          |
-| Memory percentage       | Memory utilization (SQL Server) across all nodes for the data warehouse | Maximum          |
-| Successful Connections  | Number of successful connections to the data                 | Total            |
-| Failed Connections      | Number of failed connections to the data warehouse           | Total            |
-| Blocked by Firewall     | Number of logins to the data warehouse which was blocked     | Total            |
-| DWU limit               | Service level objective of the data warehouse                | Maximum          |
-| DWU percentage          | Maximum between CPU percentage and Data IO percentage        | Maximum          |
-| DWU used                | DWU limit * DWU percentage                                   | Maximum          |
-| Cache hit percentage    | (cache hits / cache miss) * 100  where cache hits is the sum of all columnstore segments hits in the local SSD cache and cache miss is the columnstore segments misses in the local SSD cache summed across all nodes | Maximum          |
-| Cache used percentage   | (cache used / cache capacity) * 100 where cache used is the sum of all bytes in the local SSD cache across all nodes and cache capacity is the sum of the storage capacity of the local SSD cache across all nodes | Maximum          |
-| Local tempdb percentage | Local tempdb utilization across all compute nodes - values are emitted every five minutes | Maximum          |
+| CPU percentage          | CPU utilization across all nodes for the data warehouse      | Avg, Min, Max    |
+| Data IO percentage      | IO Utilization across all nodes for the data warehouse       | Avg, Min, Max    |
+| Memory percentage       | Memory utilization (SQL Server) across all nodes for the data warehouse | Avg, Min, Max   |
+| Active Queries          | Number of active queries executing on the system             | Sum              |
+| Queued Queries          | Number of queued queries waiting to start executing          | Sum              |
+| Successful Connections  | Number of successful connections to the data                 | Sum, Count       |
+| Failed Connections      | Number of failed connections to the data warehouse           | Sum, Count       |
+| Blocked by Firewall     | Number of logins to the data warehouse which was blocked     | Sum, Count       |
+| DWU limit               | Service level objective of the data warehouse                | Avg, Min, Max    |
+| DWU percentage          | Maximum between CPU percentage and Data IO percentage        | Avg, Min, Max    |
+| DWU used                | DWU limit * DWU percentage                                   | Avg, Min, Max    |
+| Cache hit percentage    | (cache hits / cache miss) * 100  where cache hits is the sum of all columnstore segments hits in the local SSD cache and cache miss is the columnstore segments misses in the local SSD cache summed across all nodes | Avg, Min, Max    |
+| Cache used percentage   | (cache used / cache capacity) * 100 where cache used is the sum of all bytes in the local SSD cache across all nodes and cache capacity is the sum of the storage capacity of the local SSD cache across all nodes | Avg, Min, Max    |
+| Local tempdb percentage | Local tempdb utilization across all compute nodes - values are emitted every five minutes | Avg, Min, Max    |
 
-> Things to consider when viewing metrics and setting alerts:
->
-> - Failed and successful connections are reported for a particular data warehouse - not for the logical server
-> - Memory percentage reflects utilization even if the data warehouse is in idle state - it does not reflect active workload memory consumption. Use and track this metric along with others (tempdb, gen2 cache) to make a holistic decision on if scaling for additional cache capacity will increase workload performance to meet your requirements.
+Things to consider when viewing metrics and setting alerts:
+
+- Failed and successful connections are reported for a particular data warehouse - not for the logical server
+- Memory percentage reflects utilization even if the data warehouse is in idle state - it does not reflect active workload memory consumption. Use and track this metric along with others (tempdb, gen2 cache) to make a holistic decision on if scaling for additional cache capacity will increase workload performance to meet your requirements.
 
 
 ## Query activity
