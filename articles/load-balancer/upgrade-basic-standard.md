@@ -67,7 +67,7 @@ To run the script:
 
 1. Examine the required parameters:
 
-   * **oldRgName: [String]: Required** – This is the resource group for your existing Basic Load Balancer you want to upgrade. To find this string value, navigate to Azure Portal, select your Basic Load Balancer source, and click the **Overview** for the load balancer. The Resource Group is located on that page.
+   * **oldRgName: [String]: Required** – This is the resource group for your existing Basic Load Balancer you want to upgrade. To find this string value, navigate to Azure portal, select your Basic Load Balancer source, and click the **Overview** for the load balancer. The Resource Group is located on that page.
    * **oldLBName: [String]: Required** – This is the name of your existing Basic Balancer you want to upgrade. 
    * **newrgName: [String]: Required** – This is the resource group in which the Standard Load Balancer will be created. It can be a new resource group or an existing one. If you pick an existing resource group, note that the name of the Load Balancer has to be unique within the resource group. 
    * **newlocation: [String]: Required** – This is the location in which the Standard Load Balancer will be created. It is recommended to inherit the same location of the chosen Basic Load Balancer to the Standard Load Balancer for better association with other existing resources.
