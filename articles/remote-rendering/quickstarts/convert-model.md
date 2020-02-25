@@ -148,7 +148,7 @@ Change **localAssetDirectoryPath** to point to the directory on your disk which 
 
 All data from the path given in **localAssetDirectoryPath** will be uploaded to the **blobInputContainerName** blob container under a subpath given by **inputFolderPath**. So in the example configuration above the content of the "D:\\tmp\\robot" directory will be uploaded to the blob container "arrinput" of the storage account "arrtutorialstorage" under the path "robotConversion". Already existing files will be overwritten.
 
-Change **inputAssetPath** to the path of the model to be converted - the path is relative to localAssetDirectoryPath. Use "/" instead of "\\" as the path seperator. So for a "robot.fbx" file which is located directly in "D:\\tmp\\robot" use "robot.fbx".
+Change **inputAssetPath** to the path of the model to be converted - the path is relative to localAssetDirectoryPath. Use "/" instead of "\\" as the path separator. So for a "robot.fbx" file which is located directly in "D:\\tmp\\robot" use "robot.fbx".
 
 Once the model was converted it will be written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example above the resulting "robot.arrAsset" will be copied to the output blob container under "converted/robot".
 
