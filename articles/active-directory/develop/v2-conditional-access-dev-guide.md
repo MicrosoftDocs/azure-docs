@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
-ms.date: 02/11/2020
+ms.date: 02/25/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
@@ -152,17 +152,17 @@ If the app is using the MSAL library, a failure to acquire the token is always r
 
 In this scenario, we walk through the case when we have a single-page app (SPA), using MSAL.js to call a Conditional Access protected web API. This is a simple architecture but has some nuances that need to be taken into account when developing around Conditional Access.
 
-In MSAL.js, there are a few functions that obtain tokens: `login()`, `acquireToken(...)`, `acquireTokenPopup(…)`, and `acquireTokenRedirect(…)`.
+In MSAL.js, there are a few functions that obtain tokens: `loginPopup()`, `acquireTokenSilent(...)`, `acquireTokenPopup(…)`, and `acquireTokenRedirect(…)`.
 
-* `login()` obtains an ID token through an interactive sign-in request but does not obtain access tokens for any service (including a Conditional Access protected web API).
-* `acquireToken(…)` can then be used to silently obtain an access token meaning it does not show UI in any circumstance.
+* `loginPopup()` obtains an ID token through an interactive sign-in request but does not obtain access tokens for any service (including a Conditional Access protected web API).
+* `acquireTokenSilent(…)` can then be used to silently obtain an access token meaning it does not show UI in any circumstance.
 * `acquireTokenPopup(…)` and `acquireTokenRedirect(…)` are both used to interactively request a token for a resource meaning they always show sign-in UI.
 
-When an app needs an access token to call a Web API, it attempts an `acquireToken(…)`. If the token session is expired or we need to comply with a Conditional Access policy, then the *acquireToken* function fails and the app uses `acquireTokenPopup()` or `acquireTokenRedirect()`.
+When an app needs an access token to call a Web API, it attempts an `acquireTokenSilent(…)`. If the token session is expired or we need to comply with a Conditional Access policy, then the *acquireToken* function fails and the app uses `acquireTokenPopup()` or `acquireTokenRedirect()`.
 
 ![Single-page app using MSAL flow diagram](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
 
-Let's walk through an example with our Conditional Access scenario. The end user just landed on the site and doesn’t have a session. We perform a `login()` call, get an ID token without multi-factor authentication. Then the user hits a button that requires the app to request data from a web API. The app tries to do an `acquireToken()` call but fails since the user has not performed multi-factor authentication yet and needs to comply with the Conditional Access policy.
+Let's walk through an example with our Conditional Access scenario. The end user just landed on the site and doesn’t have a session. We perform a `loginPopup()` call, get an ID token without multi-factor authentication. Then the user hits a button that requires the app to request data from a web API. The app tries to do an `acquireTokenSilent()` call but fails since the user has not performed multi-factor authentication yet and needs to comply with the Conditional Access policy.
 
 Azure AD sends back the following HTTP response:
 
