@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Assign a user or group to an enterprise app in Azure Active Directory
 
-This article shows you how to assign users or groups to enterprise applications in Azure Active Directory (Azure AD), either from within the Azure portal or by using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps access panel](https://myapps.microsoft.com/) for easy access.
+This article shows you how to assign users or groups to enterprise applications in Azure Active Directory (Azure AD), either from within the Azure portal or by using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps access panel](https://myapps.microsoft.com/) for easy access. If the application exposes roles, you can also assign a specific role to the user.
 
 For greater control, certain types of enterprise applications can be configured to *require* user assignment. This option blocks everyone from signing in, except those users you explicitly assign to the application. When user assignment is *not required*, unassigned users won't see the app on their My Apps access panel, but they can still sign in to the application with a direct app URL (known as service provider-initiated sign-on) or the **User Access URL** in the application’s **Properties** page (known as identity provider-initiated sign on).
 
