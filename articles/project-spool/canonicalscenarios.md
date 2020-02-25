@@ -1,0 +1,9 @@
+- **Add voice and video to your app in 15 minutes**
+- **Make and receive voice calls to phone numbers through VOIP**
+- **Build real-time chat into your application.**
+- **Let your users participate in group [calls, text messages, and web chats].**
+- **Broadcast messages to a group of devices.**
+- **Add web video chat into your app.**
+- **Send media files to devices.**
+- **Let your users share their screens.**
+- Stretch: integration with cognitive service

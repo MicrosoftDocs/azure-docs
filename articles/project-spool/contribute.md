@@ -52,7 +52,7 @@ Next, move over to our branch:
 Now, you're working on **[8]** from the above diagram.
 
 Next, open Visual Studio Code and **open the folder** (`File`> `Open Folder`) that you just cloned to begin contributing.  You'll know that you're working in the correct branch if you see `release-project-spool` in the branch indicator at the bottom left-hand corner of VS Code:
- 
+
 ![Cross Platform](./media/branch-validation.png)
 
 In the above image, there's a "refresh" icon below the cursor.  This is the "sync" function that performs the pull-push illustrated as item **[9]** in the above diagram.  We'll use this in a moment.

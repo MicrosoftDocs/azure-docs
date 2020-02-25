@@ -22,6 +22,13 @@
 5. Other article sets **[TBD]**
 
 
+### Cold Backlog
+
+- Determine how to auto-generate SDK API Reference Docs [Robert Outlaw gave me some pointers here].
+   - > Our SDK generation is base off shipped packages such as NuGet or npm modules.  It’s more or less as easy as you telling us what packages you have shipped, and we can generate docs for them. - R. Outlaw
+- Determine how to auto-generate REST API Reference Docs [[instructions acquired](https://github.com/Azure/adx-documentation-pr/wiki)].
+
+
 ### Hot Backlog
 
 
@@ -31,13 +38,6 @@
 4. Get samples running, study + tinker
 5. Build a minimum-viable quickstart for this, including supporting reference, conceptual, and architecture materials.  Possibly including the corresponding sample in our demo app.  Get a feel for how long it takes to build out a MVP use-case from end-to-end.
 6. With this time-cost awareness, plan out our other use-cases and content plan with weekly goals along the Private Preview / Build / General Availability timeline.
-
-
-### Cold Backlog
-
-- Determine how to auto-generate SDK API Reference Docs [Robert Outlaw gave me some pointers here].
-   - > Our SDK generation is base off shipped packages such as NuGet or npm modules.  It’s more or less as easy as you telling us what packages you have shipped, and we can generate docs for them. - R. Outlaw
-- Determine how to auto-generate REST API Reference Docs [[instructions acquired](https://github.com/Azure/adx-documentation-pr/wiki)].
 
 
 ### Docs Weekly Digest
