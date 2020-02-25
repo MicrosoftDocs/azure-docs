@@ -44,7 +44,7 @@ az container create \
 To verify the gitRepo volume was mounted, launch a shell in the container with [az container exec][az-container-exec] and list the directory:
 
 ```azurecli
-$ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh
+az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh
 ```
 
 ```output

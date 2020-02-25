@@ -75,7 +75,7 @@ az acr login --name <acrName>
 For example:
 
 ```azurecli
-$ az acr login --name mycontainerregistry082
+az acr login --name mycontainerregistry082
 ```
 
 The command returns `Login Succeeded` once completed:
@@ -97,7 +97,7 @@ az acr show --name <acrName> --query loginServer --output table
 For example, if your registry is named *mycontainerregistry082*:
 
 ```azurecli
-$ az acr show --name mycontainerregistry082 --query loginServer --output table
+az acr show --name mycontainerregistry082 --query loginServer --output table
 ```
 
 ```output
@@ -168,7 +168,7 @@ az acr repository list --name <acrName> --output table
 For example:
 
 ```azurecli
-$ az acr repository list --name mycontainerregistry082 --output table
+az acr repository list --name mycontainerregistry082 --output table
 ```
 
 ```output
@@ -186,7 +186,7 @@ az acr repository show-tags --name <acrName> --repository aci-tutorial-app --out
 You should see output similar to the following:
 
 ```console
-$ az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
+az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
 Result
 --------
 v1

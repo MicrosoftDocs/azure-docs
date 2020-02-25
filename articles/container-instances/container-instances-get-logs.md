@@ -17,7 +17,7 @@ To view logs from your application code within a container, you can use the [az 
 The following is log output from the example task-based container in [Set the command line in a container instance](container-instances-start-command.md#azure-cli-example), after having provided an invalid URL using a command-line override:
 
 ```azurecli
-$ az container logs --resource-group myResourceGroup --name mycontainer
+az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
 ```output

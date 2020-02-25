@@ -52,7 +52,7 @@ CONTAINER_GROUP=$(az container show --resource-group <resource-group> --name <co
 Use the following command to get **CPU** usage metrics.
 
 ```azurecli
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output table
+az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output table
 ```
 
 ```output
@@ -75,7 +75,7 @@ Timestamp            Name       Average
 Change the value of the `--metric` parameter in the command to get other [supported metrics][supported-metrics]. For example, use the following command to get **memory** usage metrics. 
 
 ```azurecli
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
+az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
 ```
 
 ```output
@@ -98,7 +98,7 @@ Timestamp            Name          Average
 For a multi-container group, the `containerName` dimension can be added to return metrics per container.
 
 ```azurecli
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
+az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
 ```
 
 ```output

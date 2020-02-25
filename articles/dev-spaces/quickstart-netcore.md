@@ -44,7 +44,7 @@ Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and fo
 > The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
 ```azurecli
-$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
 ```
 
 ```output
