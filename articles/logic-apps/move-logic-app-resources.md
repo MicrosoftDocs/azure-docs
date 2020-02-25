@@ -1,5 +1,5 @@
 ---
-title: Move logic apps across subscriptions, resource groups, or regions
+title: Migrate logic apps across subscriptions, resource groups, or regions
 description: Migrate logic apps or integration accounts to other Azure subscriptions, resource groups, or locations (regions)
 services: logic-apps
 ms.suite: integration
@@ -10,13 +10,15 @@ ms.date: 07/31/2019
 
 # Move logic app resources to other Azure subscriptions, resource groups, or regions
 
-To move your logic app or related resources to another Azure subscription, resource group, or region, you have various ways to complete these tasks, such as the Azure portal, Azure PowerShell, Azure CLI, and REST API. Before you move resources, review these considerations: 
+To migrate your logic app or related resources to another Azure subscription, resource group, or region, you have various ways to complete these tasks, such as the Azure portal, Azure PowerShell, Azure CLI, and REST API. Before you move resources, review these considerations: 
 
 * You can move only [specific logic app resource types](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) between Azure resource groups or subscriptions.
 
 * Check the [limits](../logic-apps/logic-apps-limits-and-config.md) on the number of logic app resources that you can have in your Azure subscription and in each Azure region. These limits affect whether you can move specific resource types when the region stays the same across subscriptions or resource groups. For example, you can have only one Free tier integration account for each Azure region in each Azure subscription.
 
-* When you move resources, Azure creates new resource IDs. So, make sure that you use the new IDs instead and update any scripts or tools that are associated with the moved resources. After you move logic apps between subscriptions, resource groups, or regions, you must recreate or reauthorize any OAuth-based connections.
+* After you migrate logic apps between subscriptions, resource groups, or regions, you must recreate or reauthorize any connections that require Open Authentication (OAuth).
+
+* Whenever you move resources, Azure creates new resource IDs. So, make sure that you use the new IDs instead and update any scripts or tools that are associated with the moved resources.
 
 ## Prerequisites
 

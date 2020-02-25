@@ -124,13 +124,13 @@ Before you begin, [create an Event Hubs namespace](../event-hubs/event-hubs-crea
 
 #### Stream the Azure Activity Log to Event Hubs
 
-See the following article [stream activity log to Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+See the following article [stream activity log to Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md).
 
 #### Install a partner SIEM connector 
 
 Routing your monitoring data to an Event Hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools.
 
-See the following article for the list of [supported SIEMs](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-platform-logs-sent-to-an-event-hub)
+See the following article for the list of [supported SIEMs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ### Example for Querying data 
 
@@ -145,8 +145,6 @@ Here are some Splunk queries you can use to pull alert data:
 
 ## Next steps
 
-In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following articles:
+In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following article:
 
 * [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-* [Azure Security Center FAQs](security-center-faq.md). Get answers to frequently asked questions about using Security Center.
-* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.

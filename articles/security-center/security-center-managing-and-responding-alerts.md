@@ -81,5 +81,3 @@ In this document, you learned how to configure security policies in Security Cen
 * [Security alerts in Azure Security Center](security-center-alerts-overview.md).
 * [Handling security incidents](security-center-incident.md)
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
-* [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
