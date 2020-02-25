@@ -202,17 +202,23 @@ Inside the **Apply to each 4** action, add a **Condition** Control. It will be n
 > :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Add Text Analytics credentials to your flow.":::
 
 
-In the “If yes” condition, click **Add an action** and select **Update a row**. Then enter the information like before. In the IssueType column, select var_plumbing.
+In the **If yes** condition, click **Add an action** and select **Update a row**. Then enter the information like before. In the IssueType column, select var_plumbing.
 
-In the “If no” condition, click **Add an action** and select **Update a row**. Then enter the information like before. In the IssueType column, select var_other.
+In the **If no** condition, click **Add an action** and select **Update a row**. Then enter the information like before. In the IssueType column, select var_other.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/get-plumbing-issue-2.png" alt-text="Add Text Analytics credentials to your flow.":::
 
 ## Test the workflow
 
-* In the top right corner of the screen, click Test. Select  “I’ll perform the trigger action”. Then Save & Test. Click Run flow. Then click Done.
+In the top right corner of the screen, click **Save**, then **Test**. Select  **I’ll perform the trigger action**. Then Save & Test. Click **Run flow**. Then click **Done**.
+
 The Excel file gets updated as below.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="The updated excel spreadsheet.":::
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Explore more solutions](../text-analytics-user-scenarios.md)
