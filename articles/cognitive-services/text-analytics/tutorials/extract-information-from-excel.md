@@ -14,33 +14,35 @@ ms.author: aahi
 
 # Extract information in Excel using Text Analytics and Power Automate 
 
-In this tutorial, you'll create a Power Automate flow to extract text in an Excel spreadsheet without having to write code. This flow will send tenant issue descriptions to the Text Analytics API, which will extract the name, contact info and classify the issue. Lastly, the flow will append this information to the Excel sheet. 
+In this tutorial, you'll create a Power Automate flow to extract text in an Excel spreadsheet without having to write code. This flow will send tenant issue descriptions to the Text Analytics API, which will extract the name, contact info and classify the plumbing issues. Lastly, the flow will append this information to the Excel sheet. 
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Use Power Automate to create a flow
-> * Upload Excel data to OneDrive for business
+> * Upload Excel data from OneDrive for Business
 > * Extract text from Excel, and send it to the Text Analytics API 
+> * Use the information from the API to update an Excel sheet.
 
 ## Prerequisites
 
 - A Microsoft Azure account. [Start a free trial](https://azure.microsoft.com/free/) or [sign in](https://portal.azure.com/).
 - A Cognitive Services API account with the Text Analytics API. If you don't have one, you can [sign up](../../cognitive-services-apis-create-account.md) and use the free tier (see [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) to complete this tutorial.
 - The [Text Analytics key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
-- Customer issues. Example data is provided on GitHub
+- A spreadsheet containing tenant issues. Example data is provided on GitHub
 - Office 365
 
 ## Load your text data
 
 We have a spreadsheet of issues reported to an apartment complex management. We want to classify the issues into two categories: plumbing and other.
 
-The issues are reported in raw text. We will use Text Analytics’ Named Entity Recognition to extract person and phone number. We will look for the word “plumbing” in the description to categorize the issues. 
+The issues are reported in raw text. We will use the Text Analytics API's Named Entity Recognition to extract the person name and phone number. Then the flow will look for the word “plumbing” in the description to categorize the issues. 
+
+>[!NOTE]
+> The data must be stored in an Excel table that has been uploaded to OneDrive for Business.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Examples from the Excel file.":::
-
-The data is stored in an Excel table that must be uploaded to One Drive for Business.
 
 ## Create a new Power Automate workflow
 
