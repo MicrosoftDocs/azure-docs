@@ -17,10 +17,26 @@ This article lists the features and tools that are not yet supported or only par
 
 ## Support levels at a glance
 
-These tables describe levels of support by feature, tool, and Azure service. If there are known issues related to any of these entries, click the link in that table to read more.
+These tables describe the level of support for blob service features, tools, and Azure services in Data Lake Storage Gen2. 
 
-### Blob feature support
+The items that appear in this table will change over time as support for Blob features, tools, and Azure services continues to expand.
 
+Review the [Known Issues](#known-issues.md) section of this article for information about specific issues and workarounds. 
+
+:::row:::
+   :::column span="":::
+      **Blob feature**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+      :::column span="":::
+      **Blob feature**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+:::row-end:::
 :::row:::
    :::column span="":::
       [Hot access tier](storage-blob-storage-tiers.md)
@@ -71,7 +87,7 @@ These tables describe levels of support by feature, tool, and Azure service. If 
       Preview
    :::column-end:::
    :::column span="":::
-      [Diagnostic logs](storage-analytics-logging.md)
+      [Diagnostic logs](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
    :::column-end:::
    :::column span="":::
       Preview
@@ -79,7 +95,7 @@ These tables describe levels of support by feature, tool, and Azure service. If 
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Change feed](storage-blob-change-feed?tabs=azure-portal.md)
+      [Change feed](../common/storage-blob-change-feed?tabs=azure-portal.md)
    :::column-end:::
    :::column span="":::
       Not yet supported
@@ -148,7 +164,20 @@ These tables describe levels of support by feature, tool, and Azure service. If 
    :::column-end:::
 :::row-end:::
 
-### Tools support
+:::row:::
+   :::column span="":::
+      **Tool**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+      :::column span="":::
+      **Tool**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+:::row-end:::
 
 :::row:::
     :::column span="":::
@@ -166,13 +195,13 @@ These tables describe levels of support by feature, tool, and Azure service. If 
 :::row-end:::
 :::row:::
    :::column span="":::
-      Blob APIs <li>[.NET](storage-quickstart-blobs-dotnet.md) </li><li> [Java](storage-quickstart-blobs-java.md) </li><li> [Python](storage-quickstart-blobs-python.md)</li><li> [JavaScript](storage-quickstart-blobs-nodejs.md)</li>
+      [Blob APIs](storage-quickstart-blobs-dotnet.md)
    :::column-end:::
    :::column span="":::
       Generally available
    :::column-end:::
    :::column span="":::
-      File, directory, and ACL APIs <li>([.NET](data-lake-storage-directory-file-acl-dotnet.md) </li><li> [Python](data-lake-storage-directory-file-acl-python.md) </li><li> [Java](data-lake-storage-directory-file-acl-java.md)) </li><li> [JavaScript](data-lake-storage-directory-file-acl-javascript.md)</li>
+      [File, directory, and ACL APIs](data-lake-storage-directory-file-acl-dotnet.m) 
       :::column-end:::
    :::column span="":::
       Preview
@@ -229,7 +258,20 @@ These tables describe levels of support by feature, tool, and Azure service. If 
    :::column-end:::
 :::row-end:::
 
-### Azure Ecosystem
+:::row:::
+   :::column span="":::
+      **Service**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+      :::column span="":::
+      **Service**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+:::row-end:::
 
 :::row:::
     :::column span="":::
@@ -328,7 +370,7 @@ These tables describe levels of support by feature, tool, and Azure service. If 
    :::column-end:::
 :::row-end:::
 
-<a id="life-cycle-notes" />
+<a id="known-issues" />
 
 ## Known issues
 
