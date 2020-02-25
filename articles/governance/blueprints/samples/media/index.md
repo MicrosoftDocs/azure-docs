@@ -14,10 +14,9 @@ attestation.
 ## Blueprint sample
 
 The blueprint sample helps customers deploy a core set of policies for any
-Azure-deployed architecture requiring accreditation or compliance with the HITRUST HIPAA
+Azure-deployed architecture requiring accreditation or compliance with the Media
 framework. The [control mapping](./control-mapping.md) section provides details on policies included
-within this initiative and how these policies help meet various controls defined by HITRUST HIPAA framework. When assigned to an architecture, resources are evaluated by Azure Policy for
-compliance with assigned policies.
+within this initiative and how these policies help meet various controls defined by Media framework. When assigned to an architecture, resources are evaluated by Azure Policy for compliance with assigned policies.
 
 ## Next steps
 

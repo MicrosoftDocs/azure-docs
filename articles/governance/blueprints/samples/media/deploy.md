@@ -1,12 +1,12 @@
 ---
-title: Deploy HIPAA HITRUST blueprint sample
-description: Deploy steps for the HIPAA HITRUST blueprint sample including blueprint artifact parameter details.
-ms.date: 12/03/2019
+title: Deploy Media blueprint sample
+description: Deploy steps for the Media blueprint sample including blueprint artifact parameter details.
+ms.date: 02/25/2020
 ms.topic: sample
 ---
-# Deploy the HIPAA HITRUST blueprint sample
+# Deploy the Media blueprint sample
 
-To deploy the HIPAA HITRUST blueprint sample, the following steps must be taken:
+To deploy the Media blueprint sample, the following steps must be taken:
 
 > [!div class="checklist"]
 > - Create a new blueprint from the sample
@@ -27,7 +27,7 @@ sample as a starter.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **HIPAA HITRUST** blueprint sample under _Other Samples_ and select **Use this
+1. Find the **Media** blueprint sample under _Other Samples_ and select **Use this
    sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
@@ -123,10 +123,10 @@ Artifact name|Artifact type|Parameter name|Description|
 |\[Preview\]: Deploy Log Analytics Agent for Linux VMs |Policy assignment |Optional: List of VM images that have supported Linux OS to add to scope |An empty array may be used to indicate no optional parameters: `[]` |
 |\[Preview\]: Deploy Log Analytics Agent for Windows VMs |Policy assignment |Optional: List of VM images that have supported Windows OS to add to scope |An empty array may be used to indicate no optional parameters: `[]` |
 |\[Preview\]: Deploy Log Analytics Agent for Windows VMs |Policy assignment |Log Analytics workspace for Windows VMs |For more information, see [Create a Log Analytics workspace in the Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Preview\]: Audit HITRUST HIPAA controls and deploy specific VM Extensions to support audit requirements |Policy assignment |Log Analytics workspace ID that VMs should be configured for |This is the ID (GUID) of the Log Analytics workspace that the VMs should be configured for. |
-|\[Preview\]: Audit HITRUST HIPAA controls and deploy specific VM Extensions to support audit requirements |Policy assignment |List of resource types that should have diagnostic logs enabled |List of resource types to audit if diagnostic log setting isn't enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
-|\[Preview\]: Audit HITRUST HIPAA controls and deploy specific VM Extensions to support audit requirements |Policy assignment |Administrators group |Group. Example: `Administrator; myUser1; myUser2` |
-|\[Preview\]: Audit HITRUST HIPAA controls and deploy specific VM Extensions to support audit requirements |Policy assignment |List of users that should be included in Windows VM Administrators group |A semicolon-separated list of members that should be included in the Administrators local group. Example: `Administrator; myUser1; myUser2` |
+|\[Preview\]: Audit Media controls and deploy specific VM Extensions to support audit requirements |Policy assignment |Log Analytics workspace ID that VMs should be configured for |This is the ID (GUID) of the Log Analytics workspace that the VMs should be configured for. |
+|\[Preview\]: Audit Media controls and deploy specific VM Extensions to support audit requirements |Policy assignment |List of resource types that should have diagnostic logs enabled |List of resource types to audit if diagnostic log setting isn't enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
+|\[Preview\]: Audit Media controls and deploy specific VM Extensions to support audit requirements |Policy assignment |Administrators group |Group. Example: `Administrator; myUser1; myUser2` |
+|\[Preview\]: Audit Media controls and deploy specific VM Extensions to support audit requirements |Policy assignment |List of users that should be included in Windows VM Administrators group |A semicolon-separated list of members that should be included in the Administrators local group. Example: `Administrator; myUser1; myUser2` |
 |Deploy Advanced Threat Protection on Storage Accounts |Policy assignment |Effect |Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
 |Deploy Auditing on SQL servers |Policy assignment |The value in days of the retention period (0 indicates unlimited retention) |Retention days (optional, _180_ days if unspecified) |
 |Deploy Auditing on SQL servers |Policy assignment |Resource group name for storage account for SQL server auditing |Auditing writes database events to an audit log in your Azure Storage account (a storage account is created in each region where a SQL Server is created that is shared by all servers in that region). Important - for proper operation of Auditing don't delete or rename the resource group or the storage accounts. |
@@ -135,12 +135,12 @@ Artifact name|Artifact type|Parameter name|Description|
 
 ## Next steps
 
-Now that you've reviewed the steps to deploy the HITRUST HIPAA sample, visit the following
+Now that you've reviewed the steps to deploy the Media sample, visit the following
 articles to learn about the overview and control mapping:
 
 > [!div class="nextstepaction"]
-> [HITRUST HIPAA blueprints - Overview](./index.md)
-> [HITRUST HIPAA blueprints - Control mapping](./control-mapping.md)
+> [Media blueprints - Overview](./index.md)
+> [Media blueprints - Control mapping](./control-mapping.md)
 
 Additional articles about blueprints and how to use them:
 

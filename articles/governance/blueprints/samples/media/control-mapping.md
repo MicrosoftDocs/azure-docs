@@ -26,9 +26,8 @@ built-in policy initiative.
 > this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
 > status. The associations between controls and Azure Policy definitions for this compliance
 > blueprint sample may change over time. To view the change history, see the
-> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/HIPAA-HITRUST/control-mapping.md).
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/media/control-mapping.md).
 
-Media Blueprint
 # Control Category: Access Control
 
 AC-1.1- Ensure no root access key exists
