@@ -15,9 +15,364 @@ This article lists the features and tools that are not yet supported or only par
 
 <a id="blob-storage-features" />
 
-## Feature, tool and service support
+## Support levels at a glance
 
-[!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
+These tables describe levels of support by feature, tool, and Azure service. If there are known issues related to any of these entries, click the link in that table to read more.
+
+### Blob feature support
+
+:::row:::
+   :::column span="":::
+      **Feature**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+      :::column span="":::
+      **Feature**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Hot access tier](storage-blob-storage-tiers.md)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+      :::column span="":::
+      [Cool access tier](storage-blob-storage-tiers.md)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Events](data-lake-storage-events.md)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+   :::column span="":::
+      [Metrics (Classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Metrics in Azure Monitor](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+      :::column span="":::
+      [Archive Access Tier](storage-blob-storage-tiers.md)
+   :::column-end:::
+   :::column span="":::
+      Preview
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Lifecycle management policies](storage-lifecycle-management-concepts.md)
+   :::column-end:::
+   :::column span="":::
+      Preview
+   :::column-end:::
+   :::column span="":::
+      [Diagnostic logs](storage-analytics-logging.md)
+   :::column-end:::
+   :::column span="":::
+      Preview
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Change feed](storage-blob-change-feed?tabs=azure-portal.md)
+   :::column-end:::
+   :::column span="":::
+      Not yet supported
+   :::column-end:::
+   :::column span="":::
+      [Account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+   :::column-end:::
+   :::column span="":::
+      Not yet supported
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Blob container ACL
+   :::column-end:::
+   :::column span="":::
+      Not yet supported
+   :::column-end:::
+   :::column span="":::
+      [Custom domains](storage-custom-domain-name.md)
+   :::column-end:::
+   :::column span="":::
+      Not yet supported
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Immutable storage](storage-blob-immutable-storage.md)
+   :::column-end:::
+   :::column span="":::
+      Not yet supported
+   :::column-end:::
+   :::column span="":::
+      [Snapshots](storage-blob-snapshots.md)
+   :::column-end:::
+   :::column span="":::
+      Not yet supported
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Soft Delete](storage-blob-soft-delete.md)
+   :::column-end:::
+   :::column span="":::
+      Not yet supported
+   :::column-end:::
+   :::column span="":::
+      [Static websites](storage-blob-static-website.md)
+   :::column-end:::
+   :::column span="":::
+      Not yet supported
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Logging in Azure Monitor
+   :::column-end:::
+   :::column span="":::
+      Not yet supported
+   :::column-end:::
+   :::column span="":::
+      [Premium block blobs](storage-blob-create-account-block-blob.md)
+   :::column-end:::
+   :::column span="":::
+      Not yet supported
+   :::column-end:::
+:::row-end:::
+
+### Tools support
+
+:::row:::
+   :::column span="":::
+      **Tool**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+      :::column span="":::
+      **Tool**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+      [PowerShell (Blob)](storage-quickstart-blobs-powershell.md)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+    :::column span="":::
+      [CLI (Blob)](storage-quickstart-blobs-cli.md)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Blob SDKs [.NET](storage-quickstart-blobs-dotnet.md) | [Java](storage-quickstart-blobs-java.md) | [Python](storage-quickstart-blobs-python.md)
+| [JavaScript](storage-quickstart-blobs-nodejs.md) 
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+   :::column span="":::
+      Data Lake Storage SDKs ([.NET](data-lake-storage-directory-file-acl-dotnet.md) | [Python](data-lake-storage-directory-file-acl-python.md) | [Java](data-lake-storage-directory-file-acl-java.md)) | [JavaScript](data-lake-storage-directory-file-acl-javascript.md)
+      :::column-end:::
+   :::column span="":::
+      Preview
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+      [PowerShell (Data Lake Storage)](data-lake-storage-directory-file-acl-powershell.md)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+    :::column span="":::
+      [CLI (Data Lake Storage)](data-lake-storage-directory-file-acl-cli.md)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [AzCopy](../common/storage-use-azcopy-v10.md)
+   :::column-end:::
+   :::column span="":::
+      Version-specific support. ([View details](#az-copy))
+   :::column-end:::
+      :::column span="":::
+      [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+   :::column-end:::
+   :::column span="":::
+      Version-specific support. ([View details](#storage-explorer))
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [blobfuse](storage-how-to-mount-container-linux.md)
+   :::column-end:::
+   :::column span="":::
+      Not yet supported
+   :::column-end:::
+      :::column span="":::
+      Browsing directories and files in the Azure portal 
+   :::column-end:::
+   :::column span="":::
+      Limited support. ([View details](#explorer-in-portal)) 
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Third party applications
+   :::column-end:::
+   :::column span="":::
+      Limited support. ([View details](#third-party-apps))
+   :::column-end:::
+:::row-end:::
+
+### Azure Ecosystem
+
+:::row:::
+   :::column span="":::
+      **Service**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+      :::column span="":::
+      **Service**
+   :::column-end:::
+   :::column span="":::
+      **Support level**
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+      [Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+    :::column span="":::
+      [Azure Event Hubs capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+      [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+    :::column span="":::
+      [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-access-data)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+      [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+   :::column span="":::
+      [Data Box](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+      [HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+   :::column span="":::
+      [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+      [Power BI](https://docs.microsoft.com/power-query/connectors/datalakestorage)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+   :::column span="":::
+      [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+      [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)
+   :::column-end:::
+   :::column span="":::
+      Generally available
+   :::column-end:::
+   :::column span="":::
+      [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)
+   :::column-end:::
+   :::column span="":::
+      Preview
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Azure Content Delivery Network](https://docs.microsoft.com/azure/cdn/cdn-overview)
+   :::column-end:::
+   :::column span="":::
+      Not yet supported
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+:::row-end:::
+
+
+
 
 <a id="life-cycle-notes" />
 
