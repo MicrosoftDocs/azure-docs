@@ -59,6 +59,8 @@
     href: high-availability-disaster-recovery.md
   - name: Task runtime environment variables
     href: batch-compute-node-environment-variables.md
+  - name: Batch integration with Azure Policies
+    href: batch-integration-policies.md  
 - name: How-to guides
   items:
   - name: Manage Batch accounts
