@@ -21,6 +21,9 @@ The Face service automatically encrypts your data when it is persisted it to the
 
 To request the ability to use customer-managed keys, fill out and submit the [Face Service Customer-Managed Key Request Form](http://urltorequest). Once approved for using CMK with the Face service, you will need to create a new Face resource and select E0 as the Pricing Tier.
 
+> [!IMPORTANT]
+> Customer-managed keys are only available on the E0 pricing tier. You must fill out and submit the [Face Service Customer-Managed Key Request Form](http://urltorequest) to get access to the E0 pricing tier for your resource.
+
 [!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk.md)]
 
 ## Next steps
