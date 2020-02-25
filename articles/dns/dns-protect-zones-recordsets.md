@@ -259,7 +259,7 @@ The following PowerShell command creates a CanNotDelete lock against the SOA rec
 ```azurepowershell
 # Protect against zone delete with CanNotDelete lock on the record set
 
-$lvl = "CanNotDelete
+$lvl = "CanNotDelete"
 $lnm = "<lock name>"
 $rsc = "<zone name>/@"
 $rty = "Microsoft.Network/DNSZones/SOA"
