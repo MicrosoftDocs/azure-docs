@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -123,7 +123,7 @@ Creates a string claim from the provided input parameter in the transformation.
 
 | Item | TransformationClaimType | Data Type | Notes |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | The string to be set |
+| InputParameter | value | string | The string to be set. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions). |
 | OutputClaim | createdClaim | string | The ClaimType that is produced after this claims transformation has been invoked, with the value specified in the input parameter. |
 
 Use this claims transformation to set a string ClaimType value.
@@ -293,7 +293,7 @@ Format a claim according to the provided format string. This transformation uses
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string |The ClaimType that acts as string format {0} parameter. |
-| InputParameter | stringFormat | string | The string format, including the {0}  parameter. |
+| InputParameter | stringFormat | string | The string format, including the {0}  parameter. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
 
 Use this claims transformation to format any string with one parameter {0}. The following example creates a **userPrincipalName**. All social identity provider technical profiles, such as `Facebook-OAUTH` calls the **CreateUserPrincipalName** to generate a **userPrincipalName**.
@@ -329,7 +329,7 @@ Format two claims according to the provided format string. This transformation u
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string | The ClaimType that acts as string format {0} parameter. |
 | InputClaim | inputClaim | string | The ClaimType that acts as string format {1} parameter. |
-| InputParameter | stringFormat | string | The string format, including the {0} and {1} parameters. |
+| InputParameter | stringFormat | string | The string format, including the {0} and {1} parameters. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
 
 Use this claims transformation to format any string with two parameters, {0} and {1}. The following example creates a **displayName** with the specified format:
@@ -921,3 +921,12 @@ The following example takes a comma delimiter string of user roles, and converts
   - **delimiter**: ","
 - Output claims:
   - **outputClaim**: [ "Admin", "Author", "Reader" ]
+  
+## String claim transformations expressions
+Claim transformations expressions in Azure AD B2C custom policies provide context information about the tenant ID and technical profile ID.
+
+  | Expression | Description | Example |
+ | ----- | ----------- | --------|
+ | `{TechnicalProfileId}` | The technical profileId name. | Facebook-OAUTH |
+ | `{RelyingPartyTenantId}` | The tenant ID of the relying party policy. | your-tenant.onmicrosoft.com |
+ | `{TrustFrameworkTenantId}` | The tenant ID of the trust framework. | your-tenant.onmicrosoft.com |

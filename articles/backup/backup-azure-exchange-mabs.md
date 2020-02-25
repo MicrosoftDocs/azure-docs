@@ -17,8 +17,8 @@ Before you continue, make sure that Azure Backup Server is [installed and prepar
 
 To install the MABS protection agent on the Exchange server, follow these steps:
 
-1. Make sure that the firewalls are correctly configured. See [Configure firewall exceptions for the agent](https://technet.microsoft.com/library/Hh758204.aspx).
-2. Install the agent on the Exchange server by clicking **Management > Agents > Install** in MABS Administrator Console. See [Install the MABS protection agent](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) for detailed steps.
+1. Make sure that the firewalls are correctly configured. See [Configure firewall exceptions for the agent](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758204(v=sc.12)).
+2. Install the agent on the Exchange server by clicking **Management > Agents > Install** in MABS Administrator Console. See [Install the MABS protection agent](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758186(v=sc.12)) for detailed steps.
 
 ## Create a protection group for the Exchange server
 
@@ -28,7 +28,7 @@ To install the MABS protection agent on the Exchange server, follow these steps:
 4. Select the Exchange server database that you want to protect and click **Next**.
 
    > [!NOTE]
-   > If you are protecting Exchange 2013, check the [Exchange 2013 prerequisites](https://technet.microsoft.com/library/dn751029.aspx).
+   > If you are protecting Exchange 2013, check the [Exchange 2013 prerequisites](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12)).
    >
    >
 

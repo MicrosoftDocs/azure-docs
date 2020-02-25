@@ -62,10 +62,18 @@
     href: load-balancer-security-controls.md
 - name: How to
   items:
-  - name: Upgrade a Basic Public Load Balancer to Standard Public Load Balancer
-    href: upgrade-basic-standard.md
+  - name: Upgrade a Basic Load Balancer to Standard Load Balancer
+    items:
+    - name: Upgrade a Basic Public Load Balancer
+      href: upgrade-basic-standard.md
+    - name: Upgrade a Basic Internal Load Balancer - No Outbound Connection Required
+      href: upgrade-basicInternal-standard.md
+    - name: Upgrade a Basic Internal Load Balancer - Outbound Connection Required
+      href: upgrade-InternalBasic-To-PublicStandard.md
   - name: Configure outbound rules
     items:
+    - name: Azure portal
+      href: configure-load-balancer-outbound-portal.md
     - name: Azure CLI
       href: configure-load-balancer-outbound-cli.md
     - name: Azure PowerShell

@@ -3,7 +3,7 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
@@ -113,6 +113,8 @@ The Dev/Test Offer is not applicable to Azure Gov customers at this time.
 
 An account transfer moves an account owner from one enrollment to another. All related subscriptions under the account owner will move to the target enrollment. This is performed when you have multiple active enrollments and only wish to move selected account owners.
 
+This section is for informational purposes only as the action cannot be performed by an enterprise administrator. A support request is needed to transfer an enterprise account to a new enrollment.
+
 Keep the following points in mind when you transfer an enterprise account to a new enrollment:
 
 - Only the accounts specified in the request are transferred. If all accounts are chosen, then they are all transferred.
@@ -142,6 +144,8 @@ An enrollment transfer is considered when:
 - A current enrollment’s commitment term has come to an end.
 - An enrollment is in expired/extended status and a new agreement is negotiated.
 - If you have multiple enrollments and wish to consolidate all the accounts and billing under a single enrollment.
+
+This section is for informational purposes only as the action cannot be performed by an enterprise administrator. A support request is needed to transfer an enterprise enrollment to a new one.
 
 When you request to transfer an entire enterprise enrollment to an enrollment, the following actions occur:
 

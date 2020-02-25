@@ -5,7 +5,7 @@ description: This article helps you better understand data that's included in Az
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/20/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
@@ -131,9 +131,9 @@ Here are a few tips for working with tags:
 - Use the Tags API in conjunction with either Query or UsageDetails to get all cost based on the current tags.
 
 
-**Free trial to pay-as-you-go upgrade**
+## Free trial to pay-as-you-go upgrade
 
-Customers with a Free Trial offer (044P) converting to the PAYG offer (003P) can see their usage during the Free trial period. However, they lose visibility to Free Trail usage after conversion. After conversion, only PAYG usage and costs are shown in Cost Management.
+For information about the availability of free tier services after you upgrade to pay-as-you-go pricing from a Free trial, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/).
 
 ## Rated usage data refresh schedule
 

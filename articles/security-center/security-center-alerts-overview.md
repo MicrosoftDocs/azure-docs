@@ -67,16 +67,16 @@ Security Center assigns a severity to alerts, to help you prioritize the order i
 The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 > [!NOTE]
-> Alert severity is displayed differently in the portal and the REST API, the differences are noted in the list below.
+> Alert severity is displayed differently in the portal and versions of the REST API that predate 01-01-2019. If you're using an older version of the API, upgrade for the consistent experience described below.
 
-* **High:** There is a high probability that your resource is compromised. 
+- **High:** There is a high probability that your resource is compromised. 
 You should look into it right away. Security Center has high confidence in both the malicious intent and in the findings used to issue the alert. For example, an alert that detects the execution of a known malicious tool such as Mimikatz, a common tool used for credential theft.
-* **Medium (Low in the REST API)**: This is probably a suspicious activity may indicate that a resource is compromised.
+- **Medium:** This is probably a suspicious activity may indicate that a resource is compromised.
 Security Center’s confidence in the analytic or finding is medium and the confidence of the malicious intent is medium to high. These would usually be machine learning or anomaly-based detections. For example, a sign-in attempt from an anomalous location.
-* **Low (Information in the REST API)**: This might be a benign positive or a blocked attack.
+- **Low:** This might be a benign positive or a blocked attack.
    * Security Center is not confident enough that the intent is malicious and the activity may be innocent. For example, log clear is an action that may happen when an attacker tries to hide their tracks, but in many cases is a routine operation performed by admins.
    * Security Center doesn’t usually tell you when attacks were blocked, unless it’s an interesting case that we suggest you look into. 
-* **Informational (Silent in the REST API)**: You will only see informational alerts when you drill down into a security incident, or if you use the REST API with a specific alert ID. An incident is typically made up of a number of alerts, some of which may appear on their own to be only informational, but in the context of the other alerts may be worthy of a closer look. 
+- **Informational:** You will only see informational alerts when you drill down into a security incident, or if you use the REST API with a specific alert ID. An incident is typically made up of a number of alerts, some of which may appear on their own to be only informational, but in the context of the other alerts may be worthy of a closer look. 
  
 
 ## Continuous monitoring and assessments

@@ -91,6 +91,8 @@ Use the following links to learn how to use Apache Kafka on HDInsight:
 
 * [Quickstart: Create Apache Kafka on HDInsight](apache-kafka-get-started.md)
 
+* [Use Kafka with REST proxy](rest-proxy.md)
+
 * [Tutorial: Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
 * [Tutorial: Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
