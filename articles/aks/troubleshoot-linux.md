@@ -172,7 +172,7 @@ On an Azure VM:
 - the sum of `r/s` and `w/s` for all block devices may not exceed the limits for the VM SKU.
 - the sum of  `rkB/s` and `wkB/s for all block devices may not exceed the limits for the VM SKU.
 
-Note that the OS disk counts as as a managed disk of the the smallest SKU corresponding to its capacity. For example, a 1024GB OS Disk corresponds to a P30 disk. Ephemeral OS disks and temporary disks do not have individual disk limits; they are only limited by the full VM limits.
+Note that the OS disk counts as a managed disk of the smallest SKU corresponding to its capacity. For example, a 1024GB OS Disk corresponds to a P30 disk. Ephemeral OS disks and temporary disks do not have individual disk limits; they are only limited by the full VM limits.
 
 Non-zero values of await or avgqu-sz are also good indicators of IO contention.
 
