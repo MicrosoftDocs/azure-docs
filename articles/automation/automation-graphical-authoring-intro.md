@@ -46,7 +46,7 @@ The Configuration control enables you to provide details for an object that is s
 
 ### Test control
 
-The Test control is not displayed when the graphical editor is first started. It is opened when you interactively [test a graphical runbook](#graphical-runbook-procedures).
+The Test control is not displayed when the graphical editor is first started. It is opened when you interactively test a graphical runbook.
 
 ## Activities
 

@@ -194,7 +194,7 @@ Your runbook currently starts the VM in the resource group that you specified fo
 
 ## Step 9 - Create a conditional link
 
-You now modify the runbook so that it only attempts to start the VM if it is not already started. Do this by adding a [Get-AzVM](https://docs.microsoft.com/en-us/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) cmdlet that retrieves the instance level status of the VM. Then you can add a PowerShell Workflow code module called Get Status with a snippet of PowerShell code to determine if the VM state is running or stopped. A conditional link from the Get Status module only runs **Start-AzVM** if the current running state is stopped. At the end of this procedure, your runbook uses the **Write-Output** cmdlet to output a message to inform you if the VM was successfully started.
+You now modify the runbook so that it only attempts to start the VM if it is not already started. Do this by adding a [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) cmdlet that retrieves the instance level status of the VM. Then you can add a PowerShell Workflow code module called Get Status with a snippet of PowerShell code to determine if the VM state is running or stopped. A conditional link from the Get Status module only runs **Start-AzVM** if the current running state is stopped. At the end of this procedure, your runbook uses the **Write-Output** cmdlet to output a message to inform you if the VM was successfully started.
 
 1. Open MyFirstRunbook-Graphical in the graphical editor.
 1. Remove the link between **Specify Subscription Id** and **Start-AzVM** by clicking on it and then pressing **Delete**.
