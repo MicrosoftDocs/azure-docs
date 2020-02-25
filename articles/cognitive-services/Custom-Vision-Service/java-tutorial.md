@@ -21,7 +21,7 @@ This article shows you how to get started using the Custom Vision Java SDK to bu
 
 - A Java IDE of your choice
 - [JDK 7 or 8](https://aka.ms/azure-jdks) installed.
-- Maven installed
+- [Maven](https://maven.apache.org/) installed
 - [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## Get the Custom Vision SDK and sample code
