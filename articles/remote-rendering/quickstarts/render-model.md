@@ -29,7 +29,7 @@ The following software must be installed:
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(download)](https://git-scm.com/downloads)
-* Unity 2019.3 [(download)](https://unity3d.com/get-unity/download)
+* Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
 * The NuGet command-line tool and Credential Provider (see below)
 
 ### Installing NuGet
@@ -73,16 +73,13 @@ You need to use NuGet commands to pull the packages from the ARR depot – from 
 ```cmd
 cd arrClient\Unity
 nuget install com.microsoft.azure.remote_rendering -ExcludeVersion
-nuget install ScriptableRenderPipeline -ExcludeVersion
 ```
 
 If the NuGet command results in authentication prompts, make sure you have NuGet and the NuGet Credential Provider installed as described in prerequisites above.
 
-The two commands above will download NuGet packages, carrying Unity packages. This operation adds three directories to your ‘ARR/ArrClient/Unity’ folder:
+The command above will download a NuGet package, carrying a Unity package. This operation adds the following directory to your *ARR\arrClient\Unity* folder:
 
-* *AzureRemoteRenderingSample* - The sample project
 * *com.microsoft.azure.remote_rendering* - The Unity package, which provides the client functionality of Azure Remote Rendering
-* *ScriptableRenderPipeline* - A customized version of the Unity's ScriptableRenderPipeline.
 
 ## Rendering a model with the Unity sample project
 

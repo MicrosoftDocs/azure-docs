@@ -32,21 +32,11 @@ Adding `-ExcludeVersion` creates a folder with no version extension, which is wh
 
 To add the package to a Unity project, using the 'Add package from disk...' option. For further instructions on its usage, follow the [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md).
 
-<!---
-[flborn], Is the following chapter still valid?
--->
+## Unity render pipelines
 
-## ScriptableRenderPipeline
-
-To maximize performance and integrate Azure Remote Rendering seamlessly with Unity, changes needed to be made on Unity's side that are not publicly available yet.
-In the meantime, we have created a modified version of Unity's scriptable render pipeline that gives the same benefits if used.
-As with the remote rendering package, this needs to be obtained and added manually.
-
-Call the following command to pull the latest version of the package into the current directory:
-
-* `nuget install ScriptableRenderPipeline -ExcludeVersion`
-
-As above, add the package to a Unity project using the 'Add package from disk...' option.
+Remote Rendering works with both the **Universal render pipeline** and the **Standard render pipeline**. For performance reasons, the Universal render pipeline is recommended.
+> [!IMPORTANT]
+> In both cases, the **Universal render pipeline** package has to be installed in Unity. This can either be done in Unity's **Package Manager** UI (package name **Universal RP**, version 7.2.1 or newer), or through the `Packages/manifest.json` file, as described in the [Unity project setup tutorial](../../tutorials/unity/project-setup.md#configure-the-projects-manifest).
 
 ## Next steps
 
