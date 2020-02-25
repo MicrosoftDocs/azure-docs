@@ -42,9 +42,9 @@
   - name: 13 - Manage VM security
     href: tutorial-azure-security.md
   - name: 14a - Build with Jenkins
-    href: tutorial-jenkins-github-docker-cicd.md
+    href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
   - name: 14b - Integrate Jenkins with Azure DevOps
-    href: tutorial-build-deploy-jenkins.md
+    href: ../../jenkins/tutorial-build-deploy-jenkins.md
   - name: 15a - DevOps for IaaS and PaaS on Azure
     href: tutorial-devops-azure-pipelines-classic.md
   - name: 15b - CI/CD with Azure Pipelines(YAML)
