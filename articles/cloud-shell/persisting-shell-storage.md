@@ -76,6 +76,8 @@ If a secondary storage region is used, the associated Azure storage account resi
 > [!NOTE]
 > If a secondary region is used, file access and startup time for Cloud Shell may be slower.
 
+A user can run `(Get-CloudDrive | Get-AzStorageAccount).Location` in PowerShell to see the location of their File Share.
+
 ## Restrict resource creation with an Azure resource policy
 Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](../azure-policy/json-samples.md) that are triggered by this specific tag.
 
