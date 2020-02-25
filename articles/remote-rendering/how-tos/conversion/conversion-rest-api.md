@@ -38,7 +38,7 @@ The conversion service provides three REST API endpoints to:
 - query the conversion status
 
 ### Start conversion using a linked storage account
-Your Azure Remote Rendering Account needs to have access to the provided storage account by following the "Link storage accounts" steps on [Create an Account](../create-an-account.md) to link your storage account.
+Your Azure Remote Rendering Account needs to have access to the provided storage account by following the steps on how to [Link storage accounts](../create-an-account.md/#link-storage-accounts).
 
 | Endpoint | Method |
 |-----------|:-----------|
@@ -80,7 +80,9 @@ Returns the ID of the ongoing conversion, wrapped in a JSON document. The field 
 
 The request body is the same as in the create REST call above, but input and output contain *Shared Access Signatures (SAS) tokens*. 
 These tokens provide access to the storage account for reading the input and writing the conversion result.
-Note: these SAS URI tokens are the query strings and not the full URI. 
+
+> [!NOTE]
+> These SAS URI tokens are the query strings and not the full URI. 
 
 
 ```json
@@ -105,6 +107,8 @@ Note: these SAS URI tokens are the query strings and not the full URI.
 ```
 
 ### Poll conversion status
+The status of an ongoing conversion started with one of the REST calls above can be queried using the following interface:
+
 
 | Endpoint | Method |
 |-----------|:-----------|
