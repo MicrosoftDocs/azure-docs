@@ -61,6 +61,8 @@ private static void downloadResults(MediaManager manager, String resourceGroup, 
 }
 ```
 
+For the full code sample, see [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+
 ## .NET
 
 ```csharp
@@ -107,6 +109,8 @@ private async static Task DownloadResults(IAzureMediaServicesClient client, stri
     Console.WriteLine("Download complete.");
 }
 ```
+
+For the full code sample, see [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
 ## Next steps
 
