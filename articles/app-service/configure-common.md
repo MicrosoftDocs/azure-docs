@@ -85,7 +85,7 @@ In the [Azure portal], search for and select **App Services**, and then select y
 
 ![Application Settings](./media/configure-common/open-ui.png)
 
-For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safe in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
+For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
 
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. Here's one exception, however: certain Azure database types are backed up along with the app if you configure their connection strings in your app. For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use app settings.
 
@@ -163,6 +163,8 @@ Here, you can configure some common settings for the app. Some settings require 
     - **Bitness**: 32-bit or 64-bit.
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
     - **Always On**: Keep the app loaded even when there's no traffic. It's required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
+      > [!NOTE]
+      > With the Always On feature, you can’t control the endpoint. It always sends a request to the application root.
     - **Managed pipeline version**: The IIS [pipeline mode]. Set it to **Classic** if you have a legacy app that requires an older version of IIS.
     - **HTTP version**: Set to **2.0** to enable support for [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
     > [!NOTE]

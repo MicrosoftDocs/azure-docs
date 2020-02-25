@@ -374,7 +374,6 @@ To test progressive download, paste a URL into a browser (for example, Internet 
 For more information, see the following topics:
 
 - [Playing your content with existing players](media-services-playback-content-with-existing-players.md)
-- [Develop video player applications](media-services-develop-video-players.md)
 - [Embedding an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 ## Download sample

@@ -6,8 +6,13 @@ ms.topic: conceptual
 ---
 # Azure Policy definition structure
 
-Resource policy definitions are used by Azure Policy to establish conventions for resources. Each
-definition describes resource compliance and what effect to take when a resource is non-compliant.
+Azure Policy establishes conventions for resources. Policy definitions describe resource compliance
+[conditions](#conditions) and the effect to take if a condition is met. A condition compares a
+resource property [field](#fields) to a required value. Resource property fields are accessed by
+using [aliases](#aliases). A resource property field is either a single-valued field or an
+[array](#understanding-the--alias) of multiple values. Condition evaluation is different on arrays.
+Learn more about [conditions](#conditions).
+
 By defining conventions, you can control costs and more easily manage your resources. For example,
 you can specify that only certain types of virtual machines are allowed. Or, you can require that
 all resources have a particular tag. Policies are inherited by all child resources. If a policy is
@@ -74,6 +79,10 @@ are:
 - `all`: evaluate resource groups and all resource types
 - `indexed`: only evaluate resource types that support tags and location
 
+For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in
+both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged isn't evaluated
+in `Indexed` mode.
+
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
 parameter manually. If the policy definition doesn't include a **mode** value, it defaults to `all`
@@ -131,6 +140,16 @@ A parameter has the following properties that are used in the policy definition:
   - `description`: The explanation of what the parameter is used for. Can be used to provide
     examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
+  - `version`: (Optional) Tracks details about the version of the contents of a policy definition.
+
+    > [!NOTE]
+    > The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey
+    > level of change to a built-in policy definition or initiative and state. The format of
+    > `version` is: `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_,
+    > are appended to the `version` property or in another property as a **boolean**.
+
+  - `category`: (Optional) Determines under which category in Azure portal the policy definition is
+    displayed.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides
     a context aware list. For more information, see [strongType](#strongtype).
   - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments
@@ -306,8 +325,11 @@ When using the **match** and **notMatch** conditions, provide `#` to match a dig
 letter, `.` to match any character, and any other character to match that actual character. While,
 **match** and **notMatch** are case-sensitive, all other conditions that evaluate a _stringValue_
 are case-insensitive. Case-insensitive alternatives are available in **matchInsensitively** and
-**notMatchInsensitively**. For examples, see
-[Allow several name patterns](../samples/allow-multiple-name-patterns.md).
+**notMatchInsensitively**.
+
+In an **\[\*\] alias** array field value, each element in the array is evaluated individually with
+logical **and** between elements. For more information, see [Evaluating the \[\*\]
+alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ### Fields
 
@@ -323,7 +345,7 @@ The following fields are supported:
 - `kind`
 - `type`
 - `location`
-  - Use **global** for resources that are location agnostic. For an example, see [Samples - Allowed locations](../samples/allowed-locations.md).
+  - Use **global** for resources that are location agnostic.
 - `identity.type`
   - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
     enabled on the resource.
@@ -383,7 +405,11 @@ Conditions can also be formed using **value**. **value** checks conditions again
 
 > [!WARNING]
 > If the result of a _template function_ is an error, policy evaluation fails. A failed evaluation
-> is an implicit **deny**. For more information, see [avoiding template failures](#avoiding-template-failures).
+> is an implicit **deny**. For more information, see
+> [avoiding template failures](#avoiding-template-failures). Use
+> [enforcementMode](./assignment-structure.md#enforcement-mode) of **DoNotEnforce** to prevent
+> impact of a failed evaluation on new or updated resources while testing and validating a new
+> policy definition.
 
 #### Value examples
 
@@ -670,18 +696,24 @@ use within a policy rule, except the following functions and user-defined functi
 The following functions are available to use in a policy rule, but differ from use in an Azure
 Resource Manager template:
 
-- addDays(dateTime, numberOfDaysToAdd)
+- `addDays(dateTime, numberOfDaysToAdd)`
   - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.fffffffZ'
   - **numberOfDaysToAdd**: [Required] integer - Number of days to add
-- utcNow() - Unlike a Resource Manager template, this can be used outside defaultValue.
+- `utcNow()` - Unlike a Resource Manager template, this can be used outside defaultValue.
   - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
-Additionally, the `field` function is available to policy rules. `field` is primarily used with
-**AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
-evaluated. An example of this use can be seen in the [DeployIfNotExists
-example](effects.md#deployifnotexists-example).
+The following functions are only available in policy rules:
+
+- `field(fieldName)`
+  - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
+  - Returns the value of that field from the resource that is being evaluated by the If condition
+  - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being evaluated. An example of this use can be seen in the [DeployIfNotExists example](effects.md#deployifnotexists-example).
+- `requestContext().apiVersion`
+  - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`). This will be the API version that was used in the PUT/PATCH request for evaluations on resource creation/update. The latest API version is always used during compliance evaluation on existing resources.
+  
+
 
 #### Policy function example
 

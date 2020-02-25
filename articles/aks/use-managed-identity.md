@@ -4,8 +4,6 @@ description: Learn how to use managed identities in Azure Kubernetes Service (AK
 services: container-service
 author: saudas
 manager: saudas
-
-ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
@@ -40,7 +38,7 @@ You must have the following resources installed:
 To install the aks-preview 0.4.14 extension or later, use the following Azure CLI commands:
 
 ```azurecli
-az extension update --name aks-preview
+az extension add --name aks-preview
 az extension list
 ```
 

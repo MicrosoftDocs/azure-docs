@@ -94,14 +94,15 @@ When *EnforceCloudPasswordPolicyForPasswordSyncedUsers* is disabled (which is th
 
 
 To enable the EnforceCloudPasswordPolicyForPasswordSyncedUsers feature, run the following command using the MSOnline PowerShell module as shown below. You would have to type yes for the Enable parameter as shown below :
+
 ```
-`Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers`
-`cmdlet Set-MsolDirSyncFeature at command pipeline position 1`
-`Supply values for the following parameters:`
-`Enable: yes`
-`Confirm`
-`Continue with this operation?`
-`[Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y`
+Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers
+cmdlet Set-MsolDirSyncFeature at command pipeline position 1
+Supply values for the following parameters:
+Enable: yes
+Confirm
+Continue with this operation?
+[Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
 Once enabled, Azure AD does not go to each synchronized user to remove the `DisablePasswordExpiration` value from the PasswordPolicies attribute. Instead, the value is set to `None` during the next password sync for each user when they next change their password in on-premises AD.  
@@ -119,7 +120,7 @@ Caveat: If there are synchronized accounts that need to have non-expiring passwo
 > [!NOTE]
 > This feature is in Public Preview right now.
 
-#### Public Preview of synchronizing temporary passwords and "Force Password Reset on Next Logon"
+#### Public Preview of synchronizing temporary passwords and "Force Password Change on Next Logon"
 
 It is typical to force a user to change their password during their first logon, especially after an admin password reset occurs.  It is commonly known as setting a "temporary" password and is completed by checking the "User must change password at next logon" flag on a user object in Active Directory (AD).
   

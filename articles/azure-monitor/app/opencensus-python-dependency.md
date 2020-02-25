@@ -97,8 +97,8 @@ Additional configuration can be provided, read [customizations](https://github.c
 OPENCENSUS = {
     'TRACE': {
         'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=1)',
-        'EXPORTER': '''opencensus.ext.ocagent.trace_exporter.TraceExporter(
-            service_name='foobar',
+        'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
+            connection_string="InstrumentationKey=<your-ikey-here>"
         )''',
     }
 }

@@ -2,12 +2,9 @@
 title: Operator best practices - Identity in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for how to manage authentication and authorization for clusters in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: mlearned
+
 ---
 
 # Best practices for authentication and authorization in Azure Kubernetes Service (AKS)
@@ -118,7 +115,7 @@ This best practices article focused on authentication and authorization for your
 
 For more information about cluster operations in AKS, see the following best practices:
 
-* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler]
+* [Multi-tenancy and cluster isolation][aks-best-practices-cluster-isolation]
 * [Basic Kubernetes scheduler features][aks-best-practices-scheduler]
 * [Advanced Kubernetes scheduler features][aks-best-practices-advanced-scheduler]
 

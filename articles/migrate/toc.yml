@@ -14,6 +14,8 @@
       href: common-questions-appliance.md
     - name: Questions about discovery, assessment/dependency visualization
       href: common-questions-discovery-assessment.md
+    - name: Questions about Server Migration
+      href: common-questions-server-migration.md
 - name: Tutorials
   items:
   - name: Assess and migrate VMware VMs
@@ -103,9 +105,9 @@
     href: how-to-assess.md
   - name: Group machines for assessment
     href: how-to-create-a-group.md
-  - name: Group machines using dependency visualization
+  - name: Analyze machine dependencies (agent-based)
     href: how-to-create-group-machine-dependencies.md
-  - name: Group machines using agentless dependency visualization
+  - name: Analyze machine dependencies (agentless)
     href: how-to-create-group-machine-dependencies-agentless.md
   - name: Create an assessment
     href: how-to-create-assessment.md

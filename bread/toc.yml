@@ -27,6 +27,9 @@
       - name: Develop
         tocHref: /azure/active-directory/develop/
         topicHref: /azure/active-directory/develop/
+      - name: Azure AD for developers
+        tocHref: /azure/active-directory/azuread-dev/
+        topicHref: /azure/active-directory/azuread-dev/
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
@@ -152,9 +155,6 @@
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
-  - name: Cost Management
-    tocHref: /azure/cost-management/
-    topicHref: /azure/cost-management/
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
@@ -190,7 +190,7 @@
       - name: IoT Central
         tocHref: /azure/iot-central/
         topicHref: /azure/iot-central/
-        items: 
+        items:
         - name: IoT Central
           tocHref: /azure/iot-central/core/
           topicHref: /azure/iot-central/core/
@@ -261,9 +261,6 @@
   - name: Batch AI
     tocHref: /azure/batch-ai/
     topicHref: /azure/batch-ai/
-  - name: Billing + cost management
-    tocHref: /azure/billing/
-    topicHref: /azure/billing/
   - name: Biztalk Services
     tocHref: /azure/biztalk-services/
     topicHref: /azure/biztalk-services/
@@ -421,7 +418,7 @@
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
-    items: 
+    items:
     - name: DC/OS and Swarm
       tocHref: /azure/container-service/dcos-swarm/
       topicHref: /azure/container-service/dcos-swarm/
@@ -443,7 +440,7 @@
       topicHref: /azure/databox/
     - name: Data Box online transfer
       tocHref: /azure/databox-online/
-      topicHref: /azure/databox-online/ 
+      topicHref: /azure/databox-online/
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -549,7 +546,7 @@
 #  - name: Internet of Things
 #    tocHref: /azure/iot-fundamentals/
 #    topicHref: /azure/iot-fundamentals/
-#    items:  
+#    items:
 #    - name: IoT Fundamentals
 #      tocHref: /azure/iot-fundamentals/
 #      topicHref: /azure/iot-fundamentals/
@@ -558,7 +555,7 @@
 #      topicHref: /azure/iot-edge/
 #    - name: IoT Hub
 #      tocHref: /azure/iot-hub/
-#      topicHref: /azure/iot-hub/ 
+#      topicHref: /azure/iot-hub/
 #    - name: IoT Hub Device Provisioning Service
 #      tocHref: /azure/iot-dps/
 #      topicHref: /azure/iot-dps/
@@ -617,7 +614,7 @@
   - name: Media Services
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/
-    items: 
+    items:
       - name: v3
         tocHref: /azure/media-services/latest/
         topicHref: /azure/media-services/latest/
@@ -755,7 +752,7 @@
         topicHref: /azure/storage/data-lake-storage/introduction
       - name: Files
         tocHref: /azure/storage/files/
-        topicHref: /azure/storage/files/storage-files-introduction 
+        topicHref: /azure/storage/files/storage-files-introduction
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
@@ -819,7 +816,7 @@
     topicHref: /azure/virtual-network/
   - name: Peering Service
     tocHref: /azure/peering-service/
-    topicHref: /azure/peering-service/ 
+    topicHref: /azure/peering-service/
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
@@ -829,3 +826,19 @@
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
+  - name: Cost Management and Billing
+    tocHref: /azure/cost-management-billing/
+    topicHref: /azure/cost-management-billing/
+    items:
+    - name: Get started
+      tocHref: /azure/cost-management-billing/understand/
+      topicHref: /azure/cost-management-billing/understand/
+    - name: Manage costs and usage
+      tocHref: /azure/cost-management-billing/costs/
+      topicHref: /azure/cost-management-billing/costs/
+    - name: Manage accounts and subscriptions
+      tocHref: /azure/cost-management-billing/manage/
+      topicHref: /azure/cost-management-billing/manage/
+    - name: Reservations
+      tocHref: /azure/cost-management-billing/reservations/
+      topicHref: /azure/cost-management-billing/reservations/

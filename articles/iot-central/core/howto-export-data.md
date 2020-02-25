@@ -10,9 +10,7 @@ ms.service: iot-central
 manager: corywink
 ---
 
-# Export your Azure IoT Central data
-
-
+# Export IoT data to destinations in Azure
 
 *This topic applies to administrators.*
 
@@ -57,10 +55,14 @@ When you choose Service Bus as an export destination, the queues and topics must
 
 If you don't have an existing Azure Storage account to export to, follow these steps:
 
-1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob Storage accounts](https://aka.ms/blobdocscreatestorageaccount) or [Azure Data Lake Storage v2 storage accounts](../../storage/blobs/data-lake-storage-quickstart-create-account.md).
+1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob Storage accounts](https://aka.ms/blobdocscreatestorageaccount) or [Azure Data Lake Storage v2 storage accounts](../../storage/blobs/data-lake-storage-quickstart-create-account.md). Data export can only write data to storage accounts that support block blobs. The following is a list of known compatible types of storage accounts: 
 
-    - If you choose to export data to an Azure Data Lake Storage v2 storage account, you must choose **BlobStorage** as the **Account Kind**.
-    - You can export data to storage accounts in subscriptions different than the one for your IoT Central application. You will connect using a connection string in this case.
+    |Performance Tier|Account Type|
+    |-|-|
+    |Standard|General Purpose V2|
+    |Standard|General Purpose V1|
+    |Standard|Blob Storage|
+    |Premium|Block Blob Storage|
 
 2. Create a container in your storage account. Go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
 
