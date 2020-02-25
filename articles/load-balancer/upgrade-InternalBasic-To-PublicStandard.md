@@ -16,7 +16,7 @@ There are three stages in a upgrade:
 
 1. Migrate the configuration to Standard Public Load Balancer
 2. Add VMs to backend pools of Standard Public Load Balancer
-3. Set up NSG rules for Subnet/VMs which should be refrained from/to the Internet
+3. Set up NSG rules for Subnet/VMs that should be refrained from/to the Internet
 
 This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -24,15 +24,15 @@ This article covers configuration migration. Adding VMs to backend pools may var
 
 An Azure PowerShell script is available that does the following:
 
-* Creates a Standard SKU Public Load Balancer in the resource group and location the you specify.
+* Creates a Standard SKU Public Load Balancer in the resource group and location that you specify.
 * Seamlessly copies the configurations of the Basic SKU Internal Load Balancer to the newly create Standard Public Load Balancer.
 
 ### Caveats\Limitations
 
-* Script supports Internal Load Balancer upgrade where outbound connection is required. If outbound connection is not required for any of the VMs, please refer to [this page](upgrade-basicInternal-standard.md) for best practice.
+* Script supports Internal Load Balancer upgrade where outbound connection is required. If outbound connection is not required for any of the VMs, refer to [this page](upgrade-basicInternal-standard.md) for best practice.
 * The Standard Load Balancer has a new public address. It’s impossible to move the IP addresses associated with existing Basic Internal Load Balancer seamlessly to Standard Public Load Balancer since they have different SKUs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
-* If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Please make sure they are not empty.
+* If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script.  Make sure they are not empty.
 
 ## Download the script
 
@@ -71,7 +71,7 @@ To run the script:
    * **oldRgName: [String]: Required** – This is the resource group for your existing Basic Load Balancer you want to upgrade. To find this string value, navigate to Azure portal, select your Basic Load Balancer source, and click the **Overview** for the load balancer. The Resource Group is located on that page.
    * **oldLBName: [String]: Required** – This is the name of your existing Basic Balancer you want to upgrade. 
    * **newrgName: [String]: Required** – This is the resource group in which the Standard Load Balancer will be created. It can be a new resource group or an existing one. If you pick an existing resource group, note that the name of the Load Balancer has to be unique within the resource group. 
-   * **newlocation: [String]: Required** – This is the location in which the Standard Load Balancer will be created. It is recommended to inherit the same location of the chosen Basic Load Balancer to the Standard Load Balancer for better association with other existing resources.
+   * **newlocation: [String]: Required** – This is the location in which the Standard Load Balancer will be created. We recommend inheriting the same location of the chosen Basic Load Balancer to the Standard Load Balancer for better association with other existing resources.
    * **newLBName: [String]: Required** – This is the name for the Standard Load Balancer to be created.
 1. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
 
