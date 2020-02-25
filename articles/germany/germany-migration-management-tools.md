@@ -54,7 +54,7 @@ For more information:
 
 ## Scheduler
 
-Azure Scheduler is being retired, so to create scheduling jobs, use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) instead.
+Azure Scheduler is being retired. To create scheduling jobs, you can use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) in global Azure instead.
 
 For more information:
 
