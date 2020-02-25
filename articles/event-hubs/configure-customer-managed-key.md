@@ -221,7 +221,13 @@ This section shows you how to create an Azure Event Hubs namespace with managed 
        }
     }
     ```
-2. Create a template parameter file named: **CreateEventHubClusterAndNamespaceParams.json**. Replace `<EventHubsClusterName>`, `<EventHubsNamespaceName>`, and `<Location>` with names of your Event Hubs cluster, namespace, and location. 
+2. Create a template parameter file named: **CreateEventHubClusterAndNamespaceParams.json**. 
+
+    > [!NOTE]
+    > Replace the following values: 
+    > - `<EventHubsClusterName>` - Name of your Event Hubs cluster    
+    > - `<EventHubsNamespaceName>` - Name of your Event Hubs namespace
+    > - `<Location>` - Location of your Event Hubs namespace
 
     ```json
     {
@@ -352,7 +358,15 @@ In this step, you will update the Event Hubs namespace with key vault informatio
     }
     ``` 
 
-2. Create a template parameter file: **UpdateEventHubClusterAndNamespaceParams.json**. Replace `<EventHubsClusterName>`, <EventHubsNamespaceName>`, `<Location>`, `<KeyName>`, and `<KeyVaultName>` with the names of your Event Hubs cluster, namespace, location, key vault, and key in the key vault. 
+2. Create a template parameter file: **UpdateEventHubClusterAndNamespaceParams.json**. 
+
+    > [!NOTE]
+    > Replace the following values: 
+    > - `<EventHubsClusterName>` - Name of your Event Hubs cluster.        
+    > - `<EventHubsNamespaceName>` - Name of your Event Hubs namespace
+    > - `<Location>` - Location of your Event Hubs namespace
+    > - `<KeyVaultName>` - Name of your key vault
+    > - `<KeyName>` - Name of the key in the key vault
 
     ```json
     {
