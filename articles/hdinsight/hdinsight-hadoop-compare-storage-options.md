@@ -44,7 +44,6 @@ You can create a cluster using different combinations of services for primary an
 | 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | Data Lake Storage Gen1 | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
-| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Yes |
 | 3.6 | Data Lake Storage Gen1 | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
