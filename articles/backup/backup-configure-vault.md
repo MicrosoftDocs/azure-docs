@@ -25,7 +25,7 @@ Azure Backup uses the MARS agent to back up files, folders, and system state fro
 
 * Directly on on-premises Windows machines. These machines can back up directly to a Recovery Services vault in Azure.
 * On Azure VMs that run Windows side by side with the Azure VM backup extension. The agent backs up specific files and folders on the VM.
-* On a Microsoft Azure Backup Server (MABS) instance or a System Center Data Protection Manager server. In this scenario, machines and workloads back up to MABS or Data Protection Manager. Then MABS or Data Protection Manager uses the MARS agent to back up to a vault in Azure.
+* On a Microsoft Azure Backup Server (MABS) instance or a System Center Data Protection Manager (DPM) server. In this scenario, machines and workloads back up to MABS or Data Protection Manager. Then MABS or Data Protection Manager uses the MARS agent to back up to a vault in Azure.
 
 The data that's available for backup depends on where the agent is installed.
 
@@ -47,11 +47,11 @@ The data that's available for backup depends on where the agent is installed.
 If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
 
 * URLs
-    * www\.msftncsi.com
-    * *.Microsoft.com
-    * *.WindowsAzure.com
-    * *.microsoftonline.com
-    * *.windows.net 
+    * `www\.msftncsi.com`
+    * `*.Microsoft.com`
+    * `*.WindowsAzure.com`
+    * `*.microsoftonline.com`
+    * `*.windows.net` 
 * IP addresses
     * 20.190.128.0/18
     * 40.126.0.0/18
@@ -125,7 +125,7 @@ Azure Backup automatically handles storage for the vault. You specify how to rep
 
 We recommend that if you use Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting. If you don't use Azure as a primary backup storage endpoint, select **Locally redundant** to reduce the Azure storage costs.
 
-For more information, see [Geo-redundancy](../storage/common/storage-redundancy-grs.md) and [Local redundancy](../storage/common/storage-redundancy-lrs.md).
+For more information, see [Geo-redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage) and [Local redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy#locally-redundant-storage).
 
 ## Download the MARS agent
 
