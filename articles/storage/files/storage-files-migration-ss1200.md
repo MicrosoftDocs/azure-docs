@@ -42,7 +42,7 @@ Once you are familiar with Azure File Sync, you know that a local Windows Server
 
 Migrating from a StorSimple 1200 virtual appliance to Azure File Sync requires the migration path to Azure File Sync we describe here. It may seem to you that there are other options, and we can assure you we have evaluated them and they all have drawbacks that go against either of the two main goals of any migration, described in the section above. There are numerous alternatives and it would create too long of an article to document all of them and illustrate why they bear risk or disadvantages over the route we do recommend you take.
 
-:::image type="content" source="/media/storage-files-migration-storsimple-shared/SS1200-migration.png" alt-text="Migration route overview of the steps further below in this article.":::
+:::image type="content" source="media/storage-files-migration-storsimple-shared/SS1200-migration.png" alt-text="Migration route overview of the steps further below in this article.":::
 
 ### Steps 1: Provision your on-premises Windows Server and storage
 
