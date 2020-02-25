@@ -143,7 +143,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. Copy **Initiate SSO URL** value and paste it into the **Sign on URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
-    c. Click on **UPLOAD SAML METADATA** to upload the downloaded metadata XML file from azure portal. After uploading the metadata file the above values will be auto populated and save changes.
+    c. Click on **UPLOAD SAML METADATA** to upload the downloaded metadata XML file from Azure portal. After uploading the metadata file the above values will be auto populated and save changes.
 
 ### Create Britive test user
 
