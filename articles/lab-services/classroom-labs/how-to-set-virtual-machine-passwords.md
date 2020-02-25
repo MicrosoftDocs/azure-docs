@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 02/20/2020
 ms.author: spelluru
 
 ---
@@ -54,6 +54,9 @@ The second way is to select one or more VMs in the list, and toggle the button i
 ![Start selected VMs](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
 Similarly, you can stop one or more VMs by toggling the button in the **State** column or selecting **Stop** on the toolbar. 
+
+> [!NOTE]
+> When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to the user outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## Reset VMs
 To reset one or more VMs, select them in the list, and then select **Reset** on the toolbar. 
