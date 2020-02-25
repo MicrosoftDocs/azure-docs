@@ -1,7 +1,7 @@
 ---
 title: View and manage service providers
 description: Customers can use the Service providers page in the Azure portal to view info about service providers, service provider offers, and delegated resources.
-ms.date: 01/15/2020
+ms.date: 02/25/2020
 ms.topic: conceptual
 ---
 # View and manage service providers
@@ -57,6 +57,14 @@ Filters at the top of the page let you sort and group your delegation info or fi
 
 > [!NOTE]
 > Customers will not see these role assignments, or any users from the service provider tenant who have been granted these roles, when [viewing role assignment info for the delegated scope in the Azure portal](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) or via APIs.
+
+## Audit delegations in your environment
+
+Customers who have a large number of subscriptions, or with multiple users involved in management tasks.To gain visibility into the subscriptions and/or resource groups that have been delegated to service providers for [Azure delegated resource management](../concepts/azure-delegated-resource-management.md). This is especially useful for 
+
+We provide an [Azure Policy built-in policy definition to audit delegation of scopes to a managing tenant](../../governance/policy/samples/built-in-policies.md#lighthouse). You can assign this policy to a management group that includes all of the subscriptions that you want to audit. Any delegated subscriptions and/or resource groups will appear when you check for compliance with this policy.
+
+For more info about how to assign a policy and view compliance state results, see [Quickstart: Create a policy assignment](../../governance/policy/assign-policy-portal.md).
 
 ## Next steps
 

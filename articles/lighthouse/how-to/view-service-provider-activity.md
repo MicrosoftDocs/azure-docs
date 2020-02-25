@@ -9,6 +9,9 @@ ms.topic: conceptual
 
 Customers who have delegated subscriptions for Azure delegated resource management can [view Azure Activity log](../../azure-monitor/platform/platform-logs-overview.md) data to see all actions taken. This gives customers full visibility into operations that service providers are performing through Azure delegated resource management, along with those done by users within the customer's own Azure Active Directory (Azure AD) tenant.
 
+> [!TIP]
+> We also provide an Azure Policy built-in policy definition to audit delegation of scopes to a managing tenant. For more info, see [Audit delegations in your environment](view-manage-service-providers.md#audit-delegations-in-your-environment).
+
 ## View activity log data
 
 You can [view the activity log](../../azure-monitor/platform/activity-log-view.md) from the **Monitor** menu in the Azure portal. To limit results to a specific subscription, you can use the filters to select a specific subscription. You can also [view and retrieve activity log events](../../azure-monitor/platform/activity-log-view.md) programmatically.
