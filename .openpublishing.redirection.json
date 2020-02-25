@@ -250,6 +250,11 @@
       "redirect_url": "/azure/virtual-machines/",
       "redirect_document_id": false
     },
+    {  
+      "source_path": "articles/virtual-machines/dc-series.md",
+      "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/virtual-machines/windows/maintenance-and-updates.md",
       "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
@@ -26986,6 +26991,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/files/storage-files-active-directory-enable.md",
+      "redirect_url": "/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/files/storage-files-active-directory-domain-services-enable.md",
+      "redirect_url": "/azure/storage/files/storage-files-identity-auth-active-directory-enable",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-files-introduction.md",
       "redirect_url": "/azure/storage/files/storage-files-introduction",
       "redirect_document_id": true
@@ -41421,6 +41436,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/log-query/log-query-performance.md",
+      "redirect_url": "/azure/azure-monitor/log-query/query-optimization",
+      "redirect_document_id": false
+    },   
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -48871,25 +48891,10 @@
       "redirect_url": "/azure/chef/chef-automation",
       "redirect_document_id": true
     },
-    {
-      "source_path": "articles/cognitive-services/Bing-Web-Search/web-search-sdk-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Bing-Web-Search/web-sdk-java-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Bing-Web-Search/web-search-sdk-node-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Bing-Web-Search/web-sdk-python-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
-      "redirect_document_id": false
-    }
+	{
+		 "source_path": "articles/azure-monitor/app/hockeyapp-bridge-app.md",
+		"redirect_url": "/azure/azure-monitor/overview",
+		"redirect_document_id": false 
+	}
   ]
 }
