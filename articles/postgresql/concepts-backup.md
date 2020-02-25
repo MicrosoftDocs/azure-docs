@@ -16,7 +16,7 @@ Azure Database for PostgreSQL automatically creates server backups and stores th
 
 Azure Database for PostgreSQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, we either take full and differential backups (4 TB max storage servers) or snapshot backups (up to 16 TB max storage servers). These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure it up to 35 days. All backups are encrypted using AES 256-bit encryption.
 
-These backup files cannot be exported. They can only be used for restore operations in Azure Database for PostgreSQL. You can use [pg_dump](howto-migrate-using-dump-and-restore.md) to copy a database.
+These backup files cannot be exported. The backups can only be used for restore operations in Azure Database for PostgreSQL. You can use [pg_dump](howto-migrate-using-dump-and-restore.md) to copy a database.
 
 ### Backup frequency
 
