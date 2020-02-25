@@ -29,8 +29,7 @@ In the next section, you will learn how to plan for each one of those areas and 
 
 
 > [!NOTE]
-> Read [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md) for a list of common questions that can also be useful during the designing and planning phase.
->
+> Read [Azure Security Center frequently asked questions (FAQ)](faq-general.md) for a list of common questions that can also be useful during the designing and planning phase.
 
 ## Security roles and access controls
 Depending on the size and structure of your organization, multiple individuals and teams may use Security Center to perform different security-related tasks. In the following diagram, you have an example of fictitious personas and their respective roles and security responsibilities:
@@ -139,8 +138,7 @@ The Microsoft Monitoring Agent for Windows requires use TCP port 443. See the [T
 If at some point you want to disable Data Collection, you can turn it off in the security policy. However, because the Microsoft Monitoring Agent may be used by other Azure management and monitoring services, the agent will not be uninstalled automatically when you turn off data collection in Security Center. You can manually uninstall the agent if needed.
 
 > [!NOTE]
-> To find a list of supported VMs, read the [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md).
->
+> To find a list of supported VMs, read the [Azure Security Center frequently asked questions (FAQ)](faq-vms.md).
 
 ### Workspace
 
@@ -250,5 +248,5 @@ In this document, you learned how to plan for Security Center adoption. To learn
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
-* [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
+* [Azure Security Center FAQ](faq-general.md) — Find frequently asked questions about using the service.
 * [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.

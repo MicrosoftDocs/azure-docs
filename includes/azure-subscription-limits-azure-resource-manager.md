@@ -12,13 +12,13 @@
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
+| Subscriptions per Azure Active Directory tenant | Unlimited. | Unlimited. |
+| [Coadministrators](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) per subscription |Unlimited. |Unlimited. |
 | [Resource groups](../articles/azure-resource-manager/management/overview.md) per subscription |980 |980 |
 | Azure Resource Manager API request size |4,194,304 bytes. |4,194,304 bytes. |
 | Tags per subscription<sup>1</sup> |Unlimited. |Unlimited. |
 | Unique tag calculations per subscription<sup>1</sup> | 10,000 | 10,000 |
 | [Subscription-level deployments](../articles/azure-resource-manager/templates/deploy-to-subscription.md) per location | 800<sup>2</sup> | 800 |
-| Subscriptions per Azure Active Directory tenant | Unlimited. | Unlimited. |
-| [Coadministrators](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) per subscription |Unlimited. |Unlimited. |
 
 <sup>1</sup>You can apply an unlimited number of tags per subscription. The number of tags per resource or resource group is limited to 50. Resource Manager returns a [list of unique tag name and values](/rest/api/resources/tags) in the subscription only when the number of tags is 10,000 or less. You still can find a resource by tag when the number exceeds 10,000.  
 
