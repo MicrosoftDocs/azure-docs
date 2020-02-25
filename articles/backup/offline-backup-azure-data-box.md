@@ -289,7 +289,7 @@ From the server you're trying to configure for offline backup, perform the follo
 
 1. Go to the **Manage computer certificate application** > **Personal** tab, and look for the certificate with the name `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
 
-2. Select the previous certificate, right-click **All Tasks**, and select **Export** without a private key in the .cer format.
+2. Select the certificate, right-click **All Tasks**, and select **Export** without a private key in the .cer format.
 
 3. Go to the Azure offline backup application mentioned in step 2. Select **Settings** > **Keys** > **Upload Public Key**. Upload the certificate you exported in the previous step.
 
