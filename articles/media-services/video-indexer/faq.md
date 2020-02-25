@@ -115,13 +115,28 @@ Per the [Azure Online Services Terms](https://www.microsoftvolumelicensing.com/D
 
 Yes, the content and its insights are kept within the Azure region unless you have a manual configuration in your Azure subscription that uses multiple Azure regions. 
 
-### What is the Privacy policy for Video Indexer?
+### What is the privacy policy for Video Indexer?
 
 Video Indexer is covered by the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement). The privacy statement explains the personal data Microsoft processes, how Microsoft processes it, and for what purposes Microsoft processes it. To learn more about privacy, visit the [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
 ### What certifications does Video Indexer have?
 
 Video Indexer currently has the SOC certification. To review Video Indexer's certification, please refer to the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings?product=Azure).
+
+### What is the difference between private and public videos? 
+
+When videos are uploaded to Video Indexer, you can choose from two privacy settings: private and public. Public videos are accessible for anyone, including anonymous and unidentified users. Private ones are restricted solely to the account members. 
+
+### I tried to upload a video as **public** and it was flagged for inappropriate or offensive content, what does that mean? 
+
+When uploading a video to Video Indexer, an automatic content analysis is done by algorithms and models in order to make sure no inappropriate content will be presented publicly. If a video is found to be suspicious as containing explicit content, it will not be possible to set it as public. However, the account members can still access it as a private video (view it, download the insights and extracted artifacts, and perform other operations available to account memebers).   
+
+In order to set the video for public access, you can either: 
+
+* Build your own interface layer (such as app or website) and use it to interact with the Video Indexer service. This way the video remains private in our portal and your users can interact with it through your interface. For example, you can still get the insights or allow viewing of the video in your own interface. 
+* Request a human review of the content, which would result in removing of the restriction assuming the content is not explicit. 
+
+    This option can be explored if the Video Indexer website is used directly by your users as the interface layer, and for public (unauthenticated) viewing. 
 
 ## API Questions
 
