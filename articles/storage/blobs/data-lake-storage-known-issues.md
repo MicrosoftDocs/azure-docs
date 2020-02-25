@@ -23,20 +23,6 @@ These tables describe levels of support by feature, tool, and Azure service. If 
 
 :::row:::
    :::column span="":::
-      **Feature**
-   :::column-end:::
-   :::column span="":::
-      **Support level**
-   :::column-end:::
-      :::column span="":::
-      **Feature**
-   :::column-end:::
-   :::column span="":::
-      **Support level**
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
       [Hot access tier](storage-blob-storage-tiers.md)
    :::column-end:::
    :::column span="":::
@@ -165,20 +151,6 @@ These tables describe levels of support by feature, tool, and Azure service. If 
 ### Tools support
 
 :::row:::
-   :::column span="":::
-      **Tool**
-   :::column-end:::
-   :::column span="":::
-      **Support level**
-   :::column-end:::
-      :::column span="":::
-      **Tool**
-   :::column-end:::
-   :::column span="":::
-      **Support level**
-   :::column-end:::
-:::row-end:::
-:::row:::
     :::column span="":::
       [PowerShell (Blob)](storage-quickstart-blobs-powershell.md)
    :::column-end:::
@@ -194,14 +166,13 @@ These tables describe levels of support by feature, tool, and Azure service. If 
 :::row-end:::
 :::row:::
    :::column span="":::
-      Blob SDKs [.NET](storage-quickstart-blobs-dotnet.md) | [Java](storage-quickstart-blobs-java.md) | [Python](storage-quickstart-blobs-python.md)
-| [JavaScript](storage-quickstart-blobs-nodejs.md) 
+      Blob APIs <li>[.NET](storage-quickstart-blobs-dotnet.md) </li><li> [Java](storage-quickstart-blobs-java.md) </li><li> [Python](storage-quickstart-blobs-python.md)</li><li> [JavaScript](storage-quickstart-blobs-nodejs.md)</li>
    :::column-end:::
    :::column span="":::
       Generally available
    :::column-end:::
    :::column span="":::
-      Data Lake Storage SDKs ([.NET](data-lake-storage-directory-file-acl-dotnet.md) | [Python](data-lake-storage-directory-file-acl-python.md) | [Java](data-lake-storage-directory-file-acl-java.md)) | [JavaScript](data-lake-storage-directory-file-acl-javascript.md)
+      File, directory, and ACL APIs <li>([.NET](data-lake-storage-directory-file-acl-dotnet.md) </li><li> [Python](data-lake-storage-directory-file-acl-python.md) </li><li> [Java](data-lake-storage-directory-file-acl-java.md)) </li><li> [JavaScript](data-lake-storage-directory-file-acl-javascript.md)</li>
       :::column-end:::
    :::column span="":::
       Preview
@@ -226,13 +197,13 @@ These tables describe levels of support by feature, tool, and Azure service. If 
       [AzCopy](../common/storage-use-azcopy-v10.md)
    :::column-end:::
    :::column span="":::
-      Version-specific support. ([View details](#az-copy))
+      Version-specific support. 
    :::column-end:::
       :::column span="":::
       [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
    :::column-end:::
    :::column span="":::
-      Version-specific support. ([View details](#storage-explorer))
+      Version-specific support.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -246,7 +217,7 @@ These tables describe levels of support by feature, tool, and Azure service. If 
       Browsing directories and files in the Azure portal 
    :::column-end:::
    :::column span="":::
-      Limited support. ([View details](#explorer-in-portal)) 
+      Limited support.  
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -254,26 +225,12 @@ These tables describe levels of support by feature, tool, and Azure service. If 
       Third party applications
    :::column-end:::
    :::column span="":::
-      Limited support. ([View details](#third-party-apps))
+      Limited support. 
    :::column-end:::
 :::row-end:::
 
 ### Azure Ecosystem
 
-:::row:::
-   :::column span="":::
-      **Service**
-   :::column-end:::
-   :::column span="":::
-      **Support level**
-   :::column-end:::
-      :::column span="":::
-      **Service**
-   :::column-end:::
-   :::column span="":::
-      **Support level**
-   :::column-end:::
-:::row-end:::
 :::row:::
     :::column span="":::
       [Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html)
@@ -371,18 +328,11 @@ These tables describe levels of support by feature, tool, and Azure service. If 
    :::column-end:::
 :::row-end:::
 
-
-
-
 <a id="life-cycle-notes" />
 
-## Known issues with Blob features
+## Known issues
 
 ### Lifecycle management policies
-
-* All access tiers are supported. 
-
-* The archive access tier is currently in preview. 
 
 * The deletion of blob snapshots is not yet supported.  
 
@@ -393,22 +343,6 @@ These tables describe levels of support by feature, tool, and Azure service. If 
 ### Diagnostic logs
 
 Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view logs, please use AzCopy or SDKs.
-
-<a id="object-level-tiers-notes" />
-
-### Object-level tiers
-
-* Cool and archive tiers are supported.
-
-* The archive tier is in preview. 
-
-* All other access tiers are not yet supported.
-
-* There are currently some bugs affecting the archive access tier. 
-
-<a id="tools-and-applications" />
-
-## Known issues with tools and applications
 
 <a id="az-copy" />
 
@@ -434,10 +368,6 @@ ACLs are not yet supported.
 
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2
 Applications that call Blob APIs will likely work.
-
-<a id="sdk-powershell-cli" />
-
-## Known issues with SDK / PowerShell / CLI
 
 <a id="api-scope-data-lake-client-library" />
 
