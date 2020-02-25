@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: TomArcherMsft
   ms.author: tarcher
-  ms.date: 09/17/2019
+  ms.date: 02/24/2020
 
 landingContent:
   # Card
@@ -92,7 +92,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy to a Linux VM using Azure DevOps Services
-            url: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+            url: tutorial-build-deploy-jenkins.md
 
   # Card
   - title: CI/CD to Azure Storage
@@ -108,7 +108,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create a dev infrastructure on a Linux VM
-            url: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+            url: tutorial-jenkins-github-docker-cicd.md
 
   # Card
   - title: CI/CD to Service Fabric

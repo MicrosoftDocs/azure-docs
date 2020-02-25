@@ -72,12 +72,12 @@
     items:
       - name: Security overview
         href: overview-security.md
+      - name: Security baseline
+        href: security-baseline.md
       - name: Security worlds
         href: key-vault-ovw-security-worlds.md
       - name: Secure your key vault
         href: key-vault-secure-your-key-vault.md
-      - name: Built-in security controls
-        href: key-vault-security-controls.md
   - name: Soft-delete
     href: key-vault-ovw-soft-delete.md
   - name: Monitoring Key Vault events

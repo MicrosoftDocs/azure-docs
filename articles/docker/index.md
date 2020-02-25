@@ -27,7 +27,7 @@ ms.author: gwallace
 <ol>
   <li><a href="/azure/app-service/containers/tutorial-python-postgresql-app">Build Python and PostgreSQL with Docker</a></li>
   <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD with Docker Swarm and Azure DevOps Services</a></li>
-  <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integrate Docker, Jenkins, and Linux VMs</a></li>
+  <li><a href="/azure/jenkins/tutorial-jenkins-github-docker-cicd">Integrate Docker, Jenkins, and Linux VMs</a></li>
 </ol>
 <h2>Resources</h2>
 <p>See the following links for additional reference materials and tools for working with Docker on Azure.</p>

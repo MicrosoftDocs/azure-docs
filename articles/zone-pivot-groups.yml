@@ -189,7 +189,7 @@ groups:
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-other
-    title: Other languages...    
+    title: Other languages...
 - id: programming-languages-set-diberry-3core
   title: Programming languages
   prompt: Choose a programming language
@@ -200,3 +200,13 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: platforms-set-of-three
+  title: Platforms
+  prompt: Choose a platform
+  pivots:
+  - id: platform-windows
+    title: Windows
+  - id: platform-linux
+    title: Linux
+  - id: platform-android
+    title: Android
