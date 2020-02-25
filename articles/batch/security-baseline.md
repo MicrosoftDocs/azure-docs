@@ -1016,14 +1016,12 @@ Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/pol
 
 ### 7.5: Securely Store Configuration of Azure Resources
 
-**Guidance**: If using custom Azure policy definitions for your Azure Batch accounts, pools, or related resources, use Azure DevOps/Repos to securely store and manage your code.
-
+**Guidance**: If using custom Azure policy definitions for your Azure Batch accounts, pools, or related resources, use Azure Repos to securely store and manage your code.
 
 
 How to store code in Azure DevOps:
 
 https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
 
 
 Azure Repos Documentation:

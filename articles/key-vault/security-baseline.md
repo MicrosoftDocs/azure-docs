@@ -885,7 +885,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure Policy definitions for your Azure Key Vault enabled resources, use Azure DevOps/Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions for your Azure Key Vault enabled resources, use Azure Repos to securely store and manage your code.
 
 
 How to store code in Azure DevOps: 
