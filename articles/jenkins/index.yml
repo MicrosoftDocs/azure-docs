@@ -48,7 +48,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Scale with Azure Container Instances
-            url: /azure/container-instances/container-instances-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+            url: container-instances-jenkins.md
           - text: Scale with Azure VM agents
             url: jenkins-azure-vm-agents.md
 
