@@ -22,7 +22,7 @@ Each recommendation includes the following information:
 - **Azure ID**: The Azure Security Benchmark ID that corresponds to the recommendation.
 - **Recommendation**: Following directly after the Azure ID, the recommendation provides a high-level description of the control.
 - **Guidance**: The rationale for the recommendation and links to guidance on how to implement it. If the recommendation is supported by Azure Security Center, that information will also be listed.
-- **Responsibility**: Who is responsible for implementing the control. Possible scenarios are customer responsibility, Microsoft responsibility, or share responsibility.
+- **Responsibility**: Who is responsible for implementing the control. Possible scenarios are customer responsibility, Microsoft responsibility, or shared responsibility.
 - **Azure Security Center monitoring**: Whether the control is monitored by Azure Security Center, with link to reference.
 
-All recommendations, including recommendations that are not applicable to this specific service, are included in the baseline to provide you a complete picture of how the Azure Security Benchmark relates to each service. There may occasionally be controls that are not applicable for various reasons—for example, IaaS/compute centric controls (such as controls specific to OS configuration management) may not be applicable to PaaS services.
+All recommendations, including recommendations that are not applicable to this specific service, are included in the baseline to provide you a complete picture of how the Azure Security Benchmark relates to each service. There may occasionally be controls that are not applicable for various reasons—for example, IaaS/compute-centric controls (such as controls specific to OS configuration management) may not be applicable to PaaS services.

@@ -145,8 +145,6 @@ Here are some Splunk queries you can use to pull alert data:
 
 ## Next steps
 
-In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following articles:
+In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following article:
 
 * [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-* [Azure Security Center FAQs](security-center-faq.md). Get answers to frequently asked questions about using Security Center.
-* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
