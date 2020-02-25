@@ -1,23 +1,9 @@
 ---
 title: Tutorial - Create a development pipeline in Azure with Jenkins 
 description: Tutorial - In this tutorial, you learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
+keywords: jenkins, azure, devops, pipeline, cicd, docker
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: cynthn
-ms.custom: mvc
-
-#Customer intent: As an IT administrator or developer, I want to learn about CI/CD options in Azure so that I can automatically deploy my apps based on code commits to GitHub.
 ---
 
 # Tutorial: Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker
@@ -37,7 +23,7 @@ This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create Jenkins instance
-In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. Jenkins is a popular open-source automation server that integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD). For more tutorials on how to use Jenkins, see the [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).
+In a previous tutorial on [How to customize a Linux virtual machine on first boot](../virtual-machines/linux/tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. Jenkins is a popular open-source automation server that integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD). For more tutorials on how to use Jenkins, see the [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).
 
 In your current shell, create a file named *cloud-init-jenkins.txt* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. Enter `sensible-editor cloud-init-jenkins.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
@@ -153,7 +139,7 @@ Create a webhook inside the fork you created:
 - Set **Active** to checked.
 - Click **Add webhook**.
 
-![Add GitHub webhook to your forked repo](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
+![Add GitHub webhook to your forked repo](media/tutorial-jenkins-github-docker-cicd/github-webhook.png)
 
 
 ## Create Jenkins job
@@ -237,11 +223,11 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 
 Open a web browser and enter `http://<publicIps>:1337`. Your Node.js app is displayed and reflects the latest commits in your GitHub fork as follows:
 
-![Running Node.js app](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
+![Running Node.js app](media/tutorial-jenkins-github-docker-cicd/running-nodejs-app.png)
 
 Now make another edit to the *index.js* file in GitHub and commit the change. Wait a few seconds for the job to complete in Jenkins, then refresh your web browser to see the updated version of your app running in a new container as follows:
 
-![Running Node.js app after another GitHub commit](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
+![Running Node.js app after another GitHub commit](media/tutorial-jenkins-github-docker-cicd/another-running-nodejs-app.png)
 
 
 ## Next steps
