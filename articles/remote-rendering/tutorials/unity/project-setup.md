@@ -41,10 +41,6 @@ For this tutorial you need:
     nuget.exe install com.microsoft.azure.remote_rendering -ExcludeVersion
     ```
 
-    ```PowerShell
-    nuget.exe install ScriptableRenderPipeline -ExcludeVersion
-    ```
-
     If any of the NuGet commands fail, make sure you set up [these prerequisites](../../quickstarts/render-model.md#prerequisites) correctly.
 
 ## Create a new Unity project
@@ -62,10 +58,7 @@ You need to modify the file `Packages/manifest.json` that's located in your Unit
   "dependencies": {
     ...existing dependencies...,
     "com.microsoft.azure.remote_rendering": "file:../../com.microsoft.azure.remote_rendering",
-    "com.unity.render-pipelines.core": "file:../../ScriptableRenderPipeline/com.unity.render-pipelines.core",
-    "com.unity.render-pipelines.lightweight": "file:../../ScriptableRenderPipeline/com.unity.render-pipelines.lightweight",
-    "com.unity.shadergraph": "file:../../ScriptableRenderPipeline/com.unity.shadergraph",
-    "com.unity.render-pipelines.universal": "file:../../ScriptableRenderPipeline/com.unity.render-pipelines.universal"
+    "com.unity.render-pipelines.universal": "7.2.1",
   }
 }
 ```
@@ -89,7 +82,7 @@ Select the **Main Camera** node.
 
 1. Set **Background** to *Black*
 
-1. Set the **Clipping Planes** to *Near = 0.3* and *Far = 20*
+1. Set the **Clipping Planes** to *Near = 0.3* and *Far = 20*. This means rendering will clip geometry that is closer than 30 cm or farther than 20 meters.
 
     ![Unity camera properties](media/camera-properties.png)
 
