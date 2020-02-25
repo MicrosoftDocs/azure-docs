@@ -73,6 +73,14 @@ Yes, you can integrate Video Indexer into serverless technologies like Logic App
 
 You can see which Azure regions Video Indexer is available on the [regions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all) page.
 
+### Can I customize Video Indexer models for my specific use case? 
+
+Yes. In Video Indexer you can customize some of the available models to better fit your needs. 
+
+For example, our Person model supports out-of-the-box 1,000,000 faces of celebrity recognition, but you can also train it to recognize other faces which are not in that database. 
+
+For details, see articles about customizing [Person](customize-person-model-overview.md), [Brands](customize-brands-model-overview.md), and [Language](customize-language-model-overview.md) models. 
+
 ### What is the SLA for Video Indexer?
 
 Azure Media Service’s SLA covers Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) page. The SLA only applies to Video Indexer paid accounts and does not apply to the free trial.
