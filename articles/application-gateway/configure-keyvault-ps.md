@@ -110,7 +110,7 @@ $listener01 = New-AzApplicationGatewayHttpListener -Name "listener1" -Protocol H
   -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $sslCert01
 $listener02 = New-AzApplicationGatewayHttpListener -Name "listener2" -Protocol Http `
   -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp02
-$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name "setting1" -Port 80 `
+$poolSetting01 = New-AzApplicationGatewayBackendHttpSetting -Name "setting1" -Port 80 `
   -Protocol Http -CookieBasedAffinity Disabled
 $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType basic `
   -BackendHttpSettings $poolSetting01 -HttpListener $listener01 -BackendAddressPool $pool
