@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 02/25/2020
 ms.author: dapine
 ---
 
@@ -150,7 +150,7 @@ Now that you've created some resources, let's build a bot. We're going to start 
 4. After the project is loaded, press <kbd>F5</kbd> to build and run the project.
 5. A browser should launch and you'll see a screen looking similar to this.
     > [!div class="mx-imgBorder"]
-    > ![echobot-running-on-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot running on localhost")
+    > [![echobot-running-on-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot running on localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
 
 ### Test the bot sample with the Bot Framework Emulator
 
@@ -167,7 +167,7 @@ The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator)
    and press "Connect".
 4. The bot should immediately greet you with "Hello and welcome!" message. Type in any text message and confirm you get a response from the bot.
 5. This is what an exchange of communication with an Echo Bot instance might look like:
-    ![bot-framework-emulator](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework emulator")
+    [![bot-framework-emulator](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
 
 ## Deploy your bot to an Azure App Service
 
@@ -184,13 +184,14 @@ The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy
 
 1. In the **Solution Explorer**, right-click the **EchoBot** project and select **Publish...**
 1. A new window titled **Pick a publish target** will open.
-1. Select **App Service** from the **Azure services** navigation, select **Create New**, then click **Publish**.
+1. Select **App Service** from the **Azure services** navigation, select **Create New**, then click **Create Profile**.
 1. When the **Create App Service** window appears:
    * Click **Add an account**, and sign in with your Azure account credentials. If you're already signed in, select the account you want from the drop-down list.
    * For the **App Name**, you'll need to enter a globally unique name for your Bot. This name is used to create a unique bot URL. A default value will be populated including the date and time (For example: "EchoBot20190805125647"). You can use the default name for this tutorial.
    * For **Subscription**, set it to **Free Trial**
    * For **Resource Group**, select **SpeechEchoBotTutorial-ResourceGroup**
    * For **Hosting Plan**, select **SpeechEchoBotTutorial-AppServicePlan**
+   * For **Application Insights**, leave as **None**
 1. Click **Create**
 1. You should see a success message in Visual Studio that looks like this:
 
@@ -228,12 +229,9 @@ Now that you've created an Azure App Service to host your bot, the next step is 
 > [!NOTE]
 > If you'd like to learn more about how bots leverage channels, see [Connect a bot to channels](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0).
 
-<!-- https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage -->
 
-1. The first step is to create a new resource for the registration. In the [Azure portal](https://portal.azure.com), click **Create a resource**.
-2. In the search bar type **bot**, after the results appear, select **Bot Channels Registration**.
-3. Click **Create**.
-4. You'll be prompted to provide some information:
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Create an Azure Bot Channels Registration <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+2. You'll be prompted to provide some information:
    * For **Bot handle**, enter **SpeechEchoBotTutorial-BotRegistration**.
    * For **Subscription**, select **Free Trial**.
    * For **Resource group**, select **SpeechEchoBotTutorial-ResourceGroup**.
@@ -250,7 +248,7 @@ At this point, check your Resource Group **SpeechEchoBotTutorial-ResourceGroup**
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | West US |
 | SpeechEchoBotTutorial-AppServicePlan | App Service plan | West US |
-| SpeechEchoBotTutorial-BotRegistration | Bot Channels Registration | Global |
+| SpeechEchoBotTutorial-BotRegistration | Bot Channels Registration | global |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | West US |
 
 > [!IMPORTANT]
@@ -267,7 +265,7 @@ Now it's time to register your bot with the Direct Line Speech channel. This cha
    * Select the speech resource you created earlier (e.g., **SpeechEchoBotTutorial-Speech**) from the menu to associate your bot to your speech subscription key.
    * Click **Save**.
 
-1. From the **Azure services** navigation, click **Settings**.
+1. From the **Bot management** navigation, click **Settings**.
    * Check the box labeled **Enable Streaming Endpoint**. This is needed to enable a communication protocol built on web sockets between your bot and the Direct Line Speech channel.
    * Click **Save**.
 
@@ -306,6 +304,7 @@ If your issue isn't addressed in the table, see [Voice assistants: Frequently as
 Every bot sends and receives **Activity** messages. In the **Activity Log** window of Direct Line Speech Client, you'll see timestamped logs with each activity that the client has received from the bot. You can also see the activities that the client sent to the bot using the [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync)  method. When you select a log item, it will show the details of the associated activity as JSON.
 
 Here's a sample json of an Activity the client received:
+
 ```json
 {
     "attachments":[],
@@ -391,7 +390,6 @@ You can chose from any one of the languages mentioned in the [speech-to-text](la
 1. Open the Direct Line Speech Client app, click on the settings button (upper-right gear icon), and enter `de-de` in the Language field (this is the Locale value mentioned in the [speech-to-text](language-support.md#speech-to-text) table). This sets the spoken language to be recognized, overriding the default `en-us`. This also instructs Direct Line Speech channel to use a default German voice for the Bot reply.
 2. Close the settings page, and click on the Reconnect button to establish a new connection to your echo bot.
 3. Click on the microphone button, and say a phrase in German. You will see the recognized text and the echo bot replying with the default German voice.
-
 
 ### Change the default bot voice
 
