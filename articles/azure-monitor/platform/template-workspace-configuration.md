@@ -1,5 +1,5 @@
 ---
-title: Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace | Microsoft Docs
+title: Azure Resource Manager template for Log Analytics
 description: You can use Azure Resource Manager templates to create and configure Log Analytics workspaces.
 ms.service:  azure-monitor
 ms.subservice: logs
