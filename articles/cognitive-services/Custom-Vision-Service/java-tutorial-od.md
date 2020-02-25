@@ -41,7 +41,7 @@ This Java project creates a new Custom Vision object detection project named __S
 The program is configured to reference your key data as environment variables. Navigate to the **Vision/CustomVision** folder in PowerShell and enter the following commands to set the environment variables. 
 
 > [!NOTE]
-> If you're using a non-Windows operating system, see [Configure environment variables](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) for instructions.
+> If you're using a non-Windows operating system, see [Configure environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) for instructions.
 
 ```powershell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
