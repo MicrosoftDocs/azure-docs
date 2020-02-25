@@ -24,8 +24,6 @@ landingContent:
         links:
           - text: What is AKS?
             url: intro-kubernetes.md
-          - text: linktext2
-            url: file2.md
       - linkListType: concept
         links:
           - text: Kubernetes core concepts for AKS
@@ -51,13 +49,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Java
-            url: quickstart-java.md
+            url: ../dev-spaces/quickstart-java.md
           - text: .NET and VS Code
-            url: quickstart-netcore.md
+            url: ../dev-spaces/quickstart-netcore.md
           - text: .NET and Visual Studio
-            url: quickstart-netcore-visualstudio.md
+            url: ../dev-spaces/quickstart-netcore-visualstudio.md
           - text: Node.js
-            url: quickstart-nodejs.md
+            url: ../dev-spaces/quickstart-nodejs.md
 
   # Card
   - title: Deploy, manage, and update applications
