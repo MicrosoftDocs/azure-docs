@@ -16,7 +16,9 @@ ms.author: juliako
 
 # Create a job input from a local file
 
-In Azure Media Services, when processing your videos (for example, encoding or analyzing) you need to create an output asset to store the result of your job. You then can download these results using Media Service and Storage APIs to download the output files to a local folder. This topic demonstrates how to download the results using Java and .NET SDKs.
+In Azure Media Services, when processing your videos (for example, encoding or analyzing) you need to create an output asset to store the result of your job. You can then download these results to a local folder using Media Service and Storage APIs. 
+
+This article demonstrates how to download the results using Java and .NET SDKs.
 
 ## Java
 
