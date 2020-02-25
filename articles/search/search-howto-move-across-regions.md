@@ -46,7 +46,7 @@ To start you will export and then modify a Resource Manager template.
 2. Go to your Resource Group page.
 
 > [!div class="mx-imgBorder"]
-> ![Resource Group page example](./media/search-move-resource/export-template.png)
+> ![Resource Group page example](./media/search-move-resource/export-template-sample.png)
 
 3. Select **All resources**.
 
