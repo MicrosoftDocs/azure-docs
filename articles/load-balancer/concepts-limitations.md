@@ -133,7 +133,7 @@ A public Load Balancer maps the public IP address and port of incoming traffic t
 The following figure shows a load-balanced endpoint for web traffic that is shared among three VMs for the public and TCP port 80. These three VMs are in a load-balanced set.
 
 <p align="center">
-  <img src="./media/load-balancer-overview/IC727496.svg" width="256" title="Public load balancer">
+  <img src="./media/load-balancer-overview/load-balancer-http.svg" width="256" title="Public load balancer">
 </p>
 
 *Figure: Balancing web traffic by using a public load balancer*
@@ -155,7 +155,7 @@ An internal Load Balancer enables the following types of load balancing:
 
 
 <p align="center">
-  <img src="./media/load-balancer-overview/IC744147.svg" width="256" title="Public load balancer">
+  <img src="./media/load-balancer-overview/load-balancer.svg" width="256" title="Public load balancer">
 </p>
 
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
