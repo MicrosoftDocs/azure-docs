@@ -127,6 +127,6 @@ If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkin
 To learn more about Jenkins on Azure, see [Azure and Jenkins][jenkins-azure].
 
 <!-- LINKS - internal -->
-[about-aci]: ./container-instances-overview.md
-[jenkins-azure]: ../jenkins/overview.md
+[about-aci]: ../container-instances/container-instances-overview.md
+[jenkins-azure]: ./jenkins/overview.md
 [managed-identities-azure-resources]: ../active-directory/managed-identities-azure-resources/overview.md
