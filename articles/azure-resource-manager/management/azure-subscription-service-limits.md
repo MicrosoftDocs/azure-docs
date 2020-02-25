@@ -4,7 +4,7 @@ description: Provides a list of common Azure subscription and service limits, qu
 
 tags: billing
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/24/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -290,10 +290,6 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 ## Role-based access control limits
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
-
-## Scheduler limits
-
-[!INCLUDE [scheduler-limits-table](../../../includes/scheduler-limits-table.md)]
 
 ## Service Bus limits
 
