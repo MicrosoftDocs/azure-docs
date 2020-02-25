@@ -96,7 +96,8 @@ weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 
 By default, when you create a TabularDataset, column data types are inferred automatically. If the inferred types don't match your expectations, you can specify column types by using the following code. If your storage is behind a virtual network or firewall, include the parameters `validate=False` and `infer_column_types=False` in your `from_delimited_files()` method. You can also [learn more about supported data types](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
 
-> [!Note] The parameter `infer_column_type` is only applicable for datasets created from delimited files. 
+> [!NOTE] 
+>The parameter `infer_column_type` is only applicable for datasets created from delimited files. 
 
 ```Python
 from azureml.data.dataset_factory import DataType
