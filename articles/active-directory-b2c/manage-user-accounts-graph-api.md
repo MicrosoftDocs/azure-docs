@@ -175,7 +175,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Make API calls using the Microsoft Graph SDKs](https://docs.microsoft.comgraph/sdks/create-requests) includes information on how to read and write information from Microsoft Graph, use `$select` to control the properties returned, provide custom query parameters, and use the `$filter` and `$orderBy` query parameters.
+[Make API calls using the Microsoft Graph SDKs](https://docs.microsoft.com/graph/sdks/create-requests) includes information on how to read and write information from Microsoft Graph, use `$select` to control the properties returned, provide custom query parameters, and use the `$filter` and `$orderBy` query parameters.
 
 ## Next steps
 
