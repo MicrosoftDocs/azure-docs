@@ -28,6 +28,9 @@ For more information, see the [Key Vault event schema](../event-grid/event-schem
 >
 > For existing secrets, you must generate new versions.
 
+> [!WARNING] 
+> Certificate events are only triggered for certificates automatically renewed through issuance policy
+
 ## Practices for consuming events
 
 Applications that handle Key Vault events should follow a few recommended practices:
