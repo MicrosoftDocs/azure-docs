@@ -42,7 +42,7 @@ To get started with Azure Security Center, you’ll need to know and consider th
 
 * You must have a subscription to Microsoft Azure. See [Security Center Pricing](https://azure.microsoft.com/pricing/details/security-center/) for more information on Security Center’s free and standard tiers.
 * Plan your Security Center adoption, see [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md) to learn more about planning and operations considerations.
-* For information regarding operating system supportability, see [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md). 
+* For information regarding supported operating systems, see [Azure Security Center frequently asked questions (FAQ)](faq-vms.md). 
 
 ## Set security policy
 Data collection needs to be enabled so that Azure Security Center can gather the information it needs to provide recommendations and alerts that are generated based on the security policy you configure. In the figure below, you can see that **Data collection** has been turned **On**.
@@ -93,5 +93,4 @@ To learn more about Security Center, see the following:
 
 * [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-* [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-
+* [FAQ - Virtual Machines](faq-vms.md) -- Find frequently asked questions about using the service.
