@@ -23,7 +23,7 @@ have a default route not going directly to the Internet are disabled.
 
 ## Forced tunneling configuration
 
-To support forced tunneling, service management traffic is separated from customer traffic. An additional dedicated subnet named *AzureFirewallManagementSubnet* (subnet size /26) is required with its own associated public IP address. The only route allowed on this subnet is a default route to the Internet, and BGP route propagation must be disabled.
+To support forced tunneling, service management traffic is separated from customer traffic. An additional dedicated subnet named *AzureFirewallManagementSubnet* (minimum subnet size /26) is required with its own associated public IP address. The only route allowed on this subnet is a default route to the Internet, and BGP route propagation must be disabled.
 
 If you have a default route advertised via BGP to force traffic to on-premises, you must create the *AzureFirewallSubnet* and *AzureFirewallManagementSubnet* before deploying your firewall and have a UDR with a default route to the Internet, and **Virtual network gateway route propagation** disabled.
 
