@@ -43,14 +43,14 @@ The following fields are supported in the *JobConfig.json* file used to [create 
 |CompatibilityLevel|string|No|Controls certain runtime behaviors of the streaming job. - Acceptable values are "1.0", "1.1", "1.2"|
 |UseSystemAssignedIdentity|boolean|No|Set true to enable this job to communicate with other Azure services as itself using a Managed Azure Active Directory Identity.|
 |GlobalStorage.AccountName|string|No|Global storage account is used for storing content related to your stream analytics job, such as SQL reference data snapshots.|
-|GlobalStorage.AccountKey|string|No|-|
-|DataSourceCredentialDomain|string|No|-|
-|ScriptType|string|Yes|-|
+|GlobalStorage.AccountKey|string|No|Corresponding key for global storage account.|
+|DataSourceCredentialDomain|string|No|Reserved Property for credential local storage.|
+|ScriptType|string|Yes|Reserved property to indicated the type of this source file. Acceptable value is “JobConfig” for JobConfig.json.|
 |Tags|JSON key-value pairs|No|Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. Tag names are case-insensitive and tag values are case-sensitive.|
 
 ## Next steps
 
-* [Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code)
-* [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run)
-* [Test Stream Analytics queries locally against live stream input by using Visual Studio Code](visual-studio-code-local-run-live-input)
-*[Deploy an Azure Stream Analytics job using CI/CD npm package](setup-cicd-vs-code)
+* [Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)
+* [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md)
+* [Test Stream Analytics queries locally against live stream input by using Visual Studio Code](visual-studio-code-local-run-live-input.md)
+*[Deploy an Azure Stream Analytics job using CI/CD npm package](setup-cicd-vs-code.md)
