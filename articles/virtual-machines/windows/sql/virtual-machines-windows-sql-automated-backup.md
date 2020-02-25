@@ -1,5 +1,5 @@
 ---
-title: Automated Backup for SQL Server 2014 Azure Virtual Machines | Microsoft Docs
+title: Automated Backup for SQL Server 2014 Azure Virtual Machines
 description: Explains the Automated Backup feature for SQL Server 2014 VMs running in Azure. This article is specific to VMs using the Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
@@ -72,7 +72,7 @@ You can use the Azure portal to configure Automated Backup during provisioning o
 
 Use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine in the Resource Manager deployment model.
 
-In the **SQL Server settings** tab, scroll down to **Automated backup** and select **Enable**. You can also specify the retention period, and storage account, as well as enabling encryption, backing up system databases, and configuring a backup schedule.  The following Azure portal screenshot shows the **SQL Automated Backup** settings.
+On the **SQL Server settings** tab, scroll down to **Automated backup** and select **Enable**. The following Azure portal screenshot shows the **SQL Automated Backup** settings.
 
 ![SQL Automated Backup configuration in Azure portal](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
@@ -80,14 +80,15 @@ In the **SQL Server settings** tab, scroll down to **Automated backup** and sele
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-For existing SQL Server virtual machines, navigate to the 
-[SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) and then select **Backups**. 
+For existing SQL Server virtual machines, you can enable and disable automated backups, change the retention period, specify the storage account, and enable encryption from the Azure portal. 
+
+Navigate to the [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) for your SQL Server 2014 virtual machine and then select **Backups**. 
 
 ![SQL Automated Backup for existing VMs](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
 When finished, select the **Apply** button on the bottom of the **Backups** page to save your changes.
 
-If you are enabling Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Backup is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal will reflect the new settings.
+If you are enabling Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Backup is configured. Wait several minutes for the agent to be installed and configured. After that, the Azure portal will reflect the new settings.
 
 > [!NOTE]
 > You can also configure Automated Backup using a template. For more information, see [Azure quickstart template for Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update).
