@@ -43,7 +43,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Adds functionality in the MirWebservice class to retrieve the Access Token
   + **azureml-core**
     + Deployed AzureML Webservices will now default to `INFO` logging. This can be controlled by setting the `AZUREML_LOG_LEVEL` environment variable in the deployed service.
-    + Fix iterating on `Dataset.get_all`.
+    + Fix iterating on `Dataset.get_all` to return all datasets registered with the workspace.
     + Improve error message when invalid type is passed to `path` argument of dataset creation APIs.
     + Python sdk uses discovery service to use 'api' endpoint instead of 'pipelines'.
     + Swap to the new routes in all SDK calls
