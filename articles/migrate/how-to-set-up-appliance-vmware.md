@@ -31,7 +31,7 @@ To set up the appliance you:
 2. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMWare vSphere hypervisor**.
 3. Click **Download** to download the .OVA template file.
 
-
+  ![Selections for downloading an OVA file](./media/tutorial-assess-vmware/download-ova.png)
 
 ### Verify security
 
@@ -41,12 +41,8 @@ Check that the OVA file is secure, before you deploy it.
 2. Run the following command, to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. For the latest appliance version, the generated hash should match these settings.
+3. For the latest appliance version, the generated hash should match these [settings](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security).
 
-  **Algorithm** | **Hash value**
-  --- | ---
-  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## Create the appliance VM
@@ -54,6 +50,8 @@ Check that the OVA file is secure, before you deploy it.
 Import the downloaded file, and create a VM.
 
 1. In the vSphere Client console, click **File** > **Deploy OVF Template**.
+![Menu command for deploying an OVF template](./media/tutorial-assess-vmware/deploy-ovf.png)
+
 2. In the Deploy OVF Template Wizard > **Source**, specify the location of the OVA file.
 3. In **Name** and **Location**, specify a friendly name for the VM. Select the inventory object in which the VM
 will be hosted.

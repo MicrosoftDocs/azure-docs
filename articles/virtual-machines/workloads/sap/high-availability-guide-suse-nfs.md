@@ -1,10 +1,10 @@
 ---
-title: High availability for NFS on Azure VMs on SUSE Linux Enterprise Server | Microsoft Docs
+title: High availability for NFS on Azure VMs on SLES | Microsoft Docs
 description: High availability for NFS on Azure VMs on SUSE Linux Enterprise Server
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
-ms.author: sedusch
+ms.author: radeltch
 
 ---
 

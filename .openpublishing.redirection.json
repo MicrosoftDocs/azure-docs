@@ -250,6 +250,11 @@
       "redirect_url": "/azure/virtual-machines/",
       "redirect_document_id": false
     },
+    {  
+      "source_path": "articles/virtual-machines/dc-series.md",
+      "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/virtual-machines/windows/maintenance-and-updates.md",
       "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
@@ -26986,6 +26991,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/files/storage-files-active-directory-enable.md",
+      "redirect_url": "/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/files/storage-files-active-directory-domain-services-enable.md",
+      "redirect_url": "/azure/storage/files/storage-files-identity-auth-active-directory-enable",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-files-introduction.md",
       "redirect_url": "/azure/storage/files/storage-files-introduction",
       "redirect_document_id": true
@@ -29008,6 +29023,11 @@
     {
       "source_path": "articles/security-center/security-center-ata-integration.md",
       "redirect_url": "/azure/security-center/security-center-partner-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-faq.md",
+      "redirect_url": "/azure/security-center/faq-general",
       "redirect_document_id": false
     },
     {
@@ -48875,6 +48895,11 @@
       "source_path": "articles/virtual-machines/windows/chef-automation.md",
       "redirect_url": "/azure/chef/chef-automation",
       "redirect_document_id": true
-    }
+    },
+	{
+		 "source_path": "articles/azure-monitor/app/hockeyapp-bridge-app.md",
+		"redirect_url": "/azure/azure-monitor/overview",
+		"redirect_document_id": false 
+	}
   ]
 }
