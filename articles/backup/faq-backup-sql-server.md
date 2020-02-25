@@ -31,13 +31,15 @@ Auto-heal as a capability is enabled for all user by default; However in case yo
 - Save your changes and close the file.
 - On the SQL Server instance, open **Task Manage** and then restart the **AzureWLBackupCoordinatorSvc** service.
 
-## Can I control as to how many concurrent backups run on the SQL server?
+## Can I control how many concurrent backups run on the SQL server?
 
 Yes. You can throttle the rate at which the backup policy runs to minimize the impact on a SQL Server instance. To change the setting:
 
 1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create the *ExtensionSettingsOverrides.json* file.
 2. In the *ExtensionSettingsOverrides.json* file, change the **DefaultBackupTasksThreshold** setting to a lower value (for example, 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
+<br>
+The default value of DefaultBackupTasksThreshold is **20**.
 
 3. Save your changes and close the file.
 4. On the SQL Server instance, open **Task Manager**. Restart the **AzureWLBackupCoordinatorSvc** service.<br/> <br/>
