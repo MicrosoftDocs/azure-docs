@@ -5,7 +5,7 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 02/25/2020
 ---
 
 # Pricing tiers in Azure Database for PostgreSQL - Single Server
@@ -83,7 +83,7 @@ Remember that storage can only be scaled up, not down.
 
 ## Backup
 
-The service automatically takes backups of your server. The minimum retention period for backups is seven days. You can set a retention period of up to 35 days. The retention can be adjusted at any point during the lifetime of the server. You can choose between locally redundant and geo-redundant backups. Geo-redundant backups also are stored in the [geo-paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) of the region where your server is created. This redundancy provides a level of protection in the event of a disaster. You also gain the ability to restore your server to any other Azure region in which the service is available with geo-redundant backups. It's not possible to change between the two backup storage options after the server is created.
+The service automatically takes backups of your server. You can select a retention period from a range of 7 to 35 days. General Purpose and Memory Optimized servers can choose to have geo-redundant storage for backups. Learn more about backups in the [concepts article](concepts-backup.md).
 
 ## Scale resources
 
