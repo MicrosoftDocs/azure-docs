@@ -56,25 +56,25 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Open the *pom.xml* file in a text editor, and add the Spring Cloud Azure Config starter to the list of `<dependencies>`:
 
-### Spring Cloud 1.1.x
+    **Spring Cloud 1.1.x**
 
-```xml
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-azure-feature-management</artifactId>
-    <version>1.1.1</version>
-</dependency>
-```
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-feature-management</artifactId>
+        <version>1.1.2</version>
+    </dependency>
+    ```
 
-### Spring Cloud 1.2.x
+    **Spring Cloud 1.2.x**
 
-```xml
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-azure-feature-management</artifactId>
-    <version>1.2.1</version>
-</dependency>
-```
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-feature-management</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+    ```
 
 1. Create a new Java file named *MessageProperties.java* in the package directory of your app. Add the following lines:
 
@@ -138,6 +138,24 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
     ```CLI
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
+    ```
+
+1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```CLI
+        setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    ```
+
+    If you use Windows PowerShell, run the following command:
+
+    ```azurepowershell
+        $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```console
+        export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
 ## Build and run the app locally
