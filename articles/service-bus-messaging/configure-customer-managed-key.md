@@ -186,7 +186,7 @@ This section shows you how to create an Azure Service Bus namespace with managed
     $ServiceBusNamespaceId = $outputs.Outputs["serviceBusNamespaceId"].value
     ```
  
-### Grant Service Bus namespace identity access to key valut
+### Grant Service Bus namespace identity access to key vault
 
 1. Run the following command to create a key vault with **purge protection** and **soft-delete** enabled. 
 
