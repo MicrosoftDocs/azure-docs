@@ -20,7 +20,6 @@ In this article, you learn about the pros and cons of the following data ingesti
 1. [Azure Data Factory](#use-azure-data-factory) pipelines
 2. [Azure Machine Learning Python SDK](#use-the-python-sdk)
 
-## What is data ingestion? 
 
 Data ingestion is the process in which unstructured data is extracted from one or multiple sources and then prepared for training machine learning models. It's also time intensive, especially if done manually, and if you have large amounts of data from multiple sources. Automating this effort frees up resources and ensures your models use the most recent and applicable data.
 
@@ -46,7 +45,8 @@ These steps and the following diagram illustrate Azure Data Factory's data inges
 1. Transform and save the data to an output blob container, which serves as data storage for Azure Machine Learning
 1. With prepared data stored, the Azure Data Factory pipeline invokes a training Machine Learning pipeline that receives the prepared data for model training
 
-![ADF Data ingestion](media/concept-data-ingestion/data-ingest-option-one.png)
+
+    ![ADF Data ingestion](media/concept-data-ingestion/data-ingest-option-one.svg)
 
 ## Use the Python SDK 
 
