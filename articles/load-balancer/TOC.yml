@@ -68,6 +68,8 @@
     href: upgrade-basicInternal-standard.md
   - name: Configure outbound rules
     items:
+    - name: Azure portal
+      href: configure-load-balancer-outbound-portal.md
     - name: Azure CLI
       href: configure-load-balancer-outbound-cli.md
     - name: Azure PowerShell
