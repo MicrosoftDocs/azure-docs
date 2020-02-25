@@ -125,7 +125,7 @@ Azure Backup automatically handles storage for the vault. You specify how to rep
 
 We recommend that if you use Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting. If you don't use Azure as a primary backup storage endpoint, select **Locally redundant** to reduce the Azure storage costs.
 
-For more information, see [Geo-redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage) and [Local redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy#locally-redundant-storage).
+For more information, see [Geo-redundancy](../storage/common/storage-redundancy.md#geo-redundant-storage) and [Local redundancy](../storage/common/storage-redundancy.md#locally-redundant-storage).
 
 ## Download the MARS agent
 
@@ -179,7 +179,7 @@ If you've already installed the agent on any machines, make sure that you're run
 1. On the **Encryption Setting** page, specify a passphrase that will be used to encrypt and decrypt backups for the machine.
 
     * Save the encryption passphrase in a secure location.
-    * If you lose or forget the passphrase, Microsoft can't help you recover the backup data. Save the file in a secure location. You need it to restore a backup.
+    * If you lose or forget the passphrase, Microsoft can't help you recover the backup data. Save the passphrase in a secure location. You need it to restore a backup.
 
 1. Select **Finish**. The agent is now installed, and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
