@@ -109,7 +109,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Overview
+          - text: Query types and composition
             url: search-query-overview.md
           - text: Simple syntax (default)
             url: query-simple-syntax.md
