@@ -38,7 +38,7 @@ Or you can get the connection through **Ambari UI > Hive > Configs > Advanced**.
 
 ### Host name in connection string
 
-Host name 'CLUSTERNAME.azurehdinsight.net' in the connection string is the same as your cluster URL. You can get it through Azure Portal. 
+Host name 'CLUSTERNAME.azurehdinsight.net' in the connection string is the same as your cluster URL. You can get it through Azure portal. 
 
 ### Port in connection string
 
