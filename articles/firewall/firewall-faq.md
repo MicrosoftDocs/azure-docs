@@ -49,7 +49,7 @@ There are three types of rule collections:
 
 ## Does Azure Firewall support inbound traffic filtering?
 
-Azure Firewall supports inbound and outbound filtering. Inbound protection is typically used for non-HTTP/S protocols. For example RDP, SSH, and FTP protocols. For best inbound HTTP/S protection, use a web application firewall such as [Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
+Azure Firewall supports inbound and outbound filtering. Inbound protection is typically used for non-HTTP/S protocols. For example RDP, SSH, and FTP protocols. For best inbound HTTP/S protection, use a web application firewall such as [Azure Web Application Firewall (WAF)](../web-application-firewall/overview.md).
 
 ## Which logging and analytics services are supported by the Azure Firewall?
 
