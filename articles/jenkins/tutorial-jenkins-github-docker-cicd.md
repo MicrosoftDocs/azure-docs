@@ -139,7 +139,7 @@ Create a webhook inside the fork you created:
 - Set **Active** to checked.
 - Click **Add webhook**.
 
-![Add GitHub webhook to your forked repo](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
+![Add GitHub webhook to your forked repo](media/tutorial-jenkins-github-docker-cicd/github-webhook.png)
 
 
 ## Create Jenkins job
@@ -223,11 +223,11 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 
 Open a web browser and enter `http://<publicIps>:1337`. Your Node.js app is displayed and reflects the latest commits in your GitHub fork as follows:
 
-![Running Node.js app](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
+![Running Node.js app](media/tutorial-jenkins-github-docker-cicd/running-nodejs-app.png)
 
 Now make another edit to the *index.js* file in GitHub and commit the change. Wait a few seconds for the job to complete in Jenkins, then refresh your web browser to see the updated version of your app running in a new container as follows:
 
-![Running Node.js app after another GitHub commit](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
+![Running Node.js app after another GitHub commit](media/tutorial-jenkins-github-docker-cicd/another-running-nodejs-app.png)
 
 
 ## Next steps
