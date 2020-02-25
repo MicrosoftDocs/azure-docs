@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 ---
 
-# Batch integration with Azure Policies
+# Integration with Azure Policy
 
 Azure Policy is a service in Azure that you use to create, assign, and manage policies that enforce rules over your resources to ensure those resources remain compliant with your corporate standards and service level agreements. Azure Policy evaluates your resources for non-compliance with the policies you assign. 
 
