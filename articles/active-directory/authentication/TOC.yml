@@ -13,6 +13,8 @@
     href: tutorial-enable-azure-mfa.md
   - name: Enable password writeback to on-premises
     href: tutorial-enable-sspr-writeback.md
+  - name: Configure custom banned password lists
+    href: tutorial-configure-custom-password-protection.md
   - name: Integrate Azure Identity Protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -108,8 +110,6 @@
       href: howto-registration-mfa-sspr-combined-troubleshoot.md
   - name: Azure AD password protection
     items:
-    - name: Configure the banned password list
-      href: howto-password-ban-bad-configure.md
     - name: On-premises integration
       items:
       - name: Deploy Azure AD password protection
