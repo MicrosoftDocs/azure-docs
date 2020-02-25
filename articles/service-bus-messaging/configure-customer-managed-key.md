@@ -162,7 +162,12 @@ This section shows you how to create an Azure Service Bus namespace with managed
        }
     }
     ```
-2. Create a template parameter file named: **CreateServiceBusPremiumNamespaceParams.json**.
+2. Create a template parameter file named: **CreateServiceBusPremiumNamespaceParams.json**. 
+
+    > [!NOTE]
+    > Replace the following values: 
+    > - `<ServiceBusNamespaceName>` - Name of your Service Bus namespace
+    > - `<Location>` - Location of your Service Bus namespace
 
     ```json
     {
@@ -170,10 +175,10 @@ This section shows you how to create an Azure Service Bus namespace with managed
        "contentVersion":"1.0.0.0",
        "parameters":{
           "namespaceName":{
-             "value":"ServiceBusBYOKTestNamespace"
+             "value":"<ServiceBusNamespaceName>"
           },
           "location":{
-             "value":"eastus"
+             "value":"<Location>"
           }
        }
     }
@@ -193,8 +198,8 @@ This section shows you how to create an Azure Service Bus namespace with managed
     ```powershell
     New-AzureRmKeyVault -Name "{keyVaultName}" -ResourceGroupName {RGName}  -Location "{location}" -EnableSoftDelete -EnablePurgeProtection    
     ```
-        
-        (OR)
+    
+    (OR)
     
     Run the following command to update an **existing key vault**. Specify values for resource group and key vault names before running the command. 
     
@@ -280,7 +285,14 @@ In this step, you will update the Service Bus namespace with key vault informati
     }
     ``` 
 
-2. Create a template parameter file: **UpdateServiceBusNamespaceWithEncryptionParams.json**. 
+2. Create a template parameter file: **UpdateServiceBusNamespaceWithEncryptionParams.json**.
+
+    > [!NOTE]
+    > Replace the following values: 
+    > - `<ServiceBusNamespaceName>` - Name of your Service Bus namespace
+    > - `<Location>` - Location of your Service Bus namespace
+    > - `<KeyVaultName>` - Name of your key vault
+    > - `<KeyName>` - Name of the key in the key vault  
 
     ```json
     {
@@ -288,16 +300,16 @@ In this step, you will update the Service Bus namespace with key vault informati
        "contentVersion":"1.0.0.0",
        "parameters":{
           "namespaceName":{
-             "value":"ServiceBusBYOKTestNamespace"
+             "value":"<ServiceBusNamespaceName>"
           },
           "location":{
-             "value":"eastus"
+             "value":"<Location>"
           },
           "keyName":{
-             "value":"mygoldenkey"
+             "value":"<KeyName>"
           },
           "keyVaultUri":{
-             "value":"https://sbuspremiumtestkeyvault.vault.azure.net"
+             "value":"https://<KeyVaultName>.vault.azure.net"
           }
        }
     }
