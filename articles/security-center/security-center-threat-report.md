@@ -63,8 +63,6 @@ From here you can download the PDF for this report and read more about the secur
 ## See also
 In this document, you learned how Azure Security Center Threat Intelligent Reports can help during an investigation about security alerts. To learn more about Azure Security Center, see the following:
 
-* [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
 * [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md). Learn how to plan and understand the design considerations to adopt Azure Security Center.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
 * [Handling Security Incident in Azure Security Center](security-center-incident.md)
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
