@@ -18,7 +18,7 @@ You can configure NAT rules, network rules, and applications rules on Azure Fire
 ## Outbound
 
 ### Network rules and applications rules 
-If you have configured network rules and application rules, then network rules are applied in priority order before application rules. The rules are terminating. So if a match is found in a network rule, no other rules are not processed.  If there is no network rule match, and if the protocol is HTTP/HTTPS, the the packet is then evaluated by the application rules in priority order. If still no match is found, then the packet is evaluated against the [infrastructure rule collection](infrastructure-fqdns.md). If there is still no match, then the packet is denied by default.
+If you have configured network rules and application rules, then network rules are applied in priority order before application rules. The rules are terminating. So if a match is found in a network rule, no other rules are processed.  If there is no network rule match, and if the protocol is HTTP/HTTPS, the the packet is then evaluated by the application rules in priority order. If still no match is found, then the packet is evaluated against the [infrastructure rule collection](infrastructure-fqdns.md). If there is still no match, then the packet is denied by default.
 
 ## Inbound
 
