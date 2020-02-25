@@ -4,7 +4,7 @@ description: Provides an overview of Azure Data Lake Storage Gen2
 author: normesta
 ms.service: storage
 ms.topic: overview
-ms.date: 10/11/2019
+ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
@@ -64,6 +64,8 @@ The following are the equivalent entities, as described by different concepts. U
 
 ## Supported open source platforms
 
+<hr></hr>
+
 Several open source platforms support Data Lake Storage Gen2. Those platforms appear in the following table.
 
 > [!NOTE]
@@ -77,9 +79,33 @@ Several open source platforms support Data Lake Storage Gen2. Those platforms ap
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Databricks Runtime versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
 |[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configuring cloud data access](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
-## Supported Azure services
+### Supported Blob Storage features
 
-Data Lake Storage gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md).
+> [!NOTE]
+> Support level refers only to how the feature is supported in Data Lake Storage Gen2.
+
+<hr></hr>
+
+[!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
+
+### Supported tools and SDKs
+
+> [!NOTE]
+> Support level refers only to how the tool or SDK is supported in Data Lake Storage Gen2.
+
+<hr></hr>
+
+[!INCLUDE [storage-data-lake-tool-support](../../../includes/storage-data-lake-tool-support.md)]
+
+### Supported Azure service connections
+
+> [!NOTE]
+> Support level refers only to how the service is supported with Data Lake Storage Gen2.
+
+<hr></hr>
+
+[!INCLUDE [storage-data-lake-service-ecosystem-support](../../../includes/storage-data-lake-service-ecosystem-support.md)]
+
 
 ## Next steps
 
