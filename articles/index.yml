@@ -1094,7 +1094,7 @@ productDirectory:
         - migration
       url: site-recovery/index.yml
     # Card
-    - title: Cloud Shell
+    - title: Azure Cloud Shell
       summary: Streamline Azure administration with a browser-based shell
       imageSrc: https://static.docs.com/ui/media/product/azure/cloud-shell.svg
       azureCategories:
@@ -1490,6 +1490,6 @@ additionalContent:
           summary: A dedicated cloud that adheres to German data-handling regulations.
           url: germany/index.md
         # Card
-        - title: Azure China
+        - title: Azure China 21Vianet
           summary: A dedicated cloud located in China and operated by 21Vianet.
           url: https://docs.microsoft.com/azure/china/
