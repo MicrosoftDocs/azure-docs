@@ -89,7 +89,7 @@ When you are ready to begin the migration, the first step is to take a new volum
 If you are in need of moving backups, then the first volume clone you use is not a newly created clone but the oldest volume clone (oldest backup) you need to migrate.
 Refer to the section ["Considerations around existing StorSimple backups"](#considerations-around-existing-storsimple-backups) in this article for important, detailed guidance.
 
-Follow the guide ["Create a clone of a volume"](../../storsimple/storsimple-8000-cloud-appliance-u2.md#create-a-clone-of-a-volume)
+Follow the guide: [Create a clone of a volume](../../storsimple/storsimple-8000-clone-volume-u2.md#create-a-clone-of-a-volume)
 
 There is more information in the article linked to above. It is only necessary to follow what's described under the linked-to headline. Then return to this article and follow the next steps.
 
