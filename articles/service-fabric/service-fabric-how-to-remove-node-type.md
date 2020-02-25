@@ -45,6 +45,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     - All the services are healthy.
 
 3. Unmark the mode-type as non-primary (Skip for non-primary node types)
+
     Steps
     - Locate the ARM template used for deployment.
     - Find the section related to the node type in the Service Fabric section.
