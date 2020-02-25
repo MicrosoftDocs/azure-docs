@@ -19,8 +19,6 @@ Many of these tools accept an interval on which to produce rolling output. This 
 
 Many of these tools have an extensive history and wide set of configuration options. This page provides only a simple subset of invocations to highlight common problems. The canonical source of information is always the reference documentation for each particular tool. That documentation will be much more thorough than what is provided here.
 
-This document draws heavily on Brendan Gregg's ["Linux Performance Analysis in 60 seconds"](http://www.brendangregg.com/blog/2015-12-03/linux-perf-60s-video.html).
-
 ## Guidance
 
 Be systematic in your approach to investigating performance issues. Two common approaches are USE (utilization, saturation, errors) and RED (rate, errors, duration). RED is typically used in the context of services for request-based monitoring. USE is typically used for monitoring resources: for each resource in a machine, monitor utilization, saturation, and errors. The four main kinds of resources on any machine are cpu, memory, disk, and network. High utilization, saturation, or error rates for any of these resources indicates a possible problem with the system. When a problem exists, investigate the root cause: why is disk IO latency high? Are the disks or virtual machine SKU throttled? What processes are writing to the devices, and to what files?
@@ -30,7 +28,6 @@ Some examples of common issues and indicators to diagnose them:
 - Bandwidth throttling: use iostat as for IOPS, but measuring read/write throughput. Ensure both per-device and aggregate throughput are below the bandwidth limits.
 - SNAT exhaustion: this can manifest as high active (outbound) connections in SAR. 
 - Packet loss: this can be measured by proxy via TCP retransmit count relative to sent/received count. Both `sar` and `netstat` can show this information.
-
 
 ## General
 
