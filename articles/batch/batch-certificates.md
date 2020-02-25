@@ -22,9 +22,9 @@ ms.custom: seodec18
 Currently the main reason to use certificates with Batch is if you have applications running in Pools that need to authenticate with an endpoint. 
 
 If you don't already have a certificate, you can create a self-signed certificate using the
-<code>makecert<code> command-line tool.
+`makecert` command-line tool.
 
-### Upload certificates manually through the Azure portal 
+### Upload certificates manually through the Azure portal
 
 1. From the Batch account you want to upload a certificate to, select **Certificates** and then select **Add**. 
 
