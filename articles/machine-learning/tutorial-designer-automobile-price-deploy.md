@@ -29,11 +29,13 @@ Complete [part one of the tutorial](tutorial-designer-automobile-price-train-sco
 
 ## Create a real-time inference pipeline
 
-To deploy your pipeline, you must first convert the training pipeline into a real-time inference pipeline. This process removes training modules and adds inputs and outputs for inferencing requests.
+To deploy your pipeline, you must first convert the training pipeline into a real-time inference pipeline. This process removes training modules and adds web service inputs and outputs to handle requests.
 
 ### Create a real-time inference pipeline
 
 1. Above the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
+
+    ![Screenshot showing where to find the create pipeline button](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
 
     Your pipeline should now look like this: 
 
@@ -44,17 +46,13 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
     * The trained model is stored as a **Dataset** module in the module palette. You can find it under **My Datasets**.
     * Training modules like **Train Model** and **Split Data** are removed.
     * The saved trained model is added back into the pipeline.
-    * **Web Service Input** and **Web Service Output** modules are added. These modules show where user data enters the model and where data is returned.
+    * **Web Service Input** and **Web Service Output** modules are added. These modules show where user data enters the pipeline and where data is returned.
 
     > [!NOTE]
-    > The *training pipeline* is saved under the new tab at the top of the pipeline canvas. It can also be found as a published pipeline in the designer.
+    > By default, the **Web Service Input** will expect the same data schema as the training data used to create the predictive pipeline. In this scenario, price is included in the schema. However, price isn't used as a factor during prediction.
     >
 
 1. Select **Run**, and use the same compute target and experiment that you used in part one.
-
-1. Select the **Score Model** module.
-
-1. In the properties pane, select **Outputs** > **Visualize** to verify the model is still working. You can see the original data is displayed along with the predicted price ("Scored Labels").
 
 1. Select **Deploy**.
 

@@ -5,11 +5,11 @@ description: Build a classifier and use custom Python scripts to predict credit 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+ms.topic: sample
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
+ms.date: 12/25/2019
 ---
 # Build a classifier & use Python scripts to predict credit risk using Azure Machine Learning designer
 
@@ -138,7 +138,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 To view the results of the pipeline, you can right-click the Visualize output of the last **Select Columns in Dataset** module.
 
-![Visualize output](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/result.png)
+![Visualize output](media/how-to-designer-sample-classification-credit-risk-cost-sensitive/sample4-lastselect-1225.png)
 
 The first column lists the machine learning algorithm used to generate the model.
 
@@ -159,6 +159,6 @@ Explore the other samples available for the designer:
 - [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
 - [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 5 - Classification: Predict churn](service/how-to-designer-sample-classification-churn.md)
+- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
 - [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
 - [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

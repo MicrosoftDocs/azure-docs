@@ -11,10 +11,10 @@ ms.topic: conceptual
 author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
-ms.reviewer: carlrab
-ms.date: 11/14/2019
+ms.reviewer: carlrab, vanto
+ms.date: 01/14/2020
 ---
-# Working with SQL Database connection issues and transient errors
+# Troubleshooting transient connection errors to SQL Database
 
 This article describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient errors that your client application encounters when it interacts with Azure SQL Database. Learn how to configure retry logic, build the connection string, and adjust other connection settings.
 
@@ -441,7 +441,6 @@ public bool IsTransient(Exception ex)
 
 ## Next steps
 
-- For more information on troubleshooting other common SQL Database connection issues, see [Troubleshoot connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
 - [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 - [SQL Server connection pooling (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [*Retrying* is an Apache 2.0 licensed general-purpose retrying library, written in Python,](https://pypi.python.org/pypi/retrying) to simplify the task of adding retry behavior to just about anything.

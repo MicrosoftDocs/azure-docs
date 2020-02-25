@@ -3,7 +3,7 @@ title: Update your StorSimple device | Microsoft Docs
 description: Explains how to use the StorSimple update feature to install regular and maintenance mode updates and hotfixes.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: carmonm
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
-ms.author: v-sharos
+ms.author: twooley
 
 ---
 # Update your StorSimple 8000 Series device

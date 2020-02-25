@@ -1,10 +1,10 @@
 ---
-title: Manage account resources with the client library for .NET - Azure Batch | Microsoft Docs
+title: Use the Batch Management .NET library to manage account resources
 description: Create, delete, and modify Azure Batch account resources with the Batch Management .NET library.
 services: batch
 documentationcenter: .net
-author: laurenhughes
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/24/2017
-ms.author: lahugh
+ms.author: labrenne
 ms.custom: seodec18
 
 ---
@@ -91,7 +91,7 @@ BatchAccountRegenerateKeyResponse newKeys =
 > 
 
 ## Check Azure subscription and Batch account quotas
-Azure subscriptions and the individual Azure services like Batch all have default quotas that limit the number of certain entities within them. For the default quotas for Azure subscriptions, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). For the default quotas of the Batch service, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md). By using the Batch Management .NET library, you can check these quotas in your applications. This enables you to make allocation decisions before you add accounts or compute resources like pools and compute nodes.
+Azure subscriptions and the individual Azure services like Batch all have default quotas that limit the number of certain entities within them. For the default quotas for Azure subscriptions, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). For the default quotas of the Batch service, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md). By using the Batch Management .NET library, you can check these quotas in your applications. This enables you to make allocation decisions before you add accounts or compute resources like pools and compute nodes.
 
 ### Check an Azure subscription for Batch account quotas
 Before creating a Batch account in a region, you can check your Azure subscription to see whether you are able to add an account in that region.

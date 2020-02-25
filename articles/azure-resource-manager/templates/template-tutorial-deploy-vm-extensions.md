@@ -37,7 +37,7 @@ To complete this article, you need:
 
 ## Prepare a PowerShell script
 
-A PowerShell script with the following content is shared from [Github](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
+A PowerShell script with the following content is shared from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -71,8 +71,8 @@ Add a virtual machine extension resource to the existing template with the follo
 
 ```json
 {
-    "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines/extensions",
+    "apiVersion": "2018-06-01",
     "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
     "location": "[parameters('location')]",
     "dependsOn": [

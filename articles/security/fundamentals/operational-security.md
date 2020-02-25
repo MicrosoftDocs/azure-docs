@@ -192,7 +192,7 @@ These logs are emitted by a resource and provide rich, frequent data about the o
 
 For example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts.
 
-Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](../../azure-monitor/platform/activity-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
+Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](../../azure-monitor/platform/platform-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
 
 ### Metrics
 

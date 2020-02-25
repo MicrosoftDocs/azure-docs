@@ -12,7 +12,6 @@ ms.author: jasonh
 > * [Azure CLI](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli.md)
 > * [Azure PowerShell](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 > * [REST API (cURL)](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-curl-rest.md)
-> * [.NET SDK](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 > * [Azure Resource Manager templates](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 > 
 > 

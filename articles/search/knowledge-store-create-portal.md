@@ -8,7 +8,7 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/30/2019
+ms.date: 01/29/2020
 ---
 
 # Quickstart: Create an Azure Cognitive Search knowledge store in the Azure portal
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This quickstart uses Azure Cognitive Search, Azure Blob storage, and [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. 
 
-Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily when invoked from Azure Cognitive Search. As long as you use the sample data we provide, you can skip creating or attaching a Cognitive Services resource.
+Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily. Because the data set is so small, you can skip creating or attaching a Cognitive Services resource.
 
 1. [Download HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). This data is hotel review data saved in a CSV file (originates from Kaggle.com) and contains 19 pieces of customer feedback about a single hotel. 
 
@@ -77,7 +77,7 @@ In the search service Overview page, click **Import data** on the command bar to
 In this wizard step, you will create a skillset with cognitive skill enrichments. The source data consists of customer reviews in several languages. Skills that are relevant for this data set include key phrase extraction, sentiment detection, and text translation. In a later step, these enrichments will be "projected" into a knowledge store as Azure tables.
 
 1. Expand **Attach Cognitive Services**. **Free (Limited enrichments)** is selected by default. You can use this resource because number of records in HotelReviews-Free.csv is 19 and this free resource allows up to 20 transactions a day.
-1. Expand **Add cognitive skills**.
+1. Expand **Add enrichments**.
 1. For **Skillset name**, enter `hotel-reviews-ss`.
 1. For **Source data field**, select **reviews_text**.
 1. For **Enrichment granularity level**, select **Pages (5000 characters chunks)**
@@ -89,11 +89,11 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
       ![Create a skillset](media/knowledge-store-create-portal/hotel-reviews-ss.png "Create a skillset")
 
 1. Expand **Save enrichments to knowledge store**.
-1. Enter the **Storage account Connection String** that you saved in a previous step.
 1. Select these **Azure table projections**:
     + **Documents**
     + **Pages**
     + **Key phrases**
+1. Enter the **Storage account Connection String** that you saved in a previous step.
 
     ![Configure knowledge store](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configure knowledge store")
 

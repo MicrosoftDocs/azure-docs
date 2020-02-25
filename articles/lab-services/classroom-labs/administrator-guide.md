@@ -64,7 +64,7 @@ The following list highlights scenarios where more than one lab account may be b
 - **Separate budget by lab account**
 
     Rather than having all classroom lab costs reported for a single lab account, you may need to have a more clearly separated budget. Continuing with the example in the above bullet, you could create a lab account for each university department to separate the budget accordingly. Using Azure Cost Management, you can then view the cost for each individual lab account.
-•	**Isolate pilot labs from active labs**
+- **Isolate pilot labs from active labs**
 
     You may have cases where you want to pilot policy changes to a lab account without potentially impacting active labs. In this type of scenario, creating a separate lab account for piloting purposes allows you to isolate changes. 
 
@@ -125,7 +125,7 @@ When setting up your Azure Lab Services’ resources, you're required to provide
     The lab account’s location indicates the region for this resource. Classroom labs created in the lab account may be deployed to any region within the same geography. The specific region that the lab’s VMs are deployed to is automatically selected based on capacity available in the region at that time.  
     If an administrator allows lab creators to choose their classroom lab’s location, the locations that are available for selection are based on available regional capacity when creating the lab.
 
-    The location of the classroom lab also determines the VM compute sizes are available for selection. Certain compute sizes are only available within specific locations.
+    The location of the classroom lab also determines which VM compute sizes are available for selection. Certain compute sizes are only available within specific locations.
 - **Shared image gallery**
 
     The region indicates the source region where the first image version is stored before it’s automatically replicated to target regions.

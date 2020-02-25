@@ -20,7 +20,7 @@ When testing the accuracy of Microsoft speech recognition or training your custo
 
 This table lists accepted data types, when each data type should be used, and the recommended quantity. Not every data type is required to create a model. Data requirements will vary depending on whether you're creating a test or training a model.
 
-| Data type | Used of testing | Recommended quantity | Used for training | Recommended quantity |
+| Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/a |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-1,000 hours of audio |

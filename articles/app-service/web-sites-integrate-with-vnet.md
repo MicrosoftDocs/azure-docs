@@ -7,6 +7,7 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
+ms.custom: fasttrack-edit
 
 ---
 # Integrate your app with an Azure Virtual Network
@@ -69,7 +70,7 @@ This feature is in preview but, it is supported for Windows app production workl
 * You can only reach addresses that are in the RFC 1918 range. Those are addresses in the 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 address blocks.
 * You cannot reach resources across global peering connections
 * You cannot set routes on the traffic coming from your app into your VNet
-* The feature is only available from newer App Service scale units that support PremiumV2 App Service plans.
+* The feature is only available from newer App Service scale units that support PremiumV2 App Service plans. Note that this does not mean your app must run on a PremiumV2 SKU, only that it must run on an App Service Plan where the PremiumV2 option is available (which implies that it is a newer scale unit where this VNet integration feature is then also available).
 * The integration subnet can only be used by only one App Service plan
 * The feature cannot be used by Isolated plan apps that are in an App Service Environment
 * The feature requires an unused subnet that is a /27 with 32 addresses or larger in your Resource Manager VNet

@@ -27,7 +27,7 @@ Premium page blob storage accounts have the following scalability targets:
 
 | Total account capacity                            | Total bandwidth for a locally redundant storage account                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |
-| Disk capacity: 35 TB <br>Snapshot capacity: 10 TB | Up to 50 gigabits per second for inbound<sup>1</sup> + outbound<sup>2</sup> |
+| Disk capacity: 4 TB (individual disk)/ 35 TB (cumulative total of all disks) <br>Snapshot capacity: 10 TB | Up to 50 gigabits per second for inbound<sup>1</sup> + outbound<sup>2</sup> |
 
 <sup>1</sup> All data (requests) that are sent to a storage account
 
@@ -43,3 +43,4 @@ If you cannot migrate to managed disks, then build your application to use multi
 
 - [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md)
 - [Scalability targets for premium block blob storage accounts](../blobs/scalability-targets-premium-block-blobs.md)
+- [Azure subscription limits and quotas](../../azure-resource-manager/management/azure-subscription-service-limits.md)

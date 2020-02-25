@@ -20,12 +20,11 @@ Built-in security control articles are available for the following services:
 
 - [API Management](../../api-management/api-management-security-controls.md)
 - [Azure App Service](../../app-service/app-service-security-controls.md)
-- [Azure Resource Manager](../../azure-resource-manager/azure-resource-manager-security-controls.md)
+- [Azure Resource Manager](../../azure-resource-manager/management/azure-resource-manager-security-controls.md)
 - [Azure Backup](../../backup/backup-security-controls.md)
 - [Azure Cosmos DB](../../cosmos-db/cosmos-db-security-controls.md)
 - [Azure Event Hubs](../../event-hubs/event-hubs-security-controls.md)
 - [Azure ExpressRoute](../../expressroute/expressroute-security-controls.md)
-- [Azure Key Vault](../../key-vault/key-vault-security-controls.md)
 - [Azure Load Balancer](../../load-balancer/load-balancer-security-controls.md)
 - [Azure Service Bus Messaging](../../service-bus-messaging/service-bus-messaging-security-controls.md)
 - [Azure Service Bus Relay](../../service-bus-relay/service-bus-relay-security-controls.md)

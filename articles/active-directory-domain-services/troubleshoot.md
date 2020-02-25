@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 01/21/2020
 ms.author: iainfou
 
 ---
@@ -39,7 +39,7 @@ If you have problems enabling Azure AD DS, review the following common errors an
 
 **Resolution**
 
-Check that you don't have an existing AD DS environment with the same domain name on the virtual network. For example, you may have an AD DS domain named *contoso.com* that runs on Azure VMs. When you try to enable an Azure AD DS managed domain with the same domain name of *contoso.com* on the virtual network, the requested operation fails.
+Check that you don't have an existing AD DS environment with the same domain name on the same, or a peered, virtual network. For example, you may have an AD DS domain named *contoso.com* that runs on Azure VMs. When you try to enable an Azure AD DS managed domain with the same domain name of *contoso.com* on the virtual network, the requested operation fails.
 
 This failure is due to name conflicts for the domain name on the virtual network. A DNS lookup checks if an existing AD DS environment responds on the requested domain name. To resolve this failure, use a different name to set up your Azure AD DS managed domain, or de-provision the existing AD DS domain and then try again to enable Azure AD DS.
 
@@ -51,7 +51,7 @@ This failure is due to name conflicts for the domain name on the virtual network
 
 **Resolution**
 
-Check if there's an application named *Azure AD Domain Services Sync* in your Azure AD directory. If this application exists, delete it and then try again to enable Azure AD DS. To check for an existing application and delete it if needed, complete the following steps:
+Check if there's an application named *Azure AD Domain Services Sync* in your Azure AD directory. If this application exists, delete it, then try again to enable Azure AD DS. To check for an existing application and delete it if needed, complete the following steps:
 
 1. In the Azure portal, select **Azure Active Directory** from the left-hand navigation menu.
 1. Select **Enterprise applications**. Choose *All applications* from the **Application Type** drop-down menu, then select **Apply**.
@@ -68,7 +68,7 @@ Check if there's an application named *Azure AD Domain Services Sync* in your Az
 
 Check if you have an existing application named *AzureActiveDirectoryDomainControllerServices* with an application identifier of *d87dcbc6-a371-462e-88e3-28ad15ec4e64* in your Azure AD directory. If this application exists, delete it and then try again to enable Azure AD DS.
 
-Use the following PowerShell script to search for an existing application instance and delete it if needed.
+Use the following PowerShell script to search for an existing application instance and delete it if needed:
 
 ```powershell
 $InformationPreference = "Continue"
@@ -131,7 +131,7 @@ If one or more users in your Azure AD tenant can't sign in to the Azure AD DS ma
 * **Password synchronization** - Make sure that you've enabled password synchronization for [cloud-only users][cloud-only-passwords] or for [hybrid environments using Azure AD Connect][hybrid-phs].
     * **Hybrid synchronized accounts:** If the affected user accounts are synchronized from an on-premises directory, verify the following areas:
     
-      * You've deployed or updated to the [latest recommended release of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+      * You've deployed, or updated to, the [latest recommended release of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
       * You've configured Azure AD Connect to [perform a full synchronization][hybrid-phs].
       * Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD DS. Make sure you wait long enough before trying to authenticate against the managed domain.
       * If the issue persists after verifying the previous steps, try restarting the *Microsoft Azure AD Sync Service*. From your [management VM][management-vm], open a command prompt and run the following commands:
@@ -165,7 +165,7 @@ To fully remove a user account from an Azure AD DS managed domain, delete the us
 
 ## Next steps
 
-If you still have issues, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+If you continue to have issues, [open an Azure support request][azure-support] for additional troubleshooting assistance.
 
 <!-- INTERNAL LINKS -->
 [cloud-only-passwords]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds

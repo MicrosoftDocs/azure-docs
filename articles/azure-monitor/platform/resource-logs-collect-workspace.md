@@ -11,7 +11,7 @@ ms.subservice: logs
 ---
 
 # Collect Azure platform logs in Log Analytics workspace in Azure Monitor
-[Platform logs](resource-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article describes collecting resource logs in a Log Analytics workspace which allows you to analyze it with other monitoring data collected in Azure Monitor Logs using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. 
+[Platform logs](platform-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article describes collecting resource logs in a Log Analytics workspace which allows you to analyze it with other monitoring data collected in Azure Monitor Logs using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. 
 
 
 ## What you can do with platform logs in a workspace
@@ -119,5 +119,5 @@ You should migrate your logs to use the resource-specific mode as soon as possib
 
 ## Next steps
 
-* [Read more about resource logs](resource-logs-overview.md).
+* [Read more about resource logs](platform-logs-overview.md).
 * [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md).

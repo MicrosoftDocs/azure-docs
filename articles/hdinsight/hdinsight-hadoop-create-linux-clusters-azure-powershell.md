@@ -35,6 +35,9 @@ To create an HDInsight cluster by using Azure PowerShell, you must complete the 
 * Create an Azure Blob container
 * Create an HDInsight cluster
 
+> [!NOTE]
+> Using PowerShell to create an HDInsight cluster with Azure Data Lake Storage Gen2 is not currently supported.
+
 The following script demonstrates how to create a new cluster:
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-71)]

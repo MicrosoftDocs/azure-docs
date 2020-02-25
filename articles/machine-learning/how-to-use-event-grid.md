@@ -29,21 +29,6 @@ Use Event Grid to enable common scenarios such as:
 * Contributor or owner access to the Azure Machine Learning workspace you will create events for.
 * Select an event handler endpoint such as a webhook or Event Hub. For more information, see [event handlers](https://docs.microsoft.com/azure/event-grid/event-handlers). 
 
-## Register resource providers
-
-If you used Azure Event Grid or Machine Learning before November 1 2019, you may need to re-register the resource providers before you can follow the steps in this document. To re-register the providers, use the following steps:
-
-1. Go to the  Azure portal and select __Subscriptions__. Select the subscription that you want to work with.
-1. Select __Resource providers__, and then search for __EventGrid__.
-1. Select the __Microsoft.EventGrid__ entry, and then select __Re-register__.
-
-    ![re-register-resource-provider](./media/how-to-use-event-grid/re-register-resource-provider.png)
-
-1. Search for __MachineLearningServices__, select the entry, and then select __Re-register__.
-
-> [!TIP]
-> If you do not have permissions to complete these steps, ask your subscription administrator to perform them.
-
 ## Configure machine learning events using the Azure portal
 
 1. Open the [Azure portal](https://portal.azure.com) and go to your Azure Machine Learning workspace.

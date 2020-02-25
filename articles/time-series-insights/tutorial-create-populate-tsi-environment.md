@@ -7,7 +7,7 @@ ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create a Time Series Insights environment so that I can use Time Series Insights queries to understand device behavior.
 ---
@@ -28,7 +28,7 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 ## Prerequisites
 
-* Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, see [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+* Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, read [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Review video
 
@@ -68,7 +68,7 @@ First, create the device simulation solution, which generates test data to popul
 
    [![Provision the device simulation solution](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
 
-1. After provisioning has finished, you will see two updates displaying that the deployment state has moved from **Provisioning** to **Ready**. 
+1. After provisioning has finished, two updates will display notifying you that the deployment state has moved from **Provisioning** to **Ready**. 
 
    >[!IMPORTANT]
    > Don't enter your solution accelerator yet! Keep this web page open because you'll return to it later.
@@ -158,7 +158,7 @@ In this final section, you verify that the telemetry data was generated and stor
 
    [![Time Series Insights explorer](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
-1. The Time Series Insights explorer loads and authenticates by using your Azure portal account. Upon initial view, you can see in the chart area that the Time Series Insights environment was populated with simulated telemetry data. To filter a narrower range of time, select the drop-down in the upper-left corner. Enter a time range large enough to span the duration of the device simulation. Then select the search magnifying glass.
+1. The Time Series Insights explorer loads and authenticates by using your Azure portal account. Initially, the chart area that the Time Series Insights environment was populated with along with its simulated telemetry data will appear. To filter a narrower range of time, select the drop-down in the upper-left corner. Enter a time range large enough to span the duration of the device simulation. Then select the search magnifying glass.
 
    [![Time Series Insights explorer time range filter](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
@@ -194,4 +194,4 @@ In this tutorial, you learned how to:
 Now that you know how to create your own Time Series Insights environment, learn how to build a web application that consumes data from a Time Series Insights environment:
 
 > [!div class="nextstepaction"]
-> [See hosted client SDK visualization samples](https://tsiclientsample.azurewebsites.net/)
+> [Read hosted client SDK visualization samples](https://tsiclientsample.azurewebsites.net/)

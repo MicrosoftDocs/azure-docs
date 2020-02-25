@@ -1,18 +1,9 @@
 ---
 title: Tutorial - Install apps in a scale set with Azure templates
 description: Learn how to use Azure Resource Manager templates to install applications into virtual machine scale sets with the Custom Script Extension
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn

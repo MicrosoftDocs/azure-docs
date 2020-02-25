@@ -67,13 +67,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    az extension add --name azure-cli-iot-ext
    ```
 
-* [Download the sample C# project](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip), and extract the ZIP archive.
+* [Download the Azure IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip), and extract the ZIP archive.
 
 * A valid user account and credential on the device (Windows or Linux) used to authenticate the user.
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 
@@ -147,7 +147,7 @@ dotnet run {DeviceConnectionString} localhost 22
 
 ### Run the service-local proxy application
 
-In another local terminal window, navigate to `device-streams-proxy/service` in your unzipped project folder. Keep the following information handy:
+In another local terminal window, navigate to `iot-hub/quickstarts/device-streams-proxy/service` in your unzipped project folder. Keep the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|

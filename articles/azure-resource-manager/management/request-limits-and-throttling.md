@@ -190,5 +190,5 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ## Next steps
 
 * For a complete PowerShell example, see [Check Resource Manager Limits for a Subscription](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
-* For more information about limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
+* For more information about limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 * To learn about handling asynchronous REST requests, see [Track asynchronous Azure operations](async-operations.md).

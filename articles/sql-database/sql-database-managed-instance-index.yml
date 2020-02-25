@@ -2,7 +2,6 @@
 documentType: LandingData
 title: SQL managed instance
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Managed instance documentation - Tutorials, API Reference
   meta.description: Learn how to use a managed instance in Azure SQL Database.
   services: sql-database

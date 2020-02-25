@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -136,12 +136,12 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
     try
     {
         // Call the listing operation and enumerate the result segment.
-        // When the continuation token is null, the last segment has been returned and 
+        // When the continuation token is null, the last segment has been returned and
         // execution can exit the loop.
         do
         {
             BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(prefix,
-                false, BlobListingDetails.Metadata, null, null, null, null);
+                false, BlobListingDetails.Metadata, null, continuationToken, null, null);
             foreach (var blobItem in resultSegment.Results)
             {
                 // A hierarchical listing may return both virtual directories and blobs.
