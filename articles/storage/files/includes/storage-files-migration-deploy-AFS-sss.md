@@ -1,6 +1,6 @@
 ---
 title: DO NOT INDEX.
-description: Deploying the Azure File Sync cloud resource. A storage sync service. Common text block for includes into migration docs.
+description: Deploying the Azure File Sync cloud resource. A storage sync service. A common text block, shared between migration docs.
 author: fauhse
 ms.service: storage
 ms.topic: migration
@@ -17,6 +17,6 @@ We recommend you deploy only one for all servers in the company, that may want t
 Choose an Azure region for your storage sync service that is close to your office location. All other cloud resources must be deployed in that same region.
 It is advisable to create a new resource group in your subscription, to house sync and storage resources for easier management.
 
-The following, linked article describes how to deploy a storage sync service, only follow this part of the doc. We will link to other subsections of this doc in later steps.
+The following, linked article, describes how to deploy a storage sync service. Only follow this part of the doc. There will be links to other subsections of this doc in later steps.
 
-[Learn how to deploy a Storage Sync Service.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service)
+[Learn how to deploy a Storage Sync Service.](../storage-sync-files-deployment-guide.md#deploy-the-storage-sync-service)
