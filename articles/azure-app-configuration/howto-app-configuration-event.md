@@ -1,26 +1,22 @@
 ---
-title: "Tutorial: Use Azure App Configuration to send events to a web endpoint"
-titleSuffix: Azure App Configuration
-description: In this tutorial, you learn how to set up Azure App Configuration event subscriptions to send key-value modification events to a web endpoint.
+title: Send Events to a web endpoint using Azure App Configuration
+description: Learn to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint
 services: azure-app-configuration
-documentationcenter: ''
-author: jimmyca
-editor: ''
-
+author: lisaguthrie
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.topic: tutorial
-ms.date: 05/30/2019
+ms.topic: how-to
+ms.date: 02/25/2020
 ms.author: lcozzens
-ms.custom: mvc
+
 
 #Customer intent: I want to be notified or trigger a workload when a key-value is modified.
 ---
 
-# Quickstart: Route Azure App Configuration events to a web endpoint with Azure CLI
+# Route Azure App Configuration events to a web endpoint with Azure CLI
 
-In this quickstart, you learn how to set up Azure App Configuration event subscriptions to send key-value modification events to a web endpoint. Azure App Configuration users can subscribe to events that are emitted whenever key-values are modified. These events can trigger webhooks, Azure Functions, Azure Storage Queues, or any other event handler that is supported by Azure Event Grid. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
+In this article, you learn how to set up Azure App Configuration event subscriptions to send key-value modification events to a web endpoint. Azure App Configuration users can subscribe to events emitted whenever key-values are modified. These events can trigger web hooks, Azure Functions, Azure Storage Queues, or any other event handler that is supported by Azure Event Grid. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
 ## Prerequisites
 
