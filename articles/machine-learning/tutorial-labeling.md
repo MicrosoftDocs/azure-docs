@@ -1,7 +1,7 @@
 ---
 title: Label data for image classification
 titleSuffix: Azure Machine Learning
-description: Learn how to manage the process of labeling images so they can be used in image classification models.
+description: Learn how to manage the process of labeling images so they can be used in multi-class image classification models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,7 +17,7 @@ ms.date: 01/15/2020
 # Tutorial: Create your first image classification labeling project
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This tutorial shows you how an Azure Machine Learning labeling project helps you manage the process of tagging images to use as data for building machine learning models.
+This tutorial shows you how an Azure Machine Learning labeling project helps you manage the process of tagging images to use as data for building machine learning models.  
 
 If you want to train a machine learning model to classify images, you need hundreds or even thousands of images that are correctly labeled.  Azure Machine Learning helps you manage the progress of your private team of domain experts as they label your data.
  
@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 
-* Images to label.  Use your own images or download these [images used for this tutorial]().  
+* Images to label.  Use your own images or download these [images of cats and dogs]().  
 
 
 ## Create a workspace
@@ -178,7 +178,7 @@ Now that you have your list of labelers and access to the data you want to have 
     Field|Description 
     ---|---
     Project name | Give your project a name.  Here we'll use **tutorial-cats-n-dogs**.
-    Labeling task type | Select **Image Classification Multi-class**.
+    Labeling task type | Select **Image Classification Multi-class**.  
     
     Select **Next** to continue creating the project.
 

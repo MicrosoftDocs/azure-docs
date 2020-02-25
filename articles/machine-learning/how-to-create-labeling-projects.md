@@ -21,7 +21,7 @@ Machine Learning tracks progress and maintains the queue of incomplete labeling 
 In Machine Learning, you start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure Machine Learning dataset.
 
 > [!Important]
-> Only image classification and object identification labeling projects are currently supported. Additionally, the data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.) 
+> Only image classification and object identification labeling projects are currently supported. Additionally, the data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
 
 In this article, you'll learn how to:
 
@@ -35,7 +35,7 @@ In this article, you'll learn how to:
 
 ## Prerequisites
 
-* The data that you want to label, either in local files or in Azure storage.
+* The data that you want to label, either in local files or in Azure storage.  
 * The set of labels that you want to apply.
 * The instructions for labeling.
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
@@ -45,14 +45,14 @@ In this article, you'll learn how to:
 
 Labeling projects are administered from Azure Machine Learning. You use the **Labeling projects** page to manage your projects and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it.
 
-If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For details, see [Create and register datastores](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores).
+If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For an example of using a datastore, see [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
 
 To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**.
 
 ![Labeling project creation wizard](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
 
 * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of classes to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
-* Choose **Image Classification Multi-class** for projects when you want to apply only a *single class* from a set of classes to an image.
+* Choose **Image Classification Multi-class** for projects when you want to apply only a *single*  label from a set of classes to an image.
 * Choose **Object Identification (Bounding Box)** for projects when you want to assign a class and a bounding box to each object within an image.
 
 Select **Next** when you're ready to continue.
@@ -127,7 +127,7 @@ After the labeling project is initialized, some aspects of the  project are immu
 
 By default, each labeling project that you create gets a new team with you as a member. But teams can also be shared between projects. And projects can have more than one team. To create a team, select **Add team** on the **Teams** page.
 
-You manage people on the **People** page. Add and remove people by email address. Each labeler has to authenticate through your Microsoft account or Azure Active Directory, if you use it.  
+You manage people on the **Labelers** page. Add and remove people by email address. Each labeler has to authenticate through your Microsoft account or Azure Active Directory, if you use it.  
 
 After you add a person, you can assign that person to one or more teams: Go to the **Teams** page, select the team, and then select **Assign people** or **Remove people**.
 
