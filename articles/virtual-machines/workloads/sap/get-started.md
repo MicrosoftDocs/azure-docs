@@ -38,10 +38,10 @@ Changes to documents in the SAP on Azure workload section are listed at the end 
 ## You want to know
 If you have specific questions we are going to point you to specific documents or flows in this section of the start page. You want to know:
 
-- What Azure VMs and HANA Large Instance units are supported for which SAP software releases and which operating system versions. Read the document [What SAP software is supported for Azure deployment](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) for answers and the process to find the information
+- What Azure VMs and HANA Large Instance units are supported for which SAP software releases and which operating system versions. Read the document [What SAP software is supported for Azure deployment](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) for answers and the process to find the information
 - What SAP deployment scenarios are supported with Azure VMs and HANA Large Instances. Information about the supported scenarios can be found in the documents:
-	- [SAP workload on Azure virtual machine supported scenarios](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
-	- [Supported scenarios for HANA Large Instance](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+	- [SAP workload on Azure virtual machine supported scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
+	- [Supported scenarios for HANA Large Instance](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)
 
  
 ## SAP HANA on Azure (Large Instances)
