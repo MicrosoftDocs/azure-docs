@@ -126,6 +126,8 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 * **SalesforceRequiredFieldMissing:** Salesforce requires certain attributes to be present on the user to successfully create or update the user. This user is missing one of the required attributes. Ensure that attributes such as email and alias are populated on all users that you would like to be provisioned into Salesforce. You can scope users that don't have these attributes out using [attribute based scoping filters](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 * The default attribute mapping for provisioning to Salesforce includes the SingleAppRoleAssignments expression to map appRoleAssignments in Azure AD to ProfileName in Salesforce. Ensure that the users do not have multiple app role assignments in Azure AD as the attribute mapping only supports provisioning one role. 
 * Salesforce requires that email updates be approved manually before being changed. As a result, you may see multiple entries in the provisioning logs to update the user's email (until the email change has been approved).
+* If provisioning permission sets into Salesforce, the source attribute value must be the API Name (e.g. SalesUserPsl), not the permission set name (e.g. CRM User) 
+  * If you would like to use an app role assignment to determine the permission set required, you can use an expression such as: 
 
 
 ## Additional resources
