@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
 
 ---
@@ -25,10 +25,7 @@ In this tutorial, you'll create a NAT gateway to provide outbound connectivity f
 
 ## Sign in to Azure
 
-> [!IMPORTANT]
-> After Virtual Network NAT [preview is enabled](./nat-overview.md#enable-preview) on your subscription, use https://aka.ms/natportal to access the portal.
-
-Sign in to the [Azure portal](https://aka.ms/natportal).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Prepare the source for outbound traffic
 

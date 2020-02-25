@@ -2,7 +2,6 @@
 title: Tutorial - Deploy from GitHub to Azure Kubernetes Service (AKS) with Jenkins
 description: Set up Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure Kubernetes Service (AKS) 
 services: container-service
-ms.service: container-service
 author: zr-msft
 ms.author: zarhoads
 ms.topic: article

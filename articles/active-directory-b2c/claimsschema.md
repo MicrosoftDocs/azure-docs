@@ -207,7 +207,7 @@ The **Pattern** element can contain the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | RegularExpression | Yes | The regular expression that claims of this type must match in order to be valid. |
-| HelpText | No | The pattern or regular expression for this claim. |
+| HelpText | No | An error message for users if the regular expression check fails. |
 
 The following example configures an **email** claim with regular expression input validation and help text:
 
