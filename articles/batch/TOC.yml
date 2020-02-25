@@ -77,6 +77,8 @@
       href: batch-aad-auth-management.md
     - name: Securely access Key Vault with Batch
       href: credential-access-key-vault.md
+    - name: Using certificates with Batch
+      href: batch-certificates.md
   - name: Using application packages
     href: batch-application-packages.md
   - name: Create and manage pools
