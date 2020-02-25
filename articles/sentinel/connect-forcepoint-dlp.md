@@ -2,7 +2,7 @@
 title: Connect Forcepoint DLP to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Forcepoint DLP to Azure Sentinel.
 services: sentinel
-author: rkarlin
+author: yelevin
 editor: ''
 
 ms.service: azure-sentinel
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 

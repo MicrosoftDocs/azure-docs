@@ -237,6 +237,8 @@
         href: cappm-tutorial.md
       - name: CakeHR
         href: cakehr-tutorial.md
+      - name: Campus Café
+        href: campus-cafe-tutorial.md
       - name: Canvas Lms
         href: canvas-lms-tutorial.md
       - name: Capriza Platform
@@ -315,6 +317,8 @@
         href: cobalt-tutorial.md
       - name: Coda
         href: coda-tutorial.md
+      - name: Code42
+        href: code42-tutorial.md
       - name: Cognidox
         href: cognidox-tutorial.md
       - name: Collaborative Innovation
@@ -435,6 +439,8 @@
         href: ebsco-tutorial.md
       - name: eCornell
         href: ecornell-tutorial.md
+      - name: E-days
+        href: e-days-tutorial.md
       - name: Edcor
         href: edcor-tutorial.md
       - name: eDigitalResearch
