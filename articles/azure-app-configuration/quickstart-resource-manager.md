@@ -1,9 +1,9 @@
 ---
 title: Apply App Configuration key-values using Azure Resource Manager quickstart
 description: This quickstart demonstrates how to use the Azure PowerShell module to deploy an Azure App Configuration store and use the values in the store to deploy a VM.
-author: mamccrea
-ms.author: mamccrea
-ms.date: 02/19/2020
+author: lisaguthrie 
+ms.author: lcozzens
+ms.date: 02/24/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
 ms.custom: mvc
