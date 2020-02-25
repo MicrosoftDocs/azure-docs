@@ -4,6 +4,8 @@
   items:
   - name: What is Automation?
     href: automation-intro.md
+  - name: FAQ
+    href: automation-faq.md
 - name: Automation Account
   items:
     - name: Create an Automation account
