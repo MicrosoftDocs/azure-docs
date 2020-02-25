@@ -23,7 +23,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 ## Hosting recommendations
 
-1.  **Use Windows 64-bit host processing**
+1.  ** Use Windows 64-bit instead of Linux or Windows 32 host processing for query intensive workloads  **
 
     Windows 64-bit host processing is recommended for improved performance. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally, and is only supported on the Windows x64 platform. For linux and other unsupported platforms where the ServiceInterop.dll is not available it will do an additional network call to the gateway to get the optimized query. The following types of applications have 32-bit host process as the default, so in order to change that to 64-bit, follow these steps based on the type of your application:
 
@@ -36,8 +36,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
     - For ASP.NET Web applications deployed on Azure, this can be done by choosing the **Platform as 64-bit** in the **Application Settings** on the Azure portal.
 
     > [!NOTE] 
-    > 1. Visual studio defaults new projects to Any CPU. It's recommend to set the project to x64 to avoid it switching to x86. Any CPU project can easily switch to x86 if any dependency is added that is x86 only.
-    > 2. The ServiceInterop.dll needs to be in the same folder as the SDK dll is being executed from. This should only need to be done for users manually coping dlls or have custom build/deployment systems.
+    > Visual studio defaults new projects to Any CPU. It's recommend to set the project to x64 to avoid it switching to x86. Any CPU project can easily switch to x86 if any dependency is added that is x86 only.<br/>
+    > The ServiceInterop.dll needs to be in the same folder as the SDK dll is being executed from. This should only need to be done for users manually coping dlls or have custom build/deployment systems.
     
 2. **Turn on server-side Garbage Collection(GC)**
 
