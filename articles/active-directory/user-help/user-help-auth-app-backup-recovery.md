@@ -121,17 +121,17 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
 
 There are a few reasons why your backup might not be available:
 
-- **Changing operating systems.** Your backup is stored in the iCloud for iOS and in Microsoft's cloud storage provider for Android. This means that your backup is unavailable if you switch between Android and iOS devices. If you make the switch, you must manually recreate your accounts within the Microsoft Authenticator app.
+- **Changing operating systems**: Your backup is stored in the iCloud for iOS and in Microsoft's cloud storage provider for Android. This means that your backup is unavailable if you switch between Android and iOS devices. If you make the switch, you must manually recreate your accounts within the Microsoft Authenticator app.
 
-- **Network problems.** If you're experiencing network-related problems, make sure you're connected to the network and properly signed in to your account.
+- **Network problems**: If you're experiencing network-related problems, make sure you're connected to the network and properly signed in to your account.
 
-- **Account problems.** If you're experiencing account-related problems, make sure that you're properly signed in to your account. For iOS this means that you must be signed into iCloud using the same AppleID account as your iPhone.
+- **Account problems**: If you're experiencing account-related problems, make sure that you're properly signed in to your account. For iOS this means that you must be signed into iCloud using the same AppleID account as your iPhone.
 
-- **Accidental deletion.** It’s possible that you deleted your backup account from your previous device or while managing your cloud storage account. In this situation, you must manually recreate your account within the app.
+- **Accidental deletion**: It’s possible that you deleted your backup account from your previous device or while managing your cloud storage account. In this situation, you must manually recreate your account within the app.
 
-- **Existing Microsoft Authenticator accounts.** If you've already set up accounts in the Microsoft Authenticator app, the app won't be able to recover your backed-up accounts. Preventing recovery helps ensure that your account details aren't overwritten with out-of-date information. In this situation, you must remove any existing account information from the existing accounts set up in your Authenticator app before you can recover your backup.
+- **Existing Microsoft Authenticator accounts**: If you've already set up accounts in the Microsoft Authenticator app, the app won't be able to recover your backed-up accounts. Preventing recovery helps ensure that your account details aren't overwritten with out-of-date information. In this situation, you must remove any existing account information from the existing accounts set up in your Authenticator app before you can recover your backup.
 
-- **Backup is out-of-date.** If your backup information is out-of-date, you might be asked to refresh the information by signing in to your Microsoft Recovery account again. Your recovery account is the personal Microsoft account you used initially to store your backup. If a sign-in is required, you’ll see a red dot on your menu or action bar, or you’ll see an exclamation mark prompting you to sign in to finish restoring from backup. After you select the icon, you’ll be prompted to sign in again to update your information.
+- **Backup is out-of-date**: If your backup information is out-of-date, you might be asked to refresh the information by signing in to your Microsoft Recovery account again. Your recovery account is the personal Microsoft account you used initially to store your backup. If a sign-in is required, you’ll see a red dot on your menu or action bar, or you’ll see an exclamation mark prompting you to sign in to finish restoring from backup. After you select the icon, you’ll be prompted to sign in again to update your information.
 
 ## Next steps
 
