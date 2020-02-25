@@ -106,6 +106,7 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
 2. You can use a QR code to recover an account. Select **Scan QR code to recover**, and then scan the QR code.
 
     On Android:
+
     ![Microsoft Authenticator app on Android, allowing you to scan your QR code](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     On iOS:
