@@ -10,7 +10,7 @@ ms.date: 02/25/2020
 
 ---
 
-# Azure Automation Update Management Frequently Asked Questions
+# Update Management Frequently Asked Questions
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Automation Update Management solution.
 
