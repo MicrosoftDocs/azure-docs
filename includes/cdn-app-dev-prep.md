@@ -35,7 +35,7 @@ Creating a service principal consists of several steps, including creating an Az
 >
 > When you get to the step named Configure multi-tenant application, select **No**.
 >
-> When you get to the step [Assign the application to a role](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), use the resource group created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
+> When you get to the step [Assign the application to a role](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), use the resource group created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
 >
 >
 
