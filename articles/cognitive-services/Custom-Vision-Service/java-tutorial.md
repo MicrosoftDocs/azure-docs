@@ -39,7 +39,7 @@ This Java project creates a new Custom Vision image classification project named
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
-The program is configured to reference your key data as environment variables. Navigate to the **Vision/CustomVision** folder in PowerShell and enter the following commands to set the environment variables. 
+The program is configured to reference your key data as environment variables. Navigate to the **Vision/CustomVision** folder and enter the following PowerShell commands to set the environment variables. 
 
 > [!NOTE]
 > If you're using a non-Windows operating system, see [Configure environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) for instructions.
@@ -87,10 +87,9 @@ The prediction endpoint, represented by the `predictor` object here, is the refe
 
 ## Run the application
 
-To compile and run the solution using maven, navigate to the project directory in a command prompt and execute the run command:
+To compile and run the solution using maven, navigate to the project directory (**Vision/CustomVision**) in a command prompt and execute the run command:
 
 ```bash
-cd Vision/CustomVision
 mvn compile exec:java
 ```
 
