@@ -117,10 +117,10 @@ conceptualContent:
           itemType: reference
           text: Cloud Design Patterns   
 
-        - url: https://docs.microsoft.com/azure/architecture/aws-professionals
+        - url: https://docs.microsoft.com/azure/architecture/aws-professional
           itemType: reference
           text: Azure for AWS Professionals
-          
+
         - url: https://docs.microsoft.com/azure/architecture/performance
           itemType: reference
           text: Performance tuning   
