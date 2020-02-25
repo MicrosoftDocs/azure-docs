@@ -38,6 +38,8 @@ You will need to grant the service client application roles.
 
 1. Open the **API permissions** and select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md):
 
+    > If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for Azure Healthcare APIs under **APIs my organization uses**.
+
     ![Azure portal. Service Client API Permissions](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-API-PERMISSIONS.png)
 
 2. Select the application roles you from the ones that are defined on the resource application:

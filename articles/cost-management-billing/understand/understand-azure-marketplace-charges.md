@@ -6,7 +6,7 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
@@ -48,7 +48,11 @@ EA customers can see external service spending and download reports in the EA po
 
 If you have a Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement (MPA), your third-party services are billed with the rest of your Azure services on a single invoice. [Check your billing account type](#check-billing-account-type) to see if you have access to an MCA or MPA. If you do, see [View and download invoices in the Azure portal](download-azure-invoice.md) to see your third-party charges.
 
-If you don't have an MCA or MPA, you have separate invoices for third-party charges. You can view and download your Azure Marketplace invoices from the Azure portal by following these steps:
+If you don't have an MCA or MPA, you have separate invoices for third-party charges. 
+
+Azure Marketplace charges are shown in your local currency.
+
+You can view and download your Azure Marketplace invoices from the Azure portal by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.
