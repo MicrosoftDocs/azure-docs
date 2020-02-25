@@ -178,8 +178,8 @@ If you've already installed the agent on any machines, make sure that you're run
 
 1. On the **Encryption Setting** page, specify a passphrase that will be used to encrypt and decrypt backups for the machine.
 
-    * Save the encryption passphrase in a secure location.
-    * If you lose or forget the passphrase, Microsoft can't help you recover the backup data. Save the passphrase in a secure location. You need it to restore a backup.
+    * Save the passphrase in a secure location. You need it to restore a backup.
+    * If you lose or forget the passphrase, Microsoft can't help you recover the backup data. 
 
 1. Select **Finish**. The agent is now installed, and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
