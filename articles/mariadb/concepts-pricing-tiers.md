@@ -18,7 +18,6 @@ You can create an Azure Database for MariaDB server in one of three different pr
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memory per vCore | 2 GB | 5 GB | 10 GB |
 | Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
-| Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |
 
 To choose a pricing tier, use the following table as a starting point.
@@ -41,7 +40,7 @@ The storage you provision is the amount of storage capacity available to your Az
 
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
-| Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
+| Storage type | Basic Storage | General Purpose Storage | General Purpose Storage |
 | Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
 | Storage increment size | 1 GB | 1 GB | 1 GB |
 | IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |

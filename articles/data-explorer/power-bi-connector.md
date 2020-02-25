@@ -1,5 +1,5 @@
 ---
-title: 'Visualize data using the Azure Data Explorer connector for Power BI'
+title: 'Visualize data with Azure Data Explorer connector for Power BI'
 description: 'In this article, you learn how to use one of the three options for visualizing data in Power BI: the Power BI connector for Azure Data Explorer.'
 author: orspod
 ms.author: orspodek

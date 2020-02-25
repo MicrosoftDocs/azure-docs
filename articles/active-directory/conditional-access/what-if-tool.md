@@ -70,11 +70,11 @@ The IP address is a single IPv4 address to mimic the [location condition](locati
 
 ### Device platforms
 
-This setting mimics the [device platforms condition](conditions.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)**. 
+This setting mimics the [device platforms condition](concept-conditional-access-conditions.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)**. 
 
 ### Client apps
 
-This setting mimics the [client apps condition](conditions.md#client-apps).
+This setting mimics the [client apps condition](concept-conditional-access-conditions.md#client-apps-preview).
 By default, this setting causes an evaluation of all policies having **Browser** or **Mobile apps and desktop clients** either individually or both selected. It also detects policies that enforce **Exchange ActiveSync (EAS)**. You can narrow this setting down by selecting:
 
 - **Browser** to evaluate all policies having at least **Browser** selected. 
@@ -82,7 +82,7 @@ By default, this setting causes an evaluation of all policies having **Browser**
 
 ### Sign-in risk
 
-This setting mimics the [sign-in risk condition](conditions.md#sign-in-risk).   
+This setting mimics the [sign-in risk condition](concept-conditional-access-conditions.md#sign-in-risk).   
 
 ## Evaluation 
 

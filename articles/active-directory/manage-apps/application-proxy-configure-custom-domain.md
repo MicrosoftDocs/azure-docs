@@ -141,5 +141,5 @@ When a certificate expires, you get a warning telling you to upload another cert
 
 ## Next steps
 * [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
-* [Enable Conditional Access](../conditional-access/technical-reference.md#cloud-apps-assignments) to your published apps.
+* [Enable Conditional Access](../conditional-access/overview.md) to your published apps.
 

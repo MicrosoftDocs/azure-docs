@@ -42,6 +42,8 @@ To complete this tutorial, you need the following resources and privileges:
 * A Windows Server VM that is joined to the Azure AD DS managed domain.
     * If needed, see the previous tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+* An Azure Bastion host deployed in your Azure AD DS virtual network.
+    * If needed, [create an Azure Bastion host][azure-bastion].
 
 ## Sign in to the Azure portal
 
@@ -82,16 +84,15 @@ In the previous tutorial, a Windows Server VM was created and joined to the Azur
 To get started, connect to the Windows Server VM as follows:
 
 1. In the Azure portal, select **Resource groups** on the left-hand side. Choose the resource group where your VM was created, such as *myResourceGroup*, then select the VM, such as *myVM*.
-1. In the **Overview** windows of the VM, select **Connect**.
+1. In the **Overview** pane for your VM, select **Connect**, then **Bastion**.
 
-    ![Connect to Windows virtual machine in the Azure portal](./media/tutorial-create-management-vm/connect-vm.png)
+    ![Connect to Windows virtual machine using Bastion in the Azure portal](./media/join-windows-vm/connect-to-vm.png)
 
-    You can also [create and use an Azure Bastion host (currently in preview)][azure-bastion] to allow access only through the Azure portal over SSL.
+1. Enter the credentials for your VM, then select **Connect**.
 
-1. Select the option to *Download RDP File*. Save this RDP file in your web browser.
-1. To connect to your VM, open the downloaded RDP file. If prompted, select **Connect**.
-1. Enter the credentials of a user that's part of the *Azure AD DC administrators* group, such as *aaddscontoso\dee*
-1. If you see a certificate warning during the sign in process, select **Yes** or **Continue** to connect.
+   ![Connect through the Bastion host in the Azure portal](./media/join-windows-vm/connect-to-bastion.png)
+
+If needed, allow your web browser to open pop-ups for the Bastion connection to be displayed. It takes a few seconds to make the connection to your VM.
 
 ## Install Active Directory administrative tools
 

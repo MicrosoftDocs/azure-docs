@@ -75,7 +75,7 @@ To set up a managed identity in the portal, you first create an application and 
 1. Add a reference to the *Azure.Identity* package:
 
     ```cli
-    dotnet add package Azure.Identity --version 1.1.0
+    dotnet add package Azure.Identity
     ```
 
 1. Find the endpoint to your App Configuration store. This URL is listed on the **Access keys** tab for the store in the Azure portal.
@@ -92,7 +92,6 @@ To set up a managed identity in the portal, you first create an application and 
 
     ```csharp-interactive
     using Azure.Identity;
-    using Microsoft.Azure.Services.AppAuthentication;
     ```
 
 1. If you wish to access only values stored directly in App Configuration, update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.

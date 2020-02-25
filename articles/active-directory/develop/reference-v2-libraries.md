@@ -27,7 +27,7 @@ The [Microsoft identity platform endpoint](active-directory-v2-compare.md) suppo
 We recommend that you use libraries written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology. Such methodologies include [the one that Microsoft follows][Microsoft-SDL]. If you hand code for the protocols, you should follow a methodology such as Microsoft SDL. Pay close attention to the security considerations in the standards specifications for each protocol.
 
 > [!NOTE]
-> Are you looking for the Azure Active Directory Authentication Library (ADAL)? Check out the [ADAL library guide](active-directory-authentication-libraries.md).
+> Are you looking for the Azure Active Directory Authentication Library (ADAL)? Check out the [ADAL library guide](../azuread-dev/active-directory-authentication-libraries.md).
 
 ## Types of libraries
 

@@ -13,7 +13,7 @@ ms.date: 02/11/2020
 # Automatically scale Azure HDInsight clusters
 
 > [!Important]
-> The Autoscale feature only works for Apache Spark, ApacheHive, LLAP and Apache HBase clusters created after May 8th 2019.
+> The Autoscale feature only works for Apache Spark, ApacheHive, LLAP and Apache HBase clusters created after May 8th 2019. Autoscale for LLAP and HBase are in preview.
 
 Azure HDInsight's cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down. Other types of nodes in the cluster can't be scaled currently.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down. There's no additional charge for this feature.
 
@@ -73,7 +73,7 @@ Based on the number of AM containers per node and the current CPU and memory req
 
 ### Create a cluster with load-based Autoscaling
 
-To use Autoscale on a cluster, the **Enable autoscale** option must be enabled when the cluster is created. To enable the Autoscale feature with load-based scaling, complete the following steps as part of the normal cluster creation process:
+To enable the Autoscale feature with load-based scaling, complete the following steps as part of the normal cluster creation process:
 
 1. On the **Configuration + pricing** tab, select the **Enable autoscale** checkbox.
 1. Select **Load-based** under **Autoscale type**.

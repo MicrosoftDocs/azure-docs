@@ -139,10 +139,10 @@ In this example, this connection string specifies explicit overrides for every s
 - Authorization scheme defaults to “ikey” 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
 - The regional service URIs are based on the explicit override values: 
-   - Ingestion: https://custom.com:111/
-   - Live metrics: https://custom.com:222/
-   - Profiler: https://custom.com:333/ 
-   - Debugger: https://custom.com:444/   
+   - Ingestion: https:\//custom.com:111/
+   - Live metrics: https:\//custom.com:222/
+   - Profiler: https:\//custom.com:333/ 
+   - Debugger: https:\//custom.com:444/   
 
 
 ## How to set a connection string

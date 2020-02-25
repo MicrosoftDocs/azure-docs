@@ -22,6 +22,9 @@ ms.author: alsin
 
 Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-go (PAYG) or bring-your-own-subscription (Red Hat Gold Image) model. This document provides an overview of the Red Hat Gold Images in Azure.
 
+>[!NOTE]
+> RHEL BYOS Gold Images are available in Azure Public (commercial) and in Azure Government clouds. They are not available in Azure China or Azure Blackforest clouds.
+
 ## Important points to consider
 
 - The Red Hat Gold Images provided in this program are production-ready RHEL images similar the RHEL PAYG images in the Azure Gallery/Marketplace.
@@ -172,7 +175,7 @@ The following is an example script. You should replace the Resource Group, locat
 
 Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images can be secured through the use of [Azure Disk Encryption](../../linux/disk-encryption-overview.md). However, the subscription **must** be registered before enabling encryption.  Details on registering a RHEL BYOS Gold Image are available on the Red Hat site. See [How to register and subscribe a system to the Red Hat Customer Portal using Red Hat Subscription-Manager](https://access.redhat.com/solutions/253273); if you have an active Red Hat subscription, you can also read [Creating Red Hat Customer Portal Activation Keys](https://access.redhat.com/articles/1378093).
 
-Azure Disk Encryption is not supported on [Red Hat custom images](/linux/redhat-create-upload-vhd). Additional ADE requirements and prerequisites are documented in [Azure Disk Encryption for Linux VMs](../../linux/disk-encryption-overview.md#additional-vm-requirements).
+Azure Disk Encryption is not supported on [Red Hat custom images](../../linux/redhat-create-upload-vhd.md). Additional ADE requirements and prerequisites are documented in [Azure Disk Encryption for Linux VMs](../../linux/disk-encryption-overview.md#additional-vm-requirements).
 
 Steps for applying Azure Disk Encryption are available in [Azure Disk Encryption scenarios on Linux VMs](../../linux/disk-encryption-linux.md) and related articles.
 

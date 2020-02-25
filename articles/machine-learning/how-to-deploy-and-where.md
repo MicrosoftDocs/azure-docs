@@ -581,6 +581,20 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) documentation.
 
+### Understanding service state
+
+During model deployment, you may see the service state change while it fully deploys.
+
+The following table describes the different service states:
+
+| Webservice state | Description | Final state?
+| ----- | ----- | ----- |
+| Transitioning | The service is in the process of deployment. | No |
+| Unhealthy | The service has deployed but is currently unreachable.  | No |
+| Unschedulable | The service cannot be deployed at this time due to lack of resources. | No |
+| Failed | The service has failed to deploy due to an error or crash. | Yes |
+| Healthy | The service is healthy and the endpoint is available. | Yes |
+
 ### <a id="notebookvm"></a> Compute instance web service (dev/test)
 
 See [Deploy a model to Azure Machine Learning compute instance](how-to-deploy-local-container-notebook-vm.md).

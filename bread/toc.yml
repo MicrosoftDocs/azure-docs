@@ -27,6 +27,9 @@
       - name: Develop
         tocHref: /azure/active-directory/develop/
         topicHref: /azure/active-directory/develop/
+      - name: Azure AD for developers
+        tocHref: /azure/active-directory/azuread-dev/
+        topicHref: /azure/active-directory/azuread-dev/
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
@@ -725,6 +728,9 @@
   - name: Site Recovery
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/
+  - name: Site Reliability Engineering
+    tocHref: /azure/site-reliability-engineering/
+    topicHref: /azure/site-reliability-engineering/
   - name: Synapse Analytics
     tocHref: /azure/sql-data-warehouse/
     topicHref: /azure/sql-data-warehouse/

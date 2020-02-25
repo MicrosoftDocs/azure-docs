@@ -130,7 +130,7 @@ The following template creates an empty resource group.
 }
 ```
 
-Use the [copy element](create-multiple-instances.md) with resource groups to create more than one resource group.
+Use the [copy element](copy-resources.md) with resource groups to create more than one resource group.
 
 ```json
 {
@@ -165,7 +165,7 @@ Use the [copy element](create-multiple-instances.md) with resource groups to cre
 }
 ```
 
-For information about resource iteration, see [Deploy more than one instance of a resource or property in Azure Resource Manager Templates](./create-multiple-instances.md), and [Tutorial: Create multiple resource instances with Resource Manager templates](./template-tutorial-create-multiple-instances.md).
+For information about resource iteration, see [Deploy more than one instance of a resource  in Azure Resource Manager Templates](./copy-resources.md), and [Tutorial: Create multiple resource instances with Resource Manager templates](./template-tutorial-create-multiple-instances.md).
 
 ## Resource group and resources
 
