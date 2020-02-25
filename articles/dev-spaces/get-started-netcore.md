@@ -54,7 +54,7 @@ az group create --name MyResourceGroup --location <region>
 
 Create a Kubernetes cluster with the following command:
 
-```cmd
+```azurecli
 az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
