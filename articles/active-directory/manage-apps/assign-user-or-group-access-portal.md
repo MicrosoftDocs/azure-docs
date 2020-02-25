@@ -18,14 +18,14 @@ ms.collection: M365-identity-device-management
 
 This article shows you how to assign users or groups to enterprise applications in Azure Active Directory (Azure AD), either from within the Azure portal or by using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps access panel](https://myapps.microsoft.com/) for easy access.
 
-For greater control, certain types of enterprise applications can be configured to *require* user assignment. This option blocks everyone from signing in, except those users you explicitly assign to the application. When user assignment is not required, unassigned users won't see the app on their My Apps access panel, but they can still sign in to the application with a direct app URL (known as service provider-initiated sign-on) or the **User Access URL** in the application’s **Properties** page (known as identity provider-initiated sign on). 
+For greater control, certain types of enterprise applications can be configured to *require* user assignment. This option blocks everyone from signing in, except those users you explicitly assign to the application. When user assignment is *not required*, unassigned users won't see the app on their My Apps access panel, but they can still sign in to the application with a direct app URL (known as service provider-initiated sign-on) or the **User Access URL** in the application’s **Properties** page (known as identity provider-initiated sign on).
 
 To assign a user or group to an enterprise app, you'll need to sign in as a global administrator, application administrator, cloud application administrator, or the assigned owner of the enterprise app.
 
 If you want to assign users to Microsoft Applications such as Office 365 apps, use PowerShell. You can also show or hide Office 365 applications in the My Apps access panel by [setting an option in the Enterprise applications **User settings**](hide-application-from-user-portal.md). 
 
 > [!NOTE]
-> Group-based assignment requires a paid Azure AD subscription. Group-based assignment is supported for Security groups only. Nested group memberships and Office 365 groups are not currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
+> Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Office 365 groups are not currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
 
 ## Configure an application to require user assignment
 
