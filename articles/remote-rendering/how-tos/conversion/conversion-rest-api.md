@@ -38,7 +38,7 @@ The conversion service provides three REST API endpoints to:
 - query the conversion status
 
 ### Start conversion using a linked storage account
-Your Azure Remote Rendering Account needs to have access to the provided storage account by following the steps on how to [Link storage accounts](../create-an-account.md/#link-storage-accounts).
+Your Azure Remote Rendering Account needs to have access to the provided storage account by following the steps on how to [Link storage accounts](../create-an-account.md#link-storage-accounts).
 
 | Endpoint | Method |
 |-----------|:-----------|
