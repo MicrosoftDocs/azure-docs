@@ -100,7 +100,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Using Azure Storage with a Jenkins C/I solution
-            url: /azure/storage/storage-java-jenkins-continuous-integration-solution?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+            url: storage-java-jenkins-continuous-integration-solution.md
 
   # Card
   - title: CI/CD to Linux VMs
