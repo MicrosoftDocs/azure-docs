@@ -21,7 +21,7 @@ You can enable Update Management for virtual machines (VMs) directly from your A
 
 Machines that are managed by Update Management use the following configurations to perform assessment and to update deployments:
 
-* Microsoft Monitoring Agent (MMA) for Windows or Linux
+* Log Analytics agent for Windows or Linux
 * PowerShell Desired State Configuration (DSC) for Linux
 * Automation Hybrid Runbook Worker
 * Microsoft Update or Windows Server Update Services (WSUS) for Windows machines
@@ -55,7 +55,7 @@ Updates are installed by runbooks in Azure Automation. You can't view these runb
 
 At the date and time specified in the update deployment, the target machines execute the deployment in parallel. Before installation, a scan is run to verify that the updates are still required. For WSUS client machines, if the updates aren't approved in WSUS, update deployment fails.
 
-Having a machine registered for Update Management in more than one Log Analytics workspace (multihoming) isn't supported.
+Having a machine registered for Update Management in more than one Log Analytics workspace (also referred to as multihoming) isn't supported.
 
 ## Clients
 
