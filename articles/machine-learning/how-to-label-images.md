@@ -56,7 +56,11 @@ After you submit tags for the data at hand, Azure refreshes the page with a new 
 
 ### Assisted machine learning 
 
-Machine learning algorithms may be triggered during a multi-class or multi-label classification task.  After some amount of images have been labeled, you might see an alert that a clustering model is used to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the clustering.  At a later point, you may see images that are already labeled based on a classification model.  When the labels are already present, correct any wrong labels before submitting the page.  
+Machine learning algorithms may be triggered during a multi-class or multi-label classification task. If these algorithms are enabled in your project, you may see the following:
+
+* After some amount of images have been labeled, you may see **Tasks clustered** at the top of your screen next to the project name.  This means that images are grouped together to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the grouping.  
+
+* At a later point, you may see **Tasks prelabeled** next to the project name.  Images will then appear with a suggested label that comes from a machine learning classification model.  When you see these labels, correct any wrong labels before submitting the page.  
 
 ## Tag images for multi-class classification
 
