@@ -223,7 +223,6 @@ provisioning:
   attestation:
     method: "tpm"
     registration_id: "{registration_id}"
-  dynamic_reprovisioning: false
 ```
 
 X.509 attestation:
@@ -236,10 +235,9 @@ provisioning:
   scope_id: "{scope_id}"
   attestation:
     method: "x509"
-    registration_id: "<OPTIONAL REGISTRATION ID. IF UNSPECIFIED CAN BE OBTAINED FROM CN OF identity_cert"
+#   registration_id: "<OPTIONAL REGISTRATION ID. IF UNSPECIFIED CAN BE OBTAINED FROM CN OF identity_cert"
     identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
     identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
-  dynamic_reprovisioning: false
 ```
 
 Symmetric key attestation:
@@ -254,7 +252,6 @@ provisioning:
     method: "symmetric_key"
     registration_id: "{registration_id}"
     symmetric_key: "{symmetric_key}"
-  dynamic_reprovisioning: false
 ```
 
 To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.

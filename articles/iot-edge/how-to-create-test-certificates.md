@@ -4,7 +4,7 @@ description: Create test certificates and learn how to install them on an Azure 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/21/2020
+ms.date: 02/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -21,6 +21,15 @@ These certificates expire in 30 days, and should not be used in any production s
 You can create certificates on any machine, and then copy them over to your IoT Edge device.
 It's easier to use your primary machine to create the certificates rather than generating them on your IoT Edge device itself.
 By using your primary machine, you can set up the scripts once and then repeat the process to create certificates for multiple devices.
+
+Follow these steps to create demo certificates for testing your IoT Edge scenario:
+
+1. [Set up scripts](#set-up-scripts) for certificate generation on your device.
+2. [Create the root CA certificate](#create-root-ca-certificate) that you use to sign all the other certificates for your scenario.
+3. Generate the certificates you need for the scenario you want to test:
+   * [Create IoT Edge device identity certificates](#create-iot-edge-device-identity-certificates) to test automatic provisioning with the IoT Hub Device Provisioning Service.
+   * [Create IoT Edge device CA certificates](#create-iot-edge-device-ca-certificates) to test production scenarios or gateway scenarios.
+   * [Create downstream device certificates](#create-downstream-device-certificates) to test authenticating downstream devices to IoT Hub in a gateway scenario.
 
 ## Prerequisites
 
@@ -253,7 +262,7 @@ The script creates several certificate and key files, including two that you'll 
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
-## Create X.509 certs for downstream devices
+## Create downstream device certificates
 
 If you're setting up a downstream IoT device for a gateway scenario, you can generate demo certificates for X.509 authentication.
 There are two ways to authenticate an IoT device using X.509 certificates: using self-signed certs or using certificate authority (CA) signed certs.
