@@ -22,8 +22,6 @@ With this upgrade, Azure Monitor for VMs performance data are stored in the same
 
 Our performance views are now using the data we store in the *InsightsMetrics* table.  If you have not yet upgraded to use the latest VMInsights solution on your workspace, your charts will no longer display information.  You can upgrade from our **Get Started** page as described below.
 
-With this upgrade, Azure Monitor for VMs performance data are stored in the same *InsightsMetrics* table as [Azure Monitor for containers](container-insights-overview.md) making it easier for you to query the two data sets. You are also able to store more diverse data sets that we could not store in the table previously used. 
-
 We realize that asking existing customers to upgrade causes disruption to their workflow, which is why we have chosen to do this now while in Public Preview rather than later after GA.
 
 
