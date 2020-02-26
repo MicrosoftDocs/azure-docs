@@ -28,7 +28,7 @@ Add build agents to your existing Jenkins deployment to scale your Jenkins build
 
 Once configured with an [Azure service principal](/azure/azure-resource-manager/resource-group-overview), Jenkins jobs and pipelines can use this credential to:
 
-- Securely store and archive build artifacts in [Azure Storage](/azure/storage/common/storage-introduction) using the [Azure Storage plug-in](https://plugins.jenkins.io/windows-azure-storage). Review the [Jenkins storage how-to](/azure/storage/common/storage-java-jenkins-continuous-integration-solution) to learn more.
+- Securely store and archive build artifacts in [Azure Storage](/azure/storage/common/storage-introduction) using the [Azure Storage plug-in](https://plugins.jenkins.io/windows-azure-storage). Review the [Jenkins storage how-to](storage-java-jenkins-continuous-integration-solution.md) to learn more.
 - Manage and configure Azure resources with the [Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline).
 
 ## Deploy your code into Azure services

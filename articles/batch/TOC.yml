@@ -123,6 +123,8 @@
       href: large-number-tasks.md
     - name: Check for job and task errors
       href: batch-job-task-error-checking.md
+    - name: Detecting and handling Batch service errors
+      href: batch-retry-after-errors.md   
   - name: Create resource files
     href: resource-files.md
   - name: Persist job and task output
