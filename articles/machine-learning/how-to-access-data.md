@@ -83,13 +83,12 @@ However, for Azure Data Lake Storage Gen 1 and 2 datastores, this validation  ha
 
 All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form `register_azure_*`.
 
-You can find the information that you need to populate the `register()` method by using the [Azure portal](https://portal.azure.com):
+You can find the information that you need to populate the `register()` method on the [Azure portal](https://portal.azure.com).
+Select **Storage Accounts** on the left pane, and choose the storage account that you want to register. The **Overview** page provides information such as the account name, container, and file share name. 
 
-1. Select **Storage Accounts** on the left pane, and choose the storage account that you want to register. 
-2. For information like the account name, container, and file share name, go to the **Overview** page. 
-3. For authentication information, like account key or SAS token, go to **Access Keys** on the **Settings** pane. 
+* For authentication items, like account key or SAS token, go to **Account Keys** on the **Settings** pane. 
 
-4. For service principal items like, tenant ID and client ID, go to the **Overview** page of your **App registrations**. 
+* For service principal items like, tenant ID and client ID, go to your **App registrations** and select which app you want to use. Its corresponding **Overview** page will contain these items.
 
 > [!IMPORTANT]
 > If your storage account is in a virtual network, only creation of Blob, File share, ADLS Gen 1 and ADLS Gen 2 datastores **via the SDK** is supported. To grant your workspace access to your storage account, set the parameter `grant_workspace_access` to `True`.
@@ -176,7 +175,7 @@ You can find the information that you need to populate the form on the  [Azure p
 
 * For authentication items, like account key or SAS token, go to **Account Keys** on the **Settings** pane. 
 
-* For service principal items like, tenant ID and client ID, go to the **Overview** page of your **App registrations**. 
+* For service principal items like, tenant ID and client ID, go to your **App registrations** and select which app you want to use. Its corresponding **Overview** page will contain these items. 
 
 The following example demonstrates what the form looks like when you create an Azure blob datastore: 
     
