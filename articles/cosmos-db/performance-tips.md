@@ -23,9 +23,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 ## Hosting recommendations
 
-1.  ** For query intensive workloads use Windows 64-bit instead of Linux or Windows 32 host processing **
+1.  **For query-intensive workloads, use Windows 64-bit instead of Linux or Windows 32 host processing**
 
-    Windows 64-bit host processing is recommended for improved performance. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally, and is only supported on the Windows x64 platform. For linux and other unsupported platforms where the ServiceInterop.dll is not available it will do an additional network call to the gateway to get the optimized query. The following types of applications have 32-bit host process as the default, so in order to change that to 64-bit, follow these steps based on the type of your application:
+    Windows 64-bit host processing is recommended for improved performance. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally, and is only supported on the Windows x64 platform. For Linux and other unsupported platforms where the ServiceInterop.dll is not available it will do an additional network call to the gateway to get the optimized query. The following types of applications have 32-bit host process as the default, so in order to change that to 64-bit, follow these steps based on the type of your application:
 
     - For Executable applications, this can be done by setting the [Platform target](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) to **x64**  in the **Project Properties** window, on the **Build** tab.
 
@@ -178,7 +178,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 7. **Cache document URIs for lower read latency**
 
-    Cache document URIs whenever possible for the best read performance. You have to define logic to cache the resource id when you create the resource. Resource id based lookups are faster than name based lookups, so caching these values improves the performance. 
+    Cache document URIs whenever possible for the best read performance. You have to define logic to cache the resource ID when you create the resource. Resource ID based lookups are faster than name based lookups, so caching these values improves the performance. 
 
    <a id="tune-page-size"></a>
 8. **Tune the page size for queries/read feeds for better performance**
@@ -260,7 +260,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     While the automated retry behavior helps to improve resiliency and usability for the most applications, it might come at odds when doing performance benchmarks, especially when measuring latency.  The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge returned by each operation and ensure that requests are operating below the reserved request rate. For more information, see [Request units](request-units.md).
 3. **Design for smaller documents for higher throughput**
 
-    The request charge (i.e. request processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations for small documents.
+    The request charge (i.e., request-processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations for small documents.
 
 ## Next steps
 For a sample application used to evaluate Azure Cosmos DB for high-performance scenarios on a few client machines, see [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
