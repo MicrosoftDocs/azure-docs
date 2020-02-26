@@ -86,7 +86,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Map a custom domain to your app
-            url: ../app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            url: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
           - text: Migrate an active domain to App Service
             url: ../manage-custom-dns-migrate-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
           - text: Secure a custom domain with an SSL binding
@@ -138,7 +138,7 @@ landingContent:
           - text: Load balance with Traffic Manager
             url: ../web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
           - text: Back up your app to Storage Blobs
-            url: ../manage-backup?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            url: ../manage-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 
 
 

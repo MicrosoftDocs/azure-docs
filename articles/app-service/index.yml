@@ -80,11 +80,11 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Map a custom domain to your app
-            url: app-service-web-tutorial-custom-domain
+            url: app-service-web-tutorial-custom-domain.md
           - text: Migrate an active domain to App Service
             url: manage-custom-dns-migrate-domain.md
           - text: Secure a custom domain with an SSL binding
-            url: configure-ssl-bindings
+            url: configure-ssl-bindings.md
           - text: Run app in staged environments
             url: deploy-staging-slots.md
           - text: Add a CDN to your application
@@ -92,9 +92,9 @@ landingContent:
           - text: Secure resource access with managed identities
             url: app-service-web-tutorial-connect-msi.md
           - text: Host RESTful API with CORS
-            url: app-service-web-tutorial-rest-api
+            url: app-service-web-tutorial-rest-api.md
           - text: Authenticate users
-            url: app-service-web-tutorial-auth-aad
+            url: app-service-web-tutorial-auth-aad.md
 
   - title: Run containerized apps
     linkLists:
@@ -103,7 +103,7 @@ landingContent:
           - text: Run a custom Windows container
             url: app-service-web-get-started-windows-container.md
           - text: Run a custom Linux container
-            url: ../quickstart-docker.md
+            url: containers/quickstart-docker.md
       - linkListType: tutorial
         links:
           - text: Migrate a legacy app to Azure in a Windows container
