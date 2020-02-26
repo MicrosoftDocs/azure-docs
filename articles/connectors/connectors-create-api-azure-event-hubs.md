@@ -226,7 +226,7 @@ or [Add Event Hubs action](#add-action).
 
 ## Connector reference
 
-For technical details, such as triggers, actions, and limits, as described by the connector's Swagger file, see the [connector's reference page](/connectors/eventhubs/).
+For technical details, such as triggers, actions, and limits, as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/eventhubs/).
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
@@ -234,4 +234,4 @@ For technical details, such as triggers, actions, and limits, as described by th
 
 ## Next steps
 
-Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

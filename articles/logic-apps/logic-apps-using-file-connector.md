@@ -88,7 +88,7 @@ This article shows how you can connect to an on-premises file system as describe
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are described by the connector's Swagger description, review the connector's [reference page](/connectors/fileconnector/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/fileconnector/).
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
