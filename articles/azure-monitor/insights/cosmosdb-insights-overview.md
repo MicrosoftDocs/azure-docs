@@ -43,7 +43,7 @@ This feature does not require you to enable or configure anything, these Azure C
 
    ![Choose a Cosmos DB account to view metrics](./media/cosmosdb-insights-overview/select-cosmosdb-account.png)
 
-1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md#metrics) article. In this example, let’s select **Request units** and **Avg** as the aggregation value.
+1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](../../cosmos-db/monitor-cosmos-db-reference.md) article. In this example, let’s select **Request units** and **Avg** as the aggregation value.
 
    In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
