@@ -117,7 +117,7 @@ First, narrowing down the reported data to a level that works for you. Second, f
 - Interrupted
 
 
-**IP address** - The IP address of the device used to conntect to your tenant.
+**IP address** - The IP address of the device used to connect to your tenant.
 
 The **Location** - The location the connection was initiated from:
 
@@ -134,7 +134,38 @@ The **Location** - The location the connection was initiated from:
 **Resource ID** - The ID of the service used for the sign-in.
 
 
-**Client app** - The client app used to connect to your tenant.
+**Client app** - The type of the client app used to connect to your tenant:
+
+![Client app filter](./media/concept-sign-ins/client-app-filter.png)
+
+- Authenticated SMTP
+
+- Auto Discover
+
+- Exchange ActiveSync
+
+- Exchange Online PowerShell
+
+- Exchange web services 
+
+- IMAP4
+
+- MAPI over HTTP
+
+- Mobile apps and desktop clients
+
+- Offline address book
+
+- Other clients
+
+- Outlook anywhere (RPC over HTTP)
+
+- Outlook service
+
+- POP3
+
+- Reporting web service
+  
 
 
 **Operating system** - The operating system running on the device used sign-on to your tenant. 
