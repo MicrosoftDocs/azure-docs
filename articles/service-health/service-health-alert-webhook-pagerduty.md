@@ -1,5 +1,5 @@
 ---
-title: Send Azure service health alerts with PagerDuty
+title: Send alerts with PagerDuty using webhooks
 description: Get personalized notifications about service health events to your PagerDuty instance.
 ms.topic: article
 ms.date: 06/10/2019
