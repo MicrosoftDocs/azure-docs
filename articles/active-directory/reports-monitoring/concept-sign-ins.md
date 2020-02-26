@@ -141,7 +141,7 @@ The **Location** - The location the connection was initiated from:
 ### Version 1
 
 |Name|Modern authentication|Description|
-|---|---|---|
+|---|:-:|---|
 |Authenticated SMTP| |Used by POP and IMAP client's to send email messages.|
 |Autodiscover| |Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
 |Exchange ActiveSync| |This filter shows all sign-in attempts where the EAS protocol has been attempted.|
