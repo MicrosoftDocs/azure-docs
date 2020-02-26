@@ -30,19 +30,13 @@ This tutorial covers several possible ways of setting up your Jenkins environmen
 
 If you're adding the Service Fabric plugin to an existing Jenkins environment, you need the following:
 
-- The [Service Fabric CLI](service-fabric-cli.md) (sfctl).
-
-   > [!NOTE]
-   > Be sure to install the CLI at the system level rather than at the user level, so Jenkins can run CLI commands. 
-   >
-
-- To deploy Java applications, install both [Gradle and Open JDK 8.0](service-fabric-get-started-linux.md#set-up-java-development). 
-- To deploy .NET Core 2.0 applications, install the [.NET Core 2.0 SDK](service-fabric-get-started-linux.md#set-up-net-core-20-development). 
+- [Service Fabric CLI (sfctl)](../service-fabric/service-fabric-cli.md). Install the CLI at the system level rather than at the user level, so Jenkins can run CLI commands. 
+- To deploy Java applications, install both [Gradle and Open JDK 8.0](../service-fabric/service-fabric-get-started-linux.md#set-up-java-development). 
+- To deploy .NET Core 2.0 applications, install the [.NET Core 2.0 SDK](../service-fabric/service-fabric-get-started-linux.md#set-up-net-core-20-development). 
 
 After you've installed the prerequisites needed for your environment, you can search for the Azure Service Fabric Plugin in Jenkins marketplace and install it.
 
-After you've installed the plugin, skip ahead to  [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job).
-
+After you've installed the plugin, skip ahead to [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job).
 
 ## Set up Jenkins inside a Service Fabric cluster
 
