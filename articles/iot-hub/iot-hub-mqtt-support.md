@@ -335,7 +335,7 @@ The possible status codes are:
 
 |Status | Description |
 | ----- | ----------- |
-| 200 | Success (no content is returned) |
+| 200 | Success |
 | 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
@@ -366,7 +366,7 @@ The possible status codes are:
 
 |Status | Description |
 | ----- | ----------- |
-| 204 | Success |
+| 204 | Success (no content is returned) |
 | 400 | Bad Request. Malformed JSON |
 | 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
