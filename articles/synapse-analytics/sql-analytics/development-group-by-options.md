@@ -116,7 +116,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-The following image shows the results of [CREATE TABLE AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7):
+The following image shows the results of [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7):
 
 ![Group by cube](media/development-group-by-options/develop-group-by-cube.png)
 
