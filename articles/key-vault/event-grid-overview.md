@@ -24,7 +24,7 @@ Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscripti
 For more information, see the [Key Vault event schema](../event-grid/event-schema-key-vault.md).
 
 > [!WARNING]
-> Events are triggered only on new versions of a secrets after the subscription is set.  For an existing secret, you must generate a new versions.
+> Events are triggered only on new versions of a secret after the subscription is set. For an existing secret, you must generate a new version.
 > 
 > Certificate events are only triggered when a certificate is automatically renewed through issuance policy.
 
