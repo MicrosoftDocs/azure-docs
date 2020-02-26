@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/02/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -113,6 +113,7 @@ The **UserJourneyBehaviors** element contains the following elements:
 | SessionExpiryInSeconds | 0:1 | The lifetime of Azure AD B2C's session cookie specified as an integer stored on the user's browser upon successful authentication. |
 | JourneyInsights | 0:1 | The Azure Application Insights instrumentation key to be used. |
 | ContentDefinitionParameters | 0:1 | The list of key value pairs to be appended to the content definition load URI. |
+|ScriptExecution| 0:1| The supported [JavaScript](javascript-samples.md) execution modes. Possible values: `Allow` or `Disallow` (default).
 
 ### SingleSignOn
 

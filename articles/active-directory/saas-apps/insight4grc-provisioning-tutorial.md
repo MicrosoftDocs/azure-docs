@@ -86,7 +86,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input your Insight4GRC admin credentials and username. Click **Test Connection** to ensure Azure AD can connect to Insight4GRC. If the connection fails, ensure your Insight4GRC account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input the SCIM endpoint URL in **Tenant URL**. The enpoint URL should be in the format `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` where **Insight4GRC Domain Name** is the value retrieved in previous steps. Input the bearer token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Insight4GRC. If the connection fails, ensure your Insight4GRC account has Admin permissions and try again.
 
  	![provisioning](./media/insight4grc-provisioning-tutorial/provisioning.png)
 
