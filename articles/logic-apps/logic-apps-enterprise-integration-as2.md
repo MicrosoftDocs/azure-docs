@@ -62,9 +62,9 @@ This article shows how to add the AS2 encoding and decoding actions to an existi
 
 * If you use [Azure Key Vault](../key-vault/key-vault-overview.md) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
 
-  In the Azure portal, go to your key vault, view your vault key's **Permitted operations**, and confirm that the **Encrypt** and **Decrypt** operations are selected.
+  In the Azure portal, go to the key in your key vault, review your key's **Permitted operations**, and confirm that the **Encrypt** and **Decrypt** operations are selected, for example:
 
-  ![Check vault key operations](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
+  ![Check vault key operations](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
 
 <a name="encode"></a>
 
@@ -90,6 +90,10 @@ This article shows how to add the AS2 encoding and decoding actions to an existi
    For example:
 
    ![Message encoding properties](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
+
+> [!TIP]
+> If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
+> The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
 <a name="decode"></a>
 
