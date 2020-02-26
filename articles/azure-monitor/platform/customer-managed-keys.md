@@ -201,9 +201,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 ### Azure Monitor data-store (ADX cluster) provisioning
 
-During the early access period of the feature, the ADX cluster is
-provisioned manually by the product team once the previous steps are
-completed. Use the channel you have with Microsoft to provide the *Cluster* resource details. The JSON response can be retrieved using GET REST API:
+During the early access period of the feature, the ADX cluster is provisioned manually by the product team once the previous steps are completed. Use your Microsoft channel to provide the *Cluster* resource details. Copy the JSON response from the *Cluster* resource GET REST API:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
@@ -239,20 +237,17 @@ Authorization: Bearer <token>
 ### Grant Key Vault permissions
 
 > [!IMPORTANT]
-> This step should be carried ONLY after you received confirmation from the product group through your Microsoft channel that the Azure > Monitor data-store (ADX cluster) provisioning was fulfilled. Updating Key Vault access policy prior to this provisioning, the access policy update in Key Vault will fail.
+> This step should be carried after you received confirmation from the product group through your Microsoft channel that the Azure Monitor data-store (ADX cluster) provisioning was fulfilled. Updating the Key Vault access policy prior to this provisioning may fail.
 
-Update your Key Vault and add access policy for the *Cluster* resource. Permissions to your Key Vault are then propagated to the underlaying Azure Monitor Storage to be used for data encryption.
+Update your Key Vault with a new access policy that grant permissions to your *Cluster* resource. These permissions are used by the underlaying Azure Monitor Storage for data encryption.
 Open your Key Vault in Azure portal and click "Access Policies" then "+ Add Access Policy" to create a new policy with these settings:
 
 - Key permissions: select 'Get', 'Wrap Key' and 'Unwrap Key' permissions.
-
 - Select principal: enter the cluster-id value that returned in the response in the previous step.
 
 ![grant Key Vault permissions](media/customer-managed-keys/grant-key-vault-permissions.png)
 
-The *Get* permission is required to verify that your Key Vault is
-    configured as recoverable to protect your key and the access to your
-    Azure Monitor data.
+The *Get* permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
 
 ### Update Cluster resource with Key identifier details
 
@@ -272,16 +267,16 @@ Content-type: application/json
 
 {
    "properties": {
-       "KeyVaultProperties": {
-            KeyVaultUri: "https://<key-vault-name>.vault.azure.net",
-            KeyName: "<key-name>",
-            KeyVersion: "<current-version>"
-            },
+     "KeyVaultProperties": {
+       KeyVaultUri: "https://<key-vault-name>.vault.azure.net",
+       KeyName: "<key-name>",
+       KeyVersion: "<current-version>"
+       },
    },
    "location":"<region-name>",
    "identity": { 
-        "type": "systemAssigned" 
-        }
+     "type": "systemAssigned" 
+     }
 }
 ```
 "KeyVaultProperties" contains the Key Vault key identifier details.

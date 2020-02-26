@@ -116,9 +116,9 @@ Checks that boolean value of a claims is equal to `true` or `false`, and return 
 
 | Item | TransformationClaimType  | Data Type  | Notes |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | boolean | The ClaimType to be asserted. |
+| InputClaim | inputClaim | boolean | The ClaimType to be asserted. |
 | InputParameter |valueToCompareTo | boolean | The value to compare (true or false). |
-| OutputClaim | inputClaim | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+| OutputClaim | compareResult | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
 
 The following claims transformation demonstrates how to check the value of a boolean ClaimType with a `true` value. If the value of the `IsAgeOver21Years` ClaimType is equal to `true`, the claims transformation returns `true`, otherwise `false`.

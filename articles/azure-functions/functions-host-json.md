@@ -203,7 +203,7 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 
 ## cosmosDb
 
-Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#host-json).
+Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
 
 ## durableTask
 
