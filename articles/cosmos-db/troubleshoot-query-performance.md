@@ -17,6 +17,20 @@ You can broadly categorize query optimizations in Azure Cosmos DB: Optimizations
 
 This document will use examples that can be recreated using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
+## Important
+
+- For the best performance please follow the [Performance Tips](performance-tips.md).
+    > [!NOTE] 
+    > Windows 64-bit host processing is recommended for improved performance. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally, and is only supported on the Windows x64 platform. For linux and other unsupported platforms where the ServiceInterop.dll is not available it will do an additional network call to the gateway to get the optimized query. 
+- Cosmos DB query does not support a minimum item count.
+    - Code should handle any page size from 0 to max item count
+    - The number of items in a page can and will change without any notice.
+- Empty pages are expected for queries, and can appear at any time. 
+    - The reason empty pages are exposed in the SDKs is it allows more opportunities to cancel the query. It also makes it clear that the SDK is doing multiple network calls.
+    - Empty pages can show up in existing workloads because a physical partition is split in Cosmos DB. First partition now has 0 results, which causes the empty page.
+    - Empty pages are caused by the backend preempting the query because the query is taking more than some fixed amount of time on the backend to retrieve the documents. If Cosmos DB preempts a query it will return a continuation token which will allow the query to continue. 
+- Make sure to drain the query completely. Look at the SDK samples and use a while loop on the `FeedIterator.HasMoreResults` to drain the entire query.
+
 ### Obtaining query metrics:
 
 When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](profile-sql-api-query.md) for your query. These are also available through the Azure portal as shown below:
@@ -138,7 +152,7 @@ Indexing policy:
 }
 ```
 
-**RU Charge:** 409.51 RU's
+**RU Charge:** 409.51 RUs
 
 ### Optimized
 
@@ -157,7 +171,7 @@ Updated indexing policy:
 }
 ```
 
-**RU Charge:** 2.98 RU's
+**RU Charge:** 2.98 RUs
 
 You can add additional properties to the indexing policy at any time, with no impact to write availability or performance. If you add a new property to the index, queries that use this property will immediately utilize the new available index. The query will utilize the new index while it is being built. As a result, query results may be inconsistent as the index rebuild is in progress. If a new property is indexed, queries that only utilize existing indexes will not be affected during the index rebuild. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
@@ -211,7 +225,7 @@ Indexing policy:
 }
 ```
 
-**RU Charge:** 44.28 RU's
+**RU Charge:** 44.28 RUs
 
 ### Optimized
 
@@ -251,7 +265,7 @@ Updated indexing policy:
 
 ```
 
-**RU Charge:** 8.86 RU's
+**RU Charge:** 8.86 RUs
 
 ## Optimize JOIN expressions by using a subquery
 Multi-value subqueries can optimize `JOIN` expressions by pushing predicates after each select-many expression rather than after all cross-joins in the `WHERE` clause.
@@ -268,7 +282,7 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-**RU Charge:** 167.62 RU's
+**RU Charge:** 167.62 RUs
 
 For this query, the index will match any document that has a tag with the name "infant formula", nutritionValue greater than 0, and serving amount greater than 1. The `JOIN` expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. The `WHERE` clause will then apply the filter predicate on each `<c, t, n, s>` tuple.
 
@@ -284,7 +298,7 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-**RU Charge:** 22.17 RU's
+**RU Charge:** 22.17 RUs
 
 Assume that only one item in the tags array matches the filter, and there are five items for both nutrients and servings arrays. The `JOIN` expressions will then expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
 
