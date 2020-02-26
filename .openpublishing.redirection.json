@@ -811,11 +811,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/QnAMaker/tutorials/choosing-capacity-qnamaker-deployment.md",
-      "redirect_url": "/azure/cognitive-services/Concepts/azure-resources",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cognitive-services/QnAMaker/concepts/data-sources-supported.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/reference-document-format-guidelines",
       "redirect_document_id": false
@@ -1003,11 +998,6 @@
     {
       "source_path": "articles/cognitive-services/QnAMaker/Tutorials/create-publish-answer.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-new-kb-csharp",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnAMaker/Concepts/data-sources-supported.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/concepts/knowledge-base",
       "redirect_document_id": false
     },
     {
