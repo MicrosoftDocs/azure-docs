@@ -154,7 +154,7 @@ Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" 
 
 For more details check [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) command.
 
-# [PowerShell](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use the following CLI command:
 
