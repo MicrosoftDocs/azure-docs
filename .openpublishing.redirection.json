@@ -812,37 +812,37 @@
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/tutorials/choosing-capacity-qnamaker-deployment.md",
-      "redirect_url": "/azure/cognitive-services/Concepts/azure-resources",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Concepts/azure-resources",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-publish-kb-nodejs-sdk.md",
-      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-publish-kb-csharp-sdk.md",
-      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/python-sdk.md",
-      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs.md",
-      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/publish-kb-nodejs",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/publish-kb-nodejs",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-postman.md",
-      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-curl.md",
-      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
       "redirect_document_id": false
     },
     {
