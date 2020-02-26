@@ -19,19 +19,19 @@ This article summarizes the level of support for Blob features, tools, and Azure
 
 The tables in this section summarize Data Lake Storage Gen2 support for Blob features, tools, and Azure services.  The items that appear in this table will change over time as support continues to expand. 
 
-### Blob features
+### Blob Storage features
 
 <hr></hr>
 
 [!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
 
-### Tools
+### Tools and SDKs
 
 <hr></hr>
 
 [!INCLUDE [storage-data-lake-tool-support](../../../includes/storage-data-lake-tool-support.md)]
 
-### Azure services
+### Azure service integrations
 
 <hr></hr>
 

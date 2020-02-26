@@ -39,7 +39,8 @@ Existing tools and applications that use the Blob API gain these benefits automa
 This table lists the Blob storage features that you can use with your Data Lake Storage.
 
 > [!NOTE]
-> Support level refers only to how the feature is supported in Data Lake Storage Gen2.
+> Support level refers only to how the feature is supported in Data Lake Storage Gen2.<br>
+> To review specific issues, see [Known Issues](data-lake-storage-known-issues.md#known-issues).
 
 <hr></hr>
 
@@ -50,26 +51,26 @@ This table lists the Blob storage features that you can use with your Data Lake 
 This table lists tools and SDKs that you can use with your Data Lake Storage. 
 
 > [!NOTE]
-> Support level refers only to how the tool or SDK is supported in Data Lake Storage Gen2.
+> Support level refers only to how the tool or SDK is supported in Data Lake Storage Gen2.<br>
+> To review specific issues, see [Known Issues](data-lake-storage-known-issues.md#known-issues).
 
 <hr></hr>
 
 [!INCLUDE [storage-data-lake-tool-support](../../../includes/storage-data-lake-tool-support.md)]
 
-## Supported Azure service connections
+## Supported Azure service integrations
 
 This table lists Azure services that can integrate with your Data Lake Storage. 
 
 > [!NOTE]
-> Support level refers only to how the service is supported with Data Lake Storage Gen2.
+> Support level refers only to how the service is supported with Data Lake Storage Gen2.<br>
+> To review specific issues, see [Known Issues](data-lake-storage-known-issues.md#known-issues).
 
 <hr></hr>
 
 [!INCLUDE [storage-data-lake-service-ecosystem-support](../../../includes/storage-data-lake-service-ecosystem-support.md)]
 
 ## Next steps
-
-* To review specific issues, see [Known Issues](data-lake-storage-known-issues.md#known-issues).
 
 * For a complete list of supported services, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md)
 
