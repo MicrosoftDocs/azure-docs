@@ -44,8 +44,9 @@ To get more networking requirements for the Hybrid Runbook Worker, see [Configur
 
 ### Server onboarding for management with Automation DSC
 
-For more information about onboarding servers for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
-If you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer that's connected to your Log Analytics workspace is automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution. However, it isn't registered with any Hybrid Worker groups already defined in your Automation account. 
+For information about onboarding servers for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
+
+If you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer that's connected to your Log Analytics workspace is automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution. However, it isn't registered with any Hybrid Worker groups already defined in your Automation account.
 
 ### Adding the computer to a Hybrid Runbook Worker group
 
@@ -60,19 +61,17 @@ On the target machine, perform the following steps to automate the installation 
 Download the New-OnPremiseHybridWorker.ps1 script from the 
 [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) directly from the computer running the Hybrid Runbook Worker role or from another computer in your environment. Copy the script to the worker. The New-OnPremiseHybridWorker.ps1 script requires the following parameters during execution:
 
-   * *AAResourceGroupName* (mandatory): The name of the resource group that's associated with your Automation account.
-   * *OMSResourceGroupName* (optional): The name of the resource group for the Log Analytics workspace. If this resource group is not specified, *AAResourceGroupName* is used.
-   * *SubscriptionID* (mandatory): The Azure subscription ID that your Automation Account is in.
-   * *TenantID* (optional): The identifier of the tenant organization associated with your Automation Account.
-   * *WorkspaceName* (optional): The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one.
-   * *AutomationAccountName* (mandatory): The name of your Automation Account.
-   * *HybridGroupName* (mandatory): The name of a Hybrid Runbook Worker group that you specify as a target for the runbooks that support this scenario.
-   * *Credential* (optional): The credentials to use when logging in to the Azure environment.
+* *AAResourceGroupName* (mandatory): The name of the resource group that's associated with your Automation account.
+* *OMSResourceGroupName* (optional): The name of the resource group for the Log Analytics workspace. If this resource group is not specified, *AAResourceGroupName* is used.
+* *SubscriptionID* (mandatory): The Azure subscription ID that your Automation Account is in.
+* *TenantID* (optional): The identifier of the tenant organization associated with your Automation Account.
+* *WorkspaceName* (optional): The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one.
+* *AutomationAccountName* (mandatory): The name of your Automation Account.
+* *HybridGroupName* (mandatory): The name of a Hybrid Runbook Worker group that you specify as a target for the runbooks that support this scenario.
+* *Credential* (optional): The credentials to use when logging in to the Azure environment.
   
-   > [!NOTE]
-   > When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
-   >
-   > For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
+> [!NOTE]
+> When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
 
 ### 2. Open Windows PowerShell command line shell
 
