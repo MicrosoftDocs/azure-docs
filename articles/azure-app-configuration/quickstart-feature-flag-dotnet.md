@@ -34,6 +34,13 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
+6. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
+
+    > [!div class="mx-imgBorder"]
+    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
+
+    Leave `label` undefined for now.
+
 ## Create a .NET console app
 
 1. Start Visual Studio, and select **File** > **New** > **Project**.

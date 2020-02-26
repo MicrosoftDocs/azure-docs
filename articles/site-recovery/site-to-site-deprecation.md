@@ -21,9 +21,9 @@ DR between customer owned sites managed by System Center Virtual Machine Manager
 
 ## What changes should you expect?
 
-- Starting November 2019, no new user on-boardings will be allowed for these scenarios. **Existing replications and management operations** including failover, test failover, monitoring etc. **will not be impacted**.
+- Starting March 2020,you will receive Azure portal notifications & email communications with the upcoming deprecation of site-to-site replication of Hyper-V VMs. The deprecation is planned for March 2023.
 
-- If you have an existing configuration, you will not be able to register new VMMs.
+- If you have an existing configuration, there will be no impact to the set up.
 
 - Once the scenarios are deprecated unless the customer follows the alternate approaches, the existing replications may get disrupted. Customers won't be able to view, manage, or performs any DR-related operations via the Azure Site Recovery experience in Azure portal.
  
