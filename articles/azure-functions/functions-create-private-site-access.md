@@ -192,7 +192,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
 
 [Private site](functions-networking-options.md#private-site-access) access is enabled by creating an Azure Virtual Network [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the function app and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure that only traffic originating from within the specified virtual network can access the designated resource. In this case, the designated resource is the Azure Function.
 
-1. Within the function app, proceed to the **Platform features** tab. Select **Networking** to open the **Network Feature Status** section.
+1. Within the function app, proceed to the **Platform features** tab. Select the **Networking** link under the *Networking* section header to open the Network Feature Status section.
 
     >[!div class="mx-imgBorder"]
     >![Select Platform features in Azure Functions](./media/functions-create-private-site-access/configure-access-restrictions-platform-features.png)
