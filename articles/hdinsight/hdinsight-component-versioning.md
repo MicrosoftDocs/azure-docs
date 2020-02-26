@@ -58,11 +58,11 @@ See [HDInsight release notes](hdinsight-release-notes.md) for additional release
 
 ## Supported HDInsight versions
 
-### Support expiration vs retirement
+### Support expiration and retirement for HDInsight versions
 
-**Support expiration** means the specified version will no longer be avaiable through the Azure portal. However, the versions are available through SDKs.
+**Support expiration** means that Microsoft will no longer provide support for the specified HDInsight version and it will no longer be avaiable through the Azure portal for cluster creation. However, these versions can still be created using the Azure CLI or the various SDKs. 
 
-**Retirement** means existing clusters run as-is with no support, no new creation through any means. Control plane features (such as manual and autoscaling) may not work after version retirement.
+**Retirement** of an HDInsight version means that existing clusters will continue to run as-is. However, new clusters of this version cannot be created through any means (including CLI and SDKs). Other control plane features (such as manual scaling and Autoscaling) may also not work after version retirement. Support is not available for retired versions.
 
 The following tables list the versions of HDInsight. The support expiration and retirement dates are also provided, when they're known.
 
