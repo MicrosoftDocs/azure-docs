@@ -44,15 +44,15 @@ Regardless of the version used, VNet Integration gives your web app access to re
 
 1. Go to the Networking UI in the App Service portal. Under VNet Integration, select *"Click here to configure"*. 
 
-   ![Select VNet Integration][1]
-
 1. Select **Add VNet**.  
+
+   ![Select VNet Integration][1]
 
 1. The drop-down list will contain all of the Resource Manager VNets in your subscription in the same region and below that is a list of all of the Resource Manager VNets in all other regions. Select the VNet you wish to integrate with.
 
-   * If the VNet is in the same region, then either create a new subnet or pick an empty pre-existing subnet. 
-
    ![Select the VNet][2]
+
+   * If the VNet is in the same region, then either create a new subnet or pick an empty pre-existing subnet. 
 
    * To select a VNet in another region, you must have a Virtual Network gateway provisioned with point to site enabled.
 
@@ -85,10 +85,11 @@ By default, your app will only route RFC1918 traffic into your VNet. If you want
 
 1. Go to the Configuration UI in your app portal. Select **New application setting**
 1. Type **WEBSITE_VNET_ROUTE_ALL** in the Name field and **1** in the Value field
-1. Select **OK**
-1. Select **Save**
 
    ![Provide application setting][4]
+
+1. Select **OK**
+1. Select **Save**
 
 If you route all of your outbound traffic into your VNet, then it will be subject to the NSGs and UDRs that are applied to your integration subnet. When you route all of your outbound traffic into your VNet, your outbound addresses will still be the outbound addresses that are listed in your app properties unless you provide routes to send the traffic elsewhere. 
 
@@ -201,8 +202,6 @@ If you are using the gateway required VNet Integration with peering, you need to
 ## Managing VNet Integration 
 
 Connecting and disconnecting with a VNet is at an app level. Operations that can affect the VNet Integration across multiple apps are at the App Service plan level. From the app > Networking > VNet Integration portal, you can get details on your VNet. You can see similar information at the ASP level in the ASP > Networking > VNet Integration portal.
-
- ![VNet details][4] 
 
 The only operation you can take in the app view of your VNet Integration is to disconnect your app from the VNet it is currently connected to. To disconnect your app from a VNet, select **Disconnect**. Your app will be restarted when you disconnect from a VNet. Disconnecting doesn't change your VNet. The subnet or gateway is not removed. If you then want to delete your VNet, you need to first disconnect your app from the VNet and delete the resources in it such as gateways. 
 
