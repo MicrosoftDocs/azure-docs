@@ -87,7 +87,7 @@
       href: logic-apps-handle-large-messages.md
     - name: Secure
       items:
-      - name: Secure your logic apps
+      - name: Improve security for logic apps
         href: logic-apps-securing-a-logic-app.md
       - name: Authenticate with managed identities
         href: create-managed-service-identity.md
@@ -97,7 +97,7 @@
       items:
       - name: Create custom APIs for logic apps
         href: logic-apps-create-api-app.md
-      - name: Secure calls to custom APIs
+      - name: Improve security for calls to custom APIs
         href: logic-apps-custom-api-authentication.md
       - name: Deploy and call custom APIs
         href: logic-apps-custom-api-host-deploy-call.md
@@ -135,7 +135,7 @@
         href: logic-apps-enterprise-integration-certificates.md
       - name: Artifact metadata
         href: logic-apps-enterprise-integration-metadata.md
-      - name: Receive B2B messages
+      - name: Receive and send B2B messages
         href: logic-apps-enterprise-integration-b2b.md
       - name: Exchange AS2 messages
         href: logic-apps-enterprise-integration-as2.md
@@ -330,16 +330,13 @@
   - name: Monitor
     items: 
       - name: Monitor logic apps
-        href: logic-apps-monitor-your-logic-apps.md
+        href: monitor-logic-apps.md
       - name: Monitor logic apps with Azure Monitor logs
-        href: logic-apps-monitor-your-logic-apps-oms.md
+        href: monitor-logic-apps-log-analytics.md
       - name: Monitor B2B messages with Azure Monitor logs
-        href: logic-apps-monitor-b2b-message.md
-        items:
-        - name: Track B2B messages with Azure Monitor logs
-          href: logic-apps-track-b2b-messages-omsportal.md
-        - name: Create queries for B2B messages with Azure Monitor logs
-          href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
+        href: monitor-b2b-messages-log-analytics.md
+      - name: Create monitoring and tracking queries
+        href: create-monitoring-tracking-queries.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
     items: 

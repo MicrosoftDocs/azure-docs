@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 01/13/2020
+ms.date: 02/03/2020
 ms.author: juliako
 ---
 
@@ -45,15 +45,17 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 
     Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
-## Next steps
+## See also
 
 See [Upload and index videos](upload-index-videos.md) for more details.
 
 After you upload and index a video, you can start using [Video Indexer](video-indexer-view-edit.md) website or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
 
-## See also
+[Start using APIs](video-indexer-use-apis.md)
 
-[Video Indexer overview](video-indexer-overview.md)
+## Next steps
 
-[Start using APIs](video-indexer-use-apis.md).
+For detailed introduction please visit our [introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md). 
+
+At the end of the workshop you will have a good understanding of the kind of information that can be extracted from video and audio content, you will be more prepared to identify opportunities related to content intelligence, pitch video AI on Azure, and demo several scenarios on Video Indexer.
 

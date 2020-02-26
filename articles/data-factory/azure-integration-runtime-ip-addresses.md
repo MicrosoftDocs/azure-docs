@@ -51,6 +51,7 @@ Allow traffic from the IP addresses listed for the Azure Integration runtime in 
 |                | West Central US     | 52.150.137.128/25,</br>52.150.136.192/26,</br>13.71.199.0/28 |
 |                | West US             | 40.82.250.0/23,</br>40.82.249.64/26,</br>13.86.219.208/28    |
 |                | West US2            | 20.42.132.0/23,</br>20.42.129.64/26,</br>13.66.143.128/28    |
+|                | US Gov Virginia     | 52.127.45.96/28,</br>52.127.48.128/25,</br>52.127.49.0/26    |
 
 ## Known issue with Azure Storage
 

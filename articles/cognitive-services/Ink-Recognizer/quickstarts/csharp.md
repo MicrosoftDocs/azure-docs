@@ -44,11 +44,11 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 1. In Visual Studio, create a new console solution and add the following packages. 
     
-    [!code-csharp[import statements](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
+    [!code-csharp[import statements](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
 
 2. Create variables for your subscription key and endpoint, and the example JSON file. The endpoint will later be combined with `inkRecognitionUrl` to access the API. 
 
-    [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
+    [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
 
 ## Create a function to send requests
 
@@ -58,7 +58,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
  
 3. Send the request with `PutAsync()`. If the request is successful, return the response.  
     
-    [!code-csharp[request example method](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=request)]
+    [!code-csharp[request example method](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=request)]
 
 ## Send an ink recognition request
 
@@ -66,13 +66,13 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 2. Deserialize the JSON object, and write it to the console. 
     
-    [!code-csharp[request to recognize ink data](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=recognize)]
+    [!code-csharp[request to recognize ink data](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=recognize)]
 
 ## Load your digital ink data
 
 Create a function called `LoadJson()` to load the ink data JSON file. Use a `StreamReader` and `JsonTextReader` to create a `JObject` and return it.
 
-[!code-csharp[load the JSON file](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=loadJson)]
+[!code-csharp[load the JSON file](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=loadJson)]
 
 ## Send the API request
 
@@ -80,7 +80,7 @@ Create a function called `LoadJson()` to load the ink data JSON file. Use a `Str
 
 2. Call the `recognizeInk()` function created above. Use `System.Console.ReadKey()` to keep the console window open after running the application.
     
-    [!code-csharp[file main method](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=main)]
+    [!code-csharp[file main method](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=main)]
 
 
 ## Run the application and view the response

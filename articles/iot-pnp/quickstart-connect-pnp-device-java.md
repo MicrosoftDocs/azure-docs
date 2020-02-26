@@ -1,8 +1,8 @@
 ---
 title: Connect IoT Plug and Play Preview sample device code to IoT Hub | Microsoft Docs
 description: Using Java, build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp

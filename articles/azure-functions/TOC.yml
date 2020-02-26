@@ -130,6 +130,9 @@
   - name: Performance considerations
     href: functions-best-practices.md 
     displayName: best practice
+  - name: Storage considerations
+    href: storage-considerations.md
+    displayName: encryption, keys
   - name: Functions Proxies
     href: functions-proxies.md 
   - name: Networking options
@@ -324,23 +327,73 @@
   - name: Triggers and bindings
     items:
     - name: Blob storage
-      href: functions-bindings-storage-blob.md
+      items:
+        - name: Overview
+          href: functions-bindings-storage-blob.md
+        - name: Trigger
+          href: functions-bindings-storage-blob-trigger.md
+        - name: Input
+          href: functions-bindings-storage-blob-input.md
+        - name: Output
+          href: functions-bindings-storage-blob-output.md
     - name: Azure Cosmos DB
       items: 
       - name: Functions 1.x
         href: functions-bindings-cosmosdb.md
         displayName: Azure Cosmos DB
       - name: Functions 2.x
-        href: functions-bindings-cosmosdb-v2.md
         displayName: Azure Cosmos DB
+        items:
+        - name: Overview
+          href: functions-bindings-cosmosdb-v2.md
+          displayName: Azure Cosmos DB
+        - name: Trigger
+          href: functions-bindings-cosmosdb-v2-trigger.md
+          displayName: Azure Cosmos DB
+        - name: Input
+          href: functions-bindings-cosmosdb-v2-input.md
+          displayName: Azure Cosmos DB
+        - name: Output
+          href: functions-bindings-cosmosdb-v2-output.md
+          displayName: Azure Cosmos DB
     - name: Event Grid
-      href: functions-bindings-event-grid.md
+      items: 
+        - name: Overview
+          href: functions-bindings-event-grid.md
+        - name: Trigger
+          href: functions-bindings-event-grid-trigger.md
+        - name: Output
+          href: functions-bindings-event-grid-output.md
     - name: Event Hubs
-      href: functions-bindings-event-hubs.md
+      items:
+      - name: Overview
+        href: functions-bindings-event-hubs.md
+        displayName: Azure Event Hubs
+      - name: Trigger
+        href: functions-bindings-event-hubs-trigger.md
+        displayName: Azure Event Hubs
+      - name: Output
+        href: functions-bindings-event-hubs-output.md
+        displayName: Azure Event Hubs
     - name: IoT Hub
-      href: functions-bindings-event-iot.md
+      items:
+      - name: Overview
+        href: functions-bindings-event-iot.md
+        displayName: Azure IoT Hubs
+      - name: Trigger
+        href: functions-bindings-event-iot-trigger.md
+        displayName: Azure IoT Hubs
+      - name: Output
+        href: functions-bindings-event-iot-output.md
+        displayName: Azure IoT Hubs
     - name: HTTP and webhooks
-      href: functions-bindings-http-webhook.md
+      items:
+        - name: Overview  
+          href: functions-bindings-http-webhook.md
+        - name: Trigger
+          href: functions-bindings-http-webhook-trigger.md
+        - name: Output
+          href: functions-bindings-http-webhook-output.md
     - name: Microsoft Graph
       href: functions-bindings-microsoft-graph.md
     - name: Mobile Apps
@@ -348,13 +401,34 @@
     - name: Notification Hubs
       href: functions-bindings-notification-hubs.md
     - name: Queue storage
-      href: functions-bindings-storage-queue.md
+      items:
+        - name: Overview
+          href: functions-bindings-storage-queue.md
+        - name: Trigger
+          href: functions-bindings-storage-queue-trigger.md
+        - name: Output
+          href: functions-bindings-storage-queue-output.md
     - name: SendGrid
       href: functions-bindings-sendgrid.md
     - name: Service Bus
-      href: functions-bindings-service-bus.md
+      items:
+      - name: Overview
+        href: functions-bindings-service-bus.md
+      - name: Trigger
+        href: functions-bindings-service-bus-trigger.md
+      - name: Output
+        href: functions-bindings-service-bus-output.md
     - name: SignalR Service
-      href: functions-bindings-signalr-service.md
+      items:
+      - name: Overview
+        href: functions-bindings-signalr-service.md
+        displayName: SignalR Service
+      - name: Overview
+        href: functions-bindings-signalr-service-input.md
+        displayName: SignalR Service
+      - name: Overview
+        href: functions-bindings-signalr-service-output.md
+        displayName: SignalR Service
     - name: Table storage
       href: functions-bindings-storage-table.md
     - name: Timer
