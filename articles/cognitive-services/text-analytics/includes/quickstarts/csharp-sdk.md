@@ -9,7 +9,6 @@ ms.topic: include
 ms.date: 02/24/2020
 ms.author: aahi
 ms.reviewer: assafi
-zone_pivot_groups: programming-languages-text-analytics
 ---
 
 <a name="HOLTop"></a>
