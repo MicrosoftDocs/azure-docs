@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a remote Azure Resource Manager template
 description: Learn how to an Azure Resource Manager template that is stored in a remote location.
-ms.date: 02/18/2020
+ms.date: 02/26/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -18,7 +18,7 @@ We recommend that you complete the [first deployment tutorial](./deployment-tuto
 
 In the previous tutorial, you deploy a template that creates a storage account, App Service plan, and web app. The template used was:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json/azuredeploy.json":::
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 ## Store and share the template
 

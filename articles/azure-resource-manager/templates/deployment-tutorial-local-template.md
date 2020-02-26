@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a local Azure Resource Manager template
 description: Learn how to deploy a Azure Resource Manager template from your local computer
-ms.date: 02/18/2020
+ms.date: 02/26/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -36,7 +36,7 @@ The template used in this tutorial is similar to the template used in the [tutor
 
 The template deploys a storage account, app service plan, and web app.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json/azuredeploy.json":::
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 Save a copy of the template to your local computer. You will deploy this template.
 
