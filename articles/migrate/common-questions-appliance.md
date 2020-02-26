@@ -10,73 +10,75 @@ ms.date: 02/17/2020
 This article answers common questions about the Azure Migrate appliance. If you have other questions, review these articles:
 
 - [General questions](resources-faq.md) about Azure Migrate.
-- [Questions](common-questions-discovery-assessment.md) about the discovery, assessment, and dependency visualization.
-- [Questions](common-questions-server-migration.md) about server migration.
+- Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md).
+- Questions about [server migration](common-questions-server-migration.md).
 - Get questions answered on the [Azure Migrate forum](https://aka.ms/AzureMigrateForum). 
 
 
 ## What is the Azure Migrate appliance?
 
-The Azure Migrate appliance is a lightweight appliance used by the Azure Migrate:Server Assessment tool to discover and assess on-premises servers. The appliance is also used by the Azure Migrate:Server Migration tool, for agentless migration of on-premises VMware VMs. 
+The Azure Migrate appliance is a lightweight appliance that the Azure Migrate: Server Assessment tool uses to discover and assess on-premises servers. The appliance is also used by the Azure Migrate: Server Migration tool, for agentless migration of on-premises VMware VMs.
+
+Here's important information to know about the Azure Migrate appliance:
 
 - The appliance is deployed on-premises as a VM or physical machine.
-- The appliance discovers on-premises machines, and continually sends machine metadata and performance data to Azure Migrate.
+- The appliance discovers on-premises machines and continually sends machine metadata and performance data to Azure Migrate.
 - Appliance discovery is agentless. Nothing is installed on discovered machines.
 
 [Learn more](migrate-appliance.md) about the appliance.
 
 ## How does the appliance connect to Azure?
 
-The appliance can connect over the internet, or using Azure ExpressRoute with public/Microsoft peering.
+The appliance can connect over the internet or by using Azure ExpressRoute with public/Microsoft peering.
 
-## Does appliance analysis impact performance?
+## Does appliance analysis affect performance?
 
 The Azure Migrate appliance profiles on-premises machines continuously to measure performance data. This profiling has almost no performance impact profiled machines.
 
 ### Can I harden the appliance VM?
 
-When you create the appliance VM using the downloaded template, you can add components (for example an antivirus) to the template, as long as you leave the communication and firewall rules required for the Azure Migrate appliance in place.
+When you create the appliance VM by using the downloaded template, you can add components (for example, an antivirus component) to the template, as long as you leave in place the communication and firewall rules that are required for the Azure Migrate appliance.
 
+## What network connectivity is required?
 
-## What network connectivity is needed?
+See the following articles for information about network connectivity:
 
-Review information about network connectivity:
-- VMware assessment using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-vmware.md#port-access) access requirements.
-- VMware agentless migration using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-vmware-migration.md#agentless-ports) access requirements.
-- Hyper-V assessment using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-hyper-v.md#port-access) access requirements.
-
+- VMware assessment by using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-vmware.md#port-access) access requirements
+- VMware agentless migration by using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-vmware-migration.md#agentless-ports) access requirements
+- Hyper-V assessment by using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-hyper-v.md#port-access) access requirements
 
 ## What data does the appliance collect?
 
-Review the collected data:
+See the following articles for information about data that is collected:
 
-- VMware VM [performance data](migrate-appliance.md#collected-performance-data-vmware) and [metadata](migrate-appliance.md#collected-metadata-vmware).
-- Hyper-V VM [performance data](migrate-appliance.md#collected-performance-data-hyper-v) and [metadata](migrate-appliance.md#collected-metadata-hyper-v).
-
+- VMware VM [performance data](migrate-appliance.md#collected-performance-data-vmware) and [metadata](migrate-appliance.md#collected-metadata-vmware)
+- Hyper-V VM [performance data](migrate-appliance.md#collected-performance-data-hyper-v) and [metadata](migrate-appliance.md#collected-metadata-hyper-v)
 
 ## How is data stored?
 
-Data collected by the Azure Migrate appliance is stored in the Azure location in which you created the Azure Migrate project. 
+Data collected by the Azure Migrate appliance is stored in the Azure location where you created the Azure Migrate project.
 
-- The data is securely stored in a Microsoft subscription, and is deleted when you delete the Azure Migrate project.
-- If you use [dependency visualization](concepts-dependency-visualization.md), the data collected is stored in the United States, in a Log Analytics workspace created in the Azure subscription. This data is deleted when you delete the Log Analytics workspace in your subscription.
+Here's more information:
+
+- The data is securely stored in a Microsoft subscription, and it's deleted when you delete the Azure Migrate project.
+- If you use [dependency visualization](concepts-dependency-visualization.md), the data collected is stored in the United States in an Azure Log Analytics workspace created in the Azure subscription. The data is deleted when you delete the Log Analytics workspace in your subscription.
 
 ## How much data is uploaded in continuous profiling?
 
-The volume of data sent to Azure Migrate depends on a number of parameters. To give you a sense, an Azure Migrate project with 10 machines (each with one disk and one NIC) sends around 50 MB per day. This value is approximate, and changes, based on the number of data points for the NICs and disks. The increase in data sent is non-linear if there's an increase in the number of machines, NICs, or disks.
+The volume of data sent to Azure Migrate depends on multiple parameters. As an example, an Azure Migrate project with 10 machines (each with one disk and one NIC) sends approximately 50 MB per day. This value is approximate; the actual value varies based on the number of data points for the NICs and the disks. The increase in data sent is nonlinear if there's an increase in the number of machines, NICs, or disks.
 
-## Is data encrypted at-rest/in-transit?
+## Is data encrypted at-rest and in-transit?
 
-Yes, for both.
+Yes, for both:
 
-- Metadata is securely sent to the Azure Migrate service over the internet, via HTTPS.
-- Metadata is stored in an [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) database, and in [Azure Blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription. The metadata is encrypted at-rest.
-- The data for dependency analysis is also encrypted in-transit (secure HTTPS). It's stored in a Log Analytics workspace in your subscription. It's also encrypted at-rest.
+- Metadata is securely sent to the Azure Migrate service over the internet via HTTPS.
+- Metadata is stored in an [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at-rest.
+- The data for dependency analysis also is encrypted in-transit (by secure HTTPS). It's stored in a Log Analytics workspace in your subscription. It's also encrypted at-rest.
 
 ## How does the appliance connect to vCenter Server?
 
-1. The appliance connects to vCenter Server (port 443), using the credentials you provided when you set up the appliance.
-2. The appliance uses VMware PowerCLI to query vCenter Server, to collect metadata about the VMs managed by vCenter Server.
+1. The appliance connects to vCenter Server (port 443) using the credentials you provided when you set up the appliance.
+2. The appliance uses VMware PowerCLI to query vCenter Server to collect metadata about the VMs managed by vCenter Server.
 3. The appliance collects configuration data about VMs (cores, memory, disks, NICs) and the performance history of each VM for the past month.
 4. The collected metadata is sent to Azure Migrate: Server Assessment (over the internet via HTTPS) for assessment.
 
