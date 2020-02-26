@@ -63,6 +63,7 @@ Azure Files AD authentication is available in [most public regions](https://azur
 - West US 2
 - East US
 - East US 2
+- South Central US
 - West Europe
 - North Europe
 

@@ -14,7 +14,7 @@ tags: connectors
 # Connect to SAP systems from Azure Logic Apps
 
 > [!IMPORTANT]
-> The earlier SAP Application Server and SAP Message Server connectors are scheduled for deprecation on February 29, 2020. 
+> The earlier SAP Application Server and SAP Message Server connectors are deprecated on February 29, 2020. 
 > The current SAP connector consolidates these previous SAP connectors so that you don't have to change 
 > the connection type, is fully compatible with previous connectors, provides many additional capabilities, 
 > and continues to use the SAP .Net connector library (SAP NCo).
@@ -566,7 +566,11 @@ Here are the currently known issues and limitations for the SAP connector:
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the [connector's reference page](/connectors/sap/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/sap/).
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 
