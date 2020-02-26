@@ -21,7 +21,7 @@ In this tutorial, you learn how to configure private site access for your functi
 > [!div class="checklist"]
 > * Create a virtual machine
 > * Create an Azure Bastion service
-> * Create an Azure Function app
+> * Create an Azure Functions app
 > * Configure a virtual network service endpoint
 > * Create and deploy an Azure Function
 > * Invoke the function from outside and within the virtual network
