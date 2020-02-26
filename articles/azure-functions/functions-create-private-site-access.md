@@ -21,7 +21,7 @@ In this tutorial, you learn how to configure private site access for an Azure Fu
 > [!div class="checklist"]
 > * Create a virtual machine
 > * Create an Azure Bastion service
-> * Create an Azure Function App plan
+> * Create an Azure Function app plan
 > * Configure a virtual network service endpoint
 > * Create and deploy an Azure Function
 > * Invoke the function from outside and within the virtual network
@@ -140,9 +140,9 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 
 7. Select **Review & Create**. Once validation completes, select **Create**. It will take a few minutes for the Azure Bastion resource to be created.
 
-## Create an Azure Function App
+## Create an Azure Function app
 
-The next step is to create an Azure Function App using a Consumption plan. The function code will be deployed to the Function App later in this tutorial.
+The next step is to create an Azure Function app using a Consumption plan. The function code will be deployed to the Function app later in this tutorial.
 
 1. In the portal, choose **Add** at the top of the resource group view.
 2. Select **Compute > Function App**
@@ -153,7 +153,7 @@ The next step is to create an Azure Function App using a Consumption plan. The f
 3. Use the function app settings as specified in the table below the image.
 
     >[!div class="mx-imgBorder"]
-    >![Settings for a new Function App](./media/functions-create-private-site-access/create-function-basics.png)
+    >![Settings for a new Function app](./media/functions-create-private-site-access/create-function-basics.png)
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
