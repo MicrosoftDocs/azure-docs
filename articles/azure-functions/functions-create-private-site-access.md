@@ -279,7 +279,8 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
     >[!div class="mx-imgBorder"]
     >![Copy the function URL](./media/functions-create-private-site-access/get-function-url.png)
 
-    >[!NOTE]When the function runs, you'll see a runtime error in the portal stating that the function runtime is unable to start. Despite the message text, the function app is actually running. The error is a result of the new access restrictions, which prevent the portal from querying to check on the runtime.
+    >[!NOTE]
+    >When the function runs, you'll see a runtime error in the portal stating that the function runtime is unable to start. Despite the message text, the function app is actually running. The error is a result of the new access restrictions, which prevent the portal from querying to check on the runtime.
 
 2. Paste the URL into a web browser. When you now try to access the function app from a computer outside of your virtual network, you receive an HTTP 403 response indicating the app is stopped.
 
@@ -297,7 +298,7 @@ Accessing the function via a web browser (by using the Azure Bastion service) on
 
 ## Next steps
 
-In this tutorial, you configured an Azure Function to only be accessible from a specific virtual network.  In order to restrict access to an Azure Function to a specified virtual network, it is necessary to configure access restrictions via a virtual network service endpoint. Doing so will ensure that only resources from within the specified virtual network, such as an Azure VM, can trigger the Azure Function.
+In this tutorial, you configured an Azure Function to only be accessible from a specific virtual network by configuring a virtual network service endpoint. The virtual machine was used in this tutorial because it is easy to visualize accessing the HTTP-triggered function via a web browser. The resource accessing the function could have been another resource connected to the virtual network, such as an application hosted on AKS or another function running in an Azure Functions Premium plan.
 
 > [!div class="nextstepaction"]
 > [Learn more about the networking options in Functions](./functions-networking-options.md)
