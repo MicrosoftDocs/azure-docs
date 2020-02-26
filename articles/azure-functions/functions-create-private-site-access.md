@@ -3,7 +3,7 @@ title: Set up private site access for Azure Functions
 description: A step-by-step tutorial that shows you how to set up Azure virtual network private site access for Azure Functions.
 author: mcollier
 ms.author: mcollier
-ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
+ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 02/15/2020
 ---
