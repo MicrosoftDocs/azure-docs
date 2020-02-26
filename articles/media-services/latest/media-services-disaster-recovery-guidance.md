@@ -83,7 +83,7 @@ public static void DecrementReservedUnits(CloudMediaContext context)
 
 ## Video-on-demand cross region streaming 
 
-* Video-on-demand cross region streaming involves duplicating Assets, ContentKeyPolicies, StreamingPolicies, and StreamingLocators. 
+* Video-on-demand cross region streaming involves duplicating Assets, ContentKeyPolicies (if used), StreamingPolicies, and StreamingLocators. 
 * You will have to create the policies in both regions and keep them up to date. 
 * When you create the StreamingLocators you will want to use the same LocatorId value, ContentKey Id value, and ContentKey value.  
 * If you are encoding the content, it is advised to encode the content in region A and publish it, then copy the encoded content to region B and publish it using the same values as from region A.
