@@ -49,7 +49,9 @@ When configuring location as a condition, organizations can choose to include or
 
 When including **any location**, this option includes any IP address on the internet not just configured named locations. When selecting **any location**, administrators can choose to exclude **all trusted** or **selected locations**.
 
-For example, some organizations may choose to not require multi-factor authentication when their users are connected to the network in a trusted location such as their physical headquarters. Administrators could create a policy that includes any location but excludes the selected locations for their headquarters networks
+For example, some organizations may choose to not require multi-factor authentication when their users are connected to the network in a trusted location such as their physical headquarters. Administrators could create a policy that includes any location but excludes the selected locations for their headquarters networks.
+
+More information about locations can be found in the article, [What is the location condition in Azure Active Directory Conditional Access](location-condition.md).
 
 ## Client apps (preview)
 
@@ -148,7 +150,7 @@ This setting has an impact on access attempts made from the following mobile app
 | Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
 | Outlook mobile app | Office 365 Exchange Online | Android, iOS |
 | Power BI app | Power BI service | Windows 10, Windows 8.1, Windows 7, Android, and iOS |
-| Skype for Business | Office 365 Exchange Online| Android, IOS |
+| Skype for Business | Office 365 Exchange Online| Android, iOS |
 | Visual Studio Team Services app | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS, and Android |
 
 ### Exchange ActiveSync clients
