@@ -32,7 +32,14 @@ Using Azure delegated resource management, authorized users can sign in to the s
 
 You can perform management tasks on delegated resources either directly in the portal or by using APIs and management tools (such as Azure CLI and Azure PowerShell). All existing APIs can be used when working with delegated resources, as long as the functionality is supported for cross-tenant management and the user has the appropriate permissions.
 
-We also provide APIs to perform Azure delegated resource management tasks. For more info, see the **Reference** section.
+The [az account list command](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az-account-list) and the [Get-AzSubscription cmdlet](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) now show the tenant ID for each subscription, allowing you to identify whether a returned subscription belongs to your service provider tenant or to a managed customer tenant.
+
+> [!TIP]
+> If you don't see the tenant ID when using `az account list`, try clearing your cache:
+> `az account clear`
+> `az login --identity`
+
+We also provide APIs that are specific to performing Azure delegated resource management tasks. For more info, see the **Reference** section.
 
 ## Enhanced services and scenarios
 
