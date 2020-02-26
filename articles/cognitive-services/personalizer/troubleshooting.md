@@ -38,7 +38,7 @@ These issues should be transparent. If they continue, contact support by selecti
 * Bugs in the features sent - such as sending non-aggregated feature data such as timestamps to Rank API
 * Bugs with loop processing - such as not sending reward data to Reward API for events
 
-To fix, you need to change the processing by either changing the features send to the loop, or making sure the reward is a correct evaluation of the quality of the Rank's response.
+To fix, you need to change the processing by either changing the features sent to the loop, or make sure the reward is a correct evaluation of the quality of the Rank's response.
 
 </details>
 
