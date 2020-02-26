@@ -1,4 +1,4 @@
-﻿---
+---
 title: Single User/Password Rotation Tutorial
 description: Use this tutorial for automating rotation of single user/password
 services: key-vault
@@ -7,8 +7,7 @@ manager: rkarlin
 tags: 'rotation'
 
 ms.service: key-vault
-ms.subservice: general
-ms.topic: tuturial
+ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 
@@ -98,8 +97,11 @@ simplerotation-fn             simplerotation             eastus      Microsoft.W
 For information how to create Function App and using Managed Identity to access Key Vault, see [Create a function app from the Azure portal](../azure-functions/functions-create-function-app-portal.md) and [Provide Key Vault authentication with a managed identity](managed-identity.md)
 
 ### Rotation function and deployment
+Function is using event as trigger and perform rotation of a secret updating Key Vault and SQL database.
 
-Create a rotation function that retrieves the secret  and executes rotation, using event grid as a trigger:
+#### Function Event Trigger Handler
+
+Below Function reads event data and executes rotation logic
 
 ```csharp
 public static class SimpleRotationEventHandler
@@ -120,6 +122,7 @@ public static class SimpleRotationEventHandler
 }
 ```
 
+#### Secret Rotation Logic
 This rotation method reads database information from the secret, create a new version of the secret, and updates the database with a new secret.
 
 ```csharp
@@ -131,9 +134,9 @@ public class SecretRotator
 
     public static void RotateSecret(ILogger log, string secretName, string secretVersion, string keyVaultName)
     {
-    //Retrieve Current Secret
+           //Retrieve Current Secret
            var kvUri = "https://" + keyVaultName + ".vault.azure.net";
-           	var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
+           var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
            KeyVaultSecret secret = client.GetSecret(secretName, secretVersion);
            log.LogInformation("Secret Info Retrieved");
     	
@@ -157,7 +160,7 @@ public class SecretRotator
            CreateNewSecretVersion(client, secret, randomPassword);
            log.LogInformation("New Secret Version Generated");
     	
-                  //Update db password
+           //Update db password
            UpdateServicePassword(secret, randomPassword);
            log.LogInformation("Password Changed");
            log.LogInformation($"Secret Rotated Succesffuly");
@@ -241,7 +244,8 @@ The web app requires below components and configuration:
 
 ### Deploy Web App
 
-Source code for the web app is at https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp.To deploy the web app, do the following:
+Source code for the web app you can find at https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp 
+For deployment of the web app, do the following:
 
 1. Download the function app zip file from 
 https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip
