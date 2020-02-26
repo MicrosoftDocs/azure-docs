@@ -35,7 +35,7 @@ ms.custom: seodec18
  - ID generation in Universal Windows Applications now uses an appropriately unique GUID algorithm; it previously and unintentionally defaulted to a stubbed implementation that often produced collisions over large sets of interactions.
  
  **Samples**
- - Added Multi-device Conversation quickstarts for [JavaScript and Node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js)
+ - Added Multi-device Conversation quickstarts for [JavaScript](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js)
  - Unity sample for using Speech SDK with [Unity microphone and push mode streaming](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/from-unitymicrophone)
 
 **Other changes**
