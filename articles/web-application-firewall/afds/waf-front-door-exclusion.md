@@ -20,7 +20,7 @@ Sometimes a request blocked by Web Application Firewall (WAF) may be allowed for
  An example exclusion list:
 ![Manage exclusion_define](../media/waf-front-door-exclusion/exclusion3.PNG)
 
-This example excludes the value in the *user* header that is passed in the request. It is possible a legit request includes user field containing a string that triggers a SQL injection rule. You can exclude the user parameter in this case so that the WAF rule doesn't evaluate anything in the field.
+This example excludes the value in the *user* header field. A legit request may include user field containing a string that triggers a SQL injection rule. You can exclude the user parameter in this case so that the WAF rule doesn't evaluate anything in the field.
 
 The following attributes can be added to exclusion lists by name. The values of the chosen field aren't evaluated against WAF rules, but their names still are. The exclusion lists remove inspection of the field's value.
 
@@ -39,7 +39,7 @@ You can specify an exact request header, body, cookie, or query string attribute
 
 Note that header and cookie names are case insensitive.
 
-Exclusion list can be applied to all rules within the managed rule set, to rules for a specific rule group, or just to one single rule as shown in the above example. 
+You can apply exclusion list to all rules within the managed rule set, to rules for a specific rule group, or just to one single rule as shown in the above example. 
 
 ## Next steps
 
