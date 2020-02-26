@@ -21,7 +21,7 @@ In this tutorial, you learn how to configure private site access for your functi
 > [!div class="checklist"]
 > * Create a virtual machine
 > * Create an Azure Bastion service
-> * Create an Azure Function app plan
+> * Create an Azure Function app
 > * Configure a virtual network service endpoint
 > * Create and deploy an Azure Function
 > * Invoke the function from outside and within the virtual network
@@ -74,11 +74,15 @@ The first step in this tutorial is to create a new virtual machine inside a virt
     | [**Region**](https://azure.microsoft.com/regions/) | (US) North Central US | Choose a region near you or near the functions to be accessed. |
     | **Public inbound ports** | None | Select **None** to ensure there is no inbound connectivity to the VM from the internet. Remote access to the VM will be configured via the Azure Bastion service. |
 
-5. Choose the **Networking** tab and under Configure virtual networks select **Create new**.
-6. In **Create virtual network**, use the settings in the table below the image:
+5. Choose the **Networking** tab and select **Create new** to configure a new virtual network.
 
     >[!div class="mx-imgBorder"]
     >![Create a new virtual network for the new VM](./media/functions-create-private-site-access/create-vm-networking.png)
+
+6. In **Create virtual network**, use the settings in the table below the image:
+
+    >[!div class="mx-imgBorder"]
+    >![Create a new virtual network for the new VM](./media/functions-create-private-site-access/create-vm-vnet-1.png)
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
