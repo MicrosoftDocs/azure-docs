@@ -21,23 +21,15 @@ Azure Media Services does not provide instant failover of the service if there i
 
 We recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure’s isolation and availability policies. For more information, see [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
+> [!TIP]
+> You can automate BCDR by setting up activity log alerts for service health notifications as per [Create activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications.md).
+
 ## Prerequisites
 
 Review:
 
 * [Azure Business Continuity Technical Guidance](https://docs.microsoft.com/azure/architecture/resiliency/) - describes a general framework to help you think about business continuity and disaster recovery
 * [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) - provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR)
-
-## Business continuity and disaster recovery (failover to a secondary account)
-
-In order to implement BCDR, you need to have two Media Services accounts to handle redundancy.
-
-1. [Create](create-account-cli-how-to.md) two Media Services accounts, one for your primary region and the other to the paired azure region. 
-1. If there is a failure in your primary region, switch to encoding, streaming (live and on-demand) using the secondary account.
-
-> [!TIP]
-> You can automate BCDR by setting up activity log alerts for service health notifications as per [Create activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications.md).
-
 
 ## How to build a cross regional encoding system
 
