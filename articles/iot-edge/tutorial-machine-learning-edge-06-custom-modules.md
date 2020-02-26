@@ -4,7 +4,7 @@ description: 'This tutorial shows how to create and deploy IoT Edge modules that
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 2/18/2020
+ms.date: 2/26/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -68,7 +68,7 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
 
 1. Name the module **turbofanRulClassifier**.
 
-1. Choose your machine learning workspace. This is the **turboFanDemo** workspace that you created in the previous tutorial.
+1. Choose your machine learning workspace. This is the **turboFanDemo** workspace that you created in [Tutorial: Train and deploy an Azure Machine Learning model](tutorial-machine-learning-edge-04-train-model.md)
 
 1. Select the image you created while running the Azure Notebook.
 
@@ -105,7 +105,7 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
         }
        ```
 
-     * **Routes:** we will be working with routes quite a bit in this tutorial. Routes define how modules communicate with each other. The two routes defined by the template do not match with the routing we need. The first route sends all the data from any output of the classifier to the IoT Hub ($upstream). The other route is for SimulatedTemperatureSensor, which we just deleted. Delete the two default routes.
+     * **Routes:** we will be working with routes quite a bit in this tutorial. Routes define how modules communicate with each other. The existing route defined by the template does not match with the routing we need. Delete the `turbofanRulClassifierToIoTHub` route.
 
        ```json
         "$edgeHub": {
@@ -148,7 +148,7 @@ Next, we add the Router module to our solution. The Router module handles severa
 > [!NOTE]
 > The description of the module responsibilities may make the processing seem sequential, but the flow is defined by messages based on discordant events. This is why we need an orchestration module like our Router module.
 
-### Create the module
+### Create the module and copy files
 
 1. Right click on the modules folder in Visual Studio Code and choose **Add IoT Edge Module**.
 
@@ -161,7 +161,7 @@ Next, we add the Router module to our solution. The Router module handles severa
     > [!NOTE]
     > In this article, we use the Azure Container Registry that was created by the Azure Machine Learning workspace. This is purely for convenience. We could have created a new container registry and published our modules there.
 
-1. Copy files from the sample module into the solution.
+1. In the terminal with a command prompt, copy the files from the sample module into the solution.
 
     ```cmd
     copy c:\source\IoTEdgeAndMlSample\EdgeModules\modules\turbofanRouter\*.cs c:\source\IoTEdgeAndMlSample\EdgeSolution\modules\turbofanRouter\
@@ -495,12 +495,12 @@ The writer module takes a dependency on two Python libraries, fastavro and PyYAM
 
 ### Fastavro
 
-1. In requirements.txt, add fastavro after pyyaml.
+1. In requirements.txt, add fastavro before pyyaml.
 
    ```txt
    azure-iothub-device-client~=<current version>
-   pyyaml
    fastavro
+   pyyaml
    ```
 
 1. Install fastavro to your development machine using the Visual Studio Code terminal.
