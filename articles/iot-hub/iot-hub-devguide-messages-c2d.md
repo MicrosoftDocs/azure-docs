@@ -138,9 +138,17 @@ You can set the configuration options in one of the following ways:
 
 * **Azure portal**: Under **Settings** on your IoT hub, select **Built-in endpoints** and expand **Cloud to device messaging**. (Setting the **feedback.maxDeliveryCount** property is not currently supported in Azure portal.)
 
-* **Azure CLI**: Use the [az iot hub update](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) command.
+* **Azure CLI**: Use the `c2d-ttl`, `c2d-max-delivery-count`, `feedback-ttl`, and `feedback-max-delivery-count` parameters in the [az iot hub update](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) command. For example, the following command sets the **feedback.maxDeliveryCount** property:
 
-* **PowerShell**: Use the `-CloudToDevice` parameter in the [Set-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/set-aziothub?view=azps-3.4.0) command.
+    ```azurecli
+    az iot hub update --name <your IoT hub name> --feedback-max-delivery-count 9
+    ```
+
+* **PowerShell**: Use the `-CloudToDevice` parameter in the [Set-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/set-aziothub) command. For example, the following command sets the **feedback.maxDeliveryCount** property:
+
+    ```azurepowershell
+    
+    ```
 
 ## Next steps
 
