@@ -35,7 +35,7 @@ You can perform management tasks on delegated resources either directly in the p
 The [az account list command](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) and the [Get-AzSubscription cmdlet](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) now show the tenant ID for each subscription, allowing you to identify whether a returned subscription belongs to your service provider tenant or to a managed customer tenant.
 
 > [!TIP]
-> If you don't see the tenant ID when using [az account list command](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list), try clearing your cache by running `az account clear` followed by `az login --identity`.
+> If you don't see the tenant ID when using [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list), try clearing your cache by running `az account clear` followed by `az login --identity`.
 
 We also provide APIs that are specific to performing Azure delegated resource management tasks. For more info, see the **Reference** section.
 
