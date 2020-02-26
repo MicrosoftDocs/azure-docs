@@ -24,7 +24,13 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.46 or later. Run `az --version` to determine your version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the Azure CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.46 or later. Run `az --version` to determine your version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+
+If you are running the Azure CLI locally, you must log in and authenticate. This step is not necessary if you are using Azure Cloud Shell. To log in to Azure CLI, run `az login` and authenticate in the browser window:
+
+```azurecli
+az login
+```
 
 ## Authorize access to Blob storage
 
@@ -34,14 +40,6 @@ Azure CLI commands for data operations against Blob storage support the `--auth-
 
 Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization.
 
-## Log in to Azure CLI
-
-To log in to Azure CLI, run `az login` and authenticate in the browser window:
-
-```azurecli
-az login
-```
-
 ## Create a resource group
 
 Create an Azure resource group with the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed.
@@ -50,7 +48,7 @@ Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az group create \
-    --name <resource-group-name> \
+    --name <resource-group> \
     --location <location>
 ```
 
@@ -62,8 +60,8 @@ Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az storage account create \
-    --name <account-name> \
-    --resource-group <resource-group-name> \
+    --name <storage-account> \
+    --resource-group <resource-group> \
     --location <location> \
     --sku Standard_ZRS \
     --encryption blob
@@ -73,11 +71,12 @@ az storage account create \
 
 Blobs are always uploaded into a container. You can organize groups of blobs in containers similar to the way you organize your files on your computer in folders.
 
-Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command.
+Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az storage container create \
-    --name sample-container \
+    --account-name <storage-account> \
+    --name <container> \
     --auth-mode login
 ```
 
@@ -93,11 +92,12 @@ vi helloworld
 
 When the file opens, press **insert**. Type *Hello world*, then press **Esc**. Next, type *:x*, then press **Enter**.
 
-In this example, you upload a blob to the container you created in the last step using the [az storage blob upload](/cli/azure/storage/blob) command. It's not necessary to specify a file path since the file was created at the root directory:
+In this example, you upload a blob to the container you created in the last step using the [az storage blob upload](/cli/azure/storage/blob) command. It's not necessary to specify a file path since the file was created at the root directory. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az storage blob upload \
-    --container-name sample-container \
+    --account-name <storage-account> \
+    --container-name <container> \
     --name helloworld \
     --file helloworld \
     --auth-mode login
@@ -109,22 +109,24 @@ To upload multiple files at the same time, you can use the [az storage blob uplo
 
 ## List the blobs in a container
 
-List the blobs in the container with the [az storage blob list](/cli/azure/storage/blob) command.
+List the blobs in the container with the [az storage blob list](/cli/azure/storage/blob) command. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az storage blob list \
-    --container-name sample-container \
+    --account-name <storage-account> \
+    --container-name <container> \
     --output table \
     --auth-mode login
 ```
 
 ## Download a blob
 
-Use the [az storage blob download](/cli/azure/storage/blob) command to download the blob you uploaded earlier.
+Use the [az storage blob download](/cli/azure/storage/blob) command to download the blob you uploaded earlier. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az storage blob download \
-    --container-name sample-container \
+    --account-name <storage-account> \
+    --container-name <container> \
     --name helloworld \
     --file ~/destination/path/for/file \
     --auth-mode login
@@ -134,7 +136,7 @@ az storage blob download \
 
 The AzCopy command-line utility offers high-performance, scriptable data transfer for Azure Storage. You can use AzCopy to transfer data to and from Blob storage and Azure Files. For more information about AzCopy v10, the latest version of AzCopy, see [Get started with AzCopy](../common/storage-use-azcopy-v10.md). To learn about using AzCopy v10 with Blob storage, see [Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-blobs.md).
 
-The following example uses AzCopy to upload a file to a container. Remember to replace the sample values with your own values:
+The following example uses AzCopy to upload a local file to a blob. Remember to replace the sample values with your own values:
 
 ```bash
 azcopy login
@@ -146,7 +148,9 @@ azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.
 If you no longer need any of the resources in your resource group, including the storage account you created in this quickstart, delete the resource group with the [az group delete](/cli/azure/group) command. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
-az group delete --name <resource-group-name>
+az group delete \
+    --name <resource-group> \
+    --no-wait
 ```
 
 ## Next steps
