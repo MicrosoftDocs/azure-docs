@@ -230,7 +230,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
 
 ## Access the function app
 
-1. Return to the previously created Azure Function app.  In the **Overview** section, copy the URL.
+1. Return to the previously created function app.  In the **Overview** section, copy the URL.
 
     >[!div class="mx-imgBorder"]
     >![Get the Function app URL](./media/functions-create-private-site-access/access-function-overview.png)
@@ -250,7 +250,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
     >[!div class="mx-imgBorder"]
     >![Provide virtual machine credentials via Bastion](./media/functions-create-private-site-access/connect-bastion-2.png)
 
-5. Because this VM is accessing the function through the virtual network, it is possible to access the site from the web browser on the VM.  It is important to note that while the function app is only accessible from within the designated virtual network, a public DNS entry remains. As shown above, attempting to access the site will result in an HTTP 403 response.
+5. Because this VM is accessing the function through the virtual network, it's possible to access the site from the web browser on the VM.  It is important to note that while the function app is only accessible from within the designated virtual network, a public DNS entry remains. As shown above, attempting to access the site will result in an HTTP 403 response.
 
     >[!div class="mx-imgBorder"]
     >![Browse to web site via Bastion](./media/functions-create-private-site-access/access-function-app-via-bastion-1.png)
@@ -279,15 +279,14 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
     >[!div class="mx-imgBorder"]
     >![Copy the function URL](./media/functions-create-private-site-access/get-function-url.png)
 
-    >[!NOTE]
-     >When the function runs, you'll see a runtime error in the portal stating that the function runtime is unable to start. Despite the message text, the function app is actually running. The error is a result of the new access restrictions, which prevent the portal from querying to check on the runtime.
+    >[!NOTE]When the function runs, you'll see a runtime error in the portal stating that the function runtime is unable to start. Despite the message text, the function app is actually running. The error is a result of the new access restrictions, which prevent the portal from querying to check on the runtime.
 
 2. Paste the URL into a web browser. When you now try to access the function app from a computer outside of your virtual network, you receive an HTTP 403 response indicating the app is stopped.
 
     >[!div class="mx-imgBorder"]
     >![Function app stoppedL](./media/functions-create-private-site-access/function-app-stopped.png)
 
-## Invoke the Azure Function from the virtual network
+## Invoke the function from the virtual network
 
 Accessing the function via a web browser (by using the Azure Bastion service) on the configured VM on the virtual network results in success!
 
