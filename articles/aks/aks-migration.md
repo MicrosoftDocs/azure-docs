@@ -3,7 +3,7 @@ title: Migrate to Azure Kubernetes Service (AKS)
 description: Migrate to Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 02/25/2020
 ms.custom: mvc
 ---
 
@@ -44,7 +44,7 @@ In this article we will summarize migration details for:
 
 AKS is a managed service offering unique capabilities with lower management overhead. As a result of being a managed service, you must select from a set of [regions](https://docs.microsoft.com/azure/aks/quotas-skus-regions) which AKS supports. The transition from your existing cluster to AKS may require modifying your existing applications so they remain healthy on the AKS managed control plane.
 
-We recommend using AKS clusters backed by [Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets) and the [Azure Standard Load Balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard) to ensure you get features such as [multiple node pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools), [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview), [Authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), [Cluster Autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler), [Azure Policy for AKS](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks), and other new features as they are released.   
+We recommend using AKS clusters backed by [Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets) and the [Azure Standard Load Balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard) to ensure you get features such as [multiple node pools](https://docs.microsoft.com/azure/aks/use-multiple-node-pools), [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview), [Authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), [Cluster Autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler), [Azure Policy for AKS](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks), and other new features as they are released.
 
 AKS clusters backed by [Virtual Machine Availability Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) lack support for many of these features.
 
@@ -99,7 +99,7 @@ To complete the migration, you'll want to point clients to the new services that
 
 [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) is another option for routing traffic for AKS clusters.  Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. 
 
-### Considerations for stateless applications 
+### Considerations for stateless applications
 
 Stateless application migration is the most straightforward case. Apply your resource definitions (YAML or Helm) to the new cluster, make sure everything works as expected, and redirect traffic to activate your new cluster.
 
@@ -161,6 +161,11 @@ If that's not possible, export resource definitions from your existing Kubernete
 kubectl get deployment -o=yaml --export > deployments.yaml
 ```
 
+### Moving existing resources to another region
+
+You may want to move your AKS cluster to a [different region supported by AKS][region-availability]. We recommend that you create a new cluster in the other region then deploy your resources and applications to your new cluster. In addition, if you have any services such as [Azure Dev Spaces][azure-dev-spaces] running on your AKS cluster, you will also need to install and configure those services on your cluster in the new region.
+
+
 In this article we summarized migration details for:
 
 > [!div class="checklist"]
@@ -171,3 +176,7 @@ In this article we summarized migration details for:
 > * Considerations for stateless applications
 > * Considerations for stateful applications
 > * Deployment of your cluster configuration
+
+
+[region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
+[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/

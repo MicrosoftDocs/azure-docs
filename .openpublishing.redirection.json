@@ -832,6 +832,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/personalizer/how-to-learning-policy.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-bot-csharp-appinsights.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4",
       "redirect_document_id": false
@@ -45118,7 +45123,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-connect-nodejs.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-nodejs/",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device/",
       "redirect_document_id": true
     },
     {
@@ -45598,7 +45603,7 @@
     },
     {
       "source_path": "articles/iot-central/core/howto-connect-nodejs.md",
-      "redirect_url": "/azure/iot-central/core/",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device/",
       "redirect_document_id": false
     },
     {
@@ -48940,6 +48945,11 @@
     {
       "source_path": "articles/storage/common/storage-java-jenkins-continuous-integration-solution.md",
       "redirect_url": "/azure/jenkins/storage-java-jenkins-continuous-integration-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/acs-aks-migration.md",
+      "redirect_url": "/azure/aks/aks-migration",
       "redirect_document_id": false
     }
   ]
