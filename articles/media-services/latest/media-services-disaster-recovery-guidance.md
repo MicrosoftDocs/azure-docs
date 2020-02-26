@@ -66,4 +66,4 @@ If you find the MRU count is thrashing up and down a lot, move the decrement log
 ## Next steps
 
 * [Create an account](create-account-cli-how-to.md)
-* Check out [code samples](https://docs.microsoft.com/en-us/samples/browse/?products=azure-media-services)
+* Check out [code samples](https://docs.microsoft.com/samples/browse/?products=azure-media-services)
