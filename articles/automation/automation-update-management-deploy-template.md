@@ -33,9 +33,7 @@ The following table lists the API version for the resources used in this example
 | Automation account | automation | 2015-10-31 | 
 | Solution | solutions | 2015-11-01-preview |
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## Onboarding using the template
+## Before using the template
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell Az module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure. With Azure PowerShell, deployment uses [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
@@ -59,7 +57,7 @@ The following parameters in the template are set with a default value for the Lo
 >If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.
 >
 
-### Deploy template
+## Deploy template
 
 1. Copy and paste the following JSON syntax into your file:
 
@@ -227,7 +225,7 @@ The following parameters in the template are set with a default value for the Lo
 
 3. Save this file as deployUMSolutiontemplate.json to a local folder.
 
-4. You are ready to deploy this template. You use either PowerShell, the Azure CLI, or from the command line. When you're prompted for a workspace and Automation account name, provide a name that is globally unique across all Azure subscriptions.
+4. You are ready to deploy this template. You can use either PowerShell, the Azure CLI, or run from the command line. When you're prompted for a workspace and Automation account name, provide a name that is globally unique across all Azure subscriptions.
 
     **PowerShell**
 
@@ -245,7 +243,7 @@ The following parameters in the template are set with a default value for the Lo
 
     ```cmd
     azure config mode arm
-    azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
+    azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deployUMSolutiontemplate.json
     ```
 
     The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
