@@ -47,7 +47,7 @@ Review:
     * Keep a count of the number of inflight jobs.
 1. When your JobStateChange handler gets a notification that a job has reached the scheduled state, record the time it enters the schedule state and the region/account used.    
 1. When your JobStateChange handler gets a notification that a job has reached the processing state, mark the record for the job as processing.
-1. When your JobStateChange handler gets a notification that a job has reached the Finished/Errored/Canceled state, mark the record for the job as final and decrement the inflight job count. Get the number of media reserved units for the chosen account and compare the current **Reserved Unit** number against your inflight job count. If your inflight count is less than the MRU count, then decrement it and update the service.
+1. When your JobStateChange handler gets a notification that a job has reached the Finished/Errored/Canceled state, mark the record for the job as final and decrement the inflight job count. Get the number of media reserved units for the chosen account and compare the current MRU number against your inflight job count. If your inflight count is less than the MRU count, then decrement it and update the service.
 1. Have a separate process that periodically looks at your records of the jobs. If you have jobs in the scheduled state that haven’t advanced to the processing state in a reasonable amount of time for a given region, remove that region from your list of currently used accounts.
 
     * Depending on your business requirements, you could decide to cancel those jobs right away and resubmit them to the other account. Or, you could give them some more time to move to the next state.   
