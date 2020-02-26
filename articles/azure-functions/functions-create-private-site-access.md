@@ -256,7 +256,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
     >[!div class="mx-imgBorder"]
     >![Browse to web site via Bastion](./media/functions-create-private-site-access/access-function-app-via-bastion-1.png)
 
-## Create an Azure Function
+## Create a function
 
 The next step in this tutorial is to create an HTTP-triggered Azure Function. Invoking the function via an HTTP GET or POST should result in a response of "Hello, {name}".  
 
