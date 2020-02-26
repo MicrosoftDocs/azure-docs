@@ -66,7 +66,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy from GitHub to AKS
-            url: /azure/aks/jenkins-continuous-deployment?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+            url: jenkins-continuous-deployment.md
           - text: Deploy to AKS using blue/green pattern
             url: jenkins-aks-blue-green-deployment.md
           - text: Deploy using the Azure Dev Spaces plug-in
