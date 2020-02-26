@@ -131,7 +131,7 @@ When setting up your Azure Lab Services’ resources, you're required to provide
 
     The lab account’s location indicates the region for this resource.  
     
-    With classroom labs, Azure Lab Services automatically selects the region that each lab is deployed to based on available capacity.  Specifically, Azure Lab Services looks for availability in [regions that are within the same geography as the lab account](https://azure.microsoft.com/en-us/global-infrastructure/regions/). 
+    With classroom labs, Azure Lab Services automatically selects the region that each lab is deployed to based on available capacity.  Specifically, Azure Lab Services looks for availability in [regions that are within the same geography as the lab account](https://azure.microsoft.com/global-infrastructure/regions/). 
     
     If an administrator allows lab creators to choose their classroom lab’s location, the locations that are available for selection are based on available regional capacity when creating the lab.
 
@@ -163,7 +163,7 @@ Using [Azure's role based access control](https://docs.microsoft.com/azure/role-
     The administrator that creates the lab account is automatically added to the lab account's **Owner** role.  An administrator that's assigned the **Owner** role can:
      - Change the lab account's settings.
      - Give other administrators access to the lab account as owners or contributors. 
-     - Give educators access to classroom labs as creators and owners.
+     - Give educators access to classroom labs as creators, owners, or contributors.
      - Create and manage all classroom labs within in the lab account.
 
 - **Lab account contributor**
@@ -178,24 +178,24 @@ Using [Azure's role based access control](https://docs.microsoft.com/azure/role-
 
     To create classroom labs within a lab account, an educator must be a member of the **Lab Creator** role.  When an educator creates a classroom lab, they are automatically added as an owner of the lab.  Refer to the tutorial on how to [add a user to the **Lab Creator** role](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
 
-- **Classroom lab owner**
+- **Classroom lab owner\contributor**
   
-    An educator can view and change a classroom lab's settings only when they are an owner of the classroom lab.  An owner *cannot* create new classroom labs unless they are also a member of the **Lab Creator** role.
+    An educator can view and change a classroom lab's settings when they are a member of either a lab's **Owner** or **Contributor** role; they must also be a member of the lab account's **Reader** role.
+
+    A key difference between a lab's **Owner** and **Contributor** roles is that a contributor *cannot* give other users access to manage the lab - only owners can give other users access to manage the lab.
+    
+    In addition, an educator *cannot* create new classroom labs unless they are also a member of the **Lab Creator** role.
 
 - **Shared image gallery**
     
-    When you attach a shared image gallery to a lab account, lab account owners\contributors and lab creators are automatically given access to view and save images in the gallery. 
+    When you attach a shared image gallery to a lab account, lab account owners\contributors and lab creators\owners\contributors are automatically given access to view and save images in the gallery. 
 
 Here are some tips to help with assigning roles:
   1. Typically, only administrators should be members of a lab account's **Owner** or **Contributor** roles; you may have more than one owner\contributor.
-   
-  1. To give an educator the ability to manage specific classroom labs, but *not* the ability to create new labs; you should assign access to the **Owner** role for each of the classroom labs that they will manage.
-   
+
   1. To give an educator the ability to create new classroom labs and manage the labs that they create; you only need to assign access to the **Lab Creator** role.
    
-  1. To give an educator the ability to create\manage new classroom labs and manage labs that are created by other educators; you should assign access to the **Lab Creator** role *and* to the **Owner** role for each of the specific classroom labs that were created by others.
-   
-  1. You may choose to have multiple owners for a classroom lab.  For example, allow both a professor and a teaching assistant to co-own a classroom lab.  To do this, the educator must be given access to both the classroom lab's **Owner** and the lab account's **Reader** roles. Refer to the guide on how to [add a user as an owner to a classroom lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
+  1. To give an educator the ability to manage specific classroom labs, but *not* the ability to create new labs; you should assign access to either the **Owner** or **Contributor** role for each of the classroom labs that they will manage.  For example, you may want to allow both a professor and a teaching assistant to co-own a classroom lab.  Refer to the guide on how to [add a user as an owner to a classroom lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
 
 ## Pricing
 
