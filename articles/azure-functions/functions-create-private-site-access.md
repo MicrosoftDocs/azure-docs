@@ -116,31 +116,31 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | Name | _myBastion_ | The name of the new Bastion resource |
-    | Region | North Central US | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
-    | Virtual network | function-private-vnet | The virtual network in which the Bastion resource will be created in |
-    | Subnet | _AzureBastionSubnet_ | The subnet in your virtual network to which the new Bastion host resource will be deployed. You must create a subnet using the name value AzureBastionSubnet. This value lets Azure know which subnet to deploy the Bastion resources to. You must use a subnet of at least /27 or larger (/27, /26, and so on). |
+    | **Name** | myBastion | The name of the new Bastion resource |
+    | **Region** | North Central US | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
+    | **Virtual network** | myResourceGroup-vnet | The virtual network in which the Bastion resource will be created in |
+    | **Subnet** | AzureBastionSubnet | The subnet in your virtual network to which the new Bastion host resource will be deployed. You must create a subnet using the name value `AzureBastionSubnet`. This value lets Azure know which subnet to deploy the Bastion resources to. You must use a subnet of at least `/27` or larger (`/27`, `/26`, and so on). |
 
-    For a detailed, step-by-step guide to creating an Azure Bastion resource, refer to the [Create an Azure Bastion host](../bastion/bastion-create-host-portal.md) tutorial.
+    >[!NOTE]For a detailed, step-by-step guide to creating an Azure Bastion resource, refer to the [Create an Azure Bastion host](../bastion/bastion-create-host-portal.md) tutorial.
 
-4. You will need to create a subnet where Azure can provision the Azure Bastion host. Clicking on **Manage subnet configuration** will open a new pane to allow you to define a new subnet.  Click on **+ Subnet** to create a new subnet. 
+4. You need to create a subnet in which Azure can provision the Azure Bastion host. Choosing **Manage subnet configuration** opens a new pane where you can define a new subnet.  Choose **+ Subnet** to create a new subnet.
 
     >[!div class="mx-imgBorder"]
     >![Create subnet for Azure Bastion host](./media/functions-create-private-site-access/create-bastion-subnet-1.png)
 
-5. The subnet must be of the name **AzureBastionSubnet** and the subnet prefix must be at least /27.  Click **OK** to create the subnet.
+5. The subnet must be of the name `AzureBastionSubnet` and the subnet prefix must be at least `/27`.  Select **OK** to create the subnet.
 
     >[!div class="mx-imgBorder"]
     >![Create subnet for Azure Bastion host](./media/functions-create-private-site-access/create-bastion-subnet-2.png)
 
-6. On the **Create a Bastion** page, select the newly created **AzureBastionSubnet** from the list of available subnets.
+6. On the **Create a Bastion** page, select the newly created `AzureBastionSubnet` from the list of available subnets.
 
     >[!div class="mx-imgBorder"]
     >![Create an Azure Bastion host with specific subnet](./media/functions-create-private-site-access/create-bastion-basics-2.png)
 
 7. Select **Review & Create**. Once validation completes, select **Create**. It will take a few minutes for the Azure Bastion resource to be created.
 
-## Create an Azure Functions app
+## Create an Azure Function app
 
 The next step is to create a function app in Azure using the [Consumption plan](functions-scale.md#consumption-plan). You deploy your function code to this resource later in the tutorial.
 
@@ -185,26 +185,24 @@ The next step is to create a function app in Azure using the [Consumption plan](
 
 The next step is to configure [access restrictions](../app-service/app-service-ip-restrictions.md) to ensure only resources on the virtual network can invoke the function.
 
-[Private site](./functions-networking-options.md#private-site-access) access is enabled by creating an Azure [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the App Service plan (consumption) and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure that only traffic originating from within the specified virtual network can access the designated resource. In this case, the designed resource is the Azure Function.
+[Private site](functions-networking-options.md#private-site-access) access is enabled by creating an Azure Virtual Network [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the function app and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure that only traffic originating from within the specified virtual network can access the designated resource. In this case, the designated resource is the Azure Function.
 
-1. Within the function app, proceed to the **Platform features** tab. Click on **Networking** to open the **Network Feature Status** section.
+1. Within the function app, proceed to the **Platform features** tab. Select **Networking** to open the **Network Feature Status** section.
 
     >[!div class="mx-imgBorder"]
     >![Select Platform features in Azure Functions](./media/functions-create-private-site-access/configure-access-restrictions-platform-features.png)
 
-2. The **Network Feature Status** page is the starting point to configure Azure Front Door, the Azure CDN, and also Access Restrictions. Private site access is configured via access restrictions. Select **Configure Access Restrictions**.
+2. The **Network Feature Status** page is the starting point to configure Azure Front Door, the Azure CDN, and also Access Restrictions. Select **Configure Access Restrictions** to configure private site access.
 
     >[!div class="mx-imgBorder"]
     >![Select Platform features in Azure Functions](./media/functions-create-private-site-access/configure-access-restrictions-network-feature-status.png)
 
-3. It can be seen on the **Access Restrictions** page that only the default restriction is in place. The default does not place any restrictions on access to the function.  For private site access, a new access restriction configuration needs to be created. Do so by first clicking on **Add rule**.
+3. On the **Access Restrictions** page, you see only the default restriction in place. The default doesn't place any restrictions on access to the function app.  Select **Add rule** to create a private site access restriction configuration.
 
     >[!div class="mx-imgBorder"]
     >![Configure access restrictions](./media/functions-create-private-site-access/configure-access-restrictions-add-rule-1.png)
 
-4. This will open new **Add Access Restriction** pane on the right side of the portal. The important configuration in this pane is to select **Virtual Network** from the **Type** drop-down selection box. Once **Virtual Network** is selected, select the desired virtual network and subnet.  Select **Add rule** to add the access restriction rule.
-
-    Notice in the below image the information block indicating a service endpoint has not yet been enabled for Microsoft.Web. The service endpoint will automatically be created.
+4. In the **Add Access Restriction** pane, select **Virtual Network** from the **Type** drop-down box, then select the desired virtual network and subnet.
 
     >[!div class="mx-imgBorder"]
     >![Configure access restrictions](./media/functions-create-private-site-access/configure-access-restrictions-add-access-restriction.png)
@@ -218,14 +216,15 @@ The next step is to configure [access restrictions](../app-service/app-service-i
     | **Virtual Network** | myResourceGroup-vnet | The virtual network to which access should be restricted. |
     | **Subnet** | Tutorial | The virtual network subnet to which access should be restricted. |
 
-5. The Access Restrictions page now shows that there is a new restriction. It may take a few seconds for the Endpoint status to change from Disabled to Provisioning to Enabled.
+5. The **Access Restrictions** page now shows that there is a new restriction. It may take a few seconds for the **Endpoint status** to change from `Disabled` through `Provisioning` to `Enabled`.
 
     >[!div class="mx-imgBorder"]
     >![Access restrictions with newly created rule](./media/functions-create-private-site-access/configure-access-restrictions-rule-added.png)
 
-    It is important to note that access restrictions have not been enabled on the [SCM site](../app-service/app-service-ip-restrictions.md#scm-site), private-site.scm.azurewebsites.net. By not enabling access restrictions the SCM site, it is possible to deploy the Azure Function code from a local developer workstation or another build service without needing to provision an agent within the virtual network.
+    >[!IMPORTANT]
+    > Each function app has an [Advanced Tool (Kudu) site](../app-service/app-service-ip-restrictions.md#scm-site) that is used to manage function app deployments. This site is accessed from a URL like: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Because access restrictions haven't been enabled on this deployment site, you can still deploy your project code from a local developer workstation or build service without having to provision an agent within the virtual network.
 
-## Access the functions app
+## Access the function app
 
 1. Return to the previously created Azure Function app.  In the **Overview** section, copy the URL.
 
@@ -263,7 +262,7 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
     * [Command line](./functions-create-first-azure-function-azure-cli.md)
     * [Maven (Java)](./functions-create-first-java-maven.md)
 
-2. When publishing the Azure Function, select the Azure Function Consumption plan previously created in this tutorial. For this tutorial, the Azure Function is deployed from a development machine which is not connected to the virtual network used in the tutorial. It is possible to do so because access restrictions where not configured for the SCM endpoint.
+2. When publishing your Azure Functions project, choose the function app resource that you created earlier in this tutorial.
 3. Verify the function is deployed.
 
     >[!div class="mx-imgBorder"]
@@ -279,7 +278,7 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
     >[!NOTE]
      >When the function runs, you'll see a runtime error in the portal stating that the function runtime is unable to start. Despite the message text, the function app is actually running. The error is a result of the new access restrictions, which prevent the portal from querying to check on the runtime.
 
-2. Paste the URL into a web browser. Doing so from a local machine will result in an HTTP 403 web app is stopped message.
+2. Paste the URL into a web browser. When you now try to access the function app from a computer outside of your virtual network, you receive an HTTP 403 response indicating the app is stopped.
 
     >[!div class="mx-imgBorder"]
     >![Function app stoppedL](./media/functions-create-private-site-access/function-app-stopped.png)
