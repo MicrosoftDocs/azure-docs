@@ -212,7 +212,7 @@ To store image versions, a shared image gallery uses standard HDD-managed disks.
 
 
 ### Replication and network egress charges
-When you save an image version using a classroom lab’s template virtual machine (VM), Azure Lab Services first stores it in a source region and then automatically replicates the source image version to one or more target regions. It’s important to note that Azure Lab Services automatically replicates the source image version to all target [regions within the geography] (https://azure.microsoft.com/global-infrastructure/regions/) where the classroom lab is located. For example, if your classroom lab is in the U.S. geography, an image version is replicated to each of the eight regions that exist within the U.S.
+When you save an image version using a classroom lab’s template virtual machine (VM), Azure Lab Services first stores it in a source region and then automatically replicates the source image version to one or more target regions. It’s important to note that Azure Lab Services automatically replicates the source image version to all target [regions within the geography](https://azure.microsoft.com/global-infrastructure/regions/) where the classroom lab is located. For example, if your classroom lab is in the U.S. geography, an image version is replicated to each of the eight regions that exist within the U.S.
 
 A network egress charge occurs when an image version is replicated from the source region to additional target regions. The amount charged is based on the size of the image version when the image’s data is initially transferred outbound from the source region.  For pricing details, refer to the following article: [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
