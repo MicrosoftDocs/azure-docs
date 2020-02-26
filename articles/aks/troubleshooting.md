@@ -61,6 +61,11 @@ If you don’t see the Kubernetes dashboard, check whether the `kube-proxy` pod 
 
 Make sure that the default network security group isn't modified and that both port 22 and 9000 are open for connection to the API server. Check whether the `tunnelfront` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
 
+## I'm getting ""dial tcp <Node_IP>:10250: i/o timeout". What should I do?
+
+That is internal traffic between the nodes. Not egressing from the vnet. You should not block internal traffic between the nodes in the subnet.
+Make sure that the default network security group (or any attached to the nodes / subnet) isn't modified and that port 10250 is open for connection.
+
 ## I'm trying to upgrade or scale and am getting a "message: Changing property 'imageReference' is not allowed" error. How do I fix this problem?
 
 You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
