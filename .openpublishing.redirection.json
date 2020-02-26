@@ -832,6 +832,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/personalizer/how-to-learning-policy.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-bot-csharp-appinsights.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4",
       "redirect_document_id": false
