@@ -221,6 +221,18 @@ Add the following code to your `index.html` file within the `<script></script>` 
            errorCode === "interaction_required" ||
            errorCode === "login_required";
    }
+   
+   function callMSGraph(theUrl, accessToken, callback) {
+       var xmlHttp = new XMLHttpRequest();
+       xmlHttp.onreadystatechange = function () {
+           if (this.readyState == 4 && this.status == 200) {
+              callback(JSON.parse(this.responseText));
+           }
+       }
+       xmlHttp.open("GET", theUrl, true); // true for asynchronous
+       xmlHttp.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+       xmlHttp.send();
+   }
 
    // Browser check variables
    var ua = window.navigator.userAgent;
