@@ -4,7 +4,7 @@ description: 'In this tutorial, you will train a machine learning model using Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 2/10/2020
+ms.date: 2/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -56,7 +56,9 @@ We will upload sample notebook files into a new Azure Notebooks project.
 
 1. From the user page of your new account, select **My Projects** from the top menu bar.
 
-1. On the **Create New Project** dialog  box, provide a **Project Name** that also automatically forms the **Project ID**.
+1. Add a new project by selecting the **+** button.
+
+1. On the **Create New Project** dialog  box, provide a **Project Name**. 
 
 1. Leave **Public** and **README** unchecked as there is no need for the project to be public or to have a readme.
 
@@ -67,6 +69,8 @@ We will upload sample notebook files into a new Azure Notebooks project.
 1. Select **Choose files**.
 
 1. Navigate to **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Select all the files in the list and click **Open**.
+
+1. Check the **I trust the content of these files** box.
 
 1. Select **Upload** to begin uploading and then select **Done** once the process is complete.
 
@@ -103,8 +107,6 @@ Now that the project is created, you can run the notebooks.
 1. From your project page, select **01-turbofan\_regression.ipynb**.
 
     ![Select first notebook to run](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
-
-1. If prompted, choose the Python 3.6 Kernel from the dialog and select **Set Kernel**.
 
 1. If the notebook is listed as **Not Trusted**, click on the **Not Trusted** widget in the top right of the notebook. When the dialog comes up, select **Trust**.
 
