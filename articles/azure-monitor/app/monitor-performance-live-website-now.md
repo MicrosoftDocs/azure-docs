@@ -2,7 +2,7 @@
 title: Monitor a live ASP.NET web app with Azure Application Insights  | Microsoft Docs
 description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises or in VMs.
 ms.topic: conceptual
-ms.date::: 08/26/2019
+ms.date: 08/26/2019
 
 ---
 

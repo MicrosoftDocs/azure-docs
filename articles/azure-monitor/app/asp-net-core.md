@@ -2,7 +2,7 @@
 title: Azure Application Insights for ASP.NET Core applications | Microsoft Docs
 description: Monitor ASP.NET Core web applications for availability, performance, and usage.
 ms.topic: conceptual
-ms.date::: 05/22/2019
+ms.date: 05/22/2019
 
 ---
 

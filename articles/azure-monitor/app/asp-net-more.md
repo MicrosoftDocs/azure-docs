@@ -2,7 +2,7 @@
 title: Get more out of Azure Application Insights | Microsoft Docs
 description: After getting started with Application Insights, here's a summary of the features you can explore.
 ms.topic: conceptual
-ms.date::: 02/03/2017
+ms.date: 02/03/2017
 
 ---
 

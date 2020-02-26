@@ -2,7 +2,7 @@
 title: Monitoring usage and performance for Windows desktop apps
 description: Analyze usage and performance of your Windows desktop app with Application Insights.
 ms.topic: conceptual
-ms.date::: 10/29/2019
+ms.date: 10/29/2019
 
 ---
 

@@ -2,7 +2,7 @@
 title: Alert on issues in Azure Cloud Services using the Azure Diagnostics integration with Azure Application Insights | Microsoft Docs
 description: Monitor for issues like startup failures, crashes, and role recycle loops in Azure Cloud Services with Azure Application Insights
 ms.topic: conceptual
-ms.date::: 06/07/2018
+ms.date: 06/07/2018
 
 ms.reviewer: harelbr
 ---

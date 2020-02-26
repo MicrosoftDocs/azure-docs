@@ -2,7 +2,7 @@
 title: Azure Application Insights Exception Telemetry Data model
 description: Application Insights data model for exception telemetry
 ms.topic: conceptual
-ms.date::: 04/25/2017
+ms.date: 04/25/2017
 
 ms.reviewer: sergkanz
 ---

@@ -2,7 +2,7 @@
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
 ms.topic: conceptual
-ms.date::: 03/27/2019
+ms.date: 03/27/2019
 
 ---
 

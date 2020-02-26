@@ -3,7 +3,7 @@ title: Troubleshoot Azure Application Insights Snapshot Debugger
 description: This article presents troubleshooting steps and information to help developers who are having trouble enabling or using Application Insights Snapshot Debugger.
 ms.topic: conceptual
 author: brahmnes
-ms.date:: 03/07/2019
+ms.date: 03/07/2019
 
 ms.reviewer: mbullwin
 ---

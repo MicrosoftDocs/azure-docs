@@ -2,7 +2,7 @@
 title: 'Quickstart: Monitor websites with Azure Monitor Application Insights'
 description: Provides quickstart instructions setup client/browser-side website monitoring with Azure Monitor Application Insights
 ms.topic: quickstart
-ms.date::: 07/15/2019
+ms.date: 07/15/2019
 
 ms.custom: mvc
 ---

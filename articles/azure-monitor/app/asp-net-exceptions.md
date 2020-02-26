@@ -2,7 +2,7 @@
 title: Diagnose failures and exceptions with Azure Application Insights
 description: Capture exceptions from ASP.NET apps along with request telemetry.
 ms.topic: conceptual
-ms.date::: 07/11/2019
+ms.date: 07/11/2019
 
 ---
 

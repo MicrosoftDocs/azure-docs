@@ -2,7 +2,7 @@
 title: Azure Application Insights for Console Applications | Microsoft Docs
 description: Monitor web applications for availability, performance and usage.
 ms.topic: conceptual
-ms.date::: 12/02/2019
+ms.date: 12/02/2019
 
 ms.reviewer: lmolkova
 ---

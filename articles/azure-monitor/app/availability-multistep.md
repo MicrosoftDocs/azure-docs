@@ -2,7 +2,7 @@
 title: Monitor with multi-step web tests - Azure Application Insights
 description: Set up multi-step web tests to monitor your web applications with Azure Application Insights
 ms.topic: conceptual
-ms.date::: 10/23/2019
+ms.date: 10/23/2019
 
 ms.reviewer: sdash
 ---

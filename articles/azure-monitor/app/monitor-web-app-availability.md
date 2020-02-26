@@ -2,7 +2,7 @@
 title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date::: 09/16/2019
+ms.date: 09/16/2019
 
 ms.reviewer: sdash
 ---

@@ -2,7 +2,7 @@
 title: Exploring Metrics in Azure Application Insights | Microsoft Docs
 description: How to interpret charts on metric explorer, and how to customize metric explorer blades.
 ms.topic: conceptual
-ms.date::: 01/22/2019
+ms.date: 01/22/2019
 
 ---
 

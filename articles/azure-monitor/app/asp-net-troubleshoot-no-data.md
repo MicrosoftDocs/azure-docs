@@ -2,7 +2,7 @@
 title: Troubleshooting no data - Application Insights for .NET
 description: Not seeing data in Azure Application Insights? Try here.
 ms.topic: conceptual
-ms.date::: 07/23/2018
+ms.date: 07/23/2018
 
 ---
 

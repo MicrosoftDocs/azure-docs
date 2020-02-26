@@ -2,7 +2,7 @@
 title: OpenCensus Go tracing with Azure Application Insights | Microsoft Docs
 description: Provides instructions to integrate OpenCensus Go tracing with the local forwarder and Application Insights
 ms.topic: conceptual
-ms.date::: 09/15/2018
+ms.date: 09/15/2018
 
 ---
 

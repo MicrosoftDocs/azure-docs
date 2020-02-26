@@ -2,7 +2,7 @@
 title: Automate Azure Application Insights with PowerShell | Microsoft Docs
 description: Automate creating and managing resources, alerts, and availability tests in PowerShell using an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date::: 10/17/2019
+ms.date: 10/17/2019
 
 ---
 

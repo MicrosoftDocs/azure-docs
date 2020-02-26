@@ -2,7 +2,7 @@
 title: Azure Application Insights Transaction Diagnostics | Microsoft Docs
 description: Application Insights end-to-end transaction diagnostics
 ms.topic: conceptual
-ms.date::: 01/19/2018
+ms.date: 01/19/2018
 
 ms.reviewer: sdash
 ---
