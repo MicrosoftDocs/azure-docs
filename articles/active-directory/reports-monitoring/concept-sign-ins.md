@@ -141,21 +141,25 @@ The **Location** - The location the connection was initiated from:
 
 |Name|Modern authentication|Description|
 |---|---|---|
-|Authenticated SMTP|No|Used by POP and IMAP client's to send email messages.|
-|Autodiscover|No|Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
-|Exchange ActiveSync|No|This filter shows all sign-in attempts where the EAS protocol has been attempted.|
+|Authenticated SMTP| |Used by POP and IMAP client's to send email messages.|
+|Autodiscover| |Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
+|Exchange ActiveSync| |This filter shows all sign-in attempts where the EAS protocol has been attempted.|
+|Browser|![Check](./media/concept-sign-ins/check.png)|BLABLA|
+|Exchange ActiveSync| | BLABLA|
 |Exchange Online PowerShell|No|Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
-|Exchange Web Services|No|A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.|
-|IMAP4|No|A legacy mail client using IMAP to retrieve email.|
-|MAPI over HTTP|No|Used by Outlook 2010 and later.|
-|Offline Address Book|No|A copy of address list collections that are downloaded and used by Outlook.|
+|Exchange Web Services| |A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.|
+|IMAP4| |A legacy mail client using IMAP to retrieve email.|
+|MAPI over HTTP| |Used by Outlook 2010 and later.|
+|Mobile apps and desktop clients|![Check](./media/concept-sign-ins/check.png)|BLABLA|
+|Offline Address Book| |A copy of address list collections that are downloaded and used by Outlook.|
 |Outlook Anywhere (RPC over HTTP)|No|Used by Outlook 2016 and earlier.|
-|Outlook Service|No|Used by the Mail and Calendar app for Windows 10.|
-|POP3|No|A legacy mail client using POP3 to retrieve email.|
-|Reporting Web Services|No|Used to retrieve report data in Exchange Online.|
-|Other clients|No|Other unknown legacy clients.|
+|Outlook Service| |Used by the Mail and Calendar app for Windows 10.|
+|POP3| |A legacy mail client using POP3 to retrieve email.|
+|Reporting Web Services| |Used to retrieve report data in Exchange Online.|
+|Other clients| |Other unknown legacy clients.|
 
  
+
 
 
 
