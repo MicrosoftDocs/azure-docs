@@ -119,6 +119,18 @@ For bounding boxes, important questions include:
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
 
+## Use ML assisted labeling
+
+The **ML assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task.   Select *Enable ML assisted labeling* and specify a GPU to enable the two phases of assisted labeling:
+
+* **Clustering** - after a certain number of labels are submitted, a clustering model starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is most useful when the labeler is viewing multiple images.  When clustering begins, an alert will tell the labeler to switch to a multiple image  view to take advantage of the clustering.
+
+* **Classification** - after more image labels are submitted, a classification model is used to predict image tags.  The labeler now sees pages that contain images along with their suggested labels.  The task is then to confirm these labels and correct any mis-labeled images before submitting the page.  
+
+
+The exact number of labeled images necessary to start assisted labeling is not a fixed number. The first clustering model is  built once there are 350 labeled images, and the first classification model will build with 900 labeled images. But the models aren't used until an accuracy threshold is also met.  
+
+
 ## Initialize the labeling project
 
 After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You *can* modify labels and the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you're returned to the **Data Labeling** homepage, which will show the project as **Initializing**. This page doesn't automatically refresh. So, after a pause,  manually refresh the page to see the project's status as **Created**.
