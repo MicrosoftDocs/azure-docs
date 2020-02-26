@@ -48961,11 +48961,6 @@
       "source_path": "articles/cognitive-services/Bing-Web-Search/web-sdk-python-quickstart.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-monitor/app/hockeyapp-bridge-app.md",
-      "redirect_url": "/azure/azure-monitor/overview",
-      "redirect_document_id": false 
     }
   ]
 }
