@@ -85,7 +85,7 @@ Use the following steps to request an increase in the number of servers per subs
 
 For more information, see [SQL Database resource limits and resource governance](sql-database-resource-limits-database-server.md).
 
-### Enable subscription access to a region
+### <a id="other"></a> Enable subscription access to a region
 
 Some offer types are not available in every region. You may see an error such as the following:
 

@@ -3,7 +3,7 @@ title: Create custom analytic rules to detect suspicious threats with Azure Sent
 description: Use this tutorial to learn how to Create custom analytic rules to detect suspicious threats with Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Tutorial: Create custom analytic rules to detect suspicious threats
