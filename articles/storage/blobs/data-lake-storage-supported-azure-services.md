@@ -9,15 +9,13 @@ ms.date: 02/26/2020
 ms.author: normesta
 ---
 
-# Azure services that support Azure Data Lake Storage Gen2
+# Azure services that support Azure Data Lake Storage Gen2
 
-You can use Azure services to ingest data, perform analytics, and create visual representations
-This article provides a list of supported Azure services, discloses their level of support
-and provides you with links to articles that help you to use these services with Azure Data Lake Storage Gen2.
+You can use Azure services to ingest data, perform analytics, and create visual representations. This article provides a list of supported Azure services, discloses their level of support, and provides you with links to articles that help you to use these services with Azure Data Lake Storage Gen2.
 
 ## List of supported Azure services
 
-This table lists the Azure services that support Azure Data Lake Storage Gen2. The items that appear in these tables will change over time as support continues to expand.
+This table lists the Azure services that you can use with Azure Data Lake Storage Gen2. The items that appear in these tables will change over time as support continues to expand.
 
 > [!NOTE]
 > Support level refers only to how the service is supported with Data Lake Storage Gen2.
@@ -43,7 +41,7 @@ This table lists the Azure services that support Azure Data Lake Stor
 
 - Learn about general limitations and known issues. 
 
-  See [Known issues with Blob Storage features](known-issues-blob-features).
+  See [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
 
 - Learn about which Blob Storage features are compatible with Data Lake Storage Gen2. 
 

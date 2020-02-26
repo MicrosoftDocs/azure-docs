@@ -11,14 +11,11 @@ ms.author: normesta
 
 # Blob Storage features available in Azure Data Lake Storage Gen2
 
-Blob Storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](storage-lifecycle-management-concepts.md) now work with accounts that have a hierarchical namespace.
-Therefore, you can enable hierarchical namespaces on your blob Storage accounts without losing access to these important features. 
+Blob Storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](storage-lifecycle-management-concepts.md) now work with accounts that have a hierarchical namespace. Therefore, you can enable hierarchical namespaces on you Blob storage accounts without losing access to these important features. 
 
-This article provides a list of supported Blob Storage features, discloses their level of support and provides you with links to articles that help you to use these features.
+This table lists the Blob storage features that you can use with Azure Data Lake Storage Gen2. The items that appear in these tables will change over time as support continues to expand.
 
 ## List of supported Blob Storage features
-
-This table lists the Blob storage features that you can use with Azure Data Lake Storage Gen2. The items that appear in these tables will change over time as support continues to expand.
 
 > [!NOTE]
 > Support level refers only to how the feature is supported with Data Lake Storage Gen2.
@@ -51,7 +48,7 @@ This table lists the Blob storage features that you can use with Azu
 
 - Learn about limitations and known issues when using Blob Storage features with Data Lake Storage Gen2. 
 
-  See [Known issues with Blob Storage features](data-lake-storage-known-issues.md#known-issues-blob-features).
+  See [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
 
 - Learn about which Azure services are compatible with Data Lake Storage Gen2. 
 
