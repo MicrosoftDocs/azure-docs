@@ -62,7 +62,7 @@ Filters at the top of the page let you sort and group your delegation info or fi
 
 Customers may want to gain visibility into the subscriptions and/or resource groups that have been delegated to service providers for [Azure delegated resource management](../concepts/azure-delegated-resource-management.md). This is especially useful for those customers with a large number of subscriptions, or who have many users performing management tasks.
 
-We provide an [Azure Policy built-in policy definition](../../governance/policy/samples/built-in-policies.md#lighthouse) to audit delegation of scopes to a managing tenant. You can assign this policy to a management group that includes all of the subscriptions that you want to audit. When you check for compliance with this policy, you'll see any delegated subscriptions and/or resource groups within the management group(s) to which the policy is assigned.
+We provide an [Azure Policy built-in policy definition](../../governance/policy/samples/built-in-policies.md#lighthouse) to audit delegation of scopes to a managing tenant. You can assign this policy to a management group that includes all of the subscriptions that you want to audit. When you check for compliance with this policy, any delegated subscriptions and/or resource groups (within the management group(s) to which the policy is assigned) will be shown in a noncompliant state. This lets you review and confirm that there are no unexpected delegations.
 
 For more info about how to assign a policy and view compliance state results, see [Quickstart: Create a policy assignment](../../governance/policy/assign-policy-portal.md).
 
