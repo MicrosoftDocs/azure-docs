@@ -33,7 +33,7 @@ The following table lists the API version for the resources used in this example
 | Automation account | 2015-10-31 | 
 | Solution | solutions | 2015-11-01-preview |
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Onboarding using the template
 
