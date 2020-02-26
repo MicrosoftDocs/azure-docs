@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/03/2020
+ms.date: 02/20/2020
 ---
 
 # Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
@@ -52,7 +52,7 @@ Create an Azure Data Lake Storage Gen2 storage account.
 1. Click **Create**.
 1. On the **Create storage account** screen:
     1. Select the correct subscription and resource group.
-    1. Enter a name for your Data Lake Storage Gen2 account. For more information on storage account naming conventions see [Naming conventions for Azure resources](/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).
+    1. Enter a name for your Data Lake Storage Gen2 account. For more information on storage account naming conventions, see [Naming conventions for Azure resources](/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).
     1. Click on the **Advanced** tab.
     1. Click **Enabled** next to **Hierarchical namespace** under **Data Lake Storage Gen2**.
     1. Click **Review + create**.
@@ -77,20 +77,18 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
     ![Screenshot showing how to assign an RBAC role](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
 
 1. Select **Save**. The user-assigned identity that you selected is now listed under the selected role.
-1. After this initial setup is complete, you can create a cluster through the portal. The cluster must be in the same Azure region as the storage account. In the **Storage** section of the cluster creation menu, select the following options:
+1. After this initial setup is complete, you can create a cluster through the portal. The cluster must be in the same Azure region as the storage account. In the **Storage** tab of the cluster creation menu, select the following options:
 
     * For **Primary storage type**, select **Azure Data Lake Storage Gen2**.
-    * Under **Select a Storage account**, search for and select the newly created Data Lake Storage Gen2 storage account.
+    * Under **Primary Storage account**, search for and select the newly created Data Lake Storage Gen2 storage account.
 
-        ![Storage settings for using Data Lake Storage Gen2 with Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
+    * Under **Identity**, select the newly created user-assigned managed identity.
 
-    * Under **Identity**, select the correct subscription and the newly created user-assigned managed identity.
+        ![Storage settings for using Data Lake Storage Gen2 with Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-portal-cluster-storage-gentwo.png)
 
-        ![Identity settings for using Data Lake Storage Gen2 with HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/managed-identity-cluster-creation.png)
-
-> [!NOTE]
-> * To add a secondary Data Lake Storage Gen2 account, at the storage account level, simply assign the managed identity created earlier to the new Data Lake Storage Gen2 storage account that you want to add. Please be advised that adding a secondary Data Lake Storage Gen2 account via the "Additional storage accounts" blade on HDInsight isn't supported.
-> * You can enable RA-GRS or RA-ZRS on the Azure storage account that HDInsight uses. However, creating a cluster against the RA-GRS or RA-ZRS secondary endpoint isn't supported.
+    > [!NOTE]
+    > * To add a secondary Data Lake Storage Gen2 account, at the storage account level, simply assign the managed identity created earlier to the new Data Lake Storage Gen2 storage account that you want to add. Please be advised that adding a secondary Data Lake Storage Gen2 account via the "Additional storage accounts" blade on HDInsight isn't supported.
+    > * You can enable RA-GRS or RA-ZRS on the Azure storage account that HDInsight uses. However, creating a cluster against the RA-GRS or RA-ZRS secondary endpoint isn't supported.
 
 
 ## Create a cluster with Data Lake Storage Gen2 through the Azure CLI
@@ -146,7 +144,7 @@ az group deployment create --name HDInsightADLSGen2Deployment \
 
 ## Create a cluster with Data Lake Storage Gen2 through Azure PowerShell
 
-Using PowerShell to create an HDInsight cluster with Azure Data Lake Storage Gen2 is not currently supported.
+Using PowerShell to create an HDInsight cluster with Azure Data Lake Storage Gen2 isn't currently supported.
 
 ## Access control for Data Lake Storage Gen2 in HDInsight
 
@@ -154,7 +152,7 @@ Using PowerShell to create an HDInsight cluster with Azure Data Lake Storage Gen
 
 Data Lake Storage Gen2 uses an access control model that supports both role-based access control (RBAC) and POSIX-like access control lists (ACLs). Data Lake Storage Gen1 supports access control lists only for controlling access to data.
 
-RBAC uses role assignments to effectively apply sets of permissions to users, groups, and service principals for Azure resources. Typically, those Azure resources are constrained to top-level resources (for example, Azure storage accounts). For Azure Storage, and also Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
+RBAC uses role assignments to effectively apply sets of permissions to users, groups, and service principals for Azure resources. Typically, those Azure resources are constrained to top-level resources (for example, Azure Storage accounts). For Azure Storage, and also Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
 
  For more information about file permissions with RBAC, see [Azure role-based access control (RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
@@ -200,7 +198,7 @@ Examples are based on an [ssh connection](./hdinsight-hadoop-linux-use-ssh-unix.
 
 #### A few hdfs commands
 
-1. Create a simple file on local storage.
+1. Create a file on local storage.
 
     ```bash
     touch testFile.txt
