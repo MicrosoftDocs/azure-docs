@@ -3637,6 +3637,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/azure-monitor-log-hub.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics-storage.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-storage",
       "redirect_document_id": false
