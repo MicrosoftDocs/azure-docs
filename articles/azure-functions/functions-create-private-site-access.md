@@ -229,7 +229,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
     >[!IMPORTANT]
     > Each function app has an [Advanced Tool (Kudu) site](../app-service/app-service-ip-restrictions.md#scm-site) that is used to manage function app deployments. This site is accessed from a URL like: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Because access restrictions haven't been enabled on this deployment site, you can still deploy your project code from a local developer workstation or build service without having to provision an agent within the virtual network.
 
-## Access the function app
+## Access the functions app
 
 1. Return to the previously created function app.  In the **Overview** section, copy the URL.
 
