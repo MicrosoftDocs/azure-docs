@@ -556,7 +556,7 @@ productDirectory:
         - containers
         - mobile
         - web
-      url: app-service-mobile/index.md
+      url: app-service-mobile/index.yml
     # Card
     - title: SAP HANA on Azure Large Instances
       summary: Run the largest SAP HANA workloads of any hyperscale cloud provider

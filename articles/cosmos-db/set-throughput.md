@@ -103,7 +103,7 @@ You can scale the provisioned throughput of a container or a database at any tim
 |RUs assigned or available to a specific container|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|
 |Maximum storage for a container|Unlimited.|Unlimited.|
 |Maximum throughput per logical partition of a container|10K RUs|10K RUs|
-|Maximum storage (data + index) per logical partition of a container|10 GB|10 GB|
+|Maximum storage (data + index) per logical partition of a container|20 GB|20 GB|
 
 ## Next steps
 
