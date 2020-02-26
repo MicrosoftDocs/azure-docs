@@ -22,7 +22,7 @@ You'll learn how to:
 ## Prerequisites
 
 * Complete [Quickstart: Render a model with Unity](render-model.md)
-* Azure PowerShell [(documentation)](https://docs.microsoft.com/powershell/azure/)
+* Install Azure PowerShell [(documentation)](https://docs.microsoft.com/powershell/azure/)
   * Open a PowerShell with admin rights
   * Run: `Install-Module -Name Az -AllowClobber`
 
@@ -169,7 +169,7 @@ Change to the `arrClient\Scripts` directory and run the conversion script:
 You should see something like this:
 ![Conversion.ps1](./media/successful-conversion.png)
 
-The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the Unity sample app (see the [Render a model with Unity quickstart](render-model.md)).
+The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the quickstart sample app (see [Quickstart: Render a model with Unity](render-model.md)).
 
 ![Replace model in Unity](./media/replace-model-in-unity.png)
 

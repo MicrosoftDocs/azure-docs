@@ -9,21 +9,23 @@ ms.topic: quickstart
 
 # Quickstart: Deploy Unity sample to HoloLens
 
-This quickstart covers how to deploy and run the Unity sample app to a HoloLens.
+This quickstart covers how to deploy and run the quickstart sample app for Unity to a HoloLens 2.
 
 In this quickstart you will learn how to:
 
 > [!div class="checklist"]
 >
->* Build the Unity sample for HoloLens
+>* Build the quickstart sample app for HoloLens
 >* Deploy the sample to the device
->* Configure the connection settings
+>* Run the sample on the device
 
 ## Prerequisites
 
-In this quickstart we will deploy the sample project that is used in [Quickstart: Render a model with Unity](render-model.md).
+In this quickstart we will deploy the sample project from [Quickstart: Render a model with Unity](render-model.md).
 
-## Building the sample project
+Make sure your credentials are saved properly with the scene and you can connect to a session from within the Unity editor.
+
+## Build the sample project
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **Universal Windows Platform**
@@ -31,49 +33,28 @@ In this quickstart we will deploy the sample project that is used in [Quickstart
 1. Set *Architecture* to **ARM64**
     ![Build settings](./media/unity-build-settings.png)
 1. Select **Switch to Platform**
-1. When pressing **Build** (or 'Build And Run'), you will be asked to select an output folder
-1. Open the generated **UnityProject.sln** with Visual Studio
+1. When pressing **Build** (or 'Build And Run'), you will be asked to select some folder where the solution should be stored
+1. Open the generated **Quickstart.sln** with Visual Studio
 1. Change the configuration to **Release** and **ARM64**
 1. Switch the debugger mode to **Remote Machine**
     ![Solution configuration](media/unity-deploy-config.png)
 1. Build the solution (F7)
-1. For the project 'UnityProject', go to *Properties > Debugging*
+1. For the project 'Quickstart', go to *Properties > Debugging*
     1. Make sure the configuration *Release* is active
     1. Set *Debugger to Launch* to **Remote Machine**
     1. Change *Machine Name* to the **IP of your HoleLens**
-1. Launch the project. It will automatically deploy to the device.
 
-## Launching the sample
+## Launch the sample project
 
-1. When first launched, the sample app should display a message indicating that it can't connect to localhost.
-1. Change the server hostname as follows:
-1. Open the device web portal
-1. Go to the page: *System > File explorer*
-1. Download the file: `LocalAppData / UnityProject / LocalState / connect.xml`
-1. Update the XML for your account credentials and session information (or leave session information blank to autocreate a session).
-1. Reupload it to the same location.
-1. When the app is restarted, it should load the model on the server. To restart the app, make sure to close any open window before selecting it from the start menu again.
+1. Connect the HoloLens with a USB cable to your PC.
+1. Start the Debugger in Visual Studio (F5). It will automatically deploy the app to the device.
 
-An example connect.xml will look like:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<UseSessionSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <sessionid />
-  <useSessionId>false</useSessionId>
-  <accountInfo>
-    <AccountDomain></AccountDomain>
-    <AccountId />
-    <AccountKey />
-    <AuthenticationToken />
-    <AccessToken />
-  </accountInfo>
-</UseSessionSettings>
-```
+The sample app should launch and then start a new session. After a while, the session is ready and the remotely rendered model will appear in front of you.
+If you want to launch the sample a second time later, you can also find it from the HoloLens start menu now.
 
 ## Next steps
 
-Advance to the next article to learn how to...
+In the next quickstart, we will take a look at converting a custom model.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Convert a model for rendering](convert-model.md)

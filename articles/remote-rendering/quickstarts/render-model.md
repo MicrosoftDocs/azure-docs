@@ -11,14 +11,14 @@ ms.topic: quickstart
 
 This quickstart covers how to run a Unity sample that renders a built-in model remotely, using the Azure Remote Rendering (ARR) service.
 
-We won't go into detail about the ARR API itself or how to set up a Unity project from scratch. To learn how to set up a Unity project and adding relevant ARR API calls to the scripts, refer to [Tutorial: Setting up a Unity project from scratch](../tutorials/unity/project-setup.md).
+We won't go into detail about the ARR API itself or how to set up a new Unity project. Those topics are covered in [Tutorial: Setting up a Unity project from scratch](../tutorials/unity/project-setup.md).
 
 In this quickstart you will learn how to:
 > [!div class="checklist"]
 >
 >* Set up your local development environment
->* Get and build the Unity sample app
->* Render a model in the Unity sample app
+>* Get and build the ARR Quickstart sample app for Unity
+>* Render a model in the ARR Quickstart sample app
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ The following software must be installed:
 
 ## Clone the sample app
 
-Open a command prompt (type `cmd` in the Windows start menu) and change to a directory where you want to store your ARR project.
+Open a command prompt (type `cmd` in the Windows start menu) and change to a directory where you want to store the ARR sample project.
 
 Run the following commands:
 
@@ -61,21 +61,21 @@ cd ARR
 git clone https://dev.azure.com/arrClient/arrClient/_git/arrClient
 ```
 
-The last command creates a directory called arrClient in your ARR directory containing the sample app and a copy of the documentation.
+The last command creates a subdirectory in the ARR directory containing the various sample projects for Azure Remote Rendering.
 
-The sample Unity app is found in the subdirectory Unity/AzureRemoteRenderingSample but **do not open it yet**:
+The quickstart sample app for Unity is found in the subdirectory *Unity/Quickstart* but **do not open it yet**:
 It expects Unity packages to be present in directory beside it, which you need to first obtain using NuGet.
 
 ## Getting the Unity NuGet packages
 
-You need to use NuGet commands to pull the packages from the ARR depot – from the same command prompt window within the ARR directory, run the following:
+You need to use NuGet commands to pull the packages from the ARR depot – from the same command prompt window within the ARR directory, run the following command:
 
 ```cmd
 cd arrClient\Unity
 nuget install com.microsoft.azure.remote_rendering -ExcludeVersion
 ```
 
-If the NuGet command results in authentication prompts, make sure you have NuGet and the NuGet Credential Provider installed as described in prerequisites above.
+If the NuGet command results in authentication prompts, make sure you have NuGet and the NuGet Credential Provider installed as described in the prerequisites above.
 
 The command above will download a NuGet package, carrying a Unity package. This operation adds the following directory to your *ARR\arrClient\Unity* folder:
 
@@ -83,41 +83,31 @@ The command above will download a NuGet package, carrying a Unity package. This 
 
 ## Rendering a model with the Unity sample project
 
-Open the Unity Hub and add the sample project, which is the *ARR\arrClient\Unity\AzureRemoteRenderingSample* folder.
-Open the project, if necessary, allow Unity to upgrade the project to your installed version.
+Open the Unity Hub and add the sample project, which is the *ARR\arrClient\Unity\Quickstart* folder.
+Open the project. If necessary, allow Unity to upgrade the project to your installed version.
 
-The default model we render will be a built-in model provided by ARR. We will show how to convert a custom model using the ARR conversion service in the next quickstart.
+The default model we render is a [built-in sample model](../samples/sample-model.md). We will show how to convert a custom model using the ARR conversion service in the [next quickstart](convert-model.md).
 
 ### Enter your account info
 
-Select *RemoteRendering > AccountInfo*  from the main menu. Enter your [account credentials](../how-tos/create-an-account.md).
+1. In the Unity asset browser, navigate to the *Scenes* folder and open the **Quickstart** scene.
+1. From the *Hierarchy*, select the **RemoteRendering** game object.
+1. In the *Inspector*, enter your [account credentials](../how-tos/create-an-account.md).
 
 ![ARR Account Info](./media/arr-sample-account-info.png)
 
-You only need to set the **AccountDomain**, **AccountId**, and **AccountKey**. Leave the other fields empty.
-
 > [!IMPORTANT]
-> Azure Portal displays your account's domain only as *mixedreality.azure.com*. This is not sufficient for successfully connecting to ARR
+> Azure Portal displays your account's domain only as *mixedreality.azure.com*. This is insufficient for successfully connecting.
 > Set **AccountDomain** to `<region>.mixedreality.azure.com`, where `<region>` is [one of the available regions](../reference/regions.md) that you already chose during account creation.
 
-These credentials will be saved to Unity's editor preferences.
+Later we want to deploy this project to a HoloLens and connect to the Remote Rendering service from that device. Since we have no easy way to enter the credentials on the device, the quickstart sample will **save the credentials in the Unity scene**.
+
+> [!WARNING]
+> Make sure to not check the project with your saved credentials into some repository where it would leak secret login information!
 
 ### Create a session and view the default model
 
-From Unity's asset browser, open the **SampleScene**. Then select the **RRRoot** node:
-
-![Unity Scene Tree](./media/unity-scene.png)
-
-Selecting the **RRRoot** node shows the following properties in the Inspector panel:
-
-![Unity Configure Sample Not Playing](./media/arr-sample-configure-session.png)
-
-Now press Unity's **Play** button to start the session. The session will undergo a series of state transitions. In the **Starting** state the remote VM is spun up, which takes several minutes. Upon success, it transitions to the **Ready** state. Now the session enters the **Connecting** state, where it tries to reach the rendering runtime on that VM.
-
-> [!CAUTION]
-> The sample app may not display all the states that it transitions through, and just display 'Disconnected' in the viewport. The actual state is written to Unity's console. Do not press stop unless an actual error is printed, it is normal for the VMs to take 2 to 3 minutes to spin up.
-
-When successful, the sample transitions to the **Connected** state. At this point, it will start downloading the model for rendering. Because of its size, the download can take a few more minutes. Then the remotely rendered model will appear in the viewport of Unity's 'Game' panel (not in the camera preview).
+Press Unity's **Play** button to start the session. You should see an overlay with status text, at the bottom of the viewport in the *Game* panel. The session will undergo a series of state transitions. In the **Starting** state, the remote VM is spun up, which takes several minutes. Upon success, it transitions to the **Ready** state. Now the session enters the **Connecting** state, where it tries to reach the rendering runtime on that VM. When successful, the sample transitions to the **Connected** state. At this point, it will start downloading the model for rendering. Because of the model's size, the download can take a few more minutes. Then the remotely rendered model will appear.
 
 ![Output from the sample](media/arr-sample-output.png)
 
@@ -139,11 +129,9 @@ There is a [cut plane](../overview/features/cut-planes.md) object in the scene. 
 
 To synchronize transforms, either click **Sync now** or check the **Sync every frame** option. For component properties, just changing them is enough.
 
-![Unity Inspector](./media/unity-inspector.png)
-
 ## Next steps
 
-Advance to the next article to learn how to...
+In the next quickstart, we will deploy the sample to a HoloLens to view the remotely rendered model in its original size.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Deploy Unity sample to HoloLens](deploy-to-hololens.md)
