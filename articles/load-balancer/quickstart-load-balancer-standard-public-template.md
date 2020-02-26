@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2020
+ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc
 ---
@@ -35,14 +35,13 @@ The template used in this quickstart is a [Quickstart template](https://raw.gith
 
 Multiple Azure resources have been defined in the template:
 
-- **Microsoft.Network/loadBalancers**
-- **Microsoft.Network/publicIPAddresses**: for the load balancer.
-- **Microsoft.Network/networkSecurityGroups**
-- **Microsoft.Network/virtualNetworks**
-- **Microsoft.Compute/virutalMachines** (3 of them)
-- **Microsoft.Network/publicIPAddresses** (3 of them): for each of the three virtual machines.
-- **Microsoft.Network/networkInterfaces** (3 of them)
-- **Microsoft.Compute/virtualMachine/extensions** (3 of them): use to configure the IIS, and the web pages
+- [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses): for the load balancer, and for each of the three virtual machines.
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3 of them)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3 of them)
+- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 of them): use to configure the IIS, and the web pages
 
 To find more templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 

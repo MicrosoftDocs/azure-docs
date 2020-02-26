@@ -16,9 +16,9 @@ Advanced threat protection for Azure Key Vault provides an additional layer of s
 
 When Security Center detects anomalous activity, it displays alerts. It also emails the subscription administrator with details of the suspicious activity and recommendations for how to investigate and remediate the identified threats.
 
-## Enabling and disabling threat protection from Azure Security Center
+## Configuring threat protection from Security Center
 
-By default, advanced threat protection is enabled for all of your Key Vault accounts when you subscribe to the Security Center Standard tier. For more information, see [Pricing](security-center-pricing.md).
+By default, advanced threat protection is enabled for all of your Key Vault accounts when you subscribe to Security Center's standard pricing tier. For more information, see [Pricing](security-center-pricing.md).
 
 To enable or disable the protection for a specific subscription:
 
@@ -39,6 +39,7 @@ To enable or disable the protection for a specific subscription:
 
 In this article, you learned how to enable and disable advanced threat protection for Azure Key Vault. 
 
-For related material, see the following article:
+For related material, see the following articles:
 
 - [Threat protection in Azure Security Center](threat-protection.md)--This article describes the sources of security alerts in Azure Security Center.
+- [Key Vault security alerts](alerts-reference.md#alerts-azurekv)--The Key Vault section of the reference table for all Azure Security Center alerts
