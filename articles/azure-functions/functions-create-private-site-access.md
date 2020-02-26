@@ -216,7 +216,6 @@ Accessing the function via a web browser (by using the Azure Bastion service) on
 
 ## Next steps
 
-In this tutorial, you configured an Azure Function to only be accessible from a specific virtual network by configuring a virtual network service endpoint. The virtual machine was used in this tutorial because it is easy to visualize accessing the HTTP-triggered function via a web browser. The resource accessing the function could have been another resource connected to the virtual network, such as an application hosted on AKS or another function running in an Azure Functions Premium plan.
 
 > [!div class="nextstepaction"]
 > [Learn more about the networking options in Functions](./functions-networking-options.md)
