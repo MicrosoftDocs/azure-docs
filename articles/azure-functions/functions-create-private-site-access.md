@@ -276,12 +276,13 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
     >[!div class="mx-imgBorder"]
     >![Copy the function URL](./media/functions-create-private-site-access/get-function-url.png)
 
+    >[!NOTE]
+     >When the function runs, you'll see a runtime error in the portal stating that the function runtime is unable to start. Despite the message text, the function app is actually running. The error is a result of the new access restrictions, which prevent the portal from querying to check on the runtime.
+
 2. Paste the URL into a web browser. Doing so from a local machine will result in an HTTP 403 web app is stopped message.
 
     >[!div class="mx-imgBorder"]
     >![Function app stoppedL](./media/functions-create-private-site-access/function-app-stopped.png)
-
-    Note: You will receive an error in the portal which indicates the function runtime is unable to start. The function runtime is actually running. Due to the previously created access restrictions, the Azure portal isn't able to make the query to check the runtime.
 
 ## Invoke the Azure Function from the virtual network
 
