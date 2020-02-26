@@ -59,7 +59,7 @@ Pros| Cons
 ---|---
 Configure your own Python scripts | Does not natively support data source change triggering. Requires Logic App or Azure Function implementations
 Data preparation as part of every model training execution|Requires development skills to create a data ingestion script
-Supports data preparation scripts on various compute targets, including [Azure Machine Learning compute](concept-compute-target#azure-machine-learning-compute-managed.md) |Does not provide a user interface for creating the ingestion mechanism
+Supports data preparation scripts on various compute targets, including [Azure Machine Learning compute](concept-compute-target.md#azure-machine-learning-compute-managed) |Does not provide a user interface for creating the ingestion mechanism
 
 In the following diagram, the Azure Machine Learning pipeline consists of two steps: data ingestion and model training. The data ingestion step encompasses tasks that can be accomplished using Python libraries and the Python SDK, such as extracting data from local/web sources, and basic data transformations, like missing value imputation. The training step then uses the prepared data as input to your training script to train your machine learning model. 
 
