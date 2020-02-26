@@ -152,7 +152,7 @@ Use the following PowerShell script:
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-For more details check ![Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) command.
+For more details check [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) command.
 
 # [PowerShell](#tab/azure-cli)
 
@@ -162,7 +162,7 @@ Use the following CLI command:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-For more details check ![az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) command.
+For more details check [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) command.
 
 ---
 
@@ -170,7 +170,7 @@ For more details check ![az sql mi update](https://docs.microsoft.com/cli/azure/
 
 #### <a name="gen4gen5-1"></a> Gen4/Gen5
 
-Gen4 hardware is ![being phased out](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) and is not available anymore for the new deployments. All new databases must be deployed on Gen5 hardware.
+Gen4 hardware is [being phased out](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) and is not available anymore for the new deployments. All new databases must be deployed on Gen5 hardware.
 
 Gen5 is available in most regions worldwide.
 
