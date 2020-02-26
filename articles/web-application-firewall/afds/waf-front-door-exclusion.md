@@ -43,4 +43,4 @@ You can apply exclusion list to all rules within the managed rule set, to rules 
 
 ## Next steps
 
-After you configure your WAF settings, you can learn how to view your WAF logs. For more information, see [Front Door diagnostics](../afds/waf-front-door-monitor.md).
+After you configure your WAF settings, learn how to view your WAF logs. For more information, see [Front Door diagnostics](../afds/waf-front-door-monitor.md).
