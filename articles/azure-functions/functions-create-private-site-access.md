@@ -273,7 +273,7 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
     >[!div class="mx-imgBorder"]
     >![Deployed function in list of functions](./media/functions-create-private-site-access/verify-deployed-function.png)
 
-## Invoke the Azure Function
+## Invoke the function directly
 
 1. In order to test access to the function, copy the function URL. Select the deployed function, and then select **</> Get function URL**.
 
