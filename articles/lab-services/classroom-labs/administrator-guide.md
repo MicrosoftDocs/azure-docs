@@ -216,7 +216,7 @@ When you save an image version using a classroom lab’s template virtual machin
 
 A network egress charge occurs when an image version is replicated from the source region to additional target regions. The amount charged is based on the size of the image version when the image’s data is initially transferred outbound from the source region.  For pricing details, refer to the following article: [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-[Education solutions](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) customers may be waived from paying egress charges. Speak with your account manager to learn more.  For more information, see **refer to the FAQ** section in the linked document, specifically the question “What data transfer programs exist for academic customers and how do I qualify?”).
+[Education solutions](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) customers may be waived from paying egress charges. Speak with your account manager to learn more.  For more information, see **refer to the FAQ** section in the linked document, specifically the question “What data transfer programs exist for academic customers and how do I qualify?”.
 
 ### Pricing example
 To recap the pricing described above, let’s look at an example of saving our template VM image to shared image gallery. Assume the following scenarios:
