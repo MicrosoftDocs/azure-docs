@@ -86,7 +86,7 @@ The command above will download a NuGet package, carrying a Unity package. This 
 Open the Unity Hub and add the sample project, which is the *ARR\arrClient\Unity\Quickstart* folder.
 Open the project. If necessary, allow Unity to upgrade the project to your installed version.
 
-The default model we render will be a built-in model provided by Azure Remote Rendering. We will show how to convert a custom model using the ARR conversion service in the [next quickstart](convert-model.md).
+The default model we render is a [built-in sample model](../samples/sample-model.md). We will show how to convert a custom model using the ARR conversion service in the [next quickstart](convert-model.md).
 
 ### Enter your account info
 
