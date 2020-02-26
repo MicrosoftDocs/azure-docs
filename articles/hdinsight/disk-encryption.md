@@ -21,6 +21,8 @@ Customer-managed key encryption is a one-step process handled during cluster cre
 
 Both resource disk and managed disks on each node of the cluster are encrypted with a symmetric Data Encryption Key (DEK). The DEK is protected using the Key Encryption Key (KEK) from your key vault. The encryption and decryption processes are handled entirely by Azure HDInsight.
 
+If the key vault firewall is enabled on the key vault where the disk encryption key is stored, the HDInsight regional Resource Provider IP addresses for the region where the cluster will be deployed must be added to the key vault firewall configuration. This is necessary because HDInsight is not a trusted Azure key vault service.
+
 You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight cluster starts using the new key within minutes. Enable the [Soft Delete](../key-vault/key-vault-ovw-soft-delete.md) key protection features to protect against ransomware scenarios and accidental deletion. Key vaults without this protection feature aren't supported.
 
 |Cluster type |OS Disk (Managed disk) |Data disk (Managed disk) |Temp data disk (Local SSD) |
@@ -57,7 +59,7 @@ HDInsight only supports Azure Key Vault. If you have your own key vault, you can
 
     ![Generate a new key in Azure Key Vault](./media/disk-encryption/create-new-key.png "Generate a new key in Azure Key Vault")
 
-1. Provide a name, then select **Create**.
+1. Provide a name, then select **Create**. Maintain the default **Key Type** of **RSA**.
 
     ![generates key name](./media/disk-encryption/create-key.png "Generate key name")
 
