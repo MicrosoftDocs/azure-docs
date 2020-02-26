@@ -42,7 +42,7 @@ For this tutorial, it's important that you understand IP addressing and subnetti
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a Virtual Machine
+## Create a virtual machine
 
 The first step in this tutorial is to create a new virtual machine inside a virtual network.  The virtual machine will be used to access your function once you've restricted it's access to only be available from within the virtual network.
 
