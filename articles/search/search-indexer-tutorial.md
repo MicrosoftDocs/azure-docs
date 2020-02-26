@@ -28,11 +28,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 + [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-
-[Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
++ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
-> A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
+> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ## Download source code
 
@@ -116,7 +115,7 @@ If you have an existing Azure SQL Database resource, you can add the hotels tabl
 
 ## Build the solution
 
-1. Press F5 to build the solution. The program executes in debug mode. A console window reports the status of each operation.
+Press F5 to build the solution. The program executes in debug mode. A console window reports the status of each operation.
 
    ![Console output](./media/search-indexer-tutorial/console-output.png "Console output")
 
