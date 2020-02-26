@@ -8,7 +8,6 @@
   expanded: true
   items:
   - name: Create Unity app
-    href: unity-overview.yml
     expanded: true
     items:
     - name: HoloLens
