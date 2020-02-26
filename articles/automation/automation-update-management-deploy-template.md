@@ -21,6 +21,8 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/templat
 * Links the Automation account to the Log Analytics workspace
 * Onboards the Azure Automation Update Management solution
 
+The template does not automate the onboarding of one or more Azure or non-Azure VMs.
+
 ## API versions
 
 The following table lists the API version for the resources used in this example.
@@ -31,11 +33,13 @@ The following table lists the API version for the resources used in this example
 | Automation account | 2015-10-31 | 
 | Solution | solutions | 2015-11-01-preview |
 
-## Onboarding with template
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell Az module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure. With Azure PowerShell, deployment uses [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+## Onboarding using the template
 
-If you chose to use Azure CLI, the deployment uses [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell Az module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure. With Azure PowerShell, deployment uses [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.1.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). With Azure CLI, this deployment uses [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 The JSON template is configured to prompt you for:
 
