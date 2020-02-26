@@ -1,5 +1,5 @@
 ---
-title: Managed instance - Point-in-time restore
+title: Managed instance - Point-in-time restore (PITR)
 description: Restore a SQL database in a managed instance to a previous point in time.
 services: sql-database
 ms.service: sql-database
@@ -130,7 +130,16 @@ For a detailed explanation of the available parameters, see the [CLI documentati
 
 ## Restore a deleted database
 
-Restoring a deleted database can be done by using PowerShell or Azure Portal.Please use this document to do this by [Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#managed-instance-database-1). The database can be restored to the same instance or another instance.
+Restoring a deleted database can be done by using PowerShell or Azure Portal. To restore a deleted database to the same instance, use either the Azure portal or PowerShell. To restore a deleted database to another instance, use PowerShell. 
+
+# [Portal](#tab/azure-portal)
+
+
+To recover a managed database by using the Azure portal, open the managed instance overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
+
+  ![Screenshot of restore deleted Azure SQL instance database](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
+
+# [PowerShell](#tab/azure-powershell)
 
 To restore a deleted database by using PowerShell, specify your values for the parameters in the following command. Then, run the command:
 
