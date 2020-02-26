@@ -28,8 +28,6 @@ This quickstart shows you how to use Azure Virtual Network NAT service. You'll c
 You can complete this tutorial using Azure Cloud Shell or run the respective commands locally.  If you have never used Azure Cloud Shell, [sign in now](https://shell.azure.com) to go through the initial setup.
 If you choose to run these commands locally, you need to install CLI.  This tutorial requires that you're running a version of the Azure CLI version 2.0.71 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
-> [!IMPORTANT]
-> After Virtual Network NAT [preview is enabled](./nat-overview.md#enable-preview) on your subscription, use https://aka.ms/natportal to access the portal.
 
 ## Create a resource group
 

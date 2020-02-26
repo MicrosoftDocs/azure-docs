@@ -57,10 +57,16 @@ az account list -o table
 az account set --subscription
 ```
 
-Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud. Note that we also tell Azure Spring Cloud to assign a public domain here.
+Create a resource group to contain your Azure Spring Cloud service. You can learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
 
 ```azurecli
-    az spring-cloud create -n <resource name> -g <resource group name> --is-public true
+az group create --location eastus --name <resource group name>
+```
+
+Run the following commands to provision an instance of Azure Spring Cloud. Prepare a name for your Azure Spring Cloud service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+
+```azurecli
+az spring-cloud create -n <resource name> -g <resource group name>
 ```
 
 The service instance will take about five minutes to deploy.
