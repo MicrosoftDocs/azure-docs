@@ -104,7 +104,7 @@ To install the Active Directory Administration tools on a domain-joined VM, comp
 1. In the *Dashboard* pane of the **Server Manager** window, select **Add Roles and Features**.
 1. On the **Before You Begin** page of the *Add Roles and Features Wizard*, select **Next**.
 1. For the *Installation Type*, leave the **Role-based or feature-based installation** option checked and select **Next**.
-1. On the **Server Selection** page, choose the current VM from the server pool, such as *myvm.aadds.contoso.com*, then select **Next**.
+1. On the **Server Selection** page, choose the current VM from the server pool, such as *myvm.aaddscontoso.com*, then select **Next**.
 1. On the **Server Roles** page, click **Next**.
 1. On the **Features** page, expand the **Remote Server Administration Tools** node, then expand the **Role Administration Tools** node.
 
@@ -124,7 +124,7 @@ With the administrative tools installed, let's see how to use them to administer
     ![List of Administrative Tools installed on the server](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Select **Active Directory Administrative Center**.
-1. To explore the Azure AD DS managed domain, choose the domain name in the left pane, such as *aadds.contoso.com*. Two containers named *AADDC Computers* and *AADDC Users* are at the top of the list.
+1. To explore the Azure AD DS managed domain, choose the domain name in the left pane, such as *aaddscontoso.com*. Two containers named *AADDC Computers* and *AADDC Users* are at the top of the list.
 
     ![List the available containers part of the Azure AD DS managed domain](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 

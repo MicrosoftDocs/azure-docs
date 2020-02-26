@@ -33,23 +33,20 @@ The uniqueness of Azure for SAP HANA is an offer that sets Azure apart. To enabl
 Hosting SAP workload scenarios in Azure also can create requirements of identity integration and single sign-on. This situation can occur when you use Azure Active Directory (Azure AD) to connect different SAP components and SAP software-as-a-service (SaaS) or platform-as-a-service (PaaS) offers. A list of such integration and single sign-on scenarios with Azure AD and SAP entities is described and documented in the section "AAD SAP identity integration and single sign-on."
 
 ## Changes to the SAP workload section
-Changes to documents in the SAP on Azure workload section are listed at the end of this article.
+Changes to documents in the SAP on Azure workload section are listed at the end of this article. The entries in the change log are kept for around 180 days.
 
+## You want to know
+If you have specific questions, we are going to point you to specific documents or flows in this section of the start page. You want to know:
 
+- What Azure VMs and HANA Large Instance units are supported for which SAP software releases and which operating system versions. Read the document [What SAP software is supported for Azure deployment](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) for answers and the process to find the information
+- What SAP deployment scenarios are supported with Azure VMs and HANA Large Instances. Information about the supported scenarios can be found in the documents:
+	- [SAP workload on Azure virtual machine supported scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
+	- [Supported scenarios for HANA Large Instance](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+
+ 
 ## SAP HANA on Azure (Large Instances)
 
-A series of documents leads you through SAP HANA on Azure (Large Instances), or for short, HANA Large Instances. For information on the following areas of HANA Large Instances, see:
-
-- [Overview of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-- [Architecture of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
-- [Infrastructure and connectivity to SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
-- [Install SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
-- [High availability and disaster recovery of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
-- [Troubleshoot and monitor SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
-
-Next steps:
-
-- Read [Overview and architecture of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+A series of documents leads you through SAP HANA on Azure (Large Instances), or for short, HANA Large Instances. For information on HANA Large Instances start with the document [Overview and architecture of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) and go through the related documentation in the HANA Large Instance section
 
 
 
@@ -119,7 +116,9 @@ For information on integration of Azure services into SAP components, see:
 
 
 ## Change Log
+- 02/25/2020: Change in [High availability architecture and scenarios for SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) to add links to newer HA articles
 - 02/25/2020: Change in [High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server with Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm) to point to document that describes access to public endpoint with Standard Azure Load balancer
+- 02/21/2020: Complete revision of the article [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
 - 02/21/2020: Change in [SAP HANA Azure virtual machine storage configuration](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) to represent new recommendation in stripe size for /hana/data and adding setting of I/O scheduler
 - 02/21/2020: Changes in HANA Large Instance documents to represent newly certified SKUs of S224 and S224m
 - 02/21/2020: Change in [Azure VMs high availability for SAP NetWeaver on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) and [Azure VMs high availability for SAP NetWeaver on RHEL with Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) to adjust the cluster constraints for enqueue server replication 2 architecture (ENSA2)

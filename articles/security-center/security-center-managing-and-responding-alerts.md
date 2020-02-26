@@ -61,19 +61,26 @@ Security Center automatically collects, analyzes, and integrates log data from y
     >In some instances, the source IP address is not available, some Windows security events logs do not include the IP address.
 
 1. The remediation steps suggested by Security Center vary according to the security alert. Follow them for each alert. 
-In some cases, in order to mitigate a threat detection alert, you may have to use other Azure controls or services to implement the recommended remediation. 
+
+    In some cases, in order to mitigate a threat detection alert, you may have to use other Azure controls or services to implement the recommended remediation. 
 
     The following topics guide you through the different alerts, according to resource types:
     
-    * [IaaS VMs and servers alerts](security-center-alerts-iaas.md)
-    * [Native compute alerts](security-center-alerts-compute.md)
-    * [Data services alerts](security-center-alerts-data-services.md)
-    
+    * [Alerts for IaaS Windows machines](threat-protection.md#windows-machines)
+    * [Alerts for IaaS Linux machines](threat-protection.md#linux-machines)
+    * [Alerts for Azure App Service](threat-protection.md#app-services)
+    * [Alerts for Azure containers](threat-protection.md#azure-containers)
+    * [Alerts for SQL Database and SQL Data Warehouse](threat-protection.md#data-sql)
+    * [Alerts for Azure Storage](threat-protection.md#azure-storage)
+    * [Alerts for Cosmos DB](threat-protection.md#cosmos-db)
+
     The following topics explain how Security Center uses the different telemetry that it collects from integrating with the Azure infrastructure, in order to apply additional protection layers for resources deployed on Azure:
     
-    * [Service layer alerts](security-center-alerts-service-layer.md)
-    * [Threat detection for Azure WAF and Azure DDoS Protection](security-center-alerts-integration.md)
-    
+    * [Alerts for Azure management layer (Azure Resource Manager) (Preview)](threat-protection.md#management-layer)
+    * [Alerts for Azure Key Vault (Preview)](threat-protection.md#azure-keyvault)
+    * [Alerts for Azure network layer](threat-protection.md#network-layer)
+    * [Alerts from other services](threat-protection.md#alerts-other)    
+
 ## See also
 
 In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
