@@ -10,7 +10,9 @@ ms.date: 02/24/2020
 ms.author: aahi
 ---
 
-The Bing Web Search SDK makes it easy to integrate Bing Web Search into your C# application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
+The Bing Web Search client library makes it easy to integrate Bing Web Search into your C# application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
+
+Want to see the code right now? Samples for the [Bing Search client libraries for .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) are available on GitHub.
 
 ## Prerequisites
 Here are a few things that you'll need before running this quickstart:

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use a Bing Web Search client library'
 titleSuffix: Azure Cognitive Services
-description: The Bing Web Search client library makes it easy to integrate Bing Web Search into your application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
+description: The Bing Web Search API offers client libraries that makes it easy to integrate search capabilities into your applications. Use this quickstart to start sending search requests, and get back results. 
 services: cognitive-services
 author: aahill
 manager: nitinme
