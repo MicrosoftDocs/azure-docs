@@ -71,7 +71,7 @@ If the VM is not created within a Virtual Network, the default cases for cloud s
 To learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), see this sample.
 
 ### Version and Region Availability
-The Scheduled Events service is versioned. Versions are mandatory; the current version is `2017-11-01`.
+The Scheduled Events service is versioned. Versions are mandatory; the current version is `2019-01-01`.
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - | 
