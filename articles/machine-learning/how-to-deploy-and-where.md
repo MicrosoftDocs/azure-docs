@@ -477,8 +477,8 @@ You can use the dependencies file to create an environment object and save it to
 from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
-myenv = Environment.from_conda_specification(name = "myenv",
-                                             file_path = "path-to-conda-specification-file"
+myenv = Environment.from_conda_specification(name = 'myenv',
+                                             file_path = 'path-to-conda-specification-file'
 myenv.register(workspace=ws)
 ```
 
@@ -488,8 +488,8 @@ The following example demonstrates loading an environment from your workspace an
 from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
-myenv = Environment.get(workspace=ws, name="myenv", version="1")
-inference_config = InferenceConfig(entry_script="path-to-score.py",
+myenv = Environment.get(workspace=ws, name='myenv', version='1')
+inference_config = InferenceConfig(entry_script='path-to-score.py',
                                    environment=myenv)
 ```
 
@@ -523,8 +523,7 @@ Once you have registered your model and prepared the other components necessary 
 
 In order to profile your model you will need:
 * A registered model.
-* An entry script.
-* An inference environment definition.
+* An Inference configuration based on your entry script and inference environment definition.
 * A single column tabular dataset, where each row contains a string representing sample request data. These strings are going to get utf-8 encoded and put directly into the body of the HTTP request.
 
 At this point we only support profiling of the services that expect their request data to be a string, for example: string serialized json, text, string serialized image, etc.
@@ -537,27 +536,53 @@ from azureml.core import Datastore
 from azureml.core.dataset import Dataset
 from azureml.data import dataset_type_definitions
 
-input_json = {"data": [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+input_json = {'data': [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
 # create a string that can be utf-8 encoded and put in the body of the request
 serialized_input_json = input_json
 dataset_content = []
 for i in range(100):
     dataset_content.append(serialized_input_json)
 dataset_content = '\n'.join(dataset_content)
-file_name = "regression_input.txt"
-f = open(file_name, "w")
+file_name = 'regression_input.txt'
+f = open(file_name, 'w')
 f.write(dataset_content)
 f.close()
 
 # upload the txt file created above to the Datastore and create a dataset from it
 data_store = Datastore.get_default(ws)
-data_store.upload_files(["./" + file_name], target_path='regression_dataset')
+data_store.upload_files(['./' + file_name], target_path='regression_dataset')
 datastore_path = [(data_store, 'regression_dataset' +'/' + file_name)]
 regression_dataset = Dataset.Tabular.from_delimited_files(datastore_path, separator='\n', infer_column_types=True, header=dataset_type_definitions.PromoteHeadersBehavior.NO_HEADERS)
 regression_dataset = regression_dataset.register(workspace=ws, name='regression_dataset', create_new_version=True)
 ```
 
-Once you have service input dataset ready, use the register model, 
+Once you have service input dataset ready, create an inference configuration based the score.py and envrionment definition and use it along with your registered model to profile the service that you would like to deploy to production:
+
+```python
+model = Model(ws, id=model_id)
+inference_config = InferenceConfig(entry_script='path-to-score.py',
+                                   environment=myenv)
+input_dataset = Dataset.get_by_name(workspace=ws, name='regression_dataset')
+profile = Model.profile(ws,
+            'unique_name_of_profiling_job',
+            [model],
+            inference_config,
+            input_dataset=input_dataset)
+
+profile.wait_for_completion(True)
+
+# See the result
+details = profile.get_details()
+```
+
+The following command demonstrates how to profile a model by using the CLI:
+
+```azurecli-interactive
+az ml model profile -g <resource-group-name> -w <workspace-name> --inference-config-file <path-to-inf-config.json> -m <model-id> --idi <input-dataset-id> -n <unique-name>
+```
+
+For an end to end example which shows how to use Azure Machine Learning Profiling, please see [this example](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-cloud)
+
 ## Deploy to target
 
 Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different because you must provide a reference to the AKS cluster.
