@@ -127,7 +127,7 @@ Video Indexer currently has the SOC certification. To review Video Indexer's cer
 
 When videos are uploaded to Video Indexer, you can choose from two privacy settings: private and public. Public videos are accessible for anyone, including anonymous and unidentified users. Private ones are restricted solely to the account members. 
 
-### I tried to upload a video as **public** and it was flagged for inappropriate or offensive content, what does that mean? 
+### I tried to upload a video as public and it was flagged for inappropriate or offensive content, what does that mean? 
 
 When uploading a video to Video Indexer, an automatic content analysis is done by algorithms and models in order to make sure no inappropriate content will be presented publicly. If a video is found to be suspicious as containing explicit content, it will not be possible to set it as public. However, the account members can still access it as a private video (view it, download the insights and extracted artifacts, and perform other operations available to account members).   
 
