@@ -9,21 +9,25 @@ ms.author: victorh
 ms.topic: conceptual
 ---
 
-## WAF exclusion lists
+## Web Applciation Firewall (WAF) with Front Door Service Exclusion Lists 
 
-WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules.
+Sometimes a reqest blocked Web Application Firewall (WAF) may be allowed for your application. A common example is Active Directory inserted tokens that are used for authentication. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation.  Exclusion list can be configured using Azure Portal shown below, [PowserShell](https://docs.microsoft.com/en-us/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [Azure Cli](https://docs.microsoft.com/en-us/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), or [Rest API](https://docs.microsoft.com/en-us/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate). 
 
-![Manage exclusion](../media/waf-front-door-exclusion/exclusion1.png)
+**Manage exclusion** is accessible from WAF managed rules portal: 
+![Manage exclusion](../media/waf-front-door-exclusion/exclusion1.PNG)
+![Manage exclusion_add](../media/waf-front-door-exclusion/exclusion2.PNG)
 
+ An example exclusion list:
+![Manage exclusion_define](../media/waf-front-door-exclusion/exclusion3.PNG)
 
-![Manage exclusion](../media/waf-front-door-exclusion/exclusion2.png)
+This example excludes the value in the *user* header that is passed in the request. It is possible a legit request includes user field containing a string that triggers a SQL injection rule. You can exclude the user parameter in this case so that the WAF rule doesn't evaluate anything in the field.
 
-The following attributes can be added to exclusion lists by name. The values of the chosen field aren't evaluated against WAF rules, but their names still are (see Example 1 below, the value of "user" header is excluded from WAF evaluation). The exclusion lists remove inspection of the field's value.
+The following attaributes can be added to exclusion lists by name. The values of the chosen field aren't evaluated against WAF rules, but their names still are. The exclusion lists remove inspection of the field's value.
 
 * Request header name
-* Request cookies name
-* Query string name
-* Request body PostArg name
+* Request cookie name
+* Query string args name
+* Request body post args name
 
 You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. The following are the supported match criteria operators:
 
@@ -33,13 +37,9 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Contains**: This operator matches all request fields that contain the specified selector value.
 - **Equals any**: This operator matches all request fields. * will be the selector value.
 
-In all cases matching is case insensitive and regular expression aren't allowed as selectors.
+Note that header and cookie names are case insensitive.
 
-Exclusion list can be applied to all rules within the managed rule set, to rules for a specific rule group, or just to one single rule as shown in the below example.
-
-![Manage exclusion](../media/waf-front-door-exclusion/exclusion3.png)
-
-This example excludes the value in the *user* header that is passed in the request via the URL. For example,say it’s common in your environment for the user field to contain a string that triggers a SQL injection rule, cause the request to be blocked by WAF. You can exclude the user parameter in this case so that the WAF rule doesn't evaluate anything in the field.
+Exclusion list can be applied to all rules within the managed rule set, to rules for a specific rule group, or just to one single rule as shown in the above example. 
 
 ## Next steps
 
