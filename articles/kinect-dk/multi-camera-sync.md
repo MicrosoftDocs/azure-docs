@@ -184,11 +184,13 @@ For more general information about calibration, see [Use Azure Kinect calibratio
 
 ## Next steps
 
-- [About Azure Kinect Sensor SDK](about-sensor-sdk.md)
-- [Capture Azure Kinect device synchronization](capture-device-synchronization.md)
+After you have set up synchronized devices, you can also learn how to use the
+> [!div class="nextstepaction"]
+> [Azure Kinect sensor SDK record and playback API](record-playback-api.md)
 
 ## Related topics
 
+- [About Azure Kinect Sensor SDK](about-sensor-sdk.md)
 - [Azure Kinect DK hardware specifications](hardware-specification.md) 
 - [Quickstart: Set up your Azure Kinect DK](set-up-azure-kinect-dk.md) 
 - [Update Azure Kinect DK firmware](update-device-firmware.md) 

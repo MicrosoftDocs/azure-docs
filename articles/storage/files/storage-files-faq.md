@@ -199,7 +199,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id=""></a>
 **What regions are available for Azure Files AD authentication (preview)?**
 
-    Refer to [AD regional availability](storage-files-active-directory-domain-services-enable.md#regional-availability) for details.
+    Refer to [AD regional availability](storage-files-identity-auth-active-directory-enable.md#regional-availability) for details.
 
 * <a id="ad-aad-smb-afs"></a>
 **Can I leverage Azure Files Azure AD DS authentication or Active Directory (AD) authentication (preview) on file shares managed by Azure File Sync?**

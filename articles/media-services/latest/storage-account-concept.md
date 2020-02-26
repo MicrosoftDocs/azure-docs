@@ -60,6 +60,10 @@ The following are the primary scenarios that would result in a Media Services ac
 |The Media Services account or attached storage account(s) were migrated to separate subscriptions. |Migrate the storage account(s) or Media Services account so that they are all in the same subscription. |
 |The Media Services account is using an attached storage account in a different subscription as it was an early Media Services account where this was supported. All early Media Services accounts were converted to modern Azure Resources Manager (ARM) based accounts and will have a Disconnected state. |Migrate the storage account or Media Services account so that they are all in the same subscription.|
 
+## Azure Storage firewall
+
+Azure Media Services does not support storage accounts with the Azure Storage firewall or [Private Endpoints](https://docs.microsoft.com/azure/storage/common/storage-network-security) enabled.
+
 ## Next steps
 
 To learn how to attach a storage account to your Media Services account, see [Create an account](create-account-cli-quickstart.md).
