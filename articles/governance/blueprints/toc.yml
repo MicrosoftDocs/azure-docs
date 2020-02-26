@@ -151,7 +151,7 @@
     - name: Steps to deploy
       displayName: standards, Media
       href: ./samples/media/deploy.md
-      - name: NIST SP 800-53 Rev4
+  - name: NIST SP 800-53 Rev4
     items:
     - name: Overview
       displayName: standards, nist, 800-53, rev 4
