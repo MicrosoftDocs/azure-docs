@@ -48976,6 +48976,11 @@
       "source_path": "articles/aks/acs-aks-migration.md",
       "redirect_url": "/azure/aks/aks-migration",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins.md",
+      "redirect_url": "/azure/jenkins/service-fabric-cicd-your-linux-applications-with-jenkins",
+      "redirect_document_id": true
     }
   ]
 }
