@@ -42,44 +42,18 @@ Review:
 1. When you [create a job](transforms-jobs-concept.md):
 
     * Randomly select an account from the list of currently used accounts (this list will normally contain both accounts but if issues are detected it may only contain one account). If the list is empty, raise an alert so an operator can investigate.
-    * General guidance is you need one reserved unit per task or JobOutput (unless you are using VideoAnalyzerPreset in v3).
-    * Get the IEncodingReservedUnit entity for the chosen account. If the current **reserved units** (RUs) count isn’t already at the maximum value, add the number of the RUs needed by the job and update the service. If your job submission rate is high and you are frequently querying the RUs to find you are at the maximum, use a distributed cache for the value with a reasonable timeout.
+    * General guidance is you need one [media reserved unit](media-reserved-units-cli-how-to.md) per task or [JobOutput](https://docs.microsoft.com/rest/api/media/jobs/create#joboutputasset) (unless you are using [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) in v3).
+    * Get the count of [media reserved units](media-reserved-units-cli-how-to.md) (MRUs) for the chosen account. If the current **media reserved units** count isn’t already at the maximum value, add the number of the MRUs needed by the job and update the service. If your job submission rate is high and you are frequently querying the MRUs to find you are at the maximum, use a distributed cache for the value with a reasonable timeout.
     * Keep a count of the number of inflight jobs.
 1. When your JobStateChange handler gets a notification that a job has reached the scheduled state, record the time it enters the schedule state and the region/account used.    
 1. When your JobStateChange handler gets a notification that a job has reached the processing state, mark the record for the job as processing.
-1. When your JobStateChange handler gets a notification that a job has reached the Finished/Errored/Canceled state, mark the record for the job as final and decrement the inflight job count. Get the IEncodingReservedUnit entity for the chosen account and compare the current **Reserved Unit** number against your inflight job count. If your inflight count is less than the RU count, then decrement it and update the service.
+1. When your JobStateChange handler gets a notification that a job has reached the Finished/Errored/Canceled state, mark the record for the job as final and decrement the inflight job count. Get the number of media reserved units for the chosen account and compare the current **Reserved Unit** number against your inflight job count. If your inflight count is less than the MRU count, then decrement it and update the service.
 1. Have a separate process that periodically looks at your records of the jobs. If you have jobs in the scheduled state that haven’t advanced to the processing state in a reasonable amount of time for a given region, remove that region from your list of currently used accounts.
 
     * Depending on your business requirements, you could decide to cancel those jobs right away and resubmit them to the other account. Or, you could give them some more time to move to the next state.   
     * After a period of time, add the account back to the currently used list (with the assumption that the region has recovered).
     
-If you find the RU count is thrashing up and down a lot, move the decrement logic to the periodic task. Have the pre-job submit logic compare inflight count to the current RU count to see if it needs to update the RUs.
- 
-You can use code like this to increment and decrement the RUs:
- 
-```csharp
-public static void IncrementReservedUnits(CloudMediaContext context)
-{
-    IEncodingReservedUnit reservedUnits = context.EncodingReservedUnits.First();
-
-    if (reservedUnits.CurrentReservedUnits < reservedUnits.MaxReservableUnits)
-    {
-        reservedUnits.CurrentReservedUnits = reservedUnits.CurrentReservedUnits + 1;
-        reservedUnits.Update();
-    }
-}
-
-public static void DecrementReservedUnits(CloudMediaContext context)
-{
-    IEncodingReservedUnit reservedUnits = context.EncodingReservedUnits.First();
-
-    if (reservedUnits.CurrentReservedUnits > 0)
-    {
-        reservedUnits.CurrentReservedUnits = reservedUnits.CurrentReservedUnits - 1;
-        reservedUnits.Update();
-    }
-}
-```
+If you find the MRU count is thrashing up and down a lot, move the decrement logic to the periodic task. Have the pre-job submit logic compare inflight count to the current MRU count to see if it needs to update the MRUs.
 
 ## Tips on how to build video-on-demand cross region streaming 
 
@@ -91,4 +65,5 @@ public static void DecrementReservedUnits(CloudMediaContext context)
 
 ## Next steps
 
-[Create an account](create-account-cli-how-to.md)
+* [Create an account](create-account-cli-how-to.md)
+* Check out [code samples](https://docs.microsoft.com/en-us/samples/browse/?products=azure-media-services)
