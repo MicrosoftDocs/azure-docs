@@ -18,10 +18,9 @@ ms.author: aschhab
 ---
 
 # Message sessions
+Microsoft Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in first in, first out (FIFO) and request-response patterns. This article shows how to use sessions to implement these patterns when using Service Bus. 
 
-Microsoft Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in first in, first out (FIFO) and request-response patterns. 
-
-## First-in, first out (FIFO)
+## First-in, first out (FIFO) pattern
 To realize a FIFO guarantee in Service Bus, use sessions. Service Bus isn't prescriptive about the nature of the relationship between the messages, and also doesn't define a particular model for determining where a message sequence starts or ends.
 
 > [!NOTE]
@@ -29,7 +28,7 @@ To realize a FIFO guarantee in Service Bus, use sessions. Service Bus isn't pres
 
 Any sender can create a session when submitting messages into a topic or queue by setting the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) property to some application-defined identifier that is unique to the session. At the AMQP 1.0 protocol level, this value maps to the *group-id* property.
 
-On session-aware queues or subscriptions, sessions come into existence when there is at least one message with the session's [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId). Once a session exists, there is no defined time or API for when the session expires or disappears. Theoretically, a message can be received for a session today, the next message in a year's time, and if the **SessionId** matches, the session is the same from the Service Bus perspective.
+On session-aware queues or subscriptions, sessions come into existence when there's at least one message with the session's [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId). Once a session exists, there's no defined time or API for when the session expires or disappears. Theoretically, a message can be received for a session today, the next message in a year's time, and if the **SessionId** matches, the session is the same from the Service Bus perspective.
 
 Typically, however, an application has a clear notion of where a set of related messages starts and ends. Service Bus doesn't set any specific rules.
 
@@ -44,7 +43,7 @@ In the portal, set the flag with the following check box:
 > [!NOTE]
 > When Sessions are enabled on a queue or a subscription, the client applications can ***no longer*** send/receive regular messages. All messages must be sent as part of a session (by setting the session id) and received by receiving the session.
 
-The APIs for sessions exist on queue and subscription clients. There is an imperative model that controls when sessions and messages are received, and a handler-based model, similar to *OnMessage*, that hides the complexity of managing the receive loop.
+The APIs for sessions exist on queue and subscription clients. There's an imperative model that controls when sessions and messages are received, and a handler-based model, similar to *OnMessage*, that hides the complexity of managing the receive loop.
 
 ### Session features
 
@@ -56,7 +55,7 @@ A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) re
 
 When the [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object is accepted and while it's held by a client, that client holds an exclusive lock on all messages with that session's [SessionId](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) that exist in the queue or subscription, and also on all messages with that **SessionId** that still arrive while the session is held.
 
-The lock is released when **Close** or **CloseAsync** are called, or when the lock expires in cases in which the application is unable to perform the close operation. The session lock should be treated like an exclusive lock on a file, meaning that the application should close the session as soon as it no longer needs it and/or doesn't expect any further messages.
+The lock is released when **Close** or **CloseAsync** are called, or when the lock expires in cases in which the application is unable to do the close operation. The session lock should be treated like an exclusive lock on a file, meaning that the application should close the session as soon as it no longer needs it and/or doesn't expect any further messages.
 
 When multiple concurrent receivers pull from the queue, the messages belonging to a particular session are dispatched to the specific receiver that currently holds the lock for that session. With that operation, an interleaved message stream in one queue or subscription is cleanly de-multiplexed to different receivers and those receivers can also live on different client machines, since the lock management happens service-side, inside Service Bus.
 
@@ -90,8 +89,8 @@ The definition of delivery count per message in the context of sessions varies s
 | Session is accepted, the messages within the session aren't completed (even if they are locked), and the session is closed | No |
 | Session is accepted, messages are completed, and then the session is explicitly closed | N/A (It's the standard flow. Here messages are removed from the session) |
 
-## Request-response
-The [request-reply pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) is a well-established integration pattern that enables the sender application to send a request and also provide a way for the receiver to correctly send over a response. This pattern typically needs a short-lived queue or topic for the application to send responses to. In this scenario, sessions provide a simple alternative solution with comparable semantics. 
+## Request-response pattern
+The [request-reply pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) is a well-established integration pattern that enables the sender application to send a request and provides a way for the receiver to correctly send a response back to the sender application. This pattern typically needs a short-lived queue or topic for the application to send responses to. In this scenario, sessions provide a simple alternative solution with comparable semantics. 
 
 **Here's how it works:**
 Multiple applications can send their requests to a single request queue, with a specific header parameter set to uniquely identify the sender application. The receiver application can process the requests coming in the queue and send replies on a sessions enabled queue, setting the session ID to the unique identifier the sender had sent on the request message. The application that sent the request can then receive messages on a specific session ID and correctly process the replies.
