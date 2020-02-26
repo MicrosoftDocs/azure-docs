@@ -216,7 +216,7 @@ Breaking changes in the SDK V2 version:
 - To allow for better API signatures, some of the API calls such as trackPageView, trackException have been updated. Running in IE8 or lower versions of the browser is not supported.
 - Telemetry envelope has field name and structure changes due to data schema updates.
 - Moved `context.operation` to `context.telemetryTrace`. Some fields were also changed (`operation.id` --> `telemetryTrace.traceID`)
-  - If you want to manually refresh the current pageview ID (for example, in SPA apps) this can be done with `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
+  - If you want to manually refresh the current pageview ID (for example, in SPA apps) this can be done with `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()`
 
 If you're using the current application insights PRODUCTION SDK (1.0.20) and want to see if the new SDK works in runtime, update the URL depending on your current SDK loading scenario.
 
