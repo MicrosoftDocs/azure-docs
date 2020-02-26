@@ -241,7 +241,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
     >[!div class="mx-imgBorder"]
     >![Forbidden from accessing the Azure Function](./media/functions-create-private-site-access/access-function-stopped-1.png)
 
-3. Now we'll access your function from the previously created virtual machine, which is connected to your virtual network. In order to access the site from the VM, you'll need to connect to the VM via the Azure Bastion service.  First select **Connect** and then choose **Bastion**.
+3. Now you'll access your function from the previously created virtual machine, which is connected to your virtual network. In order to access the site from the VM, you'll need to connect to the VM via the Azure Bastion service.  First select **Connect** and then choose **Bastion**.
 
     >[!div class="mx-imgBorder"]
     >![Access virtual machine via Bastion](./media/functions-create-private-site-access/connect-bastion-1.png)
