@@ -34,7 +34,9 @@ Create a new copy of your external metastore. If you're using an external metast
 
 If you're using the internal metastore, you can use queries to export object definitions in the Hive metastore, and import them into a new database.
 
-Note: For ACID tables, a new copy of the data will be created. Once this script is complete, it is assumed that the old cluster will no longer be used for accessing the data/metadata referred to in the script.
+Once this script is complete, it is assumed that the old cluster will no longer be used for accessing any of the tables or databases referred to in the script.
+
+Note: In the case of ACID tables, a new copy of the data underneath the table will be created. 
 
 1. Connect to the HDInsight cluster by using a [Secure Shell (SSH) client](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
