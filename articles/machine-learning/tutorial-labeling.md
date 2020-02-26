@@ -1,5 +1,5 @@
 ---
-title: Label data for image classification
+title: "Tutorial: Create a labeling project for image classification"
 titleSuffix: Azure Machine Learning
 description: Learn how to manage the process of labeling images so they can be used in multi-class image classification models.
 services: machine-learning
@@ -14,10 +14,10 @@ ms.date: 01/15/2020
 # Customer intent: As a project administrator, I want to manage the process of tagging images so they can be used in machine learning models.
 ---
 
-# Tutorial: Create your first image classification labeling project
+# Tutorial: Create a labeling project for image classification
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This tutorial shows you how an Azure Machine Learning labeling project helps you manage the process of tagging images to use as data for building machine learning models.  
+This tutorial shows you how an Azure Machine Learning labeling project helps you manage the process of labeling (also referred to as tagging) images to use as data for building machine learning models.  
 
 If you want to train a machine learning model to classify images, you need hundreds or even thousands of images that are correctly labeled.  Azure Machine Learning helps you manage the progress of your private team of domain experts as they label your data.
  
@@ -233,7 +233,7 @@ Add some or all of your labelers to this project.
 
 ## Start labeling
 
-You have now set up your Azure resources, and configured a data labeling project. It's time to add labels to your data. 
+You have now set up your Azure resources, and configured a data labeling project. It's time to add labels to your data.
 
 ### Notify labelers
 

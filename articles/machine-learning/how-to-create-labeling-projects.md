@@ -125,7 +125,7 @@ After the labeling project is initialized, some aspects of the  project are immu
 
 ## Manage teams and people
 
-By default, each labeling project that you create gets a new team with you as a member. But teams can also be shared between projects. And projects can have more than one team. To create a team, select **Add team** on the **Teams** page.
+By default, each labeling project that you create gets a new team with you as a member. But teams can also be shared between projects. And projects can have more than one team. To create a team, select **Add team** on the **Teams** page. 
 
 You manage people on the **Labelers** page. Add and remove people by email address. Each labeler has to authenticate through your Microsoft account or Azure Active Directory, if you use it.  
 
@@ -174,5 +174,6 @@ The COCO file is created in the default blob store of the Azure Machine Learning
 
 ## Next steps
 
+* [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
 * Label images for [image classification or object detection](how-to-label-images.md)
 * Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](compare-azure-ml-to-studio-classic.md)
