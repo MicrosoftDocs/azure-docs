@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/02/2020
+ms.date: 02/26/2020
 ---
 
 # What are the Apache Hadoop components and versions available with HDInsight?
@@ -57,6 +57,12 @@ The Hadoop ecosystem component versions associated with HDInsight cluster versio
 See [HDInsight release notes](hdinsight-release-notes.md) for additional release notes on the latest versions of HDInsight.
 
 ## Supported HDInsight versions
+
+### Support expiration vs retirement
+
+**Support expiration** means the specified version will no longer be avaiable through the Azure portal. However, the versions are available through SDKs.
+
+**Retirement** means existing clusters run as-is with no support, no new creation through any means. Control plane features (such as manual and autoscaling) may not work after version retirement.
 
 The following tables list the versions of HDInsight. The support expiration and retirement dates are also provided, when they're known.
 
