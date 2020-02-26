@@ -3,8 +3,8 @@ title: SKUs for SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: SKUs for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: juergent
 editor: ''
 
 ms.service: virtual-machines-linux
