@@ -28,7 +28,7 @@ built-in policy initiative.
 > blueprint sample may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/media/control-mapping.md).
 
-# Control Category: Access Control
+## Control Category: Access Control
 
 AC-1.1- Ensure no root access key exists
 \[Preview\]: Deploy prerequisites to audit Windows VMs that do not contain the specified certificates in Trusted Root
@@ -74,7 +74,7 @@ AC-1.54- Ensure multi-factor authentication (MFA) is enabled for all cloud conso
 MFA should be enabled accounts with write permissions on your subscription
 Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with write privileges to prevent a breach of accounts or resources.
 
-# Control Category: Auditing & Logging
+## Control Category: Auditing & Logging
 AL-2.1- Successful and unsuccessful events must be logged.
 Diagnostic logs in Search services should be enabled
 Audit enabling of diagnostic logs. This enables you to recreate activity trails to use for investigation purposes; when a security incident occurs or when your network is compromised
@@ -101,7 +101,7 @@ AL-2.21- Domain events must log any access or changes to the domain log
 \[Preview\]: Show audit results from Windows VMs configurations in 'Security Options - Recovery console'
 This policy should only be used along with its corresponding deploy policy in an initiative. This definition allows Azure Policy to process the results of auditing Windows virtual machines with non-compliant settings in Group Policy category: 'Security Options - Recovery console'. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
-# Control Category: Cryptographic Controls
+## Control Category: Cryptographic Controls
 
 CC-4.2- Applications and systems must use current cryptographic solutions for protecting data.
 Transparent Data Encryption on SQL databases should be enabled
@@ -123,7 +123,7 @@ CC-4.8- Secret and private keys must be stored securely.
 Transparent Data Encryption on SQL databases should be enabled
 Transparent data encryption should be enabled to protect data-at-rest and meet compliance requirements
 
-# Control Category: Change & Config Management
+## Control Category: Change & Config Management
 CM-5.2- Only authorized users may implement approved changes on the system.
 CM-5.12- Maintain an up-to-date, complete, accurate, and readily available baseline configuration of the information system.
 CM-5.13- Employ automated tools to maintain a baseline configuration of the information system.
@@ -144,12 +144,12 @@ CM-5.22- Ensure that only authorized software and updates are installed on Compa
 System updates should be installed on your machines
 Missing security system updates on your servers will be monitored by Azure Security Center as recommendations
 
-# Control Category: Identity & Authentication
+## Control Category: Identity & Authentication
 IA-7.1- User accounts must be uniquely assigned to individuals for access to information that is not classified as Public. Account IDs must be constructed using a standardized logical format.
 External accounts with owner permissions should be removed from your subscription
 External accounts with owner permissions should be removed from your subscription in order to prevent unmonitored access.
 
-# Control Category: Network Security
+## Control Category: Network Security
 NS-9.2- Access to network device management functionality is restricted to authorized users.
 \[Preview\]: Deploy prerequisites to audit Windows VMs configurations in 'Security Options - Network Access'
 This policy creates a Guest Configuration assignment to audit Windows virtual machines with non-compliant settings in Group Policy category: 'Security Options - Network Access'. It also creates a system-assigned managed identity and deploys the VM extension for Guest Configuration. This policy should only be used along with its corresponding audit policy in an initiative. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
@@ -166,17 +166,17 @@ NS-9.7- Appropriate controls must be present at any boundary between a trusted n
 \[Preview\]: Deploy prerequisites to audit Windows VMs configurations in 'Windows Firewall Properties'
 This policy creates a Guest Configuration assignment to audit Windows virtual machines with non-compliant settings in Group Policy category: 'Windows Firewall Properties'. It also creates a system-assigned managed identity and deploys the VM extension for Guest Configuration. This policy should only be used along with its corresponding audit policy in an initiative. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
-# Control Category: Security Planning
+## Control Category: Security Planning
 SP-11.3- Threats must be identified that could negatively impact the confidentiality, integrity, or availability of Company information and content along with the likelihood of their occurrence.
 Advanced Threat Protection types should be set to 'All' in SQL managed instance Advanced Data Security settings
 It is recommended to enable all Advanced Threat Protection types on your SQL servers. Enabling all types protects against SQL injection, database vulnerabilities, and any other anomalous activities.
 
-# Control Category: Security Continuity
+## Control Category: Security Continuity
 SC-12.5- Data in long-term storage must be accessible throughout the retention period and protected against media degradation and technology changes.
 SQL servers should be configured with auditing retention days greater than 90 days.
 Audit SQL servers configured with an auditing retention period of less than 90 days.
 
-# Control Category: System Integrity
+## Control Category: System Integrity
 SI-14.3- Only authorized personnel may monitor network and user activities.
 Vulnerabilities on your SQL databases should be remediated
 Monitor Vulnerability Assessment scan results and recommendations for how to remediate database vulnerabilities.
@@ -191,7 +191,8 @@ Deploy default Microsoft IaaSAntimalware extension for Windows Server
 This policy deploys a Microsoft IaaSAntimalware extension with a default configuration when a VM is not configured with the antimalware extension.
 
 
-# Control Category: Vulnerability Management
+## Control Category: Vulnerability Management
+
 VM-15.4- Ensure that applications are scanned for vulnerabilities on a monthly basis.
 VM-15.5- Ensure that vulnerabilities are identified, paired to threats, and evaluated for risk.
 VM-15.6- Ensure that identified vulnerabilities have been remediated within a mutually agreed upon timeline.

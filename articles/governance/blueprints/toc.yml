@@ -140,7 +140,7 @@
     - name: Steps to deploy
       displayName: standards, iso, 27001
       href: ./samples/iso27001-ase-sql-workload/deploy.md
- name: MEDIA   
+  - name: MEDIA   
     items:
     - name: Overview
       displayName: standards, MEDIA MPAA
