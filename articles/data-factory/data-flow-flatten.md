@@ -10,42 +10,25 @@ ms.date: 02/25/2020
 
 # Azure Data Factory Flatten Transformation
 
+![Flatten transformation 1](media/data-flow/flatten1.png "Flatten transformation 1")
 
+The flatten transformation can be used to take array values inside of a hierarchical structure and pivot those into new rows, essentially denormalizing your data.
 
-Use Unpivot in ADF mapping data flow as a way to turn an unnormalized dataset into a more normalized version by expanding values from multiple columns in a single record into multiple records with the same values in a single column.
+![Flatten transformation 2](media/data-flow/unpivot5.png "Flatten transformation 2")
 
-![Unpivot Transformation](media/data-flow/unpivot1.png "Unpivot options 1")
+## Unroll by
 
-## Ungroup By
+First, choose the array column that you wish to unroll and pivot.
 
-![Unpivot Transformation](media/data-flow/unpivot5.png "Unpivot options 2")
+## Unroll root
 
-First, set the columns that you wish to group by for your pivot aggregation. Set one or more columns for ungrouping with the + sign next to the column list.
+By default ADF will flatten the structure at the unroll array that you chose above. Or, you can choose a different part of the hierarchy to unroll to.
 
-## Unpivot Key
+## Input columns
 
-![Unpivot Transformation](media/data-flow/unpivot6.png "Unpivot options 3")
-
-The Pivot Key is the column that ADF will pivot from row to column. By default, each unique value in the dataset for this field will pivot to a column. However, you can optionally enter the values from the dataset that you wish to pivot to column values.
-
-## Unpivoted Columns
-
-![Unpivot Transformation](media/data-flow//unpivot7.png "Unpivot options 4")
-
-Lastly, choose the aggregation that you wish to use for the pivoted values and how you would like the columns to be displayed in the new output projection from the transformation.
-
-(Optional) You can set a naming pattern with a prefix, middle, and suffix to be added to each new column name from the row values.
-
-For instance, pivoting "Sales" by "Region" would simply give you new column values from each sales value. For example: "25", "50", "1000", ... However, if you set a prefix value of "Sales", then "Sales" will be prefixed to the values.
-
-<img src="media/data-flow/unpivot3.png" width="400">
-
-Setting the Column Arrangement to "Normal" will group together all of the pivoted columns with their aggregated values. Setting the columns arrangement to "Lateral" will alternate between column and value.
-
-![Unpivot Transformation](media/data-flow//unpivot7.png "Unpivot options 5")
-
-The final unpivoted data result set shows the column totals now unpivoted into separate row values.
+Lastly, choose the projection of your new structure based upon the incoming fields as well as the normalized column that you unrolled.
 
 ## Next steps
 
-Use the [Pivot transformation](data-flow-pivot.md) to pivot rows to columns.
+* Use the [Pivot transformation](data-flow-pivot.md) to pivot rows to columns.
+* Use the [Unpivot transformation](data-flow-unpivot.md) to pivot columns to rows.
