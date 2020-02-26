@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Deploy a local Azure Resource Manager template
-description: Learn how to deploy a Azure Resource Manager template from your local computer
+description: Learn how to deploy an Azure Resource Manager template from your local computer
 ms.date: 02/26/2020
 ms.topic: tutorial
 ms.author: jgao
@@ -10,7 +10,7 @@ ms.author: jgao
 
 Learn how to deploy an Azure Resource Manager template from your local machine. It takes about **8 minutes** to complete.
 
-This tutorial is the first of a series. As you progress through the series, you deploy a remote template, you modulerize the template by creating a linked template, and you learn how to secure the linked template by using SAS token. This series focuses on template deployment.  If you want to learn template development, see the [beginner tutorials](./template-tutorial-create-first-template.md).
+This tutorial is the first of a series. As you progress through the series, you deploy a remote template, you modularize the template by creating a linked template, and you learn how to secure the linked template by using SAS token. This series focuses on template deployment.  If you want to learn template development, see the [beginner tutorials](./template-tutorial-create-first-template.md).
 
 ## Get tools
 
