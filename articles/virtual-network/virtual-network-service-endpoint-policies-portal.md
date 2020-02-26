@@ -88,7 +88,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 5. Associate a policy to a subnet
 
 >[!WARNING] 
-> Ensure that all the resources accessed from the subnet are added to the policy definition before associating the policy to the given subnet. Once the policy is associated, only access to the whitelisted resources will be allowed over service endpoints. 
+> Ensure that all the resources accessed from the subnet are added to the policy definition before associating the policy to the given subnet. Once the policy is associated, only access to the *allow listed* resources will be allowed over service endpoints. 
 >
 > Also ensure that no managed Azure services exist in the subnet that is being associated to the service endpoint policy
 
