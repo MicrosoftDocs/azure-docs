@@ -31,7 +31,7 @@ The following table lists the API version for the resources used in this example
 | Automation account | 2015-10-31 | 
 | Solution | solutions | 2015-11-01-preview |
 
-## Create and deploy template
+## Onboarding with template
 
 If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell Az module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure. With Azure PowerShell, deployment uses [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
@@ -44,7 +44,7 @@ The JSON template is configured to prompt you for:
 * The name of the Automation account
 * The region to create the account in
 
-The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
+The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 The following parameters in the template are set with a default value for the Log Analytics workspace:
 
@@ -54,6 +54,8 @@ The following parameters in the template are set with a default value for the Lo
 >[!WARNING]
 >If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.
 >
+
+### Deploy template
 
 1. Copy and paste the following JSON syntax into your file:
 
@@ -217,7 +219,7 @@ The following parameters in the template are set with a default value for the Lo
     }
     ```
 
-2. Edit the template to meet your requirements. 
+2. Edit the template to meet your requirements.
 
 3. Save this file as deployUMSolutiontemplate.json to a local folder.
 
@@ -247,3 +249,11 @@ The following parameters in the template are set with a default value for the Lo
     ![Example result when deployment is complete](media/automation-update-management-deploy-template/template-output.png)
 
 ## Next steps
+
+Now that you have the Update Management solution deployed, you can enable VMs for management, review update assessments, and deploy updates to bring them into compliance.
+
+- From your [Azure Automation account](automation-onboard-solutions-from-automation-account.md) for one or more Azure machines and manually for non-Azure machines.
+
+- For a single Azure VM from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
+
+- For [multiple Azure VMs](manage-update-multi.md) by selecting them from the **Virtual machines** page in the Azure portal. 
