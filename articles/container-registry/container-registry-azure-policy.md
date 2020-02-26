@@ -2,7 +2,7 @@
 title: Compliance using Azure Policy
 description: Assign built-in policies in Azure Policy to audit compliance of your Azure container registries
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 02/26/2020
 ---
 
 # Audit compliance of Azure container registries using Azure Policy
@@ -18,17 +18,20 @@ There are no charges for using Azure Policy.
 
 ## Built-in policy definitions
 
+The following built-in policy definitions are specific to Azure Container Registry:
+
 [!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/azure-policy-samples-policies-container-registry.md)]
 
+See also the built-in network policy definition: [[Preview] Container Registry should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
 
 ## Assign policies
 
 * Assign policies using the [Azure portal](../governance/policy/assign-policy-portal.md), [Azure CLI](../governance/policy/assign-policy-azurecli.md), a [Resource Manager template](../governance/policy/assign-policy-template.md), or the Azure Policy SDKs.
-* Scope a policy assignment to a resource group, a subscription, or an [Azure management group](../governance/management-groups/overview.md). Assigned container registry policies apply to existing and new container registries within the scope.
+* Scope a policy assignment to a resource group, a subscription, or an [Azure management group](../governance/management-groups/overview.md). Container registry policy assignments apply to existing and new container registries within the scope.
 * Enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.
 
 > [!NOTE]
-> After assigning or updating a policy, it takes some time for the assignment to be applied to resources in the defined scope. 
+> After you assign or update a policy, it takes some time for the assignment to be applied to resources in the defined scope. See information about [policy evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Review policy compliance
 
