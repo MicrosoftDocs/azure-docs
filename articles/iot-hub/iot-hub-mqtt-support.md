@@ -155,28 +155,27 @@ This repository contains:
 
 **For Windows:**
 
-•	TelemetryMQTTWin32: contains code to send a telemetry message to an Azure IoT hub, built and run on a Windows machine.
+* TelemetryMQTTWin32: contains code to send a telemetry message to an Azure IoT hub, built and run on a Windows machine.
 
-•	SubscribeMQTTWin32: contains code to subscribe to events of a given IoT hub on a Windows machine.
+* SubscribeMQTTWin32: contains code to subscribe to events of a given IoT hub on a Windows machine.
 
-•	DeviceTwinMQTTWin32: contains code to query and subscribe to the device twin events of a device in the Azure IoT hub on a Windows machine.
+* DeviceTwinMQTTWin32: contains code to query and subscribe to the device twin events of a device in the Azure IoT hub on a Windows machine.
 
-•	PnPMQTTWin32: contains code to send a telemetry message with IoT Plug & Play preview Device capabilities to an Azure IoT hub, built and run on a Windows machine. More on IoT Plug & Play [here](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32: contains code to send a telemetry message with IoT Plug & Play preview Device capabilities to an Azure IoT hub, built and run on a Windows machine. More on IoT Plug & Play [here](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **For Linux:**
 
-•	MQTTLinux: contains code and build script to run on Linux (WSL, Ubuntu and Raspbian have been tested so far).
+* MQTTLinux: contains code and build script to run on Linux (WSL, Ubuntu and Raspbian have been tested so far).
 
-•	LinuxConsoleVS2019: contains the same code but in a VS2019 project targeting WSL (Windows Linux sub system). This project allows you to debug the code running on Linux step by step from Visual Studio.
+* LinuxConsoleVS2019: contains the same code but in a VS2019 project targeting WSL (Windows Linux sub system). This project allows you to debug the code running on Linux step by step from Visual Studio.
 
 **For mosquitto_pub:**
 
-•	This folder contains two samples commands used with mosquitto_pub utility tool provided by Mosquitto.org.
+* This folder contains two samples commands used with mosquitto_pub utility tool provided by Mosquitto.org.
 
 Mosquitto_sendmessage: to send a simple text message to an Azure IoT hub acting as a device.
 
 Mosquitto_subscribe: to see events occurring in an Azure IoT hub.
-
 
 ## Using the MQTT protocol directly (as a module)
 
@@ -336,7 +335,7 @@ The possible status codes are:
 
 |Status | Description |
 | ----- | ----------- |
-| 204 | Success (no content is returned) |
+| 200 | Success (no content is returned) |
 | 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
@@ -367,7 +366,7 @@ The possible status codes are:
 
 |Status | Description |
 | ----- | ----------- |
-| 200 | Success |
+| 204 | Success |
 | 400 | Bad Request. Malformed JSON |
 | 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
