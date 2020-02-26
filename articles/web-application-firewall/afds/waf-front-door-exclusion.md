@@ -37,7 +37,7 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Contains**: This operator matches all request fields that contain the specified selector value.
 - **Equals any**: This operator matches all request fields. * will be the selector value.
 
-Note that header and cookie names are case insensitive.
+Note that header and cookie names are case insensitive here.
 
 You can apply exclusion list to all rules within the managed rule set, to rules for a specific rule group, or just to one single rule as shown in the above example. 
 
