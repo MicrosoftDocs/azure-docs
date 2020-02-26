@@ -155,12 +155,6 @@ For more information on working with models trained outside Azure Machine Learni
 
 <a name="target"></a>
 
-## Choose a compute target
-
-You can use the following compute targets, or compute resources, to host your web service deployment:
-
-[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
-
 ## Single versus multi-model endpoints
 Azure ML supports deploying single or multiple models behind a single endpoint.
 
@@ -168,9 +162,9 @@ Multi-model endpoints use a shared container to host multiple models. This helps
 
 For an E2E example which shows how to use multiple models behind a single containerized endpoint, see [this example](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
 
-## Prepare deployment artifacts
+## Prepare to deploy
 
-To deploy the model, you need the following:
+To deploy the model as a service, you need the following components:
 
 * **Entry script & source code dependencies**. This script accepts requests, scores the requests by using the model, and returns the results.
 
@@ -185,9 +179,7 @@ To deploy the model, you need the following:
 
 * **Inference environment**. The base image with installed package dependencies required to run the model.
 
-* **Deployment configuration** for the compute target that hosts the deployed model. This configuration describes things like memory and CPU requirements needed to run the model.
-
-These items are encapsulated into an *inference configuration* and a *deployment configuration*. The inference configuration references the entry script and other dependencies. You define these configurations programmatically when you use the SDK to perform the deployment. You define them in JSON files when you use the CLI.
+Once you have the necessary components, you can profile the service that will serve your model to understand its CPU and memory requirements.
 
 ### <a id="script"></a> 1. Define your entry script and dependencies
 
@@ -263,33 +255,7 @@ These types are currently supported:
 * `pyspark`
 * Standard Python object
 
-To use schema generation, include the `inference-schema` package in your Conda environment file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema).
-
-##### Example dependencies file
-
-The following YAML is an example of a Conda dependencies file for inference. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service.
-
-```YAML
-name: project_environment
-dependencies:
-  - python=3.6.2
-  - scikit-learn=0.20.0
-  - pip:
-      # You must list azureml-defaults as a pip dependency
-    - azureml-defaults>=1.0.45
-    - inference-schema[numpy-support]
-```
-
-> [!IMPORTANT]
-> If your dependency is available through both Conda and pip (from PyPi), Microsoft recommends using the Conda version, as Conda packages typically come with pre-built binaries that make installation more reliable.
->
-> For more information, see [Understanding Conda and Pip](https://www.anaconda.com/understanding-conda-and-pip/).
->
-> To check if your dependency is available through Conda, use the `conda search <package-name>` command, or use the package indexes at [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) and [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo).
-
-If you want to use automatic schema generation, your entry script must import the `inference-schema` packages.
-
-Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following scikit-learn example uses schema generation.
+To use schema generation, include the `inference-schema` package in your Conda environment file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following scikit-learn example uses schema generation.
 
 ##### Example entry script
 
@@ -481,24 +447,51 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-### 2. Define your inference environment
+### 2. Define your inference configuration
 
 The inference configuration describes how to configure the model to make predictions. This configuration isn't part of your entry script. It references your entry script and is used to locate all the resources required by the deployment. It's used later, when you deploy the model.
 
-Inference configuration uses Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. The following example demonstrates loading an environment from your workspace and then using it with the inference configuration:
+Inference configuration uses Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. You can create an environment from custom dependency files or use one of the procured Azure Machine Learning procured environments. The following YAML is an example of a Conda dependencies file for inference. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service. If you want to use automatic schema generation, your entry script must also import the `inference-schema` packages.
+
+```YAML
+name: project_environment
+dependencies:
+  - python=3.6.2
+  - scikit-learn=0.20.0
+  - pip:
+      # You must list azureml-defaults as a pip dependency
+    - azureml-defaults>=1.0.45
+    - inference-schema[numpy-support]
+```
+
+> [!IMPORTANT]
+> If your dependency is available through both Conda and pip (from PyPi), Microsoft recommends using the Conda version, as Conda packages typically come with pre-built binaries that make installation more reliable.
+>
+> For more information, see [Understanding Conda and Pip](https://www.anaconda.com/understanding-conda-and-pip/).
+>
+> To check if your dependency is available through Conda, use the `conda search <package-name>` command, or use the package indexes at [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) and [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo).
+
+You can use the dependencies file to create an environment object and save it to your workspace for future use:
+
+```python
+from azureml.core.environment import Environment
+from azureml.core.model import InferenceConfig
+
+myenv = Environment.from_conda_specification(name = "myenv",
+                                             file_path = "path-to-conda-specification-file"
+myenv.register(workspace=ws)
+```
+
+The following example demonstrates loading an environment from your workspace and then using it with the inference configuration:
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
 myenv = Environment.get(workspace=ws, name="myenv", version="1")
-inference_config = InferenceConfig(entry_script="x/y/score.py",
+inference_config = InferenceConfig(entry_script="path-to-score.py",
                                    environment=myenv)
 ```
-
-For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
-
-You can also directly specify the dependencies without using an environment. The following example demonstrates how to create an inference configuration that loads software dependencies from a Conda file:
 
 For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
@@ -506,7 +499,7 @@ For more information on inference configuration, see the [InferenceConfig](https
 
 For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
-### CLI example of InferenceConfig
+#### CLI example of InferenceConfig
 
 [!INCLUDE [inference config](../../includes/machine-learning-service-inference-config.md)]
 
@@ -524,7 +517,58 @@ In this example, the configuration specifies the following settings:
 
 For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
-### 3. Define your deployment configuration
+### 3. Profile your model to determine resource utilization
+
+Once you have registered your model and prepared the other components necessary for service deployment, it is time to evaluate how much CPU and memory your service will require. Use Azure Machine Learning model profiling feature to test your service with the specified CPU and memory limits. Profiling output contains collection of useful metrics such as cpu usage, memory usage, and response latency. It also provides a CPU and memory recommendation based on the resource usage.
+
+In order to profile your model you will need:
+* A registered model.
+* An entry script.
+* An inference environment definition.
+* A single column tabular dataset, where each row contains a string representing sample request data. These strings are going to get utf-8 encoded and put directly into the body of the HTTP request.
+
+At this point we only support profiling of the services that expect their request data to be a string, for example: string serialized json, text, string serialized image, etc.
+
+Below is an example of how you can construct an input dataset that can be used for profiling, if your incoming requests are expected to contain serialized json. For the purpose of this example we constructed a dataset that contains a 100 instances of the same input. In real world scenarios we suggest that you use larger datasets containing various inputs, especially if your model resource usage/behavior is input dependent.
+
+```python
+import json
+from azureml.core import Datastore
+from azureml.core.dataset import Dataset
+from azureml.data import dataset_type_definitions
+
+input_json = {"data": [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+# create a string that can be utf-8 encoded and put in the body of the request
+serialized_input_json = input_json
+dataset_content = []
+for i in range(100):
+    dataset_content.append(serialized_input_json)
+dataset_content = '\n'.join(dataset_content)
+file_name = "regression_input.txt"
+f = open(file_name, "w")
+f.write(dataset_content)
+f.close()
+
+# upload the txt file created above to the Datastore and create a dataset from it
+data_store = Datastore.get_default(ws)
+data_store.upload_files(["./" + file_name], target_path='regression_dataset')
+datastore_path = [(data_store, 'regression_dataset' +'/' + file_name)]
+regression_dataset = Dataset.Tabular.from_delimited_files(datastore_path, separator='\n', infer_column_types=True, header=dataset_type_definitions.PromoteHeadersBehavior.NO_HEADERS)
+regression_dataset = regression_dataset.register(workspace=ws, name='regression_dataset', create_new_version=True)
+```
+
+Once you have service input dataset ready, use the register model, 
+## Deploy to target
+
+Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different because you must provide a reference to the AKS cluster.
+
+### Choose a compute target
+
+You can use the following compute targets, or compute resources, to host your web service deployment:
+
+[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+### Define your deployment configuration
 
 Before deploying your model, you must define the deployment configuration. *The deployment configuration is specific to the compute target that will host the web service.* For example, when you deploy a model locally, you must specify the port where the service accepts requests. The deployment configuration isn't part of your entry script. It's used to define the characteristics of the compute target that will host the model and entry script.
 
@@ -543,10 +587,6 @@ The classes for local, Azure Container Instances, and AKS web services can be im
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
-
-## Deploy to target
-
-Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different because you must provide a reference to the AKS cluster.
 
 ### Securing deployments with SSL
 
