@@ -68,7 +68,7 @@ It expects Unity packages to be present in directory beside it, which you need t
 
 ## Getting the Unity NuGet packages
 
-You need to use NuGet commands to pull the packages from the ARR depot – from the same command prompt window within the ARR directory, run the following:
+You need to use NuGet commands to pull the packages from the ARR depot – from the same command prompt window within the ARR directory, run the following command:
 
 ```cmd
 cd arrClient\Unity
@@ -90,9 +90,9 @@ The default model we render will be a built-in model provided by Azure Remote Re
 
 ### Enter your account info
 
-1. In the Unity asset browser navigate to the *Scenes* folder and open the **Quickstart** scene.
-1. From the *Hierarchy* select the **RemoteRendering** game object.
-1. In the *Inspector* enter your [account credentials](../how-tos/create-an-account.md).
+1. In the Unity asset browser, navigate to the *Scenes* folder and open the **Quickstart** scene.
+1. From the *Hierarchy*, select the **RemoteRendering** game object.
+1. In the *Inspector*, enter your [account credentials](../how-tos/create-an-account.md).
 
 ![ARR Account Info](./media/arr-sample-account-info.png)
 
@@ -107,7 +107,7 @@ Later we want to deploy this project to a HoloLens and connect to the Remote Ren
 
 ### Create a session and view the default model
 
-Press Unity's **Play** button to start the session. You should see an overlay with status text, at the bottom of the viewport in the *Game* panel. The session will undergo a series of state transitions. In the **Starting** state the remote VM is spun up, which takes several minutes. Upon success, it transitions to the **Ready** state. Now the session enters the **Connecting** state, where it tries to reach the rendering runtime on that VM. When successful, the sample transitions to the **Connected** state. At this point, it will start downloading the model for rendering. Because of the model's size, the download can take a few more minutes. Then the remotely rendered model will appear.
+Press Unity's **Play** button to start the session. You should see an overlay with status text, at the bottom of the viewport in the *Game* panel. The session will undergo a series of state transitions. In the **Starting** state, the remote VM is spun up, which takes several minutes. Upon success, it transitions to the **Ready** state. Now the session enters the **Connecting** state, where it tries to reach the rendering runtime on that VM. When successful, the sample transitions to the **Connected** state. At this point, it will start downloading the model for rendering. Because of the model's size, the download can take a few more minutes. Then the remotely rendered model will appear.
 
 ![Output from the sample](media/arr-sample-output.png)
 
@@ -131,7 +131,7 @@ To synchronize transforms, either click **Sync now** or check the **Sync every f
 
 ## Next steps
 
-In the next quickstart we will deploy the sample to a HoloLens to view the remotely rendered model in its original size.
+In the next quickstart, we will deploy the sample to a HoloLens to view the remotely rendered model in its original size.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Deploy Unity sample to HoloLens](deploy-to-hololens.md)
