@@ -162,13 +162,15 @@ Save the data into a file and upload it with this script:
 ### Ingestion Properties
 You can specify [Ingestion properties](https://docs.microsoft.com/en-us/azure/kusto/management/data-ingestion/#ingestion-properties) of the blob ingestion via the blob metadata.
 These follow properties can be set:
-    * `rawSizeBytes` - Size of the raw data, i.e., uncompressed. For Avro/ORC/Parquet this should be the size before the format-specific compression is applied.
-    * `kustoTable` -  Name of the existing target table. Will override the `Table` set on the connection.
-    * `kustoDataFormat` -  Data format. Will override the `Data format` set on the connection.
-    * `kustoIngestionMappingReference` -  Name of the existing ingestion mapping to be used. Will override the `Column mapping` set on the connection.
-    * `kustoIgnoreFirstRecord` - If present and set to ‘true’, Kusto will ignore the first row of the blob. Use in tabular format data (CSV, TSV, or similar) to ignore headers.
-    * `kustoExtentTags` - String representing [tags](https://docs.microsoft.com/en-us/azure/kusto/management/extents-overview#extent-tagging) that will be attached to resulting extent.
-    * `kustoCreationTime` -  Overrides the [$IngestionTime](https://docs.microsoft.com/en-us/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) for the blob, formatted as a ISO8601 string. Use for backfilling.
+**Property** | **Property description**|
+|---|---|
+| `rawSizeBytes` | Size of the raw data, i.e., uncompressed. For Avro/ORC/Parquet this should be the size before the format-specific compression is applied. |
+| `kustoTable` |  Name of the existing target table. Will override the `Table` set on the data connection. |
+| `kustoDataFormat` |  Data format. Will override the `Data format` set on the data connection. |
+| `kustoIngestionMappingReference` |  Name of the existing ingestion mapping to be used. Will override the `Column mapping` set on the data connection. |
+| `kustoIgnoreFirstRecord` | If present and set to ‘true’, Kusto will ignore the first row of the blob. Use in tabular format data (CSV, TSV, or similar) to ignore headers. |
+| `kustoExtentTags` | String representing [tags](https://docs.microsoft.com/en-us/azure/kusto/management/extents-overview#extent-tagging) that will be attached to resulting extent. |
+| `kustoCreationTime` |  Overrides the [$IngestionTime](https://docs.microsoft.com/en-us/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) for the blob, formatted as a ISO8601 string. Use for backfilling. |
 
 > [!NOTE]
 > Azure Data Explorer won't delete the blobs post ingestion.
