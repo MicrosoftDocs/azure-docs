@@ -63,7 +63,7 @@ If an existing role does not quite have the permissions you need, you can clone 
 
     ![Clone context menu](./media/custom-roles-portal/clone-menu.png)
 
-    This opens the Basics tab with the **Clone a role** option selected.
+    This opens the custom roles editor with the **Clone a role** option selected.
 
 1. Proceed to [Step 3: Basics](#step-3-basics).
 
@@ -77,7 +77,7 @@ If you prefer, you can follow these steps to start a custom role from scratch.
 
     ![Add custom role menu](./media/custom-roles-portal/add-custom-role-menu.png)
 
-    This opens the Basics tab with the **Start from scratch** option selected.
+    This opens the custom roles editor with the **Start from scratch** option selected.
 
 1. Proceed to [Step 3: Basics](#step-3-basics).
 
@@ -141,9 +141,9 @@ If you prefer, you can specify most of your custom role values in a JSON file. Y
 
     ![Add custom role menu](./media/custom-roles-portal/add-custom-role-menu.png)
 
-    This opens the Basics tab.
+    This opens the custom roles editor.
 
-1. In Baseline permissions, select **Start from JSON**.
+1. On the Basics tab, in Baseline permissions, select **Start from JSON**.
 
 1. Next to the Select a file box, click the folder button to open the Open dialog box.
 
