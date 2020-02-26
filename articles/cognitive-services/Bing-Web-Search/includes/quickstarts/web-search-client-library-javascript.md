@@ -10,9 +10,9 @@ ms.date: 02/24/2020
 ms.author: aahi
 ---
 
-The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Node.js application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
+The Bing Web Search client library makes it easy to integrate Bing Web Search into your Node.js application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
 
-Want to see the code right now? The [Bing Web Search SDK for Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) are available on GitHub.
+Want to see the code right now? Samples for the [Bing Search client libraries for JavaScript](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples) are available on GitHub.
 
 ## Prerequisites
 Here are a few things that you'll need before running this quickstart:

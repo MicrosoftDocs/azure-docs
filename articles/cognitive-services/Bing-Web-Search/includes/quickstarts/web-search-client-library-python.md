@@ -10,9 +10,10 @@ ms.date: 02/24/2020
 ms.author: aahi
 ---
 
-The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Python application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
+The Bing Web Search client library makes it easy to integrate Bing Web Search into your Python application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
 
-Want to see the code right now? The [Bing Web Search SDK for Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) are available on GitHub.
+Want to see the code right now? Samples for the [Bing Search client libraries for JavaScript](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/search) are available on GitHub.
+
 
 ## Prerequisites
 The Bing Web Search SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6. We recommend using a virtual environment for this quickstart.

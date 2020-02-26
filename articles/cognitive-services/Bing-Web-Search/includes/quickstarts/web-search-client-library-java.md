@@ -10,9 +10,9 @@ ms.date: 02/24/2020
 ms.author: aahi
 ---
 
-The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Java application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
+The Bing Web Search client library makes it easy to integrate Bing Web Search into your Java application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
 
-Want to see the code right now? The [Bing Web Search SDK for Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/) are available on GitHub.
+Want to see the code right now? Samples for the [Bing Search client libraries for Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search) are available on GitHub.
 
 ## Prerequisites
 
