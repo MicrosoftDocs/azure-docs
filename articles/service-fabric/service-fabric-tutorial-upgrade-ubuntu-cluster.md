@@ -1,11 +1,13 @@
 ---
 title: Upgrade Ubuntu for a Service Fabric cluster in Azure 
 description: Learn how to upgrade a Linux Service Fabric cluster's Ubuntu version on an existing Azure virtual network using Azure CLI.
+author: nickomang
 
-ms.topic: conceptual
-ms.date: 02/14/2019
-ms.custom: mvc
+ms.author: v-nioma
+ms.topic: tutorial
+ms.date: 02/21/2020
 ---
+
 # Upgrade Ubuntu version for an Azure Service Fabric Linux Cluster
 
 Service Fabric supports the ability to create clusters based on Ubuntu 18.04 LTS. Upgrading the cluster is simple and can be done for clusters running stateless or stateful services. To upgrade a cluster from Ubuntu 16.04 LTS seamlessly, take the following steps:
@@ -63,7 +65,7 @@ After deploying, we need to configure traffic and resources to point to our new 
 
 A stateful service is reliant on existing data, so to seamlessly transition our application we need to port the data over.
 
-Data can be downloaded to an external data store. Following the instructions in [Backup and Restore for Service Fabric Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-backup-restore), complete a full backup of the original service. Follow the instructions for restoring data to the service in our new deployment.
+Data can be downloaded to an external data store for migration. Following the instructions in [Backup and Restore for Service Fabric Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-backup-restore), complete a full backup of the original service. Follow the instructions for restoring data to the service in our new deployment.
 
 ### Stateless Services
 
