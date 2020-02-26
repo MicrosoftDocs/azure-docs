@@ -15,6 +15,7 @@ ms.custom:
 ms.date: 02/24/2020
 ms.author: juliako
 ---
+
 # Handle Media Services business continuity and disaster recovery
 
 Azure Media Services does not provide instant failover of the service if there is a regional datacenter outage or failure. This article explains how to configure your environment for a failover to ensure optimal availability for applications and minimized recovery time if a disaster occurs.
@@ -79,7 +80,15 @@ public static void DecrementReservedUnits(CloudMediaContext context)
     }
 }
 ```
- 
+
+## Video-on-demand cross region streaming 
+
+* Video-on-demand cross region streaming involves duplicating Assets, ContentKeyPolicies, StreamingPolicies, and StreamingLocators. 
+* You will have to create the policies in both regions and keep them up to date. 
+* When you create the StreamingLocators you will want to use the same LocatorId value, ContentKey Id value, and ContentKey value.  
+* If you are encoding the content, it is advised to encode the content in region A and publish it, then copy the encoded content to region B and publish it using the same values as from region A.
+* You can use traffic manager on the host names for the origin and the key delivery service (in Media Services configuration this will look like a custom key server URL).
+
 ## Next steps
 
 [Create an account](create-account-cli-how-to.md)
