@@ -16,7 +16,7 @@ Private site access is useful in scenarios when access to the function needs to 
 
 If an Azure Function needs to access Azure resources within the virtual network, or connected via [service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview), then [virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet) is needed.
 
-In this tutorial, you learn how to configure private site access for an Azure Function:
+In this tutorial, you learn how to configure private site access for your function app:
 
 > [!div class="checklist"]
 > * Create a virtual network
