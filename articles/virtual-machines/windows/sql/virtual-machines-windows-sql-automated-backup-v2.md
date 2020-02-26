@@ -114,9 +114,6 @@ Then, on Tuesday at 10 for 6 hours, full backups of all databases start again.
 > [!IMPORTANT]
 > When scheduling daily backups, it is recommended that you schedule a wide time window to ensure all databases can be backed up within this time. This is especially important in the case where you have a large amount of data to back up.
 
-## Configure in the portal
-
-You can use the Azure portal to configure Automated Backup v2 during provisioning or for existing SQL Server 2016/2017 VMs.
 
 ## Configure for new VMs
 

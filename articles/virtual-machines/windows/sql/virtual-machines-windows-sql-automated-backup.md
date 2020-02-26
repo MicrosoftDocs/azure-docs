@@ -64,9 +64,6 @@ The following table describes the options that can be configured for Automated B
 | **Encryption** | Enable/Disable (Disabled) | Enables or disables encryption. When encryption is enabled, the certificates used to restore the backup are located in the specified storage account in the same `automaticbackup` container using the same naming convention. If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups. |
 | **Password** | Password text | A password for encryption keys. This is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken. |
 
-## Configure in the portal
-
-You can use the Azure portal to configure Automated Backup during provisioning or for existing SQL Server 2014 VMs.
 
 ## Configure new VMs
 
