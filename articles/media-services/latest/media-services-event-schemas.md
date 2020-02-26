@@ -324,20 +324,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason the connection was rejected. The result codes are listed in the following table. |
 
-The result codes are:
-
-| Result code | Description |
-| ----------- | ----------- |
-| MPE_RTMP_APPID_AUTH_FAILURE | Incorrect ingest URL |
-| MPE_INGEST_ENCODER_CONNECTION_DENIED | Encoder IP isn't present in IP allow list configured |
-| MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | Encoder didn't send metadata about the stream. |
-| MPE_INGEST_CODEC_NOT_SUPPORTED | Codec specified isn't supported. |
-| MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED | Received a fragment before receiving and header for that stream. |
-| MPE_INGEST_MEDIA_QUALITIES_EXCEEDED | Number of qualities specified exceeds allowed max limit. |
-| MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | Aggregated bitrate exceeds max allowed limit. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
-| MPE_INGEST_FRAMERATE_EXCEEDED | The incoming encoder ingested streams with framerates exceeded the maximum allowed 30fps for encoding live events/channels.|
-| MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | The incoming encoder ingested streams exceeded the following allowed resolutions: 1920x1088 for encoding live events/channels and 4096 x 2160 for pass-through live events/channels.|
+You can find the error result codes in [live Event error codes](live-event-error-codes.md).
 
 ### LiveEventEncoderConnected
 
@@ -407,14 +394,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason for the encoder disconnecting. It could be graceful disconnect or from an error. The result codes are listed in the following table. |
 
-The error result codes are:
-
-| Result code | Description |
-| ----------- | ----------- |
-| MPE_RTMP_SESSION_IDLE_TIMEOUT | RTMP session timed out after being idle for allowed time limit. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
-| MPE_CAPACITY_LIMIT_REACHED | Encoder sending data too fast. |
-| Unknown Error Codes | These error codes can range from memory error to duplicate entries in hash map. |
+You can find the error result codes in [live Event error codes](live-event-error-codes.md).
 
 The graceful disconnect result codes are:
 
