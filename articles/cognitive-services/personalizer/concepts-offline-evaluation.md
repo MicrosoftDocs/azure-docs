@@ -97,7 +97,7 @@ We recommend looking at feature evaluations and asking:
 
 * What other, additional, features could your application or system provide along the lines of those that are more effective?
 * What features can be removed due to low effectiveness? Low effectiveness features add _noise_ into the machine learning.
-* Are there any features that are accidentally included? Examples of these are: personally identifiable information (PII), duplicate IDs, etc.
+* Are there any features that are accidentally included? Examples of these are: user identifiable information, duplicate IDs, etc.
 * Are there any undesirable features that shouldn't be used to personalize due to regulatory or responsible use considerations? Are there features that could proxy (that is, closely mirror or correlate with) undesirable features?
 
 

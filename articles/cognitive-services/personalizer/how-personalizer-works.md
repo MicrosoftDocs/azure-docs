@@ -7,7 +7,7 @@ ms.date: 02/18/2020
 
 # How Personalizer works
 
-The Personalizer reource, your _learning loop_, uses machine learning to build the model that predicts the top action for your content. The model is trained exclusively on your data that you sent to it with the **Rank** and **Reward** calls. Every loop is completely independent of each other.
+The Personalizer resource, your _learning loop_, uses machine learning to build the model that predicts the top action for your content. The model is trained exclusively on your data that you sent to it with the **Rank** and **Reward** calls. Every loop is completely independent of each other.
 
 ## Rank and Reward APIs impact the model
 

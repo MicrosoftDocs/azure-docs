@@ -11,13 +11,13 @@ Learning settings determine the *hyperparameters* of the model training. Two mod
 
 [Learning policy and settings](how-to-settings.md#configure-rewards-for-the-feedback-loop) are set on your Personalizer resource in the Azure portal.
 
-### Import and export learning policies
+## Import and export learning policies
 
 You can import and export learning-policy files from the Azure portal. Use this method to save existing policies, test them, replace them, and archive them in your source code control as artifacts for future reference and audit.
 
 Learn [how to](how-to-manage-model.md#import-a-new-learning-policy) import and export a learning policy in the Azure portal for your Personalizer resource.
 
-### Understand learning policy settings
+## Understand learning policy settings
 
 The settings in the learning policy aren't intended to be changed. Change settings only if you understand how they affect Personalizer. Without this knowledge, you could cause problems, including invalidating Personalizer models.
 
@@ -32,13 +32,13 @@ The following `.json` is an example of a learning policy.
 }
 ```
 
-### Compare learning policies
+## Compare learning policies
 
 You can compare how different learning policies perform against past data in Personalizer logs by doing [offline evaluations](concepts-offline-evaluation.md).
 
 [Upload your own learning policies](how-to-manage-model.md) to compare them with the current learning policy.
 
-### Optimize learning policies
+## Optimize learning policies
 
 Personalizer can create an optimized learning policy in an [offline evaluation](how-to-offline-evaluation.md). An optimized learning policy that has better rewards in an offline evaluation will yield better results when it's used online in Personalizer.
 
