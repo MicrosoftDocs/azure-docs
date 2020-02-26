@@ -1667,6 +1667,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/web-search-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/web-sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/web-search-sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/web-sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
       "redirect_document_id": false
