@@ -12,7 +12,7 @@ ms.date: 02/15/2020
 
 This tutorial shows you how to enable [private site access](./functions-networking-options.md#private-site-access) with Azure Functions. By using private site access, you can require that your function code is only triggered from a specific virtual network.
 
-Private site access is useful in scenarios when access to the function app needs to be limited to a specific virtual network. For example, the function app may be applicable to only employees of a specific organization, or services which reside within the specified virtual network (such as another Azure Function, Azure Virtual Machine, or an AKS cluster).
+Private site access is useful in scenarios when access to the function app needs to be limited to a specific virtual network. For example, the function app may be applicable to only employees of a specific organization, or services which are within the specified virtual network (such as another Azure Function, Azure Virtual Machine, or an AKS cluster).
 
 If a Functions app needs to access Azure resources within the virtual network, or connected via [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), then [virtual network integration](./functions-create-vnet.md) is needed.
 
@@ -90,7 +90,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 
 ## Configure Azure Bastion
 
-[Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) is a fully-managed Azure service which provides secure RDP and SSH access to virtual machines directly from the Azure portal. Using the Azure Bastion service removes the need to configure network settings related to RDP access.
+[Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) is a fully managed Azure service which provides secure RDP and SSH access to virtual machines directly from the Azure portal. Using the Azure Bastion service removes the need to configure network settings related to RDP access.
 
 1. In the portal, choose **Add** at the top of the resource group view.
 2. In the search field, type "Bastion".  Select "Bastion".
@@ -109,7 +109,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
     > [!NOTE]
     > For a detailed, step-by-step guide to creating an Azure Bastion resource, refer to the [Create an Azure Bastion host](../bastion/bastion-create-host-portal.md) tutorial.
 
-4. You need to create a subnet in which Azure can provision the Azure Bastion host. Choosing **Manage subnet configuration** opens a new pane where you can define a new subnet.  Choose **+ Subnet** to create a new subnet.
+4. Create a subnet in which Azure can provision the Azure Bastion host. Choosing **Manage subnet configuration** opens a new pane where you can define a new subnet.  Choose **+ Subnet** to create a new subnet.
 5. The subnet must be of the name `AzureBastionSubnet` and the subnet prefix must be at least `/27`.  Select **OK** to create the subnet.
 
     >[!div class="mx-imgBorder"]
@@ -153,7 +153,7 @@ The next step is to create a function app in Azure using the [Consumption plan](
 
 The next step is to configure [access restrictions](../app-service/app-service-ip-restrictions.md) to ensure only resources on the virtual network can invoke the function.
 
-[Private site](functions-networking-options.md#private-site-access) access is enabled by creating an Azure Virtual Network [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the function app and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure that only traffic originating from within the specified virtual network can access the designated resource. In this case, the designated resource is the Azure Function.
+[Private site](functions-networking-options.md#private-site-access) access is enabled by creating an Azure Virtual Network [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the function app and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure only traffic originating from within the specified virtual network can access the designated resource. In this case, the designated resource is the Azure Function.
 
 1. Within the function app, proceed to the **Platform features** tab. Select the **Networking** link under the *Networking* section header to open the Network Feature Status section.
 2. The **Network Feature Status** page is the starting point to configure Azure Front Door, the Azure CDN, and also Access Restrictions. Select **Configure Access Restrictions** to configure private site access.
