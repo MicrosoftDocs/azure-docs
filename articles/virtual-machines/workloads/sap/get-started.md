@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/25/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -33,23 +33,20 @@ The uniqueness of Azure for SAP HANA is an offer that sets Azure apart. To enabl
 Hosting SAP workload scenarios in Azure also can create requirements of identity integration and single sign-on. This situation can occur when you use Azure Active Directory (Azure AD) to connect different SAP components and SAP software-as-a-service (SaaS) or platform-as-a-service (PaaS) offers. A list of such integration and single sign-on scenarios with Azure AD and SAP entities is described and documented in the section "AAD SAP identity integration and single sign-on."
 
 ## Changes to the SAP workload section
-Changes to documents in the SAP on Azure workload section are listed at the end of this article.
+Changes to documents in the SAP on Azure workload section are listed at the end of this article. The entries in the change log are kept for around 180 days.
 
+## You want to know
+If you have specific questions, we are going to point you to specific documents or flows in this section of the start page. You want to know:
 
+- What Azure VMs and HANA Large Instance units are supported for which SAP software releases and which operating system versions. Read the document [What SAP software is supported for Azure deployment](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) for answers and the process to find the information
+- What SAP deployment scenarios are supported with Azure VMs and HANA Large Instances. Information about the supported scenarios can be found in the documents:
+	- [SAP workload on Azure virtual machine supported scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
+	- [Supported scenarios for HANA Large Instance](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+
+ 
 ## SAP HANA on Azure (Large Instances)
 
-A series of documents leads you through SAP HANA on Azure (Large Instances), or for short, HANA Large Instances. For information on the following areas of HANA Large Instances, see:
-
-- [Overview of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-- [Architecture of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
-- [Infrastructure and connectivity to SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
-- [Install SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
-- [High availability and disaster recovery of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
-- [Troubleshoot and monitor SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
-
-Next steps:
-
-- Read [Overview and architecture of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+A series of documents leads you through SAP HANA on Azure (Large Instances), or for short, HANA Large Instances. For information on HANA Large Instances start with the document [Overview and architecture of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) and go through the related documentation in the HANA Large Instance section
 
 
 
@@ -119,7 +116,20 @@ For information on integration of Azure services into SAP components, see:
 
 
 ## Change Log
-
+- 02/25/2020: Change in [High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server with Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm) to point to document that describes access to public endpoint with Standard Azure Load balancer
+- 02/21/2020: Complete revision of the article [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
+- 02/21/2020: Change in [SAP HANA Azure virtual machine storage configuration](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) to represent new recommendation in stripe size for /hana/data and adding setting of I/O scheduler
+- 02/21/2020: Changes in HANA Large Instance documents to represent newly certified SKUs of S224 and S224m
+- 02/21/2020: Change in [Azure VMs high availability for SAP NetWeaver on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) and [Azure VMs high availability for SAP NetWeaver on RHEL with Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) to adjust the cluster constraints for enqueue server replication 2 architecture (ENSA2)
+- 02/20/2020: Change in [High availability for SAP NetWeaver on Azure VMs on SLES multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) to add a link to the SUSE multi-SID cluster guide
+- 02/13/2020: Changes to [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) to implement links to new documents
+- 02/13/2020: Added new document [SAP workload on Azure virtual machine supported scenario](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
+- 02/13/2020: Added new document [What SAP software is supported for Azure deployment](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure)
+- 02/13/2020: Change in [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw) to point to document that describes access to public endpoint with Standard Azure Load balancer
+- 02/13/2020: Add the new VM types to [SAP certifications and configurations running on Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
+- 02/13/2020: Add new SAP support notes [SAP workloads on Azure: planning and deployment checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
+- 02/13/2020: Change in [Azure VMs high availability for SAP NetWeaver on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) and [Azure VMs high availability for SAP NetWeaver on RHEL with Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) to align the cluster resources timeouts to the Red Hat timeout recommendations
+- 02/11/2020: Release of [SAP HANA on Azure Large Instance migration to Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration)
 - 02/07/2020: Change in [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) to update sample NSG screenshot
 - 02/03/2020: Change in [High availability for SAP NW on Azure VMs on SLES for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse) and [High availability for SAP NW on Azure VMs on SLES with ANF for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) to remove the warning about using dash in the host names of cluster nodes on SLES
 - 01/28/2020: Change in [High availability of SAP HANA on Azure VMs on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) to align the SAP HANA cluster resources timeouts to the Red Hat timeout recommendations
@@ -153,10 +163,5 @@ For information on integration of Azure services into SAP components, see:
 - 08/16/2019: Changes in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) to remind customers to update the actions in the custom role, if updating to the new version of the Azure fence agent  
 - 08/15/2019: Changes in [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) to reflect General Availability of Ultra disk (formerly Ultra SSD)
 - 08/01/2019: Changes to [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) to integrate changes specifically for SLES 15 
-- 07/23/2019: Changes in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure](sap-high-availability-guide-wsfc-file-share.md) to reflect support of Storage Space Direct by Azure Site Recovery Services
-- 07/14/2019: Release of [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md)
-- 07/11/2019: Changes in various documents covering HANA Large Instances to cover Revision 4 of HANA Large Instances
-- 07/09/2019: Release of new guide for [IBM Db2 HADR in Red Hat Enterprise Server](high-availability-guide-rhel-ibm-db2-luw.md)
-- 06/13/2019: Release of [High availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](high-availability-guide-rhel-netapp-files.md)
 
 

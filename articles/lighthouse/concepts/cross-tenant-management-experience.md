@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 01/06/2020
+ms.date: 02/07/2020
 ms.topic: conceptual
 ---
 
@@ -50,6 +50,7 @@ Most tasks and services can be performed on delegated resources across managed t
 [Azure Backup](../../backup/index.yml):
 
 - Back up and restore customer data in customer tenants
+- Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
 
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 

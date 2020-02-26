@@ -49,6 +49,13 @@ kubectl create ns nginx
 helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
 
+> [!NOTE]
+> The above example creates a public endpoint for your ingress controller. If you need to use a private endpoint for your ingress controller instead, add the *--set controller.service.annotations."service\\.beta\\.kubernetes\\.io/azure-load-balancer-internal"=true* parameter to the *helm install* command. For example:
+> ```console
+> helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0
+> ```
+> This private endpoint is exposed within the virtual network where you AKS cluster is deployed.
+
 Get the IP address of the NGINX ingress controller service using [kubectl get][kubectl-get].
 
 ```console
@@ -116,7 +123,7 @@ azds space select -n dev -y
 Deploy the sample application using `helm install`.
 
 ```console
-helm install bikesharing . --dependency-update --namespace dev --atomic
+helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 ```
 
 The above example deploys the sample application to the *dev* namespace.

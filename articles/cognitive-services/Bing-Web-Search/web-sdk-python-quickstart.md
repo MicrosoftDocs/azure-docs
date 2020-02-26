@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/11/2019
 ms.author: aahi
 ---
 
@@ -85,7 +85,7 @@ If the response contains web pages, images, news, or videos, the first result fo
 
     ```python
     # Import required modules.
-    from azure.cognitiveservices.search.websearch import WebSearchAPI
+    from azure.cognitiveservices.search.websearch import WebSearchClient
     from azure.cognitiveservices.search.websearch.models import SafeSearch
     from msrest.authentication import CognitiveServicesCredentials
 
@@ -93,7 +93,7 @@ If the response contains web pages, images, news, or videos, the first result fo
     subscription_key = "YOUR_SUBSCRIPTION_KEY"
 
     # Instantiate the client and replace with your endpoint.
-    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key), base_url = "YOUR_ENDPOINT")
+    client = WebSearchClient(endpoint="YOUR_ENDPOINT", CognitiveServicesCredentials(subscription_key))
 
     # Make a request. Replace Yosemite if you'd like.
     web_data = client.web.search(query="Yosemite")

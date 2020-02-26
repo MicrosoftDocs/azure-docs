@@ -417,4 +417,4 @@ Here's an example of a telemetry message:
 
 ## Next steps
 
-For more information about REST API-based integration details, see [REST API](references-for-azure-farmbeats.md#rest-api).
+For more information about REST API-based integration details, see [REST API](rest-api-in-azure-farmbeats.md).

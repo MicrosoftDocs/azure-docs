@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -68,7 +68,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Relying Party OAUTH1 |  |  |  | Not supported. |
 | Relying Party OAUTH2 |  |  | X |  |
 | Relying Party OIDC |  |  | X |  |
-| Relying Party SAML | X |  |  |  |
+| Relying Party SAML |  |X  |  |  |
 | Relying Party WSFED | X |  |  |  |
 | REST API with basic and certificate auth |  |  | X | For example, Azure Logic Apps. |
 
@@ -81,7 +81,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Azure Email subsystem for email verification |  |  | X |  |
 | Multi-language support|  |  | X |  |
 | Predicate Validations |  |  | X | For example, password complexity. |
-| Using third party email service providers | X |  |  |  |
+| Using third party email service providers |  |X  |  |  |
 
 ### Content Definition
 

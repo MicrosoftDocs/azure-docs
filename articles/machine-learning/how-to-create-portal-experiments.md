@@ -56,7 +56,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
     1. Give your dataset a unique name and provide an optional description. 
 
-    1. Select **Next**, to upload it to the default storage container that's automatically created with your workspace, or choose a storage container that you want to use for the experiment. 
+    1. Select **Next** to open the **Datastore and file selection form**. On this form you select where to upload your dataset; the default storage container that's automatically created with your workspace, or choose a storage container that you want to use for the experiment. 
 
     1. Review the **Settings and preview** form for accuracy. The form is intelligently populated based on the file type. 
 
@@ -74,7 +74,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
             
         Select **Next.**
 
-    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to profile your dataset using a profiling enabled compute. Learn more about [data profiling](#profile).
+    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling](#profile).
 
         Select **Next**.
 1. Select your newly created dataset once it appears. You are also able to view a preview of the dataset and sample statistics. 

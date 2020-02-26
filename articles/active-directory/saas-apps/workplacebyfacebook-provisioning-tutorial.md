@@ -40,13 +40,15 @@ If your Workplace integration is in quarantine, you will need to supply a valid 
 
 https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
 
- 
+#### How can I tell if my application has been migrated? 
+When your application is migrated, the banner in the authorization section about upcomming changes will be removed and the secret token field will be replaced with a blue authorize button. 
+
 #### The admin credentials section is greyed out on my application and I can't save. Why?
 We have locked down the admin credentials section for existing Workplace customers. When your tenant has been migrated to the new Workplace application you will be able to update the admin credentials section again. If you can't wait, you can use the URL above to edit your application. 
 
  
 #### When will these changes happen?
-All new instances of Workplace will already be using the new integration / authorization method. Existing integrations will be migrated gradually in February. The migration will be completed for all tenants by the end of the Month. 
+All new instances of Workplace will already be using the new integration / authorization method. Existing integrations will be migrated gradually by May. The workplace team has provided an extension on the deadline from Feb-28 to May-1. 
 
 ## Capabilities supported
 > [!div class="checklist"]

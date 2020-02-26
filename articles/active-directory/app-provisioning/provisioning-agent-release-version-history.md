@@ -13,7 +13,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/04/2020
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.author: chmutali
 
 ms.collection: M365-identity-device-management

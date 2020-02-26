@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 01/20/2020
+ms.date: 02/10/2020
 ---
 # Resource functions for Azure Resource Manager templates
 
@@ -118,7 +118,7 @@ The syntax for this function varies by name of the list operations. Each impleme
 
 ### Valid uses
 
-The list functions can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](create-multiple-instances.md#property-iteration), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
+The list functions can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](copy-properties.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
 
 ### Implementations
 
@@ -490,7 +490,7 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 
 ### Valid uses
 
-The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](create-multiple-instances.md#property-iteration), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
+The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](copy-properties.md), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
 
 You can't use the reference function in the outputs of a [nested template](linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](linked-templates.md#linked-template).
 
@@ -747,14 +747,14 @@ The preceding example returns an object in the following format:
 resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template.
+Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |No |string (In GUID format) |Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription. |
-| resourceGroupName |No |string |Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group. |
+| subscriptionId |No |string (In GUID format) |Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription. Only provide this value when deploying at the scope of a resource group or subscription. |
+| resourceGroupName |No |string |Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group. Only provide this value when deploying at the scope of a resource group. |
 | resourceType |Yes |string |Type of resource including resource provider namespace. |
 | resourceName1 |Yes |string |Name of resource. |
 | resourceName2 |No |string |Next resource name segment, if needed. |
@@ -763,7 +763,7 @@ Continue adding resource names as parameters when the resource type includes mor
 
 ### Return value
 
-The resource ID is returned in the following format:
+When the template is deployed at the scope of a resource group, the resource ID is returned in the following format:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -773,6 +773,12 @@ When used in a [subscription-level deployment](deploy-to-subscription.md), the r
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+When used in a [management group-level deployment](deploy-to-management-group.md) or tenant-level deployment, the resource ID is returned in the following format:
+
+```json
+/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
 To get the ID in other formats, see:
@@ -1053,6 +1059,6 @@ You use this function to get the resource ID for a resource that is deployed to 
 
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 * To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
 

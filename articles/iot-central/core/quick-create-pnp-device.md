@@ -3,7 +3,7 @@ title: Quickstart - Add a simulated device to Azure IoT Central
 description: This quickstart shows how to create a device template and add a simulated device to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/10/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -45,7 +45,7 @@ There are several options for adding a device capability model to your IoT Centr
 
 The following steps show you how to use the device catalog to import the capability model for an **MXChip IoT DevKit** device. These devices send telemetry, such as temperature, to your application:
 
-1. To add a new device template, select **+** on the **Device Templates** page.
+1. To add a new device template, select **+** on the **Device templates** page.
 
 1. On the **Select template type** page, scroll down until you find the **MXChip IoT DevKit** tile.
 
@@ -63,7 +63,7 @@ The following steps show you how to use the device catalog to import the capabil
 
 A device template can include cloud properties. Cloud properties only exist in the IoT Central application and are never sent to, or received from, a device.
 
-1. Select **Cloud Properties** and then **+ Add Cloud Property**. Use the information in the following table to add two cloud properties to your device template:
+1. Select **Cloud Properties** and then **+ Add cloud property**. Use the information in the following table to add two cloud properties to your device template:
 
     | Display Name      | Semantic Type | Schema |
     | ----------------- | ------------- | ------ |
@@ -125,7 +125,7 @@ To add a simulated device to your application, you use the **MXChip IoT DevKit**
 
 1. To add a new device as an operator choose **Devices** in the left pane. The **Devices** tab shows **All devices** and the **MXChip IoT DevKit** device template. Select **MXChip IoT DevKit**.
 
-1. To add a simulated DevKit device, select **+**. Use the suggested **Device ID** or enter your own lowercase **Device ID**. You can also enter a name for your new device. Make sure the **simulated** toggle is **On** and then select **Create**.
+1. To add a simulated DevKit device, select **+**. Use the suggested **Device ID** or enter your own lowercase **Device ID**. You can also enter a name for your new device. Make sure the **Simulated** toggle is **On** and then select **Create**.
 
     ![Simulated device](./media/quick-create-pnp-device/simulated-device.png)
 

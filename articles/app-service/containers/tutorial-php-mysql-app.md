@@ -4,7 +4,7 @@ description: Learn how to get a Linux Node.js app working in Azure App Service, 
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.custom: mvc
+ms.custom: mvc, cli-validate
 ms.custom: seodec18
 ---
 # Build a PHP and MySQL app in Azure App Service on Linux

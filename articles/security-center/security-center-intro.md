@@ -80,10 +80,10 @@ you block unwanted connections that could potentially make it easier for an atta
 
 ![Security Center network map](media/security-center-intro/sc-net-map.png)
 
-Security Center makes mitigating your security alerts one step easier, by adding a **Secure score**. The secure scores are now associated with each recommendation you receive to help you understand how important each
+Security Center makes mitigating your security alerts one step easier, by adding a **Secure Score**. The Secure Scores are now associated with each recommendation you receive to help you understand how important each
 recommendation is to your overall security posture. This is crucial in enabling you to **prioritize your security work**.
 
-![Security Center secure score](media/security-center-intro/sc-secure-score.png)
+![Security Center Secure Score](media/security-center-intro/sc-secure-score.png)
 
 ### Optimize and improve security by configuring recommended controls
 
