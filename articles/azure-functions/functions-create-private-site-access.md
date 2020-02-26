@@ -260,7 +260,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
 
 The next step in this tutorial is to create an HTTP-triggered Azure Function. Invoking the function via an HTTP GET or POST should result in a response of "Hello, {name}".  
 
-1. Follow one of the following quickstarts to create and deploy your Azure Function.
+1. Follow one of the following quickstarts to create and deploy your Azure Functions app.
 
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
