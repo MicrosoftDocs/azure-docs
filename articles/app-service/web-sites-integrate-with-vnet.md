@@ -206,8 +206,6 @@ Connecting and disconnecting with a VNet is at an app level. Operations that can
 
 The only operation you can take in the app view of your VNet Integration is to disconnect your app from the VNet it is currently connected to. To disconnect your app from a VNet, select **Disconnect**. Your app will be restarted when you disconnect from a VNet. Disconnecting doesn't change your VNet. The subnet or gateway is not removed. If you then want to delete your VNet, you need to first disconnect your app from the VNet and delete the resources in it such as gateways. 
 
-![ASP VNet Integration information][5]
-
 The ASP VNet Integration UI will show you all of the VNet integrations used by the apps in your ASP. To see details on each VNet, click on the VNet you are interested in. There are two actions you can perform here for gateway required VNet Integration.
 
 * **Sync network**. The sync network operation is only for the gateway-dependent VNet Integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your VNet, you need to perform a **Sync network** operation. This operation will restart any apps using this VNet.
