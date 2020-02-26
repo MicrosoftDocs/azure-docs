@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/24/2020
+ms.date: 01/31/2020
 
 ---
 
@@ -20,7 +20,7 @@ We have released a new version of Azure Monitor for VMs. Customers enabling Azur
 
 With this upgrade, Azure Monitor for VMs performance data are stored in the same *InsightsMetrics* table as [Azure Monitor for containers](container-insights-overview.md), which makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. 
 
-In the next week or two, our performance views will also be updated to use this new table.
+Our performance views are now using the data we store in the *InsightsMetrics* table.  If you have not yet upgraded to use the latest VMInsights solution on your workspace, your charts will no longer display information.  You can upgrade from our **Get Started** page as described below.
 
 We realize that asking existing customers to upgrade causes disruption to their workflow, which is why we have chosen to do this now while in Public Preview rather than later after GA.
 
@@ -31,9 +31,13 @@ We have released a new solution, named VMInsights, that includes additional capa
 
 In the past, we enabled the ServiceMap solution on your workspace and setup performance counters in your Log Analytics workspace to send the data to the *Perf* table. This new solution sends the data to a table named *InsightsMetrics* that is also used by Azure Monitor for containers. This table schema allows us to store additional metrics and service data sets that are not compatible with the *Perf* table format.
 
+We have updated our Performance charts to use the data we store in the *InsightsMetrics* table. You can upgrade to use the *InsightsMetrics* table from our **Get Started** page as described below.
+
 
 ## How do I upgrade?
-Each VM requiring upgrade will be identified in the **Get Started** tab in Azure Monitor for VMs in the Azure portal. You can upgrade a single VM or select multiple to upgrade together. Use the following command to upgrade using PowerShell:
+When a Log Analytics workspace is upgraded to the latest version of Azure Monitor to VMs, it will upgrade the dependency agent on each of the VMs attached to that workspace. Each VM requiring upgrade will be identified in the **Get Started** tab in Azure Monitor for VMs in the Azure portal. When you choose to upgrade a VM, it will upgrade the workspace for that VM along with any other VMs attached to that workspace. You can select a single VM or multiple VMs, resource groups, or subscriptions. 
+
+Use the following command to upgrade a workspace using PowerShell:
 
 ```PowerShell
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True

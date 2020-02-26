@@ -586,7 +586,7 @@ Test failover of your failover group using the Azure portal, or PowerShell.
 
 Test failover of your failover group using the Azure portal. 
 
-1. Navigate to your managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
+1. Navigate to your _secondary_ managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
 1. Review which managed instance is the primary, and which managed instance is the secondary. 
 1. Select **Failover** and then select **Yes** on the warning about TDS sessions being disconnected. 
 
@@ -596,7 +596,7 @@ Test failover of your failover group using the Azure portal.
 
    ![Managed instances have switched roles after failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
-1. Select **Failover** once again to fail the primary instance back to the primary role. 
+1. Go to the new _secondary_ managed instance and select **Failover** once again to fail the primary instance back to the primary role. 
 
 # [PowerShell](#tab/azure-powershell)
 

@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 11/19/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
 ---
 # Evaluate Model module
 
@@ -75,10 +75,10 @@ Because this is a clustering model, the evaluation results are different than if
 
 This section describes the metrics returned for the specific types of models supported for use with **Evaluate Model**:
 
-+ [classification models](#bkmk_classification)
-+ [regression models](#bkmk_regression)
++ [classification models](#metrics-for-classification-models)
++ [regression models](#metrics-for-regression-models)
 
-###  <a name="bkmk_classification"></a> Metrics for classification models
+### Metrics for classification models
 
 The following metrics are reported when evaluating classification models. If you compare models, they are ranked by the metric you select for evaluation.  
   
@@ -96,7 +96,7 @@ The following metrics are reported when evaluating classification models. If you
   
 - **Training log loss** is a single score that represents the advantage of the classifier over a random prediction. The log loss measures the uncertainty of your model by comparing the probabilities it outputs to the known values (ground truth) in the labels. You want to minimize log loss for the model as a whole.
 
-##  <a name="bkmk_regression"></a> Metrics for regression models
+### Metrics for regression models
  
 The metrics returned for regression models are designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
   
@@ -110,7 +110,7 @@ The metrics returned for regression models are designed to estimate the amount o
   
 - **Relative squared error (RSE)** similarly normalizes the total squared error of the predicted values by dividing by the total squared error of the actual values.  
   
-- **Mean Zero One Error (MZOE)** indicates whether the prediction was correct or not.  In other words: `ZeroOneLoss(x,y) = 1` when `x!=y`; otherwise `0`.
+
   
 - **Coefficient of determination**, often referred to as R<sup>2</sup>, represents the predictive power of the model as a value between 0 and 1. Zero means the model is random (explains nothing); 1 means there is a perfect fit. However, caution should be used in interpreting  R<sup>2</sup> values, as low values can be entirely normal and high values can be suspect.
   

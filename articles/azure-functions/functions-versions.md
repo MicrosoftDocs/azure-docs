@@ -34,7 +34,7 @@ For more information, see [Supported languages](supported-languages.md).
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
-By default, function apps created in the Azure portal and by the Azure CLI are set to version 2.x. You can modify this version as needed. You can only change the runtime version to 1.x after you create your function app but before you add any functions.  Moving between 2.x and 3.x is allowed even with apps that have functions, but it is still recommended to test in a new app first.
+By default, function apps created in the Azure portal and by the Azure CLI are set to version 3.x. You can modify this version as needed. You can only change the runtime version to 1.x after you create your function app but before you add any functions.  Moving between 2.x and 3.x is allowed even with apps that have functions, but it is still recommended to test in a new app first.
 
 ## Migrating from 1.x to later versions
 

@@ -55,10 +55,11 @@ Datastores currently support storing connection information to the storage servi
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Service principal| ✓ | ✓ | ✓ |✓
 Azure&nbsp;SQL&nbsp;Database| SQL authentication <br>Service principal| ✓ | ✓ | ✓ |✓
 Azure&nbsp;PostgreSQL | SQL authentication| ✓ | ✓ | ✓ |✓
-Azure&nbsp;Database&nbsp;for&nbsp;MySQL | SQL authentication|  | ✓ | ✓ |✓
-Databricks&nbsp;File&nbsp;System| No authentication | | ✓* | ✓ * |✓* 
+Azure&nbsp;Database&nbsp;for&nbsp;MySQL | SQL authentication|  | ✓* | ✓* |✓*
+Databricks&nbsp;File&nbsp;System| No authentication | | ✓** | ✓ ** |✓** 
 
-*only supported on local compute target scenarios
+*MySQL is only supported for pipeline [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). <br>
+\**Databricks is only supported for pipeline [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)
 
 ### Storage guidance
 
@@ -75,20 +76,22 @@ When you register an Azure Storage solution as a datastore, you automatically cr
 
 >[!IMPORTANT]
 > As part of the current datastore create and register process, Azure Machine Learning validates that the user provided principal (username, service principal or SAS token) has access to the underlying storage service. 
-<br>
+<br><br>
 However, for Azure Data Lake Storage Gen 1 and 2 datastores, this validation  happens later when data access methods like [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) or [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) are called. 
 
 ### Python SDK
 
 All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form `register_azure_*`.
 
-You can find the information that you need to populate the `register()` method by using the [Azure portal](https://portal.azure.com):
+You can find the information that you need to populate the `register()` method on the [Azure portal](https://portal.azure.com).
+Select **Storage Accounts** on the left pane, and choose the storage account that you want to register. The **Overview** page provides information such as the account name, container, and file share name. 
 
-1. Select **Storage Accounts** on the left pane, and choose the storage account that you want to register. 
-2. For information like the account name, container, and file share name, go to the **Overview** page. For authentication information, like account key or SAS token, go to **Access Keys** on the **Settings** pane. 
+* For authentication items, like account key or SAS token, go to **Account Keys** on the **Settings** pane. 
+
+* For service principal items like, tenant ID and client ID, go to your **App registrations** and select which app you want to use. Its corresponding **Overview** page will contain these items.
 
 > [!IMPORTANT]
-> If your storage account is in a virtual network, only the creation of an Azure blob datastore is supported. To grant your workspace access to your storage account, set the parameter `grant_workspace_access` to `True`.
+> If your storage account is in a virtual network, only creation of Blob, File share, ADLS Gen 1 and ADLS Gen 2 datastores **via the SDK** is supported. To grant your workspace access to your storage account, set the parameter `grant_workspace_access` to `True`.
 
 The following examples show how to register an Azure blob container, an Azure file share, and Azure Data Lake Storage Generation 2 as a datastore. For other storage services, please see the [reference documentation for the `register_azure_*` methods](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
@@ -132,7 +135,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### Azure Data Lake Storage Generation 2
 
-For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a credential datastore connected to an Azure DataLake Gen 2 storage with service principal permissions. Learn more about [access control set up for ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a credential datastore connected to an Azure DataLake Gen 2 storage with [service principal permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). In order to utilize your service principal you need to [register your application](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) and set role assignments to Reader and Data access. Learn more about [access control set up for ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 The following code creates and registers the `adlsgen2_datastore_name` datastore to the `ws` workspace. This datastore accesses the file system `test` on the `account_name` storage account, by using the provided service principal credentials.
 
@@ -160,12 +163,19 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 
 Create a new datastore in a few steps in Azure Machine Learning studio:
 
+> [!IMPORTANT]
+> If your storage account is in a virtual network, only creation of datastores [via the SDK](#python-sdk) is supported. 
+
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Datastores** on the left pane under **Manage**.
 1. Select **+ New datastore**.
 1. Complete the form for a new datastore. The form intelligently updates itself based on your selections for Azure Storage type and authentication type.
   
-You can find the information that you need to populate the form on the  [Azure portal](https://portal.azure.com). Select **Storage Accounts** on the left pane, and choose the storage account that you want to register. The **Overview** page provides information such as the account name, container, and file share name. For authentication items, like account key or SAS token, go to **Account Keys** on the **Settings** pane.
+You can find the information that you need to populate the form on the  [Azure portal](https://portal.azure.com). Select **Storage Accounts** on the left pane, and choose the storage account that you want to register. The **Overview** page provides information such as the account name, container, and file share name. 
+
+* For authentication items, like account key or SAS token, go to **Account Keys** on the **Settings** pane. 
+
+* For service principal items like, tenant ID and client ID, go to your **App registrations** and select which app you want to use. Its corresponding **Overview** page will contain these items. 
 
 The following example demonstrates what the form looks like when you create an Azure blob datastore: 
     

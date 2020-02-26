@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- **Terraform**: [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure).
+- **Terraform**: [Install Terraform and configure access to Azure](terraform-install-configure.md).
 - **SSH key pair**: [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys).
 - **Packer**:  [Install Packer](https://www.packer.io/docs/install/index.html).
 

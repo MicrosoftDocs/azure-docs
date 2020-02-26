@@ -163,6 +163,38 @@ SELECT DeviceID, PropertyValue AS Temperature INTO TemperatureOutput FROM Stage0
 SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE PropertyName = 'Humidity'
 ```
 
+### Parse JSON record in SQL reference data
+When using Azure SQL Database as reference data in your job, it's possible to have a column that has data in JSON format. An example is shown below.
+
+|DeviceID|Data|
+|-|-|
+|12345|{"key" : "value1"}|
+|54321|{"key" : "value2"}|
+
+You can parse the JSON record in the *Data* column by writing a simple JavaScript user-defined function.
+
+```javascript
+function parseJson(string) {
+return JSON.parse(string);
+}
+```
+
+You can then create a step in your Stream Analytics query as shown below to access the fields of your JSON records.
+
+ ```SQL
+ WITH parseJson as
+ (
+ SELECT DeviceID, udf.parseJson(sqlRefInput.Data) as metadata,
+ FROM sqlRefInput
+ )
+ 
+ SELECT metadata.key
+ INTO output
+ FROM streamInput
+ JOIN parseJson 
+ ON streamInput.DeviceID = parseJson.DeviceID
+```
+
 ## Array data types
 
 Array data types are an ordered collection of values. Some typical operations on array values are detailed below. These examples use the functions [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics), and the [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) operator.

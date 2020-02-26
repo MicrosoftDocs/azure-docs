@@ -61,7 +61,7 @@ This scenario can have multiple causes and all of them should be checked:
 
 1. Is your Azure Function deployed in the same region as your Azure Cosmos account? For optimal network latency, both the Azure Function and your Azure Cosmos account should be colocated in the same Azure region.
 2. Are the changes happening in your Azure Cosmos container continuous or sporadic?
-If it's the latter, there could be some delay between the changes being stored and the Azure Function picking them up. This is because internally, when the trigger checks for changes in your Azure Cosmos container and finds none pending to be read, it will sleep for a configurable amount of time (5 seconds, by default) before checking for new changes (to avoid high RU consumption). You can configure this sleep time through the `FeedPollDelay/feedPollDelay` setting in the [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) of your trigger (the value is expected to be in milliseconds).
+If it's the latter, there could be some delay between the changes being stored and the Azure Function picking them up. This is because internally, when the trigger checks for changes in your Azure Cosmos container and finds none pending to be read, it will sleep for a configurable amount of time (5 seconds, by default) before checking for new changes (to avoid high RU consumption). You can configure this sleep time through the `FeedPollDelay/feedPollDelay` setting in the [configuration](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) of your trigger (the value is expected to be in milliseconds).
 3. Your Azure Cosmos container might be [rate-limited](./request-units.md).
 4. You can use the `PreferredLocations` attribute in your trigger to specify a comma-separated list of Azure regions to define a custom preferred connection order.
 
@@ -88,10 +88,10 @@ One easy way to workaround this situation, is to apply a `LeaseCollectionPrefix/
 To re-process all the items in a container from the beginning:
 1. Stop your Azure function if it is currently running. 
 1. Delete the documents in the lease collection (or delete and re-create the lease collection so it is empty)
-1. Set the [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) CosmosDBTrigger attribute in your function to true. 
+1. Set the [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) CosmosDBTrigger attribute in your function to true. 
 1. Restart the Azure function. It will now read and process all changes from the beginning. 
 
-Setting [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) to true will tell the Azure function to start reading changes from the beginning of the history of the collection instead of the current time. This only works when there are no already created leases (i.e. documents in the leases collection). Setting this property to true when there are leases already created has no effect; in this scenario, when a function is stopped and restarted, it will begin reading from the last checkpoint, as defined in the leases collection. To re-process from the beginning, follow the above steps 1-4.  
+Setting [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) to true will tell the Azure function to start reading changes from the beginning of the history of the collection instead of the current time. This only works when there are no already created leases (i.e. documents in the leases collection). Setting this property to true when there are leases already created has no effect; in this scenario, when a function is stopped and restarted, it will begin reading from the last checkpoint, as defined in the leases collection. To re-process from the beginning, follow the above steps 1-4.  
 
 ### Binding can only be done with IReadOnlyList\<Document> or JArray
 
@@ -101,7 +101,7 @@ To workaround this situation, remove the manual NuGet reference that was added a
 
 ### Changing Azure Function's polling interval for the detecting changes
 
-As explained earlier for [My changes take too long to be received](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received), Azure function will sleep for a configurable amount of time (5 seconds, by default) before checking for new changes (to avoid high RU consumption). You can configure this sleep time through the `FeedPollDelay/feedPollDelay` setting in the [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) of your trigger (the value is expected to be in milliseconds).
+As explained earlier for [My changes take too long to be received](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received), Azure function will sleep for a configurable amount of time (5 seconds, by default) before checking for new changes (to avoid high RU consumption). You can configure this sleep time through the `FeedPollDelay/feedPollDelay` setting in the [configuration](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) of your trigger (the value is expected to be in milliseconds).
 
 ## Next steps
 

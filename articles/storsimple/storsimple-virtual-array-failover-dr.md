@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array disaster recovery and device failover | Microsoft Docs
+title: Failover and disaster recovery for StorSimple Virtual Array
 description: Learn more about how to failover your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -35,7 +35,7 @@ DR is modeled as a full device restore using the heat map–based tiering and tr
 > 
 > 
 
-Disaster recovery is orchestrated via the device failover feature and is initiated from the **Devices** blade. This blade tabulates all the StorSimple devices connected to your StorSimple Device Manager service. For each device, you can see the friendly name, status, provisioned and maximum capacity, type, and model.
+Disaster recovery is orchestrated through the device failover feature and is initiated from the **Devices** blade. This blade tabulates all the StorSimple devices connected to your StorSimple Device Manager service. For each device, you can see the friendly name, status, provisioned and maximum capacity, type, and model.
 
 ## Prerequisites for device failover
 
@@ -52,15 +52,15 @@ For a device failover, ensure that the following prerequisites are satisfied:
   > 
 * The target device cannot have the same name as the source device.
 * The source and target device have to be the same type. You can only fail over a virtual array configured as a file server to another file server. The same is true for an iSCSI server.
-* For a file server DR, we recommend that you join the target device to the same domain as the source. This configuration ensures that the share permissions are automatically resolved. Only the failover to a target device in the same domain.
+* For a file server DR, we recommend that you join the target device to the same domain as the source. This configuration ensures that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported.
 * The available target devices for DR are devices that have the same or larger capacity compared to the source device. The devices that are connected to your service but do not meet the criteria of sufficient space are not available as target devices.
 
 ### Other considerations
 
-* For a planned failover 
+* For a planned failover:
   
   * We recommend that you take all the volumes or shares on the source device offline.
-  * We recommend that you take a backup of the device and then proceed with the failover to minimize data loss. 
+  * We recommend that you take a backup of the device and then proceed with the failover to minimize data loss.
 * For an unplanned failover, the device uses the most recent backup to restore the data.
 
 ### Device failover prechecks

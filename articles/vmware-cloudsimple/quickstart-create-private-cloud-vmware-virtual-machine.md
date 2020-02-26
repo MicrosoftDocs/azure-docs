@@ -1,6 +1,6 @@
 --- 
-title: Quickstart - Create a VMware VM on AVS Private Cloud 
-description: Describes how to create a VMware VM on an AVS Private Cloud 
+title: Quickstart - Create an Azure VMware VM on a Private Cloud - Azure VMware Solution by CloudSimple
+description: Describes how to create an Azure VMware VM on a CloudSimple Private Cloud 
 author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 08/16/2019 
@@ -10,35 +10,35 @@ ms.reviewer: cynthn
 manager: dikamath 
 ---
 
-# Create VMware virtual machines on your AVS Private Cloud
+# Create VMware virtual machines on your Private Cloud
 
-To create virtual machines on your AVS Private Cloud, begin by accessing the AVS portal from the Azure portal.
+To create virtual machines on your Private Cloud, begin by accessing the CloudSimple portal from the Azure portal.
 
 ## Sign in to the Azure portal
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
-## Access the AVS portal
+## Access the CloudSimple portal
 
 1. Select **All services**.
-2. Search for **AVS Services**.
-3. Select the AVS service on which you want to create your AVS Private Cloud.
-4. From the **Overview** page, click **Go to the AVS portal** to open a new browser tab for AVS portal. If prompted, sign in with your Azure sign in credentials. 
+2. Search for **CloudSimple Services**.
+3. Select the CloudSimple service on which you want to create your Private Cloud.
+4. From the **Overview** page, click **Go to the CloudSimple portal** to open a new browser tab for CloudSimple portal.  If prompted, sign in with your Azure sign in credentials.  
 
-    ![Launch AVS portal](media/launch-cloudsimple-portal.png)
+    ![Launch CloudSimple portal](media/launch-cloudsimple-portal.png)
 
 ## Launch vCenter web-ui
 
 You can now launch vCenter to set up virtual machines and policies.
 
-To access vCenter, start from the AVS portal. On the Home page, under **Common Tasks**, click **Launch vSphere Client**. Select the AVS Private Cloud and then click **Launch vSphere Client** on the AVS Private Cloud.
+To access vCenter, start from the CloudSimple portal. On the Home page, under **Common Tasks**, click **Launch vSphere Client**.  Select the Private Cloud and then click **Launch vSphere Client** on the Private Cloud.
 
    ![Launch vSphere Client](media/launch-vcenter-from-cloudsimple-portal.png)
 
 ## Upload an ISO or vSphere template
 
   > [!WARNING]
-  > For ISO upload, use the vSphere HTML5 client. Using Flash client may result in an error.
+  > For ISO upload, use the vSphere HTML5 client.  Using a Flash client may result in an error.
 
 1. Obtain the ISO or vSphere template that you want to upload to vCenter to create a VM and have it available on your local system.
 2. In vCenter, click the **Disk** icon and select **vsanDatastore**. Click **Files** and then click **New Folder**.
@@ -73,7 +73,7 @@ To access vCenter, start from the AVS portal. On the Home page, under **Common T
 8. Select the guest OS of the ISO for the VM that you are creating and click **Next**.
     ![New VM](media/vcvm07.png)
 
-9. Select hard disk and network options. For New CD/DVD Drive, select **Datastore ISO file**. If you want to allow traffic from the Public IP address to this VM, select the network as **vm-1**.
+9. Select hard disk and network options. For New CD/DVD Drive, select **Datastore ISO file**.  If you want to allow traffic from the Public IP address to this VM, select the network as **vm-1**.
     ![New VM](media/vcvm08.png)
 
 10. A selection window opens. Select the file you previously uploaded to the ISOs and Templates folder and click **OK**.
@@ -85,17 +85,17 @@ To access vCenter, start from the AVS portal. On the Home page, under **Common T
 The VM is now added to the Workload compute resources and is ready for use. 
 ![New VM](media/vcvm12.png)
 
-The basic setup is now complete. You can start using your AVS Private Cloud similar to how you would use your on-premises VM infrastructure.
+The basic setup is now complete. You can start using your Private Cloud similar to how you would use your on-premises VM infrastructure.
 
-The following sections contain optional information about setting up DNS and DHCP servers for AVS Private Cloud workloads and modifying the default networking configuration.
+The following sections contain optional information about setting up DNS and DHCP servers for Private Cloud workloads and modifying the default networking configuration.
 
 ## Add Users and identity sources to vCenter (Optional)
 
-AVS assigns a default vCenter user account with username `cloudowner@AVS.local`. No additional account setup is required for you to get started. AVS normally assigns administrators the privileges they need to perform normal operations. Set up your on-premises active directory or Azure AD  as an [additional identity source](set-vcenter-identity.md) on your AVS Private Cloud.
+CloudSimple assigns a default vCenter user account with username `cloudowner@cloudsimple.local`. No additional account setup is required for you to get started.  CloudSimple normally assigns administrators the privileges they need to perform normal operations.  Set up your on-premises active directory or Azure AD  as an [additional identity source](set-vcenter-identity.md) on your Private Cloud.
 
 ## Create a DNS and DHCP server (Optional)
 
-Applications and workloads running in an AVS Private Cloud environment require name resolution and DHCP services for lookup and IP address assignment. A proper DHCP and DNS infrastructure is required to provide these services. You can configure a virtual machine in vCenter to provide these services in your AVS Private Cloud environment.
+Applications and workloads running in a Private Cloud environment require name resolution and DHCP services for lookup and IP address assignment. A proper DHCP and DNS infrastructure is required to provide these services. You can configure a virtual machine in vCenter to provide these services in your Private Cloud environment.
 
 Prerequisites
 
@@ -109,7 +109,7 @@ The following links provide guidance on setting up DHCP and DNS servers on Linux
 
 #### Linux-based DNS server setup
 
-Linux offers various packages for setting up DNS servers. Here is a link to instructions for setting up an open-source BIND DNS server.
+Linux offers various packages for setting up DNS servers.  Here is a link to instructions for setting up an open-source BIND DNS server.
 
 [Example setup](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
 
@@ -123,11 +123,11 @@ These Microsoft topics describe how to set up a Windows server as a DNS server a
 
 ## Customize networking configuration (Optional)
 
-The Network pages in the AVS portal allow you to specify the configuration for firewall tables and public IP addresses for VMs.
+The Network pages in the CloudSimple portal allow you to specify the configuration for firewall tables and public IP addresses for VMs.
 
 ### Allocate public IPs
 
-1. Navigate to **Network > Public IP** in the AVS portal.
+1. Navigate to **Network > Public IP** in the CloudSimple portal.
 2. Click **Allocate Public IP**.
 3. Enter a name to identify the IP address entry.
 4. Keep the default location.
@@ -202,10 +202,10 @@ python3 -m http.server 80
 ```
 Start a browser on your desktop and point it to port 80 for the public IP address to browse the files on your VM.
 
-### Default AVS firewall rules for public IP
+### Default CloudSimple firewall rules for public IP
 
 * VPN traffic: All traffic between (from/to) the VPN and all the workload networks and management network is allowed.
-* AVS Private Cloud internal traffic: All east-west traffic between (from/to) workload networks and the management network (shown above) is allowed.
+* Private cloud internal traffic: All east-west traffic between (from/to) workload networks and the management network (shown above) is allowed.
 * Internet traffic:
   * All incoming traffic from the Internet is denied to workload networks and the management network.
   * All outgoing traffic to the Internet from workload networks or the management network is allowed.
@@ -214,7 +214,7 @@ You can also modify the way your traffic is secured, using the Firewall Rules fe
 
 ## Install solutions (Optional)
 
-You can install solutions on your AVS Private Cloud to take full advantage of your AVS Private Cloud vCenter environment. You can set up backup, disaster recovery, replication, and other functions to protect your virtual machines. Examples include VMware Site Recovery Manager (VMware SRM) and Veeam Backup & Replication.
+You can install solutions on your CloudSimple Private Cloud to take full advantage of your Private Cloud vCenter environment. You can set up backup, disaster recovery, replication, and other functions to protect your virtual machines. Examples include VMware Site Recovery Manager (VMware SRM) and Veeam Backup & Replication.
 
 To install a solution, you must request additional privileges for a limited period. See [Escalate privileges](escalate-private-cloud-privileges.md).
 
@@ -222,4 +222,4 @@ To install a solution, you must request additional privileges for a limited peri
 
 * [Consume VMware VMs on Azure](quickstart-create-vmware-virtual-machine.md)
 * [Connect to on-premises network using Azure ExpressRoute](on-premises-connection.md)
-* [Set up VPN gateways on AVS network](vpn-gateway.md)
+* [Set up VPN gateways on CloudSimple network](vpn-gateway.md)

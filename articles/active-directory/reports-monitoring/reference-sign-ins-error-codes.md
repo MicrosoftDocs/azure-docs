@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/08/2019
+ms.date: 02/19/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -130,6 +130,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50178|Session Control  is not supported for passthrough users.|
 |50180|Windows Integrated authentication is needed. Enable the tenant for Seamless SSO.|
 |50181|OTP related failure during sign-in. |
+|50194|Application '{appId}'({appName}) is not configured as a multi-tenant application. Usage of the /common endpoint is not supported for such applications created after '{time}'. Use a tenant-specific endpoint or configure the application to be multi-tenant.|
 |50201|This message prompt interrupt will be shown to the user during login when additional information should be provided to user.|
 |51001|Domain Hint is not present with On-Premises Security Identifier - On-Premises UPN.|
 |51004|User account doesn’t exist in the directory.|
@@ -185,13 +186,19 @@ You can also programmatically access the sign-in data using the [reporting API](
 |90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|
 |90094| The app has requested permissions which the signed-in user is not allowed to consent to, and the user was blocked. |
 |90095| The app has requested permissions which the signed-in user is not allowed to consent to, and the user was shown the [admin consent request](../manage-apps/configure-admin-consent-workflow.md) form. |
+|130500|Phone sign in was blocked due to User Credential Policy.|
 |500011| The resource principal named <site address> was not found in the tenant named <tenant ID>. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.|
+|500014|Resource '{identifier}' is disabled.|
 |500021| Tenant is restricted by company proxy. Denying the resource access.|
 |500121| Authentication failed during strong authentication request.|
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
+|500172|Certificate '{name}' issued by '{issuer}' is not valid. Current time: '{curTime}'. Certificate NotBefore: '{startTime}'. Certificate NotAfter: '{endTime}'.|
+|501291|Client app is a Mam app, device is not registered and request is sent using a broker. Work place join needs to be done to register the device before the app can be accessed.|
+|530003|Your device is required to be managed to access this resource.|
 |530021|Application does not meet the Conditional Access approved app requirements.|
 |530032|Blocked by security policy.| 
 |700016|Application with identifier '{appIdentifier}' was not found in the directory '{tenantName}'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.|
+|700051|Response_type 'token' is not enabled for the application. The application requested an unsupported response type due to the following reasons: response_type 'token' is not enabled for the application. Application owner should go to the Azure portal or call MS Graph to enable the implicit access token grant.|
 |900432|Confidential Client is not supported in Cross Cloud request.|
 |5000811|Unable to verify SAML token signature. The signing key identifier does not match any valid registered keys.|
 |7000215|Invalid client secret was provided.|

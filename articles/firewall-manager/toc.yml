@@ -7,10 +7,14 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Secure your cloud network - portal
+  - name: Secure your virtual WAN - portal
     href: secure-cloud-network.md
+  - name: Secure your hub virtual network - portal
+    href: secure-hybrid-network.md
 - name: Concepts
   items:
+  - name: Policy overview
+    href: policy-overview.md
   - name: What is a secured virtual hub?
     href: secured-virtual-hub.md
   - name: General deployment process
@@ -19,11 +23,13 @@
     href: trusted-security-partners.md
   - name: Rule processing logic
     href: rule-processing.md
+  - name: Architecture options
+    href: vhubs-and-vnets.md
 - name: How-to guides
   items:
   - name: Deploy trusted security partners
     href: deploy-trusted-security-partner.md
-  - name: Migrate to Firewall policy
+  - name: Migrate to Firewall policy - PowerShell
     href: migrate-to-policy.md
 - name: Reference
   items:

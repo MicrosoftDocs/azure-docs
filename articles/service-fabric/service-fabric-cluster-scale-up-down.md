@@ -99,7 +99,7 @@ To keep the nodes of the cluster evenly distributed across upgrade and fault dom
 Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
-```azurecli
+```shell
 sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
@@ -181,7 +181,7 @@ else
 
 In the **sfctl** code below, the following command is used to get the **node-name** value of the last-created node: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
-```azurecli
+```shell
 # Inform the node that it is going to be removed
 sfctl node disable --node-name _nt1vm_5 --deactivation-intent 4 -t 300
 

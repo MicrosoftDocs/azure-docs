@@ -112,7 +112,7 @@ This function is always used with a **copy** object. If no value is provided for
 
 The **loopName** property enables you to specify whether copyIndex is referring to a resource iteration or property iteration. If no value is provided for **loopName**, the current resource type iteration is used. Provide a value for **loopName** when iterating on a property. 
  
-For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 
 For an example of using **copyIndex** when defining a variable, see [Variables](template-syntax.md#variables).
 
@@ -645,6 +645,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 * To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -164,3 +164,10 @@ The following example `TechnicalProfile` is used for verifying a code:
     </InputClaims>
 </TechnicalProfile>
 ```
+
+## Next steps
+
+See the following article for example of using one-time password technial profile with custom email verification:
+
+- [Custom email verification in Azure Active Directory B2C](custom-email.md)
+

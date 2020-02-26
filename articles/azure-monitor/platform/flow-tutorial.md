@@ -75,4 +75,3 @@ The tutorial in this article shows you how to create a flow that automatically s
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
 
 
-

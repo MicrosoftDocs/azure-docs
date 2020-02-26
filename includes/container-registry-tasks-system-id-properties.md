@@ -10,7 +10,7 @@ ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file
 ---
-In the command output, the `identity` section shows an identity of type `SystemAssigned` is set in the task. The `principalId` is the service principal ID of the identity:
+In the command output, the `identity` section shows an identity of type `SystemAssigned` is set in the task. The `principalId` is the principal ID of the task identity:
 
 ```console
 [...]
