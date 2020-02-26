@@ -59,7 +59,7 @@ Use these instructions to add the SignalFx application to your list of managed S
 
 ## Step 2: Begin SignalFx SSO configuration
 
-Use these instructions to begin the configuraiton process for the SignalFx SSO.
+Use these instructions to begin the configuration process for the SignalFx SSO.
 
 1. In the newly opened tab, access and log into the SignalFx UI. 
 1. In the top menu, click **Integrations**. 
