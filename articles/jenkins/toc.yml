@@ -49,7 +49,7 @@
     - name: Deploy to Azure Functions
       href: jenkins-azure-functions-deploy.md
     - name: Publish to Azure Storage
-      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+      href: storage-java-jenkins-continuous-integration-solution.md
       maintainContext: true
     - name: CI/CD to Linux VMs
       href: tutorial-jenkins-github-docker-cicd.md
