@@ -357,42 +357,42 @@ This documentation assumes that:
 
 5. **[1]** Adapt the ASCS/SCS and ERS instance profiles for the newly installed SAP system(s). The example shown below is for NW2. You will need to adapt the ASCS/SCS and ERS profiles for all SAP instances added to the cluster.  
  
- * ASCS/SCS profile
+   * ASCS/SCS profile
 
-   ```
-   sudo vi /sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs
+      ```
+      sudo vi /sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs
    
-   # Change the restart command to a start command
-   #Restart_Program_01 = local $(_EN) pf=$(_PF)
-   Start_Program_01 = local $(_EN) pf=$(_PF)
+      # Change the restart command to a start command
+      #Restart_Program_01 = local $(_EN) pf=$(_PF)
+      Start_Program_01 = local $(_EN) pf=$(_PF)
 
-   # Add the keep alive parameter
-   enque/encni/set_so_keepalive = true
-   ```
+      # Add the keep alive parameter
+      enque/encni/set_so_keepalive = true
+      ```
 
- * ERS profile
+   * ERS profile
 
-   ```
-   sudo vi /sapmnt/NW2/profile/NW2_ERS12_msnw2ers
+      ```
+      sudo vi /sapmnt/NW2/profile/NW2_ERS12_msnw2ers
    
-   # Change the restart command to a start command
-   #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
-   Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
+      # Change the restart command to a start command
+      #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
+      Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
    
-   # remove Autostart from ERS profile
-   # Autostart = 1
-   ```
+      # remove Autostart from ERS profile
+      # Autostart = 1
+      ```
 
 6. **[A]** Update the /usr/sap/sapservices file
 
    To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from `/usr/sap/sapservices` file.  The example shown below is for SAP systems **NW2** and **NW3**.  
 
    ```
-    # On the node where ASCS was installed, comment out the line for the ASCS instatnes
+    # On the node where ASCS was installed, comment out the line for the ASCS instacnes
     #LD_LIBRARY_PATH=/usr/sap/NW2/ASCS10/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW2/ASCS10/exe/sapstartsrv pf=/usr/sap/NW2/SYS/profile/NW2_ASCS10_msnw2ascs -D -u nw2adm
     #LD_LIBRARY_PATH=/usr/sap/NW3/ASCS20/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW3/ASCS20/exe/sapstartsrv pf=/usr/sap/NW3/SYS/profile/NW3_ASCS20_msnw3ascs -D -u nw3adm
 
-    # On the node where ERS was installed, comment out the line for the ERS instatnes
+    # On the node where ERS was installed, comment out the line for the ERS instacnes
     #LD_LIBRARY_PATH=/usr/sap/NW2/ERS12/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW2/ERS12/exe/sapstartsrv pf=/usr/sap/NW2/ERS12/profile/NW2_ERS12_msnw2ers -D -u nw2adm
     #LD_LIBRARY_PATH=/usr/sap/NW3/ERS22/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW3/ERS22/exe/sapstartsrv pf=/usr/sap/NW3/ERS22/profile/NW3_ERS22_msnw3ers -D -u nw3adm
    ```
