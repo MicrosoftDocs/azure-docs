@@ -3,8 +3,8 @@ title: Azure Virtual Machines high availability for SAP NetWeaver | Microsoft Do
 description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: msjuergent
-manager: patfilot
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
