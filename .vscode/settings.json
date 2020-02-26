@@ -54,5 +54,8 @@
         "XAML",
         "XML",
         "YAML"
+    ],
+    "cSpell.words": [
+        "auditd"
     ]
 }
