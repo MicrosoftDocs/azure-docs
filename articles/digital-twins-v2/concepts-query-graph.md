@@ -44,12 +44,12 @@ Get twins by properties
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
-WHERE T.$dtid in [‘123’, ‘456’]
-AND T.firmwareVersion = ‘1.1’”
+WHERE T.$dtid in ['123', '456']
+AND T.firmwareVersion = '1.1'"
 Get twins by model
 SELECT  * 
 FROM DigitalTwins T  
-WHERE T.IS_OF_MODEL(T , ‘urn:contosocom:DigitalTwins:Space:3’)
+WHERE T.IS_OF_MODEL(T , 'urn:contosocom:DigitalTwins:Space:3')
 AND T.roomSize > 50
 ```
 
@@ -58,13 +58,13 @@ Get twins by traversing relationships
 SELECT *
 FROM DigitalTwins space
 JOIN device RELATED space.has  
-WHERE space.$dtid = ‘Room 123’
-AND device.$metadata.model = ‘urn:contosocom:DigitalTwins:MxChip:3’
-AND has.role = ‘Operator’”
+WHERE space.$dtid = 'Room 123'
+AND device.$metadata.model = 'urn:contosocom:DigitalTwins:MxChip:3'
+AND has.role = 'Operator'"
 The following example shows how to execute queries:
-var client = DigitalTwinsServiceClient.CreateFromConnectionString(“...”);
+var client = DigitalTwinsServiceClient.CreateFromConnectionString("...");
 string results;
-IAsynEnumerable<Result<JsonDocument>> result = client.Query(“querystring”);
+IAsynEnumerable<Result<JsonDocument>> result = client.Query("querystring");
 ```
 
 This query returns results in the form of a JSON string. 
