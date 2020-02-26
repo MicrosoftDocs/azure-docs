@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Update Management solution in Azure
 
-You can use the Update Management solution in Azure Automation to manage operating system updates for your Windows and Linux machines in Azure, in on-premises environments, and in other cloud providers. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
+You can use the Update Management solution in Azure Automation to manage operating system updates for your Windows and Linux machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
 
 You can enable Update Management for virtual machines (VMs) directly from your Azure Automation account. To learn how, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a VM from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
 
