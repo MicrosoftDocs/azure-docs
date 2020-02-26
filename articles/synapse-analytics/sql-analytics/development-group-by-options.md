@@ -1,6 +1,6 @@
 ---
 title: Using group by options
-description: Tips for implementing group by options in SQL Analytics for developing solutions.
+description: Tips for implementing group by options and developing solutions for SQL Analytics.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -14,18 +14,16 @@ ms.custom:
 ---
 
 # Group by options in SQL Analytics
-Tips for implementing group by options in SQL Analytics for developing solutions.
+Tips for implementing group by options and developing solutions for SQL Analytics.
 
 ## What does GROUP BY do?
 
 The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL clause aggregates data to a summary set of rows.
 
-SQL Analytics on-demand supports whole range of GROUP BY options, while SQL Analytics pool supports limited number of options. 
+SQL on-demand supports whole range of GROUP BY options, while SQL pool supports a limited number of options. 
 
-## GROUP BY options supported in SQL Analytics pool
-GROUP BY has some options that SQL Analytics pool  does not support. These options have workarounds.
-
-These options are
+## GROUP BY options supported in SQL pool
+GROUP BY has some options that SQL pool does not support. These options have workarounds, which are as follows:
 
 * GROUP BY with ROLLUP
 * GROUPING SETS

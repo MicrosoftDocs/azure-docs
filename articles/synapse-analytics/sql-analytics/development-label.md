@@ -1,6 +1,6 @@
 ---
 title: Using labels to instrument queries
-description: Tips for using labels to instrument queries in SQL Analytics for developing solutions.
+description: Tips for using labels to instrument queries and developing solutions for SQL Analytics.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -14,10 +14,10 @@ ms.custom:
 ---
 
 # Using labels to instrument queries in SQL Analytics
-Tips for using labels to instrument queries in SQL Analytics for developing solutions.
+Tips for using labels to instrument queries and developing solutions for SQL Analytics.
 
 > [!NOTE]
-> SQL Analytics on-demand currently does not support labelling queries.
+> SQL on-demand currently does not support labelling queries.
 
 
 ## What are labels?
