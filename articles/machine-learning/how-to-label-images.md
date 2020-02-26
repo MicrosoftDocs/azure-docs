@@ -60,9 +60,6 @@ If your project is of type "Image Classification Multi-Class," you'll assign a s
 
 If you realize that you made a mistake after you assign a tag to an image, you can fix it. Select the "**X**" on the label that's displayed below the image to clear the tag. Or, select the image and choose another class. The newly selected value will replace the previously applied tag.
 
-> [!NOTE]
-> Machine learning algorithms may kick in during a classification labeling task.  After some amount of images have been labeled, you might see an alert that a clustering model is used to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the clustering.  At a later point, you may see images that are already labeled based on a classification model.  When the labels are already present, correct any wrong labels before submitting the page.  
-
 ## Tag images for multi-label classification
 
 If you're working on a project of type "Image Classification Multi-Label," you'll apply one *or more* tags to an image. To see the project-specific directions, select **Instructions** and go to **View detailed instructions**.
@@ -81,6 +78,9 @@ To correct a mistake, click the "**X**" to clear an individual tag or select the
 
 Azure will only enable the **Submit** button after you've applied at least one tag to each image. Select **Submit** to save your work.
 
+## Assisted machine learning 
+
+Machine learning algorithms may be triggered during a multi-class or multi-label classification task.  After some amount of images have been labeled, you might see an alert that a clustering model is used to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the clustering.  At a later point, you may see images that are already labeled based on a classification model.  When the labels are already present, correct any wrong labels before submitting the page.  
 
 ## Tag images and specify bounding boxes for object detection
 

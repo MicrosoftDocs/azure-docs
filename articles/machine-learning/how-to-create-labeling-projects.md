@@ -125,8 +125,7 @@ The **ML assisted labeling** page lets you trigger automatic machine learning mo
 
 * **Clustering** - after a certain number of labels are submitted, a clustering model starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is most useful when the labeler is viewing multiple images.  When clustering begins, an alert will tell the labeler to switch to a multiple image  view to take advantage of the clustering.
 
-* **Classification** - after more image labels are submitted, a classification model is used to predict image tags.  The labeler now sees pages that contain images along with their suggested labels.  The task is then to confirm these labels and correct any mis-labeled images before submitting the page.  
-
+* **Classification** - after more image labels are submitted, a classification model is used to predict image tags.  The labeler now sees pages that contain predicted labels already present on each image.  The task is then to review these labels and correct any mis-labeled images before submitting the page.  
 
 The exact number of labeled images necessary to start assisted labeling is not a fixed number. The first clustering model is  built once there are 350 labeled images, and the first classification model will build with 900 labeled images. But the models aren't used until an accuracy threshold is also met.  
 
