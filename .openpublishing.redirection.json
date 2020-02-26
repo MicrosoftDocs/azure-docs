@@ -27188,8 +27188,8 @@
     },
     {
       "source_path": "articles/storage/storage-java-jenkins-continuous-integration-solution.md",
-      "redirect_url": "/azure/storage/common/storage-java-jenkins-continuous-integration-solution",
-      "redirect_document_id": true
+      "redirect_url": "/azure/jenkins/storage-java-jenkins-continuous-integration-solution",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/storage-manage-access-to-resources.md",
