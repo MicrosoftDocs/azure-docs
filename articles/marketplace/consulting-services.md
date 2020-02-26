@@ -29,7 +29,7 @@ The marketplace storefronts are aligned with audiences and Microsoft cloud produ
 |In Product Experience  	|Azure Management Portal|Dynamics 365, Office 365, Office Client Apps| 
 |Other  	|On-Premises Publishing Via Azure Stack, Consulting Services for Azure, Managed Services for Azure|Consulting Services for Dynamics and Power BI|
 
-Consulting Services offers that are based on Microsoft Dynamics 365 and Power BI are eligible to be listed on Microsoft AppSource. For more information, see [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+Consulting Services offers that are based on Microsoft Dynamics 365, Power Apps and Power BI are eligible to be listed on Microsoft AppSource. For more information, see [Microsoft AppSource consulting services listing guidelines](http://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
 Consulting Services and Managed Services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see articles on [publishing an Azure consulting service](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) and [publish a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
@@ -59,12 +59,12 @@ Partners are required to have a **silver or gold competency** in the relevant ar
 
 |Primary Product |Eligibility Requirement |
 |---------|---------|
-| Dynamics 365 Sales <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Dynamics 365 Field Service <br> Dynamics 365 Talent |   Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.    | 
-| Dynamics 365 Finance <br> Dynamics 365 Operations <br> Dynamics 365 Retail <br> Dynamics 365 Talent <br> Dynamics 365 Project Service Automation |  Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Unified Operations option.       |
-| Dynamics 365 Customer Insights | Must be eligible to publish Dynamics 365 or Power BI offers and <br> <ol> <li>Attend an in-person or virtual airlift event.</li> <li> Fully setup and share an instance </li> </ol> |
-| Dynamics 365 Business Central | Must be Gold or Silver certified in [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) and serve at least 3 customers <br> <br> OR <br> <br> Must have published a Business Central application in AppSource |
+| Dynamics 365 Sales <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Dynamics 365 Field Service <br> Dynamics 365 Human Resources |   Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.    | 
+| Dynamics 365 Finance <br> Dynamics 365 Supply Chain Management <br> Dynamics 365 Commerce <br> Dynamics 365 Human Resources <br> Dynamics 365 Project Service Automation |  Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Unified Operations option.       |
+| Dynamics 365 Customer Insights | Must have at least 1 successful in-production implementation of [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) with at least 5 measures and 5 segments. |
+| Dynamics 365 Business Central | Must be Gold or Silver certified in [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) and must be the cloud solution provider for at least 3 Business Central customers. <br> <br> OR <br> <br> Must have published a [Business Central application in AppSource](https://appsource.microsoft.com/) |
 | Power BI | Must be listed on the [Power BI partner showcase](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
-|PowerApps | Must be eligible for Advanced Benefits in the [PowerApps Partnership](https://aka.ms/PowerAppsPartner). |
+|PowerApps | Must be eligible for Advanced Benefits in the [PowerApps Partnership Program](https://aka.ms/PowerAppsPartner). |
 
 Additional resources and support:
 

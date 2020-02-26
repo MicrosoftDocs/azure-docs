@@ -16,13 +16,12 @@ Review the description of and requirements for this offer type in [Consulting Se
 
 | Offer type | Requirement |
 |---------|---------|
-| Dynamics 365 Sales <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Dynamics 365 Field Service <br> Dynamics 365 Talent |   Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.    | 
-| Dynamics 365 Finance <br> Dynamics 365 Operations <br> Dynamics 365 Retail <br> Dynamics 365 Talent <br> Dynamics 365 Project Service Automation |  Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Unified Operations option.       |
-| Dynamics 365 Customer Insights | Must be eligible to publish Dynamics 365 or Power BI offers and <br> <ol> <li>Attend an in-person or virtual airlift event.</li> <li> Fully setup and share an instance </li> </ol> |
-| Dynamics 365 Business Central | Must be Gold or Silver certified in [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) and serve at least 3 customers <br> <br> OR <br> <br> Must have published a Business Central application in AppSource |
+| Dynamics 365 Sales <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Dynamics 365 Field Service <br> Dynamics 365 Human Resources |   Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.    | 
+| Dynamics 365 Finance <br> Dynamics 365 Supply Chain Management <br> Dynamics 365 Commerce <br> Dynamics 365 Human Resources <br> Dynamics 365 Project Service Automation |  Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Unified Operations option.       |
+| Dynamics 365 Customer Insights | Must have at least 1 successful in-production implementation of [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) with at least 5 measures and 5 segments. |
+| Dynamics 365 Business Central | Must be Gold or Silver certified in [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) and must be the cloud solution provider for at least 3 Business Central customers. <br> <br> OR <br> <br> Must have published a [Business Central application in AppSource](https://appsource.microsoft.com/) |
 | Power BI | Must be listed on the [Power BI partner showcase](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
-|PowerApps | Must be eligible for Advanced Benefits in the [PowerApps Partnership](https://aka.ms/PowerAppsPartner). |
-
+|PowerApps | Must be eligible for Advanced Benefits in the [PowerApps Partnership Program](https://aka.ms/PowerAppsPartner). |
 
 ## Next steps
 
