@@ -123,7 +123,7 @@ There isn't a simple way to tell whether or not your system has this problem unl
   1480 bytes from 10.54.54.11: icmp_seq=1 ttl=64 time=2.06 ms
   ```
 
-  If the ping fails with 1472 bytes, you might need to configure MSS clamping on the VPN to make the remote system properly detect the maximum frame size. Read the [VPN Gateway IPsec/IKE parameters documentation](../vpn-gateway/vpn-gateway-about-vpn-devices#ipsec) for more information.
+  If the ping fails with 1472 bytes, you might need to configure MSS clamping on the VPN to make the remote system properly detect the maximum frame size. Read the [VPN Gateway IPsec/IKE parameters documentation](../vpn-gateway/vpn-gateway-about-vpn-devices#ipsecike-parameters)<!--[VPN Gateway IPsec/IKE parameters documentation](../vpn-gateway/vpn-gateway-about-vpn-devices#ipsec--> for more information.
 
 ## Check for ACL security style
 
