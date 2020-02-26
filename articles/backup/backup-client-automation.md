@@ -397,34 +397,6 @@ State           : New
 PolicyState     : Valid
 ```
 
-## Back up Windows Server System State in MABS agent
-
-This section covers the PowerShell command to set up System State in MABS agent
-
-### Schedule
-
-```powershell
-$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
-```
-
-### Retention
-
-```powershell
-$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
-```
-
-### Configuring schedule and retention
-
-```powershell
-New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
- ```
-
-### Verifying the policy
-
-```powershell
-Get-OBSystemStatePolicy
- ```
-
 ### Applying the policy
 
 Now the policy object is complete and has an associated backup schedule, retention policy, and an inclusion/exclusion list of files. This policy can now be committed for Azure Backup to use. Before you apply the newly created policy, ensure that there are no existing backup policies associated with the server by using the [Remove-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy?view=winserver2012-ps) cmdlet. Removing the policy will prompt for confirmation. To skip the confirmation, use the `-Confirm:$false` flag with the cmdlet.
@@ -559,6 +531,34 @@ Job completed.
 The backup operation completed successfully.
 ```
 
+## Back up Windows Server System State in MABS agent
+
+This section covers the PowerShell command to set up System State in MABS agent
+
+### Schedule
+
+```powershell
+$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
+```
+
+### Retention
+
+```powershell
+$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
+```
+
+### Configuring schedule and retention
+
+```powershell
+New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
+ ```
+
+### Verifying the policy
+
+```powershell
+Get-OBSystemStatePolicy
+ ```
+
 ## Restore data from Azure Backup
 
 This section will guide you through the steps for automating recovery of data from Azure Backup. Doing so involves the following steps:
@@ -625,7 +625,7 @@ The object `$Rps` is an array of backup points. The first element is the latest 
 
 ### Specifying an item to restore
 
-To restore a specific file, specify the file name relative to the root volume. For example, to retrieve C:\Test\Cat.job, execute the following command. 
+To restore a specific file, specify the file name relative to the root volume. For example, to retrieve C:\Test\Cat.job, execute the following command.
 
 ```powershell
 $Item = New-OBRecoverableItem $Rps[0] "Test\cat.jpg" $FALSE

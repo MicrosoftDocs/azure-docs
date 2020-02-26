@@ -103,28 +103,29 @@ Below are the currently supported regions for each OS.
 |--| -- | -- |
 |Australia Central| ✔<sup>1</sup> | |
 |Australia Central 2| ✔<sup>1</sup> | |
-|Australia East| ✔ | |
+|Australia East| ✔ | ✔<sup>1</sup> |
 |Australia Southeast | ✔ | ✔<sup>1</sup> |
 |Brazil South| ✔<sup>2</sup> |  |
-|Canada Central| ✔ |  |
+|Canada Central| ✔ | ✔<sup>1</sup> |
 |Central US| ✔ |  |
 |East Asia| ✔ |  |
 |East US | ✔ | ✔<sup>1</sup> |
-|East US 2| ✔ |  |
+|East US 2| ✔ | ✔<sup>1</sup> |
 |France Central| ✔ |  |
 |Germany West Central| ✔ | |
 |Japan East| ✔ | ✔<sup>1</sup> |
-|Japan West| ✔ | |
-|Korea Central| ✔ |  |
+|Japan West| ✔ | ✔<sup>1</sup> |
+|Korea Central| ✔ | ✔<sup>1</sup> |
 |North Central US| ✔ |  |
 |North Europe| ✔ | ✔<sup>1</sup> |
 |South Central US| ✔ | ✔<sup>1</sup> |
 |South India | ✔ | |
 |Southeast Asia| ✔ | ✔<sup>1</sup> |
-|UK South| ✔ | |
+|UK South| ✔ | ✔<sup>1</sup> |
 |UK West| ✔ |  |
 |West Europe| ✔ | ✔<sup>1</sup> |
 |West India| ✔ |  |
+|West Central US| | ✔<sup>1</sup> |
 |West US| ✔ | ✔<sup>1</sup> |
 |West US 2| ✔ |  |
 

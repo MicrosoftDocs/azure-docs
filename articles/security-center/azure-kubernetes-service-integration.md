@@ -41,7 +41,7 @@ Using the two services together provides:
     * Raw security events, such as network data and process creation
     * The Kubernetes audit log
 
-    For more information, see [threat detection for Azure containers](security-center-alerts-compute.md#azure-containers-)
+    For more information, see [threat protection for Azure containers](threat-protection.md#azure-containers)
 
     For the list of possible alerts, see these sections in the alerts reference table: [AKS cluster level alerts](alerts-reference.md#alerts-akscluster) and [Container host level alerts](alerts-reference.md#alerts-containerhost).  
 

@@ -25,8 +25,7 @@ You need the Azure CLI version 2.0.76 or later installed and configured. Run `az
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
 * See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* You can't delete the default (first) node pool.
-* The HTTP application routing add-on can't be used.
+* You can't delete the system node pool, by default the first node pool.
 * The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers.
 * The AKS cluster must use virtual machine scale sets for the nodes.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
