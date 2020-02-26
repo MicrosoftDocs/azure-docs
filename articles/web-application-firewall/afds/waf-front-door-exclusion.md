@@ -31,7 +31,7 @@ The following attributes can be added to exclusion lists by name. The values of 
 
 You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. The following are the supported match criteria operators:
 
-- **Equals**:  This operator is used for an exact match. As an example, for selecting a header named **bearerToken**, use the equals operator with the selector set as **bearerToken**.
+- **Equals**:  This operator is used for an exact match. For example, to select a header named **bearerToken**, use the equals operator with the selector set as **bearerToken**.
 - **Starts with**: This operator matches all fields that start with the specified selector value.
 - **Ends with**:  This operator matches all request fields that end with the specified selector value.
 - **Contains**: This operator matches all request fields that contain the specified selector value.
