@@ -517,16 +517,16 @@ In this example, the configuration specifies the following settings:
 
 For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
-### 3. Profile your model to determine resource utilization
+### <a id="profilemodel"></a> 3. Profile your model to determine resource utilization
 
-Once you have registered your model and prepared the other components necessary for service deployment, it is time to evaluate how much CPU and memory your service will require. Use Azure Machine Learning model profiling feature to test your service with the specified CPU and memory limits. Profiling output contains collection of useful metrics such as cpu usage, memory usage, and response latency. It also provides a CPU and memory recommendation based on the resource usage.
+Once you have registered your model and prepared the other components necessary for its deployment, it is time to evaluate how much CPU and memory the resulting service will require. Use Azure Machine Learning model profiling feature to test your model deployment bundle on the specified CPU and memory limits. Profiling output contains collection of useful metrics such as cpu usage, memory usage, and response latency. It also provides a CPU and memory recommendation based on the resource usage.
 
 In order to profile your model you will need:
 * A registered model.
 * An Inference configuration based on your entry script and inference environment definition.
 * A single column tabular dataset, where each row contains a string representing sample request data. These strings are going to get utf-8 encoded and put directly into the body of the HTTP request.
 
-At this point we only support profiling of the services that expect their request data to be a string, for example: string serialized json, text, string serialized image, etc.
+At this point we only support profiling of services that expect their request data to be a string, for example: string serialized json, text, string serialized image, etc.
 
 Below is an example of how you can construct an input dataset that can be used for profiling, if your incoming requests are expected to contain serialized json. For the purpose of this example we constructed a dataset that contains a 100 instances of the same input. In real world scenarios we suggest that you use larger datasets containing various inputs, especially if your model resource usage/behavior is input dependent.
 
