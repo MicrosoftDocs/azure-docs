@@ -79,6 +79,48 @@ The [AzureDeploy.Parameters][parameters] parameters file declares many values us
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 
+## Use Ubuntu 18.04 LTS
+
+Service Fabric supports the ability to create clusters based on Ubuntu 18.04 LTS. The cluster operating system can be specified in our template. Modify the **vmImageSku** attribute, and make sure **typeHandlerVersion** for each node is set to **1.1** in AzureDeploy.json and AzureDeploy.Parameters.json:
+
+```json
+"vmImageSku": {
+   "type": "string",
+   "defaultValue": "18.04-LTS",
+   "metadata": {
+      "description": "VM image SKU"
+   }
+}
+```
+
+```json
+"name": "[concat('ServiceFabricNodeVmExt','_vmNodeType1Name')]",
+"properties": {
+   "type": "ServiceFabricLinuxNode",
+   "autoUpgradeMinorVersion": true,
+   "protectedSettings": {
+      "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+      "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+   },
+   "publisher": "Microsoft.Azure.ServiceFabric",
+   "settings": {
+      "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+      "nodeTypeRef": "[variables('vmNodeType1Name')]",
+      "durabilityLevel": "Bronze",
+      "enableParallelJobs": true,
+      "nicPrefixOverride": "[variables('subnet1Prefix')]",
+      "certificate": {
+         "thumbprint": "[parameters('certificateThumbprint')]",
+         "x509StoreName": "[parameters('certificateStoreValue')]"
+      }
+   },
+   "typeHandlerVersion": "1.1"
+}
+                
+```
+
+The template is now configured to use Ubuntu 18.04 LTS upon deployment.
+
 ## Deploy the virtual network and cluster
 
 Next, set up the network topology and deploy the Service Fabric cluster. The [AzureDeploy.json][template] Resource Manager template creates a virtual network (VNET) and a subnet for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
@@ -149,6 +191,8 @@ If you're not immediately moving on to the next article, you might want to [dele
 ## Next steps
 
 Learn how to [scale a Cluster](service-fabric-tutorial-scale-cluster.md).
+
+Learn how to [migrate a Cluster from Ubuntu 16.04 to 18.04](service-fabric-tutorial-upgrade-ubuntu-cluster.md).
 
 The template in this article deploy a cluster that uses the certificate thumbprint to identify the cluster certificate.  No two certificates can have the same thumbprint, which makes certificate management more difficult. Switching a deployed cluster from using certificate thumbprints to using certificate common names makes certificate management much simpler.  To learn how to update the cluster to use certificate common names for certificate management, read [change cluster to certificate common name management](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
