@@ -38,7 +38,7 @@ Azure has thousands of permissions that you can potentially include in your cust
 | --- | --- |
 | Look at existing roles | You can look at existing roles to see what permissions are being used. For more information, see [Azure built-in roles](built-in-roles.md). |
 | Search for permissions by keyword | When you create a custom role using the Azure portal, you can search for permissions by keyword. For example, you can search for *virtual machine* or *billing* permissions. This search functionality is described more later in [Step 4: Permissions](#step-4-permissions). |
-| Download all permissions | When you create a custom role using the Azure portal, you can download all of the permissions as a CSV file and then search this file. On the Add permissions pane, click the **Download all permissions** button to download all of the permissions. For more information about the Add permissions pane, see [Step 4: Permissions](#step-4-permissions). |
+| Download all permissions | When you create a custom role using the Azure portal, you can download all of the permissions as a CSV file and then search this file. On the **Add permissions** pane, click the **Download all permissions** button to download all of the permissions. For more information about the Add permissions pane, see [Step 4: Permissions](#step-4-permissions). |
 | View the permissions in the docs | You can view the available permissions in [Azure Resource Manager resource provider operations](resource-provider-operations.md). |
 
 ## Step 2: Choose how to start
@@ -143,7 +143,7 @@ If you prefer, you can specify most of your custom role values in a JSON file. Y
 
     This opens the custom roles editor.
 
-1. On the Basics tab, in Baseline permissions, select **Start from JSON**.
+1. On the Basics tab, in **Baseline permissions**, select **Start from JSON**.
 
 1. Next to the Select a file box, click the folder button to open the Open dialog box.
 
@@ -189,7 +189,7 @@ Follow these steps to add or remove permissions for your custom role.
 
     ![Add permissions list](./media/custom-roles-portal/add-permissions-list.png)
 
-1. If you are looking for permissions that apply to the data plane, click **Data Actions**. Otherwise, leave the actions toggle set to **Actions** to list permissions that apply to the management plane.
+1. If you are looking for permissions that apply to the data plane, click **Data Actions**. Otherwise, leave the actions toggle set to **Actions** to list permissions that apply to the management plane. For more information, about the differences between the management plane and data plane, see [Management and data operations](role-definitions.md#management-and-data-operations).
 
 1. If necessary, update the search string to further refine your search.
 
@@ -221,7 +221,7 @@ Instead of adding all of these permissions, you could just add a wildcard permis
 Microsoft.CostManagement/exports/*
 ```
 
-If you want to add a new wildcard permission, you can't add it using the Add permissions pane. To add a wildcard permission, you have to add it manually using the JSON tab. For more information, see [Step 6: JSON](#step-6-json).
+If you want to add a new wildcard permission, you can't add it using the **Add permissions** pane. To add a wildcard permission, you have to add it manually using the **JSON** tab. For more information, see [Step 6: JSON](#step-6-json).
 
 ### Exclude permissions
 
@@ -322,7 +322,7 @@ Follow these steps to view your custom roles.
 
 1. As described earlier in this article, open your list of custom roles.
 
-1. Click the ellipsis (**...**) for the custom role you want to edit and then click **Edit**.
+1. Click the ellipsis (**...**) for the custom role you want to update and then click **Edit**. Note that you can't update built-in roles.
 
     The custom role is opened in the editor.
 
