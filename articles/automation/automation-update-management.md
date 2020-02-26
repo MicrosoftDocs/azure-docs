@@ -10,7 +10,13 @@ ms.topic: conceptual
 
 You can use the Update Management solution in Azure Automation to manage operating system updates for your Windows and Linux machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
 
-You can enable Update Management for virtual machines (VMs) directly from your Azure Automation account. To learn how, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a VM from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
+You can enable Update Management for virtual machines (VMs) using the following methods:
+
+- From your [Azure Automation account](automation-onboard-solutions-from-automation-account.md) for one or more Azure machines and manually for non-Azure machines.
+
+- For a single Azure VM from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
+
+- For [multiple Azure VMs](manage-update-multi.md) by selecting them from the **Virtual machines** page in the Azure portal. 
 
 > [!NOTE]
 > The Update Management solution requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](./how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
