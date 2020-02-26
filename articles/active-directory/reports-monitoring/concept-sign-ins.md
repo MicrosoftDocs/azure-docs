@@ -102,11 +102,11 @@ First, narrowing down the reported data to a level that works for you. Second, f
 
 ![Sign-in activity](./media/concept-sign-ins/04.png "Sign-in activity")
 
-**Request ID** - Enables you to AAAAXXXXXXZZZZZZ
+**Request ID** - The ID of the request you care about.
 
 **User** - The name or the user principal name (UPN) of the user you care about.
 
-**Application** - The name of the application you care about.
+**Application** - The name of the target application.
  
 **Status** - The sign-in status you care about:
 
