@@ -144,7 +144,7 @@ With these prerequisites in place, you can start building your failover cluster.
 
    1. Select **Next**, and then select **Remove**.
 
-1. <a name="ports" />Open the firewall ports.
+1. <span id="ports"> </span> Open the firewall ports.  
 
    On each virtual machine, open these ports on the Windows Firewall:
 
@@ -364,7 +364,7 @@ To create the load balancer:
 
 1. Select **Add**.
 
-1. On the **Add health probe** blade, <a name="probe" />set the following health probe parameters.
+1. On the **Add health probe** blade, <span id="probe"> </span> set the following health probe parameters.
 
    - **Name**: A name for the health probe.
    - **Protocol**: TCP.
