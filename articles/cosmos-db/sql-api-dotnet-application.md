@@ -204,7 +204,7 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
-1. In the **ConfigureServices** handler, add the following line:
+1. In *Startup.cs* in the **ConfigureServices** handler, add the following line:
 
     ```csharp
     services.AddSingleton<ICosmosDbService>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
