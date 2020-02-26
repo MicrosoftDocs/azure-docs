@@ -138,34 +138,33 @@ The **Location** - The location the connection was initiated from:
 
 ![Client app filter](./media/concept-sign-ins/client-app-filter.png)
 
-- Authenticated SMTP
 
-- Auto Discover
+- **Authenticated SMTP** - Used by POP and IMAP client's to send email messages.
 
-- Exchange ActiveSync
+- **Autodiscover** - Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.
 
-- Exchange Online PowerShell
+- **Exchange ActiveSync** - This filter shows all sign-in attempts where the EAS protocol has been attempted.
 
-- Exchange web services 
+- **Exchange Online PowerShell** - Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
 
-- IMAP4
+- **Exchange Web Services** - A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.
 
-- MAPI over HTTP
+- **IMAP4** - A legacy mail client using IMAP to retrieve email.
 
-- Mobile apps and desktop clients
+- **MAPI over HTTP** - Used by Outlook 2010 and later.
 
-- Offline address book
+- **Offline Address Book** - A copy of address list collections that are downloaded and used by Outlook.
 
-- Other clients
+- **Outlook Anywhere (RPC over HTTP)** - Used by Outlook 2016 and earlier.
 
-- Outlook anywhere (RPC over HTTP)
+- **Outlook Service** - Used by the Mail and Calendar app for Windows 10.
 
-- Outlook service
+- **POP3** - A legacy mail client using POP3 to retrieve email.
 
-- POP3
+- **Reporting Web Services** - Used to retrieve report data in Exchange Online.
 
-- Reporting web service
-  
+- **Other clients** - Other unknown legacy clients.
+
 
 
 **Operating system** - The operating system running on the device used sign-on to your tenant. 
