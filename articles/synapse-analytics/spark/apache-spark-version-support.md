@@ -31,13 +31,13 @@ Apache Spark in Synapse Analytics includes Java version 1.8.0_222
 
 Apache Spark in Synapse Analytics includes Scala 2.11.12
 
-## .Net Core version
+## .NET Core version
 
-Apache Spark in Synapse Analytics includes .Net Core 3.0
+Apache Spark in Synapse Analytics includes .NET Core 3.0
 
-## .Net Support for Apache Spark
+## .NET Support for Apache Spark
 
-Synapse Analytics includes .Net Support for Apache Spark 0.5.0
+Synapse Analytics includes .NET Support for Apache Spark 0.5.0
 
 ## Delta Lake
 
