@@ -684,7 +684,7 @@ When you now press play, open a session and connect to it, the **Load Model** bu
 The [WorldAnchor](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) is an important component used for [hologram stability](https://docs.microsoft.com/windows/mixed-reality/hologram-stability). However, it will only have effect when deployed on a Mixed Reality device.
 
 > [!TIP]
-> If you followed the [second quickstart guide](../../quickstarts/convert-model.md), you already know how to convert your own models. All you need to do now to render it, is to put the URI to a converted model into the *Model Name* property.
+> If you followed the [Quickstart: Convert a model for rendering](../../quickstarts/convert-model.md), you already know how to convert your own models. All you need to do now to render it, is to put the URI to a converted model into the *Model Name* property.
 
 ## Display frame statistics
 

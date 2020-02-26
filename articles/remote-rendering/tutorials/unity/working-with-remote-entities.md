@@ -9,7 +9,7 @@ ms.topic: tutorial
 
 # Tutorial: Working with remote entities in Unity
 
-The [previous tutorial](project-setup.md) showed how to configure a new Unity project to work with Azure Remote Rendering. In this tutorial, we have a look at the most common functionality that every ARR user needs.
+[Tutorial: Setting up a Unity project from scratch](project-setup.md) showed how to configure a new Unity project to work with Azure Remote Rendering. In this tutorial, we have a look at the most common functionality that every ARR user needs.
 
 In this tutorial, you learn how to:
 
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* This tutorial builds on top of the [previous tutorial](project-setup.md).
+* This tutorial builds on top of [Tutorial: Setting up a Unity project from scratch](project-setup.md).
 
 > [!TIP]
 > The [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient) contains prepared Unity projects for all tutorials, that you can use as reference.

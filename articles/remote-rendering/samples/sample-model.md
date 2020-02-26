@@ -19,13 +19,12 @@ We provide a built-in sample model that can always be loaded using the URL **bui
 
 Model statistics:
 
-| Name | Count |
+| Name | Value |
 |-----------|:-----------|
 | [Required VM size](../how-tos/session-rest-api.md#create-a-session) | standard |
 | Number of triangles | 18.7 Million |
 | Number of movable parts | 2073 |
 | Number of materials | 94 |
-
 
 ## Third-party data
 
@@ -36,3 +35,4 @@ The Khronos Group maintains a set of glTF sample models for testing. ARR support
 ## Next steps
 
 * [Quickstart: Render a model with Unity](../quickstarts/render-model.md)
+* [Quickstart: Convert a model for rendering](../quickstarts/convert-model.md)
