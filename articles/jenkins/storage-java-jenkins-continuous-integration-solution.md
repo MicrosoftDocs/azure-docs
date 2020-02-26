@@ -42,7 +42,7 @@ Benefits of using the Blob service to host your agile development build artifact
      
       While a typical Jenkins CI solution would be set up to run as a service, running the Jenkins war at the command line will be sufficient for this tutorial.
 * An Azure account. You can sign up for an Azure account at <https://www.azure.com>.
-* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-account-create.md).
+* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../storage/common/storage-account-create.md).
 * Familiarity with the Jenkins CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Jenkins CI build artifacts.
 
 ## How to use the Blob service with Jenkins CI
@@ -90,7 +90,7 @@ For instructional purposes, you first need to create a job that will create seve
     **Tip**
    
     Below the **Command** section where you entered a script for **Execute Windows batch command** is a link to the environment variables recognized by Jenkins. Select that link to learn the environment variable names and descriptions. Environment variables that contain special characters, such as the **BUILD_URL** environment variable, are not allowed as a container name or common virtual path.
-8. Select **Make new container public by default** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access, which is beyond the scope of this article. You can learn more about shared access signatures at [Using Shared Access Signatures (SAS)](storage-sas-overview.md).)
+8. Select **Make new container public by default** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access, which is beyond the scope of this article. You can learn more about shared access signatures at [Using Shared Access Signatures (SAS)](../storage/common/storage-sas-overview.md).)
 9. [Optional] Select **Clean container before uploading** if you want the container to be cleared of contents before build artifacts are uploaded (leave it unchecked if you do not want to clean the contents of the container).
 10. For **List of Artifacts to upload**, enter `text/*.txt`.
 11. For **Common virtual path for uploaded artifacts**, for purposes of this tutorial, enter `${BUILD\_ID}/${BUILD\_NUMBER}`.
