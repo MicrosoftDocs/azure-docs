@@ -18,7 +18,7 @@ ms.author: labrenne
 ms.custom: seodec18
 ---
 
-# Detecting errors 
+# Detecting and handling Batch service errors
 
 It is important to remember to check for errors when working with a REST service API. It isn't uncommon for errors to occur when running batch jobs.
 
