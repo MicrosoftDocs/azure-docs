@@ -275,7 +275,7 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
 
 ## Invoke the function directly
 
-1. In order to test access to the function, copy the function URL. Select the deployed function, and then select **</> Get function URL**.
+1. In order to test access to the function, you need to copy the function URL. Select the deployed function, and then select **</> Get function URL**. Then click the **Copy** button to copy the URL to your clipboard.
 
     >[!div class="mx-imgBorder"]
     >![Copy the function URL](./media/functions-create-private-site-access/get-function-url.png)
