@@ -16,7 +16,7 @@ ms.custom: mvc
 Azure Maps supports two ways to authenticate requests: Shared Key authentication and Azure Active Directory authentication. This article explains these authentication methods to help guide your implementation of Azure Maps services.
 
 > [!NOTE]
-> To improve secure communication with Azure Maps, we now support Transport Layer Security (TLS) 1.2, and we’re retiring support for TLS 1.0 and 1.1. To avoid any service interruptions, **update your servers and applications to use TLS 1.2 before 2 April 2020**.  If you currently use TLS 1.x, evaluate your TLS 1.2 readiness and develop a migration plan with the testing described in [Solving the TLS 1.0 Problem](https://docs.microsoft.com/security/solving-tls1-problem).
+> To improve secure communication with Azure Maps, we now support Transport Layer Security (TLS) 1.2, and we’re retiring support for TLS 1.0 and 1.1. To avoid any service interruptions, **update your servers and applications to use TLS 1.2 before April 2, 2020**.  If you currently use TLS 1.x, evaluate your TLS 1.2 readiness and develop a migration plan with the testing described in [Solving the TLS 1.0 Problem](https://docs.microsoft.com/security/solving-tls1-problem).
 
 ## Shared Key authentication
 
