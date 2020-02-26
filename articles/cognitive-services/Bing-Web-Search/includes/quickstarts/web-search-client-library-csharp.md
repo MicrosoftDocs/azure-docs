@@ -1,20 +1,18 @@
 ---
-title: "Quickstart: Use the Bing Web Search SDK for C#"
+title: Bing Web Search C# client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: The Bing Web Search SDK makes it easy to integrate Bing Web Search into your C# application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: bing-web-search
-ms.topic: quickstart
-ms.date: 12/09/2019
+ms.topic: include
+ms.date: 02/24/2020
 ms.author: aahi
 ---
 
-# Quickstart: Use the Bing Web Search SDK for C#
+The Bing Web Search client library makes it easy to integrate Bing Web Search into your C# application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
 
-The Bing Web Search SDK makes it easy to integrate Bing Web Search into your C# application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
+Want to see the code right now? Samples for the [Bing Search client libraries for .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) are available on GitHub.
 
 ## Prerequisites
 Here are a few things that you'll need before running this quickstart:
@@ -25,7 +23,7 @@ Here are a few things that you'll need before running this quickstart:
   * [NuGet Package Manager](https://github.com/jmrog/vscode-nuget-package-manager)
 * [.NET Core SDK](https://www.microsoft.com/net/download)
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and install dependencies
 
