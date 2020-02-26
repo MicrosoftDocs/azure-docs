@@ -140,9 +140,9 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 
 7. Select **Review & Create**. Once validation completes, select **Create**. It will take a few minutes for the Azure Bastion resource to be created.
 
-## Create an Azure Function app
+## Create an Azure Functions app
 
-The next step is to create an Azure Function app using a Consumption plan. The function code will be deployed to the Function app later in this tutorial.
+The next step is to create a function app in Azure using the [Consumption plan](functions-scale.md#consumption-plan). You deploy your function code to this resource later in the tutorial.
 
 1. In the portal, choose **Add** at the top of the resource group view.
 2. Select **Compute > Function App**
