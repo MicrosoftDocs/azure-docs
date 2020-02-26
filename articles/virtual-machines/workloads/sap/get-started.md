@@ -116,6 +116,7 @@ For information on integration of Azure services into SAP components, see:
 
 
 ## Change Log
+- 02/25/2020: Change in [High availability architecture and scenarios for SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) to add links to newer HA articles
 - 02/25/2020: Change in [High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server with Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm) to point to document that describes access to public endpoint with Standard Azure Load balancer
 - 02/21/2020: Complete revision of the article [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
 - 02/21/2020: Change in [SAP HANA Azure virtual machine storage configuration](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) to represent new recommendation in stripe size for /hana/data and adding setting of I/O scheduler
