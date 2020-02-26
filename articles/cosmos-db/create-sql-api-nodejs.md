@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use Node.js to query from Azure Cosmos DB SQL API account'
+title: Quickstart- Use Node.js to query from Azure Cosmos DB SQL API account
 description: How to use Node.js to create an app that connects to Azure Cosmos DB SQL API account and queries data.
 author: deborahc
 ms.service: cosmos-db
@@ -9,17 +9,15 @@ ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: dech
 ---
-
 # Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
->
-> - [.NET V3](create-sql-api-dotnet.md)
-> - [.NET V4](create-sql-api-dotnet-V4.md)
-> - [Java](create-sql-api-java.md)
-> - [Node.js](create-sql-api-nodejs.md)
-> - [Python](create-sql-api-python.md)
-> - [Xamarin](create-sql-api-xamarin-dotnet.md)
+> * [.NET V3](create-sql-api-dotnet.md)
+> * [.NET V4](create-sql-api-dotnet-V4.md)
+> * [Java](create-sql-api-java.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Python](create-sql-api-python.md)
+> * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and by using a Node.js app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
@@ -122,7 +120,7 @@ The following snippets are all taken from the _app.js_ file.
   ```
 
 > [!IMPORTANT]
-> Note that in both the "update" and "delete" methods, the item has to be selected from the database by calling `conatiner.item()`. The two parameters passed in are the id of the item and the item's partition key. In this case, the parition key is the value of the "category" field.
+> In in both the "update" and "delete" methods, the item has to be selected from the database by calling `conatiner.item()`. The two parameters passed in are the id of the item and the item's partition key. In this case, the parition key is the value of the "category" field.
 
 ## Update your connection string
 
