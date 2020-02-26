@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Managed HSM documentation
+title: Azure Key Vault Managed HSM documentation
 summary: Learn how to use Managed HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
 
 metadata:
