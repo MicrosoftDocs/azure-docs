@@ -48,18 +48,9 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 
 1. Select the **Create a resource** button.
 
-    >[!div class="mx-imgBorder"]
-    >![Create a new resource](./media/functions-create-private-site-access/create-a-resource.png)
-
 2. In the search field, type `Windows Server`, and select **Windows Server** in the search results.
 
-    >[!div class="mx-imgBorder"]
-    >![Create a Windows VM](./media/functions-create-private-site-access/create-vm-1.png)
-
 3. Select **Windows Server 2019 Datacenter** from the list of Windows Server options, and press the **Create** button.
-
-    >[!div class="mx-imgBorder"]
-    >![Create a Windows Server 2019 VM](./media/functions-create-private-site-access/create-vm-2.png)
 
 4. In the **Basics** tab, use the VM settings as specified in the table below the image:
 
@@ -93,18 +84,8 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 
 7. Select **OK** to create the virtual network.
 8. Back in the **Networking** tab, ensure **None** is selected for **Public IP**.
-9. Choose the **Management** tab, then in **Diagnostic storage account**, choose **Create new** to create a new Storage account. Use the settings in the table below the image:
-
-    >[!div class="mx-imgBorder"]
-    >![Create a new diagnostic storage account for the VM](./media/functions-create-private-site-access/create-vm-diagnostic-storage-account.png)
-
-    | Setting      | Suggested value  | Description      |
-    | ------------ | ---------------- | ---------------- |
-    | **Name** | TODO| TODO |
-    | **Account kind** | Storage (general purpose v1) | TODO |
-
+9. Choose the **Management** tab, then in **Diagnostic storage account**, choose **Create new** to create a new Storage account.
 10. Leave the default values for the **Identity**, **Auto-shutdown**, and **Backup** sections.
-
 11. Select **Review + create**. After validation completes, select **Create**. The VM create process takes a few minutes.
 
 ## Configure Azure Bastion
@@ -129,10 +110,6 @@ The first step in this tutorial is to create a new virtual machine inside a virt
     > For a detailed, step-by-step guide to creating an Azure Bastion resource, refer to the [Create an Azure Bastion host](../bastion/bastion-create-host-portal.md) tutorial.
 
 4. You need to create a subnet in which Azure can provision the Azure Bastion host. Choosing **Manage subnet configuration** opens a new pane where you can define a new subnet.  Choose **+ Subnet** to create a new subnet.
-
-    >[!div class="mx-imgBorder"]
-    >![Create subnet for Azure Bastion host](./media/functions-create-private-site-access/create-bastion-subnet-1.png)
-
 5. The subnet must be of the name `AzureBastionSubnet` and the subnet prefix must be at least `/27`.  Select **OK** to create the subnet.
 
     >[!div class="mx-imgBorder"]
@@ -151,18 +128,10 @@ The next step is to create a function app in Azure using the [Consumption plan](
 
 1. In the portal, choose **Add** at the top of the resource group view.
 2. Select **Compute > Function App**
-
-    >[!div class="mx-imgBorder"]
-    >![Create a new Function App](./media/functions-create-private-site-access/create-function-app-marketplace.png)
-
-3. Use the function app settings as specified in the table below the image.
-
-    >[!div class="mx-imgBorder"]
-    >![Settings for a new Function app](./media/functions-create-private-site-access/create-function-basics.png)
+3. On the **Basics** section, use the function app settings as specified in the table below.
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | **Subscription** | Your subscription | The subscription under which your resources are created. |
     | **Resource Group** | myResourceGroup | Choose the resource group to contain all the resources for this tutorial.  Using the same resource group for the function app and VM makes it easier to clean up resources when you're done with this tutorial. |
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are a-z (case insensitive), 0-9, and -. |
     | **Publish** | Code | Option to publish code files or a Docker container. |
@@ -170,20 +139,14 @@ The next step is to create a function app in Azure using the [Consumption plan](
     | **Region** | North Central US | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
 
     Select the **Next: Hosting >** button.
-
-4. Enter the following hosting settings.
-
-    >[!div class="mx-imgBorder"]
-    >![Settings for a new Function App](./media/functions-create-private-site-access/create-function-app-hosting.png)
+4. For the **Hosting** section, select the proper **Storage account**, **Operating system**, and **Plan** a described in the following table.
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Storage account** | Globally unique name | Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](./functions-scale.md#storage-account-requirements). |
     | **Operating system** | Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
     | **Plan** | Consumption | The [hosting plan](./functions-scale.md) dictates how the function app is scaled and resources available to each instance. |
-
 5. Select **Review + Create** to review the app configuration selections.
-
 6. Select **Create** to provision and deploy the function app.
 
 ## Configure access restrictions
@@ -193,38 +156,10 @@ The next step is to configure [access restrictions](../app-service/app-service-i
 [Private site](functions-networking-options.md#private-site-access) access is enabled by creating an Azure Virtual Network [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the function app and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure that only traffic originating from within the specified virtual network can access the designated resource. In this case, the designated resource is the Azure Function.
 
 1. Within the function app, proceed to the **Platform features** tab. Select the **Networking** link under the *Networking* section header to open the Network Feature Status section.
-
-    >[!div class="mx-imgBorder"]
-    >![Select Platform features in Azure Functions](./media/functions-create-private-site-access/configure-access-restrictions-platform-features.png)
-
 2. The **Network Feature Status** page is the starting point to configure Azure Front Door, the Azure CDN, and also Access Restrictions. Select **Configure Access Restrictions** to configure private site access.
-
-    >[!div class="mx-imgBorder"]
-    >![Select Platform features in Azure Functions](./media/functions-create-private-site-access/configure-access-restrictions-network-feature-status.png)
-
 3. On the **Access Restrictions** page, you see only the default restriction in place. The default doesn't place any restrictions on access to the function app.  Select **Add rule** to create a private site access restriction configuration.
-
-    >[!div class="mx-imgBorder"]
-    >![Configure access restrictions](./media/functions-create-private-site-access/configure-access-restrictions-add-rule-1.png)
-
-4. In the **Add Access Restriction** pane, select **Virtual Network** from the **Type** drop-down box, then select the desired virtual network and subnet.
-
-    >[!div class="mx-imgBorder"]
-    >![Configure access restrictions](./media/functions-create-private-site-access/configure-access-restrictions-add-access-restriction.png)
-
-    | Setting      | Suggested value  | Description      |
-    | ------------ | ---------------- | ---------------- |
-    | **Name** | Virtual network access rule | The name for the access rule.  |
-    | **Priority** | 100 | The priority of the access rule. Rules are enforced in priority order starting from the lowest number and going up. |
-    | **Description** | Only traffic within the virtual network |  Brief description of the rule. |
-    | **Type** | Virtual Network | The type of access rule (IPv4, IPv6, or Virtual Network) |
-    | **Virtual Network** | myResourceGroup-vnet | The virtual network to which access should be restricted. |
-    | **Subnet** | Tutorial | The virtual network subnet to which access should be restricted. |
-
+4. In the **Add Access Restriction** pane, select **Virtual Network** from the **Type** drop-down box, then select the previously created virtual network and subnet.
 5. The **Access Restrictions** page now shows that there is a new restriction. It may take a few seconds for the **Endpoint status** to change from `Disabled` through `Provisioning` to `Enabled`.
-
-    >[!div class="mx-imgBorder"]
-    >![Access restrictions with newly created rule](./media/functions-create-private-site-access/configure-access-restrictions-rule-added.png)
 
     >[!IMPORTANT]
     > Each function app has an [Advanced Tool (Kudu) site](../app-service/app-service-ip-restrictions.md#scm-site) that is used to manage function app deployments. This site is accessed from a URL like: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Because access restrictions haven't been enabled on this deployment site, you can still deploy your project code from a local developer workstation or build service without having to provision an agent within the virtual network.
@@ -237,24 +172,9 @@ The next step is to configure [access restrictions](../app-service/app-service-i
     >![Get the Function app URL](./media/functions-create-private-site-access/access-function-overview.png)
 
 2. If you try to access the function app now from your computer outside of your virtual network, you'll receive an HTTP 403 page indicating that the app is stopped.  The app isn't stopped. The response is actually an HTTP 403 IP Forbidden status.
-
-    >[!div class="mx-imgBorder"]
-    >![Forbidden from accessing the Azure Function](./media/functions-create-private-site-access/access-function-stopped-1.png)
-
 3. Now you'll access your function from the previously created virtual machine, which is connected to your virtual network. In order to access the site from the VM, you'll need to connect to the VM via the Azure Bastion service.  First select **Connect** and then choose **Bastion**.
-
-    >[!div class="mx-imgBorder"]
-    >![Access virtual machine via Bastion](./media/functions-create-private-site-access/connect-bastion-1.png)
-
 4. Provide the required username and password to log into the virtual machine.  Select **Connect**. A new browser window will pop up to allow you to interact with the virtual machine.
-
-    >[!div class="mx-imgBorder"]
-    >![Provide virtual machine credentials via Bastion](./media/functions-create-private-site-access/connect-bastion-2.png)
-
 5. Because this VM is accessing the function through the virtual network, it's possible to access the site from the web browser on the VM.  It is important to note that while the function app is only accessible from within the designated virtual network, a public DNS entry remains. As shown above, attempting to access the site will result in an HTTP 403 response.
-
-    >[!div class="mx-imgBorder"]
-    >![Browse to web site via Bastion](./media/functions-create-private-site-access/access-function-app-via-bastion-1.png)
 
 ## Create a function
 
@@ -284,9 +204,6 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
     > When the function runs, you'll see a runtime error in the portal stating that the function runtime is unable to start. Despite the message text, the function app is actually running. The error is a result of the new access restrictions, which prevent the portal from querying to check on the runtime.
 
 2. Paste the URL into a web browser. When you now try to access the function app from a computer outside of your virtual network, you receive an HTTP 403 response indicating the app is stopped.
-
-    >[!div class="mx-imgBorder"]
-    >![Function app stoppedL](./media/functions-create-private-site-access/function-app-stopped.png)
 
 ## Invoke the function from the virtual network
 
