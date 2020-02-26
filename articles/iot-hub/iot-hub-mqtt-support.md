@@ -165,7 +165,7 @@ This repository contains:
 
 **For Linux:**
 
-* MQTTLinux: contains code and build script to run on Linux (WSL, Ubuntu and Raspbian have been tested so far).
+* MQTTLinux: contains code and build script to run on Linux (WSL, Ubuntu, and Raspbian have been tested so far).
 
 * LinuxConsoleVS2019: contains the same code but in a VS2019 project targeting WSL (Windows Linux sub system). This project allows you to debug the code running on Linux step by step from Visual Studio.
 
@@ -401,7 +401,7 @@ When a device is connected, IoT Hub sends notifications to the topic `$iothub/tw
 }
 ```
 
-As for property updates, `null` values means that the JSON object member is being deleted. Also, note that `$version` indicates the new version of the desired properties section of the twin.
+As for property updates, `null` values mean that the JSON object member is being deleted. Also, note that `$version` indicates the new version of the desired properties section of the twin.
 
 > [!IMPORTANT]
 > IoT Hub generates change notifications only when devices are connected. Make sure to implement the [device reconnection flow](iot-hub-devguide-device-twins.md#device-reconnection-flow) to keep the desired properties synchronized between IoT Hub and the device app.
