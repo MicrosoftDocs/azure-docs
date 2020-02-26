@@ -33,26 +33,26 @@ To complete this tutorial, you need these items:
 
 - Basic understanding of Kubernetes, Git, CI/CD, and container images
 
-- An [AKS cluster][aks-quickstart] and `kubectl` configured with the 
-[AKS cluster credentials][aks-credentials]
+- An [AKS cluster](../aks/kubernetes-walkthrough.md) and `kubectl` configured with the 
+[AKS cluster credentials](/cli/azure/aks#az-aks-get-credentials).
 
-- An [Azure Container Registry (ACR) registry][acr-quickstart], 
+- An [Azure Container Registry (ACR) registry](../container-registry/container-registry-get-started-azure-cli.md), 
 the ACR login server name, and the AKS cluster configured to 
-[authenticate with the ACR registry][acr-authentication]
+[authenticate with the ACR registry](../aks/cluster-container-registry-integration.md).
 
 - The Azure CLI version 2.0.46 or later installed and configured. 
 Run `az --version` to find the version. If you need to install or upgrade, 
-see [Install Azure CLI][install-azure-cli].
+see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-- [Docker installed][docker-install] on your development system
+- [Docker installed](https://docs.docker.com/install/) on your development system
 
-- A GitHub account, [GitHub personal access token][git-access-token], 
+- A GitHub account, [GitHub personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/), 
 and Git client installed on your development system
 
 - If you provide your own Jenkins instance rather 
 than this sample scripted way to deploy Jenkins, 
-your Jenkins instance needs [Docker installed and configured][docker-install] 
-and [kubectl][kubectl-install].
+your Jenkins instance needs [Docker installed and configured](https://docs.docker.com/install/) 
+and [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
 ## Prepare your app
 
@@ -81,7 +81,7 @@ To create the container images needed for the sample application, use the *docke
 docker-compose up -d
 ```
 
-The required base images are pulled and the application containers built. You can then use the [docker images][docker-images] command to see the created image. Three images have been downloaded or created. The `azure-vote-front` image contains the application and uses the `nginx-flask` image as a base. The `redis` image is used to start a Redis instance:
+The required base images are pulled and the application containers built. You can then use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created image. Three images have been downloaded or created. The `azure-vote-front` image contains the application and uses the `nginx-flask` image as a base. The `redis` image is used to start a Redis instance:
 
 ```
 $ docker images
@@ -92,13 +92,13 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Before you can push the *azure-vote-front* container image to ACR, get your ACR login server with the [az acr list][az-acr-list] command. The following example gets the ACR login server address for a registry in the resource group named *myResourceGroup*:
+Before you can push the *azure-vote-front* container image to ACR, get your ACR login server with the [az acr list](/cli/azure/acr#az-acr-list) command. The following example gets the ACR login server address for a registry in the resource group named *myResourceGroup*:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Use the [docker tag][docker-tag] command to tag the image with the ACR login server name and a version number of `v1`. Provide your own `<acrLoginServer>` name obtained in the previous step:
+Use the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command to tag the image with the ACR login server name and a version number of `v1`. Provide your own `<acrLoginServer>` name obtained in the previous step:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
@@ -120,13 +120,13 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-Next, use the [kubectl apply][kubectl-apply] command to deploy the application to your AKS cluster:
+Next, use the [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command to deploy the application to your AKS cluster:
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-A Kubernetes load balancer service is created to expose the application to the internet. This process can take a few minutes. To monitor the progress of the load balancer deployment, use the [kubectl get service][kubectl-get] command with the `--watch` argument. Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, use `Control + C` to stop the kubectl watch process.
+A Kubernetes load balancer service is created to expose the application to the internet. This process can take a few minutes. To monitor the progress of the load balancer deployment, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument. Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, use `Control + C` to stop the kubectl watch process.
 
 ```console
 $ kubectl get service azure-vote-front --watch
@@ -138,7 +138,7 @@ azure-vote-front   LoadBalancer   10.0.215.27   40.117.57.239   80:30747/TCP   2
 
 To see the application in action, open a web browser to the external IP address of your service. The Azure vote application is displayed, as shown in the following example:
 
-![Azure sample vote application running in AKS](media/aks-jenkins/azure-vote.png)
+![Azure sample vote application running in AKS](media/jenkins-continuous-deployment/azure-vote.png)
 
 ## Deploy Jenkins to an Azure VM
 
@@ -178,7 +178,7 @@ A Jenkins environment variable is used to hold the ACR login server name. This v
 - On the left-hand side of the Jenkins portal, select **Manage Jenkins** > **Configure System**
 - Under **Global Properties**, select **Environment variables**. Add a variable with the name `ACR_LOGINSERVER` and the value of your ACR login server.
 
-    ![Jenkins environment variables](media/aks-jenkins/env-variables.png)
+    ![Jenkins environment variables](media/jenkins-continuous-deployment/env-variables.png)
 
 - When complete, click **Save** at the bottom of the Jenkins configuration page.
 
@@ -188,7 +188,7 @@ To allow Jenkins to build and then push updated container images to ACR, you nee
 
 ### Create a service principal for Jenkins to use ACR
 
-First, create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command:
+First, create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
 $ az ad sp create-for-rbac --skip-assignment
@@ -204,7 +204,7 @@ $ az ad sp create-for-rbac --skip-assignment
 
 Make a note of the *appId* and *password* shown in your output. These values are used in following steps to configure the credential resource in Jenkins.
 
-Get the resource ID of your ACR registry using the [az acr show][az-acr-show] command, and store it as a variable. Provide your resource group name and ACR name:
+Get the resource ID of your ACR registry using the [az acr show](/cli/azure/acr#az-acr-show) command, and store it as a variable. Provide your resource group name and ACR name:
 
 ```azurecli
 ACR_ID=$(az acr show --resource-group myResourceGroup --name <acrLoginServer> --query "id" --output tsv)
@@ -230,7 +230,7 @@ Ensure that the credential kind is **Username with password** and enter the foll
 
 When complete, the credentials form looks like the following example:
 
-![Create a Jenkins credential object with the service principal information](media/aks-jenkins/acr-credentials.png)
+![Create a Jenkins credential object with the service principal information](media/jenkins-continuous-deployment/acr-credentials.png)
 
 Click **OK** and return to the Jenkins portal.
 
@@ -247,7 +247,7 @@ From the home page of your Jenkins portal, select **New item** on the left-hand 
 1. Under **Bindings**, select **Add** > **Username and password (separated)**
    - Enter `ACR_ID` for the **Username Variable**, and `ACR_PASSWORD` for the **Password Variable**
 
-     ![Jenkins bindings](media/aks-jenkins/bindings.png)
+     ![Jenkins bindings](media/jenkins-continuous-deployment/bindings.png)
 
 1. Choose to add a **Build Step** of type **Execute shell** and use the following text. This script builds a new container image and pushes it to your ACR registry.
 
@@ -275,7 +275,7 @@ Before you automate the job based on GitHub commits, first manually test the Jen
 
 On the left-hand menu of the project, select **Build Now**.
 
-![Jenkins test build](media/aks-jenkins/test-build.png)
+![Jenkins test build](media/jenkins-continuous-deployment/test-build.png)
 
 The first build takes a minute or two as the Docker image layers are pulled down to the Jenkins server. Subsequent builds can use the cached image layers to improve the build times.
 
@@ -292,7 +292,7 @@ With a successful manual build complete, now integrate GitHub into the Jenkins b
 1. Choose to **Add webhook**. For the *Payload URL*, enter `http://<publicIp:8080>/github-webhook/`, where `<publicIp>` is the IP address of the Jenkins server. Make sure to include the trailing /. Leave the other defaults for content type and to trigger on *push* events.
 1. Select **Add webhook**.
 
-    ![Create a GitHub webhook for Jenkins](media/aks-jenkins/webhook.png)
+    ![Create a GitHub webhook for Jenkins](media/jenkins-continuous-deployment/webhook.png)
 
 ## Test the complete CI/CD pipeline
 
@@ -318,30 +318,9 @@ When updated, save the file, commit the changes, and push these to your fork of 
 
 Once the build is complete, refresh your web browser of the sample Azure vote application. Your changes are displayed, as shown in the following example:
 
-![Sample Azure vote in AKS updated by the Jenkins build job](media/aks-jenkins/azure-vote-updated.png)
+![Sample Azure vote in AKS updated by the Jenkins build job](media/jenkins-continuous-deployment/azure-vote-updated.png)
 
 ## Next steps
 
-In this article, you learned how to use Jenkins as part of a CI/CD solution. AKS can integrate with other CI/CD solutions and automation tools, such as the [Azure DevOps Project][azure-devops] or [creating an AKS cluster with Ansible][aks-ansible].
-
-<!-- LINKS - external -->
-[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
-[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
-[git-access-token]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[docker-install]: https://docs.docker.com/install/
-[kubectl-install]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-
-<!-- LINKS - internal -->
-[az-acr-list]: /cli/azure/acr#az-acr-list
-[acr-authentication]: cluster-container-registry-integration.md
-[acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
-[aks-credentials]: /cli/azure/aks#az-aks-get-credentials
-[aks-quickstart]: kubernetes-walkthrough.md
-[azure-cli-install]: /cli/azure/install-azure-cli
-[install-azure-cli]: /cli/azure/install-azure-cli
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[azure-devops]: ../devops-project/azure-devops-project-aks.md
-[aks-ansible]: ../ansible/ansible-create-configure-aks.md
+> [!div class="nextstepaction"]
+> [Jenkins on Azure](/azure/jenkins)
