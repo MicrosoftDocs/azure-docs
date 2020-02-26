@@ -14,7 +14,7 @@ This tutorial shows you how to enable [private site access](./functions-networki
 
 Private site access is useful in scenarios when access to the function app needs to be limited to a specific virtual network. For example, the function app may be applicable to only employees of a specific organization, or services which reside within the specified virtual network (such as another Azure Function, Azure Virtual Machine, or an AKS cluster).
 
-If an Azure Function needs to access Azure resources within the virtual network, or connected via [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), then [virtual network integration](./functions-create-vnet.md) is needed.
+If a Functions app needs to access Azure resources within the virtual network, or connected via [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), then [virtual network integration](./functions-create-vnet.md) is needed.
 
 In this tutorial, you learn how to configure private site access for your function app:
 
