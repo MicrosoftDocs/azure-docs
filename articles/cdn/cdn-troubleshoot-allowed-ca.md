@@ -21,10 +21,10 @@ ms.custom: mvc
 
 # Allowed certificate authorities for enabling custom HTTPS on Azure CDN
 
-There are certificate requirements when [enabling the HTTPS feature by using your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) for an Azure Content Delivery Network (CDN) custom domain .  **Azure CDN Standard from Microsoft** will require a certificate from one of the approved certificate authorities (CA) below.  If a certificate from a unapproved CA or a self-signed certificate is used, the request will be rejected.  **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** will accept any valid certificate from any valid CA.
+You must meet specific certificate requirements when you [enable the HTTPS feature by using your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) for an Azure Content Delivery Network (CDN) custom domain. The **Azure CDN Standard from Microsoft** profile requires a certificate from one of the approved certificate authorities (CA) in the following list. If a certificate from an unapproved CA or if a self-signed certificate is used, the request is rejected. **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles accept any valid certificate from any valid CA.
 
 > [!NOTE]
-> The option of using your own certificate to enable the custom domain HTTPS feature is **not** available on **Azure CDN Standard from Akamai** profiles. 
+> The option of using your own certificate to enable the custom domain HTTPS feature is *not* available for **Azure CDN Standard from Akamai** profiles. 
 >
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]
