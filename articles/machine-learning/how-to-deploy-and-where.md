@@ -177,7 +177,7 @@ To deploy the model as a service, you need the following components:
     >
     >   An alternative that might work for your scenario is [batch prediction](how-to-use-parallel-run-step.md), which does provide access to data stores during scoring.
 
-* **Inference environment**. The base image with installed package dependencies required to run the model.
+* **Inference configuration**. The base image with installed package dependencies required to run the model.
 
 Once you have the necessary components, you can profile the service that will serve your model to understand its CPU and memory requirements.
 
