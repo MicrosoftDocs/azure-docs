@@ -230,7 +230,7 @@ conceptualContent:
           text:  Smart Detection overview
         - url: ./app/proactive-failure-diagnostics.md
           itemType: how-to-guide
-          text:  Failure anomolies
+          text:  Failure anomalies
         - url: ./app/proactive-performance-diagnostics.md
           itemType: how-to-guide
           text:  Performance anomalies

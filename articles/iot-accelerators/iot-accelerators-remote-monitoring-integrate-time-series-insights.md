@@ -1,9 +1,9 @@
 ---
 title: Integrate Time Series Insights with Remote Monitoring - Azure | Microsoft Docs
 description: In this how-to you will learn how to configure Time Series Insights for an existing Remote Monitoring solution that doesn't already include Time Series Insights.
-author: aditidugar
+author: Philmea
 manager: timlt
-ms.author: adugar
+ms.author: philmea
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators

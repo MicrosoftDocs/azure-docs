@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/16/2020
+ms.date: 02/20/2020
 ms.author: radeltch
 
 ---
@@ -83,13 +83,13 @@ Before you begin, refer to the following SAP Notes and papers first:
 * [SUSE SAP HA Best Practice Guides][suse-ha-guide]
   The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
 * [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
-* [SUSE Support for multi-SID cluster](https://www.suse.com/c/sap-workloads-going-green/)
+* [SUSE multi-SID cluster guide for SLES 12 and SLES 15](https://documentation.suse.com/sbp/all/html/SBP-SAP-MULTI-SID/index.html)
 
 ## Overview
 
 The virtual machines, that participate in the cluster must be sized to be able to run all resources, in case failover occurs. Each SAP SID can fail over independent from each other in the multi-SID high availability cluster.  If using SBD fencing, the SBD devices can be shared between multiple clusters.  
 
-To achieve high availability, SAP NetWeaver requires highly available NFS shares. In this example we assume the SAP NFS shares are either hosted on highly available [NFS file server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), which can be used by multiple SAP systems. Or the shares are deployed on [Azure NetApp files NFS volumes](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
+To achieve high availability, SAP NetWeaver requires highly available NFS shares. In this example, we assume the SAP NFS shares are either hosted on highly available [NFS file server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), which can be used by multiple SAP systems. Or the shares are deployed on [Azure NetApp files NFS volumes](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 

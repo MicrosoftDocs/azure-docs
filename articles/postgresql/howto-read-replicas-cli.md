@@ -33,8 +33,8 @@ The `azure.replication_support` parameter must be set to **REPLICA** on the mast
    ```
 
 > [!NOTE]
-> If you get the error "Invalid value given" while trying to set azure.replication_support from the Azure CLI, it is likely your server already has REPLICA set by default. A bug is preventing this setting from being correctly reflected on newer servers where REPLICA is the internal default.
-> You can skip the prepare master steps and go to create the replica.
+> If you get the error "Invalid value given" while trying to set azure.replication_support from the Azure CLI, it is likely your server already has REPLICA set by default. A bug is preventing this setting from being correctly reflected on newer servers where REPLICA is the internal default. <br><br>
+> You can skip the prepare master steps and go to create the replica. <br><br>
 > If you would like to confirm your server is in this category, visit the server's replication page in the Azure portal. "Disable replication" will be grayed out and "Add Replica" will be active in the toolbar.
 
 2. Restart the server to apply the change.

@@ -1,8 +1,8 @@
 ---
 title: Azure Cosmos DB service quotas
 description: Azure Cosmos DB service quotas and default limits on different resource types.
-author: arramac
-ms.author: arramac
+author: abhijitpai
+ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
@@ -21,7 +21,7 @@ After you create an Azure Cosmos account under your subscription, you can manage
 | Maximum RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maximum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maximum RUs per (logical) partition key | 10,000 |
-| Maximum storage across all items per (logical) partition key| 10 GB |
+| Maximum storage across all items per (logical) partition key| 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
@@ -72,7 +72,8 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 | Resource | Default limit |
 | --- | --- |
 | Maximum number of databases | Unlimited |
-| Maximum number of containers per database (or account) | Unlimited |
+| Maximum number of containers per database with shared throughput |25 |
+| Maximum number of containers per database or account with dedicated throughput  |unlimited |
 | Maximum number of regions | No limit (All Azure regions) |
 
 ## Per-container limits
@@ -98,7 +99,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 | --- | --- |
 | Maximum size of an item | 2 MB (UTF-8 length of JSON representation) |
 | Maximum length of partition key value | 2048 bytes |
-| Maximum length of id value | 1024 bytes |
+| Maximum length of id value | 1023 bytes |
 | Maximum number of properties per item | No practical limit |
 | Maximum nesting depth | No practical limit |
 | Maximum length of property name | No practical limit |

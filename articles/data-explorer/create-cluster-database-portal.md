@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Data Explorer cluster and database'
+title: 'Quickstart: Create Azure Data Explorer cluster and database'
 description: 'In this quickstart, you learn how to create an Azure Data Explorer cluster and database, and ingest (load) data.'
 author: orspod
 ms.author: orspodek

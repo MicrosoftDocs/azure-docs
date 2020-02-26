@@ -6,8 +6,7 @@ ms.date: 12/18/2019
 ms.author: aahi
 ---
 
-Start using the Text Analytics API with one of the options below.
-
+You'll need a key and endpoint from a Text Analytics resource to connect your application. Get them by creating one of the resources below:
 
 * <a href="https://azure.microsoft.com/try/cognitive-services/my-apis/?api=text-analytics" title="Create a trial Text Analytics resource" target="_blank">Create a trial resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     * No Azure subscription needed. 

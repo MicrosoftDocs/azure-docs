@@ -158,7 +158,7 @@ For a complete list of the pre-integrated applications, see the [Active Director
 For more information, see:
 
 * [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../manage-apps/use-scim-to-provision-users-and-groups.md)
+* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
 ---
 **Q: How do users sign in to applications by using Azure AD?**
@@ -202,7 +202,7 @@ For more information, see [Securing access to Office 365 and other apps connecte
 
 **A:** Use Azure AD to automate the creation, maintenance, and removal of user identities in many popular cloud SaaS apps.
 
-For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ---
 **Q:  Can I set up a secure LDAP connection with Azure AD?**

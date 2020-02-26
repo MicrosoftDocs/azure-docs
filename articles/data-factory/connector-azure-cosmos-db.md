@@ -264,6 +264,18 @@ Settings specific to Azure Cosmos DB are available in the **Source Options** tab
 
 **Preferred regions:** Choose the preferred read regions for this process.
 
+#### JSON Settings
+
+**Single document:** Select this option if ADF is to treat the entire file as a single JSON doc.
+
+**Unquoted column names:** Select this option if column names in the JSON as not quoted.
+
+**Has comments:** Use this selection if your JSON documents have comments in the data.
+
+**Single quoted:** This should be selected if the columns and values in your document are quoted with single quotes.
+
+**Backslash escaped:** If using backslashes to escape characters in your JSON, choose this option.
+
 ### Sink transformation
 
 Settings specific to Azure Cosmos DB are available in the **Settings** tab of the sink transformation.
@@ -301,7 +313,7 @@ To achieve schema-agnostic copy:
 
 ## Migrate from relational database to Cosmos DB
 
-When migrating from a relational database e.g. SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Cosmos DB. In some cases, you may want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](../cosmos-db/modeling-data.md), for example, to denormalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this blog post](https://medium.com/@ArsenVlad/denormalizing-via-embedding-when-copying-data-from-sql-to-cosmos-db-649a649ae0fb) with a walkthrough on how to achieve it using Azure Data Factory copy activity.
+When migrating from a relational database e.g. SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Cosmos DB. In some cases, you may want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](../cosmos-db/modeling-data.md), for example, to denormalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this article](../cosmos-db/migrate-relational-to-cosmos-db-sql-api.md) with a walkthrough on how to achieve it using Azure Data Factory copy activity.
 
 ## Next steps
 

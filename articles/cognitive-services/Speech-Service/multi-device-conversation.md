@@ -1,17 +1,17 @@
 ---
-title: What is Multi-device Conversation (Preview) - Speech Service
+title: About Multi-device Conversation (Preview) - Speech Service
 titleSuffix: Azure Cognitive Services
 description:
 services: cognitive-services
-author: ralphe
-manager: cpoulain
+author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 1/15/2020
-ms.author: ralphe
+ms.date: 01/31/2020
+ms.author: dapine
 ---
-# What is Multi-device Conversation (Preview)?
+# About Multi-device Conversation (Preview)
 
 **Multi-device conversation** makes it easy to create a speech or text conversation between multiple clients and coordinate the messages sent between them.
 

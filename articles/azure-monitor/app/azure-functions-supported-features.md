@@ -15,11 +15,14 @@ ms.reviewer: mbullwin
 
 Azure Functions offers [built-in integration](../../azure-functions/functions-monitoring.md) with Application Insights, which is available through the ILogger Interface. Below is the list of currently supported features. Review Azure Functions' guide for [Getting started](../../azure-functions/functions-monitoring.md#enable-application-insights-integration).
 
+For more information about Functions runtime versions, see [here](../../azure-functions/functions-versions.md).
+
+For more information about compatible versions of Application Insights, see [Dependencies](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
+
 ## Supported features
 
-| Azure Functions                   	| V1            	| V2 (Ignite 2018) 	| 
+| Azure Functions                   	| V1            	| V2 & V3 	| 
 |-----------------------------------	|---------------	|------------------	|
-| **Application Insights .NET SDK**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **Automatic  collection of**        |               	|                  	|           	
 | &bull; Requests                     | Yes           	| Yes              	| 

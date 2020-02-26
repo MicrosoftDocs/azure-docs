@@ -4,18 +4,14 @@ titleSuffix: Azure Network Watcher
 description: Learn how to manage the packet capture feature of Network Watcher using the Azure portal.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
-ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 09/10/2018
-ms.author: kumud
+ms.author: damendo
 ---
 
 # Manage packet captures with Azure Network Watcher using the portal

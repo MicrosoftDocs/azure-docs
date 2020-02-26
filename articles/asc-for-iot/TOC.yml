@@ -37,6 +37,8 @@
     href: concept-security-module.md
   - name: Security alerts
     href: concept-security-alerts.md
+  - name: Customizable security alerts
+    href: concept-customizable-security-alerts.md
   - name: Security recommendations
     href: concept-recommendations.md
   - name: Baseline
@@ -75,6 +77,8 @@
     href: how-to-security-data-access.md
   - name: Investigate a device
     href: how-to-investigate-device.md
+  - name: Connect to Azure Sentinel
+    href: how-to-configure-with-sentinel.md
   - name: Customize your solution
     href: how-to-customize-solution.md
 - name: Resources

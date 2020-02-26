@@ -4,7 +4,7 @@ description: This article provides information about how to connect your ITSM pr
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 
