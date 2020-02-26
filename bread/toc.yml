@@ -290,7 +290,7 @@
       tocHref: /azure/cognitive-services/anomaly-detector/
       topicHref: /azure/cognitive-services/anomaly-detector/
     - name: Bing Search APIs
-      tocHref: /azure/cognitive-services/bing-web-search
+      tocHref: /azure/cognitive-services/bing
       topicHref: /azure/cognitive-services/bing-web-search
       items:
       - name: Bing Autosuggest
