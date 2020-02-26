@@ -29022,6 +29022,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-alerts-iaas.md",
+      "redirect_url": "/azure/security-center/threat-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-alerts-data-services.md",
+      "redirect_url": "/azure/security-center/threat-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-alerts-compute.md",
+      "redirect_url": "/azure/security-center/threat-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-alerts-service-layer.md",
+      "redirect_url": "/azure/security-center/threat-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-alerts-integration.md",
+      "redirect_url": "/azure/security-center/threat-protection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-playbooks.md",
       "redirect_url": "/azure/security-center/workflow-automation",
       "redirect_document_id": false
@@ -48901,6 +48926,11 @@
       "source_path": "articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md",
       "redirect_url": "/azure/jenkins/tutorial-jenkins-github-docker-cicd",
       "redirect_document_id": false 
+    },
+    {
+      "source_path": "articles/container-instances/container-instances-jenkins.md",
+      "redirect_url": "/azure/jenkins/container-instances-jenkins",
+      "redirect_document_id": false
     }
   ]
 }

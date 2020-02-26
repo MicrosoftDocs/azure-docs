@@ -2,7 +2,7 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 02/25/2020
 ---
 
 # Understand the structure and syntax of Azure Resource Manager templates
@@ -255,10 +255,14 @@ The following example shows the structure of an output definition:
 
 ```json
 "outputs": {
-  "<output-name>" : {
+  "<output-name>": {
     "condition": "<boolean-value-whether-to-output-value>",
-    "type" : "<type-of-output-value>",
-    "value": "<output-value-expression>"
+    "type": "<type-of-output-value>",
+    "value": "<output-value-expression>",
+    "copy": {
+      "count": <number-of-iterations>,
+      "input": <values-for-the-variable>
+    }
   }
 }
 ```
@@ -268,7 +272,8 @@ The following example shows the structure of an output definition:
 | output-name |Yes |Name of the output value. Must be a valid JavaScript identifier. |
 | condition |No | Boolean value that indicates whether this output value is returned. When `true`, the value is included in the output for the deployment. When `false`, the output value is skipped for this deployment. When not specified, the default value is `true`. |
 | type |Yes |Type of the output value. Output values support the same types as template input parameters. If you specify **securestring** for the output type, the value isn't displayed in the deployment history and can't be retrieved from another template. To use a secret value in more than one template, store the secret in a Key Vault and reference the secret in the parameter file. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](key-vault-parameter.md). |
-| value |Yes |Template language expression that is evaluated and returned as output value. |
+| value |No |Template language expression that is evaluated and returned as output value. Specify either **value** or **copy**. |
+| copy |No | Used to return more than one value for an output. Specify **value** or **copy**. For more information, see [Output iteration in Azure Resource Manager templates](copy-outputs.md). |
 
 For examples of how to use outputs, see [Outputs in Azure Resource Manager template](template-outputs.md).
 
@@ -297,7 +302,7 @@ For inline comments, you can use either `//` or `/* ... */` but this syntax does
   ],
 ```
 
-In Visual Studio Code, the [Azure Resource Manager Tools extension](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) can automatically detect Resource Manager template and change the language mode accordingly. If you see **Azure Resource Manager Template** at the bottom right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
+In Visual Studio Code, the [Azure Resource Manager Tools extension](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) can automatically detect Resource Manager template and change the language mode accordingly. If you see **Azure Resource Manager Template** at the bottom-right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
 
 ![Visual Studio Code Azure Resource Manager template mode](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -374,7 +379,7 @@ You can't add a metadata object to user-defined functions.
 
 ## Multi-line strings
 
-You can break a string into multiple lines. For example the location property and one of the comments in the following JSON example.
+You can break a string into multiple lines. For example, see the location property and one of the comments in the following JSON example.
 
 ```json
 {
