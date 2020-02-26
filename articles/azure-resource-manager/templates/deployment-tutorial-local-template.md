@@ -32,13 +32,13 @@ Templates are JSON files. To review/edit templates, you need a good JSON editor.
 
 ## Review template
 
-The template used in this tutorial is the sample template used in the [tutorial about Quickstart templates](template-tutorial-quickstart-template.md). If you are interested in creating the template, you can go through that tutorial. However it's not required for completing this tutorial.
+The template used in this tutorial is similar to the template used in the [tutorial about Quickstart templates](template-tutorial-quickstart-template.md). If you are interested in creating the template, you can go through that tutorial. However it's not required for completing this tutorial.
 
-At the end of the quickstart tutorial, your template had the following JSON, which deployed a storage account, app service plan, and web app.
+The template deploys a storage account, app service plan, and web app.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json/azuredeploy.json":::
 
-Save a copy of the template to your local computer.
+Save a copy of the template to your local computer. You will deploy this template.
 
 ## Sign in to Azure
 
@@ -87,15 +87,15 @@ Use one or both deployment options to deploy the template.
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$templateFile = Read-Host -Prompt "Enter the template URI"
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
+$templateFile = Read-Host -Prompt "Enter the template file path and file name"
 
 New-AzResourceGroupDeployment `
-  -Name addwebapp `
+  -Name DeployLocalTemplate `
   -ResourceGroupName myResourceGroup `
   -TemplateFile $templateFile `
-  -storagePrefix "store" `
-  -storageSKU Standard_LRS `
-  -webAppName demoapp
+  -projectName $projectName `
+  -verbose
 ```
 
 To learn more about deploying template by using Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](./deploy-powershell.md).
@@ -103,14 +103,17 @@ To learn more about deploying template by using Azure PowerShell, see [Deploy re
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-echo "Enter the template URI:"
+echo "Enter a project name that is used to generate resource names:"
+read projectName
+echo "Enter the template file path and file name:"
 read templateFile
 
 az group deployment create \
-  --name addwebapp \
+  --name DeployLocalTemplate \
   --resource-group myResourceGroup \
   --template-file $templateFile \
-  --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp
+  --parameters projectname=$projectName \
+  --verbose
 ```
 
 To learn more about deploying template by using Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](./deploy-cli.md).

@@ -18,17 +18,17 @@ We recommend that you complete the first two deployment tutorials, but it's not 
 
 In the previous tutorials, you deploy a template that creates a storage account, App Service plan, and web app. The template used was:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 ## Create a linked template
 
 You can separate the storage account resource into a linked template:
 
-:::code language="json" source="~/resourcemanager-templates/tutorial-deployment/linkedStorageAccount.json":::
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
 The following template is the main template.  The highlighted **Microsoft.Resources/deployments** object shows how to call a linked template. The linked template cannot be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either *http* or *https*. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item. The URI is passed to template using a parameter. See the highlighted parameter definition.
 
-:::code language="json" source="~/resourcemanager-templates/tutorial-deployment/azuredeploy.json" highlight="32-37,43-61":::
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 
 Save a copy of the main template to your local computer.
 
@@ -46,7 +46,7 @@ $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
 $containerName = "linkedtemplates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-deployment/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json" # A completed linked template used in this tutorial.
 $fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 # Download the tutorial linked template
@@ -93,33 +93,36 @@ If you haven't created the resource group, see [Create resource group](template-
 
 ```azurepowershell
 
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
 $templateFile = Read-Host -Prompt "Enter the main template file"
 $linkedTemplateUri = Read-Host -Prompt "Enter the linked template URI"
 
 New-AzResourceGroupDeployment `
-  -Name addwebapp `
+  -Name DeployLinkedTemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateUri $templateFile `
+  -TemplateUri $templateUri `
+  -projectName $projectName `
   -linkedTemplateUri $linkedTemplateUri `
-  -storagePrefix "store" `
-  -storageSKU Standard_LRS `
-  -webAppName demoapp
+  -verbose
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 
+echo "Enter a project name that is used to generate resource names:"
+read projectName
 echo "Enter the main template file:"
 read templateFile
 echo "Enter the linked template URI:"
 read linkedTemplateUri
 
 az group deployment create \
-  --name addwebapp \
+  --name DeployLinkedTemplate \
   --resource-group myResourceGroup \
   --template-uri $templateFile \
-  --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp linkedTemplateUri=$linkedTemplateUri
+  --parameters projectName=$projectName linkedTemplateUri=$linkedTemplateUri \
+  --verbose
 ```
 
 ---
@@ -140,4 +143,4 @@ If you're stopping now, you might want to clean up the resources you deployed by
 You learned how to deploy a linked template. In the next tutorial, you learn how to secure the linked template by using SAS token.
 
 > [!div class="nextstepaction"]
-> [Secure a linked template ](./deployment-tutorial-secured-linked-template.md)
+> [Secure a linked template](./deployment-tutorial-secured-linked-template.md)

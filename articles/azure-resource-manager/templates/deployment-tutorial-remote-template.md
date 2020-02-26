@@ -18,7 +18,7 @@ We recommend that you complete the [first deployment tutorial](./deployment-tuto
 
 In the previous tutorial, you deploy a template that creates a storage account, App Service plan, and web app. The template used was:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json/azuredeploy.json":::
 
 ## Store and share the template
 
@@ -34,7 +34,7 @@ $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
 $containerName = "templates" # The name of the Blob container to be created.
 
-$templateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json" # The template used in this tutorial.
+$templateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/local-template/azuredeploy.json/azuredeploy.json" # The template used in this tutorial.
 $fileName = "azuredeploy.json" # A file name used for downloading and uploading the template.
 
 # Download the template
@@ -80,28 +80,31 @@ If you haven't created the resource group, see [Create resource group](template-
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$templateFile = Read-Host -Prompt "Enter the template URI"
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
+$templateUri = Read-Host -Prompt "Enter the template URI"
 
 New-AzResourceGroupDeployment `
-  -Name addwebapp `
+  -Name DeployRemoteTemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateUri $templateFile `
-  -storagePrefix "store" `
-  -storageSKU Standard_LRS `
-  -webAppName demoapp
+  -TemplateUri $templateUri `
+  -projectName $projectName `
+  -verbose
 ```
 
 # [Azure CLI](#tab/azure-cli)
-```azurecli
 
+```azurecli
+echo "Enter a project name that is used to generate resource names:"
+read projectName
 echo "Enter the template URI:"
-read templateFile
+read templateUri
 
 az group deployment create \
-  --name addwebapp \
+  --name DeployRemoteTemplate \
   --resource-group myResourceGroup \
-  --template-uri $templateFile \
-  --parameters storagePrefix=store webAppName=demoapp
+  --template-uri $templateUri \
+  --parameters projectname=$projectName \
+  --verbose
 ```
 
 ---

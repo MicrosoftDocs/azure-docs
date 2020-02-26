@@ -20,11 +20,11 @@ In the previous tutorial, you had a main template and a linked template.  Both t
 
 The linked template was:
 
-:::code language="json" source="~/resourcemanager-templates/tutorial-deployment/linkedStorageAccount.json":::
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
 The main template was:
 
-:::code language="json" source="~/resourcemanager-templates/tutorial-deployment/azuredeploy.json" highlight="32-37,43-61":::
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="32-37,43-61":::
 
 The highlighted portions show how to pass the linked template URI and how to call a linked template.
 
@@ -47,7 +47,7 @@ $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
 $containerName = "templates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-deployment/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json" # A completed linked template used in this tutorial.
 $fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 # Download the template
@@ -101,22 +101,37 @@ If you haven't created the resource group, see [Create resource group](deploymen
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
+
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
+$templateFile = Read-Host -Prompt "Enter the main template file"
+$linkedTemplateUri = Read-Host -Prompt "Enter the linked template URI"
+
 New-AzResourceGroupDeployment `
-  -Name addwebapp `
+  -Name SecureLinkedTemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile `
-  -storagePrefix "store" `
-  -webAppName demoapp
+  -TemplateUri $templateUri `
+  -projectName $projectName `
+  -linkedTemplateUri $linkedTemplateUri `
+  -verbose
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+
+echo "Enter a project name that is used to generate resource names:"
+read projectName
+echo "Enter the main template file:"
+read templateFile
+echo "Enter the linked template URI:"
+read linkedTemplateUri
+
 az group deployment create \
-  --name addwebapp \
+  --name SecureLinkedTemplate \
   --resource-group myResourceGroup \
-  --template-file $templateFile \
-  --parameters storagePrefix=store webAppName=demoapp
+  --template-uri $templateFile \
+  --parameters projectName=$projectName linkedTemplateUri=$linkedTemplateUri \
+  --verbose
 ```
 
 ---
