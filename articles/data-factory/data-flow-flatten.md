@@ -10,17 +10,17 @@ ms.date: 02/25/2020
 
 # Azure Data Factory Flatten Transformation
 
+The flatten transformation can be used to pivot array values inside of a hierarchical structure into new rows, essentially denormalizing your data.
+
 ![Transformation toolbox](media/data-flow/flatten5.png "Transformation toolbox")
 
 ![Flatten transformation 1](media/data-flow/flatten1.png "Flatten transformation 1")
 
-The flatten transformation can be used to pivot array values inside of a hierarchical structure into new rows, essentially denormalizing your data.
-
-![Flatten transformation 2](media/data-flow/flatten2.png "Flatten transformation 2")
-
 ## Unroll by
 
 First, choose the array column that you wish to unroll and pivot.
+
+![Flatten transformation 2](media/data-flow/flatten2.png "Flatten transformation 2")
 
 ## Unroll root
 
