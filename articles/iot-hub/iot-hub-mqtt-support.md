@@ -171,11 +171,11 @@ This repository contains:
 
 **For mosquitto_pub:**
 
-* This folder contains two samples commands used with mosquitto_pub utility tool provided by Mosquitto.org.
+This folder contains two samples commands used with mosquitto_pub utility tool provided by Mosquitto.org.
 
-Mosquitto_sendmessage: to send a simple text message to an Azure IoT hub acting as a device.
+* Mosquitto_sendmessage: to send a simple text message to an Azure IoT hub acting as a device.
 
-Mosquitto_subscribe: to see events occurring in an Azure IoT hub.
+* Mosquitto_subscribe: to see events occurring in an Azure IoT hub.
 
 ## Using the MQTT protocol directly (as a module)
 
