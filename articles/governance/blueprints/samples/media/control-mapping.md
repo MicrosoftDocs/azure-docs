@@ -31,11 +31,11 @@ built-in policy initiative.
 # Control Category: Access Control
 
 AC-1.1- Ensure no root access key exists
-[Preview]: Deploy prerequisites to audit Windows VMs that do not contain the specified certificates in Trusted Root
+\[Preview\]: Deploy prerequisites to audit Windows VMs that do not contain the specified certificates in Trusted Root
 This policy creates a Guest Configuration assignment to audit Windows VMs that do not contain the specified certificates in the Trusted Root Certification Authorities certificate store (Cert:\LocalMachine\Root). It also creates a system-assigned managed identity and deploys the VM extension for Guest Configuration. This policy should only be used along with its corresponding audit policy in an initiative. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 AC-1.2 - Passwords, PINs, and Tokens must be protected
-[Preview]: Deploy prerequisites to audit Windows VMs that do not restrict the minimum password length to 14 characters
+\[Preview\]: Deploy prerequisites to audit Windows VMs that do not restrict the minimum password length to 14 characters
 This policy creates a Guest Configuration assignment to audit Windows virtual machines that do not restrict the minimum password length to 14 characters. It also creates a system-assigned managed identity and deploys the VM extension for Guest Configuration. This policy should only be used along with its corresponding audit policy in an initiative. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 AC-1.8 - Shared account access is prohibited
@@ -47,23 +47,23 @@ Audit unrestricted network access to storage accounts
 Audit unrestricted network access in your storage account firewall settings. Instead, configure network rules so only applications from allowed networks can access the storage account. To allow connections from specific internet or on-premise clients, access can be granted to traffic from specific Azure virtual networks or to public internet IP address ranges
 
 AC- 1.14 -System must enforce access rights.
-[Preview]: Deploy prerequisites to audit Windows VMs configurations in 'User Rights Assignment'
+\[Preview\]: Deploy prerequisites to audit Windows VMs configurations in 'User Rights Assignment'
 This policy creates a Guest Configuration assignment to audit Windows virtual machines with non-compliant settings in Group Policy category: 'User Rights Assignment'. It also creates a system-assigned managed identity and deploys the VM extension for Guest Configuration. This policy should only be used along with its corresponding audit policy in an initiative. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 AC- 1.15 -Prevent unauthorized access to security relevant information or functions.
-[Preview]: Show audit results from Windows VMs configurations in 'Security Options - System settings'
+\[Preview\]: Show audit results from Windows VMs configurations in 'Security Options - System settings'
 This policy should only be used along with its corresponding deploy policy in an initiative. This definition allows Azure Policy to process the results of auditing Windows virtual machines with non-compliant settings in Group Policy category: 'Security Options - System settings'. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 AC-1-21 - Separation of duties must be enforced through appropriate assignment of role.
-[Preview]: Role-Based Access Control (RBAC) should be used on Kubernetes Services
+[Preview\]: Role-Based Access Control (RBAC) should be used on Kubernetes Services
 To provide granular filtering on the actions that users can perform, use Role-Based Access Control (RBAC) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies.
 
 AC-1.40- Ensure that systems are not connecting trusted network and untrusted networks at the same time.
-[Preview]: Deploy prerequisites to audit Windows VMs configurations in 'Security Options - Network Access'
+\[Preview\]: Deploy prerequisites to audit Windows VMs configurations in 'Security Options - Network Access'
 This policy creates a Guest Configuration assignment to audit Windows virtual machines with non-compliant settings in Group Policy category: 'Security Options - Network Access'. It also creates a system-assigned managed identity and deploys the VM extension for Guest Configuration. This policy should only be used along with its corresponding audit policy in an initiative. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 AC-1.42 & AC- 1.43 - Remote access for non-employees must be restricted to allow access only to specifically approved information systems
-[Preview]: Show audit results from Linux VMs that allow remote connections from accounts without passwords
+\[Preview\]: Show audit results from Linux VMs that allow remote connections from accounts without passwords
 This policy should only be used along with its corresponding deploy policy in an initiative. This definition allows Azure Policy to process the results of auditing Linux virtual machines that allow remote connections from accounts without passwords. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 AC-1.50- Log security related events for all information system components.
@@ -80,25 +80,25 @@ Diagnostic logs in Search services should be enabled
 Audit enabling of diagnostic logs. This enables you to recreate activity trails to use for investigation purposes; when a security incident occurs or when your network is compromised
 
 AL -2.16 - Network devices/instances must log any event classified as a critical security event by that network device/instance (ELBs, web application firewalls, etc.)
-[Preview]: Show audit results from Windows VMs configurations in 'Security Options - Accounts'
+\[Preview\]: Show audit results from Windows VMs configurations in 'Security Options - Accounts'
 This policy should only be used along with its corresponding deploy policy in an initiative. This definition allows Azure Policy to process the results of auditing Windows virtual machines with non-compliant settings in Group Policy category: 'Security Options - Accounts'. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 AL-2.17- Servers/instances must log any event classified as a critical security event by that server/instance
-[Preview]: Show audit results from Windows VMs configurations in 'Security Options - Accounts'
+\[Preview\]: Show audit results from Windows VMs configurations in 'Security Options - Accounts'
 This policy should only be used along with its corresponding deploy policy in an initiative. This definition allows Azure Policy to process the results of auditing Windows virtual machines with non-compliant settings in Group Policy category: 'Security Options - Accounts'. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 AL-2.19 - Domain events must log any event classified as a critical or high security event by the domain management software
-[Preview]: Show audit results from Windows VMs configurations in 'Security Options - Accounts'
+\[Preview\]: Show audit results from Windows VMs configurations in 'Security Options - Accounts'
 This policy should only be used along with its corresponding deploy policy in an initiative. This definition allows Azure Policy to process the results of auditing Windows virtual machines with non-compliant settings in Group Policy category: 'Security Options - Accounts'. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
-[Preview]: Deploy prerequisites to audit Windows VMs configurations in 'Security Options - Microsoft Network Client'
+\[Preview\]: Deploy prerequisites to audit Windows VMs configurations in 'Security Options - Microsoft Network Client'
 This policy creates a Guest Configuration assignment to audit Windows virtual machines with non-compliant settings in Group Policy category: 'Security Options - Microsoft Network Client'. It also creates a system-assigned managed identity and deploys the VM extension for Guest Configuration. This policy should only be used along with its corresponding audit policy in an initiative. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 AL-2.20- Domain events must log any event classified as a critical security event by domain security controls
-[Preview]: Show audit results from Windows VMs configurations in 'Security Options - Accounts'
+\[Preview\]: Show audit results from Windows VMs configurations in 'Security Options - Accounts'
 This policy should only be used along with its corresponding deploy policy in an initiative. This definition allows Azure Policy to process the results of auditing Windows virtual machines with non-compliant settings in Group Policy category: 'Security Options - Accounts'. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 AL-2.21- Domain events must log any access or changes to the domain log
-[Preview]: Show audit results from Windows VMs configurations in 'Security Options - Recovery console'
+\[Preview\]: Show audit results from Windows VMs configurations in 'Security Options - Recovery console'
 This policy should only be used along with its corresponding deploy policy in an initiative. This definition allows Azure Policy to process the results of auditing Windows virtual machines with non-compliant settings in Group Policy category: 'Security Options - Recovery console'. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 # Control Category: Cryptographic Controls
@@ -108,11 +108,11 @@ Transparent Data Encryption on SQL databases should be enabled
 Transparent data encryption should be enabled to protect data-at-rest and meet compliance requirements
 
 CC-4.5- Digital Certificates must be signed by an approved Certificate Authority.
-[Preview]: Show audit results from Windows VMs that contain certificates expiring within the specified number of days
+\[Preview\]: Show audit results from Windows VMs that contain certificates expiring within the specified number of days
 This policy should only be used along with its corresponding deploy policy in an initiative. This definition allows Azure Policy to process the results of auditing Windows virtual machines that contain certificates expiring within the specified number of days. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 CC-4.6- Digital Certificates must be uniquely assigned to a user or device.
-[Preview]: Deploy prerequisites to audit Windows VMs that contain certificates expiring within the specified number of days
+\[Preview\]: Deploy prerequisites to audit Windows VMs that contain certificates expiring within the specified number of days
 This policy creates a Guest Configuration assignment to audit Windows virtual machines that contain certificates expiring within the specified number of days. It also creates a system-assigned managed identity and deploys the VM extension for Guest Configuration. This policy should only be used along with its corresponding audit policy in an initiative. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 CC-4.7- Cryptographic material must be stored to enable decryption of the records for the length of time the records are retained.
@@ -133,7 +133,7 @@ Missing security system updates on your servers will be monitored by Azure Secur
 CM-5.14- Identify and disable unnecessary and/or non-secure functions, ports, protocols and services.
 Network interfaces should disable IP forwarding
 This policy denies the network interfaces which enabled IP forwarding. The setting of IP forwarding disables Azure's check of the source and destination for a network interface. This should be reviewed by the network security team.
-[Preview]: IP Forwarding on your virtual machine should be disabled
+\[Preview\]: IP Forwarding on your virtual machine should be disabled
 Enabling IP forwarding on a virtual machine's NIC allows the machine to receive traffic addressed to other destinations. IP forwarding is rarely required (e.g., when using the VM as a network virtual appliance), and therefore, this should be reviewed by the network security team.
 
 CM-5.19- Monitor changes to the security configuration settings.
@@ -151,19 +151,19 @@ External accounts with owner permissions should be removed from your subscriptio
 
 # Control Category: Network Security
 NS-9.2- Access to network device management functionality is restricted to authorized users.
-[Preview]: Deploy prerequisites to audit Windows VMs configurations in 'Security Options - Network Access'
+\[Preview\]: Deploy prerequisites to audit Windows VMs configurations in 'Security Options - Network Access'
 This policy creates a Guest Configuration assignment to audit Windows virtual machines with non-compliant settings in Group Policy category: 'Security Options - Network Access'. It also creates a system-assigned managed identity and deploys the VM extension for Guest Configuration. This policy should only be used along with its corresponding audit policy in an initiative. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 NS-9.3- All network devices must be configured using their most secure configurations.
-[Preview]: Deploy prerequisites to audit Windows VMs configurations in 'Security Options - Network Access'
+\[Preview\]: Deploy prerequisites to audit Windows VMs configurations in 'Security Options - Network Access'
 This policy creates a Guest Configuration assignment to audit Windows virtual machines with non-compliant settings in Group Policy category: 'Security Options - Network Access'. It also creates a system-assigned managed identity and deploys the VM extension for Guest Configuration. This policy should only be used along with its corresponding audit policy in an initiative. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 NS-9.5- All network connections to a system through a firewall must be approved and audited on a regular basis.
-[Preview]: Show audit results from Windows VMs configurations in 'Windows Firewall Properties'
+\[Preview\]: Show audit results from Windows VMs configurations in 'Windows Firewall Properties'
 This policy should only be used along with its corresponding deploy policy in an initiative. This definition allows Azure Policy to process the results of auditing Windows virtual machines with non-compliant settings in Group Policy category: 'Windows Firewall Properties'. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 NS-9.7- Appropriate controls must be present at any boundary between a trusted network and any untrusted or public network.
-[Preview]: Deploy prerequisites to audit Windows VMs configurations in 'Windows Firewall Properties'
+\[Preview\]: Deploy prerequisites to audit Windows VMs configurations in 'Windows Firewall Properties'
 This policy creates a Guest Configuration assignment to audit Windows virtual machines with non-compliant settings in Group Policy category: 'Windows Firewall Properties'. It also creates a system-assigned managed identity and deploys the VM extension for Guest Configuration. This policy should only be used along with its corresponding audit policy in an initiative. For more information on Guest Configuration policies, please visit https://aka.ms/gcpol
 
 # Control Category: Security Planning

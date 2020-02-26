@@ -140,7 +140,18 @@
     - name: Steps to deploy
       displayName: standards, iso, 27001
       href: ./samples/iso27001-ase-sql-workload/deploy.md
-  - name: NIST SP 800-53 Rev4
+ name: MEDIA   
+    items:
+    - name: Overview
+      displayName: standards, MEDIA MPAA
+      href: ./samples/media/index.md
+    - name: Control mapping
+      displayName: standards, MEDIA
+      href: ./samples/media/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, Media
+      href: ./samples/media/deploy.md
+      - name: NIST SP 800-53 Rev4
     items:
     - name: Overview
       displayName: standards, nist, 800-53, rev 4
