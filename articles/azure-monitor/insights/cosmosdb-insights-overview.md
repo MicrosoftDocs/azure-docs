@@ -10,26 +10,12 @@ ms.date: 10/27/2019
 
 ---
 
-# Explore Azure Monitor for Azure Cosmos DB (preview)
+# Explore Azure Monitor for Azure Cosmos DB
 
-Azure Monitor for Azure Cosmos DB (preview) provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
-
-## Introduction
-
-Before diving into the experience, you should understand how it presents and visualizes information. 
-
-It delivers:
-
-* **At scale perspective** of your Azure Cosmos DB resources across all your subscriptions in a single location, with the ability to selectively scope to only those subscriptions and resources you are interested in evaluating.
-
-* **Drill down analysis** of a particular Azure CosmosDB resource to help diagnose issues or perform detailed analysis by category - utilization, failures, capacity, and operations. Selecting any one of those options provides an in-depth view of the relevant Azure Cosmos DB metrics.  
-
-* **Customizable** - This experience is built on top of Azure Monitor workbook templates allowing you to change what metrics are displayed, modify or set thresholds that align with your limits, and then save into a custom workbook. Charts in the workbooks can then be pinned to Azure dashboards.  
-
-This feature does not require you to enable or configure anything, these Azure Cosmos DB metrics are collected by default.
-
->[!NOTE]
->There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
+[Azure monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) is the comprehensive monitoring solution for production monitoring of Cosmos DB environment. It provides ability to 
+* Drill into your Cosmos DB  across control and data plane activities and metrics data with [Log Analytics  ](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview)
+* Create  smart alerts and automated actions for monitoring creation of accounts, rotation of keys , throughput change etc.
+* Create visualizations with Azure [dashboards](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/tutorial-logs-dashboards). [Metrics] (https://docs.microsoft.com/en-us/azure/azure-monitor/learn/tutorial-metrics-explorer) and [workbooks](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks) to provide near real time metrics. 
 
 ## View operation level metrics for Azure Cosmos DB
 
@@ -73,8 +59,25 @@ To view the utilization and performance of your storage accounts across all of y
 
     ![Screenshot of Cosmos DB overview workbook](./media/cosmosdb-insights-overview/cosmos-db.png)
 
-### Overview
+### Azure Monitor for Azure Cosmos DB (preview) Overview
+Azure Monitor for Azure Cosmos DB (preview) provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
 
+## Introduction
+
+Before diving into the experience, you should understand how it presents and visualizes information. 
+
+It delivers:
+
+* **At scale perspective** of your Azure Cosmos DB resources across all your subscriptions in a single location, with the ability to selectively scope to only those subscriptions and resources you are interested in evaluating.
+
+* **Drill down analysis** of a particular Azure CosmosDB resource to help diagnose issues or perform detailed analysis by category - utilization, failures, capacity, and operations. Selecting any one of those options provides an in-depth view of the relevant Azure Cosmos DB metrics.  
+
+* **Customizable** - This experience is built on top of Azure Monitor workbook templates allowing you to change what metrics are displayed, modify or set thresholds that align with your limits, and then save into a custom workbook. Charts in the workbooks can then be pinned to Azure dashboards.  
+
+This feature does not require you to enable or configure anything, these Azure Cosmos DB metrics are collected by default.
+
+>[!NOTE]
+>There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
 On **Overview**, the table displays interactive Azure Cosmos DB metrics. You can filter the results based on the options you select from the following drop-down lists:
 
 * **Subscriptions** - only subscriptions that have an Azure Cosmos DB resource are listed.  
