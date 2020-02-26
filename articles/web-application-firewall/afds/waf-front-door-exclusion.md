@@ -9,7 +9,7 @@ ms.author: victorh
 ms.topic: conceptual
 ---
 
-## Web Application Firewall (WAF) with Front Door Service Exclusion Lists 
+# Web Application Firewall (WAF) with Front Door Service exclusion lists 
 
 Sometimes a request blocked by Web Application Firewall (WAF) may be allowed for your application. A common example is Active Directory inserted tokens that are used for authentication. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation.  Exclusion list can be configured using Azure portal shown below, [PowserShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), or [Rest API](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate). 
 
