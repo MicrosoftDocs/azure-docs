@@ -5,7 +5,7 @@ author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 02/25/2020
 ---
 
 # Threat Modeling Tool update release 7.3.00206.1 - 02/11/2020
