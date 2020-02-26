@@ -21,7 +21,11 @@ With multi-protocol access on Data Lake Storage, you can work with your data by 
 Blob Storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](storage-lifecycle-management-concepts.md) now work with accounts that have a hierarchical namespace. Therefore, you can enable hierarchical namespaces on your blob Storage accounts without losing access to these important features. 
 
 > [!NOTE]
-> Multi-protocol access on Data Lake Storage is generally available and is available in all regions. Some Azure services or blob storage features enabled by multi-protocol access remain in preview. See the tables in each section of this article for more information. 
+> Multi-protocol access on Data Lake Storage is generally available and is available in all regions. Some Azure services or Blob storage features enabled by multi-protocol access remain in preview.  These articles summarize the current support for Blob Storage features and Azure service integrations. 
+>
+> [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+>
+>[Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 
 ## How multi-protocol access on data lake storage works
 
@@ -30,45 +34,6 @@ Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data in storag
 ![Multi-protocol access on Data Lake Storage conceptual](./media/data-lake-storage-interop/interop-concept.png) 
 
 Existing tools and applications that use the Blob API gain these benefits automatically. Developers won't have to modify them. Data Lake Storage Gen2 consistently applies directory and file-level ACLs regardless of the protocol that tools and applications use to access the data. 
-
-> [!NOTE]
-> Even though multi-protocol access on Data Lake Storage is generally available, support for some features, tools and services remain in preview or are not yet supported. The tables in the next few sections summarize the current support for Blob features, tools, and Azure services. The items that appear in these tables will change over time as support continues to expand. 
-
-## Supported Blob Storage features
-
-This table lists the Blob storage features that you can use with your Data Lake Storage.
-
-> [!NOTE]
-> Support level refers only to how the feature is supported in Data Lake Storage Gen2.<br>
-> To review specific issues, see [Known Issues](data-lake-storage-known-issues.md#known-issues).
-
-<hr></hr>
-
-[!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
-
-## Supported tools and SDKs
-
-This table lists tools and SDKs that you can use with your Data Lake Storage. 
-
-> [!NOTE]
-> Support level refers only to how the tool or SDK is supported in Data Lake Storage Gen2.<br>
-> To review specific issues, see [Known Issues](data-lake-storage-known-issues.md#known-issues).
-
-<hr></hr>
-
-[!INCLUDE [storage-data-lake-tool-support](../../../includes/storage-data-lake-tool-support.md)]
-
-## Supported Azure service integrations
-
-This table lists Azure services that can integrate with your Data Lake Storage. 
-
-> [!NOTE]
-> Support level refers only to how the service is supported with Data Lake Storage Gen2.<br>
-> To review specific issues, see [Known Issues](data-lake-storage-known-issues.md#known-issues).
-
-<hr></hr>
-
-[!INCLUDE [storage-data-lake-service-ecosystem-support](../../../includes/storage-data-lake-service-ecosystem-support.md)]
 
 ## Next steps
 

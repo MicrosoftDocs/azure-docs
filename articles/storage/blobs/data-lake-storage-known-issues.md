@@ -1,6 +1,6 @@
 ---
 title: Known issues with Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Learn about the level of support for Blob features, tools, and Azure services, as well as limitations and known issues.
+description: Learn about limitations and known issues with using Blob Storage Features and tools with Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -11,37 +11,21 @@ ms.reviewer: jamesbak
 ---
 # Known issues with Azure Data Lake Storage Gen2
 
-This article summarizes the level of support for Blob features, tools, and Azure services, and describes limitations and known issues.
+This article describes limitations and known issues with using Blob Storage Features and tools with Azure Data Lake Storage Gen2.
 
-<a id="blob-storage-features" />
+To review a list of supported Blob Storage features, Azure service integrations, and open source platforms, see any of these articles: 
 
-## Support levels at a glance
+- [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
 
-The tables in this section summarize Data Lake Storage Gen2 support for Blob features, tools, and Azure services.  The items that appear in this table will change over time as support continues to expand. 
+- [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 
-### Blob Storage features
+- [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
 
-<hr></hr>
+<a id="known-issues-blob-features" />
 
-[!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
+## Known issues with Blob Storage features
 
-### Tools and SDKs
-
-<hr></hr>
-
-[!INCLUDE [storage-data-lake-tool-support](../../../includes/storage-data-lake-tool-support.md)]
-
-### Azure service integrations
-
-<hr></hr>
-
-[!INCLUDE [storage-data-lake-service-ecosystem-support](../../../includes/storage-data-lake-service-ecosystem-support.md)]
-
-<a id="known-issues" />
-
-## Known issues
-
-This section describes the limitations and known issues with Azure Data Lake Storage Gen2.
+This section describes the limitations and known issues of Blob Storage features with Azure Data Lake Storage Gen2.
 
 ### Lifecycle management policies
 
@@ -49,13 +33,54 @@ This section describes the limitations and known issues with Azure Data Lake Sto
 
 * There are currently some bugs affecting lifecycle management policies and the archive access tier. 
 
-<a id="diagnostic-logs-notes" />
-
 ### Diagnostic logs
 
 Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view logs, please use AzCopy or SDKs.
 
-<a id="az-copy" />
+### Blobfuse
+
+Blobfuse is not supported.
+
+### Blob Storage APIs
+
+Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
+
+This section describes issues and limitations with using blob APIs and Data Lake Storage Gen2 APIs to operate on the same data.
+
+* You can't use both Blob APIs and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API. You can overwrite a file by using either Data Lake Storage Gen2 APIs or Blob APIs. This won't affect file properties.
+
+* When you use the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
+
+* If you use the [Delete Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API to delete a directory, that directory will be deleted only if it's empty. This means that you can't use the Blob API delete directories recursively.
+
+These Blob REST APIs aren't supported:
+
+* [Put Blob (Page)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+* [Put Page](https://docs.microsoft.com/rest/api/storageservices/put-page)
+* [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
+* [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
+* [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
+* [Put Blob (Append)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
+* [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+
+Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
+
+<a id="api-scope-data-lake-client-library" />
+
+### File system support in SDKs
+
+- [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md), and [JavaScript](data-lake-storage-directory-file-acl-javascript.md) and support are in public preview. Other SDKs are not currently supported.
+- Get and set ACL operations are not currently recursive.
+
+### File system support in PowerShell and Azure CLI
+
+- [PowerShell](data-lake-storage-directory-file-acl-powershell.md) and [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support are in public preview.
+- Get and set ACL operations are not currently recursive.
+
+<a id="known-issues-tools" />
+
+## Known issues with tools
 
 ### AzCopy
 
@@ -80,44 +105,6 @@ ACLs are not yet supported.
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2
 Applications that call Blob APIs will likely work.
 
-<a id="api-scope-data-lake-client-library" />
-
-### File system support in SDKs
-
-- [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md), and [JavaScript](data-lake-storage-directory-file-acl-javascript.md) and support are in public preview. Other SDKs are not currently supported.
-- Get and set ACL operations are not currently recursive.
-
-### File system support in PowerShell and Azure CLI
-
-- [PowerShell](data-lake-storage-directory-file-acl-powershell.md) and [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support are in public preview.
-- Get and set ACL operations are not currently recursive.
-
-<a id="blob-apis-disabled" />
-
-### Blob APIs
-
-Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
-
-This section describes issues and limitations with using blob APIs and Data Lake Storage Gen2 APIs to operate on the same data.
-
-* You can't use both Blob APIs and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API. You can overwrite a file by using either Data Lake Storage Gen2 APIs or Blob APIs. This won't affect file properties.
-
-* When you use the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
-
-* If you use the [Delete Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API to delete a directory, that directory will be deleted only if it's empty. This means that you can't use the Blob API delete directories recursively.
-
-These Blob REST APIs aren't supported:
-
-* [Put Blob (Page)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Put Page](https://docs.microsoft.com/rest/api/storageservices/put-page)
-* [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
-* [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
-* [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Put Blob (Append)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
-* [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
-
-Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
 
 
