@@ -61,7 +61,7 @@ The following list highlights scenarios where more than one lab account may be b
 
 - **Separate budget by lab account**
   
-    Instead of reporting all classroom lab costs through a single lab account, you may need a more clearly separated budget. For example, you can create lab accounts for your university's Math department, Computer Science department, and so forth, to separate the budget across departments.  You can then view the cost for each individual lab account using [Azure Cost Management] (https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+    Instead of reporting all classroom lab costs through a single lab account, you may need a more clearly separated budget. For example, you can create lab accounts for your university's Math department, Computer Science department, and so forth, to separate the budget across departments.  You can then view the cost for each individual lab account using [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
     
 - **Isolate pilot labs from active\production labs**
   
@@ -131,7 +131,7 @@ When setting up your Azure Lab Services’ resources, you're required to provide
 
     The lab account’s location indicates the region for this resource.  
     
-    With classroom labs, Azure Lab Services automatically selects the region that each lab is deployed to based on available capacity.  Specifically, Azure Lab Services looks for availability in [regions that are within the same geography as the lab account](https://azure.microsoft.com/global-infrastructure/regions/). 
+    With classroom labs, Azure Lab Services automatically selects the region that each lab is deployed to based on available capacity.  Specifically, Azure Lab Services looks for availability in [regions that are within the same geography as the lab account](https://azure.microsoft.com/global-infrastructure/regions). 
     
     If an administrator allows lab creators to choose their classroom lab’s location, the locations that are available for selection are based on available regional capacity when creating the lab.
 
