@@ -116,10 +116,13 @@ Service Fabric supports the ability to create clusters based on Ubuntu 18.04 LTS
    },
    "typeHandlerVersion": "1.1"
 }
-                
 ```
 
 The template is now configured to use Ubuntu 18.04 LTS upon deployment.
+
+### Deploying an Ubuntu 18.04 LTS cluster via Azure Portal
+Fill in with snippet from cluster Portal creation
+
 
 ## Deploy the virtual network and cluster
 
