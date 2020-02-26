@@ -135,7 +135,7 @@ Restoring a deleted database can be done by using PowerShell or Azure Portal. To
 # [Portal](#tab/azure-portal)
 
 
-To recover a managed database by using the Azure portal, open the managed instance overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
+To recover a managed database using the Azure portal, open the managed instance overview page, and select **Deleted databases**. Choose a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
 
   ![Screenshot of restore deleted Azure SQL instance database](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -176,6 +176,8 @@ $resource_id = "subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/
 New-AzResource -Location $location -Properties $properties `
         -ResourceId $resource_id -ApiVersion "2017-03-01-preview" -Force
 ```
+
+---
 
 ## Overwrite an existing database
 
