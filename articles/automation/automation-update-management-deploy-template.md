@@ -12,9 +12,9 @@ ms.date: 02/26/2020
 
 # Onboard Update Management solution using Azure Resource Manager template
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You can use [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to enable the Azure Automation Update Management solution in your resource group. This article provides a template sample that automates the following:
+You can use [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md) to enable the Azure Automation Update Management solution in your resource group. This article provides a template sample that automates the following:
 
 * Creation of a Azure Monitor Log Analytics workspace
 * Creation of an Azure Automation account
