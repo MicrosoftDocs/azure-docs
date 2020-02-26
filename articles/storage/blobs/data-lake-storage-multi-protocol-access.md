@@ -31,28 +31,37 @@ Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data in storag
 
 Existing tools and applications that use the Blob API gain these benefits automatically. Developers won't have to modify them. Data Lake Storage Gen2 consistently applies directory and file-level ACLs regardless of the protocol that tools and applications use to access the data. 
 
-## Feature, tool, and Azure service ecosystem support
+> [!NOTE]
+> Even though multi-protocol access on Data Lake Storage is generally available, support for some features, tools and services remain in preview or are not yet supported. The tables in the next few sections summarize the current support for Blob features, tools, and Azure services. The items that appear in these tables will change over time as support continues to expand. 
 
-Multi-protocol access on Data Lake Storage enables you to use more Blob Storage features, more tools and APIs, and connect with in an increasing number of Azure services. 
+## Supported Blob Storage features
+
+This table lists the Blob storage features that you can use with your Data Lake Storage.
 
 > [!NOTE]
-> Even though multi-protocol access on Data Lake Storage is generally available, support for some features, tools and services remain in preview or are not yet supported.
-
-The items that appear in this table will change over time as support for Blob Storage features continues to expand. 
-
-### Blob Storage features
+> Support level refers only to how the feature is supported in Data Lake Storage Gen2.
 
 <hr></hr>
 
 [!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
 
-### Tools and SDKs
+## Supported tools and SDKs
+
+This table lists tools and SDKs that you can use with your Data Lake Storage. 
+
+> [!NOTE]
+> Support level refers only to how the tool or SDK is supported in Data Lake Storage Gen2.
 
 <hr></hr>
 
 [!INCLUDE [storage-data-lake-tool-support](../../../includes/storage-data-lake-tool-support.md)]
 
-### Azure service ecosystem
+## Supported Azure service connections
+
+This table lists Azure services that can integrate with your Data Lake Storage. 
+
+> [!NOTE]
+> Support level refers only to how the service is supported with Data Lake Storage Gen2.
 
 <hr></hr>
 
