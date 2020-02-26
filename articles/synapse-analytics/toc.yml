@@ -965,7 +965,7 @@
   # - name: .Net SDK
   #   href: article-template.md
   - name: Database collation types
-    href: sql-analytics/sql-analytics-reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    href: sql-analytics/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: PowerShell cmdlets
     href: ../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: REST APIs
@@ -973,7 +973,7 @@
   # - name: Spark Connector
   #   href: article-template.md
   - name: System views
-    href: sql-analytics/sql-analytics-reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    href: sql-analytics/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: T-SQL
     items:
     - name: Full reference
