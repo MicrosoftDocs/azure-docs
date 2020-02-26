@@ -30,7 +30,7 @@ The following table lists the API version for the resources used in this example
 | Resource | Resource type | API version |
 |:---|:---|:---|
 | Workspace | workspaces | 2017-03-15-preview |
-| Automation account | 2015-10-31 | 
+| Automation account | automation | 2015-10-31 | 
 | Solution | solutions | 2015-11-01-preview |
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
