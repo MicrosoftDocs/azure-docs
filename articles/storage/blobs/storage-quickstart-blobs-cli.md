@@ -8,7 +8,7 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/23/2020
+ms.date: 02/26/2020
 ms.author: tamram
 ---
 
@@ -24,18 +24,61 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to determine your version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.46 or later. Run `az --version` to determine your version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-[!INCLUDE [storage-quickstart-tutorial-intro-include-cli](../../../includes/storage-quickstart-tutorial-intro-include-cli.md)]
+## Authorize access to Blob storage
+
+You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. Using Azure AD credentials is recommended. This article shows how to authorize Blob storage operations using Azure AD.
+
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Run Azure CLI commands with Azure AD credentials to access blob or queue data](../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization.
+
+## Log in to Azure CLI
+
+To log in to Azure CLI, run `az login` and authenticate in the browser window:
+
+```azurecli
+az login
+```
+
+## Create a resource group
+
+Create an Azure resource group with the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed.
+
+Remember to replace placeholder values in angle brackets with your own values:
+
+```azurecli
+az group create \
+    --name <resource-group-name> \
+    --location <location>
+```
+
+## Create a storage account
+
+Create a general-purpose storage account with the [az storage account create](/cli/azure/storage/account) command. The general-purpose storage account can be used for all four services: blobs, files, tables, and queues.
+
+Remember to replace placeholder values in angle brackets with your own values:
+
+```azurecli
+az storage account create \
+    --name <account-name> \
+    --resource-group <resource-group-name> \
+    --location <location> \
+    --sku Standard_ZRS \
+    --encryption blob
+```
 
 ## Create a container
 
-Blobs are always uploaded into a container. You can organize groups of blobs similar to the way you organize your files on your computer in folders.
+Blobs are always uploaded into a container. You can organize groups of blobs in containers similar to the way you organize your files on your computer in folders.
 
 Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command.
 
-```azurecli-interactive
-az storage container create --name sample-container
+```azurecli
+az storage container create \
+    --name sample-container \
+    --auth-mode login
 ```
 
 ## Upload a blob
@@ -52,11 +95,12 @@ When the file opens, press **insert**. Type *Hello world*, then press **Esc**. N
 
 In this example, you upload a blob to the container you created in the last step using the [az storage blob upload](/cli/azure/storage/blob) command. It's not necessary to specify a file path since the file was created at the root directory:
 
-```azurecli-interactive
+```azurecli
 az storage blob upload \
     --container-name sample-container \
     --name helloworld \
-    --file helloworld
+    --file helloworld \
+    --auth-mode login
 ```
 
 This operation creates the blob if it doesn't already exist, and overwrites it if it does. Upload as many files as you like before continuing.
@@ -67,42 +111,41 @@ To upload multiple files at the same time, you can use the [az storage blob uplo
 
 List the blobs in the container with the [az storage blob list](/cli/azure/storage/blob) command.
 
-```azurecli-interactive
+```azurecli
 az storage blob list \
     --container-name sample-container \
-    --output table
+    --output table \
+    --auth-mode login
 ```
 
 ## Download a blob
 
 Use the [az storage blob download](/cli/azure/storage/blob) command to download the blob you uploaded earlier.
 
-```azurecli-interactive
+```azurecli
 az storage blob download \
     --container-name sample-container \
     --name helloworld \
-    --file ~/destination/path/for/file
+    --file ~/destination/path/for/file \
+    --auth-mode login
 ```
 
 ## Data transfer with AzCopy
 
-The [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) utility is another option for high-performance scriptable data transfer for Azure Storage. You can use AzCopy to transfer data to and from Blob, File, and Table storage.
+The AzCopy command-line utility offers high-performance, scriptable data transfer for Azure Storage. You can use AzCopy to transfer data to and from Blob storage and Azure Files. For more information about AzCopy v10, the latest version of AzCopy, see [Get started with AzCopy](../common/storage-use-azcopy-v10.md). To learn about using AzCopy v10 with Blob storage, see [Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-blobs.md).
 
-The following example uses AzCopy to upload a file called *myfile.txt* to the *sample-container* container. Remember to replace placeholder values in angle brackets with your own values:
+The following example uses AzCopy to upload a file to a container. Remember to replace the sample values with your own values:
 
 ```bash
-azcopy \
-    --source /mnt/myfiles \
-    --destination https://<account-name>.blob.core.windows.net/sample-container \
-    --dest-key <account-key> \
-    --include "myfile.txt"
+azcopy login
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
 ## Clean up resources
 
 If you no longer need any of the resources in your resource group, including the storage account you created in this quickstart, delete the resource group with the [az group delete](/cli/azure/group) command. Remember to replace placeholder values in angle brackets with your own values:
 
-```azurecli-interactive
+```azurecli
 az group delete --name <resource-group-name>
 ```
 
