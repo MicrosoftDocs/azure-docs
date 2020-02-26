@@ -204,13 +204,15 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
-1. In *Startup.cs* in the **ConfigureServices** handler, add the following line:
+1. Register the **CosmosDBService** implementation with the container.
+
+    The code in the previous step receives a `CosmosClient` as part of the constructor. In order to tell ASP.NET Core pipeline how to create that object, edit the project's *Startup.cs* file and add the following line to the **ConfigureServices** handler:
 
     ```csharp
     services.AddSingleton<ICosmosDbService>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
     ```
 
-    The code in the previous step receives a `CosmosClient` as part of the constructor. Following ASP.NET Core pipeline, we need to go to the project's *Startup.cs* file. The code in this step initializes the client based on the configuration as a singleton instance to be injected through [Dependency injection in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
+    The code in this step initializes the client based on the configuration as a singleton instance to be injected through [Dependency injection in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
 
 1. Within the same file, add the following method **InitializeCosmosClientInstanceAsync**, which reads the configuration and initializes the client.
 
