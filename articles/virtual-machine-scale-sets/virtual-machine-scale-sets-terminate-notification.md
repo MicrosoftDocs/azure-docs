@@ -1,12 +1,12 @@
 ---
 title: Terminate notification for Azure virtual machine scale set instances
 description: Learn how to enable termination notification for Azure virtual machine scale set instances
-author: shandilvarun
+author: avirishuv
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.author: vashan
+ms.date: 02/26/2020
+ms.author: avverma
 
 ---
 # Terminate notification for Azure virtual machine scale set instances
