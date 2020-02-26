@@ -33,21 +33,10 @@ As soon as you create an Azure resource, Azure Monitor is enabled and starts col
 - You can create [diagnostic settings](../platform/diagnostic-settings.md) for a virtual machine to send metrics to other destinations such as storage and event hubs, but you can't configure these diagnostic settings in the Azure portal. The **Diagnostics setting** option in the virtual machine menu in the portal is for configuring the [diagnostics extension](), not for configuring diagnostic settings.
 
 ## Host monitoring
-Virtual machines in Azure generate the same Activity log and platform metrics for the host as other Azure resources as described in [Monitoring data](monitor-azure-resource.md#monitoring-data). Azure Virtual machines do not generate [resource logs](../platform/platform-logs-overview.md) which provide insight into operations that were performed within an Azure resource. To collect monitoring data from the guest operating system of a virtual machine, you require an agent as described below.
+Virtual machines in Azure generate the same Activity log and platform metrics for the host as other Azure resources as described in [Monitoring data](monitor-azure-resource.md#monitoring-data). 
 
 - [Platform metrics](../platform/data-platform-metrics.md) - Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. Platform metrics are collected for the virtual machine host, but you require the Azure Diagnostics extension to collect metrics for the guest operating system.
 - [Activity log](../platform/platform-logs-overview.md) - Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane). For a virtual machine, this includes such information as when it was started and when any configuration changes were made to the host.
-
-Azure Monitor agents supported by Azure virtual machines include:
-
-| Agent | Destinations | Description |
-|:---|:---|:---|
-| Azure Diagnostic extension | Azure Monitor Metrics<br>Azure Storage<br>Event Hubs | Virtual machine extension that collects . |
-| Log Analytics agent | Windows<br>Linux | 
-- Dependency agent
-
-
-## Azure Monitor for VMs
 
 
 ## Agents
@@ -60,10 +49,11 @@ To collect data from the guest operating system of a virtual machine, you requir
 
 
 
-
-
 ## Azure Monitor for VMs
-[Azure Monitor for VMs](vminsights-overview.md) is an [insight](insights-overview.md) in Azure Monitor that provides the following additional value over standard Azure Monitor features.
+[Azure Monitor for VMs](vminsights-overview.md) is an [insight](insights-overview.md) in Azure Monitor that is your primary tool for monitoring 
+
+
+provides the following additional value over standard Azure Monitor features.
 
 - Pre-defined trending performance charts and workbooks that allow you to analyze core performance metrics from the guest VM operating system.
 - Dependency map that displays the interconnected components with the VM from various resource groups and subscriptions.
@@ -82,7 +72,9 @@ To enable the Diagnostics extension:
 
 
 ## Integration with System Center Operations Manager
-System Center Operations Manager 
+If you have an existing System Center Operations Manager environment, you can add
+
+- 
 
 [Cloud Monitoring Guide](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview)
 
