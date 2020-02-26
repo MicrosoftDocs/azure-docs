@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor customer-managed key configuration
 description: Information and steps to configure Customer-Managed Key (CMK) to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y

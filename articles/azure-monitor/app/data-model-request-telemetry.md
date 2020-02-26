@@ -1,12 +1,8 @@
 ---
 title: Data model for request telemetry - Azure Application Insights
 description: Application Insights data model for request telemetry
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 01/07/2019
+ms.date::: 01/07/2019
 
 ms.reviewer: sergkanz
 ---

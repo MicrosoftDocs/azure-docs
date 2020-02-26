@@ -1,12 +1,8 @@
 ---
 title: 'Application Insights: languages, platforms, and integrations | Microsoft Docs'
 description: Languages, platforms, and integrations available for Application Insights
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 07/18/2019
+ms.date::: 07/18/2019
 
 ms.reviewer: olegan
 ---

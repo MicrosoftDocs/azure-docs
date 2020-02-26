@@ -1,12 +1,8 @@
 ---
 title: Azure Application Insights OpenCensus local forwarder (Preview)
 description: Forward OpenCensus distributed traces and spans from languages like Python and Go to Azure Application Insights
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 09/18/2018
+ms.date::: 09/18/2018
 
 ms.reviewer: nimolnar
 ---
