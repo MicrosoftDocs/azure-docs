@@ -20,7 +20,7 @@ Sometimes Web Application Firewall (WAF) might block a request that you want to 
  An example exclusion list:
 ![Manage exclusion_define](../media/waf-front-door-exclusion/exclusion3.PNG)
 
-This example excludes the value in the *user* header field. A legit request may include user field containing a string that triggers a SQL injection rule. You can exclude the user parameter in this case so that the WAF rule doesn't evaluate anything in the field.
+This example excludes the value in the *user* header field. A valid request may include the *user* field that contains a string which triggers a SQL injection rule. You can exclude the *user* parameter in this case so that the WAF rule doesn't evaluate anything in the field.
 
 The following attributes can be added to exclusion lists by name. The values of the chosen field aren't evaluated against WAF rules, but their names still are. The exclusion lists remove inspection of the field's value.
 
