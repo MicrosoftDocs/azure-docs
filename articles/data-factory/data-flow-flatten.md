@@ -12,7 +12,7 @@ ms.date: 02/25/2020
 
 ![Flatten transformation 1](media/data-flow/flatten1.png "Flatten transformation 1")
 
-The flatten transformation can be used to take array values inside of a hierarchical structure and pivot those into new rows, essentially denormalizing your data.
+The flatten transformation can be used to pivot array values inside of a hierarchical structure into new rows, essentially denormalizing your data.
 
 ![Flatten transformation 2](media/data-flow/flatten2.png "Flatten transformation 2")
 
