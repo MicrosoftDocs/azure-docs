@@ -29,7 +29,7 @@ The marketplace storefronts are aligned with audiences and Microsoft cloud produ
 |In Product Experience  	|Azure Management Portal|Dynamics 365, Office 365, Office Client Apps| 
 |Other  	|On-Premises Publishing Via Azure Stack, Consulting Services for Azure, Managed Services for Azure|Consulting Services for Dynamics and Power BI|
 
-Consulting Services offers that are based on Microsoft Dynamics 365, Power Apps and Power BI are eligible to be listed on Microsoft AppSource. For more information, see [Microsoft AppSource consulting services listing guidelines](http://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
+Consulting Services offers that are based on Microsoft Dynamics 365, Power Apps and Power BI are eligible to be listed on Microsoft AppSource. For more information, see [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
 Consulting Services and Managed Services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see articles on [publishing an Azure consulting service](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) and [publish a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
