@@ -55,7 +55,7 @@ helm install traefik stable/traefik --namespace traefik --set kubernetes.ingress
 > [!NOTE]
 > The above example creates a public endpoint for your ingress controller. If you need to use a private endpoint for your ingress controller instead, add the *--set service.annotations."service\\.beta\\.kubernetes\\.io/azure-load-balancer-internal"=true* parameter to the *helm install* command.
 > ```console
-> helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --set service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.85.0
+> helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set rbac.enabled=true --set fullnameOverride=customtraefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --set service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.85.0
 > ```
 > This private endpoint is exposed within the virtual network where you AKS cluster is deployed.
 
