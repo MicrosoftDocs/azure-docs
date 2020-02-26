@@ -63,9 +63,10 @@ The Scheduled Events Service is versioned. Versions are mandatory and the curren
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - |
+| 2019-01-01 | General Availability | All | <li> Added support for VM scale sets EventType 'Terminate' |
 | 2017-11-01 | General Availability | All | <li> Added support for Spot VM eviction EventType 'Preempt'<br> | 
 | 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for IaaS VMs<br><li>Metadata Header requirement enforced for all requests | 
-| 2017-03-01 | Preview | All |<li>Initial release
+| 2017-03-01 | Preview | All |<li>Initial release |
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
