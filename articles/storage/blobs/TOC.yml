@@ -681,8 +681,6 @@
         href: data-lake-storage-supported-open-source-platforms.md
     - name: Processing big data
       href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Integrating with Azure services
-      href: ../blobs/data-lake-storage-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Blob File System driver for Hadoop
       href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Blob File System URI

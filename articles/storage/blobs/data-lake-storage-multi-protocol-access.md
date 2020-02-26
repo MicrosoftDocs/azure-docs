@@ -37,7 +37,21 @@ Existing tools and applications that use the Blob API gain these benefits automa
 
 ## Next steps
 
-* For a complete list of supported services, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md)
+- Learn about which Blob Storage features are compatible with Data Lake Storage Gen2. 
+
+  See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+
+- Learn about which Azure services are compatible with Data Lake Storage Gen2. 
+
+  See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+
+- Learn about which open source platforms support Data Lake Storage Gen2. 
+
+  See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+
+- Learn about general limitations and known issues. 
+
+  See [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
 
 
 

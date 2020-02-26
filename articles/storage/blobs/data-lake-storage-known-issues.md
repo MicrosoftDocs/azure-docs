@@ -1,6 +1,6 @@
 ---
 title: Known issues with Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Learn about limitations and known issues with using Blob Storage Features and tools with Azure Data Lake Storage Gen2.
+description: Learn about limitations and known issues of Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -11,37 +11,21 @@ ms.reviewer: jamesbak
 ---
 # Known issues with Azure Data Lake Storage Gen2
 
-This article describes limitations and known issues with using Blob Storage Features and tools with Azure Data Lake Storage Gen2.
+This article describes limitations and known issues of Azure Data Lake Storage Gen2.
 
-To review a list of supported Blob Storage features, Azure service integrations, and open source platforms, see any of these articles: 
+## Support levels of Blob storage features with Data Lake Storage Gen2
 
-- [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 
-- [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
+## Support levels for Azure services with Data Lake Storage Gen2
 
-- [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
+See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-<a id="known-issues-blob-features" />
+## Supported open source platforms and platform versions
 
-## Known issues with Blob Storage features
+See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-This section describes the limitations and known issues of Blob Storage features with Azure Data Lake Storage Gen2.
-
-### Lifecycle management policies
-
-* The deletion of blob snapshots is not yet supported.  
-
-* There are currently some bugs affecting lifecycle management policies and the archive access tier. 
-
-### Diagnostic logs
-
-Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view logs, please use AzCopy or SDKs.
-
-### Blobfuse
-
-Blobfuse is not supported.
-
-### Blob Storage APIs
+## Blob Storage APIs
 
 Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
 
@@ -68,45 +52,74 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 <a id="api-scope-data-lake-client-library" />
 
-### File system support in SDKs
+## File system support in SDKs
 
 - [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md), and [JavaScript](data-lake-storage-directory-file-acl-javascript.md) and support are in public preview. Other SDKs are not currently supported.
 - Get and set ACL operations are not currently recursive.
 
-### File system support in PowerShell and Azure CLI
+## File system support in PowerShell and Azure CLI
 
 - [PowerShell](data-lake-storage-directory-file-acl-powershell.md) and [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support are in public preview.
 - Get and set ACL operations are not currently recursive.
 
+## Lifecycle management policies
+
+* The deletion of blob snapshots is not yet supported.  
+
+* There are currently some bugs affecting lifecycle management policies and the archive access tier. 
+
+## Diagnostic logs
+
+Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view logs, please use AzCopy or SDKs.
+
+## Blobfuse
+
+Blobfuse is not supported.
+
+
+
 <a id="known-issues-tools" />
 
-## Known issues with tools
-
-### AzCopy
+## AzCopy
 
 Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
 
 <a id="storage-explorer" />
 
-### Azure Storage Explorer
+## Azure Storage Explorer
 
 Use only versions `1.6.0` or higher.There is currently a storage bug affecting version `1.11.0` that can result in authentication errors in certain scenarios. A fix for the storage bug is being rolled out, but as a workaround, we recommend that you use version `1.10.x` which is available as a [free download](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` is not affected by the storage bug.
 
 <a id="explorer-in-portal" />
 
-### Storage Explorer in the Azure Portal
+## Storage Explorer in the Azure Portal
 
 ACLs are not yet supported.
 
 <a id="third-party-apps" />
 
-### Third party applications
+## Third party applications
 
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2
 Applications that call Blob APIs will likely work.
 
+## Next steps
 
+- Learn how multi-protocol access on Data Lake Storage unlocks the ecosystem of tools, applications, and services, as well as several Blob storage features to accounts that have a hierarchical namespace. 
 
+  See [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
+
+- Learn about which Blob Storage features are compatible with Data Lake Storage Gen2. 
+
+  See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+
+- Learn about which Azure services are compatible with Data Lake Storage Gen2. 
+
+  See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+
+- Learn about which open source platforms support Data Lake Storage Gen2. 
+
+  See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
 
 
