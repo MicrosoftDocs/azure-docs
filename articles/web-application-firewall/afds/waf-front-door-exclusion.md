@@ -35,7 +35,7 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Starts with**: This operator matches all fields that start with the specified selector value.
 - **Ends with**:  This operator matches all request fields that end with the specified selector value.
 - **Contains**: This operator matches all request fields that contain the specified selector value.
-- **Equals any**: This operator matches all request fields. * will be the selector value.
+- **Equals any**: This operator matches all request fields. * is the selector value.
 
 Note that header and cookie names are case insensitive here.
 
