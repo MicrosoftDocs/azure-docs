@@ -60,15 +60,15 @@ Yes. You can restrict which Azure AD users can sign in to a cluster by configuri
 
 ## Can I restrict users from creating projects?
 
-Yes.  Login to your cluster as an Azure Red Hat OpenShift administrator and execute this command:
+Yes. Log in to your cluster as an Azure Red Hat OpenShift administrator and execute this command:
 
-<pre><code>
+```
 oc adm policy \
     remove-cluster-role-from-group self-provisioner \
     system:authenticated:oauth
-</code></pre>
+```
 
-See OpenShift Documentation on [disabling self provisioning](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning) for more detail.
+For more information, see the OpenShift documentation on [disabling self-provisioning](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning).
 
 ## Can a cluster have compute nodes across multiple Azure regions?
 
