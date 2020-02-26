@@ -71,7 +71,7 @@ The first step is to create a new resource group, and then a new virtual network
 
 6. Press the **Create** button when finished.
 
-## Create a Virtual Machine
+## Create a virtual machine
 
 The next step is to create a new virtual machine within one subnet of the virtual network.
 
