@@ -41,7 +41,7 @@ During processing, the script performs the following actions:
 
 ## Add storage account
 
-Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) to apply the changes with the following considerations:
+Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) to apply the changes with the following considerations:
 
 |Property | Value |
 |---|---|
