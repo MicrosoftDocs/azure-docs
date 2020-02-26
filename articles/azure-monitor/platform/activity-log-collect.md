@@ -1,5 +1,5 @@
 ---
-title: Collect and analyze Azure activity logs in Log Analytics workspace | Microsoft Docs
+title: Work with Azure activity logs in Log Analytics
 description: Collect the Azure Activity Log in Azure Monitor Logs and use the monitoring solution to analyze and search the Azure activity log across all your Azure subscriptions.
 ms.service:  azure-monitor
 ms.subservice: logs
