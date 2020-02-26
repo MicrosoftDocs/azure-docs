@@ -37,7 +37,7 @@ Review:
 1. [Create](create-account-cli-how-to.md) two (or more) Azure Media Services accounts.
 1. Subscribe for **JobStateChange** messages in each account.
 
-    * In Media Services v3, it is done via Azure Event Grid. For more information, see [Event Grid examples](../../event-grid/receive-events.md), [Azure Event Grid schemas for Media Services events](media-services-event-schemas.md), and the [Microsoft.Azure.EventGrid SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (which supports Media Services events natively). Also, see [how to register for events via the Azure portal or the CLI](eacting-to-media-services-events.md) (you can also do it with the EventGrid Management SDK). You can also consume Event Grid events via Azure Functions.
+    * In Media Services v3, it is done via Azure Event Grid. For more information, see [Event Grid examples](../../event-grid/receive-events.md), [Azure Event Grid schemas for Media Services events](media-services-event-schemas.md), and the [Microsoft.Azure.EventGrid SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (which supports Media Services events natively). Also, see [how to register for events via the Azure portal or the CLI](reacting-to-media-services-events.md) (you can also do it with the EventGrid Management SDK). You can also consume Event Grid events via Azure Functions.
     * In Media Services v2, this is done via [NotificationEndpoints](../previous/media-services-dotnet-check-job-progress-with-webhooks.md).
 1. When you [create a job](transforms-jobs-concept.md):
 
