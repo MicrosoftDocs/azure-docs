@@ -1473,12 +1473,6 @@ featureFlags:
                                                 <p>Video Indexer</p>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="/azure/project-spool/">
-                                                <img src="media/index/MediaServices.svg" alt="" />
-                                                <p>Azure Communication Services</p>
-                                            </a>
-                                        </li>
                                     </ul>
                                     <h3>Microsoft Azure Stack</h3>
                                     <ul>
