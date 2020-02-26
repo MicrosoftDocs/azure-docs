@@ -345,10 +345,9 @@ $clusterName = '<name of cluster>'
 $resourceGroupName = '<resource group name>'
 $apiversion = '2019-11-09'
 
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Kusto/clusters/${networkWatcherName}/diagnoseVirtualNetwork?api-version=${apiversion}" -verbose
+armclient post "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Kusto/clusters/$clusterName/diagnoseVirtualNetwork?api-version=$apiversion" -verbose
 ```
 
-<br>
 Check the response
 
 ```powershell
@@ -360,7 +359,7 @@ Azure-AsyncOperation: https://management.azure.com/subscriptions/{subscription-i
 
 ### Wait for the operation completion
 ```powershell
-armclient get https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationResults/{operation-id}?api-version=2019-11-09
+armclient get https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Kusto/locations/{location}/operationResults/{operation-id}?api-version=2019-11-09
 
 {
   "id": "/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationresults/{operation-id}",
