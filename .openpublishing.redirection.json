@@ -48918,6 +48918,11 @@
       "redirect_document_id": false 
     },
     {
+      "source_path": "articles/cli/index.yml",
+      "redirect_url": "/cli/azure",
+      "redirect_document_id": false 
+    },
+    {
       "source_path": "articles/virtual-machines/linux/tutorial-build-deploy-jenkins.md",
       "redirect_url": "/azure/jenkins/tutorial-build-deploy-jenkins",
       "redirect_document_id": true
