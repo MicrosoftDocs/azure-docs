@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 02/26/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -29,7 +29,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 - All pages
   - Accessibility fixes
-  - You can now add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript.
+  - You can now add the `data-preload="true"` attribute [in your HTML tags](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
     - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
     - Control the order in which your `script` tags are fetched and executed before the page load.
   - Email field is now `type=email` and mobile keyboards will provide the correct suggestions
