@@ -119,8 +119,8 @@ The following snippets are all taken from the _app.js_ file.
   const { resource: result } = await this.container.item(id, category).delete();
   ```
 
-> [!IMPORTANT]
-> In in both the "update" and "delete" methods, the item has to be selected from the database by calling `conatiner.item()`. The two parameters passed in are the id of the item and the item's partition key. In this case, the parition key is the value of the "category" field.
+> [!NOTE]
+> In both the "update" and "delete" methods, the item has to be selected from the database by calling `conatiner.item()`. The two parameters passed in are the id of the item and the item's partition key. In this case, the parition key is the value of the "category" field.
 
 ## Update your connection string
 
@@ -160,4 +160,5 @@ You can now go back to Data Explorer, modify, and work with this new data.
 
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a container using the Data Explorer, and run a Node.js app. You can now import additional data to your Azure Cosmos DB account.
 
-> [!div class="nextstepaction"][import data into azure cosmos db](import-data.md)
+> [!div class="nextstepaction"]
+> [import data into Azure Cosmos DB](import-data.md)
