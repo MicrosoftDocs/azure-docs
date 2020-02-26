@@ -1,13 +1,13 @@
 ---
-title: FAQ - Azure Synapse Analytics #Required; update as needed page title displayed in search results. Include the brand.
-description: FAQ for Azure Synapse Analytics #Required; Add article description that is displayed in search results.
-services: synapse analytics #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: ArnoMicrosoft #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: synapse-analytics #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
+title: FAQ - Azure Synapse Analytics
+description: FAQ for Azure Synapse Analytics
+services: synapse-analytics
+author: ArnoMicrosoft
+ms.service: synapse-analytics
+ms.topic: overview
 ms.subservice:
-ms.date: 10/09/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: acomet #Required; update with your microsoft alias of author; optional team alias.
+ms.date: 10/09/2019
+ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
@@ -28,7 +28,7 @@ Guide over the most frequently asked questions that users might have
 ### Q: What is Azure Synapse Analytics
 A: Azure Synapse is an integrated data platform for BI, AI, and continuous intelligence. It connects various Analytics runtimes such as SQL and Spark through a single platform that provides a unified way to:
 - Secure your analytics resources: network, managing single sign-on  access to pool, data, and development artifacts.
-- Easily Monitor and quickly optimize, react and debug  events happening in your workspace activities at any layer
+- Easily Monitor and quickly optimize, react, and debug  events happening in your workspace activities at any layer
 - Manage your metadata across engines. Create a Spark table and it will be automatically available in your SQL Analytics databases
 - Interact with the data through a unified user experience. Synapse Studio brings Big Data Developers, Data Engineers, DBAs, Data Analysts and Data Scientists on the same platform.
 
@@ -40,13 +40,13 @@ A: To start using Azure Synapse Analytics, create a Synapse workspace (it is fre
 ### Q: What are the main components of Azure Synapse Analytics?
 A: Azure Synapse has the following capabilities:
 - SQL Analytics to do SQL Analytics with pools and with on-demand (Serverless). 
-- Spark with full support for Scala, Python, SparkSQL and C#
+- Spark with full support for Scala, Python, SparkSQL, and C#
 - Data Flow offering a code-free big data transformation experience
 - Data Integration & Orchestration to bring your data and operationalize all of your code development
 - Studio to access all of these capabilities through a single Web UI
 
 ### Q: How does Azure Synapse Analytics relate to Azure SQL Data Warehouse?
-A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an analytics platform. This platform combines data exploration, ingestion, transformation, preparation and serving analytics layer.  
+A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an analytics platform. This platform combines data exploration, ingestion, transformation, preparation, and serving analytics layer.  
 
 ## Use cases
 ### Q: What is a good use case for SQL Analytics Pool in Synapse
@@ -67,11 +67,14 @@ Another use case for Spark is for a Data Scientist to:
 
 ### Q: What is a good use case for SQL Analytics On-Demand in Synapse
 
-A: SQL Analytics Pool, previously called SQL Data Warehouse,  is a great tool for exploring the data with T-SQL. It is also a great tool for running Business Intelligence at a low cost if data is accessed infrequently. Another sue case is to provide a low-cost BI interface into the lake. You can combine Power BI and SQL Analytics On-Demand to cache data that are accessed frequently and use SQL On-Demand, a serverless query engine, to access the lake infrequently.
+A: SQL Analytics on-demand is a query service over the data in your data lake. It enables you to democratize access to all your data by providing a familiar T-SQL syntax to query data in place, without a need to copy or load data into a specialized store. Use cases:
+- basic discovery and exploration - provides data analysts, emerging data scientists and data engineers with an easy path to first insight into data living in their data lake with schema on read T-SQL queries
+- logical data warehouse - data analysts can run full expressiveness of T-SQL language to directly query and analyze the data residing in Azure Storage and use familiar BI tools (for example: Azure Analyses Services, Power BI Premium, etc.) to refresh dashboards by rerunning Starlight Query queries
+- “single query” ETL - allows data engineers to transform Azure Storage based data from one format to another, filter, aggregate, etc. in massively parallel processing fashion, persist query results to Azure Storage and make them immediately available for further processing, in Starlight Query or other services of interest
 
 ### Q: What is a good use case for data flow in Synapse
 
-A: Data flow allows data engineers to develop graphical data transformation logic without writing code. The resulting data flows are executed as activities within Data Integration & Orchestration. Data flow activities can be operationalized via existing scheduling, control, flow and monitoring capabilities.
+A: Data flow allows data engineers to develop graphical data transformation logic without writing code. The resulting data flows are executed as activities within Data Integration & Orchestration. Data flow activities can be operationalized via existing scheduling, control, flow, and monitoring capabilities.
 
 ## Security and Access
 ### Q: What is the primary way to authenticate and give access to users 

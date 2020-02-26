@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -26,6 +27,7 @@ ms.collection: M365-identity-device-management
 The management experience for Azure AD roles in Privileged Identity Management has been updated to unify how Azure AD roles and Azure resource roles are managed. Previously, Privileged Identity Management for Azure resource roles has had a couple of key features that were not available for Azure AD roles.
 
 With the update being currently rolled out, we are merging the two into a single management experience, and in it you get the same functionality for Azure AD roles as for Azure resource roles. This article informs you of the updated features and any requirements.
+
 
 ## Time-bound assignments
 

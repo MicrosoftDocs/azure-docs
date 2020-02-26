@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/13/2019
+ms.date: 01/28/2020
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory
@@ -586,6 +586,10 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 Settings specific to Azure SQL Database are available in the **Settings** tab of the sink transformation.
 
 **Update method:** Determines what operations are allowed on your database destination. The default is to only allow inserts. To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. For updates, upserts and deletes, a key column or columns must be set to determine which row to alter.
+
+![Key Columns](media/data-flow/keycolumn.png "Key Columns")
+
+The column name that you pick as the key here will be used by ADF as part of the subsequent update, upsert, delete. Therefore, you must pick a column that exists in the Sink mapping. If you wish to not write the value to this key column, then click "Skip writing key columns".
 
 **Table action:** Determines whether to recreate or remove all rows from the destination table prior to writing.
 * None: No action will be done to the table.

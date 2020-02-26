@@ -4,7 +4,7 @@ description: The training videos for Cloudyn walk you through getting started an
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy

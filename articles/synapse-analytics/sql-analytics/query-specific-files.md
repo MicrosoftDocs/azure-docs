@@ -1,6 +1,6 @@
 ---
-title: Query specific files using SQL on-demand
-description: Query specific files with SQL on-demand using Azure Synapse Analytics.
+title: Using file metadata in queries
+description: OPENROWSET function provides file and path information about every file used in the query to filter or analyze data based on file name and/or folder path.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -11,13 +11,13 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Query specific files using SQL on-demand
+# Quickstart: Using file metadata in queries
 
-The SQL on-demand Query service can address multiple files and folders as described in the [Query folders and multiple CSV files](query-folders-multiple-csv-files.md) article. In this quickstart, you'll learn how to query a specific file.
+The SQL on-demand Query service can address multiple files and folders as described in the [Query folders and multiple files](query-folders-multiple-csv-files.md) article. In this quickstart, you'll learn how to use metadata information about file and folder names in the queries.
 
 Sometimes, you may need to know which file or folder source correlates to a specific row in the result set.
 
-You can use virtual columns to return file names and/or the path in the result set. Or you can use them to filter data based on the file name and/or folder path. These functions are described in the syntax section [filename function](development-storage-files-overview.md#filename-function) and [filepath function](development-storage-files-overview.md#filepath-function). You'll find short descriptions and samples included in this quickstart.
+You can use function `filepath` and `filename` to return file names and/or the path in the result set. Or you can use them to filter data based on the file name and/or folder path. These functions are described in the syntax section [filename function](development-storage-files-overview.md#filename-function) and [filepath function](development-storage-files-overview.md#filepath-function). Below you will find short descriptions along samples.
 
 ## Prerequisites
 
@@ -38,29 +38,8 @@ SELECT
 	r.filename() AS [filename]
 	,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-1*.csv',
-		FORMAT = 'CSV',
-		FIRSTROW = 2
-	)
-	WITH (
-		vendor_id INT, 
-		pickup_datetime DATETIME2, 
-		dropoff_datetime DATETIME2,
-		passenger_count SMALLINT,
-		trip_distance FLOAT,
-		rate_code SMALLINT,
-		store_and_fwd_flag SMALLINT,
-		pickup_location_id INT,
-		dropoff_location_id INT,
-		payment_type SMALLINT,
-		fare_amount FLOAT,
-		extra FLOAT,
-		mta_tax FLOAT,
-		tip_amount FLOAT,
-		tolls_amount FLOAT,
-		improvement_surcharge FLOAT,
-		total_amount FLOAT
-	) AS [r]
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+		FORMAT='PARQUET') AS [r]
 GROUP BY
 	r.filename()
 ORDER BY
@@ -78,31 +57,10 @@ SELECT
 	r.filename() AS [filename]
 	,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/',
-		FORMAT = 'CSV',
-		FIRSTROW = 2
-	)
-WITH (
-    vendor_id INT, 
-    pickup_datetime DATETIME2, 
-    dropoff_datetime DATETIME2,
-    passenger_count SMALLINT,
-    trip_distance FLOAT,
-    rate_code SMALLINT,
-    store_and_fwd_flag SMALLINT,
-    pickup_location_id INT,
-    dropoff_location_id INT,
-    payment_type SMALLINT,
-    fare_amount FLOAT,
-    extra FLOAT,
-    mta_tax FLOAT,
-    tip_amount FLOAT,
-    tolls_amount FLOAT,
-    improvement_surcharge FLOAT,
-    total_amount FLOAT
-) AS [r]
+	BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+	FORMAT='PARQUET') AS [r]
 WHERE
-	r.filename() IN ('yellow_tripdata_2017-10.csv', 'yellow_tripdata_2017-11.csv', 'yellow_tripdata_2017-12.csv')
+	r.filename() IN ('yellow_tripdata_2017-10.parquet', 'yellow_tripdata_2017-11.parquet', 'yellow_tripdata_2017-12.parquet')
 GROUP BY
 	r.filename()
 ORDER BY

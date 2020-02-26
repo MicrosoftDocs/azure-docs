@@ -12,23 +12,25 @@ ms.reviewer: jrasnick
 ---
 
 # Use external tables with SQL Analytics
-An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Store. External tables are used to read data from files or write data to files in Azure Storage. With SQL Analytics, you can use external tables to read and write data to SQL pool or SQL on-demand.
+
+An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With SQL Analytics, you can use external tables to read and write data to SQL pool or SQL on-demand.
 
 ## External tables in SQL pool
 
 In SQL pool, you'll use an external table to:
 
 - Query Hadoop or Azure Blob Storage data with Transact-SQL statements.
-- Import and store data from Hadoop, Azure Blob Storage, and Azure Data Lake Store into Azure SQL Data Warehouse.
+- Import and store data from Hadoop, Azure Blob Storage, and Azure Data Lake Storage into Azure SQL Data Warehouse.
 
 When used in conjunction with the [CREATE TABLE AS SELECT](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) statement, selecting from an external table imports data into a SQL pool. External tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 
 
 ## External tables in SQL on-demand
+
 For SQL on-demand, you'll use an external table to:
 
-- Query data in Azure Blob Storage or Azure Data Lake Store with Transact-SQL statements
-- Store SQL on-demand query results to files in Azure Blob Storage or Azure Data Lake Store using [CETAS](development-tables-cetas.md).
+- Query data in Azure Blob Storage or Azure Data Lake Storage with Transact-SQL statements
+- Store SQL on-demand query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](development-tables-cetas.md).
 
 You can create external tables using SQL on-demand via the following steps:
 
@@ -36,11 +38,12 @@ You can create external tables using SQL on-demand via the following steps:
 2. CREATE EXTERNAL FILE FORMAT
 3. CREATE EXTERNAL TABLE
 
-### CREATE EXTERNAL DATA SOURCE
+##
+## CREATE EXTERNAL DATA SOURCE
 
 External data sources are used to connect to storage accounts.
 
-#### Syntax
+## Syntax for CREATE EXTERNAL DATA SOURCE
 
 ```
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -49,7 +52,7 @@ WITH
 [;]
 ```
 
-#### Arguments
+## Arguments for CREATE EXTERNAL DATA SOURCE
 
 data_source_name -Specifies the user-defined name for the data source. The name must be unique within the database in SQL Server.
 
@@ -58,10 +61,10 @@ LOCATION = `'<prefix>://<path>'`   - Provides the connectivity protocol and path
 | External Data Source       | Location prefix | Location path                                       |
 | -------------------------- | --------------- | --------------------------------------------------- |
 | Azure Blob Storage         | https           | <storage_account>.blob.core.windows.net             |
-| Azure Data Lake Store Gen1 | https           | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https           | <storage_account>.dfs.core.windows.net              |
+| Azure Data Lake Storage Gen1 | https           | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Storage Gen2 | https           | <storage_account>.dfs.core.windows.net              |
 
-#### Example
+## Example for CREATE EXTERNAL DATA SOURCE
 
 The following example creates an external data source pointing to US population census data:
 
@@ -73,16 +76,16 @@ WITH
 )
 ```
 
-### CREATE EXTERNAL FILE FORMAT
+## CREATE EXTERNAL FILE FORMAT
 
-Creates an external file format object that defines external data stored in Azure Blob Storage or Azure Data Lake Store. Creating an external file format is a prerequisite for creating an external table. 
+Creates an external file format object that defines external data stored in Azure Blob Storage or Azure Data Lake Storage. Creating an external file format is a prerequisite for creating an external table. 
 
 By creating an external file format, you specify the actual layout of the data referenced by an external table. SQL on-demand supports the following file formats:
 
 - Delimited Text
 - Parquet
 
-#### Syntax
+## Syntax for CREATE EXTERNAL FILE FORMAT
 
 ```
 -- Create an external file format for PARQUET files.  
@@ -111,7 +114,7 @@ WITH (
 }
 ```
 
-#### Arguments
+## Arguments for CREATE EXTERNAL FILE FORMAT
 
 file_format_name- Specifies a name for the external file format.
 
@@ -165,7 +168,7 @@ The PARQUET file format type supports the following compression methods:
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'
 
-#### Example
+## Example for CREATE EXTERNAL FILE FORMAT
 
 The following example creates an external file format for census files:
 
@@ -178,13 +181,11 @@ WITH
 )
 ```
 
+## CREATE EXTERNAL TABLE
 
+The CREATE EXTERNAL TABLE command creates an external table for SQL Analytics to access data stored in Azure Blob Storage or Azure Data Lake Storage. 
 
-### CREATE EXTERNAL TABLE
-
-The CREATE EXTERNAL TABLE command creates an external table for SQL Analytics to access data stored in Azure Blob Storage or Azure Data Lake Store. 
-
-#### Syntax
+## Syntax for CREATE EXTERNAL TABLE
 
 ```
 CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table_name | table_name }
@@ -201,11 +202,11 @@ column_name <data_type>
     [ COLLATE collation_name ]
 ```
 
-#### Arguments
+## Arguments CREATE EXTERNAL TABLE
 
 *{ database_name.schema_name.table_name | schema_name.table_name | table_name }* 
 
-The one to three-part name of the table to create. For an external table, SQL  on-demand stores only the table metadata. No actual data is moved or stored in SQL on-demand.
+The one to three-part name of the table to create. For an external table, SQL on-demand stores only the table metadata. No actual data is moved or stored in SQL on-demand.
 
 <column_definition>, ...*n* ]
 
@@ -229,17 +230,15 @@ In this example, if LOCATION='/webdata/', a SQL on-demand query, will return row
 
 ![Recursive data for external tables](media/development-tables-external-tables/folder-traversal.png)
 
-
-
 DATA_SOURCE = *external_data_source_name* - Specifies the name of the external data source that contains the location of the external data. To create an external data source, use [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
 FILE_FORMAT = *external_file_format_name* - Specifies the name of the external file format object that stores the file type and compression method for the external data. To create an external file format, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
 
-#### Permissions
+## Permissions CREATE EXTERNAL TABLE
 
 To select from an external table, you need proper credentials with list and read permissions.
 
-#### Example
+## Example CREATE EXTERNAL TABLE
 
 The following example creates an external table using the previously created external data source and external file format. It returns the first row:
 
@@ -275,7 +274,42 @@ GO
 SELECT TOP 1 * FROM census_external_table
 ```
 
+## Create External tables from a file in Azure Data Lake
 
+Using Data Lake exploration capabilities you can now create an external table using SQL pool or SQL on-demand with a simple right-click on the file.
+
+## Prerequisites
+
+Make sure you have Storage Blob Data Contributor ARM Access role to the ADLS Gen2 Account. You need to have DB owner permission on the SQL pool or SQL OD. Also if you run this scenario on an existing workspace,  additional set-up might be required to grant MSI access to the Workspace by running the SQL script:
+
+```sql script
+CREATE USER <workspacename> from External Provider
+GO
+GRANT CONTROL TO <workspacename>
+
+```
+
+From the Data panel, select the file that you would like to create the external table from:
+> [!div class="mx-imgBorder"] 
+>![externaltable1](./media/development-tables-external-tables/external-table-1.png)
+
+A dialog window will open. Select SQL pool or SQL on-demand, give a name to the table and select open script:
+
+> [!div class="mx-imgBorder"] 
+>![externaltable2](./media/development-tables-external-tables/external-table-2.png)
+
+The SQL Script is auto-generated inferring the schema from the file:
+> [!div class="mx-imgBorder"] 
+>![externaltable3](./media/development-tables-external-tables/external-table-3.png)
+
+Run the script. The script will automatically run a Select Top 100 *.:
+> [!div class="mx-imgBorder"] 
+>![externaltable4](./media/development-tables-external-tables/external-table-4.png)
+
+The external table is now created, for future exploration of the content of this external table the user can query it directly from the Data pane:
+> [!div class="mx-imgBorder"] 
+>![externaltable5](./media/development-tables-external-tables/external-table-5.png)
 
 ## Next steps
+
 Check the [CETAS](development-tables-cetas.md) article for how to save the query results to an external table in Azure Storage. Or you can start querying [Spark tables](development-storage-files-spark-tables.md).

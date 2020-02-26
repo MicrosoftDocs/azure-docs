@@ -11,7 +11,7 @@ ms.date: 01/08/2020
 # Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an IoT Hub, so I can analyze streaming data.
 ---
 
-# Ingest data from IoT Hub into Azure Data Explorer (Preview)
+# Ingest data from IoT Hub into Azure Data Explorer 
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-iot-hub.md)
@@ -80,7 +80,7 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
     | IoT Hub | IoT Hub name |
     | Shared access policy | The name of the shared access policy. Must have read permissions |
     | Consumer group |  The consumer group defined in the IoT Hub built-in endpoint |
-	| Event system properties | The [IoT Hub event system properties](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages). When adding system properties, [create](/azure/kusto/management/tables#create-table) or [update](/azure/kusto/management/tables#alter-table-and-alter-merge-table) table schema and [mapping](/azure/kusto/management/mappings) to include the selected properties. | | | 
+	| Event system properties | The [IoT Hub event system properties](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages). When adding system properties, [create](/azure/kusto/management/create-table-command) or [update](/azure/kusto/management/alter-table-command) table schema and [mapping](/azure/kusto/management/mappings) to include the selected properties. | | | 
 
     > [!NOTE]
     > In case of a [manual failover](/azure/iot-hub/iot-hub-ha-dr#manual-failover), you must recreate the data connection.

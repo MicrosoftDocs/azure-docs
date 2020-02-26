@@ -6,17 +6,14 @@
     href: load-balancer-overview.md
 - name: Quickstart
   items:
-  - name: Create Azure Load Balancer
-    items:
-    - name: Portal
-      href: quickstart-load-balancer-standard-public-portal.md
-    - name: Azure CLI
-      href: quickstart-load-balancer-standard-public-cli.md
-    - name: Azure PowerShell
-      href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Template
-      href: quickstart-load-balancer-standard-public-template.md
-    
+  - name: Portal
+    href: quickstart-load-balancer-standard-public-portal.md
+  - name: Azure CLI
+    href: quickstart-load-balancer-standard-public-cli.md
+  - name: Azure PowerShell
+    href: quickstart-create-standard-load-balancer-powershell.md
+  - name: Template
+    href: quickstart-load-balancer-standard-public-template.md
 - name: Tutorials
   items:
   - name: Load balance internet traffic to VMs
@@ -51,8 +48,6 @@
       href: load-balancer-query-metrics-rest-api.md
   - name: High Availability ports
     href: load-balancer-ha-ports-overview.md
-  - name: IPv6 support
-    href: https://docs.microsoft.com/azure/virtual-network/ipv6-overview
   - name: Multiple frontends
     href: load-balancer-multivip-overview.md
   - name: Outbound connections
@@ -67,14 +62,18 @@
     href: load-balancer-security-controls.md
 - name: How to
   items:
-  - name: Upgrade a Basic Public Load Balancer to Standard Public Load Balancer
-    href: upgrade-basic-standard.md
-  - name: Load balance VMs across availability zones (CLI)
-    href: load-balancer-standard-public-zone-redundant-cli.md
-  - name: Load balance VMs within a zone (CLI)
-    href: load-balancer-standard-public-zonal-cli.md
+  - name: Upgrade a Basic Load Balancer to Standard Load Balancer
+    items:
+    - name: Upgrade a Basic Public Load Balancer
+      href: upgrade-basic-standard.md
+    - name: Upgrade a Basic Internal Load Balancer - No Outbound Connection Required
+      href: upgrade-basicInternal-standard.md
+    - name: Upgrade a Basic Internal Load Balancer - Outbound Connection Required
+      href: upgrade-InternalBasic-To-PublicStandard.md
   - name: Configure outbound rules
     items:
+    - name: Azure portal
+      href: configure-load-balancer-outbound-portal.md
     - name: Azure CLI
       href: configure-load-balancer-outbound-cli.md
     - name: Azure PowerShell

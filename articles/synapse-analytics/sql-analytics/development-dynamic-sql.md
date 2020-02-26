@@ -20,7 +20,8 @@ In this article, you'll find tips for using dynamic SQL and developing solutions
 
 When developing application code, you may need to use dynamic SQL to help deliver flexible, generic, and modular solutions. 
 
-SQL pool doesn't support blob data types. As a result, the size of your strings might be limited since blob data types include both varchar(max) and nvarchar(max) types. If you've used these blob data types in your application code to build large strings, you'll need to break the code into chunks and use the EXEC statement instead.
+> [!NOTE]
+> SQL pool does not support blob data types at this time. Not supporting blob data types might limit the size of your strings since blob data types include both varchar(max) and nvarchar(max) types. If you have used these types in your application code to build large strings, you need to break the code into chunks and use the EXEC statement instead.
 
 A simple example:
 

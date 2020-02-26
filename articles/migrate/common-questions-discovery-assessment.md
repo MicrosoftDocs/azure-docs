@@ -2,16 +2,19 @@
 title: Common questions - discovery, assessment, and dependency analysis in Azure Migrate
 description: Get answers to common questions about discovery, assessment, and dependency analysis in Azure Migrate.
 ms.topic: conceptual
-ms.date: 12/29/2019
+ms.date: 02/17/2020
 
 ---
 
 # Common questions about discovery, assessment, and dependency analysis
 
-This article answers common questions about discovery, assessment, and dependency analysis in Azure Migrate. If you have further queries after reading this article, post them on the [Azure Migrate forum](https://aka.ms/AzureMigrateForum). If you have other questions, review these articles:
+This article answers common questions about discovery, assessment, and dependency analysis in Azure Migrate. If you have other questions, review these articles:
 
 - [General questions](resources-faq.md) about Azure Migrate.
 - [Questions](common-questions-appliance.md) about the Azure Migrate appliance.
+- [Questions](common-questions-server-migration.md) about server migration.
+- Post questions on the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
+
 
 
 ## How many VMs can I discover with an appliance?
@@ -85,7 +88,7 @@ You don't need these agents unless you're using dependency visualization.
 
 ## Can I use an existing workspace?
 
-Yes, you can attach an existing workspace to the migration project and use it for dependency visualization. [Learn more](concepts-dependency-visualization.md#how-does-it-work).
+Yes, you can attach an existing workspace to the migration project and use it for dependency visualization. 
 
 ## Can I export the dependency visualization report?
 

@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -49,7 +49,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * ServiceNow supports [Automated user provisioning](servicenow-provisioning-tutorial.md).
 
-* Once you configure the ServiceNow you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure ServiceNow you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 * You can configure the ServiceNow Classic (Mobile) application with Azure AD for enabling SSO. It supports both Android and iOS users. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
@@ -468,6 +468,6 @@ When you select the ServiceNow tile in the Access Panel, you should be automatic
 
 - [Try ServiceNow with Azure AD](https://aad.portal.azure.com)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [How to protect ServiceNow with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect ServiceNow with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-servicenow)

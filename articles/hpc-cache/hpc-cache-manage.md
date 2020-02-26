@@ -4,13 +4,13 @@ description: How to manage and update Azure HPC Cache using the Azure portal
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 1/08/2020
+ms.date: 1/29/2020
 ms.author: rohogue
 ---
 
 # Manage your cache from the Azure portal
 
-The cache overview page in the Azure portal shows project details, cache status, and basic statistics for your cache. It also has controls to delete the cache, flush data to long-term storage, or update software.
+The cache overview page in the Azure portal shows project details, cache status, and basic statistics for your cache. It also has controls to stop or start the cache, delete the cache, flush data to long-term storage, and update software.
 
 To open the overview page, select your cache resource in the Azure portal. For example, load the **All resources** page and click the cache name.
 
@@ -18,12 +18,29 @@ To open the overview page, select your cache resource in the Azure portal. For e
 
 The buttons at the top of the page can help you manage the cache:
 
+* **Start** and [**Stop**](#stop-the-cache) - Suspends cache operation
 * [**Flush**](#flush-cached-data) - Writes changed data to storage targets
 * [**Upgrade**](#upgrade-cache-software) - Updates the cache software
 * **Refresh** - Reloads the overview page
 * [**Delete**](#delete-the-cache) - Permanently destroys the cache
 
 Read more about these options below.
+
+## Stop the cache
+
+You can stop the cache to reduce costs during an inactive period. You are not charged for uptime while the cache is stopped, but you are charged for the cache's allocated disk storage. (See the [pricing](https://aka.ms/hpc-cache-pricing) page for details.)
+
+A stopped cache does not respond to client requests. You should unmount clients before stopping the cache.
+
+The **Stop** button suspends an active cache. The **Stop** button is available when a cache's status is **Healthy** or **Degraded**.
+
+![screenshot of the top buttons with Stop highlighted and a pop-up message describing the stop action and asking 'do you want to continue?' with Yes (default) and No buttons](media/stop-cache.png)
+
+After you click Yes to confirm stopping the cache, the cache automatically flushes its contents to the storage targets. This process might take some time, but it ensures data consistency. Finally, the cache status changes to **Stopped**.
+
+To reactivate a stopped cache, click the **Start** button. No confirmation is needed.
+
+![screenshot of the top buttons with Start highlighted](media/start-cache.png)
 
 ## Flush cached data
 
@@ -52,6 +69,8 @@ The software update can take several hours. Caches configured with higher throug
 
 When a software upgrade is available, you will have a week or so to apply it manually. The end date is listed in the upgrade message. If you don't upgrade during that time, Azure automatically applies the update to your cache. The timing of the automatic upgrade is not configurable. If you are concerned about the cache performance impact, you should upgrade the software yourself before the time period expires.
 
+If your cache is stopped when the end date passes, the cache will automatically upgrade software the next time it is started. (The update might not start immediately, but it will start in the first hour.)
+
 Click the **Upgrade** button to begin the software update. The cache status changes to **Upgrading** until the operation completes.
 
 ## Delete the cache
@@ -63,13 +82,14 @@ The back-end storage volumes used as storage targets are unaffected when you del
 > [!NOTE]
 > Azure HPC Cache does not automatically write changed data from the cache to the back-end storage systems before deleting the cache.
 >
-> To make sure that all data in the cache has been written to long-term storage, follow this procedure:
+> To make sure that all data in the cache has been written to long-term storage, [stop the cache](#stop-the-cache) before you delete it. Make sure that it shows the status **Stopped** before clicking the delete button.
+<!--... written to long-term storage, follow this procedure:
 >
 > 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
 > 1. Wait for the storage target to be completely removed. The process can take an hour or longer if there is a lot of data to write from the cache. When it is done, a portal notification says that the delete operation was successful, and the storage target disappears from the list.
 > 1. After all affected storage targets have been deleted, it is safe to delete the cache.
 >
-> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.
+> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.-->
 
 ## Cache metrics and monitoring
 

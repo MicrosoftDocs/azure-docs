@@ -9,7 +9,7 @@ ms.date: 07/10/2019
 ---
 # How to configure a dataset mapping for a received share in Azure Data Share
 
-This article explains how to configure a dataset mapping for a Received Share using Azure Data Share. You'll want to do this if you accepted a data share invitation but opted to "Accept and configure later". You may want to configure a dataset mapping if you need to change the destination for data being shared with you, or if you want to receive data into a SQL Server. 
+This article explains how to configure a dataset mapping for a Received Share using Azure Data Share. You'll want to do this if you accepted a data share invitation but opted to "Accept and configure later", or if data is shared in-place. You may want to configure a dataset mapping if you need to change the destination for data being shared with you, or if you want to receive data into a SQL Server. 
 
 ## Navigate to a received data share
 
@@ -21,9 +21,9 @@ Check the box next to the dataset you'd like to assign a destination to. Select 
 
 ![Map to target](./media/dataset-map-target.png "Map to target") 
 
-## Select a new destination store
+## Select a new target store
 
-Select a target data type that you'd like the data to land in. Note that any data that already exists in any previously mapped storage accounts will not be automatically moved to the new destination.
+Select a target data type that you'd like the data to land in. For snapshot-based sharing, any data that already exists in any previously mapped storage accounts will not be automatically moved to the new target store. For in-place sharing, select a data store in the Location specified. The Location is the Azure data center where data provider's source data store is located at.
 
 ![Target storage account](./media/dataset-map-target-sql.png "Target storage") 
 

@@ -1,5 +1,5 @@
 ---
-title: Query single CSV files
+title: Query CSV files
 description: In this article, you'll learn how to query single CSV files with different file formats using SQL on-demand.
 services: synapse analytics
 author: azaricstefan
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Query single CSV files
+# Quickstart: Query CSV files
 
 In this article, you'll learn how to query a single CSV file using SQL on-demand in Azure Synapse Analytics. CSV files may have different formats: 
 
@@ -30,7 +30,7 @@ Before reading the rest of this article, review the following articles:
 - [Prerequisites](query-data-storage.md#prerequisites)
 
 
-## Read CSV file - no header row, Windows style new line
+## Windows style new line
 
 The following query shows how to read a CSV file without a header row, with a Windows-style new line, and comma-delimited columns.
 
@@ -58,7 +58,7 @@ WHERE
 	AND year = 2017
 ```
 
-## Read CSV file - no header row, Unix-style new line
+## Unix-style new line
 
 The following query shows how to read a file without a header row, with a Unix-style new line, and comma-delimited columns. Note the different location of the file as compared to the other examples.
 
@@ -87,7 +87,7 @@ WHERE
 
 
 
-## Read CSV file - header row, Unix-style new line
+## Header row
 
 The following query shows how to a read file with a header row, with a Unix-style new line, and comma-delimited columns. Note the different location of the file as compared to the other examples.  
 
@@ -102,7 +102,6 @@ FROM OPENROWSET(
 		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr/population.csv',
 		FORMAT = 'CSV', 
 		FIELDTERMINATOR =',', 
-		ROWTERMINATOR = '0x0a', 
 		FIRSTROW = 2
 	)
     WITH (
@@ -118,7 +117,7 @@ WHERE
 
 
 
-## Read CSV file - header row, Unix-style new line, quoted
+## Custom quote character
 
 The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and quoted values. Note the different location of the file as compared to the other examples.  
 
@@ -152,7 +151,7 @@ WHERE
 
 
 
-## Read CSV file - header row, Unix-style new line, escape
+## Escaping characters
 
 The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escape char used for the field delimiter (comma) within values. Note the different location of the file as compared to the other examples.
 
@@ -185,7 +184,7 @@ WHERE
 
 
 
-## Read CSV file - header row, Unix-style new line, tab-delimited
+## Tab-delimited files
 
 The following query shows how to read a file with a header row, with a Unix-style new line, and tab-delimited columns. Note the different location of the file as compared to the other examples.
 
@@ -215,7 +214,7 @@ WHERE
 
 
 
-## Read CSV file - without specifying all columns
+## Returning subset of columns
 
 So far, you've specified the CSV file schema using WITH and listing all columns. You can only specify columns you actually need in your query by using an ordinal number for each column needed. You'll also omit columns of no interest.
 
@@ -245,4 +244,7 @@ WITH (
 
 ## Next steps
 
-The next article will who you how to [Query folders and multiple CSV files](query-folders-multiple-csv-files.md).
+The next articles will show you how to:
+> [!div class="nextstepaction"]
+> [Querying Parquet files](query-parquet-files.md)
+> [Querying folders and multiple files](query-folders-multiple-csv-files.md)

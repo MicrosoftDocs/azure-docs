@@ -16,28 +16,36 @@
     href: ../sql-data-warehouse/release-notes-10-0-10106-0.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Quickstarts
   items:
-  - name: Create a workspace
-    href: quickstart-create-a-workspace.md
+  - name: Create an Azure Synapse workspace
+    href: quickstart-create-workspace.md
+  - name: Use Azure Synapse Studio
+    href: quickstart-synapse-studio.md    
   - name: Create pools
     items:
     - name: Create Spark pool
       href: ./spark/apache-spark-notebook-create-spark-use-sql.md
-  #   - name: Create SQL Analytics pool
-  #     href: article-template.md
+    - name: Create Apache Spark pool
+      href: quickstart-create-apache-spark-pool.md
+    - name: Create SQL pool
+      href: quickstart-create-sql-pool.md
   # - name: Ingest data into Data Lake
   #   href: article-template.md
-  # - name: Ingest data into SQL Analytics pool
+  # - name: Ingest data into SQL pool
   #   href: article-template.md
-  # - name: Browse data using workspace
-  #   href: article-template.md
+  - name: Browse data using workspace
+    href: quickstart-browse-data-workspace.md
   - name: Analyze and Visualize data
     items:
     # - name: Spark
     #   href: article-template.md
     # - name: SQL Analytics pool
     #   href: article-template.md
+    - name: Synapse studio
+      href: quickstart-synapse-studio.md
     - name: SQL on-demand
       href: ./sql-analytics/quickstart-sql-on-demand.md
+    - name: Query SQL on-demand using Azure Data Studio
+      href: ./sql-analytics/get-started-azure-data-studio.md
 - name: Tutorials
   items:
   - name: Connect to Power BI
@@ -78,32 +86,32 @@
     #     href: ./spark/apache-spark-overview.md
     - name: Metadata management
       items:
-      # - name: Overview
-      #   href: article-template.md
+      - name: Overview
+        href: metadata-overview.md
       - name: Storage objects
         items:
         # - name: Objects
-        #   href: article-template.md
-        # - name: Database
-        #   href: article-template.md
-        # - name: Tables
-        #   href: article-template.md
+        #   href: azure-synapse-metadata-objects.md
+        - name: Databases
+          href: metadata-database.md
+        - name: Tables
+          href: metadata-table.md
         # - name: Views
-        #   href: article-template.md
-      - name: Metadata sync
-        items:
-        # - name: Azure Synapse metadata
-        #   href: article-template.md
-        # - name: Sync with SQL on-demand
-        #   href: article-template.md
-        # - name: Sync with SQL pool metadata
-        #   href: article-template.md
+        #   href: azure-synapse-metadata-views.md
+      # - name: Metadata sync
+      #   items:
+      #   - name: Overview
+      #     href: azure-synapse-metadata-sync-overview.md
+      #   - name: Sync with SQL Analytics on-demand
+      #     href: azure-synapse-metadata-sync-sql-analytics-on-demand.md
+      #   - name: Sync with SQL Analytics pool metadata
+      #     href: azure-synapse-metadata-sync-sql-analytics-pool.md
       - name: Code artifacts
         items:
         - name: Apache Spark Notebooks
           href: ./spark/apache-spark-development-using-notebooks.md
-        # - name: SQL script
-        #   href: article-template.md
+        - name: SQL script
+          href: ./sql-analytics/author-sql-script.md
         - name: Mapping Data Flow
           href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Maintenance schedule
@@ -382,6 +390,10 @@
     items:
     # - name: Working with Synapse Analytics Studio
     #   href: article-template.md
+    - name: Troubleshoot Synapse Analytics Studio
+      href: troubleshoot/troubleshoot-synapse-studio.md
+    - name: Troubleshoot Synapse Analytics Studio with PowerShell
+      href: troubleshoot/troubleshoot-synapse-studio-powershell.md
     # - name: Integrate with AML
     #   href: article-template.md
     - name: Integrate with Power BI
@@ -392,6 +404,8 @@
       #   href: article-template.md
 - name: How to
   items:
+  - name: Get started with Azure Synapse Analytics
+    href: get-started.md 
   - name: Secure
     items:
     - name: Manage access control 
@@ -524,18 +538,18 @@
         items:
         - name: Overview
           href: sql-analytics/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Query single CSV file
+        - name: Query CSV file
           href: sql-analytics/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Query folders and multiple CSV files
-          href: sql-analytics/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Query specific files
-          href: sql-analytics/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Query Parquet files
           href: sql-analytics/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Query Parquet nested types
           href: sql-analytics/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Query JSON files
           href: sql-analytics/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Query folders and multiple files
+          href: sql-analytics/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Use file metadata
+          href: sql-analytics/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Create and use views
           href: sql-analytics/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 #         - name: Query Spark tables

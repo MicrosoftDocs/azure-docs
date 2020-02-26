@@ -1,5 +1,5 @@
 ---
-title: Create and edit Azure Policy security policies using the REST API | Microsoft Docs
+title: Create and edit Azure Policy security policies using the REST API
 description: Learn about Azure Policy policy management via a REST API.
 services: security-center
 author: memildin

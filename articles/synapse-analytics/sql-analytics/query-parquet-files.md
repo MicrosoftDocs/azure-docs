@@ -22,7 +22,7 @@ Before reading rest of this article, review the following articles:
 - [Prerequisites](query-data-storage.md#prerequisites)
 
 
-## Read Parquet files
+## Dataset
 
 You can query Parquet files the same way you read CSV files. The only difference is that the FILEFORMAT parameter should be set to PARQUET. Examples in this article show the specifics of reading Parquet files.
 
@@ -48,7 +48,7 @@ Data is partitioned by year and month and the folder structure is as follows:
 
 
 
-### Read particular columns in Parquet files
+## Query set of parquet files
 
 You can specify only the columns of interest when you query Parquet files.
 
@@ -73,7 +73,7 @@ ORDER BY
 	passenger_count
 ```
 
-### Read Parquet files without specifying schema
+## Automatic schema inference
 
 You don't need to use the OPENROWSET WITH clause when reading Parquet files. Column names and data types are automatically read from Parquet files. 
 
@@ -94,9 +94,9 @@ FROM
 
 
 
-### Target specific partitions using filepath function
+### Query partitioned data
 
-You can target specific partitions using the filepath function. This example shows fare amounts by year, month, and payment_type for the first three months of 2017.
+The data set provided in this sample is divided (partitioned) into separate subfolders. You can target specific partitions using the filepath function. This example shows fare amounts by year, month, and payment_type for the first three months of 2017.
 
 > [!NOTE]
 > The SQL on-demand Query is compatible with Hive/Hadoop partitioning scheme.
@@ -125,6 +125,44 @@ ORDER BY
 	nyc.filepath(2),
 	payment_type
 ```
+## Type mapping
+Parquet files contain type descriptions for every column. The following table describes how Parquet types are mapped to SQL native types.
+
+| Parquet type | Parquet logical type (annotation)   | SQL data type |
+| --- | --- | --- |
+| BOOLEAN |  | bit |
+| BINARY / BYTE_ARRAY |  | varbinary |
+| DOUBLE |  | float |
+| FLOAT |  | real |
+| INT32 |  | int |
+| INT64 |  | bigint |
+| INT96 |  |datetime2 |
+| FIXED_LEN_BYTE_ARRAY |  |binary |
+| BINARY |UTF8 |varchar \*(UTF8 collation) |
+| BINARY |STRING |varchar \*(UTF8 collation) |
+| BINARY |ENUM|varchar \*(UTF8 collation) |
+| BINARY |UUID |uniqueidentifier |
+| BINARY |DECIMAL |decimal |
+| BINARY |JSON |varchar(max) \*(UTF8 collation) |
+| BINARY |BSON |varbinary(max)  |
+| FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
+| BYTE_ARRAY |INTERVAL |varchar(max), serialized into standardized format |
+| INT32 |INT(8, true) |smallint  |
+| INT32 |INT(16, true) |smallint |
+| INT32 |INT(32, true) |int |
+| INT32 |INT(8, false) |tinyint   |
+| INT32 |INT(16, false) |int |
+| INT32 |INT(32, false) |bigint |
+| INT32 |DATE |date |
+| INT32 |DECIMAL |decimal |
+| INT32 |TIME (MILLIS )|time |
+| INT64 |INT(64, true) |bigint |
+| INT64 |INT(64, false  ) |decimal(20,0) |
+| INT64 |DECIMAL |decimal |
+| INT64 |TIME (MICROS / NANOS) |time |
+|INT64 |TIMESTAMP (MILLIS / MICROS / NANOS) |datetime2 |
+|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LIST |varchar(max), serialized into JSON |
+|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), serialized into JSON |
 
 ## Next steps
 
