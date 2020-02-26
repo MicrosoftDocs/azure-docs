@@ -224,7 +224,7 @@ As mentioned above, the IoT Edge runtime uses routes configured in the *deployme
    await ioTHubModuleClient.SetInputMessageHandlerAsync(EndpointNames.FromClassifier, ClassifierCallbackMessageHandler, ioTHubModuleClient);
    ```
 
-1. The first callback listens for messages sent to the **deviceInput** sink. From the diagram above, we see that we want to route messages from any leaf device to this input. We need to add the following input and output routes:
+1. The first callback listens for messages sent to the **deviceInput** sink. From the diagram above, we see that we want to route messages from any leaf device to this input. We need to add the following routes:
 
     | Route to add | Description |
     | --- | --- |
@@ -235,7 +235,7 @@ As mentioned above, the IoT Edge runtime uses routes configured in the *deployme
     | SendMessageToAvroWriter | Uses the module client to send the message with the RUL data added to the avroFileWriter module. |
     | HandleBadMessage | sends failed messages upstream the IoT Hub where they can be routed for later. |
 
-    With all the routes taken together your “$edgeHub” node should look like the following JSON:
+    Add these routes to your “$edgeHub” node so that JSON code is as follows:
 
     ```json
     "$edgeHub": {
