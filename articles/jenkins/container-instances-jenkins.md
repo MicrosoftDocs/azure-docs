@@ -9,7 +9,7 @@ ms.date: 08/31/2018
 
 Azure Container Instances (ACI) provides an on-demand, burstable, and isolated environment for running containerized workloads. Because of these attributes, ACI makes a great platform for running Jenkins build jobs at a large scale. This article walks through deploying and using a Jenkins server that's pre-configured with ACI as a build target.
 
-For more information on Azure Container Instances, see [About Azure Container Instances][about-aci].
+For more information on Azure Container Instances, see [About Azure Container Instances](../container-instances/container-instances-overview.md).
 
 ## Deploy a Jenkins server
 
@@ -38,7 +38,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
    ![Additional settings for Jenkins portal deployment](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. For service principal integration, select **Auto(MSI)** to have [managed identities for Azure resources][managed-identities-azure-resources] automatically create an authentication identity for the Jenkins instance. Select **Manual** to provide your own service principal credentials.
+4. For service principal integration, select **Auto(MSI)** to have [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) automatically create an authentication identity for the Jenkins instance. Select **Manual** to provide your own service principal credentials.
 
 5. Cloud agents configure a cloud-based platform for Jenkins build jobs. For the sake of this article, select **ACI**. With the ACI cloud agent, each Jenkins build job is run in a container instance.
 
@@ -124,9 +124,5 @@ If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkin
 
 ## Next steps
 
-To learn more about Jenkins on Azure, see [Azure and Jenkins][jenkins-azure].
-
-<!-- LINKS - internal -->
-[about-aci]: ./container-instances-overview.md
-[jenkins-azure]: ../jenkins/overview.md
-[managed-identities-azure-resources]: ../active-directory/managed-identities-azure-resources/overview.md
+> [!div class="nextstepaction"]
+> [CI/CD to Azure App Service](java-deploy-webapp-tutorial.md)
