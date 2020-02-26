@@ -1,15 +1,9 @@
 ---
 title: Using Azure Storage with a Jenkins continuous integration solution
 description: This tutorial shows how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution.
+keywords: jenkins, azure, devops, storage, cicd
 ms.topic: article
-ms.author: tarcher
-
-author: tarcher
-services: devops
-ms.service: storage
-custom: jenkins
 ms.date: 08/13/2019
-ms.subservice: common
 ---
 
 # Using Azure Storage with a Jenkins continuous integration solution
@@ -19,11 +13,13 @@ This article illustrates how to use Blob storage as a repository of build artifa
 In this tutorial, you will be using the Azure Storage Plugin for Jenkins CI made available by Microsoft.
 
 ## Jenkins overview
+
 Jenkins enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This article shows how to use Azure blob storage as the repository of the build artifacts. It will also show how to download dependencies from Azure blob storage.
 
 More information about Jenkins can be found at [Meet Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins).
 
 ## Benefits of using the Blob service
+
 Benefits of using the Blob service to host your agile development build artifacts include:
 
 * High availability of your build artifacts and/or downloadable dependencies.
@@ -32,6 +28,7 @@ Benefits of using the Blob service to host your agile development build artifact
 * Control over user access policies, with a choice between anonymous access, expiration-based shared access signature access, private access, etc.
 
 ## Prerequisites
+
 * A Jenkins continuous integration solution.
   
     If you currently don't have a Jenkins CI solution, you can run a Jenkins CI solution using the following technique:
@@ -142,10 +139,6 @@ This section provides an overview of the Blob service components.
 If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Next steps
-* [Meet Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
-* [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
-* [Azure Storage Client SDK Reference](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
-* [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
 
-For more information, visit [Azure for Java developers](/java/azure).
+> [!div class="nextstepaction"]
+> [Jenkins on Azure](/azure/Jenkins/)
