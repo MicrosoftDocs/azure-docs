@@ -138,7 +138,7 @@ The next step is to create a new virtual machine within one subnet of the virtua
 >[!div class="mx-imgBorder"]
 >![Final view of Azure Bastion host in resource group](./media/functions-create-private-site-access/create-bastion-5.png)
 
-## Create an Azure Function App
+## Create an Azure Functions app
 
 With the virtual network in place, the next step is to create an Azure Function App using a Consumption plan. The function code will be deployed to the Function App later in this tutorial.
 
