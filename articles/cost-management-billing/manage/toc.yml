@@ -128,13 +128,13 @@
     - name: Review resource usage
       href: review-service-usage-api.md
   - name: .NET samples
-  items:
-  - name: Invoice API code sample
-    href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
-  - name: Usage API code sample
-    href: https://github.com/Azure-Samples/billing-dotnet-usage-api
-  - name: RateCard API code sample
-    href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
+    items:
+    - name: Invoice API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
+    - name: Usage API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-usage-api
+    - name: RateCard API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
 - name: Reference
   items:
   - name: Billing Automation Scenarios

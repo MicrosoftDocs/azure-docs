@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 11/22/2019
+ms.date: 02/21/2020
 ms.author: diberry
 #customer intent: As a developer, I want to know how to use QnA Maker for my FAQs and product manuals so that I can enable conversational question and answer sessions for my customers.
 ---
@@ -73,6 +73,10 @@ After the knowledge base receives questions from users at the published endpoint
 ## Development lifecycle
 
 QnA Maker provides authoring, training, and publishing along with collaboration permissions to integrate into the full development life cycle.
+
+> [!div class="mx-imgBorder"]
+> ![Conceptual image of development cycle](../media/qnamaker-overview-learnabout/development-cycle.png)
+
 
 ## How do I start?
 

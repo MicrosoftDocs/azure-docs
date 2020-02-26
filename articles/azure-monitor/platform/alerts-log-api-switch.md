@@ -14,6 +14,9 @@ ms.subservice: alerts
 > [!NOTE]
 > Content stated applicable to users Azure public cloud only and **not** for Azure Government or Azure China cloud.  
 
+> [!NOTE]
+> Once a user chooses to switch preference to the new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) it is not possible to revert to using of the older [legacy Log Analytics Alert API](api-alerts.md).
+
 Until recently, you managed alert rules in the Microsoft Operations Management Suite portal. The new alerts experience was integrated with various services in Microsoft Azure including Log Analytics and we asked to [extend your alert rules from OMS portal to Azure](alerts-extend.md). But to ensure minimal disruption for customers, the process did not alter the programmatic interface for its consumption - [Log Analytics Alert API](api-alerts.md) based on SavedSearch.
 
 But now you announce for Log Analytics alerting users a true Azure programmatic alternative, [Azure Monitor - ScheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), which is also reflective in your [Azure billing - for log alerts](alerts-unified-log.md#pricing-and-billing-of-log-alerts). To learn more on how to manage your log alerts using the API, see [Managing log alerts using Azure Resource Template](alerts-log.md#managing-log-alerts-using-azure-resource-template) and [Managing log alerts using PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
@@ -44,9 +47,6 @@ The process of moving alert rules from [legacy Log Analytics Alert API](api-aler
 
 - A change in API preference and access to your rules via a new API.
 - A modified alert rule resource URI containing the IDs used in the [legacy Log Analytics Alert API](api-alerts.md) instead of the alert rule name in this structure `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display name of the alert rule will remain unchanged.
-
-> [!NOTE]
-> Once a user chooses to switch preference to the new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) it is not possible to revert to using of the older [legacy Log Analytics Alert API](api-alerts.md).
 
 Any customer who wishes to switch voluntarily to the new [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) and block usage from the [legacy Log Analytics Alert API](api-alerts.md); can do so by performing a PUT call on the below API to switch all alert rules associated with the specific Log Analytics workspace.
 

@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2020
+ms.date: 02/25/2020
 ms.author: memildin
 
 ---
@@ -29,7 +29,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-windows"></a>Alerts for Windows machines
 
-[Further details and notes](security-center-alerts-iaas.md#windows-)
+[Further details and notes](threat-protection.md#windows-machines)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -120,7 +120,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-linux"></a>Alerts for Linux machines
 
-[Further details and notes](security-center-alerts-iaas.md#linux-)
+[Further details and notes](threat-protection.md#linux-machines)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -209,31 +209,32 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azureappserv"></a>Alerts for Azure App Service
 
-[Further details and notes](security-center-alerts-compute.md#azure-app-service-)
+[Further details and notes](threat-protection.md#app-services)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
-|**Suspicious WordPress theme invocation detected**|The App Service activity log indicates a possible code injection activity on your App Service resource.<br>This suspicious activity resembles activity that manipulates a WordPress theme to support server-side execution of code, followed by a direct web request to invoke the manipulated theme file. This type of activity can be part of an attack campaign over WordPress.|-|
-|**Web fingerprinting detected**<br>(NMAP / Blind Elephant)|The App Service activity log indicates a possible web fingerprinting activity on your App Service resource.<br>This suspicious activity is associated with a tool called Blind Elephant. The tool fingerprints web servers and tries to detect the installed applications and their versions. Attackers often use this tool for probing the web applications to find vulnerabilities. |-|
-|**Suspicious access to possibly vulnerable web page detected**|The App Service activity log indicates that a web page that seems to be sensitive was accessed.<br>This suspicious activity originated from a source address whose access pattern resembles that of a web scanner. This kind of activity is often associated with an attempt by an attacker to scan your network to try to gain access to sensitive or vulnerable web pages. |-|
-|**An IP that connected to your Azure App Service FTP Interface was found in Threat Intelligence**|App Service FTP logs analysis has detected a connection from a source address that was found in the threat intelligence feed. During this connection, a user accessed the pages listed.|-|
 |**An attempt to run Linux commands on a Windows App Service**|Analysis of App Service processes detected an attempt to run a Linux command on a Windows App Service. This action was running by the web application. This behavior is often seen during campaigns that exploit a vulnerability in a common web application.|-|
-|**Suspicious PHP execution detected**|Machine logs indicate that a suspicious PHP process is running. The action included an attempt to run operating system commands or PHP code from the command line, by using the PHP process. While this behavior can be legitimate, in web applications this behavior might indicate malicious activities, such as attempts to infect websites with web shells.|Execution|
-|**Attempt to run high privilege command detected**|Analysis of App Service processes has detected an attempt to run a command that requires high privileges. The command ran in the web application context. While this behavior can be legitimate, in web applications this behavior might indicate malicious activities.|-|
-|**Saving curl output to disk detected**|Analysis of App Service processes detected the running of a curl command in which the output was saved to the disk. While this behavior can be legitimate, in web applications this behavior is also observed in malicious activities such as attempts to infect websites with web shells.|-|
-|**Raw data download detected**|Analysis of App Service processes detected an attempt to download code from raw-data websites such as Pastebin. This action was run by a PHP process. This behavior is associated with attempts to download web shells or other malicious components to the App Service.|-|
-|**Vulnerability scanner detected**<br>(Joomla/WordPress/CMS)|The Azure App Service activity log indicates that a possible vulnerability scanner was used on your App Service resource. The suspicious activity detected resembles that of tools targeting Joomla applications / WordPress applications / a content management system (CMS).|-|
-|**Spam folder referrer detected**|Azure App Service activity log indicates web activity that was identified as originating from a web site associated with SPAM activity. This could occur if your web site is compromised and used for spam activity.|-|
-|**Connection to web page from anomalous IP address detected**|The Azure App Service activity log indicates a connection to a sensitive web page from a source IP address (%{Source IP Address}) that never connect to it before. This might indicate that someone is attempting a brute force attack into your web app administration pages. It might also be the result of a new IP address being used by a legitimate user.|-|
-|**Suspicious User Agent detected**|Azure App Service activity log indicates requests with suspicious user agent. This behavior can indicate on attempts to exploit a vulnerability in your App Service application.|-|
-|**PHP file in upload folder**|The Azure App Service activity log indicates an access to a suspicious PHP page located in the upload folder. This type of folder does not usually contain PHP files. The existence of this type of file might indicate an exploitation taking advantage of arbitrary file upload vulnerabilities.|-|
+|**An IP that connected to your Azure App Service FTP Interface was found in Threat Intelligence**|App Service FTP logs analysis has detected a connection from a source address that was found in the threat intelligence feed. During this connection, a user accessed the pages listed.|-|
 |**Anomalous requests pattern detected**|The Azure App Service activity log indicates an anomalous HTTP activity to the App Service from %{Source IP}. This activity resembles a pattern of Fuzzing \ Brute force activity.|-|
+|**Attempt to run high privilege command detected**|Analysis of App Service processes has detected an attempt to run a command that requires high privileges. The command ran in the web application context. While this behavior can be legitimate, in web applications this behavior might indicate malicious activities.|-|
+|**Connection to web page from anomalous IP address detected**|The Azure App Service activity log indicates a connection to a sensitive web page from a source IP address (%{Source IP Address}) that has never connected to it before. This might indicate that someone is attempting a brute force attack into your web app administration pages. It might also be the result of a new IP address being used by a legitimate user.|-|
+|**Raw data download detected**|Analysis of App Service processes detected an attempt to download code from raw-data websites such as Pastebin. This action was run by a PHP process. This behavior is associated with attempts to download web shells or other malicious components to the App Service.|-|
+|**Phishing content hosted on Azure Webapps**|URL used for phishing attack found on the Azure AppServices website. This URL was part of a phishing attack sent to O365 customers. The content typically lures visitors into entering their corporate credentials or financial information into a legitimate looking website.|Collection|
+|**PHP file in upload folder**|The Azure App Service activity log indicates an access to a suspicious PHP page located in the upload folder. This type of folder does not usually contain PHP files. The existence of this type of file might indicate an exploitation taking advantage of arbitrary file upload vulnerabilities.|-|
+|**Saving curl output to disk detected**|Analysis of App Service processes detected the running of a curl command in which the output was saved to the disk. While this behavior can be legitimate, in web applications this behavior is also observed in malicious activities such as attempts to infect websites with web shells.|-|
+|**Spam folder referrer detected**|Azure App Service activity log indicates web activity that was identified as originating from a web site associated with SPAM activity. This could occur if your web site is compromised and used for spam activity.|-|
+|**Suspicious access to possibly vulnerable web page detected**|The App Service activity log indicates that a web page that seems to be sensitive was accessed.<br>This suspicious activity originated from a source address whose access pattern resembles that of a web scanner. This kind of activity is often associated with an attempt by an attacker to scan your network to try to gain access to sensitive or vulnerable web pages. |-|
+|**Suspicious PHP execution detected**|Machine logs indicate that a suspicious PHP process is running. The action included an attempt to run operating system commands or PHP code from the command line, by using the PHP process. While this behavior can be legitimate, in web applications this behavior might indicate malicious activities, such as attempts to infect websites with web shells.|Execution|
+|**Suspicious User Agent detected**|Azure App Service activity log indicates requests with suspicious user agent. This behavior can indicate on attempts to exploit a vulnerability in your App Service application.|-|
+|**Suspicious WordPress theme invocation detected**|The App Service activity log indicates a possible code injection activity on your App Service resource.<br>This suspicious activity resembles activity that manipulates a WordPress theme to support server-side execution of code, followed by a direct web request to invoke the manipulated theme file. This type of activity can be part of an attack campaign over WordPress.|-|
+|**Vulnerability scanner detected**<br>(Joomla/WordPress/CMS)|The Azure App Service activity log indicates that a possible vulnerability scanner was used on your App Service resource. The suspicious activity detected resembles that of tools targeting Joomla applications / WordPress applications / a content management system (CMS).|-|
+|**Web fingerprinting detected**<br>(NMAP / Blind Elephant)|The App Service activity log indicates a possible web fingerprinting activity on your App Service resource.<br>This suspicious activity is associated with a tool called Blind Elephant. The tool fingerprints web servers and tries to detect the installed applications and their versions. Attackers often use this tool for probing the web applications to find vulnerabilities. |-|
 ||||
 
 
 ## <a name="alerts-akscluster"></a>Alerts for containers - Azure Kubernetes Service clusters
 
-[Further details and notes](security-center-alerts-compute.md#azure-containers-)
+[Further details and notes](threat-protection.md#azure-containers)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -248,7 +249,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-containerhost"></a>Alerts for containers - host level
 
-[Further details and notes](security-center-alerts-compute.md#azure-containers-)
+[Further details and notes](threat-protection.md#azure-containers)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -264,7 +265,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Alerts for SQL Database and SQL Data Warehouse
 
-[Further details and notes](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
+[Further details and notes](threat-protection.md#data-sql)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -282,7 +283,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azurestorage"></a>Alerts for Azure Storage
 
-[Further details and notes](security-center-alerts-data-services.md#azure-storage-)
+[Further details and notes](threat-protection.md#azure-storage)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -303,7 +304,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azurecosmos"></a>Alerts for Azure Cosmos DB (Preview)
 
-[Further details and notes](security-center-alerts-data-services.md#azure-cosmos-db)
+[Further details and notes](threat-protection.md#cosmos-db)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -314,7 +315,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azurenetlayer"></a>Alerts for Azure network layer
 
-[Further details and notes](security-center-alerts-service-layer.md#azure-network-layer)
+[Further details and notes](threat-protection.md#network-layer)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -339,12 +340,13 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azureresourceman"></a>Alerts for Azure Resource Manager (Preview)
 
-[Further details and notes](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
+[Further details and notes](threat-protection.md#management-layer)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**PREVIEW - Azurite toolkit run detected**|A known cloud-environment reconnaissance toolkit run has been detected in your environment. The tool [Azurite](https://github.com/mwrlabs/Azurite) can be used by an attacker (or penetration tester) to map your subscriptions' resources and identify insecure configurations.|-|
-|**PREVIEW – MicroBurst toolkit “Get-AzureDomainInfo” function run detected**|A known cloud-environment reconnaissance toolkit run has been detected in your environment. The tool “MicroBurst” (see https://github.com/NetSPI/MicroBurst) can be used by an attacker (or penetration tester) to map your subscription(s) resources, identify insecure configurations, and leak confidential information.|-||**PREVIEW - Suspicious management session using an inactive account detected**|Subscription activity logs analysis has detected suspicious behavior. A principal not in use for a long period of time is now performing actions that can secure persistence for an attacker.|Persistence|
+|**PREVIEW – MicroBurst toolkit “Get-AzureDomainInfo” function run detected**|A known cloud-environment reconnaissance toolkit run has been detected in your environment. The tool “MicroBurst” (see https://github.com/NetSPI/MicroBurst) can be used by an attacker (or penetration tester) to map your subscription(s) resources, identify insecure configurations, and leak confidential information.|-|
+|**PREVIEW - Suspicious management session using an inactive account detected**|Subscription activity logs analysis has detected suspicious behavior. A principal not in use for a long period of time is now performing actions that can secure persistence for an attacker.|Persistence|
 |**PREVIEW – MicroBurst toolkit “Get-AzurePasswords” function run detected**|A known cloud-environment reconnaissance toolkit run has been detected in your environment. The tool “MicroBurst” (see https://github.com/NetSPI/MicroBurst) can be used by an attacker (or penetration tester) to map your subscription(s) resources, identify insecure configurations, and leak confidential information.|-|
 |**PREVIEW – Suspicious management session using Azure portal detected**|Analysis of your subscription activity logs has detected a suspicious behavior. A principal that doesn’t regularly use the Azure portal (Ibiza) to manage the subscription environment (hasn’t used Azure portal to manage for the last 45 days, or a subscription that it is actively managing), is now using the Azure portal and performing actions that can secure persistence for an attacker.|-|
 |**PREVIEW - Suspicious management session using PowerShell detected**|Subscription activity logs analysis has detected suspicious behavior. A principal that doesn’t regularly use PowerShell to manage the subscription environment is now using PowerShell, and performing actions that can secure persistence for an attacker.|Persistence|
@@ -357,7 +359,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azurekv"></a>Alerts for Azure Key Vault (Preview)
 
-[Further details and notes](security-center-alerts-service-layer.md#azure-keyvault)
+[Further details and notes](threat-protection.md#azure-keyvault)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -375,7 +377,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azureddos"></a>Alerts for Azure DDoS Protection
 
-[Further details and notes](security-center-alerts-integration.md#azure-ddos)
+[Further details and notes](threat-protection.md#azure-ddos)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -412,6 +414,7 @@ Security Center's supported kill chain intents are based on the [MITRE ATT&CK™
 ## Next steps
 To learn more about alerts, see the following:
 
+* [Threat protection in Azure Security Center](threat-protection.md)
 * [Security alerts in Azure Security Center](security-center-alerts-overview.md)
 * [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Export security alerts and recommendations (Preview)](continuous-export.md)

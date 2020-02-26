@@ -19,7 +19,7 @@ ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
-# What is managed identities for Azure resources?
+# What are managed identities for Azure resources?
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
