@@ -98,7 +98,7 @@ If you are enabling Automated Backup for the first time, Azure configures the SQ
 You can use PowerShell to configure Automated Backup. Before you begin, you must:
 
 - [Download and install the latest Azure PowerShell](https://aka.ms/webpi-azps).
-- Open Windows PowerShell and associate it with your account with the **Connect-AzAccount** command.
+- Open Windows PowerShell and associate it with your account with the **Connect-AzAccount** command. 
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
