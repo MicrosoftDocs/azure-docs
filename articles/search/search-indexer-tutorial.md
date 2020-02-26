@@ -28,7 +28,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 + [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-+ [Create a search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
+
+[Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
 
 > [!Note]
 > A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
@@ -45,21 +46,21 @@ API calls require the service URL and an access key. A search service is created
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-  ![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+   ![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 ## Set up connections
 
-1. In Visual Studio, open the **DotNetHowToIndexers.sln** file.
+1. Start Visual Studio and open **DotNetHowToIndexers.sln**.
 
 1. In Solution Explorer, open **appsettings.json** and replace placeholder values with connection information to your search service. If the full URL is "https://my-demo-service.search.windows.net", the service name to provide is "my-demo-service".
 
-```json
-{
-  "SearchServiceName": "Put your search service name here",
-  "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-  "AzureSqlConnectionString": "Put your Azure SQL database connection string here",
-}
-```
+    ```json
+    {
+      "SearchServiceName": "Put your search service name here",
+      "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+      "AzureSqlConnectionString": "Put your Azure SQL database connection string here",
+    }
+    ```
 
 The last entry requires an existing database. You'll create it in the next step.
 
@@ -79,7 +80,7 @@ If you have an existing Azure SQL Database resource, you can add the hotels tabl
 
 1. On the navigation pane, click **Query editor (preview)** and enter the user name and password of server admin. 
 
-   If you are not allowed access, copy the client IP address from the error message, and then click the **Set server firewall** link to add a rule that allows access from your client computer, using your client IP for the range. It can take several minutes for the rule to take effect.
+   If access is denied, copy the client IP address from the error message, and then click the **Set server firewall** link to add a rule that allows access from your client computer, using your client IP for the range. It can take several minutes for the rule to take effect.
 
 1. In Query editor, click **Open query** and navigate to the location of *hotels.sql* file on your local computer. 
 
@@ -95,9 +96,7 @@ If you have an existing Azure SQL Database resource, you can add the hotels tabl
     SELECT * FROM Hotels
     ```
 
-1. Copy the ADO.NET connection string for the database. On the SQL Database page of your database, go to **Settings** > **Connection Strings**, and copy the ADO.NET connection string.
- 
-    An ADO.NET connection string looks like the following example, modified to use a valid database name, user name, and password.
+1. Copy the ADO.NET connection string for the database. Under **Settings** > **Connection Strings**, copy the ADO.NET connection string, similar to the example below.
 
     ```sql
     Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -113,15 +112,15 @@ If you have an existing Azure SQL Database resource, you can add the hotels tabl
     }
     ```
 
-1. Type your password into the connection string in the **appsettings.json** file. Other placeholder values for database and user name will copy over in your connection string, but the password will not be exposed.
+1. Enter your password into the connection string in the **appsettings.json** file. Database and user names will copy over in your connection string, but the password must be entered manually.
 
 ## Build the solution
 
 1. Press F5 to build the solution. The program executes in debug mode. A console window reports the status of each operation.
 
-  ![Console output](./media/search-indexer-tutorial/console-output.png "Console output")
+   ![Console output](./media/search-indexer-tutorial/console-output.png "Console output")
 
-Your code runs locally in Visual Studio, connecting to your search service on Azure, which in turn uses the connection string to connect to Azure SQL Database and retrieve the dataset. With this many operations, there are several potential points of failure, but if you get an error, check the following conditions first:
+Your code runs locally in Visual Studio, connecting to your search service on Azure, which in turn connects to Azure SQL Database and retrieves the dataset. With this many operations, there are several potential points of failure. If you get an error, check the following conditions first:
 
 + Search service connection information that you provide is limited to the service name in this tutorial. If you entered the full URL, operations stop at index creation, with a failure to connect error.
 
@@ -131,19 +130,19 @@ Your code runs locally in Visual Studio, connecting to your search service on Az
 
 ## Check results
 
-Use Azure portal to verify objects, and then use **Search explorer** to query the index.
+Use Azure portal to verify object creation, and then use **Search explorer** to query the index.
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, open each list in turn to verify the object is created. **Indexes**, **Indexers**, and **Data Sources** will have "hotels", "azure-blob-indexer", and "azure-sql", respectively.
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, open each list in turn to verify the object is created. **Indexes**, **Indexers**, and **Data Sources** will have "hotels", "azure-sql-indexer", and "azure-sql", respectively.
 
    ![Indexer and data source tiles](./media/search-indexer-tutorial/tiles-portal.png)
 
 1. Select the hotels index. On the hotels page, **Search explorer** is the first tab. 
 
-1. Click **Search** to issue an empty search. 
+1. Click **Search** to issue an empty query. 
 
    The three entries in your index are returned as JSON documents. Search explorer returns documents in JSON so that you can view the entire structure.
 
-  ![Query an index](./media/search-indexer-tutorial/portal-search.png "Query an index")
+   ![Query an index](./media/search-indexer-tutorial/portal-search.png "Query an index")
    
 1. Next, enter a search string: `search=river&$count=true`. 
 
@@ -153,12 +152,12 @@ Use Azure portal to verify objects, and then use **Search explorer** to query th
 
    The query response is reduced to selected fields, resulting in more concise output.
 
-## Understand the code
+## Explore the code
 
-Now that you understand what the sample code does, lets return to the source to review its contents. Relevant code is in two files:
+Now that you understand what the sample code create, let's return to the solution to review the code. Relevant code is in two files:
 
-  + **hotel.cs**, containing the schema that defines the index
-  + **Program.cs**, containing the functions for creating and managing structures in your service
+  + **hotel.cs**, containing a schema that defines the index
+  + **Program.cs**, containing functions for creating and managing structures in your service
 
 ### In hotel.cs
 
