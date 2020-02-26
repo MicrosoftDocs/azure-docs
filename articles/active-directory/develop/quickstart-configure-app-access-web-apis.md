@@ -41,7 +41,7 @@ Use the following procedures to configure your application to access web APIs.
 
 You can add custom redirect URIs and suggested redirect URI to your application. To add a custom redirect URI for web and public client applications, use this procedure:
 
-1. From the app's **Overview** page, select **Authentication**.
+1. From the app **Overview** page, select **Authentication**.
 1. Locate **Redirect URIs**. You may need to select **Switch to the old experience**.
 1. Select the type of application you're building: **Web** or **Public client/native (mobile & desktop)**.
 1. Enter the Redirect URI for your application.
@@ -52,7 +52,7 @@ You can add custom redirect URIs and suggested redirect URI to your application.
 
 To choose from suggested redirect URIs for public clients, follow these steps:
 
-1. From the app's **Overview** page, select **Authentication**.
+1. From the app **Overview** page, select **Authentication**.
 1. Locate **Suggested Redirect URIs for public clients (mobile, desktop)**. You may need to select **Switch to the old experience**.
 1. Select one or more redirect URIs for your application. You can also enter a custom redirect URI. If you're not sure what to use, check out the library documentation.
 1. Select **Save**.
@@ -105,9 +105,9 @@ To configure application settings based on the platform or device, you're target
    | Platform                | Configuration settings            |
    |-------------------------|-----------------------------------|
    | **Web**              | Enter the **Redirect URI** for your application. |
-   | **iOS / macOS**              | Enter the app's **Bundle ID**, which you can find in XCode in Info.plist, or Build Settings. Adding the bundle ID automatically creates a redirect URI for the application. |
-   | **Android**          | * Provide the app's **Package name**, which you can find in the AndroidManifest.xml file.<br/>* Generate and enter the **Signature hash**. Adding the signature hash automatically creates a redirect URI for the application.  |
-   | **Mobile and desktop applications**  | * Optional. Select one of the recommended **Suggested redirect URIs** if you're building apps for desktop and devices.<br/>* Optional. Enter a **Custom redirect URI**, which is used as the location where Azure AD will redirect users in response to authentication requests. For example, for .NET Core applications where you want interaction, use `https://localhost`. |
+   | **iOS / macOS**              | Enter the app **Bundle ID**, which you can find in XCode in Info.plist, or Build Settings. Adding the bundle ID automatically creates a redirect URI for the application. |
+   | **Android**          | Provide the app **Package name**, which you can find in the AndroidManifest.xml file.<br/>Generate and enter the **Signature hash**. Adding the signature hash automatically creates a redirect URI for the application.  |
+   | **Mobile and desktop applications**  | Optional. Select one of the recommended **Suggested redirect URIs** if you're building apps for desktop and devices.<br/>Optional. Enter a **Custom redirect URI**, which is used as the location where Azure AD will redirect users in response to authentication requests. For example, for .NET Core applications where you want interaction, use `https://localhost`. |
 
    > [!IMPORTANT]
    > For mobile applications that aren't using the latest MSAL library or not using a broker, you must configure the redirect URIs for these applications in **Desktop + devices**.
@@ -124,14 +124,14 @@ Depending on the platform you chose, there may be additional settings that you c
 
 To add a credential to your web application, add a certificate or create a client secret. To add a certificate, follow these steps:
 
-1. From the app's **Overview** page, select the **Certificates & secrets** section.
+1. From the app **Overview** page, select the **Certificates & secrets** section.
 1. Select **Upload certificate**.
 1. Select the file you'd like to upload. It must be one of the following file types: .cer, .pem, .crt.
 1. Select **Add**.
 
 To add a client secret, follow these steps:
 
-1. From the app's **Overview** page, select the **Certificates & secrets** section.
+1. From the app **Overview** page, select the **Certificates & secrets** section.
 1. Select **New client secret**.
 1. Add a description for your client secret.
 1. Select a duration.
@@ -152,7 +152,7 @@ The [Graph API sign-in and read user profile permission](https://developer.micro
 
 To add permissions to access resource APIs from your client:
 
-1. From the app's **Overview** page, select **API permissions**.
+1. From the app **Overview** page, select **API permissions**.
 1. Under **Configured permissions**, select **Add a permission**.
 1. By default, the view allows you to select from **Microsoft APIs**. Select the section of APIs that you're interested in:
 

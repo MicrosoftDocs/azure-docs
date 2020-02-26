@@ -55,7 +55,7 @@ To learn more about the new features and improvements in the new app registratio
 
 Azure AD assigns a unique application, or client, ID to your app. The portal opens your application's **Overview** page. To add  capabilities to your application, you can select other configuration options including branding, certificates and secrets, API permissions, and more.
 
-[![Example of a newly registered app's overview page](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
+![Example of a newly registered app overview page](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)
 
 ## Next steps
 
