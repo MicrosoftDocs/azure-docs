@@ -67,6 +67,8 @@ If you don't already have an MQ connection when you add an MQ action, you're pro
 
 1. When you're done, select **Create**. 
 
+<a name="connection-problems"></a>
+
 ### Connection and authentication problems
 
 When your logic app tries connecting to your on-premises MQ server, you might get this error:
