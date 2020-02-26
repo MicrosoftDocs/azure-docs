@@ -19,7 +19,7 @@ Virtual Network (VNet) service endpoint policies allow you to filter egress virt
 
 ![Securing Virtual network outbound traffic to Azure Storage accounts](./media/virtual-network-service-endpoint-policies-overview/vnet-service-endpoint-policies-overview.png)
 
-This feature is generally available for __Azure Storage__ in __all public Azure regions__.
+This feature is generally available for __Azure Storage__ in __all global Azure regions__.
 
 ## Key benefits
 
@@ -57,7 +57,7 @@ Let's take a quick look at the Service Endpoint Policy object.
 
 -	You can configure the endpoint policies to restrict virtual network traffic to specific Azure Storage accounts.
 -	Endpoint policy is configured on a subnet in a virtual network. Service endpoints for Azure Storage should be enabled on the subnet to apply the policy.
--	Endpoint policy allows you to whitelist specific Azure Storage accounts, using the resourceID format. You can restrict access to
+-	Endpoint policy allows you to add specific Azure Storage accounts to allow list, using the resourceID format. You can restrict access to
     - all storage accounts in a subscription<br>
       `E.g. /subscriptions/subscriptionId`
 
@@ -67,11 +67,11 @@ Let's take a quick look at the Service Endpoint Policy object.
     - an individual storage account by listing the corresponding Azure Resource Manager resourceId. This covers traffic to blobs, tables, queues, files and Azure Data Lake Storage Gen2. <br>
     `E.g. /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Storage/storageAccounts/storageAccountName`
 -	By default, if no policies are attached to a subnet with endpoints, you can access all storage accounts in the service. Once a policy is configured on that subnet, only the resources specified in the policy can be accessed from compute instances in that subnet. Access to all other storage accounts will be denied.
--	When applying Service Endpoint policies on a subnet, the Azure Storage *Service Endpoint scope* gets upgraded from regional to **global**. This means that all the traffic to Azure Storage is secured over service endpoint thereafter. The Service endpoint policies are also applicable globally, so any storage accounts, that are not explicitly whitelisted, will be denied access. 
+-	When applying Service Endpoint policies on a subnet, the Azure Storage *Service Endpoint scope* gets upgraded from regional to **global**. This means that all the traffic to Azure Storage is secured over service endpoint thereafter. The Service endpoint policies are also applicable globally, so any storage accounts, that are not explicitly allowed, will be denied access. 
 -	You can apply multiple policies to a subnet. When multiple policies are associated to the subnet, virtual network traffic to resources specified across any of these policies will be allowed. Access to all other service resources, not specified in any of the policies, will be denied.
 
     > [!NOTE]  
-    > Service endpoint policies are **whitelisting policies**, so apart from the specified resources, all other resources are restricted. Please ensure that all service resource dependencies for your applications are identified and listed in the policy.
+    > Service endpoint policies are **allow policies**, so apart from the specified resources, all other resources are restricted. Please ensure that all service resource dependencies for your applications are identified and listed in the policy.
 
 - Only storage accounts using the Azure Resource Model can be specified in the endpoint policy. Your classic Azure Storage accounts will not support Azure Service Endpoint Policies.
 - RA-GRS secondary access will be automatically allowed if the primary account is listed.
@@ -90,8 +90,8 @@ No centralized logging is available for service endpoint policies. For service d
 
 ### Troubleshooting scenarios
 - Access denied to storage accounts that were working in preview (not in geo-paired region)
-  - With Azure Storage upgrading to use Global Service Tags, the scope of Service Endpoint and thus Service Endpoint policies is now Global. So any traffic to Azure Storage is encrypted over Service Endpoints and only whitelisted Storage accounts are allowed access.
-  - Explicitly whitelist all the required Storage accounts to restore access.  
+  - With Azure Storage upgrading to use Global Service Tags, the scope of Service Endpoint and thus Service Endpoint policies is now Global. So any traffic to Azure Storage is encrypted over Service Endpoints and only Storage accounts that are explicitly listed in policy are allowed access.
+  - Explicitly allow list all the required Storage accounts to restore access.  
   - Contact Azure support.
 - Access is denied for accounts listed in the endpoint policies
   - Network security groups or firewall filtering could be blocking access
