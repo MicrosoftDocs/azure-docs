@@ -91,7 +91,7 @@ Add the Excel file to the flow by filling in the fields in this action. This tut
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="add excel rows.":::
 
-Add an **Apply to each** action.
+Click **New Step** and add an **Apply to each** action.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-an-apply.png" alt-text="add an apply command.":::
@@ -153,7 +153,7 @@ In the Condition window, click on the first text box. In the Dynamic content win
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-Make sure the second box says **is equal to**. Then select the third box, and search for `var_person`. 
+Make sure the second box says **is equal to**. Then select the third box, and search for `var_person` in the Dynamic content window. 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Add Text Analytics credentials to your flow.":::
@@ -163,7 +163,7 @@ In the **If yes** condition, type in Excel then select **Update a Row**.
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/action-in-yes-column.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-Enter the Excel info, and update the **Key Column**, **Key Value** and **Person Name** fields.
+Enter the Excel info, and update the **Key Column**, **Key Value** and **PersonName** fields. This will append the name detected by the API to the Excel sheet. 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/action-in-yes-column-options.png" alt-text="Add Text Analytics credentials to your flow.":::
@@ -180,7 +180,7 @@ Within **Apply to each 3**, add a **Condition** control. It will be named **Cond
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-In the **If yes** condition, add an **Update a row** action. Then enter the information like we did above, for the phone numbers column of the Excel sheet.
+In the **If yes** condition, add an **Update a row** action. Then enter the information like we did above, for the phone numbers column of the Excel sheet. This will append the phone number detected by the API to the Excel sheet. 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Add Text Analytics credentials to your flow.":::
@@ -201,9 +201,9 @@ Inside the **Apply to each 4** action, add a **Condition** Control. It will be n
 > :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Add Text Analytics credentials to your flow.":::
 
 
-In the **If yes** condition, click **Add an action** and select **Update a row**. Then enter the information like before. In the IssueType column, select `var_plumbing`.
+In the **If yes** condition, click **Add an action** and select **Update a row**. Then enter the information like before. In the IssueType column, select `var_plumbing`. This will apply a "plumbing" label to the row.
 
-In the **If no** condition, click **Add an action** and select **Update a row**. Then enter the information like before. In the IssueType column, select `var_other`.
+In the **If no** condition, click **Add an action** and select **Update a row**. Then enter the information like before. In the IssueType column, select `var_other`. This will apply an "other" label to the row.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/get-plumbing-issue-2.png" alt-text="Add Text Analytics credentials to your flow.":::
