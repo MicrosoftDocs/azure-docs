@@ -21,7 +21,7 @@ This article lists the recommendations you might see in Azure Security Center. T
 
 To learn about how to respond to these recommendations, see [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
-Your secure score is based on how many Security Center recommendations you have mitigated. To prioritize the recommendations to resolve first, consider the severity of each.
+Your Secure Score is based on how many Security Center recommendations you have mitigated. To prioritize the recommendations to resolve first, consider the severity of each.
 
 ## <a name="recs-network"></a>Network recommendations
 
