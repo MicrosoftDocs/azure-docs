@@ -15,21 +15,21 @@ ms.author: jeconnoc
 
 An Azure region consists of a set of data centers deployed within a latency-defined perimeter and connected through a dedicated low-latency network.  This ensures that Azure services within an Azure region offer the best possible performance and security.  
 
-An Azure geography defines an area of the world containing at least one Azure region. Geographies define a discrete market, typically containing two or more regions, that preserves data residency and compliance boundaries.  Find more information about Azure's global infrastructure [here](https://azure.microsoft.com/global-infrastructure/regions/)
+An Azure geography defines an area of the world containing at least one Azure region. Geographies define a discrete market, typically containing two or more regions, that preserve data residency and compliance boundaries.  Find more information about Azure's global infrastructure [here](https://azure.microsoft.com/global-infrastructure/regions/)
 
-A regional pair consists of two regions within the same geography. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair updates at a time. In the event of an outage affecting multiple regions, at least one region in each pair will be prioritized for recovery.
+A regional pair consists of two regions within the same geography. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair updates at a time. If an outage affects multiple regions, at least one region in each pair will be prioritized for recovery.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Some Azure services take further advantage of paired regions to ensure business continuity and to protect against data loss.  Azure provides several [storage solutions](../storage/common/storage-redundancy#redundancy-in-a-secondary-region.md) that take advantage of paired regions to ensure data availability. For example, [Azure Geo-redundant Storage](../storage/common/storage-redundancy#geo-redundant-storage.md) (GRS) replicates data to a secondary region automatically, ensuring that data is durable even in the event that the primary region is not recoverable. 
+Some Azure services take further advantage of paired regions to ensure business continuity and to protect against data loss.  Azure provides several [storage solutions](../storage/common/storage-redundancy#redundancy-in-a-secondary-region.md) that take advantage of paired regions to ensure data availability. For example, [Azure Geo-redundant Storage](../storage/common/storage-redundancy#geo-redundant-storage.md) (GRS) replicates data to a secondary region automatically, ensuring that data is durable even in the event that the primary region isn't recoverable. 
 
-It is important to note that not all Azure services automatically replicate data, nor do all Azure services automatically fall-back from a failed region to its pair.  In such cases, recovery and replication must be configured by the customer.
+Note that not all Azure services automatically replicate data, nor do all Azure services automatically fall-back from a failed region to its pair.  In such cases, recovery and replication must be configured by the customer.
 
 ## Can I select my regional pairs?
 
-No. Some Azure services rely upon regional pairs, such as Azure's [redundant storage](./storage/common/storage-redundancy.md). These services do not allow you to create new regional pairings.  Similarly, because Azure controls planned maintenance and recovery prioritization for regional pairs, you can't define your own regional pairs to take advantage of these services. However, you can create your own disaster recovery solution by building services in any number of regions and leveraging Azure services to pair them. 
+No. Some Azure services rely upon regional pairs, such as Azure's [redundant storage](./storage/common/storage-redundancy.md). These services don't allow you to create new regional pairings.  Similarly, because Azure controls planned maintenance and recovery prioritization for regional pairs, you can't define your own regional pairs to take advantage of these services. However, you can create your own disaster recovery solution by building services in any number of regions and leveraging Azure services to pair them. 
 
-For example, customers may leverage Azure services such as [AzCopy](./storage/common/storage-use-azcopy-v10.md) to schedule data backups to a Storage account in a different region.  Using [Azure DNS and Azure Traffic Manager](./networking/disaster-recovery-dns-traffic-manager.md), customers can design a resilient architecture for their applications that will survive the loss of the primary region.
+For example, you can use Azure services such as [AzCopy](./storage/common/storage-use-azcopy-v10.md) to schedule data backups to a Storage account in a different region.  Using [Azure DNS and Azure Traffic Manager](./networking/disaster-recovery-dns-traffic-manager.md), customers can design a resilient architecture for their applications that will survive the loss of the primary region.
 
 ## Am I limited to using services within my regional pairs?
 
@@ -37,7 +37,7 @@ No. While a given Azure service may rely upon a regional pair, you can host your
 
 ## Must I use Azure regional pairs?
 
-No. Customers can leverage Azure services to architect a resilient service without relying on Azure's regional pairs.  However, we recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from [isolation](./security/fundamentals/isolation-choices.md) and improve [availability](./availability-zones/az-overview.md). For applications which support multiple active regions, we recommend using both regions in a region pair where possible. This will ensure optimal availability for applications and minimized recovery time in the event of a disaster. Whenever possible, design your application for [maximum resiliency](../architecture/framework/resiliency/overview.md) and ease of [disaster recovery](../architecture/framework/resiliency/backup-and-recovery.md).
+No. Customers can leverage Azure services to architect a resilient service without relying on Azure's regional pairs.  However, we recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from [isolation](./security/fundamentals/isolation-choices.md) and improve [availability](./availability-zones/az-overview.md). For applications that support multiple active regions, we recommend using both regions in a region pair where possible. This ensures optimal availability for applications and minimized recovery time in the event of a disaster. Whenever possible, design your application for [maximum resiliency](../architecture/framework/resiliency/overview.md) and ease of [disaster recovery](../architecture/framework/resiliency/backup-and-recovery.md).
 
 ## Azure Regional Pairs
 
@@ -77,7 +77,7 @@ No. Customers can leverage Azure services to architect a resilient service witho
 
 
 ## An example of paired regions
-The image below illustrates a hypothetical application which uses the regional pair for disaster recovery. The green numbers highlight the cross-region activities of three Azure services (Azure compute, storage, and database) and how they are configured to replicate across regions. The unique benefits of deploying across paired regions are highlighted by the orange numbers.
+The image below illustrates a hypothetical application that uses the regional pair for disaster recovery. The green numbers highlight the cross-region activities of three Azure services (Azure compute, storage, and database) and how they're configured to replicate across regions. The unique benefits of deploying across paired regions are highlighted by the orange numbers.
 
 ![Overview of Paired Region Benefits](./media/best-practices-availability-paired-regions/PairedRegionsOverview2.png)
 
@@ -109,4 +109,4 @@ As referred to in figure 2.
 **Sequential updates** – Planned Azure system updates are rolled out to paired regions sequentially (not at the same time) to minimize downtime, the effect of bugs, and logical failures in the rare event of a bad update.
 
 ![Data](./media/best-practices-availability-paired-regions/9Orange.png)
-**Data residency** – A region resides within the same geography as its pair (with the exception of Brazil South) in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
+**Data residency** – A region resides within the same geography as its pair (with the exception of Brazil South) to meet data residency requirements for tax and law enforcement jurisdiction purposes.
