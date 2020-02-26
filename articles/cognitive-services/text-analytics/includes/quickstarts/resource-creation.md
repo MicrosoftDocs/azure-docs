@@ -2,13 +2,22 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 12/18/2019
 ms.author: aahi
 ---
 
-Get a key and endpoint to authenticate your applications. Create a resource for Text Analytics using the [Azure portal](../../../cognitive-services-apis-create-account.md) or [Azure CLI](../../../cognitive-services-apis-create-account-cli.md) on your local machine. You can also:
+You'll need a key and endpoint from a Text Analytics resource to connect your application. Get them by creating one of the resources below:
 
-* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* View your resource on the [Azure portal](https://portal.azure.com/)
-
-After you get a key and endpoint from your trial subscription or resource, create two [environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). One named `TEXT_ANALYTICS_SUBSCRIPTION_KEY` for your key, and one named `TEXT_ANALYTICS_ENDPOINT` for your endpoint.
+* <a href="https://azure.microsoft.com/try/cognitive-services/my-apis/?api=text-analytics" title="Create a trial Text Analytics resource" target="_blank">Create a trial resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    * No Azure subscription needed. 
+    * Valid for seven days, for free. After signing up, a trial key and endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
+    * This is a great option if you want to try the Text Analytics API, but don’t have an Azure subscription.
+    
+* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">Create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    * Available until you delete the resource.
+    * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
+     
+* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne"  title="Create a resource for multiple services" target="_blank">Create a Multi-Service resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    * Available until you delete the resource.  
+    * Use the same key and endpoint to access multiple Cognitive Services.
+    

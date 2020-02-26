@@ -2,13 +2,9 @@
 title: Using Az modules in Azure Automation
 description: This article provides information using Az modules in Azure Automation
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/08/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 
 # Az module support in Azure Automation
@@ -17,7 +13,7 @@ Azure automation supports the ability to use the [Azure Powershell Az module](/p
 
 ## Considerations
 
-There are many things to take into consideration when using the Az module in Azure Automation. Runbooks and modules can be used by higher-level solutions in your Automation Account. Editing runbooks or upgrading modules can potentially cause issues with your runbooks. You should test all runbooks and solutions carefully in a separate Automation Account before importing the new `Az` modules. Any modifications to modules can negatively the [Start/Stop](automation-solution-vm-management.md) solution. It's recommended to not alter modules and runbooks in Automation Accounts that contain any solutions. This behavior isn't specific to the Az modules. This behavior should be taken into consideration when introducing any changes to your Automation Account.
+There are many things to take into consideration when using the Az module in Azure Automation. Runbooks and modules can be used by higher-level solutions in your Automation Account. Editing runbooks or upgrading modules can potentially cause issues with your runbooks. You should test all runbooks and solutions carefully in a separate Automation Account before importing the new `Az` modules. Any modifications to modules can negatively affect the [Start/Stop](automation-solution-vm-management.md) solution. We don't recommend altering modules and runbooks in Automation Accounts that contain any solutions. This behavior isn't specific to the Az modules. This behavior should be taken into consideration when introducing any changes to your Automation Account.
 
 Importing an `Az` module in your Automation Account doesn't automatically import the module in the PowerShell session that the runbooks use. Modules are imported into the PowerShell session in the following situations:
 

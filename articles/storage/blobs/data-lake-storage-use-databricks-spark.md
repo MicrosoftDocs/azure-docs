@@ -71,7 +71,7 @@ In this section, you create an Azure Databricks service by using the Azure porta
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace.  |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/resource-group-overview.md). |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
     |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).       |
     |**Pricing Tier**     |  Select **Standard**.     |
 
@@ -125,7 +125,7 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
 
    * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-   * Replace the `<container-name>` placeholder with any name that you want to give your container.
+   * Replace the `<container-name>` placeholder with the name of a container in your storage account.
 
 ## Create a container and mount it
 
@@ -157,20 +157,7 @@ In this section, you'll create a container and a folder in your storage account.
     extra_configs = configs)
     ```
 
-18. In this code block, replace the `appId`, `password`, `tenant`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `container-name` placeholder value with the name that you gave to the container on the previous step.
-
-Use these values to replace the mentioned placeholders.
-
-   * The `appId`, and `password` are from the app that you registered with active directory as part of creating a service principal.
-
-   * The `tenant-id` is from your subscription.
-
-   * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
-
-   * Replace the `container-name` placeholder with any name that you want to give your container.
-
-   > [!NOTE]
-   > In a production setting, consider storing your password in Azure Databricks. Then, add a look up key to your code block instead of the password. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
+18. In this code block, replace the `appId`, `password`, `tenant`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `container-name` placeholder value with the name of the container.
 
 19. Press the **SHIFT + ENTER** keys to run the code in this block.
 

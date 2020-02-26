@@ -2,13 +2,13 @@
 title: Avro format in Azure Data Factory 
 description: 'This topic describes how to deal with Avro format in Azure Data Factory.'
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 02/13/2020
 ms.author: jingwang
 
 ---
@@ -27,7 +27,7 @@ For a full list of sections and properties available for defining datasets, see 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | The type property of the dataset must be set to **Avro**. | Yes      |
 | location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`. **See details in connector article -> Dataset properties section**. | Yes      |
-| avroCompressionCodec | The compression codec to use when writing to Avro files. When reading from Avro files, Data Factory automatically determine the compression codec based on the file metadata.<br>Supported types are "**none**" (default), "**deflate**", "**snappy**". | No       |
+| avroCompressionCodec | The compression codec to use when writing to Avro files. When reading from Avro files, Data Factory automatically determine the compression codec based on the file metadata.<br>Supported types are "**none**" (default), "**deflate**", "**snappy**". Note currently Copy activity doesn't support Snappy when read/write Avro files. | No       |
 
 > [!NOTE]
 > White space in column name is not supported for Avro files.

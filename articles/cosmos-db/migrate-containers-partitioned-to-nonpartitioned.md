@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Migrate non-partitioned containers to partitioned containers
 
-Azure Cosmos DB supports creating containers without a partition key. Currently you can create non-partitioned containers by using Azure CLI and Azure Cosmos DB SDKs (.Net, Java, NodeJs) that have a version less than or equal to 2.x. You cannot create non-partitioned containers using the Azure portal. However, such non-partitioned containers aren’t elastic and have fixed storage capacity of 10 GB and throughput limit of 10K RU/s.
+Azure Cosmos DB supports creating containers without a partition key. Currently you can create non-partitioned containers by using Azure CLI and Azure Cosmos DB SDKs (.Net, Java, NodeJs) that have a version less than or equal to 2.x. You cannot create non-partitioned containers using the Azure portal. However, such non-partitioned containers aren’t elastic and have fixed storage capacity of 20 GB and throughput limit of 10K RU/s.
 
 The non-partitioned containers are legacy and you should migrate your existing non-partitioned containers to partitioned containers to scale storage and throughput. Azure Cosmos DB provides a system defined mechanism to migrate your non-partitioned containers to partitioned containers. This document explains how all the existing non-partitioned containers are auto-migrated into partitioned containers. You can take advantage of the auto-migration feature only if you are using the V3 version of SDKs in all the languages.
 
@@ -112,6 +112,14 @@ For the complete sample on how to repartition the documents, see the [.Net sampl
 Older version of Azure Cosmos DB SDKs such as V2.x.x and V1.x.x don’t support the system defined partition key property. So, when you read the container definition from an older SDK, it doesn’t contain any partition key definition and these containers will behave exactly as before. Applications that are built with the older version of SDKs continue to work with non-partitioned as is without any changes. 
 
 If a migrated container is consumed by the latest/V3 version of SDK and you start populating the system defined partition key within the new documents, you cannot access (read, update, delete, query) such documents from the older SDKs anymore.
+
+## Known issues
+
+**Querying for the count of items that were inserted without a partition key by using V3 SDK may involve higher throughput consumption**
+
+If you query from the V3 SDK for the items that are inserted by using V2 SDK, or the items inserted by using the V3 SDK with `PartitionKey.None` parameter, the count query may consume more RU/s if the `PartitionKey.None` parameter is supplied in the FeedOptions. We recommend that you don't supply the `PartitionKey.None` parameter if no other items are inserted with a partition key.
+
+If new items are inserted with different values for the partition key, querying for such item counts by passing the appropriate key in `FeedOptions` will not have any issues. After inserting new documents with partition key, if you need to query just the document count without the partition key value, that query may again incur higher RU/s similar to the regular partitioned collections.
 
 ## Next steps
 

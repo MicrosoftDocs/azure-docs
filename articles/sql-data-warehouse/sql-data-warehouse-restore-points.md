@@ -19,9 +19,9 @@ In this article, you learn to create a new user-defined restore point for Azure 
 
 ## Create user-defined restore points through PowerShell
 
-To create a user-defined restore point, use the [New-AzSqlDatabaseRestorePoint][New-AzSqlDatabaseRestorePoint] PowerShell cmdlet.
+To create a user-defined restore point, use the [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?view=azps-2.4.0) PowerShell cmdlet.
 
-1. Before you begin, make sure to [install Azure PowerShell][Install Azure PowerShell].
+1. Before you begin, make sure to [install Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Open PowerShell.
 3. Connect to your Azure account and list all the subscriptions associated with your account.
 4. Select the subscription that contains the database to be restored.
@@ -55,7 +55,7 @@ Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName
 
 User-defined restore points can also be created through Azure portal.
 
-1. Sign in to your [Azure portal][Azure portal] account.
+1. Sign in to your [Azure portal](https://portal.azure.com/) account.
 
 2. Navigate to the SQL Data Warehouse that you want to create a restore point for.
 
@@ -69,28 +69,7 @@ User-defined restore points can also be created through Azure portal.
 
 ## Next steps
 
-- [Restore an existing data warehouse][Restore an existing data warehouse]
-- [Restore a deleted data warehouse][Restore a deleted data warehouse]
-- [Restore from a geo-backup data warehouse][Restore from a geo-backup data warehouse]
+- [Restore an existing data warehouse](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restore a deleted data warehouse](sql-data-warehouse-restore-deleted-dw.md)
+- [Restore from a geo-backup data warehouse](sql-data-warehouse-restore-from-geo-backup.md)
 
-<!--Image references-->
-
-<!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[PowerShelldoc]:./sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-powershell
-[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
-[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
-<!--MSDN references-->
-[New-AzSqlDatabaseRestorePoint]: https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?view=azps-2.4.0
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/

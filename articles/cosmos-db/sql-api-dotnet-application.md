@@ -1,5 +1,5 @@
 ---
-title: 'ASP.NET Core MVC tutorial for Azure Cosmos DB: Web Application Development'
+title: ASP.NET Core MVC web app tutorial using Azure Cosmos DB
 description:  ASP.NET Core MVC tutorial to create an MVC web application using Azure Cosmos DB. You'll store JSON and access data from a todo app hosted on Azure App Service - ASP NET Core MVC tutorial step by step.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -105,7 +105,7 @@ Now let's add the models, the views, and the controllers to this MVC application
 
 1. Replace the contents of *Item.cs* class with the following code:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs":::
 
 Azure Cosmos DB uses JSON to move and store data. You can use the `JsonProperty` attribute to control how JSON serializes and deserializes objects. The `Item` class demonstrates the `JsonProperty` attribute. This code controls the format of the property name that goes into JSON. It also renames the .NET property `Completed`.
 
@@ -178,7 +178,7 @@ Once you complete these steps, close all the *cshtml* documents in Visual Studio
 
 1. Replace the contents of *ItemController.cs* with the following code:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs":::
 
 The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. Your views should work with this anti-forgery token as well. For more information and examples, see [Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET MVC Application][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
 
@@ -198,11 +198,11 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
 1. Replace the contents of *CosmosDBService.cs* with the following code:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
 1. Repeat the previous two steps, but this time, use the name *ICosmosDBService*, and use the following code:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
 1. In the **ConfigureServices** handler, add the following line:
 
@@ -214,7 +214,7 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
 1. Within the same file, add the following method **InitializeCosmosClientInstanceAsync**, which reads the configuration and initializes the client.
 
-    [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
+    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync":::
 
 1. Define the configuration in the project's *appsettings.json* file. Open the file and add a section called **CosmosDb**:
 

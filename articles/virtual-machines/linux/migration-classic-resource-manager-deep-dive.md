@@ -1,10 +1,10 @@
 ---
-title: Technical deep dive on platform-supported migration from classic to Azure Resource Manager 
-description: This article does a technical deep dive on platform-supported migration of resources from classic to Azure Resource Manager
+title: Classic to Azure Resource Manager migration technical deep dive
+description: Technical deep dive on platform-supported migration of resources from the classic deployment model to Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: kasing
+ms.date: 02/06/2020
+ms.author: tagore
 
 ---
 # Technical deep dive on platform-supported migration from classic to Azure Resource Manager

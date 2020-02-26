@@ -1,5 +1,5 @@
 ---
-title: Separating telemetry from development, test, and release in Azure Application Insights | Microsoft Docs
+title: Separating telemetry in Azure Application Insights
 description: Direct telemetry to different resources for development, test, and production stamps.
 ms.service:  azure-monitor
 ms.subservice: application-insights

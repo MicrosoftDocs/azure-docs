@@ -1,12 +1,10 @@
 ---
 title: (DEPRECATED) Manage Azure Kubernetes cluster with web UI
 description: Using the Kubernetes web UI in Azure Container Service
-services: container-service
 author: bburns
-manager: jeconnoc
 
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc

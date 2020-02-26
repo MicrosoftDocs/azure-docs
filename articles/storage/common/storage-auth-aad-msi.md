@@ -1,18 +1,19 @@
 ---
-title: Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources - Azure Storage
-description: Azure Blob and Queue storage support authorizing access to resources with Azure Active Directory and managed identities for Azure resources. You can use managed identities for Azure resources to authorize access to blobs and queues from applications running in Azure virtual machines, function apps, virtual machine scale sets, and others.  
+title: Authorize access to data with a managed identity
+titleSuffix: Azure Storage
+description: Learn how to use managed identities for Azure resources to authorize access to blob and queue data from applications running in Azure virtual machines, function apps, virtual machine scale sets, and others.  
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 11/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources
+# Authorize access to blob and queue data with managed identities for Azure resources
 
 Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
@@ -159,4 +160,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 - [Manage access rights to storage data with RBAC](storage-auth-aad-rbac.md).
 - [Use Azure AD with storage applications](storage-auth-aad-app.md).
-- [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](storage-auth-aad-script.md).
+- [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](authorize-active-directory-powershell.md).

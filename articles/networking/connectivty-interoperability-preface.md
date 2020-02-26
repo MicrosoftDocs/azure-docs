@@ -26,7 +26,7 @@ This article describes a test setup you can use to analyze how Azure networking 
 
 The following figure illustrates the test setup:
 
-[![1]][1]
+![1][1]
 
 The centerpiece of the test setup is the hub VNet in Azure Region 1. The hub VNet is connected to different networks in the following ways:
 

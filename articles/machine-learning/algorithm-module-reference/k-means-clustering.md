@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 11/19/2019
 ---
 # Module: K-Means Clustering
@@ -110,9 +110,9 @@ After you've finished configuring and training the model, you have a model that 
 
 If you used the [Train Clustering Model](train-clustering-model.md) module:
 
-1. Right-click the **Train Clustering Model** module.
+1. Select the **Train Clustering Model** module and open the right panel.
 
-2. Select **Trained model**, and then select **Save as Trained Model**.
+2. Select **Outputs** tab. Select the **Register dataset** icon to save a copy of the trained model.
 
 The saved model represents the training data at the time you saved the model. If you later update the training data used in the pipeline, it doesn't update the saved model. 
 
@@ -122,7 +122,7 @@ If you used the [Train Clustering Model](train-clustering-model.md) module:
 
 1. Right-click the **Train Clustering Model** module.
 
-2. Select **Results dataset**, and then select **Visualize**.
+2. Select **Visualize**.
 
 ### Tips for generating the best clustering model  
 

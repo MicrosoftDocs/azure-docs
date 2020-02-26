@@ -4,8 +4,8 @@ description: You can use the Azure Monitor HTTP Data Collector API to add POST J
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/09/2018
 
 ---

@@ -1,17 +1,17 @@
 ---
-title: Use custom activities in an Azure Data Factory pipeline
+title: Use custom activities in a pipeline
 description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
+ms.workload: data-services
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 11/26/2018
 ---
+
 # Use custom activities in an Azure Data Factory pipeline
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -169,7 +169,7 @@ This sample shows how you can use the referenceObjects and extendedProperties to
             "type": "LinkedServiceReference"
           }]
         },
-        "extendedProperties": {
+        "extendedProperties": {          
           "connectionString": {
             "type": "SecureString",
             "value": "aSampleSecureString"

@@ -1,38 +1,38 @@
 ---
-title: Create a data source in Azure Maps | Microsoft Docs
-description: How to create a data source and use it with Azure Maps Web SDK.
+title: Create a data source for a map | Microsoft Azure Maps
+description: In this article, you'll learn how to create a data source and add it to a map using the Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: 
+manager: cpendle
 ms.custom: codepen
 ---
 
 # Create a data source
 
-The Azure Maps Web SDK stores data in data sources that optimizes the data for querying and rendering. Currently there are two types of data sources:
+The Azure Maps Web SDK stores data in data sources. Using data sources optimizes the data operations for querying and rendering. Currently there are two types of data sources:
 
 **GeoJSON data source**
 
-A GeoJSON based data source can load and store data locally using the `DataSource` class. GeoJSON data can be manually created or created using the helper classes in the [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) namespace. The `DataSource` class provides functions for importing local or remote GeoJSON files. Remote GeoJSON files must be hosted on a CORs enabled endpoint. The `DataSource` class provides functionality for clustering point data. Data can easily be added, removed, and updated with the `DataSource` class.
+A GeoJSON based data source load and store data locally using the `DataSource` class. GeoJSON data can be manually created or created using the helper classes in the [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) namespace. The `DataSource` class provides functions to import local or remote GeoJSON files. Remote GeoJSON files must be hosted on a CORs enabled endpoint. The `DataSource` class provides functionality for clustering point data. And, data can easily be added, removed, and updated with the `DataSource` class.
 
 
 > [!TIP]
-> If you want to overwrite all data in a `DataSource`, if you make calls to the `clear` then `add` functions, the map will try to re-render twice which might cause a bit of a delay. Instead use the `setShapes` function which will remove and replace all data in the data source and only trigger a single re-render of the map.
+> Lets say you want to overwrite all data in a `DataSource`. If you make calls to the `clear` then `add` functions, the map might re-render twice, which might cause a bit of a delay. Instead use the `setShapes` function, which will remove and replace all data in the data source and only trigger a single re-render of the map.
 
 **Vector tile source**
 
-A vector tile source describes how to access a vector tile layer and can be created using the [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) class. Azure Maps aligns with the [Mapbox Vector Tile Specification](https://github.com/mapbox/vector-tile-spec), which is an open standard. Vector tile layers are similar to tile layers, however, instead of each tile being a raster image, they're a compressed file (PBF format) that contains vector map data and one or more layers that can be rendered and styled on the client based on the style of each layer. The data in a vector tile contain geographic features in the form of points, lines, and polygons. There are several advantages of vector tile layers over raster tile layers;
+A vector tile source describes how to access a vector tile layer. Use the [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) class to instantiate a vector tile source. Vector tile layers are similar to tile layers, but they aren't the same. A tile layer is a raster image. Vector tile layers are a compressed file, in PBF format. This compressed file contains vector map data, and one or more layers. The file can be rendered and styled on the client, based on the style of each layer. The data in a vector tile contain geographic features in the form of points, lines, and polygons. There are several advantages of using vector tile layers instead of raster tile layers:
 
- - A file size of a vector tile is typically much smaller than an equivalent raster tile. As such, less bandwidth is used, which means lower latency and a faster map. This creates a better user experience.
- - Since vector tiles are rendered on the client, they can adapt to the resolution of the device they're being displayed on. This makes allows the rendered maps that appear much more well defined and with crystal clear labels. 
- - Changing the style of the data in the vector maps doesn’t require downloading the data again since the new style can be applied on the client. In contrast, changing the style of a raster tile layer typically requires loading tiles from the server that have the new style applied to them.
- - Since the data is delivered in vector form, there's less server-side processing required to prepare the data, which means that newer data can be made available faster.
+ - A file size of a vector tile is typically much smaller than an equivalent raster tile. As such, less bandwidth is used. It means lower latency, a faster map, and a better user experience.
+ - Since vector tiles are rendered on the client, they adapt to the resolution of the device they're being displayed on. As a result, the rendered maps appear more well defined, with crystal clear labels.
+ - Changing the style of the data in the vector maps doesn’t require downloading the data again, since the new style can be applied on the client. In contrast, changing the style of a raster tile layer typically requires loading tiles from the server then applying the new style.
+ - Since the data is delivered in vector form, there's less server-side processing required to prepare the data. As a result, the newer data can be made available faster.
 
-All layers that use a vector source must specify a `sourceLayer` value. 
+All layers that use a vector source must specify a `sourceLayer` value.
 
 Once created, data sources can be added to the map through the `map.sources` property, which is a [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). The following code shows how to create a `DataSource` and add it to the map.
 
@@ -42,17 +42,19 @@ var dataSource = new atlas.source.DataSource();
 map.sources.add(dataSource);
 ```
 
+Azure Maps adheres to the [Mapbox Vector Tile Specification](https://github.com/mapbox/vector-tile-spec), an open standard.
+
 ## Connecting a data source to a layer
 
-Data is rendered on the map using rendering layers. A single data source can be referenced by one or more rendering layers. The following rendering layers require a data source to be power it:
+Data is rendered on the map using rendering layers. A single data source can be referenced by one or more rendering layers. The following rendering layers require a data source:
 
 - [Bubble layer](map-add-bubble-layer.md) - renders point data as scaled circles on the map.
-- [Symbol layer](map-add-pin.md) - renders point data as icons and/or text.
+- [Symbol layer](map-add-pin.md) - renders point data as icons or text.
 - [Heat map layer](map-add-heat-map-layer.md) - renders point data as a density heat map.
-- [Line layer](map-add-shape.md) - can be used to render line and or the outline of polygons. 
+- [Line layer](map-add-shape.md) - render a line and or render the outline of polygons. 
 - [Polygon layer](map-add-shape.md) - fills the area of a polygon with a solid color or image pattern.
 
-The following code shows how to create a data source, add it to the map and connect it to a bubble layer, then import GeoJSON point data from a remote location into it. 
+The following code shows how to create a data source, add it to the map, and connect it to a bubble layer. And then, import GeoJSON point data from a remote location into the data source. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -66,20 +68,20 @@ map.layers.add(new atlas.layer.BubbleLayer(datasource));
 datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
 ```
 
-There are additional rendering layers that don't connect to these data sources, but instead load the data they render directly. 
+There are additional rendering layers that don't connect to these data sources, but they directly load the data for rendering. 
 
 - [Image layer](map-add-image-layer.md) - overlays a single image on top of the map and binds its corners to a set of specified coordinates.
 - [Tile layer](map-add-tile-layer.md) - superimposes a raster tile layer on top of the map.
 
 ## One data source with multiple layers
 
-Multiple layers can be connected to a single data source. This may sound odd, but there are many different scenarios where this becomes useful. Take, for example, the scenario of creating a polygon drawing experience. When letting a user draw a polygon, we should render the fill polygon area as the user is adding points to the map. Adding a styled line that outlines the polygon will make it easier see the edges of the polygon as it is being drawn. Finally adding some sort of handle, such as a pin or marker, above each position in the polygon would make it easier to edit each individual position. Here is an image that demonstrates this scenario.
+Multiple layers can be connected to a single data source. There are many different scenarios in which this option is useful. For example, consider the scenario in which a user draws a polygon. We should render and fill the polygon area as the user adds points to the map. Adding a styled line to outline the polygon makes it easier see the edges of the polygon, as the user draws. To conveniently edit an individual position in the polygon, we may add a handle, like a pin or a marker, above each position.
 
 ![Map showing multiple layers rendering data from a single data source](media/create-data-source-web-sdk/multiple-layers-one-datasource.png)
 
-To accomplish this scenario in most mapping platforms you would need to create a polygon object, a line object, and pin for each position in the polygon. As the polygon is modified, you would need to manually update the line and pins, which can become complex quickly.
+In most mapping platforms, you would need a polygon object, a line object, and a pin for each position in the polygon. As the polygon is modified, you would need to manually update the line and pins, which can quickly become complex.
 
-With Azure Maps all you need is a single polygon in a data source as shown in the code below.
+With Azure Maps, all you need is a single polygon in a data source as shown in the code below.
 
 ```javascript
 //Create a data source and add it to the map.

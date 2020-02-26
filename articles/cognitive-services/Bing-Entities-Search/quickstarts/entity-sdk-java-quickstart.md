@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
 ---
 # Quickstart: Send a search request with the Bing Entity Search SDK for Java
@@ -62,7 +62,7 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
 
 ## Create a search client
 
-1. Implement the `dominantEntityLookup` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class.
+1. Implement the `dominantEntityLookup` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
@@ -130,9 +130,9 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
     ```java
     if (entityData.entities().value().size() > 0){
         // Find the entity that represents the dominant entity
-        List<Thing> entrys = entityData.entities().value();
+        List<Thing> entries = entityData.entities().value();
         Thing dominateEntry = null;
-        for(Thing thing : entrys) {
+        for(Thing thing : entries) {
             if(thing.entityPresentationInfo().entityScenario() == EntityScenario.DOMINANT_ENTITY) {
                 System.out.println("\r\nSearched for \"Satya Nadella\" and found a dominant entity with this description:");
                 System.out.println(thing.description());

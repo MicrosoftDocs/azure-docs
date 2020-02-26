@@ -1,10 +1,10 @@
 ---
 title: SQL query execution in Azure Cosmos DB
-description: Learn about SQL query execution in Azure Cosmos DB
+description: Learn how to create a SQL query and execute it in Azure Cosmos DB. This article describes how to create and execute a SQL query using REST API, .Net SDK, JavaScript SDK and various other SDKs. 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 12/02/2019
 ms.author: tisande
 
 ---

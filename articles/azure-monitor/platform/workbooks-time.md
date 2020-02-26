@@ -1,5 +1,5 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks | Time parameters | Microsoft docs
+title: Azure Monitor workbooks time parameters 
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks
 services: azure-monitor
 author: mrbullwinkle

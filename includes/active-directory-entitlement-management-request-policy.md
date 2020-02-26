@@ -61,6 +61,7 @@ Follow these steps if you want to allow users not in your directory to request t
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
     | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
+    | **All users (All connected organizations + any new external users)** | Choose this option if all users from all your connected organizations can request this access package and that the B2B allow or deny list settings should take precedence for any new external user. |
 
     A connected organization is an external Azure AD directory or domain that you have a relationship with.
 
@@ -192,7 +193,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 ## Enable requests
 
-1. If you want the access package to be made immediately available for users in the request policy to request, click **Yes** to enable.
+1. If you want the access package to be made immediately available for users in the request policy to request, move the Enable toggle to **Yes**.
 
     You can always enable it in the future after you have finished creating the access package.
 

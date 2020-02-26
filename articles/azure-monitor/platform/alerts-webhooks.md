@@ -1,12 +1,12 @@
 ---
 title: Call a webhook with a classic metric alert in Azure Monitor
 description: Learn how to reroute Azure metric alerts to other, non-Azure systems.
-author: snehithm
+author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
 ---
 # Call a webhook with a classic metric alert in Azure Monitor

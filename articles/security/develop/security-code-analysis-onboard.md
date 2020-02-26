@@ -27,23 +27,23 @@ Prerequisites to getting started with Microsoft Security Code Analysis:
 ## Onboarding the Microsoft Security Code Analysis extension
 
 - If you have one of the following support offerings, contact your Technical Account Manager to purchase or swap existing hours to get access to the extension:
-   - Unified Support Advanced tier
-   - Unified Support Performance tier
-   - Premier Support for Developers
-   - Premier Support for Partners
-   - Premier Support for Enterprise
+  - Unified Support Advanced tier
+  - Unified Support Performance tier
+  - Premier Support for Developers
+  - Premier Support for Partners
+  - Premier Support for Enterprise
 - If you have one of the following support services or have no Microsoft support plan, you must upgrade to an eligible support offering:
-   - Azure Support for Partners
-   - Azure Basic Support
-   - Azure Developer Support
-   - Azure Standard Support
-   - Azure Professional Direct
-   - Unified Support Core tier
+  - Azure Support for Partners
+  - Azure Basic Support
+  - Azure Developer Support
+  - Azure Standard Support
+  - Azure Professional Direct
+  - Unified Support Core tier
 - To purchase an eligible support offering, go to our [support services home page](https://www.microsoft.com/enterprise/services/support).
 - After a support contract is in place, contact your Technical Account Manager to help get you started and to help you collect all the required details.
 
 >[!NOTE]
-> If you are a partner registered in the Microsoft Partners Network, you are eligible to purchase Premier Support for Partners. Otherwise, you must purchase one of the eligible support offerings mentioned previously.
+>If you do not have a Support contract, we are also working on a Partner Purchase program where you can leverage 3rd party partners to buy the extension without having to purchase the Unified Support plan. Please [email us](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Onboarding%20Request). to let us know you are interested in this option. We will note your interest and get back to you as soon as this option is available.
 
 ## Installing the Microsoft Security Code Analysis extension
 
@@ -57,7 +57,7 @@ Prerequisites to getting started with Microsoft Security Code Analysis:
 >[!NOTE]
 > Even if you don't have access for installing the extension, continue with the installation steps. You can request access from your Azure DevOps organization admin during the installation process.
 
-After you install the extension, the secure development build tasks are visible and available to add to your Azure pipelines.
+After you install the extension, the secure development build tasks are visible and available to add to your Azure Pipelines.
 
 ## Adding specific build tasks to your Azure DevOps pipeline
 
@@ -83,6 +83,6 @@ After you install the extension, the secure development build tasks are visible 
 
 ## Next steps
 
-For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md).
+For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md) or [YAML Configuration guide](yaml-configuration.md).
 
 If you have more questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.md).

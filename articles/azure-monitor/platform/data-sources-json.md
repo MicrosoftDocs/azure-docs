@@ -4,8 +4,8 @@ description: Custom JSON data sources can be collected into Azure Monitor using 
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/28/2018
 
 ---

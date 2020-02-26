@@ -1,6 +1,7 @@
 ---
-title: StringCollection claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
-description: StringCollection claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
+title: StringCollection claims transformation examples for custom policies
+titleSuffix: Azure AD B2C
+description: StringCollection claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -8,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -116,4 +117,42 @@ The following example reads the **otherMails** claim and return the first item i
   - **collection**: ["someone@outlook.com", "someone@contoso.com"]
 - Output claims:
   - **extractedItem**: "someone@outlook.com"
+
+
+## StringCollectionContains
+
+Checks if a StringCollection claim type contains an element
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | stringCollection | The claim type which is to be searched. |
+|InputParameter|item|string|The value to search.|
+|InputParameter|ignoreCase|string|Specifies whether this comparison should ignore the case of the strings being compared.|
+| OutputClaim | outputClaim | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. A boolean indicator if the collection contains such a string |
+
+Following example checks whether the `roles` stringCollection claim type contains the value of **admin**.
+
+```XML
+<ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <InputParameters>
+    <InputParameter  Id="item" DataType="string" Value="Admin"/>
+    <InputParameter  Id="ignoreCase" DataType="string" Value="true"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+- Input claims:
+    - **inputClaim**: ["reader", "author", "admin"]
+- Input parameters:
+    - **item**: "Admin"
+    - **ignoreCase**: "true"
+- Output claims:
+    - **outputClaim**: "true"
+
 

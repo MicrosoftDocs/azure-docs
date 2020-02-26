@@ -212,7 +212,7 @@ After you configure a workspace, you download and install agents on each on-prem
 4. Copy the workspace ID and key. You need these when you install the MMA on the on-premises machine.
 
 > [!NOTE]
-> To automate the installation of agents you can use a deployment tool such as System Center Configuration Manager or a partner tool such a, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), that provides an agent deployment solution for Azure Migrate.
+> To automate the installation of agents you can use a deployment tool such as Configuration Manager or a partner tool such a, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), that provides an agent deployment solution for Azure Migrate.
 
 
 #### Install the MMA agent on a Windows machine
@@ -225,7 +225,7 @@ To install the agent on a Windows machine:
 4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
-You can install the agent from the command line or using an automated method such as System Center Configuration Manager. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
+You can install the agent from the command line or using an automated method such as Configuration Manager. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
 
 #### Install the MMA agent on a Linux machine
 

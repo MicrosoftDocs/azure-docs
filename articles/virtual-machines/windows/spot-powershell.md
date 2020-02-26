@@ -8,7 +8,7 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 02/11/2020
 ms.author: cynthn
 ---
 
@@ -26,7 +26,7 @@ You have option to set a max price you are willing to pay, per hour, for the VM.
 > This preview version is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> For the early part of the public preview, Spot instances will have a fixed price, so there will not be any price-based evictions.
+
 
 
 ## Create the VM
@@ -34,9 +34,6 @@ You have option to set a max price you are willing to pay, per hour, for the VM.
 Create a spotVM using [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) to create the configuration. Include `-Priority Spot` and set `-MaxPrice` to either:
 - `-1` so the VM is not evicted based on price.
 - a dollar amount, up to 5 digits. For example, `-MaxPrice .98765` means that the VM will be deallocated once the price for a spotVM goes about $.98765 per hour.
-
-> [!IMPORTANT]
-> For the early part of the public preview, you can set a max price, but it will be ignored. Spot VMs will have a fixed price, so there will not be any price-based evictions.
 
 
 This example creates a spotVM that will not be deallocated based on pricing (only when Azure needs the capacity back).

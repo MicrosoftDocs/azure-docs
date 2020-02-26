@@ -21,6 +21,15 @@ This FAQ answers common questions about Azure Multi-Factor Authentication and us
 
 ## General
 
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> 
+> Consumption-based licensing is no longer available to new customers effective September 1, 2018.
+> Effective September 1, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
+
+> [!NOTE]
+> The information shared below regarding the Azure Multi-Factor Authentication Server is only applicable for users who already have the MFA server running.
+
 **Q: How does Azure Multi-Factor Authentication Server handle user data?**
 
 With Multi-Factor Authentication Server, user data is stored only on the on-premises servers. No persistent user data is stored in the cloud. When the user performs two-step verification, Multi-Factor Authentication Server sends data to the Azure Multi-Factor Authentication cloud service for authentication. Communication between Multi-Factor Authentication Server and the Multi-Factor Authentication cloud service uses Secure Sockets Layer (SSL) or Transport Layer Security (TLS) over port 443 outbound.

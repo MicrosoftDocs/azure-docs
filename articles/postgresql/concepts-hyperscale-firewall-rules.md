@@ -1,5 +1,5 @@
 ---
-title: Firewall rules in Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Firewall rules - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: This article describes firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels

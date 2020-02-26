@@ -165,6 +165,29 @@ Now that the Stream Analytics job has been created, it can be given access to a 
 
    ![Add Stream Analytics job to Power BI workspace](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
 
+### Use the Power BI PowerShell cmdlets
+
+1. Install the Power BI `MicrosoftPowerBIMgmt` PowerShell cmdlets.
+
+   > [!Important]
+   > Please ensure you are using version 1.0.821 or later of the cmdlets.
+
+```powershell
+Install-Module -Name MicrosoftPowerBIMgmt
+```
+
+2. Log in to Power BI.
+
+```powershell
+Login-PowerBI
+```
+
+3. Add your Stream Analytics job as a Contributor to the workspace.
+
+```powershell
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+```
+
 ### Use the Power BI REST API
 
 The Stream Analytics job can also be added as a Contributor to the workspace by using the "Add Group User" REST API directly. Full documentation for this API can be found here: [Groups - Add Group User](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser).

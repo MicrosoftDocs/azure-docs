@@ -1,8 +1,8 @@
 ---
 title: Azure Cosmos DB service quotas
 description: Azure Cosmos DB service quotas and default limits on different resource types.
-author: arramac
-ms.author: arramac
+author: abhijitpai
+ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
@@ -18,10 +18,10 @@ After you create an Azure Cosmos account under your subscription, you can manage
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
-| Maximum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
+| Maximum RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
+| Maximum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maximum RUs per (logical) partition key | 10,000 |
-| Maximum storage across all items per (logical) partition key| 10 GB |
+| Maximum storage across all items per (logical) partition key| 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
@@ -59,8 +59,8 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
-| Maximum number of regional failovers | 1/hour by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
+| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
+| Maximum number of regional failovers | 1/hour by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
 
 > [!NOTE]
 > Regional failovers only apply to single region writes accounts. Multi-region write accounts do not require or have any limits on changing the write region.
@@ -72,7 +72,8 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 | Resource | Default limit |
 | --- | --- |
 | Maximum number of databases | Unlimited |
-| Maximum number of containers per database (or account) | Unlimited |
+| Maximum number of containers per database with shared throughput |25 |
+| Maximum number of containers per database or account with dedicated throughput  |unlimited |
 | Maximum number of regions | No limit (All Azure regions) |
 
 ## Per-container limits
@@ -98,7 +99,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 | --- | --- |
 | Maximum size of an item | 2 MB (UTF-8 length of JSON representation) |
 | Maximum length of partition key value | 2048 bytes |
-| Maximum length of id value | 1024 bytes |
+| Maximum length of id value | 1023 bytes |
 | Maximum number of properties per item | No practical limit |
 | Maximum nesting depth | No practical limit |
 | Maximum length of property name | No practical limit |
@@ -110,13 +111,14 @@ There are no restrictions on the item payloads like number of properties and nes
 
 ## Per-request limits
 
-Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases.  
+Azure Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
 
 | Resource | Default limit |
 | --- | --- |
 | Maximum execution time for a single operation (like a stored procedure execution or a single query page retrieval)| 5 sec |
-| Maximum request size (stored procedure, CRUD)| 2 MB |
+| Maximum request size (for example, stored procedure, CRUD)| 2 MB |
 | Maximum response size (for example, paginated query) | 4 MB |
+| Maximum number of operations in a transactional batch | 100 |
 
 Once an operation like query reaches the execution timeout or response size limit, it returns a page of results and a continuation token to the client to resume execution. There is no practical limit on the duration a single query can run across pages/continuations.
 
@@ -126,7 +128,7 @@ Cosmos DB uses HMAC for authorization. You can use either a master key, or a [re
 | --- | --- |
 | Maximum master token expiry time | 15 min  |
 | Minimum resource token expiry time | 10 min  |
-| Maximum resource token expiry time | 24 h by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
+| Maximum resource token expiry time | 24 h by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
 | Maximum clock skew for token authorization| 15 min |
 
 Cosmos DB supports execution of triggers during writes. The service supports a maximum of one pre-trigger and one post-trigger per write operation. 

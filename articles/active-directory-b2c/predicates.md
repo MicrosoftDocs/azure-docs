@@ -1,6 +1,7 @@
 ---
-title: Predicates and PredicateValidations - Azure Active Directory B2C | Microsoft Docs
-description: Social account claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
+title: Predicates and PredicateValidations
+titleSuffix: Azure AD B2C
+description: Prevent malformed data from being added to your Azure AD B2C tenant by using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -8,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/28/2019
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -41,12 +42,13 @@ The **Predicate** element contains the following attributes:
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier that's used for the predicate. Other elements can use this identifier in the policy. |
 | Method | Yes | The method type to use for validation. Possible values: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**, or **IsDateRange**. The **IsLengthRange** value checks whether the length of a string claim value is within the range of minimum and maximum parameters specified. The **MatchesRegex** value checks whether a string claim value matches a regular expression. The **IncludesCharacters** value checks whether a string claim value contains a character set. The **IsDateRange** value checks whether a date claim value is between a range of minimum and maximum parameters specified. |
+| HelpText | No | An error message for users if the check fails. This string can be localized using the [language customization](localization.md) |
 
 The **Predicate** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 | An error message for users if the check fails. This string can be localized using the [language customization](localization.md) |
+| UserHelpText | 0:1 | (Deprecated) An error message for users if the check fails. |
 | Parameters | 1:1 | The parameters for the method type of the string validation. |
 
 The **Parameters** element contains the following elements:
@@ -64,11 +66,10 @@ The **Parameter** element contains the following attributes:
 The following example shows a `IsLengthRange` method with the parameters `Minimum` and `Maximum` that specify the length range of the string:
 
 ```XML
-<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
-  <UserHelpText>The password must be between 8 and 64 characters.</UserHelpText>
-    <Parameters>
-      <Parameter Id="Minimum">8</Parameter>
-      <Parameter Id="Maximum">64</Parameter>
+<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
+  <Parameters>
+    <Parameter Id="Minimum">8</Parameter>
+    <Parameter Id="Maximum">64</Parameter>
   </Parameters>
 </Predicate>
 ```
@@ -76,8 +77,7 @@ The following example shows a `IsLengthRange` method with the parameters `Minimu
 The following example shows a `MatchesRegex` method with the parameter `RegularExpression` that specifies a regular expression:
 
 ```XML
-<Predicate Id="PIN" Method="MatchesRegex">
-  <UserHelpText>The password must be numbers only.</UserHelpText>
+<Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
   <Parameters>
     <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
   </Parameters>
@@ -87,8 +87,7 @@ The following example shows a `MatchesRegex` method with the parameter `RegularE
 The following example shows a `IncludesCharacters` method with the parameter `CharacterSet` that specifies the set of characters:
 
 ```XML
-<Predicate Id="Lowercase" Method="IncludesCharacters">
-  <UserHelpText>a lowercase letter</UserHelpText>
+<Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
   <Parameters>
     <Parameter Id="CharacterSet">a-z</Parameter>
   </Parameters>
@@ -164,14 +163,14 @@ The **PredicateGroup** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  A description of the predicate that can be helpful for users to know what value they should type. |
+| UserHelpText | 0:1 |  A description of the predicate that can be helpful for users to know what value they should type. |
 | PredicateReferences | 1:n | A list of  predicate references. |
 
 The **PredicateReferences** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| MatchAtLeast | No | Specifies that the value must match at least that many predicate definitions for the input to be accepted. |
+| MatchAtLeast | No | Specifies that the value must match at least that many predicate definitions for the input to be accepted. If not specified, the value must match all predicate definitions. |
 
 The **PredicateReferences** element contains the following elements:
 
@@ -201,58 +200,50 @@ With **Predicates** and **PredicateValidationsInput** you can control the comple
 
 ```XML
 <Predicates>
-  <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
-    <UserHelpText>The password must be between 8 and 64 characters.</UserHelpText>
+  <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
     <Parameters>
       <Parameter Id="Minimum">8</Parameter>
       <Parameter Id="Maximum">64</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Lowercase" Method="IncludesCharacters">
-    <UserHelpText>a lowercase letter</UserHelpText>
+  <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
     <Parameters>
       <Parameter Id="CharacterSet">a-z</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Uppercase" Method="IncludesCharacters">
-    <UserHelpText>an uppercase letter</UserHelpText>
+  <Predicate Id="Uppercase" Method="IncludesCharacters" HelpText="an uppercase letter">
     <Parameters>
       <Parameter Id="CharacterSet">A-Z</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Number" Method="IncludesCharacters">
-    <UserHelpText>a digit</UserHelpText>
+  <Predicate Id="Number" Method="IncludesCharacters" HelpText="a digit">
     <Parameters>
       <Parameter Id="CharacterSet">0-9</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Symbol" Method="IncludesCharacters">
-    <UserHelpText>a symbol</UserHelpText>
+  <Predicate Id="Symbol" Method="IncludesCharacters" HelpText="a symbol">
     <Parameters>
       <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="PIN" Method="MatchesRegex">
-    <UserHelpText>The password must be numbers only.</UserHelpText>
+  <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
     <Parameters>
       <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="AllowedAADCharacters" Method="MatchesRegex">
-    <UserHelpText>An invalid character was provided.</UserHelpText>
+  <Predicate Id="AllowedAADCharacters" Method="MatchesRegex" HelpText="An invalid character was provided.">
     <Parameters>
       <Parameter Id="RegularExpression">(^([0-9A-Za-z\d@#$%^&amp;*\-_+=[\]{}|\\:',?/`~"();! ]|(\.(?!@)))+$)|(^$)</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="DisallowedWhitespace" Method="MatchesRegex">
-    <UserHelpText>The password must not begin or end with a whitespace character.</UserHelpText>
+  <Predicate Id="DisallowedWhitespace" Method="MatchesRegex" HelpText="The password must not begin or end with a whitespace character.">
     <Parameters>
       <Parameter Id="RegularExpression">(^\S.*\S$)|(^\S+$)|(^$)</Parameter>
     </Parameters>
@@ -356,8 +347,7 @@ With the **Predicates** and **PredicateValidations** elements you can control th
 
 ```XML
 <Predicates>
-  <Predicate Id="DateRange" Method="IsDateRange">
-    <UserHelpText>The date must be between 01-01-1980 and today.</UserHelpText>
+  <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
       <Parameter Id="Minimum">1980-01-01</Parameter>
       <Parameter Id="Maximum">Today</Parameter>

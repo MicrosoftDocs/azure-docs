@@ -2,7 +2,7 @@
 author: lugoldbemicrosoft
 ms.service: data-explorer
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 02/03/2020
 ms.author: lugoldbe
 ---
 
@@ -71,6 +71,72 @@ In this article, you use an Azure Resource Manager template to create a resource
                 "description": "Name of the database to create"
             }
         },
+        "clusterPrincipalAssignmentName": {
+            "type": "string",
+            "defaultValue": "clusterPrincipalAssignment1",
+            "metadata": {
+                "description": "Specifies the name of the principal assignment"
+            }
+        },
+        "principalIdForCluster": {
+            "type": "string",
+            "metadata": {
+                "description": "Specifies the principal id. It can be user email, application (client) ID, security group name"
+            }
+        },
+        "roleForClusterPrincipal": {
+            "type": "string",
+            "defaultValue": "AllDatabasesViewer",
+            "metadata": {
+                "description": "Specifies the cluster principal role. It can be 'AllDatabasesAdmin', 'AllDatabasesViewer'"
+            }
+        },
+        "tenantIdForClusterPrincipal": {
+            "type": "string",
+            "metadata": {
+                "description": "Specifies the tenantId of the cluster principal"
+            }
+        },
+        "principalTypeForCluster": {
+            "type": "string",
+            "defaultValue": "App",
+            "metadata": {
+                "description": "Specifies the principal type. It can be 'User', 'App', 'Group'"
+            }
+        },
+        "databasePrincipalAssignmentName": {
+            "type": "string",
+            "defaultValue": "databasePrincipalAssignment1",
+            "metadata": {
+                "description": "Specifies the name of the principal assignment"
+            }
+        },
+        "principalIdForDatabase": {
+            "type": "string",
+            "metadata": {
+                "description": "Specifies the principal id. It can be user email, application (client) ID, security group name"
+            }
+        },
+        "roleForDatabasePrincipal": {
+            "type": "string",
+            "defaultValue": "Admin",
+            "metadata": {
+                "description": "Specifies the database principal role. It can be 'Admin', 'Ingestor', 'Monitor', 'User', 'UnrestrictedViewers', 'Viewer'"
+            }
+        },
+        "tenantIdForDatabasePrincipal": {
+            "type": "string",
+            "metadata": {
+                "description": "Specifies the tenantId of the database principal"
+            }
+        },
+        "principalTypeForDatabase": {
+            "type": "string",
+            "defaultValue": "App",
+            "metadata": {
+                "description": "Specifies the principal type. It can be 'User', 'App', 'Group'"
+            }
+        },
         "location": {
             "type": "string",
             "defaultValue": "[resourceGroup().location]",
@@ -136,7 +202,7 @@ In this article, you use an Azure Resource Manager template to create a resource
                 "tier": "Standard",
                 "capacity": 2
             },
-            "apiVersion": "2019-05-15",
+            "apiVersion": "2019-09-07",
             "location": "[parameters('location')]",
             "tags": {
                 "Created By": "GitHub quickstart template"
@@ -144,12 +210,34 @@ In this article, you use an Azure Resource Manager template to create a resource
         }, {
             "name": "[concat(parameters('kustoClusterName'), '/', parameters('kustoDatabaseName'))]",
             "type": "Microsoft.Kusto/clusters/databases",
-            "apiVersion": "2019-05-15",
+            "apiVersion": "2019-09-07",
             "location": "[parameters('location')]",
             "dependsOn": ["[resourceId('Microsoft.Kusto/clusters', parameters('kustoClusterName'))]"],
             "properties": {
                 "softDeletePeriodInDays": 365,
                 "hotCachePeriodInDays": 31
+            }
+        }, {
+            "type": "Microsoft.Kusto/Clusters/principalAssignments",
+            "apiVersion": "2019-11-09",
+            "name": "[concat(parameters('kustoClusterName'), '/', parameters('clusterPrincipalAssignmentName'))]",
+            "dependsOn": ["[resourceId('Microsoft.Kusto/clusters', parameters('kustoClusterName'))]"],
+            "properties": {
+                "principalId": "[parameters('principalIdForCluster')]",
+                "role": "[parameters('roleForClusterPrincipal')]",
+                "tenantId": "[parameters('tenantIdForClusterPrincipal')]",
+                "principalType": "[parameters('principalTypeForCluster')]"
+            }
+        }, {
+            "type": "Microsoft.Kusto/Clusters/Databases/principalAssignments",
+            "apiVersion": "2019-11-09",
+            "name": "[concat(parameters('kustoClusterName'), '/', parameters('kustoDatabaseName'), '/', parameters('databasePrincipalAssignmentName'))]",
+            "dependsOn": ["[resourceId('Microsoft.Kusto/clusters/databases', parameters('kustoClusterName'), parameters('kustoDatabaseName'))]"],
+            "properties": {
+                "principalId": "[parameters('principalIdForDatabase')]",
+                "role": "[parameters('roleForDatabasePrincipal')]",
+                "tenantId": "[parameters('tenantIdForDatabasePrincipal')]",
+                "principalType": "[parameters('principalTypeForDatabase')]"
             }
         }
     ]

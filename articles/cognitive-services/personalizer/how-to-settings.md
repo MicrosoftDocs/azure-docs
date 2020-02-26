@@ -10,7 +10,7 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: diberry
-#Customer intent: 
+#Customer intent:
 ---
 
 # Configure Personalizer
@@ -19,9 +19,9 @@ Service configuration includes how the service treats rewards, how often the ser
 
 ## Create Personalizer resource
 
-Create a Personalizer resource for each feedback loop. 
+Create a Personalizer resource for each feedback loop.
 
-1. Sign in to [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). The previous link takes you to the **Create** page for the Personalizer service. 
+1. Sign in to [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). The previous link takes you to the **Create** page for the Personalizer service.
 1. Enter your service name, select a subscription, location, pricing tier, and resource group.
 1. Select the confirmation and select **Create**.
 
@@ -30,7 +30,7 @@ Create a Personalizer resource for each feedback loop.
 ## Configure service in the Azure portal
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
-1. Find your Personalizer resource. 
+1. Find your Personalizer resource.
 1. In the **Resource management** section, select **Configuration**.
 
     Before leaving the Azure portal, copy one of your resource keys from the **Keys** page. You will need this to use the [Personalizer SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
@@ -51,9 +51,9 @@ Configure the service for your feedback loop's use of rewards. Changes to the fo
 
 After changing these values, make sure to select **Save**.
 
-### Configure exploration 
+### Configure exploration
 
-Personalization is able to discover new patterns and adapt to user behavior changes over time by exploring alternatives. The **Exploration** value determines what percentage of Rank calls are answered with exploration. 
+Personalization is able to discover new patterns and adapt to user behavior changes over time by exploring alternatives. The **Exploration** value determines what percentage of Rank calls are answered with exploration.
 
 Changes to this value will reset the current Personalizer model and retrain it with the last 2 days of data.
 
@@ -63,7 +63,7 @@ After changing this value, make sure to select **Save**.
 
 ### Model update frequency
 
-The latest model, trained from Reward API calls from every active event, isn't automatically used by Personalizer Rank call. The **Model update frequency** sets how often the model used by the Rank call up updated. 
+The latest model, trained from Reward API calls from every active event, isn't automatically used by Personalizer Rank call. The **Model update frequency** sets how often the model used by the Rank call up updated.
 
 High model update frequencies are useful for situations where you want to closely track changes in user behaviors. Examples include sites that run on live news, viral content, or live product bidding. You could use a 15-minute frequency in these scenarios. For most use cases, a lower update frequency is effective. One-minute update frequencies are useful when debugging an application's code using Personalizer, doing demos, or interactively testing machine learning aspects.
 
@@ -79,14 +79,9 @@ After changing this value, make sure to select **Save**.
 
 ## Export the Personalizer model
 
-From the Resource management's section for **Model and learning settings**, review model creation and last updated date and export the current model. You can use the Azure portal or the Personalizer APIs to export a model file for archival purposes. 
+From the Resource management's section for **Model and learning settings**, review model creation and last updated date and export the current model. You can use the Azure portal or the Personalizer APIs to export a model file for archival purposes.
 
 ![Export current Personalizer model](media/settings/export-current-personalizer-model.png)
-
-## Import and export learning policy
-
-From the Resource management's section for **Model and learning settings**, import a new learning policy or export the current learning policy.
-You can get learning policy files from previous exports, or downloading the optimized policies discovered during Offline Evaluations. Making manual changes to these files will affect machine learning performance and accuracy of offline evaluations, and Microsoft cannot vouch for the accuracy of machine learning and evaluations, or service exceptions resulting from manually edited policies.
 
 ## Clear data for your learning loop
 
@@ -101,9 +96,8 @@ You can get learning policy files from previous exports, or downloading the opti
     |Reset the Personalizer model.|This model changes on every retraining. This frequency of training is specified in **upload model frequency** on the **Configuration** page. |
     |Set the learning policy to default.|If you have changed the learning policy as part of an offline evaluation, this resets to the original learning policy.|
 
-1. Select **Clear selected data** to begin the clearing process. Status is reported in Azure notifications, in the top-right navigation. 
+1. Select **Clear selected data** to begin the clearing process. Status is reported in Azure notifications, in the top-right navigation.
 
 ## Next steps
 
-
-[Learn about region availability](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+[Learn how to manage a learning policy](how-to-learning-policy.md)

@@ -12,7 +12,7 @@ ms.date: 11/13/2019
 
 # Move a Log Analytics workspace to different subscription or resource group
 
-In this article, you'll learn the steps to move Log Analytics workspace to another resource group or subscription in the same region. You can learn more about moving Azure resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. at [Move resources to a new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md). 
+In this article, you'll learn the steps to move Log Analytics workspace to another resource group or subscription in the same region. You can learn more about moving Azure resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. at [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). 
 
 > [!IMPORTANT]
 > You can't move a workspace to a different region.
@@ -103,4 +103,4 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 
 
 ## Next steps
-- For a list of which resources support move, see [Move operation support for resources](../../azure-resource-manager/move-support-resources.md).
+- For a list of which resources support move, see [Move operation support for resources](../../azure-resource-manager/management/move-support-resources.md).
