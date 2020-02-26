@@ -144,19 +144,19 @@ The **Location** - The location the connection was initiated from:
 |Authenticated SMTP| |Used by POP and IMAP client's to send email messages.|
 |Autodiscover| |Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
 |Exchange ActiveSync| |This filter shows all sign-in attempts where the EAS protocol has been attempted.|
-|Browser|![Check](./media/concept-sign-ins/check.png)|BLABLA|
-|Exchange ActiveSync| | BLABLA|
+|Browser|![Check](./media/concept-sign-ins/check.png)|Shows all sign-in attempts from users using web browsers|
+|Exchange ActiveSync| | Shows all sign-in attempts from users with client apps using Exchange ActiceSync to connect to Exchange Online|
 |Exchange Online PowerShell| |Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Exchange Web Services| |A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.|
 |IMAP4| |A legacy mail client using IMAP to retrieve email.|
 |MAPI over HTTP| |Used by Outlook 2010 and later.|
-|Mobile apps and desktop clients|![Check](./media/concept-sign-ins/check.png)|BLABLA|
+|Mobile apps and desktop clients|![Check](./media/concept-sign-ins/check.png)|Shows all sign-in attempts from users using mobile apps and desktop clients.|
 |Offline Address Book| |A copy of address list collections that are downloaded and used by Outlook.|
 |Outlook Anywhere (RPC over HTTP)| |Used by Outlook 2016 and earlier.|
 |Outlook Service| |Used by the Mail and Calendar app for Windows 10.|
 |POP3| |A legacy mail client using POP3 to retrieve email.|
 |Reporting Web Services| |Used to retrieve report data in Exchange Online.|
-|Other clients| |Other unknown legacy clients.|
+|Other clients| |Shows all sign-in attempts from users where the client app is not included or unknown.|
 
 
 
