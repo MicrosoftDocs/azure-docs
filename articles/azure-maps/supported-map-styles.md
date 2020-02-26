@@ -1,8 +1,8 @@
 ---
 title: Supported map styles | Microsoft Azure Maps
-description: In this article, you will learn about different map rendering styles supported by Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+description: In this article, you'll learn about different map rendering styles supported by Microsoft Azure Maps.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -26,7 +26,7 @@ A **road** map is a standard map that displays roads, natural and artificial fea
 
 ## blank and blank_accessible
 
-The **blank** and **blank_accessible** map styles provide a blank canvas on which to visualize data on. The **blank_accessible** style will continue to provide screen reader updates with location details of where the map is located, even though the base map is not displayed.
+The **blank** and **blank_accessible** map styles provide a blank canvas on which to visualize data on. The **blank_accessible** style will continue to provide screen reader updates with map's location details, even though the base map is not displayed.
 
 > [!Note]
 > In the web SDK you can change the background color of the map by setting the CSS `background-color` style of map DIV element.

@@ -1,5 +1,5 @@
 ---
-title: Use Azure Resource Manager scripts to manage StorSimple devices
+title: Use AzureRM PowerShell scripts to manage StorSimple devices
 description: Learn how to use Azure Resource Manager scripts to automate StorSimple jobs
 author: alkohli
 ms.service: storsimple

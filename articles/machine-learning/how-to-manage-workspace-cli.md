@@ -103,6 +103,9 @@ To create a new workspace where the __services are automatically created__, use 
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
+> [!NOTE]
+> The workspace name is case-insensitive.
+
 The output of this command is similar to the following JSON:
 
 ```json
@@ -342,6 +345,17 @@ For more information, see the [az ml workspace delete](https://docs.microsoft.co
 ### Resource provider errors
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### Moving the workspace
+
+> [!WARNING]
+> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
+
+### Deleting the Azure Container Registry
+
+The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## Next steps
 

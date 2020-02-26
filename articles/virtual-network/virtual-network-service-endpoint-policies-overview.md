@@ -17,9 +17,7 @@ ms.author: sumi
 
 Virtual Network (VNet) service endpoint policies allow you to filter virtual network traffic to Azure services, allowing only specific Azure service resources, over service endpoints. Endpoint policies provide granular access control for virtual network traffic to Azure services.
 
-This feature is available in __preview__ for following Azure services and regions:
-
-__Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2.
+This feature is available in __preview__ in all the public Azure regions for Azure STorage.
 
 For most up-to-date notifications for preview, refer to [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 

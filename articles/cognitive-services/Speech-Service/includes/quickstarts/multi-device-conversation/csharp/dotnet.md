@@ -42,6 +42,8 @@ Before you get started, make sure to:
             {
                 // Replace these values with the details of your Cognitive Speech subscription
                 string subscriptionKey = "YourSubscriptionKey";
+
+                // Replace below with your region identifier from here: https://aka.ms/speech/sdkregion
                 string region = "YourServiceRegion";
     
                 // Sets source and target languages.

@@ -2,12 +2,9 @@
 title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
-ms.date: 1/24/2020
-ms.author: mlearned
+ms.date: 2/21/2020
+
 ---
 
 # Create a private Azure Kubernetes Service cluster (preview)
@@ -27,13 +24,33 @@ The control plane or API server is in an Azure Kubernetes Service (AKS)-managed 
 * The Azure CLI version 2.0.77 or later, and the Azure CLI AKS Preview extension version 0.4.18
 
 ## Currently supported regions
+
+* Australia East
+* Australia Southeast
+* Brazil South
+* Canada Central
+* Canada East
+* Cenral US
+* East Asia
+* East US
+* East US 2
+* East US 2 EUAP
+* France Central
+* Germany North
+* Japan East
+* Japan West
+* Korea Central
+* Korea South
+* North Central US
+* North Europe
+* North Europe
+* South Central US
+* UK South
+* West Europe
 * West US
 * West US 2
 * East US 2
-* Canada Central
-* North Europe
-* West Europe
-* Australia East
+
 
 ## Install the latest Azure CLI AKS Preview extension
 
@@ -127,7 +144,7 @@ The API server endpoint has no public IP address. Consequently, you must create 
 * To use a custom DNS server, deploy an AD server with DNS to forward to this IP 168.63.129.16
 
 ## Limitations 
-* Availability Zones are not currently supported
+* Availability Zones are currently only supported for East US 2 and West US 2 regions
 * [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure private endpoints, and virtual network service endpoints, which aren't currently supported in the same virtual network.
 * No support for virtual nodes in a private cluster to spin private Azure Container Instances (ACI) in a private Azure virtual network
 * No support for Azure DevOps integration out of the box with private clusters

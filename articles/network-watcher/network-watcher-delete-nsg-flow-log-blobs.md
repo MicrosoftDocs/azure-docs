@@ -131,6 +131,6 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
    ```
     
 ## Next steps
-- Customers can automate running the script using [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) or [Azure Automation](https://azure.microsoft.com/services/automation/)
+- Customers can automate running the script by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) or [Azure Automation](https://azure.microsoft.com/services/automation/)
 - To learn more about NSG logging, see [Azure Monitor logs for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 

@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.custom: hdinsightactive
+ms.date: 02/05/2020
 ---
 
 # Manage HDInsight clusters by using the Apache Ambari Web UI
@@ -27,7 +27,7 @@ In this document, you learn how to use the Ambari Web UI with an HDInsight clust
 The Ambari Web UI is available on your HDInsight cluster at `https://CLUSTERNAME.azurehdinsight.net`, where `CLUSTERNAME` is the name of your cluster.
 
 > [!IMPORTANT]  
-> Connecting to Ambari on HDInsight requires HTTPS. When prompted for authentication, use the admin account name and password you provided when the cluster was created.
+> Connecting to Ambari on HDInsight requires HTTPS. When prompted for authentication, use the admin account name and password you provided when the cluster was created. If you are not prompted for credentials, check your network settings to confirm there is no connectivity issue between the client and the Azure HDInsight Clusters.
 
 ## SSH tunnel (proxy)
 
@@ -151,7 +151,7 @@ The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these
     |Start all components|Start all components on the host.|
     |Stop all components|Stop all components on the host.|
     |Restart all components|Stop and start all components on the host.|
-    |Turn on maintenance mode|Suppresses alerts for the host. This mode should be enabled if you are performing actions that generate alerts. For example, stopping and starting a service.|
+    |Turn on maintenance mode|Suppresses alerts for the host. This mode should be enabled if you're performing actions that generate alerts. For example, stopping and starting a service.|
     |Turn off maintenance mode|Returns the host to normal alerting.|
     |Stop|Stops DataNode or NodeManagers on the host.|
     |Start|Starts DataNode or NodeManagers on the host.|

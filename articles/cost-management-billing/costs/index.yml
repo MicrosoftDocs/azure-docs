@@ -10,7 +10,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 01/28/2020
+  ms.date: 01/31/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -90,10 +90,8 @@ landingContent:
       links:
       - text: Monthly updates
         url: https://azure.microsoft.com/blog/tag/cost-management
-      - text: Feature updates
+      - text: Features now available
         url: https://azure.microsoft.com/updates/cost-management-features-now-available-october-2019
-      - text: Features in development
-        url: https://azure.microsoft.com/updates/azure-cost-management-features-in-development-october-2019
 
 
   # Card (optional)
