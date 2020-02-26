@@ -125,7 +125,8 @@ The first step in this tutorial is to create a new virtual machine inside a virt
     | **Virtual network** | myResourceGroup-vnet | The virtual network in which the Bastion resource will be created in |
     | **Subnet** | AzureBastionSubnet | The subnet in your virtual network to which the new Bastion host resource will be deployed. You must create a subnet using the name value `AzureBastionSubnet`. This value lets Azure know which subnet to deploy the Bastion resources to. You must use a subnet of at least `/27` or larger (`/27`, `/26`, and so on). |
 
-    >[!NOTE]For a detailed, step-by-step guide to creating an Azure Bastion resource, refer to the [Create an Azure Bastion host](../bastion/bastion-create-host-portal.md) tutorial.
+    > [!NOTE]
+    > For a detailed, step-by-step guide to creating an Azure Bastion resource, refer to the [Create an Azure Bastion host](../bastion/bastion-create-host-portal.md) tutorial.
 
 4. You need to create a subnet in which Azure can provision the Azure Bastion host. Choosing **Manage subnet configuration** opens a new pane where you can define a new subnet.  Choose **+ Subnet** to create a new subnet.
 
@@ -279,8 +280,8 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
     >[!div class="mx-imgBorder"]
     >![Copy the function URL](./media/functions-create-private-site-access/get-function-url.png)
 
-    >[!NOTE]
-    >When the function runs, you'll see a runtime error in the portal stating that the function runtime is unable to start. Despite the message text, the function app is actually running. The error is a result of the new access restrictions, which prevent the portal from querying to check on the runtime.
+    > [!NOTE]
+    > When the function runs, you'll see a runtime error in the portal stating that the function runtime is unable to start. Despite the message text, the function app is actually running. The error is a result of the new access restrictions, which prevent the portal from querying to check on the runtime.
 
 2. Paste the URL into a web browser. When you now try to access the function app from a computer outside of your virtual network, you receive an HTTP 403 response indicating the app is stopped.
 
