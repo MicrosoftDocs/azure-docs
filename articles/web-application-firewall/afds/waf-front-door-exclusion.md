@@ -9,9 +9,9 @@ ms.author: victorh
 ms.topic: conceptual
 ---
 
-## Web Applciation Firewall (WAF) with Front Door Service Exclusion Lists 
+## Web Application Firewall (WAF) with Front Door Service Exclusion Lists 
 
-Sometimes a reqest blocked Web Application Firewall (WAF) may be allowed for your application. A common example is Active Directory inserted tokens that are used for authentication. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation.  Exclusion list can be configured using Azure Portal shown below, [PowserShell](https://docs.microsoft.com/en-us/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [Azure Cli](https://docs.microsoft.com/en-us/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), or [Rest API](https://docs.microsoft.com/en-us/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate). 
+Sometimes a request blocked by Web Application Firewall (WAF) may be allowed for your application. A common example is Active Directory inserted tokens that are used for authentication. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation.  Exclusion list can be configured using Azure portal shown below, [PowserShell](https://docs.microsoft.com/en-us/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [Azure CLi](https://docs.microsoft.com/en-us/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), or [Rest API](https://docs.microsoft.com/en-us/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate). 
 
 **Manage exclusion** is accessible from WAF managed rules portal: 
 ![Manage exclusion](../media/waf-front-door-exclusion/exclusion1.PNG)
@@ -22,7 +22,7 @@ Sometimes a reqest blocked Web Application Firewall (WAF) may be allowed for you
 
 This example excludes the value in the *user* header that is passed in the request. It is possible a legit request includes user field containing a string that triggers a SQL injection rule. You can exclude the user parameter in this case so that the WAF rule doesn't evaluate anything in the field.
 
-The following attaributes can be added to exclusion lists by name. The values of the chosen field aren't evaluated against WAF rules, but their names still are. The exclusion lists remove inspection of the field's value.
+The following attributes can be added to exclusion lists by name. The values of the chosen field aren't evaluated against WAF rules, but their names still are. The exclusion lists remove inspection of the field's value.
 
 * Request header name
 * Request cookie name
