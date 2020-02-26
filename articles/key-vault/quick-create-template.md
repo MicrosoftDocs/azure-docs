@@ -52,16 +52,20 @@ To complete this article, you need:
 
 ## Create a vault and a secret
 
+### Review the template
+
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-key-vault-create/).
 
-[!code-json[<Azure Resource Manager template create key vault>](~/quickstart-templates/101-key-vault-create/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-key-vault-create/azuredeploy.json" range="1-150" highlight="107-148":::
 
 Two Azure resources are defined in the template:
 
-* **Microsoft.KeyVault/vaults**: create an Azure key vault.
-* **Microsoft.KeyVault/vaults/secrets**: create an key vault secret.
+* [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): create an Azure key vault.
+* [**Microsoft.KeyVault/vaults/secrets**](/azure/templates/microsoft.keyvault/vaults/secrets): create an key vault secret.
 
 More Azure Key Vault template samples can be found [here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
+
+### Deploy the template
 
 1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
@@ -88,7 +92,7 @@ More Azure Key Vault template samples can be found [here](https://azure.microsof
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
-## Validate the deployment
+## Review deployed resources
 
 You can either use the Azure portal to check the key vault and the secret, or use the following Azure CLI or Azure PowerShell script to list the secret created.
 
