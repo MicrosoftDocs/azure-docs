@@ -379,10 +379,11 @@ namespace OIAPIExample
 
 ```
 
-### Python 2 sample
+### Python sample
 ```python
 import json
 import requests
+import codecs
 import datetime
 import hashlib
 import hmac
@@ -423,17 +424,17 @@ json_data = [{
 body = json.dumps(json_data)
 
 #####################
-######Functions######  
+######Functions######
 #####################
 
 # Build the API signature
 def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
     x_headers = 'x-ms-date:' + date
     string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
-    bytes_to_hash = bytes(string_to_hash).encode('utf-8')  
+    bytes_to_hash = codecs.encode(string_to_hash)
     decoded_key = base64.b64decode(shared_key)
     encoded_hash = base64.b64encode(hmac.new(decoded_key, bytes_to_hash, digestmod=hashlib.sha256).digest())
-    authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
+    authorization = "SharedKey {}:{}".format(customer_id,encoded_hash.decode())
     return authorization
 
 # Build and send a request to the POST API
