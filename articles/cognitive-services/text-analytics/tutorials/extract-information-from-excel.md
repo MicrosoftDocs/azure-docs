@@ -32,17 +32,16 @@ In this tutorial, you'll learn how to:
 - A Cognitive Services API account with the Text Analytics API. If you don't have one, you can [sign up](../../cognitive-services-apis-create-account.md) and use the free tier (see [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) to complete this tutorial.
 - The [Text Analytics key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
 - A spreadsheet containing tenant issues. Example data is provided on GitHub
-- Office 365
+- Office 365, with OneDrive for Business.
 
-## Load your text data
+## Add the Excel file to OneDrive for Business
 
-The issues are reported in raw text. We will use the Text Analytics API's Named Entity Recognition to extract the person name and phone number. Then the flow will look for the word “plumbing” in the description to categorize the issues. 
-
->[!NOTE]
-> The data must be stored in an Excel table that has been uploaded to OneDrive for Business.
+Download the example Excel file from [GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/TextAnalytics/sample-data/ReportedIssues.xlsx). This file must be stored in your OneDrive for Business account.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Examples from the Excel file.":::
+
+The issues are reported in raw text. We will use the Text Analytics API's Named Entity Recognition to extract the person name and phone number. Then the flow will look for the word “plumbing” in the description to categorize the issues. 
 
 ## Create a new Power Automate workflow
 
@@ -61,6 +60,9 @@ On the **Build a scheduled flow** page, initialize your flow with the following 
 |**Repeat every**     | **1 hour**        |
 
 ## Add variables to the flow
+
+> [!NOTE]
+> If you want to see an image of the completed flow, you can download it from [GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/TextAnalytics/flow-diagrams). 
 
 Create variables representing the information that will be added to the Excel file. Click **New Step** and search for **Initialize variable**. Do this four times, to create four variables.
 
@@ -210,9 +212,9 @@ In the **If no** condition, click **Add an action** and select **Update a row**.
 
 ## Test the workflow
 
-In the top right corner of the screen, click **Save**, then **Test**. Select  **I’ll perform the trigger action**. Then Save & Test. Click **Run flow**. Then click **Done**.
+In the top right corner of the screen, click **Save**, then **Test**. Select  **I’ll perform the trigger action**. Click **Run flow**, then **Done**.
 
-The Excel file gets updated as below.
+The Excel file will get updated in your OneDrive account. It will look like the below.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="The updated excel spreadsheet.":::
