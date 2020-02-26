@@ -32,7 +32,7 @@ Review:
 * [Azure Business Continuity Technical Guidance](https://docs.microsoft.com/azure/architecture/resiliency/) - describes a general framework to help you think about business continuity and disaster recovery
 * [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) - provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR)
 
-## How to build a cross regional encoding system
+## Tips on how to build a cross regional encoding system
 
 1. [Create](create-account-cli-how-to.md) two (or more) Azure Media Services accounts.
 1. Subscribe for **JobStateChange** messages in each account.
@@ -81,9 +81,9 @@ public static void DecrementReservedUnits(CloudMediaContext context)
 }
 ```
 
-## Video-on-demand cross region streaming 
+## Tips on how to build video-on-demand cross region streaming 
 
-* Video-on-demand cross region streaming involves duplicating Assets, ContentKeyPolicies (if used), StreamingPolicies, and StreamingLocators. 
+* Video-on-demand cross region streaming involves duplicating [Assets](assets-concept.md), [Content Key Policies](content-key-policy-concept.md) (if used), [Streaming Policies](streaming-policy-concept.md), and [Streaming Locators](streaming-locators-concept.md). 
 * You will have to create the policies in both regions and keep them up to date. 
 * When you create the StreamingLocators you will want to use the same LocatorId value, ContentKey Id value, and ContentKey value.  
 * If you are encoding the content, it is advised to encode the content in region A and publish it, then copy the encoded content to region B and publish it using the same values as from region A.
