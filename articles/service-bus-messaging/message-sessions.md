@@ -95,7 +95,7 @@ The [request-reply pattern](https://www.enterpriseintegrationpatterns.com/patter
 Multiple applications can send their requests to a single request queue, with a specific header parameter set to uniquely identify the sender application. The receiver application can process the requests coming in the queue and send replies on a sessions enabled queue, setting the session ID to the unique identifier the sender had sent on the request message. The application that sent the request can then receive messages on a specific session ID and correctly process the replies.
 
 > [!NOTE]
-> The application that sends the initial requests should know about the session ID and use `SessionClient.AcceptMessageSession(SessionID)` to lock the session. It's a good idea to use a GUID that uniquely identifies the instance of the application as a session id. There should be no “SessionHandler” or “AcceptMessageSession(timeout)” on the queue to ensure that responses are available to be locked and processed by specific receivers.
+> The application that sends the initial requests should know about the session ID and use `SessionClient.AcceptMessageSession(SessionID)` to lock the session on which it's expecting the response. It's a good idea to use a GUID that uniquely identifies the instance of the application as a session id. There should be no session handler or `AcceptMessageSession(timeout)` on the queue to ensure that responses are available to be locked and processed by specific receivers.
 
 ## Next steps
 
