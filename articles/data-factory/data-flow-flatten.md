@@ -14,13 +14,13 @@ The flatten transformation can be used to pivot array values inside of a hierarc
 
 ![Transformation toolbox](media/data-flow/flatten5.png "Transformation toolbox")
 
-![Flatten transformation 1](media/data-flow/flatten1.png "Flatten transformation 1")
+![Flatten transformation 1](media/data-flow/flatten7.png "Flatten transformation 1")
 
 ## Unroll by
 
 First, choose the array column that you wish to unroll and pivot.
 
-![Flatten transformation 2](media/data-flow/flatten2.png "Flatten transformation 2")
+![Flatten transformation settings](media/data-flow/flatten1.png "Flatten transformation settings")
 
 ## Unroll root
 
