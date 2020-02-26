@@ -94,7 +94,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 
 1. In the portal, choose **Add** at the top of the resource group view.
 2. In the search field, type "Bastion".  Select "Bastion".
-3. Select **Create** to begin the process of creating a new Azure Bastion resource. Use the settings in the table below the image:
+3. Select **Create** to begin the process of creating a new Azure Bastion resource. You will notice an error message in the **Virtual network** section as there is not yet an `AzureBastionSubnet` subnet. The subnet is created in the following steps. Use the settings in the table below the image:
 
     >[!div class="mx-imgBorder"]
     >![Start of creating Azure Bastion](./media/functions-create-private-site-access/create-bastion-basics-1.png)
