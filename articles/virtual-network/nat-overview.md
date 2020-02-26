@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.author: allensu
 ---
 
@@ -135,9 +135,6 @@ NAT is currently available in these regions:
 ## <a name = "enable-preview"></a>Public Preview participation
 
 Subscriptions must be registered to allow participation in the Public Preview.  Participation requires a two-step process and instructions are provided below for Azure CLI and Azure PowerShell.  The activation may take several minutes to complete.
-
-> [!IMPORTANT]
-> After Virtual Network NAT [preview is enabled](./nat-overview.md#enable-preview) on your subscription, use https://aka.ms/natportal to access the portal.
 
 ### Azure CLI
 

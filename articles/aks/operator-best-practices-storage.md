@@ -2,12 +2,9 @@
 title: Operator best practices - Storage in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for storage, data encryption, and backups in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.author: mlearned
+
 ---
 
 # Best practices for storage and backups in Azure Kubernetes Service (AKS)

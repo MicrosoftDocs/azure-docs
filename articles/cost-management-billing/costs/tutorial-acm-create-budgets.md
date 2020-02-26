@@ -4,7 +4,7 @@ description: This tutorial helps plan and account for the costs of Azure service
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 02/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a budget in the Azure portal
 > * Create and edit budgets with PowerShell
-> * Edit a budget
+> * Create a budget with an Azure Resource Manager template
 
 ## Prerequisites
 
@@ -155,6 +155,16 @@ $ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -N
 
 New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
+## Create a budget with an Azure Resource Manager template
+
+You can create a budget using an Azure Resource Manager template. The template helps you create a budget under a resource group. The template supports enterprise agreement customers only.
+
+Select the following image to sign in to the Azure portal and open the template:
+
+[![Deploy the Create budget template to Azure](./media/tutorial-acm-create-budgets/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
+
+To view a list of all the template parameters and their descriptions, see the [Create a budget](https://azure.microsoft.com/resources/templates/create-budget/) template.
+
 
 ## Next steps
 
@@ -163,7 +173,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create a budget in the Azure portal
 > * Create and edit budgets with PowerShell
-> * Edit a budget
+> * Create a budget with an Azure Resource Manager template
 
 Advance to the next tutorial to create a recurring export for your cost management data.
 

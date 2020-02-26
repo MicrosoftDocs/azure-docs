@@ -890,8 +890,8 @@
           href: log-query/examples.md
         - name: Smart analytics examples
           href: log-query/smart-analytics.md
-        - name: Write efficient queries
-          href: log-query/log-query-performance.md
+        - name: Optimize queries
+          href: log-query/query-optimization.md
         - name: Parse text data
           href: log-query/parse-text.md
     - name: Flow / Logic Apps
@@ -1235,8 +1235,6 @@
       href: platform/monitoring-classic-retirement.md
     - name: Switch log alert API preference
       href: platform/alerts-log-api-switch.md
-    - name: HockeyApp data
-      href: app/hockeyapp-bridge-app.md
     - name: Web App Analytics solution
       href: insights/azure-web-apps-analytics.md
     - name: Application Insights Connector
