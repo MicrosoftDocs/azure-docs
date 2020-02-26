@@ -31,28 +31,27 @@ When removing a node type that is Bronze, all the nodes in the node type go down
 ## Remove a non-primary node type
 
 1. Please take care of this pre-requisites before you start the process.
+
     - The cluster is healthy.
     - There will still be sufficient capacity after the node type is removed, eg. number of nodes to place required replica count.
 
 2. Move all services that have placement constraints to use node type off the node type.
 
-    Steps
     - Modify Application / Service Manifest to no longer reference the node type.
     - Deploy the change.
 
-    Validation
+    Then validate that:
     - All the services modified above are no longer running on the Node belonging to the node type.
     - All the services are healthy.
 
 3. Unmark the node-type as non-primary (Skip for non-primary node types)
 
-    Steps
     - Locate the ARM template used for deployment.
     - Find the section related to the node type in the Service Fabric section.
     - Change isPrimary property to false. ** Do not remove the section related to the node type in this task.
     - Deploy the modified ARM template. ** Depending on the cluster configuration this step may take a while.
     
-    Validation
+    Then validate that:
     - Service Fabric Section in Portal indicates cluster is ready.
     - Cluster is healthy.
     - None of the nodes belonging to the node type are marked as Seed Node.
@@ -159,16 +158,16 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     The parameter `upgradeReplicaSetCheckTimeout` specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node.
     The value for the parameter `upgradeTimeout` can be reduced to 6 hours, but for maximal safety 12 hours should be used.
 
-    Validation
+    Then validate that:
     - Service Fabric Resource in portal shows ready.
 
 8. Remove all reference to the resources relating to the node type.
 
-    Steps
     - Locate the ARM template used for deployment.
     - Remove VMSS and other resources related to the node type from the template.
     - Deploy the changes.
-    Validation
+
+    Then validate that:
     - Wait for deployment to complete.
 
 ## Next steps
