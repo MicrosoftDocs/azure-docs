@@ -346,8 +346,6 @@ Follow these steps to view your custom roles.
 
     It can take a few minutes for your custom role to be completely deleted.
 
-## Troubleshoot
-
 ## Next steps
 
 - [Tutorial: Create a custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
