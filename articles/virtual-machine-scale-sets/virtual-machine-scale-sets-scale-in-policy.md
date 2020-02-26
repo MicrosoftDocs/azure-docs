@@ -224,7 +224,7 @@ For non-zonal virtual machine scale sets, the policy selects the newest VM acros
 ## Troubleshoot
 
 1. Failure to enable scaleInPolicy
-    If you get a ‘BadRequest’ error with an error message stating "Could not find member 'scaleInPolicy' on object of type 'properties'”, then check the API version used for virtual machine scale set. API version 2019-03-01 or higher is required for this preview.
+    If you get a ‘BadRequest’ error with an error message stating "Could not find member 'scaleInPolicy' on object of type 'properties'”, then check the API version used for virtual machine scale set. API version 2019-03-01 or higher is required for this feature.
 
 2. Wrong selection of VMs for scale-in
     Refer to the examples above. If your virtual machine scale set is a Zonal deployment, scale-in policy is applied first to the imbalanced Zones and then across the scale set once it is zone balanced. If the order of scale-in is not consistent with the examples above, raise a query with the virtual machine scale set team for troubleshooting.

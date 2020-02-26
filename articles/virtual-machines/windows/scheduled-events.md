@@ -131,7 +131,7 @@ Each event is scheduled a minimum amount of time in the future based on event ty
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
 | Preempt | 30 seconds |
-| Terminate | 5 minutes |
+| Terminate | [Configurable](../../virtual-machine-scale-sets/terminate-notification.md): 5 to 15 minutes |
 
 ### Event Scope		
 Scheduled events are delivered to:
