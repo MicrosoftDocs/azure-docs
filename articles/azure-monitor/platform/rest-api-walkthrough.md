@@ -115,7 +115,7 @@ Invoke-RestMethod -Uri $request `
 
 The resulting JSON response body would be similar to the following example: (Note that the second metric has dimensions)
 
-```JSON
+```json
 {
     "value": [
         {
@@ -253,7 +253,7 @@ Invoke-RestMethod -Uri $request `
 
 The resulting JSON response body would be similar to the following example:
 
-```JSON
+```json
 {
   "timespan": "2018-03-01T00:00:00Z/2018-03-02T00:00:00Z",
   "value": [
@@ -326,7 +326,7 @@ Invoke-RestMethod -Uri $request `
 
 The resulting JSON response body would be similar to the following example:
 
-```JSON
+```json
 {
   "cost": 0,
   "timespan": "2018-03-01T02:00:00Z/2018-03-01T02:05:00Z",
@@ -410,7 +410,7 @@ Invoke-RestMethod -Uri $request `
 
 The resulting JSON response body would be similar to the following example:
 
-```JSON
+```json
 {
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions",
   "value": [
@@ -478,7 +478,7 @@ Invoke-RestMethod -Uri $request `
 
 The resulting JSON response body would be similar to the following example:
 
-```JSON
+```json
 {
   "value": [
     {
@@ -526,7 +526,7 @@ Invoke-RestMethod -Uri $request `
 
 The resulting JSON response body would be similar to the following example:
 
-```JSON
+```json
 {
   "value": [
     {
@@ -586,7 +586,7 @@ An additional approach is to use [ARMClient](https://github.com/projectkudu/armc
 
 For example, in order to retrieve the metric definitions for a specific Logic App, issue the following command:
 
-```
+```console
 armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01
 ```
 
@@ -632,7 +632,7 @@ Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 
 The result should be similar to the following example:
 
-```
+```output
 Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
 Name           : ContosoTweets
 Type           : Microsoft.Logic/workflows
@@ -654,13 +654,13 @@ Version        : 08586982649483762729
 
 To retrieve the resource ID for an Azure Storage account using the Azure CLI, execute the `az storage account show` command, as shown in the following example:
 
-```
+```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 ```
 
 The result should be similar to the following example:
 
-```JSON
+```json
 {
   "accessTier": null,
   "creationTime": "2017-08-18T19:58:41.840552+00:00",
