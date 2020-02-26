@@ -35,6 +35,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
+          - text: Connect a device
+            url: tutorial-connect-device.md
           - text: Connect an IoT Plug and Play (preview) device
             url: tutorial-connect-pnp-device.md
       - linkListType: how-to-guide
