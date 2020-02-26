@@ -18,7 +18,7 @@
   - name: 2. Configure
     items:
     - name: Scale with Azure Container Instances
-      href: /azure/container-instances/container-instances-jenkins
+      href: container-instances-jenkins.md
       maintainContext: true
     - name: Scale with Azure VM agents
       href: jenkins-azure-vm-agents.md
@@ -31,7 +31,7 @@
     - name: AKS
       items:
       - name: CI/CD to Kubernetes
-        href: /azure/aks/jenkins-continuous-deployment
+        href: jenkins-continuous-deployment.md
         maintainContext: true
       - name: Deploy to AKS using blue/green pattern
         href: jenkins-aks-blue-green-deployment.md
