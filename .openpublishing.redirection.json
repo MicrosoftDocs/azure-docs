@@ -45123,7 +45123,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-connect-nodejs.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-nodejs/",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device/",
       "redirect_document_id": true
     },
     {
@@ -45603,7 +45603,7 @@
     },
     {
       "source_path": "articles/iot-central/core/howto-connect-nodejs.md",
-      "redirect_url": "/azure/iot-central/core/",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device/",
       "redirect_document_id": false
     },
     {
