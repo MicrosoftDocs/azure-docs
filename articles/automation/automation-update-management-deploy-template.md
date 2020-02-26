@@ -33,13 +33,35 @@ The following table lists the API version for the resources used in this example
 
 ## Create and deploy template
 
+If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell Az module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure. With Azure PowerShell, deployment uses [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+
+If you chose to use Azure CLI, the deployment uses [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+
+The JSON template is configured to prompt you for:
+
+* The name of the workspace
+* The region to create the workspace in
+* The name of the Automation account
+* The region to create the account in
+
+The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
+
+The following parameters in the template are set with a default value for the Log Analytics workspace:
+
+* sku - defaults to the new Per-GB pricing tier released in the April 2018 pricing model
+* data retention - defaults to thirty days
+
+>[!WARNING]
+>If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.
+>
+
 1. Copy and paste the following JSON syntax into your file:
 
     ```json
     {
-	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
 		"workspaceName": {
 			"type": "string",
 			"metadata": {
@@ -49,7 +71,7 @@ The following table lists the API version for the resources used in this example
 		"pricingTier": {
 			"type": "string",
 			"allowedValues": [
-				"PerGB2018",
+				"pergb2018",
 				"Free",
 				"Standalone",
 				"PerNode",
@@ -68,63 +90,70 @@ The following table lists the API version for the resources used in this example
 			"maxValue": 730,
 			"metadata": {
 				"description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
-		}
-	  },
-	  "immediatePurgeDataOn30Days": {
-		"type": "bool",
-		"defaultValue": "[bool('false')]",
-		"metadata": {
-			"description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
-		}
-	  },
-	  "location": {
-		"type": "string",
-		"allowedValues": [
-			"australiacentral",
-			"australiaeast",
-			"australiasoutheast",
-			"brazilsouth",
-			"canadacentral",
-			"centralindia",
-			"centralus",
-			"eastasia",
-			"eastus",
-			"eastus2",
-			"francecentral",
-			"japaneast",
-			"koreacentral",
-			"northcentralus",
-			"northeurope",
-			"southafricanorth",
-			"southcentralus",
-			"southeastasia",
-			"uksouth",
-			"ukwest",
-			"westcentralus",
-			"westeurope",
-			"westus",
-			"westus2"
-		],
-		"metadata": {
-			"description": "Specifies the location in which to create the workspace."
-		 }
+			}
 		},
-		"automationAccountName": {
-		  "defaultValue": "",
-		  "type": "string",
-		  "metadata": {
-			"description": "Automation Account name"
+		"immediatePurgeDataOn30Days": {
+			"type": "bool",
+			"defaultValue": "[bool('false')]",
+			"metadata": {
+				"description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
+			}
+		},
+		"location": {
+			"type": "string",
+			"allowedValues": [
+				"australiacentral",
+				"australiaeast",
+				"australiasoutheast",
+				"brazilsouth",
+				"canadacentral",
+				"centralindia",
+				"centralus",
+				"eastasia",
+				"eastus",
+				"eastus2",
+				"francecentral",
+				"japaneast",
+				"koreacentral",
+				"northcentralus",
+				"northeurope",
+				"southafricanorth",
+				"southcentralus",
+				"southeastasia",
+				"uksouth",
+				"ukwest",
+				"westcentralus",
+				"westeurope",
+				"westus",
+				"westus2"
+			],
+			"metadata": {
+				"description": "Specifies the location in which to create the workspace."
+			}
+		},
+        "automationAccountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Automation account name"
+            }
+        },
+		"automationAccountLocation": {
+		    "type": "string",
+			"metadata": {
+			    "description": "Specify the location in which to create the Automation account."
 			}
 		}
-	},
-	"variables": {
-		"Updates": {
-			"Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
-			"GalleryName": "Updates"
-		},
-	"resources": [{
-		"apiVersion": "2017-03-15-preview",
-		"type": "Microsoft.OperationalInsights/workspaces",
+    },
+    "variables": {
+        "Updates": {
+            "name": "[concat('Updates', '(', parameters('workspaceName'), ')')]",
+            "galleryName": "Updates"
+        }
+    },
+    "resources": [
+        {
+        "apiVersion": "2017-03-15-preview",
+        "type": "Microsoft.OperationalInsights/workspaces",
 		"name": "[parameters('workspaceName')]",
 		"location": "[parameters('location')]",
 		"properties": {
@@ -135,57 +164,86 @@ The following table lists the API version for the resources used in this example
 			"sku": {
 				"name": "[parameters('pricingTier')]"
 			}
+            },
+            "resources": [
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[resourceGroup().location]",
+                    "name": "[variables('Updates').name]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+                    },
+                    "plan": {
+                        "name": "[variables('Updates').name]",
+                        "publisher": "Microsoft",
+                        "promotionCode": "",
+                        "product": "[concat('OMSGallery/', variables('Updates').galleryName)]"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Microsoft.Automation/automationAccounts",
+            "apiVersion": "2015-01-01-preview",
+            "name": "[parameters('automationAccountName')]",
+            "location": "[parameters('automationAccountLocation')]",
+            "dependsOn": [],
+            "tags": {},
+            "properties": {
+                "sku": {
+                    "name": "Basic"
+                }
+            },
 		},
-		"resources": [{
-			"apiVersion": "2015-11-01-preview",
-			"location": "[parameters('location')]",
-			"name": "[variables('Updates').Name]",
-			"type": "Microsoft.OperationsManagement/solutions",
-			"id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').Name)]",
-			"dependsOn": [
-					"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-					],
-			"properties": {
-				"workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-					},
-					"plan": {
-						"name": "[variables('Updates').Name]",
-						"publisher": "Microsoft",
-						"product": "[Concat('OMSGallery/', variables('Updates').GalleryName)]",
-						"promotionCode": ""
-					}
-			},
-			{
-		     "apiVersion": "2015-10-31",
-			 "type": "Microsoft.Automation/automationAccounts",
-			 "name": "[parameters('automationAccountName')]",
-		    "location": "[resourceGroup().location]",
-			"properties": {
-				"sku": {
-					"name": "Basic"
-				}
-			}
-			},
-			{
-			"apiVersion": "2015-11-01-preview",
-			"type": "Microsoft.OperationalInsights/workspaces/linkedServices",
-			"name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-			"location": "[resourceGroup().location]",
-			"dependsOn": [
-				"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
-				"[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
-			],
-			"properties": {
-				"resourceId": "[resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
-			}
-		}
-	   ]
-	  }]
-	 }
+        {
+            "apiVersion": "2015-11-01-preview",
+            "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
+            "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
+                "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
+            ],
+            "properties": {
+                "resourceId": "[resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
+            }
+        }
+      ]
     }
     ```
+
 2. Edit the template to meet your requirements. 
 
 3. Save this file as deployUMSolutiontemplate.json to a local folder.
 
-4. You are ready to deploy this template. You use either PowerShell or the command line. 
+4. You are ready to deploy this template. You use either PowerShell, the Azure CLI, or from the command line. When you're prompted for a workspace and Automation account name, provide a name that is globally unique across all Azure subscriptions.
+
+    **PowerShell**
+
+    ```powershell
+    New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deployUMSolutiontemplate.json
+    ```
+
+    **Azure CLI**
+
+    ```cli
+    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
+    ```
+
+    **Command line**
+
+    ```cmd
+    azure config mode arm
+    azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
+    ```
+
+    The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
+
+    ![Example result when deployment is complete](media/automation-update-management-deploy-template/template-output.png)
+
+## Next steps
