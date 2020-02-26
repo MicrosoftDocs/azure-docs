@@ -70,6 +70,10 @@ When you delete the configuration, cloud provisioning does not cleanup the synce
 
 The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Office 365. Azure AD Connect is synchronizing a specific set of attributes from Azure AD back into your on-premises directory.  The cloud provisioning agent currently does not synchronize these attributes back into your on-premises directory and thus it is not supported as a replacement for Azure AD Connect.
 
+**Q:  Can I install the cloud provisioning agent on Windows Server Core?**
+
+No, installing the agent on server core is not supported.
+
 ## Next steps 
 
 - [What is provisioning?](what-is-provisioning.md)
