@@ -40,38 +40,40 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ### Identity Secure Score - MFA improvement action updates
 
 **Type:** Plan for change  
-**Service category:** N/A  
+**Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
 To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score is removing three improvement actions centered around multi-factor authentication (MFA), and adding two.
 
 The following improvement actions will be removed:
+
 - Register all users for MFA
 - Require MFA for all users
 - Require MFA for Azure AD privileged roles
 
 The following improvement actions will be added:
+
 - Ensure all users can complete MFA for secure access
 - Require MFA for administrative roles
 
 These new improvement actions will require registering your users or admins for MFA across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. This can take the form of setting security defaults that let Microsoft decide when to challenge users for MFA, or having multiple policies that apply scoped decisions. 
-See [What's coming in Microsoft Secure Score?](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score-whats-coming?view=o365-worldwide)
+[Read more about what's coming in Microsoft Secure Score](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score-whats-coming?view=o365-worldwide).
  
 ---
  
 ### The new My Account experience is now generally available 
 
-**Type:** Fixed  
+**Type:** Changed feature  
 **Service category:** My Profile/Account  
 **Product capability:** End User Experiences
  
-My Account, the one stop shop for all end-user account management needs, is now generally available! End users can access this new site via URL, or in the header of the new My Apps experience. Learn more about all the self-service capabilities the new experience offers at [My Account Portal Overview](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-account-portal-overview).
+My Account, the one stop shop for all end-user account management needs, is now generally available! End users can access this new site via URL, or in the header of the new My Apps experience. Learn more about all the self-service capabilities the new experience offers at [My Account Portal Overview](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview).
 
 ---
  
 ### My Account site URL updating to myaccount.microsoft.com
 
-**Type:** Fixed  
+**Type:** Changed feature  
 **Service category:** My Profile/Account  
 **Product capability:** End User Experiences
  
@@ -160,7 +162,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
  
-The last sign-in provides potential insight into a user's continued need for access to resources.  It can help you determine if group membership or app access is still needed or could be removed. For external user management, you can determine if an external user is still active within the tenant or should be removed. Customers can now use the Microsoft Graph API to access the [last signed-in date attribute for a given user](https://docs.microsoft.com/en-us/graph/api/resources/signinactivity?view=graph-rest-beta).
+The last sign-in provides potential insight into a user's continued need for access to resources.  It can help you determine if group membership or app access is still needed or could be removed. For external user management, you can determine if an external user is still active within the tenant or should be removed. Customers can now use the Microsoft Graph API to access the [last signed-in date attribute for a given user](https://docs.microsoft.com/graph/api/resources/signinactivity?view=graph-rest-beta).
 
 ---
  
