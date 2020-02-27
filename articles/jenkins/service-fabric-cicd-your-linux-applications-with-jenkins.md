@@ -149,7 +149,7 @@ You can set up Jenkins either inside or outside of a Service Fabric cluster. The
   wget -qO- https://get.docker.io/ | sh
   ```
 
-  When you run `docker info` in the terminal, the output should show that the Docker service is running.
+1. When you run `docker info` in the terminal, the output should show that the Docker service is running.
 
 1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:latest`. This image comes with Service Fabric Jenkins plugin pre-installed.
 1. Run the container image: `docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
