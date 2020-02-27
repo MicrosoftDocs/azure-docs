@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure DevOps Projects
 metadata:
   title: Azure DevOps Projects Documentation - Quickstarts and tutorials
-  meta.description: 
+  description: Create a sample app or bring your own code and repo to create a continuous integration/continuous delivery (CI/CD) pipeline to Azure.
   services: devops-project
   author: mlearned
   manager: gwallace
