@@ -1,54 +1,103 @@
 ---
-title: 'Tutorial: Create a skillset in C# using .NET'
+title: 'Tutorial: C# and AI over Azure blobs'
 titleSuffix: Azure Cognitive Search
-description: Step through example code showing data extraction, natural language, and image AI processing in an Azure Cognitive Search enrichment indexing pipeline. 
+description: Step through an example of text extraction and natural language processing over content in Blob storage using C# and the Azure Cognitive Search .NET SDK. 
 
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/27/2020
 ---
 
-# Tutorial: Create an AI enrichment pipeline using C# and the .NET SDK
+# Tutorial: Use C# and AI to generate searchable content from Azure blobs
 
-In this tutorial, you learn the mechanics of programming data enrichment in Azure Cognitive Search using *cognitive skills*. Skills are backed by natural language processing (NLP) and image analysis capabilities in Cognitive Services. Through skillset composition and configuration, you can extract text and text representations of an image or scanned document file. You can also detect language, entities, key phrases, and more. The end result is rich additional content in a search index, created by an AI-powered indexing pipeline.
+If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. In this C# tutorial, apply Optical Character Recognition (OCR) on images and perform natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
 In this tutorial, you use the .NET SDK to perform the following tasks:
 
 > [!div class="checklist"]
-> * Create an indexing pipeline that enriches sample data in route to an index
-> * Apply built-in skills: optical character recognition, text merger, language detection, text split, entity recognition, key phrase extraction
-> * Learn how to chain skills together by mapping inputs to outputs in a skillset
-> * Execute requests and review results
-> * Reset the index and indexers for further development
-
-Output is a full text searchable index on Azure Cognitive Search. You can enhance the index with other standard capabilities, such as [synonyms](search-synonyms.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](search-analyzers.md), and [filters](search-filters.md).
-
-This tutorial runs on the Free service, but the number of free transactions is limited to 20 documents per day. If you want to run this tutorial more than once in the same day, delete the indexer to reset the counter.
-
-> [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to attach a billable Cognitive Services resource. Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
->
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
-. Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+> * Start with application files and images in Azure Blob storage.
+> * Define a pipeline that performs OCR, extracts text, detects language, recognizes entities, and detects key phrases.
+> * Define an index to store the output (raw content, plus pipeline-generated name-value pairs).
+> * Execute the pipeline to start transformations and analysis, and to create and load the index.
+> * Explore results using full text search and a rich query syntax.
 
 ## Prerequisites
 
-The following services, tools, and data are used in this tutorial. 
++ [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
++ [Visual Studio](https://visualstudio.microsoft.com/downloads/)
++ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-+ [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data. Make sure the storage account is in the same region as Azure Cognitive Search.
+> [!Note]
+> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-+ [Sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consists of a small file set of different types. 
+## Download files
 
-+ [Install Visual Studio](https://visualstudio.microsoft.com/) to use as the IDE.
+1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer. 
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
+1. Right-click the zip file and select **Extract All**. There are 14 files of various types. Use all of them for this tutorail.
 
-## Get a key and URL
+## 1 - Create services
+
+This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
+
+If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
+
+### Start with Azure Storage
+
+1. [Sign in to the Azure portal](https://portal.azure.com/) and click **+ Create Resource**.
+
+1. Search for *storage account* and select Microsoft's Storage Account offering.
+
+   ![Create Storage account](media/cognitive-search-tutorial-blob/storage-account.png "Create Storage account")
+
+1. In the Basics tab, the following items are required. Accept the defaults for everything else.
+
+   + **Resource group**. Select an existing one or create a new one, but use the same group for all services so that you can manage them collectively.
+
+   + **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
+
+   + **Location**. If possible, choose the same location used for Azure Cognitive Search and Cognitive Services. A single location voids bandwidth charges.
+
+   + **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
+
+1. Click **Review + Create** to create the service.
+
+1. Once it's created, click **Go to the resource** to open the Overview page.
+
+1. Click **Blobs** service.
+
+1. Click **+ Container** to create a container and name it *cog-search-demo*.
+
+1. Select *cog-search-demo* and then click **Upload** to open the folder where you saved the download files. Select all files and click **OK** to upload.
+
+1. Before you leave Azure Storage, get a connection string so that you can formulate a connection in Azure Cognitive Search. 
+
+   1. Browse back to the Overview page of your storage account (we used *blobstragewestus* as an example). 
+   
+   1. In the left navigation pane, select **Access keys** and copy one of the connection strings. 
+
+   The connection string is a URL similar to the following example:
+
+      ```http
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
+      ```
+
+1. Save the connection string to Notepad. You'll need it later when setting up the data source connection.
+
+### Cognitive Services
+
+AI enrichment is backed by Cognitive Services, including Text Analytics and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
+
+For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. Since this tutorial uses 7 transactions, the free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
+
+### Azure Cognitive Search
+
+The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
+
+### Get an admin api-key and URL for Azure Cognitive Search
 
 To interact with your Azure Cognitive Search service you will need the service URL and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
@@ -60,29 +109,7 @@ To interact with your Azure Cognitive Search service you will need the service U
 
 Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## Prepare sample data
-
-The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Cognitive Search indexer](search-indexer-overview.md). For this exercise, we use blob storage to showcase multiple content types.
-
-1. [Sign in to the Azure portal](https://portal.azure.com), navigate to your Azure storage account, click **Blobs**, and then click **+ Container**.
-
-1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain sample data. You can set the Public Access Level to any of its valid values. This tutorial assumes that the container name is "basic-demo-data-pr".
-
-1. After the container is created, open it and select **Upload** on the command bar to upload the [sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4).
-
-   ![Source files in Azure blob storage](./media/cognitive-search-quickstart-blob/sample-data.png)
-
-1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to your storage account in the Azure portal, selecting **Access keys**, and then copy the **Connection String** field.
-
-   The connection string should be a URL similar to the following example:
-
-      ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
-      ```
-
-There are other ways to specify the connection string, such as providing a shared access signature. To learn more about data source credentials, see [Indexing Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials).
-
-## Set up your environment
+## 2 - Set up your environment
 
 Begin by opening Visual Studio and creating a new Console App project that can run on .NET Core.
 
@@ -96,7 +123,7 @@ Install the `Microsoft.Azure.Search` NuGet package using the Package Manager con
 
 To install the `Microsoft.Extensions.Configuration.Json` NuGet package in Visual Studio, select **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution...**. Select Browse and search for the `Microsoft.Extensions.Configuration.Json` NuGet package. Once you've found it, select the package, select your project, confirm the version is the latest stable version, then select Install.
 
-## Add Azure Cognitive Search service information
+### Add Azure Cognitive Search service information
 
 In order to connect to your Azure Cognitive Search service you will need to add the search service information to your project. Right click on your project in the Solution Explorer and select **Add** > **New Item...** . Name the file `appsettings.json` and select **Add**. 
 
@@ -119,7 +146,7 @@ You can get your search service information from your search account page in the
 
 You can get the blob connection string by navigating to your storage account in the Azure portal, selecting **Access keys**, and then copying the **Connection String** field.
 
-## Add namespaces
+### Add namespaces
 
 This tutorial uses many different types from various namespaces. In order to use those types add the following to `Program.cs`.
 
@@ -131,7 +158,7 @@ using Microsoft.Azure.Search.Models;
 using Microsoft.Extensions.Configuration;
 ```
 
-## Create a client
+### Create a client
 
 Create an instance of the `SearchServiceClient` class.
 
@@ -159,11 +186,15 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 > 
 > 
 
-## Create a data source
+## 3 - Create the pipeline
+
+In Azure Cognitive Search, AI processing occurs during indexing (or data ingestion). This part of the walkthrough creates four objects: data source, index definition, skillset, indexer. 
+
+### Step 1: Create a data source
 
 Create a new `DataSource` instance by calling `DataSource.AzureBlobStorage`. `DataSource.AzureBlobStorage` requires that you specify the data source name, connection string, and blob container name.
 
-Although it's not used in this tutorial a soft delete policy is also defined which is used to identify deleted blobs based on the value of a soft delete column. The following policy considers a blob to be deleted if it has a metadata property `IsDeleted` with the value `true`.
+Although it's not used in this tutorial, a soft delete policy is also defined which is used to identify deleted blobs based on the value of a soft delete column. The following policy considers a blob to be deleted if it has a metadata property `IsDeleted` with the value `true`.
 
 ```csharp
 DataSource dataSource = DataSource.AzureBlobStorage(
@@ -195,7 +226,7 @@ Since this is your first request, check the Azure portal to confirm the data sou
 
   ![Data sources tile in the portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Data sources tile in the portal")
 
-## Create a skillset
+### Step 2: Create a skillset
 
 In this section, you define a set of enrichment steps that you want to apply to your data. Each enrichment step is called a *skill* and the set of enrichment steps a *skillset*. This tutorial uses [built-in cognitive skills](cognitive-search-predefined-skills.md) for the skillset:
 
@@ -406,7 +437,7 @@ catch (Exception e)
 }
 ```
 
-## Create an index
+### Step 3: Create an index
 
 In this section, you define the index schema by specifying which fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using field naming conventions pertinent to your search application.
 
@@ -417,7 +448,7 @@ This exercise uses the following fields and field types:
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
 
-### Create DemoIndex Class
+#### Create DemoIndex Class
 
 The fields for this index are defined using a model class. Each property of the model class has attributes which determine the search-related behaviors of the corresponding index field. 
 
@@ -489,7 +520,7 @@ catch (Exception e)
 
 To learn more about defining an index, see [Create Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-## Create an indexer, map fields, and execute transformations
+### Step 4: Create and run an indexer
 
 So far you have created a data source, a skillset, and an index. These three components become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. To tie these together in an indexer, you must define field mappings.
 
@@ -572,7 +603,9 @@ Also notice the ```"dataToExtract"``` is set to ```"contentAndMetadata"```. This
 
 When content is extracted, you can set `imageAction` to extract text from images found in the data source. The ```"imageAction"``` set to ```"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
 
-## Check indexer status
+<a name="check-indexer-status"></a>
+
+## 4 - Monitor indexing
 
 Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer is still running, use the `GetStatus` method.
 
@@ -607,7 +640,7 @@ catch (Exception e)
 
 Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files).
  
-## Query your index
+## 5 - Search
 
 After indexing is finished, you can run queries that return the contents of individual fields. By default, Azure Cognitive Search returns the top 50 results. The sample data is small so the default works fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Cognitive Search](search-pagination-page-layout.md).
 
@@ -673,8 +706,6 @@ In the early experimental stages of development, the most practical approach for
 This tutorial took care of checking for existing indexers and indexes and deleting them if they already existed so that you can rerun your code.
 
 You can also use the portal to delete indexes, indexers, and skillsets.
-
-As your code matures, you might want to refine a rebuild strategy. For more information, see [How to rebuild an index](search-howto-reindex.md).
 
 ## Takeaways
 

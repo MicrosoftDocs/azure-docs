@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Python and AI over Azure blobs'
 titleSuffix: Azure Cognitive Search
-description: Step through an example of text extraction and natural language processing over content in JSON blobs using a Jupyter Python notebook and the Azure Cognitive Search REST APIs. 
+description: Step through an example of text extraction and natural language processing over content in Blob storage using a Jupyter Python notebook and the Azure Cognitive Search REST APIs. 
 
 manager: nitinme
 author: HeidiSteen
