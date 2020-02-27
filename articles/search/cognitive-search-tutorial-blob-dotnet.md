@@ -15,7 +15,7 @@ ms.date: 02/27/2020
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. In this C# tutorial, apply Optical Character Recognition (OCR) on images and perform natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
-In this tutorial, you use the .NET SDK to perform the following tasks:
+In this tutorial, use C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Start with application files and images in Azure Blob storage.
@@ -24,9 +24,11 @@ In this tutorial, you use the .NET SDK to perform the following tasks:
 > * Execute the pipeline to start transformations and analysis, and to create and load the index.
 > * Explore results using full text search and a rich query syntax.
 
+If you don't have an Azure subscription, open a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
-+ [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
++ [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 + [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -37,7 +39,7 @@ In this tutorial, you use the .NET SDK to perform the following tasks:
 
 1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer. 
 
-1. Right-click the zip file and select **Extract All**. There are 14 files of various types. Use all of them for this tutorail.
+1. Right-click the zip file and select **Extract All**. There are 14 files of various types. Use all of them for this tutorial.
 
 ## 1 - Create services
 
@@ -71,7 +73,9 @@ If possible, create both in the same region and resource group for proximity and
 
 1. Click **+ Container** to create a container and name it *cog-search-demo*.
 
-1. Select *cog-search-demo* and then click **Upload** to open the folder where you saved the download files. Select all files and click **OK** to upload.
+1. Select *cog-search-demo* and then click **Upload** to open the folder where you saved the download files. Select all fourteen files and click **OK** to upload.
+
+   ![Upload sample files](media/cognitive-search-quickstart-blob/sample-data.png "Upload sample files")
 
 1. Before you leave Azure Storage, get a connection string so that you can formulate a connection in Azure Cognitive Search. 
 
@@ -242,7 +246,7 @@ In this section, you define a set of enrichment steps that you want to apply to 
 
 + [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases.
 
-During initial processing, Azure Cognitive Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, set the input for as ```"/document/content"``` to use this text. 
+During initial processing, Azure Cognitive Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, set the input for ```"/document/content"``` to use this text. 
 
 Outputs can be mapped to an index, used as input to a downstream skill, or both as is the case with language code. In the index, a language code is useful for filtering. As an input, language code is used by text analysis skills to inform the linguistic rules around word breaking.
 

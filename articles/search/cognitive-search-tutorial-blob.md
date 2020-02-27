@@ -15,6 +15,8 @@ ms.date: 02/26/2020
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this REST tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
+In this tutorial, use [REST](https://docs.microsoft.com/rest/api/searchservice/) to perform the following tasks:
+
 > [!div class="checklist"]
 > * Start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob storage.
 > * Define a pipeline that extracts text, detects language, recognizes entities, and detects key phrases.
@@ -22,9 +24,16 @@ If you have unstructured text or images in Azure Blob storage, an [AI enrichment
 > * Execute the pipeline to start transformations and analysis, and to create and load the index.
 > * Explore results using full text search and a rich query syntax.
 
-You'll need several services to complete this walkthrough, plus the [Postman desktop app](https://www.getpostman.com/) or another Web testing tool to make REST API calls. 
-
 If you don't have an Azure subscription, open a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
++ [Azure Storage](https://azure.microsoft.com/services/storage/)
++ [Postman desktop app](https://www.getpostman.com/)
++ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+
+> [!Note]
+> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ## Download files
 
