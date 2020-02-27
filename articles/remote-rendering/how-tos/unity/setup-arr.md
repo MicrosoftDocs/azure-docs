@@ -41,6 +41,7 @@ RemoteManagerUnity.InitializeManager(clientInit);
 
 // create a frontend
 AzureFrontendAccountInfo accountInfo = new AzureFrontendAccountInfo();
+// ... fill out accountInfo ...
 AzureFrontend frontend = new AzureFrontend(accountInfo);
 
 // start a session
