@@ -58,7 +58,7 @@ it away from the standard.
 
 1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a
    **Version** for your copy of the blueprint sample. This property is useful for if you make a
-   modification later. Provide **Change notes** such as "First version published from the HITRUST HIPAA blueprint sample." Then select **Publish** at the bottom of the page.
+   modification later. Provide **Change notes** such as "First version published from the Media blueprint sample." Then select **Publish** at the bottom of the page.
 
 ## Assign the sample copy
 
