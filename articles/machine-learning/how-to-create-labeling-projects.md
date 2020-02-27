@@ -12,6 +12,8 @@ ms.date: 11/04/2019
 
 # Create a data labeling project and export labels 
 
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 Labeling voluminous data in machine learning projects is often a headache. Projects that have a computer-vision component, such as image classification or object detection, generally require labels for thousands of images.
  
 [Azure Machine Learning](https://ml.azure.com/) gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification together with bounded boxes.
@@ -121,7 +123,9 @@ For bounding boxes, important questions include:
 
 ## Use ML assisted labeling
 
-The **ML assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task. Select *Enable ML assisted labeling* and specify a GPU to enable the two phases of assisted labeling:
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
+The **ML assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task.  Select *Enable ML assisted labeling* and specify a GPU to enable the two phases of assisted labeling:
 
 * **Clustering** - after a certain number of labels are submitted, a clustering model starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is most useful when the labeler is viewing multiple images.  When clustering begins, an alert will tell the labeler to switch to a multiple image  view to take advantage of the clustering.
 
@@ -131,6 +135,7 @@ The exact number of labeled images necessary to start assisted labeling is not a
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* machine learning.
 
+This feature is available only in Enterprise edition workspaces.
 
 ## Initialize the labeling project
 
