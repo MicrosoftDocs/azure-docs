@@ -63,7 +63,7 @@ The Scheduled Events Service is versioned. Versions are mandatory and the curren
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - |
-| 2019-01-01 | General Availability | All | <li> Added support for VM scale sets EventType 'Terminate' |
+| 2019-01-01 | General Availability | All | <li> Added support for virtual machine scale sets EventType 'Terminate' |
 | 2017-11-01 | General Availability | All | <li> Added support for Spot VM eviction EventType 'Preempt'<br> | 
 | 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for IaaS VMs<br><li>Metadata Header requirement enforced for all requests | 
 | 2017-03-01 | Preview | All |<li>Initial release |
@@ -89,7 +89,7 @@ When you query the Metadata Service, you must provide the header `Metadata:true`
 ### Query for events
 You can query for Scheduled Events simply by making the following call:
 
-#### Powershell
+#### PowerShell
 ```
 curl http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01 -H @{"Metadata"="true"}
 ```
@@ -158,7 +158,7 @@ The following is the json expected in the `POST` request body. The request shoul
 }
 ```
 
-#### Powershell
+#### PowerShell
 ```
 curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
 ```

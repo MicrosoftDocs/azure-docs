@@ -38,9 +38,9 @@ Instance protection can be applied to scale set instances after the instances ar
 
 There are multiple ways of applying scale-in protection on your scale set instances as detailed in the examples below.
 
-### Azure Portal
+### Azure portal
 
-You can apply scale-in protection through the Azure Portal to an instance in the scale set. You cannot adjust more than one instance at a time. Repeat the steps for each instance you want to protect.
+You can apply scale-in protection through the Azure portal to an instance in the scale set. You cannot adjust more than one instance at a time. Repeat the steps for each instance you want to protect.
  
 1. Go to an existing virtual machine scale set.
 1. Select **Instances** from the menu on the left, under **Settings**.
@@ -106,9 +106,9 @@ Protecting an instance from scale set actions also protects the instance from Au
 
 There are multiple ways of applying scale set actions protection on your scale set instances as detailed in the examples below.
 
-### Azure Portal
+### Azure portal
 
-You can apply protection from scale set actions through the Azure Portal to an instance in the scale set. You cannot adjust more than one instance at a time. Repeat the steps for each instance you want to protect.
+You can apply protection from scale set actions through the Azure portal to an instance in the scale set. You cannot adjust more than one instance at a time. Repeat the steps for each instance you want to protect.
  
 1. Go to an existing virtual machine scale set.
 1. Select **Instances** from the menu on the left, under **Settings**.

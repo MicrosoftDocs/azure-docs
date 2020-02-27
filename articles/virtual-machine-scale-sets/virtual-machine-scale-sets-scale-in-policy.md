@@ -51,7 +51,7 @@ A scale-in policy is defined in the virtual machine scale set model. As noted in
 
 A scale-in policy can be defined on the virtual machine scale set model in the following ways:
 
-### Azure Portal
+### Azure portal
  
 The following steps define the scale-in policy when creating a new scale set. 
  
@@ -129,9 +129,9 @@ The same process applies when using ‘NewestVM’ in the above scale-in policy.
 
 Modifying the scale-in policy follows the same process as applying the scale-in policy. For example, if in the above example, you want to change the policy from ‘OldestVM’ to ‘NewestVM’, you can do so by:
 
-### Azure Portal
+### Azure portal
 
-You can modify the scale-in policy of an existing scale set through the Azure Portal. 
+You can modify the scale-in policy of an existing scale set through the Azure portal. 
  
 1. In an existing virtual machine scale set, select **Scaling** from the menu on the left.
 1. Select the **Scale-In Policy** tab.

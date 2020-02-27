@@ -17,7 +17,7 @@ Once enrolled into the feature, scale set instances don't need to wait for speci
 ## Enable terminate notifications
 There are multiple ways of enabling termination notifications on your scale set instances, as detailed in the examples below.
 
-### Azure Portal
+### Azure portal
 
 The following steps enable terminate notification when creating a new scale set. 
 
@@ -30,7 +30,7 @@ The following steps enable terminate notification when creating a new scale set.
 1. When you are done creating the new scale set, select **Review + create** button. 
 
 > [!NOTE]
-> You are unable to set terminate notifications on existing scale sets in Azure Portal
+> You are unable to set terminate notifications on existing scale sets in Azure portal
 
 ### REST API
 
