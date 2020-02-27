@@ -1,8 +1,6 @@
 ---
 title: Azure Application Insights - Azure Functions Supported Features
 description: Application Insights Supported Features for Azure Functions
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: reference
 author: TimothyMothra
 ms.author: tilee

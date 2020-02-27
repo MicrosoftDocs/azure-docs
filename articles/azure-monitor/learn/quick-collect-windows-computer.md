@@ -7,7 +7,7 @@ author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: 
-ms.service: azure-monitor
+
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart

@@ -117,6 +117,12 @@ Use the Delete button at the top of the workspace you wish to delete.
 > [!WARNING]
 > Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
 
+### Deleting the Azure Container Registry
+
+The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+
 ## Next steps
 
 Follow the full-length tutorial to learn how to use a workspace to build, train, and deploy models with Azure Machine Learning.

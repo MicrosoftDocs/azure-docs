@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 11/26/2019
+ms.date: 02/26/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -405,7 +405,11 @@ Conditions can also be formed using **value**. **value** checks conditions again
 
 > [!WARNING]
 > If the result of a _template function_ is an error, policy evaluation fails. A failed evaluation
-> is an implicit **deny**. For more information, see [avoiding template failures](#avoiding-template-failures).
+> is an implicit **deny**. For more information, see
+> [avoiding template failures](#avoiding-template-failures). Use
+> [enforcementMode](./assignment-structure.md#enforcement-mode) of **DoNotEnforce** to prevent
+> impact of a failed evaluation on new or updated resources while testing and validating a new
+> policy definition.
 
 #### Value examples
 
@@ -692,18 +696,24 @@ use within a policy rule, except the following functions and user-defined functi
 The following functions are available to use in a policy rule, but differ from use in an Azure
 Resource Manager template:
 
-- addDays(dateTime, numberOfDaysToAdd)
+- `addDays(dateTime, numberOfDaysToAdd)`
   - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.fffffffZ'
   - **numberOfDaysToAdd**: [Required] integer - Number of days to add
-- utcNow() - Unlike a Resource Manager template, this can be used outside defaultValue.
+- `utcNow()` - Unlike a Resource Manager template, this can be used outside defaultValue.
   - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
-Additionally, the `field` function is available to policy rules. `field` is primarily used with
-**AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
-evaluated. An example of this use can be seen in the [DeployIfNotExists
-example](effects.md#deployifnotexists-example).
+The following functions are only available in policy rules:
+
+- `field(fieldName)`
+  - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
+  - Returns the value of that field from the resource that is being evaluated by the If condition
+  - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being evaluated. An example of this use can be seen in the [DeployIfNotExists example](effects.md#deployifnotexists-example).
+- `requestContext().apiVersion`
+  - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`). This will be the API version that was used in the PUT/PATCH request for evaluations on resource creation/update. The latest API version is always used during compliance evaluation on existing resources.
+  
+
 
 #### Policy function example
 
@@ -842,6 +852,10 @@ management because you work with a group as a single item. For example, you can 
 tagging policy definitions into a single initiative. Rather than assigning each policy individually,
 you apply the initiative.
 
+> [!NOTE]
+> Once an initiative is assigned, initative level parameters can't be altered. Due to this, the
+> recommendation is to set a **defaultValue** when defining the parameter.
+
 The following example illustrates how to create an initiative for handling two tags: `costCenter`
 and `productName`. It uses two built-in policies to apply the default tag value.
 
@@ -856,13 +870,15 @@ and `productName`. It uses two built-in policies to apply the default tag value.
                 "type": "String",
                 "metadata": {
                     "description": "required value for Cost Center tag"
-                }
+                },
+                "defaultValue": "DefaultCostCenter"
             },
             "productNameValue": {
                 "type": "String",
                 "metadata": {
                     "description": "required value for product Name tag"
-                }
+                },
+                "defaultValue": "DefaultProduct"
             }
         },
         "policyDefinitions": [{
