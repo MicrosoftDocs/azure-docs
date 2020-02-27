@@ -506,6 +506,10 @@
       #   href: article-template.md
       # - name: Best practices
       #   href: article-template.md
+      - name: Spark
+        items:
+        - name: Import and export data with Apache Spark
+          href: ../spark/synapse-spark-sqlpool-import-export.md
     - name: Into the Data Lake
       items:
        - name: With the copy activity
