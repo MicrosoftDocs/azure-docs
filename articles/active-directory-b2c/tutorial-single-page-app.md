@@ -37,8 +37,7 @@ You need the following Azure AD B2C resources in place before continuing with th
 
 Additionally, you need the following in your local development environment:
 
-* Code editor, for example [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-* [.NET Core SDK 2.2](https://dotnet.microsoft.com/download) or later
+* A code editor, for example [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/en/download/)
 
 ## Update the application
@@ -84,14 +83,14 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 Now that you've obtained the sample, update the code with your Azure AD B2C tenant name and the application ID you recorded in an earlier step.
 
-1. Open the `index.html` file in the root of the sample directory.
-1. In the `msalConfig` definition, modify the **clientId** value with the Application ID you recorded in an earlier step. Next, update the **authority** URI value with your Azure AD B2C tenant name. Also update the URI with the name of the sign-up/sign-in user flow you created in one of the prerequisites (for example, *B2C_1_signupsignin1*).
+1. Open the `authConfig.js` file inside the `JavaScriptSPA` folder.
+1. In the `msalConfig` object, modify the **clientId** value with the Application ID you recorded in an earlier step. Next, update the **authority** URI value with your Azure AD B2C tenant name. Also update the URI with the name of the sign-up/sign-in user flow you created in one of the prerequisites (for example, *B2C_1_signupsignin1*).
 
     ```javascript
-    var msalConfig = {
+    const msalConfig = {
         auth: {
             clientId: "00000000-0000-0000-0000-000000000000", //This is your client ID
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi", //This is your tenant info
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/B2C_1_signupsignin1", //This is your tenant info
             validateAuthority: false
         },
         cache: {
@@ -99,6 +98,7 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
             storeAuthStateInCookie: true
         }
     };
+
     ```
 
     The name of the user flow used in this tutorial is **B2C_1_signupsignin1**. If you're using a different user flow name, specify that name in the `authority` value.
@@ -114,7 +114,7 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
 
     ```
     npm install && npm update
-    node server.js
+    npm start
     ```
 
     The console window displays the port number of the locally running Node.js server:
@@ -125,12 +125,9 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
 
 1. Go to `http://localhost:6420` in your browser to view the application.
 
-The sample supports sign-up, sign-in, profile editing, and password reset. This tutorial highlights how a user signs up using an email address.
+The sample supports sign-up, sign-in and password reset. This tutorial highlights how a user signs up using an email address.
 
 ### Sign up using an email address
-
-> [!WARNING]
-> After sign-up or sign-in, you might see an [insufficient permissions error](#error-insufficient-permissions). Due to the code sample's current implementation, this error is expected. This issue will be resolved in a future version of the code sample, at which time this warning will be removed.
 
 1. Select **Login** to initiate the *B2C_1_signupsignin1* user flow you specified in an earlier step.
 1. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't yet have an account, select the **Sign up now** link.
@@ -145,20 +142,6 @@ The sample supports sign-up, sign-in, profile editing, and password reset. This 
 When you select **Create**, the sign up page closes and the sign in page reappears.
 
 You can now use your email address and password to sign in to the application.
-
-### Error: insufficient permissions
-
-After you sign in, the application may return an insufficient permissions error:
-
-```Output
-ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
-Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
-Timestamp: 2019-07-20 22:17:27Z
-```
-
-You receive this error because the web application is attempting to access a web API protected by the demo directory, *fabrikamb2c*. Because your access token is valid only for your Azure AD directory, the API call is unauthorized.
-
-To fix this error, continue on to the next tutorial in the series (see [Next steps](#next-steps)) to create a protected web API for your directory.
 
 ## Next steps
 
