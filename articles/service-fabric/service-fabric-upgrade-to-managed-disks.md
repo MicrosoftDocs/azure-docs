@@ -17,3 +17,5 @@ https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practi
 ## Upgrade primary nodes
 
 https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-scale-up-node-type#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms
+
+https://github.com/microsoft/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json
