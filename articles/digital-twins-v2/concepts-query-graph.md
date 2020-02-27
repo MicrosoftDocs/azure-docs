@@ -30,8 +30,6 @@ Here are the operations available via query:
 * Get twins by interfaces
 * Get twins by relationships
 * Get twins over multiple relationships types and multiple hops (`JOIN` queries). 
-> [!NOTE]
-> During the preview release, only one level of `JOIN` is supported
 * Any combination (`AND`, `OR`, `NOT` operator) of the above
 * Get twins based on actual state condition (information about twins and their last known property value)
 * Scalar functions support: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`
@@ -85,17 +83,19 @@ To parse the JSON results returned, you can use the JSON parser of your choice.
 
 When querying based on twins' relationships, Azure Digital Twins Query Store Language has a special syntax.
 
-Relationships are pulled into the query scope in the `FROM` area. An important distinction here from "classical" SQL-type languages is that each expression in the `FROM` clause is not a table; rather, the `FROM` clause expresses the cross-entity relationship traversal that is desired by the developer, and is written with an Azure Digital Twins version of `JOIN`. 
+Relationships are pulled into the query scope in the `FROM` clause. An important distinction here from "classical" SQL-type languages is that each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`. 
 
-Recall that in the Azure Digital Twins [modeling](concepts-models.md) capabilities, relationships do not exist independently of twins. This creates a distinction between the Azure Digital Twins Query Store Language's `JOIN` operation and the general SQL `JOIN` operation, as edges in this case cannot be queried independently of any source/target vertex.
-To mark this difference, the keyword `RELATED` is used within the `JOIN` clause for an Azure Digital Twins query. 
+Recall that with the Azure Digital Twins [modeling](concepts-models.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins Query Store Language's `JOIN` operation is a little different from the general SQL `JOIN` operation, as edges in this case cannot be queried independently and must be tied to a twin.
+To mark this difference, the keyword `RELATED` is used within the `JOIN` clause to reference a twin's set of relationships. 
+
+The following section gives several examples of what this looks like.
 
 > [!TIP]
 > Conceptually, this feature mimics the document-centric functionality of CosmosDB, where `JOIN`s can be performed on child objects within a document. CosmosDB uses the `IN` keyword to indicate the `JOIN` is intended to iterate over array elements within the current context document.
 
-An Azure Digital Twins developer expresses a dataset that includes relationships via a single `FROM` statement followed by N `JOIN` statements, where the `JOIN` statements express relationships on the result of a previous `FROM` or `JOIN` statement.
-
 ### Relationship-based query examples
+
+To get a dataset that includes relationships, use a single `FROM` statement followed by N `JOIN` statements, where the `JOIN` statements express relationships on the result of a previous `FROM` or `JOIN` statement.
 
 Here is a sample relationship-based query. This code snippet selects all twins with an *id* property of 'ABC', and all twins related to these twins via a *contains* relationship. 
 
@@ -135,7 +135,7 @@ and CT.properties.v1.reported.value = 'DEF'
 and CB.properties.name.reported.value = 'john'
 ```
 
-Note above that the Twin object has both the *contains* and *servicedBy* relationships traversed.
+Note above that the twin object `T` has both the *contains* and *servicedBy* relationships traversed.
 
 ### Query properties of relationships
 
@@ -160,6 +160,7 @@ These are the current limitations on `JOINs` in the Azure Digital Twins Query St
 * No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
 * Additional runtime limitations may be exposed, such as restricting the number of `JOIN`s which can be performed.
+* During the preview release, only one level of `JOIN` is supported.
 
 ## Next steps
 
