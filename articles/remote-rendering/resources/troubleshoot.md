@@ -87,6 +87,10 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 ![Unity frame debugger](./media/troubleshoot-unity-pipeline.png)
 
+## Unity project works in editor but fails to connect on HoloLens
+
+Make sure that you **don't build** your Unity project **as a XAML Project**. See [Quickstart: Deploy Unity sample to HoloLens](../quickstarts/deploy-to-hololens.md) and check that all build settings are correct. XAML projects are not supported by Azure Remote Rendering.
+
 ## Unstable Holograms
 
 In case rendered objects seem to be moving along with head movements, you might be encountering issues with *Late Stage Reprojection* (LSR). Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.
