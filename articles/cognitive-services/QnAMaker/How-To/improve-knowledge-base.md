@@ -14,7 +14,7 @@ ms.author: diberry
 
 # Use active learning to improve your knowledge base
 
-[Active learning](../Concepts/active-learning-suggetions.md) allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them.
+[Active learning](../Concepts/active-learning-suggestions.md) allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them.
 
 Your knowledge base doesn't change automatically. In order for any change to take effect, you must accept the suggestions. These suggestions add questions but don't change or remove existing questions.
 
