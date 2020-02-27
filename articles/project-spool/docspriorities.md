@@ -42,15 +42,20 @@
 
 ### Docs Weekly Digest
 
+#### 3/5: 
 
-#### 2/28: 
+
+
+
+#### 2/27: 
 
  - **Done**:
-   - Scaffolding for our docs is in place
-   - Guidance for docs contributors is in place 
-   - Canonical scenarios V1 selected
+   - Scaffolding for our docs - I copied/pasted from [Spatial Anchors](https://docs.microsoft.com/en-us/azure/spatial-anchors/overview) to lay our docs foundation.
+   - Guidance for [Spool Docs contributors](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477) is in place 
+   - [Our MVP Canonical scenarios](https://review.docs.microsoft.com/en-us/azure/project-spool/canonicalscenarios?branch=pr-en-us-104477) have been identified
    - Joined developer TAP program / private preview
-   - Table of Contents drafted [pending...]
+   - Investigated auto-generation of API docs (REST/SDK)
+   - Started studying the Spool samples
  - **Planned**:
    - Test out the auto-generated PDFs for private preview users
    - Work on our first canonical scenario targeted at our canonical early adopter
@@ -59,8 +64,6 @@
    - Do you have any feedback on our canonical scenarios we've selected?
    - Do you have any other feedback / questions for me?
 
-
-test
 
 
 
