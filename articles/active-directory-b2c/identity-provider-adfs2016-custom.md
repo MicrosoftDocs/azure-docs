@@ -91,7 +91,7 @@ You can define an ADFS account as a claims provider by adding it to the **Claims
 
 1. Replace `your-ADFS-domain` with the name of your ADFS domain and replace the value of the **identityProvider** output claim with your DNS (Arbitrary value that indicates your domain).
 
-1. Locate the `<ClaimsProviders>` section and add the following XML snippet. If your policy already contains the `SM-Saml-idp` technical profile, skip to the next step. For more information, see [single sign-on session management](ustom-policy-reference-sso.md).
+1. Locate the `<ClaimsProviders>` section and add the following XML snippet. If your policy already contains the `SM-Saml-idp` technical profile, skip to the next step. For more information, see [single sign-on session management](custom-policy-reference-sso.md).
 
     ```XML
     <ClaimsProvider>
