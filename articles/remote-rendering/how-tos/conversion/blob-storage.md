@@ -27,7 +27,7 @@ The creation of the storage account and the blob containers can be done with one
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )
 
-## Ensure Azure Remote Rendering can access to your storage account
+## Ensure Azure Remote Rendering can access your storage account
 Azure Remote Rending needs to retrieve model data from your storage account and for asset conversion write data back to it. 
 
 You can grant Azure Remote Rendering access to your storage account in two ways: 
