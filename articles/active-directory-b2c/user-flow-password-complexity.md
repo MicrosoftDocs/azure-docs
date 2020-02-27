@@ -69,7 +69,7 @@ Allows you to control the length requirements of the password.
 Allows you to control the different character types used in the password.
 
 - **2 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** ensures the password contains at least two character types. For example, a number and a lowercase character.
-- **3 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** ensures the password contains at least two character types. For example, a number, a lowercase character and an uppercase character.
+- **3 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** ensures the password contains at least three character types. For example, a number, a lowercase character and an uppercase character.
 - **4 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** ensures the password contains all for character types.
 
     > [!NOTE]

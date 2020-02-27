@@ -3,13 +3,13 @@ title: What is the Speech service?
 titleSuffix: Azure Cognitive Services
 description: The Speech service is the unification of speech-to-text, text-to-speech, and speech translation into a single Azure subscription. Add speech to your applications, tools, and devices with the Speech SDK, Speech Devices SDK, or REST APIs.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 11/05/2019
-ms.author: erhopf
+ms.date: 02/10/2020
+ms.author: dapine
 ---
 
 # What is the Speech service?
@@ -32,24 +32,6 @@ These features make up the Speech service. Use the links in this table to learn 
 | | [Create Custom Voices](#customize-your-speech-experience) | Create custom voice fonts unique to your brand or product. | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Speech Translation](speech-translation.md) | Speech translation | Speech translation enables real-time, multi-language translation of speech to your applications, tools, and devices. Use this service for speech-to-speech and speech-to-text translation. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
 | [Voice assistants](voice-assistants.md) | Voice assistants | Voice assistants using the Speech service empower developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion. | [Yes](voice-assistants.md) | No |
-
-## News and updates
-
-Learn what's new with the Speech service.
-
-- November 2019
-  - Added two new speaking styles, [`newscast`](speech-synthesis-markup.md#adjust-speaking-styles) and [`customerservice`](speech-synthesis-markup.md#adjust-speaking-styles) for the `en-US-JessaNeural` voice.
-- September 2019
-  - Released Speech SDK 1.7.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
-- August 2019
-  - **New tutorial**: [Voice enable your bot with the Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-  - Added a new speaking style, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), for the `en-US-JessaNeural` voice.
-- June 2019
-  - Released Speech SDK 1.6.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
-- May 2019 - Documentation is now available for [Conversation Transcription](conversation-transcription-service.md), [Call Center Transcription](call-center-transcription.md), and [voice assistants](voice-assistants.md).
-- May 2019
-  - Released Speech SDK 1.5.1. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
-  - Released Speech SDK 1.5.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
 
 ## Try the Speech service
 

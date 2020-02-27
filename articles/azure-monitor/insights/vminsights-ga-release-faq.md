@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor for VMs (GA) frequently asked questions | Microsoft Docs
 description: Azure Monitor for VMs is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions about the GA release.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -20,7 +19,7 @@ We have released a new version of Azure Monitor for VMs. Customers enabling Azur
 
 With this upgrade, Azure Monitor for VMs performance data are stored in the same *InsightsMetrics* table as [Azure Monitor for containers](container-insights-overview.md), which makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. 
 
-In the next week or two, our performance views will also be updated to use this new table.
+Our performance views are now using the data we store in the *InsightsMetrics* table.  If you have not yet upgraded to use the latest VMInsights solution on your workspace, your charts will no longer display information.  You can upgrade from our **Get Started** page as described below.
 
 We realize that asking existing customers to upgrade causes disruption to their workflow, which is why we have chosen to do this now while in Public Preview rather than later after GA.
 
@@ -30,6 +29,8 @@ We realize that asking existing customers to upgrade causes disruption to their 
 We have released a new solution, named VMInsights, that includes additional capabilities for data collection along with a new location for storing this data in your Log Analytics workspace. 
 
 In the past, we enabled the ServiceMap solution on your workspace and setup performance counters in your Log Analytics workspace to send the data to the *Perf* table. This new solution sends the data to a table named *InsightsMetrics* that is also used by Azure Monitor for containers. This table schema allows us to store additional metrics and service data sets that are not compatible with the *Perf* table format.
+
+We have updated our Performance charts to use the data we store in the *InsightsMetrics* table. You can upgrade to use the *InsightsMetrics* table from our **Get Started** page as described below.
 
 
 ## How do I upgrade?

@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ---
