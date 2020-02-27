@@ -91,7 +91,7 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 Make sure that you **don't build** your Unity project **as a XAML Project**. See [Quickstart: Deploy Unity sample to HoloLens](../quickstarts/deploy-to-hololens.md) and check that all build settings are correct. XAML projects are not supported by Azure Remote Rendering.
 
-## Unity code using the Azure Remote Rendering API does not compile
+## Unity code using the Remote Rendering API doesn't compile
 
 Switch the *build type* of the Unity solution to **Debug**. When testing ARR in the Unity editor the define `UNITY_EDITOR` is only available in 'Debug' builds. Note that this is unrelated to the build type used for [deployed applications](../quickstarts/deploy-to-hololens.md), where you should prefer 'Release' builds.
 
