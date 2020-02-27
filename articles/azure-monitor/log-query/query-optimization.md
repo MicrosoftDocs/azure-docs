@@ -1,26 +1,25 @@
 ---
 title: Optimize log queries in Azure Monitor
 description: Best practices for optimizing log queries in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/24/2019
+ms.date: 02/25/2019
 
 ---
 
 # Optimize log queries in Azure Monitor
-Azure Monitor Logs uses [Azure Data Explorer (ADX)](/azure/data-explorer/) to store and manage your logs and queries. It creates, manages, and maintains the ADX clusters for you, and optimizes them for your log analysis workload. When you run a query, it's optimized, and routed to the appropriate ADX cluster that stores the workspace. Both Azure Monitor Logs and Azure Data Explorer uses many automatic query optimization mechanisms. While automatic optimizations provide significant boost, they are in some cases where you can dramatically improve your query performance. This article explains the performance considerations and several techniques to fix them.
+Azure Monitor Logs uses [Azure Data Explorer (ADX)](/azure/data-explorer/) to store log data and run queries for analyzing that data. It creates, manages, and maintains the ADX clusters for you, and optimizes them for your log analysis workload. When you run a query, it's optimized, and routed to the appropriate ADX cluster that stores the workspace data. Both Azure Monitor Logs and Azure Data Explorer uses many automatic query optimization mechanisms. While automatic optimizations provide significant boost, they are in some cases where you can dramatically improve your query performance. This article explains the performance considerations and several techniques to fix them.
 
-Most of the techniques are common to queries that are run directly on Azure Data Explorer and Azure Monitor Logs though there are several unique Azure Monitor Logs considerations that are discussed here. For more Azure Data Explorer optimization tips, see [Query best practices](/azure/kusto/query/best-practices).
+Most of the techniques are common to queries that are run directly on Azure Data Explorer and Azure Monitor Logs, though there are several unique Azure Monitor Logs considerations that are discussed here. For more Azure Data Explorer optimization tips, see [Query best practices](/azure/kusto/query/best-practices).
 
 Optimized queries will:
 
 - Run faster, reduce overall duration of the query execution.
 - Have smaller chance of being throttled or rejected.
 
-You should give particular attention to queries that are used for recurrent and bursty usage such as dashboards and Power BI. The impact of an ineffective query in these cases is substantial.
+You should give particular attention to queries that are used for recurrent and bursty usage such as dashboards, alerts, Logic Apps and Power BI. The impact of an ineffective query in these cases is substantial.
 
 ## Query performance pane
 After you run a query in Log Analytics, click the down arrow above the query results to view the query performance pane that shows the results of several performance indicators for the query. These performance indicators are each described in the following section.
@@ -34,11 +33,11 @@ The following query performance indicators are available for every query that is
 
 - [Total CPU](#total-cpu): Overall compute used to process the query across all compute nodes. It represents time used for computing, parsing, and data fetching. 
 
-- [Data used for processed query](#data-used-for-query-processing): Overall data that was accessed to process the query. Influenced by the size of the target table, time span used, filters applied, and the number of columns referenced.
+- [Data used for processed query](#data-used-for-processed-query): Overall data that was accessed to process the query. Influenced by the size of the target table, time span used, filters applied, and the number of columns referenced.
 
-- [Time span of the processed query](#time-range-of-the-data-processed): The gap between the newest and the oldest data that was accessed to process the query. Influenced by the query explicit time span and filters applied. It might be larger than the explicit time span due to data partitioning.
+- [Time span of the processed query](#time-span-of-the-processed-query): The gap between the newest and the oldest data that was accessed to process the query. Influenced by the explicit time range specified for the query.
 
-- [Age of processed data](#age-of-the-oldest-data-used): The gap between now and the oldest data that was accessed to process the query. It highly influences the efficiency of data fetching.
+- [Age of processed data](#age-of-processed-data): The gap between now and the oldest data that was accessed to process the query. It highly influences the efficiency of data fetching.
 
 - [Number of workspaces](#number-of-workspaces): How many workspaces were accessed during the query processing due to implicit or explicit selection.
 
@@ -119,7 +118,7 @@ Perf
 by CounterPath
 ```
 
-CPU consumption might also be impacted by where conditions or extended columns that require intensive computing. All trivial string comparisons such as [equal ==](/azure/kusto/query/datatypes-string-operators) and [startswith](/azure/kusto/query/datatypes-string-operators) have roughly the same CPU impact while advanced text matches has more impact. Specifically, the has operator is more efficient that the contains operator. Due to string handling techniques, it is more efficient to look for strings that are longer than four characters than short strings.
+CPU consumption might also be impacted by where conditions or extended columns that require intensive computing. All trivial string comparisons such as [equal ==](/azure/kusto/query/datatypes-string-operators) and [startswith](/azure/kusto/query/datatypes-string-operators) have roughly the same CPU impact while advanced text matches have more impact. Specifically, the [has](/azure/kusto/query/datatypes-string-operators) operator is more efficient that the [contains](/azure/kusto/query/datatypes-string-operators) operator. Due to string handling techniques, it is more efficient to look for strings that are longer than four characters than short strings.
 
 For example, the following queries produce similar results, depending on Computer naming policy, but the second one is more efficient:
 
@@ -147,7 +146,7 @@ Heartbeat
 > This indicator presents only CPU from the immediate cluster. In multi-region query, it would represent only one of the regions. In multi-workspace query, it might not include all workspaces.
 
 
-## Data used for query processing
+## Data used for processed query
 
 A critical factor in the processing of the query is the volume of data that is scanned and used for the query processing. Azure Data Explorer uses aggressive optimizations that dramatically reduce the data volume compared to other data platforms. Still, there are critical factors in the query that can impact the data volume that is used.
 In Azure Monitor Logs, the **TimeGenerated** column is used as a way to index the data. Restricting the **TimeGenerated** values to as narrow a range as possible will make a significant improvement to query performance by significantly limiting the amount of data that has to be processed.
@@ -205,7 +204,7 @@ SecurityEvent
 | summarize count(), dcount(EventID), avg(Level) by Computer  
 ```
 
-## Time range of the data processed
+## Time span of the processed query
 
 All logs in Azure Monitor Logs are partitioned according to the **TimeGenerated** column. The number of partitions that are accessed are directly related to the time span. Reducing the time range is the most efficient way of assuring a prompt query execution.
 
@@ -255,14 +254,10 @@ by Computer
 ) on Computer
 ```
 
-The measurement is always larger than the actual time specified. For example, if the filter on the query is 7 days, the system might scan 7.5 or 8.1 days. This is because the system is partitioning the data into chunks in variable size. To assure that all relevant records are scanned, it scans the entire partition that might cover several hours and even more than a day.
+> [!IMPORTANT]
+> This indicator isn't available for cross region queries.
 
-There are several cases where the system cannot provide an accurate measurement of the time range. This happens in most of the cases where the query's span less than a day or in multi-workspace queries.
-
-> [!NOTE]
-> This indicator presents only data processed in the immediate cluster. In multi-region query, it would represent only one of the regions. In multi-workspace query, it might not include all workspaces.
-
-## Age of the oldest data used
+## Age of processed data
 Azure Data Explorer uses several storage tiers: in-memory, local SSD disks and much slower Azure Blobs. The newer the data, the higher is the chance that it is stored in a more performant tier with smaller latency, reducing the query duration and CPU. Other than the data itself, the system also has a cache for metadata. The older the data, the less chance its metadata will be in cache.
 
 While some queries require usage of old data, there are cases where old data is used by mistake. This happens when queries are executed without providing time range in their meta-data and not all table references include filter on the **TimeGenerated** column. In these cases, the system will scan all the data that is stored in that table. When the data retention is long, it can cover long time ranges and thus data that is as old as the data retention period.
@@ -285,7 +280,7 @@ Cross-region query execution requires the system to serialize and transfer in th
 If there is no real reason to scan all these regions, you should adjust the scope so it covers fewer regions. If the resource scope is minimized but still many regions are used, it might happen due to misconfiguration. For example, audit logs and diagnostic settings are sent to different workspaces in different regions or there are multiple diagnostic settings configurations. 
 
 > [!IMPORTANT]
-> When a query is run across several regions, the CPU and data measurements will not be accurate and will represent the measurement only on one of the regions.
+> This indicator isn't available for cross region queries.
 
 ## Number of workspaces
 Workspaces are logical containers that are used to segregate and administer logs data. The backend optimizes workspace placements on physical clusters within the selected region.
@@ -301,7 +296,7 @@ Cross-region and cross-cluster execution of queries requires the system to seria
 > In some multi-workspace scenarios, the CPU and data measurements will not be accurate and will represent the measurement only to few of the workspaces.
 
 ## Parallelism
-Azure Monitor Logs is using large clusters of Azure Data Explorer to execute the queries. These clusters vary in scale, potentially getting up to 140 compute nodes. The system automatically scales the clusters according to workspace placement logic and capacity.
+Azure Monitor Logs is using large clusters of Azure Data Explorer to run queries, and these clusters vary in scale. The system automatically scales the clusters according to workspace placement logic and capacity.
 
 To efficiently execute a query, it is partitioned and distributed to compute nodes based on the data that is required for its processing. There are some situations where the system cannot do this efficiently. This can lead to a long duration of the query. 
 
