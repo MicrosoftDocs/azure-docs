@@ -35,6 +35,10 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
+
 InfiniBand: Supported
 
 | Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |

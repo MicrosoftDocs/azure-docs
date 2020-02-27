@@ -20,6 +20,10 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 |

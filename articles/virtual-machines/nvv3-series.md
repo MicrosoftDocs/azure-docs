@@ -17,6 +17,10 @@ Each GPU in NVv3 instances comes with a GRID license. This license gives you the
 
 Premium Storage caching:  Supported
 
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs | Virtual Workstations | Virtual Applications |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Standard_NV12s_v3 |12 | 112 | 320  | 1 | 8  | 12 | 20000/200 | 4 | 1 | 25  |
