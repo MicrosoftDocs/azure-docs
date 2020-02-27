@@ -257,34 +257,34 @@
       href: sql-database-monitoring-tuning-index.yml
     - name: Monitoring and performance overview
       href: sql-database-monitor-tune-overview.md
-    - name: Performance monitoring
+    - name: Database advisors and Query Performance Insight
       items:
-      - name: Azure SQL Analytics monitoring
-        href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
-      - name: Diagnostic telemetry logging
-        href: sql-database-metrics-diag-logging.md
-    - name: Intelligent performance
-      items:
-      - name: Automatic tuning
-        href: sql-database-automatic-tuning.md
-      - name: Intelligent insights into performance
-        href: sql-database-intelligent-insights.md
-      - name: Tuning actions and recommendations
-        href: sql-database-performance.md
       - name: Database advisor performance recommendations
         href: sql-database-advisor.md
-    - name: Monitor and tune database
+      - name: Query Performance Insights
+        href: sql-database-query-performance.md
+    - name: Automatic tuning
+      href: sql-database-automatic-tuning.md
+    - name: Intelligent Insights and SQL Analytics
       items:
+      - name: Intelligent insights into performance
+        href: sql-database-intelligent-insights.md
+      - name: Diagnostic telemetry logging
+        href: sql-database-metrics-diag-logging.md
+      - name: Use Intelligent Insights diagnostics log
+        href: sql-database-intelligent-insights-use-diagnostics-log.md
+      - name: Troubleshoot performance with Intelligent Insights
+        href: sql-database-intelligent-insights-troubleshoot-performance.md
+      - name: SQL Analytics
+        href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
+    - name: Manual monitoring and tuning
+      items:
+      - name: Identify query performance issues
+        href: sql-database-identify-query-performance-issues.md
       - name: Manual tuning
         href: sql-database-performance-guidance.md
       - name: Use DMVs to monitor performance
         href: sql-database-monitoring-with-dmvs.md
-      - name: Use Query store to monitor performance
-        href: sql-database-operate-query-store.md   
-      - name: Troubleshoot performance with Intelligent Insights
-        href: sql-database-intelligent-insights-troubleshoot-performance.md
-      - name: Use Intelligent Insights diagnostics log
-        href: sql-database-intelligent-insights-use-diagnostics-log.md
       - name: Monitor In-memory OLTP space
         href: sql-database-in-memory-oltp-monitoring.md
       - name: Extended events
@@ -580,12 +580,6 @@
           href: sql-database-best-practices-data-sync.md
         - name: Troubleshoot Data Sync
           href: sql-database-troubleshoot-data-sync.md
-
-      - name: Performance monitoring
-        items:
-        - name: Query Performance Insight
-          href: sql-database-query-performance.md
-
       - name: T-SQL differences
         href: sql-database-transact-sql-information.md 
       - name: Features

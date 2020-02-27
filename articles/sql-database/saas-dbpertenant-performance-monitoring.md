@@ -50,7 +50,7 @@ Pools, and the databases in pools, should be monitored to ensure they stay withi
 
 The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. For SQL Database, monitoring and alerting is available on databases and pools. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not very convenient when working with many resources.
 
-For high-volume scenarios, where you're working with many resources, [Azure Monitor logs](saas-dbpertenant-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a Log Analytics workspace. Azure Monitor logs can collect telemetry from many services and be used to query and set alerts.
+For high-volume scenarios, where you're working with many resources, [Azure Monitor logs](saas-dbpertenant-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted logs gathered in a Log Analytics workspace. Azure Monitor logs can collect telemetry from many services and be used to query and set alerts.
 
 ## Get the Wingtip Tickets SaaS Database Per Tenant application scripts
 
