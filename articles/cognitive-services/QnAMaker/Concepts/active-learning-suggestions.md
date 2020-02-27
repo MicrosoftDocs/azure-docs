@@ -6,7 +6,7 @@ ms.date: 02/27/2020
 ---
 # Active learning suggestions
 
-_Active learning suggestions_ allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them.
+The _Active learning suggestions_ feature allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them.
 
 Your knowledge base doesn't change automatically. In order for any change to take effect, you must accept the suggestions. These suggestions add questions but don't change or remove existing questions.
 
@@ -33,7 +33,7 @@ QnA Maker's implicit feedback uses an algorithm to determine score proximity the
 
 When a question's score is highly confident, such as 80%, the range of scores that are considered for active learning are wide, approximately within 10%. As the confidence score decreases, such as 40%, the range of scores decreases as well, approximately within 4%.
 
-In the following JSON response from a query to QnA Maker's generateAnswer, the scores for A, B, and C are near and would be considered as suggestions. QnA Maker won't know which answer is the best answer. You need to select the best answer from suggested answers and train again.
+In the following JSON response from a query to QnA Maker's generateAnswer, the scores for A, B, and C are near and would be considered as suggestions.
 
 ```json
 {
@@ -103,9 +103,12 @@ In the following JSON response from a query to QnA Maker's generateAnswer, the s
 }
 ```
 
+QnA Maker won't know which answer is the best answer. Use the QnA Maker portal's list of suggestions to select the best answer and train again.
+
+
 ## How you give explicit feedback with the Train API
 
-It is important that QnA Maker gets explicit feedback about which of the answers was the best answer. How the best answer is determined is up to you and can include:
+QnA Maker needs explicit feedback about which of the answers was the best answer. How the best answer is determined is up to you and can include:
 
 * User feedback, selecting one of the answers.
 * Business logic, such as determining an acceptable score range.
