@@ -19,7 +19,7 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/templat
 * Creation of a Azure Monitor Log Analytics workspace
 * Creation of an Azure Automation account
 * Links the Automation account to the Log Analytics workspace
-* Onboards the Azure Automation Update Management solution
+* Onboard the Azure Automation Update Management solution
 
 The template does not automate the onboarding of one or more Azure or non-Azure VMs.
 
@@ -225,7 +225,7 @@ The following parameters in the template are set with a default value for the Lo
 
 3. Save this file as deployUMSolutiontemplate.json to a local folder.
 
-4. You are ready to deploy this template. You can use either PowerShell, the Azure CLI, or run from the command line. When you're prompted for a workspace and Automation account name, provide a name that is globally unique across all Azure subscriptions.
+4. You are ready to deploy this template. You can use either PowerShell or the Azure CLI. When you're prompted for a workspace and Automation account name, provide a name that is globally unique across all Azure subscriptions.
 
     **PowerShell**
 
@@ -237,13 +237,6 @@ The following parameters in the template are set with a default value for the Lo
 
     ```cli
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
-    ```
-
-    **Command line**
-
-    ```cmd
-    azure config mode arm
-    azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deployUMSolutiontemplate.json
     ```
 
     The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
