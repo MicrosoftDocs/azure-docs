@@ -235,7 +235,7 @@ For a list of the Azure Resource Manager (Preview) alerts, see the [Reference ta
 
 
 >[!NOTE]
-> Several of the preceding analytics are powered by Microsoft Cloud App Security. To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable he alerts:
+> Several of the preceding analytics are powered by Microsoft Cloud App Security. To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable the alerts:
 >
 > 1. In the **Security Center** blade, select **Security policy**. For the subscription you want to change, select **Edit settings**.
 > 2. Select **Threat detection**.
