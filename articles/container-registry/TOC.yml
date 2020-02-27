@@ -143,15 +143,17 @@
     items:
     - name: Automate container image builds
       items:
-      - name: Build from source context
+      - name: 1 - Build from source context
         href: container-registry-tutorial-quick-task.md
-      - name: Build on code commit
+      - name: 2a - Build on code commit
         href: container-registry-tutorial-build-task.md
-      - name: Multi-step task on code commit
+      - name: 2b - Multi-step task on code commit
         href: container-registry-tutorial-multistep-task.md
-      - name: Build on base image update
+      - name: 3a - Build on base image update
         href: container-registry-tutorial-base-image-update.md
-      - name: Schedule a task
+      - name: 3b - Build on private base image update
+        href: container-registry-tutorial-private-base-image-update.md
+      - name: 4 - Build on a schedule
         href: container-registry-tasks-scheduled.md
   - name: Samples
     expanded: false
@@ -162,6 +164,8 @@
     items:
       - name: Multi-step tasks
         href: container-registry-tasks-multi-step.md
+      - name: Base image updates
+        href: container-registry-tasks-base-images.md
   - name: How-to guides
     expanded: false
     items:

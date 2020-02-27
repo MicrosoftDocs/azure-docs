@@ -1,5 +1,5 @@
 ---
-title: Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios
+title: Public endpoint connectivity for Azure VMs&Standard ILB in SAP HA scenarios
 description: Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios
 services: virtual-machines-windows,virtual-network,storage, 
 documentationcenter: saponazure
