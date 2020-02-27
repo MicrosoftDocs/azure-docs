@@ -57,7 +57,7 @@ To view the maintenance schedule that has been applied to your Synapse SQL pool,
 
 ## Change a maintenance schedule 
 
-A maintenance schedule can be updated or changed at any time. If the selected instance is going through an active maintenance cycle, the settings will be saved. They'll become active during the next identified maintenance period. [Learn more](../service-health/resource-health-overview) about monitoring your data warehouse during an active maintenance event. 
+A maintenance schedule can be updated or changed at any time. If the selected instance is going through an active maintenance cycle, the settings will be saved. They'll become active during the next identified maintenance period. [Learn more](../service-health/resource-health-overview.md) about monitoring your data warehouse during an active maintenance event. 
 
 ## Identifying the primary and secondary windows
 
