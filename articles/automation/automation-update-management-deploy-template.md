@@ -6,7 +6,7 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/26/2020
+ms.date: 02/27/2020
 
 ---
 
@@ -14,12 +14,14 @@ ms.date: 02/26/2020
 
 You can use [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md) to enable the Azure Automation Update Management solution in your resource group. This article provides a sample template that automates the following:
 
-* Creation of a Azure Monitor Log Analytics workspace
-* Creation of an Azure Automation account
-* Links the Automation account to the Log Analytics workspace
+* Creation of a Azure Monitor Log Analytics workspace.
+* Creation of an Azure Automation account.
+* Links the Automation account to the Log Analytics workspace if not already linked.
 * Onboard the Azure Automation Update Management solution
 
 The template does not automate the onboarding of one or more Azure or non-Azure VMs.
+
+If you already have a Log Analytics workspace and Automation account deployed in a supported region in your subscription, they are not linked, and the workspace doesn't already have the Update Management solution deployed, using this template successfully creates the link and deploys the Update Management solution. 
 
 ## API versions
 
@@ -56,7 +58,7 @@ The following parameters in the template are set with a default value for the Lo
 >
 
 >[!NOTE]
->Before using this template, review [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) related to the configuration of the property `capacityReservationLevel` for the SKU `CapacityReservation` for a Log Analytics workspace.
+>Before using this template, review [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options such as access control mode, pricing tier, retention, and capacity reservation level. If you are new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design](../azure-monitor/platform/design-logs-deployment.md) guidance to learn about access control, and an understanding of the design implementation strategies we recommend for your organization.
 
 ## Deploy template
 
