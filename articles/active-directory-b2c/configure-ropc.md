@@ -20,6 +20,8 @@ The resource owner password credentials (ROPC) flow is an OAuth standard authent
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
+
 ##  Create a resource owner user flow
 
 1. Sign in to the Azure portal as the global administrator of your Azure AD B2C tenant.
