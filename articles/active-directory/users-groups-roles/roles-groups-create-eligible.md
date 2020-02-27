@@ -55,7 +55,7 @@ The group is created with any selected roles assigned to it. You can also choose
 
     $group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $true -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true
 
-For this type of group, groupType will always be "Unified" and isPublic will always be false.
+For this type of group, `groupType` will always be "Unified", `isPublic` will always be false and `isSecurityEnabled` will always be true.
 
 ## Using Microsoft Graph API
 
@@ -73,6 +73,7 @@ For this type of group, groupType will always be "Unified" and isPublic will alw
     "mailNickname": "contosohelpdeskadministrators",
     "isAssignableToRole": true,
     }
+For this type of group, `groupType` will always be "Unified", `isPublic` will always be false and `isSecurityEnabled` will always be true.
 
 ## Next steps
 
