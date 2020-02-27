@@ -86,8 +86,8 @@ Data expressions provide access to the property data in a feature.
 | `['has', string, object]` | boolean | Determines if the properties of the object have the specified property. |
 | `['id']` | value | Gets the feature's ID if it has one. |
 | `['length', string | array]` | number | Gets the length of a string or an array. |
-| `['in', value: (boolean, string or number), array]` | boolean | Determines whether an item exists in an array |
-| `['in', value: substring, string]` | boolean | Determines whether a substring exists in a string |
+| `['in', boolean | string | number, array]` | boolean | Determines whether an item exists in an array |
+| `['in', substring, string]` | boolean | Determines whether a substring exists in a string |
 
 **Examples**
 
