@@ -25,7 +25,7 @@ See [Azure services that support Azure Data Lake Storage Gen2](data-lake
 
 See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-## Blob Storage APIs
+## Blob storage APIs
 
 Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
 
@@ -109,7 +109,7 @@ Applications that call Blob APIs will likely work.
 
   See [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
 
-- Learn about which Blob Storage features are compatible with Data Lake Storage Gen2. 
+- Learn about which Blob storage features are compatible with Data Lake Storage Gen2. 
 
   See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 

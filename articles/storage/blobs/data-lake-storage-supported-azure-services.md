@@ -19,9 +19,10 @@ You can use Azure services to ingest data, perform analytics, and cre
 This table lists the Azure services that you can use with Azure Data Lake Storage Gen2. The items that appear in these tables will change over time as support continues to expand.
 
 > [!NOTE]
-> Support level refers only to how the service is supported with Data Lake Storage Gen2.
+> Support level refers only to how the service is supported with Data Lake Storage Gen 2.
 
-|Azure service |Support level |Related articles |
+
+|Azure service |Support level |Related articles |
 |---------------|-------------------|---|
 |Azure Data Factory|Generally available|[Load data into Azure Data Lake Storage Gen2 with Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure Databricks|Generally available|[Use with Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) <br> [Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md) <br>[Tutorial: Extract, transform, and load data by using Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse) <br>[Tutorial: Access Data Lake Storage Gen2 data with Azure Databricks using Spark](data-lake-storage-use-databricks-spark.md)|
@@ -44,7 +45,7 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 
   See [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
 
-- Learn about which Blob Storage features are compatible with Data Lake Storage Gen2. 
+- Learn about which Blob storage features are compatible with Data Lake Storage Gen2. 
 
   See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 

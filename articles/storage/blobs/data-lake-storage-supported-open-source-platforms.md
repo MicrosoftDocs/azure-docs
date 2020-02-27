@@ -35,7 +35,7 @@ This table lists the open source platforms that support Data Lake Storage Ge
 
   See [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
 
-- Learn about which Blob Storage features are compatible with Data Lake Storage Gen2. 
+- Learn about which Blob storage features are compatible with Data Lake Storage Gen2. 
 
   See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 
