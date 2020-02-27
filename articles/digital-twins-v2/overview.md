@@ -16,9 +16,9 @@ ms.service: digital-twins
 
 # What is Azure Digital Twins?
 
-Azure Digital Twins is a developer platform for next-generation IoT solutions that lets you create, run, and manage digital models of your business environment, securely and efficiently in the cloud. With Azure Digital Twins, creating live, operational state models is quick and cost-effective, and models stay current with real-time data from IoT and other data sources.
+Azure Digital Twins is a developer platform for next-generation IoT solutions that lets you create, run, and manage digital models of your business environment, securely and efficiently in the cloud. With Azure Digital Twins, creating live operational state models is quick and cost-effective, and models stay current with real-time data from IoT and other data sources.
 
-Using Azure Digital Twins' flexible modeling system, you can make digital twins that represent a large variety of business scenarios: buildings, factory floors, energy grids, construction processes, bulk manufacturing processes in chemistry, and more. Digital twin-based IoT solutions can then support many insights, such as remote monitoring, maintenance, prediction, forecasting, simulation, and optimization of operations. 
+Using Azure Digital Twins' flexible modeling system, you can make digital twins that represent a large variety of business scenarios: buildings, factory floors, energy grids, construction processes, bulk manufacturing processes in chemistry, and more. Digital twin-based IoT solutions can support many insights, such as remote monitoring, maintenance, prediction, forecasting, simulation, and optimization of operations. 
 
 ![Uses for Azure Digital Twins](./media/overview/use-cases.png)
  
@@ -26,7 +26,7 @@ Azure Digital Twins does the hard work of translating a device-centric view of t
 
 ## Azure Digital Twins key capabilities
 
-Here is a summary of what you can do with Azure Digital Twins: 
+Here is a summary of what you can do with Azure Digital Twins.
 
 ### Model your real-world business environment
 
@@ -92,7 +92,7 @@ The main changes are:
     - have access to a robust development and debugging story with supported serverless compute platforms such as Azure Functions.
     - take advantage of a flexible event processing and routing model throughout the platform. 
 * Full access to IoT Hub. In Azure Digital Twins Public Preview 1, IoT Hub was integrated into Azure Digital Twins, and not fully accessible to developers. In the new version of Azure Digital Twins, you bring your own IoT hub and attach it to Azure Digital Twins. This change puts you in full control of all device management, and gives you full access to IoT Hub's capabilities.
-* Greater Scale. The new version of Azure Digital Twins is designed to run at greater scale, with more compute power for handling large numbers of messages and API requests.
+* Greater scale. The new version of Azure Digital Twins is designed to run at greater scale, with more compute power for handling large numbers of messages and API requests.
 
 ## Next steps
 
