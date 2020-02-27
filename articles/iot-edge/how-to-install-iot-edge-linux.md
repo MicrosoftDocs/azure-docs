@@ -200,7 +200,7 @@ IoT Edge devices can be automatically provisioned using the [Azure IoT Hub Devic
 
 * [Create and provision an IoT Edge device with a virtual TPM on a Linux VM](how-to-auto-provision-simulated-device-linux.md)
 * [Create and provision an IoT Edge device using X.509 certificates](how-to-auto-provision-x509-certs.md)
-* [Create and provision an IoT Edge device using symmetric key attestation](how-to-auto-provision-symmetric-key.md)
+* [Create and provision an IoT Edge device using symmetric key attestation](how-to-auto-provision-symmetric-keys.md)
 
 Those articles walk you through setting up enrollments in DPS, and generating the proper certificates or keys for attestation. Regardless of which attestation mechanism you choose, the provisioning information is added to the IoT Edge configuration file on your IoT Edge device.
 
