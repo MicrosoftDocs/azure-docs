@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-eleven
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: <date>
+ms.date: 02/27/2020
 ms.author: aahi
 ---
 

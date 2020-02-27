@@ -14,7 +14,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 
 ## Prerequisites
 
-- A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
+- A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](../../quick-start.md) for more information.
 - Python [2.x or 3.x](https://www.python.org/) 
 - The [Bing Custom Search SDK for Python](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) 
 
@@ -74,4 +74,4 @@ else:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a Custom Search web app](./tutorials/custom-search-web-page.md)
+> [Build a Custom Search web app](../../tutorials/custom-search-web-page.md)
