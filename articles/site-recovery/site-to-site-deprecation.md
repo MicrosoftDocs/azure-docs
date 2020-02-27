@@ -31,10 +31,8 @@ DR between customer owned sites managed by System Center Virtual Machine Manager
 
 Below are the alternatives that the customer can choose from to ensure that their DR strategy is not impacted once the scenario is deprecated. 
 
-- Option 1 (Recommended): Choose to [start using Azure as the DR target for VMs on Hyper-V hosts](hyper-v-azure-tutorial.md).
+- Option 1 (Recommended): Choose to [start using Azure as the DR target](hyper-v-vmm-azure-tutorial.md).
 
-    > [!IMPORTANT]
-    > Note that your on-premises environment can still have SCVMMM, but you'll configure ASR with references to only the Hyper-V hosts.
 
 - Option 2: Choose to continue with site-to-site replication  using the underlying [Hyper-V Replica solution](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica), but you will be unable to manage DR configurations using Azure Site Recovery in the Azure portal. 
 
@@ -53,7 +51,7 @@ If you are choosing to go with Option 1, please execute the following steps:
 > [!IMPORTANT]
 > Note that you don't need to execute the steps under  prepare VMM.
 
-5. [Set up replication for the VMs](hyper-v-azure-tutorial.md)
+5. [Set up replication for the VMs](hyper-v-vmm-azure-tutorial.md)
 6. Optional but recommended: [Run a DR drill](tutorial-dr-drill-azure.md)
 
 If you are choosing to go with Option 2 of using Hyper-V replica, execute the following steps:
