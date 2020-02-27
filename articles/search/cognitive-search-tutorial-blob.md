@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Extract text and structure from JSON blobs'
+title: 'Tutorial: REST and AI over Azure blobs'
 titleSuffix: Azure Cognitive Search
 description: Step through an example of text extraction and natural language processing over content in JSON blobs using Postman and the Azure Cognitive Search REST APIs. 
 
@@ -8,15 +8,15 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 02/26/2020
 ---
 
-# Tutorial: Extract text and structure from JSON blobs in Azure using REST APIs (Azure Cognitive Search)
+# Tutorial: Use REST and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or image content in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can help you extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process image files (JPG, PNG, TIFF), this tutorial focuses on word-based content, applying language detection and text analytics to create new fields and information that you can leverage in queries, facets, and filters.
+If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this REST tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
 > [!div class="checklist"]
-> * Start with whole documents (unstructured text) such as PDF, MD, DOCX, and PPTX in Azure Blob storage.
+> * Start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob storage.
 > * Define a pipeline that extracts text, detects language, recognizes entities, and detects key phrases.
 > * Define an index to store the output (raw content, plus pipeline-generated name-value pairs).
 > * Execute the pipeline to start transformations and analysis, and to create and load the index.
@@ -34,7 +34,9 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## 1 - Create services
 
-This walkthrough uses Azure Cognitive Search for indexing and queries, Cognitive Services for AI enrichment, and Azure Blob storage to provide the data. If possible, create all three services in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
+This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
+
+If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
 ### Start with Azure Storage
 
@@ -471,19 +473,19 @@ Recall that we started with blob content, where the entire document is packaged 
    cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2019-05-06
    ```
 
-These queries illustrate a few of the ways you can work with query syntax and filters on new fields created by cognitive search.For more query examples, see [Examples in Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Simple syntax query examples](search-query-simple-examples.md), and [Full Lucene query examples](search-query-lucene-examples.md).
+These queries illustrate a few of the ways you can work with query syntax and filters on new fields created by cognitive search. For more query examples, see [Examples in Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Simple syntax query examples](search-query-simple-examples.md), and [Full Lucene query examples](search-query-lucene-examples.md).
 
 <a name="reset"></a>
 
 ## Reset and rerun
 
-In the early experimental stages of pipeline development, the most practical approach for design iterations is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early stages of development, it's practical to delete objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
-To reindex your documents with the new definitions:
+To re-index your documents with the new definitions:
 
 1. Delete the indexer, index, and skillset.
-2. Modify objects.
-3. Recreate on your service to run the pipeline. 
+2. Modify objects definitions.
+3. Recreate objects on your service. Recreating the indexer runs the pipeline. 
 
 You can use the portal to delete indexes, indexers, and skillsets, or use **DELETE** and provide URLs to each object. The following command deletes an indexer.
 
@@ -492,8 +494,6 @@ DELETE https://[YOUR-SERVICE-NAME]].search.windows.net/indexers/cog-search-demo-
 ```
 
 Status code 204 is returned on successful deletion.
-
-As your code matures, you might want to refine a rebuild strategy. For more information, see [How to rebuild an index](search-howto-reindex.md).
 
 ## Takeaways
 
