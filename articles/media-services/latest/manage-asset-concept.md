@@ -129,6 +129,10 @@ You can then download these results of your job to a local folder using Media Se
 
 See the [download files](download-results-howto.md) example.
 
+## Filtering, ordering, paging
+
+See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
+
 ## Next steps
 
 See the full code examples that demonstrate how to upload, encode, analyze, stream live and on-demand: 

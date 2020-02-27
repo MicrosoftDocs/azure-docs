@@ -38,10 +38,6 @@ Asset's names must be unique. Media Services v3 resource names (for example, Ass
 
 The names of files/blobs within an asset must follow both the [blob name requirements](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) and the [NTFS name requirements](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). The reason for these requirements is the files can get copied from blob storage to a local NTFS disk for processing.
 
-## Manage assets in Media Services
-
-For more information, see [Manage assets](manage-assets-concept.md).
-
 ## Map v3 asset properties to v2
 
 The following table shows how the [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)'s properties in v3 map to Asset's properties in v2.
@@ -73,12 +69,10 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 <sup>2</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. Meaning v3 works with existing storage encrypted assets but won't allow creation of new ones.
 
-## Filtering, ordering, paging
-
-See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
-
 ## Next steps
 
-* [Stream a file](stream-files-dotnet-quickstart.md)
-* [Using a cloud DVR](live-event-cloud-dvr.md)
-* [Differences between Media Services v2 and v3](migrate-from-v2-to-v3.md)
+[Manage assets in Media Services](manage-asset-concept.md)
+
+## Also see
+
+[Differences between Media Services v2 and v3](migrate-from-v2-to-v3.md)

@@ -62,7 +62,8 @@
   - name: Uploading 
     items:
     - name: Manage assets
-      href: manage-assets-concept.md    
+      href: manage-asset-concept.md  
+      displayName: upload, output, download  
   - name: Processing files
     items:
     - name: Transforms and Jobs
