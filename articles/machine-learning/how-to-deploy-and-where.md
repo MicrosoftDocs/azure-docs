@@ -488,6 +488,7 @@ The following example demonstrates loading an environment from your workspace an
 from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
+
 myenv = Environment.get(workspace=ws, name='myenv', version='1')
 inference_config = InferenceConfig(entry_script='path-to-score.py',
                                    environment=myenv)
