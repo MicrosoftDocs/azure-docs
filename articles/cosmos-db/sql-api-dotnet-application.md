@@ -200,7 +200,9 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
-1. Repeat the previous two steps, but this time, use the name *ICosmosDBService*, and use the following code:
+1. Right-click the **Services** folder, select **Add** > **Class**. Name the new class *ICosmosDBService* and select **Add**.
+
+1. Add the following code to *ICosmosDBService* class:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
@@ -218,7 +220,7 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
 1. Define the configuration in the project's *appsettings.json* file as shown in the following snippet:
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/appsettings.json:::
+   :::code language="json" source="~/samples-cosmosdb-dotnet-core-web-app/src/appsettings.json":::
 
 If you run the application, ASP.NET Core's pipeline instantiates **CosmosDbService** and maintain a single instance as singleton. When **ItemController** processes client-side requests, it receives this single instance and can use it for CRUD operations.
 
