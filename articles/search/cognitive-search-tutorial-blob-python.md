@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Create a skillset in Python using REST APIs'
+title: 'Tutorial: Python and AI over Azure blobs'
 titleSuffix: Azure Cognitive Search
-description: Step through an example of data extraction, natural language, and image AI processing in Azure Cognitive Search using a Jupyter Python notebook. Extracted data is indexed and easily accessed by query.
+description: Step through an example of text extraction and natural language processing over content in JSON blobs using a Jupyter Python notebook and the Azure Cognitive Search REST APIs. 
 
 manager: nitinme
 author: HeidiSteen
@@ -9,14 +9,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 02/26/2020
 ---
 
-# Tutorial: Create an AI enrichment pipeline using REST and Python
+# Tutorial: Use Python and AI to generate searchable content from Azure blobs
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this Python tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
-In this tutorial, you'll use Python to do the following tasks:
+In this tutorial, you'll use Python and the REST API to do the following tasks:
 
 > [!div class="checklist"]
 > * Start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob storage.
@@ -109,7 +109,7 @@ As with Azure Blob storage, take a moment to collect the access key. Further on,
 
 All requests require an api-key in the header of every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## 2 - Create a Jupyter notebook
+## 2 - Start a notebook
 
 Create the notebook using the following instructions, or download a finished notebook from [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
 
