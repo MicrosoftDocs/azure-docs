@@ -71,7 +71,7 @@ Not all developers want all possible map styles to be available in their applica
 - The map control does not monitor the high contrast mode of the device. If the device mode changes, the map will not. Thus, the user will need to reload the map by refreshing the page.
 - When high contrast is detected the map style will automatically switch to high contrast, and all built-in controls will use a high contrast style. For example, ZoomControl, PitchControl, CompassControl, StyleControl, and other built-in controls, will use a high contrast style.
 - There are two type of high contrast, light and dark. If the type of high contrast can be detected by the map controls, then the behavior of the map will adjust accordingly. If light, then the grayscale_light map style will be loaded. If the type can’t be detected or is dark, then the high_contrast_dark style will be loaded.
-- If creating custom controls, it's useful to know if the built in controls are using a high contrast style. Developers can add a css class on the map container div to check. The css classes that would be added are `high-contrast-dark` and `high-contrast-light`. To check using Javascript, use:
+- If creating custom controls, it's useful to know if the built in controls are using a high contrast style. Developers can add a css class on the map container div to check. The css classes that would be added are `high-contrast-dark` and `high-contrast-light`. To check using JavaScript, use:
 
 ```javascript
 map.getMapContainer().classList.contains("high-contrast-dark")
