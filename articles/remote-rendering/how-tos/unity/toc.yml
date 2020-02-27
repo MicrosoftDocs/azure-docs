@@ -2,3 +2,5 @@
   href: unity-concepts.md
 - name: Install the Remote Rendering package for Unity
   href: install-remote-rendering-unity-package.md
+- name: Set up Remote Rendering for Unity
+  href: unity-setup.md
