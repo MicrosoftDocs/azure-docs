@@ -1,22 +1,14 @@
 ---
 title: Using Azure Blockchain Workbench REST APIs
 description: Scenarios for how to use the Azure Blockchain Workbench Preview REST API
-ms.date: 10/14/2019
+ms.date: 02/27/2020
 ms.topic: article
 ms.reviewer: brendal
 #Customer intent: As a developer, I want to understand the  Azure Blockchain Workbench REST API to so that I can integrate apps with Blockchain Workbench.
 ---
 # Using the Azure Blockchain Workbench Preview REST API
 
-Azure Blockchain Workbench Preview REST API provides developers and information workers a way to build rich integrations to blockchain applications. This document walks you through several key methods of the Workbench REST API. For example, suppose a developer wants to create a custom blockchain client. This blockchain client allows signed in users to view and interact with their assigned blockchain applications. The client allows users to view contract instances and take actions on smart contracts. The client uses the Workbench REST API in the context of the signed-in user to do the following actions:
-
-* List applications
-* List workflows for an application
-* List smart contract instances for a workflow
-* List available actions for a contract
-* Execute an action for a contract
-
-The example blockchain applications used in the scenarios, can be [downloaded from GitHub](https://github.com/Azure-Samples/blockchain).
+Azure Blockchain Workbench Preview REST API provides developers and information workers a way to build rich integrations to blockchain applications. This article highlights several scenarios of how to use the Workbench REST API. For example, suppose you want to create a custom blockchain client that allows signed in users to view and interact with their assigned blockchain applications. The client can use the Blockchain Workbench API to view contract instances and take actions on smart contracts.
 
 ## Blockchain Workbench API endpoint
 
@@ -31,19 +23,38 @@ Blockchain Workbench APIs are accessed through an endpoint for your deployment. 
 
     ![App service API endpoint URL](media/use-api/app-service-api.png)
 
+## Authentication
+
+Requests to the Blockchain Workbench REST API are protected with Azure Active Directory (Azure AD).
+
+To make an authenticated request to the REST APIs, client code requires authentication with valid credentials before you can call the API. Authentication is coordinated between the various actors by Azure AD, and provides your client with an [access token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#access-token) as proof of the authentication. The token is then sent in the HTTP Authorization header of REST API requests. To learn more about Azure AD authentication, see [Azure Active Directory for developers](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+
+See [REST API samples](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/rest-api-samples) for examples of how to authenticate.
+
+## Add an application
+
+Use the [Applications POST API]() to add an Blockchain Workbench application.
+
+### Applications POST request
+
+### Applications POST response
+
+
 ## List applications
 
-Once a user has signed into the blockchain client, the first task is to retrieve all Blockchain Workbench applications for the user. In this scenario, the user has access to two applications:
+Use the [Applications GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) to retrieve all Blockchain Workbench applications for the user. In this example, the signed-in user has access to two applications:
 
 1. [Asset transfer](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
 2. [Refrigerated transportation](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
-Use the [Applications GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget):
+### Applications GET request
 
 ``` http
 GET /api/v1/applications
 Authorization : Bearer {access token}
 ```
+
+### Applications GET response
 
 The response lists all blockchain applications to which a user has access in Blockchain Workbench. Blockchain Workbench administrators get every blockchain application. Non-Workbench administrators get all blockchains for which they have at least one associated application role or an associated smart contract instance role.
 
