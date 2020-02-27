@@ -132,7 +132,7 @@ maximumFractionDigits: 2
 
 The PropertyInfo template displays available properties of the feature. The `label` option specifies the text that should be displayed to the user. If `label` is not specified, the hyperlink will be displayed. And, if the hyperlink is an image, the value of the "alt" tag will be displayed. The `dateFormat` specifies the format of the date, and if the date format is not specified, the date will render as a string. The `hyperlinkFormat` option renders links as clickable, there's also the `email` option to be used to display a clickable email address.
 
-And, before the PropertyInfo template renders the properties, it uses the property path to recursively checks that the properties are indeed defined for the feature. This popup template shows the content in a table format, with a close button in the top-right corner. A pointer arrow on the bottom appears on medium and small screen sizes.
+And, before the PropertyInfo template renders the properties, it uses the property path to recursively checks that the properties are indeed defined for the feature. The PropertyInfo template ignores displaying style and title properties. For example, it won't display `color`, `size`, `anchor`, `strokeOpacity`, and `visibility`. Once property checking is complete, the PropertyInfo template shows the content in a table format, with a close button in the top-right corner. A pointer arrow on the bottom appears on medium and small screen sizes.
 
 ```javascript
 new atlas.data.Feature(new atlas.data.Point([20, -20]), {
