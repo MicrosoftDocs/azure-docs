@@ -33,7 +33,7 @@ The following service APIs aren't currently available in Azure Maps:
 
 - Elevation
 - Geolocation
-- Places details and photos - Phone numbers and website URL available in the Azure Maps search API.
+- Places details and photos - Phone numbers and website URL are available in the Azure Maps search API.
 - Map URLs
 - Nearest Roads - This is achievable using the Web SDK as shown [here](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic
 ), but not available as a service currently.
