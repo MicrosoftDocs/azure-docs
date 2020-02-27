@@ -2,7 +2,7 @@
  title: NC-series - Azure Virtual Machines
  description: Specifications for the NC-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: vikancha
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
