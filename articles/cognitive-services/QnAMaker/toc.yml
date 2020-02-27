@@ -89,6 +89,8 @@
     - name: Development lifecycle
       href: Concepts/development-lifecycle-knowledge-base.md
       displayName: version control, test, index, publish, monitor usage, create
+    - name: Improve with active learning suggestions
+      href: Concepts/active-learning-suggestions.md
   - name: Query knowledge base
     items:
     - name: Get answer
