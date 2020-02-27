@@ -245,15 +245,10 @@ Only upload data from the given LocalAssetDirectoryPath
 ```
 
 Only start the conversion process of a model already uploaded to blob storage (don't run Upload, don't poll the conversion status)
-
-```PowerShell
-.\Conversion.ps1 -ConvertAsset
-```
-
 The script will return a *conversionId*.
 
 ```PowerShell
-.\Conversion.ps1 -
+.\Conversion.ps1 -ConvertAsset
 ```
 
 And you can retrieve the conversion status of this conversion using:
