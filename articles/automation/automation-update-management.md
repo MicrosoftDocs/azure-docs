@@ -3,7 +3,7 @@ title: Update Management solution in Azure
 description: This article describes how to use the Azure Update Management solution to manage updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 02/24/2020
+ms.date: 02/27/2020
 ms.topic: conceptual
 ---
 # Update Management solution in Azure
@@ -20,6 +20,8 @@ You can enable Update Management for virtual machines (VMs) using the following 
 
 > [!NOTE]
 > The Update Management solution requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](./how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
+
+An Azure [Resource Manager template](automation-update-management-deploy-template) is available that enables you to deploy the Update Management solution to a new or existing Automation account and Log Analytics workspace in your subscription.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
