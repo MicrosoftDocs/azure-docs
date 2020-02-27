@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/27/2019
 ms.author: aahi
 ---
 
@@ -45,7 +45,7 @@ The issues are reported in raw text. We will use the Text Analytics API's Named 
 
 ## Create a new Power Automate workflow
 
-Go to the Power Automate site, and login. Then click **Create** and **Scheduled flow**.
+Go to the [Power Automate site](https://preview.flow.microsoft.com/), and login. Then click **Create** and **Scheduled flow**.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="The flow creation screen.":::
@@ -197,7 +197,7 @@ Minimize **Apply to each 3** by clicking on the name. Then create another **Appl
 
 Next, the flow will check if the issue description from the Excel table row contains the word “plumbing”. If yes, it will add “plumbing” in the IssueType column. If not, we will enter “other.”
 
-Inside the **Apply to each 4** action, add a **Condition** Control. It will be named **Condition 3**. In the first text box, search for, and add **Description** from the Excel file, using the Dynamic content window. Be sure the center box says **contains**. Then, in the right text box, enter `var_plumbing`. 
+Inside the **Apply to each 4** action, add a **Condition** Control. It will be named **Condition 3**. In the first text box, search for, and add **Description** from the Excel file, using the Dynamic content window. Be sure the center box says **contains**. Then, in the right text box, find and select `var_plumbing`. 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Add Text Analytics credentials to your flow.":::
@@ -212,7 +212,7 @@ In the **If no** condition, click **Add an action** and select **Update a row**.
 
 ## Test the workflow
 
-In the top right corner of the screen, click **Save**, then **Test**. Select  **I’ll perform the trigger action**. Click **Run flow**, then **Done**.
+In the top right corner of the screen, click **Save**, then **Test**. Select  **I’ll perform the trigger action**. Click **Save & Test**, **Run flow**, then **Done**.
 
 The Excel file will get updated in your OneDrive account. It will look like the below.
 
