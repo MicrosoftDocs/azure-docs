@@ -123,6 +123,15 @@ The sample below displays three points without a defined template. In each case,
 <iframe height='500' scrolling='no' title='PopupTemplates' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>PopupTemplates</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+## Reuse popup template
+
+If you only want to show one popup template at a time, for multiple points, then the best approach is to create one popup template and reuse it. By reusing the popup template, the number of DOM elements created by the application is reduced which then improves the performance. The following sample uses the same popup template for three points. If you click on any of them, a popup will be displayed with the content for that point feature.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='ReusePopupTemplate' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>ReusePopupTemplate</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 ## Popup events
 
 Popups can be opened, closed, and dragged. The popup class provides events to help developers react to these events. The following sample highlights which events fire when the user opens, closes, or drags the popup. 
