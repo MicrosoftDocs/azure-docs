@@ -24,11 +24,11 @@ At this time, the conversion service supports these formats:
 ## The conversion process
 
 1. [Prepare two Azure Blob Storage containers](blob-storage.md): one for input, one for output
-1. Upload your model to the input container (optional under a subpath)
+1. Upload your model to the input container (optionally under a subpath)
 1. Trigger the conversion process through [the model conversion REST API](conversion-rest-api.md)
 1. Poll the service for conversion progress
-1. Once finished, load a model 
-    - from a linked storage account (see the "Link storage accounts" steps on [Create an Account](../create-an-account.md#link-storage-accounts) to link your storage account) 
+1. Once finished, load a model
+    - from a linked storage account (see the "Link storage accounts" steps on [Create an Account](../create-an-account.md#link-storage-accounts) to link your storage account)
     - or by providing a *Shared Access Signature (SAS)*.
 
 All model data (input and output) is stored in user provided Azure blob storage. Azure Remote Rendering gives you full control over your asset management.

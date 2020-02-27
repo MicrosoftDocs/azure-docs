@@ -28,13 +28,13 @@ The creation of the storage account and the blob containers can be done with one
 - SDKs (C#, Python ... )
 
 ## Ensure Azure Remote Rendering can access your storage account
-Azure Remote Rending needs to retrieve model data from your storage account and for asset conversion write data back to it. 
 
-You can grant Azure Remote Rendering access to your storage account in two ways: 
-1. Link your storage account 
-2. Provide Shared Access Signatures (SAS)
+Azure Remote Rending needs to retrieve model data from your storage account and for asset conversion write data back to it.
+
+You can grant Azure Remote Rendering access to your storage account in the following two ways:
 
 ### Connect your Azure Storage account with your Azure Remote Rendering Account
+
 Follow the steps given in the [Create an Account](../create-an-account.md#link-storage-accounts) section.
 
 ### Retrieve SAS for the storage containers
@@ -52,7 +52,7 @@ A SAS URI can be generated using one of:
   - right click on container "Get Shared Access Signature" (read, list access for input container, write access for output container)
 - SDKs (C#, Python ... )
 
-An example of using Shared Access Signatures in asset conversion is shown in Conversion.ps1 of the [Powershell Example Scripts](../../samples/powershell-example-scripts.md).
+An example of using Shared Access Signatures in asset conversion is shown in Conversion.ps1 of the [Powershell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 ## Upload an input model
 
@@ -65,7 +65,7 @@ To start converting a model, you need to upload it, using one of the following o
 - [Using a storage SDK (Python, C# ... )](https://docs.microsoft.com/azure/storage/)
 - [Using the Azure Storage REST APIs](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 
-For an example of how to upload data for conversion look at Conversion.ps1 of the [Powershell Example Scripts](../../samples/powershell-example-scripts.md).
+For an example of how to upload data for conversion refer to Conversion.ps1 of the [Powershell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 ## Get a SAS URI for the converted model
 
