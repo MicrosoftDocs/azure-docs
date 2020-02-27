@@ -15,17 +15,31 @@ To upgrade, copy the installer to the host running CycleCloud and run the platfo
 For Debian, use:
 
 ```bash
-dpkg -i cyclecloud_7.5.2-amd64.deb
+dpkg -i cyclecloud_7.9.2-amd64.deb
 ```
 
 For RedHat variants, use:
 
 ```bash
-rpm -U cyclecloud_7.5.2.rpm
+rpm -U cyclecloud_7.9.2.rpm
 ```
 
-> [!NOTE]
-> Legacy versions of CycleCloud ( < 7.5.0) allowed the installation directory to be configured. If CycleCloud is installed in a directory other than _/opt/cycle_server_ please follow the local migration steps below.
+> [!IMPORTANT]
+> Upgrading may have undesired consequences on your CycleCloud environment and any running clusters. Microsoft recommends testing all upgrades in a development or staging environment to minimize risk on production workloads.
+
+## Common Upgrade Questions
+
+**Will my old templates be compatible with this new version?**
+
+Templates should be compatible for minor version upgrades. Upgrades between major version releases may require you to pin clusters to the older version your templates are designed for.
+
+**Is there any downtime associated to the upgrade?**
+
+CycleCloud will be down for a bit while the upgrade occurs. The upgrade typically takes 2-3 minutes.
+
+**Can I run the upgrade while clusters are running?**
+
+Yes, but the clusters will not be able to communicate with CycleCloud while it's down. This means that autoscale, termination requests, etc will not work until the upgrade is complete.
 
 ## Migrate CycleCloud to a New Host
 
