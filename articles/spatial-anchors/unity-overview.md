@@ -1,5 +1,5 @@
 ---
-title: Azure Spatial Anchors Unity Overview
+title: Azure Spatial Anchors Unity overview
 description: Learn how Azure Spatial Anchors can be used within Unity Apps.
 author: rgarcia
 ms.author: rgarcia
