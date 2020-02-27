@@ -2,7 +2,7 @@
 title: What is Blockchain Data Manager for Azure Blockchain Service
 description: Blockchain Data Manager to captures, transforms, and delivers blockchain data to Event Grid Topics.
 ms.date: 11/04/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.reviewer: chroyal
 #Customer intent: As a developer, I want to understand how I can use Blockchain Data Manager to get data from a blockchain ledger.
 ---

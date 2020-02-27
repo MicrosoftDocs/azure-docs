@@ -55,17 +55,32 @@ conceptualContent:
         url: ./manage-apps/index.yml
         text: See more
 
+    - title: Application and HR provisioning 
+      links: 
+        - url: ./app-provisioning/user-provisioning.md
+          itemType: overview
+          text: What is application provisioning? 
+        - url: ./app-provisioning/how-provisioning-works.md
+          itemType: concept
+          text: How application provisioning works 
+        - url: ./app-provisioning/plan-cloud-hr-provision.md
+          itemType: how-to-guide
+          text: Plan a cloud HR provisioning deployment
+      footerLink: 
+        url: ./app-provisioning/index.yml
+        text: See more
+
     - title: Authentication
       links: 
-        - url: ./authentication/concept-mfa-howitworks.md
+        - url: ./authentication/overview-authentication.md
           itemType: concept
-          text: "How it works: Azure MFA"
-        - url: ./authentication/concept-sspr-howitworks.md
-          itemType: concept 
-          text: Azure AD self-service password reset 
-        - url: ./authentication/concept-password-ban-bad.md
-          itemType: concept
-          text: Azure AD password protection 
+          text: What is Azure AD Authentication?
+        - url: ./authentication/tutorial-enable-sspr.md
+          itemType: tutorial 
+          text: Enable self-service password reset 
+        - url: ./authentication/tutorial-enable-azure-mfa.md
+          itemType: tutorial
+          text: Enable Azure Multi-Factor Authentication
       footerLink: 
         url: ./authentication/index.yml
         text: See more

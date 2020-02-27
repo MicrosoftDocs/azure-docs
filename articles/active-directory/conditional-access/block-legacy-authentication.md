@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -45,13 +45,30 @@ Conditional Access policies are enforced after the first-factor authentication h
 
 This section explains how to configure a Conditional Access policy to block legacy authentication. 
 
+### Legacy authentication protocols
+
+The following options are considered legacy authentication protocols
+
+- Authenticated SMTP - Used by POP and IMAP client's to send email messages.
+- Autodiscover - Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.
+- Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+- Exchange Web Services (EWS) - A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.
+- IMAP4 - Used by IMAP email clients.
+- MAPI over HTTP (MAPI/HTTP) - Used by Outlook 2010 and later.
+- Offline Address Book (OAB) - A copy of address list collections that are downloaded and used by Outlook.
+- Outlook Anywhere (RPC over HTTP) - Used by Outlook 2016 and earlier.
+- Outlook Service - Used by the Mail and Calendar app for Windows 10.
+- POP3 - Used by POP email clients.
+- Reporting Web Services - Used to retrieve report data in Exchange Online.
+- Other clients - Other protocols identified as utilizing legacy authentication.
+
 ### Identify legacy authentication use
 
 Before you can block legacy authentication in your directory, you need to first understand if your users have apps that use legacy authentication and how it affects your overall directory. Azure AD sign-in logs can be used to understand if you’re using legacy authentication.
 
 1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-ins**.
 1. Add the Client App column if it is not shown by clicking on **Columns** > **Client App**.
-1. **Add filters** > **Client App** > select all of the options for **Other clients** and click **Apply**.
+1. **Add filters** > **Client App** > select all of the legacy authentication protocols, and click **Apply**.
 
 Filtering will only show you sign-in attempts that were made by legacy authentication protocols. Clicking on each individual sign-in attempt will show you additional details. The **Client App** field under the **Basic Info** tab will indicate which legacy authentication protocol was used.
 

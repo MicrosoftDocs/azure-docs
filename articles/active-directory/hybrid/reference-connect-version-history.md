@@ -34,7 +34,7 @@ While we go through this process, the version number of the release will be show
 Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
-> Starting on November 1st, 2020, we will begin implementing a deprecation process whereby versions of Azure AD Connect that were released more than 18 months ago will be deprecated. At that time we will begin this process by deprecating all releases of Azure AD Connect with version 1.1.751.0 (which was released on 4/12/2018) and older, and we will proceed to evaluate the deprecation of older versions of Azure AD Connect every time a new version releases.
+> Starting on November 1st, 2020, we will begin implementing a deprecation process whereby versions of Azure AD Connect that were released more than 18 months ago will be deprecated. At that time we will begin this process by deprecating all releases of Azure AD Connect with version 1.3.20.0 (which was released on 4/24/2019) and older, and we will proceed to evaluate the deprecation of older versions of Azure AD Connect every time a new version releases.
 >
 > You need to make sure you are running a recent version of Azure AD Connect to receive an optimal support experience. 
 >

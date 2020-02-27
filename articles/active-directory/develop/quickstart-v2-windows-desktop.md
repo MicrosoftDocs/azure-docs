@@ -46,7 +46,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 >      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
 >      - Select **Register** to create the application.
 > 1. In the list of pages for the app, select **Authentication**.
-> 1. In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**.
+> 1. In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, use **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 > 1. Select **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -110,6 +110,7 @@ Then, initialize MSAL using the following code:
 ```csharp
 public static IPublicClientApplication PublicClientApp;
 PublicClientApplicationBuilder.Create(ClientId)
+                .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
                 .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
                 .Build();
 ```

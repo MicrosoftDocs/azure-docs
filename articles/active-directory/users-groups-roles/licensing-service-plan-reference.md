@@ -27,7 +27,7 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 
 - **Product name**: Used in management portals
 - **String ID**: Used by PowerShell v1.0 cmdlets when performing operations on licenses
-- **GUID**: GUID used by Azure AD Graph and Microsoft Graph
+- **GUID**: GUID used by the Microsoft Graph API
 - **Service plans included**: A list of service plans in the product that correspond to the string ID and GUID
 - **Service plans included (friendly names)**: A list of service plans (friendly names) in the product that correspond to the string ID and GUID
 

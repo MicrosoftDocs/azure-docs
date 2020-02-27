@@ -28,3 +28,15 @@
     href: security-control-incident-response.md
   - name: Penetration Tests and Red Team Exercises
     href: security-control-penetration-tests-red-team-exercises.md
+- name: Security Baselines
+  items:
+  - name: Overview of Azure security baselines
+    href: security-baselines-overview.md
+  - name: Batch security baseline
+    href: ../../batch/security-baseline.md
+  - name: Key Vault security baseline
+    href: ../../key-vault/security-baseline.md
+  - name: HDInsight security baseline
+    href: ../../hdinsight/security-baseline.md
+  - name: SQL Database security baseline
+    href: ../../sql-database/security-baseline.md

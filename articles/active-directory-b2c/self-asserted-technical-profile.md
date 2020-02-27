@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -52,7 +52,7 @@ In a self-asserted technical profile, you can use the **InputClaims** and **Inpu
 
 The display claims feature is currently in **preview**.
 
-The **DisplayClaims** element contains a list of claims to be presented on the screen for collecting data from the user. To prepopulate the values of output claims, use the input claims that were previously described. The element may also contain a default value.
+The **DisplayClaims** element contains a list of claims to be presented on the screen for collecting data from the user. To prepopulate the values of display claims, use the input claims that were previously described. The element may also contain a default value.
 
 The order of the claims in **DisplayClaims** specifies the order in which Azure AD B2C renders the claims on the screen. To force the user to provide a value for a specific claim, set the **Required** attribute of the **DisplayClaim** element to `true`.
 
@@ -186,14 +186,21 @@ You can also call a REST API technical profile with your business logic, overwri
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false` |
-| setting.showCancelButton | No | Displays the cancel button. Possible values: `true` (default), or `false` |
-| setting.operatingMode | No | For a sign-in page, this property controls the behavior of the username field, such as input validation and error messages. Expected values: `Username` or `Email`. |
+| setting.operatingMode <sup>1</sup>| No | For a sign-in page, this property controls the behavior of the username field, such as input validation and error messages. Expected values: `Username` or `Email`.  |
+| AllowGenerationOfClaimsWithNullValues| No| Allow to generate a claim with null value. For example, in a case user doesn't select a checkbox.|
 | ContentDefinitionReferenceId | Yes | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. |
 | EnforceEmailVerification | No | For sign-up or profile edit, enforces email verification. Possible values: `true` (default), or `false`. |
-| setting.showSignupLink | No | Displays the sign-up button. Possible values: `true` (default), or `false` |
 | setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile . For example, a user tries to sign-up with an account that already exists and keeps trying until the limit reached.
-| SignUpTarget | No | The signup target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange identifier. |
+| SignUpTarget <sup>1</sup>| No | The signup target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange identifier. |
+| setting.showCancelButton | No | Displays the cancel button. Possible values: `true` (default), or `false` |
+| setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false` |
+| setting.showSignupLink <sup>2</sup>| No | Displays the sign-up button. Possible values: `true` (default), or `false` |
+| setting.forgotPasswordLinkLocation <sup>2</sup>| No| Displays the forgot password link. Possible values: `AfterInput` (default) the link is displayed at the bottom of the page, or `None` removes the forgot password link.| 
+| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
+
+Notes:
+1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`.
+1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`. [Page layout version](page-layout.md) 1.1.0 and above.
 
 ## Cryptographic keys
 

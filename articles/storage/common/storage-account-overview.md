@@ -68,7 +68,7 @@ BlockBlobStorage accounts don't currently support tiering to hot, cool, or archi
 
 A FileStorage account is a specialized storage account used to store and create premium file shares. This storage account kind supports files but not block blobs, append blobs, page blobs, tables, or queues.
 
-FileStorage accounts offer unique performance characteristics, such as IOPS bursting. For more information on these characteristics, see the [File share performance tiers](../files/storage-files-planning.md#file-share-performance-tiers) section of the Files planning guide.
+FileStorage accounts offer unique performance dedicated characteristics such as IOPS bursting. For more information on these characteristics, see the [File share storage tiers](../files/storage-files-planning.md#storage-tiers) section of the Files planning guide.
 
 ## Naming storage accounts
 
@@ -111,11 +111,9 @@ If there's a change in the usage pattern of your data, you can switch between th
 > [!IMPORTANT]
 > Changing the access tier for an existing storage account or blob may result in additional charges. For more information, see the [Storage account billing section](#storage-account-billing).
 
-## Replication
+## Redundancy
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-For more information about storage replication, see [Azure Storage replication](storage-redundancy.md).
 
 ## Encryption
 

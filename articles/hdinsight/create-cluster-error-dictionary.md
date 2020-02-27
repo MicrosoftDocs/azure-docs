@@ -1,13 +1,14 @@
 ---
 title: Create a cluster error dictionary
 description: Learn how to create a cluster error dictionary.
-ms.reviewer: hrasheed
+
 author: karkrish
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: troubleshooting
-ms.date: 11/19/2019
 ms.author: v-todmc
+ms.reviewer: hrasheed
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/19/2019
 ---
 
 
@@ -168,7 +169,7 @@ You didn't provide the permissions required to manage identity. The user-assigne
 1. Open the Azure portal.
 1. Go to your storage account.
 1. Look under **Access Control (IAM)**.
-1. Make sure that the Storage Blob Data Contributor role or the Storage Blob Data Owner role has "Assigned" access to the user-assigned managed identity for the subscription.
+1. Make sure that the user has the Storage Blob Data Contributor role or the Storage Blob Data Owner role assigned to them.
 
 For more information, see [Set up permissions for the managed identity on the Data Lake Storage Gen2 account](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
@@ -206,7 +207,7 @@ Typically, this error is generated when there's a transient problem or an Azure 
 
 ### Resolution
 
-Check the [Azure status](https://status.azure.com/status) page for any Azure outages that might affect cluster deployment. If there are no outages, retry cluster deployment.
+Check the [Azure status](https://status.azure.com) page for any Azure outages that might affect cluster deployment. If there are no outages, retry cluster deployment.
 
 ## Next steps
 
