@@ -318,7 +318,7 @@ If you see the error, "Can't find app with name ...", wait a few seconds and try
 
 The publish command shows results similar to the following output (truncated for simplicity):
 
-<pre><code>
+<pre>
 ...
 
 Getting site publishing info...
@@ -333,7 +333,7 @@ Syncing triggers...
 Functions in msdocs-azurefunctions-qs:
     HttpExample - [httpTrigger]
         Invoke url: https://msdocs-azurefunctions-qs.azurewebsites.net/api/httpexample?code=KYHrydo4GFe9y0000000qRgRJ8NdLFKpkakGJQfC3izYVidzzDN4gQ==
-</code></pre>
+</pre>
 
 ## Invoke the function on Azure
 

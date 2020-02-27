@@ -171,7 +171,7 @@ You can view the queue in the [Azure portal](../storage/queues/storage-quickstar
     az storage message peek --queue-name outqueue -o tsv --query [].{Message:content} > %TEMP%out.b64 && certutil -decode -f %TEMP%out.b64 %TEMP%out.txt > NUL && type %TEMP%out.txt && del %TEMP%out.b64 %TEMP%out.txt /q
     ```
 
-    This script uses certutil to decode the base64-encoded message collection from a local temp file. If there's no output, try removing `> NUL` from the script and stop suppressing certutil message, in case there's an error. 
+    This script uses certutil to decode the base64-encoded message collection from a local temp file. If there's no output, try removing `> NUL` from the script to stop suppressing certutil output, in case there's an error. 
     
     ---
     

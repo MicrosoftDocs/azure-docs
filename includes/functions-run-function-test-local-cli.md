@@ -25,7 +25,7 @@ npm start
 
 Toward the end of the output, the following lines should appear: 
 
-<pre><code>
+<pre>
 ...
 
 Now listening on: http://0.0.0.0:7071
@@ -36,9 +36,9 @@ Http Functions:
         HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
 ...
 
-</code></pre>
+</pre>
 
->[!NOTE]
+>[!NOTE]  
 > If HttpExample doesn't appear as shown below, you likely started the host from within the *HttpExample* folder. In that case, use **Ctrl**+**C** to stop the host, navigate to the parent *LocalFunctionProj* folder, and run the previous command again.
 
 Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
