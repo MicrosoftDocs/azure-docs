@@ -2,12 +2,12 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 02/26/2020
 ms.author: dacoulte
 ---
 
 |Name |Description |Effect(s) |Version |Source |
-|---|---|---|---|
+|---|---|---|---|---|
 |[\[Preview\]: \[AKS Engine\] Do not allow privileged containers in Kubernetes cluster](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |This policy does not allow privileged containers creation in a Kubernetes cluster. For instructions on using this policy, please go to https://aka.ms/kubepolicydoc. |enforceOPAConstraint, disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilege_EnforceOPAConstraint.json)
 |[\[Preview\]: \[AKS Engine\] Enforce HTTPS ingress in Kubernetes cluster](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |This policy enforces HTTPS ingress in a Kubernetes cluster. For instructions on using this policy, please go to https://aka.ms/kubepolicydoc. |enforceOPAConstraint, disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly_EnforceOPAConstraint.json)
 |[\[Preview\]: \[AKS Engine\] Enforce internal load balancers in Kubernetes cluster](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3fc4dc25-5baf-40d8-9b05-7fe74c1bc64e) |This policy enforces load balancers do not have public IPs in a Kubernetes cluster. For instructions on using this policy, please go to https://aka.ms/kubepolicydoc. |enforceOPAConstraint, disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/LoadbalancerNoPublicIPs_EnforceOPAConstraint.json)
