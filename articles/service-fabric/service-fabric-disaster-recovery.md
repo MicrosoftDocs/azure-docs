@@ -75,21 +75,32 @@ Above we talked about single failures. As you can see, are easy to handle for bo
 
 
 ### Random failures leading to service failures
-Let's say that the service had an `InstanceCount` of 5, and several nodes running those instances all failed at the same time. Service Fabric responds by automatically creating replacement instances on other nodes. It will continue creating replacements until the service is back to its desired instance count. As another example, let's say there was a stateless service with an `InstanceCount`of -1, meaning it runs on all valid nodes in the cluster. Let's say that some of those instances were to fail. In this case, Service Fabric notices that the service is not in its desired state, and tries to create the instances on the nodes where they are missing. 
 
-For stateful services the situation depends on whether the service has persisted state or not. It also depends on how many replicas the service had and how many failed. Determining whether a disaster occurred for a stateful service and managing it follows three stages:
+#### Stateless Services
+`InstanceCount` for the Service indicate the desired number of instances which need to be running. When any (or all) of the instances fail, Service Fabric will respond by automatically creating replacement instances on other nodes. Service Fabric will continue creating replacements until the service is back to its desired instance count.
+Another example, if the stateless service has `InstanceCount` of -1, meaning one instance should be running on each of the nodes in the cluster. If some of those instances were to fail, then Service Fabric will detect that service is not in its desired state and will try to create the instances on the nodes where they are missing.
+
+#### Stateful Services
+There are two types of stateful services:
+1. Stateful with persisted state
+2. Stateful with non-persisted state (state is stored in memory)
+
+Stateful service failure recovery depends on the type of the stateful service and how many replicas the service had and how many failed.
+
+What is Quorum?
+In a stateful service, incoming data is replicated between replicas (Primary and ActiveSecondary). If majority of the replicas receive the data, data is considered quorum committed (for 5 replicas, 3 will be _quorum_). This means at any given point it is guaranteed that there will be at least quorum of replicas with latest data. If replica(s) fail (say 2 out of 5 replicas failed), we can use quorum value to calculate if we can recover (since remaining 3 out of 5 replicas are still up, it is guaranteed that at least 1 replica will have complete data).
+
+What is Quorum Loss?
+When quorum of replicas fail, partition is declared as to be in Quorum Loss state. Say a partition has 5 replicas, which means at least 3 are guaranteed to have complete data. If quorum (3 out 5) of replicas fail, then Service Fabric cannot determine if remaining replicas (2 out 5) have enough data to restore the partition.
+
+Determining whether a disaster occurred for a stateful service and managing it follows three stages:
 
 1. Determining if there has been quorum loss or not
-   - A quorum loss is any time a majority of the replicas of a stateful service are down at the same time, including the Primary.
+    - Quorum loss is declared when a majority of the replicas of a stateful service are down at the same time.
 2. Determining if the quorum loss is permanent or not
    - Most of the time, failures are transient. Processes are restarted, nodes are restarted, VMs are relaunched, network partitions heal. Sometimes though, failures are permanent. 
-     - For services without persisted state, a failure of a quorum or more of replicas results _immediately_ in permanent quorum loss. When Service Fabric detects quorum loss in a stateful non-persistent service, it immediately proceeds to step 3 by declaring (potential) data loss. Proceeding to data loss makes sense because Service Fabric knows that there's no point in waiting for the replicas to come back, because even if they were recovered they would be empty.
-     - For stateful persistent services, a failure of a quorum or more of replicas causes Service Fabric to start waiting for the replicas to come back and restore quorum. This results in a service outage for any _writes_ to the affected partition (or "replica set") of the service. However, reads may still be possible with reduced consistency guarantees. The default amount of time that Service Fabric waits for quorum to be restored is infinite, since proceeding is a (potential) data loss event and carries other risks. Overriding the default `QuorumLossWaitDuration` value is possible but is not recommended. Instead at this time, all efforts should be made to restore the down replicas. This requires bringing the nodes that are down back up, and ensuring that they can remount the drives where they stored the local persistent state. If the quorum loss is caused by process failure, Service Fabric automatically tries to recreate the processes and restart the replicas inside them. If this fails, Service Fabric reports health errors. If these can be resolved then the replicas usually come back. Sometimes, though, the replicas can't be brought back. For example, the drives may all have failed, or the machines physically destroyed somehow. In these cases, we now have a permanent quorum loss event. To tell Service Fabric to stop waiting for the down replicas to come back, a cluster administrator must determine which partitions of which services are affected and call the `Repair-ServiceFabricPartition -PartitionId` or `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API.  This API allows specifying the ID of the partition to move out of QuorumLoss and into potential dataloss.
-
-   > [!NOTE]
-   > It is _never_ safe to use this API other than in a targeted way against specific partitions. 
-   >
-
+     - For services without persisted state, a failure of a quorum or more of replicas results _immediately_ in permanent quorum loss. When Service Fabric detects quorum loss in a stateful non-persistent service, it will immediately proceed to step 3 by declaring (potential) data loss. Proceeding to data loss makes sense because Service Fabric knows that there's no point in waiting for the replicas to come back, because even if they were recover, due to non-persisted nature of the service the data has been lost.
+     - For stateful persistent services, a failure of a quorum or more of replicas causes Service Fabric to wait for the replicas to come back and restore quorum. This results in a service outage for any _writes_ to the affected partition (or "replica set") of the service. However, reads may still be possible with reduced consistency guarantees. The default amount of time that Service Fabric waits for quorum to be restored is infinite, since proceeding is a (potential) data loss event and carries other risks.
 3. Determining if there has been actual data loss, and restoring from backups
    - When Service Fabric calls the `OnDataLossAsync` method, it is always because of _suspected_ data loss. Service Fabric ensures that this call is delivered to the _best_ remaining replica. This is whichever replica has made the most progress. The reason we always say _suspected_ data loss is that it is possible that the remaining replica actually has all same state as the Primary did when it went down. However, without that state to compare it to, there's no good way for Service Fabric or operators to know for sure. At this point, Service Fabric also knows the other replicas are not coming back. That was the decision made when we stopped waiting for the quorum loss to resolve itself. The best course of action for the service is usually to freeze and wait for specific administrative intervention. So what does a typical implementation of the `OnDataLossAsync` method do?
    - First, log that `OnDataLossAsync` has been triggered, and fire off any necessary administrative alerts.
@@ -105,6 +116,23 @@ If you find out that the remaining replicas are insufficient to continue from in
 > [!NOTE]
 > System services can also suffer quorum loss, with the impact being specific to the service in question. For instance, quorum loss in the naming service impacts name resolution, whereas quorum loss in the failover manager service blocks new service creation and failovers. While the Service Fabric system services follow the same pattern as your services for state management, it is not recommended that you should attempt to move them out of Quorum Loss and into potential data loss. The recommendation is instead to [seek support](service-fabric-support.md) to determine a solution that is targeted to your specific situation.  Usually it is preferable to simply wait until the down replicas return.
 >
+
+#### Troubleshooting Quorum Loss
+
+Replicas could be down intermittently due to transient failure. Wait for some time as Service Fabric will try to bring them up. If replicas have been down for more than expected duration, then please follow the below troubleshooting steps.
+- Replicas could be crashing. Check replica level health reports and your application logs. Collect crash dumps and take necessary action to recover.
+- Replica process could have become unresponsive. Inspect your application logs to verify this. Collect process dump and then kill the unresponsive process. Service Fabric will create replacement process and will try to bring the replica back.
+- Nodes hosting the replicas could be down. Restart the underlying VM to bring the nodes up.
+
+There could be situations where it is not possible to recover replicas for example, the drives may have failed or the machines physically not responding. In these cases, Service Fabric needs to be told to not to wait for replica recovery.
+DO NOT use these methods if potential DATA LOSS is not acceptable to bring the service online in which case all efforts should be made to towards recovering physical machines.
+
+If potential DATA LOSS is acceptable to bring back the service online, then use one of the two following methods:
+   > [!NOTE]
+   > It is _never_ safe to use these methods other than in a targeted way against specific partitions. 
+   >
+- Use `Repair-ServiceFabricPartition -PartitionId` or `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API. This API allows specifying the ID of the partition to recover from the QuorumLoss with potential data loss.
+- If your cluster encounter frequent failures causing services to go into Quorum Loss state and potential _DATA LOSS is ACCEPTABLE_ then specifying appropriate [QuorumLossWaitDuration](https://docs.microsoft.com/en-us/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) value can help your service auto-recover. Service Fabric will wait for provided QuorumLossWaitDuration (default is infinite) before performing recovery. This method is _NOT RECOMMENDED_ since this can cause unexpected data losses.
 
 ## Availability of the Service Fabric cluster
 Generally speaking, the Service Fabric cluster itself is a highly distributed environment with no single points of failure. A failure of any one node will not cause availability or reliability issues for the cluster, primarily because the Service Fabric system services follow the same guidelines provided earlier: they always run with three or more replicas by default, and those system services that are stateless run on all nodes. The underlying Service Fabric networking and failure detection layers are fully distributed. Most system services can be rebuilt from metadata in the cluster, or know how to resynchronize their state from other places. The availability of the cluster can become compromised if system services get into quorum loss situations like those described above. In these cases you may not be able to perform certain operations on the cluster like starting an upgrade or deploying new services, but the cluster itself is still up. Services on already running will remain running in these conditions unless they require writes to the system services to continue functioning. For example, if the Failover Manager is in quorum loss all services will continue to run, but any services that fail will not be able to automatically restart, since this requires the involvement of the Failover Manager. 
