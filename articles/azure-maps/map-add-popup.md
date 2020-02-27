@@ -89,7 +89,7 @@ When you have a large number of points and only want to show one popup at a time
 
 ## Add popup templates to the map
 
-The following samples demonstrate the use of various popup templates to generate formatted content using properties of features. Popup templates make it easy to create data driven layouts for popups.
+Popup templates make it easy to create data driven layouts for popups. The following samples demonstrate the use of various popup templates to generate formatted content using properties of features.
 
 ### Display strings 
 
