@@ -111,7 +111,7 @@ A list of samples showing how to integrate Azure Active Directory (AAD) with Azu
     
 For more information, see the [Authentication with Azure Maps](azure-maps-authentication.md) document and also the [Azure Maps Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples).
 
-6.Optionally, you may find adding the following meta tag elements to the head of your page helpful:
+6. Optionally, you may find adding the following meta tag elements to the head of your page helpful:
 
 ```HTML
     <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
@@ -121,7 +121,7 @@ For more information, see the [Authentication with Azure Maps](azure-maps-authen
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 ```
 
-7.Putting it all together your HTML file should look something like the following code:
+7. Putting it all together your HTML file should look something like the following code:
 
 ```HTML
     <!DOCTYPE html>
