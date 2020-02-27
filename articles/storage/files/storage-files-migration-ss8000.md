@@ -11,7 +11,7 @@ ms.subservice: files
 
 # StorSimple 8100 and 8600 migration to Azure File Sync
 
-StorSimple 8000 series encompasses two different physical SorSimple appliances that only differentiate in the amount of local cache size (disk space). This appliance is run in an on-premises data center and acts as a cache to the data stored in Azure.
+StorSimple 8000 series encompasses two different physical StorSimple appliances that only differentiate in the amount of local cache size (disk space). This appliance is run in an on-premises data center and acts as a cache to the data stored in Azure.
 With the announced end-of-service-life of the StorSimple product line on December 31 2022, the cloud service this appliance is connected to, will stop working.
 
 It is imperative to migrate off of any StorSimple device with ample time to spare.
@@ -164,18 +164,18 @@ Only proceed when you have completed this step for all the volumes that need mig
 
 ### Mapping your existing namespaces to Azure file shares
 
-[!INCLUDE [storage-files-migration-namespace-mapping](includes/storage-files-migration-namespace-mapping.md)]
+[!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
 ### Deploy Azure file shares
 
-[!INCLUDE [storage-files-migration-provision-AzFS](includes/storage-files-migration-provision-AzFS.md)]
+[!INCLUDE [storage-files-migration-provision-AzFS](../../../includes/storage-files-migration-provision-AzFS.md)]
 
 > [!TIP]
 > If you need to change the Azure region from the current region your StorSimple data resides in, then provision the Azure file shares in the new region you want to use. You determine the region by selecting it when you provision the storage accounts that hold your Azure file shares. Make sure that also the Azure File Sync resource you will provision below, is in that same, new region.
 
 ### Deploy the Azure File Sync cloud resource
 
-[!INCLUDE [storage-files-migration-deploy-AFS-sss](includes/storage-files-migration-deploy-AFS-sss.md)]
+[!INCLUDE [storage-files-migration-deploy-AFS-sss](../../../includes/storage-files-migration-deploy-AFS-sss.md)]
 
 > [!TIP]
 > If you needed to change the Azure region from the current region your StorSimple data resides in, then you have provisioned the storage accounts for your Azure file shares in the new region. Make sure that you selected that same region when you deploy this storage sync service.
@@ -190,13 +190,13 @@ You can add or remove storage to your Windows Server over time, thus allowing yo
 
 ### Prepare the Windows Server for file sync
 
-[!INCLUDE [storage-files-migration-deploy-AFS-agent](includes/storage-files-migration-deploy-AFS-agent.md)]
+[!INCLUDE [storage-files-migration-deploy-AFS-agent](../../../includes/storage-files-migration-deploy-AFS-agent.md)]
 
 ### Configure Azure File Sync on the Windows Server
 
 For this, you need your registered, on-premises Windows Server ready, and still internet connected.
 
-[!INCLUDE [storage-files-migration-configure-sync](includes/storage-files-migration-configure-sync.md)]
+[!INCLUDE [storage-files-migration-configure-sync](../../../includes/storage-files-migration-configure-sync.md)]
 
 > [!WARNING]
 > **Be sure to turn on cloud tiering!** Cloud tiering is the AFS feature that allows the local server to have less storage capacity than is stored in the cloud, yet have the full namespace available. Locally interesting data is also cached locally for fast, local access performance. Another reason to turn on cloud tiering at this step is that we do not want to sync file content at this stage, only the namespace should be moving at this time.

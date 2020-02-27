@@ -63,15 +63,15 @@ This article will assume you are mapping 1:1, so you must take your mapping chan
 
 ### Step 3: Deploy the first Azure File Sync cloud resource
 
-[!INCLUDE [storage-files-migration-deploy-AFS-sss](includes/storage-files-migration-deploy-AFS-sss.md)]
+[!INCLUDE [storage-files-migration-deploy-AFS-sss](../../../includes/storage-files-migration-deploy-AFS-sss.md)]
 
 ### Step 4: Matching your local volume and folder structure to Azure File Sync and Azure file share resources
 
-[!INCLUDE [storage-files-migration-namespace-mapping](includes/storage-files-migration-namespace-mapping.md)]
+[!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
 ### Step 5: Provision Azure file shares
 
-[!INCLUDE [storage-files-migration-provision-AzFS](includes/storage-files-migration-provision-AzFS.md)]
+[!INCLUDE [storage-files-migration-provision-AzFS](../../../includes/storage-files-migration-provision-AzFS.md)]
 
 ### Step 6: Configure Windows Server target folders
 
@@ -84,11 +84,11 @@ The number of Azure file shares you have provisioned should match the number of 
 
 ### Step 7: Deploy the Azure File Sync agent
 
-[!INCLUDE [storage-files-migration-deploy-AFS-agent](includes/storage-files-migration-deploy-AFS-agent.md)]
+[!INCLUDE [storage-files-migration-deploy-AFS-agent](../../../includes/storage-files-migration-deploy-AFS-agent.md)]
 
 ### Step 8: Configure sync
 
-[!INCLUDE [storage-files-migration-configure-sync](includes/storage-files-migration-configure-sync.md)]
+[!INCLUDE [storage-files-migration-configure-sync](../../../includes/storage-files-migration-configure-sync.md)]
 
 > [!WARNING]
 > **Be sure to turn on cloud tiering!** This is required if your local server does not have enough space to store the total size of your data in the StorSimple cloud storage. Set your tiering policy, temporarily for the migration, to 99% volume free space.
