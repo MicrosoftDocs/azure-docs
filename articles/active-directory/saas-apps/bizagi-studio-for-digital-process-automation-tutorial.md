@@ -80,20 +80,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
 	a. In the **Sign on URL** text box, type a URL:
-    `https://my-company.bizagi.com/my-project`
+    `https://<COMPANYNAME>.bizagi.com/<PROJECTNAME>`
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
-    `https://my-company.bizagi.com/my-project`
+    `https://<COMPANYNAME>.bizagi.com/<PROJECTNAME>`
 
-1. Bizagi Studio for Digital Process Automation application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
-
-	![image](common/default-attributes.png)
-
-1. In addition to above, Bizagi Studio for Digital Process Automation application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-
-	| Name | Source Attribute|
-	| ------------ | --------- |
-	| nameid | user.mail |
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign-on URL and Identifier. Contact [Bizagi Studio for Digital Process Automation support team](mailto:jarvein.rivera@bizagi.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
