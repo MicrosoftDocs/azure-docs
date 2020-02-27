@@ -102,7 +102,7 @@ More formally, the JSON data has the following fields:
 
 | Field name | Description |
 | --- | --- |
-| `$dtId` | A user-provided string representing the ID of the digital twin. For [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) digital twins, this string is the same as a device identity ID string. Syntactic restriction as specified in IoT Hub public docs. |
+| `$dtId` | A user-provided string representing the ID of the digital twin. |
 | `$conformance` | An enum containing the conformance status of this digital twin (conformant, non-conformant, unknown) |
 | `{propertyName}` | The value of a property in JSON (string, number, or object). |
 | `$relationships` | URL of the path to the relationships collection. This field is absent if the digital twin has no outgoing edges. |
