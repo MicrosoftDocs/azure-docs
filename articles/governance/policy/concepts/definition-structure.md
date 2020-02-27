@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 11/26/2019
+ms.date: 02/26/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -202,20 +202,22 @@ properties](#parameter-properties).
 
 ### strongType
 
-Within the `metadata` property, you can use **strongType** to provide a multi-select list of
-options within the Azure portal. Allowed values for **strongType** currently include:
+Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
+within the Azure portal. **strongType** can be a supported _resource type_ or an allowed
+value. To determine if a _resource type_ is valid for **strongType**, use
+[Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+
+Some _resource types_ not returned by **Get-AzResourceProvider** are supported. Those are:
+
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
+
+The non _resource type_ allowed values for **strongType** are:
 
 - `location`
 - `resourceTypes`
 - `storageSkus`
 - `vmSKUs`
 - `existingResourceGroups`
-- `omsWorkspace`
-- `Microsoft.EventHub/Namespaces/EventHubs`
-- `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
-- `Microsoft.EventHub/Namespaces/AuthorizationRules`
-- `Microsoft.RecoveryServices/vaults`
-- `Microsoft.RecoveryServices/vaults/backupPolicies`
 
 ## Definition location
 
@@ -852,6 +854,10 @@ management because you work with a group as a single item. For example, you can 
 tagging policy definitions into a single initiative. Rather than assigning each policy individually,
 you apply the initiative.
 
+> [!NOTE]
+> Once an initiative is assigned, initative level parameters can't be altered. Due to this, the
+> recommendation is to set a **defaultValue** when defining the parameter.
+
 The following example illustrates how to create an initiative for handling two tags: `costCenter`
 and `productName`. It uses two built-in policies to apply the default tag value.
 
@@ -866,13 +872,15 @@ and `productName`. It uses two built-in policies to apply the default tag value.
                 "type": "String",
                 "metadata": {
                     "description": "required value for Cost Center tag"
-                }
+                },
+                "defaultValue": "DefaultCostCenter"
             },
             "productNameValue": {
                 "type": "String",
                 "metadata": {
                     "description": "required value for product Name tag"
-                }
+                },
+                "defaultValue": "DefaultProduct"
             }
         },
         "policyDefinitions": [{

@@ -67,7 +67,7 @@ To onboard servers to Security Center, click **Go to Azure Security Center to on
 To view if Microsoft Defender ATP integration is enabled, select **Security center** > **Pricing & settings** > click on your subscription.
 Here you can see the integrations currently enabled.
 
-  ![Azure Security Center Threat detection settings page with Microsoft Defender ATP integration enabled](media/security-center-wdatp/enable-integrations.png)
+  ![Azure Security Center threat detection settings page with Microsoft Defender ATP integration enabled](media/security-center-wdatp/enable-integrations.png)
 
 - If you've already onboarded the servers to Azure Security Center standard tier, you need take no further action. Azure Security Center will automatically onboard the servers to Microsoft Defender ATP. Onboarding might take up to 24 hours.
 
@@ -89,9 +89,11 @@ If you have a proxy or firewall that is blocking anonymous traffic, as a Microso
 
 To generate a benign Microsoft Defender ATP test alert:
 
-1. Use Remote Desktop to access either a Windows Server 2012 R2 VM or a Windows Server 2016 VM. Open a Command Prompt window.
+1. Create a folder 'C:\test-WDATP-test'.
 
-2. At the prompt, copy and run the following command. The Command Prompt window will close automatically.
+1. Use Remote Desktop to access either a Windows Server 2012 R2 VM or a Windows Server 2016 VM. Open a command line window.
+
+1. At the prompt, copy and run the following command. The Command Prompt window will close automatically.
 
     ```
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-WDATP-test\\invoice.exe'); Start-Process 'C:\\test-WDATP-test\\invoice.exe'
