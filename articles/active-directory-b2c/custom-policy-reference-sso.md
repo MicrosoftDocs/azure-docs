@@ -35,7 +35,7 @@ SSO management classes are specified using the `<UseTechnicalProfileForSessionMa
 
 ## Input claims
 
-The InputClaims is empty or absent. 
+The `InputClaims` element is empty or absent. 
 
 ## Persisted claims
 
@@ -49,7 +49,7 @@ The `<OutputClaims>` is used for retrieving claims from the session.
 
 ### NoopSSOSessionProvider
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile. The following `SM-Noop` technial profile that is included in the custom [policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack). 
+As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile. The following `SM-Noop` technical profile that is included in the custom [policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack). 
 
 ```XML
 <TechnicalProfile Id="SM-Noop">
@@ -60,7 +60,7 @@ As the name dictates, this provider does nothing. This provider can be used for 
 
 ### DefaultSSOSessionProvider
 
-This provider can be used for storing claims in a session. This provider is typically referenced in a technical profile used for managing local accounts. The following `SM-AAD` technial profile that is included in the custom [policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack). 
+This provider can be used for storing claims in a session. This provider is typically referenced in a technical profile used for managing local accounts. The following `SM-AAD` technical profile that is included in the custom [policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack). 
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
@@ -80,7 +80,7 @@ This provider can be used for storing claims in a session. This provider is typi
 </TechnicalProfile>
 ```
 
-The following `SM-MFA` technial profile that is included in the custom [policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`. This technical profile manages the multi-factor authentication session. 
+The following `SM-MFA` technical profile that is included in the custom [policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`. This technical profile manages the multi-factor authentication session. 
 
 ```XML
 <TechnicalProfile Id="SM-MFA">
@@ -95,10 +95,9 @@ The following `SM-MFA` technial profile that is included in the custom [policy s
 </TechnicalProfile>
 ```
 
-
 ### ExternalLoginSSOSessionProvider
 
-This provider is used to suppress the “choose identity provider” screen. It is typically referenced in a technical profile configured for an external identity provider, such as Facebook. The following `SM-SocialLogin` technial profile that is included in the custom [policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack).
+This provider is used to suppress the “choose identity provider” screen. It is typically referenced in a technical profile configured for an external identity provider, such as Facebook. The following `SM-SocialLogin` technical profile that is included in the custom [policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">
