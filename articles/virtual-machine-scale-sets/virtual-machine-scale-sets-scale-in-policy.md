@@ -51,6 +51,17 @@ A scale-in policy is defined in the virtual machine scale set model. As noted in
 
 A scale-in policy can be defined on the virtual machine scale set model in the following ways:
 
+### Azure Portal
+ 
+The following steps define the scale-in policy when creating a new scale set. 
+ 
+1. Go to **Virtual machine scale sets**.
+1. Select **+ Add** to create a new scale set.
+1. Go to the **Scaling** tab. 
+1. Locate the **Scale-in policy** section.
+1. Select a scale-in policy from the drop-down.
+1. When you are done creating the new scale set, select **Review + create** button.
+
 ### Using API
 
 Execute a PUT on the virtual machine scale set using API 2019-03-01:
