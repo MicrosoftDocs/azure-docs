@@ -170,7 +170,7 @@ The script demonstrates the two options to use storage accounts with the service
 
 ### Linked storage account
 
-Once you have fully filled out arrconfig.json and linked a storage account you can use the following command. Linking your storage account is described at [Create an Account](../how-tos/create-an-account.md#link-storage-accounts).
+Once you've fully filled out arrconfig.json and linked a storage account, you can use the following command. Linking your storage account is described at [Create an Account](../how-tos/create-an-account.md#link-storage-accounts).
 
 Using a linked storage account is the preferred way to use the conversion service since there's no need to generate Shared Access Signatures.
 
