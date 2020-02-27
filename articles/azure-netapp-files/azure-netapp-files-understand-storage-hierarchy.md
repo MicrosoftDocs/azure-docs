@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/27/2019
+ms.date: 02/27/2020
 ms.author: b-juche
 ---
 # What is the storage hierarchy of Azure NetApp Files
