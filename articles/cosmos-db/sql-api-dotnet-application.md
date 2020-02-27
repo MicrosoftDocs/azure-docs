@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 02/27/2020
 ms.author: sngun
 ---
 
@@ -166,29 +166,7 @@ And finally, add a view to edit an item with the following steps:
 
 Once you complete these steps, close all the *cshtml* documents in Visual Studio as you return to these views later.
 
-### <a name="add-a-controller"></a>Add a controller
-
-1. In **Solution Explorer**, right-click the **Controllers** folder, select **Add** > **Controller**.
-
-1. In **Add Scaffold**, select **MVC Controller - Empty** and select **Add**.
-
-   ![Select MVC Controller - Empty in Add Scaffold](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
-
-1. Name your new controller *ItemController*.
-
-1. Replace the contents of *ItemController.cs* with the following code:
-
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs":::
-
-The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. Your views should work with this anti-forgery token as well. For more information and examples, see [Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET MVC Application][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
-
-We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more information, see [Tutorial: Implement CRUD Functionality with the Entity Framework in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
-
-## <a name="connect-to-cosmosdb"></a>Step 5: Connect to Azure Cosmos DB
-
-Now that the standard MVC stuff is taken care of, let's turn to adding the code to connect to Azure Cosmos DB and do CRUD operations.
-
-### <a name="perform-crud-operations"></a>Perform CRUD operations on the data
+### <a name="initialize-services"></a>Declare and initialize services
 
 First, we'll add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial, we'll encapsulate this logic into a class called `CosmosDBService` and an interface called `ICosmosDBService`. This service does the CRUD operations. It also does read feed operations such as listing incomplete items, creating, editing, and deleting the items.
 
@@ -204,13 +182,9 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
-1. Register the **CosmosDBService** implementation with the container.
+1. Open the *Startup.cs* file in your solution and replace the `ConfigureServices` method with:
 
-    The code in the previous step receives a `CosmosClient` as part of the constructor. In order to tell ASP.NET Core pipeline how to create that object, edit the project's *Startup.cs* file and add the following line to the **ConfigureServices** handler:
-
-    ```csharp
-    services.AddSingleton<ICosmosDbService>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
-    ```
+    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
 
     The code in this step initializes the client based on the configuration as a singleton instance to be injected through [Dependency injection in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
 
@@ -229,19 +203,29 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
       }
    ```
 
-If you run the application, ASP.NET Core's pipeline instantiates **CosmosDbService** and maintain a single instance as singleton. When **ItemController** processes client-side requests, it receives this single instance and can use it for CRUD operations.
+### <a name="add-a-controller"></a>Add a controller
 
-If you build and run this project now, you should now see something that looks like this:
+1. In **Solution Explorer**, right-click the **Controllers** folder, select **Add** > **Controller**.
 
-![Screenshot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
+1. In **Add Scaffold**, select **MVC Controller - Empty** and select **Add**.
 
-If instead you see the home page of the application, append `/Item` to the url.
+   ![Select MVC Controller - Empty in Add Scaffold](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
-## <a name="run-the-application"></a>Step 6: Run the application locally
+1. Name your new controller *ItemController*.
+
+1. Replace the contents of *ItemController.cs* with the following code:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs":::
+
+The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. Your views should work with this anti-forgery token as well. For more information and examples, see [Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET MVC Application][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
+
+We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more information, see [Tutorial: Implement CRUD Functionality with the Entity Framework in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
+
+## <a name="run-the-application"></a>Step 5: Run the application locally
 
 To test the application on your local computer, use the following steps:
 
-1. Select F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
+1. Press F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
 
    ![Screenshot of the todo list web application created by this tutorial](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
    
@@ -261,7 +245,7 @@ To test the application on your local computer, use the following steps:
 
 1. Once you've tested the app, select Ctrl+F5 to stop debugging the app. You're ready to deploy!
 
-## <a name="deploy-the-application-to-azure"></a>Step 7: Deploy the application
+## <a name="deploy-the-application-to-azure"></a>Step 6: Deploy the application
 
 Now that you have the complete application working correctly with Azure Cosmos DB we're going to deploy this web app to Azure App Service.  
 
