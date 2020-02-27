@@ -44,7 +44,7 @@ You need to store your certificate in your Azure AD B2C tenant.
 
 If you want users to sign in using an ADFS account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
-You can define an ADFS account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy. For more infomation, see [define a SAML technical profile](saml-technical-profile.md).
+You can define an ADFS account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy. For more information, see [define a SAML technical profile](saml-technical-profile.md).
 
 1. Open the *TrustFrameworkExtensions.xml*.
 1. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
