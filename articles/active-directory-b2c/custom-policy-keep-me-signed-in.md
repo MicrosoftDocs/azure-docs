@@ -30,7 +30,7 @@ Users should not enable this option on public computers.
 
 ## Configure the page identifier 
 
-To enable keep me signed in, you need to set the content definition `DataUri` element to [page identifier](contentdefinitions#datauri) `unifiedssp`, [page version](page-layout.md) *1.1.0* and above.
+To enable keep me signed in, you need to set the content definition `DataUri` element to [page identifier](contentdefinitions.md#datauri) `unifiedssp`, [page version](page-layout.md) *1.1.0* and above.
 
 1. Open the extension file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. This extension file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
@@ -57,37 +57,47 @@ To enable keep me signed in, you need to set the content definition `DataUri` el
 Update the relying party (RP) file that initiates the user journey that you created.
 
 1. Open your custom policy file. For example, *SignUpOrSignin.xml*.
-
-    KMSI is configured using the **UserJourneyBehaviors** element with **SingleSignOn**, **SessionExpiryType**, and **SessionExpiryInSeconds** as its first child elements. The **KeepAliveInDays** attribute controls how long the user remains signed in. In the following example, the KMSI session automatically expires after `7` days regardless of how often the user performs silent authentication. Setting the **KeepAliveInDays**  value to `0` turns off KMSI functionality. By default, this value is `0`. If the value of **SessionExpiryType** is `Rolling`, the KMSI session is extended by `7` days every time the user performs silent authentication.  If `Rolling` is selected, you should keep the number of days to minimum.
-
-    The value of **SessionExpiryInSeconds** represents the expiry time of an SSO session. This is used internally by Azure AD B2C to check whether the session for KMSI is expired or not. The value of **KeepAliveInDays** determines the Expires/Max-Age value of the SSO cookie in the web browser. Unlike **SessionExpiryInSeconds**, **KeepAliveInDays** is used to prevent the browser from clearing the cookie when it's closed. A user can silently sign in only if the SSO session cookie exists, which is controlled by **KeepAliveInDays**, and isn't expired, which is controlled by **SessionExpiryInSeconds**.
-
-    If a user doesn't enable **Keep me signed in** on the sign-up and sign-in page, a session expires after the time indicated by **SessionExpiryInSeconds** has passed or the browser is closed. If a user enables **Keep me signed in**, the value of **KeepAliveInDays** overrides the value of **SessionExpiryInSeconds** and dictates the session expiry time. Even if users close the browser and open it again, they can still silently sign-in as long as it's within the time of **KeepAliveInDays**. It is recommended that you set the value of **SessionExpiryInSeconds** to be a short period (1200 seconds), while the value of **KeepAliveInDays** can be set to a relatively long period (7 days), as shown in the following example:
-
+1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`.
+1. Add the following node as a child of the `<UserJourneyBehaviors>` element. 
     ```XML
-    <RelyingParty>
-      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
       <UserJourneyBehaviors>
-        <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
-        <SessionExpiryType>Absolute</SessionExpiryType>
-        <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
-      </UserJourneyBehaviors>
-      <TechnicalProfile Id="PolicyProfile">
-        <DisplayName>PolicyProfile</DisplayName>
-        <Protocol Name="OpenIdConnect" />
-        <OutputClaims>
-          <OutputClaim ClaimTypeReferenceId="displayName" />
-          <OutputClaim ClaimTypeReferenceId="givenName" />
-          <OutputClaim ClaimTypeReferenceId="surname" />
-          <OutputClaim ClaimTypeReferenceId="email" />
-          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-          <OutputClaim ClaimTypeReferenceId="identityProvider" />
-          <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
-        </OutputClaims>
-        <SubjectNamingInfo ClaimType="sub" />
-      </TechnicalProfile>
-    </RelyingParty>
+          <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
+          <SessionExpiryType>Absolute</SessionExpiryType>
+          <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
+        </UserJourneyBehaviors>
     ```
+    - **SessionExpiryType** - Indicates how session is extended by the time specified in SessionExpiryInSeconds and  KeepAliveInDays. The Rolling value (default) indicates that the session is extended every time the user performs authentication. The Absolute value indicates that the user is forced to reauthenticate after the time period specified.
+ 
+    - **SessionExpiryInSeconds**  - The lifetime of session cookies, when KMSI is not enabled, or if a user does not select Keep me signed in. The session expires after the time specified in SessionExpiryInSeconds has passed or the browser is closed.
+ 
+    - **KeepAliveInDays** - The lifetime of session cookies, when KMSI is enabled, and  a user selects Keep me signed in.  The value of KeepAliveInDays takes precedence of the SessionExpiryInSeconds value, and dictates the session expiry time. If a user closes the browser and reopen later, user can still silently sign-in as long as it's within the time of KeepAliveInDays.
+ 
+It is recommended that you set the value of SessionExpiryInSeconds to be a short period (1200 seconds), while the value of KeepAliveInDays can be set to a relatively long period (30 days), as shown in the following example:
+
+```XML
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <UserJourneyBehaviors>
+    <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
+    <SessionExpiryType>Absolute</SessionExpiryType>
+    <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
+  </UserJourneyBehaviors>
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
 
 4. Save your changes and then upload the file.
 5. To test the custom policy that you uploaded, in the Azure portal, go to the policy page, and then select **Run now**.
