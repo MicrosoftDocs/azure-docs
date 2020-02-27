@@ -41,8 +41,8 @@ You can then either create a new Service Bus entity, or establish a private link
 
 For step-by-step instructions on creating a new Service Bus entity, see these articles: 
 
-- [Create a Service Bus queue](service-bus-quickstart-portal)
-- [Create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal)
+- [Create a Service Bus queue](service-bus-quickstart-portal.md)
+- [Create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md)
 
 After configuring the entity basics, select the **Networking** tab and follow these steps:
 
