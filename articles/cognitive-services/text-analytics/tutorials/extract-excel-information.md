@@ -29,8 +29,8 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 - A Microsoft Azure account. [Start a free trial](https://azure.microsoft.com/free/) or [sign in](https://portal.azure.com/).
-- A Cognitive Services API account with the Text Analytics API. If you don't have one, you can [sign up](../../cognitive-services-apis-create-account.md) and use the free tier (see [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) to complete this tutorial.
-- The [Text Analytics key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
+- A Text Analytics resource. If you don't have one, you can [create one in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and use the free tier to complete this tutorial.
+- The [key and endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
 - A spreadsheet containing tenant issues. Example data is provided on GitHub
 - Office 365, with OneDrive for Business.
 
@@ -105,11 +105,11 @@ Click on **Select an output from previous step**. In the Dynamic content box tha
 
 ## Send a request to the Text Analytics API
 
-If you haven’t already, you need to create a [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure Portal.
+If you haven’t already, you need to create a [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal.
 
 ### Create a Text Analytics connection
 
-In the **Apply to each**, click **Add an action**. Go to your Text Analytics resource's **key and endpoint** page in the Azure Portal, and get the key and endpoint for your Text Analytics resource.
+In the **Apply to each**, click **Add an action**. Go to your Text Analytics resource's **key and endpoint** page in the Azure portal, and get the key and endpoint for your Text Analytics resource.
 
 In your flow, enter the following information to create a new Text Analytics connection.
 
