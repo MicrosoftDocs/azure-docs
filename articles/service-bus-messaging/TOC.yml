@@ -209,6 +209,8 @@
     items:
     - name: Configure customer-managed keys for encryption at rest
       href: configure-customer-managed-key.md
+    - name: Integrate with Azure Private Link service (preview)
+      href: private-link-service.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
