@@ -177,9 +177,9 @@ To deploy the model as a service, you need the following components:
     >
     >   An alternative that might work for your scenario is [batch prediction](how-to-use-parallel-run-step.md), which does provide access to data stores during scoring.
 
-* **Inference configuration**. The base image with installed package dependencies required to run the model.
+* **Inference configuration**. Inference configuration comprises environment configuration, entry script and potentially other components necessary to run the model as a web-service.
 
-Once you have the necessary components, you can profile the service that will serve your model to understand its CPU and memory requirements.
+Once you have the necessary components, you can profile the web-service that will be created as a result of deploying your model to understand its CPU and memory requirements.
 
 ### <a id="script"></a> 1. Define your entry script and dependencies
 
@@ -255,7 +255,7 @@ These types are currently supported:
 * `pyspark`
 * Standard Python object
 
-To use schema generation, include the `inference-schema` package in your Conda environment file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following scikit-learn example uses schema generation.
+To use schema generation, include the `inference-schema` package in your dependencies file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following scikit-learn example uses schema generation.
 
 ##### Example entry script
 
@@ -449,9 +449,7 @@ def run(request):
 
 ### 2. Define your inference configuration
 
-The inference configuration describes how to configure the model to make predictions. This configuration isn't part of your entry script. It references your entry script and is used to locate all the resources required by the deployment. It's used later, when you deploy the model.
-
-Inference configuration uses Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. You can create an environment from custom dependency files or use one of the procured Azure Machine Learning procured environments. The following YAML is an example of a Conda dependencies file for inference. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service. If you want to use automatic schema generation, your entry script must also import the `inference-schema` packages.
+Inference configuration describes how to set up the web-service containing your model. This configuration isn't part of your entry script. It references your entry script and is used to locate all the resources required by the deployment. It's used later, when you deploy the model. Inference configuration uses Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. You can create an environment from custom dependency files or use one of the procured Azure Machine Learning procured environments. The following YAML is an example of a Conda dependencies file for inference. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service. If you want to use automatic schema generation, your entry script must also import the `inference-schema` packages.
 
 ```YAML
 name: project_environment
