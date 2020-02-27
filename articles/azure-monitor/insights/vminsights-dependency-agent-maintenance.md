@@ -1,7 +1,6 @@
 ---
 title: How to upgrade the Azure Monitor for VMs Dependency agent| Microsoft Docs
 description: This article describes how to upgrade the Azure Monitor for VMs Dependency agent using command-line, setup wizard, and other methods.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
