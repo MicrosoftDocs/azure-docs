@@ -7,12 +7,12 @@ ms.date: 02/17/2020
 
 # Azure Migrate appliance: Common questions
 
-This article answers common questions about the Azure Migrate appliance. If you have other questions, review these articles:
+This article answers common questions about the Azure Migrate appliance. If you have other questions, check these resources:
 
-- [General questions](resources-faq.md) about Azure Migrate.
-- Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md).
-- Questions about [server migration](common-questions-server-migration.md).
-- Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum). 
+- [General questions](resources-faq.md) about Azure Migrate
+- Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md)
+- Questions about [server migration](common-questions-server-migration.md)
+- Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
 
 ## What is the Azure Migrate appliance?
 
