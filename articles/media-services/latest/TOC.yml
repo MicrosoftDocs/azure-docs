@@ -54,11 +54,15 @@
     - name: Storage account
       href: storage-account-concept.md  
       displayName: Storage side encryption
-  - name: Uploading 
-    items:
+  - name: Assets
+    items: 
     - name: Assets
       href: assets-concept.md    
       displayName: name, naming, file name
+  - name: Uploading 
+    items:
+    - name: Manage assets
+      href: manage-assets-concept.md    
   - name: Processing files
     items:
     - name: Transforms and Jobs

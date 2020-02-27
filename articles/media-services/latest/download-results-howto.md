@@ -63,7 +63,7 @@ private static void downloadResults(MediaManager manager, String resourceGroup, 
 }
 ```
 
-For a full code sample, see [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
 
 ## .NET
 
@@ -112,7 +112,7 @@ private async static Task DownloadResults(IAzureMediaServicesClient client, stri
 }
 ```
 
-For a full code sample, see [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
 ## Next steps
 
