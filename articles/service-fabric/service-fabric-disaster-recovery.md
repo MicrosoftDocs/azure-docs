@@ -127,7 +127,7 @@ Replicas could be down intermittently due to transient failure. Wait for some ti
 There could be situations where it is not possible to recover replicas for example, the drives may have failed or the machines physically not responding. In these cases, Service Fabric needs to be told to not to wait for replica recovery.
 DO NOT use these methods if potential DATA LOSS is not acceptable to bring the service online in which case all efforts should be made to towards recovering physical machines.
 
-If potential DATA LOSS is acceptable to bring back the service online, then use one of the two following methods:
+The following steps could result in dataloss – please be sure before following them:
    > [!NOTE]
    > It is _never_ safe to use these methods other than in a targeted way against specific partitions. 
    >
