@@ -20,7 +20,7 @@ ms.reviewer: milanga
 # Use Azure Media Video Thumbnails to Create a Video Summarization  
 
 > [!NOTE]
-> The **Azure Media Video Thumbnails** media processor will be retired, for the retirement dates, see this [legacy components](legacy-components.md) topic.
+> The **Azure Media Video Thumbnails** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.
 
 ## Overview
 
