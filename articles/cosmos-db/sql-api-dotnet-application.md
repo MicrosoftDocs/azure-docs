@@ -214,18 +214,11 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
 1. Within the same file, add the following method **InitializeCosmosClientInstanceAsync**, which reads the configuration and initializes the client.
 
-    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync":::
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync":::
 
-1. Define the configuration in the project's *appsettings.json* file. Open the file and add a section called **CosmosDb**:
+1. Define the configuration in the project's *appsettings.json* file as shown in the following snippet:
 
-   ```csharp
-     "CosmosDb": {
-        "Account": "<enter the URI from the Keys blade of the Azure Portal>",
-        "Key": "<enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal>",
-        "DatabaseName": "Tasks",
-        "ContainerName": "Items"
-      }
-   ```
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/appsettings.json:::
 
 If you run the application, ASP.NET Core's pipeline instantiates **CosmosDbService** and maintain a single instance as singleton. When **ItemController** processes client-side requests, it receives this single instance and can use it for CRUD operations.
 
