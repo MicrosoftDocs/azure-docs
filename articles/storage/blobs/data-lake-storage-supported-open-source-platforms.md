@@ -14,7 +14,7 @@ ms.reviewer: stewu
 
 This article lists the open source platforms that support Data Lake Storage Gen2.  
 
-## List of supported open source platforms
+## Supported open source platforms
 
 This table lists the open source platforms that support Data Lake Storage Gen2.
 
@@ -29,20 +29,12 @@ This table lists the open source platforms that support Data Lake Storage Ge
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Databricks Runtime versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
 |[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configuring cloud data access](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
-## Next steps
+## See also
 
-- Learn about general limitations and known issues. 
+- [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
 
-  See [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
+- [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 
-- Learn about which Blob storage features are compatible with Data Lake Storage Gen2. 
+- [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-  See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
-
-- Learn about which Azure services are compatible with Data Lake Storage Gen2. 
-
-  See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
-
-- Learn how multi-protocol access on Data Lake Storage unlocks the ecosystem of tools, applications, and services, as well as several Blob storage features to accounts that have a hierarchical namespace. 
-
-  See [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
+- [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

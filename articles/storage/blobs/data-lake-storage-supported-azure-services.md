@@ -14,7 +14,7 @@ ms.reviewer: stewu
 
 You can use Azure services to ingest data, perform analytics, and create visual representations. This article provides a list of supported Azure services, discloses their level of support, and provides you with links to articles that help you to use these services with Azure Data Lake Storage Gen2.
 
-## List of supported Azure services
+## Supported Azure services
 
 This table lists the Azure services that you can use with Azure Data Lake Storage Gen2. The items that appear in these tables will change over time as support continues to expand.
 
@@ -39,20 +39,12 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 |Azure Content Delivery Network|Not yet supported|[Index and search Azure Data Lake Storage Gen2 documents (preview)](https://docs.microsoft.com/azure/cdn/cdn-overview)|
 
 
-## Next steps
+## See also
 
-- Learn about general limitations and known issues. 
+- [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
 
-  See [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
+- [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 
-- Learn about which Blob storage features are compatible with Data Lake Storage Gen2. 
+- [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-  See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
-
-- Learn about which open source platforms support Data Lake Storage Gen2. 
-
-  See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
-
-- Learn how multi-protocol access on Data Lake Storage unlocks the ecosystem of tools, applications, and services, as well as several Blob storage features to accounts that have a hierarchical namespace. 
-
-  See [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
+- [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

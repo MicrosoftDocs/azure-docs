@@ -62,25 +62,24 @@ The following are the equivalent entities, as described by different concepts. U
 | Blobs – General purpose object storage | Container              | Virtual directory (SDK only – does not provide atomic manipulation) | Blob           |
 | Azure Data Lake Storage Gen2 – Analytics Storage          | Container            | Directory                                                           | File           |
 
-## Next steps
+## Supported Blob storage features
 
-- Learn about general limitations and known issues. See [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
+Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](storage-lifecycle-management-concepts.md) now work with accounts that have a hierarchical namespace. Therefore, you can enable hierarchical namespaces on your Blob storage accounts without losing access to these features. 
 
-- Learn how multi-protocol access on Data Lake Storage unlocks the ecosystem of tools, applications, and services, as well as several Blob storage features to accounts that have a hierarchical namespace. 
+For a list of supported Blob storage features, see [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 
-  See [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
+## Supported Azure service integrations
 
-- Learn about which Blob Storage features are compatible with Data Lake Storage Gen2. 
+Data Lake Storage gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-  See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+## Supported open source platforms
 
-- Learn about which Azure services are compatible with Data Lake Storage Gen2. 
+Several open source platforms support Data Lake Storage Gen2. For a complete list, see [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-  See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+## See also
 
-- Learn about which open source platforms support Data Lake Storage Gen2. 
+- [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
 
-  See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
-
+- [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md).
 
 

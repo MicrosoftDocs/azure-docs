@@ -13,15 +13,19 @@ ms.reviewer: jamesbak
 
 This article describes limitations and known issues of Azure Data Lake Storage Gen2.
 
-## Support levels of Blob storage features with Data Lake Storage Gen2
+## Supported Blob storage features
 
-See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+An increasing number of Blob storage features now work with accounts that have a hierarchical namespace. For a complete list, see [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 
-## Support levels for Azure services with Data Lake Storage Gen2
+## Supported Azure service integrations
+
+Data Lake Storage gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
 See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-## Supported open source platforms and platform versions
+## Supported open source platforms
+
+Several open source platforms support Data Lake Storage Gen2. For a complete list, see [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
 See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
@@ -102,25 +106,6 @@ ACLs are not yet supported.
 
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2
 Applications that call Blob APIs will likely work.
-
-## Next steps
-
-- Learn how multi-protocol access on Data Lake Storage unlocks the ecosystem of tools, applications, and services, as well as several Blob storage features to accounts that have a hierarchical namespace. 
-
-  See [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
-
-- Learn about which Blob storage features are compatible with Data Lake Storage Gen2. 
-
-  See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
-
-- Learn about which Azure services are compatible with Data Lake Storage Gen2. 
-
-  See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
-
-- Learn about which open source platforms support Data Lake Storage Gen2. 
-
-  See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
-
 
 
 
