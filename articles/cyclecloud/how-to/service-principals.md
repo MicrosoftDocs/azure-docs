@@ -6,10 +6,9 @@ ms.date: 02/05/2019
 ms.author: rokeptne
 ---
 
-# Using Service Principal 
+# Using Service Principal
 
 An Azure AD Service Principal may be used to permission Azure CycleCloud to manage clusters in your subscription (as an alternative to using a [Managed Identity](managed-identities.md)).  
-
 
 ## Choosing between a Service Principal and a Managed Identity
 
@@ -39,13 +38,9 @@ The output will display a series of information. You will need to save the `appI
 "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-
 ## Permissions
 
 The simplest option (with sufficient access rights) is to assign the Contributor Role for the Subscription to the new CycleCloud Service Principal.
 However, the Contributor Role has a higher privilege level than CycleCloud requires.  A [custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) may be created and assigned to the VM.
 
-
 The [Managed Identity Guide](managed-identities.md) has details on creating an appropriate lower-privilege AD Role for the Service Principal.
-
-
