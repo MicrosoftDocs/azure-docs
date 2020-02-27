@@ -30,7 +30,7 @@ Users should not enable this option on public computers.
 
 ## Configure the page identifier 
 
-To enable *keep me signed in*, set the content definition `DataUri` element to [page identifier](contentdefinitions.md#datauri) `unifiedssp` and [page version](page-layout.md) *1.1.0* or above.
+To enable KMSI, set the content definition `DataUri` element to [page identifier](contentdefinitions.md#datauri) `unifiedssp` and [page version](page-layout.md) *1.1.0* or above.
 
 1. Open the extension file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. This extension file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](custom-policy-get-started.md).
 1. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
