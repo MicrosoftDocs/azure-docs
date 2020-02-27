@@ -63,7 +63,7 @@ The `examples/cli-train-deploy` directory from the project contains the followin
 The repository contains the following files, which are used to deploy the trained model as a web service:
 
 * `aciDeploymentConfig.yml`: A __deployment configuration__ file. This file defines the hosting environment needed for the model.
-* `inferenceConfig.yml`: An inference configuration__ file. This file defines the software environment used by the service to score data with the model.
+* `inferenceConfig.yml`: An __inference configuration__ file. This file defines the software environment used by the service to score data with the model.
 * `score.py`: A python script that accepts incoming data, scores it using the model, and then returns a response.
 * `scoring-env.yml`: The conda dependencies needed to run the model and `score.py` script.
 * `testdata.json`: A data file that can be used to test the deployed web service.

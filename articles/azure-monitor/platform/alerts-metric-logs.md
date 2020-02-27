@@ -2,11 +2,9 @@
 title: Creating Metric Alerts for Logs in Azure Monitor
 description: Tutorial on creating near-real time metric alerts on popular log analytics data.
 author: yanivlavi
-services: monitoring
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: yalavi
 ms.subservice: alerts
 ---
 
