@@ -41,7 +41,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 If you deploy your app using Git or zip packages with build automation turned on, the App Service build automation steps through the following sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
-1. Run `dotnet restore` to restore Nuget dependencies.
+1. Run `dotnet restore` to restore NuGet dependencies.
 1. Run `dotnet publish` to build a binary for production.
 1. Run custom script if specified by `POST_BUILD_SCRIPT_PATH`.
 

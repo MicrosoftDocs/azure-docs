@@ -59,7 +59,7 @@ For more information on how App Service runs and builds PHP apps in Linux, see [
 
 ## Customize start-up
 
-By default, the built-in PHP container run the Apache server. At start-up, it runs `apache2ctl -D FOREGROUND"`. If you like, you can run a different command at start-up, by running the following command in the [Cloud Shell](https://shell.azure.com):
+By default, the built-in PHP container runs the Apache server. At start-up, it runs `apache2ctl -D FOREGROUND"`. If you like, you can run a different command at start-up, by running the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
