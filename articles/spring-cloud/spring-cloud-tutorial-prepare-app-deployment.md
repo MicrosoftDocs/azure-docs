@@ -219,3 +219,10 @@ In this tutorial, you learned how to configure your Java Spring application for 
 > [Learn how to set up a Config Server instance](spring-cloud-tutorial-config-server.md)
 
 More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+
+## See also
+* [Analyze application logs and metrics](https://docs.microsoft.com/en-us/azure/spring-cloud/diagnostic-services)
+* [Set up your Config Server](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-tutorial-config-server)
+* [Use distributed tracing with Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+* [Spring Quickstart Guide](https://spring.io/quickstart)
+* [Spring Boot documentation](https://spring.io/projects/spring-boot)
