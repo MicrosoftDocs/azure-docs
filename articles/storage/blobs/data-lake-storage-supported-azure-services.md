@@ -41,10 +41,7 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 
 ## See also
 
-[Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
-
-[Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
-
-[Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
-
-[Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
+- [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
+- [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+- [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
+- [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

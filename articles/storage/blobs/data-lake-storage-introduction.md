@@ -78,8 +78,7 @@ Several open source platforms support Data Lake Storage Gen2. For a complete lis
 
 ## See also
 
-[Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
-
-[Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
+- [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
+- [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
 
 
