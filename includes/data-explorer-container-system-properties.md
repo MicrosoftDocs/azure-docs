@@ -2,36 +2,49 @@
 author: orspod
 ms.service: data-explorer
 ms.topic: include
-ms.date: 01/08/2020
+ms.date: 02/27/2020
 ms.author: orspodek
 ---
 
 ### Event system properties mapping
 
-If you selected **Event system properties** in the **Data Source** section of the table above, go to the [Web UI](https://dataexplorer.azure.com/) to run the relevant KQL command for proper mapping creation.
+> [!Note]
+> System properties are supported for single-record events. 
+> Properties are added as the begining of the record for `csv` mapping, and with their name of `json` mapping
 
-   **For csv mapping:**
+If you selected **Event system properties** in the **Data Source** section of the table above you need to include these properties in table schema and mapping.
 
-    ```kusto
-    .create table MyTable ingestion csv mapping "CsvMapping1"
+**Tabe schema example**
+Let's say your data include 3 columns: `Timespan`, `Metric` and `Value`. And the properties you would like to include are `x-opt-enqueued-time` and `x-opt-offset`. Create or alter table schema:
+
+```kusto
+    .create-merge table TestTable (TimeStamp: datetime, Metric: string, Value: int, EventHubEnqueuedTime:datetime, EventHubOffset:string)
+```
+
+**CSV mapping example**
+Data is added to the begining of the record, notice ordinal values:
+
+```kusto
+    .create table TestTable ingestion csv mapping "CsvMapping1"
     '['
-    '   { "column" : "messageid", "DataType":"string", "Properties":{"Ordinal":"0"}},'
-    '   { "column" : "userid", "DataType":"string", "Properties":{"Ordinal":"1"}},'
-    '   { "column" : "other", "DataType":"int", "Properties":{"Ordinal":"2"}}'
+    '   { "column" : "Timespan", "Properties":{"Ordinal":"2"}},'
+    '   { "column" : "Metric", "Properties":{"Ordinal":"3"}},'
+    '   { "column" : "Value", "Properties":{"Ordinal":"4"}},'
+    '   { "column" : "EventHubEnqueuedTime", "Properties":{"Ordinal":"0"}},'
+    '   { "column" : "EventHubOffset", "Properties":{"Ordinal":"1"}}'
     ']'
-    ```
+```
  
-   **For json mapping:**
+**JSON mapping example**
+Data is added with name of system properties, as they appear on connection creation properties list:
 
-    ```kusto
-    .create table MyTable ingestion json mapping "JsonMapping1"
+```kusto
+    .create table TestTable ingestion json mapping "JsonMapping1"
     '['
-    '    { "column" : "messageid", "datatype" : "string", "Properties":{"Path":"$.message-id"}},'
-    '    { "column" : "userid", "Properties":{"Path":"$.user-id"}},'
-    '    { "column" : "other", "Properties":{"Path":"$.other"}}'
+    '    { "column" : "Timespan", "Properties":{"Path":"$.timestamp"}},'
+    '    { "column" : "Metric", "Properties":{"Path":"$.metric"}},'
+    '    { "column" : "Value", "Properties":{"Path":"$.metric_value"}},'
+    '    { "column" : "EventHubEnqueuedTime", "Properties":{"Path":"$.x-opt-enqueued-time"}},'
+    '    { "column" : "EventHubOffset", "Properties":{"Path":"$.x-opt-offset"}}'
     ']'
-    ```
-
-   > [!TIP]
-   > * You must include all selected properties in the mapping. 
-   > * The properties order is important in csv mapping. The system properties must be listed before all other properties and in the same order in which they appear in the **Event system properties** dropdown.
+```
