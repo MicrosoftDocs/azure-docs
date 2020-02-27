@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Extract text and structure from JSON blobs'
+title: 'Tutorial: REST and AI over Azure blobs'
 titleSuffix: Azure Cognitive Search
 description: Step through an example of text extraction and natural language processing over content in JSON blobs using Postman and the Azure Cognitive Search REST APIs. 
 
@@ -11,9 +11,9 @@ ms.topic: tutorial
 ms.date: 02/26/2020
 ---
 
-# Tutorial: Extract text and structure from JSON blobs in Azure using REST APIs (Azure Cognitive Search)
+# Tutorial: Use REST and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
+If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this REST tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
 > [!div class="checklist"]
 > * Start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob storage.
@@ -494,8 +494,6 @@ DELETE https://[YOUR-SERVICE-NAME]].search.windows.net/indexers/cog-search-demo-
 ```
 
 Status code 204 is returned on successful deletion.
-
-As your code matures, you might want to refine a rebuild strategy. For more information, see [How to rebuild an index](search-howto-reindex.md).
 
 ## Takeaways
 
