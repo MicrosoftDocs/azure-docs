@@ -26,6 +26,10 @@ Premium Storage: Supported
 
 Premium Storage caching: Not Supported
 
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
+
 | Size | vCPU | Memory (GiB) | Temp disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe Disk throughput<sup>3</sup> (Read IOPS/MBps) | Max uncached data disk throughput (IOPs/MBps)<sup>4</sup> | Max Data Disks | Max NICs / Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000/2000  | 8000/160   | 16 | 2 / 3200   |
