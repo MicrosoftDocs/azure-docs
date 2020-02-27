@@ -19,6 +19,10 @@ Premium Storage: Supported
 
 Premium Storage caching: Supported
 
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
+
 Write Accelerator: [Supported](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 |Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
