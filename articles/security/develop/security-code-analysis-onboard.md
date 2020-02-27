@@ -36,10 +36,14 @@ Prerequisites to getting started with Microsoft Security Code Analysis:
   - Premier Support for Enterprise
 
 - If you do not have one of the mentioned above support agreements, you can purchase the extension from one of our Partners.
+
 **Next Steps:**
+
 Contact a Partner from the below list and ask to purchase the Microsoft Security Code Analysis extension.
+
 **Partners:**
-  - Zones - Contact Details: cloudsupport@zones.com
+
+- Zones - Contact Details: cloudsupport@zones.com
 
 ### Become a Partner
 
