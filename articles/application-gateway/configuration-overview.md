@@ -259,7 +259,7 @@ To support this change, starting February 17th 2020, Application Gateway (all th
 Note that the default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. In case you are using a custom affinity cookie name, an additional cookie is added with CORS as suffix. For example, *CustomCookieNameCORS*.
 
 > [!NOTE]
-> It is mandatory that if the attribute **SameSite=None** is set, the cookie also should contain the **Secure** flag and must be sent over **HTTPS**. So if session affinity is required over CORS, you must migrate your workload to HTTPS. 
+> If the attribute *SameSite=None* is set, it is mandatory that the cookie also contains the *Secure* flag, and must be sent over HTTPS.  If session affinity is required over CORS, you must migrate your workload to HTTPS. 
 Please refer to SSL offload and End-to-End SSL documentation for Application Gateway here – [Overview](ssl-overview.md), [How-to configure SSL offload](create-ssl-portal.md), [How-to configure End-to-End SSL](end-to-end-ssl-portal.md).
 
 ### Connection draining
