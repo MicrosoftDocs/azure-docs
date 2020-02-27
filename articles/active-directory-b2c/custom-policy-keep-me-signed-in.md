@@ -26,13 +26,13 @@ Users should not enable this option on public computers.
 ## Prerequisites
 
 - An Azure AD B2C tenant that is configured to allow local account sign-in. KMSI is unsupported for external identity provider accounts.
-- Complete the steps in [Get started with custom policies in Active Directory B2C](custom-policy-get-started.md).
+- Complete the steps in [Get started with custom policies](custom-policy-get-started.md).
 
 ## Configure the page identifier 
 
-To enable keep me signed in, you need to set the content definition `DataUri` element to [page identifier](contentdefinitions.md#datauri) `unifiedssp`, [page version](page-layout.md) *1.1.0* and above.
+To enable keep me signed in, set the content definition `DataUri` element to [page identifier](contentdefinitions.md#datauri) `unifiedssp` and [page version](page-layout.md) *1.1.0* or above.
 
-1. Open the extension file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. This extension file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Open the extension file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. This extension file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](custom-policy-get-started.md).
 1. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
 1. Add the **ContentDefinitions** element to the **BuildingBlocks** element of the policy.
 
@@ -57,7 +57,7 @@ To enable keep me signed in, you need to set the content definition `DataUri` el
 Update the relying party (RP) file that initiates the user journey that you created.
 
 1. Open your custom policy file. For example, *SignUpOrSignin.xml*.
-1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`.
+1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="UserJourney Id"` from your extensions policy, or equivalent (for example: `SignUpOrSigninWithAAD" />`.
 1. Add the following node as a child of the `<UserJourneyBehaviors>` element. 
     ```XML
       <UserJourneyBehaviors>
@@ -66,15 +66,15 @@ Update the relying party (RP) file that initiates the user journey that you crea
           <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
         </UserJourneyBehaviors>
     ```
-    - **SessionExpiryType** - Indicates how session is extended by the time specified in `SessionExpiryInSeconds` and  KeepAliveInDays. The `Rolling` value (default) indicates that the session is extended every time the user performs authentication. The `Absolute` value indicates that the user is forced to reauthenticate after the time period specified.
+    - **SessionExpiryType** - Indicates how the session is extended by the time specified in `SessionExpiryInSeconds` and  KeepAliveInDays. The `Rolling` value (default) indicates that the session is extended every time the user performs authentication. The `Absolute` value indicates that the user is forced to reauthenticate after the time period specified.
  
-    - **SessionExpiryInSeconds**  - The lifetime of session cookies, when *keep me signed in* is not enabled, or if a user does not select *keep me signed in*. The session expires after the time specified in `SessionExpiryInSeconds` has passed or the browser is closed.
+    - **SessionExpiryInSeconds**  - The lifetime of session cookies when *keep me signed in* is not enabled, or if a user does not select *keep me signed in*. The session expires after `SessionExpiryInSeconds` has passed, or the browser is closed.
  
-    - **KeepAliveInDays** - The lifetime of session cookies, when *keep me signed* in is enabled, and  the user selects *keep me signed in*.  The value of `KeepAliveInDays` takes precedence of the `SessionExpiryInSeconds` value, and dictates the session expiry time. If a user closes the browser and reopens it later, user can still silently sign-in as long as it's within the time of KeepAliveInDays.
+    - **KeepAliveInDays** - The lifetime of session cookies when *keep me signed* in is enabled and  the user selects *keep me signed in*.  The value of `KeepAliveInDays` takes precedence over the `SessionExpiryInSeconds` value, and dictates the session expiry time. If a user closes the browser and reopens it later, they can still silently sign-in as long as it's within the KeepAliveInDays time period.
     
     For more information, see [user journey behaviors](relyingparty.md#userjourneybehaviors).
  
-It is recommended that you set the value of SessionExpiryInSeconds to be a short period (1200 seconds), while the value of KeepAliveInDays can be set to a relatively long period (30 days), as shown in the following example:
+We recommend that you set the value of SessionExpiryInSeconds to be a short period (1200 seconds), while the value of KeepAliveInDays can be set to a relatively long period (30 days), as shown in the following example:
 
 ```XML
 <RelyingParty>
