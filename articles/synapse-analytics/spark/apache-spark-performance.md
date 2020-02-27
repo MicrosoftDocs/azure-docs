@@ -130,15 +130,15 @@ To manage parallelism for Cartesian joins, you can add nested structures, window
 When deciding your executor configuration, consider the Java garbage collection (GC) overhead.
 
 * Factors to reduce executor size:
-    1. Reduce heap size below 32 GB to keep GC overhead < 10%.
-    2. Reduce the number of cores to keep GC overhead < 10%.
+    * Reduce heap size below 32 GB to keep GC overhead < 10%.
+    * Reduce the number of cores to keep GC overhead < 10%.
 
 * Factors to increase executor size:
-    1. Reduce communication overhead between executors.
-    2. Reduce the number of open connections between executors (N2) on larger clusters (>100 executors).
-    3. Increase heap size to accommodate for memory-intensive tasks.
-    4. Optional: Reduce per-executor memory overhead.
-    5. Optional: Increase utilization and concurrency by oversubscribing CPU.
+    * Reduce communication overhead between executors.
+    * Reduce the number of open connections between executors (N2) on larger clusters (>100 executors).
+    * Increase heap size to accommodate for memory-intensive tasks.
+    * Optional: Reduce per-executor memory overhead.
+    * Optional: Increase utilization and concurrency by oversubscribing CPU.
 
 As a general rule of thumb when selecting the executor size:
 
@@ -148,10 +148,10 @@ As a general rule of thumb when selecting the executor size:
 
 When running concurrent queries, consider the following:
 
-1. Start with 30 GB per executor and all machine cores.
-2. Create multiple parallel Spark applications by oversubscribing CPU (around 30% latency improvement).
-3. Distribute queries across parallel applications.
-4. Modify size based both on trial runs and on the preceding factors such as GC overhead.
+* Start with 30 GB per executor and all machine cores.
+* Create multiple parallel Spark applications by oversubscribing CPU (around 30% latency improvement).
+* Distribute queries across parallel applications.
+* Modify size based both on trial runs and on the preceding factors such as GC overhead.
 
 Monitor your query performance for outliers or other performance issues, by looking at the timeline view, SQL graph, job statistics, and so forth. Sometimes one or a few of the executors are slower than the others, and tasks take much longer to execute. This frequently happens on larger clusters (> 30 nodes). In this case, divide the work into a larger number of tasks so the scheduler can compensate for slow tasks. For example, have at least twice as many tasks as the number of executor cores in the application. You can also enable speculative execution of tasks with `conf: spark.speculation = true`.
 
