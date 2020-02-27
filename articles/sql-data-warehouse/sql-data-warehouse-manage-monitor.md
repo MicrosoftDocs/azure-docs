@@ -62,9 +62,9 @@ ORDER BY total_elapsed_time DESC;
 
 From the preceding query results, **note the Request ID** of the query that you would like to investigate.
 
-Queries in the **Suspended** state can be queued due to a large number of active running queries. These queries also appear in the [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) waits query with a type of UserConcurrencyResourceType. For information on concurrency limits, see [Memory and concurrency limits](memory-concurrency-limits.md) or [Resource classes for workload management](resource-classes-for-workload-management.md). Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources](#monitor-waiting-queries) further down in this article.
+Queries in the **Suspended** state can be queued due to a large number of active running queries. These queries also appear in the [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) waits query with a type of UserConcurrencyResourceType. For information on concurrency limits, see [Memory and concurrency limits](memory-concurrency-limits.md) or [Resource classes for workload management](resource-classes-for-workload-management.md). Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources](#monitor-waiting-queries) further down in this article.
 
-To simplify the lookup of a query in the [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) table, use [LABEL](https://msdn.microsoft.com/library/ms190322.aspx) to assign a comment to your query, which can be looked up in the sys.dm_pdw_exec_requests view.
+To simplify the lookup of a query in the [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) table, use [LABEL](https://msdn.microsoft.com/library/ms190322.aspx) to assign a comment to your query, which can be looked up in the sys.dm_pdw_exec_requests view.
 
 ```sql
 -- Query with Label
@@ -209,11 +209,11 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-If you have a query that is consuming a large amount of memory or have received an error message related to allocation of tempdb, it could be due to a very large [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) or [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) statement running that is failing in the final data movement operation. This can usually be identified as a ShuffleMove operation in the distributed query plan right before the final INSERT SELECT.  Use [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) to monitor ShuffleMove operations. 
+If you have a query that is consuming a large amount of memory or have received an error message related to allocation of tempdb, it could be due to a very large [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) or [INSERT SELECT](/sql/t-sql/statements/insert-transact-sql) statement running that is failing in the final data movement operation. This can usually be identified as a ShuffleMove operation in the distributed query plan right before the final INSERT SELECT.  Use [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) to monitor ShuffleMove operations. 
 
 The most common mitigation is to break your CTAS or INSERT SELECT statement into multiple load statements so the data volume will not exceed the 1TB per node tempdb limit. You can also scale your cluster to a larger size which will spread the tempdb size across more nodes reducing the tempdb on each individual node.
 
-In addition to CTAS and INSERT SELECT statements, large, complex queries running with insufficient memory can spill into tempdb causing queries to fail.  Consider running with a larger [resource class](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) to avoid spilling into tempdb.
+In addition to CTAS and INSERT SELECT statements, large, complex queries running with insufficient memory can spill into tempdb causing queries to fail.  Consider running with a larger [resource class](resource-classes-for-workload-management.md) to avoid spilling into tempdb.
 
 ## Monitor memory
 
@@ -298,4 +298,4 @@ ORDER BY
 
 ## Next steps
 
-For more information about DMVs, see [System views](./sql-data-warehouse-reference-tsql-system-views.md).
+For more information about DMVs, see [System views](sql-data-warehouse-reference-tsql-system-views.md).
