@@ -55,7 +55,7 @@ The following instructions take you through steps 1 through 4 from the [Create a
    | **Virtual network** |The default VNet that was created should be named **VM1VNET**. |
    | **Subnet** |Select the subnet that the SQL Server instances are in. The default should be **VM1Subnet**.|
    | **IP address assignment** |**Static** |
-   | **Private IP address** |Use the **virtualip** that was created for the cluster resource. |
+   | **Private IP address** |Use the `virtualip` IP address that was created in the cluster. |
    | **Subscription** |Use the subscription that was used for your resource group. |
    | **Resource group** |Select the resource group that the SQL Server instances are in. |
    | **Location** |Select the Azure location that the SQL Server instances are in. |
@@ -144,7 +144,7 @@ At this point, the resource group has a load balancer that connects to all SQL S
     sudo pcs resource create azure_load_balancer azure-lb port=59999
     ```
 
-1. Create a group that contains the **virtualip** and **azure_load_balancer** resource:
+1. Create a group that contains the `virtualip` and `azure_load_balancer` resource:
 
     ```bash
     sudo pcs resource group add virtualip_group azure_load_balancer virtualip
