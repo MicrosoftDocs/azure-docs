@@ -6,7 +6,7 @@ author: MikeRys
 ms.service: sql-data-warehouse 
 ms.topic: overview
 ms.subservice: design
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.author: mrys 
 ms.reviewer: jrasnick
 ---
@@ -47,7 +47,7 @@ Caution: You should not take a dependency on this behavior.
 
 ## Security model
 
-[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
+[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 The Spark databases and tables, as well as their synchronized representations in the SQL engines will be secured at the underlying storage level. 
 
@@ -59,7 +59,7 @@ To give a security principal, such as a user or a security group, access to a da
 
 ### Creating a Spark database and seeing it in SQL on-demand
 
-[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
+[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that for example using a Spark C# Notebook with the following .NET for Spark statement:
 
@@ -77,7 +77,7 @@ Verify that `mytestdb` is included in the results.
 
 ### Exposing a Spark database in a SQL pool
 
-[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
+[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 With the database created in the previous example, now create a SQL pool in your workspace named `mysqlpool` that enables metadata synchronization.
 
@@ -92,5 +92,5 @@ Verify the schema for the newly created database in the results.
 ## Next steps
 - [Learn more about Azure Synapse Analytics' shared metadata](metadata-overview.md)
 - [Learn more about Azure Synapse Analytics' shared metadata Tables](metadata-table.md)
-- [Learn more about the Synchronization with SQL Analytics on-demand](metadata-overview.md)
-- [Learn more about the Synchronization with SQL Analytics pools](metadata-overview.md)
+<!-- - [Learn more about the Synchronization with SQL Analytics on-demand](metadata-overview.md)
+- [Learn more about the Synchronization with SQL Analytics pools](metadata-overview.md)-->
