@@ -159,7 +159,7 @@ The following models are defined in the service (the `dtmi:com:example:coffeeMak
 ```csharp
 {
   "@id": " dtmi:com:example:coffeeMaker",
-  "@type”: "CapabilityModel",
+  "@type": "CapabilityModel",
   "implements": [
 	{ "name": "coffeeMaker", "schema": " dtmi:com:example:coffeeMakerInterface" }
   ]    
@@ -168,15 +168,15 @@ The following models are defined in the service (the `dtmi:com:example:coffeeMak
   "@id": " dtmi:com:example:coffeeMakerInterface",
   "@type": "Interface",
   "contents": [
-  	{ "@type": "Property", "name”: "waterTemp", "schema": "double" }  
+  	{ "@type": "Property", "name": "waterTemp", "schema": "double" }  
   ]
 }
 {
   "@id": " dtmi:com:example:coffeeBar",
   "@type": "Interface",
   "contents": [
-	{ "@type": "relationship", "contains": " dtmi:com:example:coffeeMaker” },
-	{ "@type": "property", "name": "capacity”, “schema”: integer }
+	{ "@type": "relationship", "contains": " dtmi:com:example:coffeeMaker" },
+	{ "@type": "property", "name": "capacity", “schema": integer }
   ]    
 }
 ```
