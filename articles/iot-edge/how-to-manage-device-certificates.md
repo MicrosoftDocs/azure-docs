@@ -120,12 +120,14 @@ If this flag is not set, the default remains at 90 days.
           auto_generated_ca_lifetime_days: 270
       ```
 
+1. Delete the contents of the **\iotedge\hsm** folder.
+
 1. On your development machine, restart the Iot-Edge service.
 
     ```azurecli
     Restart-Service iotedge
     ```
-  
+
 1. Confirm the lifetime setting.
 
     ```azurecli
