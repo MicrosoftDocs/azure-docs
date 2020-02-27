@@ -15,7 +15,7 @@ ms.date: 02/26/2020
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this REST tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
-In this tutorial, use [REST](https://docs.microsoft.com/rest/api/searchservice/) to perform the following tasks:
+In this tutorial, use Postman and [REST](https://docs.microsoft.com/rest/api/searchservice/) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob storage.
@@ -109,9 +109,9 @@ As with Azure Blob storage, take a moment to collect the access key. Further on,
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-    Get the query key as well. It's a best practice to issue query requests with read-only access.
+   Get the query key as well. It's a best practice to issue query requests with read-only access.
 
-![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
 
 All requests require an api-key in the header of every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
