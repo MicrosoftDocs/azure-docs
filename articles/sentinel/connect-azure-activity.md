@@ -27,7 +27,8 @@ You can stream logs from [Azure Activity log](../azure-monitor/platform/platform
 
 ## Prerequisites
 
-- User with contributor permissions to Log Analytics workspace 
+- User with Contributor permissions to Log Analytics workspace 
+- User with Reader permissions to the Subscription being connected to perform the Read action on /subscriptions/_subscription_being_monitored_/providers/microsoft.insights/eventtypes/management
 
 
 ## Connect to Azure Activity log
