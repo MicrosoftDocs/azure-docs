@@ -3,7 +3,7 @@ title: Add a popup to a point on a map |Microsoft Azure Maps
 description: In this article, you will learn how to add a popup to a point using the Microsoft Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
-ms.date: 07/29/2019
+ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -100,23 +100,19 @@ By default the popup has a white background, a pointer arrow on the bottom, and 
 
 ## Add popup templates to the map
 
-Popup templates make it easy to create data driven layouts for popups. The following samples demonstrate the use of various popup templates to generate formatted content using properties of features.
+Popup templates make it easy to create data driven layouts for popups. The sample below demonstrate the use of various popup templates to generate formatted content using properties of features.
 
-### Display strings 
+### Points with defined templates
 
-The String template displays the placeholders of the defined feature properties.
+The **String template** displays the placeholders of the defined feature properties. The properties of the feature don't have to be assigned a value of type String. For example, `value1` holds an integer. These values are passed to the content property of the `popupTemplate` and are displayed on a white background, with a close button in the top-right corner. A pointer arrow on the bottom appears on medium and small screen sizes.
 
-### Display PropertyInfo
+The **PropertyInfo template** displays defined properties that are assigned with variables. This popup template shows the content in a table format, with a close button in the top-right corner. A pointer arrow on the bottom appears on medium and small screen sizes.
 
-The PropertyInfo template displays defined properties that are assigned with variables.
-
-### Display Multiple content
-
-Templates may also display two pieces of content. A string template with placeholders and a array of property info which renders a full width image.
+A template may also display content of multiple templates. In the point sample with a **Multiple content template**, a String template with placeholders renders values on a white background. Below the String template, a PropertyInfo template renders a full width image inside a table. There is only one case in which a String template can be used to render images. And that's, if the String template has an image tag in it. And, the value being passed to the image tag is a URL to an image.
 
 ### Points without a defined template
 
-The sample below displays three points without a defined template. In each case, the popup templates displays properties of the feature per default settings. When the title and description are the only assigned properties, the popup template shows a white background, a pointer arrow on the bottom, and a close button in the top-right corner. When more properties are assigned, the popup template shows a title and a table of the properties. Individual properties of the popup template can still be manipulated; for example, users can turn off hyperlink detection.
+The sample below displays three points without a defined template. In each case, the popup templates display properties of the feature per default settings. When the title and description are the only assigned properties, the popup template shows a white background, a close button in the top-right corner. When the title and properties other than the description are assigned, the popup template shows a title and a table. The table renders the properties and the values of the properties. Even when falling back to the default settings, the popup template can still be manipulated. For example, users can turn off hyperlink detection.
 
 <br/>
 
