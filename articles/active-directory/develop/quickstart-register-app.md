@@ -18,14 +18,14 @@ ms.reviewer: aragra, lenalepa, sureshja
 
 # Quickstart: Register an application with the Microsoft identity platform
 
-In this quickstart, you register an application using the **App registrations** experience in the Azure portal. Your app is integrated with the Microsoft identity platform. Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line-of-business applications that can be integrated with Microsoft identity platform. Integration provides secure sign-in and authorization for their services.
+In this quickstart, you register an application using the **App registrations** experience in the Azure portal. Your app is integrated with the Microsoft identity platform. Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line-of-business applications that can be integrated with Microsoft identity platform. Integration provides secure sign-in and authorization for such services.
 
 To learn more about the new features and improvements in the new app registrations experience, see [New App registrations experience now in public preview](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* An app to register. To build an app, see quickstarts in [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop).
+* An app to register. To build an app, see the quickstarts in [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop).
 
 ## Register a new application using the Azure portal
 
@@ -33,7 +33,7 @@ To learn more about the new features and improvements in the new app registratio
 1. If your account gives you access to more than one tenant, select your account in the upper right corner. Set your portal session to the Azure AD tenant that you want.
 1. Search for and select **Azure Active Directory**. Under **Manage**, select **App registrations**.
 1. Select **New registration**.
-1. In **Register an application**, enter a meaningful application name to display to users. 
+1. In **Register an application**, enter a meaningful application name to display to users.
 1. Specify who can use the application, as follows:
 
     | Supported account types | Description |
@@ -47,7 +47,7 @@ To learn more about the new features and improvements in the new app registratio
     * For web applications, provide the base URL of your app. For example, `https://localhost:31544` might be the URL for a web app running on your local machine. Users would use this URL to sign in to a web client application.
     * For public client applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, such as `myapp://auth`.
 
-    For examples for web applications or native applications, see quickstarts in [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop).
+    For examples for web applications or native applications, see the quickstarts in [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop).
 
 1. When finished, select **Register**.
 
@@ -69,7 +69,7 @@ Advance to the next article to learn how to access web APIs.
 
 * To manage supported accounts, see [Quickstart: Modify the accounts supported by an application](quickstart-modify-supported-accounts.md).
 
-* To build an app and add functionality, see quickstarts in [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop).
+* To build an app and add functionality, see the quickstarts in [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop).
 
 * To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
 

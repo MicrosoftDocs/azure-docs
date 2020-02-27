@@ -18,14 +18,14 @@ ms.reviewer: lenalepa, aragra, sureshja
 
 # Quickstart: Configure a client application to access web APIs
 
-In this quickstart, you configure an application to add redirect URIs, credentials, or permissions to access web APIs. For a web or confidential client application to participate in an authorization grant flow that requires authentication and obtain an access token, it must establish secure credentials. The default authentication method supported by the Azure portal is client ID + secret key.
+In this quickstart, you add redirect URIs, credentials, or permissions to access web APIs for your application. A web or confidential client application needs to establish secure credentials to participate in an authorization grant flow that requires authentication. The default authentication method supported by the Azure portal is client ID + secret key. The app obtains an access token during this process.
 
-Before a client can access a web API exposed by a resource application, such as Microsoft Graph API, the consent framework ensures the client obtains the permission grant required for the permissions requested. By default, all applications can choose permissions from the Microsoft Graph API.
+Before a client can access a web API exposed by a resource application, such as Microsoft Graph API, the consent framework ensures the client obtains the permission grant required for the permissions requested. By default, all applications can request permissions from the Microsoft Graph API.
 
 ## Prerequisites
 
 * Completion of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
-* Review of [Permissions and consent in the Microsoft identity platform endpoint](v2-permissions-and-consent.md) to understand when building applications that need to be used by other users or applications.
+* Review of [Permissions and consent in the Microsoft identity platform endpoint](v2-permissions-and-consent.md).
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## Sign in to the Azure portal and select the app
@@ -33,13 +33,13 @@ Before a client can access a web API exposed by a resource application, such as 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
 1. If your account gives you access to more than one tenant, select your account in the upper right corner. Set your portal session to the Azure AD tenant that you want.
 1. Search for and select **Azure Active Directory**. Under **Manage**, select **App registrations**.
-1. Find and select the application you want to configure. Once you've selected the app, you'll see the application's **Overview** or main registration page.
+1. Find and select the application you want to configure. After you select the app, you see the application's **Overview** or main registration page.
 
 Use the following procedures to configure your application to access web APIs.
 
 ## Add redirect URIs to your application
 
-You can add custom redirect URIs and suggested redirect URI to your application. To add a custom redirect URI for web and public client applications, use this procedure:
+You can add custom redirect URIs and suggested redirect URIs to your application. To add a custom redirect URI for web and public client applications:
 
 1. From the app **Overview** page, select **Authentication**.
 1. Locate **Redirect URIs**. You may need to select **Switch to the old experience**.
@@ -54,7 +54,7 @@ To choose from suggested redirect URIs for public clients, follow these steps:
 
 1. From the app **Overview** page, select **Authentication**.
 1. Locate **Suggested Redirect URIs for public clients (mobile, desktop)**. You may need to select **Switch to the old experience**.
-1. Select one or more redirect URIs for your application. You can also enter a custom redirect URI. If you're not sure what to use, check out the library documentation.
+1. Select one or more redirect URIs for your application. You can also enter a custom redirect URI. If you're not sure what to use, see the library documentation.
 1. Select **Save**.
 
 Certain restrictions apply to redirect URIs. For more information, see [Redirect URI/reply URL restrictions and limitations](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
@@ -74,7 +74,7 @@ Depending on the application you're registering, there are some additional setti
 
 * **Logout URL**.
 * For single-page apps, you can enable **Implicit grant** and select the tokens that you'd like the authorization endpoint to issue.
-* For desktop apps that acquire tokens by using Integrated Windows Authentication, device code flow, or username/password in the **Default client type** section, configure the **Treat application as public client** setting to **Yes**.
+* For desktop apps that acquire tokens by using Integrated Windows Authentication, device code flow, or username/password in the **Default client type** section, set the **Treat application as public client** setting to **Yes**.
 * For legacy apps that were using the Live SDK to integrate with the Microsoft account service, configure **Live SDK support**. New apps don't need this setting.
 * **Default client type**.
 * **Supported account types**.
@@ -85,7 +85,7 @@ The **Supported account types** specify who can use the application or access th
 
 If you configured the supported account types when you registered the application, you can only change this setting using the application manifest editor if:
 
-* You change account types from **AzureADMyOrg** or **AzureADMultipleOrgs** to **AzureADandPersonalMicrosoftAccount**, or the other way around.
+* You change account types from **AzureADMyOrg** or **AzureADMultipleOrgs** to **AzureADandPersonalMicrosoftAccount**, or the other way around, or
 * You change account types from **AzureADMyOrg** to **AzureADMultipleOrgs**, or the other way around.
 
 To change the supported account types for an existing app registration, update the `signInAudience` key. For more information, see [Configure the application manifest](reference-app-manifest.md#configure-the-app-manifest).
@@ -110,7 +110,7 @@ To configure application settings based on the platform or device, you're target
    | **Mobile and desktop applications**  | Optional. Select one of the recommended **Suggested redirect URIs** if you're building apps for desktop and devices.<br/>Optional. Enter a **Custom redirect URI**, which is used as the location where Azure AD will redirect users in response to authentication requests. For example, for .NET Core applications where you want interaction, use `https://localhost`. |
 
    > [!IMPORTANT]
-   > For mobile applications that aren't using the latest MSAL library or not using a broker, you must configure the redirect URIs for these applications in **Desktop + devices**.
+   > For mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or not using a broker, you must configure the redirect URIs for these applications in **Desktop + devices**.
 
 Depending on the platform you chose, there may be additional settings that you can configure. For **Web** apps, you can:
 
@@ -122,14 +122,14 @@ Depending on the platform you chose, there may be additional settings that you c
 
 ## Add credentials to your web application
 
-To add a credential to your web application, add a certificate or create a client secret. To add a certificate, follow these steps:
+To add a credential to your web application, either add a certificate or create a client secret. To add a certificate:
 
 1. From the app **Overview** page, select the **Certificates & secrets** section.
 1. Select **Upload certificate**.
 1. Select the file you'd like to upload. It must be one of the following file types: .cer, .pem, .crt.
 1. Select **Add**.
 
-To add a client secret, follow these steps:
+To add a client secret:
 
 1. From the app **Overview** page, select the **Certificates & secrets** section.
 1. Select **New client secret**.
@@ -144,7 +144,7 @@ To add a client secret, follow these steps:
 
 The [Graph API sign-in and read user profile permission](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) is selected by default. You can select from [two types of permissions](developer-glossary.md#permissions) for each web API:
 
-* **Application permissions**. Your client application needs to access the web API directly as itself, without user context. This type of permission requires administrator consent. This permission is not available for desktop and mobile client applications.
+* **Application permissions**. Your client application needs to access the web API directly as itself, without user context. This type of permission requires administrator consent. This permission isn't available for desktop and mobile client applications.
 * **Delegated permissions**. Your client application needs to access the web API as the signed-in user, but with access limited by the selected permission. This type of permission can be granted by a user unless the permission requires administrator consent.
 
   > [!NOTE]
@@ -187,7 +187,7 @@ This button allows an admin to grant admin consent to the permissions configured
 
 If you have permissions that have been granted but not configured, the admin consent button prompts you to handle these permissions. You may add them to configured permissions or you may remove them.
 
-The consent prompt provides the option to **Accept** or **Cancel**. Select **Accept** to grant admin consent. If you select **Cancel**, admin consent isn't granted. An error states that consent has been declined.
+The consent prompt provides the option to **Accept** or **Cancel**. Select **Accept** to grant admin consent. If you select **Cancel**, admin consent isn't granted. An error message states that consent has been declined.
 
 > [!NOTE]
 > There is a delay between granting admin consent by selecting **Accept** on the consent prompt and the status of admin consent being reflected in the portal.
