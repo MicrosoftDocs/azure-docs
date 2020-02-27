@@ -1,7 +1,6 @@
 ---
 title: What's new in Azure Monitor documentation
 description: Significant updates to Azure Monitor documentation updated each month.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: overview
 author: bwren

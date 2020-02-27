@@ -195,7 +195,7 @@ Currently, you cannot have point-to-site VPN connections to a virtual network th
 
 Currently, connecting an App Service web app to a virtual network that has a static routing (policy-based) gateway is not supported. If your target virtual network already exists, it must have point-to-site VPN enabled, with a dynamic routing gateway, before it can be connected to an app. If your gateway is set to static routing, you cannot enable a point-to-site VPN. 
 
-For more information, see [Integrate an app with an Azure virtual network](web-sites-integrate-with-vnet.md#getting-started).
+For more information, see [Integrate an app with an Azure virtual network](web-sites-integrate-with-vnet.md).
 
 ## In my App Service Environment, why can I create only one App Service plan, even though I have two workers available?
 

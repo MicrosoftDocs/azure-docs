@@ -29,7 +29,7 @@ For scale-out steps, see the [Azure portal](quickstart-scale-compute-portal.md),
 
 To perform a scale operation, SQL pool first kills all incoming queries and then rolls back transactions to ensure a consistent state. Scaling only occurs once the transaction rollback is complete. For a scale operation, the system detaches the storage layer from the compute nodes, adds compute nodes, and then reattaches the storage layer to the Compute layer. Each SQL pool is stored as 60 distributions, which are evenly distributed to the compute nodes. Adding more compute nodes adds more compute power. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power for your queries. Likewise, decreasing data warehouse units reduces the number of compute nodes, which reduces the compute resources for queries.
 
-The following table shows how the number of distributions per compute node changes as the data warehouse units change.  DWU6000 provides 60 compute nodes and achieves much higher query performance than DWU100. 
+The following table shows how the number of distributions per Compute node changes as the data warehouse units change.  DW30000c provides 60 Compute nodes and achieves much higher query performance than DW100c. 
 
 | Data warehouse units  | \# of compute nodes | \# of distributions per node |
 | -------- | ---------------- | -------------------------- |

@@ -3,7 +3,7 @@ title: Install and configure Windows Azure diagnostics extension (WAD)
 description: Learn how to collect Azure diagnostics data in an Azure Storage account so you can view it with one of several available tools.
 services: azure-monitor
 author: bwren
-ms.service: azure-monitor
+
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
