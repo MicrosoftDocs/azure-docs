@@ -1,5 +1,5 @@
 ---
-title: Common questions - discovery, assessment, and dependency analysis in Azure Migrate
+title: Common questions - Discovery, assessment, and dependency analysis in Azure Migrate
 description: Get answers to common questions about discovery, assessment, and dependency analysis in Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
@@ -11,32 +11,26 @@ ms.date: 02/17/2020
 This article answers common questions about discovery, assessment, and dependency analysis in Azure Migrate. If you have other questions, review these articles:
 
 - [General questions](resources-faq.md) about Azure Migrate.
-- [Questions](common-questions-appliance.md) about the Azure Migrate appliance.
-- [Questions](common-questions-server-migration.md) about server migration.
-- Post questions on the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
-
-
+- Questions about the [Azure Migrate appliance](common-questions-appliance.md).
+- Questions about [server migration](common-questions-server-migration.md).
+- Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum).
 
 ## How many VMs can I discover with an appliance?
 
-You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs and up to 250 servers with a single appliance. If you have more machines in your on-premises environment, read about scaling [Hyper-V](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md) and [physical](scale-physical-assessment.md) assessment.
+You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs, and up to 250 physical servers with a single appliance. If you have more machines in your on-premises environment, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), and [scaling a physical server assessment](scale-physical-assessment.md).
 
+## The size of my VM changed. Can I run an assessment again?
 
-
-## VM size changed. Can I run an assessment again?
-
-The Azure Migrate appliance continuously collects information about the on-premises environment. But an assessment is a point-in-time snapshot of on-premises VMs. If you change the settings on a VM that you want to assess, use the recalculate option to update the assessment with the latest changes.
+The Azure Migrate appliance continuously collects information about the on-premises environment.  An assessment is a point-in-time snapshot of on-premises VMs. If you change the settings on a VM that you want to assess, use the recalculate option to update the assessment with the latest changes.
 
 ### How do I discover VMs in a multitenant environment?
 
-- For VMware, if your environment is shared across tenants, and you don't want to discover the VMs of one tenant in another tenant's subscription, create vCenter Server credentials that can access only the VMs you want to discover. Then, use those credentials when you start discovery in the Azure Migrate appliance.
-- For Hyper-V, discovery uses Hyper-V host credentials. If VMs share the same Hyper-V host, there's currently no way to separate the discovery.  
-
+- **VMware**: If your environment is shared across tenants and you don't want to discover the VMs of one tenant in another tenant's subscription, create vCenter Server credentials that can access only the VMs you want to discover. Then, use those credentials when you start discovery in the Azure Migrate appliance.
+- **Hyper-V**: Hyper-V discovery uses Hyper-V host credentials. If VMs share the same Hyper-V host, there's currently no way to separate the discovery.  
 
 ### Do I need vCenter Server for VMWare VM discovery?
 
-Yes, Azure Migrate needs vCenter Server to perform discovery in a VMware environment. It doesn't support discovery of ESXi hosts that aren't managed by vCenter Server.
-
+Yes, Azure Migrate requires vCenter Server to perform discovery in a VMware environment. It doesn't support discovery of ESXi hosts that aren't managed by vCenter Server.
 
 ## What's the difference sizing options?
 
