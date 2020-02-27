@@ -1,6 +1,6 @@
 ---
 title: Common questions about Azure Migrate Server Migration
-description: Get answers to common questions about using Azure Migrate Server Migration to migrat machines.
+description: Get answers to common questions about using Azure Migrate Server Migration to migrate machines.
 ms.topic: conceptual
 ms.date: 02/17/2020
 ---
@@ -30,7 +30,7 @@ When you migrate, an on-demand replication cycle is scheduled for the machine to
 
 ## Why isn't resynchronization exposed?
 
-During agentless migration, in every delta cycle, the difference between the current snapshot and the previously taken snapshot is written. It's always the difference between snapshots, folding data in. If a specific sector is written *N* times between snapshots, only the last write needs to be transferred because we are interested only in the last sync. This differs from agent-based replication where we track and apply every write. This means that every delta cycle is a resynchronization. Hence, there is no resynchronization option exposed. If ever the disks aren't synchronized because of a failure, it's fixed in the next cycle. 
+During agentless migration, in every delta cycle, the difference between the current snapshot and the previously taken snapshot is written. It's always the difference between snapshots, folding data in. If a specific sector is written *N* times between snapshots, only the last write needs to be transferred because we are interested only in the last sync. The process is different from agent-based replication, where we track and apply every write. In this process, every delta cycle is a resynchronization. So, no resynchronization option exposed. If ever the disks aren't synchronized because of a failure, it's fixed in the next cycle. 
 
 ## How does churn rate affect agentless replication?
 
@@ -40,7 +40,7 @@ Because agentless replication folds date, the *churn pattern* is more important 
 
 The formula to schedule the next replication cycle is (Previous cycle time / 2) or 1 hour, whichever is higher.
 
-For example, if a VM takes four hours for a delta cycle, the next cycle is scheduled in two hours, and not in the next hour. This is different immediately after initial replication, where the first delta cycle is scheduled immediately.
+For example, if a VM takes four hours for a delta cycle, the next cycle is scheduled in two hours, and not in the next hour. The process is different immediately after initial replication, where the first delta cycle is scheduled immediately.
 
 ## How does agentless replication affect VMware servers?
 
