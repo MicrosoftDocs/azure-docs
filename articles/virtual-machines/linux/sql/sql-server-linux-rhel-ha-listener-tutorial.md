@@ -186,6 +186,8 @@ At this point, the resource group has a load balancer that connects to all SQL S
 
 1. On the primary node, run the following command in SQLCMD or SSMS:
 
+    - Replace the IP address used below with the `virtualip` IP address.
+
     ```sql
     ALTER AVAILABILITY
     GROUP [ag1] ADD LISTENER 'ag1-listener' (
@@ -285,4 +287,5 @@ At this point, the resource group has a load balancer that connects to all SQL S
 
 For more information on Load balancers in Azure, see:
 
-- [Configure a load balancer for an availability group on Azure SQL Server VMs](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+> [!div class="nextstepaction"]
+> [Configure a load balancer for an availability group on Azure SQL Server VMs](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)
