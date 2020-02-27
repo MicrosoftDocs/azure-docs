@@ -70,6 +70,8 @@ The second step is omitted if you specify user-managed dependencies. In this cas
 
 If you use the same environment definition for another run, the Environment Management service pulls the cached image from Workspace ACR to the compute target, and re-uses it. 
 
+To view the details of a cached image, use [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#get-image-details-workspace-) method.
+
 To determine whether to re-use a cached image or build a new one, the Environment Management service computes a hash value from the environment definition and compares it to the hashes of existing environments. The hash is based on:
  
  * Base image property value
@@ -77,22 +79,24 @@ To determine whether to re-use a cached image or build a new one, the Environmen
  * List of Python packages in Conda definition
  * List of packages in Spark definition 
 
-The hash does not depend on environment name or version, or environment variables values. Following diagram illustrates how two environments with different name and version, but identical base image and Python packages have the same hash and therefore correspond to the same cached image. The third environment has different Python packages and versions, and therefore corresponds to a different cached image.
+The hash does not depend on environment name or version. Following diagram illustrates how two environments with different name and version, but identical base image and Python packages have the same hash and therefore correspond to the same cached image. The third environment has different Python packages and versions, and therefore corresponds to a different cached image.
 
 ![Diagram of environment caching as Docker images](./media/concept-environments/environment_caching.png)
 
 For example, following changes on environment definition will change the hash value, and result in an image rebuild:
 
  * Adding or removing a Python package
- * Changing a pinned package version, for example ```numpy==0.15``` to ```numpy==0.16```
+ * Changing a pinned package version, for example ```numpy==0.15``` to ```numpy==0.16```.
 
 Following operations will not change the hash value, and will result in a cached image being used:
  
  * Renaming an environment
  * Creating a new environment whose properties and Python package list exactly matches an existing environment.
- * Changing an environment variable.
 
-Note also that if you create an environment with unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed at the time of environment creation. To update the package, specify a version number.
+If you create an environment with unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed at the time of environment creation. Also, any future environment with matching definition will keep using the old version. To update the package, specify a version number to force image rebuild. Note that new dependencies, including nested ones will be installed that might break a previously working scenario
+
+> [!WARNING]
+>  The [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace-) method will rebuild the cached image, with possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.
 
 ## Next steps
 
