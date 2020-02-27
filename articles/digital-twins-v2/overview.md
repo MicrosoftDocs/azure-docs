@@ -66,7 +66,7 @@ Using fine-grained, twin-level access control, you can define the policies for d
 
 ### Integrate with IoT Hub for device-centric scenarios
 
-Azure Digital Twins allows you to attach an [Azure IoT Hub](../iot-hub/about-iot-hub.md), and will automatically mirror devices connected to that attached hub into your Azure Digital Twins graph. For [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) devices, it will also automatically replicate their state and proxy their commands, so that you can program against devices in virtually the same way you program against all other twins.
+Azure Digital Twins can mirror devices connected to an attached IoT hub into your Azure Digital Twins graph, where you can connect them via relationships and query them alongside model-based twins.
 
 ## Azure Digital Twins in a solution context
 
@@ -91,7 +91,7 @@ The main changes are:
     - access custom code libraries without restriction.
     - have access to a robust development and debugging story with supported serverless compute platforms such as Azure Functions.
     - take advantage of a flexible event processing and routing model throughout the platform. 
-* Full access to IoT Hub. In Azure Digital Twins Public Preview 1, IoT Hub was integrated into Azure Digital Twins, and not fully accessible to developers. In the new version of Azure Digital Twins, you bring your own IoT hub and attach it to Azure Digital Twins. This change puts you in full control of all device management, and gives you full access to IoT Hub's capabilities. Azure Digital Twins automatically reflects PnP devices connected to IoT Hub into the Azure Digital Twins graph.
+* Full access to IoT Hub. In Azure Digital Twins Public Preview 1, IoT Hub was integrated into Azure Digital Twins, and not fully accessible to developers. In the new version of Azure Digital Twins, you bring your own IoT hub and attach it to Azure Digital Twins. This change puts you in full control of all device management, and gives you full access to IoT Hub's capabilities.
 * Greater Scale. The new version of Azure Digital Twins is designed to run at greater scale, with more compute power for handling large numbers of messages and API requests.
 
 ## Next steps
