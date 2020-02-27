@@ -57,7 +57,7 @@ To enable keep me signed in, set the content definition `DataUri` element to [pa
 Update the relying party (RP) file that initiates the user journey that you created.
 
 1. Open your custom policy file. For example, *SignUpOrSignin.xml*.
-1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="User journey Id"` from your extensions policy, or equivalent (for example: `SignUpOrSignIn" />`.
+1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="User journey Id" />`for example: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.
 1. Add the following node as a child of the `<UserJourneyBehaviors>` element.
 
     ```XML
