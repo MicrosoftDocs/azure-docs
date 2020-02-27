@@ -39,7 +39,7 @@ The `InputClaims` element is empty or absent.
 
 ## Persisted claims
 
-To store claims in a session, you need to ensure that any claims that need to be returned to the application, or used by pre-conditions in subsequent steps, are stored in the session or augmented by a read from the users profile in directory. This will ensure that your authentication journey’s will not fail on missing claims. To add claims in the session, use the `<PersistedClaims>` element of the technical profile. When the provider is used to repopulate the session, the persisted claims are added to the claims bag. 
+To store claims in a session, you need to ensure that any claims that need to be returned to the application, or used by pre-conditions in subsequent steps, are stored in the session or augmented by a read from the user profile in directory. Using persisted claims ensure that your authentication journey’s will not fail, on missing claims. To add claims in the session, use the `<PersistedClaims>` element of the technical profile. When the provider is used to repopulate the session, the persisted claims are added to the claims bag. 
 
 ## Output claims
 
