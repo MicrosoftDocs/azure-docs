@@ -228,6 +228,8 @@ To test the application on your local computer, use the following steps:
 1. Press F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
 
    ![Screenshot of the todo list web application created by this tutorial](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+   
+   If the application instead opens to the home page, append `/Item` to the url.
 
 1. Select the **Create New** link and add values to the **Name** and **Description** fields. Leave the **Completed** check box unselected. If you select it, the app adds the new item in a completed state. The item no longer appears on the initial list.
 
