@@ -8,7 +8,7 @@ ms.author: glenga
 
 ## Run the function locally
 
-Start the function by starting the local Azure Functions runtime host in the *LocalFunctionProj* folder:
+Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-javascript,programming-language-python"
 ```
@@ -23,16 +23,23 @@ npm start
 ```
 ::: zone-end
 
-The following output should appear. (If HttpExample doesn't appear as shown below, you likely started the host from within the *HttpExample* folder. In that case, use **Ctrl**+**C** to stop the host, navigate to the parent *LocalFunctionProj* folder, and run the previous command again.)
+Toward the end of the output, the following lines should appear: 
 
-```output
+<pre><code>
+...
+
 Now listening on: http://0.0.0.0:7071
 Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
         HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
-```
+...
+
+</code></pre>
+
+>[!NOTE]
+> If HttpExample doesn't appear as shown below, you likely started the host from within the *HttpExample* folder. In that case, use **Ctrl**+**C** to stop the host, navigate to the parent *LocalFunctionProj* folder, and run the previous command again.
 
 Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
 
@@ -40,4 +47,4 @@ Copy the URL of your `HttpExample` function from this output to a browser and ap
 
 The terminal in which you ran `func start` also shows log output as you make requests.
 
-When you're ready, use **Ctrl**+**C** to stop the functions host.
+When you're ready, use **Ctrl**+**C** and choose `y` to stop the functions host.

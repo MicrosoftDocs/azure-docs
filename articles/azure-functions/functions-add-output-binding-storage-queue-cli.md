@@ -121,54 +121,37 @@ Observe that you *don't* need to write any code for authentication, getting a qu
 
 ## View the message in the Azure Storage queue
 
-When your function generates an HTTP response for the web browser, it also calls `msg.set(name)`, which writes a message to an Azure Storage queue named `outqueue`, as specified in the queue binding. You can view the queue in the [Azure portal](../storage/queues/storage-quickstart-queues-portal.md) or in the  [Microsoft Azure Storage Explorer](https://storageexplorer.com/). You can also view the queue in the Azure CLI as described in the following steps:
+You can view the queue in the [Azure portal](../storage/queues/storage-quickstart-queues-portal.md) or in the  [Microsoft Azure Storage Explorer](https://storageexplorer.com/). You can also view the queue in the Azure CLI, as described in the following steps:
 
-1. Open the function project's *local.setting.json* file and copy the connection string value. In a terminal or command window, run the following command to create an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, pasting your specific connection string in place of  `<connection_string>`. (This environment variable means you don't need to supply the connection string to each subsequent command using the `--connection-string` argument.)
+1. Open the function project's *local.setting.json* file and copy the connection string value. In a terminal or command window, run the following command to create an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, pasting your specific connection string in place of  `<MY_CONNECTION_STRING>`. (This environment variable means you don't need to supply the connection string to each subsequent command using the `--connection-string` argument.)
 
     # [bash](#tab/bash)
     
     ```bash
-    AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
+    AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
     ```
     
     # [PowerShell](#tab/powershell)
     
     ```powershell
-    $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
+    $env:AZURE_STORAGE_CONNECTION_STRING = "<MY_CONNECTION_STRING>"
     ```
     
     # [Cmd](#tab/cmd)
     
     ```cmd
-    set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
+    set AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
     ```
     
     ---
     
 1. (Optional) Use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account. The output from this command should include a queue named `outqueue`, which was created when the function wrote its first message to that queue.
     
-    # [bash](#tab/bash)
-    
-    ```bash
+    ```azure-cli
     az storage queue list --output tsv
     ```
-    
-    # [PowerShell](#tab/powershell)
-    
-    ```powershell
-    az storage queue list --output tsv
-    ```
-    
-    # [Cmd](#tab/cmd)
-    
-    ```cmd
-    az storage queue list --output tsv
-    ```
-    
-    ---
 
-
-1. Use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view the messages in this queue, which should be the first name you used when testing the function earlier. The command retrieves the first message in the queue in [base64 encoding](functions-bindings-storage-queue-trigger.md#encoding), so you must also decode the message to view as text.
+1. Use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view a message in this queue, which should be the first name you used when testing the function earlier. The command retrieves only the first message in the queue, which is [base64 encoded](functions-bindings-storage-queue-trigger.md#encoding), and decodes it to show the message text.
 
     # [bash](#tab/bash)
     
@@ -184,8 +167,12 @@ When your function generates an HTTP response for the web browser, it also calls
     
     # [Cmd](#tab/cmd)
     
-    Because you need to dereference the message collection and decode from base64, run PowerShell and use the PowerShell command.
+    ```cmd
+    az storage message peek --queue-name outqueue -o tsv --query [].{Message:content} > %TEMP%out.b64 && certutil -decode -f %TEMP%out.b64 %TEMP%out.txt > NUL && type %TEMP%out.txt && del %TEMP%out.b64 %TEMP%out.txt /q
+    ```
 
+    This script uses certutil to decode the base64-encoded message collection from a local temp file. If there's no output, try removing `> NUL` from the script and stop suppressing certutil message, in case there's an error. 
+    
     ---
     
 ## Redeploy the project to Azure
@@ -220,9 +207,7 @@ Now that you've tested the function locally and verified that it wrote a message
 
 ## Clean up resources
 
-If you continue to the next step, [Enable Application Insights integration](functions-monitoring.md#manually-connect-an-app-insights-resource), keep all your resources in place as you'll build on what you've already done.
-
-Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
+After you've finished, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
 
 ```azurecli
 az group delete --name AzureFunctionsQuickstart-rg
@@ -232,27 +217,34 @@ az group delete --name AzureFunctionsQuickstart-rg
 
 You've updated your HTTP triggered function to write data to a Storage queue. Now you can learn more about developing Functions from the command line using Core Tools and Azure CLI:
 
-+ [Work with Azure Functions Core Tools](functions-run-local.md)
++ [Work with Azure Functions Core Tools](functions-run-local.md)  
 ::: zone pivot="programming-language-csharp"  
 + [Examples of complete Function projects in C#](/samples/browse/?products=azure-functions&languages=csharp).
+
 + [Azure Functions C# developer reference](functions-dotnet-class-library.md)  
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
+
 + [Azure Functions JavaScript developer guide](functions-reference-node.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Examples of complete Function projects in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
+
 + [Azure Functions TypeScript developer guide](functions-reference-node.md#typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).
+
 + [Azure Functions Python developer guide](functions-reference-python.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Examples of complete Function projects in PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
+
 + [Azure Functions PowerShell developer guide](functions-reference-powershell.md) 
 ::: zone-end
 + [Azure Functions triggers and bindings](functions-triggers-bindings.md).
+
 + [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/)
+
 + [Estimating Consumption plan costs](functions-consumption-costs.md) article.
