@@ -133,22 +133,46 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 | maxDeliveryCount          | Maximum delivery count for cloud-to-device per-device queues | 1 to 100; default: 10 |
 | feedback.ttlAsIso8601     | Retention for service-bound feedback messages | ISO_8601 interval up to 2 days (minimum 1 minute); default: 1 hour |
 | feedback.maxDeliveryCount | Maximum delivery count for the feedback queue | 1 to 100; default: 100 |
+| feedback.lockDurationAsIso8601 | Maximum delivery count for the feedback queue | 5 to 300 seconds (minimum 5 seconds); default: 60 seconds. |
 
 You can set the configuration options in one of the following ways:
 
 * **Azure portal**: Under **Settings** on your IoT hub, select **Built-in endpoints** and expand **Cloud to device messaging**. (Setting the **feedback.maxDeliveryCount** property is not currently supported in Azure portal.)
 
-* **Azure CLI**: Use the `c2d-ttl`, `c2d-max-delivery-count`, `feedback-ttl`, and `feedback-max-delivery-count` parameters in the [az iot hub update](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) command. For example, the following command sets the **feedback.maxDeliveryCount** property:
+* **Azure CLI**: Use the [az iot hub update](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) command:
 
     ```azurecli
-    az iot hub update --name <your IoT hub name> --feedback-max-delivery-count 9
+    az iot hub update --name {your IoT hub name} --c2d-ttl PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} --c2d-max-delivery-count 10
+
+    az iot hub update --name {your IoT hub name} --feedback-ttl PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} --feedback-max-delivery-count 100
+
+    az iot hub update --name {your IoT hub name} --feedback-lock-duration 60
     ```
 
-* **PowerShell**: Use the `-CloudToDevice` parameter in the [Set-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/set-aziothub) command. For example, the following command sets the **feedback.maxDeliveryCount** property:
+    You can also use the generic `set` parameter to set configuration options:
 
-    ```azurepowershell
-    
+    ```azurecli
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.defaultTtlAsIso8601 PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.maxDeliveryCount 10
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.ttlAsIso8601 PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.maxDeliveryCount 100
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.lockDurationAsIso8601 60
     ```
+
+
 
 ## Next steps
 
