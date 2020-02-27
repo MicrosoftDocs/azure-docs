@@ -31,7 +31,7 @@ Azure AD B2C has defined a number of SSO session providers that can be used:
 * ExternalLoginSSOSessionProvider
 * SamlSSOSessionProvider
 
-SSO management classes are specified using the `<UseTechnicalProfileForSessionManagement ReferenceId=“{ID}" />` element of a technical profile.
+SSO management classes are specified using the `<UseTechnicalProfileForSessionManagement ReferenceId="{ID}" />` element of a technical profile.
 
 ## Input claims
 
@@ -39,7 +39,7 @@ The `InputClaims` element is empty or absent.
 
 ## Persisted claims
 
-To store claims in a session, you need to ensure that any claims that need to be returned to the application, or used by pre-conditions in subsequent steps, are stored in the session or augmented by a read from the user profile in directory. Using persisted claims ensure that your authentication journey’s will not fail, on missing claims. To add claims in the session, use the `<PersistedClaims>` element of the technical profile. When the provider is used to repopulate the session, the persisted claims are added to the claims bag. 
+Claims that need to be returned to the application or used by preconditions in subsequent steps, should be stored in the session or augmented by a read from the user's profile in the directory. Using persisted claims ensures that your authentication journeys won't fail on missing claims. To add claims in the session, use the `<PersistedClaims>` element of the technical profile. When the provider is used to repopulate the session, the persisted claims are added to the claims bag. 
 
 ## Output claims
 
@@ -49,7 +49,7 @@ The `<OutputClaims>` is used for retrieving claims from the session.
 
 ### NoopSSOSessionProvider
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile. The following `SM-Noop` technical profile that is included in the custom [policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack). 
+As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile. The following `SM-Noop` technical profile is included in the [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack).  
 
 ```XML
 <TechnicalProfile Id="SM-Noop">
@@ -60,7 +60,7 @@ As the name dictates, this provider does nothing. This provider can be used for 
 
 ### DefaultSSOSessionProvider
 
-This provider can be used for storing claims in a session. This provider is typically referenced in a technical profile used for managing local accounts. The following `SM-AAD` technical profile that is included in the custom [policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack). 
+This provider can be used for storing claims in a session. This provider is typically referenced in a technical profile used for managing local accounts. The following `SM-AAD` technical profile is included in the [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack). 
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
@@ -80,7 +80,7 @@ This provider can be used for storing claims in a session. This provider is typi
 </TechnicalProfile>
 ```
 
-The following `SM-MFA` technical profile that is included in the custom [policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`. This technical profile manages the multi-factor authentication session. 
+The following `SM-MFA` technical profile is included in the [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`. This technical profile manages the multi-factor authentication session. 
 
 ```XML
 <TechnicalProfile Id="SM-MFA">
@@ -97,7 +97,7 @@ The following `SM-MFA` technical profile that is included in the custom [policy 
 
 ### ExternalLoginSSOSessionProvider
 
-This provider is used to suppress the “choose identity provider” screen. It is typically referenced in a technical profile configured for an external identity provider, such as Facebook. The following `SM-SocialLogin` technical profile that is included in the custom [policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack).
+This provider is used to suppress the "choose identity provider" screen. It is typically referenced in a technical profile configured for an external identity provider, such as Facebook. The following `SM-SocialLogin` technical profile is included in the [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">
@@ -116,11 +116,11 @@ This provider is used to suppress the “choose identity provider” screen. It 
 		
 | Attribute | Required | Description|
 | --- | --- | --- |
-| AlwaysFetchClaimsFromProvider | No | Not in used, ignore this metadata. |
+| AlwaysFetchClaimsFromProvider | No | Not currently used, can be ignored. |
 
 ### SamlSSOSessionProvider
 
-This provider is used for managing the Azure AD B2C SAML sessions between a relying party application, or a federated SAML identity provider. When using the SSO provider for storing a SAML identity provider session, the `IncludeSessionIndex` and `RegisterServiceProviders` must set to `false`. The following `SM-Saml-idp` technical profile used by [SAML technical  profile](saml-technical-profile.md).
+This provider is used for managing the Azure AD B2C SAML sessions between a relying party application or a federated SAML identity provider. When using the SSO provider for storing a SAML identity provider session, the `IncludeSessionIndex` and `RegisterServiceProviders` must be set to `false`. The following `SM-Saml-idp` technical profile is used by the [SAML technical  profile](saml-technical-profile.md).
 
 ```XML
 <TechnicalProfile Id="SM-Saml-idp">
@@ -135,7 +135,7 @@ This provider is used for managing the Azure AD B2C SAML sessions between a rely
 
 When using the provider for storing the B2C SAML session, the `IncludeSessionIndex` and `RegisterServiceProviders` must set to `true`. SAML session logout requires the `SessionIndex` and `NameID` to complete.
  
-The following `SM-Saml-idp` technical profile used by [SAML issuer technical profile](connect-with-saml-service-providers.md)
+The following `SM-Saml-idp` technical profile is used by [SAML issuer technical profile](connect-with-saml-service-providers.md)
 
 ```XML
 <TechnicalProfile Id="SM-Saml-sp">
