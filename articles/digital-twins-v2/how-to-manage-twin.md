@@ -132,7 +132,7 @@ To patch properties in components, use path syntax in JSON Patch:
   {
     "op": "replace",
     "path": "/$metadata/$model",
-    "value": “dtmi:com:example:foo;1”
+    "value": "dtmi:com:example:foo;1"
   }
 ]
 ```
@@ -147,7 +147,7 @@ To patch properties in components, use path syntax in JSON Patch:
   {
     "op": "replace",
     "path": "$metadata.$model",
-    "value": “dtmi:com:example:foo”
+    "value": "dtmi:com:example:foo"
   },
   {
     "op": "add",
@@ -162,20 +162,20 @@ To patch properties in components, use path syntax in JSON Patch:
 To access properties on twin instances, you can use `GetProperty` functions on the client object. These functions can retrieve values as JSON (including all the metadata) or as primitive types:
 
 ```csharp
-var client = new DigitalTwinsServiceClient(“...”);
+var client = new DigitalTwinsServiceClient("...");
 double tempVal = 0;
 // Get property as Json
-Response<JsonDocument> result = client.GetPropertyAsJson(roomid, “temperature”);
+Response<JsonDocument> result = client.GetPropertyAsJson(roomid, "temperature");
 
 // Get property as primitive type 
-Response<int> intresult = client.GetIntProperty(roomid, “myIntProperty”);
+Response<int> intresult = client.GetIntProperty(roomid, "myIntProperty");
 // result value is: int a = intresult.Value
 
-Response<double> dresult = client.GetDoubleProperty(roomid, “myDoubleProperty”);
+Response<double> dresult = client.GetDoubleProperty(roomid, "myDoubleProperty");
 // ...etc, other versions of the functions
 // ...compute something...
-Response<string> jresult = client.SetPropertyAsJson(roomid, “temperature”, tempVal);
-Response<int> ires = client.SetIntProperty(roomid, “myIntProperty”, myIntValue);
+Response<string> jresult = client.SetPropertyAsJson(roomid, "temperature", tempVal);
+Response<int> ires = client.SetIntProperty(roomid, "myIntProperty", myIntValue);
 ```
 
 ## Complex properties
@@ -183,37 +183,37 @@ Response<int> ires = client.SetIntProperty(roomid, “myIntProperty”, myIntVal
 To access complex properties, you need to use JSON. 
 
 ```csharp
-var client = new DigitalTwinsServiceClient(“...”);
+var client = new DigitalTwinsServiceClient("...");
 string complexPropertyValue;
-Response<JsonDocument> = client.GetPropertyAsJson(roomid, “myComplexProperty”);
+Response<JsonDocument> = client.GetPropertyAsJson(roomid, "myComplexProperty");
 // Deserialize return value, with System.Text.Json
 // [TBA]
 // ...compute something...
-Response<string> result = client.SetProperty(roomid, “myComplexProperty”,                            
+Response<string> result = client.SetProperty(roomid, "myComplexProperty",                            
                                                      complexPropertyJSonValue);
 ```
 
 ## Components
 
 For components defined in a twin model, you can describe a property path.
-Let’s say we have the following DTDL models that define a phone device with two cameras:
+Let's say we have the following DTDL models that define a phone device with two cameras:
 
 ```csharp
 {
-    "@id": “dtmi:example:Camera;1",
+    "@id": "dtmi:example:Camera;1",
     "@type": "Interface",
     "contents": [
         {
             "@type": "Property",
             "name": "aperture",
             "schema": "double",
-            “writable”: true
+            "writable": true
         },
         {
             "@type": "Property"
             "name": "exposure",
             "schema": "double",
-            “writable”: true
+            "writable": true
         },
     ]
 }
@@ -238,8 +238,8 @@ Let’s say we have the following DTDL models that define a phone device with tw
 To access properties on the *frontCamera* component, you can write:
 
 ```csharp
-var client = new DigitalTwinsServiceClient(“...”);
-Response<double> result = client.SetDoubleProperty(phoneId, “frontCamera.aperture”,
+var client = new DigitalTwinsServiceClient("...");
+Response<double> result = client.SetDoubleProperty(phoneId, "frontCamera.aperture",
                                                             newApertureValue);
 ```
 
@@ -254,8 +254,8 @@ Recall the definitions of *Moon* and *Planet* twins:
 {
     "@id": "dtmi:example:Planet;1",
     "@type": "Interface",
-    “extends”: [
-        “ex:CelestialBody”
+    "extends": [
+        "ex:CelestialBody"
     ]
     "contents": [
         {
@@ -268,8 +268,8 @@ Recall the definitions of *Moon* and *Planet* twins:
 {
     "@id": "dtmi:example:Moon;1",
     "@type": "Interface",
-    “extends”: [
-        “ex:CelestialBody”
+    "extends": [
+        "ex:CelestialBody"
     ]
     "contents": [
         {
@@ -284,23 +284,23 @@ Recall the definitions of *Moon* and *Planet* twins:
 To access relationships, you can write:
 
 ```csharp
-var client = new DigitalTwinsServiceClient(“...”);
+var client = new DigitalTwinsServiceClient("...");
 string rels;
-Response<JsonDocument> result = client.GetRelationshipAsJson(planetId, “satellites”);
+Response<JsonDocument> result = client.GetRelationshipAsJson(planetId, "satellites");
 // Parse relationships as json as desired from result.Value
 ```
 This call returns an array of relationships, because each relationship can have a cardinality that is larger than one. To navigate a relationship, you can follow the target of the returned relationship:
 
 ```csharp
-var client = new DigitalTwinsServiceClient(“...”);
+var client = new DigitalTwinsServiceClient("...");
 string rels;
-Response<JsonDocument> result = client.GetRelationshipAsJson(planetId, “satellites”);
+Response<JsonDocument> result = client.GetRelationshipAsJson(planetId, "satellites");
 var result = results.Value.GetArrayEnumerator());
 foreach (JElement je in result)
 {
     String target = je.GetProperty("Target").GetString();
     String name;
-    Response<string> name = client.GetStringProperty(target, “name”); 
+    Response<string> name = client.GetStringProperty(target, "name"); 
     Console.WriteLine(name);
 }
 ```
