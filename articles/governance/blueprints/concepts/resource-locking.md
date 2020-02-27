@@ -1,7 +1,7 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
-ms.date: 04/24/2019
+ms.date: 02/27/2020
 ms.topic: conceptual
 ---
 # Understand resource locking in Azure Blueprints
@@ -40,6 +40,63 @@ action on the protected resource.
 
 This security measure protects the consistency of the defined blueprint and the environment it was
 designed to create from accidental or programmatic deletion or alteration.
+
+### Assign at management group
+
+An additional option to prevent subscription owners from removing a blueprint assignment is to
+assign the blueprint to a management group. In this scenario, only **Owners** of the management
+group have the permissions needed to remove the blueprint assignment.
+
+To assign the blueprint to a management group instead of a subscription, the REST API call changes
+to look like this:
+
+```http
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
+```
+
+The management group defined by `{assignmentMG}` must be either within the management group
+hierarchy or be the same management group where the blueprint definition is saved.
+
+The request body of the blueprint assignment looks like this:
+
+```json
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "location": "eastus",
+    "properties": {
+        "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+        "blueprintId": "/providers/Microsoft.Management/managementGroups/{blueprintMG}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+        "scope": "/subscriptions/{targetSubscriptionId}",
+        "parameters": {
+            "storageAccountType": {
+                "value": "Standard_LRS"
+            },
+            "costCenter": {
+                "value": "Contoso/Online/Shopping/Production"
+            },
+            "owners": {
+                "value": [
+                    "johnDoe@contoso.com",
+                    "johnsteam@contoso.com"
+                ]
+            }
+        },
+        "resourceGroups": {
+            "storageRG": {
+                "name": "defaultRG",
+                "location": "eastus"
+            }
+        }
+    }
+}
+```
+
+The key difference in this request body and one being assigned to a subscription is the
+`properties.scope` property. This required property must be set to the subscription that the
+blueprint assignment applies to. The subscription must be a direct child of the management group
+hierarchy where the blueprint assignment is stored.
 
 ## Removing locking states
 
@@ -82,10 +139,10 @@ of each mode are as follows:
 
 In some design or security scenarios, it may be necessary to exclude a principal from the
 [deny assignment](../../../role-based-access-control/deny-assignments.md) the blueprint assignment
-creates. This is done in REST API by adding up to five values to the **excludedPrincipals** array in
-the **locks** property when
-[creating the assignment](/rest/api/blueprints/assignments/createorupdate). This is an example of a
-request body that includes **excludedPrincipals**:
+creates. This step is done in REST API by adding up to five values to the **excludedPrincipals**
+array in the **locks** property when
+[creating the assignment](/rest/api/blueprints/assignments/createorupdate). The following assignment
+definition is an example of a request body that includes **excludedPrincipals**:
 
 ```json
 {

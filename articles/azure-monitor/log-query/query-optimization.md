@@ -1,7 +1,6 @@
 ---
 title: Optimize log queries in Azure Monitor
 description: Best practices for optimizing log queries in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -255,8 +254,13 @@ by Computer
 ) on Computer
 ```
 
+The measurement is always larger than the actual time specified. For example, if the filter on the query is 7 days, the system might scan 7.5 or 8.1 days. This is because the system is partitioning the data into chunks in variable size. To assure that all relevant records are scanned, it scans the entire partition that might cover several hours and even more than a day.
+
+There are several cases where the system cannot provide an accurate measurement of the time range. This happens in most of the cases where the query's span less than a day or in multi-workspace queries.
+
+
 > [!IMPORTANT]
-> This indicator isn't available for cross region queries.
+> This indicator presents only data processed in the immediate cluster. In multi-region query, it would represent only one of the regions. In multi-workspace query, it might not include all workspaces.
 
 ## Age of processed data
 Azure Data Explorer uses several storage tiers: in-memory, local SSD disks and much slower Azure Blobs. The newer the data, the higher is the chance that it is stored in a more performant tier with smaller latency, reducing the query duration and CPU. Other than the data itself, the system also has a cache for metadata. The older the data, the less chance its metadata will be in cache.
@@ -281,7 +285,7 @@ Cross-region query execution requires the system to serialize and transfer in th
 If there is no real reason to scan all these regions, you should adjust the scope so it covers fewer regions. If the resource scope is minimized but still many regions are used, it might happen due to misconfiguration. For example, audit logs and diagnostic settings are sent to different workspaces in different regions or there are multiple diagnostic settings configurations. 
 
 > [!IMPORTANT]
-> This indicator isn't available for cross region queries.
+> When a query is run across several regions, the CPU and data measurements will not be accurate and will represent the measurement only on one of the regions.
 
 ## Number of workspaces
 Workspaces are logical containers that are used to segregate and administer logs data. The backend optimizes workspace placements on physical clusters within the selected region.
@@ -297,7 +301,7 @@ Cross-region and cross-cluster execution of queries requires the system to seria
 > In some multi-workspace scenarios, the CPU and data measurements will not be accurate and will represent the measurement only to few of the workspaces.
 
 ## Parallelism
-Azure Monitor Logs is using large clusters of Azure Data Explorer to run queries, and these clusters vary in scale. The system automatically scales the clusters according to workspace placement logic and capacity.
+Azure Monitor Logs is using large clusters of Azure Data Explorer to run queries, and these clusters vary in scale, potentially getting up to dozens of compute nodes. The system automatically scales the clusters according to workspace placement logic and capacity.
 
 To efficiently execute a query, it is partitioned and distributed to compute nodes based on the data that is required for its processing. There are some situations where the system cannot do this efficiently. This can lead to a long duration of the query. 
 

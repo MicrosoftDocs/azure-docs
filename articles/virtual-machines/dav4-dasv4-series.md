@@ -2,7 +2,7 @@
  title: Dav4 and Dasv4-series - Azure Virtual Machines
  description: Specifications for the Dav4 and Dasv4-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: migerdes
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020

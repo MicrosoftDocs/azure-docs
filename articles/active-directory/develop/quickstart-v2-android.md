@@ -19,7 +19,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:A
 
 This quickstart uses a code sample to demonstrate how an Android application can sign in personal, work, or school accounts using the Microsoft identity platform, and then get an access token and call the Microsoft Graph API.
 
-Applications must be represented by an app object in Azure Active Directory so that the Microsoft identity platform can share tokens with your application.
+Applications must be represented by an app object in Azure Active Directory so that the Microsoft identity platform can provide tokens to your application.
 
 > [!div renderon="docs"]
 > As a convenience, the code sample comes with a default `redirect_uri` preconfigured in the `AndroidManifest.xml` file so that you don't have to first register your own app object. A `redirect_uri` is partly based on your app's signing key. The sample project is preconfigured with a signing key so that the provided `redirect_uri` will work. To learn more about registering an app object and integrating it with your application, see the [Sign in users and call the Microsoft Graph from an Android app](tutorial-v2-android.md) tutorial.
@@ -168,7 +168,7 @@ We'll now look at these files in more detail and call out the MSAL-specific code
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. Gradle 3.0+ installs the library when you add the following to **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
 
 ```gradle  
-implementation 'com.microsoft.identity.client:msal:1.0.0'
+implementation 'com.microsoft.identity.client:msal:1.+'
 ```
 
 You can see this in the sample project in build.gradle (Module: app):
@@ -176,7 +176,7 @@ You can see this in the sample project in build.gradle (Module: app):
 ```java
 dependencies {
     ...
-    implementation 'com.microsoft.identity.client:msal:1.0.+'
+    implementation 'com.microsoft.identity.client:msal:1.+'
     ...
 }
 ```
