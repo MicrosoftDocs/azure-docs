@@ -24,7 +24,7 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Use the Azure CLI locally
+## Install the Azure CLI locally
 
 If you choose to install and use the Azure CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.46 or later. Run `az --version` to determine your version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -33,6 +33,8 @@ If you are running the Azure CLI locally, you must log in and authenticate. This
 ```azurecli
 az login
 ```
+
+For more information about authentication` with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Authorize access to Blob storage
 
