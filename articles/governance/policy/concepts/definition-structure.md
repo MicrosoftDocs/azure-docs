@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 11/26/2019
+ms.date: 02/26/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -852,6 +852,10 @@ management because you work with a group as a single item. For example, you can 
 tagging policy definitions into a single initiative. Rather than assigning each policy individually,
 you apply the initiative.
 
+> [!NOTE]
+> Once an initiative is assigned, initative level parameters can't be altered. Due to this, the
+> recommendation is to set a **defaultValue** when defining the parameter.
+
 The following example illustrates how to create an initiative for handling two tags: `costCenter`
 and `productName`. It uses two built-in policies to apply the default tag value.
 
@@ -866,13 +870,15 @@ and `productName`. It uses two built-in policies to apply the default tag value.
                 "type": "String",
                 "metadata": {
                     "description": "required value for Cost Center tag"
-                }
+                },
+                "defaultValue": "DefaultCostCenter"
             },
             "productNameValue": {
                 "type": "String",
                 "metadata": {
                     "description": "required value for product Name tag"
-                }
+                },
+                "defaultValue": "DefaultProduct"
             }
         },
         "policyDefinitions": [{
