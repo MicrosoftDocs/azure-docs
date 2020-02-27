@@ -1,5 +1,5 @@
 ---
-title: "Prepare for Azure Monitor classic alerts migration by updating your logic apps and runbooks"
+title: Update logic apps & runbooks for alerts migration
 author: yanivlavi
 description: Learn how to modify your webhooks, logic apps, and runbooks to prepare for voluntary migration.
 ms.service: azure-monitor
