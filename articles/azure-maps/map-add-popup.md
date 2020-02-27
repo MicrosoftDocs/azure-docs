@@ -87,24 +87,6 @@ When you have a large number of points and only want to show one popup at a time
 <iframe height='500' scrolling='no' title='Reusing Popup with Multiple Pins' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pins</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## Add popup templates to the map
-
-Popup templates make it easy to create data driven layouts for popups. The following samples demonstrate the use of various popup templates to generate formatted content using properties of features.
-
-### Display strings 
-
-The String template displays placeholders.
-
-### Display PropertyInfo
-
-The PropertyInfo template displays programmer defined properties.
-
-### Display Multiple content
-
-The following samples displays two pieces of content. A string template with placeholders and a array of property info which renders a full width image.
-
-### Points without a defined template
-
 ## Customizing a popup
 
 By default the popup has a white background, a pointer arrow on the bottom, and a close button in the top-right corner. The following sample changes the background color to black using the `fillColor` option of the popup. The close button is removed by setting the `CloseButton` option to false. The HTML content of the popup uses padded of 10 pixels from the edges of the popup. The text is made white, so it shows up nicely on the black background.  
@@ -114,6 +96,31 @@ By default the popup has a white background, a pointer arrow on the bottom, and 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Customized Popup" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>Customized Popup</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## Add popup templates to the map
+
+Popup templates make it easy to create data driven layouts for popups. The following samples demonstrate the use of various popup templates to generate formatted content using properties of features.
+
+### Display strings 
+
+The String template displays the placeholders of the defined feature properties.
+
+### Display PropertyInfo
+
+The PropertyInfo template displays defined properties that are assigned with variables.
+
+### Display Multiple content
+
+Templates may also display two pieces of content. A string template with placeholders and a array of property info which renders a full width image.
+
+### Points without a defined template
+
+The sample below displays three points without a defined template. In each case, the popup templates displays properties of the feature per default settings. When the title and description are the only assigned properties, the popup template shows a white background, a pointer arrow on the bottom, and a close button in the top-right corner. When more properties are assigned, the popup template shows a title and a table of the properties. Individual properties of the popup template can still be manipulated; for example, users can turn off hyperlink detection.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='PopupTemplates' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>PopupTemplates</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Popup events
