@@ -43,15 +43,11 @@ If you are choosing to go with Option 1, please execute the following steps:
 
 1. [Disable protection of all the virtual machines associated with the VMMs](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario). Use the **Disable replication and remove** option or run the scripts mentioned to ensure the replication settings on-premises are cleaned up. 
 
-2. [Unregister all the VMM servers](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server)
+2. [Unregister all the VMM servers](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) from the site-to-site replication configuration.
 
 3. [Prepare Azure resources](tutorial-prepare-azure-for-hyperv.md) for enabling replication of your VMs.
 4. [Prepare on-premises Hyper-V servers](hyper-v-prepare-on-premises-tutorial.md)
-
-> [!IMPORTANT]
-> Note that you don't need to execute the steps under  prepare VMM.
-
-5. [Set up replication for the VMs](hyper-v-vmm-azure-tutorial.md)
+5. [Set up replication for the VMs in the VMM cloud](hyper-v-vmm-azure-tutorial.md)
 6. Optional but recommended: [Run a DR drill](tutorial-dr-drill-azure.md)
 
 If you are choosing to go with Option 2 of using Hyper-V replica, execute the following steps:
