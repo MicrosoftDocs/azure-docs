@@ -163,9 +163,9 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 
    > [!NOTE]
    > Now your Function API is deployed and should throw 401 responses if the correct key is not supplied, and should return data when a valid request is presented.
-   > You added additional defense-in-depth security in EasyAuth by configuring the 'Login With Azure AD' option to handle unauthenticated requests into the function. But note that this will change the unauthorized request behavior between the Backend Function App and Frontend Single Page Client App as EasyAuth will issue a 302 redirect to AAD instead of a 401 Not Authorized, we will correct this by using API Management later.
-   > We still have no IP security, if you have a valid key and OAuth2 token, anyone can call this from anywhere - ideally we want to force all requests to come via API Management.
-   > If you are using the API Management consumption tier, you will not be able to perform this lockdown by VIP as there is no dedicated static IP for that tier, you will need to rely on the method of locking down your API calls via the shared secret function key, so steps 11-14 will not be possible.
+   > You added additional defense-in-depth security in EasyAuth by configuring the 'Login With Azure AD' option to handle unauthenticated requests. Be aware that this will change the unauthorized request behavior between the Backend Function App and Frontend SPA as EasyAuth will issue a 302 redirect to AAD instead of a 401 Not Authorized response, we will correct this by using API Management later.
+   > We still have no IP security applied, if you have a valid key and OAuth2 token, anyone can call this from anywhere - ideally we want to force all requests to come via API Management.
+   > If you are using the API Management consumption tier, you will not be able to perform this lockdown by VIP as there is no dedicated static IP for that tier, you will need to rely on the method of locking down your API calls via the shared secret function key, so steps 11-13 will not be possible.
 
 1. Close the 'Authentication / Authorization' blade 
 1. Select 'Networking' and then select 'Access Restrictions'
