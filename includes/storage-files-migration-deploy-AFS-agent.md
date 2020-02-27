@@ -10,9 +10,9 @@ ms.subservice: files
 ---
 
 Install the Azure File Sync agent on your Windows Server.
-The deployment guide (link below) illustrates that you need to turn off IE enhanced security, such that you can authenticate to Azure without any issues.
+The [deployment guide](../articles/storage/files/storage-sync-files-deployment-guide.md) illustrates that you need to turn off IE enhanced security, such that you can authenticate to Azure without any issues.
 
-Also open PowerShell and install the required PowerShell modules with the following commands. Make sure to install the full module and the NuGet provider when prompted:
+Open PowerShell and install the required PowerShell modules with the following commands. Make sure to install the full module and the NuGet provider when prompted:
 
 ```powershell
 Install-Module -Name Az -AllowClobber
