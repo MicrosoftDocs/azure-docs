@@ -1,11 +1,8 @@
 ---
 title: Retire deployment APIs for metrics and autoscale
 description: Metrics and autoscale classic APIs, also called Azure Service Management (ASM) or RDFE deployment model being retired
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 11/19/2018
 
 ---

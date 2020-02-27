@@ -2,11 +2,9 @@
 title: Switch to the new Azure Alerts API
 description: Overview of legacy savedSearch based Log Analytics Alert API and process to switch alert rules to new ScheduledQueryRules API, with details addressing common customer concerns.
 author: yanivlavi
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: yalavi
 ms.subservice: alerts
 ---
 # Switch API preference for Log Alerts
