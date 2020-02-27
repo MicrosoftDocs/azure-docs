@@ -142,9 +142,9 @@ When deciding your executor configuration, consider the Java garbage collection 
 
 As a general rule of thumb when selecting the executor size:
 
-1. Start with 30 GB per executor and distribute available machine cores.
-2. Increase the number of executor cores for larger clusters (> 100 executors).
-3. Modify size based both on trial runs and on the preceding factors such as GC overhead.
+* Start with 30 GB per executor and distribute available machine cores.
+* Increase the number of executor cores for larger clusters (> 100 executors).
+* Modify size based both on trial runs and on the preceding factors such as GC overhead.
 
 When running concurrent queries, consider the following:
 
