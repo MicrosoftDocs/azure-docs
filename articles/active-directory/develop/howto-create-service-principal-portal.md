@@ -89,7 +89,7 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 Export this certificate to a file using the [Manage User Certificate](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC snap-in accessible from the Windows Control Panel.
 
-1. Select Run from the Start menu, and then enter certmgr.msc.
+1. Select **Run** from the **Start** menu, and then enter **certmgr.msc**.
 
    The Certificate Manager tool for the current user appears.
 
