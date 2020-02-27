@@ -16,7 +16,7 @@ ms.custom: fasttrack-edit
 Azure Private Link enables you to access Azure PaaS Services such as:
  
  - **Azure Storage**
- - **Azure Comsmos DB**
+ - **Azure Cosmos DB**
  - **Azure SQL Database**
 
 Private Link enables access to hosted customer and partner services over a [private endpoint](private-endpoint-overview.md) in your virtual network.
