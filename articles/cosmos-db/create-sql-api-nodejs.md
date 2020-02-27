@@ -161,4 +161,4 @@ You can now go back to Data Explorer, modify, and work with this new data.
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a container using the Data Explorer, and run a Node.js app. You can now import additional data to your Azure Cosmos DB account.
 
 > [!div class="nextstepaction"]
-> [import data into Azure Cosmos DB](import-data.md)
+> [Import data into Azure Cosmos DB](import-data.md)
