@@ -138,7 +138,7 @@ In Visual Studio, you can connect to Azure through Server Explorer to view and m
 
 ![Visual Studio Server Explorer][9]
 
-![Server Explorer](media/notification-hubs-push-notification-fixer/VSServerExplorer2.png)
+![Server Explorer](media/notification-hubs-push-notification-fixer/vsserverexplorer2.png)
 
 You can view and manage all the registrations in your hub. The registrations can be categorized by platform, native or template registration, tag, push notification service identifier, registration ID, and expiration date. You can also edit a registration on this page. It's especially useful for editing tags.
 
@@ -278,7 +278,7 @@ For more information about programmatic access, see [Programmatic access](https:
 [6]: ./media/notification-hubs-push-notification-fixer/PortalAnalytics.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [8]: ./media/notification-hubs-push-notification-fixer/VSRegistrations.png
-[9]: ./media/notification-hubs-push-notification-fixer/VSServerExplorer.png
+[9]: ./media/notification-hubs-push-notification-fixer/vsserverexplorer.png
 [10]: ./media/notification-hubs-push-notification-fixer/VSTestNotification.png
 
 <!-- LINKS -->
