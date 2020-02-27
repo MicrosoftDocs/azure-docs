@@ -176,37 +176,37 @@ To change the PITR backup retention period by using the Azure portal, go to the 
 
 #### [Single database and elastic database pools](#tab/single-database)
 
-Changes to PITR backup retention for single Azure SQL databases is done at the server level. Changes made at the server level apply to databases on the server. To change PITR retention for an Azure SQL Database server from the Azure portal, go to the server overview blade, select **Manage Backups** in the left pane, and then select **Configure retention** in the navigation bar.
+Changes to PITR backup retention for single Azure SQL databases are done at the server level. Changes made at the server level apply to databases on the server. To change PITR retention for an Azure SQL Database server from the Azure portal, go to the server overview blade, select **Manage Backups** in the left pane, and then select **Configure retention** at the top of the screen:
 
-![Change PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
+![Change PITR retention, server level](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### [Managed Instance](#tab/managed-instance)
+#### [Managed instance](#tab/managed-instance)
 
-Change of PITR backup retention for SQL Database managed instance is performed at an individual database level. To change PITR backup retention for an instance database from Azure portal, navigate to the individual database overview blade, and then click on Configure backup retention at the navigation bar.
+Changes to PITR backup retention for SQL Database managed instance are done at an individual database level. To change PITR backup retention for an instance database from the Azure portal, go to the individual database overview blade, and then select **Configure backup retention** at the top of the screen:
 
-![Change PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
+![Change PITR retention, managed instance](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
 ---
 
-### Change PITR backup retention period using PowerShell
+### Change the PITR backup retention period by using PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The PowerShell AzureRM module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For more information, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module are substantially identical to those in the AzureRm modules.
 
 ```powershell
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 
-### Change PITR retention period using REST API
+### Change the PITR backup retention period by using the REST API
 
-#### Sample Request
+#### Sample request
 
 ```http
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
 ```
 
-#### Request Body
+#### Request body
 
 ```json
 {
@@ -216,7 +216,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 }
 ```
 
-#### Sample Response
+#### Sample response
 
 Status code: 200
 
@@ -236,7 +236,7 @@ For more information, see [Backup Retention REST API](https://docs.microsoft.com
 ## Next steps
 
 - Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
-- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](sql-database-recovery-using-backups.md).
-- To restore to a point in time using PowerShell, see [restore database to a point in time using PowerShell](scripts/sql-database-restore-database-powershell.md).
-- To configure, manage, and restore from long-term retention of automated backups in Azure Blob storage using the Azure portal, see [Manage long-term backup retention using the Azure portal](sql-database-long-term-backup-retention-configure.md).
-- To configure, manage, and restore from long-term retention of automated backups in Azure Blob storage using PowerShell, see [Manage long-term backup retention using PowerShell](sql-database-long-term-backup-retention-configure.md).
+- Get more information about how to [restore a database to a point in time by using the Azure portal](sql-database-recovery-using-backups.md).
+- Get more information about how to [restore a database to a point in time by using PowerShell](scripts/sql-database-restore-database-powershell.md).
+- For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using the Azure portal, see [Manage long-term backup retention by using the Azure portal](sql-database-long-term-backup-retention-configure.md).
+- For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using PowerShell, see [Manage long-term backup retention by using PowerShell](sql-database-long-term-backup-retention-configure.md).
