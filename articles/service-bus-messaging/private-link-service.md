@@ -5,7 +5,7 @@ services: service-bus-messaging
 author: spelluru
 ms.author: spelluru
 ms.date: 02/20/2020
-ms.service: event-hubs
+ms.service: service-bus-messaging
 ms.topic: article
 
 ---
@@ -123,29 +123,29 @@ In the "Networking" tab:
 Open the command line and run the following command:
 
 ```console
-nslookup <your-event-hub-name>.servicebus.azure.net
+nslookup <your-service-bus-namespace-name>.servicebus.azure.net
 ```
 
 If you run the ns lookup command to resolve the IP address of a Service Bus namespace over a public endpoint, you will see a result that looks like this:
 
 ```console
-c:\ >nslookup <your-event-hub-name>.servicebus.azure.net
+c:\ >nslookup <your-service-bus-namespace-name>.servicebus.azure.net
 
 Non-authoritative answer:
 Name:    
 Address:  (public IP address)
-Aliases:  <your-event-hub-name>.servicebus.azure.net
+Aliases:  <your-service-bus-namespace-name>.servicebus.azure.net
 ```
 
 If you run the ns lookup command to resolve the IP address of a Service Bus namespace over a private endpoint, you will see a result that looks like this:
 
 ```console
-c:\ >nslookup your_event-hub_name.servicebus.azure.net
+c:\ >nslookup your_service-bus-namespace-name.servicebus.azure.net
 
 Non-authoritative answer:
 Name:    
 Address:  10.1.0.5 (private IP address)
-Aliases:  <your-event-hub-name>.servicebus.azure.net
+Aliases:  <your-service-bus-namespace-name>.servicebus.azure.net
 ```
 
 ## Limitations and Design Considerations
