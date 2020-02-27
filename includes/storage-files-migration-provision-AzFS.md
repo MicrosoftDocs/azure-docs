@@ -12,7 +12,7 @@ ms.subservice: files
 An Azure file share is stored in the cloud in an Azure storage account.
 There is another level of performance considerations here.
 
-If you have highly active shares - meaning they are being used a lot by users or applications, then two Azure file shares can reach the performance limit of a storage account. In the future, a single Azure file share will be able to supply this performance.
+If you have highly active shares - shares used by many users and/or applications, then two Azure file shares could reach the performance limit of a storage account.
 
 Best practice is to deploy storage accounts with one file share each.
 You can pool multiple Azure file shares into the same storage account, in case you have archival shares or you know there is low day-to-day activity in them.
