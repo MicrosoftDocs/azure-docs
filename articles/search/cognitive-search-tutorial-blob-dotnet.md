@@ -123,38 +123,52 @@ Begin by opening Visual Studio and creating a new Console App project that can r
 
 The [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk) consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and skillsets, as well as upload and manage documents and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
 
-For this project, you will need to install version 9 of the `Microsoft.Azure.Search` NuGet package and the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
+For this project, install version 9 or later of the `Microsoft.Azure.Search` NuGet package.
 
-Install the `Microsoft.Azure.Search` NuGet package using the Package Manager console in Visual Studio. To open the Package Manager console select **Tools** > **NuGet Package Manager** > **Package Manager Console**. To get the command to run, navigate to the  [Microsoft.Azure.Search NuGet package page](https://www.nuget.org/packages/Microsoft.Azure.Search), select version 9, and copy the Package Manager command. In the Package Manager console, run this command.
+1. Open the Package Manager Console. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**. 
 
-To install the `Microsoft.Extensions.Configuration.Json` NuGet package in Visual Studio, select **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution...**. Select Browse and search for the `Microsoft.Extensions.Configuration.Json` NuGet package. Once you've found it, select the package, select your project, confirm the version is the latest stable version, then select Install.
+1. Navigate to [Microsoft.Azure.Search NuGet package page](https://www.nuget.org/packages/Microsoft.Azure.Search).
 
-### Add Azure Cognitive Search service information
+1. Select the latest version (9 or later).
 
-In order to connect to your Azure Cognitive Search service you will need to add the search service information to your project. Right click on your project in the Solution Explorer and select **Add** > **New Item...** . Name the file `appsettings.json` and select **Add**. 
+1. Copy the Package Manager command.
 
-This file will need to be included in your output directory. To do that, right click on `appsettings.json` and select **Properties**. Change the value of **Copy to Output Directory** to **Copy if newer**.
+1. Return to the Package Manager console and run the command you copied in the previous step.
 
-Copy the below JSON into your new JSON file.
+Next, install the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
 
-```json
-{
-  "SearchServiceName": "Put your search service name here",
-  "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-  "SearchServiceQueryApiKey": "Put your query API key here",
-  "AzureBlobConnectionString": "Put your Azure Blob connection string here",
-}
-```
+1. Select **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution...**. 
 
-Add your search service and blob storage account information.
+1. Click **Browse** and search for the `Microsoft.Extensions.Configuration.Json` NuGet package. 
 
-You can get your search service information from your search account page in the Azure portal. The account name will be on the main page and the keys can be found by selecting **Keys**.
+1. Select the package, select your project, confirm the version is the latest stable version, then click **Install**.
 
-You can get the blob connection string by navigating to your storage account in the Azure portal, selecting **Access keys**, and then copying the **Connection String** field.
+### Add service connection information
+
+1. Right-click on your project in the Solution Explorer and select **Add** > **New Item...** . 
+
+1. Name the file `appsettings.json` and select **Add**. 
+
+1. Include this file in your output directory.
+    1. Right-click on `appsettings.json` and select **Properties**. 
+    1. Change the value of **Copy to Output Directory** to **Copy if newer**.
+
+1. Copy the below JSON into your new JSON file.
+
+    ```json
+    {
+      "SearchServiceName": "Put your search service name here",
+      "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+      "SearchServiceQueryApiKey": "Put your query API key here",
+      "AzureBlobConnectionString": "Put your Azure Blob connection string here",
+    }
+    ```
+
+Add your search service and blob storage account information. Recall that you can get this information from the service provisioning steps indicated in the previous section.
 
 ### Add namespaces
 
-This tutorial uses many different types from various namespaces. In order to use those types add the following to `Program.cs`.
+In `Program.cs`, add the following namespaces.
 
 ```csharp
 using System;
@@ -189,7 +203,6 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 > [!NOTE]
 > The `SearchServiceClient` class manages connections to your search service. In order to avoid opening too many connections, you should try to share a single instance of `SearchServiceClient` in your application if possible. Its methods are thread-safe to enable such sharing.
-> 
 > 
 
 ## 3 - Create the pipeline
@@ -494,7 +507,7 @@ public class DemoIndex
 }
 ```
 
-Now that you've defined a model class, back in `Program.cs` you can create an index definition fairly easily. The name for this index will be "demoindex".
+Now that you've defined a model class, back in `Program.cs` you can create an index definition fairly easily. The name for this index will be `demoindex`.
 
 ```csharp
 var index = new Index()
