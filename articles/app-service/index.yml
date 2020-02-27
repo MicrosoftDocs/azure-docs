@@ -39,16 +39,6 @@ landingContent:
             url: app-service-web-get-started-nodejs.md
           - text: First PHP app
             url: app-service-web-get-started-php.md
-          - text: First HTML app
-            url: app-service-web-get-started-html.md
-          - text: First Linux app
-            url: containers/quickstart-dotnetcore.md
-      - linkListType: learn
-        links:
-          - text: Host a web application with Azure App service
-            url: /learn/modules/host-a-web-app-with-azure-app-service/
-          - text: Deploy and run a containerized web app with Azure App Service
-            url: /learn/modules/deploy-run-container-app-service/
   - title: App with DB in Azure
     linkLists:
       - linkListType: tutorial
@@ -61,7 +51,7 @@ landingContent:
             url: app-service-web-tutorial-php-mysql.md
           - text: Node.js (MEAN.js) app with MongoDB
             url: app-service-web-tutorial-nodejs-mongodb-app.md
-  - title: Run your app in production
+  - title: Upload your code or content
     linkLists:
       - linkListType: deploy
         links:
@@ -73,37 +63,31 @@ landingContent:
             url: deploy-local-git.md
           - text: Sync content with OneDrive or Dropbox
             url: deploy-content-sync.md
-          - text: CI/CD with Azure DevOps
-            url: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
           - text: CI/CD with GitHub, BitBucket, etc.
             url: deploy-continuous-deployment.md
+  - title: Common tasks
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Map a custom domain to your app
             url: app-service-web-tutorial-custom-domain.md
-          - text: Migrate an active domain to App Service
-            url: manage-custom-dns-migrate-domain.md
           - text: Secure a custom domain with an SSL binding
             url: configure-ssl-bindings.md
           - text: Run app in staged environments
             url: deploy-staging-slots.md
-          - text: Add a CDN to your application
-            url: ../cdn/cdn-add-to-web-app.md
-          - text: Secure resource access with managed identities
-            url: app-service-web-tutorial-connect-msi.md
-          - text: Host RESTful API with CORS
-            url: app-service-web-tutorial-rest-api.md
-          - text: Authenticate users
-            url: app-service-web-tutorial-auth-aad.md
+      - linkListType: how-to-guide
+        links:
+          - text: Enable diagnostic logs
+            url: troubleshoot-diagnostic-logs.md
+          - text: Migrate an active domain to App Service
+            url: manage-custom-dns-migrate-domain.md
 
-  - title: Run containerized apps
+  - title: Run containerized Windows apps
     linkLists:
       - linkListType: quickstart
         links:
           - text: Run a custom Windows container
             url: app-service-web-get-started-windows-container.md
-          - text: Run a custom Linux container
-            url: containers/quickstart-docker.md
       - linkListType: tutorial
         links:
           - text: Migrate a legacy app to Azure in a Windows container
@@ -119,18 +103,22 @@ landingContent:
         links:
           - text: Manage App Service plans
             url: overview-hosting-plans.md
-          - text: Authenticate using popular providers
-            url: overview-authentication-authorization.md
+      - linkListType: tutorial
+        links:
+          - text: Secure resource access with managed identities
+            url: app-service-web-tutorial-connect-msi.md
+          - text: Authenticate users
+            url: app-service-web-tutorial-auth-aad.md
+          - text: Host RESTful API with CORS
+            url: app-service-web-tutorial-rest-api.md
+          - text: Add a CDN to your application
+            url: ../cdn/cdn-add-to-web-app.md
       - linkListType: how-to-guide
         links:
-          - text: Enable diagnostic logs
-            url: troubleshoot-diagnostic-logs.md
           - text: Integrate with a Virtual Network
             url: web-sites-integrate-with-vnet.md
           - text: Create hybrid connections to on-prem
             url: app-service-hybrid-connections.md
-          - text: Authenticate using popular providers
-            url: overview-authentication-authorization.md
           - text: Load balance with Traffic Manager
             url: web-sites-traffic-manager-custom-domain-name.md
           - text: Back up your app to Storage Blobs
@@ -143,7 +131,7 @@ landingContent:
       - linkListType: video
         links:
           - text: App Service video library
-            url: /documentation/videos/index/?services=app-service
+            url: https://azure.microsoft.com/resources/videos/index/?services=app-service
           - text: Pluralsight video training
             url: https://www.pluralsight.com/search?q=azure%20app%20service
       - linkListType: sample

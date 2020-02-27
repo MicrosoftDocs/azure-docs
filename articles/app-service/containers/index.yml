@@ -11,14 +11,16 @@ metadata:
   ms.date: 02/26/2020
 
 landingContent:
-  - title: About App Service
+  - title: About App Service on Linux
     linkLists:
       - linkListType: overview
         links:
-          - text: App Service on Windows
-            url: /azure/app-service/
+          - text: What is App Service?
+            url: overview.md
           - text: App Service on Linux
             url: /azure/app-service/containers/
+          - text: App Service on Windows
+            url: /azure/app-service/
           - text: App Service Environments
             url: ../environment/intro.md
           - text: Compare hosting options
@@ -43,14 +45,6 @@ landingContent:
             url: quickstart-python.md
           - text: First Linux Ruby app
             url: quickstart-ruby.md
-          - text: First Windows app
-            url: ../app-service-web-get-started-dotnet.md
-      - linkListType: learn
-        links:
-          - text: Host a web application with Azure App service
-            url: /learn/modules/host-a-web-app-with-azure-app-service/
-          - text: Deploy and run a containerized web app with Azure App Service
-            url: /learn/modules/deploy-run-container-app-service/
   - title: App with DB in Azure
     linkLists:
       - linkListType: tutorial
@@ -67,7 +61,7 @@ landingContent:
             url: tutorial-python-postgresql-app.md
           - text: Ruby (Rails) app with PostgreSQL
             url: tutorial-ruby-postgres-app.md
-  - title: Run your app in production
+  - title: Upload your code or content
     linkLists:
       - linkListType: deploy
         links:
@@ -79,26 +73,28 @@ landingContent:
             url: ../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
           - text: Sync content with OneDrive or Dropbox
             url: ../deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-          - text: CI/CD with Azure DevOps
-            url: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
           - text: CI/CD with GitHub, BitBucket, etc.
             url: ../deploy-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - title: Common tasks
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Map a custom domain to your app
             url: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-          - text: Migrate an active domain to App Service
-            url: ../manage-custom-dns-migrate-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
           - text: Secure a custom domain with an SSL binding
             url: ../configure-ssl-bindings.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
           - text: Run app in staged environments
             url: ../deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-          - text: Add a CDN to your application
-            url: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-          - text: Secure resource access with managed identities
-            url: tutorial-auth-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - linkListType: how-to-guide
+        links:
+          - text: Enable diagnostic logs
+            url: ../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+          - text: Connect to container via SSH
+            url: app-service-linux-ssh-support.md
+          - text: Migrate an active domain to App Service
+            url: ../manage-custom-dns-migrate-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 
-  - title: Run containerized apps
+  - title: Run custom containers
     linkLists:
       - linkListType: quickstart
         links:
@@ -106,8 +102,6 @@ landingContent:
             url: quickstart-docker.md
           - text: Run a multi-container (Docker Compose) app
             url: quickstart-multi-container.md
-          - text: Run a custom Windows container
-            url: ../app-service-web-get-started-windows-container.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - linkListType: tutorial
         links:
           - text: Run a container from Azure Container Registry
@@ -118,36 +112,30 @@ landingContent:
             url: app-service-linux-ci-cd.md
           - text: Connect a container to Storage Files
             url: how-to-serve-content-from-azure-storage.md
-
   - title: Manage and integrate
     linkLists:
       - linkListType: concept
         links:
           - text: Manage App Service plans
             url: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-          - text: Authenticate using popular providers
-            url: ../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - linkListType: tutorial
+        links:
+          - text: Add a CDN to your application
+            url: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+          - text: Authenticate users
+            url: tutorial-auth-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - linkListType: how-to-guide
         links:
-          - text: Enable diagnostic logs
-            url: ../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-          - text: Connect to container via SSH
-            url: app-service-linux-ssh-support.md
-          - text: Authenticate using popular providers
-            url: ../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
           - text: Load balance with Traffic Manager
             url: ../web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
           - text: Back up your app to Storage Blobs
             url: ../manage-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-
-
-
   - title: More resources
     linkLists:
       - linkListType: video
         links:
           - text: App Service video library
-            url: /documentation/videos/index/?services=app-service
+            url: https://azure.microsoft.com/resources/videos/index/?services=app-service
           - text: Pluralsight video training
             url: https://www.pluralsight.com/search?q=azure%20app%20service
       - linkListType: sample
