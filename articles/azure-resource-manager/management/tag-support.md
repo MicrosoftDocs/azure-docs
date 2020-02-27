@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 02/26/2020
 ---
 
 # Tag support for Azure resources
@@ -111,8 +111,8 @@ Jump to a resource provider namespace:
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft.ObjectStore](#microsoftobjectstore)
 > - [Microsoft.OffAzure](#microsoftoffazure)
@@ -131,7 +131,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
@@ -287,6 +286,9 @@ Jump to a resource provider namespace:
 > | automationAccounts | Yes | Yes |
 > | automationAccounts / configurations | Yes | Yes |
 > | automationAccounts / jobs | No | No |
+> | automationAccounts / privateEndpointConnectionProxies | No | No |
+> | automationAccounts / privateEndpointConnections | No | No |
+> | automationAccounts / privateLinkResources | No | No |
 > | automationAccounts / runbooks | Yes | Yes |
 > | automationAccounts / softwareUpdateConfigurations | No | No |
 > | automationAccounts / webhooks | No | No |
@@ -706,6 +708,7 @@ Jump to a resource provider namespace:
 > | registries / importImage | No | No |
 > | registries / privateEndpointConnectionProxies | No | No |
 > | registries / privateEndpointConnectionProxies / validate | No | No |
+> | registries / privateEndpointConnections | No | No |
 > | registries / privateLinkResources | No | No |
 > | registries / queueBuild | No | No |
 > | registries / regenerateCredential | No | No |
@@ -1047,6 +1050,7 @@ Jump to a resource provider namespace:
 > | partnerNamespaces / eventChannels | No | No |
 > | partnerRegistrations | Yes | Yes |
 > | partnerTopics | Yes | Yes |
+> | partnerTopics / eventSubscriptions | No | No |
 > | systemTopics | Yes | Yes |
 > | systemTopics / eventSubscriptions | No | No |
 > | topics | Yes | Yes |
@@ -1283,6 +1287,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | getEntities | No | No |
 > | managementGroups | No | No |
+> | managementGroups / settings | No | No |
 > | resources | No | No |
 > | startTenantBackfill | No | No |
 > | tenantBackfillStatus | No | No |
@@ -1391,14 +1396,7 @@ Jump to a resource provider namespace:
 > | netAppAccounts / capacityPools | Yes | No |
 > | netAppAccounts / capacityPools / volumes | Yes | No |
 > | netAppAccounts / capacityPools / volumes / mountTargets | Yes | No |
-> | netAppAccounts / capacityPools / volumes / snapshots | Yes | No |
-
-## Microsoft.Notebooks
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | NotebookProxies | No | No |
+> | netAppAccounts / capacityPools / volumes / snapshots | No | No |
 
 ## Microsoft.Network
 
@@ -1490,6 +1488,13 @@ Jump to a resource provider namespace:
 > For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported.
 
 
+## Microsoft.Notebooks
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | NotebookProxies | No | No |
+
 ## Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1551,6 +1556,7 @@ Jump to a resource provider namespace:
 > | legacyPeerings | No | No |
 > | peerAsns | No | No |
 > | peerings | Yes | Yes |
+> | peeringServiceCountries | No | No |
 > | peeringServiceProviders | No | No |
 > | peeringServices | Yes | Yes |
 
@@ -1665,7 +1671,7 @@ Jump to a resource provider namespace:
 > | notifyResourceJobs | No | No |
 > | providers | No | No |
 > | resourceGroups | Yes | No |
-> | subscriptions | Yes | No |
+> | subscriptions | No | No |
 > | tenants | No | No |
 
 ## Microsoft.SaaS
@@ -1675,13 +1681,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | applications | Yes | Yes |
 > | saasresources | No | No |
-
-## Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | jobcollections | Yes | Yes |
 
 ## Microsoft.Search
 
@@ -2021,6 +2020,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | devices | Yes | Yes |
+> | registeredSubscriptions | No | No |
 > | vendors | No | No |
 > | vendors / skus | No | No |
 > | vendors / vnfs | No | No |
