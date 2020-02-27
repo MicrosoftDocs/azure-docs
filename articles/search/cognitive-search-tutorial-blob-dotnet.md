@@ -176,16 +176,21 @@ using System.Collections.Generic;
 using Microsoft.Azure.Search;
 using Microsoft.Azure.Search.Models;
 using Microsoft.Extensions.Configuration;
+
+namespace EnrichwithAI
 ```
 
 ### Create a client
 
-Create an instance of the `SearchServiceClient` class.
+Create an instance of the `SearchServiceClient` class under Main.
 
 ```csharp
-IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-IConfigurationRoot configuration = builder.Build();
-SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+public static void Main(string[] args)
+{
+    // Create service client
+    IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+    IConfigurationRoot configuration = builder.Build();
+    SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 ```
 
 `CreateSearchServiceClient` creates a new `SearchServiceClient` using values that are stored in the application's config file (appsettings.json).
@@ -211,10 +216,54 @@ In Azure Cognitive Search, AI processing occurs during indexing (or data ingesti
 
 ### Step 1: Create a data source
 
+`SearchServiceClient` has a `DataSources` property. This property provides all the methods you need to create, list, update, or delete Azure Cognitive Search data sources.
+
 Create a new `DataSource` instance by calling `DataSource.AzureBlobStorage`. `DataSource.AzureBlobStorage` requires that you specify the data source name, connection string, and blob container name.
 
-Although it's not used in this tutorial, a soft delete policy is also defined which is used to identify deleted blobs based on the value of a soft delete column. The following policy considers a blob to be deleted if it has a metadata property `IsDeleted` with the value `true`.
+```csharp
+private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceClient, IConfigurationRoot configuration)
+{
+    DataSource dataSource = DataSource.AzureBlobStorage(
+        name: "demodata",
+        storageConnectionString: configuration["AzureBlobConnectionString"],
+        containerName: "basic-demo-data-pr",
+        description: "Demo files to demonstrate cognitive search capabilities.");
 
+    // The data source does not need to be deleted if it was already created
+    // since we are using the CreateOrUpdate method
+    try
+    {
+        serviceClient.DataSources.CreateOrUpdate(dataSource);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("Failed to create or update the data source\n Exception message: {0}\n", e.Message);
+        ExitProgram("Cannot continue without a data source");
+    }
+
+    return dataSource;
+}
+```
+
+For a successful request, the method will return the data source that was created. If there is a problem with the request, such as an invalid parameter, the method will throw an exception.
+
+Now that you have initialized the `DataSource` object, create the data source. 
+
+```csharp
+public static void Main(string[] args)
+{
+    // Create service client
+    IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+    IConfigurationRoot configuration = builder.Build();
+    SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+
+    // Create or Update the data source
+    Console.WriteLine("Creating or updating the data source...");
+    DataSource dataSource = CreateOrUpdateDataSource(serviceClient, configuration);
+```
+
+
+<!-- 
 ```csharp
 DataSource dataSource = DataSource.AzureBlobStorage(
     name: "demodata",
@@ -239,9 +288,9 @@ catch (Exception e)
 {
     // Handle the exception
 }
-```
+``` -->
 
-Since this is your first request, check the Azure portal to confirm the data source was created in Azure Cognitive Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh.
+Build the solution. Since this is your first request, check the Azure portal to confirm the data source was created in Azure Cognitive Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh.
 
   ![Data sources tile in the portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Data sources tile in the portal")
 
@@ -272,23 +321,28 @@ For more information about skillset fundamentals, see [How to define a skillset]
 The **OCR** skill extracts text from images. This skill assumes that a normalized_images field exists. To generate this field, later in the tutorial we'll set the ```"imageAction"``` configuration in the indexer definition to ```"generateNormalizedImages"```.
 
 ```csharp
-List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-inputMappings.Add(new InputFieldMappingEntry(
-    name: "image",
-    source: "/document/normalized_images/*"));
+private static OcrSkill CreateOcrSkill()
+{
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
+    inputMappings.Add(new InputFieldMappingEntry(
+        name: "image",
+        source: "/document/normalized_images/*"));
 
-List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-outputMappings.Add(new OutputFieldMappingEntry(
-    name: "text",
-    targetName: "text"));
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
+    outputMappings.Add(new OutputFieldMappingEntry(
+        name: "text",
+        targetName: "text"));
 
-OcrSkill ocrSkill = new OcrSkill(
-    description: "Extract text (plain and structured) from image",
-    context: "/document/normalized_images/*",
-    inputs: inputMappings,
-    outputs: outputMappings,
-    defaultLanguageCode: OcrSkillLanguage.En,
-    shouldDetectOrientation: true);
+    OcrSkill ocrSkill = new OcrSkill(
+        description: "Extract text (plain and structured) from image",
+        context: "/document/normalized_images/*",
+        inputs: inputMappings,
+        outputs: outputMappings,
+        defaultLanguageCode: OcrSkillLanguage.En,
+        shouldDetectOrientation: true);
+
+    return ocrSkill;
+}
 ```
 
 ### Merge skill
@@ -296,29 +350,34 @@ OcrSkill ocrSkill = new OcrSkill(
 In this section you'll create a **Merge** skill that merges the document content field with the text that was produced by the OCR skill.
 
 ```csharp
-List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-inputMappings.Add(new InputFieldMappingEntry(
-    name: "text",
-    source: "/document/content"));
-inputMappings.Add(new InputFieldMappingEntry(
-    name: "itemsToInsert",
-    source: "/document/normalized_images/*/text"));
-inputMappings.Add(new InputFieldMappingEntry(
-    name: "offsets",
-    source: "/document/normalized_images/*/contentOffset"));
+private static MergeSkill CreateMergeSkill()
+{
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
+    inputMappings.Add(new InputFieldMappingEntry(
+        name: "text",
+        source: "/document/content"));
+    inputMappings.Add(new InputFieldMappingEntry(
+        name: "itemsToInsert",
+        source: "/document/normalized_images/*/text"));
+    inputMappings.Add(new InputFieldMappingEntry(
+        name: "offsets",
+        source: "/document/normalized_images/*/contentOffset"));
 
-List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-outputMappings.Add(new OutputFieldMappingEntry(
-    name: "mergedText",
-    targetName: "merged_text"));
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
+    outputMappings.Add(new OutputFieldMappingEntry(
+        name: "mergedText",
+        targetName: "merged_text"));
 
-MergeSkill mergeSkill = new MergeSkill(
-    description: "Create merged_text which includes all the textual representation of each image inserted at the right location in the content field.",
-    context: "/document",
-    inputs: inputMappings,
-    outputs: outputMappings,
-    insertPreTag: " ",
-    insertPostTag: " ");
+    MergeSkill mergeSkill = new MergeSkill(
+        description: "Create merged_text which includes all the textual representation of each image inserted at the right location in the content field.",
+        context: "/document",
+        inputs: inputMappings,
+        outputs: outputMappings,
+        insertPreTag: " ",
+        insertPostTag: " ");
+
+    return mergeSkill;
+}
 ```
 
 ### Language detection skill
@@ -326,21 +385,26 @@ MergeSkill mergeSkill = new MergeSkill(
 The **Language Detection** skill detects the language of the input text and reports a single language code for every document submitted on the request. We'll use the output of the **Language Detection** skill as part of the input to the **Text Split** skill.
 
 ```csharp
-List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-inputMappings.Add(new InputFieldMappingEntry(
-    name: "text",
-    source: "/document/merged_text"));
+private static LanguageDetectionSkill CreateLanguageDetectionSkill()
+{
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
+    inputMappings.Add(new InputFieldMappingEntry(
+        name: "text",
+        source: "/document/merged_text"));
 
-List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-outputMappings.Add(new OutputFieldMappingEntry(
-    name: "languageCode",
-    targetName: "languageCode"));
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
+    outputMappings.Add(new OutputFieldMappingEntry(
+        name: "languageCode",
+        targetName: "languageCode"));
 
-LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
-    description: "Detect the language used in the document",
-    context: "/document",
-    inputs: inputMappings,
-    outputs: outputMappings);
+    LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
+        description: "Detect the language used in the document",
+        context: "/document",
+        inputs: inputMappings,
+        outputs: outputMappings);
+
+    return languageDetectionSkill;
+}
 ```
 
 ### Text split skill
@@ -348,26 +412,32 @@ LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
 The below **Split** skill will split text by pages and limit the page length to 4,000 characters as measured by `String.Length`. The algorithm will try to split the text into chunks that are at most `maximumPageLength` in size. In this case, the algorithm will do its best to break the sentence on a sentence boundary, so the size of the chunk may be slightly less than `maximumPageLength`.
 
 ```csharp
-List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-inputMappings.Add(new InputFieldMappingEntry(
-    name: "text",
-    source: "/document/merged_text"));
-inputMappings.Add(new InputFieldMappingEntry(
-    name: "languageCode",
-    source: "/document/languageCode"));
+private static SplitSkill CreateSplitSkill()
+{
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
 
-List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-outputMappings.Add(new OutputFieldMappingEntry(
-    name: "textItems",
-    targetName: "pages"));
+    inputMappings.Add(new InputFieldMappingEntry(
+        name: "text",
+        source: "/document/merged_text"));
+    inputMappings.Add(new InputFieldMappingEntry(
+        name: "languageCode",
+        source: "/document/languageCode"));
 
-SplitSkill splitSkill = new SplitSkill(
-    description: "Split content into pages",
-    context: "/document",
-    inputs: inputMappings,
-    outputs: outputMappings,
-    textSplitMode: TextSplitMode.Pages,
-    maximumPageLength: 4000);
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
+    outputMappings.Add(new OutputFieldMappingEntry(
+        name: "textItems",
+        targetName: "pages"));
+
+    SplitSkill splitSkill = new SplitSkill(
+        description: "Split content into pages",
+        context: "/document",
+        inputs: inputMappings,
+        outputs: outputMappings,
+        textSplitMode: TextSplitMode.Pages,
+        maximumPageLength: 4000);
+
+    return splitSkill;
+}
 ```
 
 ### Entity recognition skill
@@ -377,26 +447,31 @@ This `EntityRecognitionSkill` instance is set to recognize category type `organi
 Notice that the "context" field is set to ```"/document/pages/*"``` with an asterisk, meaning the enrichment step is called for each page under ```"/document/pages"```.
 
 ```csharp
-List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-inputMappings.Add(new InputFieldMappingEntry(
-    name: "text",
-    source: "/document/pages/*"));
-    
-List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-outputMappings.Add(new OutputFieldMappingEntry(
-    name: "organizations",
-    targetName: "organizations"));
+private static EntityRecognitionSkill CreateEntityRecognitionSkill()
+{
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
+    inputMappings.Add(new InputFieldMappingEntry(
+        name: "text",
+        source: "/document/pages/*"));
 
-List<EntityCategory> entityCategory = new List<EntityCategory>();
-entityCategory.Add(EntityCategory.Organization);
-    
-EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
-    description: "Recognize organizations",
-    context: "/document/pages/*",
-    inputs: inputMappings,
-    outputs: outputMappings,
-    categories: entityCategory,
-    defaultLanguageCode: EntityRecognitionSkillLanguage.En);
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
+    outputMappings.Add(new OutputFieldMappingEntry(
+        name: "organizations",
+        targetName: "organizations"));
+
+    List<EntityCategory> entityCategory = new List<EntityCategory>();
+    entityCategory.Add(EntityCategory.Organization);
+
+    EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
+        description: "Recognize organizations",
+        context: "/document/pages/*",
+        inputs: inputMappings,
+        outputs: outputMappings,
+        categories: entityCategory,
+        defaultLanguageCode: EntityRecognitionSkillLanguage.En);
+
+    return entityRecognitionSkill;
+}
 ```
 
 ### Key phrase extraction skill
@@ -404,24 +479,29 @@ EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
 Like the `EntityRecognitionSkill` instance that was just created, the **Key Phrase Extraction** skill is called for each page of the document.
 
 ```csharp
-List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-inputMappings.Add(new InputFieldMappingEntry(
-    name: "text",
-    source: "/document/pages/*"));
-inputMappings.Add(new InputFieldMappingEntry(
-    name: "languageCode",
-    source: "/document/languageCode"));
+private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
+{
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
+    inputMappings.Add(new InputFieldMappingEntry(
+        name: "text",
+        source: "/document/pages/*"));
+    inputMappings.Add(new InputFieldMappingEntry(
+        name: "languageCode",
+        source: "/document/languageCode"));
 
-List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-outputMappings.Add(new OutputFieldMappingEntry(
-    name: "keyPhrases",
-    targetName: "keyPhrases"));
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
+    outputMappings.Add(new OutputFieldMappingEntry(
+        name: "keyPhrases",
+        targetName: "keyPhrases"));
 
-KeyPhraseExtractionSkill keyPhraseExtractionSkill = new KeyPhraseExtractionSkill(
-    description: "Extract the key phrases",
-    context: "/document/pages/*",
-    inputs: inputMappings,
-    outputs: outputMappings);
+    KeyPhraseExtractionSkill keyPhraseExtractionSkill = new KeyPhraseExtractionSkill(
+        description: "Extract the key phrases",
+        context: "/document/pages/*",
+        inputs: inputMappings,
+        outputs: outputMappings);
+
+    return keyPhraseExtractionSkill;
+}
 ```
 
 ### Build and create the skillset
@@ -429,31 +509,53 @@ KeyPhraseExtractionSkill keyPhraseExtractionSkill = new KeyPhraseExtractionSkill
 Build the `Skillset` using the skills you created.
 
 ```csharp
-List<Skill> skills = new List<Skill>();
-skills.Add(ocrSkill);
-skills.Add(mergeSkill);
-skills.Add(languageDetectionSkill);
-skills.Add(splitSkill);
-skills.Add(entityRecognitionSkill);
-skills.Add(keyPhraseExtractionSkill);
+private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceClient, IList<Skill> skills)
+{
+    Skillset skillset = new Skillset(
+        name: "demoskillset",
+        description: "Demo skillset",
+        skills: skills);
 
-Skillset skillset = new Skillset(
-    name: "demoskillset",
-    description: "Demo skillset",
-    skills: skills);
+    // Create the skillset in your search service.
+    // The skillset does not need to be deleted if it was already created
+    // since we are using the CreateOrUpdate method
+    try
+    {
+        serviceClient.Skillsets.CreateOrUpdate(skillset);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("Failed to create the skillset\n Exception message: {0}\n", e.Message);
+        ExitProgram("Cannot continue without a skillset");
+    }
+
+    return skillset;
+}
 ```
 
-Create the skillset in your search service.
+Add the following lines to main.
 
 ```csharp
-try
-{
-    serviceClient.Skillsets.CreateOrUpdate(skillset);
-}
-catch (Exception e)
-{
-    // Handle exception
-}
+    // Create the skills
+    Console.WriteLine("Creating the skills...");
+    OcrSkill ocrSkill = CreateOcrSkill();
+    MergeSkill mergeSkill = CreateMergeSkill();
+    EntityRecognitionSkill entityRecognitionSkill = CreateEntityRecognitionSkill();
+    LanguageDetectionSkill languageDetectionSkill = CreateLanguageDetectionSkill();
+    SplitSkill splitSkill = CreateSplitSkill();
+    KeyPhraseExtractionSkill keyPhraseExtractionSkill = CreateKeyPhraseExtractionSkill();
+
+    // Create the skillset
+    Console.WriteLine("Creating or updating the skillset...");
+    List<Skill> skills = new List<Skill>();
+    skills.Add(ocrSkill);
+    skills.Add(mergeSkill);
+    skills.Add(languageDetectionSkill);
+    skills.Add(splitSkill);
+    skills.Add(entityRecognitionSkill);
+    skills.Add(keyPhraseExtractionSkill);
+
+    Skillset skillset = CreateOrUpdateDemoSkillSet(serviceClient, skills);
 ```
 
 ### Step 3: Create an index
@@ -475,12 +577,42 @@ We'll add the model class to a new C# file. Right click on your project and sele
 
 Make sure to indicate that you want to use types from the `Microsoft.Azure.Search` and `Microsoft.Azure.Search.Models` namespaces.
 
+Add the below model class definition to `DemoIndex.cs` and include it in the same namespace where you'll create the index.
+
 ```csharp
 using Microsoft.Azure.Search;
 using Microsoft.Azure.Search.Models;
+
+namespace EnrichwithAI
+{
+    // The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
+    // It ensures that Pascal-case property names in the model class are mapped to camel-case
+    // field names in the index.
+    [SerializePropertyNamesAsCamelCase]
+    public class DemoIndex
+    {
+        [System.ComponentModel.DataAnnotations.Key]
+        [IsSearchable, IsSortable]
+        public string Id { get; set; }
+
+        [IsSearchable]
+        public string Content { get; set; }
+
+        [IsSearchable]
+        public string LanguageCode { get; set; }
+
+        [IsSearchable]
+        public string[] KeyPhrases { get; set; }
+
+        [IsSearchable]
+        public string[] Organizations { get; set; }
+
+        public string Enriched { get; set; }
+    }
+}
 ```
 
-Add the below model class definition to `DemoIndex.cs` and include it in the same namespace where you'll create the index.
+<!-- Add the below model class definition to `DemoIndex.cs` and include it in the same namespace where you'll create the index.
 
 ```csharp
 // The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Cognitive Search .NET SDK.
@@ -505,21 +637,51 @@ public class DemoIndex
     [IsSearchable]
     public string[] Organizations { get; set; }
 }
-```
+``` -->
 
 Now that you've defined a model class, back in `Program.cs` you can create an index definition fairly easily. The name for this index will be `demoindex`.
 
 ```csharp
-var index = new Index()
+private static Index CreateDemoIndex(SearchServiceClient serviceClient)
 {
-    Name = "demoindex",
-    Fields = FieldBuilder.BuildForType<DemoIndex>()
-};
+    var index = new Index()
+    {
+        Name = "demoindex",
+        Fields = FieldBuilder.BuildForType<DemoIndex>()
+    };
+
+    try
+    {
+        bool exists = serviceClient.Indexes.Exists(index.Name);
+
+        if (exists)
+        {
+            serviceClient.Indexes.Delete(index.Name);
+        }
+
+        serviceClient.Indexes.Create(index);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("Failed to create the index\n Exception message: {0}\n", e.Message);
+        ExitProgram("Cannot continue without an index");
+    }
+
+    return index;
+}
 ```
 
 During testing you may find that you're attempting to create the index more than once. Because of this, check to see if the index that you're about to create already exists before attempting to create it.
 
+Add the following lines to main.
+
 ```csharp
+    // Create the index
+    Console.WriteLine("Creating the index...");
+    Index demoIndex = CreateDemoIndex(serviceClient);
+```
+
+<!-- ```csharp
 try
 {
     bool exists = serviceClient.Indexes.Exists(index.Name);
@@ -536,6 +698,7 @@ catch (Exception e)
     // Handle exception
 }
 ```
+ -->
 
 To learn more about defining an index, see [Create Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
@@ -550,63 +713,76 @@ So far you have created a data source, a skillset, and an index. These three com
 In addition to hooking up inputs to outputs, you can also use field mappings to flatten data structures. For more information, see [How to map enriched fields to a searchable index](cognitive-search-output-field-mapping.md).
 
 ```csharp
-IDictionary<string, object> config = new Dictionary<string, object>();
-config.Add(
-    key: "dataToExtract",
-    value: "contentAndMetadata");
-config.Add(
-    key: "imageAction",
-    value: "generateNormalizedImages");
-
-List<FieldMapping> fieldMappings = new List<FieldMapping>();
-fieldMappings.Add(new FieldMapping(
-    sourceFieldName: "metadata_storage_path",
-    targetFieldName: "id",
-    mappingFunction: new FieldMappingFunction(
-        name: "base64Encode")));
-fieldMappings.Add(new FieldMapping(
-    sourceFieldName: "content",
-    targetFieldName: "content"));
-
-List<FieldMapping> outputMappings = new List<FieldMapping>();
-outputMappings.Add(new FieldMapping(
-    sourceFieldName: "/document/pages/*/organizations/*",
-    targetFieldName: "organizations"));
-outputMappings.Add(new FieldMapping(
-    sourceFieldName: "/document/pages/*/keyPhrases/*",
-    targetFieldName: "keyPhrases"));
-outputMappings.Add(new FieldMapping(
-    sourceFieldName: "/document/languageCode",
-    targetFieldName: "languageCode"));
-
-Indexer indexer = new Indexer(
-    name: "demoindexer",
-    dataSourceName: dataSource.Name,
-    targetIndexName: index.Name,
-    description: "Demo Indexer",
-    skillsetName: skillSet.Name,
-    parameters: new IndexingParameters(
-        maxFailedItems: -1,
-        maxFailedItemsPerBatch: -1,
-        configuration: config),
-    fieldMappings: fieldMappings,
-    outputFieldMappings: outputMappings);
-
-try
+private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, DataSource dataSource, Skillset skillSet, Index index)
 {
-    bool exists = serviceClient.Indexers.Exists(indexer.Name);
+    IDictionary<string, object> config = new Dictionary<string, object>();
+    config.Add(
+        key: "dataToExtract",
+        value: "contentAndMetadata");
+    config.Add(
+        key: "imageAction",
+        value: "generateNormalizedImages");
 
-    if (exists)
+    List<FieldMapping> fieldMappings = new List<FieldMapping>();
+    fieldMappings.Add(new FieldMapping(
+        sourceFieldName: "metadata_storage_path",
+        targetFieldName: "id",
+        mappingFunction: new FieldMappingFunction(
+            name: "base64Encode")));
+    fieldMappings.Add(new FieldMapping(
+        sourceFieldName: "content",
+        targetFieldName: "content"));
+
+    List<FieldMapping> outputMappings = new List<FieldMapping>();
+    outputMappings.Add(new FieldMapping(
+        sourceFieldName: "/document/pages/*/organizations/*",
+        targetFieldName: "organizations"));
+    outputMappings.Add(new FieldMapping(
+        sourceFieldName: "/document/pages/*/keyPhrases/*",
+        targetFieldName: "keyPhrases"));
+    outputMappings.Add(new FieldMapping(
+        sourceFieldName: "/document/languageCode",
+        targetFieldName: "languageCode"));
+
+    Indexer indexer = new Indexer(
+        name: "demoindexer",
+        dataSourceName: dataSource.Name,
+        targetIndexName: index.Name,
+        description: "Demo Indexer",
+        skillsetName: skillSet.Name,
+        parameters: new IndexingParameters(
+            maxFailedItems: -1,
+            maxFailedItemsPerBatch: -1,
+            configuration: config),
+        fieldMappings: fieldMappings,
+        outputFieldMappings: outputMappings);
+
+    try
     {
-        serviceClient.Indexers.Delete(indexer.Name);
+        bool exists = serviceClient.Indexers.Exists(indexer.Name);
+
+        if (exists)
+        {
+            serviceClient.Indexers.Delete(indexer.Name);
+        }
+
+        serviceClient.Indexers.Create(indexer);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("Failed to create the indexer\n Exception message: {0}\n", e.Message);
+        ExitProgram("Cannot continue without creating an indexer");
     }
 
-    serviceClient.Indexers.Create(indexer);
+    return indexer;
 }
-catch (Exception e)
-{
-    // Handle exception
-}
+```
+Add the following lines to main.
+
+```csharp
+    // Create the indexer, map fields, and execute transformations
+    Console.WriteLine("Creating the indexer...");
+    Indexer demoIndexer = CreateDemoIndexer(serviceClient, dataSource, skillset, demoIndex);
 ```
 
 Expect that creating the indexer will take a little time to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
@@ -629,35 +805,46 @@ When content is extracted, you can set `imageAction` to extract text from images
 Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer is still running, use the `GetStatus` method.
 
 ```csharp
-try
+private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient, Indexer indexer)
 {
-    IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
-
-    switch (demoIndexerExecutionInfo.Status)
+    try
     {
-        case IndexerStatus.Error:
-            Console.WriteLine("Indexer has error status");
-            break;
-        case IndexerStatus.Running:
-            Console.WriteLine("Indexer is running");
-            break;
-        case IndexerStatus.Unknown:
-            Console.WriteLine("Indexer status is unknown");
-            break;
-        default:
-            Console.WriteLine("No indexer information");
-            break;
+        IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
+
+        switch (demoIndexerExecutionInfo.Status)
+        {
+            case IndexerStatus.Error:
+                ExitProgram("Indexer has error status. Check the Azure Portal to further understand the error.");
+                break;
+            case IndexerStatus.Running:
+                Console.WriteLine("Indexer is running");
+                break;
+            case IndexerStatus.Unknown:
+                Console.WriteLine("Indexer status is unknown");
+                break;
+            default:
+                Console.WriteLine("No indexer information");
+                break;
+        }
     }
-}
-catch (Exception e)
-{
-    // Handle exception
+    catch (Exception e)
+    {
+        Console.WriteLine("Failed to get indexer overall status\n Exception message: {0}\n", e.Message);
+    }
 }
 ```
 
 `IndexerExecutionInfo` represents the current status and execution history of an indexer.
 
 Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files).
+
+Add the following lines to main.
+
+```csharp
+    // Check indexer overall status
+    Console.WriteLine("Check the indexer overall status...");
+    CheckIndexerOverallStatus(serviceClient, demoIndexer);
+```
  
 ## 5 - Search
 
