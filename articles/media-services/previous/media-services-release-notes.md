@@ -44,7 +44,7 @@ For information about the Media Services REST API version history, see the [Azur
 
 ## February 2020
 
-Some analytics media processors will be retired, for the retirement dates, see this [legacy components](legacy-components.md) topic.
+Some analytics media processors will be retired. For the retirement dates, see the [legacy components](legacy-components.md) topic.
 
 ## September 2019
 
