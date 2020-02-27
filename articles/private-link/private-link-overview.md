@@ -7,7 +7,7 @@ author: malopMSFT
 
 ms.service: private-link
 ms.topic: overview
-ms.date: 01/09/2020
+ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
 
