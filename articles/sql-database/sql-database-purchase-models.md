@@ -123,7 +123,7 @@ If you want to migrate an existing on-premises or SQL Server virtual machine wor
 
 ### Determine DTU utilization
 
-To determine the average percentage of DTU/eDTU utilization relative to the DTU/eDTU limit of a database or an elastic pool, use the following formula:
+To determine the average percentage of DTU/eDTU utilization relative to the DTU/eDTU limit of a database or an elastic pool, use the following conceptual formula:
 
 `avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
 
@@ -136,6 +136,20 @@ The input values for this formula can be obtained from [sys.dm_db_resource_stats
 ### Workloads that benefit from an elastic pool of resources
 
 Pools are well-suited for databases with a low resource-utilization average and relatively infrequent utilization spikes. For more information, see [When should you consider a SQL Database elastic pool?](sql-database-elastic-pool.md).
+
+### Hardware generations in the DTU-based purchasing model
+
+In the DTU-based purchasing model, customers cannot choose the hardware generation used for their databases. While a given database typically stays on a specific hardware generation for a long time (typically for multiple months), there are certain events that can cause a database to be moved to another hardware generation. 
+
+For example, a database can be moved to a different hardware generation if it is scaled up or down by the customer, or if the current infrastructure in a data center is approaching its capacity limits, or if the currently used hardware is being decommissioned due to its end of life, or for a number of other reasons. 
+
+If a database is moved to different hardware, workload performance can change. The DTU model guarantees that the throughput and response time of the [DTU benchmark](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) workload will remain substantially identical for two databases using the same service objective (in other words, the same number of DTUs), but different hardware generations. 
+
+However, across the wide spectrum of customer workloads running in Azure SQL Database, the impact of using different hardware for the same service objective can be more pronounced. Different workloads will benefit from different hardware configuration and features. Therefore, for workloads other than DTU benchmark, it is possible to see performance differences if the database moves from one hardware generation to another. 
+
+For example, an application that is sensitive to network latency can see better performance on Gen5 hardware vs. Gen4 due to the use of Accelerated Networking in Gen5, but an application using intensive read IO can see better performance on Gen4 hardware vs. Gen5 due to higher memory per core ratio on Gen4.
+
+Customers with workloads that are sensitive to hardware changes, or customers who wish to explicitly control the choice of hardware generation for their database can use the [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) model, rather than the DTU model. In the vCore model, the choice of hardware generation is explicit during database creation and scaling, and the resource limits of each service objective on each hardware generation are documented, for both [single databases](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) and [elastic pools](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools).
 
 ## Frequently asked questions (FAQs)
 
