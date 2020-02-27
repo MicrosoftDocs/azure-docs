@@ -2,7 +2,7 @@
  title: Eav4-series and Easv4-series - Azure Virtual Machines
  description: Specifications for the Eav4 and Easv4-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: migerdes
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
