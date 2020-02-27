@@ -146,10 +146,10 @@ You can set up Jenkins either inside or outside of a Service Fabric cluster. The
 
 1. If Docker is not installed, run the following commands:
 
-  ```sh
-  sudo apt-get install wget
-  wget -qO- https://get.docker.io/ | sh
-  ```
+    ```sh
+    sudo apt-get install wget
+    wget -qO- https://get.docker.io/ | sh
+    ```
 
 1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:latest`. This image comes with Service Fabric Jenkins plugin pre-installed.
 1. Run the container image: `docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
