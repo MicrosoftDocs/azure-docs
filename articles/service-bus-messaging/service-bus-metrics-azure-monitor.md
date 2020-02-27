@@ -83,6 +83,13 @@ The following two types of errors are classified as user errors:
 | Dead-lettered messages| Count of dead-lettered messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/>Dimension: EntityName |
 | Scheduled messages| Count of scheduled messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average  <br/> Dimension: EntityName |
 
+> [!NOTE]
+> Values for the following metrics are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
+> - Messages
+> - Active messages 
+> - DeadLettered messages 
+> - Scheduled messages 
+
 ## Connection metrics
 
 | Metric Name | Description |
