@@ -828,7 +828,7 @@
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/publish-kb-nodejs",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
     },
     {
@@ -866,12 +866,6 @@
       "redirect_url": "/azure/cognitive-services/quickstarts/quickstart-rest-curl",
       "redirect_document_id": false
     },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-
     {
       "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-csharp.md",
       "redirect_url": "/azure/cognitive-services/quickstarts/quickstart-rest-curl",
