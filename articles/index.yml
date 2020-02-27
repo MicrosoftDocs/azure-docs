@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 02/24/2020
+  ms.date: 02/27/2020
   featureFlags:
   - clicktale
 
@@ -1466,10 +1466,6 @@ tools:
       imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
       url: https://docs.microsoft.com/cli/azure/
     # Card
-    - title: Resource Manager templates
-      imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
-      url: azure-resource-manager/templates/index.yml
-    # Card
     - title: Jenkins
       imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
       url: jenkins/index.yml
@@ -1481,6 +1477,10 @@ tools:
     - title: Ansible
       imageSrc: ./media/index/ansible.svg
       url: ansible/index.yml
+    # Card
+    - title: Chef
+      imageSrc: ./chef/media/Chef_Regular.svg
+      url: chef/index.yml
 
 additionalContent:
   sections:
