@@ -28,27 +28,6 @@ This quickstart calls the QnA Maker REST APIs:
 
     `https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
-## Create a knowledge base
-
-To create a knowledge base with the REST APIs and cURL, you need to have the following information:
-
-|Information|cURL configuration|Purpose|
-|--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
-|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
-|JSON describing knowledge base|`-d` param|[Examples](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) of JSON|
-|Size of the JSON in bytes|`-h` param for `Content-Size` header||
-
-The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and JSON values.
-
-```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases/create \
--X POST \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "Content-Type:application/json" \
--H "Content-Size:107" \
--d '{ name: "QnA Maker FAQ",urls: [ "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs"]}'
-```
 
 ## Create a knowledge base
 
@@ -72,7 +51,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -d '{ name: "QnA Maker FAQ",urls: [ "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs"]}'
 ```
 
-The cURL response from QnA Maker includes the  , which is required to [get status of the operation](#get-operation-of-status).
+The cURL response from QnA Maker includes the  , which is required to [get status of the operation](#get-status-of-operation).
 
 ```json
 {
