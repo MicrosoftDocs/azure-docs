@@ -55,6 +55,9 @@ The following parameters in the template are set with a default value for the Lo
 >If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.
 >
 
+>[!NOTE]
+>Before using this template, review [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) related to the configuration of the property `capacityReservationLevel` for the SKU `CapacityReservation` for a Log Analytics workspace.
+
 ## Deploy template
 
 1. Copy and paste the following JSON syntax into your file:
@@ -154,18 +157,21 @@ The following parameters in the template are set with a default value for the Lo
     },
     "resources": [
         {
-        "apiVersion": "2017-03-15-preview",
         "type": "Microsoft.OperationalInsights/workspaces",
-		"name": "[parameters('workspaceName')]",
-		"location": "[parameters('location')]",
-		"properties": {
-			"retentionInDays": "[parameters('dataRetention')]",
-			"features": {
-				"immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
-			},
-			"sku": {
-				"name": "[parameters('pricingTier')]"
-			}
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2017-03-15-preview",
+            "location": "[parameters('location')]",
+            "properties": {
+                "sku": { 
+                    "name": "CapacityReservation",
+                    "capacityReservationLevel": 100
+                },
+                "retentionInDays": "[parameters('dataRetention')]",
+                "features": {
+                    "searchVersion": 1,
+                    "legacy": 0,
+                    "enableLogAccessUsingOnlyResourcePermissions": true
+                }
             },
             "resources": [
                 {
