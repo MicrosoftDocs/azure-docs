@@ -34,7 +34,7 @@ The following diagram illustrates the flow of event data through a larger IoT so
 
 Event routes are designed for sending data to external resources. They excel at sending bulk event data from Azure Digital Twins to downstream resources such as Time Series Insights, storage, and analytics solutions.
 
-During the current preview release, they are also used to handle events within the digital twin graph and send data from twin to twin. You can use event routes to affect Azure Digital Twins resources by connecting routes to compute resources such as [Azure Functions](azure-functions/functions-overview.md). Note that events sent via routes come without context. As a result, a compute resource that wants to modify the Azure Digital Twins graph in response to an event passed via event route must either:
+During the current preview release, they are also used to handle events within the digital twin graph and send data from twin to twin. You can use event routes to affect Azure Digital Twins resources by connecting routes to compute resources such as [Azure Functions](../azure-functions/functions-overview.md). Note that events sent via routes come without context. As a result, a compute resource that wants to modify the Azure Digital Twins graph in response to an event passed via event route must either:
 * know the twin it wants to modify in advance, or
 * use a query or navigation through the graph to find the appropriate target. 
 
