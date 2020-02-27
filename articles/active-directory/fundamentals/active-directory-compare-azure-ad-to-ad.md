@@ -1,6 +1,6 @@
 ---
 title: Compare Active Directory to Azure Active Directory
-description: This document compares Active Directory (AD) to Azure Active Directory. It outlines key concepts in both identity solutions and explains how it's different or similar.
+description: This document compares Active Directory Domain Services (ADDS) to Azure Active Directory (AD). It outlines key concepts in both identity solutions and explains how it's different or similar.
 services: active-directory
 author: martincoetzer
 manager: daveba
@@ -19,7 +19,7 @@ Azure Active Directory is the next evolution of identity and access management s
 
 Azure AD takes this approach to the next level by providing organizations with a new identity access solution for all their apps across cloud and on-premises.
 
-Most IT administrators are familiar with Active Directory concepts and the purpose of the following table is to explain the differences and similarities between it and Azure Active Directory.
+Most IT administrators are familiar with Active Directory Domain Services concepts. The following table outlines the differences and similarities between Actice Directory concepts and Azure Active Directory.
 
 |Concept|Active Directory (AD)|Azure Active Directory |
 |:-|:-|:-|
