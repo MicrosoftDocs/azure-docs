@@ -182,7 +182,7 @@ new atlas.data.Feature(new atlas.data.Point([20, -20]), {
 
 ```
 
-## Multiple content template
+### Multiple content template
 
 A template may also display content of multiple templates. In the sample, one point demonstrates the use of the Multiple content template. In this example, a String template with placeholders renders values on a white background. Below the String template, a PropertyInfo template renders a full width image inside a table. There is only one case in which a String template can be used to render images. And that's, if the String template has an image tag in it. And, the value being passed to the image tag is a URL to an image.
 
