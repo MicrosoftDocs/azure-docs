@@ -19,11 +19,11 @@ landingContent:
   linkLists:
     - linkListType: overview
       links:
-      - text: What is a voice assistant?
+      - text: Voice Assistant solutions
         url: voice-assistants.md
-      - text: What is Custom Commands?
+      - text: About Custom Commands
         url: custom-commands.md
-      - text: What is Direct Line Speech
+      - text: About Direct Line Speech
         url: direct-line-speech.md
     - linkListType: reference
       links:
