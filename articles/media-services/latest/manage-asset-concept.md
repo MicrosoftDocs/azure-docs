@@ -121,7 +121,7 @@ To publish an asset for streaming, you need to create a [Streaming Locator](stre
 
 For more information, see:
 
-[Tutorial: Upload, encode, and stream videos with Media Services v3](latest/stream-files-tutorial-with-api.md)
+[Tutorial: Upload, encode, and stream videos with Media Services v3](stream-files-tutorial-with-api.md)
 
 ## Download results of a job from an output asset
 
