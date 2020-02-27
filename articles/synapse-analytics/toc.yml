@@ -509,7 +509,7 @@
       - name: Spark
         items:
         - name: Import and export data with Apache Spark
-          href: ./spark/synapse-spark-sqlpool-import-export.md
+          href: ./spark/synapse-spark-sql-pool-import-export.md
     - name: Into the Data Lake
       items:
        - name: With the copy activity
