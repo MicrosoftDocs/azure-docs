@@ -131,7 +131,7 @@ join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Na
 The following description summarizes all actions performed when the `join-AzStorageAccountForAuth` cmdlet gets executed. You may perform these steps manually, if you prefer not to use the command:
 
 > [!NOTE]
-> If you have already executed the join-AzStorageAccountForAuth script above successfuly, go to the next section "3. Confirm that the feature is enabled". You do not need to perform the operations below again.
+> If you have already executed the join-AzStorageAccountForAuth script above successfully, go to the next section "3. Confirm that the feature is enabled". You do not need to perform the operations below again.
 
 #### a. Checking environment
 

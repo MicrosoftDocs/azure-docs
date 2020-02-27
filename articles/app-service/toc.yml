@@ -203,10 +203,14 @@
       href: app-service-web-restore-snapshots.md
     - name: Clone an app
       href: app-service-web-app-cloning.md
-    - name: Move resources
-      href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations
     - name: Restore deleted App Service
       href: app-service-undelete.md
+  - name: Move app
+    items:
+    - name: Move between regions
+      href: manage-move-across-regions.md
+    - name: Move subscriptions
+      href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations
   - name: Run background tasks
     items:
     - name: Create WebJobs
