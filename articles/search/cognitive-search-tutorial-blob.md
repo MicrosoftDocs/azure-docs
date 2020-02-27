@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 02/26/2020
 ---
 
-# Tutorial: Use REST APIs and AI to generate searchable content from Azure blobs
+# Tutorial: Use REST and AI to generate searchable content from Azure blobs
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this REST tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
