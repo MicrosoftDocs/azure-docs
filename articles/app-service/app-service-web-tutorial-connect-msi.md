@@ -5,7 +5,7 @@ description: Learn how to make database connectivity more secure by using a mana
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: mvc, , cli-validate
+ms.custom: mvc, cli-validate
 ---
 # Tutorial: Secure Azure SQL Database connection from App Service using a managed identity
 

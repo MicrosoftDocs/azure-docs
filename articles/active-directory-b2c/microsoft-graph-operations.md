@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/14/2020
+ms.date: 02/20/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -52,7 +52,7 @@ Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in,
 
 The following operations allow you to manage your Azure AD B2C Trust Framework policies, known as [custom policies](custom-policy-overview.md).
 
-- [List all trust framework policies configured in a tenant](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies.md)
+- [List all trust framework policies configured in a tenant](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
 - [Create trust framework policy](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
 - [Read properties of an existing trust framework policy](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
 - [Update or create trust framework policy.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)

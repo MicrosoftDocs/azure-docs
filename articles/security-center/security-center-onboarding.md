@@ -18,10 +18,10 @@ ms.author: memildin
 # Onboarding to Azure Security Center Standard for enhanced security
 Upgrade to Security Center Standard to take advantage of enhanced security management and threat protection for your hybrid cloud workloads. You can try Standard free. See the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
 
-Security Center Standard includes:
+Security Center standard tier includes:
 
 - **Hybrid security** – Get a unified view of security across all of your on-premises and cloud workloads. Apply security policies and continuously assess the security of your hybrid cloud workloads to ensure compliance with security standards. Collect, search, and analyze security data from a variety of sources, including firewalls and other partner solutions.
-- **Advanced threat detection** - Use advanced analytics and the Microsoft Intelligent Security Graph to get an edge over evolving cyber-attacks. Leverage built-in behavioral analytics and machine learning to identify attacks and zero-day exploits. Monitor networks, machines, and cloud services for incoming attacks and post-breach activity. Streamline investigation with interactive tools and contextual threat intelligence.
+- **Security alerts** - Use advanced analytics and the Microsoft Intelligent Security Graph to get an edge over evolving cyber-attacks. Leverage built-in behavioral analytics and machine learning to identify attacks and zero-day exploits. Monitor networks, machines, and cloud services for incoming attacks and post-breach activity. Streamline investigation with interactive tools and contextual threat intelligence.
 - **Access and application controls** - Block malware and other unwanted applications by applying whitelisting recommendations adapted to your specific workloads and powered by machine learning. Reduce the network attack surface with just-in-time, controlled access to management ports on Azure VMs, drastically reducing exposure to brute force and other network attacks.
 
 ## Detecting unprotected resources
@@ -35,7 +35,7 @@ You can upgrade an entire Azure subscription to the Standard tier, which is inhe
 >
 
 ## Upgrade an Azure subscription or workspace
-To upgrade a subscription or workspace to Standard:
+To upgrade a subscription or workspace to standard:
 1. Under the Security Center main menu, select **Getting started**.
   ![Getting started](./media/security-center-onboarding/get-started.png)
 2. Under **Upgrade**, Security Center lists subscriptions and workspaces eligible for onboarding. 

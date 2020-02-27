@@ -140,7 +140,7 @@ To set up protection for live migration:
 
 3. Assign the MABSMachineName$ account as a read-only administrator account on the VMM management server.
 
-4. Connect all Hyper-V host servers to all MABS servers with the `Set-DPMGlobalProperty` PowerShell cmdlet. The cmdlet accepts multiple MABS server names. Use the format: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. For more information, see [Set-DPMGlobalProperty](https://technet.microsoft.com/library/hh881752.aspx).
+4. Connect all Hyper-V host servers to all MABS servers with the `Set-DPMGlobalProperty` PowerShell cmdlet. The cmdlet accepts multiple MABS server names. Use the format: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. For more information, see [Set-DPMGlobalProperty](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmglobalproperty?view=systemcenter-ps-2019).
 
 5. After all virtual machines running on the Hyper-V hosts in the VMM clouds are discovered in VMM, set up a protection group and add the virtual machines you want to protect. Automatic consistency checks should be enabled at the protection group level for protection under virtual machine mobility scenarios.
 

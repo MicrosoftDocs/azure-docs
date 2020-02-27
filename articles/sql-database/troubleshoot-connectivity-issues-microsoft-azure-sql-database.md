@@ -225,8 +225,8 @@ The following steps can either help you work around the problem or provide you w
 
    ```sql
    SELECT o.name,
-    a.SUM(p.row_count) AS 'Row Count',
-    b.SUM(p.reserved_page_count) * 8.0 / 1024 AS 'Table Size (MB)'
+    SUM(p.row_count) AS 'Row Count',
+    SUM(p.reserved_page_count) * 8.0 / 1024 AS 'Table Size (MB)'
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name

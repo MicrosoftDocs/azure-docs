@@ -25,11 +25,17 @@ The following list contains key Lab Services concepts and definitions:
 
 Quota is the time limit (in hours) that a teacher can set for a student to use a lab VM. It can be set to 0, or a specific number of hours. If the quota is set to 0, a student can only use the virtual machine when a schedule is running or when a teacher manually turns on the virtual machine for the student.  
 
-Quota hours are counted when the student starts the lab VM themselves.  If a teacher manually starts the lab VM for a student, quota hours are not used for that student.
+Quota hours are counted when the student starts the lab VM themselves.  If a teacher manually starts the lab VM for a student, quota hours aren't used for that student.
 
 ## Schedules
 
-Schedules are the time slots (one time or recurring) that a teacher can create for the class. All virtual machines in the lab are automatically started at the beginning to the schedule and stopped at the end of the schedule. Quota hours are not used when a schedule is running.
+Schedules are the time slots that a teacher can create for the class so the student VMs are available for class time.  Schedules can be one-time or recurring.  Quota hours aren't used when a schedule is running.
+
+There are three types of schedules: Standard, Start only and Stop only.
+
+- **Standard**.  This schedule will start all student VMs at the specified start time and shutdown all student VMs at the specified stop time.
+- **Start only**.   This schedule will start all student VMs at the specified  time.  Student VMs won't be stop until a student stops the their VM through the Azure Lab Services portal or a stop only schedule occurs.
+- **Stop only**.  This schedule will stop all student VMs at the specified time.  
 
 ## Template virtual machine
 

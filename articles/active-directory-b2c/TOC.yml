@@ -350,10 +350,9 @@
     - name: Azure Monitor
       href: azure-monitor.md
       displayName: log, logs, logging, usage, events
-    - name: Export usage report
-      href: view-usage-reports.md
-    - name: Account management
+    - name: Manage users - Microsoft Graph
       href: manage-user-accounts-graph-api.md
+      displayName: account, accounts
     - name: Deploy with Azure Pipelines
       href: deploy-custom-policies-devops.md
       displayName: azure devops, ci/cd, cicd, custom policy, policies
