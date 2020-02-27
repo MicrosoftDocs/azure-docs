@@ -2,11 +2,10 @@
 title: Supported resources for metric alerts in Azure Monitor
 description: Reference on support metrics and logs for metric alerts in Azure Monitor
 author: harelbr
+ms.author: harelbr
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.author: harelbr
 ms.subservice: alerts
 ---
 
