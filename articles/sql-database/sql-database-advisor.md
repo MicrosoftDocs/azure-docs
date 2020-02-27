@@ -3,7 +3,7 @@ title: Performance recommendations
 description: Azure SQL Database provides recommendations for your SQL databases that can improve current query performance.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -32,6 +32,7 @@ Performance recommendation options available Azure SQL Database are:
 | **Fix schema issues recommendations (preview)** - Recommendations for schema correction appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. Microsoft is currently deprecating "Fix schema issue" recommendations. | Yes | No |
 
 ## Create index recommendations
+
 SQL Database continuously monitors the queries that are running and identifies the indexes that could improve performance. After there's enough confidence that a certain index is missing, a new **Create index** recommendation is created.
 
  Azure SQL Database builds confidence by estimating the performance gain the index would bring through time. Depending on the estimated performance gain, recommendations are categorized as high, medium, or low. 

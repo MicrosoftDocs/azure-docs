@@ -3,7 +3,7 @@ title: Configure streaming export of platform logs and metrics
 description: Learn how to configure streaming export of platform logs and metrics from Azure SQL Database to the destination of your choice to store information about resource utilization and query execution statistics.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: seoapril2019
 ms.devlang: 
 ms.topic: conceptual
