@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Understand the concept of a digital twin
 
-Within an Azure Digital Twins solution, the entities in your environment are represented by **twins.** A twin is described by one of the user-created Azure Digital Twins [models](concepts-models.md); it is implemented and connected via relationships to form the Azure Digital Twins [graph](concepts-graph-queries.md). This article gives more information on what a twin representation entails.
+Within an Azure Digital Twins solution, the entities in your environment are represented by **twins.** A twin is described by one of the user-created Azure Digital Twins [models](concepts-models.md); it is implemented and connected via relationships to form the Azure Digital Twins graph. This article gives more information on what a twin representation entails.
 
 ## Creating twins
 
@@ -145,4 +145,4 @@ See how to manage graph components with Twin APIs:
 * [Manage an Azure Digital Twins graph](how-to-manage-graph.md)
 
 Or, learn about querying the Azure Digital Twins graph for information:
-* [Query the Azure Digital Twins graph](concepts-query-grpah.md)
+* [Query the Azure Digital Twins graph](concepts-query-graph.md)

@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Understand object modeling in Azure Digital Twins
 
-Think of a **model** as a template that describes the characteristics of a particular type of twin in terms of properties, telemetry/events, commands etc. They are defined using the JSON-based [Digital Twin Definition Language (DTDL)](concepts-digital-twins-definition-language.md).  
+Think of a **model** as a template that describes the characteristics of a particular type of twin in terms of properties, telemetry/events, commands etc. They are defined using the JSON-based **Digital Twin Definition Language (DTDL)**.  
 
 ## Key model components
 

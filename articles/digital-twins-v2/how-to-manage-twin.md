@@ -22,7 +22,7 @@ Azure Digital Twins **Twin APIs** let developers create, modify, and delete twin
 ## Get twin data for an entire twin
 
 You can access data on any twin by calling `Response<JsonDocument> GetTwin(string id);`.
-This returns twin data in JSON form. Assuming the following model (written in [Digital Twins Definition Language (DTDL)](concepts-digital-twins-definition-language.md)) defines a twin of type *Moon*:
+This returns twin data in JSON form. Assuming the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)) defines a twin of type *Moon*:
 
 ```json
 {

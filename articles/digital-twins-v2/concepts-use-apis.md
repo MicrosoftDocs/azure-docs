@@ -38,7 +38,7 @@ In the code snippets below, try/catch clauses are omitted for clarity and brevit
 
 ## Twin data returned from Azure Digital Twins APIs
 
-In general, SDKs for strongly-typed languages in Azure should return strongly-typed objects for data returned by REST APIs. Azure Digital Twins follows these guidelines for statically defined classes. However, in Azure Digital Twins, most data is based on types that are defined dynamically in [Digital Twin Definition Language (DTDL)](concepts-digital-twins-definition-language.md). These types are not known to the SDK. In all cases where DTDL-defined twin data is returned by the Azure Digital Twins APIs, the C# SDK for Azure Digital Twins will return JSON data in form of a JSON document (`System.Text.Json.JsonDocument`). 
+In general, SDKs for strongly-typed languages in Azure should return strongly-typed objects for data returned by REST APIs. Azure Digital Twins follows these guidelines for statically defined classes. However, in Azure Digital Twins, most data is based on types that are defined dynamically in [Digital Twin Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). These types are not known to the SDK. In all cases where DTDL-defined twin data is returned by the Azure Digital Twins APIs, the C# SDK for Azure Digital Twins will return JSON data in form of a JSON document (`System.Text.Json.JsonDocument`). 
 For more information on `System.Text.Json.JsonDocument`, see:
 * https://docs.microsoft.com/dotnet/api/system.text.json?view=netcore-3.0
 * https://docs.microsoft.com/dotnet/standard/serialization/system-text-json-how-to?view=netcore-3.0

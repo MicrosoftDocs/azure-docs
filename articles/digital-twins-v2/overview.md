@@ -96,5 +96,5 @@ The main changes are:
 
 To start learning more about the key components of Azure Digital Twins, visit:
 * [Model an object](concepts-models.md)
-* [Represent objects with a twin](concepts-twins.md)
-* [Use the Azure Digital Twins graph](concepts-graph-queries.md)
+* [Represent objects with a twin](concepts-twins-graph.md)
+* [Use the Azure Digital Twins graph](concepts-query-graph.md)
