@@ -200,7 +200,7 @@ If you run the script on a computer with restricted access, ensure there is acce
   - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (For Azure China 21Vianet)
   - <https://pod01-rec2.geo-name.backup.windowsazure.us> (For Azure US Government)
   - <https://pod01-rec2.geo-name.backup.windowsazure.de> (For Azure Germany)
-- outbound port 3260
+- Outbound ports 53 (DNS), 443, 3260
 
 > [!NOTE]
 >
