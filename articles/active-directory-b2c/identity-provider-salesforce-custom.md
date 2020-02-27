@@ -146,7 +146,7 @@ You can define a Salesforce account as a claims provider by adding it to the **C
 
 1. Update the value of **PartnerEntity** with the Salesforce metadata URL you copied earlier.
 1. Update the value of both instances of **StorageReferenceId** to the name of the key of your signing certificate. For example, B2C_1A_SAMLSigningCert.
-1. Locate the `<ClaimsProviders>` section and add the following XML snippet. If your policy already contains the `SM-Saml-idp` technical profile, skip to the next step. For more information, see [single sign-on session management](ustom-policy-reference-sso.md).
+1. Locate the `<ClaimsProviders>` section and add the following XML snippet. If your policy already contains the `SM-Saml-idp` technical profile, skip to the next step. For more information, see [single sign-on session management](custom-policy-reference-sso.md).
 
     ```XML
     <ClaimsProvider>
