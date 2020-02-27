@@ -39,7 +39,7 @@ This topic describes how to install and configure the Azure Data Explorer Spark 
 > [!NOTE]
 > This step is optional. If you are using pre-built libraries go to [Spark cluster setup](#spark-cluster-setup).
 
-**Before you begin**
+### Build prerequisites
 
 1. Install the libraries listed in [dependencies](https://github.com/Azure/azure-kusto-spark#dependencies) including the following [Kusto Java SDK](/azure/kusto/api/java/kusto-java-client-library) libraries:
     * [Kusto Data Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
@@ -220,7 +220,7 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
     display(df2)
     ```
 
-1. Optional: If **you** provide the transient blob storage (and not Azure Data Explorer) the blobs are created are under the caller's responsibility. This includes provisioning the storage, rotating access keys, deleting transient artifacts etc. 
+1. Optional: If **you** provide the transient blob storage (and not Azure Data Explorer) the blobs are created are under the caller's responsibility. This includes provisioning the storage, rotating access keys, and deleting transient artifacts. 
     The KustoBlobStorageUtils module contains helper functions for deleting blobs based on either account and container coordinates and account credentials, or a full SAS URL with write, read and list permissions. When the corresponding RDD is no longer needed, each transaction stores transient blob artifacts in a separate directory. This directory is captured as part of read-transaction information logs reported on the Spark Driver node.
 
     ```scala
