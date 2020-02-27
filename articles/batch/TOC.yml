@@ -86,7 +86,7 @@
     - name: Using application packages
       href: batch-application-packages.md
     - name: Create resource files
-       href: resource-files.md
+      href: resource-files.md
   - name: Create and manage pools
     items:
     - name: Autoscale compute nodes
