@@ -53,6 +53,47 @@ For specific code samples, see the "Create an environment" section of [Reuse env
 
 For code samples, see the "Manage environments" section of [Reuse environments for training and deployment](how-to-use-environments.md#manage-environments).
 
+## Environment building, caching and reuse
+
+### Building environment as Docker image
+
+Typically, when you first submit a run using an environment, the Environment Management service invokes an [ACR Build Task](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview) on the Azure Container Registry (ACR) associated with the Workspace. The built Docker image is then cached on the Workspace ACR, and pulled to the compute target executing the run.
+
+The image build consists of two steps
+
+ 1. Downloading the base image, and executing any Docker steps
+ 2. Building a conda environment according to conda dependencies specified in the environment definition.
+
+The second step is omitted if you specify user-managed dependencies. In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps within first step. You're also responsible for specifying the correct location for Python executable.
+
+### Image caching and reuse
+
+If you use the same environment definition for another run, the Environment Management service pulls the cached image from Workspace ACR to the compute target, and re-uses it. 
+
+To determine whether to re-use a cached image or build a new one, the Environment Management service computes a hash value from the environment definition and compares it to the hashes of existing environments. The hash is based on:
+ 
+ * Base image property value
+ * Custom docker steps property value
+ * List of Python packages in Conda definition
+ * List of packages in Spark definition 
+
+The hash does not depend on environment name or version, or environment variables values. Following diagram illustrates how two environments with different name and version, but identical base image and Python packages have the same hash and therefore correspond to the same cached image. The third environment has different Python packages and versions, and therefore corresponds to a different cached image.
+
+![Diagram of environment caching as Docker images](./media/concept-environments/environment_caching.png)
+
+For example, following changes on environment definition will change the hash value, and result in an image rebuild:
+
+ * Adding or removing a Python package
+ * Changing a pinned package version, for example ```numpy==0.15``` to ```numpy==0.16```
+
+Following operations will not change the hash value, and will result in a cached image being used:
+ 
+ * Renaming an environment
+ * Creating a new environment whose properties and Python package list exactly matches an existing environment.
+ * Changing an environment variable.
+
+Note also that if you create an environment with unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed at the time of environment creation. To update the package, specify a version number.
+
 ## Next steps
 
 * Learn how to [create and use environments](how-to-use-environments.md) in Azure Machine Learning.
