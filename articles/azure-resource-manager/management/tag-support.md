@@ -1395,7 +1395,7 @@ Jump to a resource provider namespace:
 > | netAppAccounts | Yes | No |
 > | netAppAccounts / capacityPools | Yes | No |
 > | netAppAccounts / capacityPools / volumes | Yes | No |
-> | netAppAccounts / capacityPools / volumes / mountTargets | Yes | No |
+> | netAppAccounts / capacityPools / volumes / mountTargets | Yes | Yes |
 > | netAppAccounts / capacityPools / volumes / snapshots | No | No |
 
 ## Microsoft.Network
@@ -1671,7 +1671,7 @@ Jump to a resource provider namespace:
 > | notifyResourceJobs | No | No |
 > | providers | No | No |
 > | resourceGroups | Yes | No |
-> | subscriptions | No | No |
+> | subscriptions | Yes | No |
 > | tenants | No | No |
 
 ## Microsoft.SaaS
