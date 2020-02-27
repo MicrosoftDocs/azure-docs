@@ -1,7 +1,6 @@
 ---
 title: What is monitored by Azure Monitor
 description: Reference of all services and other resources monitored by Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
