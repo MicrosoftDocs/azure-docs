@@ -16,12 +16,12 @@ ms.author: memildin
 
 ---
 
-# Billing
+# Billing questions
 
 ## How does billing work for Azure Security Center?
 Security Center is offered in two tiers:
 
-The **Free tier** provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
+- The **free tier** provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
 
 The **Standard tier** adds threat protection capabilities that includes security alerts, threat intelligence, behavioral analysis, anomaly detection, and threat attribution reports. You can start a standard tier free trial. To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
