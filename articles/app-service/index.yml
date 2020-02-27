@@ -39,7 +39,23 @@ landingContent:
             url: app-service-web-get-started-nodejs.md
           - text: First PHP app
             url: app-service-web-get-started-php.md
-  - title: App with DB in Azure
+  - title: Common tasks
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Map a custom domain to your app
+            url: app-service-web-tutorial-custom-domain.md
+          - text: Secure a custom domain with an SSL binding
+            url: configure-ssl-bindings.md
+          - text: Run app in staged environments
+            url: deploy-staging-slots.md
+      - linkListType: how-to-guide
+        links:
+          - text: Enable diagnostic logs
+            url: troubleshoot-diagnostic-logs.md
+          - text: Migrate an active domain to App Service
+            url: manage-custom-dns-migrate-domain.md
+  - title: CRUD app with database
     linkLists:
       - linkListType: tutorial
         links:
@@ -65,22 +81,6 @@ landingContent:
             url: deploy-content-sync.md
           - text: CI/CD with GitHub, BitBucket, etc.
             url: deploy-continuous-deployment.md
-  - title: Common tasks
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Map a custom domain to your app
-            url: app-service-web-tutorial-custom-domain.md
-          - text: Secure a custom domain with an SSL binding
-            url: configure-ssl-bindings.md
-          - text: Run app in staged environments
-            url: deploy-staging-slots.md
-      - linkListType: how-to-guide
-        links:
-          - text: Enable diagnostic logs
-            url: troubleshoot-diagnostic-logs.md
-          - text: Migrate an active domain to App Service
-            url: manage-custom-dns-migrate-domain.md
 
   - title: Run containerized Windows apps
     linkLists:
