@@ -1395,7 +1395,6 @@ Jump to a resource provider namespace:
 > | netAppAccounts | Yes | No |
 > | netAppAccounts / capacityPools | Yes | No |
 > | netAppAccounts / capacityPools / volumes | Yes | No |
-> | netAppAccounts / capacityPools / volumes / mountTargets | Yes | Yes |
 > | netAppAccounts / capacityPools / volumes / snapshots | No | No |
 
 ## Microsoft.Network
