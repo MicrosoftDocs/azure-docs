@@ -34,11 +34,11 @@ The following query performance indicators are available for every query that is
 
 - [Total CPU](#total-cpu): Overall compute used to process the query across all compute nodes. It represents time used for computing, parsing, and data fetching. 
 
-- [Data volume](#data-volume): Overall data that was accessed to process the query. Influenced by the size of the target table, time span used, filters applied, and the number of columns referenced.
+- [Data used for processed query](#data-used-for-processed-query): Overall data that was accessed to process the query. Influenced by the size of the target table, time span used, filters applied, and the number of columns referenced.
 
-- [Time range](#time-range): The gap between the newest and the oldest data that was accessed to process the query. Influenced by the explicit time range specified for the query.
+- [Time span of the processed query](#time-span-of-the-processed-query): The gap between the newest and the oldest data that was accessed to process the query. Influenced by the explicit time range specified for the query.
 
-- [Age of data](#age-of-data): The gap between now and the oldest data that was accessed to process the query. It highly influences the efficiency of data fetching.
+- [Age of processed data](#age-of-processed-data): The gap between now and the oldest data that was accessed to process the query. It highly influences the efficiency of data fetching.
 
 - [Number of workspaces](#number-of-workspaces): How many workspaces were accessed during the query processing due to implicit or explicit selection.
 
@@ -147,7 +147,7 @@ Heartbeat
 > This indicator presents only CPU from the immediate cluster. In multi-region query, it would represent only one of the regions. In multi-workspace query, it might not include all workspaces.
 
 
-## Data volume
+## Data used for processed query
 
 A critical factor in the processing of the query is the volume of data that is scanned and used for the query processing. Azure Data Explorer uses aggressive optimizations that dramatically reduce the data volume compared to other data platforms. Still, there are critical factors in the query that can impact the data volume that is used.
 In Azure Monitor Logs, the **TimeGenerated** column is used as a way to index the data. Restricting the **TimeGenerated** values to as narrow a range as possible will make a significant improvement to query performance by significantly limiting the amount of data that has to be processed.
@@ -205,7 +205,7 @@ SecurityEvent
 | summarize count(), dcount(EventID), avg(Level) by Computer  
 ```
 
-## Time range
+## Time span of the processed query
 
 All logs in Azure Monitor Logs are partitioned according to the **TimeGenerated** column. The number of partitions that are accessed are directly related to the time span. Reducing the time range is the most efficient way of assuring a prompt query execution.
 
@@ -258,7 +258,7 @@ by Computer
 > [!IMPORTANT]
 > This indicator isn't available for cross region queries.
 
-## Age of data
+## Age of processed data
 Azure Data Explorer uses several storage tiers: in-memory, local SSD disks and much slower Azure Blobs. The newer the data, the higher is the chance that it is stored in a more performant tier with smaller latency, reducing the query duration and CPU. Other than the data itself, the system also has a cache for metadata. The older the data, the less chance its metadata will be in cache.
 
 While some queries require usage of old data, there are cases where old data is used by mistake. This happens when queries are executed without providing time range in their meta-data and not all table references include filter on the **TimeGenerated** column. In these cases, the system will scan all the data that is stored in that table. When the data retention is long, it can cover long time ranges and thus data that is as old as the data retention period.
