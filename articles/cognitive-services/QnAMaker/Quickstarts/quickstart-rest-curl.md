@@ -9,15 +9,7 @@ ms.date: 12/16/2019
 
 This quickstart walks you through creating, publishing, and querying your knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/knowledge-base.md). The model for the knowledge base is defined in the JSON sent in the body of the API request.
 
-This quickstart calls the QnA Maker REST APIs:
-* [Create KB](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
-* [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
-* [Publish knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)
-* [Get published knowledge base endpoint key](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys)
-* [Get answer from published knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
-* [Delete knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete)
-
-[Authoring Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker) | [Runtime Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/) | cURL [sample scripts](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
+[Authoring Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Runtime Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/) | cURL [sample scripts](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -28,6 +20,8 @@ This quickstart calls the QnA Maker REST APIs:
 
     `https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
+> [!CAUTION]
+> The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
 
 ## Create a knowledge base
 
@@ -40,7 +34,7 @@ To create a knowledge base with the REST APIs and cURL, you need to have the fol
 |JSON describing knowledge base|`-d` param|[Examples](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) of JSON|
 |Size of the JSON in bytes|`-h` param for `Content-Size` header||
 
-The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and JSON values.
+The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and JSON values and size of JSON.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases/create \
@@ -51,7 +45,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -d '{ name: "QnA Maker FAQ",urls: [ "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs"]}'
 ```
 
-The cURL response from QnA Maker includes the  , which is required to [get status of the operation](#get-status-of-operation).
+The cURL response from QnA Maker includes the `operationId` , which is required to [get status of the operation](#get-status-of-operation).
 
 ```json
 {
@@ -65,7 +59,7 @@ The cURL response from QnA Maker includes the  , which is required to [get statu
 
 ## Get status of operation
 
-When you create a knowledge base, the response includes information to determine the status.
+When you create a knowledge base, because the operation is async, the response includes information to determine the status.
 
 |Information|cURL configuration|Purpose|
 |--|--|--|
@@ -96,7 +90,11 @@ The cURL response includes the status. If the operation state is succeeded, then
 
 ## Publish knowledge base
 
-Before you query the knowledge base, you need to publish it and get the runtime endpoint key. This task publishes the knowledge base. Getting the runtime endpoint key is a separate task.
+Before you query the knowledge base, you need to:
+* Publish knowledge base
+* Get the runtime endpoint key
+
+This task publishes the knowledge base. Getting the runtime endpoint key is a [separate task](#get-published-knowledge-bases-runtime-endpoint-key).
 
 |Information|cURL configuration|Purpose|
 |--|--|--|
@@ -118,7 +116,11 @@ The response status is 204 with no results. Use the `-v` command-line parameter 
 
 ## Get published knowledge base's runtime endpoint key
 
-Before you query the knowledge base, you need to publish it and get the runtime endpoint key. This task gets the runtime endpoint key only. Publishing is a separate task.
+Before you query the knowledge base, you need to:
+* Publish knowledge base
+* Get the runtime endpoint key
+
+This task getS the runtime endpoint key. Publishing the knowledge base is a [separate task](#publish-knowledge-base).
 
 The runtime endpoint key is the same key for all knowledge bases using the QnA Maker resource.
 
