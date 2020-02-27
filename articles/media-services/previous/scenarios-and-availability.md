@@ -199,7 +199,7 @@ AMS offers two on-demand encoders **Media Encoder Standard** and **Media Encoder
 Media Analytics is a collection of speech and vision components that makes it easier for organizations and enterprises to derive actionable insights from their video files. For more information, see [Azure Media Services Analytics Overview](media-services-analytics-overview.md).
 
 > [!NOTE]
-> Some analytics media processors will be retired, for the retirement dates, see this [legacy components](legacy-components.md) topic.
+> Some analytics media processors will be retired. For the retirement dates, see the [legacy components](legacy-components.md) topic.
 
 #### Availability
 
