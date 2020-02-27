@@ -142,14 +142,14 @@ After you've set up Jenkins, skip ahead to [Create and configure a Jenkins job](
 
 You can set up Jenkins either inside or outside of a Service Fabric cluster. The following sections show how to set it up outside a cluster.
 
-1. Make sure that Docker is installed on your machine. The following commands can be used to install Docker from the terminal:
+1. Make sure that Docker is installed on your machine by running `docker info` in the terminal. The output indicates if the Docker service is running.
+
+1. If Docker is not installed, run the following commands:
 
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
   ```
-
-1. When you run `docker info` in the terminal, the output should show that the Docker service is running.
 
 1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:latest`. This image comes with Service Fabric Jenkins plugin pre-installed.
 1. Run the container image: `docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
