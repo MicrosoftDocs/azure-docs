@@ -9,8 +9,6 @@ ms.date: 12/16/2019
 
 This quickstart walks you through creating, publishing, and querying your knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/knowledge-base.md). The model for the knowledge base is defined in the JSON sent in the body of the API request.
 
-[Authoring Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Runtime Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/) | cURL [sample scripts](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
-
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Prerequisites
@@ -195,6 +193,11 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 
 The response status is 204 with no results. Use the `-v` command-line parameter to see verbose output for the cURL command. This will include the HTTP status.
 
+## Additional resources
+
+* [Authoring](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) Reference documentation
+* [Runtime](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/) Reference documentation
+* [Sample BASH scripts using cURL](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
 
 ## Next steps
 

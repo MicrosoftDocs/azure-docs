@@ -18,7 +18,7 @@
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
   - name: Test with batch file
     href: Quickstarts/batch-testing.md
-  - name: Using REST APIs
+  - name: Using REST
     href: Quickstarts/quickstart-rest-curl.md
   - name: Using SDK
     href: Quickstarts/quickstart-sdk.md
