@@ -18,7 +18,7 @@ To troubleshoot problems more effectively, it may help to create more detailed l
 
 For the Visual Studio extension, set the `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` environment variable to 1. Be sure to restart Visual Studio for the environment variable to take effect. Once enabled, detailed logs are written to your `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
 
-In the CLI, you can output more information during command execution by using the `--verbose` switch. You can also browse more detailed logs in `%TEMP%\Azure Dev Spaces`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window. On a Linux computer, the TEMP directory is usually `/tmp`.
+In the CLI, you can output more information during command execution by using the `--verbose` switch. You can also browse more detailed logs in `%TEMP%\Azure Dev Spaces`. On a Mac, the *TEMP* directory can be found by running `echo $TMPDIR` from a terminal window. On a Linux computer, the *TEMP* directory is usually `/tmp`. In addition, verify that logging is enabled in your [Azure CLI configuration file](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
 Azure Dev Spaces also works best when debugging a single instance, or pod. The `azds.yaml` file contains a setting, *replicaCount*, that indicates the number of pods that Kubernetes runs for your service. If you change the *replicaCount* to configure your application to run multiple pods for a given service, the debugger attaches to the first pod, when listed alphabetically. The debugger attaches to a different pod when the original pod recycles, possibly resulting in unexpected behavior.
 
@@ -478,3 +478,14 @@ To fix this issue:
 
 * Use `az aks use-dev-spaces -g <resource group name> -n <cluster name>` to update the current context. This command also enables Azure Dev Spaces on your AKS cluster if is not already enabled. Alternatively, you can use `kubectl config use-context <cluster name>` to update the current context.
 * Use `az account show` to show the current Azure subscription you are targeting and verify this is correct. You can change the subscription you are targeting using `az account set`.
+
+### Error using Dev Spaces after rotating AKS certificates
+
+After [rotating the certificates in your AKS cluster](../aks/certificate-rotation.md), certain operations, such as `azds space list` and `azds up` will fail. You also need to refresh the certificates on your Azure Dev Spaces controller after rotating the certificates on your cluster.
+
+To fix this issue, ensure your *kubeconfig* has the updated certificates using `az aks get-credentials` then run the `azds controller refresh-credentials` command. For example:
+
+```azurecli
+az aks get-credentials -g <resource group name> -n <cluster name>
+azds controller refresh-credentials -g <resource group name> -n <cluster name>
+```

@@ -2,10 +2,9 @@
 title: "Create, view, and manage Metric Alerts Using Azure Monitor"
 description: Learn how to use Azure portal or CLI to create, view, and manage metric alert rules.
 author: harelbr
-ms.service: azure-monitor
+ms.author: harelbr
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.author: harelbr
 ms.subservice: alerts
 ---
 # Create, view, and manage metric alerts using Azure Monitor
