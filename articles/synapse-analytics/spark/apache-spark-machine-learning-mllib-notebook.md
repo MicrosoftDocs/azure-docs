@@ -112,23 +112,11 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     * Save the dataframe as a temporary table or view
     * Save the dataframe as a permanent table
 
-Examples are included of the first 2 of these approaches below. The write and load lines should be uncommented out depending on whether you are writing to the file cache or reading from the file cache. This cache persists between sessions and Spark instance restarts.
+Examples are included of the first 2 of these approaches below. 
 
 Creating a temp table or view provides different access paths to the data but only lasts for the duration of the Spark instance session.
 
 ```Python
-# As the data read from remote storage takes the longest cache the filtered, downsampled results locally in the workspace
-# Save the data once per filter change and write the data out then comment out the write call and uncomment the load call
-
-# Temp location for cache
-#adls_outputpath = "abfss://default@euangarcadiatesting.dfs.core.windows.net/tmp/"
-
-#sampled_taxi_df.write.mode('overwrite').save(adls_outputpath + 'sampledNYCTaxi', format='parquet')
-
-#sampled_taxi_df = spark.read.load('sampledNYCTaxi')
-
-# Creating a temp table allows easier manipulation during the session, they are not persisted between sessions,
-# for that write the data to storage like above.
 sampled_taxi_df.createOrReplaceTempView("nytaxi")
 ```
 
@@ -181,40 +169,6 @@ In the code below four classes of operations are performed:
 * The creation of new columns derived from the raw data to make the model work more effectively, sometimes called featurization.
 * Labeling, as you are undertaking binary classification (will there be a tip or not on a given trip) there is a need to convert the tip amount into a 0 or 1 value.
 
-    ```python
-    # Create a new dataframe that has only the columns that are needed or that are needed to create features, create features and apply filters.
-    sqlStatementSelect = """
-    SELECT
-        totalAmount, fareAmount, tipAmount, paymentType, rateCodeId, passengerCount, tripDistance, tpepPickupDateTime, tpepDropoffDateTime,
-        hour(tpepPickupDateTime) as pickupHour,
-        date_format(tpepPickupDateTime, 'EEEE') as weekdayString,
-        unix_timestamp(tpepDropoffDateTime) - unix_timestamp(tpepPickupDateTime) as tripTimeSecs,
-        CASE
-            WHEN (tipAmount > 0) THEN 1
-            ELSE 0
-        END as tipped """
-    sqlStatementFrom = """
-    FROM
-        nytaxi
-    """
-    sqlStatementWhere = """
-    WHERE
-        passengerCount > 0 AND passengerCount < 8 AND
-        tipAmount >= 0  AND tipAmount <= 25 AND
-        fareAmount >= 1 AND fareAmount <= 250 AND
-        tipAmount < fareAmount AND
-        tripDistance > 0 AND tripDistance <= 100 AND
-        rateCodeId <= 5 AND
-        paymentType in ('1','2')
-    """
-    taxi_df = spark.sql(sqlStatementSelect + sqlStatementFrom + sqlStatementWhere)
-
-    # Once again cache in a temp table
-    taxi_df.createOrReplaceTempView("nytaxi_filtered")
-    ```
-
-If you do not wish to mix Spark SQL and PySpark, the following code sample is completely PySpark.
-
 ```python
 taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'rateCodeId', 'passengerCount'\
                                 , 'tripDistance', 'tpepPickupDateTime', 'tpepDropoffDateTime'\
@@ -234,32 +188,6 @@ taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paym
 ```
 
 A second pass is then made over the data to add the final features.
-
-```python
-# Complete the column reduction, filtering and featurisation
-sqlStatement2Select = """
-SELECT totalAmount, fareAmount, tipAmount, paymentType, passengerCount, tripDistance, weekdayString, pickupHour, tripTimeSecs, tipped,
-    CASE
-        WHEN (pickupHour <= 6 OR pickupHour >= 20) THEN "Night"
-        WHEN (pickupHour >= 7 AND pickupHour <= 10) THEN "AMRush"
-        WHEN (pickupHour >= 11 AND pickupHour <= 15) THEN "Afternoon"
-        WHEN (pickupHour >= 16 AND pickupHour <= 19) THEN "PMRush"
-    END as trafficTimeBins"""
-sqlStatement2From = """
-FROM
-    nytaxi_filtered
-"""
-sqlStatement2Where = """
-WHERE
-    tripTimeSecs >= 30 AND tripTimeSecs < 7200
-"""
-taxi_featurised_df = spark.sql(sqlStatement2Select + sqlStatement2From + sqlStatement2Where)
-
-# Cache again
-taxi_featurised_df.createOrReplaceTempView("nytaxi_featurised")
-```
-
-Once again here is the pure PySpark version
 
 ```Python
 taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'passengerCount'\
@@ -383,3 +311,7 @@ After you have finished running the application, shut down the notebook to relea
 
 * [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
 * [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
+
+>[!NOTE]
+> Some of the official Apache Spark documentation relies on using the spark console, this is not available on Azure Synapse Spark, use the notebook or IntelliJ experiences instead

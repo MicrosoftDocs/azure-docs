@@ -216,12 +216,16 @@
     items:
     - name: Overview
       items:
-      - name: Apache Spark Overview
+      - name: Apache Spark overview
         href: ./spark/apache-spark-overview.md
+      - name: Apache Spark concepts
+        href: ./spark/apache-spark-concepts.md
       - name: Runtime language and library support
         href: ./spark/apache-spark-version-support.md
       - name: What is Delta Lake
-        href: ./spark/apache-spark-what-is-delta-lake.md        
+        href: ./spark/apache-spark-what-is-delta-lake.md
+      - name: Apache Spark performance
+        href: ./spark/apache-spark-performance.md        
       # - name: Apache Spark pool sizes
       #   href: article-template.md
       # - name: Cheat sheet
