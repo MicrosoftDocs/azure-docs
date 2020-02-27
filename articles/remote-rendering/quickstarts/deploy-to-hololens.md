@@ -31,6 +31,7 @@ Make sure your credentials are saved properly with the scene and you can connect
 1. Change *Platform* to **Universal Windows Platform**
 1. Set *Target Device* to **HoloLens**
 1. Set *Architecture* to **ARM64**
+1. Set *Build Type* to **D3D Project**
     ![Build settings](./media/unity-build-settings.png)
 1. Select **Switch to Platform**
 1. When pressing **Build** (or 'Build And Run'), you will be asked to select some folder where the solution should be stored
