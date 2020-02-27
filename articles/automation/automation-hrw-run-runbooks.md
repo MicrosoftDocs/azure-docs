@@ -167,7 +167,7 @@ To finish preparing the Run As account:
 
 ## Job behavior on Hybrid Runbook Workers
 
-Azure Automation handles jobs on Hybrid Runbook Workers somewhat differently from jobs run in Azure sandboxes. One key difference is that there's no limit on job duration on the runbook workers. Runbooks run in Azure sandboxes are limited to three hours because of [fair share](automation-runbook-execution.md#fair-share).
+Azure Automation handles jobs on Hybrid Runbook Workers somewhat differently from jobs run in Azure sandboxes. One key difference is that there's no limit on job duration on the runbook workers. Runbooks run in Azure sandboxes are limited to three hours because of [fair share](automation-runbook-execution.md).
 
 For a long-running runbook, you want to make sure that it's resilient to possible restart. For example, if the machine that hosts the Hybrid worker reboots. If the Hybrid worker host machine reboots, then any running runbook job restarts from the beginning, or from the last checkpoint for PowerShell Workflow runbooks. After a runbook job is restarted more than 3 times, then it's suspended.
 

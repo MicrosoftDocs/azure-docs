@@ -47,7 +47,7 @@ The following table lists some runbook execution tasks with the recommended exec
 |Install a module with an installer|Hybrid Runbook Worker|Modules for sandbox must support copying.|
 |Use runbooks or modules that require .NET Framework version different from 4.7.2|Hybrid Runbook Worker|Automation sandboxes have .NET Framework 4.7.2, and there is no way to upgrade it.|
 |Run scripts that require elevation|Hybrid Runbook Worker|Sandboxes do not allow elevation. With a Hybrid Runbook Worker, you can turn off UAC and use **Invoke-Command** when running the command that requires elevation.|
-|Run scripts that require access to WMI|Hybrid Runbook Worker|Jobs running in sandboxes in the cloud do not have access to WMI. See [Device and application characteristics](#device-and-application-characteristics).|
+|Run scripts that require access to WMI|Hybrid Runbook Worker|Jobs running in sandboxes in the cloud do not have access to WMI. |
 
 ## Runbook behavior
 
@@ -220,12 +220,12 @@ The following table describes the statuses that are possible for a job.
 |:--- |:--- |
 | Completed |The job completed successfully. |
 | Failed |A graphical or PowerShell Workflow runbook failed to compile. A PowerShell script runbook failed to start or the job had an exception. See [Azure Automation runbook types](automation-runbook-types.md).|
-| Failed, waiting for resources |The job failed because it reached the [fair share](#fair-share) limit three times and started from the same checkpoint or from the start of the runbook each time. |
+| Failed, waiting for resources |The job failed because it reached the fair share limit three times and started from the same checkpoint or from the start of the runbook each time. |
 | Queued |The job is waiting for resources on an Automation worker to come available so that it can be started. |
 | Starting |The job has been assigned to a worker, and the system is starting it. |
 | Resuming |The system is resuming the job after it was suspended. |
 | Running |The job is running. |
-| Running, waiting for resources |The job has been unloaded because it reached the [fair share](#fair-share) limit. It resumes shortly from its last checkpoint. |
+| Running, waiting for resources |The job has been unloaded because it reached the fair share limit. It resumes shortly from its last checkpoint. |
 | Stopped |The job was stopped by the user before it was completed. |
 | Stopping |The system is stopping the job. |
 | Suspended |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The job was suspended by the user, by the system, or by a command in the runbook. If a runbook doesn't have a checkpoint, it starts from the beginning of the runbook. If it has a checkpoint, it can start again and resume from its last checkpoint. The system only suspends the runbook when an exception occurs. By default, the ErrorActionPreference variable is set to Continue, indicating that the job keeps running on an error. If the preference variable is set to Stop, the job suspends on an error.  |
