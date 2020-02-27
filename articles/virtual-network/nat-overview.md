@@ -35,7 +35,7 @@ Virtual Network NAT (network address translation) simplifies outbound-only Inter
 
 
 >[!NOTE] 
->Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
+>Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
 
 ## Static IP addresses for outbound-only
 
@@ -196,5 +196,5 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 ## Next steps
 
 - Learn about [NAT gateway resource](./nat-gateway-resource.md).
-- [Tell us what to build next in UserVoice](https://aka/natuservoice).
+- [Tell us what to build next in UserVoice](https://aka.ms/natuservoice).
 - [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
