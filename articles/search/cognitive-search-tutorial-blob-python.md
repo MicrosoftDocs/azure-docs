@@ -25,7 +25,7 @@ In this tutorial, you'll use Python and the REST API to do the following tasks:
 > * Execute the pipeline to start transformations and analysis, and to create and load the index.
 > * Explore results using full text search and a rich query syntax.
 
-You'll need several services to complete this walkthrough, plus Anaconda with Jupyter Notebooks to make REST API calls. 
+You'll need several services to complete this walkthrough, plus [Anaconda 3.7](https://www.anaconda.com/distribution/#download-section) with Jupyter Notebooks to make REST API calls. 
 
 If you don't have an Azure subscription, open a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -123,12 +123,6 @@ import requests
 from pprint import pprint
 ```
 
-## 3 - Create the pipeline
-
-In Azure Cognitive Search, AI processing occurs during indexing (or data ingestion). This part of the walkthrough creates four objects: data source, index definition, skillset, indexer. 
-
-### Define objects
-
 In the same notebook, define the names for the data source, index, indexer, and skillset. Run this script to set up the names for this tutorial.
 
 ```python
@@ -151,11 +145,15 @@ params = {
 }
 ```
 
+## 3 - Create the pipeline
+
+In Azure Cognitive Search, AI processing occurs during indexing (or data ingestion). This part of the walkthrough creates four objects: data source, index definition, skillset, indexer. 
+
 ### Step 1: Create a data source
 
-Now that your services and source files are prepared, start assembling the components of your indexing pipeline. Begin with a data source object that tells Azure Cognitive Search how to retrieve external source data.
+A [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) provides the connection string to the Blob container containing the files.
 
-In the following script, replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-STRING with the connection string for the blob you created in the previous step. Then, run the script to create a data source named `cogsrch-py-datasource`.
+In the following script, replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-STRING with the connection string for the blob you created in the previous step. Replace the placeholder text for the container. Then, run the script to create a data source named `cogsrch-py-datasource`.
 
 ```python
 # Create a data source
@@ -168,7 +166,7 @@ datasource_payload = {
         "connectionString": datasourceConnectionString
     },
     "container": {
-        "name": "basic-demo-data-pr"
+        "name": "<YOUR-BLOB-CONTAINER-NAME>"
     }
 }
 r = requests.put(endpoint + "/datasources/" + datasource_name,
@@ -459,7 +457,7 @@ In the response, monitor the "lastResult" for its "status" and "endTime" values.
 
 ![Indexer is created](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "Indexer is created")
 
-Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign. For example, one of the JPEG files that does not have text will show the warning in this screenshot.
+Warnings are common with some source file and skill combinations and do not always indicate a problem. Many warnings are benign. For example, if you index a JPEG file that does not have text, you will see the warning in this screenshot.
 
 ![Example indexer warning](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Example indexer warning")
 
@@ -503,13 +501,13 @@ You can use GET or POST, depending on query string complexity and length. For mo
 
 ## Reset and rerun
 
-In the early experimental stages of pipeline development, the most practical approach for design iterations is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early stages of development, it's practical to delete objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
-To reindex your documents with the new definitions:
+To re-index your documents with the new definitions:
 
-1. Delete the index to remove persisted data. Delete the indexer to recreate it on your service.
-2. Modify the skillset and index definitions.
-3. Recreate an index and indexer on the service to run the pipeline.
+1. Delete the indexer, index, and skillset.
+2. Modify objects definitions.
+3. Recreate objects on your service. Recreating the indexer runs the pipeline. 
 
 You can use the portal to delete indexes, indexers, and skillsets. When you delete the indexer, you can optionally, selectively delete the index, skillset, and data source at the same time.
 
@@ -524,7 +522,7 @@ r = requests.delete(endpoint + "/skillsets/" + skillset_name,
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-As your code matures, you might want to refine a rebuild strategy. For more information, see [How to rebuild an index](search-howto-reindex.md).
+Status code 204 is returned on successful deletion.
 
 ## Takeaways
 
