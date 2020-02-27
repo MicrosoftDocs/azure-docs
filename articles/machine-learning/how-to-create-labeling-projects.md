@@ -129,7 +129,9 @@ For bounding boxes, important questions include:
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-The **ML assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task.  This feature is available for image classification (multi-class or multi-label) tasks.  Select *Enable ML assisted labeling* and specify a GPU to enable the two phases of assisted labeling:
+The **ML assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task.  This feature is available for image classification (multi-class or multi-label) tasks.  
+
+Select *Enable ML assisted labeling* and specify a GPU to enable the two phases of assisted labeling:
 
 * **Clustering** - after a certain number of labels are submitted, the machine learning model starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is most useful when the labeler is viewing multiple images.  
 
