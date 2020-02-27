@@ -27,7 +27,7 @@ The fixed set of states that can be overridden are:
   
   ![Color Tint](./media/color-tint.png)
 
-* **See-through**: The geometry is rendered semi-transparently, for example to reveal the inner parts of an object. The following image shows the entire car being rendered in see-through mode, except for the red chock:
+* **See-through**: The geometry is rendered semi-transparently, for example to reveal the inner parts of an object. The following image shows the entire car being rendered in see-through mode, except for the red brake caliper:
 
   ![See-Through](./media/see-through.png)
 

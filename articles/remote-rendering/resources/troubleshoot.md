@@ -25,7 +25,9 @@ There are two reasons why the server might refuse to connect with a **codec not 
 
 **The H265 codec isn't installed:**
 
-In this case, refer to the [system requirements](../overview/system-requirements.md#development-pc) for installing the latest graphics drivers.
+First make sure to install the **HEVC Video Extensions** as mentioned in the [Software](../overview/system-requirements.md#software) section of the system requirements.
+
+If you still encounter problems, please make sure that your graphics card supports H265 and you have the latest graphics driver installed. See the [Development PC](../overview/system-requirements.md#development-pc) section of the system requirements for vendor specific information.
 
 **The codec is installed, but can't be used:**
 
