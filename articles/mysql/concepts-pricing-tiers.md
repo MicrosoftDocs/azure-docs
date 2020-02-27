@@ -74,7 +74,7 @@ We recommend that you turn on storage auto-grow or to set up an alert to notify 
 
 Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. For servers with less than equal to 100 GB provisioned storage, the provisioned storage size is increased by 5% when the free storage is below 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10 GB of the provisioned storage size. Maximum storage limits as specified above apply.
 
-For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 900 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 11 GB (round up to nearest integer) when less than 1 GB of storage is free.
+For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 990 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 11 GB (round up to nearest integer) when less than 1 GB of storage is free.
 
 Remember that storage can only be scaled up, not down.
 
