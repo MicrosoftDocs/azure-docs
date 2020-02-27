@@ -1,24 +1,23 @@
 ---
 title: Connect Configuration Manager to Azure Monitor | Microsoft Docs
 description: This article shows the steps to connect Configuration Manager to workspace in Azure Monitor and start analyzing data.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/28/2019
 
 ---
 
 # Connect Configuration Manager to Azure Monitor
-You can connect your System Center Configuration Manager environment to Azure Monitor to sync device collection data and reference these collections in Azure Monitor and Azure Automation.  
+You can connect your Microsoft Endpoint Configuration Manager environment to Azure Monitor to sync device collection data and reference these collections in Azure Monitor and Azure Automation.  
 
 ## Prerequisites
 
-Azure Monitor supports System Center Configuration Manager current branch, version 1606 and higher.
+Azure Monitor supports Configuration Manager current branch, version 1606 and higher.
 
 >[!NOTE]
->The feature to connect Configuration Manager with a Log Analytics workspace is optional and not enabled by default. You must enable this feature before using it. For more information, see [Enable optional features from updates](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_options).
+>The feature to connect Configuration Manager with a Log Analytics workspace is optional and not enabled by default. You must enable this feature before using it. For more information, see [Enable optional features from updates](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options).
 
 ## Configuration overview
 
@@ -63,7 +62,7 @@ Review the article [Connect Windows computers to Azure Monitor in Azure](agent-w
 ## Connect Configuration Manager to Log Analytics workspace
 
 >[!NOTE]
-> In order to add a Log Analytics connection, your Configuration Manager environment must have a [service connection point](https://docs.microsoft.com/sccm/core/servers/deploy/configure/about-the-service-connection-point) configured for online mode.
+> In order to add a Log Analytics connection, your Configuration Manager environment must have a [service connection point](https://docs.microsoft.com/configmgr/core/servers/deploy/configure/about-the-service-connection-point) configured for online mode.
 
 > [!NOTE]
 > You must connect the top-tier site in your hierarchy to Azure Monitor. If you connect a standalone primary site to Azure Monitor and then add a central administration site to your environment, you have to delete and recreate the connection within the new hierarchy.

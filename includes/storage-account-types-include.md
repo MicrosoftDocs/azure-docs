@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/23/2019
+ms.date: 01/17/2020
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -14,7 +14,7 @@ Azure Storage offers several types of storage accounts. Each type supports diffe
 
 - **General-purpose v2 accounts**: Basic storage account type for blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage.
 - **General-purpose v1 accounts**: Legacy account type for blobs, files, queues, and tables. Use general-purpose v2 accounts instead when possible.
-- **BlockBlobStorage accounts**: Blob-only storage accounts with premium performance characteristics. Recommended for scenarios with high transactions rates, using smaller objects, or requiring consistently low storage latency.
+- **BlockBlobStorage accounts**: Storage accounts with premium performance characteristics for block blobs and append blobs. Recommended for scenarios with high transactions rates, or scenarios that use smaller objects or require consistently low storage latency.
 - **FileStorage accounts**: Files-only storage accounts with premium performance characteristics. Recommended for enterprise or high performance scale applications.
 - **BlobStorage accounts**: Legacy Blob-only storage accounts. Use general-purpose v2 accounts instead when possible.
 
@@ -34,7 +34,7 @@ The following table describes the types of storage accounts and their capabiliti
 
 <div id="archive"><sup>3</sup>The Archive tier is available at level of an individual blob only, not at the storage account level. Only block blobs and append blobs can be archived. For more information, see <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob storage: Hot, Cool, and Archive storage tiers</a>.</div>
 
-<div id="zone-redundant-storage"><sup>4</sup>Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) (preview) are available only for standard General-purpose V2, BlockBlobStorage, and FileStorage accounts in certain regions. For more information about ZRS, see <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs">Zone-redundant storage (ZRS): Highly available Azure Storage applications</a>. For more information about GZRS/RA-GZRS, see <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-gzrs">Geo-zone-redundant storage for highly availability and maximum durability (preview)</a>. For more information about other replication options, see <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Azure Storage replication</a>.</div>
+<div id="zone-redundant-storage"><sup>4</sup>Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) (preview) are available only for standard general-purpose V2, BlockBlobStorage, and FileStorage accounts in certain regions. For more information about Azure Storage redundancy options, see <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Azure Storage redundancy</a>.</div>
 
 <div id="premium-performance"><sup>5</sup>Premium performance for general-purpose v2 and general-purpose v1 accounts is available for disk and page blob only. Premium performance for block or append blobs are only available on BlockBlobStorage accounts. Premium performance for files are only available on FileStorage accounts.</div>
 

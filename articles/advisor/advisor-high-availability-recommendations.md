@@ -1,11 +1,6 @@
 ---
-title: Improve availability of your application with Azure Advisor | Microsoft Docs
+title: Improve availability of your application with Azure Advisor
 description: Use Azure Advisor to improve high availability of your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.author: sagupt
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 

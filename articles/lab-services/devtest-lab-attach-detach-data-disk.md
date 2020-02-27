@@ -1,5 +1,5 @@
 ---
-title: Attach or detach a data disk to a virtual machine in Azure DevTest Labs  | Microsoft Docs
+title: Attach or detach a data disk to a virtual machine in Azure DevTest Labs
 description: Learn how to attach or detach a data disk to a virtual machine in Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 01/16/2020
 ms.author: spelluru
 
 ---

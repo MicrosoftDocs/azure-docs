@@ -1,14 +1,13 @@
 ---
 title: "Quickstart: Recognize speech from a microphone, C# (.NET) - Speech service"
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
 ---
 
@@ -36,7 +35,7 @@ Let's add some code that works as a skeleton for our project. Make note that you
 
 ## Create a Speech configuration
 
-Before you can initialize a `SpeechRecognizer` object, you need to create a configuration that uses your subscription key and subscription region. Insert this code in the `RecognizeSpeechAsync()` method.
+Before you can initialize a `SpeechRecognizer` object, you need to create a configuration that uses your subscription key and subscription region (choose the **Region identifier** from [region](https://aka.ms/speech/sdkregion). Insert this code in the `RecognizeSpeechAsync()` method.
 
 > [!NOTE]
 > This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).

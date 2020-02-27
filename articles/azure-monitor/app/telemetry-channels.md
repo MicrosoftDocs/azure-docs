@@ -1,11 +1,7 @@
 ---
 title: Telemetry channels in Azure Application Insights | Microsoft Docs
 description: How to customize telemetry channels in Azure Application Insights SDKs for .NET and .NET Core.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
 ms.date: 05/14/2019
 
 ms.reviewer: mbullwin
@@ -142,7 +138,7 @@ The short answer is that none of the built-in channels offer a transaction-type 
 
 1. Items in memory are lost when the application crashes.
 
-1. Telemetry is lost during extended periods of network problems. Telemetry is stored to local disk during network outages or when problems occur with the Application Insights back end. However, items older than 24 hours are discarded.
+1. Telemetry is lost during extended periods of network problems. Telemetry is stored to local disk during network outages or when problems occur with the Application Insights back end. However, items older than 48 hours are discarded.
 
 1. The default disk locations for storing telemetry in Windows are %LOCALAPPDATA% or %TEMP%. These locations are typically local to the machine. If the application migrates physically from one location to another, any telemetry stored in the original location is lost.
 

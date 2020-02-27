@@ -8,7 +8,7 @@ ms.date: 12/11/2019
 
 ## Create an Azure resource
 
-Start using the Bing Web Search API by creating one of the Azure resources below.
+Start using the Bing Autosuggest API by creating one of the Azure resources below.
 
 * [Create a trial resource](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api):
     * No Azure subscription needed.

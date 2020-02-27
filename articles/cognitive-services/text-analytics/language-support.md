@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/18/2019
 ms.author: aahi
 ---
 # Language and region support for the Text Analytics API
@@ -25,7 +25,7 @@ If you have content expressed in a less frequently used language, you can try La
 
 ## Sentiment Analysis, Key Phrase Extraction, and Named Entity Recognition
 
-For sentiment analysis, key phrase extraction, and entity recognition, the list of supported languages is more selective as the analyzers are refined to accommodate the linguistic rules of additional languages. In Named Entity Recognition v2, support for the full set of [entity types](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2) is currently limited to the following languages: 
+For sentiment analysis, key phrase extraction, and entity recognition, the list of supported languages is more selective as the analyzers are refined to accommodate the linguistic rules of additional languages. In Named Entity Recognition v2, support for the full set of [entity types](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) is currently limited to the following languages: 
 * English
 * Chinese-Simplified
 * French
@@ -45,7 +45,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Arabic                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Czech                 |     `cs`      |           |             |           ✔ \*           |                |                    |
-| Chinese-Simplified    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
+| Chinese-Simplified    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                | `zh` also accepted                   |
 | Chinese-Traditional   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
 | Danish                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Dutch                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
@@ -57,8 +57,8 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Hungarian             |     `hu`      |           |             |           ✔ \*           |                |                    |
 | Italian               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Japanese              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
-| Korean                |     `ko`      |           |      ✔      |           ✔ \*           |                |                    |
-| Norwegian  (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Korean                |     `ko`      |   ✔ \*\*  |      ✔      |           ✔ \*           |                |                    |
+| Norwegian  (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                | `nb` also accepted                   |
 | Polish                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Portuguese (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | `pt` also accepted |
 | Portuguese (Brazil)   |    `pt-BR`    |           |      ✔      |           ✔ \*           |                |                    |
@@ -69,7 +69,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 \* Language support is in preview
 
-\** Also available in the [Sentiment Analysis v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview) and/or [Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview) public previews.
+\** Also available in the [Sentiment Analysis v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) and/or [Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) public previews.
 
 ## See also
 

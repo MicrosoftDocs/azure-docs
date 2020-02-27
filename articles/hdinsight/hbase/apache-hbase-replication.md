@@ -46,7 +46,7 @@ You have three configuration options:
 
 This article covers the geo-replication scenario.
 
-To help you set up the environments, we have created some [Azure Resource Manager templates](../../azure-resource-manager/resource-group-overview.md). If you prefer to set up the environments by using other methods, see:
+To help you set up the environments, we have created some [Azure Resource Manager templates](../../azure-resource-manager/management/overview.md). If you prefer to set up the environments by using other methods, see:
 
 - [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Create Apache HBase clusters in Azure Virtual Network](apache-hbase-provision-vnet.md)

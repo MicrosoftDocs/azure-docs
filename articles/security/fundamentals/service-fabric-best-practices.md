@@ -1,23 +1,12 @@
 ---
-
-title: Azure Service Fabric security best practices | Microsoft Docs
+title: Best practices for Azure Service Fabric security
 description: This article provides a set of best practices for Azure Service Fabric security.
-services: security
-documentationcenter: na
 author: unifycloud
-manager: barbkess
-editor: tomsh
-
-ms.assetid:
+ms.author: tomsh
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/16/2019
-ms.author: tomsh
-
 ---
 # Azure Service Fabric security best practices
 Deploying an application on Azure is fast, easy, and cost-effective. Before you deploy your cloud application into production, review our list of essential and recommended best practices for implementing secure clusters in your application.
@@ -151,7 +140,7 @@ The HTTP protocol is unsecure and subject to eavesdropping attacks. Data that is
 To learn more about using SSL certificates, see [Configure SSL for Azure applications](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## Use network isolation and security with Azure Service Fabric
-Set up a 3 nodetype secure cluster by using the [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) as a sample. Control the inbound and outbound network traffic by using the template and Network Security Groups.
+Set up a 3 nodetype secure cluster by using the [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) as a sample. Control the inbound and outbound network traffic by using the template and Network Security Groups.
 
 The template has an NSG for each of the virtual machine scale sets and is used to control the traffic in and out of the set. The rules are configured by default to allow all traffic necessary for the system services and the application ports specified in the template. Review these rules and make any changes to fit your needs, including adding new rules for your applications.
 

@@ -125,8 +125,8 @@ Liveness detection is the task of determining that a subject is a real person an
 > [!CAUTION]
 > To detect head gestures in real time, you'll need to call the Face API at a high rate (more than once per second). If you have a free-tier (f0) subscription, this will not be possible. If you have a paid-tier subscription, make sure you've calculated the costs of making rapid API calls for head gesture detection.
 
-See the [Face API HeadPose Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) on GitHub for a working example of head gesture detection.
+See the [Face HeadPose Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) on GitHub for a working example of head gesture detection.
 
 ## Next steps
 
-See the [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) app on GitHub for a working example of rotated face rectangles. Or, see the [Face API HeadPose Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) app, which tracks the HeadPose attribute in real time to detect head movements.
+See the [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) app on GitHub for a working example of rotated face rectangles. Or, see the [Face HeadPose Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) app, which tracks the HeadPose attribute in real time to detect head movements.

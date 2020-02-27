@@ -17,4 +17,4 @@ ms.author: magottei
 * RTF
 * Plain text files (see also [Indexing plain text](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
 * JSON (see [Indexing JSON blobs](../articles/search/search-howto-index-json-blobs.md))
-* CSV (see [Indexing CSV blobs](../articles/search/search-howto-index-csv-blobs.md) preview feature)
+* CSV (see [Indexing CSV blobs](../articles/search/search-howto-index-csv-blobs.md))

@@ -1,9 +1,7 @@
 ---
 title: (DEPRECATED) Azure Container Service tutorial - Prepare ACR
 description: Azure Container Service tutorial - Prepare ACR
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial

@@ -72,7 +72,7 @@ A file system acts as a container for your files. You can create one by using th
 This example creates a file system named `my-file-system`.
 
 ```azurecli
-az storage container create --name my-file-system
+az storage container create --name my-file-system --account-name mystorageaccount
 ```
 
 ## Create a directory
@@ -197,6 +197,9 @@ az storage blob delete -c my-file-system -b my-file.txt --account-name mystorage
 
 You can get, set, and update access permissions of directories and files.
 
+> [!NOTE]
+> If you're using Azure Active Directory (Azure AD) to authorize commands, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+
 ### Get directory and file permissions
 
 Get the ACL of a **directory** by using the `az storage blob directory access show` command.
@@ -229,6 +232,12 @@ This example sets the ACL on a directory for the owning user, owning group, or o
 
 ```azurecli
 az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
+```
+
+This example sets the *default* ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
+
+```azurecli
+az storage blob directory access set -a "default:user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
 Use the `az storage blob access set` command to set the acl of a **file**. 

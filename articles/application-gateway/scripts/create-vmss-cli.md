@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Manage web traffic with an application ga
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
+
 editor: tysonn
 tags: azure-resource-manager
 

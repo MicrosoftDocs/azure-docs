@@ -31,6 +31,16 @@
       href: tutorial-ev-routing.md
     - name: Analyze weather data using Azure Notebooks (Python)
       href: weather-service-tutorial.md
+  - name: Migrate from Google Maps
+    items:
+    - name: Migrate from Google Maps
+      href: migrate-from-google-maps.md
+    - name: Migrate a web app
+      href: migrate-from-google-maps-web-app.md
+    - name: Migrate an Android app
+      href: migrate-from-google-maps-android-app.md
+    - name: Migrate a web service
+      href: migrate-from-google-maps-web-services.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
@@ -223,6 +233,8 @@
     href: /azure/templates/microsoft.maps/accounts
 - name: Resources
   items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Azure Maps terms of use
     href: https://azure.microsoft.com/support/legal/
   - name: Azure Maps pricing
@@ -235,6 +247,8 @@
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
   - name: Azure Maps videos
     href: https://aka.ms/AzureMapsVideos
+  - name: Open source projects
+    href: open-source-projects.md
   - name: Azure Maps case studies
     href: https://aka.ms/AzureMapsCaseStudies
   - name: Azure Maps glossary
@@ -256,7 +270,7 @@
     - name: IoT solution accelerators
       href: /azure/iot-suite
     - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
+      href: /azure/iot-central/iot-support-help
   - name: Platform services
     items:
     - name: IoT Hub
@@ -271,7 +285,7 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: IoT Edge
+  - name: Edge solutions
     items:
     - name: IoT Edge
       href: /azure/iot-edge

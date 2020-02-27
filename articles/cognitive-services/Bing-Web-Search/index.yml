@@ -21,7 +21,7 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
     - title: Compare the Bing Search APIs 
-      itemType: learn
+      itemType: overview
       url: bing-api-comparison.md
     - title: Page through search results
       itemType: how-to-guide
@@ -40,16 +40,16 @@ conceptualContent:
   items:
     - title: Bing Web Search
       links:      
-        - url: web-search-sdk-quickstart.md
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
           itemType: quickstart
           text: Use C#
-        - url: web-sdk-java-quickstart.md
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-java
           itemType: quickstart
           text: Use Java
-        - text: Use Node.js
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-javascript
           itemType: quickstart
-          url: web-search-sdk-node-quickstart.md
-        - url: web-sdk-python-quickstart.md
+          text: Use JavaScript
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-python
           itemType: quickstart
           text: Use Python
         - url: tutorial-bing-web-search-single-page-app.md
@@ -375,4 +375,4 @@ additionalContent:
           - text: Azure Powershell
             url: https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list

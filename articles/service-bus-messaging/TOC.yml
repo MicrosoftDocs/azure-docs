@@ -114,6 +114,8 @@
       href: service-bus-messaging-security-controls.md
 - name: How-to guides
   items:
+  - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
+    href: deprecate-service-bus-management.md
   - name: Create a namespace
     href: service-bus-create-namespace-portal.md  
   - name: Develop
@@ -205,7 +207,7 @@
         href: service-bus-resource-manager-namespace-topic-with-rule.md
   - name: Secure
     items:
-    - name: Configure customer-managed keys for encryption at rest (Preview)
+    - name: Configure customer-managed keys for encryption at rest
       href: configure-customer-managed-key.md
   - name: Troubleshoot
     items:

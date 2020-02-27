@@ -3,8 +3,8 @@ title: Submit a large number of tasks - Azure Batch | Microsoft Docs
 description: How to efficiently submit a very large number of tasks in a single Azure Batch job
 services: batch
 documentationcenter: 
-author: laurenhughes
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 08/24/2018
-ms.author: lahugh
+ms.author: labrenne
 ms.custom: 
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with REST API"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the REST API.
-ms.date: 11/21/2019
+ms.date: 02/26/2020
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with REST API
@@ -13,8 +13,10 @@ tasks related to creating, publishing, and assigning a blueprint within your org
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-before you begin.
+- If you don't have an Azure subscription, create a
+  [free account](https://azure.microsoft.com/free) before you begin.
+- Register the `Microsoft.Blueprint` resource provider. For directions, see
+  [Resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -471,7 +473,9 @@ values:
      > Blueprints doesn't manage the user-assigned managed identity. Users are responsible for
      > assigning sufficient roles and permissions or the blueprint assignment will fail.
 
-## Unassign a blueprint
+## Clean up resources
+
+### Unassign a blueprint
 
 You can remove a blueprint from a subscription. Removal is often done when the artifact resources
 are no longer needed. When a blueprint is removed, the artifacts assigned as part of that blueprint
@@ -483,7 +487,7 @@ are left behind. To remove a blueprint assignment, use the following REST API op
   DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-## Delete a blueprint
+### Delete a blueprint
 
 To remove the blueprint itself, use the following REST API operation:
 
