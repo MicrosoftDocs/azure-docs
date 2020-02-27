@@ -18,7 +18,11 @@ To monitor the performance of a database in Azure SQL Database, start by monitor
 
 Use the built-in performance tuning capabilities to determine the queries responsible for the most CPU and IO usage. Use the intelligent performance tuning recommendations and automatic tuning options to improve performance.
 
-## Built-in monitoring and performance tuning capabilities
+## Built-in capabilities
+
+Azure SQL Database has built-in monitoring and tuning capabilities both within Azure and within the SQL database engine.
+
+### Azure monitoring and tuning capabilities
 
 The built-in monitoring and performance tuning capabilities in Azure enable you to:
 
@@ -29,22 +33,32 @@ The built-in monitoring and performance tuning capabilities in Azure enable you 
 - View service-provided tuning recommendations and tuning actions
 - Enable and configure a number of automatic tuning capabilities
 
-These Azure capabilities are in addition to capabilities built in to the SQL engine that are leveraged by Azure. These SQL engine capabilities include the following:
-
-- Query Store
-- Dynamic Managed Views
-
 You can quickly monitor the following resources in the Azure portal:
 
 - **DTU usage**: Check to see if the database is reaching 100 percent of DTU usage for an extended period of time. High DTU usage indicates that your workload might need more CPU or IO resources. It might also indicate queries that need to be optimized.
 - **CPU usage**: Check to see if the database is reaching 100 percent of CPU usage for an extended period of time. High CPU indicates that your workload might need more CPU or IO resources. It might also indicate queries that need to be optimized.
 - **IO usage**: Check to see if the database is reaching the IO limits of the underlying storage. High IO usage indicates that your workload might need more CPU or IO resources. It might also indicate queries that need to be optimized.
 
+![Performance overview for Azure SQL Database](./media/sql-database-performance/performance-overview-annotated.png)
+
+![Query Performance Insights for Azure SQL Database](./media/sql-database-performance/query-performance-insights-annotated.png)
+
 Additional resource usage can also be monitored using the Azure portal, but a deeper root cause analysis generally requires additional capabilities and skills.
 
-## Collecting additional diagnostic telemetry for advanced tuning and troubleshooting
+### SQL database engine monitoring and tuning capabilities
 
-For more advanced monitoring and tuning, enable and configure the streaming export of diagnostic telemetry to one of several destinations. Use SQL Analytics and other capabilities to consume this additional diagnostic telemetry to identify and resolve performance problems. Additional, use Extended Events in SQL for additional advanced monitoring and troubleshooting.
+The SQL database engine provides the following built-in capabilities:
+
+- **Query Store**: Query Store is database feature that continuously collects and presents detailed historic information about all queries. Use Query Store in a wide set of scenarios when tracking and ensuring predictable workload performance is critical. For more information, see [Query Store Usage Scenarios](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios).
+- **Dynamic managed views**: The SQL database engine records server and database state information in [dynamic management views (DMVs)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). This information can be used to monitor the health of a SQL database instance, diagnose problems, and tune performance.
+
+## Collecting additional diagnostic telemetry
+
+For more advanced monitoring and tuning, you need to collect additional diagnostic telemetry.
+
+### Stream diagnostic telemetry from within Azure to a selected destination
+
+You can enable and configure the streaming export of diagnostic telemetry to one of several destinations. Use SQL Analytics and other capabilities to consume this additional diagnostic telemetry to identify and resolve performance problems.
 
 You configure diagnostic settings to stream categories of metrics and platform logs for single databases, pooled databases, elastic pools, managed instances, and instance databases to one of the following Azure resources:
 
@@ -58,14 +72,15 @@ You configure diagnostic settings to stream categories of metrics and platform l
 
 This diagnostic telemetry can be used to gauge resource utilization and query execution statistics for easier performance monitoring.
 
-## Use the artificial intelligence in SQL Database to detect and resolve performance issues
+### Use extended events in the SQL database engine
+
+Additionally, you can use [extended events](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) in SQL for additional advanced monitoring and troubleshooting. The extended events architecture enables users to collect as much or as little data as is necessary to troubleshoot or identify a performance problem. For information about using extended events in SQL Database, see [Extended events in SQL Database](sql-database-xevent-db-diff-from-svr.md).
+
+## Use the artificial intelligence in SQL Database
 
 - Use [SQL Analytics](../azure-monitor/insights/azure-sql.md) to visualize key performance metrics with built-in intelligence for performance troubleshooting
 - Use [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) to automatically monitor database performance. When a performance problem is detected, a diagnostic log is generated. The log provides details and a root cause analysis (RCA) of the problem. A performance-improvement recommendation is provided when possible.
 
-
 ## Next steps
 
-- To enable automatic tuning in Azure SQL Database and let the automatic tuning feature fully manage your workload, see [Enable automatic tuning](sql-database-automatic-tuning-enable.md).
-- To use manual tuning, review [Tuning recommendations in the Azure portal](sql-database-advisor-portal.md). Manually apply the recommendations that improve performance of your queries.
-- Change the resources that are available in your database by changing [Azure SQL Database service tiers](sql-database-performance-guidance.md).
+- blah
