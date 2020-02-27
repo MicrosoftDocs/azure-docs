@@ -1,7 +1,6 @@
 ---
 title: Create interactive reports Azure Monitor for VMs with workbooks | Microsoft Docs
 description: Simplify complex reporting with predefined and custom parameterized workbooks for Azure Monitor for VMs.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
