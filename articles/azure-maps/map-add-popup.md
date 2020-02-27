@@ -100,15 +100,91 @@ By default the popup has a white background, a pointer arrow on the bottom, and 
 
 ## Add popup templates to the map
 
-Popup templates make it easy to create data driven layouts for popups. The sample below demonstrate the use of various popup templates to generate formatted content using properties of features.
+Popup templates make it easy to create data driven layouts for popups. The sample below demonstrate the use of various popup templates to generate formatted content using properties of features. 
 
-### Points with defined templates
+### String template
 
-The **String template** displays the placeholders of the defined feature properties. The properties of the feature don't have to be assigned a value of type String. For example, `value1` holds an integer. These values are passed to the content property of the `popupTemplate` and are displayed on a white background, with a close button in the top-right corner. A pointer arrow on the bottom appears on medium and small screen sizes.
+The String template replaces placeholders with the values of the feature properties. The properties of the feature don't have to be assigned a value of type String. For example, `value1` holds an integer. These values are then passed to the content property of the `popupTemplate`. 
 
-The **PropertyInfo template** displays defined properties that are assigned with variables. This popup template shows the content in a table format, with a close button in the top-right corner. A pointer arrow on the bottom appears on medium and small screen sizes.
+The `numberFormat` option specifies the format of the number when displayed. If the `numberFormat` is not specified, the code will fallback to the popup templates date format setting. Refer to the [the list of parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/NumberFormat) you can use with `numberFormat` to customize the display of numbers in your application. The `maximumFractionDigits` parameter below limits the number of fraction digits to Two.
 
-A template may also display content of multiple templates. In the point sample with a **Multiple content template**, a String template with placeholders renders values on a white background. Below the String template, a PropertyInfo template renders a full width image inside a table. There is only one case in which a String template can be used to render images. And that's, if the String template has an image tag in it. And, the value being passed to the image tag is a URL to an image.
+The String template displays content on a white background, with a close button in the top-right corner. A pointer arrow on the bottom appears on medium and small screen sizes.
+
+
+```javascript
+new atlas.data.Feature(new atlas.data.Point([-20, -20]), {
+	title: 'Template 1 - String template',
+	value1: 1.2345678,
+	value2: {
+		subValue: 'Pizza'
+	},
+	arrayValue: [3, 4, 5, 6],
+	popupTemplate: {
+		content: 'This template uses a string template with placeholders.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+		numberFormat: {
+maximumFractionDigits: 2
+		}
+	}
+}),
+```
+
+### PropertyInfo template
+
+The PropertyInfo template displays available properties of the feature. The `label` option specifies the text that should be displayed to the user. If `label` is not specified, the hyperlink will be displayed. And, if the hyperlink is an image, the value of the "alt" tag will be displayed. The `dateFormat` specifies the format of the date, and if the date format is not specified, the date will render as a string. The `hyperlinkFormat` option renders links as clickable, there's also the `email` option to be used to display a clickable email address.
+
+And, before the PropertyInfo template renders the properties, it uses the property path to recursively checks that the properties are indeed defined for the feature. This popup template shows the content in a table format, with a close button in the top-right corner. A pointer arrow on the bottom appears on medium and small screen sizes.
+
+```javascript
+new atlas.data.Feature(new atlas.data.Point([20, -20]), {
+	title: 'Template 2 - PropertyInfo',
+	createDate: new Date(),
+	dateNumber: 1569880860542,
+	url: 'https://aka.ms/AzureMapsSamples',
+	email: 'info@microsoft.com',
+	popupTemplate: {
+		content: [{
+	propertyPath: 'createDate',
+	label: 'Created Date'
+},
+{
+	propertyPath: 'dateNumber',
+	label: 'Formatted date from number',
+	dateFormat: {
+		weekday: 'long',
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+		timeZone: 'UTC',
+		timeZoneName: 'short'
+	}
+},
+{
+	propertyPath: 'url',
+	label: 'Code samples',
+	hideLabel: true,
+	hyperlinkFormat: {
+		lable: 'Go to code samples!',
+		target: '_blank'
+	}
+},
+{
+	propertyPath: 'email',
+	label: 'Email us',
+	hideLabel: true,
+	hyperlinkFormat: {
+		target: '_blank',
+		scheme: 'mailto:'
+	}
+}
+		]
+	}
+}),
+
+```
+
+## Multiple content template
+
+A template may also display content of multiple templates. In the sample, one point demonstrates the use of the Multiple content template. In this example, a String template with placeholders renders values on a white background. Below the String template, a PropertyInfo template renders a full width image inside a table. There is only one case in which a String template can be used to render images. And that's, if the String template has an image tag in it. And, the value being passed to the image tag is a URL to an image.
 
 ### Points without a defined template
 
