@@ -17,11 +17,10 @@ To run any code contained in this article on Azure Cloud Shell, open a Cloud She
 and paste it into the Cloud Shell session with __Ctrl+Shift+V__ on Windows and Linux, or __Cmd+Shift+V__ on macOS. Pasted text is not automatically
 executed, so press **Enter** to run code.
 
-You can launch Azure Cloud Shell with:
+You can launch Azure Cloud Shell using any of the following methods:
 
 |  |   |
 |-----------------------------------------------|---|
 | Select **Try It** in the upper-right corner of a code block. This __doesn't__ automatically copy text to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
 | Open [shell.azure.com](https://shell.azure.com) in your browser. | [![Launch Azure Cloud Shell button](./media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
 | Select the **Cloud Shell** button on the menu in the upper-right corner of the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
-

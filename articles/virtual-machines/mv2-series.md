@@ -28,7 +28,7 @@ Write Accelerator: [Supported](https://docs.microsoft.com/azure/virtual-machines
 | Standard_M416ms_v2<sup>1, 2</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
 | Standard_M416s_v2<sup>1, 2</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
 
-<sup>1</sup> Mv2-series VMs are generation 2 only. If you're using Linux, see [Support for generation 2 VMs on Azure](/linux/generation-2.md) for instructions on how to find and select an image.
+<sup>1</sup> Mv2-series VMs are generation 2 only. If you're using Linux, see [Support for generation 2 VMs on Azure](./linux/generation-2.md) for instructions on how to find and select an image.
 
 <sup>2</sup> For the M416ms_v2 and M416s_v2 sizes, note that there is initial support for the following image only: “GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 for SAP Applications."
 

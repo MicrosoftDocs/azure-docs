@@ -108,7 +108,7 @@ Security Center provides threat protection at different levels:
     For a deeper insight into the security of your containerized environment, the agent monitors container-specific analytics. It will trigger alerts for events such as privileged container creation, suspicious access to API servers, and Secure Shell (SSH) servers running inside a Docker container.
 
     >[!IMPORTANT]
-    > If you choose not to install the agents on your hosts, you will only receive a subset of the threat detection benefits and alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
+    > If you choose not to install the agents on your hosts, you will only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
 
     For a list of the host level alerts, see the [Reference table of alerts](alerts-reference.md#alerts-containerhost).
 
@@ -235,7 +235,7 @@ For a list of the Azure Resource Manager (Preview) alerts, see the [Reference ta
 
 
 >[!NOTE]
-> Several of the preceding analytics are powered by Microsoft Cloud App Security. To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable them:
+> Several of the preceding analytics are powered by Microsoft Cloud App Security. To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable the alerts:
 >
 > 1. In the **Security Center** blade, select **Security policy**. For the subscription you want to change, select **Edit settings**.
 > 2. Select **Threat detection**.

@@ -1,7 +1,7 @@
 ---
 title: Azure status overview | Microsoft Docs
 description: A global view into the health of Azure services
-ms.topic: article
+ms.topic: overview
 ms.date: 06/11/2019
 
 ---
