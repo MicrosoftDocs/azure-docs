@@ -35,7 +35,7 @@
     href: search-get-started-python.md
 - name: Tutorials
   items:
-  - name: Create your first C# app
+  - name: Create a C# app
     items:
     - name: 1 - Basic search page
       href: tutorial-csharp-create-first-app.md
