@@ -6,7 +6,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 02/27/2020
 ms.author: evansma
 ---
 
@@ -21,7 +21,7 @@ Review the description of and requirements for this offer type in [Consulting Se
 | Dynamics 365 Customer Insights | Must have at least 1 successful in-production implementation of [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) with at least 5 measures and 5 segments. |
 | Dynamics 365 Business Central | Must be Gold or Silver certified in [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) and must be the cloud solution provider for at least 3 Business Central customers. <br> <br> OR <br> <br> Must have published a [Business Central application in AppSource](https://appsource.microsoft.com/) |
 | Power BI | Must be listed on the [Power BI partner showcase](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
-|PowerApps | Must be eligible for Advanced Benefits in the [PowerApps Partnership Program](https://aka.ms/PowerAppsPartner). |
+|Power Apps | Must be eligible for Advanced Benefits in the [PowerApps Partnership Program](https://aka.ms/PowerAppsPartner). |
 
 ## Next steps
 

@@ -6,7 +6,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 02/27/2020
 ms.author: evansma
 ---
 
@@ -30,8 +30,8 @@ This section outlines the elements of publishing a consulting service offer. Pub
 - [Consulting service prerequisites](./cpp-consulting-service-prerequisites.md) lists the requirements to publish a consulting service offer for:
  
     - Microsoft Azure
-    - Dynamics 365 for Customer Engagement 
-    - Dynamics 365 for Finance & Operations 
+    - Dynamics 365 Customer Engagement 
+    - Dynamics 365 Finance & Operations 
     - Dynamics 365 Customer Insights
     - Dynamics 365 Business Central 
     - Power BI 
