@@ -1,18 +1,14 @@
 ---
-title: "Quickstart: Bing Custom Search client library for Java"
-description: Get started with the Bing Custom Search client library for Java by requesting search results from your Bing Custom Search instance in this quickstart. 
+title: Bing Custom Search Java client library quickstart 
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
-ms.topic: quickstart
-ms.date: 12/09/2019
+ms.topic: include
+ms.date: 02/27/2020
 ms.author: aahi
 ---
-
-
-# Quickstart: Bing Custom Search client library for Java
 
 Get started with the Bing Custom Search client library for Java. Follow these steps to install the package and try out the example code for basic tasks. The Bing Custom Search API enables you to create tailored, ad-free search experiences for topics that you care about.
 

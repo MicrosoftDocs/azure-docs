@@ -1,20 +1,16 @@
 ---
-title: "Quickstart: Call your Bing Custom Search endpoint using the Python SDK"
+title: Bing Custom Search Python client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using the Python SDK. 
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: bing-custom-search
-ms.topic: quickstart
-ms.date: 02/12/2020
+ms.topic: include
+ms.date: 02/27/2020
 ms.author: aahi
 ---
 
-# Quickstart: Call your Bing Custom Search endpoint using the Python SDK 
-
-Use this quickstart to begin requesting search results from your Bing Custom Search instance, using the Python SDK. While Bing Custom Search has a REST API compatible with most programming languages, the Bing Custom Search SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) with additional error handling and annotations.
+Use this quickstart to begin requesting search results from your Bing Custom Search instance, using the Python client library. While Bing Custom Search has a REST API compatible with most programming languages, the Bing Custom Search client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) with additional error handling and annotations.
 
 ## Prerequisites
 
@@ -22,9 +18,9 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 - Python [2.x or 3.x](https://www.python.org/) 
 - The [Bing Custom Search SDK for Python](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) 
 
-## Install the Python SDK
+## Install the Python client library
 
-Install the Bing Custom Search SDK with the following command.
+Install the Bing Custom Search client library with the following command.
 
 ```Console
 python -m pip install azure-cognitiveservices-search-customsearch

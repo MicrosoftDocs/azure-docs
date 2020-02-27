@@ -1,20 +1,16 @@
 ---
-title: "Quickstart: Call your Bing Custom Search endpoint using the C# SDK"
+title: Bing Custom Search C# client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using the C# SDK. 
 services: cognitive-services
-author: swhite-msft
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: bing-custom-search
-ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: scottwhi
+ms.topic: include
+ms.date: 02/27/2020
+ms.author: aahi
 ---
 
-# Quickstart: Call your Bing Custom Search endpoint using the C# SDK 
-
-Use this quickstart to begin requesting search results from your Bing Custom Search instance, using the C# SDK. While Bing Custom Search has a REST API compatible with most programming languages, the Bing Custom Search SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
+Use this quickstart to begin requesting search results from your Bing Custom Search instance, using the C# client library. While Bing Custom Search has a REST API compatible with most programming languages, the Bing Custom Search client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
 ## Prerequisites
 
@@ -28,7 +24,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
 
-[!INCLUDE [cognitive-services-bing-news-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-news-search-prerequisites](~/includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 
 ## Create and initialize the application
