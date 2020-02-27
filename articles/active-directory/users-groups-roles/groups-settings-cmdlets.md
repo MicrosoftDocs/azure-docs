@@ -57,7 +57,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
    ```
    This cmdlet call returns all templates that are available:
   
-   ```powershell
+   ``` PowerShell
    Id                                   DisplayName         Description
    --                                   -----------         -----------
    62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
@@ -71,7 +71,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
   
    ```powershell
    $TemplateId = (Get-AzureADDirectorySettingTemplate | where { $_.DisplayName -eq "Group.Unified" }).Id
-   $Template = Get-AzureADDirectorySettingTemplate -Id $TemplateId
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value $TemplateId -EQ
    ```
 3. Next, create a new settings object based on that template:
   
@@ -165,7 +165,7 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
    ```
 2. To set guest policy for groups at the directory level, you need Group.Unified template
    ```powershell
-   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "62375ab9-6b52-47ed-826b-58e47e0e304b" -EQ
    ```
 3. Next, create a new settings object based on that template:
   
@@ -256,7 +256,7 @@ This step removes settings at directory level, which apply to all Office groups 
    ```
 2. Retrieve the template object for the Groups.Unified.Guest template:
    ```powershell
-   $Template1 = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
+   $Template1 = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "08d542b9-071f-4e16-94b0-74abb372e3d9" -EQ
    ```
 3. Create a new settings object from the template:
    ```powershell
