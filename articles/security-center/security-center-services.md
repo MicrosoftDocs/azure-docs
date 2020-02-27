@@ -32,10 +32,10 @@ The following sections show Security Center features that are available for thei
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
-|[Microsoft Defender ATP integration](security-center-wdatp.md)|✔ (on supported versions)|✔ (on supported versions)|✔|Standard|
-|[Virtual Machine Behavioral Analytics threat detection alerts](threat-protection.md)|✔|✔|✔|Recommendations (Free) Threat Detection (Standard)|
-|[Fileless threat detection alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
-|[Network-based threat detection alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
+|[Microsoft Defender ATP integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Standard|
+|[Virtual Machine Behavioral Analytics (and security alerts)](threat-protection.md)|✔|✔|✔|Recommendations (Free) </br></br> Security alerts (Standard)|
+|[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
+|[Network-based security alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
@@ -44,7 +44,7 @@ The following sections show Security Center features that are available for thei
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |Adaptive network controls|✔|✔|-|Standard|
 |[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
-|Recommendations and threat detection on Docker-hosted IaaS containers|-|-|-|Standard|
+|Recommendations and threat protection on Docker-hosted IaaS containers|-|-|-|Standard|
 |Missing OS patches assessment|✔|✔|✔|Free|
 |Security misconfigurations assessment|✔|✔|✔|Free|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Free|
@@ -59,9 +59,9 @@ The following sections show Security Center features that are available for thei
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|-|-|-|Standard|
-|[Virtual Machine Behavioral Analytics threat detection alerts](security-center-alerts-iaas.md)|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
-|[Fileless threat detection alerts](alerts-reference.md#alerts-windows)|-|-|-|Standard|
-|[Network-based threat detection alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
+|[Virtual Machine Behavioral Analytics  (and security alerts)](security-center-alerts-iaas.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Recommendations (Free) </br></br> Security alerts (Standard)|
+|[Fileless security alerts](alerts-reference.md#alerts-windows)|-|-|-|Standard|
+|[Network-based security alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
@@ -70,7 +70,7 @@ The following sections show Security Center features that are available for thei
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |Adaptive network controls|✔|✔|-|Standard|
 |[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
-|Recommendations and threat detection on Docker-hosted IaaS containers|✔|✔|✔|Standard|
+|Recommendations and threat protection on Docker-hosted IaaS containers|✔|✔|✔|Standard|
 |Missing OS patches assessment|✔|✔|✔|Free|
 |Security misconfigurations assessment|✔|✔|✔|Free|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Free|
@@ -110,7 +110,7 @@ For information about when recommendations are generated for each of these prote
 
 The following PaaS resources are supported by Azure Security Center:
 
-|Service|Recommendations (Free)|Threat detection alerts (Standard)|Vulnerability assessment (Standard)|
+|Service|Recommendations (Free)|Security alerts (Standard)|Vulnerability assessment (Standard)|
 |----|:----:|:----:|:----:|
 |SQL Databases|✔|✔|✔|
 |Azure Container Registry|-|-|✔|
@@ -152,6 +152,5 @@ The following PaaS resources are supported by Azure Security Center:
 - Learn how [Security Center manages and safeguards data](security-center-data-security.md).
 - Learn how to [plan and understand the design considerations to adopt Azure Security Center](security-center-planning-and-operations-guide.md).
 - Review the [platforms that support security center](security-center-os-coverage.md).
-- Learn more about [threat detection for VMs & servers in Azure Security Center](security-center-alerts-iaas.md).
+- Learn more about [threat protection for Windows and Linux machines in Azure Security Center](threat-protection.md#windows-machines).
 - Find [frequently asked questions about Azure Security Center](faq-general.md).
-- Find [blog posts about Azure security and compliance](https://blogs.msdn.com/b/azuresecurity/).
