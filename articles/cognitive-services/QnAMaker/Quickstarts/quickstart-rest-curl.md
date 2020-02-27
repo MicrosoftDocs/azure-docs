@@ -17,14 +17,38 @@ This quickstart calls the QnA Maker REST APIs:
 * [Get answer from published knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
 * [Delete knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete)
 
-Reference documentation - [Authoring](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker) & [Runtime](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/)| cURL [sample scripts](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
+[Authoring Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker) | [Runtime Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/) | cURL [sample scripts](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/).
-* You must have a [QnA Maker resource](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first part of the endpoint URL: `https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
+* You must have a [QnA Maker resource](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first part of the endpoint URL:
+
+    `https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
+
+## Create a knowledge base
+
+To create a knowledge base with the REST APIs and cURL, you need to have the following information:
+
+|Information|cURL configuration|Purpose|
+|--|--|--|
+|QnA Maker resource name|URL|used to construct URL|
+|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
+|JSON describing knowledge base|`-d` param|[Examples](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) of JSON|
+|Size of the JSON in bytes|`-h` param for `Content-Size` header||
+
+The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and JSON values.
+
+```bash
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases/create \
+-X POST \
+-H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "Content-Type:application/json" \
+-H "Content-Size:107" \
+-d '{ name: "QnA Maker FAQ",urls: [ "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs"]}'
+```
 
 
 ## Next steps
