@@ -16,7 +16,7 @@ ms.date: 02/26/2020
 ms.author: apimpm
 
 ---
-# Tutorial: Import and publish your first API 
+# Import and publish your first API 
 
 This tutorial shows how to import an OpenAPI Specification backend API in JSON format into Azure API Management. Microsoft provides the backend API and hosts it on Azure at [https://conferenceapi.azurewebsites.net?format=json](https://conferenceapi.azurewebsites.net?format=json).
 
@@ -43,9 +43,9 @@ This section shows how to import and publish an OpenAPI Specification backend AP
  
 1. In the left navigation of your API Management instance, select **APIs** from the **API Management** section.
 1. Select the **OpenAPI** tile, and then select **Full** on the pop-up screen.
-1. On the **Create from OpenAPI specification** screen, use the values from the following table to create your API:
+1. On the **Create from OpenAPI specification** screen, use the values from the following table to create your API.
    
-   The red star next to a field indicates that the field is required. You can set API values during creation or later by going to the **Settings** tab. 
+   A red star next to a field on the form indicates that the field is required. You can set API values during creation or later by going to the **Settings** tab. 
    
    |Setting|Value|Description|
    |-------|-----|-----------|
@@ -55,7 +55,7 @@ This section shows how to import and publish an OpenAPI Specification backend AP
    |**Description**|An optional description of the API.|After you enter the service URL, API Management fills out this field based on what's in the JSON.|
    |**URL scheme**|*HTTPS*|Which protocols can be used to access the API.|
    |**API URL suffix**|*conference*|The suffix appended to the base URL for the API Management service. API Management distinguishes APIs by their suffix, so the suffix must be unique for every API for a given publisher.|
-   |**Products**|*Unlimited*|Association of one or more APIs. You can include several APIs in a product and offer them to developers through the developer portal. Each API Management instance comes with two sample products: **Starter** and **Unlimited**. <br/>You publish an API by associating the API with a product, *Unlimited* in this example. To add this API to another product, type the product name. Repeat this step to add the API to multiple products. You can also add APIs to products later from the **Settings** page.<br/>To get access to the API, developers must first subscribe to a product. When they subscribe, they get a subscription key that's good for any API in that product. <br/>If you created the API Management instance, you're an administrator already, so you're subscribed to every product.|
+   |**Products**|*Unlimited*|Association of one or more APIs. You can include several APIs in a product and offer them to developers through the developer portal. Each API Management instance comes with two sample products: **Starter** and **Unlimited**. You publish an API by associating the API with a product, *Unlimited* in this example. <br/>To add this API to another product, type or select the product name. Repeat this step to add the API to multiple products. You can also add APIs to products later from the **Settings** page.<br/>To get access to the API, developers must first subscribe to a product. When they subscribe, they get a subscription key that's good for any API in that product. <br/>If you created the API Management instance, you're an administrator already, so you're subscribed to every product.|
    |**Tags**| |Tags for organizing APIs for searching, grouping, or filtering.|
    |**Version this API?**|Select or deselect|For more information about versioning, see [Publish multiple versions of your API](api-management-get-started-publish-versions.md).|
    
