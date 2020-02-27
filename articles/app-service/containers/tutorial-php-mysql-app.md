@@ -406,7 +406,7 @@ remote: Running deployment command...
 > - `composer.phar` - The Composer package manager.
 >
 > You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Run Composer](configure-language-php.md#run-composer). -->
->
+> 
 
 ### Browse to the Azure app
 
