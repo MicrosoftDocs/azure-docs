@@ -29,11 +29,11 @@ When you subscribe to the [Event Grid](https://docs.microsoft.com/azure/event-gr
 | ----------- | ----------- |
 | MPE_RTMP_APPID_AUTH_FAILURE | Incorrect ingest URL |
 | MPE_INGEST_ENCODER_CONNECTION_DENIED | Encoder IP isn't present in IP allow list configured |
-| MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | Encoder didn't send metadata about the stream. |
+| MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | The RTMP encoder did not send setDataFrame command. |
 | MPE_INGEST_CODEC_NOT_SUPPORTED | Codec specified isn't supported. |
-| MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED | Received a fragment before receiving and header for that stream. |
-| MPE_INGEST_MEDIA_QUALITIES_EXCEEDED | Number of qualities specified exceeds allowed max limit. |
-| MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | Aggregated bitrate exceeds max allowed limit. |
+| MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED |The media description information was not received before the actual media data was delivered.|
+| MPE_INGEST_MEDIA_QUALITIES_EXCEEDED |The count of qualities for audio or video type exceeded the maximum allowed limit.|
+| MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED |The total incoming bitrate in a live event or channel service exceeded the maximum allowed limit.|
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
 | MPE_INGEST_FRAMERATE_EXCEEDED | The incoming encoder ingested streams with framerates exceeded the maximum allowed 30fps for encoding live events/channels.|
 | MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | The incoming encoder ingested streams exceeded the following allowed resolutions: 1920x1088 for encoding live events/channels and 4096 x 2160 for pass-through live events/channels.|
