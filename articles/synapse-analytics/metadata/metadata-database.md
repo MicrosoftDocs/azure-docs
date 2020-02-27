@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Apache Spark pools, SQL on-demand engine, and SQL pools.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../includes/synapse-analytics-preview-terms.md)]
+[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
 Once a database has been created with a Spark job, that database will become visible as a database with that same name to all current and future Spark pools in the workspace as well as the SQL on-demand engine. 
 
@@ -27,7 +27,7 @@ Since the databases are synchronized to SQL on-demand and the SQL pools asynchro
 
 ## Manage a Spark created database
 
-[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
+[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark. 
 
@@ -37,7 +37,7 @@ If you try to drop the synchronized schema in a SQL pool, or try to create a tab
 
 ## Handling of name conflicts
 
-[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
+[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 If the name of a Spark database conflicts with the name of an existing SQL on-demand database, a suffix is appended in SQL on-demand to the Spark database. The suffix in SQL on-demand is `_<workspace name>-ondemand-DefaultSparkConnector`. 
 
