@@ -1,6 +1,7 @@
 - name: Form Recognizer Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Form Recognizer?
     href: overview.md
