@@ -13392,6 +13392,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-authentication-and-security-model-overview.md",
+      "redirect_url": "/azure/event-hubs/authenticate-shared-access-signature",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-c-ephcs-getstarted.md",
       "redirect_url": "/azure/event-hubs/event-hubs-c-getstarted-send",
       "redirect_document_id": false
