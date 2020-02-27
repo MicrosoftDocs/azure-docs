@@ -9,7 +9,7 @@ ms.date: 02/26/2020
 
 # Quickstart: Build and push Java container images to Azure Container Registry
 
-This quickstart shows you how to build a containerized Java app and push it to Azure Container Registry using the Maven Jib plugin.
+This quickstart shows you how to build a containerized Java app and push it to Azure Container Registry using the Maven Jib plugin. The use of Maven and Jib is one example of using developer tooling to interact with an Azure container registry.
 
 ## Prerequisites
 
