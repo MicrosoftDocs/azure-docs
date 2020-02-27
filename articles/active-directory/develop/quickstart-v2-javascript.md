@@ -1,7 +1,7 @@
 ---
 title: Sign in users in JavaScript single-page apps | Azure
 titleSuffix: Microsoft identity platform 
-description: Learn how a JavaScript app can call an API that requires access tokens using the Microsoft Identity Platform.
+description: Learn how a JavaScript app can call an API that requires access tokens using the Microsoft identity platform.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -26,7 +26,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/).
-* [Visual Studio Code](https://code.visualstudio.com/download) (to edit project files).
+* [Visual Studio Code](https://code.visualstudio.com/download) (to edit project files)
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart application
@@ -56,7 +56,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
 > 1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. In the left pane of the registered application, select **Authentication**.
 > 1. Under **Platform Configurations**, select **Add a platform**. A panel opens on the left. There, select the **Web Applications** region.
-> 1. Still on the left, set the **Redirect URI** value to http://localhost:3000/. Then select **Access Token** and **ID Token**.
+> 1. Still on the left, set the **Redirect URI** value to `http://localhost:3000/`. Then, select **Access Token** and **ID Token**.
 > 1. Select **Configure**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -119,17 +119,17 @@ Select the option that's suitable to your development environment:
 
 #### Step 4: Run the project
 
-* If you're using [Node.js](https://nodejs.org/en/download/):
+If you're using [Node.js](https://nodejs.org/en/download/):
 
-    1. To start the server, run the following command from the project directory:
+1. To start the server, run the following command from the project directory:
 
-        ```batch
-        npm install
-        npm start
-        ```
+   ```batch
+   npm install
+   npm start
+   ```
 
-    1. Open a web browser and go to `http://localhost:3000/`.
-    1. Select **Sign In** to start the sign-in, and then call Microsoft Graph API.
+1. Open a web browser and go to `http://localhost:3000/`.
+1. Select **Sign In** to start the sign-in, and then call Microsoft Graph API.
 
 After the browser loads the application, select **Sign In**. The first time that you sign in, you're prompted to provide your consent to allow the application to access your profile and to sign you in. After you're signed in successfully, your user profile information should be displayed on the page.
 
