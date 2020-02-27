@@ -165,8 +165,8 @@ This script is used to convert input models into the Azure Remote Rendering spec
 
 The script demonstrates the two options to use storage accounts with the service:
 
-- Storage Account linked with Azure Remote Rendering Account
-- Providing Access to storage via Shared Access Signatures (SAS)
+- Storage account linked with Azure Remote Rendering Account
+- Providing access to storage via Shared Access Signatures (SAS)
 
 ### Linked storage account
 
@@ -215,18 +215,18 @@ To only **start model conversion without polling**, you can use:
 
 You can **override individual settings** from the config file using the following command-line switches:
 
-- **Id:** ConversionId used with GetConversionStatus
-- **ArrAccountId:** arrAccountId of accountSettings
-- **ArrAccountKey:** override for arrAccountKey of accountSettings
-- **Region:** override for region of accountSettings
-- **ResourceGroup:** override for resourceGroup of assetConversionSettings
-- **StorageAccountName:** override for storageAccountName of assetConversionSettings
-- **BlobInputContainerName:** override for blobInputContainer of assetConversionSettings
-- **LocalAssetDirectoryPath:** override for localAssetDirectoryPath of assetConversionSettings
-- **InputAssetPath:** override for inputAssetPath of assetConversionSettings
-- **BlobOutputContainerName:** override for blobOutputContainerName of assetConversionSettings
-- **OutputFolderPath:** override for the outputFolderPath of assetConversionSettings
-- **OutputAssetFileName:** override for outputAssetFileName of assetConversionSettings
+* **Id:** ConversionId used with GetConversionStatus
+* **ArrAccountId:** arrAccountId of accountSettings
+* **ArrAccountKey:** override for arrAccountKey of accountSettings
+* **Region:** override for region of accountSettings
+* **ResourceGroup:** override for resourceGroup of assetConversionSettings
+* **StorageAccountName:** override for storageAccountName of assetConversionSettings
+* **BlobInputContainerName:** override for blobInputContainer of assetConversionSettings
+* **LocalAssetDirectoryPath:** override for localAssetDirectoryPath of assetConversionSettings
+* **InputAssetPath:** override for inputAssetPath of assetConversionSettings
+* **BlobOutputContainerName:** override for blobOutputContainerName of assetConversionSettings
+* **OutputFolderPath:** override for the outputFolderPath of assetConversionSettings
+* **OutputAssetFileName:** override for outputAssetFileName of assetConversionSettings
 
 For example you can combine a number of the given options like this:
 
