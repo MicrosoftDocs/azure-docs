@@ -87,7 +87,7 @@ The following two types of errors are classified as user errors:
 > Values for the following metrics are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
 > - Messages
 > - Active messages 
-> - DeadLettered messages 
+> - Dead-lettered messages 
 > - Scheduled messages 
 
 ## Connection metrics
