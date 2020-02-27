@@ -22,13 +22,13 @@ ms.custom: seodec18
 
 In Azure Media Services, an [Asset](https://docs.microsoft.com/rest/api/media/assets) is where you 
 
-* input media through upload,
-* input media through live ingest,
-* output results of a job,
+* upload media files into an asset,
+* ingest and archive live streams into an asset,
+* output the results of an encoding of analytics job to an asset,
 * publish media for streaming, 
 * download files from an asset.
 
-This topic gives an overview of how to create a new asset and upload/download files, publish an asset. It also provides links to code samples and related topics.
+This topic gives an overview of how to upload files into an asset and perform some other common operations. It also provides links to code samples and related topics.
 
 ## Prerequisite 
 
@@ -37,7 +37,7 @@ Before you start developing, review:
 * [Concepts](concepts-overview.md)
 * [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, and so on) 
 
-## Input media through upload
+## Upload media files into an asset
 
 After the digital files are uploaded into storage and associated with an Asset, they can be used in the Media Services encoding, streaming, and analyzing content workflows. One of the common Media Services workflows is to upload, encode, and stream a file. This section outlines the general steps.
 
@@ -97,7 +97,7 @@ curl -X PUT \
 * [Create a job input from a local file](job-input-from-local-file-how-to.md)
 * [Create a job input from an HTTPS URL](job-input-from-http-how-to.md)
 
-## Input media through live ingest
+## Ingest and archive live streams into an asset
 
 In Media Services, a [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) object is like a digital video recorder that will catch and record your live stream into an asset in your Media Services account. The recorded content is persisted into the container defined by the [Asset](https://docs.microsoft.com/rest/api/media/assets) resource.
 
@@ -106,7 +106,7 @@ For more information, see:
 * [Using a cloud DVR](live-event-cloud-dvr.md)
 * [Streaming live tutorial](stream-live-tutorial-with-api.md)
 
-## Output results of a job
+## Output the results of a job to an asset
 
 In Media Services, when processing your videos (for example, encoding or analyzing) you need to create an output [asset](assets-concept.md) to store the result of your [job](transforms-jobs-concept.md).
 
