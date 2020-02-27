@@ -11,9 +11,9 @@
   - name: With QnA Maker portal
     items:
     - name: 1. Create knowledge base
-      href: quickstarts/create-publish-knowledge-base.md
+      href: Quickstarts/create-publish-knowledge-base.md
     - name: 2. Add questions with metadata
-      href: quickstarts/add-question-metadata-portal.md
+      href: Quickstarts/add-question-metadata-portal.md
     - name: 3. Get answer with Postman or cURL
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
   - name: Test with batch file
@@ -21,7 +21,7 @@
   - name: Using REST APIs
     href: Quickstarts/quickstart-rest-curl.md
   - name: Using SDK
-    href: ./Quickstarts/quickstart-sdk.md
+    href: Quickstarts/quickstart-sdk.md
 - name: Tutorials
   items:
   - name: Create and answer from KB
