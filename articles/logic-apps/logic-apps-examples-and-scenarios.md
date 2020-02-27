@@ -24,7 +24,7 @@ Every logic app starts with a [*trigger*](../logic-apps/logic-apps-overview.md#l
 
 Here are examples that describe commonly-used triggers:
 
-* Poll:
+* *Polling* triggers:
 
   * [**Recurrence** trigger](../connectors/connectors-native-recurrence.md) lets you set the start date and time plus the recurrence for firing your logic app. For example, you can select the days of the week and times of day for triggering your logic app. For more information, see these topics:<p>
 
@@ -38,7 +38,7 @@ Here are examples that describe commonly-used triggers:
 
   * The [**HTTP** trigger](../connectors/connectors-native-http.md) can call a service endpoint over HTTP or HTTPS. For more information, see [Call, trigger, or nest workflows by using HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
 
-* Push:
+* *Push* triggers:
 
   * The [**Request** trigger](../connectors/connectors-native-reqres.md) can receive incoming HTTPS requests.
 
