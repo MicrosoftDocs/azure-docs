@@ -1,5 +1,5 @@
 ---
-title: Metered billing using the marketplace metering service | Azure Marketplace
+title: Metered billing for Managed applications using the marketplace metering service | Azure Marketplace
 description: This documentation is a guide for ISVs publishing Azure App with flexible billing models. 
 author: MaggiePucciEvans 
 manager: evansma
@@ -10,32 +10,32 @@ ms.topic: conceptual
 ms.date: 01/24/2020
 ---
 
-# Azure Application metered billing 
+# Managed application metered billing 
 
-With the Marketplace metering service, you can create Azure Application-Managed Apps offers in the commercial marketplace program that are charged according to non-standard units. Before publishing this offer, you define the billing dimensions such as bandwidth, tickets, or emails processed. Customers then pay according to their consumption of these dimensions, with your system informing Microsoft via the Marketplace metering service API of billable events as they occur.
+With the Marketplace metering service, you can create Managed application plans for Azure Application offers in the commercial marketplace program that are charged according to non-standard units. Before publishing this offer, you define the billing dimensions such as bandwidth, tickets, or emails processed. Customers then pay according to their consumption of these dimensions, with your system informing Microsoft via the Marketplace metering service API of billable events as they occur.
 
 ## Prerequisites for metered billing
 
-In order for a Azure Application-Managed Apps offer to use metered billing, it must:
+In order for a Managed application plan to use metered billing, it must:
 
 * Meet all of the offer requirements as outlined in [Create an Azure application offer](create-new-azure-apps-offer.md).
-* Be configured for the **Pricing** for charging customers for your service. Price can be zero if you don’t want to charge a fixed fee.
-* Set **Dimensions** extension to the flat rate pricing model.
+* Configure **Pricing** for charging customers the per-month cost for your service. Price can be zero if you don’t want to charge a fixed fee and instead rely entirely on metered billing.
+* Set **Billing dimensions** for the metering events the customer will pay for in addition to the flat rate.
 * Integrate with the [Marketplace metering service APIs](./marketplace-metering-service-apis.md) to inform Microsoft of billable events.
 
 ## How metered billing fits in with pricing
 
 When it comes to defining the offer along with its pricing models, it is important to understand the offer hierarchy.
 
-* Each Azure Application offer can have Solution Template or Managed Apps plans.
-* Metered billing is implemented only with Managed Apps plans.
-* Each Managed Apps plan has a pricing model associated with it. 
+* Each Azure Application offer can have Solution template or Managed application plans.
+* Metered billing is implemented only with Managed application plans.
+* Each Managed application plan has a pricing model associated with it. 
 * Pricing model has a monthly recurring fee, which can be set to $0.
 * In addition to the recurring fee, the plan can also include optional dimensions used to charge customers for usage not included in the flat rate. Each dimension represents a billable unit that your service will communicate to Microsoft using the [Marketplace metering service API](marketplace-metering-service-apis.md).
 
 ## Sample offer
 
-As an example, Contoso is a publisher with an Azure Application-Managed Apps service called Contoso Analytics (CoA). CoA allows customers to analyze large amount of data for reporting and data warehousing. Contoso is registered as a publisher in Partner Center for the commercial marketplace program to publish offers to Azure customers. There are two plans associated with CoA, outlined below:
+As an example, Contoso is a publisher with an Managed application service called Contoso Analytics (CoA). CoA allows customers to analyze large amount of data for reporting and data warehousing. Contoso is registered as a publisher in Partner Center for the commercial marketplace program to publish offers to Azure customers. There are two plans associated with CoA, outlined below:
 
 * Base plan
     * Analyze 100 GB and generate 100 reports for $0/month
