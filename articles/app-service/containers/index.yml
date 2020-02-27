@@ -15,10 +15,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is App Service?
-            url: overview.md
-          - text: App Service on Linux
-            url: /azure/app-service/containers/
+          - text: What is App Service on Linux?
+            url: app-service-linux-intro.md
           - text: App Service on Windows
             url: /azure/app-service/
           - text: App Service Environments
