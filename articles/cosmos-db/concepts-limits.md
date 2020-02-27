@@ -163,6 +163,9 @@ The following table lists the limits specific to MongoDB feature support. Other 
 | --- | --- |
 | Maximum MongoDB query memory size | 40 MB |
 | Maximum execution time for MongoDB operations| 30s |
+| Idle connection timeout for server side connection closure* | 30 minutes |
+
+\* We recommend that client applications set the idle connection timeout in the driver settings to 2-3 minutes because the [default timeout for Azure LoadBalancer is 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  This timeout will ensure that idle connections are not closed by an intermediate load balancer between the client machine and Azure Cosmos DB.
 
 ## Try Cosmos DB Free limits
 
