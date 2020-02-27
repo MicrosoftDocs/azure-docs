@@ -17,18 +17,6 @@ This tutorial shows you how to back up SAP HANA databases running on Azure VMs t
 
 [Here](sap-hana-backup-support-matrix.md#scenario-support) are all the scenarios that we currently support.
 
-## Onboard to the public preview
-
-Onboard to the public preview as follows:
-
-* In the portal, register your subscription ID to the Recovery Services service provider by [following this article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-
-* For PowerShell, run this cmdlet. It should complete as "Registered".
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
 ## Prerequisites
 
 Make sure you do the following before configuring backups:
@@ -103,7 +91,7 @@ Running the pre-registration script performs the following functions:
 
 * It installs or updates any necessary packages required by the Azure Backup agent on your distribution.
 * It performs outbound network connectivity checks with Azure Backup servers and dependent services like Azure Active Directory and Azure Storage.
-* It logs into your HANA system using the SYSTEM user key from your **hdbuserstore**, and creates a backup user and a key. This user will allow the backup agent to discover, backup and restore databases in your HANA system.
+* It logs into your HANA system using the user key listed as part of the [prerequisites](#prerequisites). This key is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and can be deleted after the pre-registration script runs successfully. This backup user (AZUREWLBACKUPHANAUSER) will allow the backup agent to discover, backup and restore databases in your HANA system.
 
 ## Create a Recovery Service vault
 
@@ -115,25 +103,25 @@ To create a Recovery Services vault:
 
 2. On the left menu, select **All services**
 
-![Select All services](./media/tutorial-backup-sap-hana-db/all-services.png)
+   ![Select All services](./media/tutorial-backup-sap-hana-db/all-services.png)
 
 3. In the **All services** dialog box, enter **Recovery Services**. The list of resources filters according to your input. In the list of resources, select **Recovery Services vaults**.
 
-![Select Recovery Services vaults](./media/tutorial-backup-sap-hana-db/recovery-services-vaults.png)
+   ![Select Recovery Services vaults](./media/tutorial-backup-sap-hana-db/recovery-services-vaults.png)
 
 4. On the **Recovery Services** vaults dashboard, select **Add**.
 
-![Add Recovery Services vault](./media/tutorial-backup-sap-hana-db/add-vault.png)
+   ![Add Recovery Services vault](./media/tutorial-backup-sap-hana-db/add-vault.png)
 
-The **Recovery Services vault** dialog box opens. Provide values for the **Name, Subscription, Resource group,** and **Location**
+   The **Recovery Services vault** dialog box opens. Provide values for the **Name, Subscription, Resource group,** and **Location**
 
-![Create Recovery Services vault](./media/tutorial-backup-sap-hana-db/create-vault.png)
+   ![Create Recovery Services vault](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
-* **Name**: The name is used to identify the recovery services vault and must be unique to the Azure subscription. Specify a name that has at least two, but not more than 50 characters. The name must start with a letter and consist only of letters, numbers, and hyphens. For this tutorial, we've used the name **SAPHanaVault**.
-* **Subscription**: Choose the subscription to use. If you're a member of only one subscription, you'll see that name. If you're not sure which subscription to use, use the default (suggested) subscription. There are multiple choices only if your work or school account is associated with more than one Azure subscription. Here, we have used the **SAP HANA solution lab subscription** subscription.
-* **Resource group**: Use an existing resource group or create a new one. Here, we have used **SAPHANADemo**.<br>
-To see the list of available resource groups in your subscription, select **Use existing**, and then select a resource from the drop-down list box. To create a new resource group, select **Create new** and enter the name. For complete information about resource groups, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-* **Location**: Select the geographic region for the vault. The vault must be in the same region as the Virtual Machine running SAP HANA. We have used **East US 2**.
+   * **Name**: The name is used to identify the recovery services vault and must be unique to the Azure subscription. Specify a name that has at least two, but not more than 50 characters. The name must start with a letter and consist only of letters, numbers, and hyphens. For this tutorial, we've used the name **SAPHanaVault**.
+   * **Subscription**: Choose the subscription to use. If you're a member of only one subscription, you'll see that name. If you're not sure which subscription to use, use the default (suggested) subscription. There are multiple choices only if your work or school account is associated with more than one Azure subscription. Here, we have used the **SAP HANA solution lab subscription** subscription.
+   * **Resource group**: Use an existing resource group or create a new one. Here, we have used **SAPHANADemo**.<br>
+   To see the list of available resource groups in your subscription, select **Use existing**, and then select a resource from the drop-down list box. To create a new resource group, select **Create new** and enter the name. For complete information about resource groups, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+   * **Location**: Select the geographic region for the vault. The vault must be in the same region as the Virtual Machine running SAP HANA. We have used **East US 2**.
 
 5. Select **Review + Create**.
 
@@ -158,15 +146,15 @@ Now that the databases we want to back up are discovered, let's enable backup.
 
 1. Click **Configure Backup**.
 
-![Configure backup](./media/tutorial-backup-sap-hana-db/configure-backup.png)
+   ![Configure backup](./media/tutorial-backup-sap-hana-db/configure-backup.png)
 
 2. In **Select items to back up**, select one or more databases that you want to protect, and then click **OK**.
 
-![Select items to back up](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
+   ![Select items to back up](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
 
 3. In **Backup Policy > Choose backup policy**, create a new backup policy for the database(s), in accordance with the instructions in the next section.
 
-![Choose backup policy](./media/tutorial-backup-sap-hana-db/backup-policy.png)
+   ![Choose backup policy](./media/tutorial-backup-sap-hana-db/backup-policy.png)
 
 4. After creating the policy, on the **Backup menu**, click **Enable backup**.
 
@@ -185,11 +173,11 @@ Specify the policy settings as follows:
 
 1. In **Policy name**, enter a name for the new policy. In this case, enter **SAPHANA**.
 
-![Enter name for new policy](./media/tutorial-backup-sap-hana-db/new-policy.png)
+   ![Enter name for new policy](./media/tutorial-backup-sap-hana-db/new-policy.png)
 
 2. In **Full Backup policy**, select a **Backup Frequency**. You can choose **Daily** or **Weekly**. For this tutorial, we chose the **Daily** backup.
 
-![Select a backup frequency](./media/tutorial-backup-sap-hana-db/backup-frequency.png)
+   ![Select a backup frequency](./media/tutorial-backup-sap-hana-db/backup-frequency.png)
 
 3. In **Retention Range**, configure retention settings for the full backup.
    * By default, all options are selected. Clear any retention range limits you don't want to use and set those that you do.
@@ -203,9 +191,9 @@ Specify the policy settings as follows:
 
    ![Differential backup policy](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
->[!NOTE]
->Incremental backups aren't currently supported.
->
+   >[!NOTE]
+   >Incremental backups aren't currently supported.
+   >
 
 7. Click **OK** to save the policy and return to the main **Backup policy** menu.
 8. Select **Log Backup** to add a transactional log backup policy,
@@ -214,9 +202,9 @@ Specify the policy settings as follows:
 
     ![Log backup policy](./media/tutorial-backup-sap-hana-db/log-backup-policy.png)
 
->[!NOTE]
-> Log backups only begin to flow after one successful full backup is completed.
->
+   >[!NOTE]
+   > Log backups only begin to flow after one successful full backup is completed.
+   >
 
 9. Click **OK** to save the policy and return to the main **Backup policy** menu.
 10. After you finish defining the backup policy, click **OK**.
