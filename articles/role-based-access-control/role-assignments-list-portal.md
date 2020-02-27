@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2020
+ms.date: 02/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -98,11 +98,11 @@ To list access for a user, group, service principal, or managed identity, you li
 
 ## Download role assignments
 
-You can download role assignments at a scope in CSV or JSON formats. This can be helpful if you need to inspect the list in a spreadsheet or take an inventory when migrating a subscription. When you download role assignments, you should keep in the mind the following criteria:
+You can download role assignments at a scope in CSV or JSON formats. This can be helpful if you need to inspect the list in a spreadsheet or take an inventory when migrating a subscription. When you download role assignments, you should keep in mind the following criteria:
 
 - If you don't have permissions to read the directory, such as the Directory Readers role, the DisplayName, SignInName, and ObjectType columns will be blank.
-- Deleted identities aren't included.
-- Classic administrators aren't included.
+- Role assignments whose security principal has been deleted are not included.
+- Access granted to classic administrators are not included.
 
 Follow these steps to download role assignments at a scope.
 
@@ -126,7 +126,7 @@ Follow these steps to download role assignments at a scope.
 
 1. Specify the file name.
 
-1. Click **Start** to specify the folder where to save the file.
+1. Click **Start** to start the download.
 
     The following show examples of the output for each file format.
 
