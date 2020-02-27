@@ -9,7 +9,7 @@ ms.author: fauhse
 ms.subservice: files
 ---
 
-This step will tie together all the resources and folders you've set up on your Windows Server during the previous steps.
+This step ties together all resources and folders you've set up on your Windows Server during the previous steps.
 
 * Go to your storage sync service resource, using the Azure portal.
 * Create a new *sync group* for each Azure file share. In Azure File Sync terminology, the Azure file share will become a *cloud endpoint* in the sync topology you are describing with the creation of a sync group. As you are creating the sync group, give it a familiar name, such that you recognize which set of files syncs here. Make sure you reference the Azure file share with a matching name.
