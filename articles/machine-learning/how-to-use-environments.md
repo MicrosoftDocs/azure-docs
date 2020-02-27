@@ -9,7 +9,7 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 02/27/2020
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
