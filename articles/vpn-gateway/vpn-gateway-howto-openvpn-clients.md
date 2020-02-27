@@ -29,7 +29,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 5. Extract the private key and the base64 thumbprint from the *.pfx*. There are multiple ways to do this. Using OpenSSL on your machine is one way. The *profileinfo.txt* file contains the private key and the thumbprint for the CA and the Client certificate. Be sure to use the thumbprint of the client certificate.
 
    ```
-   openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
+   openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
    ```
 6. Open *profileinfo.txt* in Notepad. To get the thumbprint of the client (child) certificate, select the text (including and between)"-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
 7. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Find the section shown below and replace everything between "cert" and "/cert".
@@ -119,7 +119,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 5. Extract the private key and the base64 thumbprint from the .pfx. There are multiple ways to do this. Using OpenSSL on your computer is one way.
 
     ```
-	openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
+    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
     ```
    The *profileinfo.txt* file will contain the private key and the thumbprint for the CA, and the Client certificate. Be sure to use the thumbprint of the client certificate.
 
@@ -150,7 +150,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 11. To connect using the command line, type the following command:
   
     ```
-    sudo openvpn –-config <name and path of your VPN profile file>&
+    sudo openvpn --config <name and path of your VPN profile file>&
     ```
 12. To connect using the GUI, go to system settings.
 13. Click **+** to add a new VPN connection.
