@@ -87,10 +87,17 @@ Once that is done, the SDK will handle the exchange of the account key for an ac
 
 ## Azure AD user authentication
 
-For applications targeting Azure Active Directory users, the recommended approach is to use an Azure AD token for the user, which you can obtain using the ADAL library as described in the following documentation: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md); you should follow the steps listed under “Quick starts”, which include:
+For applications targeting Azure Active Directory users, the recommended approach is to use an Azure AD token for the user, which you can obtain using the [MSAL library](../../active-directory/develop/msal-overview.md). You should follow the steps listed the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
 
 1. Configuration in Azure portal
     1.	Register your application in Azure AD as **Native application**. As part of registering, you will need to determine whether your application should be multi-tenant or not, and provide the redirect URLs allowed for your application.
+        1.  Switch to the **API permissions** tab
+        2.  Select **Add a permission**
+            1.  Select **Mixed Reality Resource Provider** under **APIs my organization uses** tab
+            2.  Select **Delegated permissions**
+            3.  Check the box for **mixedreality.signin** under **mixedreality**
+            4.  Select **Add permissions**
+        3.  Select **Grant admin consent**
     2.	Grant your application or users access to your resource:
         1.	Navigate to your Spatial Anchors resource in Azure portal
         2.	Switch to the **Access control (IAM)** tab
@@ -106,7 +113,7 @@ For applications targeting Azure Active Directory users, the recommended approac
         3.	If your application supports **All Microsoft account users**, replace this value with **Common**
     3.	On your token request, set the **resource** to "https://sts.mixedreality.azure.com". This "resource" will indicate to Azure AD that your application is requesting a token for the Azure Spatial Anchors service.
 
-With that, your application should be able to obtain from ADAL an Azure AD token; you can set that Azure AD token as the **authenticationToken** on your cloud session config object.
+With that, your application should be able to obtain from MSAL an Azure AD token; you can set that Azure AD token as the **authenticationToken** on your cloud session config object.
 
 # [C#](#tab/csharp)
 
@@ -156,7 +163,7 @@ The recommended option to deploy apps leveraging Azure Spatial Anchors to produc
 
 Here, it is assumed that your app uses its own mechanism (for example: Microsoft account, PlayFab, Facebook, Google ID, custom username/password, etc.) to authenticate to its backend service. Once your users are authenticated to your backend service, that service can retrieve an Azure AD token, exchange it for an access token for Azure Spatial Anchors, and return it back to your client application.
 
-The Azure AD access token is retrieved using the ADAL library as described in the following documentation: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md); you should follow the steps listed under “Quick starts”, which include:
+The Azure AD access token is retrieved using the [MSAL library](../../active-directory/develop/msal-overview.md). You should follow the steps listed the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
 
 1.	Configuration in Azure portal:
     1.	Register your application in Azure AD:
@@ -252,7 +259,13 @@ To help control the level of access granted to applications, services or Azure A
 Create your first app with Azure Spatial Anchors.
 
 > [!div class="nextstepaction"]
-> [Unity](../unity-overview.yml)
+> [Unity (HoloLens)](../quickstarts/get-started-unity-hololens.md)
+
+> [!div class="nextstepaction"]
+> [Unity (iOS)](../quickstarts/get-started-unity-ios.md)
+
+> [!div class="nextstepaction"]
+> [Unity (Android)](../quickstarts/get-started-unity-android.md)
 
 > [!div class="nextstepaction"]
 > [iOS](../quickstarts/get-started-ios.md)
@@ -262,3 +275,9 @@ Create your first app with Azure Spatial Anchors.
 
 > [!div class="nextstepaction"]
 > [HoloLens](../quickstarts/get-started-hololens.md)
+
+> [!div class="nextstepaction"]
+> [Xamarin (Android)](../quickstarts/get-started-xamarin-android.md)
+
+> [!div class="nextstepaction"]
+> [Xamarin (iOS)](../quickstarts/get-started-xamarin-ios.md)

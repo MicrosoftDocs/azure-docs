@@ -9,8 +9,8 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.custom: seodec18
+ms.date: 02/07/2020
+ms.custom: seodec18~~~~
 ---
 
 # Create a reference data set for your Time Series Insights environment using the Azure portal

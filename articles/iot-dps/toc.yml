@@ -21,6 +21,8 @@
       items:
         - name: C
           href: quick-create-simulated-device-symm-key.md
+        - name: Java
+          href: quick-create-simulated-device-symmetric-key-java.md
     - name: X.509 Certificate attestation
       items:
         - name: C

@@ -60,6 +60,6 @@ $lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 
 [Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started configuring an Internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)
+[Get started configuring an Internet-facing load balancer](quickstart-create-standard-load-balancer-powershell.md)
 
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)

@@ -39,7 +39,7 @@ To set up a Windows 7 VM on Windows Virtual Desktop:
      shutdown /r /t 0
      ```
     
-12. Follow the instructions [here](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) to get a registration token.
+12. Follow the instructions [here](/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo/) to get a registration token.
 13. [Download the Windows Virtual Desktop Agent for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Download the Windows Virtual Desktop Agent Manager for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Open the Windows Virtual Desktop Agent installer and follow the instructions. When prompted, give the registration key you created in step 12.

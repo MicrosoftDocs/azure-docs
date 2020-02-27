@@ -142,7 +142,7 @@ The following network security group rules are required for Azure AD DS to provi
 
 ## User-defined routes
 
-User-defined routes aren't created by default, and aren't needed for Azure AD DS to work correctly. If you're required to use route tables, avoid making any changes to the *0.0.0.0* route. Changes to this route can disrupt Azure AD Domain Services.
+User-defined routes aren't created by default, and aren't needed for Azure AD DS to work correctly. If you're required to use route tables, avoid making any changes to the *0.0.0.0* route. Changes to this route disrupt Azure AD Domain Services and puts the managed domain in an unsupported state.
 
 You must also route inbound traffic from the IP addresses included in the respective Azure service tags to the Azure AD Domain Services subnet. For more information on service tags and their associated IP address from, see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 

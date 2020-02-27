@@ -164,8 +164,6 @@
         href: concepts-data-flow-overview.md
       - name: Debug mode
         href: concepts-data-flow-debug-mode.md
-      - name: JSON handling
-        href: concepts-data-flow-json.md
       - name: Schema drift
         href: concepts-data-flow-schema-drift.md
       - name: Column patterns
@@ -517,6 +515,8 @@
       href: data-flow-unpivot.md
     - name: Window
       href: data-flow-window.md
+    - name: Flatten
+      href: data-flow-flatten.md
   - name: Parameterize
     items:
     - name: Parameterizing linked services

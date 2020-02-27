@@ -132,7 +132,7 @@ For information about availability in datacenters, see the [Availability](#avail
 
 ## Consuming content
 
-Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. The following topic provides links to SDKs and Player Frameworks that you can use to develop your own client applications that can consume streaming media from Media Services. For more information, see [Developing video payer applications](media-services-develop-video-players.md)
+Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. 
 
 ## Enabling Azure CDN
 
@@ -206,9 +206,8 @@ Media Analytics is a collection of speech and vision components that makes it ea
 |Azure Media Indexer|GA|All|
 |Azure Media Motion Detector|Preview|All|
 |Azure Media OCR|Preview|All|
-|Azure Media Redactor|Preview|All|
+|Azure Media Redactor|GA|All|
 |Azure Media Video Thumbnails|Preview|All|
-|Azure Media Indexer 2|Preview|All except China and Federal Government region|
 
 ### Protection
 

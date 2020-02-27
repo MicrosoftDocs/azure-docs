@@ -144,7 +144,7 @@ With these prerequisites in place, you can start building your failover cluster.
 
    1. Select **Next**, and then select **Remove**.
 
-1. <a name="ports"></a>Open the firewall ports.
+1. <span id="ports"> </span> Open the firewall ports.  
 
    On each virtual machine, open these ports on the Windows Firewall:
 
@@ -180,7 +180,7 @@ After you create and configure the virtual machines, you can configure the premi
   > - Consider using a separate file share for backup files to save the IOPS and space capacity of this share for Data and Log files. You can use either a premium or standard file share for backup files.
   > - If you're on Windows 2012 R2 and older, follow these same steps to mount your file share that you are going to use as the file share witness. 
 
-## Step 3: Configure the failover cluster with the file share
+## Step 3: Configure the failover cluster
 
 The next step is to configure the failover cluster. In this step, you'll complete the following substeps:
 
@@ -364,7 +364,7 @@ To create the load balancer:
 
 1. Select **Add**.
 
-1. On the **Add health probe** blade, <a name="probe"></a>set the following health probe parameters.
+1. On the **Add health probe** blade, <span id="probe"> </span> set the following health probe parameters.
 
    - **Name**: A name for the health probe.
    - **Protocol**: TCP.

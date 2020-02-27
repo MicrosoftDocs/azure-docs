@@ -340,4 +340,4 @@ Device manufacturers or partners can use the following checklist to ensure that 
 
 ## Next steps
 
-For more information about the REST API, see [REST API](references-for-azure-farmbeats.md#rest-api).
+For more information about the REST API, see [REST API](rest-api-in-azure-farmbeats.md).

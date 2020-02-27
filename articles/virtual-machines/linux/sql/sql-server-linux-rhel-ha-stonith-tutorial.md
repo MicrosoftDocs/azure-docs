@@ -776,11 +776,11 @@ If the `synchronization_state_desc` list SYNCHRONIZED for `db1`, this means the 
 
 ## Create availability group resources in the Pacemaker cluster
 
-We will be following the guide to [create the availability group resources in the Pacemaker cluster](/sql/linux/sql-server-linux-create-availability-group]#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
+We will be following the guide to [create the availability group resources in the Pacemaker cluster](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
 
 ### Create the AG cluster resource
 
-1. Use the following command to create the resource `ag_cluster` in the available group `ag1`.
+1. Use the following command to create the resource `ag_cluster` in the availability group `ag1`.
 
     ```bash
     sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true

@@ -107,6 +107,10 @@ The QnA Maker resource provides access to the authoring and publishing APIs as w
 
 The second ranking applies intelligent filters that can include metadata and follow-up prompts.
 
+#### QnA Maker resource configuration settings
+
+When you create a new knowledge base in the [QnA Maker portal](https://qnamaker.ai), the **Language** setting is the only setting that is applied at the resource level. You select the language when you create the first knowledge base for the resource. 
+
 ### App service and App service plan
 
 The [App service](../../../app-service/index.yml) is used by your client application to access the published knowledge bases via the runtime endpoint.

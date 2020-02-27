@@ -29,7 +29,7 @@ Your Azure AD B2C directory comes with a built-in set of attributes. Examples ar
 * An identity provider has a unique user identifier like **uniqueUserGUID** that must be saved.
 * A custom user journey needs to persist for a state of a user like **migrationStatus**.
 
-Azure AD B2C extends the set of attributes stored on each user account. You can also read and write these attributes by using the [Azure AD Graph API](manage-user-accounts-graph-api.md).
+Azure AD B2C extends the set of attributes stored on each user account. You can also read and write these attributes by using the [Microsoft Graph API](manage-user-accounts-graph-api.md).
 
 Extension properties extend the schema of the user objects in the directory. The terms *extension property*, *custom attribute*, and *custom claim* refer to the same thing in the context of this article. The name varies depending on the context, such as application, object, or policy.
 
@@ -292,7 +292,7 @@ The ID token sent back to your application includes the new extension property a
 
 ## Reference
 
-For more information on extension properties, see the article [Directory schema extensions | Graph API concepts](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+For more information on extension properties, see the article [Add custom data to resources using extensions](https://docs.microsoft.com/graph/extensibility-overview).
 
 > [!NOTE]
 > * A **TechnicalProfile** is an element type, or function, that defines an endpoint’s name, metadata, and protocol. The **TechnicalProfile** details the exchange of claims that the Identity Experience Framework performs. When this function is called in an orchestration step or from another **TechnicalProfile**, the **InputClaims** and **OutputClaims** are provided as parameters by the caller.

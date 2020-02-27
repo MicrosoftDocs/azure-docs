@@ -1,5 +1,5 @@
 ---
-title: 'Query data in Azure Monitor using Azure Data Explorer (Preview)'
+title: 'Query data in Azure Monitor with Azure Data Explorer (Preview)'
 description: 'In this topic, query data in Azure Monitor by creating an Azure Data Explorer proxy for cross product queries with Application Insights and Log Analytics'
 services: data-explorer
 author: orspod
@@ -82,7 +82,7 @@ let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourceg
 union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
 
-![Cross query from the Azure Data Explorer proxy](media/adx-proxy/cross-query-adx-proxy.png)
+   [ ![Cross query from the Azure Data Explorer proxy](media/adx-proxy/cross-query-adx-proxy.png)](media/adx-proxy/cross-query-adx-proxy.png#lightbox)
 
 Using the [`join` operator](/azure/kusto/query/joinoperator), instead of union, may require a [`hint`](/azure/kusto/query/joinoperator#join-hints) to run it on an Azure Data Explorer native cluster (and not on the proxy). 
 

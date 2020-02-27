@@ -21,30 +21,15 @@ For more information, see [Azure Machine Learning integration with Event Grid](c
 
 Use Event Grid to enable common scenarios such as:
 
-* Triggering pipelines for retraining
+* Send emails on run completion
+* Use an azure function after a model is registered
 * Streaming events from Azure Machine Learning to various of endpoints
+* Trigger an ML pipeline when drift is detected
 
 ## Prerequisites
-
 * Contributor or owner access to the Azure Machine Learning workspace you will create events for.
-* Select an event handler endpoint such as a webhook or Event Hub. For more information, see [event handlers](https://docs.microsoft.com/azure/event-grid/event-handlers). 
 
-## Register resource providers
-
-If you used Azure Event Grid or Machine Learning before November 1 2019, you may need to re-register the resource providers before you can follow the steps in this document. To re-register the providers, use the following steps:
-
-1. Go to the  Azure portal and select __Subscriptions__. Select the subscription that you want to work with.
-1. Select __Resource providers__, and then search for __EventGrid__.
-1. Select the __Microsoft.EventGrid__ entry, and then select __Re-register__.
-
-    ![re-register-resource-provider](./media/how-to-use-event-grid/re-register-resource-provider.png)
-
-1. Search for __MachineLearningServices__, select the entry, and then select __Re-register__.
-
-> [!TIP]
-> If you do not have permissions to complete these steps, ask your subscription administrator to perform them.
-
-## Configure machine learning events using the Azure portal
+### Configure EventGrid using the Azure portal
 
 1. Open the [Azure portal](https://portal.azure.com) and go to your Azure Machine Learning workspace.
 
@@ -62,7 +47,7 @@ If you used Azure Event Grid or Machine Learning before November 1 2019, you may
 
 Once you have confirmed your selection, click __Create__. After configuration, these events will be pushed to your endpoint.
 
-## Set up Azure Event Grid using CLI
+### Configure EventGrid using the CLI
 
 You can either install the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or use the Azure Cloud Shell that is provided as part of your Azure subscription.
 
@@ -72,7 +57,7 @@ To install the Event Grid extension, use the following command from the CLI:
 az add extension --name eventgrid
 ```
 
-The following example demonstrates how to select an Azure subscription, and then create a new event subscription for Azure Machine Learning:
+The following example demonstrates how to select an Azure subscription and creates e a new event subscription for Azure Machine Learning:
 
 ```azurecli-interactive
 # Select the Azure subscription that contains the workspace
@@ -88,6 +73,12 @@ az eventgrid event-subscription create \
 ```
 
 ## Sample scenarios
+
+### Use Azure Functions to deploy a model based on tags
+
+An Azure Machine Learning model object contains parameters you can pivot deployments on such as model name, version, tag, and property. The model registration event can trigger an endpoint and you can use an Azure Function to deploy a model based on the value of those parameters.
+
+For an example, see the [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) repository and follow the steps in the **readme** file.
 
 ### Use a Logic App to send email alerts
 
@@ -169,12 +160,6 @@ Now the data factory pipeline is triggered when drift occurs. View details on yo
 
 ![view-in-workspace](./media/how-to-use-event-grid/view-in-workspace.png)
 
-
-### Use Azure Functions to deploy a model based on tags
-
-An Azure Machine Learning model object contains parameters you can pivot deployments on such as model name, version, tag, and property. The model registration event can trigger an endpoint and you can use an Azure Function to deploy a model based on the value of those parameters.
-
-For an example, see the [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) repository and follow the steps in the **readme** file.
 
 ## Next steps
 
