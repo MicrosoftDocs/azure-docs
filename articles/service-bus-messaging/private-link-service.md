@@ -20,31 +20,31 @@ For more information, see [What is Azure Private Link (Preview)?](../private-lin
 
 ## Prerequisites
 
-To integrate a Service Bus entity with Azure Private Link (Preview), you'll need the following entities or permissions:
+To integrate a Service Bus namespace with Azure Private Link (Preview), you'll need the following entities or permissions:
 
-- A Service Bus entity.
+- A Service Bus namespace.
 - An Azure virtual network.
 - A subnet in the virtual network.
-- Owner or contributor permissions for both the Service Bus entity and the virtual network.
+- Owner or contributor permissions for both the Service Bus namespace and the virtual network.
 
 Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your Service Bus namespace can be in a different region.
 
 Your private endpoint uses a private IP address in your virtual network.
 
-## Establish a private link connection to an Service Bus entity
+## Establish a private link connection to an Service Bus namespace
 
 First, create a virtual network by following the steps in [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
 
-You can then either create a new Service Bus entity, or establish a private link connection to an existing entity.
+You can then either create a new Service Bus namespace, or establish a private link connection to an existing namespace.
 
-### Create a new Service Bus entity and establish a private link connection
+### Create a new Service Bus namespace and establish a private link connection
 
-For step-by-step instructions on creating a new Service Bus entity, see these articles: 
+For step-by-step instructions on creating a new Service Bus namespace and entities in it, see these articles: 
 
 - [Create a Service Bus queue](service-bus-quickstart-portal.md)
 - [Create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md)
 
-After configuring the entity basics, select the **Networking** tab and follow these steps:
+After configuring the namespace basics, select the **Networking** tab and follow these steps:
 
 1. Select the **Private Endpoint (preview)** radio button in the **Networking** tab.
 1. Click the **+ Add** Button to add a private endpoint.
@@ -60,11 +60,11 @@ After configuring the entity basics, select the **Networking** tab and follow th
     ![Image](./media/private-link-service/private-link-service-2.png)
  
 You can see the configured private endpoint now. You now have the option to delete and edit this private endpoint. 
-Select the **Review + Create** button and create the entity. It will take 5-10 minutes for the deployment to complete. 
+Select the **Review + Create** button and create the namespace. It will take 5-10 minutes for the deployment to complete. 
 
-### Establish a private link connection to an existing Service Bus entity
+### Establish a private link connection to an existing Service Bus namespace
 
-If you already have an existing entity, you can create a private link connection by following these steps:
+If you already have an existing namespace, you can create a private link connection by following these steps:
 
 1. Sign in to the Azure portal. 
 1. In the search bar, type in **Service Bus**.
@@ -94,7 +94,7 @@ There are four provisioning states:
 | Reject | Rejected | Connection was rejected by the private link resource owner. |
 | Remove | Disconnected | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for cleanup. |
  
-###  How to manage a private endpoint connection to Service Bus entity
+###  How to manage a private endpoint connection to Service Bus namespace
 
 1. Sign in to the Azure portal.
 1. In the search bar, type in **Service Bus**.
@@ -109,7 +109,7 @@ There are four provisioning states:
 
 ## Validate that the private link connection works
 
-You should validate that the resources within the same subnet of the private endpoint resource are connecting to your Service Bus entity over a private IP address, and that they have the correct private DNS zone integration.
+You should validate that the resources within the same subnet of the private endpoint resource are connecting to your Service Bus namespace over a private IP address, and that they have the correct private DNS zone integration.
 
 First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
@@ -126,7 +126,7 @@ Open the command line and run the following command:
 nslookup <your-event-hub-name>.servicebus.azure.net
 ```
 
-If you run the ns lookup command to resolve the IP address of a Service Bus entity over a public endpoint, you will see a result that looks like this:
+If you run the ns lookup command to resolve the IP address of a Service Bus namespace over a public endpoint, you will see a result that looks like this:
 
 ```console
 c:\ >nslookup <your-event-hub-name>.servicebus.azure.net
@@ -137,7 +137,7 @@ Address:  (public IP address)
 Aliases:  <your-event-hub-name>.servicebus.azure.net
 ```
 
-If you run the ns lookup command to resolve the IP address of a Service Bus entity over a private endpoint, you will see a result that looks like this:
+If you run the ns lookup command to resolve the IP address of a Service Bus namespace over a private endpoint, you will see a result that looks like this:
 
 ```console
 c:\ >nslookup your_event-hub_name.servicebus.azure.net
@@ -154,9 +154,9 @@ Aliases:  <your-event-hub-name>.servicebus.azure.net
 
 **Limitations**:  Private Endpoint for Azure Service Bus is in public preview. This feature is available in all Azure public regions.
 
-**Maximum Number of Private Endpoints per Service Bus entity**: 64.
+**Maximum Number of Private Endpoints per Service Bus namespace**: 64.
 
-**Maximum Number of Service Bus entities with Private Endpoints per Subscription**: 64.
+**Maximum Number of Service Bus namespaces with private endpoints per Subscription**: 64.
 
 For more, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
 
