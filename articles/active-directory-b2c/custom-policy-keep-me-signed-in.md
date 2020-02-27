@@ -30,7 +30,7 @@ Users should not enable this option on public computers.
 
 ## Configure the page identifier 
 
-To enable keep me signed in, set the content definition `DataUri` element to [page identifier](contentdefinitions.md#datauri) `unifiedssp` and [page version](page-layout.md) *1.1.0* or above.
+To enable *keep me signed in*, set the content definition `DataUri` element to [page identifier](contentdefinitions.md#datauri) `unifiedssp` and [page version](page-layout.md) *1.1.0* or above.
 
 1. Open the extension file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. This extension file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](custom-policy-get-started.md).
 1. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
@@ -57,7 +57,7 @@ To enable keep me signed in, set the content definition `DataUri` element to [pa
 Update the relying party (RP) file that initiates the user journey that you created.
 
 1. Open your custom policy file. For example, *SignUpOrSignin.xml*.
-1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="User journey Id" />`for example: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.
+1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="User journey Id" />`, for example: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.
 1. Add the following node as a child of the `<UserJourneyBehaviors>` element.
 
     ```XML
