@@ -37,7 +37,7 @@ Templates should be compatible for minor version upgrades. Upgrades between majo
 
 CycleCloud will be down for a bit while the upgrade occurs. The upgrade typically takes 2-3 minutes.
 
-**Can I run the upgrade while clusters are running?**
+**Can I upgrade while clusters are running?**
 
 Yes, but the clusters will not be able to communicate with CycleCloud while it's down. This means that autoscale, termination requests, etc will not work until the upgrade is complete.
 
