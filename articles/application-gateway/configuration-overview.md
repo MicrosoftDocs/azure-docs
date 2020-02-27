@@ -256,7 +256,7 @@ The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chrom
 
 To support this change, starting February 17th 2020, Application Gateway (all the SKU types) will inject another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie. The *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it (*"SameSite=None; Secure"*) so that sticky session are maintained even for cross-origin requests.
 
-Please note that the default affinity cookie name is *ApplicationGatewayAffinity* and this can be changed by the users. In case you are using a custom affinity cookie name, an additional cookie will be added with CORS as suffix, for example, *CustomCookieNameCORS*.
+Note that the default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. In case you are using a custom affinity cookie name, an additional cookie is added with CORS as suffix. For example, *CustomCookieNameCORS*.
 
 > [!NOTE]
 > It is mandatory that if the attribute **SameSite=None** is set, the cookie also should contain the **Secure** flag and must be sent over **HTTPS**. So if session affinity is required over CORS, you must migrate your workload to HTTPS. 
