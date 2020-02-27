@@ -29,7 +29,8 @@ This document describes how you can use SCIM to automate creating, updating, and
 
 > [!div class="checklist"]
 > * Provision users and groups into an application
-> * Provision users and groups in Azure AD
+> * Provision users and groups in Azure Aactive Directory
+> * Provision users and groups in Active Directory
 > * Enrich your app ... 
 
 
@@ -40,8 +41,8 @@ Automatically create, update, and delete user accounts in your application when 
 #### Recommended best practices
 |Option  |Pros  |Cons |Comments |
 |---------|---------|---------|---------|
-|Develop and integrate a [SCIM](https://aka.ms/SCIMOverview) endpoint with Azure AD|Follows an [industry standard](http://www.simplecloud.info/). <br> Interoperable with various IDPs. <br> You do not have to build and maintain a sync engine. Only a /User endpoint.|SCIM provisioning gives you access to directory data but not other Microsoft data|For basic user and group provisioning, SCIM is the recommended path forward|
-|Develop a graph based sync engine|You have access to all the data available in Microsoft <br> Control the end to end user experience|Heavy cost of maintaining and building a sync engine <br> The permissions you require might not be acceptable by IT|For basic user and group provisioning, SCIM is the recommended path forward|
+|Develop and integrate a [SCIM](https://aka.ms/SCIMOverview) endpoint with Azure AD|Follows an [industry standard](http://www.simplecloud.info/). <br> Interoperable with various IDPs. <br> You do not have to build and maintain a sync engine, only a /User endpoint.|SCIM provisioning gives you access to directory data but not other Microsoft data|For basic user and group provisioning, SCIM is the recommended path forward|
+|Develop a graph based sync engine|You have access to all the data available in Microsoft <br> Control the end to end user experience|Heavy cost of maintaining and building a sync engine <br> The permissions you require might not be acceptable by IT||
 
 ## Scenario 2: Provision users and groups in Azure AD
 
