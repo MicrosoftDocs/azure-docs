@@ -35,66 +35,61 @@ This article describes how an IT admin can assign an Azure Active Directory (Azu
 
 1. Select the desired membership setting. For roles requiring activation, choose eligible. By default, the user would be permanently eligible, but you could also set a start and end time for the user’s eligibility. Once you are complete, hit Save and Add to complete the role assignment.
 
-    ![select the user to whom you're assigning the role](./media/roles-groups-pim-eligible/select-member.png)
+    ![select the user to whom you're assigning the role](./media/roles-groups-pim-eligible/set-assignment-settings.png)
 
 ## Using PowerShell
 
-#First, you must download the Azure AD Preview PowerShell module. To install the Azure AD #PowerShell module, use the following commands: 
+### Download the Azure AD Preview PowerShell module
 
- 
+    #To install the Azure AD #PowerShell module, use the following cmdlets:
+    
+    install-module azureadpreview 
+    import-module azureadpreview 
+    
+    #To verify that the module is ready to use, use the following cmdlet: 
+    
+    get-module azureadpreview 
+    
+    #Assign a group as an eligible member of a role 
+    
+    $schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule
+    $schedule.Type = "Once"     
+    $schedule.StartDateTime = "2019-04-26T20:49:11.770Z"
+    $schedule.endDateTime = "2019-07-25T20:49:11.770Z"
+    Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId aadRoles -Schedule $schedule -ResourceId "[YOUR TENANT ID]" -RoleDefinitionId "9f8c1837-f885-4dfd-9a75-990f9222b21d" -SubjectId "[YOUR GROUP ID]" -AssignmentState "Eligible" -Type "AdminAdd" 
 
-install-module azureadpreview 
+## Using Microsoft Graph API
 
-import-module azureadpreview 
-
- 
-
-#To verify that the module is ready to use, use the following command: 
-
-get-module azureadpreview 
-
- 
-
-# Assign a group as an eligible member of a role 
-
- 
-
-$schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule 				  $schedule.Type = "Once" 				 
-
-$schedule.StartDateTime = "2019-04-26T20:49:11.770Z" 				 $schedule.endDateTime = "2019-07-25T20:49:11.770Z" 				   Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId aadRoles -Schedule $schedule -ResourceId "[YOUR TENANT ID]" -RoleDefinitionId "9f8c1837-f885-4dfd-9a75-990f9222b21d" -SubjectId "[YOUR GROUP ID]" -AssignmentState "Eligible" -Type "AdminAdd" 
-
- 
-
-Using Microsoft Graph API 
-
- 
-
-POST https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequests  
-
-{ 
-
-  “roleDefinitionId": {roleDefinitionId}, 
-
+    POST 
+    https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequests  
+    
+    {
+    
+     “roleDefinitionId": {roleDefinitionId}, 
+    
      “resourceId”: {tenantId}, 
-
+    
      “subjectId”: {GroupId}, 
-
+    
      “assignmentState”: “Eligible”, 
-
+    
      “type”: “AdminAdd”, 
-
+    
      “reason”: “reason string”, 
-
+    
      “schedule”: { 
-
+    
            “startDateTime”: {DateTime}, 
-
+    
            “endDateTime”: {DateTime}, 
-
+    
            “type”: “Once”  
-
+    
      } 
+    
+    }
 
-} 
+## Next steps
 
- 
+- [Configure Azure AD admin role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)
+- [Assign Azure resource roles in Privileged Identity Management](pim-resource-roles-assign-roles.md)
