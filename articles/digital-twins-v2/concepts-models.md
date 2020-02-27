@@ -25,7 +25,7 @@ Model descriptions in DTDL are called **interfaces**. An interface describes a m
 * **Properties** — Properties are data fields that represent the state of an entity, just like with many object-oriented programming languages. Unlike telemetry, which is just a data event, properties have backing storage and can be read at any time.
 * **Telemetry** — Telemetry fields represent measurements or events. Measurements are typically used for the equivalent of sensor readings. Telemetry is not stored on a twin; it is effectively sent as a stream of data events.
 * **Commands** — Commands represent methods that can be executed on a digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
-* **Relationships** — Relationships let you model how a given twin is involved with other twins. Relationships can represent different semantic meanings, such as “floor contains room”, “hvac cools rooms”, “Compressor is-billed-to user” etc. Relationships allow digital twins solutions to construct graphs of interrelated twins. 
+* **Relationships** — Relationships let you model how a given twin is involved with other twins. Relationships can represent different semantic meanings, such as "floor contains room", "hvac cools rooms", "Compressor is-billed-to user" etc. Relationships allow digital twins solutions to construct graphs of interrelated twins. 
 * **Components** — A component lets you build your model as an assembly of other interfaces. Use a component to describe something that is an integral part of your model, and that does not need to be created, deleted, or rearranged in your topology of twins independently. In contrast, use independent twins connected by a relationship when you want both parts to have an independent existence in the graph.
 
 ## Digital Twin Definition Language (DTDL) for modeling
@@ -116,8 +116,8 @@ Sometimes it is desirable to specialize a given model. For example, a generic mo
 {
     "@id": "dtmi:com:example:Planet;1",
     "@type": "Interface",
-    “extends”: [
-        “dtmi:com:example:CelestialBody”
+    "extends": [
+        "dtmi:com:example:CelestialBody"
     ]
     "contents": [
         {
@@ -131,8 +131,8 @@ Sometimes it is desirable to specialize a given model. For example, a generic mo
 {
     "@id": " dtmi:com:example:Moon",
     "@type": "Interface",
-    “extends”: [
-        “dtmi:com:example:CelestialBody”
+    "extends": [
+        "dtmi:com:example:CelestialBody"
     ],
     "contents": [
         {

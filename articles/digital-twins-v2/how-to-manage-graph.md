@@ -59,7 +59,7 @@ DigitalTwinsClient client = new DigitalTwinsClient("...");
 Response rPlanet = client.CreateTwin("dtmi:example:Planet;1", "idMyPlanet01", planetData);
 Response rMoon = client.CreateTwin("dtmi:example:Moon;1", "idMyMoon01", moonData);
 Response rR = client.CreateRelationship("idMyPlanet01", "IsCircledBy", "idMyMoon01", 
-                                        “idRel01”);
+                                        “idRel01");
 ```
 
 This code creates two instances of twins, one using model type *Planet*, the other using model type *Moon*. In addition to the model type ID (`dtmi:Planet` and `dtmi:Moon`), you need to pass in a unique ID, and data to initialize the twin instance during creation. The sample also creates a relationship between the two instances, connecting them to each other.

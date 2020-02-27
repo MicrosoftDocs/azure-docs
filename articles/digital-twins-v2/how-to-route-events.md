@@ -71,13 +71,13 @@ Telemetry message
     "source": "myhub.westcentralus.azuredigitaltwins.net", 
     "subject": "thermostat.vav-123", 
     "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a",
-     "dataschema”: “dtmi:contosocom:DigitalTwins:VAV;1”,
+     "dataschema": "dtmi:contosocom:DigitalTwins:VAV;1",
     "time": "2018-04-05T17:31:00Z", 
     "datacontenttype" : "application/json", 
     "data": " 
     { 
   "temp": 70,
-  “humidity: 40 
+  "humidity: 40 
       } 
 }
 ```
@@ -93,11 +93,11 @@ Life-cycle notifications message
     "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a", 
     "time": "2018-04-05T17:31:00Z", 
     "datacontenttype" : "application/json", 
-    “dataschema”: “dtmi:contosocom:DigitalTwins:Device;1”             
+    "dataschema": "dtmi:contosocom:DigitalTwins:Device;1"             
     "data": " 
     { 
   "$dtId": "room-123", 
-  “property”: “value”,
+  "property": "value",
    "$metadata": { 
               …
     } 
@@ -109,9 +109,9 @@ Life-cycle notifications message
 
 You can query based on message type—telemetry vs. notifications. In the query language for filtering on message type, `IS`, `AND`, and `OR` operators are supported. 
 
-`type = ‘microsoft.digitaltwins.twin.create’ OR type = ‘microsoft.iot.telemetry’`
+`type = 'microsoft.digitaltwins.twin.create' OR type = 'microsoft.iot.telemetry'`
 You can also specify `IN` operator 
-`type IN [‘microsoft.iot.telemetry’, ‘microsoft.digitaltwins.twin.create’]`
+`type IN ['microsoft.iot.telemetry', 'microsoft.digitaltwins.twin.create']`
 
 ### Filter based on Twins
 
@@ -125,7 +125,7 @@ or
 `$dt.IS_OF_MODEL(urn:example:Thermostat:1')` OR
 `$dt.IS_OF_MODEL('urn:contosocom:DigitalTwins:Space;1')`
 
-`$dt.firmareVersion = “1.0” AND $dt.location = “Redmond”`
+`$dt.firmareVersion = "1.0" AND $dt.location = "Redmond"`
 
 ### Filter based on message body
 
@@ -148,20 +148,20 @@ This query language should be similar to the way IoT Hub supports filtering of m
 This query language should be similar to IoT Hub's query language, filtering on message properties.
 
 ```sql
-AND source = “thermostat.vav-10”
-AND contentType = ‘UTF-8’
+AND source = "thermostat.vav-10"
+AND contentType = 'UTF-8'
 ```
 
 Any of these four dimensions could be used individually, or with `AND` and `OR` conditions.
 
 ```sql
-AND type = ‘DigitalTwinTelemetryMessages’
+AND type = 'DigitalTwinTelemetryMessages'
 AND $dt.$metadata.$model = "urn:contosocom:DigitalTwins:Device"
-AND $dt.firmareVersion = “1.1”
-AND $dt.Name = ‘device1’
+AND $dt.firmareVersion = "1.1"
+AND $dt.Name = 'device1'
 AND $body.Temperature > 0
-AND source = “thermostat.vav-10”
-AND contentType = ‘UTF-8’
+AND source = "thermostat.vav-10"
+AND contentType = 'UTF-8'
 ```
 
 Filtering on the routes is flat, with no traversal of the graph (out of scope for Azure Digital Twins Preview). 
@@ -280,7 +280,7 @@ Here is another example of a logical digital twin not supporting components:
 
 ### Digital twin edge change notifications
 
-These notifications are triggered when any relationship’s edge of a digital twin is created, updated, or deleted. 
+These notifications are triggered when any relationship's edge of a digital twin is created, updated, or deleted. 
 
 #### Properties
 
@@ -296,7 +296,7 @@ These notifications are triggered when any relationship’s edge of a digital tw
 
 #### Body
 
-This section includes payload in a JSON format for creating and deleting a relationship’s edge. It uses the same format as a `GET` request for a relationship’s edge via the Relationship API. "Updating a relationship" means properties of the edge have changed. 
+This section includes payload in a JSON format for creating and deleting a relationship's edge. It uses the same format as a `GET` request for a relationship's edge via the Relationship API. "Updating a relationship" means properties of the edge have changed. 
 For `Edge.Delete`, the body is the same as the `GET` request, and it gets the latest state before deletion.
 Here is an example of a create or delete edge notification:
 
@@ -402,8 +402,8 @@ The corresponding notification (if synchronously executed by the service, such a
         "value": {
             "desiredValue": { "a": 3 },
             "desiredVersion": 2,
-		“ackCode”: 200,
-            “ackVersion”: 2 
+		"ackCode": 200,
+            "ackVersion": 2 
         }
     }
 ]
