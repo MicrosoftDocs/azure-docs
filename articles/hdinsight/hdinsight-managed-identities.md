@@ -16,7 +16,7 @@ A managed identity is an identity registered in Azure Active Directory (Azure AD
 
 Managed identities are used in Azure HDInsight to access Azure AD domain services or access files in Azure Data Lake Storage Gen2 when needed.
 
-There are two types of managed identities: user-assigned and system-assigned. Azure HDInsight uses user-assigned managed identities. A user-assigned managed identity is created as a standalone Azure resource, which you can then assign to one or more Azure service instances. In contrast, a system-assigned managed identity is created in Azure AD and then enabled directly on a particular Azure service instance automatically. The life of that system-assigned managed identity is then tied to the life of the service instance that it's enabled on.
+There are two types of managed identities: user-assigned and system-assigned. Azure HDInsight only supports user-assigned managed identities. It does not support system-assigned managed identities. A user-assigned managed identity is created as a standalone Azure resource, which you can then assign to one or more Azure service instances. In contrast, a system-assigned managed identity is created in Azure AD and then enabled directly on a particular Azure service instance automatically. The life of that system-assigned managed identity is then tied to the life of the service instance that it's enabled on.
 
 ## HDInsight managed identity implementation
 
