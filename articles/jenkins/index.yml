@@ -116,7 +116,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Build and deploy an Azure Service Fabric app
-            url: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+            url: service-fabric-cicd-your-linux-applications-with-jenkins.md
 
   # Card
   - title: CI/CD to Azure Spring Cloud
