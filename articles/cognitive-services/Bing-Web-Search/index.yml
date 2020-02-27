@@ -21,7 +21,7 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
     - title: Compare the Bing Search APIs 
-      itemType: learn
+      itemType: overview
       url: bing-api-comparison.md
     - title: Page through search results
       itemType: how-to-guide
