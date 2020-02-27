@@ -66,7 +66,7 @@ You also can deploy a complete installed SAP HANA platform on the Azure VM servi
 
 >[!IMPORTANT]
 > In order to use M208xx_v2 VMs, you need to be careful selecting your 
->  Linux image from the Azure VM image gallery. In order to read the details, read the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). 
+>  Linux image from the Azure VM image gallery. In order to read the details, read the article [Memory optimized virtual machine sizes](../../mv2-series.md).
 > 
 
 
