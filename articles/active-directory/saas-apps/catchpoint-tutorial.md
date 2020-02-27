@@ -155,7 +155,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Catchpoint SSO
 
-1. In a different web browser window, sign into Catchpoint application as an adminstrator.
+1. In a different web browser window, sign into Catchpoint application as an administrator.
 
 1. Click on the **Settings** icon and select **SSO Identity Provider**.
 
