@@ -35,23 +35,15 @@ Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data in storag
 
 Existing tools and applications that use the Blob API gain these benefits automatically. Developers won't have to modify them. Data Lake Storage Gen2 consistently applies directory and file-level ACLs regardless of the protocol that tools and applications use to access the data. 
 
-## Next steps
+## See also
 
-- Learn about which Blob storage features are compatible with Data Lake Storage Gen2. 
+[Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 
-  See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+[Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-- Learn about which Azure services are compatible with Data Lake Storage Gen2. 
+[Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-  See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
-
-- Learn about which open source platforms support Data Lake Storage Gen2. 
-
-  See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
-
-- Learn about general limitations and known issues. 
-
-  See [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
+[Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
 
 
 
