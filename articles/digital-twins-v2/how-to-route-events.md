@@ -192,7 +192,7 @@ Services have to add a sequence number on all the notifications to indicate orde
 
 ### Digital twin life-cycle notifications
 
-All digital twins are emitting notifications, regardless of whether they are proxies representing [real devices in Azure Digital Twins](concepts-devices.md) or not.
+All digital twins are emitting notifications, regardless of whether they are proxies representing [IoT Hub devices in Azure Digital Twins](concepts-iothub-devices.md) or not.
 
 #### Trigger
 

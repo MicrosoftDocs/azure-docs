@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Device connectivity
+title: Integrate IoT Hub devices
 titleSuffix: Azure Digital Twins
-description: Understand how Azure Digital Twins deals with devices, both PnP and non-PnP.
+description: Understand how Azure Digital Twins can integrate Azure IoT Hub devices.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 2/27/2020
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Understand device connectivity in Azure Digital Twins
+# IoT Hub devices in Azure Digital Twins
 
 In addition to your [model-based](concepts-models.md) business twins in the Azure Digital Twins graph, you can also have twins that represent IoT devices placed in your environment. IoT devices might be simple sensors, such as thermostats, or more complex machines. These devices are typically managed in an [Azure IoT hub](../iot-hub/about-iot-hub.md).
 

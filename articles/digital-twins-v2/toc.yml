@@ -10,8 +10,8 @@
     href: concepts-models.md
   - name: Create twins and graph
     href: concepts-twins-graph.md
-  - name: Represent real devices
-    href: concepts-devices.md
+  - name: Integrate IoT Hub devices
+    href: concepts-iothub-devices.md
   - name: Route events
     href: concepts-route-events.md
   - name: Use the APIs

@@ -75,7 +75,7 @@ The call `GetTwin("myMoon-001");` might return:
 
 The defined properties of the twin are returned as top-level properties on the twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix:
 * The ID of the twin in this Azure Digital Twins instance.
-* The conformance flag, indicating if the current data in the twin is conforming to the defined model. In the Azure Digital Twins service, twins defined in the Azure Digital Twins service will always be conformant, but [twins controlled by devices](concepts-devices.md) may have data not conforming with the model definition. The conformance flag has three possible values:
+* The conformance flag, indicating if the current data in the twin is conforming to the defined model. In the Azure Digital Twins service, twins defined in the Azure Digital Twins service will always be conformant, but [twins controlled by IoT Hub devices](concepts-iothub-devices.md) may have data not conforming with the model definition. The conformance flag has three possible values:
     - *Conformant*: The defined model is available, and the data in the twin conforms with the model definition.
     - *Non-Conformant*: The defined model is available, and the data in the twin does not conform with the model definition. For example, a property with an expected type of `double` has mistakenly been set by a device to a `string` value.
     - *Unknown*: The defined model cannot be found, so conformance cannot be validated.
