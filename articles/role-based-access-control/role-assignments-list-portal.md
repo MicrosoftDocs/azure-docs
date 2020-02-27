@@ -122,7 +122,7 @@ Follow these steps to download role assignments at a scope.
     - **At current scope** - Include role assignments for the current scope.
     - **Children** - Include role assignments at levels below the current scope. This check box is disabled for management group scope.
 
-1. Select the file format, which can be comma separated values (CSV) or JavaScript Object Notation (JSON).
+1. Select the file format, which can be comma-separated values (CSV) or JavaScript Object Notation (JSON).
 
 1. Specify the file name.
 
