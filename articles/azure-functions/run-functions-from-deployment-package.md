@@ -78,7 +78,7 @@ For added security, you can use Key Vault References in conjunction with your ex
 
 See the following articles for more information.
 
-- [Key Vault references for App Service](app-service-key-vault-references.md)
+- [Key Vault references for App Service](../app-service/app-service-key-vault-references.md)
 - [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)
 
 ## Troubleshooting
