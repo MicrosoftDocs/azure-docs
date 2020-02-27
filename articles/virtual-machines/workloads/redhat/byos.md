@@ -23,7 +23,7 @@ ms.author: alsin
 Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-go (PAYG) or bring-your-own-subscription (Red Hat Gold Image) model. This document provides an overview of the Red Hat Gold Images in Azure.
 
 >[!NOTE]
-> RHEL BYOS Gold Images are available in Azure public (commercial) and in Azure Government clouds. They are not available in Azure China or Azure Blackforest clouds.
+> RHEL BYOS Gold Images are available in Azure Public (commercial) and in Azure Government clouds. They are not available in Azure China or Azure Blackforest clouds.
 
 ## Important points to consider
 
