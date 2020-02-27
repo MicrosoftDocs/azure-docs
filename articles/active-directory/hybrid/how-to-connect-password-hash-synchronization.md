@@ -9,7 +9,7 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
@@ -133,8 +133,6 @@ To support temporary passwords in Azure AD for synchronized users, you can enabl
 > [!NOTE]
 > Forcing a user to change their password on next logon requires a password change at the same time.  AD Connect will not pick up the force password change flag by itself; it is supplemental to the detected password change that occurs during password hash sync.
 
-> [!CAUTION]
-> If you do not enable Self-service Password Reset (SSPR) in Azure AD users will have a confusing experience when they reset their password in Azure AD and then attempt to sign in in Active Directory with the new password, as the new password isn’t valid in Active Directory. You should only use this feature when SSPR and Password Writeback is enabled on the tenant.
 
 > [!NOTE]
 > This feature is in public preview right now.
