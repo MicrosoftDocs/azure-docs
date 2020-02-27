@@ -147,13 +147,13 @@ SSE automatically encrypts data in all performance tiers (Standard and Premium),
 In order to ensure that requests for data to and from a storage account are secure, you can limit requests to HTTPS only. Update the storage account required protocol by using the [az storage account update](/cli/azure/storage/account) command.
 
 ```azurecli-interactive
-az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true
+az storage account update --resource-group myresourcegroup --name $blobStorageAccount --https-only true
 ```
 
 Test the connection using `curl` using the `HTTP` protocol.
 
 ```azurecli-interactive
-curl http://<storage-account-name>.blob.core.windows.net/<container>/<blob-name> -I
+curl http://$blobStorageAccount.blob.core.windows.net/<container>/<blob-name> -I
 ```
 
 Now that secure transfer is required, you receive the following message:
