@@ -24,13 +24,13 @@ Requiring a proxy server to reach the internet is also supported. You can either
 
 If that means, you need to open up your firewalls for this server, then that might be an acceptable approach to you. At the end of the server installation, after completed server registration, there will be a network connectivity report showing you the exact endpoint URLs in Azure, that file sync needs to communicate with for the region you've selected. The report also tells you the reason why communication is needed. You can use the report to then lock down the firewalls around this server, to specific URLs.
 
-You can also follow a more conservative approach, in which you do not open the firewalls wide, but instead limit the server to communicate to higher-level DNS name spaces - there is more documentation and details available in the [Azure File Sync proxy and firewall settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) article. Since this topic describes outbound firewall rules, that limits your exposure either way. Follow your own networking best practices.
+You can also follow a more conservative approach, in which you do not open the firewalls wide, but instead limit the server to communicate to higher-level DNS name spaces - there is more documentation and details available in the [Azure File Sync proxy and firewall settings](../articles/storage/files/storage-sync-files-firewall-and-proxy.md) article. Since this topic describes outbound firewall rules, that limits your exposure either way. Follow your own networking best practices.
 
 At the end of the server *installation* wizard, a server *registration* wizard will pop up.
 Register the server to your storage sync service Azure resource from earlier.
 
 These steps are described in more detail in the deployment guide, including the above PowerShell modules you should install first:
-[Azure File Sync agent install](../storage-sync-files-deployment-guide.md)
+[Azure File Sync agent install](../articles/storage/files/storage-sync-files-deployment-guide.md)
 
 The latest agent should be used and can be downloaded from Microsoft Download Center:
 [Azure File Sync - agent](https://aka.ms/AFS/agent "Azure File Sync agent download")

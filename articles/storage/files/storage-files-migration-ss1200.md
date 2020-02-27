@@ -188,11 +188,10 @@ As unlikely as they may be, if that happens, take a look at the **LINK Azure Fil
 
 Migration content:
 
-* [Migration overview]
-* [StorSimple 8000 series migration guide]
+* [StorSimple 8000 series migration guide](storage-files-migration-ss8000.md)
 
 Azure File Sync content:
 
-* [AFS overview]
-* [AFS deployment guide]
-* [AFS troubleshooting]
+* [AFS overview](https://aka.ms/AFS)
+* [AFS deployment guide](storage-files-deployment-guide.md)
+* [AFS troubleshooting](storage-sync-files-troubleshoot.md)

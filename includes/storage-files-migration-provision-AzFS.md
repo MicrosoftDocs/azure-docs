@@ -26,11 +26,11 @@ In the previous step, you have determined the appropriate number of shares. In t
 Make sure the region of each of your storage accounts is the same and matches the region of the storage sync service resource you've already deployed.
 
 File shares, currently, are still created with a 5 TiB limit by default. Since you are creating new storage accounts, make sure to follow the 
-[guidance to create storage accounts that allow Azure file shares with 100 TiB limits](../storage-files-how-to-create-large-file-share.md).
+[guidance to create storage accounts that allow Azure file shares with 100 TiB limits](../articles/storage/files/storage-files-how-to-create-large-file-share.md).
 
-Another consideration when deploying a storage account, is the redundancy of your Azure storage. See: [Azure Storage redundancy options.](../../common/storage-redundancy.md)
+Another consideration when deploying a storage account, is the redundancy of your Azure storage. See: [Azure Storage redundancy options](../articles/storage/common/storage-redundancy.md).
 
 The names of your resources are also important.
 For instance, if you group multiple shares for the HR department into an Azure storage account, name the storage account appropriately, while you name the individual Azure file shares similar to what you name the on-premises shares or directories.
 
-[Learn how to deploy an Azure storage accounts and 100 TiB file shares.](../storage-files-how-to-create-large-file-share.md)
+[Learn how to deploy an Azure storage accounts and 100 TiB file shares.](../articles/storage/files/storage-files-how-to-create-large-file-share.md)
