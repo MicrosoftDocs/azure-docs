@@ -20,7 +20,7 @@ ms.reviewer: milanga
 # Detect Face and Emotion with Azure Media Analytics
 
 > [!NOTE]
-> The **Azure Media Face Detector** media processor will be retired. For the retirement date, see this [legacy components](legacy-components.md) topic.
+> The **Azure Media Face Detector** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.
 
 ## Overview
 
