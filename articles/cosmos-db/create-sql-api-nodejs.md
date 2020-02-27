@@ -50,7 +50,7 @@ You can now use the Data Explorer tool in the Azure portal to create a database 
     |**Container ID**|Items|Enter *Items* as the name for your new container. Container IDs have the same character requirements as database names.|
     |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
     
-    In addition to the preceding settings, you can optionally add **Unique keys** for the container. Let's leave the field empty in this example. Unique keys provide developers with the ability to add a layer of data integrity to the database. By creating a unique key policy while creating a container, you ensure the uniqueness of one or more values per partition key. To learn more, refer to the [Unique keys in Azure Cosmos DB](../articles/cosmos-db/unique-keys.md) article.
+    In addition to the preceding settings, you can optionally add **Unique keys** for the container. Let's leave the field empty in this example. Unique keys provide developers with the ability to add a layer of data integrity to the database. By creating a unique key policy while creating a container, you ensure the uniqueness of one or more values per partition key. To learn more, refer to the [Unique keys in Azure Cosmos DB](unique-keys.md) article.
     
     Select **OK**. The Data Explorer displays the new database and container.
 
