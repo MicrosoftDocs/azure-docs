@@ -57,16 +57,18 @@ To enable keep me signed in, set the content definition `DataUri` element to [pa
 Update the relying party (RP) file that initiates the user journey that you created.
 
 1. Open your custom policy file. For example, *SignUpOrSignin.xml*.
-1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="UserJourney Id"` from your extensions policy, or equivalent (for example: `SignUpOrSigninWithAAD" />`.
-1. Add the following node as a child of the `<UserJourneyBehaviors>` element. 
+1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="User journey Id"` from your extensions policy, or equivalent (for example: `SignUpOrSignIn" />`.
+1. Add the following node as a child of the `<UserJourneyBehaviors>` element.
+
     ```XML
-      <UserJourneyBehaviors>
-          <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
-          <SessionExpiryType>Absolute</SessionExpiryType>
-          <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
-        </UserJourneyBehaviors>
+    <UserJourneyBehaviors>
+      <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
+      <SessionExpiryType>Absolute</SessionExpiryType>
+      <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
+    </UserJourneyBehaviors>
     ```
-    - **SessionExpiryType** - Indicates how the session is extended by the time specified in `SessionExpiryInSeconds` and  KeepAliveInDays. The `Rolling` value (default) indicates that the session is extended every time the user performs authentication. The `Absolute` value indicates that the user is forced to reauthenticate after the time period specified.
+
+- **SessionExpiryType** - Indicates how the session is extended by the time specified in `SessionExpiryInSeconds` and  KeepAliveInDays. The `Rolling` value (default) indicates that the session is extended every time the user performs authentication. The `Absolute` value indicates that the user is forced to reauthenticate after the time period specified.
  
     - **SessionExpiryInSeconds**  - The lifetime of session cookies when *keep me signed in* is not enabled, or if a user does not select *keep me signed in*. The session expires after `SessionExpiryInSeconds` has passed, or the browser is closed.
  
