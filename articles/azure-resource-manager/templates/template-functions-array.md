@@ -931,7 +931,7 @@ You can use this function with an array to specify the number of iterations when
 }
 ```
 
-For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 
 ## max
 
@@ -1061,7 +1061,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## range
 
-`range(startingInteger, numberOfElements)`
+`range(startIndex, count)`
 
 Creates an array of integers from a starting integer and containing a number of items.
 
@@ -1069,8 +1069,8 @@ Creates an array of integers from a starting integer and containing a number of 
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Yes |int |The first integer in the array. |
-| numberofElements |Yes |int |The number of integers in the array. |
+| startIndex |Yes |int |The first integer in the array. The sum of startIndex and count must be no greater than 2147483647. |
+| count |Yes |int |The number of integers in the array. Must be non-negative integer up to 10000. |
 
 ### Return value
 
@@ -1364,6 +1364,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 * To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
 

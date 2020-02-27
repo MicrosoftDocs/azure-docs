@@ -2,8 +2,6 @@
 title: About service meshes
 description: Obtain an overview of service meshes, their architecture and capabilities, and what criteria you should consider when selecting one to deploy.
 author: paulbouwer
-
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer

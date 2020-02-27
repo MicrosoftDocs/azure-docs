@@ -11,7 +11,7 @@ ms.date: 10/20/2019
 
 # Tutorial: Deploy and walk through a digital distribution center application template
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This tutorial shows you how to get started by deploying an IoT Central **digital distribution center** application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
 
@@ -112,4 +112,4 @@ If you're not going to continue to use this application, delete the application 
 ## Next steps
 * Learn more about digital distribution center solution architecture [digital distribution center concept](./architecture-digital-distribution-center-pnp.md)
 * Learn more about other [IoT Central retail templates](./overview-iot-central-retail-pnp.md)
-* Learn more about IoT Central refer to [IoT Central overview](../preview/overview-iot-central.md)
+* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central.md)

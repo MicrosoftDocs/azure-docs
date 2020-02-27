@@ -41,10 +41,14 @@ In this section, you create a Load Balancer that helps load balance virtual mach
     | Name                   | *myLoadBalancer*                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
-    | SKU           | Select **Standard** or **Basic**. Microsoft recommends Standard for production workloads.  |
+    | SKU           | Select **Standard** or **Basic**. Microsoft recommends Standard for production workloads. |
     | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing** |
-    | Public IP address name              | Type *myPublicIP* in the text box.   |
+    | Public IP address name              | Type *myPublicIP* in the text box.   Use ```-SKU Basic``` to create a Basic Public IP. Basic Public IPs are not compatible with **Standard** load balancer. Microsoft recommends using **Standard** for production workloads.|
     | Availability zone | Type *Zone-redundant* to create a resilient Load Balancer. To create a zonal Load Balancer, select a specific zone from 1, 2, or 3 |
+
+> [!IMPORTANT]
+> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
+
 
 3. In the **Review + create** tab, select **Create**.   
 

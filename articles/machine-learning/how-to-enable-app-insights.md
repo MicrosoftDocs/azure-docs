@@ -7,10 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: copeters
-author: lostmygithubaccount
+ms.author: peterlu
+author: peterclu
 ms.date: 11/12/2019
-ms.custom: seoapril2019
 ---
 
 # Monitor and collect data from ML web service endpoints

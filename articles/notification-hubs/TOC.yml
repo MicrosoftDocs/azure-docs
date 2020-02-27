@@ -144,6 +144,8 @@
   items:  
   - name: .NET
     href: /dotnet/api/microsoft.azure.notificationhubs
+  - name: Azure CLI
+    href: /cli/azure/ext/notification-hub/notification-hub
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
   - name: REST

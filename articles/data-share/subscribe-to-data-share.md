@@ -24,7 +24,7 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
-* Register the Microsoft.DataShare resource provider. Follow the instructions documented in [Troubleshoot Azure Data Share](data-share-troubleshoot.md) to register the data share resource provider.
+* Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you will create a Data Share resource and the Azure subscription where your target Azure data stores are located.
 
 ### Receive data into a storage account: 
 
@@ -51,7 +51,7 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 * Client IP SQL Server Firewall access. This can be done through the following steps: 
     1. In SQL server in Azure portal, navigate to *Firewalls and virtual networks*
     1. Click the **on** toggle to allow access to Azure Services.
-    1. Click **+Add client IP** and click **Save**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range. 
+    1. Click **+Add client IP** and click **Save**. Client IP address is subject to change. This process might need to be repeated the next time you are receiving data into a SQL target from Azure portal. You can also add an IP range. 
 
 
 ### Receive data into an Azure Data Explorer cluster: 
