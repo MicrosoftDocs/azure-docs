@@ -1,6 +1,6 @@
 ---
-title: Using group by options
-description: Tips for implementing group by options in SQL Analytics for developing solutions.
+title: Use GROUP BY options in SQL Analytics
+description: SQL Analytics allows for developing solutions by implementing different GROUP BY options.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -13,28 +13,26 @@ ms.reviewer: jrasnick
 ms.custom: 
 ---
 
-# Group by options in SQL Analytics
-Tips for implementing group by options in SQL Analytics for developing solutions.
+# GROUP BY options in SQL Analytics
+SQL Analytics allows for developing solutions by implementing different GROUP BY options. 
 
-## What does GROUP BY do?
+## What does GROUP BY do
 
-The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL clause aggregates data to a summary set of rows.
+The [GROUP BY](https://docs.microsoft.com/sql/t-sql/queries/select-group-by-transact-sql?view=sql-server-ver15) T-SQL clause aggregates data to a summary set of rows.
 
-SQL Analytics on-demand supports whole range of GROUP BY options, while SQL Analytics pool supports limited number of options. 
+SQL on-demand supports the whole range of GROUP BY options. SQL pool supports a limited number of GROUP BY options. 
 
-## GROUP BY options supported in SQL Analytics pool
-GROUP BY has some options that SQL Analytics pool  does not support. These options have workarounds.
-
-These options are
+## GROUP BY options supported in SQL pool
+GROUP BY has some options that SQL pool doesn't support. These options have workarounds, which are as follows:
 
 * GROUP BY with ROLLUP
 * GROUPING SETS
 * GROUP BY with CUBE
 
 ### Rollup and grouping sets options
-The simplest option here is to use UNION ALL instead to perform the rollup rather than relying on the explicit syntax. The result is exactly the same
+The simplest option here is to use UNION ALL to execute the rollup rather than relying on the explicit syntax. The result is exactly the same
 
-The following example using the GROUP BY statement with the ROLLUP option:
+The following example uses the GROUP BY statement with the ROLLUP option:
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -84,11 +82,10 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 To replace GROUPING SETS, the sample principle applies. You only need to create UNION ALL sections for the aggregation levels you want to see.
 
 ### Cube options
-It is possible to create a GROUP BY WITH CUBE using the UNION ALL approach. The problem is that the code can quickly become cumbersome and unwieldy. To mitigate this, you can use this more advanced approach.
+It's possible to create a GROUP BY WITH CUBE using the UNION ALL approach. The problem is that the code can quickly become cumbersome and unwieldy. To mitigate this issue, you can use this more advanced approach.
 
-Let's use the example above.
 
-The first step is to define the 'cube' that defines all the levels of aggregation that we want to create. It is important to take note of the CROSS JOIN of the two derived tables. This generates all the levels for us. The rest of the code is really there for formatting.
+The first step is to define the 'cube' that defines all the levels of aggregation that we want to create. Take note of the CROSS JOIN of the two derived tables as it generates all levels. The rest of the code is there for formatting.
 
 ```sql
 CREATE TABLE #Cube
@@ -119,11 +116,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-The following shows the results of the CTAS:
+The following image shows the results of [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7):
 
 ![Group by cube](media/development-group-by-options/develop-group-by-cube.png)
 
-The second step is to specify a target table to store interim results:
+The second step is to specify a target table for storing interim results:
 
 ```sql
 DECLARE
@@ -146,7 +143,7 @@ WITH
 ;
 ```
 
-The third step is to loop over our cube of columns performing the aggregation. The query will run once for every row in the #Cube temporary table and store the results in the #Results temp table
+The third step is to loop over the cube of columns performing the aggregation. The query will run once for every row in the #Cube temporary table. Results are stored in the #Results temp table:
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -170,7 +167,7 @@ BEGIN
 END
 ```
 
-Lastly, you can return the results by simply reading from the #Results temporary table
+Lastly, you can return the results by reading from the #Results temporary table:
 
 ```sql
 SELECT *
@@ -179,7 +176,7 @@ ORDER BY 1,2,3
 ;
 ```
 
-By breaking the code up into sections and generating a looping construct, the code becomes more manageable and maintainable.
+By breaking up the code into sections and generating a looping construct, the code becomes more manageable and maintainable.
 
 ## Next steps
 For more development tips, see [development overview](development-overview.md).

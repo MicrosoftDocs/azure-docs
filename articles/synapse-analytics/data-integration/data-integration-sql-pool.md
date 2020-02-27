@@ -1,5 +1,5 @@
 ---
-title: Ingest into SQL analytics pool in Azure Synapse Analytics 
+title: Ingest into SQL pool in Azure Synapse Analytics 
 description: Learn how to ingest data into a SQL analytics pool in Azure Synapse Analytics
 services: synapse-analytics 
 author: djpmsft
@@ -11,23 +11,15 @@ ms.author: daperlov
 ms.reviewer: jrasnick
 ---
 
-# Ingesting data into a SQL analytics pool
+# Ingesting data into a SQL pool
 
-In this article you will learn how to ingest data from an Azure Data Lake Gen 2 storage account into a SQL using Azure Synapse Analytics.
-
-In this tutorial, you perform the following steps:
-
-> [!div class="checklist"]
-> * Create a pipeline with a copy activity.
-> * Test run the pipeline.
-> * Trigger the pipeline manually.
-> * Monitor the pipeline and activity runs.
+In this article you will learn how to ingest data from an Azure Data Lake Gen 2 storage account into a SQL pool using Azure Synapse Analytics.
 
 ## Prerequisites
 
-* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure storage account**. You use Azure Data Lake Storage Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../../storage/blobs/data-lake-storage-quickstart-create-account.md) for steps to create one.
-* **Azure Synapse Analytics**. You use a SQL analytics pool database as a *sink* data store. If you don't have an Azure Synapse Analytics instance, see [Create a SQL database](../../sql-database/sql-database-get-started-portal.md) for steps to create one.
+* **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* **Azure storage account**: You use Azure Data Lake Storage Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/blobs/data-lake-storage-quickstart-create-account.md) for steps to create one.
+* **Azure Synapse Analytics**: You use a SQL pool as a *sink* data store. If you don't have an Azure Synapse Analytics instance, see [Create a SQL pool](../../sql-database/sql-database-get-started-portal.md) for steps to create one.
 
 ## Create linked services
 
@@ -42,7 +34,7 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 
 ## Create pipeline
 
-A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from ADLS gen 2 into a SQL analytics pool.
+A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from ADLS gen 2 into a SQL pool.
 
 1. Go to the **Orchestrate** tab. Click on the plus icon 
 next to the pipelines header and select **Pipeline**.
@@ -72,15 +64,9 @@ In this step, you manually trigger the pipeline published in the previous step.
 1. Select **Add Trigger** on the toolbar, and then select **Trigger Now**. On the **Pipeline Run** page, select **Finish**.  
 1. Go to the **Monitor** tab located in the left sidebar. You see a pipeline run that is triggered by a manual trigger. You can use links in the **Actions** column to view activity details and to rerun the pipeline.
 1. To see activity runs associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. In this example, there's only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. Select **Pipeline Runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
-1. Verify your data is correctly written in the SQL analytics pool.
+1. Verify your data is correctly written in the SQL pool.
 
 
 ## Next steps
 
-The pipeline in this article copies data from ADLS gen 2 into a SQL analytics pool. You learned how to: 
-
-> [!div class="checklist"]
-> * Create a pipeline with a copy activity.
-> * Test run the pipeline.
-> * Trigger the pipeline manually.
-> * Monitor the pipeline and activity runs.
+For more information on data integration for Synapse Analytics, see the [Ingesting data into Azure Data Lake Storage Gen2 ](data-integration-data-lake.md) article.

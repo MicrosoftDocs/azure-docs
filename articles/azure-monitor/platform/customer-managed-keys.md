@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor customer-managed key configuration
 description: Information and steps to configure Customer-Managed Key (CMK) to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
@@ -201,9 +200,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 ### Azure Monitor data-store (ADX cluster) provisioning
 
-During the early access period of the feature, the ADX cluster is
-provisioned manually by the product team once the previous steps are
-completed. Use the channel you have with Microsoft to provide the *Cluster* resource details. The JSON response can be retrieved using GET REST API:
+During the early access period of the feature, the ADX cluster is provisioned manually by the product team once the previous steps are completed. Use your Microsoft channel to provide the *Cluster* resource details. Copy the JSON response from the *Cluster* resource GET REST API:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview

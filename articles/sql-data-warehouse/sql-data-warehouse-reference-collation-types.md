@@ -1,6 +1,6 @@
 ---
 title: Collation 
-description: Collation types supported in Azure SQL Data Warehouse.
+description: Collation types supported in Azure Synapse Analytics.
 services: sql-data-warehouse
 author: antvgski 
 manager: igorstan
@@ -12,15 +12,16 @@ ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
 ---
 
-# Database collation support for Azure SQL Data Warehouse
+# Database collation support for Azure Synapse Analytics
 
-You can change the default database collation from the Azure portal when you create a new Azure SQL Data Warehouse database. This capability makes it even easier to create a new database using one of the 3800 supported database collations for SQL Data Warehouse.
-Collations provide the locale, code page, sort order and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
+You can change the default database collation from the Azure portal when you create a new SQL pool within Azure Synapse. This capability makes it even easier to create a new database using one of the 3800 supported database collations for SQL pool.
+
+Collations provide the locale, code page, sort order, and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
 
 ## Changing collation
-To change the default collation, you simple update to the Collation field in the provisioning experience.
+To change the default collation, update to the Collation field in the provisioning experience.
 
-For example, if you wanted to change the default collation to case sensitive, you would simply rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS. 
+For example, if you wanted to change the default collation to case sensitive, you would rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS. 
 
 ## List of unsupported collation types
 *	Japanese_Bushu_Kakusu_140_BIN
@@ -101,3 +102,5 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
 When passed ‘Collation’ as the property parameter, the DatabasePropertyEx function returns the current collation for the database specified. You can learn more about the DatabasePropertyEx function on MSDN.
 
+## Next steps
+For additional reference information, see [T-SQL statements in Azure Synapse Analytics](sql-data-warehouse-reference-tsql-statements.md), a[T-SQL language elements in Azure Synapse Analytics](sql-data-warehouse-reference-tsql-language-elements.md), and [Powershell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md).

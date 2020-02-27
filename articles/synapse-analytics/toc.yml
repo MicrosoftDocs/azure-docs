@@ -510,6 +510,10 @@
       #   href: article-template.md
       # - name: Best practices
       #   href: article-template.md
+      - name: Spark
+        items:
+        - name: Import and export data with Apache Spark
+          href: ./spark/synapse-spark-sql-pool-import-export.md
     - name: Into the Data Lake
       items:
        - name: With the copy activity
@@ -985,7 +989,7 @@
   # - name: .Net SDK
   #   href: article-template.md
   - name: Database collation types
-    href: ../sql-data-warehouse/sql-data-warehouse-reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    href: sql-analytics/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: PowerShell cmdlets
     href: ../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: REST APIs
@@ -993,14 +997,14 @@
   # - name: Spark Connector
   #   href: article-template.md
   - name: System views
-    href: ../sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    href: sql-analytics/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: T-SQL
     items:
     - name: Full reference
       href: /sql/t-sql/language-reference/
-    - name: SQL pool language elements
+    - name: SQL Analytics language elements
       href: ../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: SQL pool statements
+    - name: SQL Analytics statements
       href: ../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Resources
   items: 

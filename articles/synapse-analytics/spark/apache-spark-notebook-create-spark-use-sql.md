@@ -131,11 +131,6 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 11. Each of the cells that previously executed had the option to go to **History Server** and **Monitoring**. Clicking the links takes you to different parts of the User Experience.
 
-<!---If you want more information then go here and here
-
-> TODO Need a link to Spark Monitoring and Spark History Server
---->
-
 ## Clean up resources
 
 Synapse Analytics saves your data in Azure Data Lake Storage. You can safely let a Spark instance shut down when it is not in use. You are charged for a Synapse Analytics Spark pool as long as it is running, even when it is not in use. Since the charges for the pool are many times more than the charges for storage, it makes economic sense to let Spark instances shut down when they are not in use.

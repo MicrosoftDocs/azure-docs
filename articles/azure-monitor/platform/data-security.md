@@ -1,7 +1,6 @@
 ---
 title: Log Analytics data security | Microsoft Docs
 description: Learn about how Log Analytics protects your privacy and secures your data.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
