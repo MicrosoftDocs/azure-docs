@@ -1,12 +1,12 @@
 ---
 title: Create a data labeling project
 titleSuffix: Azure Machine Learning
-description: Learn how to create and run labeling projects to tag data for machine learning.  The tools include assisted ML, or human in the loop ML to aid with the task.
-author: lobrien
-ms.author: laobri
+description: Learn how to create and run labeling projects to tag data for machine learning.  The tools include assisted ML, or human in the loop labeling to aid with the task.
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 03/01/2020
 
 ---
 
@@ -20,7 +20,7 @@ Labeling voluminous data in machine learning projects is often a headache. Proje
 
 Machine Learning tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with your Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
 
-In Machine Learning, you start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure Machine Learning dataset.
+You start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure Machine Learning dataset.
 
 > [!Important]
 > Only image classification and object identification labeling projects are currently supported. Additionally, the data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.) 
@@ -37,7 +37,7 @@ In this article, you'll learn how to:
 
 ## Prerequisites
 
-* The data that you want to label, either in local files or in Azure storage.
+* The data that you want to label, either in local files or in Azure blob storage.
 * The set of labels that you want to apply.
 * The instructions for labeling.
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
@@ -53,8 +53,8 @@ To create a project, select **Add project**. Give the project an appropriate nam
 
 ![Labeling project creation wizard](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
 
-* Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of classes to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
 * Choose **Image Classification Multi-class** for projects when you want to apply only a *single class* from a set of classes to an image.
+* Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of classes to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
 * Choose **Object Identification (Bounding Box)** for projects when you want to assign a class and a bounding box to each object within an image.
 
 Select **Next** when you're ready to continue.
@@ -62,6 +62,7 @@ Select **Next** when you're ready to continue.
 ## Specify the data to label
 
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
+
 
 ### Create a dataset from an Azure datastore
 
@@ -79,6 +80,9 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Provide a description for your dataset.
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
+
+> [!NOTE]
+> The data you choose is loaded into your project.  Adding more data to the datastore will not appear in this project once the project is created.  
 
 ### Create a dataset from uploaded data
 
@@ -103,7 +107,7 @@ Enter one label per row. Use the **+** button to add a new row. If you have more
 
 ## Describe the labeling task
 
-It's important to clearly explain the labeling task. On the **Labeling instructions** page, you can add a link to an external site for labeling instructions. Keep the instructions task-oriented and appropriate to the audience. Consider these questions:
+It's important to clearly explain the labeling task. On the **Labeling instructions** page, you can add a link to an external site for labeling instructions, or provide instructions in the edit box on the page. Keep the instructions task-oriented and appropriate to the audience. Consider these questions:
 
 * What are the labels they'll see, and how will they choose among them? Is there a reference text to refer to?
 * What should they do if no label seems appropriate?
@@ -125,15 +129,15 @@ For bounding boxes, important questions include:
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-The **ML assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task.  Select *Enable ML assisted labeling* and specify a GPU to enable the two phases of assisted labeling:
+The **ML assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task.  This feature is available for image classification (multi-class or multi-label) tasks.  Select *Enable ML assisted labeling* and specify a GPU to enable the two phases of assisted labeling:
 
-* **Clustering** - after a certain number of labels are submitted, a clustering model starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is most useful when the labeler is viewing multiple images.  When clustering begins, an alert will tell the labeler to switch to a multiple image  view to take advantage of the clustering.
+* **Clustering** - after a certain number of labels are submitted, the machine learning model starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is most useful when the labeler is viewing multiple images.  
 
 * **Classification** - after more image labels are submitted, a classification model is used to predict image tags.  The labeler now sees pages that contain predicted labels already present on each image.  The task is then to review these labels and correct any mis-labeled images before submitting the page.  
 
 The exact number of labeled images necessary to start assisted labeling is not a fixed number. The first clustering model is  built once there are 350 labeled images, and the first classification model will build with 900 labeled images. But the models aren't used until an accuracy threshold is also met.  
 
-Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* machine learning.
+Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
 This feature is available only in Enterprise edition workspaces.
 
