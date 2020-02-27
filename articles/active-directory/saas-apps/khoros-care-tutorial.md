@@ -104,7 +104,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| ------------ | --------- |
 	| FirstName | user.givenname |
     | LastName | user.surname |
-	| EmailAddress | user.mail |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -167,4 +166,5 @@ When you click the Khoros Care tile in the Access Panel, you should be automatic
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Khoros Care with Azure AD](https://aad.portal.azure.com/)
+
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
