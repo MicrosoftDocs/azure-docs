@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > * Import an API into API Management
 > * Test the API in the Azure portal
 
-![New API](./media/api-management-get-started/created-api.png)
+![New API](./media/api-management-import-and-publish/created-api.png)
 
 ## Prerequisites
 
@@ -45,25 +45,25 @@ This section shows how to import and publish an OpenAPI Specification backend AP
 1. Select the **OpenAPI** tile, and then select **Full** on the pop-up screen.
 1. On the **Create from OpenAPI specification** screen, use the values from the following table to create your API.
    
+   ![Create an API](./media/api-management-import-and-publish/create-api.png)
+   
    A red star next to a field on the form indicates that the field is required. You can set API values during creation or later by going to the **Settings** tab. 
    
    |Setting|Value|Description|
    |-------|-----|-----------|
    |**OpenAPI specification**|*https:\//conferenceapi.azurewebsites.net?format=json*|The service implementing the API. API management forwards requests to this address.|
-   |**Display name**|*Demo Conference API*|The name displayed in the developer portal. After you enter the service URL in **OpenAPI specification**, API Management fills out this field based on what's in the JSON.|
-   |**Name**|*demo-conference-api*|A unique name for the API. After you enter the service URL, API Management fills out this field based on what's in the JSON.|
-   |**Description**| |An optional description of the API. After you enter the service URL, API Management fills out this field based on what's in the JSON.|
+   |**Display name**|After you enter the preceding service URL, API Management fills out this field based on the JSON.|The name displayed in the developer portal.|
+   |**Name**|After you enter the preceding service URL, API Management fills out this field based on the JSON.|A unique name for the API.|
+   |**Description**|After you enter the preceding service URL, API Management fills out this field based on the JSON.|An optional description of the API.|
    |**URL scheme**|**HTTPS**|Which protocols can be used to access the API.|
    |**API URL suffix**|*conference*|The suffix appended to the base URL for the API Management service. API Management distinguishes APIs by their suffix, so the suffix must be unique for every API for a given publisher.|
-   |**Products**|**Unlimited**|Association of one or more APIs. You can include several APIs in a product and offer them to developers through the developer portal. Each API Management instance comes with two sample products: **Starter** and **Unlimited**. You publish an API by associating the API with a product, **Unlimited** in this example. <br/>To add this API to another product, type or select the product name. Repeat this step to add the API to multiple products. You can also add APIs to products later from the **Settings** page.<br/>To get access to the API, developers must first subscribe to a product. When they subscribe, they get a subscription key that's good for any API in that product. <br/>If you created the API Management instance, you're an administrator already, so you're subscribed to every product in the instance.|
+   |**Products**|**Unlimited**|Association of one or more APIs. Each API Management instance comes with two sample products: **Starter** and **Unlimited**. You publish an API by associating the API with a product, **Unlimited** in this example.<br/>You can include several APIs in a product and offer them to developers through the developer portal. To add this API to another product, type or select the product name. Repeat this step to add the API to multiple products. You can also add APIs to products later from the **Settings** page.<br/>To get access to the API, developers must first subscribe to a product. When they subscribe, they get a subscription key that's good for any API in that product. <br/>If you created the API Management instance, you're an administrator already, so you're subscribed to every product in the instance.|
    |**Tags**| |Tags for organizing APIs for searching, grouping, or filtering.|
    |**Version this API?**|Select or deselect|For more information about versioning, see [Publish multiple versions of your API](api-management-get-started-publish-versions.md).|
    
-   ![Create an API](./media/api-management-get-started/create-api.png)
-   
    > [!NOTE]
    > To publish the API, you must associate it with a product. You can do that from the **Settings** page.
-
+   
 1. Select **Create**.
 
 If you have problems importing an API definition, see the [list of known issues and restrictions](api-management-api-import-restrictions.md).
@@ -76,7 +76,7 @@ You can call API operations directly from the Azure portal, which provides a con
 1. Select the **Test** tab, and then select **GetSpeakers**. The page shows **Query parameters** and **Headers**, if any. The **Ocp-Apim-Subscription-Key** is filled in automatically for the subscription key associated with this API.
 1. Select **Send**.
    
-   ![Test API map](./media/api-management-get-started/01-import-first-api-01.png)
+   ![Test API map](./media/api-management-import-and-publish/01-import-first-api-01.png)
    
    The back end responds with **200 OK** and some data.
 
