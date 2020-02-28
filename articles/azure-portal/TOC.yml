@@ -56,6 +56,8 @@
         href: supportability/networking-quota-requests.md
   - name: Troubleshoot Azure portal issues
     items:
+    - name: Recover a deleted dashboard
+      href: recover-shared-deleted-dashboard.md
     - name: Troubleshoot region or SKU subscription issues
       href: supportability/sku-series-unavailable.md
     - name: Capture a browser trace for troubleshooting

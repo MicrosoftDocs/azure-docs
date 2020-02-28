@@ -1,0 +1,168 @@
+### YamlMime:Landing
+
+title: Troubleshoot Windows virtual machines in Azure # < 60 chars
+summary: Documentation for troubleshooting virtual machines in Azure. # < 160 chars
+
+metadata:
+  title: Troubleshoot Windows virtual machines in Azure # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Documentation for troubleshooting and managing Windows virtual machines in Azure. # Required; article description that is displayed in search results. < 160 chars.
+  services: virtual-machines-windows
+  ms.service: virtual-machines-windows #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: genlin  #Required; your GitHub user alias, with correct capitalization.
+  ms.author: genli #Required; microsoft alias of author; optional team alias.
+  ms.date: 09/09/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Troubleshoot deployment failures
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot allocation failures when you create, restart, or resize VMs in Azure
+            url: allocation-failure.md
+          - text: Troubleshoot deployment issues when creating a new virtual machine in Azure
+            url: troubleshoot-deployment-new-vm-windows.md
+          - text: Resolve errors for invalid template
+            url: ../../azure-resource-manager/templates/error-invalid-template.md
+          - text: Resolve errors for SKU not available
+            url: https://docs.microsoft.com/azure/azure-resource-manager/templates/error-sku-not-available
+
+  # Card (optional)
+  - title: VM deployment guidance
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Prepare a Windows VHD or VHDX to upload to Azure
+            url: https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image
+          - text: Deploy or create Windows client operating systems in Azure
+            url: https://docs.microsoft.com/azure/virtual-machines/windows/client-images
+          - text: Resolve errors associated with quotas
+            url: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors
+  # Card
+  - title: Can't connect to my VM
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Quick steps to address common RDP connection issues
+            url: https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-rdp-connection
+          - text: Troubleshoot Azure VM RDP connection issues by Event ID
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/event-id-troubleshoot-vm-rdp-connecton
+          - text: Troubleshoot authentication errors when you use RDP to connect to Azure VM
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-authentication-error-rdp-vm
+          - text: VM guest network card is disabled
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-nic-disabled
+          
+  # Card
+  - title: Password reset
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  How to reset the Remote Desktop service or its login password in a Windows VM
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-rdp
+          - text:  Reset local Windows password for Azure VM using offline method
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-local-password-without-agent
+          - text:  Troubleshooting specific RDP error messages to a Windows VM in Azure
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-specific-rdp-errors
+          - text:  Troubleshoot remote desktop connections to an Azure Virtual Machine
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection
+
+  # Card
+  - title: VM is not booting
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Check disk boot error
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error
+          - text:  BitLocker boot error
+            url: https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-bitlocker-boot-error
+          - text:  Boot configuration update error
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-vm-boot-configure-update
+          - text:  Common blue screen error
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-common-blue-screen-error
+     
+  # Card
+  - title: Can't start or stop VM
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Troubleshoot VM deployment issues
+            url: https://docs.microsoft.com/azure/virtual-machines/windows/restart-resize-error-troubleshooting
+          - text:  Troubleshoot allocation failures (Classic deployment model)
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure-classic
+          - text:  Boot configuration update error
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-vm-boot-configure-update
+          - text:  VM lifecycle and states
+            url: https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle
+
+  # Card
+  - title: Unexpected VM restart
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  How to view VM reboot logs to identify the cause of reboot
+            url: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
+          - text:  Diagnose and recover from boot failures after a restart
+            url: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+          - text:  Understand planned maintenance for virtual machines in Azure
+            url: https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates
+          - text:  Azure VM startup is stuck at Windows Update
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-stuck-updating-boot-error
+
+  # Card
+  - title: Virtual Disk management issues
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Virtual Disks FAQ
+            url: https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks
+          - text:  Troubleshoot allocation failures when resizing a VM
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure
+          - text:  Understanding the temporary drive on your VM
+            url: https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#temporary-disk
+          - text:  Overview of Azure Managed Disks
+            url: https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview
+
+  # Card
+  - title: Disk encryption issues
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Troubleshooting Azure disk encryption
+            url: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg
+          - text:  Azure disk encryption FAQ
+            url: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq
+          - text:  How to troubleshoot Azure Extensions
+            url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
+                    
+   # Card
+  - title: VM performance issues
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Troubleshooting shared image galleries-replication is slow
+            url: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/troubleshooting-shared-images#replication-is-slow
+        
+   # Card
+  - title: VM Extension issues
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  General troubleshooting steps for extensions
+            url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
+          - text:  Installing the extension in your VM
+            url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-windows
+          - text:  Custom Script Extension for Windows
+            url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#tips-and-tricks
+                    
+   # Card
+  - title: Backup and restore
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Troubleshoot Azure virtual machine backup in Azure Portal
+            url: https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot

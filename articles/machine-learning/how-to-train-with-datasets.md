@@ -25,7 +25,7 @@ In this article, you learn the two ways to consume [Azure Machine Learning datas
 
 - Option 2: If you have unstructured data, create a FileDataset and mount or download files to a remote compute for training.
 
-Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training products like [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) and [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py).
+Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training products like [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) and [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
 
 ## Prerequisites
 
@@ -98,14 +98,17 @@ experiment_run = experiment.submit(est)
 experiment_run.wait_for_completion(show_output=True)
 ```
 
+
 ## Option 2:  Mount files to a remote compute target
 
 If you want to make your data files available on the compute target for training, use [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) to mount or download files referred by it.
 
-### Mount v.s. Download
+### Mount vs. Download
 When you mount a dataset, you attach the files referenced by the dataset to a directory (mount point) and make it available on the compute target. Mounting is supported for Linux-based computes, including Azure Machine Learning Compute, virtual machines, and HDInsight. If your data size exceeds the compute disk size, or you are only loading part of dataset in your script, mounting is recommended. Because downloading a dataset bigger than the disk size will fail, and mounting will only load the part of data used by your script at the time of processing. 
+
 When you download a dataset, all the files referenced by the dataset will be downloaded to the compute target. Downloading is supported for all compute types. If your script process all files referenced by the dataset, and your compute disk can fit in your full dataset, downloading is recommended to avoid the overhead of streaming data from storage services.
 
+Mounting or downloading files of any format are supported for datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. 
 
 ### Create a FileDataset
 
@@ -195,4 +198,4 @@ The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand 
 
 * [Train image classification models](https://aka.ms/filedataset-samplenotebook) with FileDatasets
 
-* [Create and manage environments for training and deployment](how-to-use-environments.md)
+* [Train with datasets using pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)

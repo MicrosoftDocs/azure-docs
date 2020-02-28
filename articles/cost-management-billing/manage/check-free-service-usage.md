@@ -2,14 +2,10 @@
 title: Monitor and track Azure free service usage
 description: Learn how to check free service usage in the Azure portal.
 author: amberbhargava
-manager: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
 
 ---

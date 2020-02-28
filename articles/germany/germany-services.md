@@ -135,7 +135,6 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 | Backup | Yes | Yes |
 | Azure Monitor logs | No | No |
 | Site Recovery | Yes | Yes |
-| Scheduler | Yes | Yes |
 
 
 

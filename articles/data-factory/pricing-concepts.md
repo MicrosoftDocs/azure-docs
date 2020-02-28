@@ -151,7 +151,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | Data Flow Assumptions: execution time = 10 min + 10 min TTL | 10 \* 16 cores of General Compute with TTL of 10 |
 | Monitor Pipeline Assumption: Only 1 run occurred | 2 Monitoring run records retried (1 for pipeline run, 1 for activity run) |
 
-**Total Scenario pricing: $0.3011**
+**Total Scenario pricing: $1.4631**
 
 - Data Factory Operations = **$0.0001**
   - Read/Write = 10\*00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]

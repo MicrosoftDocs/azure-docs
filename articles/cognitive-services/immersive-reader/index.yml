@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: IEvangelist
   ms.author: dapine
-  ms.date: 08/29/2019
+  ms.date: 01/23/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -24,6 +24,10 @@ landingContent:
         links:
           - text: What is Immersive Reader?
             url: overview.md
+      - linkListType: video
+        links:
+          - text: Getting started - short engineering videos
+            url: https://aka.ms/ImmersiveReaderSDKVideos
 
   - title: Get started
     linkLists:

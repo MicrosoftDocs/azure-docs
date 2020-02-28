@@ -6,7 +6,7 @@ ms.date: 09/23/2019
 ms.author: glenga
 ---
 
-Add code that uses the `msg` output binding object on `context.bindings` to create a queue message. Add this code before the`context.res` statement.
+Add code that uses the `msg` output binding object on `context.bindings` to create a queue message. Add this code before the `context.res` statement.
 
 ```javascript
 // Add a message to the Storage queue.

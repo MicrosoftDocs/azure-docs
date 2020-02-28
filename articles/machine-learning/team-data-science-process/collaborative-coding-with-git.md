@@ -2,12 +2,12 @@
 title: Collaborative coding with Git - Team Data Science Process
 description: How to do collaborative code development for data science projects using Git with agile planning.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -76,7 +76,7 @@ From the main page of your Azure DevOps project, point to **Repos** > **Pull req
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-On the **New Pull Request** screen, if necessary, navigate to the Git repository and branch you want to merge your changes into. Add or change any other information you want. Under **Reviewers**, add the names of those you need to review your changes, and then select **Create**. 
+On the **New Pull Request** screen, if necessary, navigate to the Git repository and branch you want to merge your changes into. Add or change any other information you want. Under **Reviewers**, add the names of the reviewers, and then select **Create**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 

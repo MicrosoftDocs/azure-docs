@@ -38,7 +38,7 @@ Front Door Service includes headers from an incoming request unless removed beca
 | X-Forwarded-For | X-Forwarded-For: 127.0.0.1 </br> The X-Forwarded-For (XFF) HTTP header field often identifies the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer. If there's an existing XFF header, then Front Door appends the client socket IP to it or adds the XFF header with the client socket IP. |
 | X-Forwarded-Host | X-Forwarded-Host: contoso.azurefd.net </br> The X-Forwarded-Host HTTP header field is a common method used to identify the original host requested by the client in the Host HTTP request header. This is because the host name from Front Door may differ for the backend server handling the request. |
 | X-Forwarded-Proto | X-Forwarded-Proto: http </br> The X-Forwarded-Proto HTTP header field is often used to identify the originating protocol of an HTTP request because Front Door, based on configuration, might communicate with the backend by using HTTPS. This is true even if the request to the reverse proxy is HTTP. |
-| X-FD-HealthProbe | X-FD-HealthProbe HTTP header field is used to identify the health probe from Front Door. If this header set to 1, the request is health probe. You can use when want to strict access from paticular Front Door with X-Forwarded-Host header field. |
+| X-FD-HealthProbe | X-FD-HealthProbe HTTP header field is used to identify the health probe from Front Door. If this header set to 1, the request is health probe. You can use when want to strict access from particular Front Door with X-Forwarded-Host header field. |
 
 ## Front Door Service to client
 

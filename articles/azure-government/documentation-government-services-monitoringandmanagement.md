@@ -139,17 +139,18 @@ The first generation of metrics alerts is generally available in both Azure Gove
 
 The resources currently supported in the second generation alerts experience are:
 - Microsoft.ApiManagement/service
+- Microsoft.Cache/redis
 - Microsoft.Compute/virtualMachines
 - Microsoft.DBforMySQL/servers
 - Microsoft.DBforPostgreSQL/servers
 - Microsoft.DBforMariaDB/servers
 - Microsoft.Devices/IotHubs
-- Microsoft.EventGrid/topics
 - Microsoft.EventGrid/domains
+- Microsoft.EventGrid/topics
 - Microsoft.EventHub/clusters
 - Microsoft.EventHub/namespaces
 - Microsoft.Insights/components
-- Microsoft.Network/dnszones
+- Microsoft.Network/dnsZones
 - Microsoft.Network/loadBalancers
 - Microsoft.Network/natGateways
 - Microsoft.Network/privateEndpoints
@@ -158,11 +159,19 @@ The resources currently supported in the second generation alerts experience are
 - Microsoft.PowerBIDedicated/capacities
 - Microsoft.Relay/namespaces
 - Microsoft.ServiceBus/namespaces
+- Microsoft.Sql/managedInstances
+- Microsoft.Sql/servers/databases
+- Microsoft.Sql/servers/elasticPools
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
 - Microsoft.Storage/storageAccounts/fileServices
 - Microsoft.Storage/storageAccounts/queueServices
 - Microsoft.Storage/storageAccounts/tableServices
+- Microsoft.Web/hostingEnvironments/multiRolePools
+- Microsoft.Web/hostingEnvironments/workerPools
+- Microsoft.Web/serverfarms
+- Microsoft.Web/sites
+- Microsoft.Web/sites/slots
 
 You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second generation of alerts. 
 
