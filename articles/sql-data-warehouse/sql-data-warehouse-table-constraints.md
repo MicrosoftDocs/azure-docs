@@ -1,6 +1,6 @@
 ---
 title: Primary, foreign, and unique keys  
-description: Table constraints support in Azure SQL Data Warehouse
+description: Table constraints support in SQL Analytics in Azure Synapse Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg 
@@ -11,23 +11,24 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# Primary key, foreign key, and unique key in Azure SQL Data Warehouse
+# Primary key, foreign key, and unique key in SQL Analytics
 
-Learn about table constraints in Azure SQL Data Warehouse, including primary key, foreign key, and unique key.
+Learn about table constraints in SQL Analytics, including primary key, foreign key, and unique key.
 
 ## Table constraints 
-Azure SQL Data Warehouse supports these table constraints: 
+SQL Analytics supports these table constraints: 
 - PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.    
 - UNIQUE constraint is only supported with NOT ENFORCED is used.   
 
-FOREIGN KEY constraint is not supported in Azure SQL Data Warehouse.  
+FOREIGN KEY constraint is not supported in SQL Analytics.  
 
 ## Remarks
-Having primary key and/or unique key allows data warehouse engine to generate an optimal execution plan for a query.  All values in a primary key column or a unique constraint column should be unique. 
+Having primary key and/or unique key allows SQL Analytics engine to generate an optimal execution plan for a query.  All values in a primary key column or a unique constraint column should be unique. 
 
-After creating a table with primary key or unique constraint in Azure data warehouse, users need to make sure all values in those columns are unique.  A violation of that may cause the query to return inaccurate result.  This example shows how a query may return inaccurate result if the primary key or unique constraint column includes duplicate values.  
+After creating a table with primary key or unique constraint in SQL Analytics, users need to make sure all values in those columns are unique.  A violation of that may cause the query to return inaccurate result.  This example shows how a query may return inaccurate result if the primary key or unique constraint column includes duplicate values.  
 
 ```sql
  -- Create table t1
@@ -153,12 +154,12 @@ a1          total
 ```
 
 ## Examples
-Create a data warehouse table with a primary key: 
+Create a SQL Analytics table with a primary key: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Create a data warehouse table with a unique constraint:
+Create a SQL Analytics table with a unique constraint:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -166,4 +167,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## Next steps
 
-After creating the tables for your data warehouse, the next step is to load data into the table. For a loading tutorial, see [Loading data to SQL Data Warehouse](load-data-wideworldimportersdw.md).
+After creating the tables for your SQL Analytics database, the next step is to load data into the table. For a loading tutorial, see [Loading data to SQL Analytics databases](load-data-wideworldimportersdw.md).

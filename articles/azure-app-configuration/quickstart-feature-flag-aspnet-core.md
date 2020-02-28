@@ -89,7 +89,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.0.0-preview-010610001-1263
+    dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
 1. Run the following command to restore packages for your project:
