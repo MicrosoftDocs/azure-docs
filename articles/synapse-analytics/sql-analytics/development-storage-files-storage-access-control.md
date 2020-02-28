@@ -90,8 +90,6 @@ CREDENTIAL NAME must match the full path to the container, folder, or file, in t
 > [!NOTE]
 > There is special CREDENTIAL NAME  `UserIdentity`  that [forces Azure AD pass-through](#force-azure-ad-pass-through). Please read about the effect it has on [credential lookup](#credential-lookup) while executing queries.
 
-You can omit  '<storage_path>' in credential name **only** if you will not use wildcards in your queries. Defining credentials including  '<storage_path>' is recommended. Check [Query multiple files or folders](development-storage-files-overview.md#uery-multiple-files-or-folders) for more information on using wildcards.
-
 Optionally, to allow a user to create or drop a credential, admin can GRANT/DENY ALTER ANY CREDENTIAL permission to a user:
 
 ```sql
