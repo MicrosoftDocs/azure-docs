@@ -180,6 +180,7 @@ All POST requests return a JSON formatted response with the IDs and detected ent
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
 
+Because of multilingual and emoji support, see also [how to process offsets in API output](text-analytics-how-to-process-offsets)
 
 #### [Version 3.0-preview)](#tab/version-3)
 
@@ -285,6 +286,11 @@ In this article, you learned concepts and workflow for entity linking using Text
 * JSON documents in the request body include an ID, text, and language code.
 * POST requests are sent to one or more endpoints, using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that is valid for your subscription.
 * Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be used in any application
+
+## See also
+
+ [Process offsets in API output](text-analytics-how-to-process-offsets)
+
 
 ## Next steps
 

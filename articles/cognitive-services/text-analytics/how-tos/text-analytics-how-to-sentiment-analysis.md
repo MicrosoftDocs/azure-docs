@@ -157,6 +157,8 @@ The sentiment analyzer classifies text as predominantly positive or negative. It
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data.
 
+Because of multilingual and emoji support, see also [how to process offsets in API output](text-analytics-how-to-process-offsets)
+
 #### [Version 3.0-preview](#tab/version-3)
 
 ### Sentiment Analysis v3 example response
@@ -265,6 +267,7 @@ In this article, you learned concepts and workflow for sentiment analysis using 
 
 ## See also
 
+* [Process offsets in API output](text-analytics-how-to-process-offsets)
 * [Text Analytics overview](../overview.md)
 * [Using the Text Analytics client library](../quickstarts/text-analytics-sdk.md)
 * [What's new](../whats-new.md)
