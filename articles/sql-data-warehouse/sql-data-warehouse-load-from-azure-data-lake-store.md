@@ -1,29 +1,29 @@
 ---
 title: 'Tutorial load data from Azure Data Lake Storage'
-description: Use PolyBase external tables to load data from Azure Data Lake Storage into Azure SQL Data Warehouse.
+description: Use PolyBase external tables to load data from Azure Data Lake Storage for SQL analytics.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 12/06/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# Load data from Azure Data Lake Storage to SQL Data Warehouse
-This guide outlines how to use PolyBase external tables to load data from Azure Data Lake Storage into Azure SQL Data Warehouse. Although you can run adhoc queries on data stored in Data Lake Storage, we recommend importing the data into the SQL Data Warehouse for best performance. 
+# Load data from Azure Data Lake Storage for SQL Analytics
+This guide outlines how to use PolyBase external tables to load data from Azure Data Lake Storage. Although you can run adhoc queries on data stored in Data Lake Storage, we recommend importing the data for best performance. 
 
 > [!NOTE]  
-> An alternative to loading is the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) currently in public preview. To provide feedback on the COPY statement, send an email to the following distribution list: sqldwcopypreview@service.microsoft.com.
+> An alternative to loading is the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) currently in public preview.  The COPY statement provides the most flexibility. To provide feedback on the COPY statement, send an email to the following distribution list: sqldwcopypreview@service.microsoft.com.
 >
 > [!div class="checklist"]
 
 > * Create database objects required to load from Data Lake Storage.
 > * Connect to a Data Lake Storage directory.
-> * Load data into Azure SQL Data Warehouse.
+> * Load data into the data warehouse.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -32,7 +32,7 @@ Before you begin this tutorial, download and install the newest version of [SQL 
 
 To run this tutorial, you need:
 
-* An Azure SQL Data Warehouse. See [Create and query and Azure SQL Data Warehouse](create-data-warehouse-portal.md).
+* A SQL pool. See [Create a SQL pool and query data](create-data-warehouse-portal.md).
 * A Data Lake Storage account. See [Get started with Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). For this storage account, you will need to configure or specify one of the following credentials to load: A storage account key, an Azure Directory Application user, or an AAD user which has the appropriate RBAC role to the storage account. 
 
 ##  Create a credential
@@ -189,7 +189,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## Optimize columnstore compression
-By default, SQL Data Warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There's a variety of reasons why this can happen. To learn more, see [manage columnstore indexes](sql-data-warehouse-tables-index.md).
+By default, tables are defined as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There's a variety of reasons why this can happen. To learn more, see [manage columnstore indexes](sql-data-warehouse-tables-index.md).
 
 To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows.
 
@@ -207,19 +207,20 @@ If you decide to create single-column statistics on every column of every table,
 The following example is a good starting point for creating statistics. It creates single-column statistics on each column in the dimension table, and on each joining column in the fact tables. You can always add single or multi-column statistics to other fact table columns later on.
 
 ## Achievement unlocked!
-You have successfully loaded data into Azure SQL Data Warehouse. Great job!
+You have successfully loaded data into your data warehouse. Great job!
 
 ## Next steps 
 In this tutorial, you created external tables to define the structure for data stored in Data Lake Storage Gen1, and then used the PolyBase CREATE TABLE AS SELECT statement to load data into your data warehouse. 
 
 You did these things:
 > [!div class="checklist"]
+>
 > * Created database objects required to load from Data Lake Storage.
 > * Connected to a Data Lake Storage directory.
-> * Loaded data into Azure SQL Data Warehouse.
+> * Loaded data into the data warehouse.
 >
 
-Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources.
+Loading data is the first step to developing a data warehouse solution using Azure Synapse Analytics. Check out our development resources.
 
 > [!div class="nextstepaction"]
-> [Learn how to develop tables in SQL Data Warehouse](sql-data-warehouse-tables-overview.md)
+> [Learn how to develop tables for data warehousing](sql-data-warehouse-tables-overview.md)
