@@ -17,6 +17,10 @@ Premium Storage:  Not Supported
 
 Premium Storage caching:  Not Supported
 
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
 |---|---|---|---|---|---|---|---|
 | Standard_NC6    | 6  | 56  | 340  | 1 | 12 | 24 | 1 |
