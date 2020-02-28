@@ -125,8 +125,8 @@
       href: how-to-install-iot-edge-ubuntuvm.md
     - name: Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
-    - name: Install production certificates
-      href: how-to-install-production-certificates.md
+    - name: Manage device certificates
+      href: how-to-manage-device-certificates.md
     - name: Create test certificates
       href: how-to-create-test-certificates.md
     - name: Update the runtime version

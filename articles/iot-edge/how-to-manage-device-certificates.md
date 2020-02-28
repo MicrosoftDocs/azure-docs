@@ -1,19 +1,19 @@
 ---
-title: Install certificates on device - Azure IoT Edge | Microsoft Docs
-description: Create test certificates and learn how to install them on an Azure IoT Edge device to prepare for production deployment. 
+title: Manage device certificates - Azure IoT Edge | Microsoft Docs
+description: Create test certificates, install, and manage them on an Azure IoT Edge device to prepare for production deployment. 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/11/2020
+ms.date: 02/28/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
+# Manage certificates on an IoT Edge device
 
-# Install production certificates on an IoT Edge device
+All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too.
 
-All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device.
-IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too.
+## Install production certificates
 
 When you first install IoT Edge and provision your device, the device is set up with temporary certificates so that you can test the service.
 These temporary certificates expire in 90 days, or can be reset by restarting your machine.
@@ -25,14 +25,14 @@ To learn more about the different types of certificates and their roles in an Io
 >[!NOTE]
 >The term "root CA" used throughout this article refers to the topmost authority public certificate of the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it is actually an intermediate CA public certificate.
 
-## Prerequisites
+### Prerequisites
 
 * An IoT Edge device, running either on [Windows](how-to-install-iot-edge-windows.md) or [Linux](how-to-install-iot-edge-linux.md).
 * Have a root certificate authority (CA) certificate, either self-signed or purchased from a trusted commercial certificate authority like Baltimore, Verisign, DigiCert, or GlobalSign.
 
 If you don't have a root certificate authority yet, but want to try out IoT Edge features that require production certificates (like gateway scenarios) you can [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md).
 
-## Create production certificates
+### Create production certificates
 
 You should use your own certificate authority to create the following files:
 
@@ -44,11 +44,11 @@ In this article, what we refer to as the *root CA* is not the topmost certificat
 
 To see an example of these certificates, review the scripts that create demo certificates in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
-## Install certificates on the device
+### Install certificates on the device
 
 Install your certificate chain on the IoT Edge device and configure the IoT Edge runtime to reference the new certificates.
 
-For example, if you used the sample scripts to [Create demo certificates](how-to-create-test-certificates.md), the three files that you need to copy onto your IoT Edge device are the following:
+For example, if you used the sample scripts to [Create demo certificates](how-to-create-test-certificates.md), copy the following files onto your IoT-Edge device:
 
 * Device CA certificate: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * Device CA private key: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
@@ -58,12 +58,12 @@ For example, if you used the sample scripts to [Create demo certificates](how-to
 
    You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.  If you generated the certificates on the IoT Edge device itself, you can skip this step and use the path to the working directory.
 
-2. Open the IoT Edge security daemon config file.
+1. Open the IoT Edge security daemon config file.
 
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-3. Set the **certificate** properties in the config.yaml file to the full path to the certificate and key files on the IoT Edge device. Remove the `#` character before the certificate properties to uncomment the four lines. Make sure the **certificates:** line has no preceding whitespace and that nested items are indented by two spaces. For example:
+1. Set the **certificate** properties in the config.yaml file to the full path to the certificate and key files on the IoT Edge device. Remove the `#` character before the certificate properties to uncomment the four lines. Make sure the **certificates:** line has no preceding whitespace and that nested items are indented by two spaces. For example:
 
    * Windows:
 
@@ -83,13 +83,60 @@ For example, if you used the sample scripts to [Create demo certificates](how-to
         trusted_ca_certs: "<path>/root-ca.root.ca.cert.pem"
       ```
 
-4. On Linux devices, make sure that the user **iotedge** has read permissions for the directory holding the certificates.
+1. On Linux devices, make sure that the user **iotedge** has read permissions for the directory holding the certificates.
 
-5. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
+1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
 
    * Windows: `C:\ProgramData\iotedge\hsm\certs` and `C:\ProgramData\iotedge\hsm\cert_keys`
 
    * Linux: `/var/lib/iotedge/hsm/certs` and `/var/lib/iotedge/hsm/cert_keys`
+
+## Design customization certificate lifetime
+
+If you are not providing your own production certificates, you will need to restart the IoT-Edge device to renew the temporary certificates before they expire at the end of 90 days. However, you have the option of setting the **auto_generated_ca_lifetime_days** flag in config.yaml to specify the number of days for the lifetime of the certificates.
+
+Add the following line to the **certificate** properties in the config.yaml file with the desired number of days:
+
+   ```yaml
+      auto_generated_ca_lifetime_days: \<number of days>
+   ```
+
+This setting honors both temporary certificates and production certificates. If the **device_ca_cert** and **device_ca_pk** certificates are not specified in the config.yaml file, then the flag will be honored on temporary certificates. If they are specified, then this flag will override the expiration settings on the production certificates.
+
+After you specify the flag in the config.yaml file, do the following:
+
+1. Delete the contents of the hsm folder.
+
+    Windows: C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys
+    Linux: /var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys
+
+1. Restart the IoT Edge service.
+
+    Windows:
+
+    ```azurecli
+    Restart-Service iotedge
+    ```
+
+    Linux:
+
+    ```bash
+    sudo systemctl restart iotedge
+    ```
+
+1. Confirm the lifetime setting.
+
+    Windows:
+
+    ```azurecli
+    iotedge check --verbose
+    ```
+
+    Linux:
+
+    ```bash
+    sudo iotedge check --verbose
+    ```
 
 ## Next steps
 
