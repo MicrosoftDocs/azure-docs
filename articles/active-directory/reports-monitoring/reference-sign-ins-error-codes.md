@@ -37,7 +37,3 @@ When a sign-in fails, you will see an error code corresponding to the failure. T
  
 
 
-## Next steps
-
-* [Sign-ins reports overview](concept-sign-ins.md)
-* [Programmatic access to Azure AD reports](concept-reporting-api.md)
