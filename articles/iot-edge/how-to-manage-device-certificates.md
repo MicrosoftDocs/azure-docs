@@ -102,6 +102,9 @@ For more information about the function of the different certificates on an IoT 
 
 For these two auto-generated certificates, you have the option of setting the **auto_generated_ca_lifetime_days** flag in config.yaml to configure the number of days for the lifetime of the certificates.
 
+>[!NOTE]
+>There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 90 day, but is automatically renewed before expiring. The **auto_generated_ca_lifetime_days** value doesn't affect this certificate.
+
 To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config.yaml file.
 
 ```yaml
