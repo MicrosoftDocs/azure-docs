@@ -44,7 +44,7 @@ The initial cost analysis view includes the following areas.
 
 **Actual cost**: Shows the total usage and purchase costs for the current month, as they're accrued and will show on your bill.
 
-**Forecast**: Shows the total forecasted costs for time period you choose. (Forecast is in preview.)
+**Forecast**: Shows the total forecasted costs for time period you choose.
 
 **Budget**: Shows the planned spending limit for the selected scope, if available.
 

@@ -3,7 +3,7 @@ title: Azure VM sizes - GPU | Microsoft Docs
 description: Lists the different GPU optimized sizes available for virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines
 documentationcenter: ''
-author: jonbeck7
+author: vikancha
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -27,15 +27,15 @@ GPU optimized VM sizes are specialized virtual machines available with single or
 
 - [NV-series](nv-series.md) and [NVv3-series](nvv3-series.md) sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX. These VMs are backed by the NVIDIA Tesla M60 GPU.
 
-- [NVv4-series](nvv4-series.md) VM sizes optimized and designed for VDI and remote visualization. With partitioned GPUs, NVv4 offers the right size for workloads requiring smaller GPU resources. These VMs are backed by the AMD Radeon Instinct MI25 GPU.
+- [NVv4-series](nvv4-series.md) VM sizes optimized and designed for VDI and remote visualization. With partitioned GPUs, NVv4 offers the right size for workloads requiring smaller GPU resources. These VMs are backed by the AMD Radeon Instinct MI25 GPU. NVv4 VMs currently support only Windows guest operating system.
 
 ## Supported operating systems and drivers
 
 To take advantage of the GPU capabilities of Azure N-series VMs, NVIDIA GPU drivers must be installed.
 
-The [NVIDIA GPU Driver Extension](/extensions/hpccompute-gpu-windows.md) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](/extensions/hpccompute-gpu-windows.md) for supported operating systems and deployment steps. For general information about VM extensions, see [Azure virtual machine extensions and features](/extensions/overview.md).
+The [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](/azure/virtual-machines/extensions/hpccompute-gpu-windows) for supported operating systems and deployment steps. For general information about VM extensions, see [Azure virtual machine extensions and features](/azure/virtual-machines/extensions/overview).
 
-If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver setup for Windows](/windows/n-series-driver-setup.md) or [N-series GPU driver setup for Linux](/linux/n-series-driver-setup) for supported operating systems, drivers, installation, and verification steps.
+If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver setup for Windows](/azure/virtual-machines/windows/n-series-driver-setup) or [N-series GPU driver setup for Linux](/azure/virtual-machines/linux/n-series-driver-setup) for supported operating systems, drivers, installation, and verification steps.
 
 ## Deployment considerations
 
@@ -47,7 +47,7 @@ If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver s
 
 - If you want to deploy more than a few N-series VMs, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
 
-- You might need to increase the cores quota (per region) in your Azure subscription, and increase the separate quota for NC, NCv2, NCv3, ND, NDv2, NV, or NVv2 cores. To request a quota increase, [open an online customer support request](/../azure-supportability/how-to-create-azure-support-request.md) at no charge. Default limits may vary depending on your subscription category.
+- You might need to increase the cores quota (per region) in your Azure subscription, and increase the separate quota for NC, NCv2, NCv3, ND, NDv2, NV, or NVv2 cores. To request a quota increase, [open an online customer support request](../azure-portal/supportability/how-to-create-azure-support-request.md) at no charge. Default limits may vary depending on your subscription category.
 
 ## Other sizes
 
