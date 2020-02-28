@@ -38,7 +38,7 @@ When you enable an IP access control policy programmatically, you need to add th
 |US Gov|52.244.48.71|
 |All other regions|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
-You can enable access to the Azure portal by selecting the **Allow access from Azure portal** option, as shown in the following screenshot:
+You can enable requests to access the Azure portal by selecting the **Allow access from Azure portal** option, as shown in the following screenshot:
 
 ![Screenshot showing how to enable Azure portal access](./media/how-to-configure-firewall/enable-azure-portal.png)
 
@@ -49,7 +49,7 @@ If you access your Azure Cosmos DB account from services that don’t provide a 
 > [!NOTE]
 > This option configures the firewall to allow all requests from Azure, including requests from the subscriptions of other customers deployed in Azure. The list of IPs allowed by this option is wide, so it limits the effectiveness of a firewall policy. Use this option only if your requests don’t originate from static IPs or subnets in virtual networks. Choosing this option automatically allows access from the Azure portal because the Azure portal is deployed in Azure.
 
-You can enable access to the Azure portal by selecting the **Accept connections from within Azure datacenters** option, as shown in the following screenshot:
+You can enable access from other sources  within the Azure by selecting the **Accept connections from within Azure datacenters** option, as shown in the following screenshot:
 
 ![Screenshot showing how to open the Firewall page in the Azure portal](./media/how-to-configure-firewall/enable-azure-services.png)
 
