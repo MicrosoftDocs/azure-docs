@@ -53,7 +53,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureCosmosDB** | Azure Cosmos DB. | Outbound | Yes | Yes |
 | **AzureDatabricks** | Azure Databricks. | Both | No | No |
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | No |
-| **AzureDataLake** | Azure Data Lake. | Outbound | No | Yes |
+| **AzureDataLake** | Azure Data Lake Storage Gen1. | Outbound | No | Yes |
 | **AzureEventGrid** | Azure Event Grid. <br/><br/>*Note:* This tag covers Azure Event Grid endpoints in US South Central, US East, US East 2, US West 2, and US Central only. | Both | No | No |
 | **AzureFrontDoor** | Azure Front Door. | Both | No | No |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** and **AzureFrontDoor.Frontend** tags. Please also whitelist following IPs (this dependency will be removed soon): 13.107.6.181 & 13.107.9.181. | Outbound | No | No |
