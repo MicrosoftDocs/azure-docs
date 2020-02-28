@@ -40,7 +40,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Download files
 
-Source code for this tutorial is in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) Github repository, in the [multiple-data-sources](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources) folder.
+Source code for this tutorial is in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub repository, in the [multiple-data-sources](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources) folder.
 
 ## 1 - Create services
 
