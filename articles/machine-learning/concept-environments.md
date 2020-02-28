@@ -14,7 +14,7 @@ ms.date: 01/06/2020
 # What are Azure Machine Learning environments?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning environments specify the Python packages, environment variables, and software settings around your training and scoring scripts. They also specify run times (Python, Spark, or Docker). They are managed and versioned entities within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across a variety of compute targets.
+Azure Machine Learning environments specify the Python packages, environment variables, and software settings around your training and scoring scripts. They also specify run times (Python, Spark, or Docker). The environments are managed and versioned entities within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across a variety of compute targets.
 
 You can use an `Environment` object on your local compute to:
 * Develop your training script.
@@ -55,31 +55,33 @@ For code samples, see the "Manage environments" section of [Reuse environments f
 
 ## Environment building, caching and reuse
 
-### Building environment as Docker image
+The environments within Azure Machine Learning service are managed by a microservice called Environment Management service. It is resposible for building environment definitions into Docker images and conda environments, and caching the environments so they can be re-used in subsequent training runs and deployments.
 
-Typically, when you first submit a run using an environment, the Environment Management service invokes an [ACR Build Task](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview) on the Azure Container Registry (ACR) associated with the Workspace. The built Docker image is then cached on the Workspace ACR, and pulled to the compute target executing the run.
+### Building environments as Docker images
 
-The image build consists of two steps
+Typically, when you first submit a run using an environment, the Environment Management service invokes an [ACR Build Task](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview) on the Azure Container Registry (ACR) associated with the Workspace. The built Docker image is then cached on the Workspace ACR. At the start of the run execution, the image is retrieved by the compute target.
 
- 1. Downloading the base image, and executing any Docker steps
+The image build consists of two steps:
+
+ 1. Downloading a base image, and executing any Docker steps
  2. Building a conda environment according to conda dependencies specified in the environment definition.
 
-The second step is omitted if you specify user-managed dependencies. In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps within first step. You're also responsible for specifying the correct location for Python executable.
+The second step is omitted if you specify [user-managed dependencies](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py). In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps within the first step. You're also responsible for specifying the correct location for the Python executable.
 
 ### Image caching and reuse
 
-If you use the same environment definition for another run, the Environment Management service pulls the cached image from Workspace ACR to the compute target, and re-uses it. 
+If you use the same environment definition for another run, the Environment Management service re-uses the cached image from the Workspace ACR. 
 
 To view the details of a cached image, use [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#get-image-details-workspace-) method.
 
-To determine whether to re-use a cached image or build a new one, the Environment Management service computes a hash value from the environment definition and compares it to the hashes of existing environments. The hash is based on:
+To determine whether to re-use a cached image or build a new one, the Environment Management service computes [a hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on:
  
  * Base image property value
  * Custom docker steps property value
  * List of Python packages in Conda definition
  * List of packages in Spark definition 
 
-The hash does not depend on environment name or version. Following diagram illustrates how two environments with different name and version, but identical base image and Python packages have the same hash and therefore correspond to the same cached image. The third environment has different Python packages and versions, and therefore corresponds to a different cached image.
+The hash doesn't depend on environment name or version. See the following diagram that shows three environment definitions. Two of them have different name and version, but identical base image and Python packages. They have the same hash and therefore correspond to the same cached image. The third environment has different Python packages and versions, and therefore corresponds to a different cached image.
 
 ![Diagram of environment caching as Docker images](./media/concept-environments/environment_caching.png)
 
@@ -88,7 +90,7 @@ For example, following changes on environment definition will change the hash va
  * Adding or removing a Python package
  * Changing a pinned package version, for example ```numpy==0.15``` to ```numpy==0.16```.
 
-Following operations will not change the hash value, and will result in a cached image being used:
+Following operations won't change the hash value, and will result in a cached image being used:
  
  * Renaming an environment
  * Creating a new environment whose properties and Python package list exactly matches an existing environment.
