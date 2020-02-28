@@ -13,11 +13,11 @@ ms.date: 02/28/2020
 
 # Tutorial: Index data from multiple data sources in C#
 
-Azure Cognitive Search can import, analyze, and index data from multiple data sources into a single combined search index. This supports situations where structured data is aggregated with less-structured or even plain text data from other sources, like text, HTML, or JSON documents.
+Azure Cognitive Search can import, analyze, and index data from multiple data sources into a single consolidate search index. This supports situations where structured data is aggregated with less-structured or even plain text data from other sources, like text, HTML, or JSON documents.
 
 This tutorial describes how to index hotel data from an Azure Cosmos DB data source and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing complex data types.
 
-This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
+This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk). In this tutorial, you'll perform the following tasks:
 
 > [!div class="checklist"]
 > * Upload sample data and create data sources
@@ -40,29 +40,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Download files
 
-1. Locate the sample repository on GitHub: [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
-1. Select **Clone or download** and make your private local copy of the repository.
-1. Open Visual Studio 2019 and install the Microsoft Azure Cognitive Search NuGet package, if not already installed. In the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. In the **Browse** tab, find and then install **Microsoft.Azure.Search** (version 9.0.1, or later). You will have to click through additional dialogs to complete the installation.
+Source code for this tutorial is in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) Github repository, in the [multiple-data-sources](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources) folder.
 
-    ![Using NuGet to add Azure libraries](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+## 1 - Create services
 
-1. Using Visual Studio, navigate to your local repository, and open the solution file **AzureSearchMultipleDataSources.sln**.
+This tutorial uses Azure Cognitive Search for indexing and queries, Azure Cosmos DB for one data set, and Azure Blob storage for the second data set. 
 
-## Get a key and URL
-
-To interact with your Azure Cognitive Search service, you need the service URL and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
-
-1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
-
-![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
-
-All requests require an api-key on every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
-
-## Prepare sample Azure Cosmos DB data
+If possible, create all services in the same region and resource group for proximity and manageability. In practice, your services can be in any region.
 
 This sample uses two small sets of data that describe seven fictional hotels. One set describes the hotels themselves, and will be loaded into an Azure Cosmos DB database. The other set contains hotel room details, and is provided as seven separate JSON files to be uploaded into Azure Blob Storage.
+
+### Start with Cosmos DB
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then navigate your Azure Cosmos DB account Overview page.
 
@@ -84,7 +72,7 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 1. Use the Refresh button to refresh your view of the items in the hotels collection. You should see seven new database documents listed.
 
-## Prepare sample blob data
+### Azure Blob storage
 
 1. Sign in to the [Azure portal](https://portal.azure.com), navigate to your Azure storage account, click **Blobs**, and then click **+ Container**.
 
@@ -98,13 +86,37 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 After the upload completes, the files should appear in the list for the data container.
 
-## Set up connections
+### Azure Cognitive Search
 
-Connection information for the search service and the data sources is specified in the **appsettings.json** file in the solution. 
+The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
 
-1. In Visual Studio, open the **AzureSearchMultipleDataSources.sln** file.
+### Get an admin api-key and URL for Azure Cognitive Search
 
-1. In Solution Explorer, edit the **appsettings.json** file.  
+To interact with your Azure Cognitive Search service you will need the service URL and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+
+1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+
+   Get the query key as well. It's a best practice to issue query requests with read-only access.
+
+   ![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
+
+Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+
+## 2 - Set up your environment
+
+1. Start Visual Studio 2019 and in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. 
+
+1. In the **Browse** tab, find and then install **Microsoft.Azure.Search** (version 9.0.1, or later). You will have to click through additional dialogs to complete the installation.
+
+    ![Using NuGet to add Azure libraries](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+
+1. Search for the **Microsoft.Extensions.Configuration.Json** NuGet package and install it as well.
+
+1. Open the solution file **AzureSearchMultipleDataSources.sln**.
+
+1. In Solution Explorer, edit the **appsettings.json** file to add connection information.  
 
 ```json
 {
@@ -121,7 +133,7 @@ The first two entries use the URL and admin keys for your Azure Cognitive Search
 
 The next entries specify account names and connection string information for the Azure Blob Storage and Azure Cosmos DB data sources.
 
-### Identify the document key
+## 3 - Identify the document key
 
 In Azure Cognitive Search, the key field uniquely identifies each document in the index. Every search index must have exactly one key field of type `Edm.String`. That key field must be present for each document in a data source that is added to the index. (In fact, it's the only required field.)
 
@@ -134,7 +146,7 @@ For example, in our sample Azure Cosmos DB data, the hotel identifier is called 
 > [!NOTE]
 > In most cases auto-generated document keys, such as those created by default by some indexers, do not make good document keys for combined indexes. In general you will want to use a meaningful, unique key value that already exists in, or can be easily added to, your data sources.
 
-## Understand the code
+## 4 - Explore the code
 
 Once the data and configuration settings are in place, the sample program in **AzureSearchMultipleDataSources.sln** should be ready to build and run.
 
@@ -150,7 +162,7 @@ This simple C#/.NET console app performs the following tasks:
   + **Hotel.cs** contains the schema that defines the index
   + **Program.cs** contains functions that create the Azure Cognitive Search index, data sources, and indexers, and load the combined results into the index.
 
-### Define the index
+### Create an index
 
 This sample program uses the .NET SDK to define and create an Azure Cognitive Search index. It takes advantage of the [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) class to generate an index structure from a C# data model class.
 
@@ -327,7 +339,7 @@ the blob indexer updates the existing documents in the index and adds the room d
 > [!NOTE]
 > If you have the same non-key fields in both of your data sources, and the data within those fields does not match, then the index will contain the values from whichever indexer ran most recently. In our example, both data sources contain a **HotelName** field. If for some reason the data in this field is different, for documents with the same key value, then the **HotelName** data from the data source that was indexed most recently will be the value stored in the index.
 
-## Search your JSON files
+## 5 - Search
 
 You can explore the populated search index after the program has run, using the [**Search explorer**](search-explorer.md) in the portal.
 
