@@ -346,12 +346,12 @@ Run the following [az group deployment create][az-group-deployment-create] comma
 ```bash
 az group deployment create \
   --resource-group <resource-group-name> \
-  --template-file CMKtemplate.json\
+  --template-file CMKtemplate.json \
   --parameters \
-  registry_name=<registry-name> \
-  identity_name=<managed-identity> \
-  vault_name=<key-vault-name> \
-  kek_id=$KEK
+    registry_name=<registry-name> \
+    identity_name=<managed-identity> \
+    vault_name=<key-vault-name> \
+    kek_id=<key-vault-key-id>
 ```
 
 ### Show encryption status
