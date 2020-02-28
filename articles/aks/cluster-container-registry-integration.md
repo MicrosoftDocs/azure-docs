@@ -35,7 +35,7 @@ az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
 
 ```
-Alternatively, you can specify the ACR name using an ACR resource ID, which has has the following format:
+Alternatively, you can specify the ACR name using an ACR resource ID, which has the following format:
 
 /subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\> 
  
