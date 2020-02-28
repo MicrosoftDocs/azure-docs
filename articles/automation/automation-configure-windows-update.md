@@ -3,32 +3,25 @@ title: Configure Windows Update settings to work with Azure Update Management
 description: This article describes the Windows Update settings that you configure to work with Azure Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 10/02/2019
+ms.date: 02/27/2020
 ms.topic: conceptual
 ---
 # Configure Windows Update settings for Update Management
 
-Azure Update Management relies on Windows Update to download and install Windows updates. As a result, Update Management respects many of the settings used by Windows Update. If you use settings to enable non-Windows updates, Update Management will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
+Azure Update Management relies on [Windows Update client](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. Many of these settings can be managed with Local Group Policy Editor, PowerShell, directly editing the Registry, or in Group Policy. Some settings can be managed with the [Server Configuration Tool](https://docs.microsoft.com/windows-server/get-started/sconfig-on-ws2016#windows-update-settings) (SCONFIG).
+
+Update Management respects many of the settings specified to control the Windows Update client. If you use settings to enable non-Windows updates, Update Management will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
 
 ## Pre-download updates
 
-To configure automatic downloading of updates in Group Policy, set the [Configure Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) to **3**. This setting enables downloads of the required updates in the background, but it doesn't install them. In this way, Update Management remains in control of schedules, but updates can be downloaded outside the Update Management maintenance window. This behavior prevents "Maintenance window exceeded" errors in Update Management.
+To configure automatic downloading of updates but don't automatically install them, you can use Group Policy to set the [Configure Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) to **3**. This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, Update Management remains in control of schedules, but updates can be downloaded outside the Update Management maintenance window. This behavior prevents "Maintenance window exceeded" errors in Update Management.
 
-You can also turn on this setting by running the following PowerShell command on a system that you want to configure for auto-downloading of updates:
+You can also turn on this setting by running the following PowerShell command on a machine that you want to configure for auto-downloading of updates:
 
 ```powershell
 $WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
 $WUSettings.NotificationLevel = 3
 $WUSettings.Save()
-```
-
-## Disable automatic installation
-
-By default on Azure virtual machines (VMs), automatic installation of updates is enabled. This might cause updates to be installed before you schedule them for installation by Update Management. You can disable this behavior by setting the `NoAutoUpdate` registry key to `1`. The following PowerShell snippet shows how to do this:
-
-```powershell
-$AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
-Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
 ```
 
 ## Configure reboot settings
@@ -37,7 +30,7 @@ The registry keys listed in [Configuring Automatic Updates by editing the regist
 
 ## Enable updates for other Microsoft products
 
-By default, Windows Update provides updates only for Windows. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other products, including security patches for Microsoft SQL Server and other Microsoft software. This option can't be configured by Group Policy. Run the following PowerShell command on the systems that you want to enable other Microsoft updates on. Update Management will comply with this setting.
+By default, Windows Update client is configured to provide updates only for Windows. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other products, including security patches for Microsoft SQL Server and other Microsoft software. This option can't be configured by Group Policy. Run the following PowerShell command on the systems that you want to enable other Microsoft updates on. Update Management will comply with this setting.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
