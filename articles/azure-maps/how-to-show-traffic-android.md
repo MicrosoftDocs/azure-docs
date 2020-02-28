@@ -31,7 +31,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-You will need to import the following libraries to call the `setTraffic` and `incidents` methods:
+You'll need to import the following libraries to call the `setTraffic` and `incidents` methods:
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
@@ -86,7 +86,7 @@ mapControl.onReady(map -> {
 });
 ```
 
-Once you incorporate the above code in your application, you'll be able to click on the feature and learn about the traffic incidents for that the feature. You'll see results similar to the following image:
+Once you incorporate the above code in your application, you'll be able to click on a feature and learn about the traffic incidents for that feature. You'll see results similar to the following image:
 
 <center>
 
@@ -100,7 +100,7 @@ Use the following code snippet to set traffic flow data. Similar to the code in 
 
 | | |
 | :-- | :-- |
-| TrafficFlow.NONE | Doesn't displays traffic data on the map |
+| TrafficFlow.NONE | Doesn't display traffic data on the map |
 | TrafficFlow.RELATIVE | Shows traffic data that's relative to the free-flow speed of the road |
 | TrafficFlow.RELATIVE_DELAY | Displays areas that are slower than the average expected delay |
 | TrafficFlow.ABSOLUTE | Shows the absolute speed of all vehicles on the road |
@@ -113,7 +113,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-You will need to import the following libraries to use the `setTraffic` and `flow` methods:
+You'll need to import the following libraries to use the `setTraffic` and `flow` methods:
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
