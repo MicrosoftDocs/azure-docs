@@ -101,7 +101,7 @@ The last phase of phase 1 is to make the volume clone you've chosen, available o
 > [!IMPORTANT]
 > The following guide contains the necessary steps but also - at the end - an instruction to format the volume. **DO NOT FORMAT THE VOLUME** Read and follow the linked-to "section 7" from the beginning up until instruction: "10. To format a simple volume, ..."  Stop before following this step and return to this article.
 
-[Mount a volume clone on the 8020 virtual appliance in Azure](../../storsimple/storsimple-8000-deployment-walkthrough-u2.md#phase-7-mount-initialize-and-format-a-volume)
+[Mount a volume clone on the 8020 virtual appliance in Azure](../../storsimple/storsimple-8000-deployment-walkthrough-u2.md#step-7-mount-initialize-and-format-a-volume)
 
 ### Phase 1 summary
 
@@ -279,7 +279,7 @@ Unfortunately, the migration process isn't instantaneous. That means that the af
 
 Repeat the following steps until sync completes in a fast enough duration that you feel comfortable taking users and apps offline:
 
-1. [Determine sync is complete for a given volume clone.](#determining-when-sync-from-a-volume-clone-is-complete)
+1. [Determine sync is complete for a given volume clone.](#determine-when-sync-is-done)
 2. [Take a new volume clone(s) and mount it to the 8020 virtual appliance.](#the-next-volume-clones)
 3. [Determine when sync is done.](#determine-when-sync-is-done)
 4. [Cut-over strategy](#cut-over-strategy)
