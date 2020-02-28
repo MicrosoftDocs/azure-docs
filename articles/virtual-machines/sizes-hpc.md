@@ -83,7 +83,7 @@ In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is add
   Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
   ```
 
-  For more information, see [Virtual machine extensions and features](/extensions/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You can also work with extensions for VMs deployed in the [classic deployment model](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+  For more information, see [Virtual machine extensions and features](./extensions/overview.md). You can also work with extensions for VMs deployed in the [classic deployment model](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 - **RDMA network address space** - The RDMA network in Azure reserves the address space 172.16.0.0/16. To run MPI applications on instances deployed in an Azure virtual network, make sure that the virtual network address space does not overlap the RDMA network.
 

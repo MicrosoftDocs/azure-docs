@@ -28,7 +28,7 @@ The Azure Migrate appliance continuously collects information about the on-premi
 - **VMware**: If your environment is shared across tenants and you don't want to discover the VMs of one tenant in another tenant's subscription, create VMware vCenter Server credentials that can access only the VMs you want to discover. Then, use those credentials when you start discovery in the Azure Migrate appliance.
 - **Hyper-V**: Hyper-V discovery uses Hyper-V host credentials. If VMs share the same Hyper-V host, currently, you cannot isolate discovery by tenant.  
 
-### Do I need vCenter Server for VMWare VM discovery?
+## Do I need vCenter Server for VMware VM discovery?
 
 Yes. To perform discovery in a VMware environment, Azure Migrate requires vCenter Server. The appliance doesn't support discovery of ESXi hosts that aren't managed by vCenter Server.
 
@@ -60,7 +60,7 @@ Azure Migrate uses this process to assess size requirements:
 
 When you create an assessment in Azure, depending on performance duration and the performance history percentile value that is set, Azure Migrate calculates the effective utilization value, and then uses it for sizing.
 
-For example, if you set the performance duration to 1 day and the percentile value to 95 percentile, Azure Migrate sorts the 15-minute sample points sent by the collector for the past day in ascending order. It picks the 95th percentile value as the effective utilization.
+For example, if you set the performance duration to one day and the percentile value to 95th percentile, Azure Migrate sorts the 15-minute sample points sent by the collector for the past day in ascending order. It picks the 95th percentile value as the effective utilization.
 
 Using the 95th percentile value ensures that outliers are ignored. Outliers might be included if your Azure Migrate uses the 99th percentile. To pick the peak usage for the period without missing any outliers, set Azure Migrate to use the 99th percentile.
 
@@ -95,8 +95,8 @@ No, the dependency visualization can't be exported. However, Azure Migrate uses 
 
 ## Can I automate MMA and Dependency agent installation?
 
-Use a [script to install the Dependency agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Follow the [instructions to install MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) by using the command line or automation. For
-MMA, download and use the [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) script that's available.
+Use a [script to install the Dependency agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Follow the [instructions to install MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) by using the command line or automation. For
+MMA, you also can download and use the [MMA installation script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) that's available.
 
 You can also use deployment tools like Microsoft Endpoint Configuration Manager and [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) to deploy the agents.
 
@@ -109,7 +109,7 @@ You can also use deployment tools like Microsoft Endpoint Configuration Manager 
 
 No. You can visualize dependencies for up to one hour. You can go back as far as a month to a specific date in history, but the maximum duration for visualization is one hour. 
 
-For example, you can use the time duration in the dependency map to view dependencies for yesterday, but you can view the dependencies from yesterday only for a one-hour window. 
+For example, you can use the time duration in the dependency map to view dependencies for yesterday, but you can view dependencies from yesterday only for a one-hour window. 
 
 However, you can use Azure Monitor logs to [query dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 

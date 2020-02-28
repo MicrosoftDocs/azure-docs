@@ -38,11 +38,11 @@ A renamed database is treated as a new database. Therefore, the service will tre
 
 ### What are the prerequisites to back up SAP HANA databases on an Azure VM?
 
-Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [setting up permissions](tutorial-backup-sap-hana-db.md#setting-up-permissions) sections.
+Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections.
 
 ### What permissions should be set for Azure to be able to back up SAP HANA databases?
 
-Running the pre-registration script sets the required permissions to allow Azure to back up SAP HANA databases. You can find more about the permissions [here](tutorial-backup-sap-hana-db.md#setting-up-permissions).
+Running the pre-registration script sets the required permissions to allow Azure to back up SAP HANA databases. You can find more what the pre-registration script does [here](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
 ### Will backups work after migrating SAP HANA from 1.0 to 2.0?
 

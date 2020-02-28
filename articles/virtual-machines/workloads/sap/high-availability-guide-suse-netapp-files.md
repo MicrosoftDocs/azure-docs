@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/27/2020
 ms.author: radeltch
 
 ---
@@ -96,10 +96,6 @@ Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a [load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) is required to use a virtual IP address. We recommend using [Standard load balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). The following list shows the configuration of the (A)SCS and ERS load balancer.
-
-> [!IMPORTANT]
-> Multi-SID clustering of SAP ASCS/ERS with SUSE Linux as guest operating system in Azure VMs is **NOT supported**. Multi-SID clustering describes the installation of multiple SAP ASCS/ERS instances with different SIDs in one Pacemaker cluster
-
 
 ### (A)SCS
 
@@ -683,14 +679,14 @@ If using enqueue server 1 architecture (ENSA1), define the resources as follows:
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
     operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
     operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
     meta priority=1000
    
@@ -712,14 +708,14 @@ If using enqueue server 1 architecture (ENSA1), define the resources as follows:
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
     operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
     operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
    
    sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
@@ -1422,6 +1418,7 @@ The following tests are a copy of the test cases in the [best practices guides o
 
 ## Next steps
 
+* [HA for SAP NW on Azure VMs on SLES for SAP applications multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]

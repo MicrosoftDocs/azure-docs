@@ -10,7 +10,6 @@ ms.custom: MVC
 
 This article describes how to prepare on-premises machines before you start migrating them to Azure by using [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
-
 In this article, you:
 > [!div class="checklist"]
 > * Verify migration limitations.
@@ -19,7 +18,6 @@ In this article, you:
 > * Review changes you might need to make before you begin migration.
 > * Configure settings so drive letters are preserved after migration.
 > * Prepare machines so you can connect to the Azure VMs after migration.
-
 
 ## Verify migration limitations
 

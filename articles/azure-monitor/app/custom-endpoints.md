@@ -1,11 +1,7 @@
 ---
 title: Azure Application Insights override default SDK endpoints
 description: Modify default Azure Monitor Application Insights SDK endpoints for regions like Azure Government.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/26/2019
 
 ---

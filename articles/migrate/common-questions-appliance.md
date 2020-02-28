@@ -34,9 +34,9 @@ The appliance can connect over the internet or by using Azure ExpressRoute with 
 
 The Azure Migrate appliance profiles on-premises machines continuously to measure performance data. This profiling has almost no performance impact on profiled machines.
 
-### Can I harden the appliance VM?
+## Can I harden the appliance VM?
 
-When you create the appliance VM by using the downloaded template, you can add components (for example, an antivirus component) to the template if you leave in place the communication and firewall rules that are required for the Azure Migrate appliance.
+When you use the downloaded template to create the appliance VM, you can add components (antivirus, for example) to the template if you leave in place the communication and firewall rules that are required for the Azure Migrate appliance.
 
 ## What network connectivity is required?
 
@@ -64,7 +64,7 @@ Here's more information about how data is stored:
 
 ## How much data is uploaded during continuous profiling?
 
-The volume of data sent to Azure Migrate depends on multiple parameters. As an example, an Azure Migrate project that has 10 machines (each with one disk and one NIC) sends approximately 50 MB of data per day. This value is approximate; the actual value varies based on the number of data points for the disks and the NICs. If the number of machines, disks, or NICs increases, the increase in data that's sent is nonlinear.
+The volume of data that's sent to Azure Migrate depends on multiple parameters. As an example, an Azure Migrate project that has 10 machines (each with one disk and one NIC) sends approximately 50 MB of data per day. This value is approximate; the actual value varies depending on the number of data points for the disks and NICs. If the number of machines, disks, or NICs increases, the increase in data that's sent is nonlinear.
 
 ## Is data encrypted at rest and in transit?
 
@@ -78,7 +78,7 @@ Yes, for both:
 
 These steps describe how the appliance connects to VMware vCenter Server:
 
-1. The appliance connects to vCenter Server (port 443) using the credentials you provided when you set up the appliance.
+1. The appliance connects to vCenter Server (port 443) by using the credentials you provided when you set up the appliance.
 2. The appliance uses VMware PowerCLI to query vCenter Server to collect metadata about the VMs that are managed by vCenter Server.
 3. The appliance collects configuration data about VMs (cores, memory, disks, NICs) and the performance history of each VM for the past month.
 4. The collected metadata is sent to the Azure Migrate: Server Assessment tool (over the internet via HTTPS) for assessment.
@@ -101,7 +101,7 @@ However, deleting the resource group also deletes other registered appliances, t
 
 ## Can I use the appliance with a different subscription or project?
 
-After you use the appliance to initiate discovery, you cannot reconfigure the appliance to use with a different Azure subscription, and you cannot use it in a different Azure Migrate project. You also can't discover VMs on a different instance of vCenter Server. Set up a new appliance for these tasks.
+After you use the appliance to initiate discovery, you can't reconfigure the appliance to use with a different Azure subscription, and you can't use it in a different Azure Migrate project. You also can't discover VMs on a different instance of vCenter Server. Set up a new appliance for these tasks.
 
 ## Can I set up the appliance on an Azure VM?
 
@@ -113,11 +113,13 @@ No. To discover VMware VMs, you must have vCenter Server.
 
 ## How do I update the appliance?
 
-By default, the appliance and its installed agents are updated automatically. The appliance checks for updates once every 24 hours. If the update process fails, a retry occurs. Only the appliance and the appliance agents are updated by these automatic updates. The operating system is not updated by Azure Migrate automatic updates. Use Windows Updates to keep the operating system up to date.
+By default, the appliance and its installed agents are updated automatically. The appliance checks for updates every 24 hours. Updates that fail are retried. 
+
+Only the appliance and the appliance agents are updated by these automatic updates. The operating system is not updated by Azure Migrate automatic updates. Use Windows Updates to keep the operating system up to date.
 
 ## Can I check agent health?
 
-Yes. In the portal, go the **Agent health** page for the Server Assessment or Server Migration tool. There, you can check the connection status between Azure and the discovery and assessment agents on the appliance.
+Yes. In the portal, go the **Agent health** page for the Azure Migrate: Server Assessment or Azure Migrate: Server Migration tool. There, you can check the connection status between Azure and the discovery and assessment agents on the appliance.
 
 ## Next steps
 

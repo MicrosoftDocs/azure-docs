@@ -42,6 +42,10 @@ We want to hear from our customers so that we can focus on fixing problems that 
 ## <a id="rest_version_history"/>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
 
+## February 2020
+
+Some analytics media processors will be retired. For the retirement dates, see the [legacy components](legacy-components.md) topic.
+
 ## September 2019
 
 ### Deprecation of media processors
