@@ -26,10 +26,10 @@ This view provides a summary of your database performance, and helps you with pe
 
 ![Performance overview for Azure SQL Database](./media/sql-database-performance/performance-overview-annotated.png)
 
-- The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top three recommendations are shown if there are more). Clicking this tile takes you to **[Performance recommendations](#performance-recommendations)**.
+- The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top three recommendations are shown if there are more). Clicking this tile takes you to **[Performance recommendations](#performance-recommendations-options)**.
 - The **Tuning activity** tile provides a summary of the ongoing and completed tuning actions for your database, giving you a quick view into the history of tuning activity. Clicking this tile takes you to the full tuning history view for your database.
 - The **Auto-tuning** tile shows the [auto-tuning configuration](sql-database-automatic-tuning-enable.md) for your database (tuning options that are automatically applied to your database). Clicking this tile opens the automation configuration dialog.
-- The **Database queries** tile shows the summary of the query performance for your database (overall DTU usage and top resource consuming queries). Clicking this tile takes you to **[Query Performance Insight](#query-performance-insight)**.
+- The **Database queries** tile shows the summary of the query performance for your database (overall DTU usage and top resource consuming queries). Clicking this tile takes you to **[Query Performance Insight](sql-database-query-performance.md)**.
 
 ## Performance recommendations options
 
