@@ -18,9 +18,11 @@ ms.author: juliako
 
 # Azure Media Services high availability guidance
 
-Azure Media Services does not provide instant failover of the service if there is a regional datacenter outage or failure. This article explains how to configure your environment for a failover to ensure optimal availability for applications and minimized recovery time if an outage occurs.
+Azure Media Services encoding service is a regional batch processing platform and not currently designed for high availability within a single region. The encoding service currently does not provide instant failover of the service if there is a regional datacenter outage or failure of underlying component or dependent services (such as storage, SQL, etc.)  This article explains how to deploy Media Services to maintain a high-availability architecture with failover and ensure optimal availability for your applications. 
 
-## Tips on how to build a cross regional encoding system
+By following the guidelines and best-practices described in the article, you will lower risk of encoding failures, delays, and minimize recovery time if an outage occurs in a single region.
+
+## How to build a cross regional encoding system
 
 * [Create](create-account-cli-how-to.md) two (or more) Azure Media Services accounts.
 * Subscribe for **JobStateChange** messages in each account.
@@ -50,7 +52,7 @@ Azure Media Services does not provide instant failover of the service if there i
     
 If you find the MRU count is thrashing up and down a lot, move the decrement logic to the periodic task. Have the pre-job submit logic compare inflight count to the current MRU count to see if it needs to update the MRUs.
 
-## Tips on how to build video-on-demand cross region streaming 
+## How to build video-on-demand cross region streaming 
 
 * Video-on-demand cross region streaming involves duplicating [Assets](assets-concept.md), [Content Key Policies](content-key-policy-concept.md) (if used), [Streaming Policies](streaming-policy-concept.md), and [Streaming Locators](streaming-locators-concept.md). 
 * You will have to create the policies in both regions and keep them up to date. 
