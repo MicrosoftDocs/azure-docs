@@ -110,7 +110,7 @@ SSH accounts can be secured using a password. When you connect to HDInsight usin
 
 For information on changing the SSH user account password, see the __Change passwords__ section of the [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) document.
 
-## Authentication: Domain-joined HDInsight
+## Authentication Domain-joined HDInsight
 
 If you're using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH local user. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
 
