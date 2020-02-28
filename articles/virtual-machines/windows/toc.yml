@@ -240,6 +240,8 @@
           href: ../h-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: HB-series
           href: ../hb-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: HBv2-series
+          href: ../hbv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: HC-series
           href: ../hc-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Reserved instances
@@ -592,7 +594,7 @@
     items:
     - name: Add a disk
       items:
-      - name: Azure Powershell
+      - name: Azure PowerShell
         href: attach-disk-ps.md
       - name: Azure portal
         href: attach-managed-disk-portal.md
