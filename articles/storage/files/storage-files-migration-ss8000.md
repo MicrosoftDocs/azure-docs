@@ -264,7 +264,7 @@ The initial volume clone data moving through the Azure VM to the Azure file shar
 
 From experience, we can assume that the bandwidth - therefore the actual data size - plays a subordinate role. The time this or any subsequent migration round will take is mostly dependent on the number of items that can be processed per second. So for example 1 TiB with a 100,000 files and folders will most likely finish slower than 1 TiB with only 50,000 files and folders.
 
-## Phase 5: Am I done yet?
+## Phase 5: Iterating through multiple volume clones
 
 :::row:::
     :::column:::
@@ -320,14 +320,14 @@ In phase 6 you will catch up with any delta in the live data since the last volu
 
 ## Phase 6: A final RoboCopy
 
-When you get to this point, there are two differences between your on-premises Windows Server and the StorSimple 8100 or 8600 appliance:
+At this point, there are two differences between your on-premises Windows Server and the StorSimple 8100 or 8600 appliance:
 
-1. There may be files that haven't synced (see PerItemErrors from the event log above)
+1. There may be files that haven't synced (see **PerItemErrors** from the event log above)
 2. The StorSimple appliance has a populated cache vs. the Windows Server just a namespace with no file content stored locally at this time.
 
 ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/ss8000-step-6.png)
 
-We can bring the cache of the Windows Server to the state of the appliance and ensure no file is left behind, with a final RoboCopy.
+We can bring the cache of the Windows Server up to the state of the appliance and ensure no file is left behind with a final RoboCopy.
 
 > [!CAUTION]
 > It is imperative that the RoboCopy command you follow, is exactly as described below. We only want to copy files that are local and files that haven't moved through the volume clone+sync approach before. We can solve the problems why they didn't sync later, after the migration is complete. (See [Azure File Sync troubleshooting](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing). It's most likely unprintable characters in file names that you won't miss when they are deleted.)
