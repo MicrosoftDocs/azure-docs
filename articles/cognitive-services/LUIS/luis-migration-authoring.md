@@ -110,6 +110,9 @@ You receive an error during the migration process if:
 * Your subscription doesn't authorize you to create Cognitive Services resources
 * Your migration negatively impacts any applications runtime. When migrating, any collaborators are removed from your apps and you are removed as a collaborator from other apps. This process means the keys you assigned get removed too. The migration gets blocked if you have assigned keys in other apps. Remove the key you assigned safely before migrating. If you know that the key that you assigned isn’t used in the runtime, then you need to remove it to be able to progress in the migration.
 
+Access your app's Azure resource list using the following URL format:
+
+`https://www.luis.ai/applications/REPLACE-WITH-YOUR-APP-ID/versions/REPLACE-WITH-YOUR-VERSION-ID/manage/resources`
 
 ## Next steps
 
