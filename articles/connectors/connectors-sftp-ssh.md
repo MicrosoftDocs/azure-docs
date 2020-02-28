@@ -26,9 +26,9 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
 ## Limits
 
-* For files that are 1 GB or smaller, SFTP-SSH actions read or write content in *15 MB* chunks as the default. For files larger than 15 MB, you can enable [message chunking](../logic-apps/logic-apps-handle-large-messages.md) on SFTP-SSH actions. These actions use adaptive chunking behavior to adjust for various factors such as network latency, server response time, and so on by starting with a smaller chunk size, such as 15 MB, and gradually increasing to the maximum 50 MB chunk size. Chunk size is based on the connection, which means that if the connection was previously used by another action that supports chunking, actions that don't support chunking can transfer up to 50 MB.
+* For files that are 1 GB or smaller, SFTP-SSH actions read or write content in *15 MB* chunks as the default. For larger files, SFTP-SSH actions can transfer content by using chunking. By default, this chunk size is 15 MB, but the size can dynamically change from 5 to 50 MB based on factors such as network latency, server response time, and so on, starting with a smaller chunk size and gradually increasing to the maximum 50 MB chunk size. Actions that don't support chunking can transfer files up to 50 MB, the same as the maximum chunk size.
 
-  The **Get file content** action natively uses built-in message chunking, but you need to manually [enable chunking](#enable-chunking) where supported on other actions. This table shows which current SFTP-SSH actions support chunking:
+  Chunk size is based on the connection, which means that you can use the same connection for actions that support and don't support chunking. The chunk size for actions that don't support chunking can range from 5 MB to 50 MB. This table shows which current SFTP-SSH actions support chunking:
 
   | Action | Chunking support | Notes |
   |--------|------------------|-------|
@@ -61,7 +61,7 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
 
 * By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time.
 
-  To handle files larger than 15 MB, SFTP-SSH actions can use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). However, the Copy File action supports only 15 MB files because that action doesn't support message chunking. SFTP-SSH triggers don't support chunking. To upload large files, you need both read and write permissions for the root folder on your SFTP server.
+  To handle files larger than 15 MB, SFTP-SSH actions can use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). SFTP-SSH triggers don't support chunking. To upload large files, you need both read and write permissions for the root folder on your SFTP server.
 
 * Provides the **Create folder** action, which creates a folder at the specified path on the SFTP server.
 
