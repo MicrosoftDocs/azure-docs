@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
+ms.date: 02/22/2020
 ---
 # Enter Data Manually module
 
@@ -31,13 +31,13 @@ This module can be helpful in scenarios such as these:
   
 2.  For **DataFormat**, select one of the following options. These options determine how the data that you provide should be parsed. The requirements for each format differ greatly, so be sure to read the related topics.  
   
-    -   **ARFF**. The attribute-relation file format, used by Weka.   
+    -   **ARFF**: The attribute-relation file format, used by Weka.   
   
-    -   **CSV**. Comma-separated values format. For more information, see [Convert to CSV](./convert-to-csv.md).  
+    -   **CSV**: Comma-separated values format. For more information, see [Convert to CSV](./convert-to-csv.md).  
   
-    -   **SVMLight**. A format used by Vowpal Wabbit and other machine learning frameworks.  
+    -   **SVMLight**: A format used by Vowpal Wabbit and other machine learning frameworks.  
   
-    -   **TSV**. Tab-separated values format.
+    -   **TSV**: Tab-separated values format.
 
      If you choose a format and do not provide data that meets the format specifications, a run-time error occurs.
   

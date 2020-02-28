@@ -117,36 +117,6 @@ conceptualContent:
         - url: ./Bing-web-search/index.yml
           itemType: overview
           text: Bing Search APIs hub page
-        - url: ./Bing-Autosuggest/get-suggested-search-terms.md
-          itemType: overview
-          text: Autosuggest Search
-        - url: ./bing-custom-search/overview.md
-          itemType: overview
-          text: Custom Search
-        - url: ./bing-entities-search/overview.md
-          itemType: overview
-          text: Entity Search
-        - url: ./bing-image-search/overview.md
-          itemType: overview
-          text: Image Search
-        - url: ./bing-local-business-search/overview.md
-          itemType: overview
-          text: Local Business Search (Preview)
-        - url: ./bing-news-search/search-the-web.md
-          itemType: overview
-          text: News Search
-        - url: ./bing-spell-check/overview.md
-          itemType: overview
-          text: Spell Check
-        - url: ./Bing-Video-Search/overview.md
-          itemType: overview
-          text: Video Search
-        - url: ./bing-visual-search/overview.md
-          itemType: overview
-          text: Visual Search
-        - url: ./bing-web-search/overview.md
-          itemType: overview
-          text: Web Search
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:

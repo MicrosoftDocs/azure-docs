@@ -2,7 +2,7 @@
  title: NDv2-series - Azure Virtual Machines
  description: Specifications for the NDv2-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: vikancha
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -34,6 +34,10 @@ Critically, the NDv2 is built for both computationally intense scale-up (harness
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
+
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
 
 InfiniBand: Supported
 
