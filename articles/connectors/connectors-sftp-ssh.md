@@ -30,19 +30,19 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
   The **Get file content** action natively uses built-in message chunking, but you need to manually [enable chunking](#enable-chunking) where supported on other actions. This table shows which current SFTP-SSH actions support chunking:
 
-  | Action | Chunking support | Override chunk size | Notes |
-  |--------|------------------|---------------------|-------|
-  | **Copy file** | No | Not applicable ||
-  | **Create file** | Yes | Yes ||
-  | **Create folder** | Not applicable | Not applicable ||
-  | **Delete file** | Not applicable | Not applicable ||
-  | **Extract archive to folder** | Not applicable | Not applicable ||
-  | **Get file content** | Yes | Yes ||
-  | **Get file metadata** | Not applicable | Not applicable ||
-  | **Get file metadata using path** | Not applicable | Not applicable ||
-  | **List files in folder** | Not applicable | Not applicable ||
-  | **Rename file** | Not applicable | Not applicable ||
-  | **Update file** | No | Not applicable ||
+  | Action | Chunking support | Notes |
+  |--------|------------------|-------|
+  | **Copy file** | No ||
+  | **Create file** | Yes ||
+  | **Create folder** | Not applicable ||
+  | **Delete file** | Not applicable ||
+  | **Extract archive to folder** | Not applicable ||
+  | **Get file content** | Yes ||
+  | **Get file metadata** | Not applicable ||
+  | **Get file metadata using path** | Not applicable ||
+  | **List files in folder** | Not applicable ||
+  | **Rename file** | Not applicable ||
+  | **Update file** | No ||
   |||||
 
 * SFTP-SSH triggers don't support chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
