@@ -117,7 +117,7 @@ The following code mounts `dataset` to the temp directory at `mounted_path`
 import tempfile
 mounted_path = tempfile.mkdtemp()
 
-# mount mnist dataset onto notebook VM
+# mount dataset onto the mounted_path of a Linux-based compute
 mount_context = dataset.mount(mounted_path)
 
 mount_context.start()
