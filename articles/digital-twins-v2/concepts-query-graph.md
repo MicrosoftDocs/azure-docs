@@ -39,13 +39,13 @@ Here are the operations available via query:
 
 ## Basic query syntax
 
-Here are some sample queries that perform three possible query operations and illustrate the query language structure.
+Here are some sample queries that perform two possible query operations and illustrate the query language structure.
 
 Get twins by properties:
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
-WHERE T.$dtid in ['123', '456']
+WHERE T.$dtId in ['123', '456']
 AND T.firmwareVersion = '1.1'
 ```
 
@@ -53,19 +53,12 @@ Get twins by model
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
-WHERE T.IS_OF_MODEL(T , 'urn:contosocom:DigitalTwins:Space:3')
+WHERE IS_OF_MODEL(T , 'urn:contosocom:DigitalTwins:Space:3')
 AND T.roomSize > 50
 ```
 
-Get twins by relationships:
-```sql
-SELECT *
-FROM DigitalTwins space
-JOIN device RELATED space.has  
-WHERE space.$dtid = 'Room 123'
-AND device.$metadata.model = 'urn:contosocom:DigitalTwins:MxChip:3'
-AND has.role = 'Operator'
-```
+> [!TIP]
+> [The ID of a twin is queried using the metadata field `$dtId`.]
 
 Once you have decided on a query string, you execute it by making a call to the Query APIs.
 The following code snippet illustrates this call from the client app:
@@ -103,7 +96,7 @@ Here is a sample relationship-based query. This code snippet selects all twins w
 SELECT T, CT
 FROM DIGITALTWINS T
 JOIN CT RELATED T.contains
-WHERE T.id = 'ABC' 
+WHERE T.$dtId = 'ABC' 
 ```
 
 >[!NOTE] 
@@ -119,7 +112,7 @@ SELECT T, CT, CT2
 FROM DIGITALTWINS T
 JOIN CT RELATED T.contains
 JOIN CT2 RELATED CT.servicedBy
-WHERE T.id = 'ABC' 
+WHERE T.$dtId = 'ABC' 
 AND CT2.properties.v1.reported.value = 123
 ```
 
@@ -130,7 +123,7 @@ SELECT T, CT, CB
 FROM DIGITALTWINS T
 JOIN CT RELATED T.contains
 JOIN CB RELATED T.servicedBy
-WHERE T.id = 'ABC' 
+WHERE T.$dtId = 'ABC' 
 and CT.properties.v1.reported.value = 'DEF' 
 and CB.properties.name.reported.value = 'john'
 ```
@@ -148,7 +141,7 @@ As an example, consider a *servicedBy* relationship that has a *reportedConditio
 SELECT T, CB, SBR
 FROM DIGITALTWINS T
 JOIN CB RELATED T.servicedBy SBR
-WHERE T.id = 'ABC' 
+WHERE T.$dtId = 'ABC' 
 and SBR.reportedCondition = 'clean'
 ```
 
