@@ -131,7 +131,13 @@ built-in policy initiative.
 
 ### CM-5.2- Only authorized users may implement approved changes on the system.
 
+- System updates should be installed on your machines
+- Missing security system updates on your servers will be monitored by Azure Security Center as recommendations
+
 ### CM-5.12- Maintain an up-to-date, complete, accurate, and readily available baseline configuration of the information system.
+
+- System updates should be installed on your machines
+- Missing security system updates on your servers will be monitored by Azure Security Center as recommendations
 
 ### CM-5.13- Employ automated tools to maintain a baseline configuration of the information system.
 
@@ -203,6 +209,8 @@ built-in policy initiative.
 
 ### SI-14.13- Standardized centrally managed anti-malware software should be implemented across the company.
 
+- Deploy default Microsoft IaaSAntimalware extension for Windows Server
+
 ### SI-14.14- Anti-malware software must scan computers and media weekly at a minimum.
 
 - Deploy default Microsoft IaaSAntimalware extension for Windows Server
@@ -211,9 +219,18 @@ built-in policy initiative.
 
 ### VM-15.4- Ensure that applications are scanned for vulnerabilities on a monthly basis.
 
+- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
+- Audit the OS vulnerabilities on your virtual machine scale sets to protect them from attacks.
+
 ### VM-15.5- Ensure that vulnerabilities are identified, paired to threats, and evaluated for risk.
 
+- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
+- Audit the OS vulnerabilities on your virtual machine scale sets to protect them from attacks.
+
 ### VM-15.6- Ensure that identified vulnerabilities have been remediated within a mutually agreed upon timeline.
+
+- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
+- Audit the OS vulnerabilities on your virtual machine scale sets to protect them from attacks.
 
 ### VM-15.7- Access to and use of vulnerability management systems must be restricted to authorized personnel.
 
