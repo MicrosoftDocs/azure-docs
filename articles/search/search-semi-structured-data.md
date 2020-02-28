@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Index semi-strutured data in JSON blobs'
+title: 'Tutorial: Index semi-structured data in JSON blobs'
 titleSuffix: Azure Cognitive Search
 description: Learn how to index and search semi-structured Azure JSON blobs using Azure Cognitive Search REST APIs and Postman.
 
@@ -12,17 +12,19 @@ ms.date: 02/28/2020
 #Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Cognitive Search.
 ---
 
-# REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search
+# Tutorial: Index JSON blobs from Azure Storage using REST
 
 Azure Cognitive Search can index JSON documents and arrays in Azure blob storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
 
-In this tutorial, use the [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/) and a REST client to perform the following tasks:
+This tutorial uses Postman and the [Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Configure an Azure Cognitive Search data source for an Azure blob container
 > * Create an Azure Cognitive Search index to contain searchable content
 > * Configure and run an indexer to read the container and extract searchable content from Azure blob storage
 > * Search the index you just created
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
