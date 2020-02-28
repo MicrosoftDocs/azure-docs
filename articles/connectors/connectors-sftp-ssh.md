@@ -182,18 +182,6 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 
 1. Now provide the necessary details for your selected trigger or action and continue building your logic app's workflow.
 
-<a name="enable-chunking"></a>
-
-## Enable chunking
-
-To enable chunking for actions that support this capability and specify the chunk size, follow these steps:
-
-1. In the action's upper-right corner, select the ellipses button (**...**), and then select **Settings**.
-
-1. For actions that don't implicitly enable chunking, under **Content Transfer**, change **Allow chunking** from **Off** to **On**.
-
-1. When you're finished, select **Done**.
-
 ## Examples
 
 <a name="file-added-modified"></a>
