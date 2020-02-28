@@ -15,85 +15,25 @@ ms.author: pafrley
 
 The Form Recognizer sample labeling tool is an application that runs in a Docker container. It provides a helpful UI that you can use to manually label form documents for the purpose of supervised learning. The [Train with labels](./quickstarts/label-tool.md) quickstart shows you how to run the tool on your local computer, which is the most common scenario. 
 
-This guide will explain alternative ways you can deploy and run the sample labeling tool. 
+This guide will explain alternate ways you can deploy and run the sample labeling tool. 
 
-## Deploy to Azure Kubernetes Service
+## Deploy with Azure Container Instances
 
-[Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index).
+You can run the label tool in a Docker web app container. Create a new Web App resource on the Azure portal. 
 
-1- Follow the instructions on [Train a Form Recognizer model with labels using the sample labeling tool](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/quickstarts/label-tool) documentation page to register and get your credentials to access the containerpreview.azurecr.io registry.
+fill in the following fields
+Publish: Docker Container
+Operating System: Linux
 
-2 - create a secret in your AKS cluster
-```
-kubectl create secret docker-registry container-io \
-    --docker-server=containerpreview.azurecr.io \
-    --docker-username=<username> \
-    --docker-password=<password> \
-    --docker-email=<your email>
-```
+On the next page is the Docker setup. 
 
-3 - optional: update the sample-labeling-tool-deployment.yaml file with you secret name (if called differently than 'container-io')
+Options=Single Container
+Image Source=Public Registry
+Server URL=https://containerpreview.azurecr.io
 
-4 - execute on your AKS cluster
+Image and tag=mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest
 
-````
-kubectl apply -f sample-labeling-tool-deployment.yaml
-````
-
-5 - execute on your AKS cluster
-
-````
-kubectl apply -f sample-labeling-tool-service.yaml
-````
-
-6 - execute 'kubectl get services' to get the EXTERNAL-IP and navigate to this specific IP in your web browser to get access to the tool. This deployment uses a loab balancer to get an external-ip created by the cluster.
-
-### tool deployment
-```yml
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  labels:
-    io.kompose.service: labeltool
-  name: labeltool
-spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        io.kompose.service: labeltool
-    spec:
-      containers:
-        - args:
-            - eula=accept
-          image: containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool:latest
-          name: labeltool
-          ports:
-            - containerPort: 80
-          resources: {}
-      imagePullSecrets:
-        - name: container-io
-      restartPolicy: Always
-status: {}
-```
-
-### tool service 
-
-```yml
-apiVersion: v1
-kind: Service
-metadata:
-  name: labeltool
-spec:
-  ports:
-    - port: 80
-      targetPort: 80
-  selector:
-    io.kompose.service: labeltool
-  type: LoadBalancer
-```
-
-## Deploy to Azure Container Instances
+Then connect to Azure AD. Otherwise anyone with the url can access the Web App (and your label tool container).
 
 [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index),
 
