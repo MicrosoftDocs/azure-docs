@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 series migration to Azure File Sync | Microsoft Docs
+title: StorSimple 8000 series migration to Azure File Sync
 description: Learn how to migrate a StorSimple 8100 or 8600 appliance to Azure File Sync.
 author: fauhse
 ms.service: storage
@@ -11,7 +11,7 @@ ms.subservice: files
 
 # StorSimple 8100 and 8600 migration to Azure File Sync
 
-StorSimple 8000 series encompasses two different physical StorSimple appliances that only differentiate in the amount of local cache size (disk space). This appliance is run in an on-premises data center and acts as a cache to the data stored in Azure.
+The StorSimple 8000 series has two different physical appliances within it. The only difference between them is the amount of local cache size (disk space). This appliance is run in an on-premises data center and acts as a cache to the data stored in Azure.
 With the announced end-of-service-life of the StorSimple product line on December 31 2022, the cloud service this appliance is connected to, will stop working.
 
 It is imperative to migrate off of any StorSimple device with ample time to spare.
@@ -24,42 +24,43 @@ This article provides the necessary background knowledge and migrations steps to
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
 * File synchronization and cloud tiering.
-* File shares as native storage in Azure, that can be accessed over multiple protocols like SMB, NFS and file REST. An Azure file share is comparable to a file share on a Windows Server, that you can natively mount as a network drive. It supports important file fidelity aspects like attributes, permissions, and timestamps. Unlike with StorSimple, no application/service is required to interpret the files and folders stored in the cloud. The ideal, and most flexible approach to store general purpose file server data as well as some application data, in the cloud.
+* File shares as native storage in Azure, that can be accessed over multiple protocols like SMB and file REST. An Azure file share is comparable to a file share on a Windows Server, that you can natively mount as a network drive. It supports important file fidelity aspects like attributes, permissions, and timestamps. With Azure file shares there is no longer a need for an application or service to interpret the files and folders stored in the cloud. You can access them natively over familiar protocols and clients like Windows File Explorer. That makes Azure file share the ideal, and most flexible approach to store general purpose file server data as well as some application data, in the cloud.
 
-This article will not focus on an introduction to Azure File Sync, and rather on the migration steps. To learn more about Azure File Sync, we recommend the following two articles:
+This article focuses on the migration steps. If before migrating you'd like to learn more about Azure File Sync, we recommend the following articles:
 
 * [Azure File Sync - overview](https://aka.ms/AFS "Overview")
-* Azure File Sync - deployment guide
-[Azure File Sync - deployment guide](storage-sync-files-deployment-guide.md)
+* [Azure File Sync - deployment guide](storage-sync-files-deployment-guide.md)
 
 ## Migration goals
 
-The goal in any migration, including this one, is to guarantee the integrity of the production data as well as guaranteeing availability. The latter requires to keep any downtime to a minimum, such that it can fit into or only slightly exceed regular maintenance windows.
+The goal is to guarantee the integrity of the production data as well as guaranteeing availability. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
 
 ## StorSimple 8000 series migration path to Azure File Sync
 
-Once you are familiar with Azure File Sync, you know that a local Windows Server is required to run an Azure File Sync agent. The Windows Server can be at a minimum a 2012R2 server but ideally is a Windows Server 2019.
+A local Windows Server is required to run an Azure File Sync agent. The Windows Server can be at a minimum a 2012R2 server but ideally is a Windows Server 2019.
 
-Migrating from a StorSimple 8100 or 8600 appliance to Azure File Sync requires the migration path to Azure File Sync we describe here. It may seem to you that there are other options, and we can assure you we have evaluated them and they all have drawbacks that go against either of the two main goals of any migration, described in the section above. There are numerous alternatives and it would create too long of an article to document all of them and illustrate why they bear risk or disadvantages over the route we do recommend you take.
+There are numerous, alternative migration paths and it would create too long of an article to document all of them and illustrate why they bear risk or disadvantages over the route we recommend as a best practice in this article.
 
 ![Migration steps overview](media/storage-files-migration-storsimple-shared/ss8000-overview.png "Migration route overview of the steps further below in this article.")
 
-The image above describes multiple steps that correspond to the sections, following below.
-At its core, the migration approach chooses a cloud-side migration, to avoid unnecessary recall of files to your local StorSimple appliance, thus avoiding unnecessary use of your network bandwidth or impacting local caching behavior that can affect your production workloads.
-A cloud-side migration is operating on a snapshot (a volume clone) of your data. So your production data is isolated from this process - until cut-over at the end of the migration. That makes the migration safe and easily restartable, should you run into any difficulties.
+The previous image depicts steps that correspond to sections in this article.
+We use a cloud-side migration to avoid unnecessary recall of files to your local StorSimple appliance. This avoids impacting local caching behavior or network bandwidth use, either of which can affect your production workloads.
+A cloud-side migration is operating on a snapshot (a volume clone) of your data. So your production data is isolated from this process - until cut-over at the end of the migration. This makes the migration safe and easily repeatable, if you run into any difficulties.
 
 ## Considerations around existing StorSimple backups
 
-StorSimple allows to take backups in form of volume clones. The rest of this article uses a new, recent volume clone to migrate your live files.
-If you have a requirement that says you need to migrate not just your live production data but also - at least some - backups, then the guidance below still applies, but you are not starting the migration with a new, recent volume clone, but with the oldest backup (volume clone) you need to migrate.
+StorSimple allows you to take backups in the form of volume clones. This article uses a new volume clone to migrate your live files.
+If you need to migrate backups in addition to your live data, then all the guidance in this article still applies. The only difference is that instead of starting with a new volume clone, you will start with the oldest backup volume clone you need to migrate.
 
 The sequence is as follows:
 
-1. Determine a minimal set of backups (volume clones) you absolutely must migrate. Keeping this list to a minimum is beneficial for the amount of time your migration will take. Therefore, select only the backups you absolutely have to migrate.
-2. Move the oldest volume clone first, and sequentially step through more recent ones. The order **is not** arbitrary.
-3. When you migrate a volume clone with the steps described later in this article, then you need to take an Azure file share snapshot after each volume clone you moved. [Azure file share snapshots](storage-snapshots-files.md) are the way to keep point-in-time versions (backups) of the files and folder structure in your Azure file share. Don't forget to take the snapshot, or your sequential move of volume clones will not result in restorable versions on the Azure file share side, after the migration is done.
-4. Ensure that you take Azure file share snapshots for all Azure file shares, that are severed by the same StorSimple volume. Volume clones are on the volume level, Azure file share snapshots are on the share level.
-5. Repeat the process of moving a volume clone and taking share snapshots after each volume clone until you get caught up to the live data and follow the process below with a recent, new volume clone to capture the live data as accurately as possible. If you do not need to move backups at all and can start a new chain of backups on the Azure file share side after the migration is done, then that is beneficial to reduce complexity in the migration and amount of time the migration will take. You can make the decision whether or not to move backups and how many for each volume (not each share) you have in StorSimple.
+* Determine the minimum set of volume clones you must migrate. We recommend keeping this list to a minimum if possible, because the more backups you migrate the longer the overall migration process will take.
+* When going through the migration process, begin with the oldest volume clone you intend to migrate and on each subsequent migration, use the next oldest.
+* When you migrate a volume clone with the steps described later in this article, then you need to take an Azure file share snapshot after each volume clone you moved. [Azure file share snapshots](storage-snapshots-files.md) are the way to keep point-in-time versions (backups) of the files and folder structure in your Azure file share. Don't forget to take the snapshot, or your sequential move of volume clones will not result in restorable versions on the Azure file share side, after the migration is done.
+* Ensure that you take Azure file share snapshots for all Azure file shares, that are served by the same StorSimple volume. Volume clones are on the volume level, Azure file share snapshots are on the share level. You need to take a share snapshots after the migration of each volume clone is finished.
+* Repeat the migration process for a volume clone and taking share snapshots after each volume clone until you get caught up to a snapshot of the live data. The process of migrating a volume clone is described in the steps below. 
+
+If you do not need to move backups at all and can start a new chain of backups on the Azure file share side after the migration of only the live data is done, then that is beneficial to reduce complexity in the migration and amount of time the migration will take. You can make the decision whether or not to move backups and how many for each volume (not each share) you have in StorSimple.
 
 ## Step 1: Getting ready
 
@@ -75,30 +76,32 @@ This step focuses on deployment of these resources in Azure.
 
 ### Deploying a StorSimple 8020 virtual appliance
 
-Deploying a cloud appliance takes several steps. It requires security, networking, and a few other considerations.
-The following guide walks you through the [deployment of a fully functional StorSimple 8020 virtual appliance](../../storsimple/storsimple-8000-cloud-appliance-u2.md) in Azure, just as we require in this migration.
+Deploying a cloud appliance is a process that requires security, networking, and a few other considerations.
 
-This guide contains additional information, not required here.
-Follow the guide from the top to including "Step 2: Configure and register the cloud appliance". You do not need to follow the optional "Step 3" or any other parts in this article.
+> [!IMPORTANT]
+> The following guide contains some unnecessary sections. Read and follow the article from the beginning up until "Step 3." Then return to this article. You do not need to complete "Step 3" or anything beyond it in that guide, at this time.
 
-Follow this guide as described and return to this article.
+[Deployment of a StorSimple 8020 virtual appliance](../../storsimple/storsimple-8000-cloud-appliance-u2.md)
 
 ### Determining a volume clone to use
 
 When you are ready to begin the migration, the first step is to take a new volume clone - just as you would for backup - that captures the current state of your StorSimple cloud storage. Do this for each of the StorSimple volumes you have.
 If you are in need of moving backups, then the first volume clone you use is not a newly created clone but the oldest volume clone (oldest backup) you need to migrate.
-Refer to the section ["Considerations around existing StorSimple backups"](#considerations-around-existing-storsimple-backups) in this article for important, detailed guidance.
+Refer to the section ["Considerations around existing StorSimple backups"](#considerations-around-existing-storsimple-backups) for detailed guidance.
 
-Follow the guide: [Create a clone of a volume](../../storsimple/storsimple-8000-clone-volume-u2.md#create-a-clone-of-a-volume)
+> [!IMPORTANT]
+> The following guide contains some unnecessary sections. Read and follow only the steps outlined in the linked-to section. Then return to this article. You do not need to follow the "Next steps" section.
 
-There is more information in the article linked to above. It is only necessary to follow what's described under the linked-to headline. Then return to this article and follow the next steps.
+[Create a clone of a volume](../../storsimple/storsimple-8000-clone-volume-u2.md#create-a-clone-of-a-volume)
 
 ### Use the volume clone
 
 The last phase of Step 1 is to make the volume clone you've chosen, available on the 8020 virtual appliance in Azure.
-To accomplish that, 
 
-**NEED LINK TO ACTUAL SS DOCUMENTATION**
+> [!IMPORTANT]
+> The following guide contains the necessary steps but also - at the end - an instruction to format the volume. **DO NOT FORMAT THE VOLUME** Read and follow the linked-to "section 7" from the beginning up until instruction: "10. To format a simple volume, ..."  Stop before following this step and return to this article.
+
+[Mount a volume clone on the 8020 virtual appliance in Azure](../../storsimple/storsimple-8000-deployment-walkthrough-u2.md#step-7-mount-initialize-and-format-a-volume)
 
 ### Step 1 summary
 

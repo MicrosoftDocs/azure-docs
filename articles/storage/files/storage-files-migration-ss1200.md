@@ -43,6 +43,8 @@ There are numerous, alternative migration paths and it would create too long of 
 
 :::image type="content" source="media/storage-files-migration-storsimple-shared/SS1200-migration.png" alt-text="Migration route overview of the steps further below in this article.":::
 
+The previous image depicts steps that correspond to sections in this article.
+
 ### Steps 1: Provision your on-premises Windows Server and storage
 
 * Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported.
@@ -117,7 +119,7 @@ Background:
       /MIR
    :::column-end:::
    :::column span="1":::
-      Allows to run this RoboCopy command several times, sequentially on the same target / destination. It identifies what has been copied before and omits it. Only changes, additions and deletes will be processed, that occurred since the last run. If the command wasn't run before, nothing is omitted. This is an excellent option for source locations that are still actively used and changing.
+      Allows to run this RoboCopy command several times, sequentially on the same target / destination. It identifies what has been copied before and omits it. Only changes, additions and *deletes* will be processed, that occurred since the last run. If the command wasn't run before, nothing is omitted. This is an excellent option for source locations that are still actively used and changing.
    :::column-end:::
 :::row-end:::
 :::row:::
