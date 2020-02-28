@@ -842,7 +842,7 @@ After creating a Service Fabric cluster, you can scale a cluster node type verti
 
 [Export a template and parameters file](#export-the-template-for-the-resource-group) from the resource group for the most recent deployment.  Open the *parameters.json* file.  If you deployed the cluster using the [sample template][template] in this tutorial, there are three node types in the cluster.  
 
-The size of the VMs in the second node type is set in the *vmNodeType1Size* parameter.  Change the *vmNodeType1Size* parameter value from Standard_D2_V2 to [Standard_D3_V2](/azure/virtual-machines/windows/sizes-general#dv2-series), which doubles the resources of each VM instance.
+The size of the VMs in the second node type is set in the *vmNodeType1Size* parameter.  Change the *vmNodeType1Size* parameter value from Standard_D2_V2 to [Standard_D3_V2](../virtual-machines/dv2-dsv2-series.md), which doubles the resources of each VM instance.
 
 The VM SKU for all three node types is set in the *vmImageSku* parameter.  Again, changing the VM SKU of a node type should be approached with caution and is not recommended for the primary node type.
 

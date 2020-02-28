@@ -25,7 +25,7 @@ The transactional storage engine is backed by local SSDs, whereas the analytical
 |Feature  |Transactional storage  |Analytical storage |
 |---------|---------|---------|
 |Maximum storage per an Azure Cosmos container |   Unlimited      |    Unlimited     |
-|Maximum storage per a logical partition key   |   10 GB      |   Unlimited      |
+|Maximum storage per a logical partition key   |   20 GB      |   Unlimited      |
 |Storage encoding  |   Row-oriented, using an internal format.   |   Column-oriented, using Apache Parquet format. |
 |Storage locality |   Replicated storage backed by local/intra-cluster SSDs. |  Replicated storage backed by inexpensive remote/off-cluster SSDs.       |
 |Durability  |    99.99999 (7-9 s)     |  99.99999 (7-9 s)       |

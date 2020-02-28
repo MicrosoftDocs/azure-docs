@@ -1,7 +1,6 @@
 ---
 title: How to Query Logs from Azure Monitor for VMs (preview) | Microsoft Docs
 description: Azure Monitor for VMs solution collects metrics and log data to and this article describes the records and includes sample queries.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
