@@ -143,7 +143,7 @@ To recover a managed database using the Azure portal, open the managed instance 
 
 To restore a database to the same instance, or another instance, update the parameter values and then run the following PowerShell command: 
 
-```powershell
+```powershell-interactive
 $subscriptionId = "<Subscription ID>"
 Get-AzSubscription -SubscriptionId $subscriptionId
 Select-AzSubscription -SubscriptionId $subscriptionId
@@ -153,9 +153,13 @@ $managedInstanceName = "<Managed instance name>"
 $deletedDatabaseName = "<Source database name>"
 $targetDatabaseName = "<target database name>"
 
-$deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
+$deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
+-InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name -InstanceName $deletedDatabase.ManagedInstanceName -ResourceGroupName $deletedDatabase.ResourceGroupName -DeletionDate $deletedDatabase.DeletionDate -PointInTime UTCDateTime -TargetInstanceDatabaseName $targetDatabaseName
+Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+   -InstanceName $deletedDatabase.ManagedInstanceName `
+   -ResourceGroupName $deletedDatabase.ResourceGroupName -DeletionDate $deletedDatabase.DeletionDate `
+   -PointInTime UTCDateTime -TargetInstanceDatabaseName $targetDatabaseName
 ```
 
 
