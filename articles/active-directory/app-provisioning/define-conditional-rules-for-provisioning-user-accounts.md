@@ -93,10 +93,12 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
    i. **Greater_Than.** Clause returns "true" if the evaluated attribute is greater than the value. The value specified on the scoping filter must be an integer and the attribute on the user must be an integer [0,1,2,...]. 
    
    j. **Greater_Than_OR_EQUALS.** Clause returns "true" if the evaluated attribute is greater than or equal to the value. The value specified on the scoping filter must be an integer and the attribute on the user must be an integer [0,1,2,...]. 
+   
+   k. **Includes.** Clause returns "true" if the evaluated attribute contains the string value (case sensitive) as described [here](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
-> The Includes and IsMemberOf filters are not supported. They will soon be removed from the UI.
+> The IsMemberOf filter is not supported currently.
 
 9. Optionally, repeat steps 7-8 to add more scoping clauses.
 

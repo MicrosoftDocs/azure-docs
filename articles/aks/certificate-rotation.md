@@ -3,8 +3,6 @@ title: Rotate certificates in Azure Kubernetes Service (AKS)
 description: Learn how to rotate your certificates in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 author: zr-msft
-
-ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
@@ -81,6 +79,9 @@ Verify the certificates have been updated by running a `kubectl` command, which 
 kubectl get no
 ```
 
+> [!NOTE]
+> If you have any services that run on top of AKS, such as [Azure Dev Spaces][dev-spaces], you may need to [update certificates related to those services][dev-spaces-rotate] as well.
+
 ## Next steps
 
 This article showed you how to automatically rotate your cluster's certificates, CAs, and SAs. You can see [Best practices for cluster security and upgrades in Azure Kubernetes Service (AKS)][aks-best-practices-security-upgrades] for more information on AKS security best practices.
@@ -91,3 +92,5 @@ This article showed you how to automatically rotate your cluster's certificates,
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
+[dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates

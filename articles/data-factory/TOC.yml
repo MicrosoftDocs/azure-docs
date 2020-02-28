@@ -515,6 +515,8 @@
       href: data-flow-unpivot.md
     - name: Window
       href: data-flow-window.md
+    - name: Flatten
+      href: data-flow-flatten.md
   - name: Parameterize
     items:
     - name: Parameterizing linked services

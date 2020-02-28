@@ -1,11 +1,7 @@
 ---
 title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Microsoft Azure web application with Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/25/2019
 
 ---

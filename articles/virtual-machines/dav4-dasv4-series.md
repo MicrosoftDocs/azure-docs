@@ -2,7 +2,7 @@
  title: Dav4 and Dasv4-series - Azure Virtual Machines
  description: Specifications for the Dav4 and Dasv4-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: migerdes
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -20,6 +20,10 @@ ACU: 230-260
 Premium Storage: Not Supported
 
 Premium Storage caching: Not Supported
+
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
 
 Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz. The Dav4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Dasv4 sizes. The pricing and billing meters for Dasv4 sizes are the same as the Dav4-series.
 
@@ -43,6 +47,10 @@ ACU:  230-260
 Premium Storage: Supported
 
 Premium Storage caching: Supported
+
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
 
 Dasv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Dasv4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
 

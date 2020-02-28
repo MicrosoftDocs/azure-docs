@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -171,6 +171,8 @@ The **Restriction** element contains the following elements:
 
 #### Enumeration
 
+The **Enumeration** element defines available options for the user to select for a claim in the user interface, such as a value in a `CheckboxMultiSelect`, `DropdownSingleSelect`, or `RadioSingleSelect`. Alternatively, you can define and localize available options with [LocalizedCollections](localization.md#localizedcollections) element. To look up an item from a claim **Enumeration** collection, use [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) claims transformation.
+
 The **Enumeration** element contains the following attributes:
 
 | Attribute | Required | Description |
@@ -205,7 +207,7 @@ The **Pattern** element can contain the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | RegularExpression | Yes | The regular expression that claims of this type must match in order to be valid. |
-| HelpText | No | The pattern or regular expression for this claim. |
+| HelpText | No | An error message for users if the regular expression check fails. |
 
 The following example configures an **email** claim with regular expression input validation and help text:
 
@@ -243,7 +245,7 @@ The **UserInputType** element available user input types:
 |Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|A field that shows text only in a paragraph tag. |
 |Password | `string` |Password text box.|
 |RadioSingleSelect |`string` | Collection of radio buttons. The claim value is the selected value.|
-|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Read only text box. |
+|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Read-only text box. |
 |TextBox |`boolean`, `int`, `string` |Single-line text box. |
 
 
@@ -403,5 +405,3 @@ The **Paragraph** user input type is used to provide a field that shows text onl
   </Restriction>
 </ClaimType>
 ```
-
-To display one of the **Enumeration** values in a **responseMsg** claim, use `GetMappedValueFromLocalizedCollection` or `CreateStringClaim` claims transformation. For more information, see [String Claims Transformations](string-transformations.md)
