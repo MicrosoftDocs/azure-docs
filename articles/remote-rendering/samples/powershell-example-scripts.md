@@ -14,7 +14,7 @@ Azure Remote Rendering provides the following two REST APIs:
 - [Conversion REST API](../how-tos/conversion/conversion-rest-api.md)
 - [Session REST API](../how-tos/session-rest-api.md)
 
-The [Azure Remote Rendering GithHub repository](https://github.com/Azure/azure-remote-rendering) contains sample scripts for interacting with the REST APIs of the service. This article describes their usage.
+The [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient?path=%2FScripts) contains sample scripts for interacting with the REST APIs of the service. This article describes their usage.
 
 ## Prerequisites
 
