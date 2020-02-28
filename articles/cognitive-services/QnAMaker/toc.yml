@@ -11,54 +11,17 @@
   - name: With QnA Maker portal
     items:
     - name: 1. Create knowledge base
-      href: quickstarts/create-publish-knowledge-base.md
+      href: Quickstarts/create-publish-knowledge-base.md
     - name: 2. Add questions with metadata
-      href: quickstarts/add-question-metadata-portal.md
+      href: Quickstarts/add-question-metadata-portal.md
     - name: 3. Get answer with Postman or cURL
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
   - name: Test with batch file
     href: Quickstarts/batch-testing.md
-  - name: Using REST APIs
-    items:
-    - name: Create a new knowledge base
-      items:
-      - name: C#
-        href: Quickstarts/create-new-kb-csharp.md
-      - name: Go
-        href: Quickstarts/create-new-kb-go.md
-      - name: Java
-        href: Quickstarts/create-new-kb-java.md
-      - name: Node.js
-        href: Quickstarts/publish-kb-nodejs.md
-      - name: Python
-        href: Quickstarts/create-new-kb-python.md
-    - name: Publish a knowledge base
-      items:
-      - name: C#
-        href: Quickstarts/publish-kb-csharp.md
-      - name: Go
-        href: Quickstarts/publish-kb-go.md
-      - name: Java
-        href: Quickstarts/publish-kb-java.md
-      - name: Node.js
-        href: Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base
-      - name: Python
-        href: Quickstarts/publish-kb-python.md
-    - name: Get answer
-      items:
-      - name: C#
-        href: Quickstarts/get-answer-from-knowledge-base-csharp.md
-      - name: Go
-        href: Quickstarts/get-answer-from-knowledge-base-go.md
-      - name: Java
-        href: Quickstarts/get-answer-from-knowledge-base-java.md
-      - name: Node.js
-        href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
-      - name: Python
-        href: Quickstarts/get-answer-from-knowledge-base-python.md
-
+  - name: Using REST
+    href: Quickstarts/quickstart-rest-curl.md
   - name: Using SDK
-    href: ./Quickstarts/quickstart-sdk.md
+    href: Quickstarts/quickstart-sdk.md
 - name: Tutorials
   items:
   - name: Create and answer from KB
@@ -89,6 +52,8 @@
     - name: Development lifecycle
       href: Concepts/development-lifecycle-knowledge-base.md
       displayName: version control, test, index, publish, monitor usage, create
+    - name: Improve with active learning suggestions
+      href: Concepts/active-learning-suggestions.md
   - name: Query knowledge base
     items:
     - name: Get answer
