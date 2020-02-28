@@ -106,7 +106,11 @@ Select the first two images and click `convert`. This will convert successfully.
 
 ### Break the app
 
-Now that you've verified the app by converting two images successfully, we'll try to convert the first five images. This action fails and produces a `HTTP 500` error that wasn't tested during development.
+Now that you've verified the app by converting two images successfully, we'll try to convert the first five images.
+
+![Convert first five images](./media/tutorial-azure-monitor/sample-monitor-app-convert-five-images.png)
+
+This action fails and produces a `HTTP 500` error that wasn't tested during development.
 
 ![The convert will result in a HTTP 500 error](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
 
@@ -114,9 +118,9 @@ Now that you've verified the app by converting two images successfully, we'll tr
 
 Let's see what logs are available in the Log Analytics workspace. 
 
-Click this [Log Analytics workspace link](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) to access your workspace in the Azure Portal.
+Click this [Log Analytics workspace link](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) to access your workspace in the Azure portal.
 
-In the Azure Portal, select your Log Analytics workspace.
+In the Azure portal, select your Log Analytics workspace.
 
 ### Log queries
 
@@ -136,7 +140,7 @@ Now that we've accessed the app, let's view the data associated with HTTP reques
 
 3. Click `Run`.
 
-![Log Analytics Workspace App Service HTTP Logs](./media/tutorial-azure-monitor/log-analytics-workspace-AppServiceHTTPLogs.png)
+![Log Analytics Workspace App Service HTTP Logs](./media/tutorial-azure-monitor/log-analytics-workspace-app-service-http-logs.png)
 
 The `AppServiceHTTPLogs` query returns all requests in the past 24-hours. The column `ScStatus` contains the HTTP status. To diagnose the `HTTP 500` errors, limit the `ScStatus` to 500 and run the query, as shown below:
 
@@ -144,8 +148,6 @@ The `AppServiceHTTPLogs` query returns all requests in the past 24-hours. The co
 AppServiceHTTPLogs
 | where ScStatus == 500
 ```
-
-![AppServiceConsoleLogs](./media/tutorial-azure-monitor/app-service-http-logs.png)
 
 ### View AppServiceConsoleLogs with log query
 
@@ -168,7 +170,7 @@ In the `ResultDescription` column, you'll see the following error:
 
 ```
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
-(tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 17, 
+(tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 20, 
 referer: http://<app-name>.azurewebsites.net/
 ```
 
@@ -181,7 +183,7 @@ Now that you've identified both HTTP 500s and standard errors, you need to confi
 >
 > - Filters HTTPLogs for 500 errors
 > - Queries console logs
-> - Joins the tables based on `TimeGenerated`
+> - Joins the tables on `TimeGenerated`
 >
 
 Run the following query:
@@ -198,15 +200,15 @@ In the `ResultDescription` column, you'll see the following error at the same ti
 
 ```
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
-(tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 17, 
+(tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 20, 
 referer: http://<app-name>.azurewebsites.net/
 ```
 
-The message states memory has been exhausted on line 17 of `process.php`. You've now confirmed that the application produced an error during the HTTP 500 error. Let's take a look at the code to identify the problem.
+The message states memory has been exhausted on line 20 of `process.php`. You've now confirmed that the application produced an error during the HTTP 500 error. Let's take a look at the code to identify the problem.
 
 ## Identify the error
 
-In the local directory, open the `process.php` and look at line 17. 
+In the local directory, open the `process.php` and look at line 20. 
 
 ```php
 imagepng($imgArray[$x], $filename);
