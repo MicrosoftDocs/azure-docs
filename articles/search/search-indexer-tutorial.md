@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Index data in C# from Azure SQL databases'
+title: 'Tutorial: Index data from Azure SQL databases in C# '
 titleSuffix: Azure Cognitive Search
 description: In this C# tutorial, connect to Azure SQL database, extract searchable data, and load it into an Azure Cognitive Search index.
 
@@ -8,13 +8,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/26/2020
+ms.date: 02/28/2020
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Cognitive Search.
 ---
 
-# Tutorial: Index Azure SQL data in C# using Azure Cognitive Search indexers
+# Tutorial: Index data from Azure SQL databases in C#
 
-Using C#, configure an [indexer](search-indexer-overview.md) that extracts searchable data from Azure SQL database and sends it to a search index. This tutorial uses [Azure Cognitive Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application to perform the following tasks:
+Configure an [indexer](search-indexer-overview.md) programmatically to extract searchable data from Azure SQL database and sends it to a search index in Azure Cognitive Search. 
+
+This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Create a data source that connects to Azure SQL Database
@@ -33,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!Note]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-## Download source code
+## Download files
 
 Source code for this tutorial is in the [DotNetHowToIndexer](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) folder in the [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) GitHub repository.
 
@@ -153,7 +155,7 @@ Use Azure portal to verify object creation, and then use **Search explorer** to 
 
 ## Explore the code
 
-Now that you understand what the sample code create, let's return to the solution to review the code. Relevant code is in two files:
+Now that you understand what the sample code creates, let's return to the solution to review the code. Relevant code is in two files:
 
   + **hotel.cs**, containing a schema that defines the index
   + **Program.cs**, containing functions for creating and managing structures in your service
@@ -227,17 +229,23 @@ An indexer object is platform-agnostic, where  configuration, scheduling, and in
   }
   ```
 
+## Reset and rerun
+
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+
+The sample code for this tutorial checks for existing objects and deletes them so that you can rerun your code.
+
+You can also use the portal to delete indexes, indexers, and data sources.
+
 ## Clean up resources
 
 When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
 You can find and manage resources in the portal, using the All resources or Resource groups link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
-
 ## Next steps
 
-In Azure Cognitive Search, indexers are available for multiple Azure data sources. As a next step, explore the indexer for Azure Blob storage.
+Now that you're familiar with the basics of SQL Database indexing, let's take a closer look at indexer configuration.
 
 > [!div class="nextstepaction"]
-> [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+> [Configure an Azure SQL database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

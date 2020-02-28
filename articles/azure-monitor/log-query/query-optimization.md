@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/25/2019
+ms.date: 02/28/2019
 
 ---
 
@@ -252,6 +252,34 @@ Perf
     | summarize arg_max(TimeGenerated, *), min(TimeGenerated)   
 by Computer
 ) on Computer
+```
+
+Another example for this fault is when performing the time scope filtering just after a [union](/azure/kusto/query/unionoperator?pivots=azuremonitor) over several tables. When performing the union, each sub-query should be scoped. You can use [let](/azure/kusto/query/letstatement) statement to assure scoping consistency.
+
+For example, the following query will scan all the data in the *Heartbeat* and *Perf* tables, not just the last 1 day:
+
+```Kusto
+Heartbeat 
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| where TimeGenerated > ago(1d)
+| summarize min(TimeGenerated) by Computer
+```
+
+This query should be fixed as follows:
+
+```Kusto
+let MinTime = ago(1d);
+Heartbeat 
+| where TimeGenerated > MinTime
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | where TimeGenerated > MinTime
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| summarize min(TimeGenerated) by Computer
 ```
 
 The measurement is always larger than the actual time specified. For example, if the filter on the query is 7 days, the system might scan 7.5 or 8.1 days. This is because the system is partitioning the data into chunks in variable size. To assure that all relevant records are scanned, it scans the entire partition that might cover several hours and even more than a day.
