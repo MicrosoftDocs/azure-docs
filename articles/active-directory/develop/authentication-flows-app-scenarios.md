@@ -144,7 +144,7 @@ But using this flow constrains your applications. For instance, applications can
 
 Authentication with the Username/Password flow goes against the principles of modern authentication and is provided only for legacy reasons.
 
-In desktop apps, if you want the token cache persist, customize the [Token Cache serialization](https://aka.ms/msal-net-token-cache-serialization). By implementing [dual token cache serialization](https://aka.ms/msal-net-dual-cache-serialization), you can use backward-compatible and forward-compatible token caches. These tokens support previous generations of authentication libraries. Specific libraries include Azure AD Authentication Library for .NET (ADAL.NET) version 3 and version 4.
+In desktop apps, if you want the token cache to persist, customize the [Token Cache serialization](https://aka.ms/msal-net-token-cache-serialization). By implementing [dual token cache serialization](https://aka.ms/msal-net-dual-cache-serialization), you can use backward-compatible and forward-compatible token caches. These tokens support previous generations of authentication libraries. Specific libraries include Azure AD Authentication Library for .NET (ADAL.NET) version 3 and version 4.
 
 For more information, see [Desktop app that calls web APIs](scenario-desktop-overview.md).
 
