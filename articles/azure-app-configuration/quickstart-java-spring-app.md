@@ -56,12 +56,23 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Open the *pom.xml* file in a text editor, and add the Spring Cloud Azure Config starter to the list of `<dependencies>`:
 
+    There are two libraries that can be used spring-cloud-azure-appconfiguration-config and spring-cloud-azure-appconfiguration-config-web. There are two differences between them the first being the web version takes on spring-web as a dependency, and the web version will attempt a refresh when the application is active when the cache expires.
+
     **Spring Cloud 1.1.x**
 
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <version>1.1.2</version>
+    </dependency>
+    ```
+    or
+    
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
         <version>1.1.2</version>
     </dependency>
     ```
@@ -72,6 +83,15 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+    ```
+    or
+    
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
         <version>1.2.2</version>
     </dependency>
     ```
