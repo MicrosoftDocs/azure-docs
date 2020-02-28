@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 11/04/2019
+ms.date: 02/28/2020
 ---
 
 # What is automated machine learning?
@@ -153,7 +153,9 @@ Model **C** represents a clear case of over-fitting; the training accuracy is ve
 
 ## Classification & regression
 
-Classification and regression are the most common types of machine learning tasks. Both are types of superviz=sed learning in which models learn using training data, and apply those learnings to new data. The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection. Learn more and see an example of [classification with automated machine learning](tutorial-train-models-with-aml.md).
+Classification and regression are the most common types of machine learning tasks. Both are types of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification tasks and class imbalance detection. Learn more about [featurization options](how-to-create-portal-experiments.md#featurization). 
+
+The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection.  Learn more and see an example of [classification with automated machine learning](tutorial-train-models-with-aml.md).
 
 Different from classification where predicted output values are categorical, regression models predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others. For example, automobile price based on features like, gas mileage, safety rating, etc. Learn more and see an example of [regression with automated machine learning](tutorial-auto-train-models.md).
 
