@@ -35,14 +35,19 @@ The what-if operation lists six different types of changes:
 
 - **Deploy**: The resource exists, and is defined in the template. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
 
-## Deployment scope
+## What-if commands
 
-You can use the what-if operation for deployments at either the subscription or resource group level. 
+You can use the what-if operation for deployments at either the subscription or resource group level.
 
 For PowerShell, use:
 
-* **Get-AzResourceGroupDeploymentWhatIf** for resource group deployments
-* **Get-AzSubscriptionDeploymentWhatIf** or **Get-AzDeploymentWhatIf** for subscription level deployments
+* `Get-AzResourceGroupDeploymentWhatIf` for resource group deployments
+* `Get-AzSubscriptionDeploymentWhatIf` or `Get-AzDeploymentWhatIf` for subscription level deployments
+
+> [!NOTE]
+> Prior to the release of version 2.0.1-alpha5, you used the `New-AzDeploymentWhatIf` command. This command has been replaced by the `Get-Az*DeploymentWhatIf` syntax. If you've used an earlier version, you need to update those commands.
+
+You can also run the what-if operation from the `New-AzResourceGroupDeployment`, `New-AzSubscriptionDeployment` and `New-AzDeployment` commands. Use the `-Whatif` switch parameter to run the what-if command. Use the `-Confirm` switch parameter to first run what-if and then have the option to complete the deployment.
 
 For REST API, use:
 
@@ -57,15 +62,41 @@ This article demonstrates resource group deployments.
 
 You can control the level of detail that is returned about the predicted changes. Set the **ResultFormat** parameter to **FullResourcePayloads** to get a list of resources what will change and details about the properties that will change. Set the **ResultFormat** parameter to **ResourceIdOnly** to get a list of resources that will change. The default value is `FullResourcePayloads`.  
 
-The following screenshots show the two different output formats:
+The following results show the two different output formats:
 
 - Full resource payloads
 
-    ![Resource Manager template deployment what-if operation fullresourcepayloads output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-fullresourcepayload.png)
+  ```powershell
+  Resource and property changes are indicated with these symbols:
+    - Delete
+    ~ Modify
+
+  The deployment will update the following scope:
+
+  Scope: /subscriptions/./resourceGroups/ExampleGroup
+
+    ~ Microsoft.Storage/storageAccounts/storez2wlfuvcm4awc [2019-04-01]
+      - properties.accessTier:               "Hot"
+      ~ properties.supportsHttpsTrafficOnly: true => "true"
+      ~ sku.name:                            "Standard_LRS" => "Standard_GRS"
+  
+  Resource changes: 1 to modify.
+  ```
 
 - Resource ID only
 
-    ![Resource Manager template deployment what-if operation resourceidonly output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-resourceidonly.png)
+  ```powershell
+  Resource and property changes are indicated with this symbol:
+    ! Deploy
+
+  The deployment will update the following scope:
+
+  Scope: /subscriptions/./resourceGroups/ExampleGroup
+
+    ! Microsoft.Storage/storageAccounts/storez2wlfuvcm4awc
+
+  Resource changes: 1 to deploy.
+  ```
 
 ## Run what-if operation
 
@@ -127,8 +158,7 @@ Some of the properties that are listed as deleted won't actually change. In the 
 The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in complete mode.
 
 ```azurepowershell-interactive
-New-AzDeploymentWhatIf `
-  -ScopeType ResourceGroup `
+Get-AzResourceGroupDeploymentWhatIf `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json" `
   -Mode Complete
@@ -138,7 +168,71 @@ Because no resources are defined in the template and the deployment mode is set 
 
 ![Resource Manager template deployment what-if operation output deployment mode complete](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
 
+The text output is:
+
+```powershell
+Resource and property changes are indicated with this symbol:
+  - Delete
+
+The deployment will update the following scope:
+
+Scope: /subscriptions/./resourceGroups/ExampleGroup
+
+  - Microsoft.Storage/storageAccounts/storez2wlfuvcm4awc
+
+      id:       "/subscriptions/./resourceGroups/ExampleGroup/providers/Microsoft.St
+orage/storageAccounts/storez2wlfuvcm4awc"
+      kind:     "StorageV2"
+      location: "centralus"
+      name:     "storez2wlfuvcm4awc"
+      sku.name: "Standard_LRS"
+      sku.tier: "Standard"
+      type:     "Microsoft.Storage/storageAccounts"
+
+Resource changes: 1 to delete.
+```
+
 It's important to remember what-if makes no actual changes. The storage account still exists in your resource group.
+
+## Confirm before deployment
+
+To preview changes before deploying a template, use the `-Confirm` switch parameter with the deployment command. If the changes are as you expected, you can then confirm that you want the deployment to complete. The following command allows you to preview changes before the template is deployed.
+
+```powershell
+New-AzResourceGroupDeployment `
+  -ResourceGroupName ExampleGroup `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json" `
+  -Mode Complete `
+  -Confirm
+```
+
+You see the expected changes and can confirm that you want the deployment to run.
+
+```powershell
+Resource and property changes are indicated with this symbol:
+  - Delete
+
+The deployment will update the following scope:
+
+Scope: /subscriptions/./resourceGroups/ExampleGroup
+
+  - Microsoft.Storage/storageAccounts/storez2wlfuvcm4awc
+
+      id:
+"/subscriptions/./resourceGroups/ExampleGroup/providers/Microsoft.Storage/storageAcc
+ounts/storez2wlfuvcm4awc"
+      kind:     "StorageV2"
+      location: "centralus"
+      name:     "storez2wlfuvcm4awc"
+      sku.name: "Standard_LRS"
+      sku.tier: "Standard"
+      type:     "Microsoft.Storage/storageAccounts"
+
+Resource changes: 1 to delete.
+
+Are you sure you want to execute the deployment?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+```
 
 ## Next steps
 
