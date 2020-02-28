@@ -155,7 +155,7 @@ Use Azure portal to verify object creation, and then use **Search explorer** to 
 
 ## Explore the code
 
-Now that you understand what the sample code create, let's return to the solution to review the code. Relevant code is in two files:
+Now that you understand what the sample code creates, let's return to the solution to review the code. Relevant code is in two files:
 
   + **hotel.cs**, containing a schema that defines the index
   + **Program.cs**, containing functions for creating and managing structures in your service
