@@ -46,7 +46,7 @@ For example, the following routes are for a firewall at public IP address 20.185
 In the following example, a NAT rule translates RDP traffic to the firewall at 20.185.97.136 over to the load balancer at 20.42.98.220:
 
 > [!div class="mx-imgBorder"]
-> ![NAT rule](media/integrate-lb/nat-rule02.png)
+> ![NAT rule](media/integrate-lb/nat-rule-02.png)
 
 ### Health probes
 
