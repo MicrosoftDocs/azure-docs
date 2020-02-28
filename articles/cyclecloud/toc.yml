@@ -108,16 +108,12 @@
       href: ./how-to/mount-fileserver.md
     - name: Enable Return Proxy
       href: ./how-to/return-proxy.md
-    - name: Add an Open Port
-      href: ./how-to/open-port.md
     - name: Configure Network Security
       href: ./how-to/network-security.md
   - name: Node Preparation
     items:
     - name: Install Jetpack
       href: ./how-to/install-jetpack.md
-    - name: Install a Custom Service
-      href: ./how-to/install-custom-service.md
     - name: Create a Custom Image
       href: ./how-to/create-custom-image.md
     - name: Use HB and HC VMs
