@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Index data in C# from Azure SQL databases'
+title: 'Tutorial: Index data from Azure SQL databases in C# '
 titleSuffix: Azure Cognitive Search
 description: In this C# tutorial, connect to Azure SQL database, extract searchable data, and load it into an Azure Cognitive Search index.
 
@@ -12,9 +12,11 @@ ms.date: 02/28/2020
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Cognitive Search.
 ---
 
-# Tutorial: Index Azure SQL data in C# using Azure Cognitive Search indexers
+# Tutorial: Index data from Azure SQL databases in C#
 
-Using C#, configure an [indexer](search-indexer-overview.md) that extracts searchable data from Azure SQL database and sends it to a search index. This tutorial uses [Azure Cognitive Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application to perform the following tasks:
+Configure an [indexer](search-indexer-overview.md) programmatically to extract searchable data from Azure SQL database and sends it to a search index in Azure Cognitive Search. 
+
+This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Create a data source that connects to Azure SQL Database
