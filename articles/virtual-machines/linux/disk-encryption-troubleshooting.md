@@ -92,7 +92,7 @@ Before the next attempt, reevaluate the characteristics of the VM and make sure 
 
 ## Troubleshooting Azure Disk Encryption behind a firewall
 
-See [Disk Encryption on an isolated network](disk-encryption-network-isolation.md)
+See [Disk Encryption on an isolated network](disk-encryption-isolated-network.md)
 
 ## Troubleshooting encryption status 
 

@@ -311,7 +311,7 @@
         - name: Disk encryption sample scripts
           href: disk-encryption-sample-scripts.md
         - name: Disk encryption behind a firewall
-          href: disk-encryption-network-isolation.md
+          href: disk-encryption-isolated-network.md
         - name: Disk encryption troubleshooting
           href: disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
