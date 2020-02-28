@@ -75,22 +75,24 @@ If you have a video service developed today on top of the [legacy Media Services
 * In v2, XML [input](../previous/media-services-input-metadata-schema.md) and [output](../previous/media-services-output-metadata-schema.md) metadata files get generated as the result of an encoding job. In v3, the metadata format changed from XML to JSON. 
 * In Media Services v2, initialization vector (IV) can be specified. In Media Services v3, the FairPlay IV cannot be specified. While it does not impact customers using Media Services for both packaging and license delivery, it can be an issue when using a third party DRM system to deliver the  FairPlay licenses (hybrid mode). In that case, it is important to know that the FairPlay IV is derived from the cbcs key ID and can be retrieved using this formula:
 
-```
-string cbcsIV =  Convert.ToBase64String(HexStringToByteArray(cbcsGuid.ToString().Replace("-", string.Empty)));
-```
+    ```
+    string cbcsIV =  Convert.ToBase64String(HexStringToByteArray(cbcsGuid.ToString().Replace("-", string.Empty)));
+    ```
+
+    with
+
+    ``` 
+    public static byte[] HexStringToByteArray(string hex)
+    {
+        return Enumerable.Range(0, hex.Length)
+            .Where(x => x % 2 == 0)
+            .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+            .ToArray();
+    }
+    ```
+
+    For more information, see the [Azure Functions C# code for Media Services v3 in hybrid mode (for both Live and VOD operations)](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/LiveAndVodDRMOperationsV3.
  
-with
-
-``` 
-public static byte[] HexStringToByteArray(string hex)
-{
-    return Enumerable.Range(0, hex.Length)
-        .Where(x => x % 2 == 0)
-        .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
-        .ToArray();
-}
-```
-
 > [!NOTE]
 > Review the naming conventions that are applied to [Media Services v3 resources](media-services-apis-overview.md#naming-conventions). Also review [naming blobs](assets-concept.md#naming).
 
