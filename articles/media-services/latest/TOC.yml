@@ -181,9 +181,9 @@
         href: live-event-error-codes.md
       - name: Job error codes
         href: job-error-codes.md
-  - name: Business continuity and disaster recovery
+  - name: High availability guidance
     displayName: failover, bcdr
-    href: media-services-disaster-recovery-guidance.md
+    href: media-services-high-availability-guidance.md
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md 
     displayName: naming
