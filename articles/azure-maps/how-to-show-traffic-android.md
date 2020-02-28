@@ -17,7 +17,7 @@ This guide shows how to display traffic data on the map. Flow and incidents are 
 
 ## Prerequisites
 
-To complete the process in this article, you need to install Azure Maps Android SDK, as explained in [getting started with Android SDK](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-use-android-map-control-librar).
+To complete the process in this article, you need to install Azure Maps Android SDK, as explained in [getting started with Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-librar).
 
 ## Show traffic on the map
 
