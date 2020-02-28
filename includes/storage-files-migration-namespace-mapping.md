@@ -18,7 +18,7 @@ Consider the following options:
 
 #### Share grouping
 
-For instance, if your HR department has a total of 15 shares, then you could consider storing all of the HR data in a single Azure file share. This does not prevent you from creating the usual 15 SMB shares on your local Windows Server. It only means that you organize the root folders of these 15 shares as subfolders under a common folder and you sync the common root. That way, you only need a single Azure file share in the cloud for this group of on-premises shares.
+For instance, if your HR department has a total of 15 shares, then you could consider storing all of the HR data in a single Azure file share. Storing multiple on-premises shares in one Azure file share does not prevent you from creating the usual 15 SMB shares on your local Windows Server. It only means that you organize the root folders of these 15 shares as subfolders under a common folder. You then sync this common folder to an Azure file share. That way, only a single Azure file share in the cloud is needed for this group of on-premises shares.
 
 #### Volume sync
 

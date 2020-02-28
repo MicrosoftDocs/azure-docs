@@ -77,7 +77,7 @@ This article assumes you are mapping 1:1, so you must take your mapping changes 
 In previous steps, you have considered all aspects that will determine the components of your sync topologies. It is now time, to prepare the server to receive files for upload.
 
 Create **all** folders, that will sync each to its own Azure file share.
-It's important that you follow the folder structure you've documented earlier. If for instance, you have decided to sync multiple, local SMB shares together into a single Azure file share, than you need to place them under a common root folder on the volume. Create this target root folder on the volume now.
+It's important that you follow the folder structure you've documented earlier. If for instance, you have decided to sync multiple, local SMB shares together into a single Azure file share, then you need to place them under a common root folder on the volume. Create this target root folder on the volume now.
 
 The number of Azure file shares you have provisioned should match the number of folders you've created in this step + the number of volumes you will sync at the root level.
 
@@ -125,7 +125,7 @@ Background:
       /COPY:copyflag[s]
    :::column-end:::
    :::column span="1":::
-      fidelity of the file copy (default is /COPY:DAT), copy flags : D=Data, A=Attributes, T=Timestamps, S=Security=NTFS ACLs, O=Owner info, U=aUditing info
+      fidelity of the file copy (default is /COPY:DAT), copy flags: D=Data, A=Attributes, T=Timestamps, S=Security=NTFS ACLs, O=Owner info, U=aUditing info
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -141,7 +141,7 @@ Background:
       /DCOPY:copyflag[s]
    :::column-end:::
    :::column span="1":::
-      fidelity for the copy of directories (default is /DCOPY:DA), copy flags : D=Data, A=Attributes, T=Timestamps
+      fidelity for the copy of directories (default is /DCOPY:DA), copy flags: D=Data, A=Attributes, T=Timestamps
    :::column-end:::
 :::row-end:::
 
@@ -156,7 +156,7 @@ The first run is about moving the bulk of the data back to on-premises, over to 
 
 Once the initial run is complete, run the command again.
 
-The second time it will finish faster, because it only needs to transport changes that happened since the last run. Those changes are likely local to the StorSimple already, because they are very recent. That is further reducing the time because the need for recall from the cloud is reduced. During this second run, still, new changes can accumulate.
+The second time it will finish faster, because it only needs to transport changes that happened since the last run. Those changes are likely local to the StorSimple already, because they are recent. That is further reducing the time because the need for recall from the cloud is reduced. During this second run, still, new changes can accumulate.
 
 Repeat this process until you are satisfied that the amount of time it takes to complete is an acceptable downtime.
 
