@@ -89,80 +89,29 @@ The URL for the sample configuration, and its contents, are subject to change. D
 #### PowerShell sample
 
 ```Powershell
-// Set your Azure VM diagnostics variables correctly below - don't forget to replace the VMResourceID
+$storageAccountName = "johnkemtest"
+$storageAccountResourceGroup = "generalTest"
+$vmName = "johnkemlinuxtest"
+$VMresourceGroup = "generalTest"
 
-$SASKey = '<SASKeyForDiagStorageAccount>'
+# Get the VM object
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $VMresourceGroup
 
-$ladCfg = "{
-'diagnosticMonitorConfiguration': {
-'performanceCounters': {
-'sinks': 'WADMetricEventHub,WADMetricJsonBlob',
-'performanceCounterConfiguration': [
-{
-'unit': 'Percent',
-'type': 'builtin',
-'counter': 'PercentProcessorTime',
-'counterSpecifier': '/builtin/Processor/PercentProcessorTime',
-'annotation': [
-{
-'locale': 'en-us',
-'displayName': 'Aggregate CPU %utilization'
-}
-],
-'condition': 'IsAggregate=TRUE',
-'class': 'Processor'
-},
-{
-'unit': 'Bytes',
-'type': 'builtin',
-'counter': 'UsedSpace',
-'counterSpecifier': '/builtin/FileSystem/UsedSpace',
-'annotation': [
-{
-'locale': 'en-us',
-'displayName': 'Used disk space on /'
-}
-],
-'condition': 'Name='/'',
-'class': 'Filesystem'
-}
-]
-},
-'metrics': {
-'metricAggregation': [
-{
-'scheduledTransferPeriod': 'PT1H'
-},
-{
-'scheduledTransferPeriod': 'PT1M'
-}
-],
-'resourceId': '<VMResourceID>'
-},
-'eventVolume': 'Large',
-'syslogEvents': {
-'sinks': 'SyslogJsonBlob,LoggingEventHub',
-'syslogEventConfiguration': {
-'LOG_USER': 'LOG_INFO'
-}
-}
-}
-}"
-$ladCfg = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($ladCfg))
-$perfCfg = "[
-{
-'query': 'SELECT PercentProcessorTime, PercentIdleTime FROM SCX_ProcessorStatisticalInformation WHERE Name='_TOTAL'',
-'table': 'LinuxCpu',
-'frequency': 60,
-'sinks': 'LinuxCpuJsonBlob'
-}
-]"
+# Get the public settings template from GitHub and update the templated values for storage account and resource ID
+$publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json).Content
+$publicSettings = $publicSettings.Replace('__DIAGNOSTIC_STORAGE_ACCOUNT__', $storageAccountName)
+$publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
 
-// Get the VM Resource
-Get-AzureRmVM -ResourceGroupName <RGName> -VMName <VMName>
+# If you have your own customized public settings, you can inline those rather than using the template above: $publicSettings = '{"ladCfg":  { ... },}'
 
-// Finally tell Azure to install and enable the extension
-Set-AzureRmVMExtension -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -ResourceGroupName <RGName> -VMName <VMName> -Location <Location> -Name LinuxDiagnostic -Settings @{'StorageAccount'='<DiagStorageAccount>'; 'sampleRateInSeconds' = '15' ; 'ladCfg'=$ladCfg; 'perfCfg' = $perfCfg} -ProtectedSettings @{'storageAccountName' = '<DiagStorageAccount>'; 'storageAccountSasToken' = $SASKey } -TypeHandlerVersion 3.0
+# Generate a SAS token for the agent to use to authenticate with the storage account
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context
+
+# Build the protected settings (storage account SAS token)
+$protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
+
+# Finally install the extension with the settings built above
+Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0 
 ```
 
 ### Updating the extension settings
