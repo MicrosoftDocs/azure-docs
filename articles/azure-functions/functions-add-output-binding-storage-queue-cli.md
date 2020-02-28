@@ -151,33 +151,35 @@ You can view the queue in the [Azure portal](../storage/queues/storage-quickstar
     az storage queue list --output tsv
     ```
 
-1. Use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view a message in this queue, which should be the first name you used when testing the function earlier. The command retrieves only the first message in the queue, which is [base64 encoded](functions-bindings-storage-queue-trigger.md#encoding), and decodes it to show the message text.
+1. Use the [`az storage message get`](/cli/azure/storage/message#az-storage-message-peek) command to read the message from this queue, which should be the first name you used when testing the function earlier. The command reads and removes the first message from the queue. 
 
     # [bash](#tab/bash)
     
     ```bash
-    echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
+    echo `echo $(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
     # [PowerShell](#tab/powershell)
     
     ```powershell
-    [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
+    [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
     # [Cmd](#tab/cmd)
     
     ```cmd
-    az storage message peek --queue-name outqueue -o tsv --query [].{Message:content} > %TEMP%out.b64 && certutil -decode -f %TEMP%out.b64 %TEMP%out.txt > NUL && type %TEMP%out.txt && del %TEMP%out.b64 %TEMP%out.txt /q
+    az storage message get --queue-name outqueue -o tsv --query [].{Message:content} > %TEMP%out.b64 && certutil -decode -f %TEMP%out.b64 %TEMP%out.txt > NUL && type %TEMP%out.txt && del %TEMP%out.b64 %TEMP%out.txt /q
     ```
 
     This script uses certutil to decode the base64-encoded message collection from a local temp file. If there's no output, try removing `> NUL` from the script to stop suppressing certutil output, in case there's an error. 
     
     ---
     
+    Because the message body is stored [base64 encoded](functions-bindings-storage-queue-trigger.md#encoding), the message must be decoded before it's displayed. After you execute `az storage message get`, the message is removed from the queue. If there was only one message in `outqueue`, you won't retrieve a message when you run this command a second time and instead get an error.
+
 ## Redeploy the project to Azure
 
-Now that you've tested the function locally and verified that it wrote a message to the Azure Storage queue, you can redeploy your project to update the endpoint running on Azure.
+Now that you've verified locally that the function wrote a message to the Azure Storage queue, you can redeploy your project to update the endpoint running on Azure.
 
 1. In the *LocalFunctionsProj* folder, use the [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) command to redeploy the project, replacing`<APP_NAME>` with the name of your app.
 
@@ -203,8 +205,6 @@ Now that you've tested the function locally and verified that it wrote a message
 
 1. Examine the Storage queue again, as described in the previous section, to verify that it contains the new message written to the queue.
 
-    If you're using the Azure CLI to examine the queue, the `az storage message peek` command shows only the first message in the queue. To simulate processing the messages, use `az storage message get` instead with all the same arguments. The `get` command returns the message and removes it from the queue. You can then repeat the same command until the queue is empty (and the command gives an error).
-
 ## Clean up resources
 
 After you've finished, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
@@ -218,6 +218,7 @@ az group delete --name AzureFunctionsQuickstart-rg
 You've updated your HTTP triggered function to write data to a Storage queue. Now you can learn more about developing Functions from the command line using Core Tools and Azure CLI:
 
 + [Work with Azure Functions Core Tools](functions-run-local.md)  
+
 ::: zone pivot="programming-language-csharp"  
 + [Examples of complete Function projects in C#](/samples/browse/?products=azure-functions&languages=csharp).
 
@@ -243,8 +244,8 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 
 + [Azure Functions PowerShell developer guide](functions-reference-powershell.md) 
 ::: zone-end
-+ [Azure Functions triggers and bindings](functions-triggers-bindings.md).
++ [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 
 + [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/)
 
-+ [Estimating Consumption plan costs](functions-consumption-costs.md) article.
++ [Estimating Consumption plan costs](functions-consumption-costs.md) 
