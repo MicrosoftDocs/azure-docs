@@ -51,7 +51,7 @@ Create your resource group and single database using the Azure portal.
 
      ![SQL Database details](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - Select **Provisioned**.
+   - Select **Provisioned**.  Alternatively, select **Serverless** to create a serverless database.
 
      ![Provisioned Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
