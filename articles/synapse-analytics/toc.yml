@@ -84,28 +84,16 @@
     #     href: sql-analytics/sql-analytics-on-demand-workspace-overview.md
     #   - name: Spark pool 
     #     href: ./spark/apache-spark-overview.md
-    - name: Metadata management
+    - name: Shared Metadata management
       items:
       - name: Overview
-        href: metadata-overview.md
-      - name: Storage objects
+        href: metadata/metadata-overview.md
+      - name: Meta data objects
         items:
-        # - name: Objects
-        #   href: azure-synapse-metadata-objects.md
-        - name: Databases
-          href: metadata-database.md
-        - name: Tables
-          href: metadata-table.md
-        # - name: Views
-        #   href: azure-synapse-metadata-views.md
-      # - name: Metadata sync
-      #   items:
-      #   - name: Overview
-      #     href: azure-synapse-metadata-sync-overview.md
-      #   - name: Sync with SQL Analytics on-demand
-      #     href: azure-synapse-metadata-sync-sql-analytics-on-demand.md
-      #   - name: Sync with SQL Analytics pool metadata
-      #     href: azure-synapse-metadata-sync-sql-analytics-pool.md
+        - name: Shared Databases
+          href: metadata/metadata-database.md
+        - name: Shared Tables
+          href: metadata/metadata-table.md
       - name: Code artifacts
         items:
         - name: Apache Spark Notebooks
