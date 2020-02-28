@@ -51,7 +51,8 @@ Two Azure resources are defined in the template:
 
 1. Select the following link to sign in to Azure and open a template. The template creates a key vault and a secret.
 
-    [Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json"><img src="./media/blob-event-quickstart-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+
 2. Specify the **endpoint**: provide the URL of your web app and add `api/updates` to the home page URL.
 3. Select **Purchase** to deploy the template.
 
