@@ -45,11 +45,6 @@ Apache Spark pools in Azure Synapse include the following components that are av
 
 ## Spark pool architecture
 
-<!--- TODO: Need to replace this diagram
-
-![The architecture of Arcadia Spark](./media/apache-spark-overview/spark-architecture.png)
-
---->
 It is easy to understand the components of Spark by understanding how Spark runs on Synapse Analytics.
 
 Spark applications run as independent sets of processes on a pool, coordinated by the SparkContext object in your main program (called the driver program).
@@ -72,20 +67,12 @@ Apache Spark includes many language features to support preparation and processi
 
 Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine learning library built on top of Spark that you can use from a Spark pool in Synapse Analytics. Spark pools in Synapse Analytics also include Anaconda, a Python distribution with a variety of packages for data science including machine learning. When combined with built-in support for notebooks, you have an environment for creating machine learning applications.
 
-<!--- TODO: add this back in when streaming is enabled
-* Spark streaming and real-time data analysis
-
-    Spark pools in Synapse Analytics offer rich support for building real-time analytics solutions. While Spark already has connectors to ingest data from many sources like Kafka, Flume, Twitter, ZeroMQ, or TCP sockets, Spark in Synapse Analytics adds first-class support for ingesting data from Azure Event Hubs. Event Hubs is the most widely used queuing service on Azure. Having an out-of-the-box support for Event Hubs makes Spark clusters in Synapse Analytics an ideal platform for building real-time analytics pipeline.
---->
-
 ## Where do I start?
 
 Use the following articles to learn more about Apache Spark in Synapse Analytics:
 
 * [Quickstart: Create an Apache Spark pool in Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
-<!---TODO: * [Tutorial: Run an Apache Spark job using Jupyter](./apache-spark-load-data-run-query.md)--->
 * [Tutorial: Machine learning using Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
-<!---TODO: * [Tutorial: Create a Scala Maven application using IntelliJ](./apache-spark-create-standalone-application.md)--->
 
 * [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
 

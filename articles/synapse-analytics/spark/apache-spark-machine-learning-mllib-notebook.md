@@ -112,7 +112,7 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     * Save the dataframe as a temporary table or view
     * Save the dataframe as a permanent table
 
-Examples are included of the first 2 of these approaches below. 
+Examples are included of the first 2 of these approaches below.
 
 Creating a temp table or view provides different access paths to the data but only lasts for the duration of the Spark instance session.
 
@@ -288,24 +288,6 @@ After you have finished running the application, shut down the notebook to relea
 ## See also
 
 * [Overview: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md)
-
-<!---
-### Scenarios
-
-> TODO Need to rewrite this section
-
-### Create and run applications
-
-> TODO Need to rewrite this section
-
-### Tools and extensions
-
-> TODO Need to rewrite this section
-
-### Manage resources
-
-> TODO Need to rewrite this section
---->
 
 ## Next steps
 
