@@ -12,7 +12,7 @@ ms.date: 02/28/2020
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Cognitive Search.
 ---
 
-# Tutorial: Index data from Azure SQL databases in C#
+# Tutorial: Use C# to index data from SQL databases in Azure Cognitive Search
 
 Configure an [indexer](search-indexer-overview.md) to extract searchable data from Azure SQL database, sending it to a search index in Azure Cognitive Search. 
 
@@ -105,7 +105,7 @@ API calls require the service URL and an access key. A search service is created
 
 1. For `searchServiceName`, if the full URL is "https://my-demo-service.search.windows.net", the service name to provide is "my-demo-service".
 
-1. For `AzureSqlConnectionString`, the string format is similar to this: "Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+1. For `AzureSqlConnectionString`, the string format is similar to this: `"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
 
     ```json
     {
@@ -209,11 +209,11 @@ Your code runs locally in Visual Studio, connecting to your search service on Az
 
 ## 5 - Search
 
-After indexing is finished, you can run queries that return the contents of individual fields. By default, Azure Cognitive Search returns the top 50 results. The sample data is small so the default works fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Cognitive Search](search-pagination-page-layout.md).
+Use Azure portal to verify object creation, and then use **Search explorer** to query the index.
 
-Use **Search explorer** to query the index.
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, open each list in turn to verify the object is created. **Indexes**, **Indexers**, and **Data Sources** will have "hotels", "azure-sql-indexer", and "azure-sql", respectively.
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, open **Indexes**.
+   ![Indexer and data source tiles](./media/search-indexer-tutorial/tiles-portal.png)
 
 1. Select the hotels index. On the hotels page, **Search explorer** is the first tab. 
 
