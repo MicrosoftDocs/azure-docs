@@ -78,31 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** intiated mode, perform the following steps:
-
-	a. Click **Upload metadata file**.
-
-    ![Upload metadata file](common/upload-metadata.png)
-
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
-
-	![choose metadata file](common/browse-upload-metadata.png)
-
-	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
-
-	![image](common/idp-intiated.png)
-
-	> [!Note]
-	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-	![image](common/metadata-upload-additional-signon.png)
-
-	In the **Sign-on URL** text box, type the URL:
-    `https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
-
-1. If you do not have **Service Provider metadata file**, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. If you do not have **Service Provider metadata file** and wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type the URL:
     `https://portal.catchpoint.com/SAML2`
@@ -115,7 +91,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type the URL:
     `https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
 
-1. On the **Setup single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. Catchpoint application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+1. In addition to above, Catchpoint application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+
+	| Name | Source Attribute|
+	| ------------ | --------- |
+	| namespace | user.assignedrole |
+
+    > [!NOTE]
+    > namespace claim needs to be mapped with the account name. This account name should be setup as the roles in Azure AD which will be passed back in SAML response. Please refer this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to learn how to setup the roles
+
+1. On the **Setup single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -165,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Catchpoint configuration](./media/catchpoint-tutorial/configuration2.png)
 
-	1. In the **Namespace** textbox, enter namespace as `azure AD test`.
+	1. In the **Namespace** textbox, enter a valid namespace value.
 
 	1. In the **Identity Provider Issuer** textbox, enter the **Azure AD Identifier** value, which you have copied from the Azure portal.
 
@@ -186,6 +175,11 @@ In this section, a user called Britta Simon is created in Catchpoint. Catchpoint
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Catchpoint tile in the Access Panel, you should be automatically signed in to the Catchpoint for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+> [!NOTE]
+> When you are sign into the Catchpoint application through the login page, after providing **Catchpoint Credentials**, enter the valid **Namespace** value in the **Company Credentials(SSO)** textbox and click **Login**.
+
+![Catchpoint configuration](./media/catchpoint-tutorial/loginimage.png)
 
 ## Additional resources
 
