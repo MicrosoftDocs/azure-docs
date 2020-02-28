@@ -133,7 +133,7 @@ The first two entries use the URL and admin keys for your Azure Cognitive Search
 
 The next entries specify account names and connection string information for the Azure Blob Storage and Azure Cosmos DB data sources.
 
-## 3 - Identify the key
+## 3 - Map key fields
 
 Merging content requires that both data streams are targeting the same documents in the search index. 
 
