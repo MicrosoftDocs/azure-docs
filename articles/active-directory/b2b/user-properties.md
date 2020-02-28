@@ -70,7 +70,7 @@ This property indicates how the user signs in.
 
 - Invited User: This user has been invited but has not yet redeemed an invitation.
 
-- External Active Directory: This user is homed in an external organization and authenticates by using an Azure AD account that belongs to the other organization. This type of sign-in corresponds to State 1.
+- External Azure Active Directory: This user is homed in an external organization and authenticates by using an Azure AD account that belongs to the other organization. This type of sign-in corresponds to State 1.
 
 - Microsoft account: This user is homed in a Microsoft account and authenticates by using a Microsoft account. This type of sign-in corresponds to State 2.
 

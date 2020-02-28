@@ -63,7 +63,9 @@ If you're using a public IP address as an endpoint, you'll find the IP and DNS i
 
 ### What are the settings for Keep-Alive timeout and TCP idle timeout?
 
- In the Application Gateway v1 SKU, the Keep-Alive timeout is 120 seconds. The Keep-Alive timeout for the v2 SKU is 75 seconds. The TCP idle timeout is a 4-minute default on the frontend virtual IP (VIP) of Application Gateway.
+*Keep-Alive timeout* governs how long the Application Gateway will wait for a client to send another HTTP request on a persistent connection before reusing it or closing it. *TCP idle timeout* governs how long a TCP connection is kept open in case of no activity. 
+
+The *Keep-Alive timeout* in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. The *TCP idle timeout* is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. 
 
 ### Does the IP or DNS name change over the lifetime of the application gateway?
 
@@ -117,7 +119,7 @@ Use Traffic Manager to distribute traffic across multiple application gateways i
 
 Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Autoscaling and Zone-redundant Application Gateway](application-gateway-autoscaling-zone-redundant.md).
 
-### Does manual scale up or scale down cause downtime?
+### Does manual or automatic scale up or scale down cause downtime?
 
 No. Instances are distributed across upgrade domains and fault domains.
 
@@ -127,7 +129,7 @@ Yes. You can set up connection draining to change members within a backend pool 
 
 ### Can I change instance size from medium to large without disruption?
 
-Yes. Azure distributes instances across update and fault domains to ensure that instances don't fail all at the same time. Application Gateway supports scaling by adding multiple instances of the same gateway to share the load.
+Yes.
 
 ## Configuration
 
@@ -153,7 +155,7 @@ See [User-defined routes supported in the Application Gateway subnet](https://do
 
 ### What are the limits on Application Gateway? Can I increase these limits?
 
-See [Application Gateway limits](../azure-subscription-service-limits.md#application-gateway-limits).
+See [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 ### Can I simultaneously use Application Gateway for both external and internal traffic?
 
@@ -403,6 +405,9 @@ But if you'd like to use Application Gateway V2 with only private IP, you can fo
 Sample NSG configuration for private IP only access:
 ![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
 
+### Does Application Gateway affinity cookie support SameSite attribute?
+Yes, the [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) introduced a mandate on HTTP cookies without SameSite attribute to be treated as SameSite=Lax. This means that the Application Gateway affinity cookie won't be sent by the browser in a third-pary context. 
+To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-overview.md#cookie-based-affinity) for more information.
 
 ## Next steps
 

@@ -1,15 +1,14 @@
 ---
 title: Azure Service Bus metrics in Azure Monitor| Microsoft Docs
-description: Use Azure Monitor to monitor Service Bus entities
+description: This article explains how to use Azure Monitor to monitor Service Bus entities (queues, topics, and subscriptions).
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 01/27/2020
 ms.author: aschhab
 
 ---
@@ -83,6 +82,13 @@ The following two types of errors are classified as user errors:
 | ActiveMessages| Count of active messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: EntityName |
 | Dead-lettered messages| Count of dead-lettered messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/>Dimension: EntityName |
 | Scheduled messages| Count of scheduled messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average  <br/> Dimension: EntityName |
+
+> [!NOTE]
+> Values for the following metrics are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
+> - Messages
+> - Active messages 
+> - Dead-lettered messages 
+> - Scheduled messages 
 
 ## Connection metrics
 

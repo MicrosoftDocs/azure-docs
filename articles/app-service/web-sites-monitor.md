@@ -40,7 +40,7 @@ Quotas for Free or Shared apps are:
 The only quota applicable to apps that are hosted in *Basic*, *Standard*, and
 *Premium* is Filesystem.
 
-For more information about the specific quotas, limits, and features available to the various App Service SKUs, see [Azure Subscription service limits](../azure-subscription-service-limits.md#app-service-limits).
+For more information about the specific quotas, limits, and features available to the various App Service SKUs, see [Azure Subscription service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ### Quota enforcement
 

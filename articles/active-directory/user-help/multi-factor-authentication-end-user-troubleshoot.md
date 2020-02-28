@@ -2,7 +2,7 @@
 title: Common problems & solutions with account authentication - Azure AD
 description: Learn about potential problems and solutions for some of the more common two-factor verification problems and your work or school account.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 
@@ -11,9 +11,8 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: kexia
-ms.collection: M365-identity-device-management
 ---
 
 # Common problems and solutions with two-factor verification and your work or school account

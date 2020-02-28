@@ -13,6 +13,7 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
+ms.custom: fasttrack-edit
 ---
 
 # Quickstart: Create a new tenant in Azure Active Directory
@@ -27,7 +28,7 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 
 ### To create a new tenant
 
-1. Sign in to your organization's [Azure portal](https://portal.azure.com/) using a Global administrator account.
+1. Sign in to your organization's [Azure portal](https://portal.azure.com/).
 
 1. From the Azure portal menu, select **Create a resource**.  
 
@@ -54,6 +55,7 @@ Your new tenant is created with the domain contoso.onmicrosoft.com.
 ## Clean up resources
 If you’re not going to continue to use this application, you can delete the tenant using the following steps:
 
+- Ensure that you are signed in to the directory that you want to delete through the **Directory + subscription** filter in the Azure Portal, and switching to the target directory if needed.
 - Select **Azure Active Directory**, and then on the **Contoso - Overview** page, select **Delete directory**.
 
     The tenant and its associated information is deleted.

@@ -3,8 +3,8 @@ title: Service quotas and limits - Azure Batch | Microsoft Docs
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 services: batch
 documentationcenter: ''
-author: laurenhughes
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: lahugh
+ms.author: labrenne
 ms.custom: seodec18
 
 ---
@@ -38,7 +38,7 @@ Also note that quotas are not guaranteed values. Quotas can vary based on change
 
 ### Cores quotas in user subscription mode
 
-If you created a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quotas do not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+If you created a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quotas do not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## Pool size limits
 
@@ -136,13 +136,13 @@ Batch pools in the Virtual Machine Configuration deployed in an Azure virtual ne
 * One [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * One [load balancer](../load-balancer/load-balancer-overview.md)
 
-These resources are allocated in the subscription that contains the virtual network supplied when creating the Batch pool. These resources are limited by the subscription's [resource quotas](../azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, check the subscription's quotas for these resources. If needed, request an increase in the Azure portal by selecting **Help + support**.
+These resources are allocated in the subscription that contains the virtual network supplied when creating the Batch pool. These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, check the subscription's quotas for these resources. If needed, request an increase in the Azure portal by selecting **Help + support**.
 
 
 ## Related topics
 * [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
 * [Azure Batch feature overview](batch-api-basics.md)
-* [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
+* [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

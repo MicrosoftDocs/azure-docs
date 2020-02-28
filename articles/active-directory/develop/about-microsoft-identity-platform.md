@@ -14,7 +14,6 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to understand about the Microsoft identity platform so I can decide which endpoint and platform best meets my needs.
-ms.collection: M365-identity-device-management
 ---
 
 # Evolution of Microsoft identity platform
@@ -66,4 +65,4 @@ Microsoft identity platform (v2.0) endpoint is now OIDC certified. It works with
 Learn more about v1.0 and v2.0.
 
 * [Microsoft identity platform (v2.0) overview](v2-overview.md)
-* [Azure Active Directory for developers (v1.0) overview](v1-overview.md)
+* [Azure Active Directory for developers (v1.0) overview](../azuread-dev/v1-overview.md)

@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 12/17/2019
+ ms.date: 02/19/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -29,12 +29,6 @@ The following client operating systems are supported:
 * iOS
 
 [!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
-
-### What should I do if I am getting a certificate mismatch when connecting?
-
-Un-check **"Verify the server's identity by validating the certificate"** or **add the server FQDN along with the certificate** when creating a profile manually. You can do this by running **rasphone** from a command prompt and picking the profile from the drop down list.
-
-![point-to-site](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Server Certificate")
 
 ### Can I traverse proxies and firewalls using Point-to-Site capability?
 
@@ -98,3 +92,21 @@ Azure supports Windows, Mac and Linux for P2S VPN.
 ### I already have an Azure VPN Gateway deployed. Can I enable RADIUS and/or IKEv2 VPN on it?
 
 Yes, you can enable these new features on already deployed gateways using Powershell or the Azure portal, provided that the gateway SKU that you are using supports RADIUS and/or IKEv2. For example, the VPN gateway Basic SKU does not support RADIUS or IKEv2.
+
+### <a name="removeconfig"></a>How do I remove the configuration of a P2S connection?
+
+A P2S configuration can be removed using Azure CLI and PowerShell using the following commands:
+
+#### Azure PowerShell
+
+```azurepowershell-interactive
+$gw=Get-AzVirtualNetworkGateway -name <gateway-name>`  
+$gw.VPNClientConfiguration = $null`  
+Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw`
+```
+
+#### Azure CLI
+
+```azurecli-interactive
+az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"
+```

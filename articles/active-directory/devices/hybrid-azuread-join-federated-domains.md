@@ -155,6 +155,9 @@ If some of your domain-joined devices are Windows downlevel devices, you must:
 - Configure the local intranet settings for device registration
 - Install Microsoft Workplace Join for Windows downlevel computers
 
+> [!NOTE]
+> Windows 7 support ended on January 14, 2020. For more information, [Support for Windows 7 has ended](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
+
 ### Configure the local intranet settings for device registration
 
 To successfully complete hybrid Azure AD join of your Windows downlevel devices and to avoid certificate prompts when devices authenticate to Azure AD, you can push a policy to your domain-joined devices to add the following URLs to the local intranet zone in Internet Explorer:
@@ -169,7 +172,7 @@ You also must enable **Allow updates to status bar via script** in the user’s 
 
 To register Windows downlevel devices, organizations must install [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join for non-Windows 10 computers is available in the Microsoft Download Center.
 
-You can deploy the package by using a software distribution system like [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). The package supports the standard silent installation options with the `quiet` parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
+You can deploy the package by using a software distribution system like [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). The package supports the standard silent installation options with the `quiet` parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
 
 The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user signs in to Windows. The task silently joins the device with Azure AD by using the user credentials after it authenticates with Azure AD.
 

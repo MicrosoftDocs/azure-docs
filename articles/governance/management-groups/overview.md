@@ -29,7 +29,7 @@ example of creating a hierarchy for governance using management groups.
 ![Example of a management group hierarchy tree](./media/tree.png)
 
 You can create a hierarchy that applies a policy, for example, which limits VM locations
-to the US West Region in the group called "Production". This policy will inherit onto all the EA subscriptions that are descendants of that management
+to the US West Region in the group called "Production". This policy will inherit onto all the Enterprise Agreement (EA) subscriptions that are descendants of that management
 group and will apply to all VMs under those subscriptions. This security policy cannot be altered by the resource or
 subscription owner allowing for improved governance.
 
@@ -125,7 +125,7 @@ The following chart shows the list of roles and the supported actions on managem
 
 ## Custom RBAC role definition and assignment
 
-Custom RBAC role support for management groups is currently supported with some [limitations](#limitations).  You can define the management group scope in the Role Definition's assignable scope.  That custom RBAC Role will then be available for assignment on that management group and any management group, subscription, resource group, or resource under it. This custom role will inherit down the hierarchy like any built-in role.    
+Custom RBAC role support for management groups is currently in preview with some [limitations](#limitations).  You can define the management group scope in the Role Definition's assignable scope.  That custom RBAC Role will then be available for assignment on that management group and any management group, subscription, resource group, or resource under it. This custom role will inherit down the hierarchy like any built-in role.    
 
 ### Example definition
 [Defining and creating a custom role](../../role-based-access-control/custom-roles.md) does not change with the inclusion of management groups. Use the full path to define the management group **/providers/Microsoft.Management/managementgroups/{groupId}**. 
@@ -207,7 +207,7 @@ If the Owner role on the subscription is inherited from the current management g
 
 ## Audit management groups using activity logs
 
-Management groups are supported within [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md). You can search all events that happen to a management group in the same central location as other Azure resources.  For example, you can see all Role Assignments or Policy Assignment changes made to a particular management group.
+Management groups are supported within [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md). You can search all events that happen to a management group in the same central location as other Azure resources.  For example, you can see all Role Assignments or Policy Assignment changes made to a particular management group.
 
 ![Activity Logs with Management Groups](media/al-mg.png)
 

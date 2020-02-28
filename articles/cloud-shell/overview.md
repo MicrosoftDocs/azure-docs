@@ -35,11 +35,14 @@ Cloud Shell enables access to a browser-based command-line experience built with
 Leverage Cloud Shell to work untethered from a local machine in a way only the cloud can provide.
 
 ### Choice of preferred shell experience
-Users can choose between Bash or PowerShell from the shell dropdown.
+Users can choose between Bash or PowerShell.
+1. Select **Cloud Shell**.
 
-![Bash in Cloud Shell](media/overview/overview-bash-pic.png)
+    ![Cloud Shell icon](media/overview/overview-cloudshell-icon.png)
 
-![PowerShell in Cloud Shell](media/overview/overview-ps-pic.png)
+2. Select **Bash** or **PowerShell**.
+
+    ![Choose either Bash or PowerShell](media/overview/overview-choices.png)
 
 ### Authenticated and configured Azure workstation
 Cloud Shell is managed by Microsoft so it comes with popular command-line tools and language support. Cloud Shell also securely authenticates automatically for instant access to your resources through the Azure CLI or Azure PowerShell cmdlets.

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/14/2019
+ms.date: 02/19/2020
 ms.author: pafarley
 ---
 
@@ -21,38 +21,39 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 To complete this quickstart, you must have:
-- Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request form](https://aka.ms/FormRecognizerRequestAccess). You'll receive an email with a link to create a Form Recognizer resource.
-- Access to the Form Recognizer sample labeling tool. To get access, fill out and submit the [Form Recognizer label tool request form](https://aka.ms/LabelToolRequestAccess). You'll receive an email with instructions on how to obtain your credentials and access the private container registry. 
-- A set of at least six forms of the same type. You will use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
+
+- A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
+
+## Create a Form Recognizer resource
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## Set up the sample labeling tool
 
 You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
-1. First, install Docker on a host computer. This can be your local computer ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/), or [Linux](https://docs.docker.com/install/)). Or, you can use a Docker hosting service in Azure, such as the [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index), or a Kubernetes cluster [deployed to an Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). The host computer must meet the following hardware requirements:
+1. First, install Docker on a host computer. The host computer can be your local computer ([Windows](https://docs.docker.com/docker-for-windows/), [macOS](https://docs.docker.com/docker-for-mac/), or [Linux](https://docs.docker.com/install/)). Or, you can use a Docker hosting service in Azure, such as the [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index), or a Kubernetes cluster [deployed to an Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). The host computer must meet the following hardware requirements:
+
     | Container | Minimum | Recommended|
     |:--|:--|:--|
-    |Sample labeling tool|2 core, 4-GB memory|4 core, 8-GB memory
-1. Next, you'll need the [Azure command-line interface (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Install it on your machine if you haven't already.
-1. Then enter the following command in a command prompt. The values for `<username>` and `<password>` are in your Welcome to Form Recognizer email.
-    ```
-    docker login containerpreview.azurecr.io -u <username> -p <password>
-    ```
+    |Sample labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
+    
 1. Get the sample labeling tool container with the `docker pull` command.
     ```
-    docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool:latest
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
 1. Now you're ready to run the container with `docker run`.
     ```
-    docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
-    This will make the sample labeling tool available through a web browser. Go to [https://localhost:3000](https://localhost:3000).
+
+   This command will make the sample labeling tool available through a web browser. Go to [http://localhost:3000](http://localhost:3000).
 
 > [!NOTE]
 > You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).
 
 ## Set up input data
 
-First, make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into sub-folders based on common format. When you train, you'll need to direct the API to a sub-folder.
+First, make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. When you train, you'll need to direct the API to a subfolder.
 
 ### Configure cross-domain resource sharing (CORS)
 
@@ -69,11 +70,11 @@ Enable CORS on your storage account. Select your storage account in the Azure po
 
 ## Connect to the sample labeling tool
 
-The sample labeling tool connects to a source (where your original forms are) and a target (the location where it exports the created labels and output data).
+The sample labeling tool connects to a source (where your original forms are) and a target (where it exports the created labels and output data).
 
 Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers.
 
-To create a new connection, click the **New Connections** (plug) icon, in the left hand navigation bar.
+To create a new connection, click the **New Connections** (plug) icon, in the left navigation bar.
 
 Fill in the fields with the following values:
 
@@ -88,9 +89,9 @@ Fill in the fields with the following values:
 In the sample labeling tool, projects store your configurations and settings. Create a new project and fill in the fields with the following values:
 
 * **Display Name** - the project display name
-* **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. Security tokens can be found in Application Settings by clicking the gear icon in the lower corner of the left hand navigation bar.
-* **Source Connection** - The Azure Blob Storage connection you created in the previous step which you would like to use for this project.
-* **Folder Path** - Optional - If your source forms are located in a folder on the blob container please specify the folder name here
+* **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by clicking the gear icon in the lower corner of the left navigation bar.
+* **Source Connection** - The Azure Blob Storage connection you created in the previous step that you would like to use for this project.
+* **Folder Path** - Optional - If your source forms are located in a folder on the blob container, specify the folder name here
 * **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
 * **API Key** - Your Form Recognizer subscription key.
 * **Description** - Optional - Project description
@@ -130,9 +131,9 @@ Follow the above steps to label five of your forms, and then move on to the next
 
 ## Train a custom model
 
-Click the Train icon (the train car) on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes you'll see the following information:
+Click the Train icon (the train car) on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was just created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the REST API.
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the REST API.
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
@@ -145,7 +146,7 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 
 ## Analyze a form
 
-Click on the Predict (rectangles) icon on the left to test your model. Upload a form document that you didn't use in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
+Click on the Predict (rectangles) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
 > [!TIP]
 > You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
@@ -154,7 +155,20 @@ Click on the Predict (rectangles) icon on the left to test your model. Upload a 
 
 Depending on the reported accuracy, you may want to do further training to improve the model. After you've done a prediction, examine the confidence values for each of the applied tags. If the average accuracy training value was high, but the confidence scores are low (or the results are inaccurate), you should add the file used for prediction into the training set, label it, and train again.
 
-The reported average accuracy, confidence scores, and actual accuracy can be inconsistent when the documents being analyzed are different from those used in training. Keep in mind that some documents look similar when viewed by people but can look distinct to the AI model. For example, you might train with a form type that has two variations, where the training set consists of 20% variation A and 80% variation B. During prediction, the confidence for documents of variation A are likely to be lower.
+The reported average accuracy, confidence scores, and actual accuracy can be inconsistent when the analyzed documents differ from those used in training. Keep in mind that some documents look similar when viewed by people but can look distinct to the AI model. For example, you might train with a form type that has two variations, where the training set consists of 20% variation A and 80% variation B. During prediction, the confidence scores for documents of variation A are likely to be lower.
+
+## Save a project and resume later
+
+To resume your project at another time or in another browser, you need to save your project's security token and reenter it later. 
+
+### Get project credentials
+Go to your project settings page (slider icon) and take note of the security token name. Then go to your application settings (gear icon), which shows all of the security tokens in your current browser instance. Find your project's security token and copy its name and key value to a secure location.
+
+### Restore project credentials
+When you want to resume your project, you first need to create a connection to the same blob storage container. Repeat the steps above to do this. Then, go to the application settings page (gear icon) and see if your project's security token is there. If it isn't, add a new security token and copy over your token name and key from the previous step. Then click Save Settings. 
+
+### Resume a project
+Finally, go to the main page (house icon) and click Open Cloud Project. Then select the blob storage connection, and select your project's *.vott* file. The application will load all of the project's settings because it has the security token.
 
 ## Next steps
 

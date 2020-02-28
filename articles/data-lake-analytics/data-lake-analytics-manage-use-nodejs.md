@@ -5,7 +5,6 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-
 ms.reviewer: jasonwhowell
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.topic: conceptual
@@ -126,5 +125,3 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 
 ## See also
 * [Microsoft Azure SDK for Node.js](https://github.com/azure/azure-sdk-for-node)
-* [Microsoft Azure SDK for Node.js - Data Lake Store Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-

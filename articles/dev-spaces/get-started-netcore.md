@@ -55,7 +55,7 @@ az group create --name MyResourceGroup --location <region>
 Create a Kubernetes cluster with the following command:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster.
@@ -92,12 +92,15 @@ So far, you have a basic web app that can run locally. You'll now containerize i
 1. Run this command (be sure that **webfrontend** is your current folder):
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with default settings:
 * `./Dockerfile` describes the app's container image, and how the source code is built and runs within the container.
 * A [Helm chart](https://docs.helm.sh) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
+
+> [!TIP]
+> The [Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 For now, it isn't necessary to understand the full content of these files. It's worth pointing out, however, that **the same Kubernetes and Docker configuration-as-code assets can be used from development through to production, thus providing better consistency across different environments.**
  
@@ -248,4 +251,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 > [Learn about multi-service development](multi-service-netcore.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

@@ -110,7 +110,7 @@ When the size of the dataset to be moved is large (for example, > 1 TB) or if yo
 
 * If you have a small number of large files, split them into 256-MB file chunks to give you more potential concurrency.
 
-* If you're copying from an Azure Blob storage account, your copy job may be throttled on the Blob storage side. This degrades the performance of your copy job. To learn more about the limits of Azure Blob storage, see Azure Storage limits at [Azure subscription and service limits](../azure-subscription-service-limits.md).
+* If you're copying from an Azure Blob storage account, your copy job may be throttled on the Blob storage side. This degrades the performance of your copy job. To learn more about the limits of Azure Blob storage, see Azure Storage limits at [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## See also
 

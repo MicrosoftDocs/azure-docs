@@ -7,7 +7,7 @@ ms.date: 06/12/2019
 ms.author: pafarley
 ---
 
-When you're granted access to use Form Recognizer, you'll receive a Welcome email with several links and resources. Use the "Azure portal" link in that message to open the Azure portal and create a Form Recognizer resource. In the **Create** pane, provide the following information:
+Go to the Azure Portal and [create a new Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer). In the **Create** pane, provide the following information:
 
 |    |    |
 |--|--|

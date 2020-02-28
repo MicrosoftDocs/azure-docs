@@ -14,7 +14,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2019
-ms.author: kfollis
+ms.author: mblythe
 ms.custom: accessibility
 ---
 # Supported devices

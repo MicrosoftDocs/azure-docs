@@ -3,7 +3,7 @@ title: View Azure Activity log events in Azure Monitor
 description: View the Azure Activity log in Azure Monitor and retrieve with PowerShell, CLI, and REST API.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
@@ -11,7 +11,7 @@ ms.subservice: logs
 ---
 # View and retrieve Azure Activity log events
 
-The [Azure Activity Log](activity-logs-overview.md) provides insight into subscription-level events that have occurred in Azure. This article provides details on different methods for viewing and retrieving Activity Log events.
+The [Azure Activity Log](platform-logs-overview.md) provides insight into subscription-level events that have occurred in Azure. This article provides details on different methods for viewing and retrieving Activity Log events.
 
 ## Azure portal
 View the Activity Log for all resources from the **Monitor** menu in the Azure portal. View the Activity Log for a particular resource from the **Activity Log** option in that resource's menu.

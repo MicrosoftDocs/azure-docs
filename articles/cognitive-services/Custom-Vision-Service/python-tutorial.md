@@ -80,10 +80,10 @@ cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag. You can upload up to 64 images in a single batch.
 
 > [!NOTE]
-> You'll need to change the path to the images based on where you downloaded the Cognitive Services Python SDK Samples project earlier.
+> You'll need to change the path to the images based on where you downloaded the Cognitive Services Python SDK Samples repo earlier.
 
 ```Python
-base_image_url = "<path to project>"
+base_image_url = "<path to repo directory>/cognitive-services-python-sdk-samples/samples/vision/"
 
 print("Adding images...")
 
@@ -109,7 +109,7 @@ if not upload_result.is_batch_successful:
 
 ### Train the classifier and publish
 
-This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
+This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 ```Python
 import time
@@ -167,7 +167,7 @@ Done!
         Japanese Cherry: 0.01%
 ```
 
-You can then verify that the test image (found in **<base_image_url>/Images/Test/**) is tagged appropriately. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
+You can then verify that the test image (found in **<base_image_url>images/Test/**) is tagged appropriately. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

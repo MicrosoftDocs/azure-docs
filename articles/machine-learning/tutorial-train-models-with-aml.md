@@ -9,7 +9,7 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
 ---
@@ -43,7 +43,7 @@ If you don’t have an Azure subscription, create a free account before you begi
     * Clone the tutorials notebook to your folder in the workspace.
     * Create a cloud-based compute instance.
 
-* In your cloned **tutorials** folder, open the **img-classification-part1-training.ipynb** notebook. 
+* In your cloned *tutorials/image-classification-mnist-data* folder, open the *img-classification-part1-training.ipynb* notebook. 
 
 
 The tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). Run `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to install dependencies for this tutorial.
@@ -102,7 +102,9 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### Create or attach an existing compute target
 
-By using Azure Machine Learning Compute, a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create Azure Machine Learning Compute as your training environment. The code below creates the compute clusters for you if they don't already exist in your workspace.
+By using Azure Machine Learning Compute, a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create Azure Machine Learning Compute as your training environment. You will submit Python code to run on this VM later in the tutorial. 
+
+The code below creates the compute clusters for you if they don't already exist in your workspace.
 
  **Creation of the compute target takes about five minutes.** If the compute resource is already in the workspace, the code uses it and skips the creation process.
 
@@ -143,7 +145,7 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
-You now have the necessary packages and compute resources to train a model in the cloud.
+You now have the necessary packages and compute resources to train a model in the cloud. 
 
 ## Explore data
 
@@ -212,7 +214,7 @@ Now you have an idea of what these images look like and the expected prediction 
 
 ## Train on a remote cluster
 
-For this task, submit the job to the remote training cluster you set up earlier.  To submit a job you:
+For this task, you submit the job to run on the remote training cluster you set up earlier.  To submit a job you:
 * Create a directory
 * Create a training script
 * Create an estimator object

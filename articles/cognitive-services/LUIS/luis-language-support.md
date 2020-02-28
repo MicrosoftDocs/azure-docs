@@ -56,7 +56,7 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
 [!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
 ### Speech API supported languages
-See Speech [Supported languages](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) for Speech dictation mode languages.
+See Speech [Supported languages](../speech-service/speech-to-text.md) for Speech dictation mode languages.
 
 ### Bing Spell Check supported languages
 See Bing Spell Check [Supported languages](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) for a list of supported languages and status.

@@ -13,9 +13,8 @@ ms.date: 11/12/2019
 
 # Tutorial:  Customize the operator dashboard and manage devices in Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial shows you, as a builder, how to customize the operator dashboard in your Azure IoT Central in-store analytics application. Application operators can use the customized dashboard to run the application and manage the attached devices.
+In this tutorial, as a builder learn how to customize the operator dashboard in your Azure IoT Central in-store analytics application. Application operators can use the customized dashboard to run the application and manage the attached devices.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -28,12 +27,12 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin this tutorial, the builder should complete the first tutorial, to create the Azure IoT Central in-store analytics application and add devices:
+The builder should complete the tutorial to create the Azure IoT Central in-store analytics application and add devices:
 
 * [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) (Required)
 
 ## Change the dashboard name
-To customize the operator dashboard, you edit the default dashboard in your application. Optionally, you can create additional new dashboards. The first step to customize the dashboard in your application is to change the name.
+To customize the operator dashboard, you have to edit the default dashboard in your application. Also, you can create additional new dashboards. The first step to customize the dashboard in your application is to change the name.
 
 1. Navigate to the [Azure IoT Central application manager](https://aka.ms/iotcentral) website.
 
@@ -47,7 +46,7 @@ To customize the operator dashboard, you edit the default dashboard in your appl
 
 1. Enter a friendly name for your dashboard in **Dashboard name.** This tutorial uses a fictional company named Contoso, and the example dashboard name is *Contoso dashboard*. 
 
-1. Select **Save**. This saves your changes to the dashboard and disables edit mode.
+1. Select **Save**. Your changes are saved to the dashboard and edit mode is disabled.
 
     ![Azure IoT Central change dashboard name](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-change-name.png)
 
@@ -86,7 +85,7 @@ To customize the image tile that displays a map of the sensor zones in the store
 
     ![Azure IoT Central save store map](./media/tutorial-in-store-analytics-customize-dashboard-pnp/store-map-save.png)
 
-    The example Contoso store map shows four zones: two checkout zones, a zone for apparel and personal care, and a zone for groceries and deli. In this tutorial, you will associate sensors with these zones to provide telemetry.
+    The example Contoso store map shows four zones: two checkout zones, a zone for apparel and personal care, and a zone for groceries and deli. In this tutorial, you'll associate sensors with these zones to provide telemetry.
 
     ![Azure IoT Central store zones](./media/tutorial-in-store-analytics-customize-dashboard-pnp/store-zones.png)
 
@@ -101,7 +100,7 @@ To remove tiles that you don't plan to use in your application:
 
 1. Select **Edit** on the dashboard toolbar. 
 
-1. Select **X Delete** to remove the following tiles: **Back to all zones**, **Visit store dashboard**, **Wait time**, and all three tiles associated with **Checkout 3**. The Contoso store dashboard does not use these tiles. 
+1. Select **X Delete** to remove the following tiles: **Back to all zones**, **Visit store dashboard**, **Wait time**, and all three tiles associated with **Checkout 3**. The Contoso store dashboard doesn't use these tiles. 
 
     ![Azure IoT Central delete tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/delete-tiles.png)
 
@@ -134,7 +133,7 @@ To rearrange the remaining tiles:
     ![Azure IoT Central firmware battery tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/firmware-battery-tiles.png)
 
 ## Add telemetry tiles to display conditions
-After you customize the dashboard layout, you are ready to add tiles to show telemetry. To create a telemetry tile, select a device template and device instance, then select device-specific telemetry to display in the tile. The **In-store analytics - checkout** application template includes several telemetry tiles in the dashboard. The four tiles in the two checkout zones display telemetry from the simulated occupancy sensor. The **People traffic** tile shows counts in the two checkout zones. 
+After you customize the dashboard layout, you're ready to add tiles to show telemetry. To create a telemetry tile, select a device template and device instance, then select device-specific telemetry to display in the tile. The **In-store analytics - checkout** application template includes several telemetry tiles in the dashboard. The four tiles in the two checkout zones display telemetry from the simulated occupancy sensor. The **People traffic** tile shows counts in the two checkout zones. 
 
 In this section, you add two more telemetry tiles to show environmental telemetry from the RuuviTag sensors you added in the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) tutorial. 
 
@@ -178,7 +177,7 @@ To edit the **People traffic** tile to show telemetry for only two checkout zone
 
 1. In **Telemetry** select **count 1**, **count 2**, and **count 3**. 
 
-1. Select **Update configuration**. This clears the existing configuration on the tile. 
+1. Select **Update configuration**. It clears the existing configuration on the tile. 
 
 1. Select **Configure** again on the **People traffic** tile.
 
@@ -226,7 +225,7 @@ To add a command tile to reboot the gateway:
 
 1. Select **Edit**. 
 
-1. Select `C500` in the **Device template** list. This is the template for the Rigado C500 gateway. 
+1. Select `C500` in the **Device template** list. It is the template for the Rigado C500 gateway. 
 
 1. Select the gateway instance in **Device instance**.
 

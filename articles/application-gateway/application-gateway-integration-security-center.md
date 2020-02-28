@@ -1,22 +1,14 @@
 ---
 title: Application Gateway integration with Azure Security Center | Microsoft Docs
 description: This page provides information on how Application Gateway is integrated into Azure Security Center.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: 
-
+ms.author: victorh
 ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom:
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.author: victorh
-
 ---
 
 # Overview of integration between Application Gateway and Azure Security Center
@@ -47,7 +39,7 @@ If you do not have an existing Application Gateway, or want to create a new one,
 
 If you have an existing application gateway, you can choose it under **Use existing solution**
 
-![web application firewall add page][4]
+![Page to add a web application firewall][4]
 
 Adding a web application to an application gateway through Security Center does not add the resource as a backend pool member. This must be done on the application gateway resource directly.
 
@@ -65,7 +57,7 @@ Click **Link app** to open **Link Applications**, here you are given the options
 
 Security Center tracks applications added to an application gateway as a protected resource.  It monitors the health of this resource and ensures that it is protected by an application gateway. The next step is to add the private IP, public IP, or NIC of your virtual machine to the backend pool of the application gateway. Until this is done an additional recommendation of **Finalize application protection** is shown until the resource is added.
 
-![web application firewall add page][5]
+![Page to add a web application firewall][5]
 
 ## Security Alerts
 
@@ -73,7 +65,7 @@ Within Security Center navigate to **DETECTION** > **Security Alerts**.  Here yo
 
 ![security alerts][8]
 
-Clicking an rule will provide a list of alerts for that specific WAF rule. Each alert shows additional details on the finding. The details provide a link to the application gateway.
+Selecting a rule will provide a list of alerts for that specific WAF rule. Each alert shows additional details on the finding. The details provide a link to the application gateway.
  
 ![alert details][9]
 

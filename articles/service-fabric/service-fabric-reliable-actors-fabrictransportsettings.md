@@ -1,6 +1,6 @@
 ---
 title: Change FabricTransport settings
-description: Learn about configuring Azure Service Fabric actor communication settings.
+description: Learn about configuring Azure Service Fabric actor communication settings for different actor configurations.
 author: suchiagicha
 
 ms.topic: conceptual

@@ -9,7 +9,7 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 11/15/2019
+ms.date: 01/06/2020
 # Customer intent: As a data analyst or developer, I want to quickly learn about the Time Series insights visualization explorer.
 ---
 
@@ -70,7 +70,7 @@ This Time Series Insights explorer quickstart offers a guided tour of features t
 
    [![Add a term](media/quickstart/quickstart-add-a-term.png)](media/quickstart/quickstart-add-a-term.png#lightbox)
 
-1. Leave the **Filter series** box blank to see all selected search terms or enter a filter term in the **Filter series** box for improvised series filtering.
+1. Leave the **Filter series** box blank to display all selected search terms or enter a filter term in the **Filter series** box for improvised series filtering.
 
    [![Filter series](media/quickstart/quickstart-filter-series.png)](media/quickstart/quickstart-filter-series.png#lightbox)
 

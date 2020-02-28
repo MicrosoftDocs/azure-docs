@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/17/2020
 ms.custom: seodec18
 ---
 

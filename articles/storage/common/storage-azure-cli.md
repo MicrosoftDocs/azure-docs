@@ -19,7 +19,7 @@ The open-source, cross-platform Azure CLI provides a set of commands for working
 
 In this guide, we show you how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI before using this guide.
 
-The examples in the guide assume the use of the Bash shell on Ubuntu, but other platforms should perform similarly. 
+The examples in the guide assume the use of the Bash shell on Ubuntu, but other platforms should perform similarly.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -30,7 +30,7 @@ This guide assumes that you understand the basic concepts of Azure Storage. It a
 
 ### Accounts
 * **Azure account**: If you don't already have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/).
-* **Storage account**: See [Create a storage account](storage-quickstart-create-account.md) in [About Azure storage accounts](storage-create-storage-account.md).
+* **Storage account**: See [Create a storage account](storage-account-create.md) in [About Azure storage accounts](storage-account-overview.md).
 
 ### Install the Azure CLI
 
@@ -331,7 +331,7 @@ The content type, also known as the MIME type, identifies the format of the data
 
 ```azurecli
 az storage blob update
-    --container-name <container_name> 
+    --container-name <container_name>
     --name <blob_name>
     --content-type <content_type>
 ```
@@ -386,7 +386,7 @@ az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --outp
 
 ### Copy files		
 You can copy a file to another file, a file to a blob, or a blob to a file. For example, to copy a file to a directory in a different share:		
-		
+
 ```azurecli
 az storage file copy start \
 --source-share share1 --source-path dir1/file.txt \
@@ -520,7 +520,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 You can delete a share snapshot by using the `az storage share delete` command by providing `--snapshot` parameter with share snapshot timestamp:
 
 ```cli
-az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
+az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z'
 ```
 
 Sample Output
@@ -531,7 +531,7 @@ Sample Output
 ```
 
 ## Next steps
-Here are some additional resources for learning more about working with the Azure CLI. 
+Here are some additional resources for learning more about working with the Azure CLI.
 
 * [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Azure CLI command reference](/cli/azure)

@@ -45,6 +45,10 @@ landingContent:
             url: quickstarts/python-train-extract.md
           - text: Using the REST API (cURL)
             url: quickstarts/curl-train-extract.md
+      - linkListType: tutorial
+        links:
+          - text: Use Form Recognizer with Logic Apps
+            url: tutorial-form-recognizer-with-logic-apps.md
 
   - title: Build a training data set
     linkLists:

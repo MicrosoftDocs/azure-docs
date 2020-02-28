@@ -2,7 +2,7 @@
 title: "Troubleshooting"
 services: azure-dev-spaces
 ms.date: 09/25/2019
-ms.topic: "conceptual"
+ms.topic: "troubleshooting"
 description: "Learn how to troubleshoot and resolve common problems when enabling and using Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
@@ -18,7 +18,7 @@ To troubleshoot problems more effectively, it may help to create more detailed l
 
 For the Visual Studio extension, set the `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` environment variable to 1. Be sure to restart Visual Studio for the environment variable to take effect. Once enabled, detailed logs are written to your `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
 
-In the CLI, you can output more information during command execution by using the `--verbose` switch. You can also browse more detailed logs in `%TEMP%\Azure Dev Spaces`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window. On a Linux computer, the TEMP directory is usually `/tmp`.
+In the CLI, you can output more information during command execution by using the `--verbose` switch. You can also browse more detailed logs in `%TEMP%\Azure Dev Spaces`. On a Mac, the *TEMP* directory can be found by running `echo $TMPDIR` from a terminal window. On a Linux computer, the *TEMP* directory is usually `/tmp`. In addition, verify that logging is enabled in your [Azure CLI configuration file](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
 Azure Dev Spaces also works best when debugging a single instance, or pod. The `azds.yaml` file contains a setting, *replicaCount*, that indicates the number of pods that Kubernetes runs for your service. If you change the *replicaCount* to configure your application to run multiple pods for a given service, the debugger attaches to the first pod, when listed alphabetically. The debugger attaches to a different pod when the original pod recycles, possibly resulting in unexpected behavior.
 
@@ -246,7 +246,7 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-This error occurs because AKS nodes run an older version of Docker that doesn't support multi-stage builds. To avoid multi-stage builds, rewrite your Dockerfile.
+This error occurs because Azure Dev Spaces does not currently support multi-stage builds. To avoid multi-stage builds, rewrite your Dockerfile.
 
 ### Network traffic is not forwarded to your AKS cluster when connecting your development machine
 
@@ -389,7 +389,7 @@ To update the user's RBAC role for the controller:
 
 ### DNS name resolution fails for a public URL associated with a Dev Spaces service
 
-You can configure a public URL endpoint for your service by specifying the `--public` switch to the `azds prep` command, or by selecting the `Publicly Accessible` checkbox in Visual Studio. The public DNS name is automatically registered when you run your service in Dev Spaces. If this DNS name is not registered, you see a *Page cannot be displayed* or *Site cannot be reached* error in your web browser when connecting to the public URL.
+You can configure a public URL endpoint for your service by specifying the `--enable-ingress` switch to the `azds prep` command, or by selecting the `Publicly Accessible` checkbox in Visual Studio. The public DNS name is automatically registered when you run your service in Dev Spaces. If this DNS name is not registered, you see a *Page cannot be displayed* or *Site cannot be reached* error in your web browser when connecting to the public URL.
 
 To fix this issue:
 
@@ -469,3 +469,23 @@ To enable Azure Dev Spaces on an AKS cluster for which the egress traffic from c
 | gcr.io | HTTP:443 | To pull helm/tiller images|
 | storage.googleapis.com | HTTP:443 | To pull helm/tiller images|
 | azds-<guid>.<location>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json|
+
+### Error "Could not find the cluster \<cluster\> in subscription \<subscriptionId\>"
+
+You may see this error if your kubeconfig file is targeting a different cluster or subscription than you are trying to use with the Azure Dev Spaces client side tooling. The Azure Dev Spaces client side tooling replicates the behavior of *kubectl*, which uses [one or more kubeconfig files](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) to select and communicate with the cluster.
+
+To fix this issue:
+
+* Use `az aks use-dev-spaces -g <resource group name> -n <cluster name>` to update the current context. This command also enables Azure Dev Spaces on your AKS cluster if is not already enabled. Alternatively, you can use `kubectl config use-context <cluster name>` to update the current context.
+* Use `az account show` to show the current Azure subscription you are targeting and verify this is correct. You can change the subscription you are targeting using `az account set`.
+
+### Error using Dev Spaces after rotating AKS certificates
+
+After [rotating the certificates in your AKS cluster](../aks/certificate-rotation.md), certain operations, such as `azds space list` and `azds up` will fail. You also need to refresh the certificates on your Azure Dev Spaces controller after rotating the certificates on your cluster.
+
+To fix this issue, ensure your *kubeconfig* has the updated certificates using `az aks get-credentials` then run the `azds controller refresh-credentials` command. For example:
+
+```azurecli
+az aks get-credentials -g <resource group name> -n <cluster name>
+azds controller refresh-credentials -g <resource group name> -n <cluster name>
+```

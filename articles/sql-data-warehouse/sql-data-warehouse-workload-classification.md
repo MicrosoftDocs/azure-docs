@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 01/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
@@ -31,14 +31,24 @@ Not all statements are classified as they do not require resources or need impor
 
 ## Classification process
 
-Classification in SQL Data Warehouse is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) syntax.  With this syntax, SQL Data Warehouse users can assign importance and a resource class to requests.  
+Classification in SQL Data Warehouse is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) syntax.  With this syntax, SQL Data Warehouse users can assign importance and how much system resources are assigned to a request via the `workload_group` parameter. 
 
 > [!NOTE]
 > Classification is evaluated on a per request basis. Multiple requests in a single session can be classified differently.
 
-## Classification precedence
+## Classification weighting
 
-As part of the classification process, precedence is in place to determine which resource class is assigned. Classification based on a database user takes precedence over role membership. If you create a classifier that maps the UserA database user to the mediumrc resource class. Then, map the RoleA database role (of which UserA is a member) to the largerc resource class. The classifier that maps the database user to the mediumrc resource class will take precedence over the classifier that maps the RoleA database role to the largerc resource class.
+As part of the classification process, weighting is in place to determine which workload group is assigned.  The weighting goes as follows:
+
+|Classifier Parameter |Weight   |
+|---------------------|---------|
+|MEMBERNAME:USER      |64       |
+|MEMBERNAME:ROLE      |32       |
+|WLM_LABEL            |16       |
+|WLM_CONTEXT          |8        |
+|START_TIME/END_TIME  |4        |
+
+The `membername` parameter is mandatory.  However, if the membername specified is a database user instead of a database role, the weighting for user is higher and thus that classifier is chosen.
 
 If a user is a member of multiple roles with different resource classes assigned or matched in multiple classifiers, the user is given the highest resource class assignment.  This behavior is consistent with existing resource class assignment behavior.
 

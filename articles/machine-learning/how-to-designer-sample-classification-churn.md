@@ -5,11 +5,11 @@ description: Follow this classification example to predict churn with Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+ms.topic: sample
+author: likebupt
+ms.author: keli19
 ms.reviewer: sgilley
-ms.date: 11/04/2019
+ms.date: 12/25/2019
 ---
 
 # Use boosted decision tree to predict churn with Azure Machine Learning designer
@@ -46,11 +46,11 @@ First, some simple data processing.
 
 - The raw dataset has many missing values. Use the **Clean Missing Data** module to replace the missing values with 0.
 
-    ![Clean the dataset](./media/how-to-designer-sample-classification-churn/cleaned-dataset.png)
+    ![Clean the dataset](media/how-to-designer-sample-classification-churn/sample5-dataset-1225.png)
 
 - The features and the corresponding churn are in different datasets. Use the **Add Columns** module to append the label columns to the feature columns. The first column, **Col1**, is the label column. From the visualization result we can see the dataset is unbalanced. There way more negative (-1) examples than positive examples (+1). We will use **SMOTE** module to increase underrepresented cases later.
 
-    ![Add the column dataset](./media/how-to-designer-sample-classification-churn/added-column1.png)
+    ![Add the column dataset](./media/how-to-designer-sample-classification-churn/sample5-addcol-1225.png)
 
 
 
@@ -64,7 +64,7 @@ First, some simple data processing.
 
 Visualize the output of the **Evaluate Model** module to see the performance of the model on the test set. 
 
-![Evaluate the results](./media/how-to-designer-sample-classification-churn/evaluate-result.png)
+![Evaluate the results](./media/how-to-designer-sample-classification-churn/sample5-evaluate-1225.png)
 
  You can move the **Threshold** slider and see the metrics change for the binary classification task. 
 

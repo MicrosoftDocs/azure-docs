@@ -5,11 +5,11 @@ description: Build a classifier and use custom R code to predict flight delays w
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+ms.topic: sample
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
+ms.date: 12/25/2019
 ---
 # Build a classifier & use R to predict flight delays with Azure Machine Learning designer
 
@@ -109,7 +109,7 @@ Finally, to test the quality of the results, add the **Evaluate Model** module t
 ## Evaluate
 The logistic regression model has AUC of 0.631 on the test set.
 
- ![evaluate](./media/how-to-designer-sample-classification-flight-delay/evaluate.png)
+ ![evaluate](media/how-to-designer-sample-classification-flight-delay/sample6-evaluate-1225.png)
 
 ## Next steps
 
@@ -118,6 +118,6 @@ Explore the other samples available for the designer:
 - [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
 - [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](service/how-to-designer-sample-classification-churn.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
 - [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

@@ -36,21 +36,21 @@ See the [HTTP APIs article](durable-functions-http-api.md) for a full descriptio
 
 The [orchestration client binding](durable-functions-bindings.md#orchestration-client) exposes APIs that can generate convenient HTTP response payloads. For example, it can create a response containing links to management APIs for a specific orchestration instance. The following examples show an HTTP-trigger function that demonstrates how to use this API for a new orchestration instance:
 
-#### Precompiled C#
+# [C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-#### C# script
+# [JavaScript](#tab/javascript)
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
-
-#### JavaScript with Functions 2.0 or later only
+**index.js**
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-#### Function.json
+**function.json**
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+
+---
 
 Starting an orchestrator function by using the HTTP-trigger functions shown previously can be done using any HTTP client. The following cURL command starts an orchestrator function named `DoWork`:
 
@@ -107,10 +107,9 @@ As described in the [orchestrator function code constraints](durable-functions-c
 
 Starting with Durable Functions 2.0, orchestrations can natively consume HTTP APIs by using the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger).
 
-> [!NOTE]
-> The ability to call HTTP endpoints directly from orchestrator functions is not yet available in JavaScript.
+The following example code shows an orchestrator function making an outbound HTTP request:
 
-The following example code shows a C# orchestrator function making an outbound HTTP request using the **CallHttpAsync** .NET API:
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -129,6 +128,23 @@ public static async Task CheckSiteAvailable(
     }
 }
 ```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const url = context.df.getInput();
+    const response = context.df.callHttp("GET", url)
+
+    if (response.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
+---
 
 By using the "call HTTP" action, you can do the following actions in your orchestrator functions:
 
@@ -151,6 +167,8 @@ Durable Functions natively supports calls to APIs that accept Azure Active Direc
 
 The following code is an example of a .NET orchestrator function. The function makes authenticated calls to restart a virtual machine by using the Azure Resource Manager [virtual machines REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
+# [C#](#tab/csharp)
+
 ```csharp
 [FunctionName("RestartVm")]
 public static async Task RunOrchestrator(
@@ -159,6 +177,7 @@ public static async Task RunOrchestrator(
     string subscriptionId = "mySubId";
     string resourceGroup = "myRG";
     string vmName = "myVM";
+    string apiVersion = "2019-03-01";
     
     // Automatically fetches an Azure AD token for resource = https://management.core.windows.net
     // and attaches it to the outgoing Azure Resource Manager API call.
@@ -173,6 +192,32 @@ public static async Task RunOrchestrator(
     }
 }
 ```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const subscriptionId = "mySubId";
+    const resourceGroup = "myRG";
+    const vmName = "myVM";
+    const apiVersion = "2019-03-01";
+    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net");
+
+    // get a list of the Azure subscriptions that I have access to
+    const restartResponse = yield context.df.callHttp(
+        "POST",
+        `https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.Compute/virtualMachines/${vmName}/restart?api-version=${apiVersion}`,
+        undefined, // no request content
+        undefined, // no request headers (besides auth which is handled by the token source)
+        tokenSource);
+
+    return restartResponse;
+});
+```
+
+---
 
 In the previous example, the `tokenSource` parameter is configured to acquire Azure AD tokens for [Azure Resource Manager](../../azure-resource-manager/management/overview.md). The tokens are identified by the resource URI `https://management.core.windows.net`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.
 

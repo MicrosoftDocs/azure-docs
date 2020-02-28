@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/03/2019
+ms.date: 02/26/2020
 ---
 
 # Azure Data Factory mapping data flow Lookup Transformation
@@ -31,9 +31,22 @@ After you use the Lookup transformation, you can add a Conditional Split transfo
 
 ## First or last value
 
-When you have multiple matches from your Lookup, you may want to reduce the multiple matched rows by picking either the first or the last match. You can do this using an Aggregate transformation after your Lookup.
+The Lookup Transformation is implemented as a left outer join. When you have multiple matches from your Lookup, you may want to reduce the multiple matched rows by picking the first matched row, the last match, or any random row.
 
-In this case, an Aggregate transformation called ```PickFirst``` is used to pick the first value from the lookup matches.
+### Option 1
+
+![Single Row Lookup](media/data-flow/singlerowlookup.png "Single row lookup")
+
+* Match multiple rows: Leave it blank to return single row match
+* Match on: Select first, last, or any match
+* Sort conditions: If you select first or last, ADF requires your data to be ordered so that there is logic behind first and last
+
+> [!NOTE]
+> Only use the first or last option on your single row selector if you need to control which value to bring back from your lookup. Using "any" or multi-row lookups will perform faster.
+
+### Option 2
+
+You can also do this using an Aggregate transformation after your Lookup. In this case, an Aggregate transformation called ```PickFirst``` is used to pick the first value from the lookup matches.
 
 ![Lookup aggregate](media/data-flow/lookup333.png "Lookup aggregate")
 

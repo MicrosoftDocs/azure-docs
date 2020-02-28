@@ -48,7 +48,7 @@ Server Assessment is a migration planning tool. The Site Recovery Deployment Pla
 
 ## Which geographies are supported?
 
-Review the Azure Migrate supported geographies for [VMware VM](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and for [Hyper-V VMs](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
+Review the Azure Migrate supported geographies for [VMware VM](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) and for [Hyper-V VMs](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v).
 
 ## How do I get started?
 
@@ -57,11 +57,9 @@ You identify the tool you need, and add it to an Azure Migrate project. If youâ€
 - In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions and documentation, to connect the tool with Azure Migrate.
 You centrally track your migration journey from within the Azure Migrate project, across Azure and other tools.
 
-### How do I delete a project?
+## How do I delete a project?
 
 [Learn how to](how-to-delete-project.md) delete a project. 
-
-
 
 
 

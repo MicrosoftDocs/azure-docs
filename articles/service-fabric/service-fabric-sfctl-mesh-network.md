@@ -1,10 +1,10 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh network 
-description: Describes the Service Fabric CLI sfctl mesh network commands.
+title: Azure Service Fabric CLI- sfctl mesh network
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for getting and deleting Service Fabric Mesh network resources.
 author: jeffj6123
 
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
 ---
 

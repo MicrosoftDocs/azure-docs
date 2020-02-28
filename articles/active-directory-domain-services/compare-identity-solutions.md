@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 01/22/2020
 ms.author: iainfou
 
 #Customer intent: As an IT administrator or decision maker, I want to understand the differences between Active Directory Domain Services (AD DS), Azure AD, and Azure AD DS so I can choose the most appropriate identity solution for my organization.
@@ -25,8 +25,8 @@ Although the three Active Directory-based identity solutions share a common name
     * AD DS is a central component in many organizations with an on-premises IT environment, and provides core user account authentication and computer management features.
 * **Azure Active Directory (Azure AD)** - Cloud-based identity and mobile device management that provides user account and authentication services for resources such as Office 365, the Azure portal, or SaaS applications.
     * Azure AD can be synchronized with an on-premises AD DS environment to provide a single identity to users that works natively in the cloud.
-* **Azure Active Directory Domain Services (Azure AD DS)** - Provides managed domain services with a subset of fully compatible traditional AD DS features such as domain join, group policy, LDAP, and Kerberos / NTLM authentication.
-    * Azure AD DS integrates with Azure AD, which itself can synchronize with an on-premises AD DS environment, to extend central identity use cases to traditional web applications that run in Azure as part of a lift-and-shift strategy.
+* **Azure Active Directory Domain Services (Azure AD DS)** - Provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, LDAP, and Kerberos / NTLM authentication.
+    * Azure AD DS integrates with Azure AD, which itself can synchronize with an on-premises AD DS environment. This ability extends central identity use cases to traditional web applications that run in Azure as part of a lift-and-shift strategy.
 
 This overview article compares and contrasts how these identity solutions can work together, or would be used independently, depending on the needs of your organization.
 
@@ -45,8 +45,8 @@ When you deploy and run a self-managed AD DS environment, you have to maintain a
 
 Common deployment models for a self-managed AD DS environment that provides identity to applications and services in the cloud include the following:
 
-* **Standalone cloud-only AD DS** - Azure VMs are configured as domain controllers and a separate cloud-only AD DS environment is created. This AD DS environment doesn't integrate with an on-premises AD DS environment. A different set of credentials is used to sign in to and administer VMs in the cloud.
-* **Resource forest deployment** - Azure VMs are configured as domain controllers and an AD DS domain as part of an existing forest is created. A trust relationship is then configured to an on-premises AD DS environment. Other Azure VMs can domain-join to this resource forest in the cloud. User authentication runs over a VPN / ExpressRoute connection to the on-premises AD DS environment.
+* **Standalone cloud-only AD DS** - Azure VMs are configured as domain controllers and a separate, cloud-only AD DS environment is created. This AD DS environment doesn't integrate with an on-premises AD DS environment. A different set of credentials is used to sign in and administer VMs in the cloud.
+* **Resource forest deployment** - Azure VMs are configured as domain controllers and an AD DS domain that's part of an existing forest is created. A trust relationship is then configured to an on-premises AD DS environment. Other Azure VMs can domain-join to this resource forest in the cloud. User authentication runs over a VPN / ExpressRoute connection to the on-premises AD DS environment.
 * **Extend on-premises domain to Azure** - An Azure virtual network connects to an on-premises network using a VPN / ExpressRoute connection. Azure VMs connect to this Azure virtual network, which lets them domain-join to the on-premises AD DS environment.
     * An alternative is to create Azure VMs and promote them as replica domain controllers from the on-premises AD DS domain. These domain controllers replicate over a VPN / ExpressRoute connection to the on-premises AD DS environment. The on-premises AD DS domain is effectively extended into Azure.
 
@@ -64,7 +64,7 @@ The following table outlines some of the features you may need for your organiza
 | **Custom OU structure**                           | **&#x2713;** | **&#x2713;** |
 | **Group Policy**                                  | **&#x2713;** | **&#x2713;** |
 | **Schema extensions**                             | **&#x2715;** | **&#x2713;** |
-| **AD domain / forest trusts**                     | **&#x2715;** | **&#x2713;** |
+| **AD domain / forest trusts**                     | **&#x2713;** (one-way outbound forest trusts only) | **&#x2713;** |
 | **Secure LDAP (LDAPS)**                           | **&#x2713;** | **&#x2713;** |
 | **LDAP read**                                     | **&#x2713;** | **&#x2713;** |
 | **LDAP write**                                    | **&#x2713;** (within the managed domain) | **&#x2713;** |
@@ -72,7 +72,7 @@ The following table outlines some of the features you may need for your organiza
 
 ## Azure AD DS and Azure AD
 
-Azure AD lets you manage the identity of devices used by the organization and control access to corporate resources from those devices. Users can also register their personal device (a bring-your-own, or BYO, model) with Azure AD, which provides the device with an identity. Azure AD then authenticates the device when a user signs in to Azure AD and uses the device to access secured resources. The device can be managed using Mobile Device Management (MDM) software like Microsoft Intune. This management ability lets you restrict access to sensitive resources to managed and policy-compliant devices.
+Azure AD lets you manage the identity of devices used by the organization and control access to corporate resources from those devices. Users can also register their personal device (a bring-your-own (BYO) model) with Azure AD, which provides the device with an identity. Azure AD then authenticates the device when a user signs in to Azure AD and uses the device to access secured resources. The device can be managed using Mobile Device Management (MDM) software like Microsoft Intune. This management ability lets you restrict access to sensitive resources to managed and policy-compliant devices.
 
 Traditional computers and laptops can also join to Azure AD. This mechanism offers the same benefits of registering a personal device with Azure AD, such as to allow users to sign in to the device using their corporate credentials.
 
@@ -89,8 +89,8 @@ Devices can be joined to Azure AD with or without a hybrid deployment that inclu
 | **Type of device**                                        | **Device platforms**             | **Mechanism**          |
 |:----------------------------------------------------------| -------------------------------- | ---------------------- |
 | Personal devices                                          | Windows 10, iOS, Android, Mac OS | Azure AD registered    |
-| Organization owned device not joined to on-premises AD DS | Windows 10                       | Azure AD joined        |
-| Organization owned device joined to an on-premises AD DS  | Windows 10                       | Hybrid Azure AD joined |
+| Organization-owned device not joined to on-premises AD DS | Windows 10                       | Azure AD joined        |
+| Organization-owned device joined to an on-premises AD DS  | Windows 10                       | Hybrid Azure AD joined |
 
 On an Azure AD-joined or registered device, user authentication happens using modern OAuth / OpenID Connect based protocols. These protocols are designed to work over the internet, so are great for mobile scenarios where users access corporate resources from anywhere.
 
