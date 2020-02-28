@@ -44,15 +44,12 @@
       href: view-reservations.md
   - name: Concepts
     items:
-    - name: Reserved VM instance discounts
-      href: ../manage/understand-vm-reservation-charges.md
-<<<<<<< HEAD
-    - name: Reserved Dedicated Host discounts
-      href: billing-understand-dedicated-hosts-reservation-charges.md
-=======
     - name: How reservation recommendations are created
       href: reserved-instance-purchase-recommendations.md
->>>>>>> 0bebc5b01c1a918121b57f1f835b5aace1e8fa14
+    - name: Reserved VM instance discounts
+      href: ../manage/understand-vm-reservation-charges.md
+    - name: Reserved Dedicated Host discounts
+      href: billing-understand-dedicated-hosts-reservation-charges.md
     - name: Azure Storage reserved capacity discounts
       href: understand-storage-charges.md
     - name: Azure Disk Storage reservation discounts
