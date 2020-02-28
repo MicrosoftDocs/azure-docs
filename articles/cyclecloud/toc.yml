@@ -50,7 +50,7 @@
     items:
     - name: Manually Install Application
       href: ./how-to/install-manual.md
-    - name: Install Azure CycleCloud CLI
+    - name: Install CycleCloud CLI
       href: ./how-to/install-cyclecloud-cli.md
     - name: Run in a Container Instance
       href: ./how-to/run-in-container.md

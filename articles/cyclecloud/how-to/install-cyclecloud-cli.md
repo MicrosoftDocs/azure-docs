@@ -1,12 +1,12 @@
 ---
 title: Install the Command Line Interface
-description: Install the Azure CycleCloud CLI
+description: Install the CycleCloud CLI
 author: adriankjohnson
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---
 
-# Install Azure CycleCloud CLI
+# Install the CycleCloud CLI
 
 The Azure CycleCloud Command Line Interface (CLI) provides console access to the CycleCloud application, making functions seen in the GUI available from the command line. It can be used to control CycleCloud and CycleCloud Clusters directly or via script. 
 
