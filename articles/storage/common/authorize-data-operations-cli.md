@@ -24,15 +24,15 @@ Azure Storage provides extensions for Azure CLI that enable you to specify how y
 
 Azure CLI commands for reading and writing blob and queue data include the optional `--auth-mode` parameter. Specify this parameter to indicate how a data operation is to be authorized:
 
-- Set the `--auth-mode` parameter to `login` to sign in using an Azure AD security principal.
-- Set the `--auth-mode` parameter to the legacy `key` value to attempt to query for an account key if no authentication parameters for the account are provided.
+- Set the `--auth-mode` parameter to `login` to sign in using an Azure AD security principal (recommended).
+- Set the `--auth-mode` parameter to the legacy `key` value to attempt to retrieve the account access key to use for authorization. If you omit the `--auth-mode` parameter, then the Azure CLI also attempts to retrieve the access key.
 
 To use the `--auth-mode` parameter, make sure that you have installed Azure CLI version 2.0.46 or later. Run `az --version` to check your installed version.
 
 > [!IMPORTANT]
-> Microsoft recommends that you explicitly specify how each data operation is to be authorized. You can either provide the `--auth-mode` parameter for every data operation, or you can specify the appropriate authorization parameters in environment variables as described in the section titled [Set environment variables for authorization parameters](#set-environment-variables-for-authorization-parameters).
+> If you omit the `--auth-mode` parameter or set it to `key`, then the Azure CLI attempts to use the account access key for authorization. In this case, Microsoft recommends that you provide the access key either on the command or in the **AZURE_STORAGE_KEY** environment variable. For more information about environment variables, see the section titled [Set environment variables for authorization parameters](#set-environment-variables-for-authorization-parameters).
 >
-> If you do not specify how a data operation is to be authorized, then the Azure CLI attempts to call the Azure Storage resource provider to retrieve the account access keys for each operation. Performing many data operations that require a call to the resource provider may result in throttling. For more information about resource provider limits, see [Scalability and performance targets for the Azure Storage resource provider](scalability-targets-resource-provider.md).
+> If you do not provide the access key, then the Azure CLI attempts to call the Azure Storage resource provider to retrieve it for each operation. Performing many data operations that require a call to the resource provider may result in throttling. For more information about resource provider limits, see [Scalability and performance targets for the Azure Storage resource provider](scalability-targets-resource-provider.md).
 
 ## Authorize with Azure AD credentials
 
