@@ -159,9 +159,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     > [!NOTE]
     > Alternatively you can also upload the **Federation Metadata XML** file by clicking on the **Choose File** option.
 
-    e. Copy **Reply URL (Assertion Consumer Service URL)** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** in the Azure portal.
+    e. Copy **Reply URL (Assertion Consumer Service URL)** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
-    f. Copy **Sign on URL** value, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** in the Azure portal.
+    f. Copy **Sign on URL** value, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
     g. Click **Save**.
 
@@ -185,7 +185,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. In the **Last name** textbox, enter the last name of the user.
 
-    1. In the **Email** textbox, enter the emailaddress of the user like **B.Simon@contoso.com**.
+    1. In the **Email** textbox, enter the emailaddress of the user like B.Simon@contoso.com.
 
     1. Select the **Role** for the user according your organization requirement.
 
