@@ -68,7 +68,7 @@ Update the relying party (RP) file that initiates the user journey that you crea
     </UserJourneyBehaviors>
     ```
 
-- **SessionExpiryType** - Indicates how the session is extended by the time specified in `SessionExpiryInSeconds` and  KeepAliveInDays. The `Rolling` value (default) indicates that the session is extended every time the user performs authentication. The `Absolute` value indicates that the user is forced to reauthenticate after the time period specified.
+    - **SessionExpiryType** - Indicates how the session is extended by the time specified in `SessionExpiryInSeconds` and  `KeepAliveInDays`. The `Rolling` value (default) indicates that the session is extended every time the user performs authentication. The `Absolute` value indicates that the user is forced to reauthenticate after the time period specified.
  
     - **SessionExpiryInSeconds**  - The lifetime of session cookies when *keep me signed in* is not enabled, or if a user does not select *keep me signed in*. The session expires after `SessionExpiryInSeconds` has passed, or the browser is closed.
  
