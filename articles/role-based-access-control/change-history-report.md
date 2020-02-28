@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # View activity logs for Azure RBAC changes
 
-Sometimes you need information about Azure role-based access control (Azure RBAC) changes, such as for auditing or troubleshooting purposes. Any time someone makes changes to role assignments or role definitions within your subscriptions, the changes get logged in [Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md). You can view the activity logs to see all the Azure RBAC changes for the past 90 days.
+Sometimes you need information about Azure role-based access control (Azure RBAC) changes, such as for auditing or troubleshooting purposes. Anytime someone makes changes to role assignments or role definitions within your subscriptions, the changes get logged in [Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md). You can view the activity logs to see all the Azure RBAC changes for the past 90 days.
 
 ## Operations that are logged
 
