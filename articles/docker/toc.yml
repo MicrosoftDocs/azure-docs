@@ -3,7 +3,7 @@
 - name: Quickstart
   expanded: true
   items:
-  - name: Docker Marketplace template
+  - name: Deploy an Ubuntu VM with Docker
     href: https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/
 - name: Tutorials
   items:
