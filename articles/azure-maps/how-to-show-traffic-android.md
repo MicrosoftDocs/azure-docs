@@ -64,15 +64,20 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.inciden
 //if you wish to use the flow and incident traffic options, use: com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.*;
 ```
 
-2. Define a ```TrafficIncidentsExampleActivity`` class to hold your code inside the `MainActivity.java` file. Use the following snippet, and instantiate a `snackbar` object to use later. The `SnackBar` class is a lightweight widget, which shows a message briefly at the bottom of the screen.
+2. Define a ```MainActivity`` class to hold your code inside the `MainActivity.java` file. Use the following snippet, and instantiate a `snackbar` object to use later. The `SnackBar` class is a lightweight widget, which shows a message briefly at the bottom of the screen.
 
 ```java
-public class TrafficIncidentsExampleActivity extends ExampleActivity {
+public class MainActivity extends AppCompatActivity {
 
     Snackbar snackbar;
 
-    //The rest of your code goes here
+    static {
+        AzureMaps.setSubscriptionKey("<your Azure Maps subscription key>");
+    }
 
+    MapControl mapControl;
+
+    //The rest of your code goes here
 }
 ```
 
