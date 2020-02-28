@@ -13,7 +13,7 @@ manager: philmea
 
 # Show traffic incidents on the map using Azure Maps Android SDK
 
-This guide shows how to display traffic data on the map. Flow and incidents are the two types of traffic data that can be displayed on the map. Incident data consists of point and line-based data for things such as construction, road closures, and accidents. Flow data shows metrics about the flow of traffic. 
+This guide shows you how to display traffic data. Flow data and incidents data are the two types of traffic data that can be displayed on the map. Incidents data consists of point and line-based data for things such as constructions, road closures, and accidents. Flow data shows metrics about the flow of traffic on the road.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ To complete the process in this article, you need to install Azure Maps Android 
 
 ## Show traffic on the map
 
-The coding exercise in this guide demonstrates toggling incident data, and shows you how to set traffic flow data for your map.
+The coding exercise below demonstrates the incident data, and shows you how to set traffic flow data for your map.
 
 1. Edit res > layout > activity_main.xml so it looks like the one below:
 
