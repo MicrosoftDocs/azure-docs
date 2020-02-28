@@ -59,9 +59,9 @@
     # - name: Use Torch for deep learning
     #   href: article-template.md
     - name: Data Analyst
-    items:
-    - name: Use SQL on-demand to analyze and Synapse studio to visualize
-      href: sql-analytics/tutorial-data-analyst.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      items:
+      - name: Use SQL on-demand to analyze and Synapse studio to visualize
+        href: sql-analytics/tutorial-data-analyst.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Data Engineer
     items:
     # - name: Data Preparation
