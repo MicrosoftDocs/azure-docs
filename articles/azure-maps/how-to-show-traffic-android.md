@@ -17,11 +17,11 @@ This guide shows you how to display traffic data. Flow data and incidents data a
 
 ## Prerequisites
 
-To complete the process in this article, you need to install Azure Maps Android SDK, as explained in [getting started with Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-librar).
+To complete the exercises in this article, you need to install Azure Maps Android SDK, as explained in [getting started with Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library).
 
-## Show traffic on the map
+## Show Incidents traffic data on the map
 
-The coding exercise below demonstrates the incident data, and shows you how to set traffic flow data for your map.
+The coding exercise below demonstrates 
 
 1. Edit res > layout > activity_main.xml so it looks like the one below:
 
@@ -76,7 +76,7 @@ public class TrafficIncidentsExampleActivity extends ExampleActivity {
 }
 ```
 
-3. Inside your `TrafficIncidentsExampleActivity` class, copy the code snippet below. In the snippet below, we pass a boolean value to the `incidents` method, and pass that to the `setTraffic` method. Similarly, there are four values that can be passed to `flow` and then `flow` can be passed to `setTraffic`. These four values are: `TrafficFlow.NONE`, `TrafficFlow.RELATIVE`, `TrafficFlow.RELATIVE_DELAY`, and `TrafficFlow.ABSOLUTE`. Using `TrafficFlow.RELATIVE` shows traffic data that's relative to the free-flow speed of the road.  The `TrafficFlow.RELATIVE_DELAY` option displays areas that are slower than the average expected delay. And, `TrafficFlow.ABSOLUTE` shows the absolute speed of all vehicles on the road. After setting the desired traffic data, in this case incident data, we attach an `OnFeatureClick` event to map. When clicked, the code logic obtains the incident, if any, for that feature. The code builds a message with the incident information, and displays the message. The message displays using the `snackbar` object instantiated earlier.
+3. Inside your `TrafficIncidentsExampleActivity` class, copy the code snippet below. In the snippet below, we pass a boolean value to the `incidents` method, and pass that to the `setTraffic` method. After setting the desired traffic data, in this case incident data, we attach an `OnFeatureClick` event to map. When clicked, the code logic obtains the incident, if any, for that feature. The code builds a message with the incident information, and displays the message. The message displays using the `snackbar` object instantiated earlier.
 
 ```java
 
@@ -84,8 +84,6 @@ public class TrafficIncidentsExampleActivity extends ExampleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mapControl.getMapAsync(map - > {
-            
-            map.setTraffic(flow(TrafficFlow.ABSOLUTE));
 
             map.setTraffic(incidents(true));
 
@@ -166,6 +164,102 @@ public class TrafficIncidentsExampleActivity extends ExampleActivity {
 ```
 
 5. After you run your code, your application should look like the following image:
+
+## Show flow traffic data on the map
+
+he coding exercise below demonstrates 
+
+1. Edit res > layout > activity_main.xml so it looks like the one below:
+
+The `app:mapcontrol_centerLat` and `app:mapcontrol_centerLng` attributes center the map over the respective latitude and longitude. 
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.microsoft.azure.maps.mapcontrol.MapControl
+        android:id="@+id/mapcontrol"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:mapcontrol_centerLat="40.75"
+        app:mapcontrol_centerLng="-99.47"
+        app:mapcontrol_zoom="3"
+        />
+
+</FrameLayout>
+```
+
+2. Import the following libraries. The package is added by default, but as a reminder, make sure you have your package at the top.
+
+```java
+//package <your package name>;
+import android.os.Bundle;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import com.microsoft.azure.maps.demo.R;
+import com.microsoft.azure.maps.demo.utils.AndroidUtility;
+import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
+import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
+//if you wish to use the flow and incident traffic options, use: com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.*;
+```
+
+3. Add the following code to your `MainActivity.java` file. Similar to the previous exercise, we pass the return value of the `flow` method to the `setTraffic` method. Four values that can be passed to `flow`, and each would respectively trigger `flow` to pass the desired return value to `setTraffic`. These four values are: `TrafficFlow.NONE`, `TrafficFlow.RELATIVE`, `TrafficFlow.RELATIVE_DELAY`, and `TrafficFlow.ABSOLUTE`. Using `TrafficFlow.RELATIVE` shows traffic data that's relative to the free-flow speed of the road.  The `TrafficFlow.RELATIVE_DELAY` option displays areas that are slower than the average expected delay. And, `TrafficFlow.ABSOLUTE` shows the absolute speed of all vehicles on the road. The `TrafficFlow.NONE` is used to not displays traffic data on the map.
+
+```java
+public class TrafficFlowExampleActivity extends ExampleActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mapControl.getMapAsync(map -> 
+        
+            map.setTraffic(flow(TrafficFlow.RELATIVE)));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_flow, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.menu_item_flow_none:
+                mapControl.getMapAsync(map -> map.setTraffic(flow(TrafficFlow.NONE)));
+                break;
+
+            case R.id.menu_item_flow_absolute:
+                mapControl.getMapAsync(map -> map.setTraffic(flow(TrafficFlow.ABSOLUTE)));
+                break;
+
+            case R.id.menu_item_flow_relative:
+                mapControl.getMapAsync(map -> map.setTraffic(flow(TrafficFlow.RELATIVE)));
+                break;
+
+            case R.id.menu_item_flow_relative_delay:
+                mapControl.getMapAsync(map -> map.setTraffic(flow(TrafficFlow.RELATIVE_DELAY)));
+                break;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+        AndroidUtility.showToast(this, getString(R.string.a11y_flow_event, item.getTitle()));
+        return true;
+
+    }
+}
+```
+
+4. After you run your code, your application should look like the following image:
 
 ## Next steps
 
