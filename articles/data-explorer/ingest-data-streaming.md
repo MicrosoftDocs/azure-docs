@@ -71,11 +71,11 @@ There are two supported streaming ingestion types:
 * The data size limitation per ingestion request is 4 MB.
 * Schema updates, such as creation and modification of tables and ingestion mappings, may take up to 5 minutes for the streaming ingestion service.
 * Enabling streaming ingestion on a cluster, even when data isn't ingested via streaming, uses part of the local SSD disk of the cluster machines for streaming ingestion data and reduces the storage available for hot cache.
-* [Extent tags](/azure/kusto/management/extents-overview.md#extent-tagging) can't be set on the streaming ingestion data.
+* [Extent tags](/azure/kusto/management/extents-overview#extent-tagging) can't be set on the streaming ingestion data.
 
 Streaming ingestion doesn't support the following features:
 * [Database cursors](/azure/kusto/management/databasecursor).
-* [Data mapping](/azure/kusto/management/mappings). Only [pre-created](/azure/kusto/management/tables#create-ingestion-mapping) data mapping is supported. 
+* [Data mapping](/azure/kusto/management/mappings). Only [pre-created](/azure/kusto/management/create-ingestion-mapping-command) data mapping is supported. 
 
 ## Next steps
 

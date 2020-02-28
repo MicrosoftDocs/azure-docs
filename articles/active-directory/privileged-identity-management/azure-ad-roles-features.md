@@ -61,7 +61,7 @@ We have tried our best to reach out to all customers who are using the previous 
 
 ## PowerShell change
 
-For customers who are using the Privileged Identity Management PowerShell module for Azure AD roles, the PowerShell will stop working with the update. In place of the previous cmdlets you must use the Privileged Identity Management cmdlets inside the Azure AD Preview PowerShell module. Install the Azure AD PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). The cmdlets are built on top of Graph API.
+For customers who are using the Privileged Identity Management PowerShell module for Azure AD roles, the PowerShell will stop working with the update. In place of the previous cmdlets you must use the Privileged Identity Management cmdlets inside the Azure AD Preview PowerShell module. Install the Azure AD PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). You can now [read the documentation and samples for PIM operations in this PowerShell module](powershell-for-azure-ad-roles.md).
 
 ## Next steps
 

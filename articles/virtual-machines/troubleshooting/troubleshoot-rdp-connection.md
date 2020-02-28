@@ -189,6 +189,10 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 If you are still encountering RDP issues, you can [open a support request](https://azure.microsoft.com/support/options/) or read [more detailed RDP troubleshooting concepts and steps](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Troubleshoot VMs created using the Classic deployment model
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+
 After each troubleshooting step, try reconnecting to the VM.
 
 1. **Reset your RDP connection**. This troubleshooting step resets the RDP configuration when Remote Connections are disabled or Windows Firewall rules are blocking RDP, for example.
