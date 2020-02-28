@@ -164,9 +164,26 @@ You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dns
 </azvpnprofile>
 ```
 
+### How do I add custom DNS servers to the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<dnsservers>
+		<dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+	</dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
 ### How do I add custom routes to the VPN client?
 
-You can modify the downloaded profile XML file and add the **\<route>\<includeroutes>\<destination>\<mask> \</route>\</includeroutes>\</destionation>\</mask>** tags
+You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags
 
 ```
 <azvpnprofile>
@@ -177,6 +194,24 @@ You can modify the downloaded profile XML file and add the **\<route>\<includero
 			<destination>x.x.x.x</destination><mask>24</mask>
 		</route>
 	</includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### How do I block (exclude) routes from the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<excluderoutes>
+		<route>
+			<destination>x.x.x.x</destination><mask>24</mask>
+		</route>
+	</excluderoutes>
     
 </clientconfig>
 </azvpnprofile>
