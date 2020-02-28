@@ -158,11 +158,11 @@ Create your resource group and single database using AZ CLI.
    ```azurecli-interactive
    #!/bin/bash
    # set variables
-   $subscription = '<subscriptionID>'
+   $subscription = "<subscriptionID>"
    $randomIdentifier = $(Get-Random)
 
    $resourceGroup = "resource-$randomIdentifier"
-   $location = "West US 2"
+   $location = "East US"
    
    $login = "sampleLogin"
    $password = "samplePassword123!"
