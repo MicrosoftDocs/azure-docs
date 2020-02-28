@@ -91,7 +91,7 @@ If you have a video service developed today on top of the [legacy Media Services
     }
     ```
 
-    For more information, see the [Azure Functions C# code for Media Services v3 in hybrid mode (for both Live and VOD operations)](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/LiveAndVodDRMOperationsV3.
+    For more information, see the [Azure Functions C# code for Media Services v3 in hybrid mode for both Live and VOD operations](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/LiveAndVodDRMOperationsV3).
  
 > [!NOTE]
 > Review the naming conventions that are applied to [Media Services v3 resources](media-services-apis-overview.md#naming-conventions). Also review [naming blobs](assets-concept.md#naming).
