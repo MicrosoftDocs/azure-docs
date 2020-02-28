@@ -12,54 +12,61 @@ manager: peterpr
 
 # Create and run a job in your Azure IoT Central application
 
-You can use Microsoft Azure IoT Central to manage your connected devices at scale using jobs. Jobs let you do bulk updates to device properties and commands. This article walks you through how to get started using jobs in your own application.
+You can use Microsoft Azure IoT Central to manage your connected devices at scale using jobs. Jobs let you do bulk updates to device properties and run commands. This article shows you how to get started using jobs in your own application.
 
 ## Create and run a job
 
 This section shows you how to create and run a job. It shows you how to set the light threshold for a group of logistic gateway devices.
 
-1. Navigate to Jobs from the navigation pane.
+1. Navigate to **Jobs** from the left pane.
 
-2. Select **+ New** to create a new job.
+2. Select **+ New** to create a new job:
 
-    ![Create new job](./media/howto-run-a-job/createnewjob.png)
+    > [!div class="mx-imgBorder"]
+    > ![Create new job](./media/howto-run-a-job/createnewjob.png)
 
 3. Enter a name and description to identify the job you're creating.
 
-4. Select the target device group you want your job to apply to. You can see how many devices your job configuration will be applied to in the Summary section.
+4. Select the target device group you want your job to apply to. You can see how many devices your job configuration applies to in the **Summary** section.
 
-5. Next, choose the type of job to configure (property or command). Set up the job configuration by selecting a property and setting it's new values, or  choose to run a command. It is possible to add multiple properties at a time.
+5. Next, choose either **Property** or **Command**  as the type of job to configure. To set up a **Property** job configuration, select a property and set its new value. To set up a **Command**, or  choose the command to run. A property job can set multiple properties:
 
-    ![Configure job](./media/howto-run-a-job/configurejob.png)
+    > [!div class="mx-imgBorder"]
+    > ![Configure job](./media/howto-run-a-job/configurejob.png)
 
-6. After selecting your devices, choose **Run** or **Save**. The job now appears on your main **Jobs** page. On this view, you can see your currently running job and the history of any previously run or saved jobs. Your saved job can be opened again at any time to continue editing or to run.
+6. After selecting your devices, choose **Run** or **Save**. The job now appears on your main **Jobs** page. On this page, you can see your currently running job and the history of any previously run or saved jobs. Your saved job can be opened again at any time to continue editing it or to run it:
 
-    ![View job](./media/howto-run-a-job/viewjob.png)
+    > [!div class="mx-imgBorder"]
+    > ![View job](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
-    > You can view the history of your previously run jobs for up to 30 days.
+    > You can view up 30 days of history for your previously run jobs.
 
-7. To get an overview of your job, select the job to view from the list. This overview contains the job details, devices, and device statuses. From this overview, you can also select **Download Job Details** to download a .csv file of your job details, including the devices and their statuses. This information can be useful for troubleshooting.
+7. To get an overview of your job, select the job to view from the list. This overview contains the job details, devices, and device status values. From this overview, you can also select **Download Job Details** to download a CSV file of your job details, including the devices and their status values. This information can be useful for troubleshooting:
 
-    ![View device status](./media/howto-run-a-job/downloaddetails.png)
+    > [!div class="mx-imgBorder"]
+    > ![View device status](./media/howto-run-a-job/downloaddetails.png)
 
 ### Stop a running job
 
-To stop a running job, open the job and click **Stop**. The job status changes to reflect the job is stopped. The Summary section will show which devices have completed, failed, or are still pending.
+To stop one of your running jobs, open it and select **Stop**. The job status changes to reflect the job is stopped. The **Summary** section shows which devices have completed, failed, or are still pending:
 
-   ![Stop job](./media/howto-run-a-job/stopjob.png)
+    > [!div class="mx-imgBorder"]
+    > ![Stop job](./media/howto-run-a-job/stopjob.png)
 
 ### Run a stopped job
 
-To run a job that's currently stopped, select the stopped job. Click **Run**. The job status changes to reflect the job is now running again. The SUmmary section will continue to update with the latest progress.
+To run a job that's currently stopped, select it, and then select **Run**. The job status changes to reflect the job is now running again. The **Summary** section continues to update with the latest progress:
 
-   ![Resumed job](./media/howto-run-a-job/resumejob.png)
+    > [!div class="mx-imgBorder"]
+    > ![Resumed job](./media/howto-run-a-job/resumejob.png)
 
 ## Copy a job
 
-To copy an existing job you've created, open a job that has been created and select **Copy**. A new copy of the job configuration opens for you to edit and appends "Copy" to the end of the name. You can save or run the new job.
+To copy one of your existing jobs, open it and select **Copy**. A copy of the job configuration opens for you to edit, and **Copy** is appended to the end of the job name. You can save or run the new job:
 
-   ![Copy job](./media/howto-run-a-job/copyjob.png)
+    > [!div class="mx-imgBorder"]
+    > ![Copy job](./media/howto-run-a-job/copyjob.png)
 
 ## View the job status
 
@@ -82,7 +89,7 @@ The status message is followed by an overview of the devices in the job. The fol
 
 ### View the device status
 
-To view the status of the job and all the affected devices, select the job. To download a .csv file that includes the job details, including the list of devices and their status values, select **Download job details**. Next to each device name, you see one of the following status messages:
+To view the status of the job and all the affected devices, select the job. To download a CSV file that includes the job details, including the list of devices and their status values, select **Download job details**. Next to each device name, you see one of the following status messages:
 
 | Status message       | Status meaning                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
@@ -91,7 +98,7 @@ To view the status of the job and all the affected devices, select the job. To d
 | Pending              | The job hasn't yet executed on this device.                                   |
 
 > [!NOTE]
-> If a device has been deleted, you can't select the device and it displays as deleted with the device ID.
+> If a device has been deleted, you can't select the device. It displays as deleted with the device ID.
 
 ## Next steps
 
