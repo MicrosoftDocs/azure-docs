@@ -63,11 +63,11 @@ If a single zone becomes unavailable, your applications continue to run.
 
 ## Create an AKS cluster across availability zones
 
-When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter defines which zones agent nodes are deployed into. The AKS control plane components for your cluster are also spread across three zones when you define the `--zones` parameter at cluster creation time. The zones which the control plane is spread across are independent of what zones are selected for the initial node pool.
+When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter defines which zones agent nodes are deployed into. The backing etcd store is spread across three zones when you define the `--zones` parameter at cluster creation time. The zones which etcd is spread across are independent of what zones are selected for the initial node pool.
 
-If you don't define any zones for the default agent pool when you create an AKS cluster, the AKS control plane components for your cluster will not use availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for those new nodes. You can't change the zone awareness for a node pool or the AKS control plane components once they're deployed.
+If you don't define any zones for the default agent pool when you create an AKS cluster, components such as etcd will not use availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for those new nodes. These settings can only be defined at create-time.
 
-The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*. The AKS control plane components are also distributed across zones in the highest available configuration since they're defined as part of the cluster create process.
+The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
