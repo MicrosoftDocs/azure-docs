@@ -19,7 +19,7 @@ In this tutorial, use C# and the [.NET SDK](https://aka.ms/search-sdk) to perfor
 
 > [!div class="checklist"]
 > * Start with application files and images in Azure Blob storage.
-> * Define a pipeline that performs OCR, extracts text, detects language, recognizes entities, and detects key phrases.
+> * Define a pipeline that performs OCR on images, extracts text from documents, detects language, recognizes entities, and detects key phrases.
 > * Define an index to store the output (raw content, plus pipeline-generated name-value pairs).
 > * Execute the pipeline to start transformations and analysis, and to create and load the index.
 > * Explore results using full text search and a rich query syntax.
@@ -71,9 +71,9 @@ If possible, create both in the same region and resource group for proximity and
 
 1. Click **Blobs** service.
 
-1. Click **+ Container** to create a container and name it *cog-search-demo*.
+1. Click **+ Container** to create a container and name it *basic-demo-data-pr*.
 
-1. Select *cog-search-demo* and then click **Upload** to open the folder where you saved the download files. Select all fourteen files and click **OK** to upload.
+1. Select *basic-demo-data-pr* and then click **Upload** to open the folder where you saved the download files. Select all fourteen files and click **OK** to upload.
 
    ![Upload sample files](media/cognitive-search-quickstart-blob/sample-data.png "Upload sample files")
 
@@ -218,7 +218,7 @@ In Azure Cognitive Search, AI processing occurs during indexing (or data ingesti
 
 `SearchServiceClient` has a `DataSources` property. This property provides all the methods you need to create, list, update, or delete Azure Cognitive Search data sources.
 
-Create a new `DataSource` instance by calling `DataSource.AzureBlobStorage`. `DataSource.AzureBlobStorage` requires that you specify the data source name, connection string, and blob container name.
+Create a new `DataSource` instance by calling `serviceClient.DataSources.CreateOrUpdate(dataSource)`. `DataSource.AzureBlobStorage` requires that you specify the data source name, connection string, and blob container name.
 
 ```csharp
 private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceClient, IConfigurationRoot configuration)
@@ -247,7 +247,7 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
 
 For a successful request, the method will return the data source that was created. If there is a problem with the request, such as an invalid parameter, the method will throw an exception.
 
-Now that you have initialized the `DataSource` object, create the data source. 
+Now add a line in Main to call the `CreateOrUpdateDataSource` function that you've just added.
 
 ```csharp
 public static void Main(string[] args)
@@ -290,7 +290,7 @@ catch (Exception e)
 }
 ``` -->
 
-Build the solution. Since this is your first request, check the Azure portal to confirm the data source was created in Azure Cognitive Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh.
+Build and run the solution. Since this is your first request, check the Azure portal to confirm the data source was created in Azure Cognitive Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh.
 
   ![Data sources tile in the portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Data sources tile in the portal")
 
@@ -310,7 +310,7 @@ In this section, you define a set of enrichment steps that you want to apply to 
 
 + [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases.
 
-During initial processing, Azure Cognitive Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, set the input for ```"/document/content"``` to use this text. 
+During initial processing, Azure Cognitive Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, set the input as ```"/document/content"``` to use this text. 
 
 Outputs can be mapped to an index, used as input to a downstream skill, or both as is the case with language code. In the index, a language code is useful for filtering. As an input, language code is used by text analysis skills to inform the linguistic rules around word breaking.
 
@@ -533,7 +533,7 @@ private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceCl
 }
 ```
 
-Add the following lines to main.
+Add the following lines to Main.
 
 ```csharp
     // Create the skills
@@ -606,8 +606,6 @@ namespace EnrichwithAI
 
         [IsSearchable]
         public string[] Organizations { get; set; }
-
-        public string Enriched { get; set; }
     }
 }
 ```
@@ -639,7 +637,7 @@ public class DemoIndex
 }
 ``` -->
 
-Now that you've defined a model class, back in `Program.cs` you can create an index definition fairly easily. The name for this index will be `demoindex`.
+Now that you've defined a model class, back in `Program.cs` you can create an index definition fairly easily. The name for this index will be `demoindex`. If an index already exists with that name, it will be deleted.
 
 ```csharp
 private static Index CreateDemoIndex(SearchServiceClient serviceClient)
@@ -673,7 +671,7 @@ private static Index CreateDemoIndex(SearchServiceClient serviceClient)
 
 During testing you may find that you're attempting to create the index more than once. Because of this, check to see if the index that you're about to create already exists before attempting to create it.
 
-Add the following lines to main.
+Add the following lines to Main.
 
 ```csharp
     // Create the index
@@ -777,7 +775,7 @@ private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, Data
     return indexer;
 }
 ```
-Add the following lines to main.
+Add the following lines to Main.
 
 ```csharp
     // Create the indexer, map fields, and execute transformations
@@ -838,7 +836,7 @@ private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient,
 
 Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files).
 
-Add the following lines to main.
+Add the following lines to Main.
 
 ```csharp
     // Check indexer overall status
@@ -852,39 +850,13 @@ After indexing is finished, you can run queries that return the contents of indi
 
 As a verification step, query the index for all of the fields.
 
+Add the following lines to Main.
+
 ```csharp
 DocumentSearchResult<DemoIndex> results;
 
 ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(configuration);
 
-try
-{
-    results = indexClientForQueries.Documents.Search<DemoIndex>("*");
-}
-catch (Exception e)
-{
-    // Handle exception
-}
-```
-
-`CreateSearchIndexClient` creates a new `SearchIndexClient` using values that are stored in the application's config file (appsettings.json). Note that the search service query API key is used and not the admin key.
-
-```csharp
-private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
-{
-   string searchServiceName = configuration["SearchServiceName"];
-   string queryApiKey = configuration["SearchServiceQueryApiKey"];
-
-   SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "demoindex", new SearchCredentials(queryApiKey));
-   return indexClient;
-}
-```
-
-The output is the index schema, with the name, type, and attributes of each field.
-
-Submit a second query for `"*"` to return all contents of a single field, such as `organizations`.
-
-```csharp
 SearchParameters parameters =
     new SearchParameters
     {
@@ -901,7 +873,53 @@ catch (Exception e)
 }
 ```
 
-Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
+`CreateSearchIndexClient` creates a new `SearchIndexClient` using values that are stored in the application's config file (appsettings.json). Notice that the search service query API key is used and not the admin key.
+
+```csharp
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string queryApiKey = configuration["SearchServiceQueryApiKey"];
+
+   SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "demoindex", new SearchCredentials(queryApiKey));
+   return indexClient;
+}
+```
+
+Add the following code to Main. The first try-catch returns the index definition, with the name, type, and attributes of each field. The second is a parameterized query, where `Select` specifies which fields to include in the results, for example `organizations`. A search string of `"*"` returns all contents of a single field.
+
+```csharp
+//Verify content is returned after indexing is finished
+ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(configuration);
+
+try
+{
+    results = indexClientForQueries.Documents.Search<DemoIndex>("*");
+    Console.WriteLine("First query succeeded with a result count of {0}", results.Results.Count);
+}
+catch (Exception e)
+{
+    Console.WriteLine("First query failed\n Exception message: {0}\n", e.Message);
+}
+
+SearchParameters parameters =
+    new SearchParameters
+    {
+        Select = new[] { "organizations" }
+    };
+
+try
+{
+    results = indexClientForQueries.Documents.Search<DemoIndex>("*", parameters);
+    Console.WriteLine("Second query succeeded with a result count of {0}", results.Results.Count);
+}
+catch (Exception e)
+{
+    Console.WriteLine("Second query failed\n Exception message: {0}\n", e.Message);
+}
+```
+
+Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via the [Select](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) property using a comma-delimited list.
 
 <a name="reset"></a>
 
