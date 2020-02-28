@@ -37,26 +37,34 @@ The what-if operation lists six different types of changes:
 
 ## What-if commands
 
-You can use the what-if operation for deployments at either the subscription or resource group level.
+You can use either Azure PowerShell or Azure REST API for the what-if operation.
 
-For PowerShell, use:
+### Azure PowerShell
+
+To preview changes, use:
 
 * `Get-AzResourceGroupDeploymentWhatIf` for resource group deployments
 * `Get-AzSubscriptionDeploymentWhatIf` or `Get-AzDeploymentWhatIf` for subscription level deployments
 
-> [!NOTE]
-> Prior to the release of version 2.0.1-alpha5, you used the `New-AzDeploymentWhatIf` command. This command has been replaced by the `Get-Az*DeploymentWhatIf` syntax. If you've used an earlier version, you need to update those commands.
+Or, you can use the `-Whatif` switch parameter on the deployment command.
 
-You can also run the what-if operation from the `New-AzResourceGroupDeployment`, `New-AzSubscriptionDeployment` and `New-AzDeployment` commands. Use the `-Whatif` switch parameter to run the what-if command. Use the `-Confirm` switch parameter to first run what-if and then have the option to complete the deployment.
+* `New-AzResourceGroupDeployment -Whatif` for resource group deployments
+* `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
+
+Or, you can preview the changes before being prompted to continue with the deployment.
+
+* `New-AzResourceGroupDeployment -Confirm` for resource group deployments
+* `New-AzSubscriptionDeployment -Confirm` and `New-AzDeployment -Confirm` for subscription level deployments
+
+> [!NOTE]
+> Prior to the release of version 2.0.1-alpha5, you used the `New-AzDeploymentWhatIf` command. This command has been replaced by the `Get-AzDeploymentWhatIf`, `Get-AzResourceGroupDeploymentWhatIf`, and `Get-AzSubscriptionDeploymentWhatIf` commands. If you've used an earlier version, you need to update that syntax. The `-ScopeType` parameter has been removed.
+
+### Azure REST API
 
 For REST API, use:
 
 * [Deployments - What If](/rest/api/resources/deployments/whatif) for resource group deployments
 * [Deployments - What If At Subscription Scope](/rest/api/resources/deployments/whatifatsubscriptionscope) for subscription level deployments
-
-To learn about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md#).
-
-This article demonstrates resource group deployments.
 
 ## Result format
 
@@ -104,7 +112,7 @@ The following results show the two different output formats:
 
 To see how what-if works, let's runs some tests. First, deploy a template from [Azure Quickstart templates that creates a storage account](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json). The default storage account type is `Standard_LRS`. You'll use this storage account to test how changes are reported by what-if.
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzResourceGroup `
   -Name ExampleGroup `
   -Location centralus
@@ -117,7 +125,7 @@ New-AzResourceGroupDeployment `
 
 After the deployment completes, you're ready to test the what-if operation. Run the what-if command but change the storage account type to `Standard_GRS`.
 
-```azurepowershell-interactive
+```azurepowershell
 Get-AzResourceGroupDeploymentWhatIf `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" `
@@ -157,7 +165,7 @@ Some of the properties that are listed as deleted won't actually change. In the 
 
 The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in complete mode.
 
-```azurepowershell-interactive
+```azurepowershell
 Get-AzResourceGroupDeploymentWhatIf `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json" `
@@ -196,9 +204,9 @@ It's important to remember what-if makes no actual changes. The storage account 
 
 ## Confirm before deployment
 
-To preview changes before deploying a template, use the `-Confirm` switch parameter with the deployment command. If the changes are as you expected, you can then confirm that you want the deployment to complete. The following command allows you to preview changes before the template is deployed.
+To preview changes before deploying a template, use the `-Confirm` switch parameter with the deployment command. If the changes are as you expected, confirm that you want the deployment to complete. The following command allows you to preview changes before the template is deployed.
 
-```powershell
+```azurepowershell
 New-AzResourceGroupDeployment `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json" `
@@ -232,6 +240,26 @@ Resource changes: 1 to delete.
 
 Are you sure you want to execute the deployment?
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+```
+
+## Programmatically evaluate what-if results
+
+You can programmatically evaluate the what-if results by setting the command to a variable.
+
+```azurepowershell
+$results = Get-AzResourceGroupDeploymentWhatIf `
+  -ResourceGroupName ExampleGroup `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" `
+  -storageAccountType Standard_GRS
+```
+
+You can see a summary of each change.
+
+```azurepowershell
+foreach ($change in $results.Changes)
+{
+  $change.Delta
+}
 ```
 
 ## Next steps
