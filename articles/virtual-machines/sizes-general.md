@@ -35,6 +35,9 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
 Example D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
 
+> [!NOTE]
+> The A8 – A11 VMs are planned for retirement on 3/2021. For more information, see [HPC Migration Guide](https://azure.microsoft.com/resources/hpc-migration-guide/).
+
 ## Other sizes
 
 - [Compute optimized](sizes-compute.md)
