@@ -20,6 +20,10 @@ Premium Storage: Supported*
 
 Premium Storage caching: Supported*
 
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
+
 *Except for Standard_DC8_v2
 
 
