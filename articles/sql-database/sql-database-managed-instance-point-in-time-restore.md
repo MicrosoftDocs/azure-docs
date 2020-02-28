@@ -86,7 +86,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceDatabaseName $targetDatabase `
 ```
 
-To restore the database to another managed instance, also specify the names of the target resource group and managed instance:  
+To restore the database to another managed instance, also specify the names of the target resource group and target managed instance:  
 
 ```powershell-interactive
 $targetResourceGroupName = "<Resource group of target managed instance>"
@@ -141,7 +141,7 @@ To recover a managed database using the Azure portal, open the managed instance 
 
 ### PowerShell
 
-To restore a database to the same instance, or another instance, update the parameter values and then run the following PowerShell command: 
+To restore a database to the same instance, update the parameter values and then run the following PowerShell command: 
 
 ```powershell-interactive
 $subscriptionId = "<Subscription ID>"
@@ -158,11 +158,27 @@ $deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $re
 
 Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
-   -ResourceGroupName $deletedDatabase.ResourceGroupName -DeletionDate $deletedDatabase.DeletionDate `
-   -PointInTime UTCDateTime -TargetInstanceDatabaseName $targetDatabaseName
+   -ResourceGroupName $deletedDatabase.ResourceGroupName `
+   -DeletionDate $deletedDatabase.DeletionDate `
+   -PointInTime UTCDateTime `
+   -TargetInstanceDatabaseName $targetDatabaseName
 ```
 
+To restore the database to another managed instance, also specify the names of the target resource group and target managed instance:
 
+```powershell-interactive
+$targetResourceGroupName = "<Resource group of target managed instance>"
+$targetInstanceName = "<Target managed instance name>"
+
+Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+   -InstanceName $deletedDatabase.ManagedInstanceName `
+   -ResourceGroupName $deletedDatabase.ResourceGroupName `
+   -DeletionDate $deletedDatabase.DeletionDate `
+   -PointInTime UTCDateTime `
+   -TargetInstanceDatabaseName $targetDatabaseName `
+   -TargetResourceGroupName $targetResourceGroupName `
+   -TargetInstanceName $targetInstanceName 
+```
 
 ## Overwrite an existing database
 
