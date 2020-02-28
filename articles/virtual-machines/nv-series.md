@@ -2,7 +2,7 @@
  title: NV-series - Azure Virtual Machines
  description: Specifications for the NV-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: vikancha
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -18,6 +18,10 @@ Each GPU in NV instances comes with a GRID license. This license gives you the f
 Premium Storage:  Not Supported
 
 Premium Storage caching:  Not Supported
+
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications |
 |---|---|---|---|---|---|---|---|---|---|
