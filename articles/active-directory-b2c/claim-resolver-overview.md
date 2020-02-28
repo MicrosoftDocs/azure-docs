@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 03/02/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -71,6 +71,7 @@ The following sections list available claim resolvers.
 | {OIDC:Prompt} | The `prompt` query string parameter. | login |
 | {OIDC:Resource} |The `resource`  query string parameter. | N/A |
 | {OIDC:scope} |The `scope`  query string parameter. | openid |
+| {OIDC:RedirectUri} |The `redirect_uri`  query string parameter. | https://jwt.ms |
 
 ### Context
 
@@ -81,7 +82,7 @@ The following sections list available claim resolvers.
 | {Context:DateTimeInUtc} |The date time in UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |The policy deployment mode.  | Production |
 | {Context:IPAddress} | The user IP address. | 11.111.111.11 |
-
+| {Context:KMSI} | The user IP address. | Indicates whether [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox is selected.  |
 
 ### Non-protocol parameters
 
