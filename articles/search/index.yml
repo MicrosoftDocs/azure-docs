@@ -61,7 +61,7 @@ landingContent:
             url: search-get-started-portal.md
           - text: Create an app
             url: search-create-app-portal.md
-          - text: Extract text from image and blobs
+          - text: Extract text from images and blobs
             url: cognitive-search-quickstart-blob.md
             
   # Card
