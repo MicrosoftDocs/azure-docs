@@ -50,7 +50,7 @@ Once you have configured your vaults to send data to LA, view your backup report
 
 ![Vault Dashboard](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
-Clicking this link opens up the Backup Reports Workbook. 
+Clicking this link opens up the Backup Report Workbook. 
 
 > [!NOTE]
 > * Currently, the initial load of the report may take up to 1 minute.
