@@ -18,19 +18,7 @@ ms.author: juliako
 
 # Azure Media Services high availability guidance
 
-Azure Media Services does not provide instant failover of the service if there is a regional datacenter outage or failure. This article explains how to configure your environment for a failover to ensure optimal availability for applications and minimized recovery time if a disaster occurs.
-
-We recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure’s isolation and availability policies. For more information, see [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
-
-> [!TIP]
-> You can automate BCDR by setting up activity log alerts for service health notifications as per [Create activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications.md).
-
-## Prerequisites
-
-Review:
-
-* [Azure Business Continuity Technical Guidance](https://docs.microsoft.com/azure/architecture/resiliency/) - describes a general framework to help you think about business continuity and disaster recovery
-* [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) - provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR)
+Azure Media Services does not provide instant failover of the service if there is a regional datacenter outage or failure. This article explains how to configure your environment for a failover to ensure optimal availability for applications and minimized recovery time if an outage occurs.
 
 ## Tips on how to build a cross regional encoding system
 
