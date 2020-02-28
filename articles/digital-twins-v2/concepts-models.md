@@ -91,7 +91,7 @@ The fields of the JSON document are defined as follows:
 | --- | --- |
 | `@id` | An identifier for the model. Must be in the format `urn:<domain>:<unique model identifier>:<model version number>`. |
 | `@type` | Identifies the type of information being described. For an interface, the type is *Interface*. |
-| `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use *http://azure.com/v3/contexts/Model.json*. |
+| `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `http://azure.com/v3/contexts/Model.json`. |
 | `displayName` | [optional] Allows you to give the model a friendly name if desired. |
 | `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*). |
 
