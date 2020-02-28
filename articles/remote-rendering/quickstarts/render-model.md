@@ -98,7 +98,7 @@ The default model we render is a [built-in sample model](../samples/sample-model
 
 > [!IMPORTANT]
 > Azure Portal displays your account's domain only as *mixedreality.azure.com*. This is insufficient for successfully connecting.
-> Set **AccountDomain** to `<region>.mixedreality.azure.com`, where `<region>` is [one of the available regions](../reference/regions.md) that you already chose during account creation.
+> Set **AccountDomain** to `<region>.mixedreality.azure.com`, where `<region>` is [one of the available regions near you](../reference/regions.md).
 
 Later we want to deploy this project to a HoloLens and connect to the Remote Rendering service from that device. Since we have no easy way to enter the credentials on the device, the quickstart sample will **save the credentials in the Unity scene**.
 
