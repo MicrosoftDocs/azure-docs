@@ -19,7 +19,7 @@ In this tutorial, use C# and the [.NET SDK](https://aka.ms/search-sdk) to perfor
 
 > [!div class="checklist"]
 > * Start with application files and images in Azure Blob storage.
-> * Define a pipeline that performs OCR on images, extracts text from documents, detects language, recognizes entities, and detects key phrases.
+> * Define a pipeline to add OCR, text extraction, language detection, entity and key phrase recognition.
 > * Define an index to store the output (raw content, plus pipeline-generated name-value pairs).
 > * Execute the pipeline to start transformations and analysis, and to create and load the index.
 > * Explore results using full text search and a rich query syntax.
