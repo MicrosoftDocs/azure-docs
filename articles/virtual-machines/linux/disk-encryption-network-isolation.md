@@ -42,7 +42,7 @@ When encryption is being enabled with [Azure AD credentials](disk-encryption-lin
 
 ### Azure Instance Metadata Service 
 
-The virtual machine must be able to access the [Azure Instance Metadata service](../windows/instance-metadata-service.md) endpoint which uses a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.  Proxy configurations that alter local HTTP traffic to this address (for example, adding an X-Forwarded-For header) are not supported.
+The virtual machine must be able to access the [Azure Instance Metadata service](instance-metadata-service.md) endpoint which uses a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.  Proxy configurations that alter local HTTP traffic to this address (for example, adding an X-Forwarded-For header) are not supported.
 
 ## Next steps
 
