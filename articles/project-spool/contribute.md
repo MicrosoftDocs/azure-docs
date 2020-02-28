@@ -10,7 +10,7 @@ We have three paths available for contributors:
 
  - **The Happy Path**: This is the easiest way to contribute **minimal updates** to **existing docs**.
  - **The Slightly Less Happy Path**: This is the process we'll follow for **image insertion**, **substantial content edits**, and **new files**.
- - **The Shortcut**: This is where you send me the content that you want to add, and I'll add it to our repository.
+ - **The Shortcut**: You send me the content that you want to add, and I'll add it.
   
 --------------
 
