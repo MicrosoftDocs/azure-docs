@@ -1,12 +1,11 @@
 ---
 title: Optimize log queries in Azure Monitor
 description: Best practices for optimizing log queries in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/25/2019
+ms.date: 02/28/2019
 
 ---
 
@@ -34,11 +33,11 @@ The following query performance indicators are available for every query that is
 
 - [Total CPU](#total-cpu): Overall compute used to process the query across all compute nodes. It represents time used for computing, parsing, and data fetching. 
 
-- [Data volume](#data-volume): Overall data that was accessed to process the query. Influenced by the size of the target table, time span used, filters applied, and the number of columns referenced.
+- [Data used for processed query](#data-used-for-processed-query): Overall data that was accessed to process the query. Influenced by the size of the target table, time span used, filters applied, and the number of columns referenced.
 
-- [Time range](#time-range): The gap between the newest and the oldest data that was accessed to process the query. Influenced by the explicit time range specified for the query.
+- [Time span of the processed query](#time-span-of-the-processed-query): The gap between the newest and the oldest data that was accessed to process the query. Influenced by the explicit time range specified for the query.
 
-- [Age of data](#age-of-data): The gap between now and the oldest data that was accessed to process the query. It highly influences the efficiency of data fetching.
+- [Age of processed data](#age-of-processed-data): The gap between now and the oldest data that was accessed to process the query. It highly influences the efficiency of data fetching.
 
 - [Number of workspaces](#number-of-workspaces): How many workspaces were accessed during the query processing due to implicit or explicit selection.
 
@@ -147,7 +146,7 @@ Heartbeat
 > This indicator presents only CPU from the immediate cluster. In multi-region query, it would represent only one of the regions. In multi-workspace query, it might not include all workspaces.
 
 
-## Data volume
+## Data used for processed query
 
 A critical factor in the processing of the query is the volume of data that is scanned and used for the query processing. Azure Data Explorer uses aggressive optimizations that dramatically reduce the data volume compared to other data platforms. Still, there are critical factors in the query that can impact the data volume that is used.
 In Azure Monitor Logs, the **TimeGenerated** column is used as a way to index the data. Restricting the **TimeGenerated** values to as narrow a range as possible will make a significant improvement to query performance by significantly limiting the amount of data that has to be processed.
@@ -205,7 +204,7 @@ SecurityEvent
 | summarize count(), dcount(EventID), avg(Level) by Computer  
 ```
 
-## Time range
+## Time span of the processed query
 
 All logs in Azure Monitor Logs are partitioned according to the **TimeGenerated** column. The number of partitions that are accessed are directly related to the time span. Reducing the time range is the most efficient way of assuring a prompt query execution.
 
@@ -255,10 +254,43 @@ by Computer
 ) on Computer
 ```
 
-> [!IMPORTANT]
-> This indicator isn't available for cross region queries.
+Another example for this fault is when performing the time scope filtering just after a [union](/azure/kusto/query/unionoperator?pivots=azuremonitor) over several tables. When performing the union, each sub-query should be scoped. You can use [let](/azure/kusto/query/letstatement) statement to assure scoping consistency.
 
-## Age of data
+For example, the following query will scan all the data in the *Heartbeat* and *Perf* tables, not just the last 1 day:
+
+```Kusto
+Heartbeat 
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| where TimeGenerated > ago(1d)
+| summarize min(TimeGenerated) by Computer
+```
+
+This query should be fixed as follows:
+
+```Kusto
+let MinTime = ago(1d);
+Heartbeat 
+| where TimeGenerated > MinTime
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | where TimeGenerated > MinTime
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| summarize min(TimeGenerated) by Computer
+```
+
+The measurement is always larger than the actual time specified. For example, if the filter on the query is 7 days, the system might scan 7.5 or 8.1 days. This is because the system is partitioning the data into chunks in variable size. To assure that all relevant records are scanned, it scans the entire partition that might cover several hours and even more than a day.
+
+There are several cases where the system cannot provide an accurate measurement of the time range. This happens in most of the cases where the query's span less than a day or in multi-workspace queries.
+
+
+> [!IMPORTANT]
+> This indicator presents only data processed in the immediate cluster. In multi-region query, it would represent only one of the regions. In multi-workspace query, it might not include all workspaces.
+
+## Age of processed data
 Azure Data Explorer uses several storage tiers: in-memory, local SSD disks and much slower Azure Blobs. The newer the data, the higher is the chance that it is stored in a more performant tier with smaller latency, reducing the query duration and CPU. Other than the data itself, the system also has a cache for metadata. The older the data, the less chance its metadata will be in cache.
 
 While some queries require usage of old data, there are cases where old data is used by mistake. This happens when queries are executed without providing time range in their meta-data and not all table references include filter on the **TimeGenerated** column. In these cases, the system will scan all the data that is stored in that table. When the data retention is long, it can cover long time ranges and thus data that is as old as the data retention period.
@@ -281,7 +313,7 @@ Cross-region query execution requires the system to serialize and transfer in th
 If there is no real reason to scan all these regions, you should adjust the scope so it covers fewer regions. If the resource scope is minimized but still many regions are used, it might happen due to misconfiguration. For example, audit logs and diagnostic settings are sent to different workspaces in different regions or there are multiple diagnostic settings configurations. 
 
 > [!IMPORTANT]
-> This indicator isn't available for cross region queries.
+> When a query is run across several regions, the CPU and data measurements will not be accurate and will represent the measurement only on one of the regions.
 
 ## Number of workspaces
 Workspaces are logical containers that are used to segregate and administer logs data. The backend optimizes workspace placements on physical clusters within the selected region.
@@ -297,7 +329,7 @@ Cross-region and cross-cluster execution of queries requires the system to seria
 > In some multi-workspace scenarios, the CPU and data measurements will not be accurate and will represent the measurement only to few of the workspaces.
 
 ## Parallelism
-Azure Monitor Logs is using large clusters of Azure Data Explorer to run queries, and these clusters vary in scale. The system automatically scales the clusters according to workspace placement logic and capacity.
+Azure Monitor Logs is using large clusters of Azure Data Explorer to run queries, and these clusters vary in scale, potentially getting up to dozens of compute nodes. The system automatically scales the clusters according to workspace placement logic and capacity.
 
 To efficiently execute a query, it is partitioned and distributed to compute nodes based on the data that is required for its processing. There are some situations where the system cannot do this efficiently. This can lead to a long duration of the query. 
 
