@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services business continuity and disaster recovery 
+title: Azure Media Services high availability
 description: Learn how to failover to a secondary Media Services account if a regional datacenter outage or failure occurs.
 services: media-services
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 02/24/2020
 ms.author: juliako
 ---
 
-# Handle Media Services business continuity and disaster recovery
+# Azure Media Services high availability
 
 Azure Media Services does not provide instant failover of the service if there is a regional datacenter outage or failure. This article explains how to configure your environment for a failover to ensure optimal availability for applications and minimized recovery time if a disaster occurs.
 
