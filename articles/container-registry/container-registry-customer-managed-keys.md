@@ -45,10 +45,6 @@ Use Azure Key Vault to store your customer-managed keys. You can either create y
 
 The following diagram shows how Azure Container Registry uses Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
-![Creating a container registry in the Azure portal][qs-portal-01]
-
-Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this quickstart create a new resource group in the `West US` location named `myResourceGroup`, and for **SKU**, select 'Basic'. Select **Create** to deploy the ACR instance.
-
 ![Create container registry in the Azure portal](./media/container-registry-customer-managed-keys/encryption-customer-managed-key.png)
 
 Explanation of steps:
@@ -56,20 +52,20 @@ Explanation of steps:
 1. An Azure Key Vault admin grants permissions to encryption keys to the managed identity that's associated with the container registry.
 1. An Azure Container Registry admin configures encryption with a customer-managed key for the registry.
 1. Azure Container Registry uses a managed identity that's associated with the registry to authenticate access to Azure Key Vault via Azure Active Directory.
-1. Azure Container Registry wraps the data encryption key with the customer key in Azure Key Vault.
+1. Azure Container Registry wraps the data encryption key with the customer key in Azure Key Vault. Because the customer-managed key encrypts the data encryption key, it's also called a *key encryption key*.
 1. For read/write operations, Azure Container Registry sends requests to Azure Key Vault to wrap and unwrap the data encryption key to perform encryption and decryption operations.
 
 ### Additional information 
 
-* Because the customer's key wraps the registry's own data encryption key, it's sometimes referred to as a *key encryption key*.
 * When Azure wraps the data encryption key with the customer-managed key, the registry is encrypted with the new key immediately, without any time delay.
+* Data encryption using a customer-managed key doesn't affect registry performance.
 * If you modify the customer-managed key being used for registry, for example, by updating the key version, only the encryption of the root key changes. Data in your Azure container registry doesn't need to be re-encrypted.
 
 ## Enable customer-managed key - portal
 
 ### Create a managed identity
 
-Create a [user-assigned [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) in the Azure portal. For steps, see [Create a user-assigned identity(../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+Create a [user-assigned [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) in the Azure portal. For steps, see [Create a user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
 Take note of the **Resource Name** of the managed identity. You need this name in later steps.
 
