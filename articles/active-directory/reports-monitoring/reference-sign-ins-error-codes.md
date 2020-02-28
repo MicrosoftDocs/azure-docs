@@ -29,7 +29,7 @@ With the information provided by the [user sign-ins report](concept-sign-ins.md)
 - Which applications were signed in to?
 - Which sign-ins failed and why?
 
-When a sign-in fails, you will see an error code corresponding to the failure. To find the description for an error code, go [here](https://login.microsoftonline.com/error).
+When a sign-in fails, you see an error code corresponding to the failure. To find the description for an error code, go [here](https://login.microsoftonline.com/error).
 
 
 
