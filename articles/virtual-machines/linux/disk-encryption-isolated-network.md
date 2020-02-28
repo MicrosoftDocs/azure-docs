@@ -32,11 +32,11 @@ On Red Hat, when a proxy is required, you must make sure that the subscription-m
 When packages are installed manually, they must also be manually upgraded as new versions are released.
 
 ## Network security groups
-Any network security group settings that are applied must still allow the endpoint to meet the documented network configuration prerequisites for disk encryption.
+Any network security group settings that are applied must still allow the endpoint to meet the documented network configuration prerequisites for disk encryption.  See [Azure Disk Encryption: Networking requirements](disk-encryption-overview.md#networking-requirements)
 
 ## Azure Disk Encryption with Azure AD (previous version)
 
-If using [Azure Disk Encryption with Azure AD (previous version)](disk-encryption-overview-aad.md), the [Azure Active Directory Library](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) will need to be installed manually for all distros.
+If using [Azure Disk Encryption with Azure AD (previous version)](disk-encryption-overview-aad.md), the [Azure Active Directory Library](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) will need to be installed manually for all distros (in addition to the packages appropriate for the distro, as [listed above](#package-management)).
 
 When encryption is being enabled with [Azure AD credentials](disk-encryption-linux-aad.md), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Office 365 URLs and IP address ranges](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/key-vault-access-behind-firewall.md).
 
