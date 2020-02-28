@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric - Set up monitoring with Azure Monitor logs 
+title: Set up monitoring with Azure Monitor logs 
 description: Learn how to set up Azure Monitor logs for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
 author: srrengar
 

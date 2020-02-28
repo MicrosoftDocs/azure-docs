@@ -131,7 +131,7 @@ When running in a Premium plan, you can connect non-HTTP trigger functions to se
 You can also enable virtual network triggers using the following Azure CLI command:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
 
 Virtual network triggers are supported in version 2.x and above of the Functions runtime. The following non-HTTP trigger types are supported.
@@ -151,7 +151,7 @@ Virtual network triggers are supported in version 2.x and above of the Functions
 
 When your function app runs in either an App Service Plan or an App Service Environment, you can use non-HTTP trigger functions. For your functions to get triggered correctly, you must be connected to a virtual network with access to the resource defined in the trigger connection. 
 
-For example, assume you want to configure Azure Cosmos DB to accept traffic only from a virtual network. In this case, you must deploy your function app in an App Service plan that provides virtual network integration with that virtual network. This enabled a function to be triggered by that Azure Cosmos DB resource. 
+For example, assume you want to configure Azure Cosmos DB to accept traffic only from a virtual network. In this case, you must deploy your function app in an App Service plan that provides virtual network integration with that virtual network. This enables a function to be triggered by that Azure Cosmos DB resource. 
 
 ## Hybrid Connections
 

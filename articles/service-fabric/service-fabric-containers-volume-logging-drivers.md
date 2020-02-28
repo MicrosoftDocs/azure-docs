@@ -1,18 +1,16 @@
 ---
-title: Service Fabric Azure Files Volume Driver (GA) 
+title: Azure Files volume driver for Service Fabric
 description: Service Fabric supports using Azure Files to backup volumes from your container.
-
 ms.topic: conceptual
 ms.date: 6/10/2018
 ---
 
-# Service Fabric Azure Files Volume Driver
-The Azure Files volume plugin, a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](/azure/storage/files/storage-files-introduction) based volumes for Docker containers is now **GA (Generally Available)**.
+# Azure Files volume driver for Service Fabric
 
-This Docker volume plugin is packaged as a Service Fabric application that can be deployed to Service Fabric clusters. Its purpose is to provide Azure Files based volumes for other Service Fabric container applications that are deployed to the cluster.
+The Azure Files volume driver is a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](/azure/storage/files/storage-files-introduction) based volumes for Docker containers. It is packaged as a Service Fabric application that can be deployed to a Service Fabric cluster to provide volumes for other Service Fabric container applications within the cluster.
 
 > [!NOTE]
-> Version 6.5.661.9590 of the Azure Files volume plugin is a GA(Generally available) release. 
+> Version 6.5.661.9590 of the Azure Files volume plugin has been released for general availability.
 >
 
 ## Prerequisites
@@ -51,7 +49,6 @@ In the fabricSettings section in your Azure Resource Manager template (for Azure
   }
 ]
 ```
-
 
 ## Deploy a sample application using Service Fabric Azure Files volume driver
 

@@ -21,7 +21,7 @@ The error: `NativeAzureFileSystem ... RequestBodyTooLarge` appears in the driver
 
 Your Spark event log file is probably hitting the file length limit for WASB.
 
-In Spark 2.3, each Spark app generates one Spark event log file. The Spark event log file for a Spark streaming app continues to grow while the app is running. Today a file on WASB has a 50000 block limit, and the default block size is 4 MB. So in default configuration the max file size is 195 GB. However, Azure storage has increased the max block size to 100 MB, which effectively brought the single file limit to 4.75 TB. For more information, see [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
+In Spark 2.3, each Spark app generates one Spark event log file. The Spark event log file for a Spark streaming app continues to grow while the app is running. Today a file on WASB has a 50000 block limit, and the default block size is 4 MB. So in default configuration the max file size is 195 GB. However, Azure Storage has increased the max block size to 100 MB, which effectively brought the single file limit to 4.75 TB. For more information, see [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md).
 
 ## Resolution
 
@@ -59,4 +59,4 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

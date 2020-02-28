@@ -2,13 +2,10 @@
 title: Integrate Azure Container Registry with Azure Kubernetes Service
 description: Learn how to integrate Azure Kubernetes Service (AKS) with Azure Container Registry (ACR)
 services: container-service
-author: mlearned
 manager: gwallace
-
-ms.service: container-service
 ms.topic: article
 ms.date: 09/17/2018
-ms.author: mlearned
+
 ---
 
 # Authenticate with Azure Container Registry from Azure Kubernetes Service
@@ -38,7 +35,7 @@ az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
 
 ```
-Alternatively, you can specify the ACR name using an ACR resource ID, which has has the following format:
+Alternatively, you can specify the ACR name using an ACR resource ID, which has the following format:
 
 /subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\> 
  

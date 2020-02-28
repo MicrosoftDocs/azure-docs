@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric reliable services application manifest examples
+title: Reliable services app manifest examples
 description: Learn how to configure application and service manifest settings for a reliable services Service Fabric application.
 author: peterpogorski
 
@@ -65,7 +65,7 @@ See [Application manifest elements](#application-manifest-elements), [VotingWeb 
                                 MemorySwapInMB="[MemorySwapInMB]"/>
 
       <!-- Share the data package across multiple instances of the VotingData service-->
-      <PackageSharingPolicy PackageRef="VotingDataPkg.Data"/>
+      <PackageSharingPolicy PackageRef="Data"/>
 
       <!-- Give read rights on the "DataEndpoint" endpoint to the Customer2 account.-->
       <SecurityAccessPolicy GrantRights="Read" PrincipalRef="Customer2" ResourceRef="DataEndpoint" ResourceType="Endpoint"/>         

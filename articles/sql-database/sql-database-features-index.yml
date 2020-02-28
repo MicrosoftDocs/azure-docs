@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Features
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Azure SQL Database - Features
   meta.description: Learn about the features in Azure SQL Database.
   services: sql-database
@@ -18,7 +17,7 @@ sections:
 
 - items:
   - type: paragraph
-    text: Azure SQL Database is more than a classic relational database engine that enables you to query data using SQL language. Database features in Azure SQL Database enable you to do more powerfull operations and implement advanced scenarios.
+    text: Azure SQL Database is more than a classic relational database engine that enables you to query data using SQL language. Database features in Azure SQL Database enable you to do more powerful operations and implement advanced scenarios.
   - type: list
     style: cards
     className: cardsM

@@ -2,7 +2,7 @@
 title: Enable diagnostic logging in Azure Traffic Manager
 description: Learn how to enable diagnostic logging for your Traffic Manager profile and access the log files that are created as a result.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,7 +10,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: allensu
+ms.author: rohink
 ---
 
 # Enable diagnostic logging in Azure Traffic Manager

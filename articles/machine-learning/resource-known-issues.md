@@ -16,7 +16,75 @@ ms.date: 11/04/2019
 
 This article helps you find and correct errors or failures encountered when using Azure Machine Learning.
 
-## Outage: SR-IOV upgrade to NCv3 machines in AmlCompute
+## SDK installation issues
+
+**Error message: Cannot uninstall 'PyYAML'**
+
+Azure Machine Learning SDK for Python: PyYAML is a distutils installed project. Therefore, we cannot accurately determine which files belong to it if there is a partial uninstall. To continue installing the SDK while ignoring this error, use:
+
+```Python
+pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
+```
+
+**Error message: `ERROR: No matching distribution found for azureml-dataprep-native`**
+
+Anaconda's Python 3.7.4 distribution has a bug that breaks azureml-sdk install. This issue is discussed in this [GitHub Issue](https://github.com/ContinuumIO/anaconda-issues/issues/11195)
+This can be worked around by creating a new Conda Environment using this command:
+```bash
+conda create -n <env-name> python=3.7.3
+```
+Which creates a Conda Environment using Python 3.7.3, which doesn't have the install issue present in 3.7.4.
+
+## Training and experimentation issues
+
+### Metric Document is too large
+Azure Machine Learning has internal limits on the size of metric objects that can be logged at once from a training run. If you encounter a "Metric Document is too large" error when logging a list-valued metric, try splitting the list into smaller chunks, for example:
+
+```python
+run.log_list("my metric name", my_metric[:N])
+run.log_list("my metric name", my_metric[N:])
+```
+
+Internally, Azure ML concatenates the blocks with the same metric name into a contiguous list.
+
+### ModuleErrors (No module named)
+If you are running into ModuleErrors while submitting experiments in Azure ML, it means that the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML will install the package in the environment used for your training run. 
+
+If you are using [Estimators](concept-azure-machine-learning-architecture.md#estimators) to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter. If you have your own Azure ML Environment object that you want to override the default image used by the estimator, you can specify that environment via the `environment` parameter of the estimator constructor.
+
+Azure ML also provides framework-specific estimators for Tensorflow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the core framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
+ 
+Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
+Framework-specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+
+> [!Note]
+> If you think a particular package is common enough to be added in Azure ML maintained images and environments please raise a GitHub issue in [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
+ 
+### NameError (Name not defined), AttributeError (Object has no attribute)
+This exception should come from your training scripts. You can look at the log files from Azure portal to get more information about the specific name not defined or attribute error. From the SDK, you can use `run.get_details()` to look at the error message. This will also list all the log files generated for your run. Please make sure to take a look at your training script and fix the error before resubmitting your run. 
+
+### Horovod has been shut down
+In most cases if you encounter "AbortedError: Horovod has been shut down" this exception means there was an underlying exception in one of the processes that caused Horovod to shut down. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easier to differentiate the logs. To find the exact error that caused Horovod to shut down, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
+
+### SR-IOV availability on NCv3 machines in AmlCompute for distributed training
+Azure Compute has been rolling out an [SR-IOV upgrade](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku/) of NCv3 machines, which customers can leverage with Azure ML's managed compute offering (AmlCompute). The updates will enable the support of the entire MPI stack and the use of Infiniband RDMA network for improved multi-node distributed training performance, particularly for deep learning.
+
+View the [update schedule](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku/) to see when support will be rolled out for your region.
+
+### Run or experiment deletion
+Experiments can be archived by using the [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) 
+method, or from the Experiment tab view in Azure Machine Learning studio client via the "Archive experiment" button. This action hides the experiment from list queries and views, but does not delete it.
+
+Permanent deletion of individual experiments or runs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](how-to-export-delete-data.md).
+
+## Azure Machine Learning Compute issues
+Known issues with using Azure Machine Learning Compute (AmlCompute).
+
+### Trouble creating AmlCompute
+
+There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
+
+### Outage: SR-IOV upgrade to NCv3 machines in AmlCompute
 
 Azure Compute will be updating the NCv3 SKUs starting early November 2019 to support all MPI implementations and versions, and RDMA verbs for InfiniBand-equipped virtual machines. This will require a short downtime - [read more about the SR-IOV upgrade](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
@@ -39,29 +107,6 @@ Before the fix, you can connect the dataset to any data transformation module (S
 
 Below image shows how:
 ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
-
-## SDK installation issues
-
-**Error message: Cannot uninstall 'PyYAML'**
-
-Azure Machine Learning SDK for Python: PyYAML is a distutils installed project. Therefore, we cannot accurately determine which files belong to it if there is a partial uninstall. To continue installing the SDK while ignoring this error, use:
-
-```Python
-pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
-```
-
-**Error message: `ERROR: No matching distribution found for azureml-dataprep-native`**
-
-Anaconda's Python 3.7.4 distribution has a bug that breaks azureml-sdk install. This issue is discussed in this [GitHub Issue](https://github.com/ContinuumIO/anaconda-issues/issues/11195)
-This can be worked around by creating a new Conda Environment using this command:
-```bash
-conda create -n <env-name> python=3.7.3
-```
-Which creates a Conda Environment using Python 3.7.3, which doesn't have the install issue present in 3.7.4.
-
-## Trouble creating Azure Machine Learning Compute
-
-There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create Azure Machine Learning Compute in that workspace. You can either raise a support request against the service or create a new workspace through the Portal or the SDK to unblock yourself immediately.
 
 ## Image building failure
 
@@ -224,9 +269,6 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. 
 
-> [!WARNING]
-> Before performing the following actions, check the version of your Azure Kubernetes Service cluster. If the cluster version is equal to or greater than 1.14, you will not be able to reattach your cluster to the Azure Machine Learning workspace.
-
 You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then reattaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when reattaching the cluster. 
 
 ```python
@@ -257,38 +299,6 @@ kubectl get secret/azuremlfessl -o yaml
 >[!Note]
 >Kubernetes stores the secrets in base-64 encoded format. You will need to base-64 decode the `cert.pem` and `key.pem` components of the secrets prior to providing them to `attach_config.enable_ssl`. 
 
-## Recommendations for error fix
-Based on general observation, here are Azure ML recommendations to fix some of the common errors in Azure ML.
-
-### Metric Document is too large
-Azure Machine Learning has internal limits on the size of metric objects that can be logged at once from a training run. If you encounter "Metric Document is too large" error when logging a list-valued metric, try splitting the list into smaller chunks, for example:
-
-```python
-run.log_list("my metric name", my_metric[:N])
-run.log_list("my metric name", my_metric[N:])
-```
-
- Internally, the run history service concatenates the blocks with same metric name into a contiguous list.
-
-### ModuleErrors (No module named)
-If you are running into ModuleErrors while submitting experiments in Azure ML, it means that the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML will install the package in the environment used for your training. 
-
-If you are using [Estimators](concept-azure-machine-learning-architecture.md#estimators) to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter.
-
-Azure ML also provides framework-specific estimators for Tensorflow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
- 
-Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
-Framework-specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
-
-> [!Note]
-> If you think a particular package is common enough to be added in Azure ML maintained images and environments please raise a GitHub issue in [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
- 
- ### NameError (Name not defined), AttributeError (Object has no attribute)
-This exception should come from your training scripts. You can look at the log files from Azure portal to get more information about the specific name not defined or attribute error. From the SDK, you can use `run.get_details()` to look at the error message. This will also list all the log files generated for your run. Please make sure to take a look at your training script, fix the error before retrying. 
-
-### Horovod is shut down
-In most cases, this exception means there was an underlying exception in one of the processes that caused horovod to shut down. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easy to differentiate the logs. To find the exact error that caused horovod shutdown, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
-
 ## Labeling projects issues
 
 Known issues with labeling projects.
@@ -308,3 +318,8 @@ To load all labeled images, choose the **First** button. The **First** button wi
 ### Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.
 
 Delete the label by clicking on the cross mark next to it.
+
+## Moving the workspace
+
+> [!WARNING]
+> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.

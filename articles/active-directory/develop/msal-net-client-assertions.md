@@ -15,7 +15,6 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to use client assertions to prove the identity of my confidential client application
-ms.collection: M365-identity-device-management
 ---
 
 # Confidential client assertions

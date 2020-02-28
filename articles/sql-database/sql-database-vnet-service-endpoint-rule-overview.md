@@ -283,7 +283,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 [image-portal-firewall-vnet-result-rule-30-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-result-rule-30.png
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[arm-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 [rbac-what-is-813s]:../role-based-access-control/overview.md
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md

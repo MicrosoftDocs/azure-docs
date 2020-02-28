@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric - Performance monitoring with the Windows Azure Diagnostics extension 
+title: Performance monitoring with Windows Azure Diagnostics
 description: Use Windows Azure Diagnostics to collect performance counters for your Azure Service Fabric clusters.
 author: srrengar
 

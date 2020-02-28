@@ -1,11 +1,8 @@
 ---
 title: Create, view, and manage activity log alerts in Azure Monitor
 description: Create activity log alerts by using the Azure portal, an Azure Resource Manager template, and Azure PowerShell.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+ms.subservice: alerts
 ms.date: 06/25/2019
 
 ---
@@ -13,6 +10,7 @@ ms.date: 06/25/2019
 # Create, view, and manage activity log alerts by using Azure Monitor  
 
 ## Overview
+
 Activity log alerts are the alerts that get activated when a new activity log event occurs that matches the conditions specified in the alert.
 
 These alerts are for Azure resources and can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. Typically, you create activity log alerts to receive notifications when specific changes occur to resources in your Azure subscription. Alerts are often scoped to particular resource groups or resources. For example, you might want to be notified when any virtual machine in the sample resource group **myProductionResourceGroup** is deleted. Or, you might want to get notified if any new roles are assigned to a user in your subscription.
@@ -26,7 +24,6 @@ When you create alert rules, ensure the following:
 - The criteria must be the level, status, caller, resource group, resource ID, or resource type event category on which the alert is configured.
 - There's no "anyOf" condition or nested conditions in the alert configuration JSON. Basically, only one "allOf" condition is allowed with no further "allOf" or "anyOf" conditions.
 - When the category is "administrative," you must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
-
 
 ## Azure portal
 
@@ -193,7 +190,7 @@ To create an activity log alert by using an Azure Resource Manager template, you
   ]
 }
 ```
-The previous sample JSON can be saved as, for example, sampleActivityLogAlert.json for the purpose of this walk-through and can be deployed by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+The previous sample JSON can be saved as, for example, sampleActivityLogAlert.json for the purpose of this walk-through and can be deployed by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 > [!NOTE]
 > It might take up to 5 minutes for the new activity log alert rule to become active.

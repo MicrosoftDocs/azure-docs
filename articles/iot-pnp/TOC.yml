@@ -26,7 +26,7 @@
       - name: Node.js
         href: quickstart-connect-pnp-device-node.md
   - name: Connect a device to IoT Central
-    href: ../iot-central/preview/tutorial-connect-pnp-device.md
+    href: ../iot-central/core/tutorial-connect-pnp-device.md
   - name: Connect to a device in your solution
     items:
       - name: C#
@@ -71,10 +71,18 @@
     href: howto-develop-solution.md
 - name: Reference
   items:
-  - name: REST
-    href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/createorupdatemodel
-  - name: Generate a REST security token
-    href: howto-generate-sas-token.md
+  - name: Libraries and SDKs
+    href: libraries-sdks.md
+  - name: REST API
+    items:
+    - name: Digital Twin
+      href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin
+    - name: Digital Twin service
+      href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service
+    - name: Digital Twin model repository
+      href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel
+    - name: Generate a REST security token
+      href: howto-generate-sas-token.md
 - name: Related
   items:
   - name: Solutions
@@ -97,9 +105,13 @@
       href: /azure/azure-maps
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: IoT Edge
+  - name: Edge solutions
     items:
     - name: Azure IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+- name: Resources
+  items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help

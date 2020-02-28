@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 This page describes common issues with output connections and how to troubleshoot and address them.
 
-## Output not produced by job 
+## Output not produced by job
 1.  Verify connectivity to outputs by using the **Test Connection** button for each output.
 
 2.  Look at [**Monitoring Metrics**](stream-analytics-monitoring.md) on the **Monitor** tab. Because the values are aggregated, the metrics are delayed by a few minutes.
@@ -22,28 +22,28 @@ This page describes common issues with output connections and how to troubleshoo
       - To see whether the data source has valid data, check it by using [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a). This check applies if the job is using Event Hub as input.
       - Check to see whether the data serialization format and data encoding are as expected.
       - If the job is using an Event Hub, check to see whether the body of the message is *Null*.
-      
+
     - If Data Conversion Errors > 0 and climbing, the following might be true:
-      - The output event does not conform to the schema of the target sink. 
+      - The output event does not conform to the schema of the target sink.
       - The event schema might not match the defined or expected schema of the events in the query.
       - The datatypes of some of the fields in the event might not match expectations.
-      
+
     - If Runtime Errors > 0, it means that the job can receive the data but is generating errors while processing the query.
-      - To find the errors, go to the [Audit Logs](../azure-resource-manager/resource-group-audit.md) and filter on *Failed* status.
-      
+      - To find the errors, go to the [Audit Logs](../azure-resource-manager/management/view-activity-logs.md) and filter on *Failed* status.
+
     - If InputEvents > 0 and OutputEvents = 0, it means that one of the following is true:
       - Query processing resulted in zero output events.
       - Events or its fields might be malformed, resulting in zero output after query processing.
       - The job was unable to push data to the output sink for connectivity or authentication reasons.
-      
+
     - In all the previously mentioned error cases, operations log messages explain additional details (including what is happening), except in cases where the query logic filtered out all events. If the processing of multiple events generates errors, Stream Analytics logs the first three error messages of the same type within 10 minutes to Operations logs. It then suppresses additional identical errors with a message that reads "Errors are happening too rapidly, these are being suppressed."
-    
+
 ## Job output is delayed
 
 ### First output is delayed
 When a Stream Analytics job is started, the input events are read, but there can be a delay in the output being produced in certain circumstances.
 
-Large time values in temporal query elements can contribute to the output delay. To produce correct output over the large time windows, the streaming job starts up by reading data from the latest time possible (up to seven days ago) to fill the time window. During that time, no output is produced until the catch-up read of the outstanding input events is complete. This problem can surface when the system upgrades the streaming jobs, thus restarting the job. Such upgrades generally occur once every couple of months. 
+Large time values in temporal query elements can contribute to the output delay. To produce correct output over the large time windows, the streaming job starts up by reading data from the latest time possible (up to seven days ago) to fill the time window. During that time, no output is produced until the catch-up read of the outstanding input events is complete. This problem can surface when the system upgrades the streaming jobs, thus restarting the job. Such upgrades generally occur once every couple of months.
 
 Therefore, use discretion when designing your Stream Analytics query. If you use a large time window (more than several hours, up to seven days) for temporal elements in the job's query syntax, it can lead to a delay on the first output when the job is started or restarted.  
 
@@ -52,8 +52,8 @@ One mitigation for this kind of first output delay is to use query parallelizati
 These factors impact the timeliness of the first output that is generated:
 
 1. Use of windowed aggregates (GROUP BY of Tumbling, Hopping, and Sliding windows)
-   - For tumbling or hopping window aggregates, results are generated at the end of the window timeframe. 
-   - For a sliding window, the results are generated when an event enters or exits the sliding window. 
+   - For tumbling or hopping window aggregates, results are generated at the end of the window timeframe.
+   - For a sliding window, the results are generated when an event enters or exits the sliding window.
    - If you are planning to use large window size (> 1 hour), it’s best to choose hopping or sliding window so that you can see the output more frequently.
 
 2. Use of temporal joins (JOIN with DATEDIFF)
@@ -73,9 +73,9 @@ To see those details, in the Azure portal, select the streaming job, and select 
 
 ## Key violation warning with Azure SQL Database output
 
-When you configure Azure SQL database as output to a Stream Analytics job, it bulk inserts records into the destination table. In general, Azure stream analytics guarantees [at least once delivery](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) to the output sink, one can still [achieve exactly-once delivery]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) to SQL output when SQL table has a unique constraint defined. 
+When you configure Azure SQL database as output to a Stream Analytics job, it bulk inserts records into the destination table. In general, Azure stream analytics guarantees [at least once delivery](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) to the output sink, one can still [achieve exactly-once delivery]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) to SQL output when SQL table has a unique constraint defined.
 
-Once unique key constraints are set up on the SQL table, and there are duplicate records being inserted into SQL table, Azure Stream Analytics removes the duplicate record. It splits the data into batches and recursively inserting the batches until a single duplicate record is found. If the streaming job has a considerable number of duplicate rows, this split and insert process has to ignore the duplicates one by one, which is less efficient and time-consuming. If you see multiple key violation warning messages in your Activity log within the past hour, it’s likely that your SQL output is slowing down the entire job. 
+Once unique key constraints are set up on the SQL table, and there are duplicate records being inserted into SQL table, Azure Stream Analytics removes the duplicate record. It splits the data into batches and recursively inserting the batches until a single duplicate record is found. If the streaming job has a considerable number of duplicate rows, this split and insert process has to ignore the duplicates one by one, which is less efficient and time-consuming. If you see multiple key violation warning messages in your Activity log within the past hour, it’s likely that your SQL output is slowing down the entire job.
 
 To resolve this issue, you should [configure the index]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) that is causing the key violation by enabling the IGNORE_DUP_KEY option. Enabling this option allows duplicate values to be ignored by SQL during bulk inserts and SQL Azure simply produces a warning message instead of an error. Azure Stream Analytics does not produce primary key violation errors anymore.
 

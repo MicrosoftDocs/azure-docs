@@ -159,6 +159,8 @@
         href: bambubysproutsocial-tutorial.md
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
+      - name: Beekeeper Azure AD Data Connector
+        href: beekeeper-azure-ad-data-connector-tutorial.md
       - name: BeeLine
         href: beeline-tutorial.md
       - name: Benchling
@@ -175,6 +177,8 @@
         href: betterworks-tutorial.md
       - name: BGS Online
         href: bgsonline-tutorial.md
+      - name: BIC Cloud Design
+        href: bic-cloud-design-tutorial.md
       - name: Bime
         href: bime-tutorial.md
       - name: Birst Agile Business Analytics
@@ -233,6 +237,8 @@
         href: cappm-tutorial.md
       - name: CakeHR
         href: cakehr-tutorial.md
+      - name: Campus Café
+        href: campus-cafe-tutorial.md
       - name: Canvas Lms
         href: canvas-lms-tutorial.md
       - name: Capriza Platform
@@ -309,6 +315,10 @@
         href: cloud-service-picco-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
+      - name: Coda
+        href: coda-tutorial.md
+      - name: Code42
+        href: code42-tutorial.md
       - name: Cognidox
         href: cognidox-tutorial.md
       - name: Collaborative Innovation
@@ -369,6 +379,8 @@
       items:
       - name: DATABASICS
         href: databasics-tutorial.md
+      - name: DataCamp
+        href: datacamp-tutorial.md
       - name: Datahug
         href: datahug-tutorial.md
       - name: Dealpath
@@ -397,6 +409,8 @@
         href: domo-tutorial.md
       - name: Dossier
         href: dossier-tutorial.md
+      - name: Dotcom-Monitor
+        href: dotcom-monitor-tutorial.md
       - name: Dovetale
         href: dovetale-tutorial.md
       - name: Dow Jones Factiva
@@ -413,6 +427,8 @@
         href: dynamicsignal-tutorial.md
       - name: Dynatrace
         href: dynatrace-tutorial.md
+      - name: EAB Navigate
+        href: eab-navigate-tutorial.md
       - name: EAB Navigate IMPL
         href: eab-navigate-impl-tutorial.md
       - name: EAB Navigate Strategic Care
@@ -423,6 +439,8 @@
         href: ebsco-tutorial.md
       - name: eCornell
         href: ecornell-tutorial.md
+      - name: E-days
+        href: e-days-tutorial.md
       - name: Edcor
         href: edcor-tutorial.md
       - name: eDigitalResearch
@@ -473,6 +491,8 @@
         href: expensein-tutorial.md
       - name: Expensify
         href: expensify-tutorial.md
+      - name: Experience Cloud
+        href: experience-cloud-tutorial.md
       - name: Explanation-Based Auditing System
         href: explanation-based-auditing-system-tutorial.md
       - name: Expiration Reminder
@@ -490,6 +510,8 @@
         href: headerf5-tutorial.md
       - name: FactSet
         href: factset-tutorial.md
+      - name: Fastly Edge Cloud
+        href: fastly-edge-cloud-tutorial.md
       - name: Fidelity NetBenefits
         href: fidelitynetbenefits-tutorial.md
       - name: Fieldglass
@@ -500,6 +522,8 @@
         href: filecloud-tutorial.md
       - name: FilesAnywhere
         href: filesanywhere-tutorial.md
+      - name: Firmex VDR
+        href: firmex-vdr-tutorial.md
       - name: FirmPlay - Employee Advocacy for Recruiting
         href: firmplay-tutorial.md
       - name: Firstbird
@@ -582,8 +606,6 @@
       items:
       - name: Hackerone
         href: hackerone-tutorial.md
-      - name: Halogen Software
-        href: halogen-software-tutorial.md
       - name: Halosys
         href: halosys-tutorial.md
       - name: HappyFox
@@ -596,6 +618,8 @@
         href: helpscout-tutorial.md
       - name: Helpshift
         href: helpshift-tutorial.md
+      - name: Health Support System
+        href: health-support-system-tutorial.md
       - name: Heroku
         href: heroku-tutorial.md
       - name: HeyBuddy
@@ -606,6 +630,8 @@
         href: hightail-tutorial.md
       - name: HireVue
         href: hirevue-tutorial.md
+      - name: Hive
+        href: hive-tutorial.md
       - name: Hootsuite
         href: hootsuite-tutorial.md
       - name: Hornbill
@@ -614,6 +640,8 @@
         href: hostedgraphite-tutorial.md
       - name: Hosted Heritage Online SSO
         href: hosted-heritage-online-sso-tutorial.md
+      - name: Hosted MyCirqa
+        href: hosted-mycirqa-sso-tutorial.md
       - name: HPE SaaS
         href: hpesaas-tutorial.md
       - name: HR2day by Merces
@@ -630,6 +658,8 @@
         href: hype-tutorial.md
       - name: HyperAnna
         href: hyperanna-tutorial.md
+      - name: IamIP Patent Platform
+        href: iamip-patent-platform-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -660,6 +690,8 @@
         href: impacriskmanager-tutorial.md
       - name: In Case of Crisis - Mobile
         href: in-case-of-crisis-mobile-tutorial.md
+      - name: In Case of Crisis - Online Portal
+        href: in-case-of-crisis-online-portal-tutorial.md
       - name: Infinite Campus
         href: infinitecampus-tutorial.md
       - name: Infogix Data3Sixty Govern
@@ -742,6 +774,8 @@
         href: jobscore-tutorial.md
       - name: join.me
         href: joinme-tutorial.md
+      - name: JOSA
+        href: josa-tutorial.md
       - name: Jostle
         href: jostle-tutorial.md
       - name: Juno Journey
@@ -936,16 +970,22 @@
         href: netsuite-tutorial.md
       - name: New Relic
         href: new-relic-tutorial.md
+      - name: New Relic (Limited Release)
+        href: new-relic-limited-release-tutorial.md
       - name: Nexonia
         href: nexonia-tutorial.md
       - name: Nimblex
         href: nimblex-tutorial.md
+      - name: Nintex Promapp
+        href: promapp-tutorial.md
       - name: Nomadesk
         href: nomadesk-tutorial.md
       - name: Nomadic
         href: nomadic-tutorial.md
       - name: Novatus
         href: novatus-tutorial.md
+      - name: NS1 SSO for Azure
+        href: ns1-sso-azure-tutorial.md
       - name: Nuclino
         href: nuclino-tutorial.md
       - name: O.C. Tanner - AppreciateHub
@@ -1062,7 +1102,7 @@
         href: presspage-tutorial.md
       - name: Printix
         href: printix-tutorial.md
-      - name: Prisma Cloud
+      - name: Prisma Cloud SSO
         href: prisma-cloud-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
@@ -1070,8 +1110,6 @@
         href: productboard-tutorial.md
       - name: Projectplace
         href: projectplace-tutorial.md
-      - name: Promapp
-        href: promapp-tutorial.md
       - name: ProMaster (by Inlogik)
         href: promaster-tutorial.md
       - name: ProNovos Ops Manager
@@ -1120,6 +1158,8 @@
         href: renraku-tutorial.md
       - name: Replicon
         href: replicon-tutorial.md
+      - name: Reprints Desk - Article Galaxy
+        href: reprints-desk-article-galaxy-tutorial.md
       - name: Reviewsnap
         href: reviewsnap-tutorial.md
       - name: Reward Gateway
@@ -1148,6 +1188,8 @@
         href: runmyprocess-tutorial.md
     - name: S
       items:
+      - name: Saba TalentSpace
+        href: halogen-software-tutorial.md
       - name: SafeConnect
         href: safeconnect-tutorial.md
       - name: SafetyNet
@@ -1268,7 +1310,7 @@
         href: skyhighnetworks-tutorial.md
       - name: SKYSITE
         href: skysite-tutorial.md
-      - name: Skytap
+      - name: Single Sign-on for Skytap
         href: skytap-tutorial.md
       - name: Skyward Qmlativ
         href: skyward-qmlativ-tutorial.md
@@ -1302,6 +1344,8 @@
         href: spaceiq-tutorial.md
       - name: Spacio
         href: spacio-tutorial.md
+      - name: Splashtop
+        href: splashtop-tutorial.md
       - name: Splunk Enterprise and Splunk Cloud
         href: splunkenterpriseandsplunkcloud-tutorial.md
       - name: Spotinst
@@ -1312,6 +1356,8 @@
         href: springerlink-tutorial.md
       - name: Sprinklr
         href: sprinklr-tutorial.md
+      - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
+        href: ssogen-tutorial.md
       - name: StatusPage
         href: statuspage-tutorial.md
       - name: Stormboard
@@ -1334,6 +1380,8 @@
         href: syncplicity-tutorial.md
       - name: Synergi
         href: synergi-tutorial.md
+      - name: Syxsense
+        href: syxsense-tutorial.md
     - name: T - V
       items:
       - name: T&E Express
@@ -1360,10 +1408,14 @@
         href: teamphoria-tutorial.md
       - name: TeamSeer
         href: teamseer-tutorial.md
+      - name: TeamViewer
+        href: teamviewer-tutorial.md
       - name: Teamwork.com
         href: teamwork-tutorial.md
       - name: Templafy
         href: templafy-tutorial.md
+      - name: Terraform Enterprise
+        href: terraform-enterprise-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
@@ -1376,6 +1428,8 @@
         href: thoughtworks-mingle-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-tutorial.md
+      - name: TicketManager
+        href: ticketmanager-tutorial.md
       - name: Tidemark
         href: tidemark-tutorial.md
       - name: TigerText Secure Messenger
@@ -1402,6 +1456,8 @@
         href: trakstar-tutorial.md
       - name: Trello
         href: trello-tutorial.md
+      - name: TripActions
+        href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
         href: trisotechdigitalenterpriseserver-tutorial.md
       - name: TurboRater
@@ -1414,6 +1470,8 @@
         href: ungerboeck-software-tutorial.md
       - name: UNIFI
         href: unifi-tutorial.md
+      - name: Upshotly
+        href: upshotly-tutorial.md
       - name: Upwork Enterprise
         href: upwork-enterprise-tutorial.md
       - name: Useall
@@ -1428,6 +1486,8 @@
         href: veracode-tutorial.md
       - name: Veritas Enterprise Vault.cloud SSO
         href: veritas-tutorial.md
+      - name: Verkada Command
+        href: verkada-command-tutorial.md
       - name: Versal
         href: versal-tutorial.md
       - name: Viareport (Europe)
@@ -1464,6 +1524,8 @@
         href: wdesk-tutorial.md
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
+      - name: Wedo
+        href: wedo-tutorial.md
       - name: Weekdone
         href: weekdone-tutorial.md
       - name: Whatfix
@@ -1573,6 +1635,8 @@
         href: asana-provisioning-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
+      - name: Azure Databricks SCIM Connector
+        href: azure-databricks-scim-connector-provisioning-tutorial.md
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Blink
@@ -1655,6 +1719,8 @@
         href: merchlogix-provisioning-tutorial.md
       - name: Meta Networks Connector
         href: meta-networks-connector-provisioning-tutorial.md
+      - name: Mixpanel
+        href: mixpanel-provisioning-tutorial.md
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle
@@ -1681,6 +1747,8 @@
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
         href: peakon-provisioning-tutorial.md
+      - name: PureCloud by Genesys
+        href: purecloud-by-genesys-provisioning-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
@@ -1729,6 +1797,8 @@
         href: signagelive-provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
+      - name: TeamViewer
+        href: teamviewer-provisioning-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-provisioning-tutorial.md
       - name: Templafy
@@ -1749,6 +1819,8 @@
         href: workgrid-provisioning-tutorial.md
       - name: Wrike
         href: wrike-provisioning-tutorial.md
+      - name: Zapier
+        href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md      
       - name: Zscaler

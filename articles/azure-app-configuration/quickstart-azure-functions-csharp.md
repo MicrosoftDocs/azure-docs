@@ -2,13 +2,13 @@
 title: Quickstart for Azure App Configuration with Azure Functions | Microsoft Docs
 description: A quickstart for using Azure App Configuration with Azure Functions.
 services: azure-app-configuration
-author: yegu-ms
+author: lisaguthrie
 
 
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: yegu
+ms.date: 1/9/2019
+ms.author: lcozzens
 
 #Customer intent: As an Azure Functions developer, I want to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -43,7 +43,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.1.0-preview-010380001-1099 or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 3.0.0-preview-010550001-251 or later
     ```
 
 2. Open *Function1.cs*, and add the namespaces of the .NET Core configuration and the App Configuration configuration provider.

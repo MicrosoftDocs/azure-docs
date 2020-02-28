@@ -59,7 +59,6 @@ Click **Get Power BI Template** on the **Add cognitive skills** page to retrieve
    ![Open Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Open Power Query")
 
 1. Select *hotelReviewsSsDocument*, and then remove the *PartitionKey*, *RowKey*, and *Timestamp* columns. 
-
    ![Edit tables](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Edit tables")
 
 1. Click the icon with opposing arrows at the upper right side of the table to expand the *Content*. When the list of columns appears, select all columns, and then deselect columns that start with 'metadata'. Click **OK** to show the selected columns.
@@ -84,6 +83,8 @@ Click **Get Power BI Template** on the **Add cognitive skills** page to retrieve
    ![Validate relationships](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Validate relationships")
 
 1. Double-click each relationship and make sure that the **Cross-filter direction** is set to **Both**.  This enables your visuals to refresh when a filter is applied.
+
+1. Click on the Report tile on the left navigation pane to explore data through visualizations. For text fields, tables and cards are useful visualizations. You can choose fields from each of the three tables to fill in the table or card. 
 
 <!-- ## Try with larger data sets
 

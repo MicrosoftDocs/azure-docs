@@ -4,7 +4,7 @@ description: This article explains how Azure Sentinel uses role-based access con
 services: sentinel
 cloud: na
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: angrobe
 
 ms.assetid:
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 

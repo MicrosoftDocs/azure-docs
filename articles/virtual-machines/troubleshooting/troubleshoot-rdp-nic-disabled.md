@@ -20,9 +20,6 @@ ms.author: genli
 
 This article explains how to resolve a problem in which you cannot make a Remote Desktop connection to Azure Windows Virtual Machines (VMs) if the network interface is disabled.
 
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources:
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
 ## Symptoms
 
@@ -32,7 +29,7 @@ You cannot make an RDP connection or any other type of connection to any other p
 
 Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
-To enable the interface for the VM, use Serial control or [reset network interface](##reset-network-interface) for the VM.
+To enable the interface for the VM, use Serial control or [reset network interface](#reset-network-interface) for the VM.
 
 ### Use Serial control
 

@@ -40,7 +40,7 @@ To accomplish these tasks, we use three custom modules:
 
   * Outputs:
     * **classify:** sends messages to "amlInput"
-    * **writeAvro:** sends messages "avroModuleInput"
+    * **writeAvro:** sends messages to "avroModuleInput"
     * **toIotHub:** sends messages to $upstream, which passes the messages to the connected IoT Hub
 
 The diagram below shows the modules, inputs, outputs, and the IoT Edge Hub routes for the full solution:

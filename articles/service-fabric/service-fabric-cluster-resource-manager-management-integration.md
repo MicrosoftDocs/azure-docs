@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Cluster Resource Manager - Management Integration 
+title: Cluster Resource Manager - Management Integration 
 description: An overview of the integration points between the Cluster Resource Manager and Service Fabric Management.
 author: masnider
 

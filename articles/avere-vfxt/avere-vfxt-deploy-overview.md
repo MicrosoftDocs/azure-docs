@@ -4,9 +4,10 @@ description: Overview of deploying Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 01/13/2020
 ms.author: rohogue
 ---
+<!-- filename is linked to in the marketplace template, make sure it gets a redirect if we rename it -->
 
 # Avere vFXT for Azure - deployment overview
 
@@ -20,7 +21,7 @@ After [planning your system](avere-vfxt-deploy-plan.md), you can begin to create
 
 An Azure Resource Manager template in the Azure Marketplace collects the necessary information and automatically deploys the entire cluster.
 
-After the vFXT cluster is up and running, you will want to know how to connect clients to it and (optionally) how to move your data to the new Blob storage container. If you use a NAS storage system, you need to add it after the cluster is created.
+After the vFXT cluster is up and running, there are still some configuration steps to take before using it. If you created a new Blob storage container, you'll want to move your data to it. If you use a NAS storage system, you need to add it after the cluster is created. You will want to connect clients to the cluster.
 
 Here is an overview of all of the steps.
 
@@ -35,21 +36,23 @@ Here is an overview of all of the steps.
    Cluster creation involves these steps, which are all done by the marketplace template:
 
    * Create new network infrastructure and resource groups, if needed
-   * Create a *cluster controller*  
+   * Create a cluster controller
 
      The cluster controller is a simple VM that resides in the same virtual network as the Avere vFXT cluster and has the custom software needed to create and manage the cluster. The controller creates the vFXT nodes and forms the cluster, and it also provides a command-line interface to manage the cluster during its lifetime.
 
-     If you create a new virtual network or subnet during the deployment, your controller will have a public IP address. This means the controller can serve as a jump host for connecting to the cluster from outside the subnet.
+     If you create a new virtual network or subnet during the deployment, your controller will have a public IP address. This means the controller can serve as a jump host for connecting to the cluster from outside the virtual network.
 
    * Create the cluster node VMs
 
-   * Configure the cluster node VMs to form the cluster
+   * Create the cluster from the individual nodes
 
    * Optionally, create a new Blob container and configure it as back-end storage for the cluster
 
+   Cluster creation is described in detail in [Deploy the vFXT cluster](avere-vfxt-deploy.md).
+
 1. Configure the cluster
 
-   Connect to the Avere vFXT configuration interface (Avere Control Panel) to customize the cluster's settings. Opt in for support monitoring, and add your storage system if you are using an on-premises data center.
+   Connect to the Avere vFXT configuration interface (Avere Control Panel) to customize the cluster's settings. Opt in for support monitoring, and add your storage system if you are using hardware storage or additional Blob containers.
 
    * [Access the vFXT cluster](avere-vfxt-cluster-gui.md)
    * [Enable support](avere-vfxt-enable-support.md)
@@ -62,7 +65,7 @@ Here is an overview of all of the steps.
 1. Add data (if needed)
 
    Because the Avere vFXT is a scalable multi-client cache, the best way to move data to a new back-end storage container is with a multi-client, multi-threaded file copy strategy.
-   
+
    If you need to move working set data to a new Blob container or other back-end storage system, follow the instructions in [Moving data to the vFXT cluster](avere-vfxt-data-ingest.md).
 
 ## Next steps

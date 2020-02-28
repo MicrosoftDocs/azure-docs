@@ -35,7 +35,7 @@ Use the [application network portal](https://docs.microsoft.com/azure/active-dir
 | ![logo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian Cloud - User Provisioning](atlassian-cloud-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - User Provisioning](servicenow-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - User Provisioning](slack-provisioning-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| |
+| ![logo](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors - User Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
 | ![logo](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Workday - User Provisioning](workday-inbound-tutorial.md)|
 
 To find more tutorials, use the table of contents on the left.

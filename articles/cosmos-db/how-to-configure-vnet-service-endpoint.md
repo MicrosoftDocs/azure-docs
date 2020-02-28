@@ -48,7 +48,7 @@ The following sections describe how to configure a virtual network service endpo
 > To enable virtual network service endpoints, you need the following subscription permissions:
 >   * Subscription with virtual network: Network contributor
 >   * Subscription with Azure Cosmos DB account: DocumentDB account contributor
->   * If your virtual network and Azure Cosmos DB account are in different subscriptions, make sure that the subscription that has virtual network also has `Microsoft.DocumentDB` resource provider registered. To register a resource provider, see [Azure resource providers and types](../azure-resource-manager/resource-manager-supported-services.md) article.
+>   * If your virtual network and Azure Cosmos DB account are in different subscriptions, make sure that the subscription that has virtual network also has `Microsoft.DocumentDB` resource provider registered. To register a resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md) article.
 
 Here are the directions for registering subscription with resource provider.
 

@@ -27,7 +27,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
 | Microsoft.AzureStack | core |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft.Billing | [Billing](/azure/billing/) |
+| Microsoft.Billing | [Cost Management and Billing](/azure/billing/) |
 | Microsoft.BingMaps | [Bing Maps](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft.Blockchain | [Azure Blockchain Service](/azure/blockchain/workbench/) |
 | Microsoft.Blueprint | [Azure Blueprints](/azure/governance/blueprints/) |
@@ -52,7 +52,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.CostManagement | [Cost Management](/azure/cost-management/) |
 | Microsoft.CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | Customer Lockbox for Microsoft Azure |
-| Microsoft.CustomProviders | [Azure Custom Providers](../../managed-applications/custom-providers-overview.md) |
+| Microsoft.CustomProviders | [Azure Custom Providers](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
 | Microsoft.DataBoxEdge | [Azure Data Box Edge](../../databox-online/data-box-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
@@ -119,7 +119,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.RecoveryServices | [Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.Relay | [Azure Relay](../../service-bus-relay/relay-what-is-it.md) |
 | Microsoft.ResourceGraph | [Azure Resource Graph](/azure/governance/resource-graph/) |
-| Microsoft.ResourceHealth | core |
+| Microsoft.ResourceHealth | [Azure Service Health](../../service-health/index.yml)|
 | Microsoft.Resources | [Azure Resource Manager](../index.yml) |
 | Microsoft.SaaS | core |
 | Microsoft.Scheduler | [Scheduler](/azure/scheduler/) |
@@ -132,7 +132,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
 | Microsoft.SignalRService | [Azure SignalR Service](../../azure-signalr/index.yml) |
 | Microsoft.SiteRecovery | [Site Recovery](../../site-recovery/index.yml) |
-| Microsoft.Solutions | [Azure Managed Applications](../../managed-applications/index.yml) |
+| Microsoft.Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
 | Microsoft.Sql | [Azure SQL Database](../../sql-database/index.yml)<br />[SQL Data Warehouse](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [SQL Server on Azure Virtual Machines](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) |
 | Microsoft.Storage | [Storage](../../storage/index.yml) |

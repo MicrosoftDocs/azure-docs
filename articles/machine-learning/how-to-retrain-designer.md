@@ -6,13 +6,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 12/15/2019
+ms.author: keli19
+author: likebupt
+ms.date: 02/24/2020
 ---
 
 # Retrain models with Azure Machine Learning designer (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this how-to, you learn how to use Azure Machine Learning designer to retrain a machine learning model. Find out how to use published pipelines to automate machine learning workflows for retraining.
 
@@ -51,7 +51,7 @@ To retrain a model, you need an initial model. In this section, you learn how to
 
 1. Specify the path to your data. You can also select **Browse path** to visually navigate your datastore. 
 
-1. Select **Run** at the top of the canvas to run the pipeline.
+1. Select **Run** at the top of the canvas.
     
     > [!NOTE]
     > If you have already set a default compute for this pipeline draft, the pipeline will run automatically. Otherwise, you can follow the prompts in the settings pane that appears to set one now.
@@ -64,15 +64,15 @@ The designer saves all pipeline outputs, including trained models, to the defaul
 
 1. Select the **Train Model** module.
 
-1. In the settings pane, select **Outputs**.
+1. In the settings pane, select **Outputs+logs**.
 
-1. Select **Trained_model** to download the model.
+1. Click on **View output** icon, and follow the instruction in the pop-up window to locate the trained model.
 
-![Screenshot showing how to download the trained model](./media/how-to-retrain-designer/download-model.png)
+![Screenshot showing how to download the trained model](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## Create a pipeline parameter
 
-You can add pipeline parameters to dynamically set variables at runtime. For this pipeline, add a pipeline parameter for the training data path so that you can retrain your model on new datasets.
+Add pipeline parameters to dynamically set variables at runtime. For this pipeline, add a parameter for the training data path so that you can retrain your model on a new dataset.
 
 1. Select the **Import Data** module.
 1. In the settings pane, select the ellipses above the **Path** field.
@@ -82,11 +82,11 @@ You can add pipeline parameters to dynamically set variables at runtime. For thi
     > [!NOTE]
     > You can inspect and edit your pipeline parameters by selecting the **Settings gear icon** next to the title of your pipeline draft. 
 
-[Screenshot showing how to create a pipeline parameter](media/how-to-retrain-designer/add-pipeline-parameter.png)
+![Screenshot showing how to create a pipeline parameter](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 ## Publish a training pipeline
 
-When you publish a pipeline, it creates a pipeline endpoint. Pipeline endpoints let you reuse and manage your pipelines for repeatability and automation. For this scenario, publish your training pipeline to reuse it for retraining.
+When you publish a pipeline, it creates a pipeline endpoint. Pipeline endpoints let you reuse and manage your pipelines for repeatability and automation. In this example, you have setup your pipeline for retraining.
 
 1. Select **Publish** above the designer canvas.
 1. Select, or create, a new pipeline endpoint.

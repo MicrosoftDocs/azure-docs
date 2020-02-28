@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Maps Documentation
-summary: Microsoft Azure Maps provides developers from all industries, powerful geospatial capabilities, packed with the freshest mapping data available to provide geographic context to web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Mobility, Weather, Time Zones, Geolocation, Geofencing, Map Data, and Spatial Operations accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
+summary: Microsoft Azure Maps provides developers from all industries with powerful geospatial capabilities. Those geospatial capabilities are packed with the freshest mapping data. Azure Maps is available for both web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs. The following are only a high-level overview of the services which Azure Maps offers - Maps, Search, Routing, Traffic, Mobility, Weather, Time Zones, Geolocation, Geofencing, Map Data, and Spatial Operations. The Web and Android SDKs make development easy, flexible, and portable across multiple platforms.
 
 metadata:
   title:  Azure Maps Documentation | Microsoft Docs
@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
-  ms.date: 12/19/2019
+  ms.date: 1/15/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -102,7 +102,7 @@ landingContent:
             url: how-to-add-shapes-to-android-map.md
 
   # Card
-  - title: Developing with Location Based Services
+  - title: Developing with Location-Based Services
     linkLists:
       - linkListType: concept
         links:

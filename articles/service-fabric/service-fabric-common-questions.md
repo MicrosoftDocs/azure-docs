@@ -1,6 +1,6 @@
 ---
 title: Common questions about Microsoft Azure Service Fabric 
-description: Frequently asked questions about Service Fabric and their answers
+description: Frequently asked questions about Service Fabric, including capabilities, use cases, and common scenarios.
 
 ms.topic: troubleshooting
 ms.date: 08/18/2017
@@ -181,4 +181,3 @@ Follow the [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefa
 ## Next steps
 
 Learn about [core Service Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)
-ice Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)

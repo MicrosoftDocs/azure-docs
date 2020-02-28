@@ -67,7 +67,7 @@ The **Customer trends** chart displays a count of all customers, including new, 
 
 The **Customers by orders/usage** chart has three tabs, “orders,” “normalized usage,” and “raw usage.” The **top customer percentile** is displayed along the x-axis, as determined by their number of orders. The y-axis displays the customer's order count. The secondary y-axis (line graph) displays the cumulative percentage of the total number of orders. You can display details by hovering over points along the line chart.
 
-As an example, see the chart below for normalized usage: The top 30th percentile of customers are contributing to 87% of the normalized usage cumulatively. The 30th percentile of customers are only contributing 1.57M hours of usage.
+As an example, see the chart below for normalized usage: The top 30th percentile of customers are contributing to 87% of the normalized usage cumulatively. The 30th percentile of customers are only contributing 1.57 million hours of usage.
 
 ### Customers by SKUs
 

@@ -29,7 +29,7 @@ In this section, you use the portal UI to add a queue storage output binding to 
 
 1. Select the function that you created in that earlier quickstart.
 
-1. Select **Integrate > New output > Azure Queue storage**.
+1. Select **Integrate > New Output > Azure Queue Storage**.
 
 1. Click **Select**.
 

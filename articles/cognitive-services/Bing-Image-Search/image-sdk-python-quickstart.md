@@ -32,7 +32,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 1. Create a new Python script in your favorite IDE or editor, and the following imports:
 
     ```python
-    from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
+    from azure.cognitiveservices.search.imagesearch import ImageSearchClient
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
@@ -40,6 +40,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
     ```python
     subscription_key = "Enter your key here"
+    subscription_endpoint = "Enter your endpoint here"
     search_term = "canadian rockies"
     ```
 
@@ -48,7 +49,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 1. Create an instance of `CognitiveServicesCredentials`, and use it to instantiate the client:
 
     ```python
-    client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
+    client = ImageSearchClient(endpoint=subscription_endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 1. Send a search query to the Bing Image Search API:
     ```python

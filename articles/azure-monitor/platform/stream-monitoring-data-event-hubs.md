@@ -3,7 +3,7 @@ title: Stream Azure monitoring data to event hub
 description: Learn how to stream your Azure monitoring data to an event hub to get the data into a partner SIEM or analytics tool.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
@@ -56,7 +56,7 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
 
 ## Next Steps
 * [Archive the Activity log to a storage account](../../azure-monitor/platform/archive-activity-log.md)
-* [Read the overview of the Azure Activity log](../../azure-monitor/platform/activity-logs-overview.md)
+* [Read the overview of the Azure Activity log](../../azure-monitor/platform/platform-logs-overview.md)
 * [Set up an alert based on an Activity log event](../../azure-monitor/platform/alerts-log-webhook.md)
 
 

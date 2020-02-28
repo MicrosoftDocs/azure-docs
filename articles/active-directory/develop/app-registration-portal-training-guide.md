@@ -14,7 +14,6 @@ ms.date: 11/8/2019
 ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # The new Azure portal app registration experience
