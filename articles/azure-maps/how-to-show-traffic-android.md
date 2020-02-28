@@ -10,6 +10,9 @@ services: azure-maps
 manager: philmea
 ---
 
+## Prerequisites
+
+Before you can show traffic on the map, you need to install [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) and load a map.
 
 # Show traffic incidents on the map using Azure Maps Android SDK
 
@@ -34,9 +37,66 @@ You will need to import the following libraries to call the `setTraffic` and `in
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
+To obtain the incidents for a specific feature, you can add the block below to your code. When a feature is clicked, the code logic checks for incidents and builds a message about the incident. The message is shown in a SnackBar, a lightweight widget that shows up at the bottom of the screen.
+
+```java
+mapControl.onReady(map -> {
+    //Turn on traffic flow and incident data on the map.
+    map.setTraffic(
+            incidents(true),
+            flow(TrafficFlow.RELATIVE));
+
+    map.events.add((OnFeatureClick) (features) -> {
+        if (features != null && features.size() > 0) {
+            Feature incident = features.get(0);
+
+            //Create a message from the properties of the incident.
+            if (incident.properties() != null) {
+                StringBuilder sb = new StringBuilder();
+                String incidentType = incident.getStringProperty("incidentType");
+                if (incidentType != null) {
+                    sb.append(incidentType);
+                }
+                if (sb.length() > 0) sb.append("\n");
+                if ("Road Closed".equals(incidentType)) {
+                    sb.append(incident.getStringProperty("from"));
+                } else {
+                    String description = incident.getStringProperty("description");
+                    if (description != null) {
+                        for (String word : description.split(" ")) {
+                            if (word.length() > 0) {
+                                sb.append(word.substring(0, 1).toUpperCase());
+                                if (word.length() > 1) {
+                                    sb.append(word.substring(1));
+                                }
+                                sb.append(" ");
+                            }
+                        }
+                    }
+                }
+                String message = sb.toString();
+
+                if (message.length() > 0) {
+                    //Display the message to the user.
+                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    });
+});
+```
+
+Once you incorporate the above code in your application, you'll be able to click on the feature and learn about the traffic incidents for that the feature. You'll see results similar to the following image:
+
+<center>
+
+![Incident-traffic-on-the-map](./media/how-to-show-traffic-android/android-traffic.png)
+
+</center>
+
 ## Flow traffic data
 
-4. Use the following code snippet to set traffic flow data. Similar to the code in the previous section, we pass the return value of the `flow` method to the `setTraffic` method. There are four values that can be passed to `flow`, and each value would trigger `flow` to pass the respective return value. The return value of `flow` will then be passed as the argument to `setTraffic`. See the table below for these four values:
+Use the following code snippet to set traffic flow data. Similar to the code in the previous section, we pass the return value of the `flow` method to the `setTraffic` method. There are four values that can be passed to `flow`, and each value would trigger `flow` to pass the respective return value. The return value of `flow` will then be passed as the argument to `setTraffic`. See the table below for these four values:
 
 | | |
 | :-- | :-- |
