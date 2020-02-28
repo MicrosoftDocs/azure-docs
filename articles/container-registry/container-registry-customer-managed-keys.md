@@ -52,14 +52,14 @@ Explanation of steps:
 1. An Azure Key Vault admin grants permissions to encryption keys to the managed identity that's associated with the container registry.
 1. An Azure Container Registry admin configures encryption with a customer-managed key for the registry.
 1. Azure Container Registry uses a managed identity that's associated with the registry to authenticate access to Azure Key Vault via Azure Active Directory.
-1. Azure Container Registry wraps the data encryption key with the customer key in Azure Key Vault. Because the customer-managed key encrypts the data encryption key, it's also called a *key encryption key*.
+1. Azure Container Registry wraps the data encryption key with the customer key in Azure Key Vault. Because the customer-managed key encrypts the registry's data encryption key, it's also called a *key encryption key*.
 1. For read/write operations, Azure Container Registry sends requests to Azure Key Vault to wrap and unwrap the data encryption key to perform encryption and decryption operations.
 
 ### Additional information 
 
 * When Azure wraps the data encryption key with the customer-managed key, the registry is encrypted with the new key immediately, without any time delay.
 * Data encryption using a customer-managed key doesn't affect registry performance.
-* If you modify the customer-managed key being used for registry, for example, by updating the key version, only the encryption of the root key changes. Data in your Azure container registry doesn't need to be re-encrypted.
+* If you modify the customer-managed key being used for registry, for example, by rotating the key, only the encryption of the root key changes. Data in your Azure container registry doesn't need to be re-encrypted.
 
 ## Enable customer-managed key - portal
 
@@ -108,8 +108,8 @@ Follow the steps in [Quickstart: Create a private container registry in the Azur
 
 1. Select **Create a resource** > **Containers** > **Container Registry**.
 1. For **SKU**, select 'Premium'.
-1. <More steps...> 
-1. Select Create to deploy the ACR instance.
+1. [More steps to come...] 
+1. Select **Create** to deploy the registry instance.
 
 
 ## Enable customer-managed key - CLI
@@ -226,9 +226,9 @@ To show the status of registry encryption, run the [az acr encryption show-statu
 az acr encryption show-status --name <registry-name> 
 ```
 
-## Create a registry with customer-managed key - template
+## Enable customer-managed key - template
 
-You can also use a Resource Manager template toreate a registry and enable encryption. 
+You can also use a Resource Manager template to create a registry and enable encryption with a customer-managed key. 
 
 The following template creates a new container registry and a user-assigned managed identity. Copy the following contents to a new file and save it using a filename such as `CMKtemplate.json`.
 
