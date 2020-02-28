@@ -1,6 +1,7 @@
 ---
 title: Azure Key Vault soft delete | Microsoft Docs
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin

@@ -7,9 +7,10 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/04/2019
+ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
+ms.custom: azure-synapse
 ---
 
 # Azure Synapse Analytics (formerly SQL DW) capacity limits
@@ -25,16 +26,18 @@ Maximum values allowed for various components of Azure Synapse.
 | Database connection |Maximum Concurrent open sessions |1024<br/><br/>The number of concurrent open sessions will vary based on the selected DWU. DWU600c and above support a maximum of 1024 open sessions. DWU500c and below, support a maximum concurrent open session limit of 512. Note, there are limits on the number of queries that can execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed. |
 | Database connection |Maximum memory for prepared statements |20 MB |
 | [Workload management](resource-classes-for-workload-management.md) |Maximum concurrent queries |128<br/><br/>  A maximum of 128 concurrent queries will execute and remaining queries will be queued.<br/><br/>The number of concurrent queries can decrease when users are assigned to higher resource classes or when the [data warehouse unit](memory-concurrency-limits.md) setting is lowered. Some queries, like DMV queries, are always allowed to run and do not impact the concurrent query limit. For more details on concurrent query execution, see the [concurrency maximums](memory-concurrency-limits.md) article. |
-| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100. Therefore at DWU1000, tempdb is sized to 3.99 TB. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100c. Therefore at DWU1000c, tempdb is sized to 3.99 TB. |
+||||
 
 ## Database objects
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Database |Max size | Gen1: 240 TB compressed on disk. This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type). <br/><br/> Gen2: 240TB for rowstore and unlimited storage for columnstore tables |
-| Table |Max size | For columnstore tables, there is no uppper limit. <br/><br/>For row store tables, 60 TB compressed on disk |
+| Database |Max size | Gen1: 240 TB compressed on disk. This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type). <br/><br/> Gen2: Unlimited storage for columnstore tables.  Rowstore portion of the database is still limited to 240 TB compressed on disk. |
+| Table |Max size |Unlimited size for columnstore tables. <br>60 TB for rowstore tables compressed on disk. |
 | Table |Tables per database | 100,000 |
 | Table |Columns per table |1024 columns |
-| Table |Bytes per column |Dependent on column [data type](sql-data-warehouse-tables-data-types.md). Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types. |
+| Table |Bytes per column |Dependent on column [data type](sql-data-warehouse-tables-data-types.md). For character data types, MAX Limit can store up to 2 GB in off page (row-overflow) storage.  Non-Unicode characters such as char or varchar limit is 8000 in a data page, Unicode characters such as nchar or nvarchar limit is 4000 in a data page.  Use data page storage sizes to increase performance. |
 | Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, row-overflow storage is supported, which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see [Row-Overflow Data Exceeding 8-KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Table |Partitions per table |15,000<br/><br/>For high performance, we recommend minimizing the number of partitions you need while still supporting your business requirements. As the number of partitions grows, the overhead for Data Definition Language (DDL) and Data Manipulation Language (DML) operations grows and causes slower performance. |
 | Table |Characters per partition boundary value. |4000 |
@@ -47,13 +50,17 @@ Maximum values allowed for various components of Azure Synapse.
 | Statistics |Statistics created on columns per table. |30,000 |
 | Stored Procedures |Maximum levels of nesting. |8 |
 | View |Columns per view |1,024 |
+||||
 
 ## Loads
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB. Loading LOB data types into tables with a Clustered Columnstore Index (CCI) is not supported.<br/><br/> |
+||||
 
 ## Queries
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Query |Queued queries on user tables. |1000 |
@@ -68,8 +75,10 @@ Maximum values allowed for various components of Azure Synapse.
 | SELECT |Bytes per ORDER BY columns |8060 bytes<br/><br/>The columns in the ORDER BY clause can have a maximum of 8060 bytes |
 | Identifiers  per statement |Number of referenced identifiers |65,535<br/><br/> The number of identifiers that can be contained in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | String literals | Number of string literals in a statement | 20,000 <br/><br/>The number of string constants in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632.|
+||||
 
 ## Metadata
+
 | System view | Maximum rows |
 |:--- |:--- |
 | sys.dm_pdw_component_health_alerts |10,000 |
@@ -81,6 +90,8 @@ Maximum values allowed for various components of Azure Synapse.
 | sys.dm_pdw_request_steps |Total number of steps for the most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
 | sys.dm_pdw_os_event_logs |10,000 |
 | sys.dm_pdw_sql_requests |The most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
+|||
 
 ## Next steps
+
 For recommendations on using Azure Synapse, see the [Cheat Sheet](cheat-sheet.md).
