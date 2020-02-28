@@ -17,9 +17,9 @@ This trouble-shooting guide provides instruction on what information to provide 
 
 ### Symptom 1
 
-You can't see the “SQL on-demand” option in the “Connect to” dropdown.
+“SQL on-demand” option is grayed out in the “Connect to” dropdown.
 
-![symptom1](media/troubleshooting-synapse-studio/symptom1.png)
+![symptom1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### Symptom 2
 
