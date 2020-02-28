@@ -191,11 +191,11 @@ Using [Azure's role based access control](https://docs.microsoft.com/azure/role-
     When you attach a shared image gallery to a lab account, lab account owners\contributors and lab creators\owners\contributors are automatically given access to view and save images in the gallery. 
 
 Here are some tips to help with assigning roles:
-  1. Typically, only administrators should be members of a lab account's **Owner** or **Contributor** roles; you may have more than one owner\contributor.
+   - Typically, only administrators should be members of a lab account's **Owner** or **Contributor** roles; you may have more than one owner\contributor.
 
-  1. To give an educator the ability to create new classroom labs and manage the labs that they create; you only need to assign access to the **Lab Creator** role.
+   - To give an educator the ability to create new classroom labs and manage the labs that they create; you only need to assign access to the **Lab Creator** role.
    
-  1. To give an educator the ability to manage specific classroom labs, but *not* the ability to create new labs; you should assign access to either the **Owner** or **Contributor** role for each of the classroom labs that they will manage.  For example, you may want to allow both a professor and a teaching assistant to co-own a classroom lab.  Refer to the guide on how to [add a user as an owner to a classroom lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
+   - To give an educator the ability to manage specific classroom labs, but *not* the ability to create new labs; you should assign access to either the **Owner** or **Contributor** role for each of the classroom labs that they will manage.  For example, you may want to allow both a professor and a teaching assistant to co-own a classroom lab.  Refer to the guide on how to [add a user as an owner to a classroom lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
 
 ## Pricing
 
