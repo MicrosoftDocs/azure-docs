@@ -925,11 +925,11 @@ Repeat for additional fields: content, languageCode, keyPhrases, and organizatio
 
 ## Reset and rerun
 
-In the early experimental stages of development, the most practical approach for design iterations is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
-This tutorial took care of checking for existing indexers and indexes and deleting them if they already existed so that you can rerun your code.
+The sample code for this tutorial checks for existing objects and deletes them so that you can rerun your code.
 
-You can also use the portal to delete indexes, indexers, and skillsets.
+You can also use the portal to delete indexes, indexers, data sources, and skillsets.
 
 ## Takeaways
 
@@ -941,11 +941,13 @@ Finally, you learned how to test results and reset the system for further iterat
 
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Cognitive Search service and Azure Blob service. Assuming you put both services in the same group, delete the resource group now to permanently delete everything in it, including the services and any stored content that you created for this tutorial. In the portal, the resource group name is on the Overview page of each service.
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the All resources or Resource groups link in the left-navigation pane.
 
 ## Next steps
 
-Customize or extend the pipeline with custom skills. Creating a custom skill and adding it to a skillset allows you to onboard text or image analysis that you write yourself.
+Now that you're familiar with all of the objects in an AI enrichment pipeline, let's take a closer look at skillset definitions and individual skills.
 
 > [!div class="nextstepaction"]
-> [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
+> [How to create a skillset](cognitive-search-defining-skillset.md)

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/28/2020
 #Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Cognitive Search.
 ---
 
@@ -26,13 +26,14 @@ In this tutorial, use the [Azure Cognitive Search REST APIs](https://docs.micros
 
 ## Prerequisites
 
-The following services, tools, and data are used in this quickstart. 
++ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Postman desktop app](https://www.getpostman.com/)
++ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-[Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
+> [!Note]
+> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data.
-
-[Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Cognitive Search.
+## Download files
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contains the data used in this tutorial. Download and unzip this file to its own folder. Data originates from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), converted to JSON for this tutorial.
 
@@ -280,13 +281,27 @@ If you'd like to experiment and try a few more queries yourself, feel free to do
 
 The `$filter` parameter only works with metadata that were marked filterable at the creation of your index.
 
+## Reset and rerun
+
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+
+You can use the portal to delete indexes, indexers, and data sources. Or use **DELETE** and provide URLs to each object. The following command deletes an indexer.
+
+```http
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+```
+
+Status code 204 is returned on successful deletion.
+
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Cognitive Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Cognitive Search service.
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the All resources or Resource groups link in the left-navigation pane.
 
 ## Next steps
 
-There are several approaches and multiple options for indexing JSON blobs. As a next step, review and test the various options to see what works best for your scenario.
+Now that you're familiar with the basics of Azure Blob indexing, let's take a closer look at indexer configuration.
 
 > [!div class="nextstepaction"]
-> [How to index JSON blobs using Azure Cognitive Search Blob indexer](search-howto-index-json-blobs.md)
+> [Configure an Azure Blob storage indexer](search-howto-indexing-azure-blob-storage.md)
