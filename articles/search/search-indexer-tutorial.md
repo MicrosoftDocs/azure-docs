@@ -233,8 +233,6 @@ When you're working in your own subscription, at the end of a project, it's a go
 
 You can find and manage resources in the portal, using the All resources or Resource groups link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
-
 ## Next steps
 
 In Azure Cognitive Search, indexers are available for multiple Azure data sources. As a next step, explore the indexer for Azure Blob storage.
