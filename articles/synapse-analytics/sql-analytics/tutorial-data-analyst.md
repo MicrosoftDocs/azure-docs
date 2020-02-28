@@ -1,6 +1,6 @@
 ---
 title: "Data Analyst tutorial - Use SQL on-demand to analyze Azure Open Datasets and visualize the results in Azure Synapse Studio"
-description: In this tutorial, learn how to connect Azure Synapse Analytics SQL on-demand to Power BI desktop and create a demo report based on a view.
+description: In this tutorial, you will learn how to easily perform exploratory data analysis combining different Azure Open Datasets using SQL on-demand and visualize the results in Azure Synapse Studio.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Use SQL on-demand to analyze Azure Open Datasets and visualize the results in Azure Synapse Studio 
 
-In this tutorial, you will learn how to easily perform exploratory data analysis combining different Azure Open Datasets using SQL on-demand and visualize the results in Azure Synapse Studio. 
+In this tutorial, you will learn how to easily perform exploratory data analysis combining different Azure Open Datasets using SQL on-demand and visualize the results in Azure Synapse Studio.
 
 In particular, you will analyze [New York City (NYC) Taxi dataset](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) that includes pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. 
 
