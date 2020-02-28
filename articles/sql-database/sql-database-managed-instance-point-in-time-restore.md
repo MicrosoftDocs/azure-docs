@@ -48,7 +48,7 @@ The following table shows point-in-time restore scenarios for managed instances:
 
 ## Restore an existing database
 
-Restore an existing database to the same instance by using the Azure portal, Powershell, or the Azure CLI. To restore a database to another instance, use Powershell or the Azure CLI so you can specify the properties for the target managed instance and resource group. If you don't specify these parameters, the database will be restored to the existing instance by default. The Azure portal doesn't currently support restoring to another instance.
+Restore an existing database to the same instance by using the Azure portal, PowerShell, or the Azure CLI. To restore a database to another instance, use PowerShell or the Azure CLI so you can specify the properties for the target managed instance and resource group. If you don't specify these parameters, the database will be restored to the existing instance by default. The Azure portal doesn't currently support restoring to another instance.
 
 # [Portal](#tab/azure-portal)
 
@@ -130,7 +130,7 @@ For a detailed explanation of the available parameters, see the [CLI documentati
 
 ## Restore a deleted database
 
-Restoring a deleted database can be done by using PowerShell or Azure Portal. To restore a deleted database to the same instance, use either the Azure portal or PowerShell. To restore a deleted database to another instance, use PowerShell. 
+Restoring a deleted database can be done by using PowerShell or Azure portal. To restore a deleted database to the same instance, use either the Azure portal or PowerShell. To restore a deleted database to another instance, use PowerShell. 
 
 ### Portal 
 
