@@ -45,7 +45,7 @@ There are numerous, alternative migration paths and it would create too long of 
 
 The previous image depicts steps that correspond to sections in this article.
 
-### Steps 1: Provision your on-premises Windows Server and storage
+### Step 1: Provision your on-premises Windows Server and storage
 
 * Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported.
 * Provision or add Direct Attached Storage (DAS as compared to NAS, which is not supported). The size of the Windows Server storage must be equal to or larger than the size of the available capacity of your virtual StorSimple 1200 appliance.
@@ -119,7 +119,7 @@ Background:
       /MIR
    :::column-end:::
    :::column span="1":::
-      Allows to run this RoboCopy command several times, sequentially on the same target / destination. It identifies what has been copied before and omits it. Only changes, additions and *deletes* will be processed, that occurred since the last run. If the command wasn't run before, nothing is omitted. This is an excellent option for source locations that are still actively used and changing.
+      Allows to run this RoboCopy command several times, sequentially on the same target / destination. It identifies what has been copied before and omits it. Only changes, additions and "*deletes*" will be processed, that occurred since the last run. If the command wasn't run before, nothing is omitted. This is an excellent option for source locations that are still actively used and changing.
    :::column-end:::
 :::row-end:::
 :::row:::
