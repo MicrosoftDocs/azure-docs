@@ -39,5 +39,5 @@ Remote Rendering works with both the **Universal render pipeline** and the **Sta
 
 ## Next steps
 
-* [Unity SDK concepts](unity-concepts.md)
+* [Unity game objects and components](unity-objects-and-components.md)
 * [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md)

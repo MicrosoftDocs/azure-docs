@@ -40,7 +40,7 @@ Only one instance of each component type may be added to an entity at a time.
 
 ## Unity specific
 
-The Unity integration has additional extension functions for interacting with components. See: [SDK overview for Unity](../how-tos/unity/unity-concepts.md).
+The Unity integration has additional extension functions for interacting with components. See [Unity game objects and components](../how-tos/unity/unity-objects-and-components.md).
 
 ## Next steps
 
