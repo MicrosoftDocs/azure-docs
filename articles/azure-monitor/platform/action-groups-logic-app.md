@@ -64,7 +64,7 @@ The process is similar if you want the logic app to perform a different action.
                     "authorization": {
                     "action": "microsoft.insights/activityLogAlerts/write",
                     "scope": "/subscriptions/�"
-                    },
+                    }, 
                     "channels": "Operation",
                     "claims": "�",
                     "caller": "logicappdemo@contoso.com",
