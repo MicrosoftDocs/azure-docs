@@ -177,9 +177,9 @@ To deploy the model as a service, you need the following components:
     >
     >   An alternative that might work for your scenario is [batch prediction](how-to-use-parallel-run-step.md), which does provide access to data stores during scoring.
 
-* **Inference configuration**. Inference configuration comprises environment configuration, entry script, and potentially other components necessary to run the model as a web-service.
+* **Inference configuration**. Inference configuration specifies the the environment configuration, entry script, and other components needed to run the model as a service.
 
-Once you have the necessary components, you can profile the web-service that will be created as a result of deploying your model to understand its CPU and memory requirements.
+Once you have the necessary components, you can profile the service that will be created as a result of deploying your model to understand its CPU and memory requirements.
 
 ### <a id="script"></a> 1. Define your entry script and dependencies
 
@@ -451,7 +451,7 @@ def run(request):
 
 Inference configuration describes how to set up the web-service containing your model. It is not a part of your entry script. It references your entry script and is used to locate all the resources required by the deployment. It's used later, when you deploy the model.
 
-Inference configuration uses Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. You can create an environment from custom dependency files or use one of the procured Azure Machine Learning environments. The following YAML is an example of a Conda dependencies file for inference. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service. If you want to use automatic schema generation, your entry script must also import the `inference-schema` packages.
+Inference configuration uses Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. You can create an environment from custom dependency files or use one of the curated Azure Machine Learning environments. The following YAML is an example of a Conda dependencies file for inference. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service. If you want to use automatic schema generation, your entry script must also import the `inference-schema` packages.
 
 ```YAML
 name: project_environment
@@ -520,16 +520,17 @@ For information on using a custom Docker image with an inference configuration, 
 
 ### <a id="profilemodel"></a> 3. Profile your model to determine resource utilization
 
-Once you have registered your model and prepared the other components necessary for its deployment, it is time to evaluate how much CPU and memory the resulting service will require. Use Azure Machine Learning model profiling feature to test your potential deployment on the specified CPU and memory configuration. Profiling output contains a collection of useful metrics such as CPU usage, memory usage, and response latency. It also provides a CPU and memory recommendation based on the resource usage.
+Once you have registered your model and prepared the other components necessary for its deployment, you can determine the CPU and memory the deployed service will need. Profiling tests the service that runs your model and returns information such as the CPU usage, memory usage, and response latency. It also provides a recommendation for the CPU and memory based on resource usage.
 
 In order to profile your model you will need:
 * A registered model.
 * An inference configuration based on your entry script and inference environment definition.
-* A single column tabular dataset, where each row contains a string representing sample request data. These strings are going to get utf-8 encoded and put directly into the body of the HTTP request.
+* A single column tabular dataset, where each row contains a string representing sample request data.
 
-At this point we only support profiling of services that expect their request data to be a string, for example: string serialized json, text, string serialized image, etc.
+> [!IMPORTANT]
+> At this point we only support profiling of services that expect their request data to be a string, for example: string serialized json, text, string serialized image, etc. The content of each row of the dataset (string) will be put into the body of the HTTP request and sent to the service encapsulating the model for scoring.
 
-Below is an example of how you can construct an input dataset to profile a web-service which expects its incoming requests to contain serialized json. For the purpose of this example we constructed a dataset that contains one hundred instances of the same input. In real world scenarios we suggest that you use larger datasets containing various inputs, especially if your model resource usage/behavior is input dependent.
+Below is an example of how you can construct an input dataset to profile a service which expects its incoming request data to contain serialized json. In this case we created a dataset based one hundred instances of the same request data content. In real world scenarios we suggest that you use larger datasets containing various inputs, especially if your model resource usage/behavior is input dependent.
 
 ```python
 import json
@@ -564,7 +565,7 @@ sample_request_data = sample_request_data.register(workspace=ws,
                                                    create_new_version=True)
 ```
 
-Once you have you the dataset containg sample request data ready, create an inference configuration based on the score.py and the environment definition and use them along with your registered model to profile you potential deloyment:
+Once you have the dataset containing sample request data ready, create an inference configuration. Inference configuration is based on the score.py and the environment definition. The following example demonstrates how to create the inference configuration and run profiling:
 
 ```python
 from azureml.core.model import InferenceConfig, Model
