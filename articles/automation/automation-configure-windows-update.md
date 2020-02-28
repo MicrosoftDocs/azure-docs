@@ -30,7 +30,9 @@ The registry keys listed in [Configuring Automatic Updates by editing the regist
 
 ## Enable updates for other Microsoft products
 
-By default, Windows Update client is configured to provide updates only for Windows. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other products, including security patches for Microsoft SQL Server and other Microsoft software. This option can't be configured by Group Policy. Run the following PowerShell command on the systems that you want to enable other Microsoft updates on. Update Management will comply with this setting.
+By default, Windows Update client is configured to provide updates only for Windows. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other products, including security patches for Microsoft SQL Server and other Microsoft software. This option can be configured if you have downloaded and copied the latest [Administrative template files](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) that is available for Windows 2016 and higher.
+
+If you are running Windows Server 2012 R2, this setting cannot be configured by Group Policy. Run the following PowerShell command on the machines that you want to enable other Microsoft updates on. Update Management complies with this setting.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -41,7 +43,7 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## WSUS configuration settings
 
-Update Management complies with Windows Server Update Services (WSUS) settings. The WSUS settings you can configure for working with Update Management are listed below.
+Update Management supports WSUS settings. The WSUS settings you can configure for working with Update Management are listed below.
 
 ### Intranet Microsoft update service location
 
