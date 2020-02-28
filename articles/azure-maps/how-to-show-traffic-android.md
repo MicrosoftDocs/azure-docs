@@ -31,7 +31,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-You'll need to import the following libraries to call the `setTraffic` and `incidents` methods:
+You'll need to import the following libraries to call `setTraffic` and `incidents`:
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
@@ -113,7 +113,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-You'll need to import the following libraries to use the `setTraffic` and `flow` methods:
+You'll need to import the following libraries to use the `setTraffic` and the `flow` method:
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
