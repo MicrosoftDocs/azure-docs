@@ -36,6 +36,7 @@ To complete this tutorial, you need the following resources and privileges:
 * An account with *Global Administrator* privileges.
 * A non-administrator user with a password you know, such as *testuser*. You test a password change event using this account in this tutorial.
     * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md).
+    * To test the password change operation using a banned password, the Azure AD tenant must be [configured for self-service password reset](tutorial-enable-sspr.md).
 
 ## What are banned password lists?
 
@@ -58,12 +59,7 @@ When a user attempts to reset a password to something that's on the global or cu
 
 ## Configure custom banned passwords
 
-The following considerations and limitations currently apply to the custom banned password list:
-
-* The custom banned password list can contain up to 1000 terms.
-* The custom banned password list is case-insensitive.
-* The custom banned password list considers common character substitution, such as "o" and "0", or "a" and "@".
-* The minimum string length is four characters, and the maximum is 16 characters.
+Now let's enable the custom banned password list and add some entries. You can add additional entries to the custom banned password list at any time. For a hybrid environment, you can also [deploy Azure AD password protection to an on-premises environment](howto-password-ban-bad-on-premises-deploy.md). The same global and custom banned password lists are used for both cloud and on-prem password change requests.
 
 To enable the custom banned password list and add entries to it, complete the following steps:
 
@@ -71,11 +67,19 @@ To enable the custom banned password list and add entries to it, complete the fo
 1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 1. Under the **Manage** menu header, select **Authentication methods**, then **Password protection**.
 1. Set the option for **Enforce custom list** to *Yes*.
-1. Add strings to the **Custom banned password list**, one string per line, as shown in the following example. Specify your own custom passwords to ban:
+1. Add strings to the **Custom banned password list**, one string per line. The following considerations and limitations apply to the custom banned password list:
+
+    * The custom banned password list can contain up to 1000 terms.
+    * The custom banned password list is case-insensitive.
+    * The custom banned password list considers common character substitution, such as "o" and "0", or "a" and "@".
+    * The minimum string length is four characters, and the maximum is 16 characters
+
+    Specify your own custom passwords to ban, as shown in the following example
 
     [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
-1. To enable the custom banned passwords, select **Save**.
+1. Leave the option for **Enable password protection on Windows Server Active Directory** to *No*.
+1. To enable the custom banned passwords and your entries, select **Save**.
 
 It may take several hours for updates to the custom banned password list to be applied.
 
@@ -84,9 +88,9 @@ It may take several hours for updates to the custom banned password list to be a
 To see the custom banned password list in action, try to change the password to a variation of one that you added in the previous section. When Azure AD tries to process the password change, the password is matched against an entry in the custom banned password list. An error is then displayed to the user.
 
 > [!NOTE]
-> Before a user can reset their password, the Azure AD tenant must be [configured for self-service password reset][configure-sspr].
+> Before a user can reset their password in the web-based portal, the Azure AD tenant must be [configured for self-service password reset](tutorial-enable-sspr.md).
 
-1. Go to the Azure AD Access Panel page at [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Go to the My Apps page at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. In the top-right corner, select your name, then choose **Profile** from the drop-down menu.
 
     ![Select profile](media/tutorial-configure-custom-password-protection/myapps-profile.png)
@@ -118,6 +122,3 @@ In this tutorial, you enabled and configured custom password protection lists fo
 
 > [!div class="nextstepaction"]
 > [Enable risk-based Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
-
-<!-- INTERNAL LINKS -->
-[configure-sspr]: tutorial-enable-sspr.md
