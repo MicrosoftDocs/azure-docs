@@ -42,7 +42,7 @@ The following table shows point-in-time restore scenarios for managed instances:
 
 |           |Restore existing DB to same managed instance| Restore existing DB to another managed instance|Restore dropped DB to same managed instance|Restore dropped DB to another managed instance|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure portal**| Yes|No |No|No|
+|**Azure portal**| Yes|No |Yes|No|
 |**Azure CLI**|Yes |Yes |No|No|
 |**PowerShell**| Yes|Yes |Yes|Yes|
 
@@ -141,9 +141,9 @@ To recover a managed database using the Azure portal, open the managed instance 
 
 ### PowerShell
 
-To restore a deleted database by using PowerShell, specify your values for the parameters in the following command. Then, run the command:
+To restore a database to the same instance, or another instance, update the parameter values and then run the following PowerShell command: 
 
-```powershell-interactive
+```powershell
 $subscriptionId = "<Subscription ID>"
 Get-AzSubscription -SubscriptionId $subscriptionId
 Select-AzSubscription -SubscriptionId $subscriptionId
@@ -151,31 +151,13 @@ Select-AzSubscription -SubscriptionId $subscriptionId
 $resourceGroupName = "<Resource group name>"
 $managedInstanceName = "<Managed instance name>"
 $deletedDatabaseName = "<Source database name>"
+$targetDatabaseName = "<target database name>"
 
-$deleted_db = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
-            -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName 
+$deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
 
-$pointInTime = "2018-06-27T08:51:39.3882806Z"
-$properties = New-Object System.Object
-$properties | Add-Member -type NoteProperty -name CreateMode -Value "PointInTimeRestore"
-$properties | Add-Member -type NoteProperty -name RestorePointInTime -Value $pointInTime
-$properties | Add-Member -type NoteProperty -name RestorableDroppedDatabaseId -Value $deleted_db.Id
+Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name -InstanceName $deletedDatabase.ManagedInstanceName -ResourceGroupName $deletedDatabase.ResourceGroupName -DeletionDate $deletedDatabase.DeletionDate -PointInTime UTCDateTime -TargetInstanceDatabaseName $targetDatabaseName
 ```
 
-To restore the deleted database to another instance, change the names of the resource group and managed instance. Also, make sure that the location parameter matches the location of the resource group and the managed instance.
-
-```powershell-interactive
-$resourceGroupName = "<Second resource group name>"
-$managedInstanceName = "<Second managed instance name>"
-
-$location = "West Europe"
-
-$restoredDBName = "WorldWideImportersPITR"
-$resource_id = "subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$managedInstanceName/databases/$restoredDBName"
-
-New-AzResource -Location $location -Properties $properties `
-        -ResourceId $resource_id -ApiVersion "2017-03-01-preview" -Force
-```
 
 
 ## Overwrite an existing database
