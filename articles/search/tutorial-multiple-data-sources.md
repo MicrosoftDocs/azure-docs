@@ -8,16 +8,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/23/2019
+ms.date: 02/28/2020
 ---
 
-# C# Tutorial: Combine data from multiple data sources in one Azure Cognitive Search index
+# Tutorial: Index data from multiple data sources in C#
 
 Azure Cognitive Search can import, analyze, and index data from multiple data sources into a single combined search index. This supports situations where structured data is aggregated with less-structured or even plain text data from other sources, like text, HTML, or JSON documents.
 
 This tutorial describes how to index hotel data from an Azure Cosmos DB data source and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing complex data types.
 
-This tutorial uses C#, the .NET SDK for Azure Cognitive Search, and the Azure portal to do the following tasks:
+This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Upload sample data and create data sources
@@ -26,19 +26,19 @@ This tutorial uses C#, the .NET SDK for Azure Cognitive Search, and the Azure po
 > * Index hotel data from Azure Cosmos DB
 > * Merge hotel room data from blob storage
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
-The following services, tools, and data are used in this quickstart. 
++ [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)
++ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Visual Studio 2019](https://visualstudio.microsoft.com/)
++ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-- [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
+> [!Note]
+> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-- [Create an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) for storing the sample hotel data.
-
-- [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample room data.
-
-- [Install Visual Studio 2019](https://visualstudio.microsoft.com/) to use as the IDE.
-
-### Install the project from GitHub
+## Download files
 
 1. Locate the sample repository on GitHub: [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 1. Select **Clone or download** and make your private local copy of the repository.
@@ -337,13 +337,23 @@ In Azure portal, open the search service **Overview** page, and find the **hotel
 
 Click on the hotel-rooms-sample index in the list. You will see a Search Explorer interface for the index. Enter a query for a term like "Luxury". You should see at least one document in the results, and this document should show a list of room objects in its rooms array.
 
+## Reset and rerun
+
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+
+The sample code for this tutorial checks for existing objects and deletes them so that you can rerun your code.
+
+You can also use the portal to delete indexes, indexers, and data sources.
+
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Cognitive Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of the Azure Cognitive Search service.
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the All resources or Resource groups link in the left-navigation pane.
 
 ## Next steps
 
-There are several approaches and multiple options for indexing JSON blobs. If your source data includes JSON content, you can review these options to see what works best for your scenario.
+Now that you're familiar with the concept of ingesting data from multiple sources, let's take a closer look at indexer configuration, starting with Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [How to index JSON blobs using Azure Cognitive Search Blob indexer](search-howto-index-json-blobs.md)
+> [Configure an Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
