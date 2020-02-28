@@ -19,7 +19,7 @@ Azure Synapse Analytics allows the different computational engines of a workspac
 
 Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet as the storage format. These tables will immediately become available to be queried by any of the Azure Synapse workspace Spark pools and can be used from any of the Spark jobs subject to permissions. 
 
-The Spark created managed and external tables are also made available as external tables with the same name in the corresponding synchronized database in SQL on-demand and in the corresponding `$`-prefixed schemas in the SQL pools that have their metadata synchronization enabled. [Exposing a Spark table in SQL](#Exposing-a-Spark-table-in-SQL) provides more detail on the table synchronization.
+The Spark created, managed, and external tables are also made available as external tables with the same name in the corresponding synchronized database in SQL on-demand and in the corresponding `$`-prefixed schemas in the SQL pools that have their metadata synchronization enabled. [Exposing a Spark table in SQL](#exposing-a-spark-table-in-sql) provides more detail on the table synchronization.
 
 Since the tables are synchronized to SQL on-demand and the SQL pools asynchronously, there will be a delay until they appear.
 
@@ -105,7 +105,7 @@ For more details on how to set permissions on the folders and files, see [Azure 
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
-Let's assume we have already created a Spark database named `mytestdb` (see [this example](metadata-database.md#Creating-a-Spark-database-and-seeing-it-in-SQL-on-demand).
+Let's assume we have already created a Spark database named `mytestdb`. See [Create & connect to Spark database - SQL on-demand](metadata-database.md#create-connect-to-spark-database-sql-on-demand).
 
 Then you can create a managed Spark table for example with SparkSQL with
 
@@ -200,7 +200,7 @@ You should get the following row as result:
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
-With the tables created in the previous examples, now create a SQL pool in your workspace named `mysqlpool` that enables metadata synchronization (or use the already created pool from [this example](metadata-database.md#Exposing-a-Spark-database-in-a-SQL-pool).
+With the tables created in the previous examples, now create a SQL pool in your workspace named `mysqlpool` that enables metadata synchronization (or use the already created pool from [Exposing a Spark database in a SQL pool](metadata-database.md#exposing-a-spark-database-in-a-sql-pool).
 
 Run the following statement against the `mysqlpool` SQL pool:
 
