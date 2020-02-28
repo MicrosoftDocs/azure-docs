@@ -26,7 +26,7 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
 ## Limits
 
-* For files that are 1 GB or smaller, SFTP-SSH actions read or write content in *15 MB* chunks as the default. For larger files, SFTP-SSH actions can transfer content by using chunking. By default, this chunk size is 15 MB, but the size can dynamically change from 5 to 50 MB based on factors such as network latency, server response time, and so on, starting with a smaller chunk size and gradually increasing to the maximum 50 MB chunk size. Actions that don't support chunking can transfer files up to 50 MB, the same as the maximum chunk size.
+* For files that are 1 GB or smaller, SFTP-SSH actions read or write content in *15 MB* chunks as the default. For files larger than 15 MB, SFTP-SSH actions can transfer content by using chunking. By default, this chunk size is 15 MB, but the size can dynamically change from 5 to 50 MB based on factors such as network latency, server response time, and so on, starting with a smaller chunk size and gradually increasing to the maximum 50 MB chunk size. Actions that don't support chunking can transfer files up to 50 MB, the same as the maximum chunk size.
 
   Chunk size is based on the connection, which means that you can use the same connection for actions that support and don't support chunking. The chunk size for actions that don't support chunking can range from 5 MB to 50 MB. This table shows which current SFTP-SSH actions support chunking:
 
@@ -38,6 +38,7 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   | **Delete file** | Not applicable ||
   | **Extract archive to folder** | Not applicable ||
   | **Get file content** | Yes ||
+  | **Get file content using path** | Yes ||
   | **Get file metadata** | Not applicable ||
   | **Get file metadata using path** | Not applicable ||
   | **List files in folder** | Not applicable ||
