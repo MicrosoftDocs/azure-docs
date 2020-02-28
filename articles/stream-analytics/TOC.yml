@@ -65,6 +65,7 @@
     items:
     - name: Understand and adjust Streaming Units
       href: stream-analytics-streaming-unit-consumption.md
+      displayName: scale, performance
     - name: Improve query performance
       href: stream-analytics-parallelization.md
     - name: Repartition your input
@@ -194,6 +195,8 @@
       href: setup-cicd-vs-code.md
     - name: Explore jobs
       href: visual-studio-code-explore-jobs.md
+    - name: JobConfig.json fields
+      href: job-config-json.md
   - name: Troubleshoot
     items:
     - name: Input

@@ -404,16 +404,5 @@ az group delete -y --no-wait -n MyResourceGroup
 
 ## Next steps
 
-In this article, you learned how to use the Azure Dev Spaces plug-in for Jenkins and the Azure Container Registry plug-in to build code and deploy to a dev space.
-
-The following list of resources provides more information on Azure Dev Spaces, ACR Tasks, and CI/CD with Jenkins.
-
-Azure Dev Spaces:
-* [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works)
-
-ACR Tasks:
-* [Automate OS and framework patching with ACR Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-* [Automatic build on code commit](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-
-CI/CD with Jenkins on Azure:
-* [Jenkins continuous deployment](https://docs.microsoft.com/azure/aks/jenkins-continuous-deployment)
+> [!div class="nextstepaction"]
+> [CI/CD with Jenkins on Azure](jenkins-continuous-deployment.md)

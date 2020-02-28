@@ -2,11 +2,9 @@
 title: Create virtual nodes using the Azure CLI in Azure Kubernetes Services (AKS)
 description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 services: container-service
-author: mlearned
 ms.topic: conceptual
-ms.service: container-service
 ms.date: 05/06/2019
-ms.author: mlearned
+
 ---
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes using the Azure CLI
@@ -313,10 +311,6 @@ az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --add
 ```
 
 Now, remove the virtual network resources and resource group:
-
-
-> [!NOTE]
-> If you receive an error while attempting to remove the network profile, allow 3-4 days for the platform to automatically mitigate the issue and attempt the deletion again. If you need to delete a network profile immediately, [open a support request](https://azure.microsoft.com/support/create-ticket/) referencing the Azure Container Instances service.
 
 ```azurecli-interactive
 # Change the name of your resource group, cluster and network resources as needed

@@ -31,7 +31,7 @@ As a CSP partner, you can register with Cloudyn. Your registration provides acce
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at https://portal.azure.com.
+- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Register with Cloudyn
 

@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
 ---
 # Execute Python Script module
@@ -86,7 +86,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 
     ![Execute Python input map](media/module/python-module.png)
 
-4. To include new Python packages or code, add the zipped file containing these custom resources  on **Script bundle**. The input to **Script bundle** must be a zipped file already uploaded to your workspace. 
+4. To include new Python packages or code, add the zipped file containing these custom resources on **Script bundle**. The input to **Script bundle** must be a zipped file uploaded to your workspace as a File type Dataset. 
 
     Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved, but you must prepend a directory called **src** to the path.
 

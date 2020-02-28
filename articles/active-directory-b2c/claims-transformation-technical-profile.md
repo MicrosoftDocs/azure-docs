@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -95,6 +95,12 @@ The claims transformation technical profile enables you to execute a claims tran
   </OrchestrationSteps>
 </UserJourney>
 ```
+
+## Metadata
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
 ## Use a validation technical profile
 

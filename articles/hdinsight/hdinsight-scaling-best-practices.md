@@ -6,7 +6,7 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 02/05/2020
 ---
 
 # Scale Azure HDInsight clusters
@@ -32,7 +32,7 @@ Microsoft provides the following utilities to scale clusters:
 |[Azure CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<Target Instance Count> |
 |[Azure portal](https://portal.azure.com)|Open your HDInsight cluster pane, select **Cluster size** on the left-hand menu, then on the Cluster size pane, type in the number of worker nodes, and select Save.|  
 
-![Azure portal scale cluster option](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
+![Azure portal scale cluster option](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
 Using any of these methods, you can scale your HDInsight cluster up or down within minutes.
 
@@ -211,6 +211,10 @@ If Hive has left behind temporary files, then you can manually clean up those fi
 If your clusters get stuck in safe mode frequently when scaling down to fewer than three worker nodes, and the previous steps don't work, then you can avoid your cluster going in to safe mode altogether by keeping at least three worker nodes.
 
 Retaining three worker nodes is more costly than scaling down to only one worker node, but it will prevent your cluster from getting stuck in safe mode.
+
+### Scale HDInsight down to one worker node
+
+Even when the cluster is scaled down to 1 node, worker node 0 will still survive. Worker node 0 can never be decommissioned.
 
 #### Run the command to leave safe mode
 

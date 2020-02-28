@@ -83,4 +83,4 @@ If you deploy a template with [complete mode](deployment-modes.md) and a resourc
 ## Next steps
 
 * For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
-* To create multiple instances of a resource, see [Resource, property, or variable iteration in Azure Resource Manager templates](create-multiple-instances.md).
+* To create multiple instances of a resource, see [Resource iteration in Azure Resource Manager templates](copy-resources.md).
