@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 02/28/2020
 ms.author: diberry
 ---
 
@@ -99,12 +99,17 @@ The app owner needs to [add your email to the Azure authoring resource as a coll
 
 After the migration process, any apps you own are available on the **My apps** page of the LUIS portal.
 
-## Troubleshooting
+## Troubleshooting the migration process
 
-* LUIS authoring keys are only visible in the LUIS portal after the migration process is complete. If you create the authoring keys, such as with the LUIS CLI, the user still needs to complete the migration process.
+* LUIS authoring keys are only visible in the LUIS portal after the migration process is complete. If you create the authoring keys, such as with the LUIS CLI, the user still needs to complete the migration process in the LUIS portal.
 * If a migrated user adds a non-migrated user as a contributor on their azure resource, the non-migrated user will have no access to the apps unless they migrate.
 * If a non-migrated user is not an owner to any apps but he is a collaborator to other apps that are owned by others and the owners have undergone the migration process, this user will need to migrate to have access to the apps.
 * If a non-migrated user added another migrated user as a collaborator to their app, an error will occur as you will not be able to add a migrated user as a collaborator to an app. The non-migrated user will then have to go through the migration process and create an azure resource and add the migrated user as a contributor to that resource.
+
+You receive an error during the migration process if:
+* Your subscription doesn't authorize you to create Cognitive Services resources
+* Your migration negatively impacts any applications runtime. When migrating, any collaborators are removed from your apps and you are removed as a collaborator from other apps. This process means the keys you assigned get removed too. The migration gets blocked if you have assigned keys in other apps. You need to remove the key you assigned safely before migrating. If you know that the key that you assigned isn’t used in the runtime, then you need to remove it to be able to progress in the migration.
+
 
 ## Next steps
 
