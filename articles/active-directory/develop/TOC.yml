@@ -29,9 +29,9 @@
       href: quickstart-v2-javascript.md
   - name: Web apps
     items:
-    - name: ASP .NET
+    - name: ASP.NET
       href: quickstart-v2-aspnet-webapp.md
-    - name: ASP .NET Core
+    - name: ASP.NET Core
       href: quickstart-v2-aspnet-core-webapp.md
     - name: NodeJS
       href: quickstart-v2-nodejs-webapp.md
@@ -42,9 +42,9 @@
       href: quickstart-v2-python-webapp.md
   - name: Web APIs
     items:
-    - name: ASP .NET
+    - name: ASP.NET
       href: quickstart-v2-dotnet-native-aspnet.md
-    - name: ASP .NET Core
+    - name: ASP.NET Core
       href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
   - name: Mobile and desktop apps
     items:
@@ -70,7 +70,7 @@
       href: tutorial-v2-javascript-spa.md
   - name: Web apps
     items:
-    - name: ASP .NET
+    - name: ASP.NET
       href: tutorial-v2-asp-webapp.md
   - name: Mobile and desktop apps
     items:
@@ -250,7 +250,7 @@
         href: msal-compare-msal-js-and-adal-js.md
       - name: Migrate to MSAL.Android
         href: migrate-android-adal-msal.md
-      - name: Migrate to MSAL.iOS / MacOS
+      - name: Migrate to MSAL.iOS / macOS
         href: migrate-objc-adal-msal.md
       - name: Migrate to MSAL Python
         href: migrate-python-adal-msal.md
