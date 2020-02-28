@@ -1,5 +1,5 @@
 ---
-title: DO NOT INDEX.
+title: Deploy a Storage Sync Service
 description: Deploying the Azure File Sync cloud resource. A storage sync service. A common text block, shared between migration docs.
 author: fauhse
 ms.service: storage

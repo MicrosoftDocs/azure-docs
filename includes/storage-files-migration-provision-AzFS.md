@@ -1,5 +1,5 @@
 ---
-title: DO NOT INDEX.
+title: Considerations for provisioning Azure file shares.
 description: Provision Azure file shares for use with Azure File Sync. A common text block, shared between migration docs.
 author: fauhse
 ms.service: storage
