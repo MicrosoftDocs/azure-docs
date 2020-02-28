@@ -45,9 +45,9 @@ This section shows how to import and publish an OpenAPI Specification backend AP
 1. Select the **OpenAPI** tile, and then select **Full** on the pop-up screen.
 1. On the **Create from OpenAPI specification** screen, use the values from the following table to create your API.
    
-   ![Create an API](./media/api-management-import-and-publish/create-api.png)
-   
    A red star next to a field on the form indicates that the field is required. You can set API values during creation or later by going to the **Settings** tab. 
+   
+   ![Create an API](./media/api-management-import-and-publish/create-api.png)
    
    |Setting|Value|Description|
    |-------|-----|-----------|
