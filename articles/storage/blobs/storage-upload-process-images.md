@@ -128,7 +128,7 @@ App Service supports several ways to deploy content to a web app. In this tutori
 The sample project contains an [ASP.NET MVC](https://www.asp.net/mvc) app. The app accepts an image, saves it to a storage account, and displays images from a thumbnail container. The web app uses the [Microsoft.Azure.Storage](/dotnet/api/overview/azure/storage), [Microsoft.Azure.Storage.Blob](/dotnet/api/microsoft.azure.storage.blob), and the Microsoft.Azure.Storage.Auth namespaces from the Azure Storage client library to interact with Azure storage.
 
 ```azurecli-interactive
-az webapp deployment source config --name nwebapp --resource-group myResourceGroup --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+az webapp deployment source config --name $webapp --resource-group myResourceGroup --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 
 ```
 
