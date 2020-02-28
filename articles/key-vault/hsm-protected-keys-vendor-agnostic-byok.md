@@ -115,7 +115,7 @@ Transfer the BYOK file to your connected computer.
 > [!NOTE] 
 > Importing RSA 1,024-bit keys is not supported. Currently, importing an Elliptic Curve (EC) key is not supported.
 > 
-> **Known issue**: Importing an RSA 4K target key from SafeNet Luna HSMs is only supported with firmware 7.4.0.
+> **Known issue**: Importing an RSA 4K target key from SafeNet Luna HSMs is only supported with firmware 7.4.0 or newer.
 
 ### Step 4: Transfer your key to Azure Key Vault
 
