@@ -32,7 +32,7 @@ Here are the Azure RBAC-related operations that are logged in Activity Log:
 
 ## Azure portal
 
-The easiest way to get started is to view the activity logs with the Azure portal. The following screenshot shows an example of an activity log that has been filtered to display role assignment and role definition operations. It also includes a link to download the logs as a CSV file.
+The easiest way to get started is to view the activity logs with the Azure portal. The following screenshot shows an example of role assignment operations in the activity log. It also includes an option to download the logs as a CSV file.
 
 ![Activity logs using the portal - screenshot](./media/change-history-report/activity-log-portal.png)
 
