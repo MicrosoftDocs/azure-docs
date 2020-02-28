@@ -18,7 +18,7 @@ This document describes version 3.0 and newer of the Linux Diagnostic Extension.
 > [!IMPORTANT]
 > For information about version 2.3 and older, see [this document](../linux/classic/diagnostic-extension-v2.md).
 
-## Introdukjosh
+## Introduction
 
 The Linux Diagnostic Extension helps a user monitor the health of a Linux VM running on Microsoft Azure. It has the following capabilities:
 

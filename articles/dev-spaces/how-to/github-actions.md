@@ -1,5 +1,5 @@
 ---
-title: "GitHub Actions & Azure Kubernetes Service"
+title: "GitHub Actions & Azure Kubernetes Service (preview)"
 services: azure-dev-spaces
 ms.date: 02/04/2020
 ms.topic: conceptual
