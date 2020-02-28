@@ -250,7 +250,7 @@
       "redirect_url": "/azure/virtual-machines/",
       "redirect_document_id": false
     },
-    {  
+    {
       "source_path": "articles/virtual-machines/dc-series.md",
       "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
       "redirect_document_id": false
@@ -525,7 +525,7 @@
       "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
       "redirect_document_id": false
     },
- 
+
     {
       "source_path": "articles/machine-learning/service/quickstart-get-started.md",
       "redirect_url": "/azure/machine-learning/service/tutorial-1st-experiment-sdk-setup",
@@ -828,7 +828,7 @@
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/publish-kb-nodejs",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
     },
     {
@@ -846,6 +846,78 @@
       "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-csharp.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-go.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-java.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-python.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-csharp.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-go.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-java.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-python.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-csharp.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-go.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-java.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-python.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-bot-csharp-appinsights.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4",
@@ -13850,7 +13922,7 @@
       "source_path": "articles/cosmos-db/geospatial.md",
       "redirect_url": "/azure/cosmos-db/sql-query-geospatial-intro",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/documentdb/documentdb-get-started-quickstart.md",
       "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-documentdb-dotnet",
@@ -41505,7 +41577,7 @@
       "source_path": "articles/azure-monitor/log-query/log-query-performance.md",
       "redirect_url": "/azure/azure-monitor/log-query/query-optimization",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
@@ -48960,7 +49032,7 @@
     {
       "source_path": "articles/azure-monitor/app/hockeyapp-bridge-app.md",
       "redirect_url": "/azure/azure-monitor/overview",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/tutorial-build-deploy-jenkins.md",
@@ -48970,7 +49042,7 @@
     {
       "source_path": "articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md",
       "redirect_url": "/azure/jenkins/tutorial-jenkins-github-docker-cicd",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/container-instances/container-instances-jenkins.md",
