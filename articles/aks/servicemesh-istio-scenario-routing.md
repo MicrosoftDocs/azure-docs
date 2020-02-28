@@ -2,8 +2,6 @@
 title: Intelligent routing and canary releases with Istio in Azure Kubernetes Service (AKS)
 description: Learn how to use Istio to provide intelligent routing and deploy canary releases in an Azure Kubernetes Service (AKS) cluster
 author: paulbouwer
-
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
