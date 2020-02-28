@@ -64,10 +64,6 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
 
 * Uses the [SSH.NET library](https://github.com/sshnet/SSH.NET), which is an open-source Secure Shell (SSH) library that supports .NET.
 
-* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time.
-
-  To handle files larger than 15 MB, SFTP-SSH actions can use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). SFTP-SSH triggers don't support chunking. To upload large files, you need both read and write permissions for the root folder on your SFTP server.
-
 * Provides the **Create folder** action, which creates a folder at the specified path on the SFTP server.
 
 * Provides the **Rename file** action, which renames a file on the SFTP server.
