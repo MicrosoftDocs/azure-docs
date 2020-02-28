@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Remove role assignments from a group in Azure Active Directory
 
-This article describes how an IT admin can remove Azure AD roles assigned to groups. In the Azure portal, you can now remove both direct and indirect role assignments to a user.
+This article describes how an IT admin can remove Azure AD roles assigned to groups. In the Azure portal, you can now remove both direct and indirect role assignments to a user. If a user is assigned a role by a group membership, remove the user from the group to remove the role assignment.
 
 ## Using Azure admin center
 
