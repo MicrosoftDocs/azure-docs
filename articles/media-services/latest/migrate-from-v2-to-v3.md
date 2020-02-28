@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/02/2019
+ms.date: 02/28/2020
 ms.author: juliako
 ---
 
@@ -73,6 +73,23 @@ If you have a video service developed today on top of the [legacy Media Services
 * Live Outputs start on creation and stop when deleted. Programs worked differently in the v2 APIs, they had to be started after creation.
 * To get information about a job, you need to know the Transform name under which the job was created. 
 * In v2, XML [input](../previous/media-services-input-metadata-schema.md) and [output](../previous/media-services-output-metadata-schema.md) metadata files get generated as the result of an encoding job. In v3, the metadata format changed from XML to JSON. 
+* In Media Services v2, initialization vector (IV) can be specified. In Media Services v3, the FairPlay IV cannot be specified. While it does not impact customers using Media Services for both packaging and license delivery, it can be an issue when using a third party DRM system to deliver the  FairPlay licenses (hybrid mode). In that case, it is important to know that the FairPlay IV is derived from the cbcs key ID and can be retrieved using this formula:
+
+```
+string cbcsIV =  Convert.ToBase64String(HexStringToByteArray(cbcsGuid.ToString().Replace("-", string.Empty)));
+```
+ 
+with
+
+``` 
+public static byte[] HexStringToByteArray(string hex)
+{
+    return Enumerable.Range(0, hex.Length)
+        .Where(x => x % 2 == 0)
+        .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+        .ToArray();
+}
+```
 
 > [!NOTE]
 > Review the naming conventions that are applied to [Media Services v3 resources](media-services-apis-overview.md#naming-conventions). Also review [naming blobs](assets-concept.md#naming).
