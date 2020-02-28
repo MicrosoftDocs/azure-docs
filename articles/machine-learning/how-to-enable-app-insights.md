@@ -38,39 +38,6 @@ In this article, you learn how to collect data from and monitor models deployed 
 
 The metadata and response to the service - corresponding to the web service metadata and the model's predictions - are logged to the Azure Application Insights traces under the message `"model_data_collection"`. You can query Azure Application Insights directly to access this data, or set up a [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure Machine Learning to set up labeling, retraining, explainability, data analysis, or other use. 
 
-## Use the Azure portal to configure
-
-You can enable and disable Azure Application Insights in the Azure portal. 
-
-1. In the [Azure portal](https://portal.azure.com), open your workspace
-
-1. On the **Deployments** tab, select the service where you want to enable Azure Application Insights
-
-   [![List of services on the Deployments tab](./media/how-to-enable-app-insights/Deployments.PNG)](././media/how-to-enable-app-insights/Deployments.PNG#lightbox)
-
-3. Select **Edit**
-
-   [![Edit button](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-4. In **Advanced Settings**, select the **Enable AppInsights diagnostics** check box
-
-   [![Selected check box for enabling diagnostics](./media/how-to-enable-app-insights/AdvancedSettings.png)](././media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
-
-1. Select **Update** at the bottom of the screen to apply the changes
-
-### Disable
-
-1. In the [Azure portal](https://portal.azure.com), open your workspace
-1. Select **Deployments**, select the service, and then select **Edit**
-
-   [![Use the edit button](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-1. In **Advanced Settings**, clear the **Enable AppInsights diagnostics** check box
-
-   [![Cleared check box for enabling diagnostics](./media/how-to-enable-app-insights/uncheck.png)](././media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-1. Select **Update** at the bottom of the screen to apply the changes
- 
 ## Use Python SDK to configure 
 
 ### Update a deployed service
