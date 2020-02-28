@@ -242,6 +242,8 @@
       href: brokered-auth.md
     - name: Migration
       items:
+      - name: Overview
+        href: msal-migration.md
       - name: Migrate to MSAL.NET
         href: msal-net-migration.md
       - name: Migrate to MSAL.js
