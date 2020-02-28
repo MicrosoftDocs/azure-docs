@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ---
 
-# C# Tutorial: Combine data from multiple data sources in one Azure Cognitive Search index
+# Tutorial: Index data from multiple data sources in C#
 
 Azure Cognitive Search can import, analyze, and index data from multiple data sources into a single combined search index. This supports situations where structured data is aggregated with less-structured or even plain text data from other sources, like text, HTML, or JSON documents.
 
 This tutorial describes how to index hotel data from an Azure Cosmos DB data source and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing complex data types.
 
-This tutorial uses C#, the .NET SDK for Azure Cognitive Search, and the Azure portal to do the following tasks:
+This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Upload sample data and create data sources
@@ -25,6 +25,8 @@ This tutorial uses C#, the .NET SDK for Azure Cognitive Search, and the Azure po
 > * Define and create the index
 > * Index hotel data from Azure Cosmos DB
 > * Merge hotel room data from blob storage
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 

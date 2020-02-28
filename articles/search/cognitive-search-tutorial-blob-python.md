@@ -16,7 +16,7 @@ ms.date: 02/26/2020
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this Python tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
-In this tutorial, use Python and [REST](https://docs.microsoft.com/rest/api/searchservice/) to perform the following tasks:
+This tutorial uses Python and the [Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob storage.
