@@ -41,7 +41,7 @@ For more information about the sequential convoy pattern, see these articles:
 
 <a name="permissions-connection-string"></a>
 
-## Check Service Bus permissions
+## Check access to Service Bus namespace
 
 If you're not sure whether your logic app has permissions to access your Service Bus namespace, confirm those permissions.
 
@@ -66,7 +66,7 @@ If you're not sure whether your logic app has permissions to access your Service
    > If you find this parameter, the connection string is for a specific entity, 
    > and isn't the correct string to use with your logic app.
 
-## Initialize Service Bus sessions
+## Connect to Service Bus namespace
 
 1. In the [Azure portal](https://portal.azure.com), create a blank logic app. From the Azure home page, select **Create a resource** > **Integration** > **Logic App**.
 
@@ -104,5 +104,16 @@ If you're not sure whether your logic app has permissions to access your Service
 
         ![Select Service Bus policy and then "Create"](./media/send-related-messages-sequential-convoy/create-service-bus-connection-2.png)
 
+1. When you're done, select **Continue**.
 
-1. 
+   The Logic App Designer now shows a predefined workflow that's based on your selected template. This workflow contains these items:
+
+   * A **When a message is received in a queue (peek-lock)** trigger
+   * An **Initialize variable** action named `Init isDone`
+   * Two scope actions named `Try` and `Catch` that implement error handling
+   * The `Try` scope contains these actions:
+
+Now provide the values for the trigger and actions in your logic app's workflow.
+
+## Build logic app from template
+
