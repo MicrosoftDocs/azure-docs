@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 02/24/2020
+  ms.date: 02/27/2020
   featureFlags:
   - clicktale
 
@@ -154,7 +154,6 @@ productDirectory:
       azureCategories:
         - featured
         - ai-machine-learning
-        - containers
       url: cognitive-services/index.yml
     # Card
     - title: Computer Vision
@@ -894,7 +893,6 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/active-directory-b2c.svg
       azureCategories:
         - identity
-        - security
       url: active-directory-b2c/index.yml
     # Card
     - title: Azure Active Directory Domain Services
@@ -976,7 +974,7 @@ productDirectory:
         - web
       url: azure-maps/index.yml
     # Card
-    - title: Azure Sphere (Preview)
+    - title: Azure Sphere
       summary: Securely connect MCU-powered devices from the silicon to the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/sphere.svg
       azureCategories:
@@ -1079,6 +1077,13 @@ productDirectory:
         - management-and-governance
       url: azure-resource-manager/index.yml
     # Card
+    - title: Azure Resource Manager templates
+      summary: Deliver infrastructure as code for all your Azure resources using Resource Manager
+      imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
+      azureCategories:
+        - management-and-governance
+      url: azure-resource-manager/templates/index.yml
+    # Card
     - title: Azure Service Health
       summary: Personalized guidance and support for when issues in Azure services affect you
       imageSrc: https://static.docs.com/ui/media/product/azure/service-health.svg
@@ -1109,7 +1114,7 @@ productDirectory:
         - migration
       url: cost-management-billing/index.yml
     # Card
-    - title: Azure portal
+    - title: Microsoft Azure portal
       summary: Build, manage, and monitor all Azure products in a single, unified console
       imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
@@ -1270,7 +1275,7 @@ productDirectory:
         - networking
       url: internet-analyzer/index.yml
     # Card
-    - title: Azure Private Link (Preview)
+    - title: Azure Private Link
       summary: Private access to services hosted on the Azure platform, keeping your data on the Microsoft network
       imageSrc: https://static.docs.com/ui/media/product/azure/private-link.svg
       azureCategories:
@@ -1461,6 +1466,10 @@ tools:
       imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
       url: https://docs.microsoft.com/cli/azure/
     # Card
+    - title: ARM templates
+      imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
+      url: azure-resource-manager/templates/index.yml
+    # Card
     - title: Jenkins
       imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
       url: jenkins/index.yml
@@ -1472,10 +1481,6 @@ tools:
     - title: Ansible
       imageSrc: ./media/index/ansible.svg
       url: ansible/index.yml
-    # Card
-    - title: Chef
-      imageSrc: ./chef/media/Chef_Regular.svg
-      url: chef/index.yml
 
 additionalContent:
   sections:

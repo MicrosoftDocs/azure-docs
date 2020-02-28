@@ -2,7 +2,7 @@
  title: ND-series - Azure Virtual Machines
  description: Specifications for the ND-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: vikancha
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -16,6 +16,10 @@ The ND-series virtual machines are a new addition to the GPU family designed for
 Premium Storage: Supported
 
 Premium Storage caching: Supported
+
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
 
 > [!IMPORTANT]
 > For this VM series, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../azure-supportability/resource-manager-core-quotas-request.md) for this series in an [available region](https://azure.microsoft.com/regions/services/).
