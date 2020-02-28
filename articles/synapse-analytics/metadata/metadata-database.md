@@ -57,7 +57,7 @@ To give a security principal, such as a user or a security group, access to a da
 
 ## Examples
 
-### Creating a Spark database and seeing it in SQL on-demand
+### Create & connect to Spark database - SQL on-demand
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
