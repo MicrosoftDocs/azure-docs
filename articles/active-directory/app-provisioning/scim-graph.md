@@ -33,7 +33,7 @@ Passwords, both an IT nightmare and a pain for employees across the world. This 
 > * Secure your applications
 > * Report on your applications
 > * Govern access to your applications
-> * Secure remote access to your applications
+> * Remote access to your applications
 
 
 ## Scenario 1: Setup SSO for all your applications
@@ -135,7 +135,7 @@ This document describes how you can use SCIM to automate creating, updating, and
 > * Provision users and groups into an application
 > * Provision users and groups in Azure Aactive Directory
 > * Provision users and groups in Active Directory
-> * Enrich your app ... 
+> * Enrich your app with the breath of data that Microsoft has to offer
 
 
 ## Scenario 1: Automatically create, update, and delete users and groups in your an application
@@ -166,7 +166,7 @@ User information is often managed  in applications such as an HR system. Microso
 |---------|---------|---------|---------|
 |Microsoft Identity Manager||||
 
-## Scenario 4: Enrich your app with properties beyond basic user and group information from the directory.
+## Scenario 4: Enrich your app with the breath of data Microsoft has to offer
 Your application may be interested in imformation from 
 |Option  |Pros  |Cons |Comments |
 |---------|---------|---------|---------|
