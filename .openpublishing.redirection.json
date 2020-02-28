@@ -25894,6 +25894,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/authorize-active-directory-cli.md",
+      "redirect_url": "/azure/storage/common/authorize-data-operations-cli",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/common/storage-account-manage.md",
       "redirect_url": "/azure/storage/common/storage-account-keys-manage",
       "redirect_document_id": true
