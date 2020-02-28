@@ -21,7 +21,7 @@ A key characteristic of Azure Digital Twins is the ability to define your own vo
 
 A model is a template, defining some type of twin that can exist in your Azure Digital Twins graph. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of graph element can represent and do. Models are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
 
-### Digital Twin Definition Language (DTDL) for modeling
+## Digital Twin Definition Language (DTDL) for modeling
 
 Digital twin models for Azure Digital Twins are defined using the **Digital Twin Definition Language (DTDL)**. DTDL is written in JSON-LD and is programming language independent.
 
@@ -109,7 +109,7 @@ In addition to primitive types, *Property* and *Telemetry* fields can have the f
 
 Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model *Room*, and specialized variants *ConferenceRoom* and *Gym*. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
 
-The following example re-imagines the *Planet* model from the previous example as a subtype of a larger *CelestialBody* model. The "parent" model is defined first, and then the "child" model builds on it by using the new field `extends`.
+The following example reimagines the *Planet* model from the previous example as a subtype of a larger *CelestialBody* model. The "parent" model is defined first, and then the "child" model builds on it by using the new field `extends`.
 
 ```json
 {
@@ -159,7 +159,7 @@ The following example re-imagines the *Planet* model from the previous example a
 }
 ```
 
-In this example, *CelestialBody* contributes a name, a mass and a telemetry to *Planet*. The `extends` is structured as an array of interface names, allowing the extending interface to inherit from multiple parent models if desired.
+In this example, *CelestialBody* contributes a name, a mass, and a telemetry to *Planet*. The `extends` is structured as an array of interface names, allowing the extending interface to inherit from multiple parent models if desired.
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
