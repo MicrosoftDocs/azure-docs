@@ -110,7 +110,7 @@ After you specify the flag in the config.yaml file, do the following:
     Windows: C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys
     Linux: /var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys
 
-1. Restart the Iot Edge service.
+1. Restart the IoT Edge service.
 
     Windows:
 
