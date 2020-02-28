@@ -5,10 +5,10 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
 ms.author: diberry
 ---
 Use the Language Understanding (LUIS) authoring client library for Python to:
@@ -181,3 +181,7 @@ Run the application with the `python` command on your quickstart file.
 ```console
 python quickstart-file.py
 ```
+
+## Clean up resources
+
+When you are done with your predictions, clean up the work from this quickstart by deleting the file and its subdirectories.

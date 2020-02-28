@@ -183,16 +183,11 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 **Linux** | Install by using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux agent. All the [endorsed distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operations are running, and update the binaries.
 
 >[!NOTE]
-> Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.
+> **Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.**
 >
 >Today, Azure Backup supports backing up all the disks (Operating System and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to backup one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
 >
-> This solution is particularly useful in the following scenarios:
->  
->1. You have critical data to be backed up in only one disk and you don’t want to back up the rest of the disks attached to a VM. This minimizes the backup storage costs.  
->2. You have other backup solutions for part of your VM data. For example, you back up your databases or data with a different workload backup solution, and you want to use Azure VM level backup for the rest of your disks and data to build an efficient and robust system utilizing the best capabilities available.
->
->To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
+>**To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com**
 
 ## Next steps
 

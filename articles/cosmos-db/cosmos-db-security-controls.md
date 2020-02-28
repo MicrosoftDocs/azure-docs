@@ -47,7 +47,7 @@ This article documents the security controls built into Azure Cosmos DB.
 | Server-side encryption at rest: customer-managed keys (BYOK) | Yes | See [Configure customer-managed keys for your Azure Cosmos DB account](how-to-setup-cmk.md)  |
 | Column level encryption (Azure Data Services)| Yes | Only in the Tables API Premium. Not all APIs support this feature. See [Introduction to Azure Cosmos DB: Table API](table-introduction.md). |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | All Azure Cosmos DB data is encrypted at transit. |
-| API calls encrypted| Yes | All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB also supports TLS 1.2.<br>It is possible to enforce a minimum TLS version server-side. To do so, please contact [cosmosdbpm@microsoft.com](maito:cosmosdbpm@microsoft.com]). |
+| API calls encrypted| Yes | All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB also supports TLS 1.2.<br>It is possible to enforce a minimum TLS version server-side. To do so, please contact [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com). |
 
 ## Configuration management
 

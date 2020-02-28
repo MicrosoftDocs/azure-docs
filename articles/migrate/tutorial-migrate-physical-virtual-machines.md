@@ -1,22 +1,18 @@
 ---
-title: Migrate on-premises physical machines or virtualized machines to Azure with Azure Migrate Server Migration | Microsoft Docs
-description: This article describes how to migrate on-premises physical machines or virtualized machines to Azure with Azure Migrate Server Migration.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Migrate machines as physical server to Azure with Azure Migrate.
+description: This article describes how to migrate physical machines to Azure with Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.author: raynew
+ms.date: 02/03/2020
 ms.custom: MVC
 ---
 
-# Migrate physical or virtualized servers to Azure 
+# Migrate machines as physical servers to Azure
 
-This article shows you how to migrate physical or virtualized servers to Azure. The Azure Migrate Server Migration tool offers migration of physical and virtualized servers, using agent-based replication. Using this tool, you can migrate a wide range of machines to Azure:
+This article shows you how to migrate machines as physical servers to Azure, using the Azure Migrate:Server Migration tool. Migrating machines by treating them as physical servers is useful in a number of scenarios:
 
 - Migrate on-premises physical servers.
 - Migrate VMs virtualized by platforms such as Xen, KVM.
-- Migrate Hyper-V or VMware VMs. This is useful if for some reason you're unable to use the standard migration flow that Azure Migrate Server Migration offers for [Hyper-V](tutorial-migrate-hyper-v.md), [VMware agentless](tutorial-migrate-vmware.md) migration, or [VMware agent-based](tutorial-migrate-vmware-agent.md) migration.
+- Migrate Hyper-V or VMware VMs, if for some reason you're unable to use the standard migration process for [Hyper-V](tutorial-migrate-hyper-v.md), or [VMware ](server-migrate-overview.md) migration.
 - Migrate VMs running in private clouds.
 - Migrate VMs running in public clouds such as Amazon Web Services (AWS) or Google Cloud Platform (GCP).
 
@@ -60,9 +56,6 @@ Before you begin this tutorial, you should:
 Set up Azure permissions before you can migrate with Azure Migrate Server Migration.
 
 - **Create a project**: Your Azure account needs permissions to create an Azure Migrate project. 
-- **Register the Azure Migrate replication appliance**: The replication appliance creates and registers an Azure Active Directory app in your Azure account. Delegate permissions for this.
-- **Create Key Vault**: To migrate machines, Azure Migrate creates a Key Vault in the resource group, to manage access keys to the replication storage account in your subscription. To create the vault, you need role assignment permissions on the resource group in which the Azure Migrate project resides. 
-
 
 ### Assign permissions to create project
 
@@ -72,43 +65,6 @@ Set up Azure permissions before you can migrate with Azure Migrate Server Migrat
     - If you just created a free Azure account, you're the owner of your subscription.
     - If you're not the subscription owner, work with the owner to assign the role.
 
-### Assign permissions to register the replication appliance
-
-For agent-based migration, delegate permissions for Azure Migrate Server Migration to create and register an Azure AD app in your account. You can assign permissions using one of the following methods:
-
-- A tenant/global admin can grant permissions to users in the tenant, to create and register Azure AD apps.
-- A tenant/global admin can assign the Application Developer role (that has the permissions) to the account.
-
-It's worth noting that:
-
-- The apps don't have any other access permissions on the subscription other than those described above.
-- You only need these permissions when you register a new replication appliance. You can remove the permissions after the replication appliance is set up. 
-
-
-#### Grant account permissions
-
-The tenant/global admin can grant permissions as follows
-
-1. In Azure AD, the tenant/global admin should navigate to **Azure Active Directory** > **Users** > **User Settings**.
-2. The admin should set **App registrations** to **Yes**.
-
-    ![Azure AD permissions](./media/tutorial-migrate-physical-virtual-machines/aad.png)
-
-> [!NOTE]
-> This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
-
-#### Assign Application Developer role 
-
-The tenant/global admin can assign the Application Developer role to an account. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
-
-## Assign permissions to create Key Vault
-
-Assign role assignment permissions on the resource group in which the Azure Migrate project resides, as follows:
-
-1. In the resource group in the Azure portal, select **Access control (IAM)**.
-2. In **Check access**, find the relevant account, and click it to view permissions. You need **Owner** (or **Contributor** and **User Access Administrator**) permissions.
-3. If you don't have the required permissions, request them from the resource group owner. 
-
 ## Prepare for migration
 
 ### Check machine requirements for migration
@@ -116,7 +72,7 @@ Assign role assignment permissions on the resource group in which the Azure Migr
 Make sure machines comply with requirements for migration to Azure. 
 
 > [!NOTE]
-> Agent-based migration with Azure Migrate Server Migration is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
+> Agent-based migration with Azure Migrate Server Migration, has the same replication architecture as the agent based disaster recovery feature of the Azure Site Recovery service, and some of the components used share the same code base. Some requirements might link to Site Recovery documentation.
 
 1. [Verify](migrate-support-matrix-physical-migration.md#physical-server-requirements) physical server requirements.
 2. Verify VM settings. On-premises machines that you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
@@ -170,7 +126,7 @@ The first step of migration is to set up the replication appliance. You  downloa
 
 ### Download the replication appliance installer
 
-1. In the Azure Migrate project > **Servers**, in ***Azure Migrate: Server Migration**, click **Discover**.
+1. In the Azure Migrate project > **Servers**, in **Azure Migrate: Server Migration**, click **Discover**.
 
     ![Discover VMs](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -193,7 +149,7 @@ The first step of migration is to set up the replication appliance. You  downloa
 
     ![Finalize registration](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-It can take up to 15 minutes after finalizing registration until discovered machines appear in Azure Migrate Server Migration. As VMs are discovered, the **Discovered servers** count rises.
+It may take some time after finalizing registration until discovered machines appear in Azure Migrate Server Migration. As VMs are discovered, the **Discovered servers** count rises.
 
 ![Discovered servers](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 
@@ -261,8 +217,7 @@ Now, select machines for migration.
 
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
-4. In **vCenter server**, specify the name of the vCenter server managing the VMs, or the vSphere server on which the VMs are hosted.
-5. In **Process Server**, select the name of the replication appliance.
+4. In **Process Server**, select the name of the replication appliance.
 6. In **Guest credentials**, you specify a VM admin account that will be used for push installation of the Mobility service. In this tutorial we're installing the Mobility service manually, so you can add any dummy account. Then click **Next: Virtual machines**.
 
     ![Replicate VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)

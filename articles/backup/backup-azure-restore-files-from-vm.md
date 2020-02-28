@@ -51,6 +51,8 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
     ![File recovery menu](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
+8. For Linux machines, a python script is generated. One needs to download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
+
 Refer to the [Access requirements](#access-requirements) section to make sure the script is run successfully.
 
 ### Identifying volumes
@@ -198,7 +200,7 @@ If you run the script on a computer with restricted access, ensure there is acce
   - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (For Azure China 21Vianet)
   - <https://pod01-rec2.geo-name.backup.windowsazure.us> (For Azure US Government)
   - <https://pod01-rec2.geo-name.backup.windowsazure.de> (For Azure Germany)
-- outbound port 3260
+- Outbound ports 53 (DNS), 443, 3260
 
 > [!NOTE]
 >

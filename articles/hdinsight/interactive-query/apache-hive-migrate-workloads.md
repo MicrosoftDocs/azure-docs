@@ -178,7 +178,9 @@ In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari 
 |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |Node type(s)|Head|
 
-Wait 5 to 10 minutes, then launch Data Analytics Studio by using this URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
+Wait 10 to 15 minutes, then launch Data Analytics Studio by using this URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
+
+A refresh of the Ambari UI and/or a restart of all Ambari components may be required before accessing DAS.
 
 Once DAS is installed, if you don't see the queries you’ve run in the queries viewer, do the following steps:
 

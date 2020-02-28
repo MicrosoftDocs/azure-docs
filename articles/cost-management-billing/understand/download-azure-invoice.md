@@ -3,14 +3,11 @@ title: View and download your Microsoft Azure invoice
 description: Describes how to view and download your Microsoft Azure invoice.
 keywords: billing invoice,invoice download,azure invoice,azure usage
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/13/2020
 ms.author: banders
 ---
 
@@ -82,7 +79,7 @@ To opt out of getting your invoice by email, follow the preceding steps and clic
 <!-- Does following section apply to MPA too? -->
 ## Get your Microsoft Customer Agreement invoices in email
 
-If you have a billing account for Microsoft Customer Agreement, you can opt in to get your invoice in an email. All users with an owner, contributor, reader, or invoice manager role on a billing profile will get its invoice in email. 
+If you have a billing account for Microsoft Customer Agreement, you can opt in to get your invoice in an email. All users with an owner, contributor, reader, or invoice manager role on a billing profile will get its invoice in email.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -104,11 +101,11 @@ If you have a billing account for Microsoft Customer Agreement, you can opt in t
 
 ## Opt out of getting your Microsoft Customer Agreement invoices in email
 
-To opt out of getting your invoice by email, follow the preceding steps and click **Opt out**. All users with an owner, contributor, reader, or invoice manager role are opted out of getting the invoice in email. 
+To opt out of getting your invoice by email, follow the preceding steps and click **Opt out**. All users with an owner, contributor, reader, or invoice manager role are opted out of getting the invoice in email.
 
 ## Give others access to your Microsoft Customer Agreement invoices
 
-You can give others access to view, download, and pay invoices by assigning them invoice manager role for a billing profile. If you have opted in for getting your invoice in email, these users also get the invoices in email. 
+You can give others access to view, download, and pay invoices by assigning them invoice manager role for a billing profile. If you have opted in for getting your invoice in email, these users also get the invoices in email.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

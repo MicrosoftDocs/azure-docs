@@ -3,18 +3,18 @@ title: Explore data in SQL Server virtual machine - Team Data Science Process
 description: How to explore data that is stored in a SQL Server VM on Azure using SQL or a programming language like Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Explore data in SQL Server Virtual Machine on Azure
 
-This article covers how to explore data that is stored in a SQL Server VM on Azure. This can be done by data wrangling using SQL or by using a programming language like Python.
+This article covers how to explore data that is stored in a SQL Server VM on Azure. Use SQL or Python to examine the data.
 
 This task is a step in the [Team Data Science Process](overview.md).
 
@@ -45,7 +45,7 @@ Here are a few sample SQL scripts that can be used to explore data stores in SQL
 > 
 
 ## <a name="python"></a>Explore SQL data with Python
-Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python, as documented in [Process Azure Blob data in your data science environment](data-blob.md). The data needs to be loaded from the database into a pandas DataFrame and then can be processed further. We document the process of connecting to the database and loading the data into the DataFrame in this section.
+Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python, as documented in [Process Azure Blob data in your data science environment](data-blob.md). Load the data from the database into a pandas DataFrame and then can be processed further. We document the process of connecting to the database and loading the data into the DataFrame in this section.
 
 The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username, and password with your specific values):
 

@@ -19,9 +19,6 @@ Mapping data flows in Azure Data Factory support the use of parameters. You can 
 
 Use this capability to make your data flows general-purpose, flexible, and reusable. You can parameterize data flow settings and expressions with these parameters.
 
-> [!NOTE]
-> To use pipeline control flow expressions, your data flow parameter must be of type string.
-
 ## Create parameters in a mapping data flow
 
 To add parameters to your data flow, click on the blank portion of the data flow canvas to see the general properties. In the settings pane, you will see a tab called **Parameter**. Select **New** to generate a new parameter. For each parameter, you must assign a name, select a type, and optionally set a default value.

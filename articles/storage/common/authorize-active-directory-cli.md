@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/30/2019
+ms.date: 02/26/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -55,7 +55,7 @@ The following example shows how to create a container in a new storage account f
         --name <storage-account> \
         --resource-group sample-resource-group-cli \
         --location eastus \
-        --sku Standard_LRS \
+        --sku Standard_ZRS \
         --encryption-services blob
     ```
 
@@ -67,8 +67,8 @@ The following example shows how to create a container in a new storage account f
 1. Call the [az storage container create](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) command with the `--auth-mode` parameter set to `login` to create the container using your Azure AD credentials:
 
     ```azurecli
-    az storage container create \ 
-        --account-name <storage-account> \ 
+    az storage container create \
+        --account-name <storage-account> \
         --name sample-container \
         --auth-mode login
     ```

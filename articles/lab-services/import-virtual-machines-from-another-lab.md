@@ -1,6 +1,6 @@
 ---
 title: Import virtual machines from another lab in Azure DevTest Labs
-description: Learn how to import virtual machines from another lab into the current lab.
+description: This article describes how to import virtual machines from another lab into the current lab in Azure DevTest Labs.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---

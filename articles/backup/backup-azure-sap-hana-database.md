@@ -19,9 +19,13 @@ In this article, you will learn how to:
 > * Configure backups
 > * Run an on-demand backup job
 
+>[!NOTE]
+>**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
+>To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
+
 ## Prerequisites
 
-Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [setting up permissions](tutorial-backup-sap-hana-db.md#setting-up-permissions) sections to set up the database for backup.
+Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and the [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections to set up the database for backup.
 
 ### Set up network connectivity
 

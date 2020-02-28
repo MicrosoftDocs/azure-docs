@@ -1,17 +1,17 @@
 ---
-title: 'Azure Virtual WAN partners | Microsoft Docs'
+title: 'Azure Virtual WAN partners automation guidelines | Microsoft Docs'
 description: This article helps partners set up Azure Virtual WAN automation.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ---
 
-# Virtual WAN partners
+# Automation guidelines for Virtual WAN partners
 
 This article helps you understand how to set up the automation environment to connect and configure a branch device (a customer on-premises VPN device or SDWAN CPE) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2 or IPsec/IKEv1, this article is for you.
 
@@ -86,7 +86,7 @@ The device configuration file contains the settings to use when configuring your
     * **Address space** of the VNets that are connected to the hub.<br>Example:
 
          ```
-        "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
+        "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
          ```
     * **IP addresses** of the virtual hub vpngateway. Because the vpngateway has each connection comprising of 2 tunnels in active-active configuration, you will see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.<br>Example:
 
@@ -115,7 +115,7 @@ The device configuration file contains the settings to use when configuring your
                "Region":"West Europe",
                "ConnectedSubnets":[ 
                   "10.2.0.0/16",
-                  "10.30.0.0/16"
+                  "10.3.0.0/16"
                ]
             },
             "gatewayConfiguration":{ 

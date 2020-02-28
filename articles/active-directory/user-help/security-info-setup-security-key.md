@@ -2,7 +2,7 @@
 title: Set up a security key as your verification method - Azure AD
 description: How to set up your Security info (preview) page to verify your identity to use a Fast Identity Online (FIDO2) security key as your verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: librown
 
@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
 # Set up a security key as your verification method
