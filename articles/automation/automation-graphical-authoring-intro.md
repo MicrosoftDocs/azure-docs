@@ -25,7 +25,7 @@ You can open the graphical editor in the Azure portal by creating or editing a G
 
 The following sections describe the controls in the graphical editor.
 
-### Canvas
+### Canvas control
 
 The Canvas control allows you to design your runbook. You can add activities from the nodes in the Library control to the runbook and connect them with links to define runbook logic. At the bottom of the canvas, there are controls that allow you to zoom in and out.
 
@@ -243,13 +243,13 @@ Checkpoints are only enabled in Graphical PowerShell Workflow runbooks, and are 
 
 ## Runbook input and output
 
-### Runbook input
+### <a name-"runbook-input"></a>Runbook input
 
 A runbook requires input either from a user starting the runbook through the Azure portal or from another runbook, if the current one is used as a child. For example, for a runbook that creates a virtual machine, the user might need to provide such information as the name of the virtual machine and other properties each time the runbook starts.
 
 The runbook accepts input by defining one or more input parameters. The user provides values for these parameters each time the runbook starts. When the user starts the runbook using the Azure portal, the user is prompted to provide values for each input parameter supported by the runbook.
 
-When authoring your runbook, you can access its input parameters by clicking the **Input and output** button on the runbook toolbar. This opens the **Input and Output** control where you can edit an existing input parameter or create a new one by clicking **Add input**.
+When authoring your runbook, you can access its input parameters by clicking the **Input and output** button on the runbook toolbar. This opens the Input and Output control where you can edit an existing input parameter or create a new one by clicking **Add input**.
 
 ![Add input](media/automation-graphical-authoring-intro/runbook-edit-add-input.png)
 
@@ -257,11 +257,11 @@ Each input parameter is defined by the properties in the following table:
 
 | Property | Description |
 |:--- |:--- |
-| Name |The unique name of the parameter. This name can only contain alphanumeric characters and cannot contain a space. |
-| Description |An optional description for the input parameter. |
-| Type |Data type expected for the parameter value. The Azure portal provides an appropriate control for the data type for each parameter when prompting for input. |
-| Mandatory |Setting that specifies if a value must be provided for the parameter. The runbook cannot be started if you do not provide a value for each mandatory parameter that does not have a default value defined. |
-| Default Value |The value used for the parameter if one is not provided. Set this value to Null or to a specific value. |
+| Name | Required. The name of the parameter. The name must be unique within the runbook. It must start with a letter and can contain only letters, numbers, and underscores. The name cannot contain a space. |
+| Description |Optional. Description of the purpose for the input parameter. |
+| Type | Optional. Data type expected for the parameter value. The Azure portal provides an appropriate control for the data type for each parameter when prompting for input. Supported parameter types are String, Int32, Int64, Decimal, Boolean, DateTime, and Object. If a data type is not selected, it defaults to String.|
+| Mandatory | Optional. Setting that specifies if a value must be provided for the parameter. If you choose **yes**, a value must be provided when the runbook is started. If you choose **no**, a value is not required when the runbook is started, and a default value can be used. The runbook cannot start if you do not provide a value for each mandatory parameter that does not have a default value defined. |
+| Default Value | Optional. The value used for a parameter if one is not passed in when the runbook is started. To set a default value, choose **Custom**. Select **None** if you don’t want to provide any default value. |
 
 ### Runbook output
 
