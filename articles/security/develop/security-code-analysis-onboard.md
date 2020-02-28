@@ -48,7 +48,7 @@ Contact a Partner from the below list and ask to purchase the Microsoft Security
 
 ### Become a Partner
 
-The Microsoft Security Code Analysis team is looking to onboard partners with a Premier Support for Partners agreement. Partners will help empower Azure DevOps customers to develop more securely by selling the extension to customers who wish to purchase it, but don’t have an Enterprise Support agreement with Microsoft. Interested partners can register [here](http://www.microsoftpartnersupport.com/msrd/opin)
+The Microsoft Security Code Analysis team is looking to onboard partners with a Premier Support for Partners agreement. Partners will help empower Azure DevOps customers to develop more securely by selling the extension to customers who wish to purchase it, but don’t have an Enterprise Support agreement with Microsoft. Interested partners can register [here](http://www.microsoftpartnersupport.com/msrd/opin).
 
 ## Installing the Microsoft Security Code Analysis extension
 
