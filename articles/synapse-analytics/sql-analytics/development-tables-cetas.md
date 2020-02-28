@@ -129,6 +129,39 @@ SELECT * FROM population_by_year_state
 
 
 
+## Supported data types
+CETAS can be used to store result sets with following SQL data types:
+
+- binary
+- varbinary
+- char
+- varchar
+- date
+- time
+- datetime2
+- decimal
+- numeric
+- float
+- real
+- bigint
+- int
+- smallint
+- tinyint
+- bit
+
+Following data types cannot be used in SELECT part of CETAS:
+
+- nchar
+- nvarchar
+- datetime
+- smalldatetime
+- datetimeoffset
+- money
+- smallmoney
+- uniqueidentifier
+
+
+
 
 ## Next steps
 
