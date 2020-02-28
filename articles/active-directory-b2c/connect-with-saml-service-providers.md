@@ -59,7 +59,7 @@ If you don't yet have a SAML service provider and an associated metadata endpoin
 
 ## 1. Set up certificates
 
-To build a trust relationship between your service provider and Azure AD B2C, you need to provide X509 certificates and their private keys.
+To build a trust relationship between your service provider and Azure AD B2C, you need to provide the web app X509 certificates.
 
 * **Service provider certificates**
   * Certificate with a private key stored in your Web App. This certificate is used by your service provider to sign the SAML request sent to Azure AD B2C. Azure AD B2C reads the public key from the service provider metadata to validate the signature.
