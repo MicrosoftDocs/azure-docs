@@ -19,7 +19,7 @@ Azure Active Directory is the next evolution of identity and access management s
 
 Azure AD takes this approach to the next level by providing organizations with a new identity access solution for all their apps across cloud and on-premises.
 
-Most IT administrators are familiar with Active Directory Domain Services concepts. The following table outlines the differences and similarities between Actice Directory concepts and Azure Active Directory.
+Most IT administrators are familiar with Active Directory Domain Services concepts. The following table outlines the differences and similarities between Active Directory concepts and Azure Active Directory.
 
 |Concept|Active Directory (AD)|Azure Active Directory |
 |:-|:-|:-|
