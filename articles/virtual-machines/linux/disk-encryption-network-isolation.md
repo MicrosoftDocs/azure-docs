@@ -36,9 +36,9 @@ Any network security group settings that are applied must still allow the endpoi
 
 ## Azure Disk Encryption with Azure AD (previous version)
 
-If using [Azure Disk Encryption with Azure AD (previous version)](disk-encryption-overview-aad), the [Azure Active Directory Library](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) will need to be installed manually for all distros.
+If using [Azure Disk Encryption with Azure AD (previous version)](disk-encryption-overview-aad.md), the [Azure Active Directory Library](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) will need to be installed manually for all distros.
 
-When encryption is being enabled with [Azure AD credentials](disk-encryption-linux-aad.md#), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Office 365 URLs and IP address ranges](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/key-vault-access-behind-firewall.md).
+When encryption is being enabled with [Azure AD credentials](disk-encryption-linux-aad.md), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Office 365 URLs and IP address ranges](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/key-vault-access-behind-firewall.md).
 
 ### Azure Instance Metadata Service 
 
@@ -46,5 +46,5 @@ The virtual machine must be able to access the [Azure Instance Metadata service]
 
 ## Next steps
 
-- See more steps for [Azure disk encryption troubleshooting](azure-disk-encryption-troubleshooting.md)
+- See more steps for [Azure disk encryption troubleshooting](disk-encryption-troubleshooting.md)
 - [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md)
