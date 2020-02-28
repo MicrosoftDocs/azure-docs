@@ -14,7 +14,7 @@ ms.custom: include file
 
 Azure premium SSDs deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (IO)-intensive workloads. To take advantage of the speed and performance of premium storage disks, you can migrate existing VM disks to Premium SSDs. Premium SSDs are suitable for mission-critical production applications. Premium SSDs can only be used with VM series that are premium storage-compatible.
 
-To learn more about individual VM types and sizes in Azure for Windows, including which sizes are premium storage-compatible, see [Windows VM sizes](../articles/virtual-machines/windows/sizes.md). To learn more about individual VM types and sizes in Azure for Linux, including which sizes are premium storage-compatible, see [Linux VM sizes](../articles/virtual-machines/linux/sizes.md).
+To learn more about individual VM types and sizes in Azure for Windows, including which sizes are premium storage compatible, refer to the [Windows VM sizes](../articles/virtual-machines/windows/sizes.md) article. From there, you would need to check each article for the sizes you're interested in to determine if it is premium storage compatible. To learn more about individual VM types and sizes in Azure for Linux, including which sizes are premium storage-compatible, refer tothe [Linux VM sizes](../articles/virtual-machines/linux/sizes.md) article. From there, you would need to check each article for the sizes you're interested in to determine if it is premium storage compatible.
 
 ### Disk size
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
