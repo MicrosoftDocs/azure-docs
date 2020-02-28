@@ -21,10 +21,10 @@ ms.custom: aaddev
 
 Both Microsoft Authentication Library (MSAL) and Azure AD Authentication Library (ADAL) are used to authenticate Azure AD entities and request tokens from Azure AD. Up until now, most developers have worked with Azure AD for developers platform (v1.0) to authenticate Azure AD identities (work and school accounts) by requesting tokens using Azure AD Authentication Library (ADAL). Using MSAL:
 
-- you can authenticate a broader set of Microsoft identities (Azure AD identities and Microsoft accounts, and social and local accounts through Azure AD B2C) as it uses the Microsoft identity platform endpoint,
-- your users will get the best single-sign-on experience.
-- your application can enable incremental consent, and supporting Conditional Access is easier
-- you benefit from the innovation.
+- You can authenticate a broader set of Microsoft identities (Azure AD identities and Microsoft accounts, and social and local accounts through Azure AD B2C) as it uses the Microsoft identity platform endpoint.
+- Your users will get the best single-sign-on experience.
+- Your application can enable incremental consent, and supporting Conditional Access is easier.
+- You benefit from the innovation.
 
 **MSAL is now the recommended auth library to use with the Microsoft identity platform**. No new features will be implemented on ADAL. The efforts are focused on improving MSAL.
 
@@ -32,7 +32,7 @@ The following articles describe the differences between the MSAL and ADAL librar
 - [Migrate to MSAL.NET](msal-net-migration.md)
 - [Migrate to MSAL.js](msal-compare-msal-js-and-adal-js.md)
 - [Migrate to MSAL.Android](migrate-android-adal-msal.md)
-- [Migrate to MSAL.iOS / MacOS](migrate-objc-adal-msal.md)
+- [Migrate to MSAL.iOS / macOS](migrate-objc-adal-msal.md)
 - [Migrate to MSAL Python](migrate-python-adal-msal.md)
 - [Migrate to MSAL for Java](migrate-adal-msal-java.md)
 - [Migrate Xamarin apps using brokers to MSAL.NET](msal-net-migration-ios-broker.md)
