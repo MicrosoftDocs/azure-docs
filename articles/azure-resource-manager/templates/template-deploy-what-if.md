@@ -3,7 +3,7 @@ title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: mumian
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 02/28/2020
 ms.author: jgao
 ---
 # Resource Manager template deployment what-if operation (Preview)
@@ -13,7 +13,7 @@ Before deploying a template, you might want to preview the changes that will hap
 > [!NOTE]
 > The what-if operation is currently in preview. To use it, you must [sign up for the preview](https://aka.ms/armtemplatepreviews). As a preview release, the results may sometimes show that a resource will change when actually no change will happen. We're working to reduce these issues, but we need your help. Please report these issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-You can use the what-if operation with the `New-AzDeploymentWhatIf` PowerShell command or the [Deployments - What If](/rest/api/resources/deployments/whatif) REST operation.
+You can use the what-if operation with the PowerShell commands or REST API operations.
 
 In PowerShell, the output looks like:
 
@@ -37,13 +37,25 @@ The what-if operation lists six different types of changes:
 
 ## Deployment scope
 
-You can use the what-if operation for deployments at either the subscription or resource group level. You set the deployment scope with the `-ScopeType` parameter. The accepted values are `Subscription` and `ResourceGroup`. This article demonstrates resource group deployments.
+You can use the what-if operation for deployments at either the subscription or resource group level. 
+
+For PowerShell, use:
+
+* **Get-AzResourceGroupDeploymentWhatIf** for resource group deployments
+* **Get-AzSubscriptionDeploymentWhatIf** or **Get-AzDeploymentWhatIf** for subscription level deployments
+
+For REST API, use:
+
+* [Deployments - What If](/rest/api/resources/deployments/whatif) for resource group deployments
+* [Deployments - What If At Subscription Scope](/rest/api/resources/deployments/whatifatsubscriptionscope) for subscription level deployments
 
 To learn about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md#).
 
+This article demonstrates resource group deployments.
+
 ## Result format
 
-You can control the level of detail that is returned about the predicted changes. Set the `ResultFormat` parameter to `FullResourcePayloads` to get a list of resources what will change and details about the properties that will change. Set the `ResultFormat` parameter to `ResourceIdOnly` to get a list of resources that will change. The default value is `FullResourcePayloads`.  
+You can control the level of detail that is returned about the predicted changes. Set the **ResultFormat** parameter to **FullResourcePayloads** to get a list of resources what will change and details about the properties that will change. Set the **ResultFormat** parameter to **ResourceIdOnly** to get a list of resources that will change. The default value is `FullResourcePayloads`.  
 
 The following screenshots show the two different output formats:
 
@@ -75,22 +87,40 @@ New-AzResourceGroupDeployment `
 After the deployment completes, you're ready to test the what-if operation. Run the what-if command but change the storage account type to `Standard_GRS`.
 
 ```azurepowershell-interactive
-New-AzDeploymentWhatIf `
-  -ScopeType ResourceGroup `
+Get-AzResourceGroupDeploymentWhatIf `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" `
   -storageAccountType Standard_GRS
 ```
 
-The what-if output is similar to:
+The what-if output appears similar to:
 
 ![Resource Manager template deployment what-if operation output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output.png)
+
+The text output is:
+
+```powershell
+Resource and property changes are indicated with these symbols:
+  - Delete
+  ~ Modify
+
+The deployment will update the following scope:
+
+Scope: /subscriptions/./resourceGroups/ExampleGroup
+
+  ~ Microsoft.Storage/storageAccounts/storez2wlfuvcm4awc [2019-04-01]
+    - properties.accessTier:               "Hot"
+    ~ properties.supportsHttpsTrafficOnly: true => "true"
+    ~ sku.name:                            "Standard_LRS" => "Standard_GRS"
+
+Resource changes: 1 to modify.
+```
 
 Notice at the top of the output that colors are defined to indicate the type of changes.
 
 At the bottom of the output, it shows the sku name (storage account type) will be changed from **Standard_LRS** to **Standard_GRS**.
 
-Some of the properties that are listed as deleted won't actually change. In the preceding image, these properties are accessTier, encryption.keySource and others in that section. Properties can be incorrectly reported as deleted when they aren't in the template, but are automatically set during deployment as default values. This result is considered "noise" in the what-if response. The final deployed resource will have the values set for the properties. As the what-if operation matures, these properties will be filtered out of the result.
+Some of the properties that are listed as deleted won't actually change. In the preceding image, the accessTier property is listed as being deleted. Properties can be incorrectly reported as deleted when they aren't in the template, but are automatically set during deployment as default values. This result is considered "noise" in the what-if response. The final deployed resource will have the values set for the properties. As the what-if operation matures, these properties will be filtered out of the result.
 
 ### Test deletion
 
