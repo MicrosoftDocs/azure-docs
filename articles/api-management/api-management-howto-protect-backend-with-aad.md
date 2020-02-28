@@ -75,7 +75,9 @@ Every client application that calls the API needs to be registered as an applica
     - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, such as *client-app*. 
     - In the **Supported account types** section, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
 
-1. In the **Redirect URI** section, select `Web` and enter the URL `https://contoso5.portal.azure-api.net/signin`.
+1. In the **Redirect URI** section, select `Web` and enter the URL as follows
+    - For legacy portal `https://contoso5.portal.azure-api.net/signin-aad`.
+    - For new developer portal `https://contoso5.developer.azure-api.net/signin`.
 
 1. Select **Register** to create the application. 
 
