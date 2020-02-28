@@ -22,7 +22,7 @@ Azure Media Services encoding service is a regional batch processing platform an
 
 By following the guidelines and best-practices described in the article, you will lower risk of encoding failures, delays, and minimize recovery time if an outage occurs in a single region.
 
-## How to build a cross regional encoding system
+## How to build a cross-regional encoding system
 
 * [Create](create-account-cli-how-to.md) two (or more) Azure Media Services accounts.
 * Subscribe for **JobStateChange** messages in each account.
@@ -56,7 +56,7 @@ If you find the MRU count is thrashing up and down a lot, move the decrement log
 
 * Video-on-demand cross region streaming involves duplicating [Assets](assets-concept.md), [Content Key Policies](content-key-policy-concept.md) (if used), [Streaming Policies](streaming-policy-concept.md), and [Streaming Locators](streaming-locators-concept.md). 
 * You will have to create the policies in both regions and keep them up to date. 
-* When you create the StreamingLocators you will want to use the same LocatorId value, ContentKey Id value, and ContentKey value.  
+* When you create the streaming locators, you will want to use the same LocatorId value, ContentKey Id value, and ContentKey value.  
 * If you are encoding the content, it is advised to encode the content in region A and publish it, then copy the encoded content to region B and publish it using the same values as from region A.
 * You can use traffic manager on the host names for the origin and the key delivery service (in Media Services configuration this will look like a custom key server URL).
 
