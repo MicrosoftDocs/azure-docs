@@ -22,7 +22,7 @@ You can't delete a Recovery Services vault that has dependencies, such as protec
 
   ![Delete the protected server error.](./media/backup-azure-delete-vault/error-message.jpg)
 
-- If backup items are in soft deleted state below warning message appears and you will have to wait until they are permanently deleted. For more information, see this [article](https://aka.ms/SoftDeleteCloudWorkloads).
+- If backup items are in soft deleted state below warning message appears and you will have to wait until they are permanently deleted. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
    ![Delete the vault error.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   

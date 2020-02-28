@@ -4,6 +4,7 @@ description: Storage account keys provide seamless integration between Azure Key
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
@@ -49,7 +50,7 @@ To complete this guide, you must first do the following:
 
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 - [Create a key vault](quick-create-cli.md)
-- [Create an Azure storage account](../storage/common/storage-quickstart-create-account.md?tabs=azure-cli). The storage account name must use only lowercase letters and numbers. The length of the name must be between 3 and 24 characters.
+- [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-cli). The storage account name must use only lowercase letters and numbers. The length of the name must be between 3 and 24 characters.
       
 ## Manage storage account keys
 

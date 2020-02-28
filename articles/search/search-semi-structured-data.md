@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Index semi-strutured data in JSON blobs'
+title: 'Tutorial: Index semi-structured data in JSON blobs'
 titleSuffix: Azure Cognitive Search
 description: Learn how to index and search semi-structured Azure JSON blobs using Azure Cognitive Search REST APIs and Postman.
 
@@ -8,15 +8,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/28/2020
 #Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Cognitive Search.
 ---
 
-# REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search
+# Tutorial: Index JSON blobs from Azure Storage using REST
 
 Azure Cognitive Search can index JSON documents and arrays in Azure blob storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
 
-In this tutorial, use the [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/) and a REST client to perform the following tasks:
+This tutorial uses Postman and the [Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Configure an Azure Cognitive Search data source for an Azure blob container
@@ -24,15 +24,18 @@ In this tutorial, use the [Azure Cognitive Search REST APIs](https://docs.micros
 > * Configure and run an indexer to read the container and extract searchable content from Azure blob storage
 > * Search the index you just created
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
-The following services, tools, and data are used in this quickstart. 
++ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Postman desktop app](https://www.getpostman.com/)
++ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-[Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
+> [!Note]
+> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data.
-
-[Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Cognitive Search.
+## Download files
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contains the data used in this tutorial. Download and unzip this file to its own folder. Data originates from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), converted to JSON for this tutorial.
 
@@ -80,7 +83,7 @@ Execute the following three API calls from your REST client.
 
 ## Create a data source
 
-The [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)creates an Azure Cognitive Search object that specifies what data to index.
+The [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) creates an Azure Cognitive Search object that specifies what data to index.
 
 The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Replace `[service name]` with the name of your search service. 
 
@@ -123,7 +126,7 @@ The response should look like:
 
 ## Create an index
     
-The second call is [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-indexer), creating an Azure Cognitive Search index that stores all searchable data. An index specifies all the parameters and their attributes.
+The second call is [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index), creating an Azure Cognitive Search index that stores all searchable data. An index specifies all the parameters and their attributes.
 
 The URL for this call is `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Replace `[service name]` with the name of your search service.
 
@@ -280,13 +283,27 @@ If you'd like to experiment and try a few more queries yourself, feel free to do
 
 The `$filter` parameter only works with metadata that were marked filterable at the creation of your index.
 
+## Reset and rerun
+
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+
+You can use the portal to delete indexes, indexers, and data sources. Or use **DELETE** and provide URLs to each object. The following command deletes an indexer.
+
+```http
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+```
+
+Status code 204 is returned on successful deletion.
+
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Cognitive Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Cognitive Search service.
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the All resources or Resource groups link in the left-navigation pane.
 
 ## Next steps
 
-There are several approaches and multiple options for indexing JSON blobs. As a next step, review and test the various options to see what works best for your scenario.
+Now that you're familiar with the basics of Azure Blob indexing, let's take a closer look at indexer configuration.
 
 > [!div class="nextstepaction"]
-> [How to index JSON blobs using Azure Cognitive Search Blob indexer](search-howto-index-json-blobs.md)
+> [Configure an Azure Blob storage indexer](search-howto-indexing-azure-blob-storage.md)

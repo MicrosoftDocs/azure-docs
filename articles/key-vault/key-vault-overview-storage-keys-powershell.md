@@ -3,6 +3,7 @@ title: Azure Key Vault managed storage account - PowerShell version
 description: The managed storage account feature provides a seamless integration, between Azure Key Vault and an Azure storage account.
 ms.topic: conceptual
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
@@ -50,7 +51,7 @@ To complete this guide, you must first do the following:
 
 - [Install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.6.0).
 - [Create a key vault](quick-create-powershell.md)
-- [Create an Azure storage account](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell). The storage account name must use only lowercase letters and numbers. The length of the name must be between 3 and 24 characters.
+- [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-powershell). The storage account name must use only lowercase letters and numbers. The length of the name must be between 3 and 24 characters.
       
 
 ## Manage storage account keys

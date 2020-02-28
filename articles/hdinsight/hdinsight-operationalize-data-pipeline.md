@@ -535,13 +535,9 @@ The three preceding points combine to yield a situation where the coordinator sc
 
 As with workflows, the configuration of a coordinator is defined in a `job.properties` file, which has a superset of the settings used by the workflow.
 
-```
+```text
 nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
-<<<<<<< HEAD
-jobTracker=[ACTIVE-HEADNODE-NAME].[UNIQUESTRING].dx.internal.cloudapp.net:8050
-=======
 jobTracker=[ACTIVERESOURCEMANAGER]:8050
->>>>>>> 50a435bd9528fcbaac7bc5ab96745734e63167da
 queueName=default
 oozie.use.system.libpath=true
 appBase=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie

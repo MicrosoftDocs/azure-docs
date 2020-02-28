@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
@@ -36,7 +36,18 @@ This tutorial shows you how to use a system-assigned managed identity for a Wind
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## Create account
+
+
+## Enable
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## Grant access
+
+
+### Create storage account
 
 In this section, you create a storage account.
 
@@ -49,7 +60,7 @@ In this section, you create a storage account.
 
     ![Create new storage account](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## Create a blob container and upload a file to the storage account
+### Create a blob container and upload a file to the storage account
 
 Files require blob storage so you need to create a blob container in which to store the file. You then upload a file to the blob container in the new storage account.
 
@@ -65,7 +76,7 @@ Files require blob storage so you need to create a blob container in which to st
 7. In the **Upload blob** pane, under **Files**, click the folder icon and browse to the file **hello_world.txt** on your local machine, select the file, then click **Upload**.
     ![Upload text file](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## Grant access
+### Grant access
 
 This section shows how to grant your VM access to an Azure Storage container. You can use the VM's system-assigned managed identity to retrieve the data in the Azure storage blob.
 
@@ -79,7 +90,7 @@ This section shows how to grant your VM access to an Azure Storage container. Yo
 
     ![Assign permissions](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## Get an access token 
+## Access data 
 
 Azure Storage natively supports Azure AD authentication, so it can directly accept access tokens obtained using a managed identity. This is part of Azure Storage's integration with Azure AD, and is different from supplying credentials on the connection string.
 
@@ -156,6 +167,13 @@ namespace StorageOAuthToken
 The response contains the contents of the file:
 
 `Hello world! :)`
+
+
+## Disable
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## Next steps
 

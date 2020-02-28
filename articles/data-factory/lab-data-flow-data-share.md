@@ -94,7 +94,7 @@ To turn on debug, click the **Data flow debug** slider in the factory top bar. C
 
 ![Portal](media/lab-data-flow-data-share/configure10.png)
 
-## Ingest data from Azure SQL DB into ADLS gen2 using the copy activity
+## Ingest data using the copy activity
 
 In this section, you'll create a pipeline with a copy activity that ingests one table from an Azure SQL DB into an ADLS gen2 storage account. You'll learn how to add a pipeline, configure a dataset and debug a pipeline via the ADF UX. The configuration pattern used in this section can be applies to copying from a relational data store to a file-based data store.
 

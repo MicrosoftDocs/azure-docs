@@ -17,25 +17,9 @@ Azure Functions expects a function to be a stateless method in your Python scrip
 
 Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the *function.json* file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
 
-```json
-{
-  "bindings": [
-    {
-      "name": "req",
-      "direction": "in",
-      "type": "httpTrigger",
-      "authLevel": "anonymous"
-    },
-    {
-      "name": "$return",
-      "direction": "out",
-      "type": "http"
-    }
-  ]
-}
-```
+:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
-The `__init__.py` file contains the following function code:
+Based on this definition, the `__init__.py` file that contains the function code might look like the following example:
 
 ```python
 def main(req):
@@ -43,7 +27,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-you can also explicitly declare the attribute types and return type in the function using Python type annotations. This helps you use the intellisense and autocomplete features provided by many Python code editors.
+You can also explicitly declare the attribute types and return type in the function using Python type annotations. This helps you use the intellisense and autocomplete features provided by many Python code editors.
 
 ```python
 import azure.functions
@@ -278,7 +262,7 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ## Scaling and concurrency
 
-By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the consumption and premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
+By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
 This scaling behavior is sufficient for many applications. Applications with any of the following characteristics, however, may not scale as effectively:
 
@@ -378,7 +362,7 @@ For local development, application settings are [maintained in the local.setting
 
 ## Python version 
 
-Currently, Azure Functions supports both Python 3.6.x and 3.7.x (official CPython distributions). When running locally, the runtime uses the available Python version. To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command.  
+Currently, Azure Functions supports both Python 3.6.x and 3.7.x (official CPython distributions). When running locally, the runtime uses the available Python version. To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. Version change is allowed only on Function App creation.  
 
 ## Package management
 

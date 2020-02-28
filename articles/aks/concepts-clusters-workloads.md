@@ -2,12 +2,9 @@
 title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
 description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: mlearned
+
 ---
 
 # Kubernetes core concepts for Azure Kubernetes Service (AKS)
@@ -102,7 +99,7 @@ To maintain node performance and functionality, resources are reserved on each n
     - 6% of the next 112 GB of memory (up to 128 GB)
     - 2% of any memory above 128 GB
 
-The above rules for memory and CPU allocation are used to keep agent nodes healthy, some hosting system pods critical to cluster health. These allocation rules also cause the node to report less allocatable memory and CPU than it would if it were not part of a Kubernetes cluster. The above resource reservations can't be changed.
+The above rules for memory and CPU allocation are used to keep agent nodes healthy, including some hosting system pods that are critical to cluster health. These allocation rules also cause the node to report less allocatable memory and CPU than it would if it were not part of a Kubernetes cluster. The above resource reservations can't be changed.
 
 For example, if a node offers 7 GB, it will report 34% of memory not allocatable on top of the 750Mi hard eviction threshold.
 
@@ -220,7 +217,7 @@ There are two Kubernetes resources that let you manage these types of applicatio
 
 ### StatefulSets
 
-Modern application development often aims for stateless applications, but *StatefulSets* can be used for stateful applications, such as applications that include database components. A StatefulSet is similar to a deployment in that one or more identical pods are created and managed. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrades, and terminations. With a StatefulSet, the naming convention, network names, and storage persist as replicas are rescheduled.
+Modern application development often aims for stateless applications, but *StatefulSets* can be used for stateful applications, such as applications that include database components. A StatefulSet is similar to a deployment in that one or more identical pods are created and managed. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrades, and terminations. With a StatefulSet (as replicas are rescheduled) the naming convention, network names, and storage persist.
 
 You define the application in YAML format using `kind: StatefulSet`, and the StatefulSet Controller then handles the deployment and management of the required replicas. Data is written to persistent storage, provided by Azure Managed Disks or Azure Files. With StatefulSets, the underlying persistent storage remains even when the StatefulSet is deleted.
 
@@ -288,4 +285,4 @@ This article covers some of the core Kubernetes components and how they apply to
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
-[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
+[reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md

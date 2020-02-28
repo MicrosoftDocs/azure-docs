@@ -48,7 +48,6 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 
 -   If many `servers` are specified, API Management will try to select the first HTTPs URL. If there aren't any HTTPs URLs - the first HTTP URL. If there aren't any HTTP URLs - the server URL will be empty.
 -   `Examples` isn't supported, but `example` is.
--   `Multipart/form-data` isn't supported.
 
 ## OpenAPI import, update, and export mechanisms
 

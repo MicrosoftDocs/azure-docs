@@ -7,6 +7,7 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
@@ -38,10 +39,10 @@ The following descriptions correspond to the green lettered steps in the precedi
 The following descriptions correspond to the green lettered steps in the preceding diagram.
 
 1. In the diagram above, your application is creating a certificate which internally begins by creating a key in your key vault.
-2. Key Vault sends and SSL Certificate Request to the CA.
+2. Key Vault sends an TLS/SSL Certificate Request to the CA.
 3. Your application polls, in a loop and wait process, for your Key Vault for certificate completion. The certificate creation is complete when Key Vault receives the CA’s response with x509 certificate.
-4. The CA responds to Key Vault's SSL Certificate Request with an X509 SSL Certificate.
-5. Your new certificate creation completes with the merger of the X509 Certificate for the CA.
+4. The CA responds to Key Vault's TLS/SSL Certificate Request with an TLS/SSL X.509 certificate.
+5. Your new certificate creation completes with the merger of the TLS/SSL X.509 certificate for the CA.
 
 ## Asynchronous process
 KV certificate creation is an asynchronous process. This operation will create a KV certificate request and return an http status code of 202 (Accepted). The status of the request can be tracked by polling the pending object created by this operation. The full URI of the pending object is returned in the LOCATION header.  

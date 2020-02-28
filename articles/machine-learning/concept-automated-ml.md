@@ -93,11 +93,12 @@ In every automated machine learning experiment, your data is automatically scale
 
 ### Advanced preprocessing: optional featurization
 
-Additional advanced preprocessing and featurization are also available, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting with:
+Additional advanced preprocessing and featurization are also available, such as data guardrails, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#featurization). 
+Enable this setting with:
 
-+ Azure Machine Learning studio: Selecting the **View featurization settings** in the **Configuration Run** section [with these steps](how-to-create-portal-experiments.md).
++ Azure Machine Learning studio: Enable **Automatic featurization** in the **View additional configuration** section [with these steps](how-to-create-portal-experiments.md#create-and-run-experiment).
 
-+ Python SDK: Specifying `"feauturization": auto' / 'off' / FeaturizationConfig` for the [`AutoMLConfig` class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
++ Python SDK: Specifying `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` for the [`AutoMLConfig` class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 ## Prevent over-fitting
 
@@ -160,7 +161,7 @@ Learn more and see an example of [automated machine learning for time series for
 
 * holiday detection and featurization
 * time-series and DNN learners (Auto-ARIMA, Prophet, ForecastTCN)
-* many model support through grouping
+* many models support through grouping
 * rolling-origin cross validation
 * configurable lags
 * rolling window aggregate features
@@ -210,22 +211,71 @@ The following techniques are additional options to handle imbalanced data outsid
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. The ONNX runtime supports  C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Try an example of this flow [in this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 
-## Automated ML across Microsoft
+## Automated ML in Azure Machine Learning
 
-Automated ML is also available in other Microsoft solutions such as:
+Azure Machine Learning offers two experiences for working with automated ML
 
-|Integrations|Description|
-|------------|-----------|
-|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Automatic model selection and training in .NET apps using Visual Studio and Visual Studio Code with ML.NET automated ML (preview).|
-|[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Scale out your automated ML training jobs on Spark in HDInsight clusters in parallel.|
-|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invoke machine learning models directly in Power BI (preview).|
-|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Create new machine learning models over your data in SQL Server 2019 big data clusters.|
+* For code experienced customers, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+
+* For limited/no code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/)  
+
+The following summarizes the high level automated ML capabilities supported in each experience.
+
+<a name="parity"></a>
+
+### Experiment settings 
+
+The following settings allow you to configure your automated ML experiment. 
+
+| | Python SDK| studio
+----|:----:|:----:
+Split data into train/validation sets| ✓|✓
+Supports ML tasks: classification, regression and forecasting| ✓| ✓
+Optimizes based on primary metric| ✓| ✓
+Supports AML compute as compute target | ✓|✓
+Configure forecast horizon, target lags & rolling window|✓|✓
+Set exit criteria |✓|✓ 
+Set concurrent iterations| ✓|✓
+Drop columns| ✓|✓
+Block algorithms|✓|✓
+Cross validation |✓|✓
+Supports training on Azure Databricks clusters| ✓|
+View engineered feature names|✓|
+Featurization summary| ✓|
+Holiday featurization|✓|
+Verbosity level for log files| ✓|
+
+### Model settings
+
+These settings can be applied to the best model as a result of your automated ML experiment.
+
+||Python SDK|studio
+----|:----:|:----:
+Best model registration| ✓|✓
+Best model deployment| ✓| ✓
+Best model explainability| ✓|✓
+Enable voting ensemble & stack ensemble models| ✓|✓
+Show best model based on non-primary metric|✓|Enable/disable ONNX model compatibility|✓|
+Test the model | ✓| |
+
+### Run control settings
+
+These settings allow you to review and control your experiment runs and its child runs. 
+
+||Python SDK| studio
+----|:----:|:----:
+Run summary table| ✓|✓
+Cancel run| ✓|✓
+Cancel child run| ✓| ✓
+Get guardrails| ✓|✓
+Pause run| ✓| 
+Resume run| ✓| 
 
 ## Next steps
 
 See examples and learn how to build models using automated machine learning:
 
-+ Follow the [Tutorial: Automatically train a regression model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
++ Follow the [Tutorial: Automatically train a regression model with Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Configure the settings for automatic training experiment:
   + In Azure Machine Learning studio, [use these steps](how-to-create-portal-experiments.md).
@@ -234,3 +284,7 @@ See examples and learn how to build models using automated machine learning:
 + Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).
 
 + Try out [Jupyter Notebook samples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
+
+* Automated ML is also available in other Microsoft solutions such as, 
+[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), 
+[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) and [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2019
+ms.date: 1/30/2020
 ms.author: mlottner
 
 ---
@@ -189,14 +189,21 @@ function SendSecurityMessage(messageContent)​
 
 #### Python API
 
+To use the Python API you need to install the package [azure-iot-device](https://pypi.org/project/azure-iot-device/).
+
+When using the Python API, you can either send the security message through the module or through the device using the unique device or module connection string. When using the following Python script example, with a device, use **IoTHubDeviceClient**, and with a module, use **IoTHubModuleClient**. 
+
 ```python
+from azure.iot.device.aio import IoTHubDeviceClient, IoTHubModuleClient
+from azure.iot.device import Message
+
 async def send_security_message_async(message_content):
     conn_str = os.getenv("<connection_string>")​
     device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)​
     await device_client.connect()​
     security_message = Message(message_content)​
     security_message.set_as_security_message()​
-    await device_client.send_d2c_message(security_message)​
+    await device_client.send_message(security_message)​
     await device_client.disconnect()
 ```
 

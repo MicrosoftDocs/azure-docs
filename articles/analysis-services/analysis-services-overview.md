@@ -4,7 +4,7 @@ description: Learn about Azure Analysis Services, a fully managed platform as a 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 02/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -30,7 +30,7 @@ Azure Analysis Services integrates with many Azure services enabling you to buil
 
 ## The right tier when you need it
 
-Azure Analysis Services is available in **Developer**, **Basic**, and **Standard** tiers. Within each tier, plan costs vary according to processing power, QPUs, and memory size. When you create a server, you select a plan within a tier. You can change plans up or down within the same tier, or upgrade to a higher tier, but you can't downgrade from a higher tier to a lower tier.
+Azure Analysis Services is available in **Developer**, **Basic**, and **Standard** tiers. Within each tier, plan costs vary according to processing power, Query Processing Units (QPUs), and memory size. When you create a server, you select a plan within a tier. You can change plans up or down within the same tier, or upgrade to a higher tier, but you can't downgrade from a higher tier to a lower tier.
 
 ### Developer tier
 
@@ -43,7 +43,7 @@ This tier is recommended for evaluation, development, and test scenarios. A sing
 
 ### Basic tier
 
-The tier is recommended for production solutions with smaller tabular models, limited user concurrency, and simple data refresh requirements. Query replica scale out *is not available* for this tier. Perspectives, multiple partitions, and DirectQuery tabular model features *are not supported* in this tier.  
+The tier is recommended for production solutions with smaller tabular models, limited user concurrency, and simple data refresh requirements. Query replica scale-out *is not available* for this tier. Perspectives, multiple partitions, and DirectQuery tabular model features *are not supported* in this tier.  
 
 |Plan  |QPUs  |Memory (GB)  |
 |---------|---------|---------|
@@ -134,7 +134,7 @@ Azure Analysis Services is compatible with many great features already in SQL Se
 
 Tabular models in both in-memory and DirectQuery modes are supported. In-memory mode (default) tabular models support multiple data sources. Because model data is highly compressed and cached in-memory, this mode provides the fastest query response over large amounts of data. It also provides the greatest flexibility for complex datasets and queries. Partitioning enables incremental loads, increases parallelization, and reduces memory consumption. Other advanced data modeling features like calculated tables, and all DAX functions are supported. In-memory models must be refreshed (processed) to update cached data from data sources. With Azure service principal support, unattended refresh operations using PowerShell, TOM, TMSL and REST offer flexibility in making sure your model data is always up to date. 
 
-DirectQuery mode* leverages the backend relational database for storage and query execution. Extremely large data sets in single SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle, and Teradata data sources are supported. Backend data sets can exceed available server resource memory. Complex data model refresh scenarios aren't needed. There are also some restrictions, such as limited data source types, DAX formula limitations, and some advanced data modeling features aren't supported. Before determining the best mode for you, see [Direct Query mode](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
+DirectQuery mode* leverages the backend relational database for storage and query execution. Extremely large data sets in single SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics (SQL Data Warehouse), Oracle, and Teradata data sources are supported. Backend data sets can exceed available server resource memory. Complex data model refresh scenarios aren't needed. There are also some restrictions, such as limited data source types, DAX formula limitations, and some advanced data modeling features aren't supported. Before determining the best mode for you, see [Direct Query mode](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* Feature availability depends on tier.
 
@@ -229,7 +229,7 @@ Azure Analysis Services also supports using [Dynamic Management Views (DMVs)](ht
 
 Documentation specific to Azure Analysis Services is included here. Use the table of contents on the left side of your browser screen to find articles. 
 
-Because Azure Analysis Services tabular models are much the same as tabular models in SQL Server Analysis Services, there's an extensive library of shared conceptual, procedural, developer, and reference articles in [SQL Server Analysis Services Documentation](https://docs.microsoft.com/analysis-services/analysis-services-overview). Articles in the SQL Server Analysis Services documentation show if they also apply to Azure Analysis Services by an APPLIES TO banner beneath the title.
+Because Azure Analysis Services tabular models are much the same as tabular models in SQL Server Analysis Services, there's an extensive library of shared data modeling tutorials, conceptual, procedural, developer, and reference articles in [SQL Server Analysis Services documentation](https://docs.microsoft.com/analysis-services/analysis-services-overview). Articles in the SQL Server Analysis Services documentation show if they also apply to Azure Analysis Services by an APPLIES TO banner beneath the title.
 
 ![Shared documentation](./media/analysis-services-overview/aas-overview-applies-to.png)
 

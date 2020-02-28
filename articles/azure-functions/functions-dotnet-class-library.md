@@ -132,7 +132,7 @@ public static class BindingExpressionsExample
 
 The build process creates a *function.json* file in a function folder in the build folder. As noted earlier, this file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. 
 
-The purpose of this file is to provide information to the scale controller to use for [scaling decisions on the consumption plan](functions-scale.md#how-the-consumption-and-premium-plans-work). For this reason, the file only has trigger info, not input or output bindings.
+The purpose of this file is to provide information to the scale controller to use for [scaling decisions on the Consumption plan](functions-scale.md#how-the-consumption-and-premium-plans-work). For this reason, the file only has trigger info, not input or output bindings.
 
 The generated *function.json* file includes a `configurationSource` property that tells the runtime to use .NET attributes for bindings, rather than *function.json* configuration. Here's an example:
 
@@ -200,7 +200,7 @@ If you install the Core Tools by using npm, that doesn't affect the Core Tools v
 
 ## Supported types for bindings
 
-Each binding has its own supported types; for instance, a blob trigger attribute can be applied to a string parameter, a POCO parameter, a `CloudBlockBlob` parameter, or any of several other supported types. The [binding reference article for blob bindings](functions-bindings-storage-blob.md#trigger---usage) lists all supported parameter types. For more information, see [Triggers and bindings](functions-triggers-bindings.md) and the [binding reference docs for each binding type](functions-triggers-bindings.md#next-steps).
+Each binding has its own supported types; for instance, a blob trigger attribute can be applied to a string parameter, a POCO parameter, a `CloudBlockBlob` parameter, or any of several other supported types. The [binding reference article for blob bindings](functions-bindings-storage-blob-trigger.md#usage) lists all supported parameter types. For more information, see [Triggers and bindings](functions-triggers-bindings.md) and the [binding reference docs for each binding type](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -350,7 +350,7 @@ Define an imperative binding as follows:
 
 ### Single attribute example
 
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#output)
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob-output.md)
 with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs

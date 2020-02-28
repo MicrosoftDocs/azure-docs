@@ -66,7 +66,7 @@ Run Azure IoT Tools for Visual Studio Code with various management options.
 
 2. Enter the method name and payload in input box.
 
-3. Results will be shown in **OUTPUT** > **Azure IoT Hub Toolkit** view.
+3. Results will be shown in **OUTPUT** > **Azure IoT Hub** view.
 
 ## Read device twin
 
@@ -90,7 +90,7 @@ To send a message from your IoT hub to your device, follow these steps:
 
 2. Enter the message in input box.
 
-3. Results will be shown in **OUTPUT** > **Azure IoT Hub Toolkit** view.
+3. Results will be shown in **OUTPUT** > **Azure IoT Hub** view.
 
 ## Next steps
 

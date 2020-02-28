@@ -4,15 +4,15 @@ description: How to add data to a new storage volume for use with the Avere vFXT
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: rohogue
 ---
 
 # Moving data to the vFXT cluster - Parallel data ingest
 
-After you've created a new vFXT cluster, your first task might be to move data onto its new storage volume. However, if your usual method of moving data is issuing a simple copy command from one client, you will likely see a slow copy performance. Single-threaded copying is not a good option for copying data to the Avere vFXT cluster's backend storage.
+After you've created a new vFXT cluster, your first task might be to move data onto a new storage volume in Azure. However, if your usual method of moving data is issuing a simple copy command from one client, you will likely see a slow copy performance. Single-threaded copying is not a good option for copying data to the Avere vFXT cluster's back-end storage.
 
-Because the Avere vFXT cluster is a scalable multi-client cache, the fastest and most efficient way to copy data to it is with multiple clients. This technique parallelizes ingestion of the files and objects.
+Because the Avere vFXT for Azure cluster is a scalable multi-client cache, the fastest and most efficient way to copy data to it is with multiple clients. This technique parallelizes ingestion of the files and objects.
 
 ![Diagram showing multi-client, multi-threaded data movement: At the top left, an icon for on-premises hardware storage has multiple arrows coming from it. The arrows point to four client machines. From each client machine three arrows point toward the Avere vFXT. From the Avere vFXT, multiple arrows point to Blob storage.](media/avere-vfxt-parallel-ingest.png)
 
@@ -39,12 +39,12 @@ The data ingestor VM is part of a tutorial where the newly created VM mounts the
 
 ## Strategic planning
 
-When building a strategy to copy data in parallel, you should understand the tradeoffs in file size, file count, and directory depth.
+When designing a strategy to copy data in parallel, you should understand the tradeoffs in file size, file count, and directory depth.
 
 * When files are small, the metric of interest is files per second.
 * When files are large (10MiBi or greater), the metric of interest is bytes per second.
 
-Each copy process has a throughput rate and a files-transferred rate, which can be measured by timing the length of the copy command and factoring the file size and file count. Explaining how to measure the rates is outside the scope of this document, but it is imperative to understand whether you’ll be dealing with small or large files.
+Each copy process has a throughput rate and a files-transferred rate, which can be measured by timing the length of the copy command and factoring the file size and file count. Explaining how to measure the rates is outside the scope of this document, but it is important to understand whether you’ll be dealing with small or large files.
 
 ## Manual copy example
 
@@ -273,7 +273,7 @@ This method is a simple and time-effective method for datasets up to the number 
 
 ## Use the msrsync utility
 
-The ``msrsync`` tool also can be used to move data to a backend core filer for the Avere cluster. This tool is designed to optimize bandwidth usage by running multiple parallel ``rsync`` processes. It is available from GitHub at <https://github.com/jbd/msrsync>.
+The ``msrsync`` tool also can be used to move data to a back-end core filer for the Avere cluster. This tool is designed to optimize bandwidth usage by running multiple parallel ``rsync`` processes. It is available from GitHub at <https://github.com/jbd/msrsync>.
 
 ``msrsync`` breaks up the source directory into separate “buckets” and then runs individual ``rsync`` processes on each bucket.
 
@@ -318,7 +318,7 @@ To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, foll
 
 ## Use the parallel copy script
 
-The ``parallelcp`` script also can be useful for moving data to your vFXT cluster's backend storage.
+The ``parallelcp`` script also can be useful for moving data to your vFXT cluster's back-end storage.
 
 The script below will add the executable `parallelcp`. (This script is designed for Ubuntu; if using another distribution, you must install ``parallel`` separately.)
 

@@ -61,7 +61,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
    > [!NOTE]
-   > For the Application Gateway v2 SKU, you can only choose **Public** frontend IP configuration. Only Private frontend IP configuration (Only ILB mode) is currently not enabled for this v2 SKU. You can have both Public and Private frontend IP configuration.
+   > For the Application Gateway v2 SKU, there must be a **Public** frontend IP configuration. You can still have both a Public and a Private frontend IP configuration, but Private only frontend IP configuration (Only ILB mode) is currently not enabled for the v2 SKU. 
 
 2. Choose **Create new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 

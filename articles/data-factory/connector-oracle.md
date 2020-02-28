@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 02/13/2020
 ms.author: jingwang
 
 ---
@@ -42,7 +42,6 @@ Specifically, this Oracle connector supports:
     - Oracle 9i R2 (9.2) and higher
     - Oracle 8i R3 (8.1.7) and higher
     - Oracle Database Cloud Exadata Service
-- Copying data by using Basic or OID authentications.
 - Parallel copying from an Oracle source. See the [Parallel copy from Oracle](#parallel-copy-from-oracle) section for details.
 
 > [!Note]
@@ -377,4 +376,4 @@ When you copy data from and to Oracle, the following mappings apply. To learn ab
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,12 +1,9 @@
 ---
 title: (DEPRECATED) Monitor Azure DC/OS cluster - Dynatrace
 description: Monitor an Azure Container Service DC/OS cluster with Dynatrace. Deploy the Dynatrace OneAgent by using the DC/OS dashboard.
-services: container-service
 author: MartinGoodwell
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc

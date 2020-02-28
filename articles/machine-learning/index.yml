@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 10/29/2019
+  ms.date: 02/16/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -108,7 +108,7 @@ landingContent:
           - text: Realtime prediction
             url: how-to-consume-web-service.md
           - text: Batch prediction 
-            url: how-to-run-batch-predictions.md
+            url: how-to-use-parallel-run-step.md
           - text: End-to-end examples (GitHub)
             url: https://github.com/microsoft/MLOps
 
@@ -118,7 +118,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: SDK for Python
-            url: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
+            url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
           - text: SDK for R
             url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
           - text: Machine learning CLI

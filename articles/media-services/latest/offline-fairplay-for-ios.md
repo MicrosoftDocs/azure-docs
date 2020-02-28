@@ -18,7 +18,7 @@ ms.date: 01/08/2019
 ms.author: willzhan
 
 ---
-# Offline FairPlay Streaming for iOS 
+# Offline FairPlay Streaming for iOS with Media Services v3
 
  Azure Media Services provides a set of well-designed [content protection services](https://azure.microsoft.com/services/media-services/content-protection/) that cover:
 

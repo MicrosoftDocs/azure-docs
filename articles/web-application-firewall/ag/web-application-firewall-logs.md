@@ -1,5 +1,5 @@
 ---
-title: Monitor logs for Azure Web Application Firewall 
+title: Monitor logs for Azure Web Application Firewall
 description: Learn how to enable and manage logs and for Azure Web Application Firewall
 services: web-application-firewall
 author: vhorne
@@ -19,13 +19,13 @@ You can monitor Web Application Firewall resources using logs. You can save perf
 
 You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
-* **Activity log**: You can use [Azure activity logs](../../azure-resource-manager/resource-group-audit.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
+* **Activity log**: You can use [Azure activity logs](../../azure-resource-manager/management/view-activity-logs.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
 * **Access log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 300 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance is identified by the instanceId property.
 * **Performance log**: You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](../../application-gateway/application-gateway-metrics.md) for performance data.
 * **Firewall log**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall.
 
 > [!NOTE]
-> Logs are available only for resources deployed in the Azure Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, see the [Understanding Resource Manager deployment and classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md) article.
+> Logs are available only for resources deployed in the Azure Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, see the [Understanding Resource Manager deployment and classic deployment](../../azure-resource-manager/management/deployment-models.md) article.
 
 You have three options for storing your logs:
 
@@ -50,8 +50,8 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
     ```powershell
     Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
 
 ### Enable logging through the Azure portal
@@ -76,7 +76,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
 ### Activity log
 
-Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../../azure-resource-manager/resource-group-audit.md) article.
+Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../../azure-resource-manager/management/view-activity-logs.md) article.
 
 ### Access log
 
@@ -271,7 +271,7 @@ The firewall log is generated only if you have enabled it for each application g
       "policyScopeName": "httpListener1"
     }
   }
-} 
+}
 
 ```
 
@@ -279,7 +279,7 @@ The firewall log is generated only if you have enabled it for each application g
 
 You can view and analyze activity log data by using any of the following methods:
 
-* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../../azure-resource-manager/resource-group-audit.md) article.
+* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../../azure-resource-manager/management/view-activity-logs.md) article.
 * **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Power BI template apps](https://docs.microsoft.com/power-bi/service-template-apps-overview), you can analyze your data.
 
 ### View and analyze the access, performance, and firewall logs
@@ -290,8 +290,8 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 > [!TIP]
 > If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
-> 
-> 
+>
+>
 
 #### Analyzing Access logs through GoAccess
 

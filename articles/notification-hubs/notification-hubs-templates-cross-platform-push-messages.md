@@ -1,6 +1,6 @@
 ---
-title: Templates
-description: This topic explains Templates for Azure notification hubs.
+title: Azure Notification Hubs templates
+description: Learn about using templates for Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -166,3 +166,7 @@ As explained earlier, when using concatenation, expressions must be wrapped in c
   </visual>
 </tile>
 ```
+
+## Next steps
+
+[Learn about Azure Notification Hubs](notification-hubs-push-notification-overview.md)

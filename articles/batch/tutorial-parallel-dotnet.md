@@ -2,15 +2,15 @@
 title: Run a parallel workload - Azure Batch .NET
 description: Tutorial - Transcode media files in parallel with ffmpeg in Azure Batch using the Batch .NET client library
 services: batch
-author: laurenhughes
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 
 ms.assetid: 
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: lahugh
+ms.author: labrenne
 ms.custom: mvc
 ---
 

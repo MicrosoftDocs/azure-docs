@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Migrate PostgreSQL online to Azure Database for PostgreSQL"
+title: "Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online via the Azure CLI"
 titleSuffix: Azure Database Migration Service
-description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service.
+description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the CLI.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -11,10 +11,10 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 02/17/2020
 ---
 
-# Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
+# Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online using DMS via the Azure CLI
 
 You can use Azure Database Migration Service to migrate the databases from an on-premises PostgreSQL instance to [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) with minimal downtime. In other words, migration can be achieved with minimal downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an on-premises instance of PostgreSQL 9.6 to Azure Database for PostgreSQL by using the online migration activity in Azure Database Migration Service.
 
@@ -41,7 +41,7 @@ To complete this tutorial, you need to:
 
     In addition, the on-premises PostgreSQL version must match the Azure Database for PostgreSQL version. For example, PostgreSQL 9.5.11.5 can only migrate to Azure Database for PostgreSQL 9.5.11 and not to version 9.6.7.
 
-* [Create an instance in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
+* [Create an instance in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a virtual network, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 
     > [!NOTE]
@@ -95,7 +95,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 2. Create an empty database in your target environment, which is Azure Database for PostgreSQL.
 
-    Refer to the article [Create an Azure Database for PostgreSQL server in the Azure portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) for details on how to connect and create a database.
+    For details on how to connect and create a database, see the article [Create an Azure Database for PostgreSQL server in the Azure portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server in the Azure portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
 
 3. Import the schema into the target database you created by restoring the schema dump file.
 
@@ -185,6 +185,9 @@ To complete all the database objects like table schemas, indexes and stored proc
        whl              dms
        ```
 
+      > [!IMPORTANT]
+      > Make sure that your extension version is above 0.11.0.
+
    * At any time, view all commands supported in DMS by running:
 
        ```
@@ -200,7 +203,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 2. Provision an instance of DMS by running the following command:
 
    ```
-   az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name BusinessCritical_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
+   az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name Premium_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
    ```
 
    For example the following command will create a service in:
@@ -211,7 +214,7 @@ To complete all the database objects like table schemas, indexes and stored proc
    * DMS Service Name: PostgresCLI
 
    ```
-   az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
+   az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name Premium_4vCores
    ```
 
    It takes about 10-12 minutes to create the instance of the DMS service.
@@ -369,7 +372,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 In the output file, there are several parameters that indicate progress of migration. For example, see the output file below:
 
-    ```
+  ```
     "output": [									Database Level
           {
             "appliedChanges": 0,		//Total incremental sync applied after full load
@@ -444,7 +447,7 @@ In the output file, there are several parameters that indicate progress of migra
       },
       "resourceGroup": "PostgresDemo",
       "type": "Microsoft.DataMigration/services/projects/tasks"
-    ```
+  ```
 
 ## Cutover migration task
 

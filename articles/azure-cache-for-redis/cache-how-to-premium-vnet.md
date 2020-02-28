@@ -31,7 +31,7 @@ To configure the VNet for your new cache, click **Virtual Network** on the **New
 
 ![Virtual network][redis-cache-vnet]
 
-Select the desired subnet from the **Subnet** drop-down list, and specify the desired **Static IP address**. If you are using a classic VNet the **Static IP address** field is optional, and if none is specified, one is chosen from the selected subnet.
+Select the desired subnet from the **Subnet** drop-down list.  If desired, specify a **Static IP address**. The **Static IP address** field is optional, and if none is specified, one is chosen from the selected subnet.
 
 > [!IMPORTANT]
 > When deploying an Azure Cache for Redis to a Resource Manager VNet, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If an attempt is made to deploy an Azure Cache for Redis to a Resource Manager VNet to a subnet that contains other resources, the deployment fails.

@@ -18,7 +18,6 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to understand about the Microsoft identity platform (v2.0) endpoint and platform so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform (v2.0) overview
@@ -40,7 +39,11 @@ With Microsoft identity platform, you can write code once and reach any user. Yo
 
 ## Getting started
 
-Working with identity doesn’t have to be hard. Choose a [scenario](authentication-flows-app-scenarios.md) that applies to you— each scenario path has a quickstart and an overview page to get you up and running in minutes:
+Working with identity doesn’t have to be hard. 
+
+Watch a [Microsoft identity platform video](identity-videos.md) to learn the basics. 
+
+Choose a [scenario](authentication-flows-app-scenarios.md) that applies to you— each scenario path has a quickstart and an overview page to get you up and running in minutes:
 
 - [Build a single-page app](scenario-spa-overview.md)
 - [Build a web app that signs in users](scenario-web-app-sign-user-overview.md)
