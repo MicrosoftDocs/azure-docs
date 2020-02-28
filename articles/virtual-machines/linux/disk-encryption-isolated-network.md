@@ -16,9 +16,9 @@ When connectivity is restricted by a firewall, proxy requirement, or network sec
 
 ## Package management
 
-Azure Disk Encryption depends on a number of components which, if missing, are typically installed as part of ADE enablement. When behind a firewall or otherwise isolated from the Internet, these packages must be pre-installed or available locally.
+Azure Disk Encryption depends on a number of components, which are typically installed as part of ADE enablement if not already present. When behind a firewall or otherwise isolated from the Internet, these packages must be pre-installed or available locally.
 
-Here the are packages necessary for each distribution. For a full list of supported distros and volume types, see [supported VMs and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems).
+Here are the packages necessary for each distribution. For a full list of supported distros and volume types, see [supported VMs and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
 - **Ubuntu 14.04, 16.04, 18.04**: lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-six, procps
 - **CentOS 7.2 - 7.7**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencrypt, pyparted, procps-ng, util-linux
@@ -42,7 +42,7 @@ When encryption is being enabled with [Azure AD credentials](disk-encryption-lin
 
 ### Azure Instance Metadata Service 
 
-The virtual machine must be able to access the [Azure Instance Metadata service](instance-metadata-service.md) endpoint which uses a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.  Proxy configurations that alter local HTTP traffic to this address (for example, adding an X-Forwarded-For header) are not supported.
+The virtual machine must be able to access the [Azure Instance Metadata service](instance-metadata-service.md) endpoint, which uses a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.  Proxy configurations that alter local HTTP traffic to this address (for example, adding an X-Forwarded-For header) are not supported.
 
 ## Next steps
 
