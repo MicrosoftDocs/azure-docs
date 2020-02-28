@@ -26,7 +26,7 @@ When your Azure Active Directory (Azure AD) organization turns on two-factor ver
 There are some common two-factor verification problems that seem to happen more frequently than any of us would like. We've put together this article to address the most common problems and some possible fixes.
 
 >[!Important]
->If you're an administrator, you can find more information about how to set up and manage your Azure AD Azure AD environment in the [Azure AD documentation](https://docs.microsoft.com/azure/active-directory).
+>If you're an administrator, you can find more information about how to set up and manage your Azure AD environment in the [Azure AD documentation](https://docs.microsoft.com/azure/active-directory).
 >
 >This content is also intended only for use with your work or school account, which is the account provided to you by your organization (for example, alain@contoso.com). If you're having problems with two-factor verification and your personal Microsoft account, which is an account that you set up for yourself (for example, danielle@outlook.com), see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
