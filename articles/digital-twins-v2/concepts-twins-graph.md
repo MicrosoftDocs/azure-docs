@@ -29,9 +29,9 @@ Here is some example client code that uses the [Twin APIs](concepts-use-apis.md)
 
 ```csharp
 // Create twins
-client.CreateTwin("GroundFloor", "dtmi:com:example:Floor;1");
-client.CreateTwin("Floor2", "dtmi:com:example:Floor;1");
-client.CreateTwin("Cafe", "dtmi:com:example:Room;1");
+client.CreateTwin("GroundFloor", "urn:contosocom:example:Floor:1");
+client.CreateTwin("Floor2", "urn:contosocom:example:Floor:1");
+client.CreateTwin("Cafe", "urn:contosocom:example:Room:1");
 ```
 
 ## Relationships: creating a graph of twins
@@ -44,7 +44,6 @@ Here is some example client code that uses the [Twin APIs](concepts-use-apis.md)
 
 ```csharp
 // Create relationships
-client.CreateRelationship("GroundFloor", "contains", "ConferenceRoom");
 client.CreateRelationship("GroundFloor", "contains", "Cafe");
 ```
 
@@ -78,18 +77,18 @@ Here is an example of a digital twin formatted as a JSON object:
 
 ```json
 {
-  "$dtId": "digitaltwin-01",
-  "prop1": 42,
-  "prop2": {
+  "$dtId": "Cafe",
+  "Temperature": 72,
+  "Location": {
     "x": 101,
     "y": 33
   },
   "component": {
-    "componentProperty": 80,
+    "TableOccupancy": 1,
     "$metadata": {
-      "$model": "urn:example:Component:1",
-      "componentProperty": {
-        "desiredValue": 85,
+      "$model": "urn:contosocom:example:Table:1",
+      "TableOccupancy": {
+        "desiredValue": 1,
         "desiredVersion": 3,
         "ackVersion": 2,
         "ackCode": 200,
@@ -98,15 +97,15 @@ Here is an example of a digital twin formatted as a JSON object:
     }
   },
   "$metadata": {
-    "$model": "urn:example:Building:1",
-    "prop1": {
-      "desiredValue": 66,
+    "$model": "urn:contosocom:example:Room:1",
+    "Temperature": {
+      "desiredValue": 72,
       "desiredVersion": 5,
       "ackVersion": 4,
       "ackCode": 200,
       "ackDescription": "OK"
     },
-    "prop2": {
+    "Location": {
       "desiredValue": {
         "x": 101,
         "y": 33,
@@ -136,11 +135,11 @@ Here is an example of a relationship formatted as a JSON object:
 
 ```json
 {
-  "$edgeId": "edge-01",
-  "$sourceId": "logical-digitaltwin-01",
+  "$edgeId": "Edge-01",
+  "$sourceId": "GroundFloor",
   "$relationship": "contains",
-  "$targetId": "device-digitaltwin-01",
-  "prop1": "2019-04-01"
+  "$targetId": "Cafe",
+  "startDate": "2020-02-04"
 }
 ```
 

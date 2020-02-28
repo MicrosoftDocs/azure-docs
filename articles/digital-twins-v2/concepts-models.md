@@ -51,8 +51,10 @@ Here is an example of a basic model, written in DTDL:
 
 ```json
 {
-    "@id": "dtmi:com:example:Planet",
+    "@id": "urn:contosocom:example:Planet:1",
     "@type": "Interface",
+	"@context": "http://azure.com/v3/contexts/Model.json",
+    "displayName": "Planet",
     "contents": [
         {
             "@type": "Property",
@@ -65,21 +67,33 @@ Here is an example of a basic model, written in DTDL:
             "schema": "double"
         },
         {
-            "@type": "Relationship",
-            "name": "satellites",
-            "target": "dtmi:com:example:Moon"
+            "@type": "Telemetry",
+            "name": "Temperature",
+            "schema": "double"
         },
         {
-            "@type": "Telemetry",
-            "name": "locationOfCenterOfMass",
-            "schema": "ex:CelestialCoordinate"
+            "@type": "Relationship",
+            "name": "satellites",
+            "target": "urn:contosocom:example:Moon:1"
+        },
+        {
+            "type": "Component",
+            "name": "deepestCrater",
+            "schema": "urn:contosocom:example:Crater:1"
         }
     ]
 }
 ```
-The interface must provide a top-level `@id` and a `@type` of *Interface*, which describe the model name and the fact that it is an interface, respectively.
 
-All content of an interface is then placed within the `contents` section of the DTDL file, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*).
+The fields of the JSON document are defined as follows:
+
+| Field | Description |
+| --- | --- |
+| `@id` | An identifier for the model. Must be in the format `urn:<domain>:<unique model identifier>:<model version number>`. |
+| `@type` | Identifies the type of information being described. For an interface, the type is *Interface*. |
+| `@context` | Sets the [context](http://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use *http://azure.com/v3/contexts/Model.json*. |
+| `displayName` | [optional] Allows you to give the model a friendly name if desired. |
+| `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*). |
 
 ### Schema options
 
@@ -95,12 +109,14 @@ In addition to primitive types, *Property* and *Telemetry* fields can have the f
 
 Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model *Room*, and specialized variants *ConferenceRoom* and *Gym*. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
 
-Here is an example of a model (*CelestialBody*) that has a subtype (*Planet*). The "parent" model is defined first, and the "child" model then builds on its definition using the keyword `extends`.
+The following example re-imagines the *Planet* model from the previous example as a subtype of a larger *CelestialBody* model. The "parent" model is defined first, and then the "child" model builds on it by using the new field `extends`.
 
 ```json
 {
-    "@id": " dtmi:com:example:CelestialBody",
+    "@id": "urn:contosocom:example:CelestialBody:1",
     "@type": "Interface",
+    "@context": "http://azure.com/v3/contexts/Model.json",
+    "displayName": "Celestial body",
     "contents": [
         {
             "@type": "Property",
@@ -109,39 +125,45 @@ Here is an example of a model (*CelestialBody*) that has a subtype (*Planet*). T
         },
         {
             "@type": "Property",
-            "name": "location",
-            "schema": " dtmi:com:example:CelestialCoordinate"
-        },
-        {
-            "@type": "Property",
             "name": "mass",
             "schema": "double"
+        },
+        {
+            "@type": "Telemetry",
+            "name": "Temperature",
+            "schema": "double"
         }
-    ] ,
-    "@context": "http://azure.com/v3/contexts/Model.json"
+    ]
 },
 {
-    "@id": "dtmi:com:example:Planet",
+    "@id": "urn:contosocom:example:Planet:1",
     "@type": "Interface",
+    "@context": "http://azure.com/v3/contexts/Model.json",
+    "displayName": "Planet",
     "extends": [
-        "dtmi:com:example:CelestialBody"
+        "urn:contosocom:example:CelestialBody:1"
     ],
     "contents": [
         {
             "@type": "Relationship",
             "name": "satellites",
-            "target": " dtmi:com:example:Moon"
+            "target": "urn:contosocom:example:Moon:1"
         }
-    ] ,
-    "@context": "http://azure.com/v3/contexts/Model.json"
+        ,
+        {
+            "type": "Component",
+            "name": "deepestCrater",
+            "schema": "urn:contosocom:example:Crater:1"
+        }
+    ]
 }
 ```
 
-In this example, *CelestialBody* contributes a name, a mass and a location to *Planet*. The `extends` is structured as an array of interface names, allowing the extending interface to inherit from multiple parent models if desired.
+In this example, *CelestialBody* contributes a name, a mass and a telemetry to *Planet*. The `extends` is structured as an array of interface names, allowing the extending interface to inherit from multiple parent models if desired.
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
-The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot define a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same)—for example, if a parent interface defines a `double` property *foo*, the extending interface cannot contain a declaration of *foo*, even if it is also declared as a `double`.
+The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot define a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same)—for example, if a parent interface defines a `double` property *mass*, the extending interface cannot contain a declaration of *mass*, even if it is also declared as a `double`.
 
 ### Preview constraints
 
