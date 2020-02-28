@@ -19,17 +19,10 @@ ms.author: allensu
 
 Azure Standard Load Balancer supports [availability zones](../availability-zones/az-overview.md) scenarios. You can use Standard Load Balancer to optimize availability in your end-to-end scenario by aligning resources with zones and distributing them across zones.  Review [availability zones](../availability-zones/az-overview.md) for guidance on what availability zones are, which regions currently support availability zones, and other related concepts and products. Availability zones in combination with Standard Load Balancer is an expansive and flexible feature set that can create many different scenarios.  Review this document to understand these [concepts](#concepts) and fundamental scenario [design guidance](#design).
 
->[!IMPORTANT]
->Review [Availability Zones](../availability-zones/az-overview.md) for related topics, including any region specific information.
-
 ## <a name="concepts"></a> Availability Zones concepts applied to Load Balancer
 
-There's no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance. Load Balancer resources are objects within which you can express how Azure should program its prebuilt multi-tenant infrastructure to achieve the scenario you wish to create.  This is significant in the context of availability zones because a single Load Balancer resource can control programming of infrastructure in multiple availability zones while a zone-redundant service appears as one resource from a customer point of view.  
-
-A Load Balancer resource itself is regional and never zonal.  And a VNet and subnet are always regional and never zonal. The granularity of what you can configure is constrained by each configuration of frontend, rule, and backend pool definition.
-
+A Load Balancer resource itself is regional and never zonal. The granularity of what you can configure is constrained by each configuration of frontend, rule, and backend pool definition.
 In the context of availability zones, the behavior and properties of a Load Balancer rule are described as zone-redundant or zonal.  Zone-redundant and zonal describe the zonality of a property.  In the context of Load Balancer, zone-redundant always means *multiple zones* and zonal means isolating the service to a *single zone*.
-
 Both public and internal Load Balancer support zone-redundant and zonal scenarios and both can direct traffic across zones as needed (*cross-zone load-balancing*). 
 
 ### Frontend
