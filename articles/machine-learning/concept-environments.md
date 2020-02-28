@@ -53,9 +53,9 @@ For specific code samples, see the "Create an environment" section of [Reuse env
 
 For code samples, see the "Manage environments" section of [Reuse environments for training and deployment](how-to-use-environments.md#manage-environments).
 
-## Environment building, caching and reuse
+## Environment building, caching, and reuse
 
-The environments within Azure Machine Learning service are managed by a microservice called Environment Management service. It is resposible for building environment definitions into Docker images and conda environments, and caching the environments so they can be re-used in subsequent training runs and deployments.
+The environments within Azure Machine Learning service are managed by a microservice called Environment Management service. It is responsible for building environment definitions into Docker images and conda environments, and caching the environments so they can be reused in subsequent training runs and deployments.
 
 ### Building environments as Docker images
 
@@ -70,11 +70,11 @@ The second step is omitted if you specify [user-managed dependencies](https://do
 
 ### Image caching and reuse
 
-If you use the same environment definition for another run, the Environment Management service re-uses the cached image from the Workspace ACR. 
+If you use the same environment definition for another run, the Environment Management service reuses the cached image from the Workspace ACR. 
 
 To view the details of a cached image, use [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#get-image-details-workspace-) method.
 
-To determine whether to re-use a cached image or build a new one, the Environment Management service computes [a hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on:
+To determine whether to reuse a cached image or build a new one, the Environment Management service computes [a hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on:
  
  * Base image property value
  * Custom docker steps property value
