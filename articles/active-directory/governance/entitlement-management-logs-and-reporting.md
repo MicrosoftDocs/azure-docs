@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/22/2020
+ms.date: 02/27/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -29,7 +29,7 @@ Azure AD stores audit events for up to 30 days in the audit log. However, you ca
 ## Configure Azure AD to use Azure Monitor
 Before using the Azure Monitor workbooks, you must configure Azure AD to send a copy of its audit logs to Azure Monitor.
 
-Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure subscription. You can read more about the prerequisites and estimated costs of using Azure Monitor for this scenario in [Azure AD activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).
+Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure subscription. You can read more about the prerequisites and estimated costs of using Azure Monitor in [Azure AD activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).
 
 **Prerequisite role**: Global Admin
 
@@ -54,7 +54,7 @@ You can create your own queries on Azure AD audit events, including entitlement 
 
 1. In Azure Active Directory of the Azure portal, click **Logs** under the Monitoring section in the left navigation menu to create a new query page.
 
-1. Your workspace should be shown in the upper left of the query page. If you have multiple Azure Monitor workspaces, and the workspace you're using to store Azure AD audit events isn't shown, click **Select Scope** and select the correct subscription and workspace.
+1. Your workspace should be shown in the upper left of the query page. If you have multiple Azure Monitor workspaces, and the workspace you're using to store Azure AD audit events isn't shown, click **Select Scope**. Then, select the correct subscription and workspace.
 
 1. Next, in the query text area, delete the string “search *” and replace it with the following query:
 
@@ -78,11 +78,11 @@ For more information on the columns that are stored for audit events in Azure Mo
 
 ## Create custom Azure Monitor queries using Azure PowerShell
 
-Once you've configured Azure AD to send logs to Azure Monitor, you can access those logs through PowerShell. You can send queries from scripts or the PowerShell command line, without needing to be a Global Admin in the tenant. 
+You can access logs through PowerShell after you've configured Azure AD to send logs to Azure Monitor. Then, send queries from scripts or the PowerShell command line, without needing to be a Global Admin in the tenant. 
 
 ### Ensure the user or service principal has the correct role assignment
 
-You'll want to ensure you, or the user or service principal authenticating to Azure AD, are in the appropriate Azure role in the Log Analytics workspace. The role options are either Log Analytics Reader or the Log Analytics Contributor. If you're already in one of those roles, then skip to [Retrieve Log Analytics ID with one Azure subscription](#retrieve-log-analytics-id-with-one-azure-subscription).
+Make sure you, the user or service principal that will authenticate to Azure AD, are in the appropriate Azure role in the Log Analytics workspace. The role options are either Log Analytics Reader or the Log Analytics Contributor. If you're already in one of those roles, then skip to [Retrieve Log Analytics ID with one Azure subscription](#retrieve-log-analytics-id-with-one-azure-subscription).
 
 To set the role assignment and create a query, do the following steps:
 1. In the Azure Portal, locate the [Log Analytics workspace](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
@@ -96,7 +96,7 @@ To set the role assignment and create a query, do the following steps:
 
 ### Install Azure PowerShell module
 
-1. Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.3.0) (if you haven’t already), by typing:
+Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.3.0) (if you haven’t already), by typing:
 
 ```azurepowershell
 install-module -Name az -allowClobber -Scope CurrentUser
@@ -105,7 +105,7 @@ install-module -Name az -allowClobber -Scope CurrentUser
 Now you're ready to authenticate to Azure AD, and retrieve the id of the Log Analytics workspace you’re querying.
 
 ### Retrieve Log Analytics ID with one Azure subscription
-If you have only a single Azure subscription, and a single Log Analytics workspace, then authenticate to Azure AD, connecting to that subscription and retrieving that workspace, by typing:
+If you have only a single Azure subscription, and a single Log Analytics workspace, then type the following to authenticate to Azure AD, connect to that subscription, and retrieve that workspace:
  
 ```azurepowershell
 Connect-AzAccount
@@ -127,7 +127,7 @@ $subs | ft
 You can reauthenticate and associate your PowerShell session to that subscription using a command such as `Connect-AzAccount –Subscription $subs[0].id`. To learn more about how to authenticate to Azure from PowerShell, including non-interactively, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
 ).
 
-If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces, so you can find the one that has the Azure AD logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace id" displayed in the Azure Portal in the Log Analytics workspace overview.
+If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces. Then you can find the one that has the Azure AD logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace id" displayed in the Azure Portal in the Log Analytics workspace overview.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace
