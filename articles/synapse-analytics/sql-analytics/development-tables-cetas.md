@@ -148,6 +148,8 @@ CETAS can be used to store result sets with following SQL data types:
 - smallint
 - tinyint
 - bit
+ 
+LOBs cannot be used with CETAS.
 
 Following data types cannot be used in SELECT part of CETAS:
 
