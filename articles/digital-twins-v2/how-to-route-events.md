@@ -33,9 +33,7 @@ If there is no route, no messages are routed outside of Azure Digital Twins. If 
 In SDK form:
 
 ```csharp
-Response CreateEventRoute(string routeId,
-                            string endpointId,
-                            string filter)
+Response CreateEventRoute(string routeId, string endpointId, string filter)
 ```
 Filter can be `null`/empty and all events will be published to the endpoint.
 
@@ -71,14 +69,14 @@ Telemetry message
     "source": "myhub.westcentralus.azuredigitaltwins.net", 
     "subject": "thermostat.vav-123", 
     "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a",
-     "dataschema": "dtmi:contosocom:DigitalTwins:VAV;1",
+    "dataschema": "urn:contosocom:example:DigitalTwins:VAV:1",
     "time": "2018-04-05T17:31:00Z", 
     "datacontenttype" : "application/json", 
-    "data": " 
-    { 
-  "temp": 70,
-  "humidity: 40 
-      } 
+    "data":  
+      {
+          "temp": 70,
+          "humidity": 40 
+      }
 }
 ```
 
@@ -93,14 +91,14 @@ Life-cycle notifications message
     "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a", 
     "time": "2018-04-05T17:31:00Z", 
     "datacontenttype" : "application/json", 
-    "dataschema": "dtmi:contosocom:DigitalTwins:Device;1"             
-    "data": " 
-    { 
-  "$dtId": "room-123", 
-  "property": "value",
-   "$metadata": { 
-              …
-    } 
+    "dataschema": "urn:contosocom:example:DigitalTwins:Device:1",           
+    "data":  
+      { 
+        "$dtId": "room-123", 
+        "property": "value",
+        "$metadata": { 
+                //...
+        } 
       } 
 }
 ```
@@ -117,15 +115,15 @@ You can also specify `IN` operator
 
 The query language for this filtering scenario is compatible with Azure Digital Twins query language, and is a subset of it (Azure Digital Twins query language's `JOIN` is out of scope).
 
-`$dt.$metadata.$model = "urn:example:Thermostat:1"` OR 
-`$dt.$metadata.$model = "urn:contosocom:DigitalTwins:Space"`
+`$dt.$metadata.$model = "urn:contosocom:example:Thermostat:1"` OR 
+`$dt.$metadata.$model = "urn:contosocom:example:DigitalTwins:Space"`
 
 or 
 
-`$dt.IS_OF_MODEL(urn:example:Thermostat:1')` OR
-`$dt.IS_OF_MODEL('urn:contosocom:DigitalTwins:Space;1')`
+`$dt.IS_OF_MODEL(urn:contosocom:example:Thermostat:1')` OR
+`$dt.IS_OF_MODEL('urn:contosocom:example:DigitalTwins:Space:1')`
 
-`$dt.firmareVersion = "1.0" AND $dt.location = "Redmond"`
+`$dt.firmwareVersion = "1.0" AND $dt.location = "Redmond"`
 
 ### Filter based on message body
 
@@ -156,8 +154,8 @@ Any of these four dimensions could be used individually, or with `AND` and `OR` 
 
 ```sql
 AND type = 'DigitalTwinTelemetryMessages'
-AND $dt.$metadata.$model = "urn:contosocom:DigitalTwins:Device"
-AND $dt.firmareVersion = "1.1"
+AND $dt.$metadata.$model = "urn:contosocom:example:DigitalTwins:Device"
+AND $dt.firmwareVersion = "1.1"
 AND $dt.Name = 'device1'
 AND $body.Temperature > 0
 AND source = "thermostat.vav-10"
@@ -227,7 +225,7 @@ Here is an example of body for [IoT Plug and Play (PnP)](../iot-pnp/overview-iot
     "temperature": 80,
     "humidity": 45,
     "$metadata": {
-      "$model": "urn:example:Thermostat:1",
+      "$model": "urn:contosocom:example:Thermostat:1",
       "temperature": {
         "desiredValue": 85,
         "desiredVersion": 3,
@@ -245,7 +243,7 @@ Here is an example of body for [IoT Plug and Play (PnP)](../iot-pnp/overview-iot
     }
   },
   "$metadata": {
-    "$model": "urn:example:Thermostat_X500:1",
+    "$model": "urn:contosocom:example:Thermostat_X500:1",
   }
 }
 ```
@@ -256,9 +254,9 @@ Here is another example of a logical digital twin not supporting components:
 {
   "$dtId": "logical-digitaltwin-01",
   "avgTemperature": 70,
-  "comfortIndex": 85
+  "comfortIndex": 85,
   "$metadata": {
-    "$model": "urn:example:Building:1",
+    "$model": "urn:contosocom:example:Building:1",
     "$kind": "DigitalTwin",
     "avgTemperature": {
       "desiredValue": 72,
@@ -336,7 +334,7 @@ These notifications are triggered when a Digital Twins Definition Language (DTDL
 | specversion	| 1.0 |
 | type	| `Microsoft.<Service RP>.Model.Upload`<br>`Microsoft.<Service RP>.Model.Reload` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Patch` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Decom`<br>`Microsoft.<Service RP>.Model.Delete` |
 | datacontenttype	| application/json |
-| subject	| ID of the model, in the form `dtmi:my:Room;1` |
+| subject	| ID of the model, in the form `urn:<domain>:<unique model identifier>:<model version number>` |
 | time	| Timestamp for when the operation occurred on the model |
 | sequence	| Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Sequence will be incremented for each subject, and will be reset to 1 every time the object gets recreated with the same ID (such as during delete and recreate operations). |
 | sequencetype	| The exact value and meaning of sequence. For example, this property may specify that the value must be a string-encoded, signed, 32-bit integer that starts with 1, and increases by 1 for each subsequent value |
@@ -402,7 +400,7 @@ The corresponding notification (if synchronously executed by the service, such a
         "value": {
             "desiredValue": { "a": 3 },
             "desiredVersion": 2,
-		"ackCode": 200,
+		        "ackCode": 200,
             "ackVersion": 2 
         }
     }
