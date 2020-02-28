@@ -147,6 +147,41 @@
       "branch": "master"
     },
     {
+      "path_to_root": "functions-python-tensorflow-tutorial",
+      "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
+      "branch": "master",
+      "branch_mapping": {}
+    },   
+    {
+      "path_to_root": "functions-quickstart-templates",
+      "url": "https://github.com/Azure/azure-functions-templates",
+      "branch": "dev"
+    }, 
+    {
+      "path_to_root": "functions-docs-csharp",
+      "url": "https://github.com/Azure-Samples/functions-docs-csharp",
+      "branch": "master"
+    },    
+    {
+      "path_to_root": "functions-docs-javascript",
+      "url": "https://github.com/Azure-Samples/functions-docs-javascript",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-typescript",
+      "url": "https://github.com/Azure-Samples/functions-docs-typescript",
+      "branch": "master"
+    },    
+    {
+      "path_to_root": "functions-docs-python",
+      "url": "https://github.com/Azure-Samples/functions-docs-python",
+      "branch": "master"
+    },    
+    {
+      "path_to_root": "functions-docs-powershell",
+      "url": "https://github.com/Azure-Samples/functions-docs-powershell",
+      "branch": "master"
+    },     {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
       "branch": "master"
@@ -414,6 +449,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-cosmosdb-graph-dotnet",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started",
+      "branch": "master"
+    },
+    {
       "path_to_root": "azure-cosmosdb-java-v4-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-getting-started",
       "branch": "master"
@@ -425,14 +465,6 @@
       "PDF"
     ],
     "master": [
-      "Publish",
-      "PDF"
-    ],
-    "release-event-grid": [
-      "Publish",
-      "PDF"
-    ],
-    "hd-insight-pdf": [
       "Publish",
       "PDF"
     ]

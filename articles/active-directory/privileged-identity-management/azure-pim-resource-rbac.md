@@ -107,6 +107,9 @@ My audit enables you to view your personal role activity.
 1. Filter the history using a predefined date or custom range.
 
     ![Audit list for the current user](media/azure-pim-resource-rbac/my-audit-time.png)
+    
+> [!NOTE]
+> Access to audit history requires either a Global Administrator or Privileged Role Administrator role.
 
 ## Next steps
 

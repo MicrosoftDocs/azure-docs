@@ -6,8 +6,8 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: overview
 ms.date: 05/20/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.reviewer: sngun
 
 ---

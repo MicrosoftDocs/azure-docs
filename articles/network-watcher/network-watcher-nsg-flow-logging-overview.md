@@ -4,18 +4,15 @@ titleSuffix: Azure Network Watcher
 description: This article explains how to use the NSG flow logs feature of Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
+author: damendo
 
-ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
+ms.author: damendo
 
 ---
 
@@ -34,10 +31,6 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 You can analyze flow logs and gain insights into your network traffic using [traffic analytics](traffic-analytics.md).
 
 The same retention policies seen for other logs apply to flow logs. You can set log retention policy from 1 day to 365 days. If a retention policy is not set, the logs are maintained forever.
-
-> [!NOTE] 
-> Using the retention policy feature with NSG Flow Logging may result in a high volume of storage operations and the associated costs. If you do not require the retention policy feature, we recommend that you set this value to 0.
-
 
 ## Log file
 

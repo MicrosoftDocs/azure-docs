@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/21/2020
+ms.date: 01/27/2020
 ms.author: helohr
 ---
 # What is Windows Virtual Desktop? 
@@ -67,7 +67,7 @@ We plan to add support for the following OSes, so make sure you have the [approp
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
-* An [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+* An [Azure Active Directory](/azure/active-directory/)
 * A Windows Server Active Directory in sync with Azure Active Directory. You can configure this with one of the following:
   * Azure AD Connect (for hybrid organizations)
   * Azure AD Domain Services (for hybrid or cloud organizations)
@@ -75,7 +75,7 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
   
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
-* [Standard domain-joined](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) or [Hybrid AD-joined](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtual machines can't be Azure AD-joined.
+* [Standard domain-joined](../active-directory-domain-services/active-directory-ds-comparison.md) or [Hybrid AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md). Virtual machines can't be Azure AD-joined.
 * Running one of the following [supported OS images](#supported-virtual-machine-os-images).
 
 >[!NOTE]
@@ -94,14 +94,16 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |kms.core.windows.net|TCP port 1688|Windows 10 activation|
 
 >[!IMPORTANT]
->Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and do not include URLs for other services like Azure AD.
+>Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and don't include URLs for other services like Azure Active Directory.
 
 >[!NOTE]
+>Windows Virtual Desktop currently doesn't have a list of IP address ranges that you can whitelist to allow network traffic. We only support whitelisting specific URLs at this time.
+>
 >You must use the wildcard character (*) for URLs involving service traffic. If you prefer to not use * for agent-related traffic, here's how to find the URLs without wildcards:
 >
 >1. Register your virtual machines to the Windows Virtual Desktop host pool.
->2. Open **Event viewer** and navigate to **Windows** > **Application logs** and look for Event ID 3712.
->3. Whitelist the URLs that you find under Event ID 3712. The URLs under Event ID 3712 are region-specific. You'll need to repeat the whitelisting process with the relevant URLs for each region you want to deploy your virtual machines in.
+>2. Open **Event viewer** and navigate to **Windows logs** > **Application** > **WVD-Agent** and look for Event ID 3702.
+>3. Whitelist the URLs that you find under Event ID 3702. The URLs under Event ID 3702 are region-specific. You'll need to repeat the whitelisting process with the relevant URLs for each region you want to deploy your virtual machines in.
 
 Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
 
@@ -132,7 +134,7 @@ Windows Virtual Desktop supports the following x64 operating system images:
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images.
+Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images. Windows 7 also doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
 

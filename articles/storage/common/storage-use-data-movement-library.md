@@ -15,7 +15,7 @@ ms.subservice: common
 
 # Transfer data with the Data Movement library
 
-The Azure Storage Data Movement library is a cross-platform open source library that is designed for high performance uploading, downloading, and copying of blobs and files. This library is the core data movement framework that powers [AzCopy](../storage-use-azcopy.md). The Data Movement library provides convenient methods that aren't available in the Azure Storage client library for .NET. These methods provide the ability to set the number of parallel operations, track transfer progress, easily resume a canceled transfer, and much more.
+The Azure Storage Data Movement library is a cross-platform open source library that is designed for high performance uploading, downloading, and copying of blobs and files. The Data Movement library provides convenient methods that aren't available in the Azure Storage client library for .NET. These methods provide the ability to set the number of parallel operations, track transfer progress, easily resume a canceled transfer, and much more.
 
 This library also uses .NET Core, which means you can use it when building .NET apps for Windows, Linux and macOS. To learn more about .NET Core, refer to the [.NET Core documentation](https://dotnet.github.io/). This library also works for traditional .NET Framework apps for Windows.
 

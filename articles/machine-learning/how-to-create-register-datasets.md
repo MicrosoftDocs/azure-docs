@@ -10,7 +10,7 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 
 # Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
 
@@ -74,7 +74,7 @@ To create datasets from an [Azure datastore](how-to-access-data.md) by using the
 
 You can create TabularDatasets through the SDK or by using Azure Machine Learning studio. 
 
-Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. If you're reading from multiple files, results will be aggregated into one tabular representation.
+Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. If you're reading from multiple files, results will be aggregated into one tabular representation. 
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -94,7 +94,10 @@ datastore_paths = [(datastore, 'ather/2018/11.csv'),
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
-By default, when you create a TabularDataset, column data types are inferred automatically. If the inferred types don't match your expectations, you can specify column types by using the following code. You can also [learn more about supported data types](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
+By default, when you create a TabularDataset, column data types are inferred automatically. If the inferred types don't match your expectations, you can specify column types by using the following code. If your storage is behind a virtual network or firewall, include the parameters `validate=False` and `infer_column_types=False` in your `from_delimited_files()` method. This bypasses the initial validation check and ensures that you can create your dataset from these secure files. You can also [learn more about supported data types](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
+
+> [!NOTE] 
+>The parameter `infer_column_type` is only applicable for datasets created from delimited files. 
 
 ```Python
 from azureml.data.dataset_factory import DataType
@@ -147,7 +150,7 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 
 #### Create a FileDataset
 
-Use the [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) method on the `FileDatasetFactory` class to load files in any format and to create an unregistered FileDataset:
+Use the [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) method on the `FileDatasetFactory` class to load files in any format and to create an unregistered FileDataset. If your storage is behind a a virtual network or firewall, set the parameter `validate =False` in your `from_files()` method. This bypasses the initial validation step, and ensures that you can create your dataset from these secure files.
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -170,12 +173,14 @@ To create a dataset in the studio:
 1. Select **Datasets** in the **Assets** section of the left pane. 
 1. Select **Create Dataset** to choose the source of your dataset. This source can be local files, a datastore, or public URLs.
 1. Select **Tabular** or **File** for Dataset type.
-1. Select **Next** to review the **Settings and preview**, **Schema** and **Confirm details** forms; they are intelligently populated based on file type. Use these forms to check your selections and to further configure your dataset prior to creation.  
+1. Select **Next** to open the **Datastore and file selection** form. On this form you select where to keep your dataset after creation, as well as select what data files to use for your dataset. 
+1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
+1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](how-to-create-portal-experiments.md#profile). 
 1. Select **Create** to complete your dataset creation.
 
 ## Register datasets
 
-To complete the creation process, register your datasets with a workspace. Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register datasets with your workspace in order to share them with others and reuse them across various experiments:
+To complete the creation process, register your datasets with a workspace. Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-) method to register datasets with your workspace in order to share them with others and reuse them across various experiments:
 
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,

@@ -22,7 +22,7 @@ The Azure Queue service contains the following components:
   
     The following URL addresses a queue in the diagram:  
   
-    `http://myaccount.queue.core.windows.net/images-to-download`
+    `http://myaccount.queue.core.windows.net/incoming-orders`
 
 * **Storage Account:** All access to Azure Storage is done through a storage account. For more information about storage accounts, see [Storage account overview][../articles/storage/common/storage-account-overview.md].
 * **Queue:** A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).

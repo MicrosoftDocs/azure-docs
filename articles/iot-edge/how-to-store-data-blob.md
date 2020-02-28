@@ -80,7 +80,6 @@ The name of this setting is `deviceToCloudUploadProperties`. If you are using th
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Allows you to specify the container names you want to upload to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically assign the container name as `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. You can create template strings for target container name, check out the possible values column. <br>* %h -> IoT Hub Name (3-50 characters). <br>* %d -> IoT Edge Device ID (1 to 129 characters). <br>* %m -> Module Name (1 to 64 characters). <br>* %c -> Source Container Name (3 to 63 characters). <br><br>Maximum size of the container name is 63 characters, while automatically assigning the target container name if the size of container exceeds 63 characters it will trim each section (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) to 15 characters. <br><br> Environment variable: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | deleteAfterUpload | true, false | Set to `false` by default. When it is set to `true`, it will automatically delete the data when upload to cloud storage is finished. <br><br> **CAUTION**: If you are using append blobs, this setting will delete append blobs from local storage after a successful upload, and any future Append Block operations to those blobs will fail. Use this setting with caution, do not enable this if your application does infrequent append operations or does not support continuous append operations<br><br> Environment variable: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}`. |
 
-
 ### deviceAutoDeleteProperties
 
 The name of this setting is `deviceAutoDeleteProperties`. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties, which you can find in the explanation section.
@@ -92,6 +91,7 @@ The name of this setting is `deviceAutoDeleteProperties`. If you are using the I
 | retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading to cloud storage if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires. Note: For this property to work uploadOn should be set to true.  <br><br> **CAUTION**: If you are using append blobs, this setting will delete append blobs from local storage when the value expires, and any future Append Block operations to those blobs will fail. You may want to make sure the expiry value is large enough for the expected frequency of append operations performed by your application.<br><br> Environment variable: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## Using SMB share as your local storage
+
 You can provide SMB share as your local storage path, when you deploy Windows container of this module on Windows host.
 
 Make sure the SMB share and IoT device are in mutually trusted domains.
@@ -99,48 +99,58 @@ Make sure the SMB share and IoT device are in mutually trusted domains.
 You can run `New-SmbGlobalMapping` PowerShell command to map the SMB share locally on the IoT device running Windows.
 
 Below are the configuration steps:
+
 ```PowerShell
 $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
-Example: <br>
-`$creds = Get-Credential` <br>
-`New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:`
 
-This command will use the credentials to authenticate with the remote SMB server. Then, map the remote share path to G: drive letter (can be any other available drive letter). The IoT device now have the data volume mapped to a path on the G: drive. 
+For example:
+
+```powershell
+$creds = Get-Credential
+New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
+```
+
+This command will use the credentials to authenticate with the remote SMB server. Then, map the remote share path to G: drive letter (can be any other available drive letter). The IoT device now have the data volume mapped to a path on the G: drive.
 
 Make sure the user in IoT device can read/write to the remote SMB share.
 
-For your deployment the value of `<storage mount>` can be **G:/ContainerData:C:/BlobRoot**. 
+For your deployment the value of `<storage mount>` can be **G:/ContainerData:C:/BlobRoot**.
 
 ## Granting directory access to container user on Linux
+
 If you have used [volume mount](https://docs.docker.com/storage/volumes/) for storage in your create options for Linux containers then you don't have to do any extra steps, but if you used [bind mount](https://docs.docker.com/storage/bind-mounts/) then these steps are required to run the service correctly.
 
-Following the principle of least privilege to limit the access rights for users to bare minimum permissions they need to perform their work, this module includes a user (name: absie, ID: 11000) and a user group (name: absie, ID: 11000). If the container is started as **root** (default user is **root**), our service will be started as the low-privilege **absie** user. 
+Following the principle of least privilege to limit the access rights for users to bare minimum permissions they need to perform their work, this module includes a user (name: absie, ID: 11000) and a user group (name: absie, ID: 11000). If the container is started as **root** (default user is **root**), our service will be started as the low-privilege **absie** user.
 
 This behavior makes configuration of the permissions on host path binds crucial for the service to work correctly, otherwise the service will crash with access denied errors. The path that is used in directory binding needs to be accessible by the container user (example: absie 11000). You can grant the container user access to the directory by executing the commands below on the host:
 
 ```terminal
-sudo chown -R 11000:11000 <blob-dir> 
-sudo chmod -R 700 <blob-dir> 
+sudo chown -R 11000:11000 <blob-dir>
+sudo chmod -R 700 <blob-dir>
 ```
 
-Example:<br>
-`sudo chown -R 11000:11000 /srv/containerdata` <br>
-`sudo chmod -R 700 /srv/containerdata`
+For example:
 
+```terminal
+sudo chown -R 11000:11000 /srv/containerdata
+sudo chmod -R 700 /srv/containerdata
+```
 
 If you need to run the service as a user other than **absie**, you can specify your custom user ID in createOptions under "User" property in your deployment manifest. In such case you need to use default or root group ID `0`.
 
 ```json
-"createOptions": { 
-  "User": "<custom user ID>:0" 
-} 
+"createOptions": {
+  "User": "<custom user ID>:0"
+}
 ```
+
 Now, grant the container user access to the directory
+
 ```terminal
-sudo chown -R <user ID>:<group ID> <blob-dir> 
-sudo chmod -R 700 <blob-dir> 
+sudo chown -R <user ID>:<group ID> <blob-dir>
+sudo chmod -R 700 <blob-dir>
 ```
 
 ## Configure log files
@@ -153,11 +163,11 @@ You can use the account name and account key that you configured for your module
 
 Specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured.
 
-- For modules that are deployed on the same device as where the Azure Blob Storage on IoT Edge module is running, the blob endpoint is: `http://<module name>:11002/<account name>`.
-- For modules or applications running on a different device, you have to choose the right endpoint for your network. Depending on your network setup, choose an endpoint format such that the data traffic from your external module or application can reach the device running the Azure Blob Storage on IoT Edge module. The blob endpoint for this scenario is one of:
-  - `http://<device IP >:11002/<account name>`
-  - `http://<IoT Edge device hostname>:11002/<account name>`
-  - `http://<fully qualified domain name>:11002/<account name>`
+* For modules that are deployed on the same device as where the Azure Blob Storage on IoT Edge module is running, the blob endpoint is: `http://<module name>:11002/<account name>`.
+* For modules or applications running on a different device, you have to choose the right endpoint for your network. Depending on your network setup, choose an endpoint format such that the data traffic from your external module or application can reach the device running the Azure Blob Storage on IoT Edge module. The blob endpoint for this scenario is one of:
+  * `http://<device IP >:11002/<account name>`
+  * `http://<IoT Edge device hostname>:11002/<account name>`
+  * `http://<fully qualified domain name>:11002/<account name>`
 
 ## Azure Blob Storage quickstart samples
 
@@ -197,7 +207,7 @@ You can use [Azure Storage Explorer](https://azure.microsoft.com/features/storag
 
 ## Supported storage operations
 
-Blob storage modules on IoT Edge use the Azure Storage SDKs, and are consistent with the 2017-04-17 version of the Azure Storage API for block blob endpoints. 
+Blob storage modules on IoT Edge use the Azure Storage SDKs, and are consistent with the 2017-04-17 version of the Azure Storage API for block blob endpoints.
 
 Because not all Azure Blob Storage operations are supported by Azure Blob Storage on IoT Edge, this section lists the status of each.
 
@@ -266,6 +276,7 @@ Unsupported:
 * Append block from URL
 
 ## Event Grid on IoT Edge Integration
+
 > [!CAUTION]
 > The integration with Event Grid on IoT Edge is in preview
 

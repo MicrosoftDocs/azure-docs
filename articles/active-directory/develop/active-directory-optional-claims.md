@@ -13,7 +13,6 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Provide optional claims to your Azure AD app
@@ -204,7 +203,7 @@ If supported by a specific claim, you can also modify the behavior of the Option
 | `additionalProperties` | Collection (Edm.String) | Additional properties of the claim. If a property exists in this collection, it modifies the behavior of the optional claim specified in the name property.                                                                                                                                               |
 ## Configuring directory extension optional claims
 
-In addition to the standard optional claims set, you can also configure tokens to include extensions. For more info, see [Add custom data to resources using extensions](https://docs.microsoft.com/graph/extensibility-overview). This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. See the bottom of this page for an example.
+In addition to the standard optional claims set, you can also configure tokens to include extensions. This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. See the bottom of this page for an example.
 
 > [!NOTE]
 > - Directory schema extensions are an Azure AD-only feature, so if your application manifest requests a custom extension and an MSA user logs into your app, these extensions will not be returned.

@@ -1,14 +1,13 @@
 ---
 title: Activate Azure subscriptions and accounts | Microsoft Docs
 description: Enable access using Azure Resource Manager APIs for new and existing accounts and resolve common account problems.
-services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2019
+ms.date: 01/24/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: vitavor
 ms.custom: secdec18
 ---
 

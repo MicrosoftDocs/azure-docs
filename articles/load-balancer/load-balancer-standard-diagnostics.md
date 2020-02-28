@@ -22,7 +22,7 @@ Azure Standard Load Balancer exposes the following diagnostic capabilities:
 
 * **Resource health**: The Load Balancer page in the Azure portal and the Resource Health page (under Monitor) expose the Resource Health section for Standard Load Balancer. 
 
-This article provides a quick tour of these capabilities, and it offers ways to use them for Standard Load Balancer.
+This article provides a quick tour of these capabilities, and it offers ways to use them for Standard Load Balancer. 
 
 ## <a name = "MultiDimensionalMetrics"></a>Multi-dimensional metrics
 
@@ -36,7 +36,9 @@ The various Standard Load Balancer configurations provide the following metrics:
 | Health probe status(DIP availability) | Public and internal load balancer | Standard Load Balancer uses a distributed health-probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per-endpoint filtered view of each instance endpoint in the load balancer pool. You can see how Load Balancer views the health of your application, as indicated by your health probe configuration. |  Average |
 | SYN (synchronize) packets | Public and internal load balancer | Standard Load Balancer does not terminate Transmission Control Protocol (TCP) connections or interact with TCP or UDP packet flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received.| Average |
 | SNAT connections | Public load balancer |Standard Load Balancer reports the number of outbound flows that are masqueraded to the Public IP address front end. Source network address translation (SNAT) ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows. Counters for successful and failed outbound SNAT flows are reported and can be used to troubleshoot and understand the health of your outbound flows.| Average |
-| Byte counters |  Public and internal load balancer | Standard Load Balancer reports the data processed per front end.| Average |
+| Allocated SNAT ports | Public load balancer | Standard Load Balancer reports the number of SNAT ports allocated per backend instance | Average. |
+| Used SNAT ports | Public load balancer | Standard Load Balancer reports the number of SNAT ports that are utilized per backend instance. | Average | 
+| Byte counters |  Public and internal load balancer | Standard Load Balancer reports the data processed per front end. You may notice that the bytes are not distributed equally across the backend instances. This is expected as Azure's Load Balancer algorithm is based on flows | Average |
 | Packet counters |  Public and internal load balancer | Standard Load Balancer reports the packets processed per front end.| Average |
 
 ### View your load balancer metrics in the Azure portal
@@ -56,7 +58,7 @@ To view the metrics for your Standard Load Balancer resources:
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
-For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api).
+For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account via the 'All Metrics' option only. 
 
 ### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
 

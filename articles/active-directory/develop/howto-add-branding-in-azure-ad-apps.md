@@ -15,7 +15,6 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.collection: M365-identity-device-management
 ---
 
 # Branding guidelines for applications

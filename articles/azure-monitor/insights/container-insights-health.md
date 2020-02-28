@@ -18,7 +18,7 @@ For information about how to enable Azure Monitor for containers, see [Onboard A
 >[!NOTE]
 >To support AKS Engine clusters, verify it meets the following:
 >- It is using the latest version of the [HELM client](https://helm.sh/docs/using_helm/).
->- The containerized agent version is *microsoft/oms:ciprod11012019*. To upgrade the agent, see [upgrading agent on Kubernetes cluster](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
+>- The containerized agent version is *microsoft/oms:ciprod11012019*. To upgrade the agent, see [upgrading agent on Kubernetes cluster](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
 >
 
 ## Overview

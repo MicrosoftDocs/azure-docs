@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -95,29 +95,11 @@ For information that compares member users and guest users, see [What are the de
 
 Only the Account Administrator can change the Service Administrator for a subscription. By default, when you sign up for an Azure subscription, the Service Administrator is the same as the Account Administrator. The user with the Account Administrator role has no access to the Azure portal. The user with the Service Administrator role has full access to the Azure portal. If the Account Administrator and Service Administrator are the same user and you change the Service Administrator to a different user, then the Account Administrator loses access to Azure portal. However, the Account Administrator can always use Account Center to change the Service Administrator back to themselves.
 
-There are two ways to change the Service Administrator. You can change in the **Azure portal** or **Account Center**.
-
-### Azure portal
-
-1. Make sure your scenario is supported by checking the limitations for changing Service Administrators.
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
-
-1. Open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
-
-1. Click **Properties**.
-
-    ![Screenshot showing the Account Administrator](./media/classic-administrators/account-admin.png)
-
-1. At the top, click **Service Admin** to open the Service administrator pane.
-
-    If the Service Admin button is disabled, you do not have permissions. Only the user who is the Account Administrator can change the Service Administrator.
-
-1. Select a new Service Administrator and then click **Save**.
+Follow these steps to change the Service Administrator in **Account Center**.
 
 ### Account Center
 
-1. Make sure your scenario is supported by checking the limitations for changing Service Administrators.
+1. Make sure your scenario is supported by checking the [limitations for changing the Service Administrator](#limitations-for-changing-the-service-administrator).
 
 1. Sign in to [Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
 

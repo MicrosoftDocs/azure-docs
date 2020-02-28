@@ -3,8 +3,9 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database  
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 02/14/2020
 ms.author: mathoma
+ms.reviewer: vanto
 ---
 
 In this step, you will create an Azure SQL Database single database. 
@@ -24,14 +25,14 @@ Create your resource group and single database using the Azure portal.
 
    ![Create single database](../media/sql-database-get-started-portal/create-single-database.png)
 
-3. On the **Basics** tab, in the **Project Details** section, type or select the following values:
+4. On the **Basics** tab, in the **Project Details** section, type or select the following values:
 
    - **Subscription**: Drop down and select the correct subscription, if it doesn't appear.
    - **Resource group**: Select **Create new**, type `myResourceGroup`, and select **OK**.
 
      ![New SQL database - basic tab](../media/sql-database-get-started-portal/new-sql-database-basics.png)
 
-4. In the **Database Details** section, type or select the following values:
+5. In the **Database Details** section, type or select the following values:
 
    - **Database name**: Enter `mySampleDatabase`.
    - **Server**: Select **Create new**, enter the following values and then select **Select**.
@@ -50,7 +51,7 @@ Create your resource group and single database using the Azure portal.
 
      ![SQL Database details](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - Select **Provisioned**.
+   - Select **Provisioned**.  Alternatively, select **Serverless** to create a serverless database.
 
      ![Provisioned Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
@@ -58,18 +59,22 @@ Create your resource group and single database using the Azure portal.
      - Optionally, you can also select **Change configuration** to change the hardware generation.
    - Select **Apply**.
 
-5. Select the **Additional settings** tab. 
-6. In the **Data source** section, under **Use existing data**, select `Sample`.
+6. Select the **Networking** tab and decide if you want to [**Allow Azure services and resources to access this server**](../sql-database-networkaccess-overview.md), or add a [private endpoint](../../private-link/private-endpoint-overview.md).
+
+   ![Networking Tab](../media/sql-database-get-started-portal/create-database-networking.png)
+
+7. Select the **Additional settings** tab. 
+8. In the **Data source** section, under **Use existing data**, select `Sample`.
 
    ![Additional SQL DB settings](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
    > Make sure to select the **Sample (AdventureWorksLT)** data so you can follow easily this and other Azure SQL Database quickstarts that use this data.
 
-7. Leave the rest of the values as default and select **Review + Create** at the bottom of the form.
-8. Review the final settings and select **Create**.
+9. Leave the rest of the values as default and select **Review + Create** at the bottom of the form.
+10. Review the final settings and select **Create**.
 
-9. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database.
+11. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database.
 
 # [PowerShell](#tab/azure-powershell)
 

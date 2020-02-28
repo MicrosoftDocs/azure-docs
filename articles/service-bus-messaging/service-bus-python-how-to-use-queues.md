@@ -1,10 +1,9 @@
 ---
 title: 'Quickstart: Use Azure Service Bus queues with Python'
-description: Learn how to use Azure Service Bus queues with Python.
+description: This article shows you how to use Python to create, send messages to, and receive messages from Azure Service Bus queues. 
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
@@ -13,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-python-october2019
 ---

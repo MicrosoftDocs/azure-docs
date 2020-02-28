@@ -31,7 +31,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Install and configure Terraform
-            url: /azure/virtual-machines/linux/terraform-install-configure?/azure/terraform/toc.json&bc=/azure/bread/toc.json
+            url: terraform-install-configure.md
           - text: Create a Terraform configuration for Azure
             url: terraform-create-configuration.md
           - text: Install the Terraform Visual Studio Code extension
@@ -57,11 +57,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a Linux VM
-            url: /azure/virtual-machines/linux/terraform-create-complete-vm?/azure/terraform/toc.json&bc=/azure/bread/toc.json
+            url: terraform-create-complete-vm.md
       - linkListType: tutorial
         links:
-          - text: Create a Terraform VM with MSI enabled
-            url: terraform-vm-managed-identities-for-azure-resources.md
           - text: Create a VM cluster with Terraform modules
             url: terraform-create-vm-cluster-module.md
           - text: Create a VM cluster with Terraform and HCL

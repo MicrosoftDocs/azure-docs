@@ -7,13 +7,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
 ---
 # Remove Duplicate Rows module
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to remove potential duplicates from a dataset.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services - Signaling Timed Metadata in Live Streaming | Microsoft Docs
+title: Azure Media Services - Signaling Timed Metadata in Live Streaming
 description: This specification outlines methods  for signaling timed metadata when ingesting and streaming to Azure Media Services. This includes support for generic timed metadata signals (ID3), as well as SCTE-35 signaling for ad insertion and splice condition signaling. 
 services: media-services
 documentationcenter: ''
@@ -248,7 +248,7 @@ The following section shows RTMP "simple" mode" payload, which can be used to si
  
 #### Example MPEG DASH manifest output when using Adobe RTMP simple mode
 
-See example [3.3.2.1 for MPEG DASH .mpd EventStream using Adobe simple mode](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
+See example [3.3.2.1 MPEG DASH .mpd EventStream using Adobe simple mode](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
 
 See example [3.3.3.1 DASH manifest with single period and Adobe simple mode ](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
 
@@ -279,7 +279,7 @@ In this scenario, the following payload MUST be sent from the on-premises encode
 See [Section 3.3.3.2 example DASH manifest with SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
 
 #### Example HLS manifest .m3u8 with SCTE-35 mode signal
-See [example 3.3.1.1 example HLS manifest with SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
+See [Section 3.2.1.1 example HLS manifest with SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
 
 ## 2.1.5 RTMP Ad signaling with "onCuePoint" for Elemental Live
 

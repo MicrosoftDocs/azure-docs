@@ -1,13 +1,12 @@
 ---
 title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
+ms.reviewer: boalcsva
 ---
 
 # Azure EA portal administration
@@ -16,7 +15,7 @@ This article explains the common tasks that an administrator accomplishes in the
 
 ## Add a new enterprise administrator
 
-Enterprise administrators have the most privileges when managing an Azure EA enrollment. The initial Azure EA admin was created when the EA agreement was set up. However, you can add or remove new admins at any time. New admins are only added by existing admins. For more information about adding  additional enterprise admins, see [Create another enterprise admin](ea-portal-get-started.md#create-another-enterprise-admin). For more information about billing profile roles and tasks, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Enterprise administrators have the most privileges when managing an Azure EA enrollment. The initial Azure EA admin was created when the EA agreement was set up. However, you can add or remove new admins at any time. New admins are only added by existing admins. For more information about adding  additional enterprise admins, see [Create another enterprise admin](ea-portal-get-started.md#create-another-enterprise-administrator). For more information about billing profile roles and tasks, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## Update user state from pending to active
 
@@ -26,7 +25,7 @@ When new Account Owners (AO) are added to an Azure EA enrollment for the first t
 
 After an Azure EA admin creates a department, the Azure Enterprise administrator can add department administrators and associate each one to a department. A department administrator can create new accounts. New accounts are needed for Azure EA subscriptions to get created.
 
-For more information about adding a department admin, see [Create an Azure EA department admin](ea-portal-get-started.md#add-a-department-admin).
+For more information about adding a department admin, see [Create an Azure EA department admin](ea-portal-get-started.md#add-a-department-administrator).
 
 ## Associate an account to a department
 
@@ -114,14 +113,12 @@ The Dev/Test Offer is not applicable to Azure Gov customers at this time.
 
 An account transfer moves an account owner from one enrollment to another. All related subscriptions under the account owner will move to the target enrollment. This is performed when you have multiple active enrollments and only wish to move selected account owners.
 
+This section is for informational purposes only as the action cannot be performed by an enterprise administrator. A support request is needed to transfer an enterprise account to a new enrollment.
+
 Keep the following points in mind when you transfer an enterprise account to a new enrollment:
 
 - Only the accounts specified in the request are transferred. If all accounts are chosen, then they are all transferred.
 - The source enrollment retains its status as active or extended. You can continue using the enrollment until it expires.
-
-### Effective transfer date
-
-You can backdate an account transfer as far back as the start date of the target enrollment, or the account start date, whichever has a later start date. After the account transfer, all usage information in the account before the effective transfer date stays in the enrollment you're transferring from. The usage information after the transfer date will be moved to the target enrollment.
 
 ### Prerequisites
 
@@ -129,7 +126,6 @@ When you request an account transfer, provide the following information:
 
 - The number of the target enrollment, account name, and account owner email of account to transfer
 - For the source enrollment, the enrollment number and account to transfer
-- For the account transfer effective date, it can be backdated as far back as the start date of the target enrollment, or the account start date, whichever has a later start date
 
 Other points to keep in mind before an account transfer:
 
@@ -149,6 +145,8 @@ An enrollment transfer is considered when:
 - An enrollment is in expired/extended status and a new agreement is negotiated.
 - If you have multiple enrollments and wish to consolidate all the accounts and billing under a single enrollment.
 
+This section is for informational purposes only as the action cannot be performed by an enterprise administrator. A support request is needed to transfer an enterprise enrollment to a new one.
+
 When you request to transfer an entire enterprise enrollment to an enrollment, the following actions occur:
 
 - All Azure services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators, are transferred to a new target enrollment.
@@ -157,15 +155,12 @@ When you request to transfer an entire enterprise enrollment to an enrollment, t
 - Any remaining monetary commitment balance in the agreement is lost, including future terms.
 -	If the enrollment you’re transferring from has RI purchases, the RI purchasing fee will remain in the source enrollment however all RI benefits will be transferred across for utilization in the new enrollment.
 -	The marketplace one-time purchase fee and any monthly fixed fees already incurred on the old enrollment will not be transferred to the new enrollment. Consumption-based marketplace charges will be transferred.
--	After a backdated enrollment transfer, any one-time fees from purchases will remain in the source enrollment.
 
 ### Effective transfer date
 
 The effective transfer day can be on or after the start date of the target enrollment.
 
 The source enrollment usage is charged against monetary commitment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged accordingly.
-
-A backdated transfer is supported as far back as the start date of the target enrollment. Providing the chosen transfer date does not affect the usage for an overage invoice that has already been issued.
 
 ### Prerequisites
 

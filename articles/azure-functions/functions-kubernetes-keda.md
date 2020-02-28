@@ -22,15 +22,9 @@ Kubernetes-based Functions provides the Functions runtime in a [Docker container
 
 To run Functions on your Kubernetes cluster, you must install the KEDA component. You can install this component using [Azure Functions Core Tools](functions-run-local.md).
 
-### Installing with the Azure Functions Core Tools
+### Installing with Helm
 
-By default, Core Tools installs both KEDA and Osiris components, which support event-driven and HTTP scaling, respectively.  The installation uses `kubectl` running in the current context.
-
-Install KEDA in your cluster by running the following install command:
-
-```cli
-func kubernetes install --namespace keda
-```
+There are various ways to install KEDA in any Kubernetes cluster including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/deploy/).
 
 ## Deploying a function app to Kubernetes
 
@@ -69,11 +63,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## Uninstalling KEDA from Kubernetes
 
-You can run the following core tools command to remove KEDA from a Kubernetes cluster:
-
-```cli
-func kubernetes remove --namespace keda
-```
+Steps to uninstall KEDA are documented [on the KEDA site](https://keda.sh/deploy/).
 
 ## Supported triggers in KEDA
 
@@ -87,7 +77,7 @@ KEDA has support for the following Azure Function triggers:
 
 ### HTTP Trigger support
 
-You can use Azure Functions that expose HTTP triggers, but KEDA doesn't directly manage them.  The Azure Functions Core Tools will install a related project, Osiris, that enables scaling HTTP endpoints from 0 to 1.  Scaling from 1 to *n* would rely on the traditional Kubernetes scaling policies.
+You can use Azure Functions that expose HTTP triggers, but KEDA doesn't directly manage them.  You can leverage the KEDA prometheus trigger to [scale HTTP Azure Functions from 1 to *n* instances](https://dev.to/anirudhgarg_99/scale-up-and-down-a-http-triggered-function-app-in-kubernetes-using-keda-4m42).
 
 ## Next Steps
 For more information, see the following resources:
