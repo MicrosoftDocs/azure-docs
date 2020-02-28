@@ -26,8 +26,9 @@ This returns twin data in JSON form. Assuming the following model (written in [D
 
 ```json
 {
-    "@id": " dtmi:com:example:Moon;1",
+    "@id": " urn:contosocom:example:Moon:1",
     "@type": "Interface",
+    "@context": "http://azure.com/v3/contexts/Model.json",
     "contents": [
         {
             "@type": "Property",
@@ -36,7 +37,7 @@ This returns twin data in JSON form. Assuming the following model (written in [D
             "writable": true
         },
         {
-            "@type": "Property"
+            "@type": "Property",
             "name": "mass",
             "schema": "double",
             "writable": true
@@ -54,7 +55,7 @@ The call `GetTwin("myMoon-001");` might return:
   "radius": 1737.1,
   "mass": 0.0734,
   "$metadata": {
-    "$model": "dtmi:com:example:Moon;1",
+    "$model": "urn:contosocom:example:Moon:1",
     "radius": {
       "desiredValue": 1737.1,
       "desiredVersion": 5,
@@ -132,7 +133,7 @@ To patch properties in components, use path syntax in JSON Patch:
   {
     "op": "replace",
     "path": "/$metadata/$model",
-    "value": "dtmi:com:example:foo;1"
+    "value": "urn:contosocom:example:foo:1"
   }
 ]
 ```
@@ -147,7 +148,7 @@ To patch properties in components, use path syntax in JSON Patch:
   {
     "op": "replace",
     "path": "$metadata.$model",
-    "value": "dtmi:com:example:foo"
+    "value": "urn:contosocom:example:foo"
   },
   {
     "op": "add",
@@ -189,8 +190,7 @@ Response<JsonDocument> = client.GetPropertyAsJson(roomid, "myComplexProperty");
 // Deserialize return value, with System.Text.Json
 // [TBA]
 // ...compute something...
-Response<string> result = client.SetProperty(roomid, "myComplexProperty",                            
-                                                     complexPropertyJSonValue);
+Response<string> result = client.SetProperty(roomid, "myComplexProperty", complexPropertyJSonValue);
 ```
 
 ## Components
@@ -198,10 +198,11 @@ Response<string> result = client.SetProperty(roomid, "myComplexProperty",
 For components defined in a twin model, you can describe a property path.
 Let's say we have the following DTDL models that define a phone device with two cameras:
 
-```csharp
+```json
 {
-    "@id": "dtmi:example:Camera;1",
+    "@id": "urn:contosocom:example:Camera:1",
     "@type": "Interface",
+    "@context": "http://azure.com/v3/contexts/Model.json",
     "contents": [
         {
             "@type": "Property",
@@ -210,26 +211,27 @@ Let's say we have the following DTDL models that define a phone device with two 
             "writable": true
         },
         {
-            "@type": "Property"
+            "@type": "Property",
             "name": "exposure",
             "schema": "double",
             "writable": true
-        },
+        }
     ]
-}
+},
 {
-    "@id": " dtmi:example:Phone;1",
+    "@id": " urn:contosocom:example:Phone:1",
     "@type": "Interface",
+    "@context": "http://azure.com/v3/contexts/Model.json",
     "contents": [
         {
             "@type": "Component",
             "name": "frontCamera",
-            "schema": "dtmi:example:Camera;1"
+            "schema": "urn:contosocom:example:Camera:1"
         },
         {
-            "@type": "Component"
+            "@type": "Component",
             "name": "backCamera",
-            "schema": "dtmi:example:Camera;1"
+            "schema": "urn:contosocom:example:Camera:1"
         },
     ]
 }
@@ -239,8 +241,7 @@ To access properties on the *frontCamera* component, you can write:
 
 ```csharp
 var client = new DigitalTwinsServiceClient("...");
-Response<double> result = client.SetDoubleProperty(phoneId, "frontCamera.aperture",
-                                                            newApertureValue);
+Response<double> result = client.SetDoubleProperty(phoneId, "frontCamera.aperture", newApertureValue);
 ```
 
 In other words, the property name for component access is a property path consisting of component names separated by a dot, followed by the property name on the final leaf component.
@@ -250,33 +251,35 @@ In other words, the property name for component access is a property path consis
 To access relationships, see the following example.
 Recall the definitions of *Moon* and *Planet* twins:
 
-```csharp
+```json
 {
-    "@id": "dtmi:example:Planet;1",
+    "@id": "urn:contosocom:example:Planet:1",
     "@type": "Interface",
+    "@context": "http://azure.com/v3/contexts/Model.json",
     "extends": [
-        "ex:CelestialBody"
-    ]
+      "ex:CelestialBody"
+    ],
     "contents": [
-        {
-            "@type": "Relationship",
-            "name": "satellites",
-            "target": "dtmi:example:Moon;1"
-        },
+      {
+          "@type": "Relationship",
+          "name": "satellites",
+          "target": "urn:contosocom:example:Moon:1"
+      }
     ]
-}
+},
 {
-    "@id": "dtmi:example:Moon;1",
+    "@id": "urn:contosocom:example:Moon:1",
     "@type": "Interface",
+    "@context": "http://azure.com/v3/contexts/Model.json",
     "extends": [
         "ex:CelestialBody"
-    ]
+    ],
     "contents": [
         {
             "@type": "Relationship",
             "name": "owner",
-            "target": "dtmi:example:Planet;1"
-        },
+            "target": "urn:contosocom:example:Planet:1"
+        }
     ]
 }
 ```

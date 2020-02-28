@@ -26,8 +26,9 @@ The first step towards the solution is to model the twin types used to represent
 
 ```json
 {
-  "@id": "urn:example:PatientRoom:1",
+  "@id": "urn:contosocom:example:PatientRoom:1",
   "@type": "Interface",
+  "@context": "http://azure.com/v3/contexts/Model.json",
   "displayName": "Patient Room",
   "contents": [
     {
@@ -45,13 +46,11 @@ The first step towards the solution is to model the twin types used to represent
       "name": "handWashPercentage",
       "schema": "double"
     },
-
     {
       "@type": "Relationship",
       "name": "hasDevices"
     }
-  ],
-  "@context": "http://azure.com/v3/contexts/Model.json"
+  ]
 }
 ```
 
@@ -66,18 +65,18 @@ An example:
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");
 // Read model file into string (not part of SDK)
-StreamReader r = new StreamReader("MyModelFile.dtdl"));
+StreamReader r = new StreamReader("MyModelFile.json"));
 string dtdl = r.ReAzure Digital TwinsoEnd(); r.Close();
 Task<Response> rUpload = client.UploadDTDLAsync(dtdl);
 Clients can also upload multiple files in one single transaction:
 DigitalTwinsClient client = new DigitalTwinsClient("connectionString");
-var dtdlFiles = Directory.EnumerateFiles(sourceDirectory, "*.dtdl");
+var dtdlFiles = Directory.EnumerateFiles(sourceDirectory, "*.json");
 
 List<string> dtdlStrings = new List<string>();
 foreach (string fileName in dtdlFiles)
 {
     // Read model file into string (not part of SDK)
-    StreamReader r = new StreamReader("MyModelFile.dtdl"));
+    StreamReader r = new StreamReader("MyModelFile.json"));
     string dtdl = r.ReAzure Digital TwinsoEnd(); r.Close();
     dtdlStrings.Add(dtdl); 
 }
@@ -87,17 +86,17 @@ Task<Response> rUpload client.UploadDTDLAsync(dtdlStrings.ToArray());
 
 The DTDL upload API provides two overloads for loading DTDL. One overload lets you pass a single string containing DTDL models, the other lets you pass an array of DTDL models. Each string can either contain a single DTDL model, or multiple models as a JSON array:
 
-```csharp
+```json
 [
   {
-    "@id": "urn:Planet",
+    "@id": "urn:contosocom:example:Planet",
     "@type": "Interface",
-    ...
+    //...
   },
   {
-    "@id": "urn:Moon",
+    "@id": "urn:contosocom:example:Moon",
     "@type": "Interface",
-    ...
+    //...
   }
 ]
 ```
@@ -115,17 +114,19 @@ You can list and retrieve models stored on your Azure Digital Twins service inst
 An example:
 
 ```csharp
-DigitalTwinsClient client = new DigitalTwinsClient("...");  
+DigitalTwinsClient client = new DigitalTwinsClient("...");
+
 // Get just the names of available models
 IAsyncEnumerable<Response<ModelData>> modelData = RetrieveAllModelsAsync(IncludeModels.None);
+
 // Get the entire model schema
-IAsyncEnumerable<Response<ModelData>> modelData =    
-                                             client.RetrieveAllModelsAsync(IncludeModels.All);
+IAsyncEnumerable<Response<ModelData>> modelData = client.RetrieveAllModelsAsync(IncludeModels.All);
+
 // Get a single model
 Response<ModelData> oneModel = client.RetrieveModel(modelId, IncludeModels.All);
+
 // Get a single model with all referenced models, recursively
-IAsyncEnumerable<Response<ModelData>> oneModelWithDependencies = 
-                        client.RetrieveModelWithDependenciesAsync(modelId, IncludeModels.All);
+IAsyncEnumerable<Response<ModelData>> oneModelWithDependencies = client.RetrieveModelWithDependenciesAsync(modelId, IncludeModels.All);
 ```
 
 The API calls to retrieve models return `ModelData` objects. `ModelData` contains metadata about the model stored in the Azure Digital Twins service instance, such as name, DTMI, and creation date of the model. The `ModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
@@ -154,29 +155,29 @@ The functionalities of the parser are:
 
 ### An example
 
-The following models are defined in the service (the `dtmi:com:example:coffeeMaker` model is using the capability model syntax, which implies that it was installed in the service by connecting an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device exposing that model):
+The following models are defined in the service (the `urn:contosocom:example:coffeeMaker` model is using the capability model syntax, which implies that it was installed in the service by connecting an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device exposing that model):
 
-```csharp
+```json
 {
-  "@id": " dtmi:com:example:coffeeMaker",
+  "@id": " urn:contosocom:example:coffeeMaker",
   "@type": "CapabilityModel",
   "implements": [
-	{ "name": "coffeeMaker", "schema": " dtmi:com:example:coffeeMakerInterface" }
+	    { "name": "coffeeMaker", "schema": " urn:contosocom:example:coffeeMakerInterface" }
   ]    
 }
 {
-  "@id": " dtmi:com:example:coffeeMakerInterface",
+  "@id": " urn:contosocom:example:coffeeMakerInterface",
   "@type": "Interface",
   "contents": [
   	{ "@type": "Property", "name": "waterTemp", "schema": "double" }  
   ]
 }
 {
-  "@id": " dtmi:com:example:coffeeBar",
+  "@id": " urn:contosocom:example:coffeeBar",
   "@type": "Interface",
   "contents": [
-	{ "@type": "relationship", "contains": " dtmi:com:example:coffeeMaker" },
-	{ "@type": "property", "name": "capacity", “schema": integer }
+    	{ "@type": "relationship", "contains": " urn:contosocom:example:coffeeMaker" },
+    	{ "@type": "property", "name": "capacity", "schema": "integer" }
   ]    
 }
 ```
@@ -233,6 +234,7 @@ public void ParseModels()
     }
 }
 ```
+
 ## Delete models
 
 Models can also be deleted from the service. Deletion is a multi-step process:
