@@ -3,14 +3,14 @@ title: Phone sign-up and sign-in with custom policies (Preview)
 titleSuffix: Azure AD B2C
 description: Send one-time passwords (OTP) in text messages to your application users' phones with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 

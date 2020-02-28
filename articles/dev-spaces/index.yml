@@ -76,3 +76,5 @@ landingContent:
             url: how-to/github-actions.md
           - text: Connect your development machine to an AKS cluster
             url: how-to/connect.md
+          - text: Configure your Azure Dev Spaces cluster to use Helm 3
+            url: how-to/helm-3.md
