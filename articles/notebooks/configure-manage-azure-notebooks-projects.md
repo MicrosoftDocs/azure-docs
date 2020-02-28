@@ -125,8 +125,6 @@ The information you then project depends on the type of operation you chose:
 
 - **Shell script**: In the second drop-down list, select a bash shell script in the project (typically a file with the *.sh* extension) that contains any commands you wish to run to initialize the environment.
 
-- **Environment.yml**: In the second drop-down list, select an *environments.yml* file for Python projects using a conda environment.
-
 When you're done adding steps, select **Save**.
 
 ### Use the terminal

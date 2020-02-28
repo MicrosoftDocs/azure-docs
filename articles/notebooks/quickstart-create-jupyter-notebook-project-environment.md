@@ -50,7 +50,6 @@ A project in Azure Notebooks is a collection of files, such as notebooks, data f
     | --- | --- |
     | Requirements.txt | Python projects define their dependencies in a requirements.txt file. With this option, select the appropriate file from the project's file list, and also select the Python version in the additional drop-down that appears. If necessary, select **Cancel** to return to the project, upload or create the file, then return to the **Project Settings** > **Environment** tab and create a new step. With this step in place, running a notebook in the project automatically runs `pip install -r <file>` |
     | Shell script | Use to indicate a bash shell script (typically a file with the *.sh* extension) that contains any commands you wish to run to initialize the environment. |
-    | Environment.yml | A Python project that uses conda for managing an environment uses an *environments.yml* file to describe dependencies. With this option, select the appropriate file from the project's file list. |
 
 1. To remove any setup step, select the **X** to the right of the step.
 
