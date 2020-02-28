@@ -157,8 +157,6 @@ Now that you've confirmed the HTTP 500s, let's take a look at the standard outpu
 
 (2) Double-click the `AppServiceConsoleLogs` table and click `Run`. 
 
-![AppServiceConsoleLogs](./media/tutorial-azure-monitor/app-service-console-logs.png)
-
 Since converting five images results in server errors, you can see if the app is also writing errors by filtering `ResultDescription` for errors, as show below:
 
 ```kusto
