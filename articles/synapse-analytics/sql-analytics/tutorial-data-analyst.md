@@ -219,3 +219,9 @@ The results of the query indicate that the drop in a number of taxi rides was du
 - and windy (~10m/s)
 
 This tutorial has shown how data analyst can quickly perform exploratory data analysis, easily combine different datasets using SQL on-demand, and visualize the results using Azure Synapse Studio.
+
+## Next steps
+
+Advance to the next article to learn how to connect SQL on-demand to Power BI Desktop & create report.
+> [!div class="nextstepaction"]
+> [Connect SQL on-demand to Power BI Desktop & create report](tutorial-connect-power-bi-desktop.md)
