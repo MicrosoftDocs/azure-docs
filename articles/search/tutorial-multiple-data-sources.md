@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/23/2019
+ms.date: 02/28/2020
 ---
 
 # C# Tutorial: Combine data from multiple data sources in one Azure Cognitive Search index
@@ -28,17 +28,15 @@ This tutorial uses C#, the .NET SDK for Azure Cognitive Search, and the Azure po
 
 ## Prerequisites
 
-The following services, tools, and data are used in this quickstart. 
++ [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)
++ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Visual Studio 2019](https://visualstudio.microsoft.com/)
++ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-- [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
+> [!Note]
+> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-- [Create an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) for storing the sample hotel data.
-
-- [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample room data.
-
-- [Install Visual Studio 2019](https://visualstudio.microsoft.com/) to use as the IDE.
-
-### Install the project from GitHub
+## Download files
 
 1. Locate the sample repository on GitHub: [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 1. Select **Clone or download** and make your private local copy of the repository.

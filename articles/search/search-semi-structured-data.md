@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/28/2020
 #Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Cognitive Search.
 ---
 
@@ -26,13 +26,14 @@ In this tutorial, use the [Azure Cognitive Search REST APIs](https://docs.micros
 
 ## Prerequisites
 
-The following services, tools, and data are used in this quickstart. 
++ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Postman desktop app](https://www.getpostman.com/)
++ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-[Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
+> [!Note]
+> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data.
-
-[Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Cognitive Search.
+## Download files
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contains the data used in this tutorial. Download and unzip this file to its own folder. Data originates from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), converted to JSON for this tutorial.
 
