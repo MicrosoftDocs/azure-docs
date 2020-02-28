@@ -61,7 +61,7 @@
   - name: Data Analyst
     items:
     - name: Use SQL on-demand to analyze and Synapse studio to visualize
-      href: sql-analytics/tutorial-data-analyst.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      href: ./sql-analytics/tutorial-data-analyst.md
   - name: Data Engineer
   items:
   # - name: Data Preparation
@@ -288,6 +288,8 @@
         href: sql-analytics/best-practices-sql-on-demand.md
       - name: Best practices SQL pools
         href: sql-analytics/best-practices-sql-pool.md
+      # - name: FAQ
+      #   href: sql-analytics/sql-analytics-faq.md
     - name: Data loading
       items:
       - name: Overview
