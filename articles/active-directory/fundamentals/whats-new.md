@@ -137,16 +137,6 @@ For more information about how to better secure your organization by using autom
 
 ---
  
-### "Last signed-in date" attribute for Azure AD user object is now available through MS graph API (Public Preview)
-
-**Type:** New feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
- 
-The last sign-in provides potential insight into a user's continued need for access to resources.  It can help you determine if group membership or app access is still needed or could be removed. For external user management, you can determine if an external user is still active within the tenant or should be removed. Customers can now use the Microsoft Graph API to access the [last signed-in date attribute for a given user](https://docs.microsoft.com/graph/api/resources/signinactivity?view=graph-rest-beta).
-
----
- 
 ### Azure AD support for FIDO2 security keys in hybrid environments
 
 **Type:** New feature  
