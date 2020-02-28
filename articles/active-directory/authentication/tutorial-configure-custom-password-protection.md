@@ -53,8 +53,8 @@ The custom banned password list is limited to a maximum of 1000 terms. It's not 
 
 When a user attempts to reset a password to something that's on the global or custom banned password list, they see one of the following error messages:
 
-* Unfortunately, your password contains a word, phrase, or pattern that makes your password easily guessable. Please try again with a different password.
-* Unfortunately, you can't use that password because it contains words or characters that have been blocked by your administrator. Please try again with a different password.
+* *Unfortunately, your password contains a word, phrase, or pattern that makes your password easily guessable. Please try again with a different password.*
+* *Unfortunately, you can't use that password because it contains words or characters that have been blocked by your administrator. Please try again with a different password.*
 
 ## Configure custom banned passwords
 
@@ -71,9 +71,9 @@ To enable the custom banned password list and add entries to it, complete the fo
 1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 1. Under the **Manage** menu header, select **Authentication methods**, then **Password protection**.
 1. Set the option for **Enforce custom list** to *Yes*.
-1. Add strings to the **Custom banned password list**, one string per line. The following conditions apply to these custom banned password entries:
+1. Add strings to the **Custom banned password list**, one string per line, as shown in the following example. Specify your own custom passwords to ban:
 
-    [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal]")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
+    [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
 1. To enable the custom banned passwords, select **Save**.
 
@@ -81,7 +81,21 @@ It may take several hours for updates to the custom banned password list to be a
 
 ## Test custom banned password list
 
+To see the custom banned password list in action, try to change the password to a variation of one that you added in the previous section. When Azure AD tries to process the password change, the password is matched against an entry in the custom banned password list. An error is then displayed to the user.
 
+> [!NOTE]
+> Before a user can reset their password, the Azure AD tenant must be [configured for self-service password reset][configure-sspr].
+
+1. Go to the Azure AD Access Panel page at [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. In the top-right corner, select your name, then choose **Profile** from the drop-down menu.
+
+    ![Select profile](media/tutorial-configure-custom-password-protection/myapps-profile.png)
+
+1. On the **Profile** page, select **Change password**.
+1. On the **Change password** page, enter the existing (old) password. Enter and confirm a new password that's on the custom banned password list you defined in the previous section, then select **Submit**.
+1. An error message is displayed similar to the following example that tells you the password has been blocked by the administrator:
+
+    ![Error message displayed when you try to use a password that's part of the custom banned password list](media/tutorial-configure-custom-password-protection/password-change-error.png)
 
 ## Clean up resources
 
@@ -104,3 +118,6 @@ In this tutorial, you enabled and configured custom password protection lists fo
 
 > [!div class="nextstepaction"]
 > [Enable risk-based Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+
+<!-- INTERNAL LINKS -->
+[configure-sspr]: tutorial-enable-sspr.md
