@@ -130,10 +130,10 @@ Based on the output of the cluster status:
 
 ## I'm receiving errors that my service principal was not found when I try to create a new cluster without passing in an existing one.
 
-When creating an AKS cluster it requires a service principal to create resources on your behalf. AKS offers the ability to have a new one created at cluster creation time, but this requires Azure Active Directory to fully propagate the new service principal in a reasonable time in order to have the cluster succeed in creation. When this propagation takes too long, the cluster will fail validation to create as it cannot find an available service principal to do so. 
+When creating an AKS cluster it requires a service principal to create resources on your behalf. AKS offers the ability to have a new one created at cluster creation time, but this requires Azure Active Directory to propagate the new service principal in a reasonable time in order to have the cluster creation success. If regional propagation exceeds timeout thresholds, the cluster will fail validation to create as it cannot find an available service principal.
 
 Use the following workarounds for this:
-1. Use an existing service principal which has already propagated across regions and exists to pass into AKS at cluster create time.
+1. Use an existing service principal to pass to AKS at cluster create time.
 2. If using automation scripts, add time delays between service principal creation and AKS cluster creation.
 3. If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.
 

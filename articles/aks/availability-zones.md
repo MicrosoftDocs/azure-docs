@@ -4,15 +4,15 @@ description: Learn how to create a cluster that distributes nodes across availab
 services: container-service
 ms.custom: fasttrack-edit
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 02/27/2020
 
 ---
 
 # Create an Azure Kubernetes Service (AKS) cluster that uses availability zones
 
-An Azure Kubernetes Service (AKS) cluster distributes resources such as the nodes and storage across logical sections of the underlying Azure compute infrastructure. This deployment model makes sure that the nodes run across separate update and fault domains in a single Azure datacenter. AKS clusters deployed with this default behavior provide a high level of availability to protect against a hardware failure or planned maintenance event.
+An Azure Kubernetes Service (AKS) cluster distributes resources such as nodes and storage across logical sections of underlying Azure infrastructure. This deployment model when using availability zones, ensures nodes run across separate update and fault domains in a single Azure datacenter. AKS clusters deployed with this behavior provide a higher level of availability to protect against a hardware failure or a planned maintenance event.
 
-To provide a higher level of availability to your applications, AKS clusters can be distributed across availability zones. These zones are physically separate datacenters within a given region. When the cluster components are distributed across multiple zones, your AKS cluster is able to tolerate a failure in one of those zones. Your applications and management operations continue to be available even if one entire datacenter has a problem.
+Availability zones are physically separate datacenters within a given region. When a cluster's node pool is distributed across multiple zones, your workload hosted by the node pool is able to tolerate a failure in a single zone. Your applications and management operations continue to be available even if one entire datacenter has a problem.
 
 This article shows you how to create an AKS cluster and distribute the node components across availability zones.
 
@@ -37,24 +37,21 @@ AKS clusters can currently be created using availability zones in the following 
 
 The following limitations apply when you create an AKS cluster using availability zones:
 
-* You can only enable availability zones when the cluster is created.
+* You can only define availability zones when the cluster or node pool is created.
 * Availability zone settings can't be updated after the cluster is created. You also can't update an existing, non-availability zone cluster to use availability zones.
-* You can't disable availability zones for an AKS cluster once it has been created.
-* The node size (VM SKU) selected must be available across all availability zones.
-* Clusters with availability zones enabled require use of Azure Standard Load Balancers for distribution across zones.
+* The chosen node size (VM SKU) selected must be available across all availability zones selected.
+* Clusters with availability zones enabled require use of Azure Standard Load Balancers for distribution across zones. This load balancer type can only be defined at cluster create time. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations][standard-lb-limitations].
 * You must use Kubernetes version 1.13.5 or greater in order to deploy Standard Load Balancers.
-
-AKS clusters that use availability zones must use the Azure load balancer *standard* SKU, which is the default value for the load balancer type. This load balancer type can only be defined at cluster create time. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations][standard-lb-limitations].
 
 ### Azure disks limitations
 
-Volumes that use Azure managed disks are currently not zonal resources. Pods rescheduled in a different zone from their original zone can't reattach their previous disk(s). It's recommended to run stateless workloads that don't require persistent storage that may come across zonal issues.
+Volumes that use Azure managed disks are currently not zonal resources. Pods rescheduled in a different zone from their original zone can't reattach their previous disk(s).
 
-If you must run stateful workloads, use taints and tolerations in your pod specs to tell the Kubernetes scheduler to create pods in the same zone as your disks. Alternatively, use network-based storage such as Azure Files that can attach to pods as they're scheduled between zones.
+If you must run stateful workloads, use taints and tolerations in your pod specs to group pod scheduling in the same zone as your disks. Alternatively, use network-based storage such as Azure Files that can attach to pods as they're scheduled between zones.
 
 ## Overview of availability zones for AKS clusters
 
-Availability zones is a high-availability offering that protects your applications and data from datacenter failures. Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of availability zones within a region protects applications and data from datacenter failures. Zone-redundant services replicate your applications and data across availability zones to protect from single-points-of-failure.
+Availability zones are a high-availability offering that protects your applications and data from datacenter failures. Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of availability zones within a region protects applications and data from datacenter failures. Zone-redundant services replicate your applications and data across availability zones to protect from single-points-of-failure.
 
 For more information, see [What are availability zones in Azure?][az-overview].
 
@@ -62,13 +59,13 @@ AKS clusters that are deployed using availability zones can distribute nodes acr
 
 ![AKS node distribution across availability zones](media/availability-zones/aks-availability-zones.png)
 
-In a zone outage, the nodes can be rebalanced manually or using the cluster autoscaler. If a single zone becomes unavailable, your applications continue to run.
+If a single zone becomes unavailable, your applications continue to run.
 
 ## Create an AKS cluster across availability zones
 
-When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter defines which zones agent nodes are deployed into. The AKS control plane components for your cluster are also spread across zones in the highest available configuration when you define the `--zones` parameter at cluster creation time.
+When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter defines which zones agent nodes are deployed into. The AKS control plane components for your cluster are also spread across three zones when you define the `--zones` parameter at cluster creation time. The zones which the control plane is spread across are independent of what zones are selected for the initial node pool.
 
-If you don't define any zones for the default agent pool when you create an AKS cluster, the AKS control plane components for your cluster will not use availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for those new nodes, however the control plane components remain without availability zone awareness. You can't change the zone awareness for a node pool or the AKS control plane components once they're deployed.
+If you don't define any zones for the default agent pool when you create an AKS cluster, the AKS control plane components for your cluster will not use availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for those new nodes. You can't change the zone awareness for a node pool or the AKS control plane components once they're deployed.
 
 The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*. The AKS control plane components are also distributed across zones in the highest available configuration since they're defined as part of the cluster create process.
 
@@ -86,6 +83,8 @@ az aks create \
 ```
 
 It takes a few minutes to create the AKS cluster.
+
+When deciding what zone a new node should belong to, a given AKS node pool will use a [best effort zone balancing offered by underlying Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing). A given AKS node pool is considered "balanced" if each zone has the same number of VMs or +\- 1 VM in all other zones for the scale set.
 
 ## Verify node distribution across zones
 
