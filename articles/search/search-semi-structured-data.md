@@ -187,47 +187,47 @@ The second call is [Create Index API](https://docs.microsoft.com/rest/api/search
       {"name": "metadata_content_type", "type":"Edm.String", "searchable": true, "retrievable": true, "filterable": true, "sortable": false}
       ]
     }
-```
+   ```
 
 1. Send the request. The response should look like:
 
-  ```json
-  {
-      "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexes/$entity",
-      "@odata.etag": "\"0x8D505FC00EDD5FA\"",
-      "name": "clinical-trials-json-index",
-      "fields": [
-          {
-              "name": "FileName",
-              "type": "Edm.String",
-              "searchable": false,
-              "filterable": false,
-              "retrievable": true,
-              "sortable": true,
-              "facetable": false,
-              "key": false,
-              "indexAnalyzer": null,
-              "searchAnalyzer": null,
-              "analyzer": null,
-              "synonymMaps": []
-          },
-          {
-              "name": "Description",
-              "type": "Edm.String",
-              "searchable": true,
-              "filterable": false,
-              "retrievable": false,
-              "sortable": false,
-              "facetable": false,
-              "key": false,
-              "indexAnalyzer": null,
-              "searchAnalyzer": null,
-              "analyzer": null,
-              "synonymMaps": []
-          },
-          ...
-  }
-  ```
+    ```json
+    {
+        "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexes/$entity",
+        "@odata.etag": "\"0x8D505FC00EDD5FA\"",
+        "name": "clinical-trials-json-index",
+        "fields": [
+            {
+                "name": "FileName",
+                "type": "Edm.String",
+                "searchable": false,
+                "filterable": false,
+                "retrievable": true,
+                "sortable": true,
+                "facetable": false,
+                "key": false,
+                "indexAnalyzer": null,
+                "searchAnalyzer": null,
+                "analyzer": null,
+                "synonymMaps": []
+            },
+            {
+                "name": "Description",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": false,
+                "retrievable": false,
+                "sortable": false,
+                "facetable": false,
+                "key": false,
+                "indexAnalyzer": null,
+                "searchAnalyzer": null,
+                "analyzer": null,
+                "synonymMaps": []
+            },
+            ...
+          }
+    ```
 
 ## 5 - Create and run an indexer
 
@@ -312,11 +312,11 @@ You can start searching as soon as the first document is loaded.
 
 1. Add the `$select` query parameter to limit the results to fewer fields: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true`.  For this query, 100 documents match, but by default, Azure Cognitive Search only returns 50 in the results.
 
-  ![Parameterized query](media/search-semi-structured-data/lastquery.png "Paramterized query")
+   ![Parameterized query](media/search-semi-structured-data/lastquery.png "Paramterized query")
 
 1. An example of more complex query would include `$filter=MinimumAge ge 30 and MaximumAge lt 75`, which returns only results where the parameters MinimumAge is greater than or equal to 30 and MaximumAge is less than 75. Replace the `$select` expression with the `$filter` expression.
 
-  ![Semi-structured search](media/search-semi-structured-data/metadatashort.png)
+   ![Semi-structured search](media/search-semi-structured-data/metadatashort.png)
 
 You can also use Logical operators (and, or, not) and comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive. For more information and examples, see [Create a simple query](search-query-simple-examples.md).
 
@@ -343,7 +343,7 @@ You can find and manage resources in the portal, using the All resources or Reso
 
 ## Next steps
 
-Now that you're familiar with the basics of Azure Blob indexing, let's take a closer look at indexer configuration.
+Now that you're familiar with the basics of Azure Blob indexing, let's take a closer look at indexer configuration for JSON blobs in Azure Storage.
 
 > [!div class="nextstepaction"]
-> [Configure an Azure Blob storage indexer](search-howto-indexing-azure-blob-storage.md)
+> [Configure JSON blob indexing](search-howto-index-json-blobs.md)
