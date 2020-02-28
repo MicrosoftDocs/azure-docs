@@ -164,7 +164,7 @@ matching on hosts where `placementGroup` is undefined.
 
 ### _user_data.sh_
 
-The template provides attributes for executing a _user_data.sh_ script; `customScriptUri` and `userData`. These are the URI and custom environment variables of the user-managed script running at node startup. Use this script to:
+The template provides attributes for executing a _user_data.sh_ script; `customScriptUri` and `userData`. These are the URI and custom environment variables of the user-managed script running at node startup. This script is downloaded by annonymous CURL command, so `customScriptUri` requiring authentication fail. Use this script to:
 
 1. Configure the worker LSF daemons; particularly `LSF_LOCAL_RESOURCES` and `LSF_MASTER_LIST`
     - If `LSF_TOP` is on a shared filesystem, it can be useful to make a local copy of `lsf.conf` and set the `LSF_ENVDIR` variable before starting the daemons.
