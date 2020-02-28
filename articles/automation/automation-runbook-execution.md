@@ -220,7 +220,7 @@ The following table describes the statuses that are possible for a job.
 |:--- |:--- |
 | Completed |The job completed successfully. |
 | Failed |A graphical or PowerShell Workflow runbook failed to compile. A PowerShell script runbook failed to start or the job had an exception. See [Azure Automation runbook types](automation-runbook-types.md).|
-| Failed, waiting for resources |The job failed because it reached the fair share limit three times and started from the same checkpoint or from the start of the runbook each time. |
+| Failed, waiting for resources |The job failed because it reached the [fair share](#fair-share) limit three times and started from the same checkpoint or from the start of the runbook each time. |
 | Queued |The job is waiting for resources on an Automation worker to come available so that it can be started. |
 | Starting |The job has been assigned to a worker, and the system is starting it. |
 | Resuming |The system is resuming the job after it was suspended. |
@@ -330,7 +330,7 @@ foreach ($log in $JobActivityLogs)
 $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 ```
 
-## Sharing resources among runbooks
+<a name="fair-share"></a>## Sharing resources among runbooks
 
 To share resources among all runbooks in the cloud, Azure Automation temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status shows **Stopped**.
 
