@@ -247,7 +247,7 @@ Browse to `http://<app-name>.azurewebsites.net`.
 
 Converting images should not longer produce the HTTP 500 errors.
 
-![PHP app running in Azure App Service](./media/tutorial-azure-monitor/sample-monitor-app-in-azure.png)
+![PHP app running in Azure App Service](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
