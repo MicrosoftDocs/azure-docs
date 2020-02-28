@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 This article shows you how to assign users or groups to enterprise applications in Azure Active Directory (Azure AD), either from within the Azure portal or by using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps access panel](https://myapps.microsoft.com/) for easy access. If the application exposes roles, you can also assign a specific role to the user.
 
-For greater control, certain types of enterprise applications can be configured to *require* user assignment. This option blocks everyone from signing in, except those users you explicitly assign to the application. When user assignment is *not required*, unassigned users won't see the app on their My Apps access panel, but they can still sign in to the application with a direct app URL (known as service provider-initiated sign-on) or the **User Access URL** in the application’s **Properties** page (known as identity provider-initiated sign on). For background, see [Managing access to apps](what-is-access-management.md).
+For greater control, certain types of enterprise applications can be configured to *require* user assignment. This option blocks everyone from signing in, except those users you explicitly assign to the application. When user assignment is *not required*, unassigned users won't see the app on their My Apps access panel, but they can still sign in to the application by going directly to the application sign-in page or using the user access URL in the application's property page. For background, see [Managing access to apps](what-is-access-management.md).
 
 To assign a user or group to an enterprise app, you'll need to sign in as a global administrator, application administrator, cloud application administrator, or the assigned owner of the enterprise app.
 
@@ -48,7 +48,7 @@ To require user assignment for an application:
 5. Make sure the **User assignment required?** toggle is set to **Yes**.
 
    > [!NOTE]
-   > If the **User assignment required?** toggle isn't available, you can use PowerShell to set this option on the service principal.
+   > If the **User assignment required?** toggle isn't available, you can use PowerShell to set the appRoleAssignmentRequired property on the service principal.
 
 6. Select the **Save** button at the top of the screen.
 

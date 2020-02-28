@@ -47,7 +47,7 @@ With certain types of applications, you have the option of [requiring users to b
 
 When user assignment is *not required*, unassigned users don't see the app on their My Apps access panel, but they can still sign in to the application itself (known as service provider-initiated sign-on) or they can use the **User Access URL** in the application’s **Properties** page (known as identity provider-initiated sign on).
 
-For some applications, the option to require user assignment isn't available in the application properties. In these cases, you can use PowerShell to configure the setting.
+For some applications, the option to require user assignment isn't available in the application properties. In these cases, you can use PowerShell to set the appRoleAssignmentRequired property on the service principal.
 
 ### Determining the user experience for accessing apps
 
@@ -83,8 +83,10 @@ Microsoft Applications (like Office 365 Exchange, SharePoint, Yammer, etc.) are 
 There are three main ways that a user can get access to a Microsoft-published application.
 
 - For applications in the Office 365 or other paid suites, users are granted access through **license assignment** either directly to their user account, or through a group using our group-based license assignment capability.
-- For applications that Microsoft or a Third Party publishes freely for anyone to use, users may be granted access through [user consent](configure-user-consent.md). This means that they sign in to the application with their Azure AD Work or School account and allow it to have access to some limited set of data on their account.
+- For applications that Microsoft or a 3rd party publishes freely for anyone to use, users may be granted access through [user consent](configure-user-consent.md). This means that they sign in to the application with their Azure AD Work or School account and allow it to have access to some limited set of data on their account.
 - For applications that Microsoft or a 3rd party publishes freely for anyone to use, users may also be granted access through [administrator consent](manage-consent-requests.md). This means that an administrator has determined the application may be used by everyone in the organization, so they sign in to the application with a Global Administrator account and grant access to everyone in the organization.
+
+Some applications combine these methods. For example, certain Microsoft applications are part of an Office 365 subscription, but still require consent.
 
 Users can access Office 365 applications through their Office 365 portals. You can also show or hide Office 365 applications in the My Apps access panel with the [Office 365 visibility toggle](hide-application-from-user-portal.md) in your directory's **User settings**. 
 
