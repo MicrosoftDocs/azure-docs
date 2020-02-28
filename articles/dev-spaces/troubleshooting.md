@@ -416,9 +416,8 @@ You may see this error when trying to access your service. For example, when you
 To fix this issue:
 
 1. If the container is in the process of being built/deployed, you can wait 2-3 seconds and try accessing the service again. 
-1. Check your port configuration. The specified port numbers should be **identical** in all of the following assets:
-    * **Dockerfile:** Specified by the `EXPOSE` instruction.
-    * **[Helm chart](https://docs.helm.sh):** Specified by the `externalPort` and `internalPort` values for a service (often located in a `values.yml` file),
+1. Check your port configuration in following assets:
+    * **[Helm chart](https://docs.helm.sh):** Specified by the `service.port` and `deployment.containerPort` in values.yaml scaffolded by `azds prep` command,
     * Any ports being opened up in application code, for example in Node.js: `var server = app.listen(80, function () {...}`
 
 ### The type or namespace name "MyLibrary" couldn't be found
