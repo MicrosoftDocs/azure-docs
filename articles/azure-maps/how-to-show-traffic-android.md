@@ -20,18 +20,17 @@ This guide shows you how to display traffic data. Flow data and incidents data a
  The following code snippet shows how to display traffic data on the map. We pass a boolean value to the `incidents` method, and pass that to the `setTraffic` method. 
 
 ```java
-
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mapControl.getMapAsync(map - > {
-            map.setTraffic(incidents(true));
-    }
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    mapControl.getMapAsync(map - > {
+        map.setTraffic(incidents(true));
+}
 }
 ```
 
 You will need to import the following libraries to call the `setTraffic` and `incidents` methods:
 
-```javad
+```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
@@ -47,13 +46,10 @@ import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.inc
 | TrafficFlow.ABSOLUTE | Shows the absolute speed of all vehicles on the road |
 
 ```java
-public class TrafficFlowExampleActivity extends ExampleActivity {
-
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mapControl.getMapAsync(map -> 
-            map.setTraffic(flow(TrafficFlow.RELATIVE)));
-    }
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    mapControl.getMapAsync(map -> 
+        map.setTraffic(flow(TrafficFlow.RELATIVE)));
 }
 ```
 
