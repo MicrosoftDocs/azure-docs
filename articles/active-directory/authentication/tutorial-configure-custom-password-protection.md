@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/24/2020
+ms.date: 02/27/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -17,6 +17,8 @@ ms.collection: M365-identity-device-management
 # Customer intent: As an Azure AD Administrator, I want to learn how to configure custom banned passwords to prevent users in my organization from using common insecure passwords.
 ---
 # Tutorial: Configure custom banned passwords for Azure Active Directory password protection
+
+Users often create passwords that use common local words such as a school, sports team, or famous person. These passwords are easy to guess, and weak against dictionary-based attacks. To enforce strong passwords in your organization, the Azure Active Directory (Azure AD) custom banned password list let you add specific strings to evaluate and block. A password change request fails if there's a match in the custom banned password list.
 
 In this tutorial you learn how to:
 
@@ -35,9 +37,35 @@ To complete this tutorial, you need the following resources and privileges:
 * A non-administrator user with a password you know, such as *testuser*. You test a password change event using this account in this tutorial.
     * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md).
 
+## What are banned password lists?
+
+Azure AD includes a global banned password list. The contents of this global banned password list isn't based on any external data source. Instead, the global banned password list is based on the ongoing results of Azure AD security telemetry and analysis. When a user or administrator tries to change or reset their credentials, the desired password is checked against the list of banned passwords. The password change request fails if there's a match in the global banned password list.
+
+To give you flexibility in what passwords are allowed, you can also define a custom banned password list. The custom banned password list works alongside the global banned password list to enforce strong passwords in your organization. Organizational-specific terms can be added to the custom banned password list, such as the following examples:
+
+* Brand names
+* Product names
+* Locations, such as company headquarters
+* Company-specific internal terms
+* Abbreviations that have specific company meaning
+
+The custom banned password list is limited to a maximum of 1000 terms. It's not designed for blocking large lists of passwords. To maximize the benefits of the custom banned password list, review the [custom banned password list concepts](concept-password-ban-bad.md#custom-banned-password-list) and [password evaluation algorithm overview](concept-password-ban-bad.md#how-are-passwords-evaluated).
+
+When a user attempts to reset a password to something that's on the global or custom banned password list, they see one of the following error messages:
+
+* Unfortunately, your password contains a word, phrase, or pattern that makes your password easily guessable. Please try again with a different password.
+* Unfortunately, you can't use that password because it contains words or characters that have been blocked by your administrator. Please try again with a different password.
+
 ## Configure custom banned passwords
 
-Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granular ability lets you choose a subset of users to test the SSPR registration process and workflow. When you're comfortable with the process and can communicate the requirements with a broader set of users, you can select additional groups of users to enable for SSPR. Or, you can enable SSPR for everyone in the Azure AD tenant.
+The following considerations and limitations currently apply to the custom banned password list:
+
+* The custom banned password list can contain up to 1000 terms.
+* The custom banned password list is case-insensitive.
+* The custom banned password list considers common character substitution, such as "o" and "0", or "a" and "@".
+* The minimum string length is four characters, and the maximum is 16 characters.
+
+To enable the custom banned password list and add entries to it, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
 1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
@@ -45,15 +73,11 @@ Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granu
 1. Set the option for **Enforce custom list** to *Yes*.
 1. Add strings to the **Custom banned password list**, one string per line. The following conditions apply to these custom banned password entries:
 
-    * The custom banned password list can contain up to 1000 terms.
-    * The custom banned password list is case-insensitive.
-    * The custom banned password list considers common character substitution.
-        * Example: "o" and "0" or "a" and "@"
-    * The minimum string length is four characters, and the maximum is 16 characters.
-
-    [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
+    [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal]")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
 1. To enable the custom banned passwords, select **Save**.
+
+It may take several hours for updates to the custom banned password list to be applied.
 
 ## Test custom banned password list
 
