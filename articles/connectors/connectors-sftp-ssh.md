@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 03/6/2020
+ms.date: 03/5/2020
 tags: connectors
 ---
 
