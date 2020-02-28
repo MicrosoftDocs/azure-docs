@@ -72,7 +72,7 @@ else
     }
 ```
 
-### Suppporting time-dependent scripts
+### Supporting time-dependent scripts
 
 Your runbooks must be robust and capable of handling transient errors that can cause them to restart or fail. If a runbook fails, Azure Automation retries it.
 
