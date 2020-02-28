@@ -148,9 +148,9 @@ This section describes some ways to handle exceptions or intermittent issues in 
 
 #### $ErrorActionPreference
 
-The [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable determines how PowerShell responds to a non-terminating error. Terminating errors always terminate and are not affected by $ErrorActionPreference.
+The [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable determines how PowerShell responds to a non-terminating error. Terminating errors always terminate and are not affected by *$ErrorActionPreference*.
 
-When the runbook uses **$ErrorActionPreference**, a normally non-terminating error such as **PathNotFound** from the **Get-ChildItem** cmdlet stops the runbook from completing. The following example shows the use of **$ErrorActionPreference**. The final **Write-Output** command never executes, as the script stops.
+When the runbook uses *$ErrorActionPreference*, a normally non-terminating error such as **PathNotFound** from the **Get-ChildItem** cmdlet stops the runbook from completing. The following example shows the use of *$ErrorActionPreference*. The final **Write-Output** command never executes, as the script stops.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -192,7 +192,7 @@ function Get-ContosoFiles
 
 ### Using executables or calling processes
 
-Runbooks that run in Azure sandboxes do not support calling processes, such as executables (.exe files) or subprocesses.  The reason for this is that an Azure sandbox is a shared process run in a container that might not have access to all the underlying APIs. For scenarios requiring third-party software or calls to subprocesses, it is recommended to execute a runbook on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+Runbooks that run in Azure sandboxes do not support calling processes, such as executables (**.exe** files) or subprocesses.  The reason for this is that an Azure sandbox is a shared process run in a container that might not have access to all the underlying APIs. For scenarios requiring third-party software or calls to subprocesses, it is recommended to execute a runbook on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 
 ### Accessing device and application characteristics
 
@@ -202,7 +202,7 @@ Runbook jobs that run in Azure sandboxes don't have access to any device or appl
 
 Your runbooks must be capable of handling errors. PowerShell has two types of errors, terminating and non-terminating. Terminating errors stop runbook execution when they occur. The runbook stops with a job status of **Failed**.
 
-Non-terminating errors allow a script to continue even after they occur. An example of a non-terminating error is one that occurs when a runbook uses the **Get-ChildItem** cmdlet with a path that doesn't exist. PowerShell sees that the path doesn't exist, throws an error, and continues to the next folder. The error in this case doesn't set runbook job status status to Failed, and the job might even be completed. To force a runbook to stop on a non-terminating error, you can use `-ErrorAction Stop` on the cmdlet.
+Non-terminating errors allow a script to continue even after they occur. An example of a non-terminating error is one that occurs when a runbook uses the **Get-ChildItem** cmdlet with a path that doesn't exist. PowerShell sees that the path doesn't exist, throws an error, and continues to the next folder. The error in this case doesn't set runbook job status status to **Failed**, and the job might even be completed. To force a runbook to stop on a non-terminating error, you can use `-ErrorAction Stop` on the cmdlet.
 
 ## Handling jobs
 
@@ -221,14 +221,14 @@ The following table describes the statuses that are possible for a job.
 | Completed |The job completed successfully. |
 | Failed |A graphical or PowerShell Workflow runbook failed to compile. A PowerShell script runbook failed to start or the job had an exception. See [Azure Automation runbook types](automation-runbook-types.md).|
 | Failed, waiting for resources |The job failed because it reached the [fair share](#fair-share) limit three times and started from the same checkpoint or from the start of the runbook each time. |
-| Queued |The job is waiting for resources on an Automation worker to come available so that it can be started. |
+| Queued |The job is waiting for resources on an Automation worker to become available so that it can be started. |
 | Starting |The job has been assigned to a worker, and the system is starting it. |
 | Resuming |The system is resuming the job after it was suspended. |
 | Running |The job is running. |
-| Running, waiting for resources |The job has been unloaded because it reached the fair share limit. It resumes shortly from its last checkpoint. |
+| Running, waiting for resources |The job has been unloaded because it reached the fair share limit. It will resume shortly from its last checkpoint. |
 | Stopped |The job was stopped by the user before it was completed. |
 | Stopping |The system is stopping the job. |
-| Suspended |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The job was suspended by the user, by the system, or by a command in the runbook. If a runbook doesn't have a checkpoint, it starts from the beginning of the runbook. If it has a checkpoint, it can start again and resume from its last checkpoint. The system only suspends the runbook when an exception occurs. By default, the ErrorActionPreference variable is set to Continue, indicating that the job keeps running on an error. If the preference variable is set to Stop, the job suspends on an error.  |
+| Suspended |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The job was suspended by the user, by the system, or by a command in the runbook. If a runbook doesn't have a checkpoint, it starts from the beginning. If it has a checkpoint, it can start again and resume from its last checkpoint. The system only suspends the runbook when an exception occurs. By default, the *ErrorActionPreference* variable is set to **Continue**, indicating that the job keeps running on an error. If the preference variable is set to **Stop**, the job suspends on an error.  |
 | Suspending |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The system is trying to suspend the job at the request of the user. The runbook must reach its next checkpoint before it can be suspended. If it has already passed its last checkpoint, it completes before it can be suspended. |
 
 ### Viewing job status from the Azure portal
@@ -241,7 +241,7 @@ On the right of your selected Automation account, you can see a summary of all t
 
 This tile displays a count and graphical representation of the job status for each job executed.
 
-Clicking the tile presents the **Jobs** page, which includes a summarized list of all jobs executed. This page shows the status, start time, and completion time for each job.
+Clicking the tile presents the **Jobs** page, which includes a summarized list of all jobs executed. This page shows the status, runbook name, start time, and completion time for each job.
 
 ![Automation account Jobs page](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
 
@@ -255,7 +255,7 @@ Alternatively, you can view job summary details for a specific runbook by select
 
 ### Viewing the job summary
 
-The job summary described above allows you to view a list of all the jobs that have been created for a particular runbook and their most recentt status. To see detailed information and output for a job, click its name in the list. The detailed view of the job includes the values for the runbook parameters that were provided to that job.
+The job summary described above allows you to look at a list of all the jobs that have been created for a particular runbook and their most recent status. To see detailed information and output for a job, click its name in the list. The detailed view of the job includes the values for the runbook parameters that have been provided to that job.
 
 You can use the following steps to view the jobs for a runbook.
 
@@ -300,7 +300,7 @@ foreach($item in $output)
 
 ## Getting details from the Activity log
 
-You can retrieve runbook details, such as the person or account that started the runbook, from the Activity log for the Automation account. The following PowerShell example provides the last user to run the runbook in question.
+You can retrieve runbook details, such as the person or account that started the runbook, from the Activity log for the Automation account. The following PowerShell example provides the last user to run the specified runbook.
 
 ```powershell-interactive
 $SubID = "00000000-0000-0000-0000-000000000000"
@@ -330,9 +330,9 @@ foreach ($log in $JobActivityLogs)
 $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 ```
 
-<a name="fair-share"></a>## Sharing resources among runbooks
+## <a name="fair-share"></a> Sharing resources among runbooks
 
-To share resources among all runbooks in the cloud, Azure Automation temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status shows **Stopped**.
+To share resources among all runbooks in the cloud, Azure Automation temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status becomes **Stopped**.
 
 For long-running tasks, it's recommended to use a Hybrid Runbook Worker. Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the 3-hour fair share limit, you should develop runbooks to run on the workers that support restarts from unexpected local infrastructure issues.
 
