@@ -24,13 +24,12 @@ Point-in-time restore can restore a database:
 - from a deleted database.
 - to the same managed instance, or to another managed instance. 
 
-
-> [!NOTE]
-> Point-in-time restore of a whole managed instance is not possible. This article explains only what's possible: point-in-time restore of a database that's hosted on a managed instance.
-
 ## Limitations
 
-When you're restoring from one managed instance to another, both instances must be in the same subscription and region. Cross-region and cross-subscription restore aren't currently supported.
+Point in time restore to a managed instance has the following limitations:
+
+- When you're restoring from one managed instance to another, both instances must be in the same subscription and region. Cross-region and cross-subscription restore aren't currently supported.
+- Point-in-time restore of a whole managed instance is not possible. This article explains only what's possible: point-in-time restore of a database that's hosted on a managed instance.
 
 > [!WARNING]
 > Be aware of the storage size of your managed instance. Depending on size of the data to be restored, you might run out of instance storage. If there isn't enough space for the restored data, use a different approach.
