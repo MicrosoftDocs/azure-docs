@@ -153,7 +153,7 @@ Model **C** represents a clear case of over-fitting; the training accuracy is ve
 
 ## Classification & regression
 
-Classification and regression are the most common types of machine learning tasks. Both are types of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification tasks and class imbalance detection. Learn more about [featurization options](how-to-create-portal-experiments.md#featurization). 
+Classification and regression are the most common types of machine learning tasks. Both are types of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization options](how-to-create-portal-experiments.md#featurization). 
 
 The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection.  Learn more and see an example of [classification with automated machine learning](tutorial-train-models-with-aml.md).
 
