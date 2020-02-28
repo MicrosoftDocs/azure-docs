@@ -508,19 +508,13 @@ You can use GET or POST, depending on query string complexity and length. For mo
 
 ## Reset and rerun
 
-In the early stages of development, it's practical to delete objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
-To re-index your documents with the new definitions:
-
-1. Delete the indexer, index, and skillset.
-2. Modify objects definitions.
-3. Recreate objects on your service. Recreating the indexer runs the pipeline. 
-
-You can use the portal to delete indexes, indexers, and skillsets. When you delete the indexer, you can optionally, selectively delete the index, skillset, and data source at the same time.
+You can use the portal to delete indexes, indexers, data sources, and skillsets. When you delete the indexer, you can optionally, selectively delete the index, skillset, and data source at the same time.
 
 ![Delete search objects](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Delete search objects in the portal")
 
-You can also delete them using a script. The following script will delete the skillset we created. You can easily modify the request to delete the index, indexer, and data source.
+You can also delete them using a script. The following script shows how to delete a skillset. 
 
 ```python
 # delete the skillset
@@ -547,7 +541,7 @@ You can find and manage resources in the portal, using the All resources or Reso
 
 ## Next steps
 
-Customize or extend the pipeline with custom skills. Creating a custom skill and adding it to a skillset allows you to onboard text or image analysis that you write yourself.
+Now that you're familiar with all of the objects in an AI enrichment pipeline, let's take a closer look at skillset definitions and individual skills.
 
 > [!div class="nextstepaction"]
-> [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
+> [How to create a skillset](cognitive-search-defining-skillset.md)

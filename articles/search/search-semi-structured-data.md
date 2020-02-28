@@ -281,6 +281,18 @@ If you'd like to experiment and try a few more queries yourself, feel free to do
 
 The `$filter` parameter only works with metadata that were marked filterable at the creation of your index.
 
+## Reset and rerun
+
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+
+You can use the portal to delete indexes, indexers, and data sources. Or use **DELETE** and provide URLs to each object. The following command deletes an indexer.
+
+```http
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+```
+
+Status code 204 is returned on successful deletion.
+
 ## Clean up resources
 
 When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
@@ -289,7 +301,7 @@ You can find and manage resources in the portal, using the All resources or Reso
 
 ## Next steps
 
-There are several approaches and multiple options for indexing JSON blobs. As a next step, review and test the various options to see what works best for your scenario.
+Now that you're familiar with the basics of Azure Blob indexing, let's take a closer look at indexer configuration.
 
 > [!div class="nextstepaction"]
-> [How to index JSON blobs using Azure Cognitive Search Blob indexer](search-howto-index-json-blobs.md)
+> [Configure an Azure Blob storage indexer](search-howto-indexing-azure-blob-storage.md)

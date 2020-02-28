@@ -227,6 +227,14 @@ An indexer object is platform-agnostic, where  configuration, scheduling, and in
   }
   ```
 
+## Reset and rerun
+
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+
+The sample code for this tutorial checks for existing objects and deletes them so that you can rerun your code.
+
+You can also use the portal to delete indexes, indexers, and data sources.
+
 ## Clean up resources
 
 When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
@@ -235,7 +243,7 @@ You can find and manage resources in the portal, using the All resources or Reso
 
 ## Next steps
 
-In Azure Cognitive Search, indexers are available for multiple Azure data sources. As a next step, explore the indexer for Azure Blob storage.
+Now that you're familiar with the basics of SQL Database indexing, let's take a closer look at indexer configuration.
 
 > [!div class="nextstepaction"]
-> [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+> [Configure an Azure SQL database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
