@@ -16,7 +16,7 @@ ms.date: 02/24/2020
 ms.author: juliako
 ---
 
-# Azure Media Services high availability
+# Azure Media Services high availability guidance
 
 Azure Media Services does not provide instant failover of the service if there is a regional datacenter outage or failure. This article explains how to configure your environment for a failover to ensure optimal availability for applications and minimized recovery time if a disaster occurs.
 
