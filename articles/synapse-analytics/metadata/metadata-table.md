@@ -63,9 +63,8 @@ The shareable managed and external Spark tables exposed in the SQL engines as ex
 
 Since all Spark table names are valid SQL table names and all Spark column names are valid SQL column names, the Spark table and column names will be used for the SQL external table.
 
-Spark tables are providing different data types than the Synapse SQL engines. Thus the Spark table data types are mapped to the SQL types as follows:
+Spark tables provide different data types than the Synapse SQL engines. The following table maps Spark table data types map to the SQL types:
 
-|---|---|---|
 | Spark data type | SQL data type | Comments |
 |---|---|---|
 | `byte`      | `smallint`       ||
@@ -77,12 +76,12 @@ Spark tables are providing different data types than the Synapse SQL engines. Th
 | `decimal`	  | `decimal`        |<!-- need precision and scale-->|
 | `timestamp` |	`datetime2`      |<!-- need precision and scale-->|
 | `date`      | `date`           ||
-| `string`    |	`varchar(max)`   | with collation `Latin1_General_CP1_CI_AS_UTF8` |
+| `string`    |	`varchar(max)`   | With collation `Latin1_General_CP1_CI_AS_UTF8` |
 | `binary`    |	`varbinary(max)` ||
 | `boolean`   |	`bit`            ||
-| `array`     |	`varchar(max)`   | will serialize into JSON with collation `Latin1_General_CP1_CI_AS_UTF8` |
-| `map`       |	`varchar(max)`   | will serialize into JSON with collation `Latin1_General_CP1_CI_AS_UTF8` |
-| `struct`    |	`varchar(max)`   | will serialize into JSON with collation `Latin1_General_CP1_CI_AS_UTF8` |
+| `array`     |	`varchar(max)`   | Serializes into JSON with collation `Latin1_General_CP1_CI_AS_UTF8` |
+| `map`       |	`varchar(max)`   | Serializes into JSON with collation `Latin1_General_CP1_CI_AS_UTF8` |
+| `struct`    |	`varchar(max)`   | Serializes into JSON with collation `Latin1_General_CP1_CI_AS_UTF8` |
 |---|---|---|
 
 <!-- TODO: Add precision and scale to the types mentioned above -->
@@ -105,7 +104,7 @@ For more details on how to set permissions on the folders and files, see [Azure 
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
-Let's assume we have already created a Spark database named `mytestdb`. See [Create & connect to Spark database - SQL on-demand](metadata-database.md#create-connect-to-spark-database-sql-on-demand).
+Let's assume we have already created a Spark database named `mytestdb`. See [Create & connect to Spark database - SQL on-demand](metadata-database.md#create--connect-to-spark-database---sql-on-demand).
 
 Then you can create a managed Spark table for example with SparkSQL with
 
