@@ -9,16 +9,13 @@ ms.topic: how-to
 
 # Use Azure Blob Storage for model conversion
 
-The [model conversion](model-conversion.md) service requires you to store input data and retrieve output data through Azure blob storage. This article describes how to do the most common steps.
+The [model conversion](model-conversion.md) service requires to retrieve input data and store output data through Azure blob storage. This article describes how to do the most common steps.
 
 ## Prepare Azure Storage accounts
 
 - Create a storage account (StorageV2)
 - Create an input blob container in the storage account (for example named "arrinput")
 - Create an output blob container in the storage account (for example named "arroutput")
-- Retrieve a stored access signature with read & list access for your input storage container
-- Retrieve a stored access signature with write access for your output storage container
-- Upload your model to the input container
 
 > [!TIP]
 > For step-by-step instructions how to set up your storage account, have a look at [Quickstart: Convert a model for rendering](../../quickstarts/convert-model.md)
@@ -30,7 +27,17 @@ The creation of the storage account and the blob containers can be done with one
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )
 
-## Retrieve SAS for the storage containers
+## Ensure Azure Remote Rendering can access your storage account
+
+Azure Remote Rending needs to retrieve model data from your storage account and for asset conversion write data back to it.
+
+You can grant Azure Remote Rendering access to your storage account in the following two ways:
+
+### Connect your Azure Storage account with your Azure Remote Rendering Account
+
+Follow the steps given in the [Create an Account](../create-an-account.md#link-storage-accounts) section.
+
+### Retrieve SAS for the storage containers
 
 Stored access signatures (SAS) are used to grant read access for input, and write access for output. We recommend generating new URIs each time a model is converted. Since URIs expire after some time, persisting them for a longer duration may risk breaking your application unexpectedly.
 
@@ -45,6 +52,8 @@ A SAS URI can be generated using one of:
   - right click on container "Get Shared Access Signature" (read, list access for input container, write access for output container)
 - SDKs (C#, Python ... )
 
+An example of using Shared Access Signatures in asset conversion is shown in Conversion.ps1 of the [Powershell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
+
 ## Upload an input model
 
 To start converting a model, you need to upload it, using one of the following options:
@@ -56,11 +65,15 @@ To start converting a model, you need to upload it, using one of the following o
 - [Using a storage SDK (Python, C# ... )](https://docs.microsoft.com/azure/storage/)
 - [Using the Azure Storage REST APIs](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 
+For an example of how to upload data for conversion refer to Conversion.ps1 of the [Powershell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
+
 ## Get a SAS URI for the converted model
 
 This step is similar to [retrieving SAS for the storage containers](#retrieve-sas-for-the-storage-containers). However, this time you need to retrieve a SAS URI for the model file, that was written to the output container.
 
 For example, to retrieve a SAS URI via the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), right-click on the model file and select "Get Shared Access Signature".
+
+A Shared Access Signature (SAS) to load models is needed if you haven't connected your storage account to your Azure Remote Rendering account. You can learn how to connect your account in [Create an Account](../create-an-account.md#link-storage-accounts).
 
 ## Next steps
 

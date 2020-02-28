@@ -9,7 +9,12 @@ ms.topic: article
 
 # Example PowerShell scripts
 
-The [Azure Remote Rendering GithHub repository](https://github.com/Azure/azure-remote-rendering) contains sample scripts for interacting with the service. This article describes their usage.
+Azure Remote Rendering provides the following two REST APIs:
+
+- [Conversion REST API](../how-tos/conversion/conversion-rest-api.md)
+- [Session REST API](../how-tos/session-rest-api.md)
+
+The [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient?path=%2FScripts) contains sample scripts for interacting with the REST APIs of the service. This article describes their usage.
 
 ## Prerequisites
 
@@ -25,9 +30,9 @@ To execute the sample scripts, you need a functional setup of [Azure PowerShell]
 
 1. [Prepare an Azure Storage account](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
-1. Log into your subscription:
+1. Log into the subscription containing your Azure Remote Rendering account:
     1. Open a PowerShell
-    1. Run: `Connect-AzAccount -Subscription "<your azure subscription id>"`
+    1. Run: `Connect-AzAccount -Subscription "<your Azure subscription id>"`
 
 1. Download the *Scripts* folder from the [Azure Remote Rendering GithHub repository](https://github.com/Azure/azure-remote-rendering).
 
@@ -46,18 +51,22 @@ Next to the `.ps1` files there's an `arrconfig.json` that you need to fill out:
         "vmSize": "<select standard or premium>",
         "maxLeaseTime": "<hh:mm:ss>"
     },
-    "azureStorageSettings": {
-        "azureSubscriptionId": "<fill in your subscription id which contains the storage account you created>",
-        "resourceGroup": "<resource group which contains the storage account you created>",
-        "storageAccountName": "<name of the storage account you created>",
-        "blobInputContainerName": "<input container inside the storage container>",
-        "blobOutputContainerName": "<output container inside the storage container>"
-    },
-    "modelSettings": {
-        "modelLocation": "<fill in a path to a model file if you want to upload a file from a local path>"
-    }
+  "assetConversionSettings": {
+    "resourceGroup": "<resource group which contains the storage account you created, only needed when uploading or generating SAS>",
+    "storageAccountName": "<name of the storage account you created>",
+    "blobInputContainerName": "<input container inside the storage container>",
+    "blobOutputContainerName": "<output container inside the storage container>",
+    "localAssetDirectoryPath": "<fill in a path to a local directory containing your asset (and files referenced from it like textures)>",
+    "inputFolderPath": "<optional: base folderpath in the input container for asset upload. uses / as dir separator>",
+    "inputAssetPath": "<the path to the asset under inputcontainer/inputfolderpath pointing to the input asset e.g. box.fbx>",
+    "outputFolderPath": "<optional: base folderpath in the output container - the converted asset and log files will be placed here>",
+    "outputAssetFileName": "<optional: filename for the converted asset, this will be placed in the output container under the outputpath>"
+  }
 }
 ```
+
+> [!CAUTION]
+> Make sure to properly escape backslashes in the LocalAssetDirectoryPath path by using double backslashes: "\\\\" and use forward slashes "/" in all other paths like inputFolderPath and inputAssetPath.
 
 ### accountSettings
 
@@ -68,25 +77,14 @@ For `region` see the [list of available regions](../reference/regions.md).
 
 This structure must be filled out if you want to run **RenderingSession.ps1**.
 
-* **vmSize:** Selects the size of the virtual machine. Select *standard* or *premium*. Shut down rendering sessions when you don't need them anymore.
-* **maxLeaseTime:** The duration for which you want to lease the VM. It will be shut down when the lease expires. The lease time can be extended later (see below).
+- **vmSize:** Selects the size of the virtual machine. Select *standard* or *premium*. Shut down rendering sessions when you don't need them anymore.
+- **maxLeaseTime:** The duration for which you want to lease the VM. It will be shut down when the lease expires. The lease time can be extended later (see below).
 
-### azureStorageSettings
+### assetConversionSettings
 
 This structure must be filled out if you want to run **Conversion.ps1**.
 
 For details, see [Prepare an Azure Storage account](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts).
-
-### modelSettings
-
-If you want to run **Conversion.ps1**, you can optionally fill out this structure, or pass the path to the source file as a command-line argument:
-
-```PowerShell
-./Conversion.ps1 -ModelLocation "C:\\models\\box.fbx"
-```
-
-> [!CAUTION]
-> Make sure to properly escape backslashes in the path by using double backslashes: "\\\\".
 
 ## Script: RenderingSession.ps1
 
@@ -163,22 +161,45 @@ At the moment, we only support changing the maxLeaseTime of a session.
 This script is used to convert input models into the Azure Remote Rendering specific runtime format.
 
 > [!IMPORTANT]
-> Make sure you have filled out the *accountSettings* and *azureStorageSettings* sections in arrconfig.json.
+> Make sure you have filled out the *accountSettings* and *assetConversionSettings* sections in arrconfig.json.
 
-Normal usage with a fully filled out arrconfig.json:
+The script demonstrates the two options to use storage accounts with the service:
+
+- Storage account linked with Azure Remote Rendering Account
+- Providing access to storage via Shared Access Signatures (SAS)
+
+### Linked storage account
+
+Once you've fully filled out arrconfig.json and linked a storage account, you can use the following command. Linking your storage account is described at [Create an Account](../how-tos/create-an-account.md#link-storage-accounts).
+
+Using a linked storage account is the preferred way to use the conversion service since there's no need to generate Shared Access Signatures.
 
 ```PowerShell
 .\Conversion.ps1
 ```
 
+1. Upload all files contained in the `assetConversionSettings.modelLocation` to the input blob container under the given `inputFolderPath`
+1. Call the [model conversion REST API](../how-tos/conversion/conversion-rest-api.md) to kick off the [model conversion](../how-tos/conversion/model-conversion.md)
+1. Poll the conversion status until the conversion succeeded or failed
+1. Output details of the converted file location (storage account, output container, file path in the container)
+
+### Access to storage via Shared Access Signatures
+
+```PowerShell
+.\Conversion.ps1 -UseContainerSas
+```
+
 This will:
 
-1. Upload the local file from the `modelSettings.modelLocation` to the input blob container
+1. Upload the local file from the `assetConversionSettings.localAssetDirectoryPath` to the input blob container
 1. Generate a SAS URI for the input container
 1. Generate a SAS URI for the output container
 1. Call the [model conversion REST API](../how-tos/conversion/conversion-rest-api.md) to kick off the [model conversion](../how-tos/conversion/model-conversion.md)
 1. Poll the conversion status until the conversion succeeded or failed
+1. Output details of the converted file location (storage account, output container, file path in the container)
 1. Output a SAS URI to the converted model in the output blob container
+
+### Additional command-line options
 
 To use an **alternative config** file:
 
@@ -192,30 +213,54 @@ To only **start model conversion without polling**, you can use:
 .\Conversion.ps1 -ConvertAsset
 ```
 
-You can **override individual settings** from the config file:
+You can **override individual settings** from the config file using the following command-line switches:
+
+* **Id:** ConversionId used with GetConversionStatus
+* **ArrAccountId:** arrAccountId of accountSettings
+* **ArrAccountKey:** override for arrAccountKey of accountSettings
+* **Region:** override for region of accountSettings
+* **ResourceGroup:** override for resourceGroup of assetConversionSettings
+* **StorageAccountName:** override for storageAccountName of assetConversionSettings
+* **BlobInputContainerName:** override for blobInputContainer of assetConversionSettings
+* **LocalAssetDirectoryPath:** override for localAssetDirectoryPath of assetConversionSettings
+* **InputAssetPath:** override for inputAssetPath of assetConversionSettings
+* **BlobOutputContainerName:** override for blobOutputContainerName of assetConversionSettings
+* **OutputFolderPath:** override for the outputFolderPath of assetConversionSettings
+* **OutputAssetFileName:** override for outputAssetFileName of assetConversionSettings
+
+For example you can combine a number of the given options like this:
 
 ```PowerShell
-.\Conversion.ps1 -ModelLocation D:\tmp\arr\pyramid.fbx
+.\Conversion.ps1 -LocalAssetDirectoryPath "C:\\models\\box" -InputAssetPath box.fbx -OutputFolderPath another/converted/box -OutputAssetFileName newConversionBox.arrAsset
 ```
 
-If you want to convert a model that is already uploaded to your input container, use the `**-ModelName**` option, instead of `-ModelLocation`. Pass the filename inside the input container as the argument:
+### Run the individual conversion stages
+
+If you want to run individual steps of the process, you can use:
+
+Only upload data from the given LocalAssetDirectoryPath
 
 ```PowerShell
-.\Conversion.ps1 -ConvertAsset -ModelName "mymodel.fbx"
+.\Conversion.ps1 -Upload
 ```
 
+Only start the conversion process of a model already uploaded to blob storage (don't run Upload, don't poll the conversion status)
 The script will return a *conversionId*.
 
-### Retrieve conversion status
+```PowerShell
+.\Conversion.ps1 -ConvertAsset
+```
+
+And you can retrieve the conversion status of this conversion using:
 
 ```PowerShell
-.\Conversion.ps1 -GetAssetStatus -Id <conversionId> [-Poll]
+.\Conversion.ps1 -GetConversionStatus -Id <conversionId> [-Poll]
 ```
 
 Use `-Poll` to wait until conversion is done or an error occurred.
 
 ## Next steps
 
-* [Quickstart: Render a model with Unity](../quickstarts/render-model.md)
-* [Quickstart: Convert a model for rendering](../quickstarts/convert-model.md)
-* [Model conversion](../how-tos/conversion/model-conversion.md)
+- [Quickstart: Render a model with Unity](../quickstarts/render-model.md)
+- [Quickstart: Convert a model for rendering](../quickstarts/convert-model.md)
+- [Model conversion](../how-tos/conversion/model-conversion.md)
