@@ -53,7 +53,7 @@ For more information, see the register model section of [Deploy models](how-to-d
 
 ### Profile models
 
-Azure Machine Learning model profiling feature can help you understand how much CPU and memory a production service, which would be created as a result of your model deployment, requires. It tests your service on a specified CPU and memory configuration and outputs a collection of useful metrics such as cpu usage, memory usage, and response latency. It also provides a CPU and memory recommendation based on the resource usage.
+Azure Machine Learning can help you understand the CPU and memory requirements of the service that will be created when you deploy your model. Profiling tests the service that runs your model and returns information such as the CPU usage, memory usage, and response latency. It also provides a CPU and memory recommendation based on the resource usage.
 For more information, see the profiling section of [Deploy models](how-to-deploy-and-where.md#profilemodel).
 
 ### Package and debug models
