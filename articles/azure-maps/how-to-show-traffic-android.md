@@ -10,13 +10,13 @@ services: azure-maps
 manager: philmea
 ---
 
-## Prerequisites
-
-Before you can show traffic on the map, you need to install [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) and load a map.
-
 # Show traffic incidents on the map using Azure Maps Android SDK
 
 This guide shows you how to display traffic data. Flow data and incidents data are the two types of traffic data that can be displayed on the map. Incidents data consists of point and line-based data for things such as constructions, road closures, and accidents. Flow data shows metrics about the flow of traffic on the road.
+
+## Prerequisites
+
+Before you can show traffic on the map, you need to install [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) and load a map.
 
 ## Incidents traffic data 
 
@@ -37,56 +37,156 @@ You'll need to import the following libraries to call `setTraffic` and `incident
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
-To obtain the incidents for a specific feature, you can add the block below to your code. When a feature is clicked, the code logic checks for incidents and builds a message about the incident. The message is shown in a SnackBar, a lightweight widget that shows up at the bottom of the screen.
+## Show incident traffic data by clicking a feature
+
+To obtain the incidents for a specific feature, you can use the code block below. When a feature is clicked, the code logic checks for incidents and builds a message about the incident. The message is shown in a SnackBar, a lightweight widget that shows up at the bottom of the screen. Replace `<yourpackagename>` with the package name of your project.
+
+1. Edit **res > layout > activity_main.xml** so it looks like the one below. Replace the placeholders for `mapcontrol_centerLat`, `mapcontrol_centerLng`, and `mapcontrol_zoom` with your choices.
+
+    ```XML
+    <?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    
+        <com.microsoft.azure.maps.mapcontrol.MapControl
+            android:id="@+id/mapcontrol"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:mapcontrol_centerLat="<choose a latitude>"
+            app:mapcontrol_centerLng="<choose a latitude>"
+            app:mapcontrol_zoom="<choose a zoom level>"
+            />
+    
+    </FrameLayout>
+    ```
+
+2. Add the following code to your **MainActivity.java** file.
 
 ```java
-mapControl.onReady(map -> {
-    //Turn on traffic flow and incident data on the map.
-    map.setTraffic(
-            incidents(true),
-            flow(TrafficFlow.RELATIVE));
+package <yourpackagename>;
+import androidx.appcompat.app.AppCompatActivity;
 
-    map.events.add((OnFeatureClick) (features) -> {
-        if (features != null && features.size() > 0) {
-            Feature incident = features.get(0);
+import android.os.Bundle;
+import android.widget.Toast;
 
-            //Create a message from the properties of the incident.
-            if (incident.properties() != null) {
-                StringBuilder sb = new StringBuilder();
-                String incidentType = incident.getStringProperty("incidentType");
-                if (incidentType != null) {
-                    sb.append(incidentType);
-                }
-                if (sb.length() > 0) sb.append("\n");
-                if ("Road Closed".equals(incidentType)) {
-                    sb.append(incident.getStringProperty("from"));
-                } else {
-                    String description = incident.getStringProperty("description");
-                    if (description != null) {
-                        for (String word : description.split(" ")) {
-                            if (word.length() > 0) {
-                                sb.append(word.substring(0, 1).toUpperCase());
-                                if (word.length() > 1) {
-                                    sb.append(word.substring(1));
+//import android.support.v7.app.AppCompatActivity;
+import com.microsoft.azure.maps.mapcontrol.AzureMaps;
+import com.microsoft.azure.maps.mapcontrol.MapControl;
+import com.mapbox.geojson.Feature;
+import com.microsoft.azure.maps.mapcontrol.events.OnFeatureClick;
+
+import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.incidents;
+
+public class MainActivity extends AppCompatActivity {
+
+    static {
+        AzureMaps.setSubscriptionKey("TiZ3a_OjcwOE471HGCzoPGa-6996WZQKUEuWu_BLRBg");
+    }
+
+    MapControl mapControl;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mapControl = findViewById(R.id.mapcontrol);
+
+        mapControl.onCreate(savedInstanceState);
+
+        //Wait until the map resources are ready.
+        mapControl.getMapAsync(map -> {
+            map.setTraffic(incidents(true));
+
+            map.events.add((OnFeatureClick) (features) -> {
+
+                if (features != null && features.size() > 0) {
+                    Feature incident = features.get(0);
+                    if (incident.properties() != null) {
+
+
+                        StringBuilder sb = new StringBuilder();
+                        String incidentType = incident.getStringProperty("incidentType");
+                        if (incidentType != null) {
+                            sb.append(incidentType);
+                        }
+                        if (sb.length() > 0) sb.append("\n");
+                        if ("Road Closed".equals(incidentType)) {
+                            sb.append(incident.getStringProperty("from"));
+                        } else {
+                            String description = incident.getStringProperty("description");
+                            if (description != null) {
+                                for (String word : description.split(" ")) {
+                                    if (word.length() > 0) {
+                                        sb.append(word.substring(0, 1).toUpperCase());
+                                        if (word.length() > 1) {
+                                            sb.append(word.substring(1));
+                                        }
+                                        sb.append(" ");
+                                    }
                                 }
-                                sb.append(" ");
                             }
+                        }
+                        String message = sb.toString();
+
+                        if (message.length() > 0) {
+                            Toast.makeText(this,message,Toast.LENGTH_LONG).show();
                         }
                     }
                 }
-                String message = sb.toString();
+            });
+        });
+    }
 
-                if (message.length() > 0) {
-                    //Display the message to the user.
-                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
-    });
-});
+    @Override
+    public void onResume() {
+        super.onResume();
+        mapControl.onResume();
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        mapControl.onStart();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mapControl.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mapControl.onStop();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapControl.onLowMemory();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapControl.onDestroy();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapControl.onSaveInstanceState(outState);
+    }
+}
 ```
 
-Once you incorporate the above code in your application, you'll be able to click on a feature and learn about the traffic incidents for that feature. You'll see results similar to the following image:
+3. Once you incorporate the above code in your application, you'll be able to click on a feature and learn about the traffic incidents for that feature. Depending on the latitude and longitude that you selected in your **activity_main.xml** file, you'll see results similar to the following image:
 
 <center>
 
