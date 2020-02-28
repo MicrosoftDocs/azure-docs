@@ -7,7 +7,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/30/2020
 ---
 # What's new in Azure Cognitive Search

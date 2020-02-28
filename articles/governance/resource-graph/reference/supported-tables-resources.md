@@ -1,7 +1,7 @@
 ---
 title: Supported Resource Manager resource types
 description: Provide a list of the Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 02/20/2020
+ms.date: 02/25/2020
 ms.topic: reference
 ---
 # Azure Resource Graph table and resource type reference
@@ -112,6 +112,7 @@ part of a **table** in Resource Graph.
 - microsoft.compute/sharedvmimages
 - microsoft.compute/sharedvmimages/versions
 - microsoft.compute/snapshots
+- microsoft.compute/sshpublickeys
 - microsoft.compute/virtualmachines
 - microsoft.compute/virtualmachines/extensions
 - microsoft.compute/virtualmachinescalesets
@@ -273,6 +274,7 @@ part of a **table** in Resource Graph.
 - microsoft.network/firewallpolicies
 - microsoft.network/frontdoors
 - microsoft.network/frontdoorwebapplicationfirewallpolicies
+- microsoft.network/ipallocations
 - microsoft.network/ipgroups
 - microsoft.network/loadbalancers
 - microsoft.network/localnetworkgateways

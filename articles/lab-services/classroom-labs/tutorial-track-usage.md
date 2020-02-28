@@ -37,7 +37,7 @@ In this tutorial, you do the following actions:
 
     ![Registered users](../media/tutorial-track-usage/registered-users.png)
 
-    For more details about adding and managing users for the lab, see [Add and manage lab users](how-to-configure-student-usage.md).
+    For more information about adding and managing users for the lab, see [Add and manage lab users](how-to-configure-student-usage.md).
 
 ## View the usage of VMs
 
@@ -49,9 +49,12 @@ In this tutorial, you do the following actions:
 ## Manage student VMs 
 On this page, you can start, stop, or reset student VMs by using controls in the **State** column or on the toolbar.
 
-![VM controls](../media/tutorial-track-usage/vm-controls.png)
+![VM actions](../media/tutorial-track-usage/vm-controls.png)
 
-For more details about managing virtual machine pool for the lab, see [Set up and manage virtual machine pool](how-to-set-virtual-machine-passwords.md).
+For more information about managing virtual machine pool for the lab, see [Set up and manage virtual machine pool](how-to-set-virtual-machine-passwords.md).
+
+> [!NOTE]
+> When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to the user outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## Next steps
 To learn more about classroom labs, see articles under [How-to guides](how-to-manage-lab-accounts.md).
