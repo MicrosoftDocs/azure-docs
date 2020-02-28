@@ -24,7 +24,7 @@ When an image is saved to a shared image gallery, Azure Lab Services replicates 
 This article shows you how to attach or detach a shared image gallery to a lab account. 
 
 > [!NOTE]
-> Currently, Azure Lab Services supports creation of VMs based on only **generalized** VM images (not specialized images) in a shared image gallery. 
+> Currently, Azure Lab Services supports creation of template VMs based on only **generalized** VM images (not specialized images) in a shared image gallery. 
 
 
 ## Configure at the time of lab account creation
