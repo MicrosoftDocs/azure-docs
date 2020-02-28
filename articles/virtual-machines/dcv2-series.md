@@ -2,7 +2,7 @@
  title: DC-series - Azure Virtual Machines
  description: Specifications for the DC-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: joelpelley
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/20/2020
@@ -19,6 +19,10 @@ Example use cases include confidential multiparty data sharing, fraud detection,
 Premium Storage: Supported*
 
 Premium Storage caching: Supported*
+
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
 
 *Except for Standard_DC8_v2
 

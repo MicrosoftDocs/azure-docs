@@ -4,7 +4,7 @@ description: Azure Virtual Machines planning and implementation for SAP NetWeave
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''

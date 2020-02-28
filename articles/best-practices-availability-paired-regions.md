@@ -19,6 +19,9 @@ Each Azure region is paired with another region within the same geography, toget
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
+> [!NOTE]
+> Assigned Azure regional pairs cannot be modified.
+
 Figure 1 – Azure regional pairs
 
 | Geography | Paired regions |  |

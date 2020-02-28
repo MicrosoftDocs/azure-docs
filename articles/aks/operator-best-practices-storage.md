@@ -31,7 +31,7 @@ The following table outlines the available storage types and their capabilities:
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Shared configuration       | Azure Files   | Yes | Yes | Yes | Yes |
 | Structured app data        | Azure Disks   | Yes | No  | No  | Yes |
-| Unstructured data, file system operations | [BlobFuse (preview)][blobfuse] | Yes | Yes | Yes | No |
+| Unstructured data, file system operations | [BlobFuse][blobfuse] | Yes | Yes | Yes | No |
 
 The two primary types of storage provided for volumes in AKS are backed by Azure Disks or Azure Files. To improve security, both types of storage use Azure Storage Service Encryption (SSE) by default that encrypts data at rest. Disks cannot currently be encrypted using Azure Disk Encryption at the AKS node level.
 

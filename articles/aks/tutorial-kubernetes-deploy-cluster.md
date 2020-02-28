@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Deploy a cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an AKS cluster and use kubectl to connect to the Kubernetes master node.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 02/25/2020
 
 ms.custom: mvc
 
@@ -42,6 +42,8 @@ az aks create \
     --attach-acr <acrName>
 ```
 
+You can also manually configure a service principal to pull images from ACR. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md).
+
 After a few minutes, the deployment completes, and returns JSON-formatted information about the AKS deployment.
 
 > [!NOTE]
@@ -71,7 +73,7 @@ To verify the connection to your cluster, run the [kubectl get nodes][kubectl-ge
 $ kubectl get nodes
 
 NAME                       STATUS   ROLES   AGE   VERSION
-aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
+aks-nodepool1-12345678-0   Ready    agent   32m   v1.14.8
 ```
 
 ## Next steps
