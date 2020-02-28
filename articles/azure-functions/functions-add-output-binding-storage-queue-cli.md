@@ -151,7 +151,7 @@ You can view the queue in the [Azure portal](../storage/queues/storage-quickstar
     az storage queue list --output tsv
     ```
 
-1. Use the [`az storage message get`](/cli/azure/storage/message#az-storage-message-peek) command to read the message from this queue, which should be the first name you used when testing the function earlier. The command reads and removes the first message from the queue. 
+1. Use the [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) command to read the message from this queue, which should be the first name you used when testing the function earlier. The command reads and removes the first message from the queue. 
 
     # [bash](#tab/bash)
     
