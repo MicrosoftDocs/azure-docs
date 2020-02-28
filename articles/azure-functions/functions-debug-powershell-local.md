@@ -13,8 +13,6 @@ ms.reviewer: glenga
 
 Azure Functions lets you develop your functions as PowerShell scripts.
 
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
-
 You can debug your PowerShell functions locally as you would any PowerShell scripts using the following standard development tools:
 
 * [Visual Studio Code](https://code.visualstudio.com/): Microsoft's free, lightweight, and open-source text editor with the PowerShell extension that offers a full PowerShell development experience.

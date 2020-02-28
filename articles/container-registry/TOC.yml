@@ -19,6 +19,8 @@
       href: container-registry-get-started-powershell.md
     - name: Send events to Event Grid - CLI
       href: container-registry-event-grid-quickstart.md
+    - name: Build and push Java images - CLI
+      href: container-registry-java-quickstart.md
   - name: Tutorials
     expanded: false
     items:
