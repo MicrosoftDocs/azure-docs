@@ -4,10 +4,15 @@
 
 Welcome to the Project Spool Contributor Quickstart!
 
-If you have any questions or feedback along the way, feel free to ping/email any time.  My alias is **mikben**.
+If you have any questions or feedback along the way, feel free to ping/email me any time.  My alias is **mikben**.
 
-*Note: I'm a new content developer, so we'll be learning the Azure docs contribution process together.  I've copied the documentation structure of the Spatial Anchors service to get started; we'll use that as scaffolding for our content set.*
+We have three paths available for contributors:
 
+ - **The Happy Path**: This is the easiest way to contribute **minimal updates** to **existing docs**.
+ - **The Slightly Less Happy Path**: This is the process we'll follow for **image insertion**, **substantial content edits**, and **new files**.
+ - **The Shortcut**: This is where you send me the content that you want to add, and I'll add it to our repository.
+  
+--------------
 
 ## The Happy Path
 
@@ -17,14 +22,19 @@ The simple way to contribute changes to our docs is to visit our staging site an
 
 Once you're brought to the file on GitHub, click the edit icon:
 
-![Edit File](./media/edit-file.png)
+![Edit File](./media/edit-file.png) 
 
 Once you've made your changes, click Commit with the "direct" option selected:
 
 ![Commit Changes](./media/commit-changes.png)
 
+I'll then be notified, and I'll merge your changes into the docs.
 
-## Our Azure Docs Contribution Process
+-----------------
+
+## The Slightly Less Happy Path
+
+### Our Azure Docs Contribution Process
 
 ![Cross Platform](./media/pr-process.png)
 
@@ -44,7 +54,7 @@ The numbers in the above diagram correspond to the following numbered annotation
 *Note: PRs from **[6]** to **[4]** will always be built and validated, but they won't be passed off to the Azure docs editorial team until we sign off on them with a comment that says "#sign-off".  This will tell our merge bot ("PR Merger") to pass the baton along.  We will only do this when our content is mature.*
 
 
-## Getting Started
+### Getting Started
 
 To begin contributing: 
 
@@ -87,3 +97,9 @@ Finally, click the sync button to push your changes up and kick off the staging:
 - **If you aren't familiar with Markdown**, [here's a great resource](https://review.docs.microsoft.com/en-us/help/contribute/markdown-reference?branch=master).
 - **If you aren't familiar with git**, ping me directly!  I can help and then expand this doc accordingly.
 - **If you are familiar with git** and have any feedback regarding this process, I'm completely open to suggestions, as I'm learning git as I go.
+
+---------
+
+## The Shortcut
+
+Feel free to email me (mikben@microsoft.com) the content you'd like to add and I'll make sure it's integrated into our repository.
