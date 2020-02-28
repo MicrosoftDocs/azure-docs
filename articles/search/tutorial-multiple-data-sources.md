@@ -335,6 +335,14 @@ In Azure portal, open the search service **Overview** page, and find the **hotel
 
 Click on the hotel-rooms-sample index in the list. You will see a Search Explorer interface for the index. Enter a query for a term like "Luxury". You should see at least one document in the results, and this document should show a list of room objects in its rooms array.
 
+## Reset and rerun
+
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+
+The sample code for this tutorial checks for existing objects and deletes them so that you can rerun your code.
+
+You can also use the portal to delete indexes, indexers, and data sources.
+
 ## Clean up resources
 
 When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
@@ -343,7 +351,7 @@ You can find and manage resources in the portal, using the All resources or Reso
 
 ## Next steps
 
-There are several approaches and multiple options for indexing JSON blobs. If your source data includes JSON content, you can review these options to see what works best for your scenario.
+Now that you're familiar with the concept of ingesting data from multiple sources, let's take a closer look at indexer configuration, starting with Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [How to index JSON blobs using Azure Cognitive Search Blob indexer](search-howto-index-json-blobs.md)
+> [Configure an Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
