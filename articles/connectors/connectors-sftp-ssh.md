@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 02/28/2020
 tags: connectors
 ---
 
@@ -26,7 +26,24 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
 ## Limits
 
-* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md), except for the Copy File action, which can handle only 15 MB files. The **Get file content** action implicitly uses message chunking.
+* For files that are 1 GB or smaller, SFTP-SSH actions read or write content in *15 MB* chunks as the default. For files larger than 15 MB, you can enable [message chunking](../logic-apps/logic-apps-handle-large-messages.md) on SFTP-SSH actions. These actions use adaptive chunking behavior to adjust for various factors such as network latency, server response time, and so on by starting with a smaller chunk size, such as 15 MB, and gradually increasing to the maximum 50 MB chunk size. Chunk size is based on the connection, which means that if the connection was previously used by another action that supports chunking, actions that don't support chunking can transfer up to 50 MB.
+
+  The **Get file content** action natively uses built-in message chunking, but you need to manually [enable chunking](#enable-chunking) where supported on other actions. This table shows which current SFTP-SSH actions support chunking:
+
+  | Action | Chunking support | Override chunk size | Notes |
+  |--------|------------------|---------------------|-------|
+  | **Copy file** | No | Not applicable ||
+  | **Create file** | Yes | Yes ||
+  | **Create folder** | Not applicable | Not applicable ||
+  | **Delete file** | Not applicable | Not applicable ||
+  | **Extract archive to folder** | Not applicable | Not applicable ||
+  | **Get file content** | Yes | Yes ||
+  | **Get file metadata** | Not applicable | Not applicable ||
+  | **Get file metadata using path** | Not applicable | Not applicable ||
+  | **List files in folder** | Not applicable | Not applicable ||
+  | **Rename file** | Not applicable | Not applicable ||
+  | **Update file** | No | Not applicable ||
+  |||||
 
 * SFTP-SSH triggers don't support chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
