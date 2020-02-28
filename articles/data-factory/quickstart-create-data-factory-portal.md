@@ -84,6 +84,9 @@ at the bottom of the left column under **Factory Resources**).
 
    d. Select **Create** to save the linked service. 
 
+      ![New linked service](./media/quickstart-create-data-factory-portal/linked-service.png)
+
+
 ## Create datasets
 In this procedure, you create two datasets: **InputDataset** and **OutputDataset**. These datasets are of type **AzureBlob**. They refer to the Azure Storage linked service that you created in the previous section. 
 
@@ -100,6 +103,8 @@ In the linked service settings, you specified the Azure Storage account that con
 
 1. On the **Select Format** page, choose the format type of your data, and then select **Continue**. In this case, select **Binary** when copy files as-is without parsing the content.
 
+   ![Select format](./media/quickstart-create-data-factory-portal/select-format.png)
+   
 1. On the **Set Properties** page, complete following steps:
 
     a. Under **Name**, enter **InputDataset**. 
@@ -136,12 +141,14 @@ In this procedure, you create and validate a pipeline with a copy activity that 
 1. In the **General** tab, specify **CopyPipeline** for **Name**. 
 
 1. In the **Activities** toolbox, expand **Move & Transform**. Drag the **Copy Data** activity from the **Activities** toolbox to the pipeline designer surface. You can also search for activities in the **Activities** toolbox. Specify **CopyFromBlobToBlob** for **Name**.
+   ![Creating a copy data activity](./media/quickstart-create-data-factory-portal/copy-activity.png)
 
 1. Switch to the **Source** tab in the copy activity settings, and select **InputDataset** for **Source Dataset**.
 
 1. Switch to the **Sink** tab in the copy activity settings, and select **OutputDataset** for **Sink Dataset**.
 
 1. Click **Validate** on the pipeline toolbar above the canvas to validate the pipeline settings. Confirm that the pipeline has been successfully validated. To close the validation output, select the **>>** (right arrow) button. 
+   ![Validate a pipeline](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
 ## Debug the pipeline
 In this step, you debug the pipeline before deploying it to Data Factory. 
@@ -157,7 +164,8 @@ In this step, you debug the pipeline before deploying it to Data Factory.
 ## Trigger the pipeline manually
 In this procedure, you deploy entities (linked services, datasets, pipelines) to Azure Data Factory. Then, you manually trigger a pipeline run. 
 
-1. Before you trigger a pipeline, you must publish entities to Data Factory. To publish, select **Publish All** on the top. 
+1. Before you trigger a pipeline, you must publish entities to Data Factory. To publish, select **Publish all** on the top. 
+    ![Publish all](./media/quickstart-create-data-factory-portal/publish-all.png)
 
 1. To trigger the pipeline manually, select **Add Trigger** on the pipeline toolbar, and then select **Trigger Now**. On the **Pipeline run** page, select **Finish**.
 
@@ -192,7 +200,7 @@ This procedure is optional in this tutorial. You can create a *scheduler trigger
    ![New Trigger setting](./media/quickstart-create-data-factory-portal/trigger-settings-next.png)
 1. Review the warning message, and select **OK**.
 
-1. Select **Publish All** to publish changes to Data Factory. 
+1. Select **Publish all** to publish changes to Data Factory. 
 
 1. Switch to the **Monitor** tab on the left. Select **Refresh** to refresh the list. You see that the pipeline runs once every minute from the publish time to the end time. 
 
