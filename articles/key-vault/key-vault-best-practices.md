@@ -7,6 +7,7 @@ manager: rkarlin
 tags: azure-key-vault
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
