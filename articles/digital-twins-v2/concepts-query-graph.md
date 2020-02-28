@@ -41,12 +41,13 @@ Here are the operations available via query:
 
 Here are some sample queries that perform two possible query operations and illustrate the query language structure.
 
-Get twins by properties:
+Get twins by properties (including ID and metadata):
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
-WHERE T.$dtId in ['123', '456']
-AND T.firmwareVersion = '1.1'
+WHERE T.firmwareVersion = '1.1'
+AND T.$dtId in ['123', '456']
+AND T.$metadata.Temperature.reportedValue = 70
 ```
 
 Get twins by model
@@ -102,33 +103,29 @@ WHERE T.$dtId = 'ABC'
 >[!NOTE] 
 > The developer does not need to correlate these `JOIN`s with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves encode the target entity.
 
+You can reference the same twin collection multiple times in one query. Notice how we can traverse two different relationship types, *contains* and *servicedBy*, for the twin `T`.
+
+```sql
+SELECT T, CT, SBT1
+FROM DIGITALTWINS T
+JOIN CT RELATED T.contains
+JOIN SBT1 RELATED T.servicedBy
+WHERE T.$dtId = 'ABC' 
+```
+
 You can also query over multiple levels of relationships, and based on related twins' properties. The following example extends the previous example to get 
-the twins with a *reported value* of 123, serviced by  
+the twins with a *v1* value of '123', that are serviced by  
     the twins contained by
         the twins with an *id* property of 'ABC'.
 
 ```sql
-SELECT T, CT, CT2
+SELECT T, CT, SBT2
 FROM DIGITALTWINS T
 JOIN CT RELATED T.contains
-JOIN CT2 RELATED CT.servicedBy
+JOIN SBT2 RELATED CT.servicedBy
 WHERE T.$dtId = 'ABC' 
-AND CT2.properties.v1.reported.value = 123
+AND SBT2.v1 = 123
 ```
-
-Additionally, the query author can reference the same "table" multiple times in the query:
-
-```sql
-SELECT T, CT, CB
-FROM DIGITALTWINS T
-JOIN CT RELATED T.contains
-JOIN CB RELATED T.servicedBy
-WHERE T.$dtId = 'ABC' 
-and CT.properties.v1.reported.value = 'DEF' 
-and CB.properties.name.reported.value = 'john'
-```
-
-Note above that the twin object `T` has both the *contains* and *servicedBy* relationships traversed.
 
 ### Query properties of relationships
 
@@ -138,11 +135,11 @@ The Azure Digital Twins Query Store Language allows filtering and projection of 
 As an example, consider a *servicedBy* relationship that has a *reportedCondition* property. In the below query, this relationship is given an alias of 'SBR' in order to reference its property.
 
 ```sql
-SELECT T, CB, SBR
+SELECT T, SBT, R
 FROM DIGITALTWINS T
-JOIN CB RELATED T.servicedBy SBR
+JOIN SBT RELATED T.servicedBy R
 WHERE T.$dtId = 'ABC' 
-and SBR.reportedCondition = 'clean'
+AND R.reportedCondition = 'clean'
 ```
 
 In the example above, note how *reportedCondition* is expressed as a property of the *servicedBy* relationship itself (and not of a twin with a *servicedBy* relationship).
