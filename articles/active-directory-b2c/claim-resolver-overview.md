@@ -82,7 +82,7 @@ The following sections list available claim resolvers.
 | {Context:DateTimeInUtc} |The date time in UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |The policy deployment mode.  | Production |
 | {Context:IPAddress} | The user IP address. | 11.111.111.11 |
-| {Context:KMSI} | The user IP address. | Indicates whether [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox is selected.  |
+| {Context:KMSI} | Indicates whether [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox is selected. |  true |
 
 ### Non-protocol parameters
 
