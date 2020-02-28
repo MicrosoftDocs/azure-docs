@@ -130,26 +130,26 @@
         href: ../lsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Optimize performance
         href: storage-performance.md
-    - name: Accelerated compute
+    - name: GPU - accelerated compute
       items:
-      - name: GPU optimized
-        items:
-        - name: Overview
-          href: ../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: NC-series
-          href: ../nc-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: NCv2-series
-          href: ../ncv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: NCv3-series
-          href: ../ncv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: ND-series
-          href: ../nd-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: NDv2-series
-          href: ../ndv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: NV-series
-          href: ../nv-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: NVv3-series
-          href: ../nvv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Overview
+        href: ../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: NC-series
+        href: ../nc-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: NCv2-series
+        href: ../ncv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: NCv3-series
+        href: ../ncv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: ND-series
+        href: ../nd-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: NDv2-series
+        href: ../ndv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: NV-series
+        href: ../nv-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: NVv3-series
+        href: ../nvv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: NVv4-series
+        href: ../nvv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Setup GPU drivers
         href: n-series-driver-setup.md      
     - name: High performance compute
@@ -272,6 +272,24 @@
         href: spot-template.md
       - name: Error codes
         href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
+  - name: Migrate from Classic to Azure Resource Manager
+    items:
+    - name: Retirement starting March 1, 2023
+      href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Migration Overview
+      href: migration-classic-resource-manager-overview.md
+    - name: Deep dive on migration
+      href: migration-classic-resource-manager-deep-dive.md
+    - name: Plan for migration
+      href: migration-classic-resource-manager-plan.md
+    - name: Migrate using the CLI
+      href: migration-classic-resource-manager-cli.md
+    - name: Common migration errors
+      href: migration-classic-resource-manager-errors.md
+    - name: Community tools for migration
+      href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: FAQ
+      href: migration-classic-resource-manager-faq.md
   - name: Secure VMs
     items:
     - name: Recommendations
@@ -713,21 +731,6 @@
         href: upload-vhd.md
       - name: Use Azure Site Recovery
         href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-    - name: Migrate from Classic to Azure Resource Manager
-      href: migration-classic-resource-manager-overview.md
-      items:
-      - name: Deep dive on migration
-        href: migration-classic-resource-manager-deep-dive.md
-      - name: Plan for migration
-        href: migration-classic-resource-manager-plan.md
-      - name: Migrate using the CLI
-        href: migration-classic-resource-manager-cli.md
-      - name: Common migration errors
-        href: migration-classic-resource-manager-errors.md
-      - name: Community tools for migration
-        href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-      - name: FAQ
-        href: migration-classic-resource-manager-faq.md
 - name: Reference
   items:
   - name: Azure CLI
