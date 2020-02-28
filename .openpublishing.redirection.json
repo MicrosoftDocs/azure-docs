@@ -3611,6 +3611,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-performance.md",
+      "redirect_url": "/azure/sql-database/sql-database-monitor-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-managed-instance-vnet-configuration.md",
       "redirect_url": "/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet",
       "redirect_document_id": false

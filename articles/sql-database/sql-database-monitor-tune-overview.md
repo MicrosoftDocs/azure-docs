@@ -18,39 +18,35 @@ To monitor the performance of a database in Azure SQL Database, start by monitor
 
 Use the built-in performance tuning capabilities to determine the queries responsible for the most CPU and IO usage. Use the intelligent performance tuning recommendations and automatic tuning options to improve performance.
 
-## Built-in capabilities
+## Built-in monitoring and tuning capabilities
 
-Azure SQL Database has built-in monitoring and tuning capabilities both within Azure and within the SQL database engine.
+Azure SQL Database has built-in monitoring, performance analysis, and automatic tuning capabilities.
 
-### Azure monitoring and tuning capabilities
+## SQL Database resource metrics
 
-The built-in monitoring and performance tuning capabilities in Azure enable you to:
+You can quickly monitor the following resource metrics in the Azure portal in the **Metrics** view as well by querying the SQL Server Query store using SQL Server Management Studio or Azure Data Studio:
 
-- Monitor database resource usage
-- Increase or decrease available resources (such as CPU, memory, and I/O)
-- Identity the top resource consuming queries
-- Identify the top long-running queries
-- View service-provided tuning recommendations and tuning actions
-- Enable and configure a number of automatic tuning capabilities
+- **DTU usage**: Check to see if a database or elastic pool is reaching 100 percent of DTU usage for an extended period of time. High DTU usage indicates that your workload might need more CPU or IO resources. It might also indicate queries that need to be optimized.
+- **CPU usage**: Check to see if a database, elastic pool, or managed instance is reaching 100 percent of CPU usage for an extended period of time. High CPU indicates that your workload might need more CPU or IO resources. It might also indicate queries that need to be optimized.
+- **IO usage**: Check to see if a database, elastic pool, or managed instance is reaching the IO limits of the underlying storage. High IO usage indicates that your workload might need more CPU or IO resources. It might also indicate queries that need to be optimized.
 
-You can quickly monitor the following resources in the Azure portal:
+  ![Resource metrics](./media/sql-database-monitor-tune-overview/resource-metrics.png)
 
-- **DTU usage**: Check to see if the database is reaching 100 percent of DTU usage for an extended period of time. High DTU usage indicates that your workload might need more CPU or IO resources. It might also indicate queries that need to be optimized.
-- **CPU usage**: Check to see if the database is reaching 100 percent of CPU usage for an extended period of time. High CPU indicates that your workload might need more CPU or IO resources. It might also indicate queries that need to be optimized.
-- **IO usage**: Check to see if the database is reaching the IO limits of the underlying storage. High IO usage indicates that your workload might need more CPU or IO resources. It might also indicate queries that need to be optimized.
+> [!IMPORTANT]
+> The built-in Azure capabilities described in this article are built on top of [SQL Server Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) and require it to be enabled - which it is by default.
 
-![Performance overview for Azure SQL Database](./media/sql-database-performance/performance-overview-annotated.png)
+The following table describes these capabilities for the various deployment options within Azure SQL Database and where these capabilities are available.
 
-![Query Performance Insights for Azure SQL Database](./media/sql-database-performance/query-performance-insights-annotated.png)
-
-Additional resource usage can also be monitored using the Azure portal, but a deeper root cause analysis generally requires additional capabilities and skills.
-
-### SQL database engine monitoring and tuning capabilities
-
-The SQL database engine provides the following built-in capabilities:
-
-- **Query Store**: Query Store is database feature that continuously collects and presents detailed historic information about all queries. Use Query Store in a wide set of scenarios when tracking and ensuring predictable workload performance is critical. For more information, see [Query Store Usage Scenarios](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios).
-- **Dynamic managed views**: The SQL database engine records server and database state information in [dynamic management views (DMVs)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). This information can be used to monitor the health of a SQL database instance, diagnose problems, and tune performance.
+| Monitoring and tuning capability | Single database database support | Elastic pool support | Managed instance support |
+| :----------------------------- | ----- | ----- | ----- |
+| **[SQL Server Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)** - The SQL database engine records query performance information for your databases that you can query using SQL Server Management Studio and Azure Data Studio | At database level | At the database level | At the database level |
+| **[Dynamic managed views (DMVs)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)** - The SQL database engine records server and database state information in [dynamic management views (DMVs)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). This information can be used to monitor the health of a SQL database instance, diagnose problems, and tune performance.
+| **[Resource utilization metrics](#sql-database-resource-metrics)** - Monitor all performance activities for your database, elastic pool, or managed instance in the Azure portal. | At the database level | At the database and the elastic pool levels | At the instance level |
+| **Configure available resources** - Increase or decrease available resources (such as CPU, memory, and I/O) | At the database level | At the elastic pool level | At the instance level |
+| **[Performance overview](sql-database-advisor.md#performance-overview)** - an Azure portal view provides a summary of your database performance | At the database level | At the database level | Not supported |
+| **[Performance recommendations](sql-database-advisor.md#performance recommendations)** - Shows performance recommendations from SQL Database Advisor that can improve performance of your workload. | At the database level | At the database level | Not supported |
+| **[Query Performance Insight](sql-database-query-performance.md)** - Shows performance in the Azure portal of top consuming and longest running queries on the database. | At database level | At the database level | Not supported |
+| **[Automatic tuning](sql-database-automatic-tuning.md)** - Enable Azure SQL Database to automatically tune your database performance. | At the database and logical server levels using the Azure portal or T-SQL | At the database and logical server levels using the Azure portal or T-SQL | At the instance database level using T-SQL |
 
 ## Collecting additional diagnostic telemetry
 
