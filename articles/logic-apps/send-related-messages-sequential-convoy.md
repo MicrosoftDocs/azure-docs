@@ -70,7 +70,7 @@ If you're not sure whether your logic app has permissions to access your Service
 
 1. In the [Azure portal](https://portal.azure.com), create a blank logic app. From the Azure home page, select **Create a resource** > **Integration** > **Logic App**.
 
-1. After the template gallery appears, scroll past the video and the common triggers sections. From the **Templates** section, select the **Correlated in-order delivery using service bus sessions** template.
+1. After the template gallery appears, scroll past the video and the common triggers sections. From the **Templates** section, select the template, **Correlated in-order delivery using service bus sessions**.
 
    ![Select "Correlated in-order delivery using service bus sessions" template](./media/send-related-messages-sequential-convoy/select-correlated-in-order-delivery-template.png)
 
