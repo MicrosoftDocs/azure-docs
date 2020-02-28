@@ -106,7 +106,7 @@ More formally, the JSON data has the following fields:
 | `$conformance` | An enum containing the conformance status of this digital twin (conformant, non-conformant, unknown) |
 | `{propertyName}` | The value of a property in JSON (string, number, or object). |
 | `$relationships` | URL of the path to the relationships collection. This field is absent if the digital twin has no outgoing edges. |
-| `$metadata.$model` | [Optional] The URN of the capability model or interface that models this digital twin instance. |
+| `$metadata.$model` | [Optional] The URN of the interface that models this digital twin instance. |
 | `$metadata.{propertyName}.desiredValue` | [only for writable properties] The desired value of the specified property. |
 | `$metadata.{propertyName}.desiredVersion` | [only for writable properties] The version of the desired value. |
 | `$metadata.{propertyName}.ackVersion` | The version acknowledged by the device app implementing the digital twin. |

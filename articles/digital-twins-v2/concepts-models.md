@@ -31,19 +31,19 @@ For more information about pure DTDL, see its [reference documentation](https://
 
 ## Key model information
 
-The sections of information provided in a model's description make up its **interface**. A model interface consists of the following fields:
-* **Properties** — Properties are data fields that represent the state of an entity (like in many object-oriented programming languages). Unlike telemetry, which is a time-bound data event, properties have backing storage and can be read at any time.
-* **Telemetry** — Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Telemetry is not stored on a twin; it is effectively sent as a stream of data events.
-* **Commands** — Commands represent methods that can be executed on a digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
-* **Relationships** — Relationships let you model how this twin can be involved with other twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *is-billed-to* ("compressor is-billed-to user"), etc. Relationships allow digital twins solutions to provide graphs of interrelated entities. 
-* **Components** — Components allow you to build your model as an assembly of other interfaces, if desired. An example of a component may be a *frontCamera* (and another component *backCamera*) for a model representing a phone device. A separate interface for *frontCamera* must be defined, as though it were another model, but once it's included as a component on the *phone* model, it cannot be instantiated by an independent twin in the graph.
+The sections of information provided in a model's description make up its **interface**. A model interface may have zero, one, or many of each of the following fields:
+* **Property** — Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Unlike telemetry, which is a time-bound data event, properties have backing storage and can be read at any time.
+* **Telemetry** — Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Telemetry is not stored on a twin; it is effectively represented as a stream of data events to be sent somewhere.
+* **Command** — Commands represent methods that can be executed on a digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
+* **Relationship** — Relationships let you model how a twin can be involved with other twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *is-billed-to* ("compressor is-billed-to user"), etc. Relationships allow digital twins solutions to provide graphs of interrelated entities. 
+* **Component** — Components allow you to build your model as an assembly of other interfaces, if desired. An example of a component may be a *frontCamera* (and another component *backCamera*) for a model representing a phone device. A separate interface for *frontCamera* must be defined, as though it were another model, but once it's included as a component on the *phone* model, it cannot be instantiated by an independent twin in the graph.
 
 >[!TIP] 
 > Use a **component** to describe something that is an integral part of your model, but that does not need to be created, deleted, or rearranged in your topology of twins independently. If you want both entities to have an independent existence in the graph, represent them as independent twin models connected by a **relationship**.
 
-## Writing a model
+## Creating a model
 
-DTDL models can be created in any text editor. They follow JSON syntax, and thus should be stored with the extension *.json*. Using the this extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents.
+Models can be written in any text editor. Their DTDL language follows JSON syntax, so you should store models with the extension *.json*. Using this extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents.
 
 ### Example model code
 
@@ -77,15 +77,15 @@ Here is an example of a basic model, written in DTDL:
     ]
 }
 ```
-The interface must provide a top-level `@id` and `@type` of *interface*, which describe the model name and the fact that it is an interface, respectively.
+The interface must provide a top-level `@id` and a `@type` of *Interface*, which describe the model name and the fact that it is an interface, respectively.
 
-All content of an interface is then placed within the `contents` section of the DTDL file, as an array of attribute definitions. Each attribute must provide a `@type` (*property*, *telemetry*, *command*, *relationship*, or *component*) to identify the sort of interface information it defines, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *property*).
+All content of an interface is then placed within the `contents` section of the DTDL file, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*).
 
 ### Schema options
 
-As per DTDL, the schema for *property* and *telemetry* attributes can be of standard primitive types — `integer`, `double`, `string`, and `Boolean` — and others such as `DateTime` and `Duration`. 
+As per DTDL, the schema for *Property* and *Telemetry* attributes can be of standard primitive types — `integer`, `double`, `string`, and `Boolean` — and others such as `DateTime` and `Duration`. 
 
-In addition to primitive types, *property* and *telemetry* fields can have the following four complex types:
+In addition to primitive types, *Property* and *Telemetry* fields can have the following four complex types:
 * `Object`
 * `Array`
 * `Map`
@@ -104,13 +104,13 @@ Here is an example of a model (*CelestialBody*) that has a subtype (*Planet*). T
     "contents": [
         {
             "@type": "Property",
-            "name": "location",
-            "schema": " dtmi:com:example:CelestialCoordinate"
+            "name": "name",
+            "schema": "string"
         },
         {
             "@type": "Property",
-            "name": "name",
-            "schema": "string"
+            "name": "location",
+            "schema": " dtmi:com:example:CelestialCoordinate"
         },
         {
             "@type": "Property",
@@ -137,11 +137,11 @@ Here is an example of a model (*CelestialBody*) that has a subtype (*Planet*). T
 }
 ```
 
-In this example, *CelestialBody* contributes a name, a mass and a location to *Planet*. The `extends` section contains an array of interface names, allowing the extending interface to inherit from multiple parent models if desired.
+In this example, *CelestialBody* contributes a name, a mass and a location to *Planet*. The `extends` is structured as an array of interface names, allowing the extending interface to inherit from multiple parent models if desired.
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
-The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot define a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *foo*, the extending interface cannot contain a declaration of *foo*, even if it is also declared as a `double`.
+The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot define a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same)—for example, if a parent interface defines a `double` property *foo*, the extending interface cannot contain a declaration of *foo*, even if it is also declared as a `double`.
 
 ### Preview constraints
 
@@ -149,7 +149,7 @@ DTDL constraints while in preview:
 * While the DTDL language specification allows for inline definitions of interfaces, this is not supported in the current version of the Azure Digital Twins service.
 * Azure Digital Twins does not support complex type definitions in separate documents, or as inline definitions. Complex types must be defined in a `schemas` section within an interface document. The definitions are only valid inside the interface that contains them.
 * Azure Digital Twins currently only allows a single level of component nesting⁠—so an interface that is used as a component cannot have any further components itself.  
-* Azure Digital Twins does not currently support the execution of commands on twins you model and instantiate. You can, however, execute commands on devices.
+* Azure Digital Twins does not currently support the execution of commands on twins you model and instantiate.
 * Azure Digital Twins does not support stand-alone relationships (that is, relationships defined as independent types). All relationships must be defined inline as part of a model.
 
 ## Next steps
@@ -157,5 +157,5 @@ DTDL constraints while in preview:
 Learn about instantiating models to create twins:
 * [Represent objects with a twin](concepts-twins-graph.md)
 
-Or, see how a model is managed with Model Management APIs:
+Or, see how a model is managed with the Model Management APIs:
 * [Manage an object model](how-to-manage-model.md)
