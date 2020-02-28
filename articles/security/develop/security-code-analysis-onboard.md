@@ -28,20 +28,21 @@ Prerequisites to getting started with Microsoft Security Code Analysis:
 
 ### Interested in purchasing the Microsoft Security Code Analysis extension?
 
-- If you have one of the following support offerings, contact your Technical Account Manager to purchase or swap existing hours to get access to the extension:
-  - Unified Support Advanced tier
-  - Unified Support Performance tier
-  - Premier Support for Developers
-  - Premier Support for Partners
-  - Premier Support for Enterprise
+If you have one of the following support offerings, contact your Technical Account Manager to purchase or swap existing hours to get access to the extension:
 
-- If you do not have one of the mentioned above support agreements, you can purchase the extension from one of our Partners.
+- Unified Support Advanced tier
+- Unified Support Performance tier
+- Premier Support for Developers
+- Premier Support for Partners
+- Premier Support for Enterprise
+
+If you do not have one of the mentioned above support agreements, you can purchase the extension from one of our Partners.
 
 **Next Steps:**
 
 Contact a Partner from the below list and ask to purchase the Microsoft Security Code Analysis extension.
 
-**Partners:**
+>**Partners:**
 
 - Zones - Contact Details: cloudsupport@zones.com
 
