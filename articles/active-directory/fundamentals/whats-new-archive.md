@@ -2610,13 +2610,13 @@ For more information, see:
 
 ---
  
-### App Proxy Cmdlets in Powershell GA Module
+### App Proxy Cmdlets in PowerShell GA Module
 
 **Type:** New feature  
 **Service category:** App Proxy  
 **Product capability:** Access Control
  
-Support for Application Proxy cmdlets is now in the Powershell GA Module! This does require you to stay updated on Powershell modules - if you become more than a year behind, some cmdlets may stop working. 
+Support for Application Proxy cmdlets is now in the PowerShell GA Module! This does require you to stay updated on PowerShell modules - if you become more than a year behind, some cmdlets may stop working. 
 
 For more information, see [AzureAD](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0).
  
