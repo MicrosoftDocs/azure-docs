@@ -32,7 +32,7 @@ To use the `--auth-mode` parameter, make sure that you have installed Azure CLI 
 > [!IMPORTANT]
 > Microsoft recommends that you explicitly specify how each data operation is to be authorized. You can either provide the `--auth-mode` parameter for every data operation, or you can specify the appropriate authorization parameters in environment variables as described in the section titled [Set environment variables for authorization parameters](#set-environment-variables-for-authorization-parameters).
 >
-> If you do not specify how a data operation is to be authorized, then the Azure CLI attempts to call the Azure Storage resource provider to retrieve the account access keys for each operation. Performing many data operations that require a call to the resource provider may result in throttling. For more information about resource provider limits, see [Scalability and performance targets for the Azure Storage resource provider](scalability-targets-resource-provider.md)
+> If you do not specify how a data operation is to be authorized, then the Azure CLI attempts to call the Azure Storage resource provider to retrieve the account access keys for each operation. Performing many data operations that require a call to the resource provider may result in throttling. For more information about resource provider limits, see [Scalability and performance targets for the Azure Storage resource provider](scalability-targets-resource-provider.md).
 
 ## Authorize with Azure AD credentials
 
