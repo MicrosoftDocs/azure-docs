@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.author: pafrley
+ms.author: pafarley
 ---
 
 # Deploy the sample labeling tool
