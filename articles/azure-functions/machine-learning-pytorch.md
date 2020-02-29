@@ -19,7 +19,7 @@ In this article, you learn how to use Python, PyTorch, and Azure Functions to lo
 > * Build a serverless HTTP API for classifying an image as one of 1000 ImageNet [classes](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a).
 > * Consume the API from a web app.
 
-## Prerequisites 
+## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Python 3.7.4](https://www.python.org/downloads/release/python-374/). (Python 3.7.4 and Python 3.6.x are verified with Azure Functions; Python 3.8 and later versions are not yet supported.)
@@ -49,7 +49,7 @@ In this article, you learn how to use Python, PyTorch, and Azure Functions to lo
     - *end* is the final result and full implementation for your reference.
     - *resources* contains the machine learning model and helper libraries.
     - *frontend* is a website that calls the function app.
-    
+
 ## Create and activate a Python virtual environment
 
 Navigate to the *start* folder and run the following commands to create and activate a virtual environment named `.venv`. Be sure to use Python 3.7, which is supported by Azure Functions.
@@ -139,7 +139,7 @@ In Azure Functions, a function project is a container for one or more individual
     ```
     func start
     ```
-    
+
 1. Once you see the `classify` endpoint appear in the output, navigate to the URL, ```http://localhost:7071/api/classify?name=Azure```. The message "Hello Azure!" should appear in the output.
 
 1. Use **Ctrl**-**C** to stop the host.
@@ -152,28 +152,28 @@ To modify the `classify` function to classify an image based on its contents, yo
 1. In the *start* folder, run following command to copy the prediction code and labels into the *classify* folder.
 
     # [bash](#tab/bash)
-    
+
     ```bash
     cp ../resources/predict.py classify
     cp ../resources/labels.txt classify
     ```
-    
+
     # [PowerShell](#tab/powershell)
-    
+
     ```powershell
     copy ..\resources\predict.py classify
     copy ..\resources\labels.txt classify
     ```
-    
+
     # [Cmd](#tab/cmd)
-    
+
     ```cmd
     copy ..\resources\predict.py classify
     copy ..\resources\labels.txt classify
     ```
-    
+
     ---
-    
+
 1. Verify that the *classify* folder contains files named *predict.py* and *labels.txt*. If not, check that you ran the command in the *start* folder.
 
 1. Open *start/requirements.txt* in a text editor and add the following dependencies required by the helper code:
@@ -190,7 +190,7 @@ To modify the `classify` function to classify an image based on its contents, yo
     https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp38-cp38-linux_x86_64.whl; sys_platform == 'linux' and python_version == '3.8'
     torchvision==0.5.0
     ```
-    
+
 1. Save *requirements.txt*.
 
 1. Install the dependencies by running the following command in the *start* folder. Installation may take a few minutes, during which time you can proceed with modifying the function in the next section.
@@ -198,7 +198,7 @@ To modify the `classify` function to classify an image based on its contents, yo
     ```
     pip install --no-cache-dir -r requirements.txt
     ```
-    
+
     On Windows, you may encounter the error, "Could not install packages due to an EnvironmentError: [Errno 2] No such file or directory:" followed by a long pathname to a file like *sharded_mutable_dense_hashtable.cpython-37.pyc*. Typically, this error happens because the depth of the folder path becomes too long. In this case, set the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` to `1` to enable long paths. Alternately, check where your Python interpreter is installed. If that location has a long path, try reinstalling in a folder with a shorter path.
 
 ## Update the function to run predictions
@@ -211,7 +211,7 @@ To modify the `classify` function to classify an image based on its contents, yo
 
     :::code language="python" source="~/functions-pytorch/end/classify/__init__.py" range="8-19":::
 
-    This function receives an image URL in a query string parameter named `img`. It then calls `predict_image_from_url` from the helper library to download and classify the image using the PyTorch model. The function then returns an HTTP response with the results. 
+    This function receives an image URL in a query string parameter named `img`. It then calls `predict_image_from_url` from the helper library to download and classify the image using the PyTorch model. The function then returns an HTTP response with the results.
 
     > [!IMPORTANT]
     > Because this HTTP endpoint is called by a web page hosted on another domain, the response includes an `Access-Control-Allow-Origin` header to satisfy the browser's Cross-Origin Resource Sharing (CORS) requirements.
@@ -229,8 +229,8 @@ To modify the `classify` function to classify an image based on its contents, yo
     ```
     http://localhost:7071/api/classify?img=http://localhost:7071/api/classify?img=https://raw.githubusercontent.com/Azure-Samples/functions-python-pytorch-tutorial/master/resources/assets/Bernese-Mountain-Dog-Temperament-long.jpg
     ```
-    
-1. Keep the host running because you use it in the next step. 
+
+1. Keep the host running because you use it in the next step.
 
 ### Run the local web app front end to test the function
 
@@ -244,10 +244,10 @@ To test invoking the function endpoint from another web app, there's a simple ap
 
     # [bash](#tab/bash)
 
-    ```bash 
+    ```bash
     python -m http.server
     ```
-    
+
     # [PowerShell](#tab/powershell)
 
     ```powershell
@@ -265,7 +265,7 @@ To test invoking the function endpoint from another web app, there's a simple ap
     - `https://raw.githubusercontent.com/Azure-Samples/functions-python-pytorch-tutorial/master/resources/assets/Bernese-Mountain-Dog-Temperament-long.jpg`
     - `https://github.com/Azure-Samples/functions-python-pytorch-tutorial/blob/master/resources/assets/bald-eagle.jpg?raw=true`
     - `https://raw.githubusercontent.com/Azure-Samples/functions-python-pytorch-tutorial/master/resources/assets/penguin.jpg`
-    
+
 1. Select **Submit** to invoke the function endpoint to classify the image.
 
     ![Screenshot of finished project](media/functions-machine-learning-pytorch/functions-machine-learning-pytorch-screenshot.png)
@@ -280,10 +280,11 @@ Because the entirety of this tutorial runs locally on your machine, there are no
 
 In this tutorial, you learned how to build and customize an HTTP API endpoint with Azure Functions to classify images using a PyTorch model. You also learned how to call the API from a web app. You can use the techniques in this tutorial to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
 
-> [!div class="nextstepaction"]
-> [Deploy the function to Azure Functions using the Azure CLI Guide](./functions-run-local.md#publish)
-
 See also:
 
 - [Deploy the function to Azure using Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions).
 - [Azure Functions Python Developer Guide](./functions-reference-python.md)
+
+
+> [!div class="nextstepaction"]
+> [Deploy the function to Azure Functions using the Azure CLI Guide](./functions-run-local.md#publish)
