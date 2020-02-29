@@ -7894,5 +7894,5 @@ Lets you manage BizTalk services, but not access to them.
 ## Next steps
 
 - [Match resource provider to service](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Custom roles for Azure resources](custom-roles.md)
+- [Azure custom roles](custom-roles.md)
 - [Permissions in Azure Security Center](../security-center/security-center-permissions.md)
