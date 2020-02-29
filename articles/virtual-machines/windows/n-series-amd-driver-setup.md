@@ -37,9 +37,9 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 1. Connect by Remote Desktop to each NVv4-series VM.
 
-2. If you are a NVv4 preview customer then first uninstall the previous preview driver by running "amdcleanuputility-x64.exe" located at the folder where the driver setup files are "...\Radeon-Pro-Software-for-Enterprise-19.Q4.1-TP\AMDCleanUninstallUtility"
+2. If you are a NVv4 preview customer then first uninstall the preview driver by running "amdcleanuputility-x64.exe" located at the folder "...\AMDCleanUninstallUtility". The exact path will vary based on where the previous driver instalation files are.  
 
-2. Download and install the latest driver.
+3. Download and install the latest driver.
 
 ## Verify driver installation
 
