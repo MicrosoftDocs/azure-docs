@@ -200,8 +200,6 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
-  - id: programming-language-nodejs
-    title: Node.js
 - id: java-build-tools-set
   title: Build tools
   prompt: Choose a build tool
