@@ -22,25 +22,68 @@ The Azure Maps Web SDK provides a **Spatial IO module**. The  Spatial IO module 
 - Overlay complex data sets that contain style information and have them render automatically.
 - Leverage high speed XML and delimited file reader and writer classes.
 
-## Use the spatial IO module in a webpage
+## Use the spatial IO module
 
-1. Create a new HTML file and [implement the map as usual](how-to-use-map-control.md).
-2. Load the Azure Maps spatial IO module. You can load it in one of two ways:
-    - Use the globally hosted, Azure Content Delivery Network version of the Azure Maps spatial IO module. Add a reference to the JavaScript file in the `<head>` element of the webpage:
+Let's now walk through the processes of using the spatial IO module in a web application.
 
-        ```html
-        <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
-        ```
+1. Create a new HTML file.
 
-    - Or, you can load the spatial IO module for the Azure Maps Web SDK source code locally by using the [azure-maps-spatial-io](https://www.npmjs.com/package/azure-maps-spatial-io) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
+2. You will need to load in the Azure Maps Web SDK and initialize the map control. The details are explained in the [Use the Azure Maps map control](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-use-map-control) guide. Your HTML file should look something like this:
+
+```HTML
+<!DOCTYPE html>
+ <html>
+ <head>
+     <title></title>
+
+     <meta charset="utf-8">
+
+     <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+     <meta http-equiv="x-ua-compatible" content="IE=Edge">
+
+     <!-- Ensures the web page looks good on all screen sizes. -->
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+ </head>
+ <body>
+     <div id="myMap"></div>
+
+     <script type="text/javascript">
+         //Create an instance of the map control and set some options.
+         var map = new atlas.Map('myMap', {
+             center: [-122.33, 47.6],
+             zoom: 12,
+             language: 'en-US',
+             authOptions: {
+                 authType: 'subscriptionKey',
+                 subscriptionKey: '<Your Azure Maps Key>'
+             }
+         });
+     </script>
+ </body>
+ </html>
+```
+
+2. Load the Azure Maps spatial IO module. You can load it using one of the two options:
+
+    a. Use the globally hosted, Azure Content Delivery Network of the Azure Maps spatial IO module. Add a reference to the JavaScript file in the `<head>` element:
+
+    ```html
+    <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
+    ```
+
+    b. Load the spatial IO module for the Azure Maps Web SDK source code locally using the [azure-maps-spatial-io](https://www.npmjs.com/package/azure-maps-spatial-io) npm package, and then host it with your app. This package also includes TypeScript definitions.
     
         > **npm install azure-maps-spatial-io**
     
-        Then, add a reference to the JavaScript file in the `<head>` element of the webpage:
+    Then, add a reference to the JavaScript file in the `<head>` element of the webpage:
 
-         ```html
-        <script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
-         ```
+    ```html
+    <script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
+    ```
 
 3. The following code is a full . This demonstrates one of the many functionalities available in the spatial IO module.
 
