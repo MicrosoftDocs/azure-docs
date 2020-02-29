@@ -23,7 +23,7 @@ If you have made a list of your shares, then you should map each share to the st
 
 In the previous step, you determined the appropriate number of shares. Now, you have a mapping of storage accounts to file shares. Deploy the now appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them.
 
-Make sure the region of each of your storage accounts is the same and matches the region of the storage sync service resource you've already deployed.
+Make sure the region of each of your storage accounts is the same and matches the region of the Storage Sync Service resource you've already deployed.
 
 > [!CAUTION]
 > If you create a 100 TiB limit Azure file share, that share can only use locally redundant storage or zone redundant storage redundancy options. Consider your storage redundancy needs before using 100 TiB file shares.

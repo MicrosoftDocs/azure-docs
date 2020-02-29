@@ -47,8 +47,8 @@ The previous image depicts steps that correspond to sections in this article.
 
 ### Step 1: Provision your on-premises Windows Server and storage
 
-* Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported.
-* Provision or add Direct Attached Storage (DAS as compared to NAS, which is not supported). The size of the Windows Server storage must be equal to or larger than the size of the available capacity of your virtual StorSimple 1200 appliance.
+1. Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported.
+2. Provision or add Direct Attached Storage (DAS as compared to NAS, which is not supported). The size of the Windows Server storage must be equal to or larger than the size of the available capacity of your virtual StorSimple 1200 appliance.
 
 ### Step 2: Configure your Windows Server storage
 
@@ -64,15 +64,15 @@ This article assumes you are mapping 1:1, so you must take your mapping changes 
 
 ### Step 3: Deploy the first Azure File Sync cloud resource
 
-[!INCLUDE [storage-files-migration-deploy-AFS-sss](../../../includes/storage-files-migration-deploy-AFS-sss.md)]
+[!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-afs-sss.md)]
 
-### Step 4: Matching your local volume and folder structure to Azure File Sync and Azure file share resources
+### Step 4: Match your local volume and folder structure to Azure File Sync and Azure file share resources
 
 [!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
 ### Step 5: Provision Azure file shares
 
-[!INCLUDE [storage-files-migration-provision-AzFS](../../../includes/storage-files-migration-provision-AzFS.md)]
+[!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azfs.md)]
 
 ### Step 6: Configure Windows Server target folders
 
@@ -85,7 +85,7 @@ The number of Azure file shares you have provisioned should match the number of 
 
 ### Step 7: Deploy the Azure File Sync agent
 
-[!INCLUDE [storage-files-migration-deploy-AFS-agent](../../../includes/storage-files-migration-deploy-AFS-agent.md)]
+[!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-afs-agent.md)]
 
 ### Step 8: Configure sync
 
@@ -178,7 +178,7 @@ You can try to run a few of these copies in parallel. We recommend processing th
 
 The cloud tiering volume free space policy acts on a volume level with potentially multiple server endpoints syncing from it. If you forget to adjust the free space on even one server endpoint, sync will continue to apply the most restrictive rule and attempt to keep 99% free disk space, making the local cache not very usable. Unless it is your goal to only have the namespace for a volume that only contains rarely accessed, archival data.
 
-## Troubleshooting
+## Troubleshoot
 
 The most likely issue you can run into, is that the RoboCopy command fails with *"Volume full"* on the Windows Server side. If that is the case, then your download speed is likely better than your upload speed. Cloud tiering acts once every hour to evacuate content from the local Windows Server disk, that has synced.
 

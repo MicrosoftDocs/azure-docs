@@ -27,12 +27,12 @@ If that means you need to open up your firewalls for this server, then that migh
 You can also follow a more conservative approach, in which you do not open the firewalls wide, but instead limit the server to communicate to higher-level DNS name spaces - there is more documentation and details available in the [Azure File Sync proxy and firewall settings](../articles/storage/files/storage-sync-files-firewall-and-proxy.md) article. Since this topic describes outbound firewall rules, that limits your exposure either way. Follow your own networking best practices.
 
 At the end of the server *installation* wizard, a server *registration* wizard will pop up.
-Register the server to your storage sync service Azure resource from earlier.
+Register the server to your Storage Sync Service Azure resource from earlier.
 
 These steps are described in more detail in the deployment guide, including the above PowerShell modules you should install first:
-[Azure File Sync agent install](../articles/storage/files/storage-sync-files-deployment-guide.md)
+[Azure File Sync agent install](../articles/storage/files/storage-sync-files-deployment-guide.md).
 
 The latest agent should be used and can be downloaded from Microsoft Download Center:
-[Azure File Sync - agent](https://aka.ms/AFS/agent "Azure File Sync agent download")
+[Azure File Sync - agent](https://aka.ms/AFS/agent "Azure File Sync agent download").
 
-After a successful installation and server registration, you can check that you have successfully completed this step: Navigate to the storage sync service resource in the Azure portal, then follow the left-hand menu to “Registered servers”. You will see your server listed there right away.
+After a successful installation and server registration, you can check that you have successfully completed this step: Navigate to the Storage Sync Service resource in the Azure portal, then follow the left-hand menu to “Registered servers”. You will see your server listed there right away.
