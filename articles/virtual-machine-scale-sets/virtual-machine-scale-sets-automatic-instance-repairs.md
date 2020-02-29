@@ -17,7 +17,8 @@ ms.author: avverma
 
 Enabling automatic instance repairs for Azure virtual machine scale sets helps achieve high availability for applications by maintaining a set of healthy instances. If an instance in the scale set is found to be unhealthy as reported by [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md), then this feature automatically performs instance repair by deleting the unhealthy instance and creating a new one to replace it.
 
-***This preview feature is provided without a service level agreement, and it's not recommended for production workloads.***
+> [!NOTE]
+> This preview feature is provided without a service level agreement, and it's not recommended for production workloads.
 
 ## Requirements for using automatic instance repairs
 
@@ -37,7 +38,7 @@ For instances marked as “Unhealthy”, automatic repairs are triggered by the 
 
 **Enable single placement group**
 
-This preview is currently available only for scale sets deployed as single placement group. The property singlePlacementGroup should be set to true for your scale set to use automatic instance repairs feature. This feature is currently not supported for scale sets with multi placement group. Learn more about [placement groups](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
+This preview is currently available only for scale sets deployed as single placement group. The property *singlePlacementGroup* should be set to true for your scale set to use automatic instance repairs feature. This feature is currently not supported for scale sets with multi placement group. Learn more about [placement groups](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
 
 **API version**
 
@@ -69,7 +70,7 @@ The automatic instance repairs process works as follows:
 2. If the endpoint responds with a status 200 (OK), then the instance is marked as “Healthy”. In all the other cases (including if the endpoint is unreachable), the instance is marked “Unhealthy”.
 3. The scale set orchestrator reads the application health status of each instance using application health extension or load balancer health probe.
 4. When an instance is found to be unhealthy, the scale set triggers a repair action by deleting the unhealthy instance and creating a new one to replace it.
-5. At any given time, not more than 5% of the total instances in the scale set are repaired. If a scale set has fewer than 20 instances, the repairs are done for one unhealthy instance at a time.
+5. At any given time, no more than 5% of the total instances in the scale set are repaired. If a scale set has fewer than 20 instances, the repairs are done for one unhealthy instance at a time.
 6. Once new instances are created for every batch of unhealthy instances, the scale set waits for the duration of grace period and checks whether all the newly created instances are reporting healthy, before moving on to the next batch of instances to be repaired.
 7. The above process continues until all unhealthy instance in the scale set are repaired.
 
@@ -79,7 +80,7 @@ If an instance in a scale set is protected by applying one of the [protection po
 
 ## Terminate notification and automatic repairs
 
-If [terminate notification](./virtual-machine-scale-sets-terminate-notification.md) feature is enabled on a scale set, then during automatic repair operation, the deletion of unhealthy instance follow the properties configured under this feature. A terminate notification is sent through Azure metadata service – Scheduled events, and instance deletion is delayed for the duration of pre-defined delay timeout, as configured under terminate notification feature. However, the creation of a new instance to replace the unhealthy one does not wait for the delay timeout to complete. 
+If the [terminate notification](./virtual-machine-scale-sets-terminate-notification.md) feature is enabled on a scale set, then during automatic repair operation, the deletion of unhealthy instance follow the properties configured under this feature. A terminate notification is sent through Azure metadata service – scheduled events – and instance deletion is delayed for the duration of the predefined delay timeout, as configured under the terminate notification feature. However, the creation of a new instance to replace the unhealthy one does not wait for the delay timeout to complete. 
 
 ## Enabling automatic repairs policy when creating a new scale set
 
@@ -106,7 +107,7 @@ PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNa
 
 ### Azure PowerShell
 
-The automatic instance repair feature can be enabled while creating a new scale set by using the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet. This sample script walks through the creation of a scale set and associated resources using the configuration file: [Create a complete virtual machine scale set](./scripts/powershell-sample-create-complete-scale-set.md). You can configure automatic instance repairs policy by adding the parameters *EnableAutomaticRepair* and *AutomaticRepairGracePeriod* to the configuration object for creating the scale set. The following example enables the feature with a grace period of 30 minutes:
+The automatic instance repair feature can be enabled while creating a new scale set by using the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet. This sample script walks through the creation of a scale set and associated resources using the configuration file: [Create a complete virtual machine scale set](./scripts/powershell-sample-create-complete-scale-set.md). You can configure automatic instance repairs policy by adding the parameters *EnableAutomaticRepair* and *AutomaticRepairGracePeriod* to the configuration object for creating the scale set. The following example enables the feature with a grace period of 30 minutes.
 
 ```azurepowershell-interactive
 New-AzVmssConfig `
@@ -143,7 +144,7 @@ PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNa
 
 ### Azure PowerShell
 
-Use the [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet to modify the configuration of automatic instance repair feature in an existing scale set. The following example updates the grace period to 40 minutes:
+Use the [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet to modify the configuration of automatic instance repair feature in an existing scale set. The following example updates the grace period to 40 minutes.
 
 ```azurepowershell-interactive
 Update-AzVmss `
