@@ -7,22 +7,20 @@ author:
 ms.author: 
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/06/20
+ms.date: 03/20/20
 ---
 
 # Send related messages in order by using a sequential convoy in Azure Logic Apps with Azure Service Bus
 
-When you need to send correlated messages in a specific order, you can use the *sequential convoy* pattern in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) by using [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Correlated messages have a property that defines the relationship between those messages, such as the session ID in Service Bus. For example, suppose that you have 20 messages for a session named "S1", and you have 10 messages for a session named "S2". You can create a logic app that processes session S1 in one trigger run and session S2 in another trigger run.
+When you need to send correlated messages in a specific order, you can follow the [*sequential convoy* pattern](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) when using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the session ID in Service Bus. For example, suppose that you have 20 messages for a session named "S1", and you have 10 messages for a session named "S2". You can create a logic app that processes session S1 with one trigger run and session S2 in another trigger run.
 
 For a more concrete example, suppose that you have an online company that receives new orders from direct clients and from dealers throughout the day. All orders received before 2:00 PM must go to the warehouse in a single batch, which must preserve the arrival sequence for those orders. That way, earlier orders get priority in case any items are low in stock at the warehouse. To build this batch order, you put all the orders for the day into a single file that has batch header information. At 2:00 PM, the day's orders go to the warehouse for processing. All orders received after 2:00 PM go into a new batch for processing the next day.
 
-This article shows how to create a logic app that implements this pattern by using the **Correlated in-order delivery using service bus sessions** template. This pattern uses the Service Bus connector's **When a message is received in a queue (peek-lock)** trigger to receive messages from a Service Bus queue.
+This article shows how to create a logic app that implements this pattern by using the **Correlated in-order delivery using service bus sessions** template. This template defines a logic app workflow that starts with the Service Bus connector's **When a message is received in a queue (peek-lock)** trigger, which receives messages from a Service Bus queue. Here are the high-level steps that this logic app performs:
 
-At the high-level, here are the tasks to complete:
-
-* Initialize a session based on the message that the trigger reads from the queue.
-* Save the session created in the previous step.
-* Process the messages associated with the session in a trigger run.
+* Initialize a session based on a message that the trigger reads from the Service Bus queue.
+* Save the session that's initialized in the previous step.
+* Process all the messages that associated with the session by the current trigger instance.
 
 For more information about the sequential convoy pattern, see these articles:
 
@@ -106,14 +104,18 @@ If you're not sure whether your logic app has permissions to access your Service
 
 1. When you're done, select **Continue**.
 
-   The Logic App Designer now shows a predefined workflow that's based on your selected template. This workflow contains these items:
+   The Logic App Designer now shows your selected template, which contains a workflow that is prepopulated with a trigger and actions, including two scopes for implementing error handling by following the `Try-Catch` pattern.
 
    * A **When a message is received in a queue (peek-lock)** trigger
    * An **Initialize variable** action named `Init isDone`
    * Two scope actions named `Try` and `Catch` that implement error handling
    * The `Try` scope contains these actions:
+     * A **Send initial message to topic** action
+     * A parallel branch action, which 
 
 Now provide the values for the trigger and actions in your logic app's workflow.
 
-## Build logic app from template
+## Build the logic app
+
+After you connect your logic app to your Service Bus namespace, the 
 
