@@ -122,9 +122,7 @@ The next step in building your application is to install the Azure Maps Android 
     ```java
     package com.example.myapplication;
 
-    //For older versions use: import android.support.v7.app.AppCompatActivity;
-    import androidx.appcompat.app.AppCompatActivity;
-
+    import android.support.v7.app.AppCompatActivity;
     import android.os.Bundle;
     import com.microsoft.azure.maps.mapcontrol.AzureMaps;
     import com.microsoft.azure.maps.mapcontrol.MapControl;
