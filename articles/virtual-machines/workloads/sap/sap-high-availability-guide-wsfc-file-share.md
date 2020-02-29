@@ -1,10 +1,10 @@
 ---
-title: Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure | Microsoft Docs
+title: Cluster SAP ASCS/SCS on WSFC using file share in Azure | Microsoft Docs
 description: Learn how to cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -30,7 +30,7 @@ ms.custom: H1Hack27Feb2017
 
 [kb4025334]:https://support.microsoft.com/help/4025334/windows-10-update-kb4025334
 
-[dv2-series]:https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dv2-series
+[dv2-series]:../../dv2-dsv2-series.md
 [ds-series]:https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general
 
 [sap-installation-guides]:http://service.sap.com/instguides

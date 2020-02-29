@@ -108,11 +108,34 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 
 The DPM server/MABS needs access to these URLs:
 
-- http://www.msftncsi.com/ncsi.txt
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - *.windows.net
+
+### Azure ExpressRoute support
+
+You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering is not supported.
+
+With public peering: Ensure access to the following domains/addresses:
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+With Microsoft peering, please select the following services/regions and relevant community values:
+
+* Azure Active Directory (12076:5060)
+* Microsoft Azure Region (according to the location of your Recovery Services vault)
+* Azure Storage (according to the location of your Recovery Services vault)
+
+For more details, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>Public Peering is deprecated for new circuits.
 
 ### DPM/MABS connectivity to Azure Backup
 
