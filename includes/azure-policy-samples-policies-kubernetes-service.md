@@ -2,12 +2,12 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/26/2020
 ms.author: dacoulte
 ---
 
 |Name |Description |Effect(s) |Version |Source |
-|---|---|---|---|
+|---|---|---|---|---|
 |[\[Limited Preview\]: \[AKS\] Do not allow privileged containers in AKS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ce7ac02-a5c6-45d6-8d1b-844feb1c1531) |This policy does not allow privileged containers creation in an Azure Kubernetes Service cluster. Limited Preview policies only work for registered subscriptions. To register, please go to https://aka.ms/akspolicyonboarding. For instruction on using this policy, please go to https://aka.ms/akspolicydoc. |EnforceRegoPolicy, Disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes%20service/ContainerNoPrivilege_EnforceRegoPolicy.json)
 |[\[Limited Preview\]: \[AKS\] Enforce HTTPS ingress in AKS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2fbff515-eecc-4b7e-9b63-fcc7138b7dc3) |This policy enforces HTTPS ingress in an Azure Kubernetes Service cluster. Limited Preview policies only work for registered subscriptions. To register, please go to https://aka.ms/akspolicyonboarding. For instruction on using this policy, please go to https://aka.ms/akspolicydoc. |EnforceRegoPolicy, Disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes%20service/IngressHttpsOnly_EnforceRegoPolicy.json)
 |[\[Limited Preview\]: \[AKS\] Enforce internal load balancers in AKS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa74d8f00-2fd9-4ce4-968e-0ee1eb821698) |This policy enforces load balancers do not have public IPs in an Azure Kubernetes Service cluster. Limited Preview policies only work for registered subscriptions. To register, please go to https://aka.ms/akspolicyonboarding. For instruction on using this policy, please go to https://aka.ms/akspolicydoc. |EnforceRegoPolicy, Disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes%20service/LoadbalancerNoPublicIPs_EnforceRegoPolicy.json)

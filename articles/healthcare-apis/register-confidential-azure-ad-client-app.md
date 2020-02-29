@@ -48,7 +48,9 @@ Next add API permissions:
 
 3. Select appropriate resource API:
 
-    For the Azure API for FHIR (managed service), click **APIs my organization uses** and search for "Azure Healthcare APIs". For the Open Source FHIR server for Azure, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md):
+    For the Azure API for FHIR (managed service), click **APIs my organization uses** and search for "Azure Healthcare APIs".
+    
+    For the Open Source FHIR server for Azure, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md):
 
     ![Confidential client. My APIs](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-MyApis.png)
 

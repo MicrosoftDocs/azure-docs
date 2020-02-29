@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory passwordless sign in (preview)
-description: Learn about options for passwordless sign in to Azure Active Directory using FIDO2 security keys or the Microsoft Authenticator app
+title: Azure Active Directory passwordless sign-in (preview)
+description: Learn about options for passwordless sign-in to Azure Active Directory using FIDO2 security keys or the Microsoft Authenticator app
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 01/30/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -15,7 +15,7 @@ ms.reviewer: librown
 
 ms.collection: M365-identity-device-management
 ---
-# Passwordless authentication options
+# Passwordless authentication options for Azure Active Directory
 
 Multi-factor authentication (MFA) is a great way to secure your organization, but users often get frustrated with the additional security layer on top of having to remember their passwords. Passwordless authentication methods are more convenient because the password is removed and replaced with something you have, plus something you are or something you know.
 
@@ -23,7 +23,7 @@ Multi-factor authentication (MFA) is a great way to secure your organization, bu
 | --- | --- | --- |
 | Passwordless | Windows 10 Device, phone, or security key | Biometric or PIN |
 
-Each organization has different needs when it comes to authentication. Microsoft offers three passwordless authentication options:
+Each organization has different needs when it comes to authentication. Microsoft offers the following three passwordless authentication options:
 
 - Windows Hello for Business
 - Microsoft Authenticator app
@@ -33,7 +33,7 @@ Each organization has different needs when it comes to authentication. Microsoft
 
 ## Windows Hello for Business
 
-Windows Hello for Business is ideal for information workers who have their own designated Windows PC. The biometric and PIN are directly tied to the user's PC, which prevents access from anyone other than the owner. With public key infrastructure (PKI) integration and built-in support for single sign-on (SSO), Windows Hello for Business provides a convenient method for seamlessly accessing corporate resources on-premises and in the cloud.
+Windows Hello for Business is ideal for information workers who have their own designated Windows PC. The biometric and PIN is directly tied to the user's PC, which prevents access from anyone other than the owner. With public key infrastructure (PKI) integration and built-in support for single sign-on (SSO), Windows Hello for Business provides a convenient method for seamlessly accessing corporate resources on-premises and in the cloud.
 
 The Windows Hello for Business [planning guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) can be used to help you make decisions on the type of Windows Hello for Business deployment and the options you'll need to consider.
 
@@ -49,7 +49,7 @@ The Authenticator App turns any iOS or Android phone into a strong, passwordless
 
 FIDO2 security keys are an unphishable standards-based passwordless authentication method that can come in any form factor. Fast Identity Online (FIDO) is an open standard for passwordless authentication. FIDO allows users and organizations to leverage the standard to sign in to their resources without a username or password using an external security key or a platform key built into a device.
 
-For public preview, employees can use security keys to sign in to their Azure AD-joined Windows 10 devices and get single-sign on to their cloud and on-premises resources. Users can also sign in to supported browsers. FIDO2 security keys are a great option for enterprises who are very security sensitive or have scenarios or employees who aren't willing or able to use their phone as a second factor.
+For public preview, employees can use security keys to sign in to their Azure AD or hybrid Azure AD joined Windows 10 devices and get single-sign on to their cloud and on-premises resources. Users can also sign in to supported browsers. FIDO2 security keys are a great option for enterprises who are very security sensitive or have scenarios or employees who aren't willing or able to use their phone as a second factor.
 
 ![Sign in to Microsoft Edge with a security key](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 

@@ -25,7 +25,7 @@ You learn how to:
 
 ## Prerequisites
 
-See [Create your first PowerShell function in Azure](../azure-functions/functions-create-first-function-powershell.md#prerequisites) for prerequisites to install and use Visual Studio Code with the Azure Functions on your OS.
+See [Create your first function in Azure](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell#configure-your-environment) for prerequisites to install and use Visual Studio Code with the Azure Functions on your OS.
 
 Some steps in this article use the Azure CLI. You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete these steps. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 

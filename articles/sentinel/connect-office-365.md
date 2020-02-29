@@ -3,7 +3,7 @@ title: Connect Office 365 data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Office 365 data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2020
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect data from Office 365 Logs
