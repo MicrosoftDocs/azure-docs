@@ -2,14 +2,14 @@
 title: Reference - trust frameworks in Azure Active Directory B2C | Microsoft Docs
 description: A topic about Azure Active Directory B2C custom policies and the Identity Experience Framework.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -32,9 +32,9 @@ To answer all these questions, Azure AD B2C custom policies that use the Identit
 
 The Trust Framework is a written specification of the identity, security, privacy, and data protection policies to which participants in a community of interest must conform.
 
-Federated identity provides a basis for achieving end-user identity assurance at Internet scale. By delegating identity management to third parties, a single digital identity for an end user can be reused with multiple relying parties.  
+Federated identity provides a basis for achieving end-user identity assurance at Internet scale. By delegating identity management to third parties, a single digital identity for an end user can be reused with multiple relying parties.
 
-Identity assurance requires that identity providers (IdPs) and attribute providers (AtPs) adhere to specific security, privacy, and operational policies and practices.  If they can't perform direct inspections, relying parties (RPs) must develop trust relationships with the IdPs and AtPs they choose to work with.  
+Identity assurance requires that identity providers (IdPs) and attribute providers (AtPs) adhere to specific security, privacy, and operational policies and practices.  If they can't perform direct inspections, relying parties (RPs) must develop trust relationships with the IdPs and AtPs they choose to work with.
 
 As the number of consumers and providers of digital identity information grows, it's difficult to continue pairwise management of these trust relationships, or even the pairwise exchange of the technical metadata that's required for network connectivity.  Federation hubs have achieved only limited success at solving these problems.
 
@@ -61,13 +61,13 @@ TFs are the linchpins of the Open Identity Exchange (OIX) Trust Framework model,
 
 Thus a TF specification governs how identity information is exchanged between the participants of the community of interest: relying parties, identity and attribute providers, and attribute verifiers.
 
-A TF specification is one or multiple documents that serve as a reference for the governance of the community of interest that regulates the assertion and consumption of digital identity information within the community. It's a documented set of policies and procedures designed to establish trust in the digital identities that are used for online transactions between members of a community of interest.  
+A TF specification is one or multiple documents that serve as a reference for the governance of the community of interest that regulates the assertion and consumption of digital identity information within the community. It's a documented set of policies and procedures designed to establish trust in the digital identities that are used for online transactions between members of a community of interest.
 
 In other words, a TF specification defines the rules for creating a viable federated identity ecosystem for a community.
 
 Currently there's widespread agreement on the benefit of such an approach. There's no doubt that trust framework specifications facilitate the development of digital identity ecosystems with verifiable security, assurance and privacy characteristics, meaning that they can be reused across multiple communities of interest.
 
-For that reason, Azure AD B2C custom policies that use the Identity Experience Framework uses the specification as the basis of its data representation for a TF to facilitate interoperability.  
+For that reason, Azure AD B2C custom policies that use the Identity Experience Framework uses the specification as the basis of its data representation for a TF to facilitate interoperability.
 
 Azure AD B2C Custom policies that leverage the Identity Experience Framework represent a TF specification as a mixture of human and machine-readable data. Some sections of this model (typically sections that are more oriented toward governance) are represented as references to published security and privacy policy documentation along with the related procedures (if any). Other sections describe in detail the configuration metadata and runtime rules that facilitate operational automation.
 
@@ -102,21 +102,21 @@ In terms of implementation, the TF specification consists of a set of policies t
 ### Understand claims
 
 > [!NOTE]
-> We collectively refer to all the possible types of identity information that might be exchanged as "claims": claims about an end user’s authentication credential, identity vetting, communication device, physical location, personally identifying attributes, and so on.  
+> We collectively refer to all the possible types of identity information that might be exchanged as "claims": claims about an end user’s authentication credential, identity vetting, communication device, physical location, personally identifying attributes, and so on.
 >
-> We use the term "claims"--rather than "attributes"--because in online transactions, these data artifacts are not facts that can be directly verified by the relying party. Rather they're assertions, or claims, about facts for which the relying party must develop sufficient confidence to grant the end user’s requested transaction.  
+> We use the term "claims"--rather than "attributes"--because in online transactions, these data artifacts are not facts that can be directly verified by the relying party. Rather they're assertions, or claims, about facts for which the relying party must develop sufficient confidence to grant the end user’s requested transaction.
 >
-> We also use the term "claims" because Azure AD B2C custom policies that use the Identity Experience Framework are designed to simplify the exchange of all types of digital identity information in a consistent manner regardless of whether the underlying protocol is defined for user authentication or attribute retrieval.  Likewise, we use the term "claims providers" to collectively refer to identity providers, attribute providers, and attribute verifiers when we do not want to distinguish between their specific functions.   
+> We also use the term "claims" because Azure AD B2C custom policies that use the Identity Experience Framework are designed to simplify the exchange of all types of digital identity information in a consistent manner regardless of whether the underlying protocol is defined for user authentication or attribute retrieval.  Likewise, we use the term "claims providers" to collectively refer to identity providers, attribute providers, and attribute verifiers when we do not want to distinguish between their specific functions.
 
 Thus they govern how identity information is exchanged between a relying party, identity and attribute providers, and attribute verifiers. They control which identity and attribute providers are required for a relying party’s authentication. They should be considered as a domain-specific language (DSL), that is, a computer language that's specialized for a particular application domain with inheritance, *if* statements, polymorphism.
 
-These policies constitute the machine-readable portion of the TF construct in Azure AD B2C Custom policies leveraging the Identity Experience Framework. They include all the operational details, including claims providers’ metadata and technical profiles, claims schema definitions, claims transformation functions, and user journeys that are filled in to facilitate operational orchestration and automation.  
+These policies constitute the machine-readable portion of the TF construct in Azure AD B2C Custom policies leveraging the Identity Experience Framework. They include all the operational details, including claims providers’ metadata and technical profiles, claims schema definitions, claims transformation functions, and user journeys that are filled in to facilitate operational orchestration and automation.
 
-They are assumed to be *living documents* because there is  a good chance that their contents will change over time concerning the active participants declared in the policies. There is also the potential that the terms and conditions for being a participant might change.  
+They are assumed to be *living documents* because there is  a good chance that their contents will change over time concerning the active participants declared in the policies. There is also the potential that the terms and conditions for being a participant might change.
 
 Federation setup and maintenance are vastly simplified by shielding relying parties from ongoing trust and connectivity reconfigurations as different claims providers/verifiers join or leave (the community represented by) the set of policies.
 
-Interoperability is another significant challenge. Additional claims providers/verifiers must be integrated, because relying parties are unlikely to support all the necessary protocols. Azure AD B2C custom policies solve this problem by supporting industry-standard protocols and by applying specific user journeys to transpose requests when relying parties and attribute providers do not support the same protocol.  
+Interoperability is another significant challenge. Additional claims providers/verifiers must be integrated, because relying parties are unlikely to support all the necessary protocols. Azure AD B2C custom policies solve this problem by supporting industry-standard protocols and by applying specific user journeys to transpose requests when relying parties and attribute providers do not support the same protocol.
 
 User journeys include protocol profiles and metadata that are used to plumb “on the wire” interoperability between the relying party and other participants. There are also operational runtime rules that are applied to identity information exchange request/response messages for enforcing compliance with published policies as part of the TF specification. The idea of user journeys is key to the customization of the customer experience. It also sheds light on how the system works at the protocol level.
 
