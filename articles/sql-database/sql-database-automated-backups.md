@@ -58,7 +58,7 @@ The first full backup is scheduled immediately after a database is created. This
 
 PITR backups are protected with geo-redundant storage. For more information, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
-For more information about PITR, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+For more information about PITR, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ### Long-term retention
 
@@ -117,7 +117,7 @@ There's no additional charge for backup storage for databases and elastic databa
 
 For single databases, a minimum backup storage amount equal to 100 percent of the database size is provided at no extra charge. For elastic database pools and managed instances, a minimum backup storage amount equal to 100 percent of the allocated data storage for the pool or instance size, respectively, is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month. This additional consumption will depend on the workload and the size of the individual databases.
 
-Azure SQL Database will compute your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline, which is responsible for aggregating this hourly usage to get your consumption at the end of each month. After the database is dropped, Microsoft decreases the consumption as the backups age. After backups become older than the retention period, billing stops. Because all log backups and differential backups are retained for the full retention period, heavily modified databases that will have higher backup charges.
+Azure SQL Database will compute your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline, which is responsible for aggregating this hourly usage to get your consumption at the end of each month. After the database is dropped, Microsoft decreases the consumption as the backups age. After backups become older than the retention period, billing stops. Because all log backups and differential backups are retained for the full retention period, heavily modified databases will have higher backup charges.
 
 Assume a database has accumulated 744 GB of backup storage and that this amount stays constant throughout an entire month. To convert this cumulative storage consumption to hourly usage, divide it by 744.0 (31 days per month * 24 hours per day). So SQL Database will report that the database consumed 1 GB of PITR backup each hour. Azure billing will aggregate this consumption and show a usage of 744 GB for the entire month. The cost will be based on the $/GB/month rate in your region.
 
@@ -156,7 +156,7 @@ Any issues found during the integrity check will result in an alert to the engin
 
 ## Compliance
 
-When you migrate your database from a DTU-based service tier to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy isn't compromised. If the default retention doesn't meet your compliance requirements, you can change the PITR retention period by using PowerShell or the REST API. For more information, see [Change PITR backup retention period](#change-the-pitr-backup-retention-period).
+When you migrate your database from a DTU-based service tier to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy isn't compromised. If the default retention doesn't meet your compliance requirements, you can change the PITR retention period by using PowerShell or the REST API. For more information, see [Change the PITR backup retention period](#change-the-pitr-backup-retention-period).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
