@@ -87,7 +87,7 @@ This task specifies that any time code is committed to the *master* branch in th
 
 Output from a successful [az acr task create][az-acr-task-create] command is similar to the following:
 
-```console
+```output
 {
   "agentConfiguration": {
     "cpu": 2
@@ -152,7 +152,7 @@ az acr task run --registry $ACR_NAME --name example1
 
 By default, the `az acr task run` command streams the log output to your console when you execute the command. The output shows the progress of running each of the task steps. The output below is condensed to show key steps.
 
-```console
+```output
 Queued a run with ID: cf19
 Waiting for an agent...
 2019/05/03 03:03:31 Downloading source code...
@@ -229,11 +229,8 @@ git push origin master
 
 You may be asked to provide your GitHub credentials when you execute the `git push` command. Provide your GitHub username, and enter the personal access token (PAT) that you created earlier for the password.
 
-```console
-$ git push origin master
-Username for 'https://github.com': <github-username>
-Password for 'https://githubuser@github.com': <personal-access-token>
-```
+`Username for 'https://github.com': <github-username>`
+`Password for 'https://githubuser@github.com': <personal-access-token>`
 
 Once you've pushed a commit to your repository, the webhook created by ACR Tasks fires and kicks off the task in Azure Container Registry. Display the logs for the currently running task to verify and monitor the build progress:
 
@@ -243,8 +240,7 @@ az acr task logs --registry $ACR_NAME
 
 Output is similar to the following, showing the currently executing (or last-executed) task:
 
-```console
-$ az acr task logs --registry $ACR_NAME
+```output
 Showing logs of the last created run.
 Run ID: cf1d
 
@@ -263,9 +259,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 Output from the command should appear similar to the following. The runs that ACR Tasks has executed are displayed, and "Git Commit" appears in the TRIGGER column for the most recent task:
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 RUN ID    TASK       PLATFORM    STATUS     TRIGGER    STARTED               DURATION
 --------  ---------  ----------  ---------  ---------  --------------------  ----------
 cf1d      example1   linux       Succeeded  Commit     2019-05-03T04:16:44Z  00:00:37
@@ -357,7 +351,7 @@ By default, the `az acr task run` command streams the log output to your console
 
 Output:
 
-```console
+```output
 Queued a run with ID: cf1g
 Waiting for an agent...
 2019/05/03 04:33:39 Downloading source code...

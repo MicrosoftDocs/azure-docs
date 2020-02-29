@@ -110,13 +110,13 @@ ACR supports Docker Registry HTTP API V2. The APIs can be accessed at
 
 If you are on bash:
 
-```bash
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
 For Powershell:
 
-```powershell
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
@@ -147,13 +147,13 @@ docker push myregistry.azurecr.io/1gb:latest
 
 You should be able to see that the storage usage has increased in the Azure portal, or you can query usage using the CLI.
 
-```bash
+```azurecli
 az acr show-usage -n myregistry
 ```
 
 Delete the image using the Azure CLI or portal and check the updated usage in a few minutes.
 
-```bash
+```azurecli
 az acr repository delete -n myregistry --image 1gb
 ```
 
@@ -217,7 +217,7 @@ ACR supports [custom roles](container-registry-roles.md) that provide different 
 
   Or, assign the role to a service principle identified by its application ID:
 
-  ```
+  ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
@@ -292,28 +292,25 @@ grep OPTIONS /etc/sysconfig/docker
 
 For instance, Fedora 28 Server has the following docker daemon options:
 
-```
-OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
-```
+`OPTIONS='--selinux-enabled --log-driver=journald --live-restore'`
 
 With `--signature-verification=false` missing, `docker pull` fails with an error similar to:
 
-```bash
+```output
 Trying to pull repository myregistry.azurecr.io/myimage ...
 unauthorized: authentication required
 ```
 
 To resolve the error:
 1. Add the option `--signature-verification=false` to the Docker daemon configuration file `/etc/sysconfig/docker`. For example:
-
-  ```
-  OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
-  ```
+   
+   `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
+   
 2. Restart the Docker daemon service by running the following command:
-
-  ```bash
-  sudo systemctl restart docker.service
-  ```
+   
+   ```bash
+   sudo systemctl restart docker.service
+   ```
 
 Details of `--signature-verification` can be found by running `man dockerd`.
 
@@ -473,7 +470,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 If you pass a local source folder to the `az acr build` command, the `.git` folder is excluded from the uploaded package by default. You can create a `.dockerignore` file with the following setting. It tells the command to restore all files under `.git` in the uploaded package. 
 
-```sh
+```shell
 !.git/**
 ```
 
