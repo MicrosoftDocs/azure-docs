@@ -10,21 +10,21 @@ ms.author: normesta
 ms.reviewer: stewu
 ---
 
-# Blob storage features available in Azure Data Lake Storage Gen2
+# Blob storage features available in Azure Data Lake Storage Gen2
 
-Blob Storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](storage-lifecycle-management-concepts.md) now work with accounts that have a hierarchical namespace. Therefore, you can enable hierarchical namespaces on your Blob storage accounts without losing access to these features.
+Blob Storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](storage-lifecycle-management-concepts.md) now work with accounts that have a hierarchical namespace. Therefore, you can enable hierarchical namespaces on your Blob storage accounts without losing access to these features.
 
 This table lists the Blob storage features that you can use with Azure Data Lake Storage Gen2. The items that appear in these tables will change over time as support continues to expand.
 
-## Supported Blob storage features
+## Supported Blob storage features
 
 > [!NOTE]
-> Support level refers only to how the feature is supported with Data Lake Storage Gen2.
+> Support level refers only to how the feature is supported with Data Lake Storage Gen2.
 
-|Blob Storage feature |Support level |Related articles |
+|Blob Storage feature |Support level |Related articles |
 |---------------|-------------------|---|
-|Hot access tier |Generally available|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
-|Cool access tier |Generally available|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
+|Hot access tier|Generally available|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
+|Cool access tier|Generally available|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
 |Events|Generally available|[Reacting to Blob storage events](storage-blob-event-overview.md)|
 |Metrics (Classic)|Generally available|[Azure Storage analytics metrics (Classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Metrics in Azure Monitor|Generally available|[Azure Storage metrics in Azure Monitor](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
@@ -48,6 +48,6 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 ## See also
 
 - [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
-- [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
+- [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 - [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
 - [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
