@@ -157,7 +157,7 @@ When you create a Time Series Insights Preview *pay-as-you-go* (PAYG) SKU enviro
 * An Azure Time Series Insights Preview environment that can be configured for warm storage.
 * An Azure Storage general-purpose V1 blob account for cold data storage.
 
-Data in your warm store is available only via [Time Series Query](./time-series-insights-update-tsq.md) and the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md). 
+Data in your warm store is available only via [Time Series Query](./time-series-insights-update-tsq.md) and the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md). Your warm store will contain recent data within the [retention period](./time-series-insights-update-plan#the-preview-environment) selected when creating the Time Series Insights environment.
 
 Time Series Insights Preview saves your cold store data to Azure Blob storage in the [Parquet file format](#parquet-file-format-and-folder-structure). Time Series Insights Preview manages this cold store data exclusively, but it's available for you to read directly as standard Parquet files.
 
