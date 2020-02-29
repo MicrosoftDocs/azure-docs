@@ -26,12 +26,12 @@ The appropriate [Azure AD Premium P1 or P2 licensing](https://azure.microsoft.co
 ## Creating an "all users" dynamic group
 You can create a group containing all users within a tenant using a membership rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is in the Global administrator or User administrator role in the tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Global administrator or User administrator role in the tenant.
 1. Select **Azure Active Directory**.
-2. Under **Manage**, select **Groups**.
-3. Select **New group**.
-1. On the **New Group** page, enter a name and description for the new group. Under **Membership type**, select **Dynamic User**. Then select **Add dynamic query**. 
-1. Above the **Rule syntax** text box, select **Edit**. On the **Edit rule syntax** page, type the following rule in the text box:
+2. Under **Manage**, select **Groups**, and then select **New group**.
+1. On the **New Group** page, under **Group type**, select **Security**. Enter a **Group name** and **Group description** for the new group. 
+2. Under **Membership type**, select **Dynamic User**, and then select **Add dynamic query**. 
+4. Above the **Rule syntax** text box, select **Edit**. On the **Edit rule syntax** page, type the following expression in the text box:
 
    ```
    user.objectId -ne null
