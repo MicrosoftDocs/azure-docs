@@ -757,6 +757,74 @@ TLS 1.2 Cipher Suites minimum bar:
 Now that you have desidned your schema and understood the Azure AD SCIM implementation, you can get started developing your SCIM endpoint. Rather than starting from scratch and building the implementation completely on your own, you can rely on a number of open source SCIM libraries published by the SCIM commuinty.  
 The open source .NET Core [reference code](https://aka.ms/SCIMReferenceCode) published by the Azure AD provisioning team is one such resource that can jump start your development. Once you've built your SCIM endpoint, you'll want to test it out. You can use the collection of [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) provided as part of the reference code or run through the sample requests / responses provided [above](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations).  
 
+Here’s how it works:
+
+1. Azure AD provides a common language infrastructure (CLI) library named Microsoft.SystemForCrossDomainIdentityManagement, included with the code samples describe below. System integrators and developers can use this library to create and deploy a SCIM-based web service endpoint that can connect Azure AD to any application’s identity store.
+2. Mappings are implemented in the web service to map the standardized user schema to the user schema and protocol required by the application. 
+3. The endpoint URL is registered in Azure AD as part of a custom application in the application gallery.
+4. Users and groups are assigned to this application in Azure AD. Upon assignment, they're put into a queue to be synchronized to the target application. The synchronization process handling the queue runs every 40 minutes.
+
+### Code samples
+
+To make this process easier, [code samples](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) are provided, which create a SCIM web service endpoint and demonstrate automatic provisioning. The sample is of a provider that maintains a file with rows of comma-separated values representing users and groups.
+
+**Prerequisites**
+
+* Visual Studio 2013 or later
+* [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
+* Windows machine that supports the ASP.NET framework 4.5 to be used as the SCIM endpoint. This machine must be accessible from the cloud.
+* [An Azure subscription with a trial or licensed version of Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
+
+### Getting started
+
+The easiest way to implement a SCIM endpoint that can accept provisioning requests from Azure AD is to build and deploy the code sample that outputs the provisioned users to a comma-separated value (CSV) file.
+
+#### To create a sample SCIM endpoint
+
+1. Download the code sample package at [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
+1. Unzip the package and place it on your Windows machine at a location such as C:\AzureAD-BYOA-Provisioning-Samples\.
+1. In this folder, launch the FileProvisioning\Host\FileProvisioningService.csproj project in Visual Studio.
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**, and execute the following commands for the FileProvisioningService project to resolve the solution references:
+
+   ```powershell
+    Update-Package -Reinstall
+   ```
+
+1. Build the FileProvisioningService project.
+1. Launch the Command Prompt application in Windows (as an Administrator), and use the **cd** command to change the directory to your **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug** folder.
+1. Run the following command, replacing `<ip-address>` with the IP address or domain name of the Windows machine:
+
+   ```
+    FileSvc.exe http://<ip-address>:9000 TargetFile.csv
+   ```
+
+1. In Windows under **Windows Settings** > **Network & Internet Settings**, select the **Windows Firewall** > **Advanced Settings**, and create an **Inbound Rule** that allows inbound access to port 9000.
+1. If the Windows machine is behind a router, the router needs to be configured to run Network Access Translation between its port 9000 that is exposed to the internet, and port 9000 on the Windows machine. This configuration is required for Azure AD to access this endpoint in the cloud.
+
+#### To register the sample SCIM endpoint in Azure AD
+
+1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com). 
+1. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
+1. Select **+ New application** > **All** > **Non-gallery application**.
+1. Enter a name for your application, and select **Add** to create an app object. The application object created is intended to represent the target app you would be provisioning to and implementing single sign-on for, and not just the SCIM endpoint.
+1. In the app management screen, select **Provisioning** in the left panel.
+1. In the **Provisioning Mode** menu, select **Automatic**.    
+1. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: https://api.contoso.com/scim/
+
+1. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, Azure AD includes an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an identity provider can validate this Azure AD-issued token.
+1. Select **Test Connection** to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempt fails, error information is displayed.  
+
+    > [!NOTE]
+    > **Test Connection** queries the SCIM endpoint for a user that doesn't exist, using a random GUID as the matching property selected in the Azure AD configuration. The expected correct response is HTTP 200 OK with an empty SCIM ListResponse message
+1. If the attempts to connect to the application succeed, then select **Save** to save the admin credentials.
+1. In the **Mappings** section, there are two selectable sets of attribute mappings: one for user objects and one for group objects. Select each one to review the attributes that are synchronized from Azure Active Directory to your app. The attributes selected as **Matching** properties are used to match the users and groups in your app for update operations. Select **Save** to commit any changes.
+1. Under **Settings**, the **Scope** field defines which users and or groups are synchronized. Select **"Sync only assigned users and groups** (recommended) to only sync users and groups assigned in the **Users and groups** tab.
+1. Once your configuration is complete, set the **Provisioning Status** to **On**.
+1. Select **Save** to start the Azure AD provisioning service.
+1. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users or groups you want to sync.
+Once the initial cycle has started, you can select **Audit logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
+The final step in verifying the sample is to open the TargetFile.csv file in the \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug folder on your Windows machine. Once the provisioning process is run, this file shows the details of all assigned and provisioned users and groups.
+
 ## Step 4: Integrate your SCIM endpoint with the Azure AD SCIM client
 
 Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Step 2: Understand the Azure AD SCIM implementation](#step-2-understand-the-azure-ad-scim-implementation).
