@@ -11,13 +11,15 @@ manager: philmea
 ---
 
 
-# How to use the Azure Maps spatial IO module
+# How to use the Azure Maps Spatial IO module
 
-The Azure Maps Web SDK provides a *spatial IO module* that makes it easy to integrate spatial data with the Azure Maps web SDK using JavaScript or TypeScript. Some of the features of this module include:
+The Azure Maps Web SDK provides a **Spatial IO module**. The  Spatial IO module makes it easy to integrate spatial data with the Azure Maps web SDK using JavaScript or TypeScript. This module provides robust features, which allow developers to:
 
-- Read and write common spatial files such as KML, KMZ, GPX, GeoRSS, GML, and delimited files with spatial columns (CSV).
-- Connect to Open Geospatial Consortium (OGC) services and easily integrate with Azure Maps web SDK. Overlay Web Mapping Services (WMS) and Web Map Tile Services (WMTS) as layers on the map. Query data in a Web Feature Service (WFS).
-- Easily overlay complex data sets that contain style information and have them render automatically. 
+- Read and write common spatial files. Supported file format include: KML, KMZ, GPX, GeoRSS, GML, and CSV files containing columns with spatial information.
+- Connect to Open Geospatial Consortium (OGC) services and easily integrate with Azure Maps web SDK.
+- Overlay Web Mapping Services (WMS) and Web Map Tile Services (WMTS) as layers on the map.
+- Query data in a Web Feature Service (WFS).
+- Overlay complex data sets that contain style information and have them render automatically.
 - Leverage high speed XML and delimited file reader and writer classes.
 
 ## Use the spatial IO module in a webpage
