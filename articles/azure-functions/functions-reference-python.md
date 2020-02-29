@@ -96,7 +96,7 @@ To reference modules local to a function, you can use the relative import syntax
 from . import example
 ```
 
-When deploying your project to a function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
+When deploying your project to a function app in Azure, the entire contents of the main project (*\_\_app\_\_*) folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
 
 ## Triggers and Inputs
 
