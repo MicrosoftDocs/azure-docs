@@ -40,10 +40,10 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 ## Connect to an App Configuration store
 
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
+1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add the following NuGet package to your project. If you can't find it, select the **Include prerelease** check box.
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 3.0.0-preview-010550001-251 or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration
     ```
 
 2. Open *Function1.cs*, and add the namespaces of the .NET Core configuration and the App Configuration configuration provider.
