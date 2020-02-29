@@ -12,7 +12,7 @@ manager: philmea
 
 # Show traffic data on the map using Azure Maps Android SDK
 
-This guide shows you how to display traffic data. Flow data and incidents data are the two types of traffic data that can be displayed on the map. Incidents data consists of point and line-based data for things such as constructions, road closures, and accidents. Flow data shows metrics about the flow of traffic on the road.
+Flow data and incidents data are the two types of traffic data that can be displayed on the map. This guide shows you how to display both of these traffic data. Incidents data consists of point and line-based data for things such as constructions, road closures, and accidents. Flow data shows metrics about the flow of traffic on the road.
 
 ## Prerequisites
 
@@ -20,7 +20,13 @@ Before you can show traffic on the map, you need to install [Azure Maps Android 
 
 ## Incidents traffic data 
 
- The following code snippet shows how to display traffic data on the map. We pass a boolean value to the `incidents` method, and pass that to the `setTraffic` method. 
+You'll need to import the following libraries to call `setTraffic` and `incidents`:
+
+```java
+import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
+```
+
+ The following code snippet shows you how to display traffic data on the map. We pass a boolean value to the `incidents` method, and pass that to the `setTraffic` method. 
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +37,11 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-You'll need to import the following libraries to call `setTraffic` and `incidents`:
-
-```java
-import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
-```
-
 ## Show incident traffic data by clicking a feature
 
-To obtain the incidents for a specific feature, you can use the code block below. When a feature is clicked, the code logic checks for incidents and builds a message about the incident. The message is shown in a SnackBar, a lightweight widget that shows up at the bottom of the screen. Replace `<yourpackagename>` with the package name of your project.
+To obtain the incidents for a specific feature, you can use the code below. When a feature is clicked, the code logic checks for incidents and builds a message about the incident. A message shows up at the bottom of the screen with the details.
 
-1. Edit **res > layout > activity_main.xml** so it looks like the one below. Replace the placeholders for `mapcontrol_centerLat`, `mapcontrol_centerLng`, and `mapcontrol_zoom` with your choices.
+1. First, you need to edit **res > layout > activity_main.xml**, so that it looks like the one below. Replace the placeholders for `mapcontrol_centerLat`, `mapcontrol_centerLng`, and `mapcontrol_zoom` with your desired values. Recall, the zoom level is a value between 0 and 22. At zoom level 0, the entire world fits on a single tile.
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -64,7 +64,7 @@ To obtain the incidents for a specific feature, you can use the code block below
     </FrameLayout>
     ```
 
-2. Add the following code to your **MainActivity.java** file.
+2. Add the following code to your **MainActivity.java** file. The package is included by default, so make sure you keep your package at the top.
 
 ```java
 package <yourpackagename>;
@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-3. Once you incorporate the above code in your application, you'll be able to click on a feature and learn about the traffic incidents for that feature. Depending on the latitude and longitude that you selected in your **activity_main.xml** file, you'll see results similar to the following image:
+3. Once you incorporate the above code in your application, you'll be able to click on a feature and learn about the traffic incidents for that feature. Depending on the latitude, longitude, and the zoom level values that you selected in your **activity_main.xml** file, you'll see results similar to the following image:
 
 <center>
 
@@ -196,7 +196,15 @@ public class MainActivity extends AppCompatActivity {
 
 ## Flow traffic data
 
-Use the following code snippet to set traffic flow data. Similar to the code in the previous section, we pass the return value of the `flow` method to the `setTraffic` method. There are four values that can be passed to `flow`, and each value would trigger `flow` to pass the respective return value. The return value of `flow` will then be passed as the argument to `setTraffic`. See the table below for these four values:
+Use the following code snippet to set traffic flow data. Similar to the code in the previous section, we pass the return value of the `flow` method to the `setTraffic` method. There are four values that can be passed to `flow`, and each value would trigger `flow` to return the respective value. The return value of `flow` will then be passed as the argument to `setTraffic`. See the table below for these four values:
+
+
+You'll first need to import the following libraries to call `setTraffic` and `flow`:
+
+```java
+import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
+import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.flow;
+```
 
 | | |
 | :-- | :-- |
@@ -211,13 +219,6 @@ protected void onCreate(Bundle savedInstanceState) {
     mapControl.getMapAsync(map -> 
         map.setTraffic(flow(TrafficFlow.RELATIVE)));
 }
-```
-
-You'll need to import the following libraries to use the `setTraffic` and the `flow` method:
-
-```java
-import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
-import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
 
 ## Next steps
