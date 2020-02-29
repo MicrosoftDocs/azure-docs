@@ -79,13 +79,15 @@ Let's now walk through the processes of using the spatial IO module in a web app
     
         > **npm install azure-maps-spatial-io**
     
-    Then, add a reference to the JavaScript file in the `<head>` element of the webpage:
+    Then, add a reference to the JavaScript file in the `<head>` element of the HTML file:
 
     ```html
     <script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
     ```
 
-3. The following code is a full . This demonstrates one of the many functionalities available in the spatial IO module.
+3. Copy the following code snippet inside your 
+
+3. Putting it all together, your HTML file should look like the code below. This code demonstrates how to read an XML file from a URL or pass in a raw XML string. Then, load and dispaly feature data to the map. 
 
 	```html
 	<!DOCTYPE html>
@@ -156,7 +158,7 @@ Let's now walk through the processes of using the spatial IO module in a web app
 	</html>
 	```
 
-The following code shows how to easily load different types of spatial data files onto the map. 
+This code above corresponds to the running codepen below. This functionality is only one of the many functionalities available in the spatial IO module.
 
 //TODO: codepen - Spatial data examples (only show result tab like layer options examples)
 
