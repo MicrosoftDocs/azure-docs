@@ -4,8 +4,8 @@ description: Use X.509 certificates to test automatic device provisioning for Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.reviewer: mrohera
-ms.date: 02/24/2020
+ms.reviewer: kevindaw
+ms.date: 02/28/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -27,6 +27,7 @@ Using X.509 certificates as an attestation mechanism is an excellent way to scal
 
 * An active IoT Hub.
 * A physical or virtual device to be the IoT Edge device.
+  * Currently, group enrollment for IoT Edge is only supported for Linux devices.
 * The latest version of [Git](https://git-scm.com/download/) installed.
 * An instance of the IoT Hub Device Provisioning Service in Azure, linked to your IoT hub.
   * If you don't have a Device Provisioning Service instance, follow the instructions in [Set up the IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
@@ -111,6 +112,9 @@ Now that an enrollment exists for this device, the IoT Edge runtime can automati
 
 Use your generated certificates and keys to create a group enrollment in DPS for multiple IoT Edge devices. Group enrollments use an intermediate or root CA certificate from the certificate chain of trust used to generate the individual device identity certificates.
 
+>[!NOTE]
+>Currently, group enrollment is only supported for IoT Edge on Linux devices. 
+
 If you're looking to provision a single IoT Edge device instead, follow the steps in the previous section, [Create a DPS individual enrollment](#create-a-dps-individual-enrollment).
 
 When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-monitor.md).
@@ -159,6 +163,8 @@ Now that an enrollment exists for this device, the IoT Edge runtime can automati
 ## Install the IoT Edge runtime
 
 The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge.
+
+X.509 provisioning with DPS is only supported in IoT Edge version 1.0.9 or newer.
 
 You'll need the following information when provisioning your device:
 
