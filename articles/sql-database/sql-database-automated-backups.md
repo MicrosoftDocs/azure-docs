@@ -17,7 +17,7 @@ ms.date: 12/13/2019
 
 Azure SQL Database automatically creates the database backups that are kept for the duration of the configured retention period. It uses Azure [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md) to ensure the backups are preserved even if the datacenter is unavailable.
 
-Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If your security rules require that your backups are available for an extended period of time (up to 10 years), you can configure [long-term retention](sql-database-long-term-retention.md) on singleton databases and elastic database pools.
+Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If your security rules require that your backups are available for an extended time (up to 10 years), you can configure [long-term retention](sql-database-long-term-retention.md) on singleton databases and elastic database pools.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -30,7 +30,7 @@ You can use these backups to:
 - **Restore an existing database to a point in time in the past** within the retention period by using the Azure portal, Azure PowerShell, Azure CLI, or the REST API. For single databases and elastic database pools, this operation will create a new database on the same server as the original database. In managed instance, this operation can create a copy of the database or the same or a different managed instance under the same subscription.
 - **Restore a deleted database to the time of deletion** or anytime within the retention period. The deleted database can be restored only on the same logical server or managed instance where the original database was created.
 - **Restore a database to another geographic region**. Geo-restore allows you to recover from a geographic disaster when you can't access your server and database. It creates a new database on any existing server, anywhere in the world.
-- **Restore a database from a specific long-term backup** on a single database or elastic database pool, if the database has been configured with a long-term retention policy (LTR). LTR allows you to restore an old version of the database by using [the Azure portal](sql-database-long-term-backup-retention-configure.md#using-azure-portal) or [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#using-powershell) to satisfy a compliance request or to run an old version of the application. For more information, see [Long-term retention](sql-database-long-term-retention.md).
+- **Restore a database from a specific long-term backup** on a single database or elastic database pool, if the database is configured with a long-term retention policy (LTR). LTR allows you to restore an old version of the database by using [the Azure portal](sql-database-long-term-backup-retention-configure.md#using-azure-portal) or [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#using-powershell) to satisfy a compliance request or to run an old version of the application. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 To perform a restore, see [Restore database from backups](sql-database-recovery-using-backups.md).
 
@@ -41,7 +41,7 @@ You can try some of these operations by using the following examples:
 
 | | The Azure portal | Azure PowerShell |
 |---|---|---|
-| Change backup retention | [Single database](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) <br/> [Managed instance](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) | [Single database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Change backup retention | [Single database](sql-database-automated-backups.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Managed instance](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) | [Single database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | Change long-term backup retention | [Single database](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed instance - N/A  | [Single database](sql-database-long-term-backup-retention-configure.md)<br/>Managed instance - N/A  |
 | Restore a database from a point in time | [Single database](sql-database-recovery-using-backups.md#point-in-time-restore) | [Single database](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Managed instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | Restore a deleted database | [Single database](sql-database-recovery-using-backups.md) | [Single database](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Managed instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
@@ -95,15 +95,15 @@ Each type of backup (full, differential, and log) is reported on the database mo
 
 Excess backup storage consumption will depend on the workload and the size of the individual databases. Consider some of the following tuning techniques to reduce your backup storage consumption:
 
-* Reduce the [backup retention period](#change-pitr-backup-retention-period-using-azure-portal) to the minimum possible for your needs.
-* Avoid performing large write operations, like index rebuilds, more frequently than you need to.
-* For large data load operations, consider using [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), reduce the number of non-clustered indexes, and consider bulk load operations with row count around one million.
+* Reduce the [backup retention period](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) to the minimum possible for your needs.
+* Avoid doing large write operations, like index rebuilds, more frequently than you need to.
+* For large data load operations, consider using [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), reduce the number of non-clustered indexes, and consider bulk load operations with row count around 1 million.
 * In the general purpose service tier, the provisioned data storage is less expensive than the price of the excess backup storage. If you have continually high excess backup storage costs, you might consider increasing the data storage to save on the backup storage.
 * Use TempDB instead of permanent tables in your ETL logic for storing temporary results. (Applicable only to managed instance.)
 * Consider turning off TDE encryption for databases that don't contain sensitive data (development or test databases, for example). Backups for non-encrypted databases are typically compressed with a higher compression ratio.
 
 > [!IMPORTANT]
-> For analytical data mart \ data warehouse workloads, we strongly recommend that you use [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), reduce the number of non-clustered indexes, and consider bulk load operations with row count around one million to reduce excess backup storage consumption.
+> For analytical data mart \ data warehouse workloads, we strongly recommend that you use [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), reduce the number of non-clustered indexes, and consider bulk load operations with row count around 1 million to reduce excess backup storage consumption.
 
 ## Storage costs
 
@@ -119,9 +119,9 @@ For single databases, a minimum backup storage amount equal to 100 percent of th
 
 Azure SQL Database will compute your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline, which is responsible for aggregating this hourly usage to get your consumption at the end of each month. After the database is dropped, Microsoft decreases the consumption as the backups age. After backups become older than the retention period, billing stops. Because all log backups and differential backups are retained for the full retention period, heavily modified databases that will have higher backup charges.
 
-Assume that a database has accumulated 744 GB of backup storage and that this amount stays constant throughout an entire month. To convert this cumulative storage consumption to hourly usage, divide it by 744.0 (31 days per month * 24 hours per day). So SQL Database will report that the database consumed 1 GB of PITR backup each hour. Azure billing will aggregate this and show a usage of 744 GB for the entire month. The cost will be based on the $/GB/month rate in your region.
+Assume a database has accumulated 744 GB of backup storage and that this amount stays constant throughout an entire month. To convert this cumulative storage consumption to hourly usage, divide it by 744.0 (31 days per month * 24 hours per day). So SQL Database will report that the database consumed 1 GB of PITR backup each hour. Azure billing will aggregate this consumption and show a usage of 744 GB for the entire month. The cost will be based on the $/GB/month rate in your region.
 
-Now, a more complex example. Suppose the database has its retention increased to 14 days in the middle of the month and this (hypothetically) results in the total backup storage doubling to 1,488 GB. SQL Database would report 1 GB of usage for hours 1 through 372. It would report the usage as 2 GB for hours 373 through 744. This would be aggregated to a final bill of 1,116 GB/month.
+Now, a more complex example. Suppose the database has its retention increased to 14 days in the middle of the month. Assume this increase (hypothetically) results in the total backup storage doubling to 1,488 GB. SQL Database would report 1 GB of usage for hours 1 through 372. It would report the usage as 2 GB for hours 373 through 744. This usage would be aggregated to a final bill of 1,116 GB/month.
 
 ### Monitor costs
 
@@ -133,7 +133,7 @@ Add a filter for **Service name**, and then select **sql database** in the drop-
 
 ## Backup retention
 
-All Azure SQL databases (single, pooled, and managed instance databases) have a default backup retention period of 7 days. You can [change the backup retention period](#change-pitr-backup-retention-period) to as long as 35 days.
+All Azure SQL databases (single, pooled, and managed instance databases) have a default backup retention period of 7 days. You can [change the backup retention period](#change-the-pitr-backup-retention-period) to as long as 35 days.
 
 If you delete a database, SQL Database will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that's four days old is saved for three more days.
 
@@ -148,7 +148,7 @@ If your database is encrypted with TDE, backups are automatically encrypted at r
 
 ## Backup integrity
 
-On an ongoing basis, the Azure SQL Database engineering team automatically tests the restore of automated database backups of databases placed in logical servers and elastic database pools. (This isn't available in managed instance.) Upon point-in-time restore, databases also receive DBCC CHECKDB integrity checks.
+On an ongoing basis, the Azure SQL Database engineering team automatically tests the restore of automated database backups of databases placed in logical servers and elastic database pools. (This testing isn't available in managed instance.) Upon point-in-time restore, databases also receive DBCC CHECKDB integrity checks.
 
 Managed instance takes automatic initial backup with `CHECKSUM` of databases restored with the native `RESTORE` command or with Azure Data Migration Service after the migration is completed.
 
@@ -172,17 +172,17 @@ You can change the default PITR backup retention period by using the Azure porta
 
 ### Change the PITR backup retention period by using the Azure portal
 
-To change the PITR backup retention period by using the Azure portal, go to the server object whose retention period you want to change in the portal and then select the appropriate option based on the server object you're modifying.
+To change the PITR backup retention period by using the Azure portal, go to the server object whose retention period you want to change in the portal. Then select the appropriate option based on the server object you're modifying.
 
 #### [Single database and elastic database pools](#tab/single-database)
 
-Changes to PITR backup retention for single Azure SQL databases are done at the server level. Changes made at the server level apply to databases on the server. To change PITR retention for an Azure SQL Database server from the Azure portal, go to the server overview blade, select **Manage Backups** in the left pane, and then select **Configure retention** at the top of the screen:
+Changes to PITR backup retention for single Azure SQL databases are done at the server level. Changes made at the server level apply to databases on the server. To change PITR retention for an Azure SQL Database server from the Azure portal, go to the server overview blade. Select **Manage Backups** in the left pane, and then select **Configure retention** at the top of the screen:
 
 ![Change PITR retention, server level](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
 #### [Managed instance](#tab/managed-instance)
 
-Changes to PITR backup retention for SQL Database managed instance are done at an individual database level. To change PITR backup retention for an instance database from the Azure portal, go to the individual database overview blade, and then select **Configure backup retention** at the top of the screen:
+Changes to PITR backup retention for SQL Database managed instance are done at an individual database level. To change PITR backup retention for an instance database from the Azure portal, go to the individual database overview blade. Then select **Configure backup retention** at the top of the screen:
 
 ![Change PITR retention, managed instance](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
