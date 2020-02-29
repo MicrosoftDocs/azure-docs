@@ -157,7 +157,7 @@ As mentioned in the [Manifest digest](container-registry-concepts.md#manifest-di
    
    ```
    
-```output
+   ```output
    [
      {
        "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",

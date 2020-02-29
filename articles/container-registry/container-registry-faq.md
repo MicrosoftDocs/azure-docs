@@ -237,7 +237,7 @@ The assignee is then able to authenticate and access images in the registry.
 
  To pull an image:
     
-  ```azurecli
+  ```bash
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -470,9 +470,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 If you pass a local source folder to the `az acr build` command, the `.git` folder is excluded from the uploaded package by default. You can create a `.dockerignore` file with the following setting. It tells the command to restore all files under `.git` in the uploaded package. 
 
-```shell
-!.git/**
-```
+`!.git/**`
 
 This setting also applies to the `az acr run` command.
 

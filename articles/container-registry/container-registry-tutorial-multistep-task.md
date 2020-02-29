@@ -229,8 +229,10 @@ git push origin master
 
 You may be asked to provide your GitHub credentials when you execute the `git push` command. Provide your GitHub username, and enter the personal access token (PAT) that you created earlier for the password.
 
-`Username for 'https://github.com': <github-username>`
-`Password for 'https://githubuser@github.com': <personal-access-token>`
+```azurecli-interactive
+Username for 'https://github.com': <github-username>
+Password for 'https://githubuser@github.com': <personal-access-token>
+```
 
 Once you've pushed a commit to your repository, the webhook created by ACR Tasks fires and kicks off the task in Azure Container Registry. Display the logs for the currently running task to verify and monitor the build progress:
 
