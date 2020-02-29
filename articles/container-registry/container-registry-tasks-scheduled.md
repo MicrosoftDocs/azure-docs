@@ -51,7 +51,7 @@ az acr task create \
 Run the [az acr task show][az-acr-task-show] command to see that the timer trigger is configured. By default, the base image update trigger is also enabled.
 
 ```azurecli
-$ az acr task show --name mytask --registry registry --output table
+az acr task show --name mytask --registry registry --output table
 ```
 
 ```output
