@@ -1,3 +1,14 @@
+---
+title: How to use the Azure Maps spatial IO module | Microsoft Azure Maps
+description: 
+author: farah-alyasari
+ms.author: v-faalya
+ms.date: 02/28/2020
+ms.topic: 
+ms.service: azure-maps
+services: azure-maps
+manager: philmea
+---
 
 
 # How to use the Azure Maps spatial IO module
