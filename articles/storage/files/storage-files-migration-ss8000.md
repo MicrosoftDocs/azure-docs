@@ -228,7 +228,7 @@ Configuring the Azure VM is an almost identical process, with one additional ste
 > It is important that the Azure VM is **not configured with cloud tiering enabled!** You will exchange the volume of this server with newer volume clones throughout the migration. Cloud tiering has no benefit and overhead on CPU usage you should avoid.
 
 1. [Deploy the AFS agent. (see previous section)](#prepare-the-windows-server-for-file-sync)
-2. [Getting the VM ready for Azure File Sync.](#getting-the-vm-ready-for-azure-file-sync)
+2. [Getting the VM ready for Azure File Sync.](#get-the-vm-ready-for-azure-file-sync)
 3. [Configure sync](#configure-azure-file-sync-on-the-azure-vm)
 
 ### Get the VM ready for Azure File Sync
