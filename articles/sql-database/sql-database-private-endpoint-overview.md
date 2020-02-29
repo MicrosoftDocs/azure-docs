@@ -10,7 +10,7 @@ ms.reviewer: vanto
 ms.date: 09/17/2019
 ---
 
-# Private Link for Azure SQL Database and Data Warehouse (Preview)
+# Private Link for Azure SQL Database and Data Warehouse
 
 Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality, go to the [Private Link Documentation](../private-link/index.yml) page. A private endpoint is a private IP address within a specific [VNet](../virtual-network/virtual-networks-overview.md) and Subnet. 
 
@@ -149,8 +149,9 @@ Follow the steps here to use [SSMS to connect to the SQL Database](sql-database-
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
-> [!NOTE]
-> In preview, connections to private endpoint only support **Proxy** as the [connection policy](sql-database-connectivity-architecture.md#connection-policy)
+
+## Limitations 
+Connections to private endpoint only support **Proxy** as the [connection policy](sql-database-connectivity-architecture.md#connection-policy)
 
 
 ## Connecting from an Azure VM in Peered Virtual Network (VNet) 
