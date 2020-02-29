@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager resource provider operations | Microsoft Docs
+title: Azure Resource Manager resource provider operations
 description: Lists the operations available for the Microsoft Azure Resource Manager resource providers
 services: active-directory
 documentationcenter:
@@ -19,7 +19,7 @@ ms.reviewer: bagovind
 ---
 # Azure Resource Manager resource provider operations
 
-This article lists the operations available for each Azure Resource Manager resource provider. These operations can be used in [custom roles](custom-roles.md) to provide granular [role-based access control (RBAC)](overview.md) to resources in Azure. Operation strings have the following format: `{Company}.{ProviderName}/{resourceType}/{action}`. For a list of how resource provider namespaces map to Azure services, see [Match resource provider to service](../azure-resource-manager/management/azure-services-resource-providers.md).
+This article lists the operations available for each Azure Resource Manager resource provider. These operations can be used in [Azure custom roles](custom-roles.md) to provide granular access control to resources in Azure. Operation strings have the following format: `{Company}.{ProviderName}/{resourceType}/{action}`. For a list of how resource provider namespaces map to Azure services, see [Match resource provider to service](../azure-resource-manager/management/azure-services-resource-providers.md).
 
 The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
@@ -10522,5 +10522,5 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 ## Next steps
 
 - [Match resource provider to service](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Custom roles for Azure resources](custom-roles.md)
-- [Built-in roles for Azure resources](built-in-roles.md)
+- [Azure custom roles](custom-roles.md)
+- [Azure built-in roles](built-in-roles.md)
