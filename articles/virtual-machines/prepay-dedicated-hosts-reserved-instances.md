@@ -120,7 +120,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### Next steps
+## Next steps
 
 To learn how to manage a reservation, see [Manage Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance).
 

@@ -19,7 +19,7 @@ discount is automatically applied to dedicated hosts that match the attributes
 and quantity of the reservation. A reservation covers the compute costs of your
 dedicated hosts.
 
-**How reservation discount is applied**
+## How reservation discount is applied
 
 A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching
 resources for any hour, then you lose a reservation quantity for that hour. You
@@ -29,7 +29,7 @@ When you delete a dedicated host, the reservation discount automatically applies
 to another matching resource in the specified scope. If no matching resources
 are found in the specified scope, then the reserved hours are *lost*.
 
-**Reservation discount for Dedicated Hosts**
+## Reservation discount for Dedicated Hosts
 
 Azure Reserved Dedicated Hosts Instance provides you with a discount to the cost
 of the compute infrastructure used with your dedicated hosts. The discount
@@ -38,12 +38,12 @@ by virtual machines or not. The reservation does not cover additional cost such
 as licensing, network usage or storage consumption by virtual machine deployed
 on the dedicated host.
 
-**Need help? Contact us**
+## Need help? Contact us
 
 If you have questions or need help, [create a support
 request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-**Next steps**
+## Next steps
 
 To learn more about Azure Reservations, see the following articles:
 
