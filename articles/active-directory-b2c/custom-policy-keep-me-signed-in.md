@@ -2,14 +2,14 @@
 title: Keep Me Signed In in Azure Active Directory B2C
 description: Learn how to set up Keep Me Signed In (KMSI) in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -28,7 +28,7 @@ Users should not enable this option on public computers.
 - An Azure AD B2C tenant that is configured to allow local account sign-in. KMSI is unsupported for external identity provider accounts.
 - Complete the steps in [Get started with custom policies](custom-policy-get-started.md).
 
-## Configure the page identifier 
+## Configure the page identifier
 
 To enable KMSI, set the content definition `DataUri` element to [page identifier](contentdefinitions.md#datauri) `unifiedssp` and [page version](page-layout.md) *1.1.0* or above.
 
@@ -47,7 +47,7 @@ To enable KMSI, set the content definition `DataUri` element to [page identifier
       </ContentDefinitions>
     </BuildingBlocks>
     ```
-    
+
 1. Save the extensions file.
 
 
@@ -69,13 +69,13 @@ Update the relying party (RP) file that initiates the user journey that you crea
     ```
 
     - **SessionExpiryType** - Indicates how the session is extended by the time specified in `SessionExpiryInSeconds` and  `KeepAliveInDays`. The `Rolling` value (default) indicates that the session is extended every time the user performs authentication. The `Absolute` value indicates that the user is forced to reauthenticate after the time period specified.
- 
+
     - **SessionExpiryInSeconds**  - The lifetime of session cookies when *keep me signed in* is not enabled, or if a user does not select *keep me signed in*. The session expires after `SessionExpiryInSeconds` has passed, or the browser is closed.
- 
+
     - **KeepAliveInDays** - The lifetime of session cookies when *keep me signed* in is enabled and  the user selects *keep me signed in*.  The value of `KeepAliveInDays` takes precedence over the `SessionExpiryInSeconds` value, and dictates the session expiry time. If a user closes the browser and reopens it later, they can still silently sign-in as long as it's within the KeepAliveInDays time period.
-    
+
     For more information, see [user journey behaviors](relyingparty.md#userjourneybehaviors).
- 
+
 We recommend that you set the value of SessionExpiryInSeconds to be a short period (1200 seconds), while the value of KeepAliveInDays can be set to a relatively long period (30 days), as shown in the following example:
 
 ```XML

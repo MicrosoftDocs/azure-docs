@@ -3,14 +3,14 @@ title: StringCollection claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: StringCollection claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -22,7 +22,7 @@ This article provides examples for using the string collection claims transforma
 
 ## AddItemToStringCollection
 
-Adds a string claim to a new unique values stringCollection claim. 
+Adds a string claim to a new unique values stringCollection claim.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -143,7 +143,7 @@ Following example checks whether the `roles` stringCollection claim type contain
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
