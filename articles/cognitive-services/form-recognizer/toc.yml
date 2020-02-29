@@ -45,6 +45,8 @@
   items:
   - name: Build a training data set
     href: build-training-data-set.md
+  - name: Deploy the sample labeling tool
+    href: deploy-label-tool.md
   - name: Use containers
     items:
     - name: Install and run containers

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 02/28/2020
 ms.author: pafrley
 ---
 
@@ -19,53 +19,22 @@ This guide will explain alternate ways you can deploy and run the sample labelin
 
 ## Deploy with Azure Container Instances
 
-You can run the label tool in a Docker web app container. Create a new Web App resource on the Azure portal. 
+You can run the label tool in a Docker web app container. First, [create a new Web App resource](https://ms.portal.azure.com/#create/Microsoft.WebSite) on the Azure portal. Fill in the form with your subscription and resource group details. Enter the following information in the required fields:
+* **Publish**: Docker Container
+* **Operating** System: Linux
 
-fill in the following fields
-Publish: Docker Container
-Operating System: Linux
+On the next page, fill in the following fields for the Docker container setup:
 
-On the next page is the Docker setup. 
+* **Options**: Single Container
+* **Image Source**: Azure Container Registry
+* **Access Type**: public
+* **Image and tag**: mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest
 
-Options=Single Container
-Image Source=Public Registry
-Server URL=https://containerpreview.azurecr.io
+The steps that follow are optional. Once your app has finished deploying, you can run it and access the label tool online.
 
-Image and tag=mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest
+### Connect to Azure AD for authorization
 
-Then connect to Azure AD. Otherwise anyone with the url can access the Web App (and your label tool container).
-
-[Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index),
-
-```console
-#####################
-
-DNS_NAME_LABEL=aci-demo-$RANDOM
-
-az container create \
-
-  --resource-group <resorunce_group_name> \
-
-  --name <name> \
-
-  --image containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool:latest \
-
-  --ports 3000 \
-
-  --dns-name-label $DNS_NAME_LABEL \
-
-  --location westus2 \
-
-  --cpu 2 \
-
-  --memory 8
-
---command-line "./run.sh eula=accept
-```
-
-## Deploy to a Kubernetes cluster
-
-or a Kubernetes cluster [deployed to an Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). 
+We recommend to connect your web app to Azure Active Director (AAD) so that only someone with your credentials can sign in and use the app. Follow the instructions in [Configure your App Service app](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) to connect to AAD.
 
 ## Next steps
 
