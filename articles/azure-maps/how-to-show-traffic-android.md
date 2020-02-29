@@ -196,15 +196,14 @@ public class MainActivity extends AppCompatActivity {
 
 ## Flow traffic data
 
-Use the following code snippet to set traffic flow data. Similar to the code in the previous section, we pass the return value of the `flow` method to the `setTraffic` method. There are four values that can be passed to `flow`, and each value would trigger `flow` to return the respective value. The return value of `flow` will then be passed as the argument to `setTraffic`. See the table below for these four values:
-
-
 You'll first need to import the following libraries to call `setTraffic` and `flow`:
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
+
+Use the following code snippet to set traffic flow data. Similar to the code in the previous section, we pass the return value of the `flow` method to the `setTraffic` method. There are four values that can be passed to `flow`, and each value would trigger `flow` to return the respective value. The return value of `flow` will then be passed as the argument to `setTraffic`. See the table below for these four values:
 
 | | |
 | :-- | :-- |
