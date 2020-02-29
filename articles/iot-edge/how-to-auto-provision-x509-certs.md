@@ -45,19 +45,19 @@ After you create the device identity certificate, you should have two files: a .
 
 If you don't have a certificate authority available to create new identity certs and want to try out this scenario, the Azure IoT Edge git repository contains scripts that you can use to generate test certificates. These certificates are designed for development testing only, and must not be used in production.
 
-To create test certificates, follow the steps in [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md). Complete the two required sections to set up the certificate generation scripts and to create a root CA certificate. Then, follow the steps to create a device identity certificate. When you're finished, you should have the following certificate and key pair:
+To create test certificates, follow the steps in [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md). Complete the two required sections to set up the certificate generation scripts and to create a root CA certificate. Then, follow the steps to create a device identity certificate. When you're finished, you should have the following certificate chain and key pair:
 
 Linux:
 
-* `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
+* `<WRKDIR>/certs/iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
 Windows:
 
-* `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
-You need both these certificates on the IoT Edge device. If you're going to use individual enrollment in DPS, then you will upload the .cert.pem file. If you're going to use group enrollment in DPS, then you also need an intermediate or root CA certificate in the same certificate chain of trust to upload. In the case of the test certs, you can use the  `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` certificate for group enrollment.
+You need both these certificates on the IoT Edge device. If you're going to use individual enrollment in DPS, then you will upload the .cert.pem file. If you're going to use group enrollment in DPS, then you also need an intermediate or root CA certificate in the same certificate chain of trust to upload. In the case of the test certs, you can use the `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` certificate for group enrollment.
 
 ## Create a DPS individual enrollment
 
@@ -77,7 +77,7 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
 
    * **Primary Certificate .pem or .cer file**: Upload the public file from the device identity certificate. If you used the scripts to generate a test certificate, choose the following file:
 
-      `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
+      `<WRKDIR>/certs/iot-edge-device-identity-<name>-full-chain.cert.pem`
 
    * **IoT Hub Device ID**: Provide an ID for your device if you'd like. You can use device IDs to target an individual device for module deployment. If you don't provide a device ID, the common name (CN) in the X.509 certificate is used.
 
