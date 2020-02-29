@@ -60,16 +60,16 @@ The recommended folder structure for a Python Functions project looks like the f
 
 ```
  __app__
- | - MyFirstFunction
+ | - my_first_function
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - MySecondFunction
+ | - my_second_function
  | | - __init__.py
  | | - function.json
- | - SharedCode
- | | - myFirstHelperFunction.py
- | | - mySecondHelperFunction.py
+ | - shared_code
+ | | - my_first_helper_function.py
+ | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
  tests
@@ -84,10 +84,10 @@ The main project folder (\_\_app\_\_) can contain the following files:
 
 Each function has its own code file and binding configuration file (function.json). 
 
-Shared code should be kept in a separate folder in \_\_app\_\_. To reference modules in the SharedCode folder, you can use the following syntax:
+Shared code should be kept in a separate folder in \_\_app\_\_. To reference modules in the shared\_code folder, you can use the following syntax:
 
 ```python
-from __app__.SharedCode import myFirstHelperFunction
+from __app__.shared_code import my_first_helper_function
 ```
 
 To reference modules local to a function, you can use the relative import syntax as follows:
