@@ -84,19 +84,47 @@ The main project folder (\_\_app\_\_) can contain the following files:
 
 Each function has its own code file and binding configuration file (function.json). 
 
-Shared code should be kept in a separate folder in \_\_app\_\_. To reference modules in the shared\_code folder, you can use the following syntax:
+When deploying your project to a function app in Azure, the entire contents of the main project (*\_\_app\_\_*) folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
+
+## Import behavior
+
+You can import modules in your function code using both explicit relative and absolute references. Based on the folder structure shown above, the following imports work from within the function file *\_\_app\_\_\my\_first\_function\\_\_init\_\_.py*:
+
+```python
+from . import example #(explicit relative)
+```
+
+```python
+from ..shared_code import my_first_helper_function #(explicit relative)
+```
+
+```python
+from __app__ import shared_code #(absolute)
+```
+
+```python
+import __app__.shared_code #(absolute)
+```
+
+The following imports *don't work* from within the same file:
+
+```python
+import example
+```
+
+```python
+from example import some_helper_code
+```
+
+```python
+import shared_code
+```
+
+Shared code should be kept in a separate folder in *\_\_app\_\_*. To reference modules in the *shared\_code* folder, you can use the following syntax:
 
 ```python
 from __app__.shared_code import my_first_helper_function
 ```
-
-To reference modules local to a function, you can use the relative import syntax as follows:
-
-```python
-from . import example
-```
-
-When deploying your project to a function app in Azure, the entire contents of the main project (*\_\_app\_\_*) folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
 
 ## Triggers and Inputs
 
