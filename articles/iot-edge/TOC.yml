@@ -139,6 +139,8 @@
         href: how-to-auto-provision-simulated-device-linux.md
       - name: Windows
         href: how-to-auto-provision-simulated-device-windows.md
+    - name: X.509 certificate attestation
+      href: how-to-auto-provision-x509-certs.md
     - name: Symmetric key attestation
       href: how-to-auto-provision-symmetric-keys.md
   - name: Develop and debug custom modules
