@@ -80,7 +80,7 @@ Below is the complete running code sample of the above functionality.
 
 ## Reusing a popup with multiple points
 
-There are cases in which the best approach is to create one popup and reuse. For example, you may have a large number of points and only want to show one popup at a time. By reusing the popup, the number of DOM elements created by the application is greatly reduced which can provide better performance. The following sample creates 3-point features. If you click on any of them, a popup will be displayed with the content for that point feature.
+There are cases in which the best approach is to create one popup and reuse it. For example, you may have a large number of points and want to show only one popup at a time. By reusing the popup, the number of DOM elements created by the application is greatly reduced, which can provide better performance. The following sample creates 3-point features. If you click on any of them, a popup will be displayed with the content for that point feature.
 
 <br/>
 
@@ -89,7 +89,7 @@ There are cases in which the best approach is to create one popup and reuse. For
 
 ## Customizing a popup
 
-By default the popup has a white background, a pointer arrow on the bottom, and a close button in the top-right corner. The following sample changes the background color to black using the `fillColor` option of the popup. The close button is removed by setting the `CloseButton` option to false. The HTML content of the popup uses padded of 10 pixels from the edges of the popup. The text is made white, so it shows up nicely on the black background.  
+By default, the popup has a white background, a pointer arrow on the bottom, and a close button in the top-right corner. The following sample changes the background color to black using the `fillColor` option of the popup. The close button is removed by setting the `CloseButton` option to false. The HTML content of the popup uses padded of 10 pixels from the edges of the popup. The text is made white, so it shows up nicely on the black background.  
 
 <br/>
 
@@ -106,7 +106,7 @@ Popup templates make it easy to create data driven layouts for popups. The secti
 
 The String template replaces placeholders with values of the feature properties. The properties of the feature don't have to be assigned a value of type String. For example, `value1` holds an integer. These values are then passed to the content property of the `popupTemplate`. 
 
-The `numberFormat` option specifies the format of the number to display. If the `numberFormat` isn't specified, then the code will use the popup templates date format. The `numberFormat` option formats numbers using the [Number.toLocaleString]((https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function. To format large numbers, consider using the `numberFormat` option with functions from[NumberFormat.format](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format). For instance, the code snippet below uses `maximumFractionDigits` to limit the number of fraction digits to two.
+The `numberFormat` option specifies the format of the number to display. If the `numberFormat` isn't specified, then the code will use the popup templates date format. The `numberFormat` option formats numbers using the [Number.toLocaleString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function. To format large numbers, consider using the `numberFormat` option with functions from [NumberFormat.format](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format). For instance, the code snippet below uses `maximumFractionDigits` to limit the number of fraction digits to two.
 
 > [!Note]
 > There's only one way in which the String template can render images. First, the String template needs to have an image tag in it. The value being passed to the image tag should be a URL to an image. Then, the String template needs to have `isImage` set to true in the `HyperLinkFormatOptions`. The `isImage` option specifies that the hyperlink is for an image, and the hyperlink will be loaded into an image tag. When the hyperlink is clicked, the image will open.
@@ -182,7 +182,7 @@ new atlas.data.Feature(new atlas.data.Point([20, -20]), {
 
 ```
 
-### Multiple content template
+### Multiple content templates
 
 A feature may also display content using a combination of the String template and the PropertyInfo template. In this case, the String template renders placeholders values on a white background.  And, the PropertyInfo template renders a full width image inside a table. The properties in this sample are similar to the properties we explained in the previous samples.
 
@@ -217,7 +217,7 @@ new atlas.data.Feature(new atlas.data.Point([0, 0]), {
 
 ### Points without a defined template
 
-when the Popup template isn't defined to be a String template, a PropertyInfo template, or a combination of both, then it uses the default settings. When the `title` and `description` are the only assigned properties, the popup template shows a white background, a close button in the top-right corner. And, on small and medium screens, it shows an arrow at the bottom. The default settings show inside a table for all properties other than the `title` and the `description`. Even when falling back to the default settings, the popup template can still be manipulated programmatically. For example, users can turn off hyperlink detection and the default settings would still apply to other properties.
+When the Popup template isn't defined to be a String template, a PropertyInfo template, or a combination of both, then it uses the default settings. When the `title` and `description` are the only assigned properties, the popup template shows a white background, a close button in the top-right corner. And, on small and medium screens, it shows an arrow at the bottom. The default settings show inside a table for all properties other than the `title` and the `description`. Even when falling back to the default settings, the popup template can still be manipulated programmatically. For example, users can turn off hyperlink detection and the default settings would still apply to other properties.
 
 Click the points on the map in the CodePen. There is a point on the map for each of the following popup templates: String template, PropertyInfo template, and Multiple content template. There are also three points to show how templates render using the defaulting settings.
 
