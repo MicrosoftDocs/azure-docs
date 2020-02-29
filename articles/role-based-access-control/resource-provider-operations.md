@@ -1082,12 +1082,12 @@ Azure service: [Azure Blockchain Service](../blockchain/workbench/index.yml)
 > | Action | Microsoft.Blockchain/blockchainMembers/read | Gets or Lists existing Blockchain Member(s). |
 > | Action | Microsoft.Blockchain/blockchainMembers/write | Creates or Updates a Blockchain Member. |
 > | Action | Microsoft.Blockchain/blockchainMembers/delete | Deletes an existing Blockchain Member. |
-> | Action | Microsoft.Blockchain/blockchainMembers/listApiKeys/action | Gets or Lists existing Blockchain Member Api Keys. |
+> | Action | Microsoft.Blockchain/blockchainMembers/listApiKeys/action | Gets or Lists existing Blockchain Member API keys. |
 > |  | **blockchainMembers/transactionNodes** |  |
 > | Action | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Gets or Lists existing Blockchain Member Transaction Node(s). |
 > | Action | Microsoft.Blockchain/blockchainMembers/transactionNodes/write | Creates or Updates a Blockchain Member Transaction Node. |
 > | Action | Microsoft.Blockchain/blockchainMembers/transactionNodes/delete | Deletes an existing Blockchain Member Transaction Node. |
-> | Action | Microsoft.Blockchain/blockchainMembers/transactionNodes/listApiKeys/action | Gets or Lists existing Blockchain Member Transaction Node Api Keys. |
+> | Action | Microsoft.Blockchain/blockchainMembers/transactionNodes/listApiKeys/action | Gets or Lists existing Blockchain Member Transaction Node API keys. |
 > |  | **cordaMembers** |  |
 > | Action | Microsoft.Blockchain/cordaMembers/read | Gets or Lists existing Blockchain Corda Member(s). |
 > | Action | Microsoft.Blockchain/cordaMembers/write | Creates or Updates a Blockchain Corda Member. |
