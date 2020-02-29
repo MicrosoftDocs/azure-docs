@@ -1,6 +1,6 @@
 ---
-title: Built-in roles for Azure resources | Microsoft Docs
-description: Describes the built-in roles for role-based access control (RBAC) and Azure resources. Lists the Actions, NotActions, DataActions, and NotDataActions.
+title: Azure built-in roles for Azure RBAC
+description: Describes the Azure built-in roles for Azure role-based access control (Azure RBAC). Lists the Actions, NotActions, DataActions, and NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,19 +18,19 @@ ms.reviewer: bagovind
 
 ms.custom: it-pro
 ---
-# Built-in roles for Azure resources
+# Azure built-in roles
 
-[Role-based access control (RBAC)](overview.md) has several built-in roles for Azure resources that you can assign to users, groups, service principals, and managed identities. Role assignments are the way you control access to Azure resources. If the built-in roles don't meet the specific needs of your organization, you can create your own [custom roles for Azure resources](custom-roles.md).
+[Azure role-based access control (Azure RBAC)](overview.md) has several Azure built-in roles that you can assign to users, groups, service principals, and managed identities. Role assignments are the way you control access to Azure resources. If the built-in roles don't meet the specific needs of your organization, you can create your own [Azure custom roles](custom-roles.md).
 
 This article lists the built-in roles for Azure resources, which are always evolving. To get the latest roles, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list). If you are looking for administrator roles for Azure Active Directory, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-## Built-in role descriptions
+## Descriptions and IDs
 
-The following table provides a brief description of each built-in role. Click the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role. For information about what these actions mean and how they apply to the management and data planes, see [Understand role definitions for Azure resources](role-definitions.md).
+The following table provides a brief description and the unique ID of each built-in role. Click the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role. For information about what these actions mean and how they apply to the management and data planes, see [Understand role definitions for Azure resources](role-definitions.md).
 
 
 > [!div class="mx-tableFixed"]
-> | Built-in role | Description | Id |
+> | Built-in role | Description | ID |
 > | --- | --- | --- |
 > | [AcrDelete](#acrdelete) | acr delete | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | [AcrImageSigner](#acrimagesigner) | acr image signer | 6cef56e8-d556-48e5-a04f-b8e64114680f |
