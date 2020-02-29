@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create your first function in Azure using Visual Studio
+title: "Quickstart: Create your first function in Azure using Visual Studio"
 description: In this quickstart, you learn how to create and publish an HTTP-triggered Azure Function by using Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
@@ -10,15 +10,17 @@ ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application.
 
-In this quickstart, you learn how to use Visual Studio 2019 to locally create and test a "hello world" function, and then publish it to Azure. This quickstart is designed for Visual Studio 2019. If you create a Azure Functions project by using Visual Studio 2017, you must first install the [latest Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
+In this quickstart, you learn how to use Visual Studio 2019 to locally create and test a "hello world" function, and then publish it to Azure. 
 
 ![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
+
+This quickstart is designed for Visual Studio 2019. If you want to create an Azure Functions project by using Visual Studio 2017, you must first install the [latest Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
 
 To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md).
 
 ## Prerequisites
 
-To complete this tutorial, you must first install [Visual Studio 2019](https://azure.microsoft.com/downloads/). Make sure that the **Azure development** workload is also installed.
+To complete this tutorial, first install [Visual Studio 2019](https://azure.microsoft.com/downloads/). Ensure you select the **Azure development** workload during installation.
 
 ![Install Visual Studio with the Azure development workload](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
@@ -44,13 +46,13 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Publish the project to Azure
 
-You must have a function app in your Azure subscription before you can publish your project. Visual Studio publishing creates a function app for you the first time you publish your project.
+Before you can publish your project, you must have a function app in your Azure subscription. Visual Studio publishing creates a function app for you the first time you publish your project.
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
 ## Test your function in Azure
 
-1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `?name=<YOUR_NAME>` to this URL and execute the request.
+1. Copy the base URL of the function app from the **Publish** profile page. Replace the `localhost:port` portion of the URL you used to test the function locally with the new base URL. Append the query string `?name=<YOUR_NAME>` to this URL and execute the request.
 
     The URL that calls your HTTP triggered function is in the following format:
 
@@ -60,9 +62,19 @@ You must have a function app in your Azure subscription before you can publish y
 
     ![Function response in the browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png)
 
+## Clean up resources
+
+If you don't expect to need these resources in the future, you can delete them by deleting the resource group:
+
+1. From the Azure portal menu or **Home** page, select or search for **Resource groups**. 
+
+2. On the **Resource groups** page, select the resource group you created for this quickstart.
+
+3. On the **Resource group** page for that resource group, select **Delete resource group**, enter the name of the resource group in the box, and then select **Delete**.
+
 ## Next steps
 
-In this quickstart, you've used Visual Studio to create and publish a C# function app in Azure with a simple HTTP triggered function. 
+In this quickstart, you used Visual Studio to create and publish a C# function app in Azure with a simple HTTP triggered function. 
 
 Advance to the next article to learn how to add an Azure Storage queue binding to your function:
 > [!div class="nextstepaction"]
