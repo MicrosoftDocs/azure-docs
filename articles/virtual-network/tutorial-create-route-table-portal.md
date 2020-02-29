@@ -20,17 +20,96 @@ ms.author: kumud
 Azure routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. The ability to create custom routes is helpful if, for example, you want to route traffic between subnets through a network virtual appliance (NVA). In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Create an NVA that routes traffic
 > * Create a route table
 > * Create a route
-> * Create a virtual network with multiple subnets
 > * Associate a route table to a subnet
-> * Create an NVA that routes traffic
 > * Deploy virtual machines (VM) into different subnets
 > * Route traffic from one subnet to another through an NVA
 
 If you prefer, you can finish this tutorial using the [Azure CLI](tutorial-create-route-table-cli.md) or [Azure PowerShell](tutorial-create-route-table-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Create an NVA
+
+Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. You can select a different operating system if you want. This tutorial assumes you're using **Windows Server 2016 Datacenter**.
+
+1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**.
+
+1. Choose **Security** > **Windows Server 2016 Datacenter**.
+
+    ![Windows Server 2016 Datacenter, Create a VM, Azure portal](./media/tutorial-create-route-table-portal/vm-ws2016-datacenter.png)
+
+1. In the **Create a virtual machine** window, under **Basics**, enter or select this information:
+
+    | Section | Setting | Action |
+    | ------- | ------- | ----- |
+    | **Project details** | Subscription | Choose your subscription. |
+    | | Resource group | Select **Create new**, enter *myResourceGroup*, and select **OK**. |
+    | **Instance details** | Virtual machine name | Enter *myVmNva*. |
+    | | Region | Choose **(US) East US**. |
+    | | Availability options | Choose **No infrastructure redundancy required**. |
+    | | Image | Choose **Windows Server 2016 Datacenter**. |
+    | | Size | Keep the default, **Standard DS1 v2**. |
+    | **Administrator account** | Username | Enter a user name of your choosing. |
+    | | Password | Enter a password of your choosing, which must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). |
+    | | Confirm Password | Enter your password again. |
+    | **Inbound port rules** | Public inbound ports | Pick **None**. |
+    | **Save money** | Already have a Windows Server license? | Pick **No**. |
+
+    ![Basics, Create a virtual machine, Azure portal](./media/tutorial-create-route-table-portal/basics-create-virtual-machine.png)
+
+    Then select **Next : Disks >**.
+
+1. Under **Disks**, select the settings that are right for your needs, and then select **Next : Networking >**.
+
+1. Under **Networking**:
+
+    1. For **Virtual network**, select **Create new**.
+    
+    1. In the **Create virtual network** dialog box, under **Name**, enter *myVirtualNetwork*.
+
+    1. In **Address space**, replace the existing address range with *10.0.0.0/16*.
+
+    1. In **Subnets**, select the **Delete** icon to delete the existing subnet, and then enter the following combinations of **Subnet name** and **Address range**. Once a valid name and range is entered, a new empty row appears below it.
+
+        | Subnet name | Address range |
+        | ----------- | ------------- |
+        | *Public* | *10.0.0.0/24* |
+        | *Private* | *10.0.1.0/24* |
+        | *DMZ* | *10.0.2.0/24* |
+
+    1. Select **OK** to exit the dialog box.
+
+    1. In **Subnet**, choose **Public (10.0.0.0/24)**.
+
+    1. In **Public IP**, choose **None**, since the VM won't connect over the internet.
+
+    1. Select **Next : Management >**.
+
+1. Under **Management**:
+
+    1. In **Diagnostics storage account**, select **Create New**.
+    
+    1. In the **Create storage account** dialog box, enter or select this information:
+
+        | Setting | Value |
+        | ------- | ----- |
+        | Name | *mynvastorageaccount* |
+        | Account kind | **Storage (general purpose v1)** |
+        | Performance | **Standard** |
+        | Replication | **Locally-redundant storage (LRS)** |
+    
+    1. Select **OK** to exit the dialog box.
+
+    1. Select **Review + create**. You're taken to the **Review + create** page, and Azure validates your configuration.
+
+1. When you see the **Validation passed** message, select **Create**.
+
+    The VM takes a few minutes to create. Don't keep going until Azure finishes creating the VM. The **Your deployment is underway** page will show you deployment details.
+
+1. When your VM is ready, select **Go to resource**.
 
 ## Create a route table
 
@@ -42,13 +121,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 4. In **Create route table**, enter or select this information:
 
-    | Setting | Action |
+    | Setting | Value |
     | ------- | ----- |
-    | Name | Enter *myRouteTablePublic*. |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**, enter *myResourceGroup*, and select **OK**. |
-    | Location | Select **(US) East US**.
-    | Virtual network gateway route propagation | Leave the default **Enabled**. |
+    | Name | *myRouteTablePublic* |
+    | Subscription | Your subscription |
+    | Resource group | **myResourceGroup** |
+    | Location | **(US) East US** |
+    | Virtual network gateway route propagation | **Enabled** |
+
+    ![Create route table, Azure portal](./media/tutorial-create-route-table-portal/create-route-table.png)
 
 5. Select **Create**.
 
@@ -75,62 +156,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Associate a route table to a subnet
 
-Before you can associate a route table to a subnet, you have to create a virtual network and subnet.
-
-### Create a virtual network
-
-1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**.
-
-1. Choose **Networking** > **Virtual network**.
-
-1. In **Basics**, enter or select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Subscription | Your subscription |
-    | Resource group | **myResourceGroup** |
-    | Name | *myVirtualNetwork* |
-    | Region | **(US) East US** |
-
-1. Select **Next : IP Addresses >**.
-
-1. In **IP Addresses**, under **IPv4 address space**, enter *10.0.0.0/16*.
-
-1. Under the **Subnet name**/**Subnet address range** table, choose **default**. Then in the **Add subnet** dialog box, change the **Subnet name** to *Public* and change **Subnet address range** to *10.0.0.0/24*. Finally, select **Save**.
-
-1. Select **Review + create**. Once you see the **Validation passed** message, select **Create** to create the new virtual network.
-
-### Add subnets to the virtual network
-
-1. Go to the [Azure portal](https://portal.azure.com) to manage your new virtual network. Search for and select **Virtual networks**.
+1. Go to the [Azure portal](https://portal.azure.com) to manage your virtual network. Search for and select **Virtual networks**.
 
 1. Pick the name of your virtual network (**myVirtualNetwork**).
 
-1. Choose **Subnets** > **Subnet**.
-
-    ![Add subnet, virtual network, Azure portal](./media/tutorial-create-route-table-portal/add-subnet.png)
-
-1. In **Add subnet**, enter this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | *Private*. |
-    | Address space (CIDR block) | *10.0.1.0/24* |
-
-1. Leave the rest of the defaults and select **OK**.
-
-1. Select **Subnet** again. This time, enter this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | *DMZ* |
-    | Address space (CIDR block) | *10.0.2.0/24* |
-
-1. Like the last time, leave the rest of the defaults and select **OK**.
-
-    Azure shows the three subnets: **Public**, **Private**, and **DMZ**.
-
-### Associate myRouteTablePublic to your Public subnet
+1. In the virtual network's menu bar, choose **Subnets**.
 
 1. In the virtual network's subnet list, choose **Public**.
 
@@ -138,69 +168,13 @@ Before you can associate a route table to a subnet, you have to create a virtual
 
     ![Associate route table, subnet list, virtual network, Azure portal](./media/tutorial-create-route-table-portal/associate-route-table.png)
 
-## Create an NVA
-
-Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. You can select a different operating system if you want. This tutorial assumes you're using **Windows Server 2016 Datacenter**.
-
-1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**.
-
-1. Choose **Security** > **Windows Server 2016 Datacenter**.
-
-1. In the **Create a virtual machine** window, under **Basics**, enter or select this information:
-
-    | Section | Setting | Value |
-    | ------- | ------- | ----- |
-    | **Project details** | Subscription | Your subscription |
-    | | Resource group | Your resource group (**myResourceGroup**) |
-    | **Instance details** | Virtual machine name | *myVmNva* |
-    | | Region | **(US) East US** |
-    | | Availability options | **No infrastructure redundancy required** |
-    | | Image | **Windows Server 2016 Datacenter** |
-    | | Size | **Standard DS1 v2** |
-    | **Administrator account** | Username | A user name of your choosing |
-    | | Password | A password of your choosing, which must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) |
-    | | Confirm Password | Your password again |
-    | **Inbound port rules** | Public inbound ports | **None** |
-    | **Save money** | Already have a Windows Server license? | **No** |
-
-    Then select **Next : Disks >**.
-
-1. Under **Disks**, select the settings that are right for your needs, and then select **Next : Networking >**.
-
-1. Under **Networking**, select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Virtual network | Your virtual network (**myVirtualNetwork**) |
-    | Subnet | **DMZ (10.0.2.0/24)** |
-    | Public IP | **None** (the VM won't connect over the internet) |
-
-    Then select **Next : Management >**.
-
-1. Under **Management**, for **Diagnostics storage account**, select **Create New**.
-
-1. In the **Create storage account** dialog box, enter or select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | *mynvastorageaccount* |
-    | Account kind | **Storage (general purpose v1)** |
-    | Performance | **Standard** |
-    | Replication | **Locally-redundant storage (LRS)** |
-
-    Then select **OK**.
-
-1. Select **Review + create**. You're taken to the **Review + create** page, and Azure validates your configuration.
-
-1. When you see the **Validation passed** message, select **Create**.
-
-    The VM takes a few minutes to create. Don't keep going until Azure finishes creating the VM. The **Your deployment is underway** page will show you deployment details.
-
-1. When your VM is ready, select **Go to resource**.
-
 ## Turn on IP forwarding
 
 Next, turn on IP forwarding for your new NVA virtual machine, *myVmNva*. When Azure sends network traffic to *myVmNva*, if the traffic is destined for a different IP address, IP forwarding sends the traffic to the correct location.
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your VM. Search for and select **Virtual machines**.
+
+1. Pick the name of your VM (**myVmNva**).
 
 1. In your NVA virtual machine's menu bar, select **Networking**.
 
