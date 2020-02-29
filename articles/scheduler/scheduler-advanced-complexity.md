@@ -248,8 +248,9 @@ These schedules assume that **interval** is set to 1\. The examples also assume 
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Run every 15 minutes on the last Friday of the month. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |Run at 5:15 AM, 5:45 AM, 5:15 PM, and 5:45 PM on the third Wednesday of every month. |
 
-## See also
+## Next steps
 
-* [What is Azure Scheduler?](scheduler-intro.md)
 * [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+* [Azure Scheduler REST API reference](/rest/api/scheduler)
+* [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 * [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)

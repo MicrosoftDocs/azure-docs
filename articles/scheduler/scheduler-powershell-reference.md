@@ -22,8 +22,6 @@ ms.date: 08/18/2016
 > and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
 > at this time so that you can manage your jobs and job collections.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 To author scripts for creating and 
 managing Scheduler jobs and job collections, 
 you can use PowerShell cmdlets. This article lists 
@@ -33,6 +31,8 @@ To install Azure PowerShell for your Azure subscription,
 see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
 For more information about [Azure Resource Manager cmdlets](/powershell/azure/overview), 
 see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 | Cmdlet | Description |
 |--------|-------------|
@@ -63,8 +63,8 @@ Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## See also
+## Next steps
 
-* [What is Azure Scheduler?](scheduler-intro.md)
-* [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+* [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+* [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 * [Azure Scheduler REST API reference](/rest/api/scheduler)

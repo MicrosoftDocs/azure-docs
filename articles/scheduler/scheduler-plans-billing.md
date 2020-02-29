@@ -112,8 +112,7 @@ then you're billed for one standard billing unit *and* one premium billing unit.
   The Scheduler service bills based on the number of active 
   job collections that are either standard or premium.
 
-## See also
+## Next steps
 
-* [What is Azure Scheduler?](scheduler-intro.md)
 * [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 * [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)

@@ -107,9 +107,9 @@ Service Bus queue, or Service Bus topic action.
 To learn how to set up an alternate endpoint, see 
 [errorAction](scheduler-concepts-terms.md#error-action).
 
-## See also
+## Next steps
 
-* [What is Azure Scheduler?](scheduler-intro.md)
 * [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
-* [Build complex schedules and advanced recurrence](scheduler-advanced-complexity.md)
+* [Azure Scheduler REST API reference](/rest/api/scheduler)
+* [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 * [Limits, quotas, default values, and error codes](scheduler-limits-defaults-errors.md)

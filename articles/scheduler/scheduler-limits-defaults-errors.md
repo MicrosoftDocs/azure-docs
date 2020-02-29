@@ -41,7 +41,9 @@ you can report the error to Microsoft by providing the
 * The identifiers for the Azure subscription, job collection, and job 
 * The type of operation that the request attempted
 
-## See also
+## Next steps
 
-* [What is Azure Scheduler?](scheduler-intro.md)
 * [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+* [Plans and billing for Azure Scheduler](scheduler-plans-billing.md)
+* [Azure Scheduler REST API reference](/rest/api/scheduler)
+* [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
