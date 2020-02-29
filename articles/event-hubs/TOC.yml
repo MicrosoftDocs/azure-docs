@@ -50,7 +50,7 @@
       href: event-hubs-python-get-started-send.md
     - name: JavaScript (azure/event-hubs version 2)    
       href: event-hubs-node-get-started-send.md
-    - name: .NET Framework (Microsoft.Azure.EventHubs)
+    - name: .NET Framework (Microsoft.ServiceBus)
       href: event-hubs-dotnet-framework-getstarted-send.md
   - name: Capture events
     items:
@@ -122,6 +122,8 @@
     maintainContext: true
 - name: How-to guides
   items:
+  - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
+    href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json    
   - name: Develop 
     items:
     - name: Get Event Hubs connection string

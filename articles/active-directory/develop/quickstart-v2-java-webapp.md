@@ -93,6 +93,7 @@ To run this sample you will need:
     aad.secretKey=Enter_the_Client_Secret_Here
     aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
     aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
+    aad.msGraphEndpointHost="https://graph.microsoft.com/"
     ```
 
     > [!div renderon="docs"]
@@ -105,13 +106,13 @@ To run this sample you will need:
  1. To use https with localhost, fill in the server.ssl.key properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
 
    ```
-   Example: 
+   Example:
    keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
 
    server.ssl.key-store-type=PKCS12  
    server.ssl.key-store=classpath:keystore.p12  
    server.ssl.key-store-password=password  
-   server.ssl.key-alias=testCert 
+   server.ssl.key-alias=testCert
    ```
 
    Put the generated keystore file in the "resources" folder.

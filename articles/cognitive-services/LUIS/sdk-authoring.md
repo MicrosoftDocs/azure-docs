@@ -13,13 +13,12 @@ Get started with the Language Understanding (LUIS) client library. Follow these 
 [!INCLUDE [Get intent with C# SDK](./includes/sdk-csharp-authoring.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-[!INCLUDE [Get intent with Python SDK](./includes/sdk-python-authoring.md)]
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Get intent with Node.js SDK](./includes/sdk-nodejs-authoring.md)]
 ::: zone-end
 
-
-::: zone pivot="programming-language-nodejs"
-[!INCLUDE [Get intent with Node.js SDK](./includes/sdk-nodejs-authoring.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [Get intent with Python SDK](./includes/sdk-python-authoring.md)]
 ::: zone-end
 
 ## Next steps

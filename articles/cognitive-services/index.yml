@@ -2,16 +2,17 @@
 
 title: Azure Cognitive Services documentation
 summary: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
+brand: azure
+
 metadata:
   title: Azure Cognitive Services documentation
   description: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
   ms.service: cognitive-services
   ms.topic: hub-page
-  brand: azure
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 11/04/2019
+  ms.date: 01/21/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -86,7 +87,7 @@ conceptualContent:
     - title: Speech
       summary: Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
       links:
-        - url: ./speech-service/index.md
+        - url: ./speech-service/index.yml
           itemType: overview
           text: Speech service
         - url: ./speaker-recognition/home.md
@@ -116,36 +117,6 @@ conceptualContent:
         - url: ./Bing-web-search/index.yml
           itemType: overview
           text: Bing Search APIs hub page
-        - url: ./Bing-Autosuggest/get-suggested-search-terms.md
-          itemType: overview
-          text: Autosuggest Search
-        - url: ./bing-custom-search/overview.md
-          itemType: overview
-          text: Custom Search
-        - url: ./bing-entities-search/overview.md
-          itemType: overview
-          text: Entity Search
-        - url: ./bing-image-search/overview.md
-          itemType: overview
-          text: Image Search
-        - url: ./bing-local-business-search/overview.md
-          itemType: overview
-          text: Local Business Search (Preview)
-        - url: ./bing-news-search/search-the-web.md
-          itemType: overview
-          text: News Search
-        - url: ./bing-spell-check/overview.md
-          itemType: overview
-          text: Spell Check
-        - url: ./Bing-Video-Search/overview.md
-          itemType: overview
-          text: Video Search
-        - url: ./bing-visual-search/overview.md
-          itemType: overview
-          text: Visual Search
-        - url: ./bing-web-search/overview.md
-          itemType: overview
-          text: Web Search
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:

@@ -7,6 +7,7 @@
   - name: Evolution of Microsoft identity platform
     href: about-microsoft-identity-platform.md  
 - name: Quickstarts
+  expanded: true
   items:
   - name: Set up a tenant
     href: quickstart-create-new-tenant.md
@@ -28,9 +29,9 @@
       href: quickstart-v2-javascript.md
   - name: Web apps
     items:
-    - name: ASP .NET
+    - name: ASP.NET
       href: quickstart-v2-aspnet-webapp.md
-    - name: ASP .NET Core
+    - name: ASP.NET Core
       href: quickstart-v2-aspnet-core-webapp.md
     - name: NodeJS
       href: quickstart-v2-nodejs-webapp.md
@@ -41,9 +42,9 @@
       href: quickstart-v2-python-webapp.md
   - name: Web APIs
     items:
-    - name: ASP .NET
+    - name: ASP.NET
       href: quickstart-v2-dotnet-native-aspnet.md
-    - name: ASP .NET Core
+    - name: ASP.NET Core
       href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
   - name: Mobile and desktop apps
     items:
@@ -69,7 +70,7 @@
       href: tutorial-v2-javascript-spa.md
   - name: Web apps
     items:
-    - name: ASP .NET
+    - name: ASP.NET
       href: tutorial-v2-asp-webapp.md
   - name: Mobile and desktop apps
     items:
@@ -90,6 +91,7 @@
 - name: Samples
   href: sample-v2-code.md
 - name: Concepts
+  expanded: true
   items:
   - name: Authentication basics
     href: authentication-scenarios.md
@@ -240,13 +242,15 @@
       href: brokered-auth.md
     - name: Migration
       items:
+      - name: Overview
+        href: msal-migration.md
       - name: Migrate to MSAL.NET
         href: msal-net-migration.md
       - name: Migrate to MSAL.js
         href: msal-compare-msal-js-and-adal-js.md
       - name: Migrate to MSAL.Android
         href: migrate-android-adal-msal.md
-      - name: Migrate to MSAL.iOS / MacOS
+      - name: Migrate to MSAL.iOS / macOS
         href: migrate-objc-adal-msal.md
       - name: Migrate to MSAL Python
         href: migrate-python-adal-msal.md
@@ -401,6 +405,8 @@
       href: v2-admin-consent.md
     - name: Application consent experiences
       href: application-consent-experience.md
+  - name: Conditional access
+    href: v2-conditional-access-dev-guide.md
   - name: National Clouds
     items:
     - name: Overview

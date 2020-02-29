@@ -153,44 +153,95 @@
     - name: Network performance
       href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: VM types and sizes
-    href: 
     items:
-    - name: Size families
+    - name: VM sizes
       href: sizes.md
     - name: Generation 2 VMs
       href: generation-2.md
     - name: General purpose
-      href: sizes-general.md
-      displayName: Dsv3 Dv3 DSv2 Dv2 Av2      
       items:
+      - name: Overview
+        href: ../sizes-general.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json     
+      - name: Av2-series
+        href: ../av2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: B-series burstable
-        href: b-series-burstable.md
-    - name: Compute optimized
-      href: sizes-compute.md  
-      displayName: Fsv2 Fs F-series     
-    - name: Memory optimized
-      href: sizes-memory.md
-      displayName: Esv3 Ev3 M-series GS G-series DSv2 Dv2     
+        href: ../sizes-b-series-burstable.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: DCv2-series
+        href: ../dcv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Dv2 and DSv2-series
+        href: ../dv2-dsv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Dv3 and Dsv3-series
+        href: ../dv3-dsv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Dav4 and Dasv4-series
+        href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Compute optimized  
       items:
+      - name: Overview
+        href: ../sizes-compute.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Fsv2-series
+        href: ../fsv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Memory optimized
+      displayName: Esv3 Ev3 Easv4 Eav4 M-series GS G-series DSv2 Dv2     
+      items:
+      - name: Overview
+        href: ../sizes-memory.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Dv2 and DSv2-series 11-15
+        href: ../dv2-dsv2-series-memory.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Ev3 and Esv3-series
+        href: ../ev3-esv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Eav4 and Easv4-series
+        href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: M-series
+        href: ../m-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Mv2-series
+        href: ../mv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Constrained vCPUs
         href: constrained-vcpu.md
     - name: Storage optimized
-      displayName: ls
-      href: sizes-storage.md    
       items:
+      - name: Overview
+        href: ../sizes-storage.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Lsv2-series
+        href: ../lsv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Optimize performance
         href: storage-performance.md
-    - name: Accelerated compute
+    - name: GPU - accelerated compute
       items:
-      - name: GPU optimized
-        href: sizes-gpu.md
-      - name: Setup NVIDIA GPU drivers
+      - name: Overview
+        href: sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: NC-series
+        href: ../nc-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: NCv2-series
+        href: ../ncv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: NCv3-series
+        href: ../ncv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: ND-series
+        href: ../nd-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: NDv2-series
+        href: ../ndv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: NV-series
+        href: ../nv-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: NVv3-series
+        href: ../nvv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: NVv4-series
+        href: ../nvv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Setup GPU drivers
         href: n-series-driver-setup.md
       - name: Setup AMD GPU drivers
-        href: n-series-amd-driver-setup.md      
+        href: n-series-amd-driver-setup.md
     - name: High performance compute
       displayName: H-series
-      href: sizes-hpc.md   
+      items:
+        - name: Overview
+          href: ../sizes-hpc.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json   
+        - name: H-series
+          href: ../h-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: HB-series
+          href: ../hb-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: HBv2-series
+          href: ../hbv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: HC-series
+          href: ../hc-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Reserved instances
       items:
       - name: Prepay for VMs
@@ -202,12 +253,12 @@
     - name: Spot VMs
       href: spot-vms.md
     - name: Previous generations
-      href: sizes-previous-gen.md  
+      href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       displayName: D-series Ds-series A-series Basic      
     - name: Isolated sizes
       href: isolation.md
     - name: Azure compute units (ACU)
-      href: acu.md 
+      href: ../acu.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Benchmark scores
       href: compute-benchmark-scores.md
     - name: vCPU quotas
@@ -241,7 +292,9 @@
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md   
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: Shared disks
+      href: disks-shared.md
     - name: Ephemeral OS disks
       href: ephemeral-os-disks.md
   - name: Networking
@@ -297,7 +350,7 @@
     - name: Use a template with C#
       href: csharp-template.md
     - name: Create VM with Chef
-      href: chef-automation.md
+      href: ../../chef/chef-automation.md
     - name: Use Java
       href: java.md
     - name: Use Python
@@ -311,6 +364,24 @@
       href: hybrid-use-benefit-licensing.md
     - name: Use Multitenant Hosting Rights for Windows 10
       href: windows-desktop-multitenant-hosting-deployment.md
+  - name: Migrate from classic to Azure Resource Manager
+    items:
+    - name: Retirement starting March 1, 2023
+      href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Migration Overview
+      href: migration-classic-resource-manager-overview.md
+    - name: Deep Dive on migration
+      href: migration-classic-resource-manager-deep-dive.md
+    - name: Plan for migration
+      href: migration-classic-resource-manager-plan.md
+    - name: Migrate using PowerShell
+      href: migration-classic-resource-manager-ps.md
+    - name: Common migration errors
+      href: migration-classic-resource-manager-errors.md
+    - name: Community tools for migration
+      href: migration-classic-resource-manager-community-tools.md
+    - name: FAQ
+      href: migration-classic-resource-manager-faq.md
   - name: Secure VMs
     items:
     - name: Recommendations
@@ -539,7 +610,7 @@
     items:
     - name: Add a disk
       items:
-      - name: Azure Powershell
+      - name: Azure PowerShell
         href: attach-disk-ps.md
       - name: Azure portal
         href: attach-managed-disk-portal.md
@@ -547,6 +618,8 @@
       href: detach-disk.md
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
+    - name: Enable shared disks
+      href: disks-shared-enable.md
     - name: Upload a vhd to a disk - PowerShell
       href: disks-upload-vhd-to-managed-disk-powershell.md
     - name: Resize a disk
@@ -620,7 +693,7 @@
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
   - name: Use VM extensions
     href: ../extensions/overview.md
-  - name: Move and migrate VMs
+  - name: Move VMs
     items:
     - name: Change subscription or resource group
       href: move-vm.md
@@ -637,23 +710,8 @@
         href: aws-to-azure.md
       - name: Use Azure Site Recovery
         href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Migrate from Classic to Azure Resource Manager
-      href: migration-classic-resource-manager-overview.md
-      items:
-      - name: Deep Dive on migration
-        href: migration-classic-resource-manager-deep-dive.md
-      - name: Plan for migration
-        href: migration-classic-resource-manager-plan.md
-      - name: Migrate using PowerShell
-        href: migration-classic-resource-manager-ps.md
-      - name: Common migration errors
-        href: migration-classic-resource-manager-errors.md
-      - name: Community tools for migration
-        href: migration-classic-resource-manager-community-tools.md
-      - name: FAQ
-        href: migration-classic-resource-manager-faq.md
 - name: Troubleshoot
-  href: ../troubleshooting/index.md
+  href: ../troubleshooting/index.yml
 - name: Reference
   items:
   - name: Azure CLI
