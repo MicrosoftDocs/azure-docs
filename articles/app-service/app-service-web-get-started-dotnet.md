@@ -3,7 +3,7 @@ title: 'QuickStart: Create a C# ASP.NET Core app'
 description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET Core web app template from Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 02/28/2020
 ms.custom: mvc, devcenter, vs-azure
 ms.custom: seodec18
 
@@ -16,18 +16,18 @@ ms.custom: seodec18
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.
 
-This quickstart shows how to deploy your first ASP.NET Core web app to Azure App Service. When you're finished, you'll have a resource group that consists of an App Service plan and an App Service app with a deployed web application.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+In this quickstart, you'll create and deploy an ASP.NET Core web app to Azure App Service. When you're finished, you'll have a resource group that consists of an App Service plan and an App Service app with a deployed web application.
 
 ## Prerequisites
 
-To complete this tutorial, install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
 
-If you've installed Visual Studio 2019 already:
+  If you've installed Visual Studio 2019 already:
 
-- Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
-- Add the workload by selecting **Tools** > **Get Tools and Features**.
+  - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
+  - Add the workload by selecting **Tools** > **Get Tools and Features**.
+
 
 ## Create an ASP.NET Core web app
 
