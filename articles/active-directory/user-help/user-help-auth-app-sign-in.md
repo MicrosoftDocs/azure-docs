@@ -55,9 +55,9 @@ On an Android device:
 
 On an IOS device:
 
-- **When you tap on the account tile**, the account opens up into a full screen view of the account. If you see **Phone sign-in enabled** that means you are fully set up to sign in without your password. If you see **Setup phone sign-in**, tap it to turn on phone sign-in.
-= **If you’ve already been using the app for two-factor verification**, you can tap on the account tile, which then expands into a full screen view of the account. Then tap on “Setup phone sign-in” to turn on phone sign-in.
-= **If you can't find your work or school account** on the **Accounts** screen of the app, it means that you haven't added it to the app yet. Add your work or school account by following the steps in the Add your work or school account article.
+- **When you tap on the account tile**, the account opens up into a full screen view of the account. If you see **Phone sign-in enabled** that means you are fully set up to sign in without your password. If you see **Enable phone sign-in**, tap it to turn on phone sign-in.
+- **If you’ve already been using the app for two-factor verification**, you can tap on the account tile, which then expands into a full screen view of the account. Then tap **Enable phone sign-in** to turn on phone sign-in.
+- **If you can't find your work or school account** on the **Accounts** screen of the app, it means that you haven't added it to the app yet. Add your work or school account by following the steps in the Add your work or school account article.
 
 After you turn on phone sign-in, you can sign in using just the Microsoft Authenticator app.
 
@@ -94,8 +94,8 @@ On an Android device:
 
 On an IOS device:
 
-- **When you tap on the account tile**, the account opens up into a full screen view of the account. If you see **Phone sign-in enabled** that means you are fully set up to sign in without your password. If you see **Setup phone sign-in**, tap it to turn on phone sign-in.
-- **If you’re already using the app for two-factor verification**, you can tap on the account tile, which then expands into a full screen view of the account. Then tap **Setup phone sign-in** to turn on phone sign-in.
+- **When you tap on the account tile**, the account opens up into a full screen view of the account. If you see **Phone sign-in enabled** that means you are fully set up to sign in without your password. If you see **Enable phone sign-in**, tap it to turn on phone sign-in.
+- **If you’re already using the app for two-factor verification**, you can tap on the account tile, which then expands into a full screen view of the account. Then tap **Enable phone sign-in** to turn on phone sign-in.
 - **If you can't find your account** on the **Accounts** screen of the app, it means that you haven't added it to the app yet. Add your personal Microsoft account by following the steps in the [Add personal Microsoft accounts](user-help-auth-app-add-personal-ms-account.md) article.
 
 ### Sign in to your account using phone sign-in
