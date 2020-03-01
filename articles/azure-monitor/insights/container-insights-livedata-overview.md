@@ -79,7 +79,7 @@ After successfully authenticating, the Live Data (preview) console pane will app
     
 If the object you selected was a container, select the **Events** option in the pane. If you selected a Node, Pod, or controller, viewing events is automatically selected. 
 
-    ![Controller properties pane view events](./media/container-insights-livedata-overview/controller-properties-live-events.png)  
+![Controller properties pane view events](./media/container-insights-livedata-overview/controller-properties-live-events.PNG)  
 
 The pane title shows the name of the Pod the container is grouped with.
 
