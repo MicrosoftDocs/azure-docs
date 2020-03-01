@@ -104,18 +104,69 @@ If you're not sure whether your logic app has permissions to access your Service
 
 1. When you're done, select **Continue**.
 
-   The Logic App Designer now shows your selected template, which contains a workflow that is prepopulated with a trigger and actions, including two scopes for implementing error handling by following the `Try-Catch` pattern.
+   The Logic App Designer now shows the **Correlated in-order delivery using service bus sessions** template, which contains a pre-populated workflow with a trigger and actions, including two scopes that implement error handling that follow the `Try-Catch` pattern.
 
-   * A **When a message is received in a queue (peek-lock)** trigger
-   * An **Initialize variable** action named `Init isDone`
-   * Two scope actions named `Try` and `Catch` that implement error handling
-   * The `Try` scope contains these actions:
-     * A **Send initial message to topic** action
-     * A parallel branch action, which 
+Now you can either learn more about the trigger and actions in the template, or jump ahead to [provide the values for the logic app template](#fill-template).
 
-Now provide the values for the trigger and actions in your logic app's workflow.
+<a name="review-template"></a>
 
-## Build the logic app
+## Review the template
 
-After you connect your logic app to your Service Bus namespace, the 
+The **Correlated in-order delivery using service bus sessions** template includes these items at the top level:
 
+| Name | Description |
+|------|-------------|
+| **When a message is received in a queue (peek-lock)** | Based on the specified recurrence, this Service Bus trigger checks the specified Service Bus queue for any messages. If a message exists in the queue, the trigger fires, which creates and runs a workflow instance. The term *peek-lock* means that the trigger retrieves and locks the message so that no other processing happens on that message until the lock period expires. |
+| **`Init isDone`** | This **Initialize variable** action creates a variable that tracks whether the next Service Bus action finishes reading messages in the queue. By default, the variable's Boolean value is set to `false`. |
+| **`Try`** | This **Scope** action contains the subsequent workflow actions to run. That way, if a problem happens in the `Try` scope, the following `Catch` action handles that problem. For more information, see [Try scope](#try-scope). |
+| **`Catch`**| This **Scope** contains the workflow actions to run if an problem happens in the preceding `Try` action. |
+|||
+
+<a name="try-scope"></a>
+
+### Try scope
+
+| Name | Description |
+|------|-------------|
+| **Send initial message to topic** | This Service Bus action sends the message to the queue specified by the session ID that's output from the trigger along with other information about the message. |
+| (parallel branch) | This action creates two paths: <p><p>- Path #1: Abandon the message if anything goes wrong and release for pickup by another trigger run. <p>-Path #2: | Finish 
+|||
+|||
+|||
+
+  * **Complete the message in a queue** action
+  * **Until** loop that contains:
+    * **Receive next message in session** action
+    * **Send message to topic** action
+    * **Complete the message in a queue** action
+
+<a name="catch-scope"></a>
+
+### Catch scope
+
+| Item | Description |
+|------|-------------|
+| **Close the session in the queue and fail** action | |
+| **Find failure msg from `Try` block** action | |
+| **Select error details** action ||
+| **Terminate** action ||
+|||
+
+<a name="fill-template"></a>
+
+## Fill out the template
+
+1. For the **When a message is received in a queue (peek-lock)** trigger, provide this information so that the template can initialize a session by using the **Session id** property.
+
+   | Property | Required for this scenario | Value | Description |
+   |----------|----------------------------|-------|-------------|
+   | **Queue name** | Yes | <*queue-name*> | The name for the Service Bus queue |
+   | **Queue type** | Yes | **Main** | 
+   | **Session id** | Yes | **Next available** | This option creates a new session for each trigger run based on the session ID from the message that arrives in the Service Bus queue. Each trigger run gets a new session from the queue. The workflow's subsequent actions process all the messages that are associated with that session as described later. <p><p>Here's more information about the other options: <p><p>- **Enter custom value**: Use this option when you know the session ID that you want to use, and you always want to run the trigger for that session ID. <br>- **None**: The default option, which results in no sessions and can't be used for implementing the sequential convoy pattern. |
+   | **Interval** | Yes | | The number of time units between recurrences before checking for a message |
+   | **Frequency** | Yes | | The unit of time for the recurrence to use when checking for a message |
+   |||||
+
+   After initializing the session, the workflow instance now performs the initial read on the message.
+
+1. In the 
