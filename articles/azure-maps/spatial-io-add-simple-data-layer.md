@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
+#Customer intent: As an Azure Maps web sdk user, I want to add simple data layer so that I can render styled features on the map.
 ---
 
 # Add a simple data layer
 
-The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It achieves this by wrapping multiple rendering layers and using style expressions. Style expressions look for common style properties in the properties of the feature. The `atlas.io.read` and `atlas.io.write` functions make use of these properties for reading and writing styles into file formats that support them, such as KML. This layer also supports all but the `marker-symbol` styling properties defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github).
+The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It achieves this by wrapping multiple rendering layers and using style expressions to look for common style properties in the properties of the feature. All styling properties are supported, except the `marker-symbol` styling properties defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github). Then, the `atlas.io.read` function and the `atlas.io.write` function use these properties to read and write styles into supported file formats. After adding the properties to a supported file, the file can be loaded to display the styled features on the map.
 
-In addition to styling, the `SimpleDataLayer` provides a popup with a popup template that is displayed when a feature is clicked. There is an option to disable the built-in popup if desired. This layer also supports clustered data. When clusters are clicked, the map will zoom into them to expand them it into individual points and sub-clusters.
+In addition to styling, the `SimpleDataLayer` provides a popup feature with a popup template. The popup displays when a feature is clicked. There is also the option to disable the built-in popup, if desired. Moreover, this layer supports clustered data. When a cluster is clicked, the map will zoom into the cluster and expand it into individual points and sub-clusters.
 
 Note: The `SimpleDataLayer` class can make it easy to render data sets that contain a mix geometry types and/or has style properties, however, this adds six layers that have a lot of style expressions. If only a couple geometry types need to be rendered or there is few styles defined on the features, it will be more performant to use one of the core rendering layers directly (bubble, symbol, line, polygon, extruded polygon). 
 
