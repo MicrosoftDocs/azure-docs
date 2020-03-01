@@ -20,12 +20,12 @@ Based on customers' specific circumstances and configurations, deprecation of TL
 
 ## Supported ciphers
 
-Only the following ciphers are allowed during TLS handshake:
+The timeline for availability of various ciphers used in TLS handshake is as follows:
 
-* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (currently supported)
+* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (will be supported in second half of 2020)
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (will be supported in second half of 2020)
+* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (will be supported in second half of 2020)
 
 
 ## Customer feedback

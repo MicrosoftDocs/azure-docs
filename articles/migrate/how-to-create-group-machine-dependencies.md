@@ -71,7 +71,7 @@ To install the agent on a Windows machine:
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
 You can install the agent from the command line or using an automated method such as Configuration Manager or [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196).
-- [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
+- [Learn more](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) about using these methods to install the MMA agent.
 - The MMA agent can also be installed using this [script](https://go.microsoft.com/fwlink/?linkid=2104394).
 - [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) about the Windows operating systems supported by MMA.
 
