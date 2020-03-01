@@ -43,7 +43,7 @@ Managed identities are used in Azure HDInsight in multiple scenarios. See the re
 
 ## FAQ
 ### What happens if I delete the managed identity after the cluster creation?
-Your cluster will run into issues when the managed identity is needed. There is currently no way to update or change manage idenity after the cluster is created. So our recommendation is to make sure that the managed identity is not deleted during the cluster runtime. Alternatively you can re-create the cluster and assign a new managed identity.
+Your cluster will run into issues when the managed identity is needed. There is currently no way to update or change manage identity after the cluster is created. So our recommendation is to make sure that the managed identity is not deleted during the cluster runtime. Alternatively you can re-create the cluster and assign a new managed identity.
 
 ## Next steps
 
