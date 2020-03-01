@@ -1,6 +1,6 @@
 ---
 title: Deploy a PyTorch model as an Azure Functions application
-description: Use Python, PyTorch, and Azure Functions to classify an image
+description: Use a pre-trained ResNet 18 deep neural network from PyTorch with Azure Functions to assign 1 of 1000 ImageNet labels to an image.
 author: gvashishtha
 
 ms.topic: tutorial
@@ -149,7 +149,7 @@ In Azure Functions, a function project is a container for one or more individual
 
 To modify the `classify` function to classify an image based on its contents, you use a pre-trained [ResNet](https://arxiv.org/abs/1512.03385) model. The pre-trained model, which comes from [PyTorch](https://pytorch.org/hub/pytorch_vision_resnet/), classifies an image into 1 of 1000 [ImageNet classes](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a). You then add some helper code and dependencies to your project.
 
-1. In the *start* folder, run following command to copy the prediction code and labels into the *classify* folder.
+1. In the *start* folder, run the following command to copy the prediction code and labels into the *classify* folder.
 
     # [bash](#tab/bash)
 
@@ -176,7 +176,7 @@ To modify the `classify` function to classify an image based on its contents, yo
 
 1. Verify that the *classify* folder contains files named *predict.py* and *labels.txt*. If not, check that you ran the command in the *start* folder.
 
-1. Open *start/requirements.txt* in a text editor and add the following dependencies required by the helper code:
+1. Open *start/requirements.txt* in a text editor and add the dependencies required by the helper code, which should look like the following:
 
     ```txt
     azure-functions
@@ -191,13 +191,15 @@ To modify the `classify` function to classify an image based on its contents, yo
     torchvision==0.5.0
     ```
 
-1. Save *requirements.txt*.
+1. Save *requirements.txt*, then run the following command from the *start* folder to install the dependencies.
 
-1. Install the dependencies by running the following command in the *start* folder. Installation may take a few minutes, during which time you can proceed with modifying the function in the next section.
 
     ```
     pip install --no-cache-dir -r requirements.txt
     ```
+
+Installation may take a few minutes, during which time you can proceed with modifying the function in the next section.
+
 
     On Windows, you may encounter the error, "Could not install packages due to an EnvironmentError: [Errno 2] No such file or directory:" followed by a long pathname to a file like *sharded_mutable_dense_hashtable.cpython-37.pyc*. Typically, this error happens because the depth of the folder path becomes too long. In this case, set the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` to `1` to enable long paths. Alternately, check where your Python interpreter is installed. If that location has a long path, try reinstalling in a folder with a shorter path.
 
@@ -268,7 +270,7 @@ To test invoking the function endpoint from another web app, there's a simple ap
 
 1. Select **Submit** to invoke the function endpoint to classify the image.
 
-    ![Screenshot of finished project](media/functions-machine-learning-pytorch/functions-machine-learning-pytorch-screenshot.png)
+    ![Screenshot of finished project](media/functions-machine-learning-pytorch/screenshot.png)
 
     If the browser reports an error when you submit the image URL, check the terminal in which you're running the function app. If you see an error like "No module found 'PIL'", you may have started the function app in the *start* folder without first activating the virtual environment you created earlier. If you still see errors, run `pip install -r requirements.txt` again with the virtual environment activated and look for errors.
 
