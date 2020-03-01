@@ -3849,7 +3849,9 @@ Can manage blueprint definitions, but not assign them.
 
 ### Blueprint Operator
 
-Can assign existing published blueprints, but cannot create new blueprints. NOTE: this only works if the assignment is done with a user-assigned managed identity.
+Can assign existing published blueprints, but cannot create new blueprints. 
+
+> [!NOTE] This works only if the assignment is done with a user-assigned managed identity.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
