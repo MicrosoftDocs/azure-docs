@@ -63,7 +63,7 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 7. Ensure Enable rule upon creation is set to Yes.
 8. Select **Create alert rule** to complete your alert
 
-For detailed steps on how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
+For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
 > The planned maintenance notifications is in preview.
