@@ -30,7 +30,6 @@ For an Azure environment activated on an Azure subscription, Azure Security Cent
 > [!NOTE]
 > To receive the full set of security features, you must have the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent), which is used by Azure Security Center, installed and [properly configured to send data to Azure Security Center](security-center-enable-data-collection.md#manual-agent).
 
-
 The following sections list the supported server operating systems on which the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent), which is used by Azure Security Center, can run.
 
 ### Windows server operating systems <a name="os-windows"></a>
@@ -80,39 +79,14 @@ Virtual machines are also created in a customer subscription as part of some Azu
 
 Virtual machines that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
-## PaaS Services <a name="paas-services"></a>
 
-The following Azure PaaS resources are supported by Azure Security Center:
 
-* SQL
-* PostGreSQL
-* MySQL
-* CosmosDB
-* Storage account
-* App service
-* Function
-* Cloud Service
-* VNet
-* Subnet
-* NIC
-* NSG
-* Batch account
-* Service fabric account
-* Automation account
-* Load balancer
-* Search
-* Service bus namespace
-* Stream analytics
-* Event hub namespace
-* Logic apps
-* Redis
-* Data Lake Analytics
-* Data Lake Store
-* Key vault
 
-To learn more about the supported features for the above list of PaaS resources, see [PaaS services supported features](security-center-services.md#paas-services).
+(DISCUSS WITH BEN WHAT THIS IS)
 
 Protection for Virtual Machines residing in Azure Stack is also supported. For more information about Security Center’s integration with Azure Stack, see [Onboard your Azure Stack virtual machines to Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
+
+
 
 ## Next steps
 
