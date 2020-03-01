@@ -62,6 +62,7 @@ The downside of this possibility is the fact that you need to develop your own p
 > Disk snapshot based backups for SAP HANA in deployments where multiple database containers are used, require a minimum release of HANA 2.0 SP04
 > 
 
+See details about storage snapshots later in this document.
 
 ![This figure shows two possibilities for saving the current VM state](media/sap-hana-backup-guide/azure-backup-service-for-hana.png)
 
@@ -116,13 +117,18 @@ Azure storage, does not provide file system consistency across multiple disks or
 
 Assuming there is an XFS file system spanning four Azure virtual disks, the following steps provide a consistent snapshot that represents the HANA data area:
 
-1. HANA snapshot prepare
-1. - Freeze the file systems of all disks/volumes (for example, use **xfs\_freeze**)
-1. - Create all necessary blob snapshots on Azure
-1. - Unfreeze the file system
-1. - Confirm the HANA snapshot
+1. Create HANA data snapshot prepare
+1. Freeze the file systems of all disks/volumes (for example, use **xfs\_freeze**)
+1. Create all necessary blob snapshots on Azure
+1. Unfreeze the file system
+1. Confirm the HANA data snapshot (will delete the snapshot)
 
 When using the Azure Backup's capability to perform application consistent snapshot backups, steps #1 need to be coded/scripted by you in for the pre-snapshot script. Azure Backup service will execute steps #2 and #3. Steps #4 and #5 need to be again provided by your code in the post-snapshot script. If you are not using Azure backup service, you also need to code/script step #2 and #3 on your own.
+More information on creating HANA data snapshots can be found in these articles:
+
+- [HANA data snapshots](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/ac114d4b34d542b99bc390b34f8ef375.html
+- More details to perform step #1 can be found in article [Create a Data Snapshot (Native SQL)](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/9fd1c8bb3b60455caa93b7491ae6d830.html) 
+- Details to confirm/delete a HANA data snapshots as need in step #5 can be found in the article [Create a Data Snapshot (Native SQL)](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/9fd1c8bb3b60455caa93b7491ae6d830.html) 
 
 It is important to confirm the HANA snapshot. Due to the &quot;Copy-on-Write,&quot; SAP HANA might not require additional disk space while in this snapshot-prepare mode. It&#39;s also not possible to start new backups until the SAP HANA snapshot is confirmed.
 
