@@ -21,7 +21,7 @@ These considerations apply more to direct cloud access (through an Azure VM) tha
 
 If you have made a list of your shares, then you should map each share to the storage account they will reside in.
 
-In the previous step, you determined the appropriate number of shares. Now, you have a mapping of storage accounts to file shares. Deploy the now appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them.
+In the previous phase, you have determined the appropriate number of shares. In this step, you have a created a mapping of storage accounts to file shares. Deploy the now appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them.
 
 Make sure the region of each of your storage accounts is the same and matches the region of the Storage Sync Service resource you've already deployed.
 
