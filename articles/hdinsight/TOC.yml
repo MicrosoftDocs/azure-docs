@@ -69,7 +69,7 @@
         href: ./hdinsight-hadoop-create-linux-clusters-portal.md
       - name: Create clusters using templates
         href: ./hdinsight-hadoop-create-linux-clusters-arm-templates.md
-      - name: Create clusters using command line
+      - name: Create clusters using Azure CLI
         href: ./hdinsight-hadoop-create-linux-clusters-azure-cli.md
       - name: Create clusters using PowerShell
         href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
@@ -550,6 +550,8 @@
       href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
   - name: Tutorials
     items:
+    - name: Create Apache Kafka cluster - Azure CLI
+      href: ./kafka/tutorial-cli-rest-proxy.md
     - name: Use Apache Kafka Producer and Consumer API
       href: ./kafka/apache-kafka-producer-consumer-api.md
     - name: Develop app with Apache Kafka Streams API
@@ -594,8 +596,6 @@
         href: ./kafka/apache-kafka-mirroring.md
       - name: Analyze Apache Kafka logs
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
-      - name: Bring your own key
-        href: ./kafka/apache-kafka-byok.md
       - name: SSL Encryption and Authentication
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
     - name: Troubleshoot

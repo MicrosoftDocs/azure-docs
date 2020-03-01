@@ -82,6 +82,8 @@
       href: known-issues-azure-postgresql-online.md
     - name: Known Issues - Online migration from Oracle to Azure DB for PostgreSQL – Single server
       href: known-issues-oracle-azure-postgresql-online.md
+    - name: Known Issues - Migration from MongoDB to Azure Cosmos DB's API for MongoDB
+      href: tutorial-mongodb-cosmos-db.md
     - name: Known Issues - Using hybrid mode
       href: known-issues-dms-hybrid-mode.md
   - name: Videos

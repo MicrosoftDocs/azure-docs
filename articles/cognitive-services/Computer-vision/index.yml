@@ -26,6 +26,10 @@ landingContent:
         links:
           - text: What is Computer Vision?
             url: Home.md
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: whats-new.md
       - linkListType: video
         links:
           - text: Infuse intelligence in your apps with Vision APIs
