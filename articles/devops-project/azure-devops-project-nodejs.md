@@ -25,7 +25,7 @@ In this quickstart, you create a NodeJS progressive web app (PWA) using [GatsbyJ
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- An [Azure DevOps](https://azure.microsoft.com/services/devops/) account and organization.
+- An [Azure DevOps](https://azure.microsoft.com/services/devops/) organization.
 
 ## Sign in to the Azure portal
 
