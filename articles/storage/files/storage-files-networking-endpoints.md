@@ -423,7 +423,7 @@ Navigate to the storage account for which you would like to restrict all access 
 
 At the top of the page, select the **Selected networks** radio button. This will un-hide a number of settings for controlling the restriction of the public endpoint. Check **Allow trusted Microsoft services to access this service account** to allow trusted first party Microsoft services such as Azure File Sync to access the storage account.
 
-![Screenshot of the Firewalls and virtual networks blade with the appropriate restricts in place](media/storage-files-networking-endpoints/restrict-public-endpoints-0.png)
+![Screenshot of the Firewalls and virtual networks blade with the appropriate restricts in place](media/storage-files-networking-endpoints/restrict-public-endpoint-0.png)
 
 # [PowerShell](#tab/azure-powershell)
 The following PowerShell command will deny all traffic to the storage account's public endpoint. Note that this command has the `-Bypass` parameter set to `AzureServices`. This will allow trusted first party services such as Azure File Sync to access the storage account via the public endpoint.
