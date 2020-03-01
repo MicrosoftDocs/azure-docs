@@ -41,7 +41,7 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
 
     ![Windows Server 2016 Datacenter, Create a VM, Azure portal](./media/tutorial-create-route-table-portal/vm-ws2016-datacenter.png)
 
-1. In the **Create a virtual machine** window, under **Basics**, enter or select this information:
+1. In the **Create a virtual machine** page, under **Basics**, enter or select this information:
 
     | Section | Setting | Action |
     | ------- | ------- | ----- |
@@ -82,7 +82,7 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
 
     1. Select **OK** to exit the dialog box.
 
-    1. In **Subnet**, choose **Public (10.0.0.0/24)**.
+    1. In **Subnet**, choose **DMZ (10.0.2.0/24)**.
 
     1. In **Public IP**, choose **None**, since the VM won't connect over the internet.
 
@@ -148,9 +148,9 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
     | Setting | Value |
     | ------- | ----- |
     | Route name | *ToPrivateSubnet* |
-    | Address prefix | *10.0.1.0/24* |
+    | Address prefix | *10.0.1.0/24* (the address range of the *Private* subnet created earlier) |
     | Next hop type | **Virtual appliance** |
-    | Next hop address | *10.0.2.4* |
+    | Next hop address | *10.0.2.4* (an address within the address range of the *DMZ* subnet) |
 
 1. Select **OK**.
 
@@ -184,7 +184,7 @@ Next, turn on IP forwarding for your new NVA virtual machine, *myVmNva*. When Az
 
 1. In the network interface menu bar, select **IP configurations**.
 
-1. In **IP forwarding settings**, choose **Enabled**. Then select **Save**.
+1. In the **IP configurations** page, set **IP forwarding** to **Enabled**, and select **Save**.
 
     ![Enable IP forwarding, IP configurations, network interface, network virtual appliance (NVA) virtual machine (VM), Azure portal](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png)
 
@@ -200,10 +200,12 @@ Before you select **Create** to create the public or private VM, go to the follo
 
 | Tab | Setting | Value |
 | --- | ------- | ----- |
-| Basics | Virtual machine name | *myVmPublic* |
+| Basics | Resource group | **myResourceGroup** |
+| | Virtual machine name | *myVmPublic* |
 | | Public inbound ports | **Allow selected ports** |
 | | Select inbound ports | **HTTP** and **RDP** |
-| Networking | Subnet | **Public (10.0.0.0/24)** |
+| Networking | Virtual network | **myVirtualNetwork** |
+| | Subnet | **Public (10.0.0.0/24)** |
 | | Public IP address | The default |
 | Management | Diagnostics storage account | **mynvastorageaccount** |
 
@@ -211,10 +213,12 @@ Before you select **Create** to create the public or private VM, go to the follo
 
 | Tab | Setting | Value |
 | --- | ------- | ----- |
-| Basics | Virtual machine name | *myVmPrivate* |
+| Basics | Resource group | **myResourceGroup** |
+| | Virtual machine name | *myVmPrivate* |
 | | Public inbound ports | **Allow selected ports** |
 | | Select inbound ports | **HTTP** and **RDP** |
-| Networking | Subnet | **Private (10.0.1.0/24)** |
+| Networking | Virtual network | **myVirtualNetwork** |
+| | Subnet | **Private (10.0.1.0/24)** |
 | | Public IP address | The default |
 | Management | Diagnostics storage account | **mynvastorageaccount** |
 
@@ -228,7 +232,7 @@ Before you select **Create** to create the public or private VM, go to the follo
 
 1. In the VM menu bar, select **Connect** to create a remote desktop connection to the private VM.
 
-1. In the **Connect with RDP** window, select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
+1. In the **Connect with RDP** page, select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
 
 1. Open the downloaded *.rdp* file. If prompted, select **Connect**. Select **More choices** > **Use a different account**, and then enter the user name and password you specified when creating the private VM.
 
