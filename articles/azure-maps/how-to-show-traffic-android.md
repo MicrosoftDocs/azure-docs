@@ -37,32 +37,58 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
+## Flow traffic data
+
+You'll first need to import the following libraries to call `setTraffic` and `flow`:
+
+```java
+import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
+import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
+```
+
+Use the following code snippet to set traffic flow data. Similar to the code in the previous section, we pass the return value of the `flow` method to the `setTraffic` method. There are four values that can be passed to `flow`, and each value would trigger `flow` to return the respective value. The return value of `flow` will then be passed as the argument to `setTraffic`. See the table below for these four values:
+
+| | |
+| :-- | :-- |
+| TrafficFlow.NONE | Doesn't display traffic data on the map |
+| TrafficFlow.RELATIVE | Shows traffic data that's relative to the free-flow speed of the road |
+| TrafficFlow.RELATIVE_DELAY | Displays areas that are slower than the average expected delay |
+| TrafficFlow.ABSOLUTE | Shows the absolute speed of all vehicles on the road |
+
+```java
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    mapControl.getMapAsync(map -> 
+        map.setTraffic(flow(TrafficFlow.RELATIVE)));
+}
+```
+
 ## Show incident traffic data by clicking a feature
 
 To obtain the incidents for a specific feature, you can use the code below. When a feature is clicked, the code logic checks for incidents and builds a message about the incident. A message shows up at the bottom of the screen with the details.
 
-1. First, you need to edit **res > layout > activity_main.xml**, so that it looks like the one below. Replace the placeholders for `mapcontrol_centerLat`, `mapcontrol_centerLng`, and `mapcontrol_zoom` with your desired values. Recall, the zoom level is a value between 0 and 22. At zoom level 0, the entire world fits on a single tile.
+1. First, you need to edit **res > layout > activity_main.xml**, so that it looks like the one below. You may replace the `mapcontrol_centerLat`, `mapcontrol_centerLng`, and `mapcontrol_zoom` with your desired values. Recall, the zoom level is a value between 0 and 22. At zoom level 0, the entire world fits on a single tile.
 
-    ```XML
-    <?xml version="1.0" encoding="utf-8"?>
-    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    
+    <com.microsoft.azure.maps.mapcontrol.MapControl
+        android:id="@+id/mapcontrol"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
-    
-        <com.microsoft.azure.maps.mapcontrol.MapControl
-            android:id="@+id/mapcontrol"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:mapcontrol_centerLat="<choose a latitude>"
-            app:mapcontrol_centerLng="<choose a latitude>"
-            app:mapcontrol_zoom="<choose a zoom level>"
-            />
-    
-    </FrameLayout>
-    ```
+        app:mapcontrol_centerLat="47.6050"
+        app:mapcontrol_centerLng="-122.3344"
+        app:mapcontrol_zoom="12"
+        />
+
+</FrameLayout>
+```
 
 2. Add the following code to your **MainActivity.java** file. The package is included by default, so make sure you keep your package at the top.
 
@@ -73,18 +99,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-//import android.support.v7.app.AppCompatActivity;
 import com.microsoft.azure.maps.mapcontrol.AzureMaps;
 import com.microsoft.azure.maps.mapcontrol.MapControl;
 import com.mapbox.geojson.Feature;
 import com.microsoft.azure.maps.mapcontrol.events.OnFeatureClick;
 
+import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
+import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 
 public class MainActivity extends AppCompatActivity {
 
     static {
-        AzureMaps.setSubscriptionKey("TiZ3a_OjcwOE471HGCzoPGa-6996WZQKUEuWu_BLRBg");
+        AzureMaps.setSubscriptionKey("Your Azure Maps Subscription Key");
     }
 
     MapControl mapControl;
@@ -100,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Wait until the map resources are ready.
         mapControl.getMapAsync(map -> {
+
+            map.setTraffic(flow(TrafficFlow.RELATIVE));
             map.setTraffic(incidents(true));
 
             map.events.add((OnFeatureClick) (features) -> {
@@ -186,39 +215,13 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-3. Once you incorporate the above code in your application, you'll be able to click on a feature and learn about the traffic incidents for that feature. Depending on the latitude, longitude, and the zoom level values that you selected in your **activity_main.xml** file, you'll see results similar to the following image:
+3. Once you incorporate the above code in your application, you'll be able to click on a feature and see the details of the traffic incidents. Depending on the latitude, longitude, and the zoom level values that you used in your **activity_main.xml** file, you'll see results similar to the following image:
 
 <center>
 
 ![Incident-traffic-on-the-map](./media/how-to-show-traffic-android/android-traffic.png)
 
 </center>
-
-## Flow traffic data
-
-You'll first need to import the following libraries to call `setTraffic` and `flow`:
-
-```java
-import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
-import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.flow;
-```
-
-Use the following code snippet to set traffic flow data. Similar to the code in the previous section, we pass the return value of the `flow` method to the `setTraffic` method. There are four values that can be passed to `flow`, and each value would trigger `flow` to return the respective value. The return value of `flow` will then be passed as the argument to `setTraffic`. See the table below for these four values:
-
-| | |
-| :-- | :-- |
-| TrafficFlow.NONE | Doesn't display traffic data on the map |
-| TrafficFlow.RELATIVE | Shows traffic data that's relative to the free-flow speed of the road |
-| TrafficFlow.RELATIVE_DELAY | Displays areas that are slower than the average expected delay |
-| TrafficFlow.ABSOLUTE | Shows the absolute speed of all vehicles on the road |
-
-```java
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    mapControl.getMapAsync(map -> 
-        map.setTraffic(flow(TrafficFlow.RELATIVE)));
-}
-```
 
 ## Next steps
 
