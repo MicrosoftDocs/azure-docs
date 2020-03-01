@@ -151,15 +151,17 @@ The range of *RoutingWeight* is 0 to 32000. The default value is 0.
 ## Configure ExpressRoute FastPath 
 You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your ExpressRoute circuit is on [ExpressRoute Direct](expressroute-erdirect-about.md) and your virtual newtork gateway is Ultra Performance or ErGw3AZ. FastPath improves data path preformance such as packets per second and connections per second between your on-premises network and your virtual network. 
 
-> [!NOTE] 
-> If you already have a virtual network connection but haven't enabled FastPath you need to delete the virtual network connection and create a new one. 
-> 
->  
+**Configure FastPath on a new connection**
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
+**Updating an existing connection to enable FastPath**
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
+```
 
 ## Next steps
 

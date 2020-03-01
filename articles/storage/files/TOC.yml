@@ -154,9 +154,9 @@
     - name: Require secure transfer
       href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Enable AD authentication and authorization
-      href: storage-files-active-directory-domain-services-enable.md
+      href: storage-files-identity-auth-active-directory-enable.md
     - name: Enable Azure AD DS authentication and authorization
-      href: storage-files-active-directory-enable.md
+      href: storage-files-identity-auth-active-directory-domain-service-enable.md
     - name: Enable secure TLS for Azure Storage client
       href: ../common/storage-security-tls.md
   - name: Troubleshoot

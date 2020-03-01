@@ -1,11 +1,7 @@
 ---
 title: Get more out of Azure Application Insights | Microsoft Docs
 description: After getting started with Application Insights, here's a summary of the features you can explore.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/03/2017
 
 ---
