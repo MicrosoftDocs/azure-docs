@@ -1,8 +1,18 @@
-
+---
+title:  title | Microsoft Azure Maps
+description: 
+author: farah-alyasari
+ms.author: v-faalya
+ms.date: 02/29/2020
+ms.topic: conceptual
+ms.service: azure-maps
+services: azure-maps
+manager: philmea
+---
 
 # Add a simple data layer
 
-The spatial IO module provides a `SimpleDataLayer` class makes it easy to render styled features on the map. It achieves this by wrapping multiple rendering layers and using style expressions that look for common style properties in the properties of the feature. The `atlas.io.read` and `atlas.io.write` functions make use of these properties for reading and writing styles into file formats that support them, such as KML. This layer also supports all but the `marker-symbol` styling properties defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github).
+The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It achieves this by wrapping multiple rendering layers and using style expressions. Style expressions look for common style properties in the properties of the feature. The `atlas.io.read` and `atlas.io.write` functions make use of these properties for reading and writing styles into file formats that support them, such as KML. This layer also supports all but the `marker-symbol` styling properties defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github).
 
 In addition to styling, the `SimpleDataLayer` provides a popup with a popup template that is displayed when a feature is clicked. There is an option to disable the built-in popup if desired. This layer also supports clustered data. When clusters are clicked, the map will zoom into them to expand them it into individual points and sub-clusters.
 
@@ -59,7 +69,7 @@ The following section provides details on the default style properties that the 
 
 ### Bubble layer style properties
 
-If a feature is a `Point` or 'MultiPoint` and doesn't have an `image` property that would be used as a custom icon to render the point as a symbol, the feature will be rendered with a `BubbleLayer`.
+If a feature is a `Point` or `MultiPoint` and doesn't have an `image` property that would be used as a custom icon to render the point as a symbol, the feature will be rendered with a `BubbleLayer`.
 
 | Layer option | Supported property name(s) | Default value |
 |--------------|----------------------------|---------------|
@@ -86,7 +96,7 @@ Clusters are also rendered using the bubble layer. By default the radius of a cl
 
 ### Symbol style properties
 
-If a feature is a `Point` or 'MultiPoint` and has an `image` property that would be used as a custom icon to render the point as a symbol, the feature will be rendered with a `SymbolLayer`.
+If a feature is a `Point` or `MultiPoint` and has an `image` property that would be used as a custom icon to render the point as a symbol, the feature will be rendered with a `SymbolLayer`.
 
 | Layer option | Supported property name(s) | Default value |
 |--------------|----------------------------|---------------|

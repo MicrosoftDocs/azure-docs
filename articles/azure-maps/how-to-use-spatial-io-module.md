@@ -4,10 +4,11 @@ description: Learn how to use the Spatial IO module provided by the Azure Maps W
 author: farah-alyasari
 ms.author: v-faalya
 ms.date: 02/28/2020
-ms.topic: concepts
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
+#Customer intent: As an Azure Maps web sdk user, I want to install and use the spatial io module so that I can integrate spatial data with the Azure Maps web sdk.
 ---
 
 
@@ -22,15 +23,35 @@ The Azure Maps Web SDK provides a **Spatial IO module**. The  Spatial IO module 
 - Overlay complex data sets that contain style information and have them render automatically.
 - Leverage high-speed XML and delimited file reader and writer classes.
 
-In this guide, we'll learn how to install the Spatial IO module and use it in a web application.
+In this guide, we'll learn how to install the Spatial IO module. Then, we'll demonstrate the use of the Spatial IO module in a web application.
 
 ## Prerequisites
 
 Before you can use the Spatial IO module, you'll need to [make an Azure Maps account](https://docs.microsoft.com/en-us/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) and [get the primary subscription key for your account](https://docs.microsoft.com/en-us/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
 
-## Use the Spatial IO module
+## Installing the Spatial IO module
 
-Let's now walk through the processes of installing the spatial IO module. We'll use the Spatial IO module to read the XML file from a URL, then we'll load the features data from the XML file to the map.
+You can load the Azure Maps spatial IO module using one of the two options:
+
+a. The globally hosted Azure CDN of the Azure Maps spatial IO module. For this option, you add a reference to the JavaScript in the `<head>` element of the HTML file.
+
+```html
+<script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
+```
+
+b. The  source code for [azure-maps-spatial-io](https://www.npmjs.com/package/azure-maps-spatial-io) can be loaded locally, and then hosted with your app. This package also includes TypeScript definitions. For this option, use the following command to install the package:
+
+```sh
+npm install azure-maps-spatial-io
+```
+
+Then, add a reference to the JavaScript in the `<head>` element of the HTML document:
+
+```html
+<script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
+```
+
+## Using the Spatial IO module
 
 1. Create a new HTML file.
 
@@ -88,42 +109,28 @@ Let's now walk through the processes of installing the spatial IO module. We'll 
 </html>
 ```
 
-2. Load the Azure Maps spatial IO module. You can load it using one of the two options:
+2. Load the Azure Maps spatial IO module. Use the globally hosted, Azure Content Delivery Network of the Azure Maps spatial IO module, for this exercise. Add a reference to the JavaScript file in the `<head>` element:
 
-    a. Use the globally hosted, Azure Content Delivery Network of the Azure Maps spatial IO module. Add a reference to the JavaScript file in the `<head>` element:
+```html
+<script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
+```
 
-    ```html
-    <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
-    ```
-
-    b. Load the spatial IO module for the Azure Maps Web SDK source code locally using the [azure-maps-spatial-io](https://www.npmjs.com/package/azure-maps-spatial-io) npm package, and then host it with your app. This package also includes TypeScript definitions. Use the following command to install the package:
-
-    ```sh
-    npm install azure-maps-spatial-io
-    ```
-
-    Then, add a reference to the JavaScript in the `<head>` element of the HTML document:
-
-    ```html
-    <script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
-    ```
-
-3. Initialize a `datasource`, and add the data source variable to the map. Initialize a `layer`, and add the data source to the map layer. Then, render both the data source and the layer. Before you scroll down to see the full code, think about the best places to put the data source and layer code snippets. Recall that, before we programmatically manipulate the map, we wait until the map resource are ready. For readability, we define our variables near the top.
+3. Initialize a `datasource`, and add the data source variable to the map. Initialize a `layer`, and add the data source to the map layer. Then, render both the data source and the layer. Before you scroll down to see the full code in the next step, think about the best places to put the data source and layer code snippets. Recall that, before we programmatically manipulate the map, we should wait until the map resource are ready. For readability, we define our variables near the top.
 
 ```javascript
-	var datasource, layer;
+var datasource, layer;
 ```
 
 and
 
 ```javascript
-    //Create a data source and add it to the map.
-    datasource = new atlas.source.DataSource();
-    map.sources.add(datasource);
+//Create a data source and add it to the map.
+datasource = new atlas.source.DataSource();
+map.sources.add(datasource);
 
-    //Add a simple data layer for rendering the data.
-    layer = new atlas.layer.SimpleDataLayer(datasource);
-    map.layers.add(layer);
+//Add a simple data layer for rendering the data.
+layer = new atlas.layer.SimpleDataLayer(datasource);
+map.layers.add(layer);
 ```
 
 4. Putting it all together, your HTML file should look like the following code. This code demonstrates how to read an XML file from a URL. Then, load and display the file's feature data on the map. 
@@ -210,11 +217,9 @@ and
 <iframe height='500' scrolling='no' title='Spatial Data Example' src='//codepen.io/azuremaps/embed/MWwojKV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/MWwojKV/'>Spatial Data Example</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-The feature we demonstrated here is only one of the many features available in the Spatial IO module. Read the guides in the next steps section to learn how to use other functionalities in the Spatial IO module.
-
 ## Next steps
 
-See the following articles to learn more of the functionalities in the spatial IO module:
+The feature we demonstrated here is only one of the many features available in the Spatial IO module. Read the guides below to learn how to use other functionalities in the Spatial IO module:
 
 > [!div class="nextstepaction"]
 > [Add a simple data layer](spatial-io-add-simple-data-layer.md)
@@ -233,3 +238,8 @@ See the following articles to learn more of the functionalities in the spatial I
 
 > [!div class="nextstepaction"]
 > [Supported data format details](spatial-io-supported-data-format-details.md)
+
+Refer to the Azure Maps Spatial IO documentation:
+
+> [!div class="nextstepaction"]
+> [Azure Maps Spatial IO package](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)
