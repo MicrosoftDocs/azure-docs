@@ -91,52 +91,68 @@ For example, if you used the sample scripts to [Create demo certificates](how-to
 
    * Linux: `/var/lib/iotedge/hsm/certs` and `/var/lib/iotedge/hsm/cert_keys`
 
-## Design customization certificate lifetime
+## Customize certificate lifetime
 
-If you are not providing your own production certificates, you will need to restart the IoT-Edge device to renew the temporary certificates before they expire at the end of 90 days. However, you have the option of setting the **auto_generated_ca_lifetime_days** flag in config.yaml to specify the number of days for the lifetime of the certificates.
+IoT Edge automatically generates certificates on the device in several cases, including:
 
-Add the following line to the **certificate** properties in the config.yaml file with the desired number of days:
+* If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager auto-generates a **device CA certificate**. This auto-generated and self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
+* The IoT Edge security manager also generates a **workload CA certificate** signed by the device CA certificate
 
-   ```yaml
-      auto_generated_ca_lifetime_days: \<number of days>
-   ```
+For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-This setting honors both temporary certificates and production certificates. If the **device_ca_cert** and **device_ca_pk** certificates are not specified in the config.yaml file, then the flag will be honored on temporary certificates. If they are specified, then this flag will override the expiration settings on the production certificates.
+For these two auto-generated certificates, you have the option of setting the **auto_generated_ca_lifetime_days** flag in config.yaml to configure the number of days for the lifetime of the certificates.
+
+>[!NOTE]
+>There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 90 day, but is automatically renewed before expiring. The **auto_generated_ca_lifetime_days** value doesn't affect this certificate.
+
+To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config.yaml file.
+
+```yaml
+certificates:
+  device_ca_cert: "<ADD URI TO DEVICE CA CERTIFICATE HERE>"
+  device_ca_pk: "<ADD URI TO DEVICE CA PRIVATE KEY HERE>"
+  trusted_ca_certs: "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
+  auto_generated_ca_lifetime_days: <value>
+```
+
+If you provided your own device CA certificates, then this value still applies to the workload CA certificate, as long as the lifetime value you set is shorter than the lifetime of the device CA certificate.
 
 After you specify the flag in the config.yaml file, do the following:
 
 1. Delete the contents of the hsm folder.
 
-    Windows: C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys
-    Linux: /var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys
+   Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys`
+   Linux: `/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
 
 1. Restart the IoT Edge service.
 
-    Windows:
+   Windows:
 
-    ```azurecli
-    Restart-Service iotedge
-    ```
+   ```powershell
+   Restart-Service iotedge
+   ```
 
-    Linux:
+   Linux:
 
-    ```bash
-    sudo systemctl restart iotedge
-    ```
+   ```bash
+   sudo systemctl restart iotedge
+   ```
 
 1. Confirm the lifetime setting.
 
-    Windows:
+   Windows:
 
-    ```azurecli
-    iotedge check --verbose
-    ```
+   ```powershell
+   iotedge check --verbose
+   ```
 
-    Linux:
+   Linux:
 
-    ```bash
-    sudo iotedge check --verbose
-    ```
+   ```bash
+   sudo iotedge check --verbose
+   ```
+
+   Check the output of the **production readiness: certificates** check, which lists the number of days until the auto-generated device CA certificates expire. 
 
 ## Next steps
 
