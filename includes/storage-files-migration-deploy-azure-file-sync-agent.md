@@ -10,7 +10,7 @@ ms.subservice: files
 ---
 
 In this section, you install the Azure File Sync agent on your Windows Server.
-The [deployment guide](../articles/storage/files/storage-sync-files-deployment-guide.md) illustrates that you need to turn off IE enhanced security. This is a security measure that is not applicable with Azure File Sync and turning it off allows you to authenticate to Azure without any issues.
+The [deployment guide](../articles/storage/files/storage-sync-files-deployment-guide.md) illustrates that you need to turn off **IE enhanced security**. IE enhanced security is a security measure that is not applicable with Azure File Sync and turning it off allows you to authenticate to Azure without any issues.
 
 Open PowerShell and install the required PowerShell modules with the following commands. Make sure to install the full module and the NuGet provider when prompted:
 
