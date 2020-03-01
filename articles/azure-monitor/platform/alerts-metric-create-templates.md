@@ -2,11 +2,10 @@
 title: Create a metric alert with a Resource Manager template
 description: Learn how to use a Resource Manager template to create a metric alert.
 author: harelbr
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 2/17/2020
 ms.author: harelbr
+services: azure-monitor
+ms.topic: conceptual
+ms.date: 2/24/2020
 ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
@@ -1245,7 +1244,7 @@ You can use the following template to create a more advanced static threshold me
 
 To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
 
-When creating an alert rule on a custom metric, you need to specify both the metric name and the metric namespace.
+When creating an alert rule on a custom metric, you need to specify both the metric name and the metric namespace. You should also make sure that the custom metric is already being reported, as you cannot create an alert rule on a custom metric that doesn't yet exist.
 
 Save the json below as customstaticmetricalert.json for the purpose of this walkthrough.
 

@@ -28,6 +28,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Monitor and manage mapping data flow performance](https://www.youtube.com/watch?v=fktIWdJiqTk)
 
+[Benchmark timings](http://youtu.be/6CSbWm4lRhw?hd=1)
+
 ## Transformation overviews
 
 [Aggregate transformation](http://youtu.be/jdL75xIr98I)
