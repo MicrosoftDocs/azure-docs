@@ -1,6 +1,6 @@
 ---
-title:  title | Microsoft Azure Maps
-description: 
+title:  Add a simple data layer | Microsoft Azure Maps
+description: Learn how to add a simple data layer using the Spatial IO module, provided by Azure Maps Web SDK.
 author: farah-alyasari
 ms.author: v-faalya
 ms.date: 02/29/2020
@@ -13,15 +13,103 @@ manager: philmea
 
 # Add a simple data layer
 
-The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It achieves this by wrapping multiple rendering layers and using style expressions to look for common style properties in the properties of the feature. All styling properties are supported, except the `marker-symbol` styling properties defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github). Then, the `atlas.io.read` function and the `atlas.io.write` function use these properties to read and write styles into supported file formats. After adding the properties to a supported file, the file can be loaded to display the styled features on the map.
+The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It can even render data sets that have style properties and data sets that contain mixed geometry types. The simple data layer achieves this functionality by wrapping multiple rendering layers and using style expressions. The style expressions search for common style properties of the features inside these wrapped layers. The `atlas.io.read` function and the `atlas.io.write` function use these properties to read and write styles into a supported file format. After adding the properties to a supported file format, the file is used to display the styled features on the map.
 
-In addition to styling, the `SimpleDataLayer` provides a popup feature with a popup template. The popup displays when a feature is clicked. There is also the option to disable the built-in popup, if desired. Moreover, this layer supports clustered data. When a cluster is clicked, the map will zoom into the cluster and expand it into individual points and sub-clusters.
+In addition to styling features, the `SimpleDataLayer` provides a built-in popup feature with a popup template. The popup displays when a feature is clicked. The default popup feature can be disabled, if desired. This layer also supports clustered data. When a cluster is clicked, the map will zoom into the cluster and expand it into individual points and sub-clusters.
 
-Note: The `SimpleDataLayer` class can make it easy to render data sets that contain a mix geometry types and/or has style properties, however, this adds six layers that have a lot of style expressions. If only a couple geometry types need to be rendered or there is few styles defined on the features, it will be more performant to use one of the core rendering layers directly (bubble, symbol, line, polygon, extruded polygon). 
+The `SimpleDataLayer` class is intended to be used on large data sets with many geometry types and many styles on the features. When used, it adds an overhead of six additional layers containing style expressions. Thus, for rendering a couple of geometry types or a few styles on a feature, it's more efficient to use one of the core rendering layers.
+
+## Default supported style properties
+
+As mentioned earlier, the simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It uses expressions to search for valid style properties on individual features. Most layer options property names are supported as style properties of features. Expressions have been added to some layer options to support additional common style property names that could be used in platforms other than Azure. For example, GitHub has a set of style properties that it looks for on GeoJSON files, as a way to support styling of GeoJSON files stored and rendered within GitHub. Expressions have been added to the Simple Data layer to support GitHub style property names, defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github). All styling properties are supported, except the `marker-symbol` styling properties.
+
+These default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers. 
+
+The next section provides details on the default style properties that the simple data layer supports. The order of the supported property names is also the priority of the property. If two style properties are defined for the same layer option, then the first one in the list has higher precedence.
+
+## Simple data layer options
+
+### Bubble layer style properties
+
+If a feature is a `Point` or a `MultiPoint` and doesn't have an `image` property that would be used as a custom icon to render the point as a symbol, then the feature will be rendered with a `BubbleLayer`.
+
+| Layer option | Supported property name(s) | Default value |
+|--------------|----------------------------|---------------|
+| `color` | `color`, `marker-color` | `'#1A73AA'` |
+| `radius` | `size`<sup>1</sup>, `marker-size`<sup>2</sup>, `scale`<sup>1</sup> | `8` |
+| `strokeColor` | `strokeColor`, `stroke` | `FFFFFF` |
+
+1. The `size` and `scale` values are considered scalar values and will be multiplied by `8`. 
+2. If `marker-size` option, that's used by GitHub, is specified, then the following values will be used for the radius.
+
+| Marker size | Radius |
+|-------------|--------|
+| `small`     | `6`    |
+| `medium`    | `8`    |
+| `large`     | `12`   |
+
+Clusters are also rendered using the bubble layer. By default the radius of a cluster is set to `16` and the color varies depending on the number of points in the cluster, as defined below:
+
+| # of points | Color    |
+|-------------|----------|
+| &gt;= 100   | `red`    |
+| &gt;= 10    | `yellow` |
+| &lt; 10     | `green`  |
+
+### Symbol style properties
+
+If a feature is a `Point` or a `MultiPoint` and has an `image` property that would be used as a custom icon to render the point as a symbol, the feature will be rendered with a `SymbolLayer`.
+
+| Layer option | Supported property name(s) | Default value |
+|--------------|----------------------------|---------------|
+| `image` | `image` | ``none`` |
+| `size` | `size`, `marker-size`<sup>1</sup> | `1` |
+| `rotation` | `rotation` | `0` |
+| `offset` | 'offset' | `[0, 0]` |
+| `anchor` | `anchor` | `'bottom'` |
+
+1. If `marker-size` option, that's used by GitHub, is specified, then the following values will be used for the icon size option.
+
+| Marker size | Symbol size |
+|-------------|-------------|
+| `small`     | `0.5`       |
+| `medium`    | `1`         |
+| `large`     | `2`         |
+
+If the point feature is a cluster, the `point_count_abbreviated` property will be rendered as a text label and no image will be rendered.
+
+### Line style properties
+
+If the feature is a `LineString`, `MultiLineString`, `Polygon` or `MultiPolygon`, then the feature will be rendered with a `LineLayer`.
+
+| Layer option | Supported property name(s) | Default value |
+|--------------|----------------------------|---------------|
+| `strokeColor` | `strokeColor`, `stroke` | `'#1E90FF'` |
+| `strokeWidth` | `strokeWidth`, `stroke-width`, `stroke-thickness` | `3` |
+| `strokeOpacity` | `strokeOpacity`, `stroke-opacity` | `1` |
+
+### Polygon style properties
+
+If the feature is a `Polygon` or a `MultiPolygon`, and the feature either doesn't have a `height` property or the `height` property is zero, then the feature will be rendered with a `PolygonLayer`.
+
+| Layer option | Supported property name(s) | Default value |
+|--------------|----------------------------|---------------|
+| `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
+| `fillOpacity` | `fillOpacity`, '`fill-opacity` | `0.5` |
+
+### Extruded polygon style properties
+
+If the feature is a `Polygon` or a `MultiPolygon`, and has a `height` property with a value greater than 0, the feature will be rendered with an `PolygonExtrusionLayer`.
+
+| Layer option | Supported property name(s) | Default value |
+|--------------|----------------------------|---------------|
+| `base` | `base` | `0` |
+| `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
+| `height` | `height` | `0` |
 
 ## Use a simple data layer
 
-The `SimpleDataLayer` class is used just like other rendering layer as shown in the code below.
+The `SimpleDataLayer` class is used in a similar way as other rendering layers are used. The code below shows how to use a simple data layer in a map:
 
 ```javascript
 //Create a data source and add it to the map.
@@ -52,99 +140,13 @@ The following is the complete code that renders the above point feature using th
 
 //TODO: codepen - (create a sample from the above code, I haven't created one in the sample gallery)
 
-The real power of the simple data layer comes when there is several different types of features in a data source and/or they have several style properties set on them individually, or when your not sure what data set contains exactly (for example when parsing XML data feeds). The following example shows the power of the simple data layer by rendering the features of a KML file.
+The real power of the simple data layer comes when there are several different types of features in a data source, or when features in the data set have several style properties individually set on them, or when your not sure what the data set exactly contains. For example when parsing XML data feeds, you may not exactly know the styles and geometry types of the features. The following example shows the power of the simple data layer by rendering the features of a KML file. It also demonstrates various options that the simple data layer class provides.
 
-## Simple data layer options
+<br/>
 
-The simple data layer has several options. Here is a tool to try them out.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Simple data layer options" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
-//TODO: codepen - Simple data layer options
-
-## Default supported style properties
-
-The simple data layer wraps several of the core rendering layers (bubble, symbol, line, polygon, and extruded polygon) and uses expressions to search for valid style properties on individual features. Most layer options property names are supported as style properties of features. Expressions have been added to some layer options to support additional common style property names that may be used in other platforms. For example, [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github) document outlines a set of style properties that it looks for on GeoJSON files as a way to support styling of GeoJSON files stored and rendered within GitHub. All but the `marker-symbol` style option is supported by the simple data layer.
-
-These default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers. 
-
-The following section provides details on the default style properties that the simple data layer supports by default. The order of the supported property names is also the priority. If two style properties for the same layer option are defined, the first one in the list will be used.
-
-### Bubble layer style properties
-
-If a feature is a `Point` or `MultiPoint` and doesn't have an `image` property that would be used as a custom icon to render the point as a symbol, the feature will be rendered with a `BubbleLayer`.
-
-| Layer option | Supported property name(s) | Default value |
-|--------------|----------------------------|---------------|
-| `color` | `color`, `marker-color` | `'#1A73AA'` |
-| `radius` | `size`<sup>1</sup>, `marker-size`<sup>2</sup>, `scale`<sup>1</sup> | `8` |
-| `strokeColor` |  | `white` |
-
-1. The `size` and `scale` values are considered scalar values and will be multiplied by `8`. 
-2. If `marker-size` is specified (used by GitHub), the following values will be used for the radius.
-
-| Marker size | Radius |
-|-------------|--------|
-| `small`     | `6`    |
-| `medium`    | `8`    |
-| `large`     | `12`   |
-
-Clusters are also rendered using the bubble layer. By default the radius of a cluster is set to `16` and the color varies depending on the number of points in the cluster as defined below.
-
-| # of points | Color    |
-|-------------|----------|
-| &gt;= 100   | `red`    |
-| &gt;= 10    | `yellow` |
-| &lt; 10     | `green`  |
-
-### Symbol style properties
-
-If a feature is a `Point` or `MultiPoint` and has an `image` property that would be used as a custom icon to render the point as a symbol, the feature will be rendered with a `SymbolLayer`.
-
-| Layer option | Supported property name(s) | Default value |
-|--------------|----------------------------|---------------|
-| `image` | `image` | ``none`` |
-| `size` | `size`, `marker-size`<sup>1</sup> | `1` |
-| `rotation` | `rotation` | `0` |
-| `offset` | 'offset' | `[0, 0]` |
-| `anchor` | `anchor` | `'bottom'` |
-
-1. If `marker-size` is specified (used by GitHub), the following values will be used for the icon size option.
-
-| Marker size | Symbol size |
-|-------------|-------------|
-| `small`     | `0.5`       |
-| `medium`    | `1`         |
-| `large`     | `2`         |
-
-If the point feature is a cluster, the `point_count_abbreviated` property will be rendered as a text label, no image will be rendered.
-
-### Line style properties
-
-If the feature is a `LineString`, `MultiLineString`, `Polygon` or `MultiPolygon`, the feature will be rendered with a `LineLayer`.
-
-| Layer option | Supported property name(s) | Default value |
-|--------------|----------------------------|---------------|
-| `strokeColor` | `strokeColor`, `stroke` | `'#1E90FF'` |
-| `strokeWidth` | `strokeWidth`, `stroke-width`, `stroke-thickness` | `3` |
-| `strokeOpacity` | `strokeOpacity`, `stroke-opacity` | `1` |
-
-### Polygon style properties
-
-If the feature is a `Polygon` or `MultiPolygon`, and either does not have a `height` property or the `height` property is zero, the feature will be rendered with a `PolygonLayer`.
-
-| Layer option | Supported property name(s) | Default value |
-|--------------|----------------------------|---------------|
-| `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
-| `fillOpacity` | `fillOpacity`, '`fill-opacity` | `0.5` |
-
-### Extruded polygon style properties
-
-If the feature is a `Polygon` or `MultiPolygon`, and has a `height` property with a value greater than 0, the feature will be rendered with an `PolygonExtrusionLayer`.
-
-| Layer option | Supported property name(s) | Default value |
-|--------------|----------------------------|---------------|
-| `base` | `base` | `0` |
-| `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
-| `height` | `height` |  |
 
 ## Next steps
 
