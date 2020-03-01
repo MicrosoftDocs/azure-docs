@@ -53,13 +53,13 @@ The previous image depicts steps that correspond to sections in this article.
 ### Step 2: Configure your Windows Server storage
 
 In this step, you map your StorSimple storage structure (volumes and shares) to your Windows Server storage structure.
-If you plan to make changes to your storage structure, meaning the number of volumes, the association of data folders to volumes, or the subfolder structure above or below your current SMB/NFS shares, then now is the time to take this into consideration.
+If you plan to make changes to your storage structure, meaning the number of volumes, the association of data folders to volumes, or the subfolder structure above or below your current SMB/NFS shares, then now is the time to take these changes into consideration.
 Changing your file and folder structure after Azure File Sync is configured, is cumbersome, and should be avoided.
 This article assumes you are mapping 1:1, so you must take your mapping changes into consideration when you follow the steps in this article.
 
 * None of your production data should end up on the Windows Server system volume. Cloud tiering is not supported on system volumes. However, this feature is required for the migration as well as continuous operations as a StorSimple replacement.
 * Provision the same number of volumes on your Windows Server as you have on your StorSimple 1200 virtual appliance.
-* Configure any Windows Server roles, features, and settings you need. We recommend you opt into Windows Server updates to keep your OS safe and up to date. Similarly, we recommend opting into Microsoft Update to keep Microsoft applications up to date, this includes the Azure File Sync agent.
+* Configure any Windows Server roles, features, and settings you need. We recommend you opt into Windows Server updates to keep your OS safe and up to date. Similarly, we recommend opting into Microsoft Update to keep Microsoft applications up to date, including the Azure File Sync agent.
 * Do not configure any folders or shares before reading the following steps.
 
 ### Step 3: Deploy the first Azure File Sync cloud resource
@@ -106,7 +106,7 @@ Run the first local copy to your Windows Server target folder:
 * Identify the matching folder on the Windows Server, that already has Azure File Sync configured on it.
 * Start the copy using RoboCopy
 
-The following RoboCopy command will recall files from your StorSimple Azure storage to your local StorSimple and then move them over to the Windows Server target folder. The Windows Server will sync it to the Azure file share(s). As the local Windows Server volume gets full, cloud tiering will kick in and tier files that have successfully synced already. This will generate enough space to continue the copy from the StorSimple virtual appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
+The following RoboCopy command will recall files from your StorSimple Azure storage to your local StorSimple and then move them over to the Windows Server target folder. The Windows Server will sync it to the Azure file share(s). As the local Windows Server volume gets full, cloud tiering will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the StorSimple virtual appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
 
 ```console
 Robocopy /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
@@ -176,7 +176,7 @@ You can try to run a few of these copies in parallel. We recommend processing th
 > [!WARNING]
 > Once you have moved all the data from you StorSimple to the Windows Server, and your migration is complete: Return to ***all***  sync groups in the Azure portal and adjust the cloud tiering volume free space percent value to something better suited for cache utilization, say 20%. 
 
-The cloud tiering volume free space policy acts on a volume level with potentially multiple server endpoints syncing from it. If you forget to adjust the free space on even one server endpoint, sync will continue to apply the most restrictive rule and attempt to keep 99% free disk space, making the local cache not very usable. Unless it is your goal to only have the namespace for a volume that only contains rarely accessed, archival data.
+The cloud tiering volume free space policy acts on a volume level with potentially multiple server endpoints syncing from it. If you forget to adjust the free space on even one server endpoint, sync will continue to apply the most restrictive rule and attempt to keep 99% free disk space, making the local cache not performing as you might expect. Unless it is your goal to only have the namespace for a volume that only contains rarely accessed, archival data.
 
 ## Troubleshoot
 
@@ -193,7 +193,7 @@ As unlikely as they may be, if that happens, take a look at the **LINK Azure Fil
 
 Migration content:
 
-* [StorSimple 8000 series migration guide](storage-files-migration-ss8000.md)
+* [StorSimple 8000 series migration guide](storage-files-migration-storsimple-8000.md)
 
 Azure File Sync content:
 

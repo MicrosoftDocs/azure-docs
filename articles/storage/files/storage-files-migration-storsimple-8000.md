@@ -24,7 +24,7 @@ This article provides the necessary background knowledge and migrations steps to
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
 * File synchronization and cloud tiering.
-* File shares as native storage in Azure, that can be accessed over multiple protocols like SMB and file REST. An Azure file share is comparable to a file share on a Windows Server, that you can natively mount as a network drive. It supports important file fidelity aspects like attributes, permissions, and timestamps. With Azure file shares there is no longer a need for an application or service to interpret the files and folders stored in the cloud. You can access them natively over familiar protocols and clients like Windows File Explorer. That makes Azure file share the ideal, and most flexible approach to store general purpose file server data as well as some application data, in the cloud.
+* File shares as native storage in Azure, that can be accessed over multiple protocols like SMB and file REST. An Azure file share is comparable to a file share on a Windows Server, that you can natively mount as a network drive. It supports important file fidelity aspects like attributes, permissions, and timestamps. With Azure file shares there is no longer a need for an application or service to interpret the files and folders stored in the cloud. You can access them natively over familiar protocols and clients like Windows File Explorer. That makes Azure file shares the ideal, and most flexible approach to store general purpose file server data as well as some application data, in the cloud.
 
 This article focuses on the migration steps. If before migrating you'd like to learn more about Azure File Sync, we recommend the following articles:
 
@@ -57,7 +57,7 @@ The sequence is as follows:
 * Determine the minimum set of volume clones you must migrate. We recommend keeping this list to a minimum if possible, because the more backups you migrate the longer the overall migration process will take.
 * When going through the migration process, begin with the oldest volume clone you intend to migrate and on each subsequent migration, use the next oldest.
 * When each volume clone migration completes, you must take an Azure file share snapshot. [Azure file share snapshots](storage-snapshots-files.md) are how you keep point-in-time backups of the files and folder structure for your Azure file shares. You will need these snapshots after the migration completes, to ensure you have preserved versions of each of your volume clones as you progress through the migration.
-* Ensure that you take Azure file share snapshots for all Azure file shares, that are served by the same StorSimple volume. Volume clones are on the volume level, Azure file share snapshots are on the share level. You need to take a share snapshots after the migration of each volume clone is finished.
+* Ensure that you take Azure file share snapshots for all Azure file shares, that are served by the same StorSimple volume. Volume clones are on the volume level, Azure file share snapshots are on the share level. You need to take a share snapshot (on each Azure file share) after the migration of a volume clone is finished.
 * Repeat the migration process for a volume clone and taking share snapshots after each volume clone until you get caught up to a snapshot of the live data. The process of migrating a volume clone is described in the phases below. 
 
 If you do not need to move backups at all and can start a new chain of backups on the Azure file share side after the migration of only the live data is done, then that is beneficial to reduce complexity in the migration and amount of time the migration will take. You can make the decision whether or not to move backups and how many for each volume (not each share) you have in StorSimple.
@@ -182,7 +182,7 @@ Only proceed to phase 3 when you have completed these steps for all the volumes 
 
 ### Deploy the Azure File Sync cloud resource
 
-[!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-azure-file-sync-storage-sync-services.md)]
+[!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-azure-file-sync-storage-sync-service.md)]
 
 > [!TIP]
 > If you need to change the Azure region from the current region your StorSimple data resides in, then you have provisioned the storage accounts for your Azure file shares in the new region. Make sure that you selected that same region when you deploy this Storage Sync Service.
@@ -377,7 +377,7 @@ Background:
       /COPY:copyflag[s]
    :::column-end:::
    :::column span="1":::
-      fidelity of the file copy (default is /COPY:DAT), copy flags : D=Data, A=Attributes, T=Timestamps, S=Security=NTFS ACLs, O=Owner info, U=aUditing info
+      fidelity of the file copy (default is /COPY:DAT), copy flags: D=Data, A=Attributes, T=Timestamps, S=Security=NTFS ACLs, O=Owner info, U=aUditing info
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -393,7 +393,7 @@ Background:
       /DCOPY:copyflag[s]
    :::column-end:::
    :::column span="1":::
-      fidelity for the copy of directories (default is /DCOPY:DA), copy flags : D=Data, A=Attributes, T=Timestamps
+      fidelity for the copy of directories (default is /DCOPY:DA), copy flags: D=Data, A=Attributes, T=Timestamps
    :::column-end:::
 :::row-end:::
 
