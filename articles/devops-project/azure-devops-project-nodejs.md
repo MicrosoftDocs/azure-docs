@@ -6,21 +6,21 @@ ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: arob98
-manager: arob98
+manager: angrobe
 editor: ''
 ms.assetid:
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/24/2020
-ms.author: arob98
+ms.author: angrobe
 ms.custom: mvc
 monikerRange: 'vsts'
 ---
 
 
 #  Quickstart: Create a CI/CD pipeline in Azure Pipelines for Node.js with Azure DevOps Projects
-In this quickstart, you create a NodeJS progressive web app (PWA) using [GatsbyJS](https://www.gatsbyjs.org/) and the simplified Azure DevOps project creation experience. When finished you have a continuous integration (CI) and continuous delivery (CD) pipeline for your PWA in Azure Pipelines. Azure DevOps projects set up everything you need for developing, deploying, and monitoring and are a great way to kick-off a new project.
+In this quickstart, you create a NodeJS progressive web app (PWA) using [GatsbyJS](https://www.gatsbyjs.org/) and the simplified Azure DevOps project creation experience. When finished, you have a continuous integration (CI) and continuous delivery (CD) pipeline for your PWA in Azure Pipelines. Azure DevOps Projects sets up what you need for developing, deploying, and monitoring.
 
 ## Prerequisites
 
@@ -122,7 +122,7 @@ mv Dockerfile Application
 
 7. In your favorite editor, open the Dockerfile and change the first line from `FROM node:8` to `FROM node:12`. This change ensures that your container is using Node.js version 12.x instead of version 8.x. GatsbyJS requires more modern versions of Node.js.
 
-8. Next, open the package.json file in the Application folder and edit the [scripts field](https://docs.npmjs.com/files/package.json#scripts) to ensure that your development and production servers listen on all available network interfaces (for example, 0.0.0.0) and port 80. Without these settings the container app service is unable to route traffic to your Node.js app running inside your container. The `scripts` field should resemble what is below. Specifically, you want to change the `develop`, `serve`, and `start` targets from their defaults.
+8. Next, open the package.json file in the Application folder and edit the [scripts field](https://docs.npmjs.com/files/package.json#scripts) to ensure that your development and production servers listen on all available network interfaces (for example, 0.0.0.0) and port 80. Without these settings, the container app service is unable to route traffic to your Node.js app running inside your container. The `scripts` field should resemble what is below. Specifically, you want to change the `develop`, `serve`, and `start` targets from their defaults.
 ```json
   "scripts": {
     "build": "gatsby build",
@@ -137,10 +137,10 @@ mv Dockerfile Application
 
 ## Edit Your CI/CD pipelines
 
-1. Before you commit the code in the previous section,make some changes to your build and release pipelines. Edit your 'Build Pipeline' and update the Node task to use Node.js version 12.x. Set the **Task vervion** field to 1.x and the **Version** field to 12.x.
+1. Before you commit the code in the previous section, make some changes to your build and release pipelines. Edit your 'Build Pipeline' and update the Node task to use Node.js version 12.x. Set the **Task version** field to 1.x and the **Version** field to 12.x.
 ![Update Node.js to 12.x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
 
-2. In this quickstart, we are not creating unit tests and we are disabling those steps in our build pipeline. When you write tests you can re-enable these steps. Right-click to select the tasks labeled **Install test dependencies** and **Run unit tests** and disable them.
+2. In this quickstart, we are not creating unit tests and we are disabling those steps in our build pipeline. When you write tests, you can re-enable these steps. Right-click to select the tasks labeled **Install test dependencies** and **Run unit tests** and disable them.
 
 ![Disable Build Tests](_img/azure-devops-project-nodejs/disable-build-unittests.png)
 
@@ -159,13 +159,13 @@ mv Dockerfile Application
 1. Select **Commit**, and then save your changes.
 
 1. In your browser, go to the DevOps Projects dashboard.   
-You should now see a build in progress. The changes you just made are automatically built and deployed via a CI/CD pipeline.
+You should now see a build in progress. The changes you made are automatically built and deployed through a CI/CD pipeline.
 
 ## Commit your changes and examine the Azure CI/CD pipeline
 
-In the previous two steps, you added a Gatsby generated PWA to your git repo and edited your pipelines to build and deploy the code. We can commit the code an watch it progress through the build and release pipeline.
+In the previous two steps, you added a Gatsby generated PWA to your git repo and edited your pipelines to build and deploy the code. We can commit the code, and watch it progress through the build and release pipeline.
 
-1. From the root of your project's git repo in a terminal, run the following commands to push your code to your Azure DevOps Project:
+1. From the root of your project's git repo in a terminal, run the following commands to push your code to your Azure DevOps project:
 ```powershell
 git add .
 git commit -m "My first Gatsby PWA"
@@ -174,7 +174,7 @@ git push
 
 2. A build is started as soon as `git push` completes. You can follow the progress from the **Azure DevOps Dashboard**.
 
-![Azure DevOps Dashboard in Resource List](_img/azure-devops-project-/azure-devops-project-in-resource-list.png)
+![Azure DevOps Dashboard in Resource List](_img/azure-devops-project-nodejs/azure-devops-project-in-resource-list.png)
 
 3. After a few minutes, your build and release pipelines should finish and your PWA should be deployed to a container. Click the **Application endpoint** link from the dashboard above and you should see a Gatsby starter project for blogs.
 
