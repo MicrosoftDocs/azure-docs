@@ -6,6 +6,8 @@
     href: overview.md
 - name: Concepts
   items:
+  - name: Deploy Azure Digital Twins
+    href: concepts-deployment.md
   - name: Model objects
     href: concepts-models.md
   - name: Create twins and graph
