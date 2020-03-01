@@ -165,7 +165,7 @@ gradle azureFunctionsDeploy
 ```
 ::: zone-end
 
-This will creates the following resources in Azure:
+This will create the following resources in Azure:
 
 + Resource group. Named with the _resourceGroup_ you supplied.
 + Storage account. Required by Functions. The name is generated randomly based on Storage account name requirements.
