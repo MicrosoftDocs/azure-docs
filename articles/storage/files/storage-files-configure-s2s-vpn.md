@@ -19,7 +19,9 @@ We strongly recommend that you read [Azure Files networking overview](storage-fi
 The article details the steps to configure a Site-to-Site VPN to mount Azure file shares directly on-premises. If you're looking to route sync traffic for Azure File Sync over a Site-to-Site VPN, please see [configuring Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md).
 
 ## Prerequisites
-- An Azure file share you would like to mount on-premises. You may use either a [standard](storage-how-to-create-file-share.md) or a [premium Azure file share](storage-how-to-create-premium-fileshare.md) with your Site-to-Site VPN.
+- An Azure file share you would like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
+
+- A private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn more about how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-portal). 
 
 - A network appliance or server in your on-premises datacenter that is compatible with Azure VPN Gateway. Azure Files is agnostic of the on-premises network appliance chosen but Azure VPN Gateway maintains a [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Different network appliances offer different features, performance characteristics, and management functionalities, so consider these when selecting a network appliance.
 

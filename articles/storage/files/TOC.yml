@@ -93,6 +93,8 @@
       href: storage-how-to-use-files-mac.md
   - name: Network
     items:
+    - name: Configure Azure Files network endpoints
+      href: storage-files-networking-endpoints.md
     - name: Configure Site-to-Site VPN 
       href: storage-files-configure-s2s-vpn.md
     - name: Configure Point-to-Site VPN on Windows
