@@ -118,13 +118,13 @@ The **Correlated in-order delivery using service bus sessions** template include
 |------|-------------|
 | **When a message is received in a queue (peek-lock)** | Based on the specified recurrence, this Service Bus trigger checks the specified Service Bus queue for any messages. If a message exists in the queue, the trigger fires, which creates and runs a workflow instance. The term *peek-lock* means that the trigger retrieves and locks the message so that no other processing happens on that message until the lock period expires. |
 | **`Init isDone`** | This **Initialize variable** action creates a variable that tracks whether the next Service Bus action finishes reading messages in the queue. By default, the variable's Boolean value is set to `false`. |
-| **`Try`** | This **Scope** action contains the subsequent workflow actions to run. That way, if a problem happens in the `Try` scope, the following `Catch` action handles that problem. For more information, see [Try scope](#try-scope). |
-| **`Catch`**| This **Scope** contains the workflow actions to run if an problem happens in the preceding `Try` action. |
+| **`Try`** | This **Scope** action contains the subsequent workflow actions to run. That way, if a problem happens in the `Try` scope, the following `Catch` action handles that problem. For more information, see ["Try" scope](#try-scope). |
+| **`Catch`**| This **Scope** contains the workflow actions to run if a problem happens in the preceding `Try` scope. For more information, see ["Catch" scope](#catch-scope). |
 |||
 
 <a name="try-scope"></a>
 
-### Try scope
+### "Try" scope
 
 | Name | Description |
 |------|-------------|
@@ -142,7 +142,7 @@ The **Correlated in-order delivery using service bus sessions** template include
 
 <a name="catch-scope"></a>
 
-### Catch scope
+### "Catch" scope
 
 | Item | Description |
 |------|-------------|
@@ -155,6 +155,11 @@ The **Correlated in-order delivery using service bus sessions** template include
 <a name="fill-template"></a>
 
 ## Fill out the template
+
+To provide the values for the trigger and actions in the **Correlated in-order delivery using service bus sessions** template, follow these steps.
+
+> [!NOTE]
+> You have to provide all the required values, which are marked by an asterisk (**\***), before you can save your work.
 
 1. For the **When a message is received in a queue (peek-lock)** trigger, provide this information so that the template can initialize a session by using the **Session id** property.
 
