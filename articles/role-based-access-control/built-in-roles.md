@@ -3851,7 +3851,8 @@ Can manage blueprint definitions, but not assign them.
 
 Can assign existing published blueprints, but cannot create new blueprints. 
 
-> [!NOTE] This works only if the assignment is done with a user-assigned managed identity.
+> [!NOTE] 
+> This works only if the assignment is done with a user-assigned managed identity.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
