@@ -1,5 +1,5 @@
 ---
-title: Map a folder structure to an Azure File Sync topology.
+title: Map a folder structure to an Azure File Sync topology
 description: Mapping an existing file and folder structure to Azure file shares for use with Azure File Sync. A common text block, shared between migration docs.
 author: fauhse
 ms.service: storage

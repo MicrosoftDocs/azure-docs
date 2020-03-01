@@ -1,5 +1,5 @@
 ---
-title: Deploying the Azure File Sync agent.
+title: Deploying the Azure File Sync agent
 description: Deploying the Azure File Sync agent. A common text block, shared between migration docs.
 author: fauhse
 ms.service: storage

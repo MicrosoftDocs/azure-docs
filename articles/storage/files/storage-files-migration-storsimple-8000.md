@@ -41,7 +41,7 @@ A local Windows Server is required to run an Azure File Sync agent. The Windows 
 
 There are numerous, alternative migration paths and it would create too long of an article to document all of them and illustrate why they bear risk or disadvantages over the route we recommend as a best practice in this article.
 
-![Migration phases overview](media/storage-files-migration-storsimple-shared/ss8000-overview.png "Migration route overview of the phases further below in this article.")
+![StorSimple 8000 series migration phases overview](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-overview.png "StorSimple 8000 series migration route overview of the phases further below in this article.")
 
 The previous image depicts phases that correspond to sections in this article.
 We use a cloud-side migration to avoid unnecessary recall of files to your local StorSimple appliance. This avoids impacting local caching behavior or network bandwidth use, either of which can affect your production workloads.
@@ -66,7 +66,7 @@ If you do not need to move backups at all and can start a new chain of backups o
 
 :::row:::
     :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/ss8000-step-1.png)
+        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-1.png)
     :::column-end:::
     :::column:::
         The basis for the migration is a volume clone and a virtual cloud appliance, called a StorSimple 8020.
@@ -115,7 +115,7 @@ Now that you've completed phase 1, you will have the following:
 
 :::row:::
     :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/ss8000-step-2.png)
+        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
     :::column-end:::
     :::column:::
         After your initial clone is available on the StorSimple 8020 virtual appliance in Azure, it is now time to provision a VM and expose the volume clone (or multiple) to that VM over iSCSI.
@@ -162,7 +162,7 @@ Only proceed to phase 3 when you have completed these steps for all the volumes 
 
 :::row:::
     :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/ss8000-step-3.png)
+        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
     :::column-end:::
     :::column:::
         In this phase, you will be determining and provisioning a number of Azure file shares, creating a Windows Server on-premises as a StorSimple appliance replacement and configure that server for Azure File Sync. 
@@ -175,14 +175,14 @@ Only proceed to phase 3 when you have completed these steps for all the volumes 
 
 ### Deploy Azure file shares
 
-[!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azfs.md)]
+[!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
 
 > [!TIP]
 > If you need to change the Azure region from the current region your StorSimple data resides in, then provision the Azure file shares in the new region you want to use. You determine the region by selecting it when you provision the storage accounts that hold your Azure file shares. Make sure that also the Azure File Sync resource you will provision below, is in that same, new region.
 
 ### Deploy the Azure File Sync cloud resource
 
-[!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-afs-sss.md)]
+[!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-azure-file-sync-storage-sync-services.md)]
 
 > [!TIP]
 > If you need to change the Azure region from the current region your StorSimple data resides in, then you have provisioned the storage accounts for your Azure file shares in the new region. Make sure that you selected that same region when you deploy this Storage Sync Service.
@@ -197,7 +197,7 @@ You can add or remove storage from your Windows Server at will. This enables you
 
 ### Prepare the Windows Server for file sync
 
-[!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-afs-agent.md)]
+[!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-azure-file-sync-agent.md)]
 
 ### Configure Azure File Sync on the Windows Server
 
@@ -212,7 +212,7 @@ Your registered on-premises Windows Server must be ready and connected to the in
 
 :::row:::
     :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/ss8000-step-4.png)
+        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
     :::column-end:::
     :::column:::
         This phase concerns your Azure VM with the iSCSI mounted, first volume clone(s). During this phase, you will get the VM connected via Azure File Sync and start a first round of moving files from your StorSimple volume clone(s).
@@ -268,7 +268,7 @@ From experience, we can assume that the bandwidth - therefore the actual data si
 
 :::row:::
     :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/ss8000-step-5.png)
+        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
     :::column-end:::
     :::column:::
         As discussed in the previous phase, the initial sync can take a long time. Your users and applications are still accessing the on-premises StorSimple 8100 or 8600 appliance. That means that changes are accumulating, and with every day a larger delta between the live data and the initial volume clone, you are currently migration, forms. In this section, you'll learn how to minimize downtime by using multiple volume clones and telling when sync is done.
@@ -325,7 +325,7 @@ At this point, there are two differences between your on-premises Windows Server
 1. There may be files that haven't synced (see **PerItemErrors** from the event log above)
 2. The StorSimple appliance has a populated cache vs. the Windows Server just a namespace with no file content stored locally at this time.
 
-![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/ss8000-step-6.png)
+![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
 
 We can bring the cache of the Windows Server up to the state of the appliance and ensure no file is left behind with a final RoboCopy.
 
@@ -420,8 +420,8 @@ Once you are satisfied and have observed your AFS deployment for at least a few 
 1. Turn off the Azure VM that we have used to move data from the volume clones to the Azure file shares via file sync.
 2. Go to your Storage Sync Service resource in Azure, and unregister the Azure VM. That removes it from all the sync groups.
 
-  > [!WARNING]
-  > **ENSURE you pick the right machine.** You've turned the cloud VM off, that means it should show as the only offline server in the list of registered servers. You must not pick the on-premises Windows Server at this step, doing so will unregister it.
+    > [!WARNING]
+    > **ENSURE you pick the right machine.** You've turned the cloud VM off, that means it should show as the only offline server in the list of registered servers. You must not pick the on-premises Windows Server at this step, doing so will unregister it.
 
 3. Delete Azure VM and its resources.
 4. Disable the 8020 virtual StorSimple appliance.

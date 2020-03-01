@@ -41,7 +41,7 @@ A local Windows Server is required to run an Azure File Sync agent. The Windows 
 
 There are numerous, alternative migration paths and it would create too long of an article to document all of them and illustrate why they bear risk or disadvantages over the route we recommend as a best practice in this article.
 
-:::image type="content" source="media/storage-files-migration-storsimple-shared/SS1200-migration.png" alt-text="Migration route overview of the steps further below in this article.":::
+:::image type="content" source="media/storage-files-migration-storsimple-shared/storsimple-1200-migration-overview.png" alt-text="Migration route overview of the steps further below in this article.":::
 
 The previous image depicts steps that correspond to sections in this article.
 
@@ -64,7 +64,7 @@ This article assumes you are mapping 1:1, so you must take your mapping changes 
 
 ### Step 3: Deploy the first Azure File Sync cloud resource
 
-[!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-afs-sss.md)]
+[!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-azure-file-sync-storage-sync-service.md)]
 
 ### Step 4: Match your local volume and folder structure to Azure File Sync and Azure file share resources
 
@@ -72,7 +72,7 @@ This article assumes you are mapping 1:1, so you must take your mapping changes 
 
 ### Step 5: Provision Azure file shares
 
-[!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azfs.md)]
+[!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
 
 ### Step 6: Configure Windows Server target folders
 
@@ -85,7 +85,7 @@ The number of Azure file shares you have provisioned should match the number of 
 
 ### Step 7: Deploy the Azure File Sync agent
 
-[!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-afs-agent.md)]
+[!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-azure-file-sync-agent.md)]
 
 ### Step 8: Configure sync
 
