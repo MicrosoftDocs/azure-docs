@@ -46,7 +46,7 @@ In the following example, replace <app_name> with a unique app name.
 ```bash
 cd html-docs-hello-world
 
-az webapp up --location westeurope --name <app_name> --html
+az webapp up --location westeurope --name <app_name> 
 ```
 
 The `az webapp up` command does the following actions:
