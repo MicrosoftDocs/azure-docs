@@ -49,7 +49,7 @@ Update Management supports WSUS settings. The WSUS settings you can configure fo
 
 You can specify sources for scanning and downloading updates under [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). By default, Windows Update client is configured to download updates from Windows Update. When you specify a WSUS server as a source for your machines, if the updates aren't approved in WSUS, update deployment fails. 
 
-To restrict machines to just that internal update service, configure [Do not connect to any Windows Update Internet locations](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#do-not-connect-to-any-windows-update-internet-locations). 
+To restrict machines to just that internal update service, configure [Do not connect to any Windows Update Internet locations](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
 
 ## Next steps
 
