@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/25/2020
+ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
@@ -418,6 +418,7 @@ For more information about clustering the SAP ASCS/SCS instance by using the Red
 > For more information about multi-SID high-availability architecture on Linux, see:
 
 * [HA for SAP NW on Azure VMs on SLES for SAP applications multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+* [HA for SAP NW on Azure VMs on RHEL for SAP applications multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 
 ### High-availability DBMS instance
 
