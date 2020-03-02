@@ -1,6 +1,6 @@
 ---
-title: Performance recommendations
-description: Azure SQL Database provides recommendations for your SQL databases that can improve current query performance.
+title: Database advisor performance recommendations for single and pooled databases
+description: Azure SQL Database provides recommendations for single and pooled databases that can improve query performance in Azure SQL database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,9 +12,9 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/28/2020
 ---
-# Performance recommendations for SQL Database
+# Database Advisor performance recommendations
 
-Azure SQL Database learns and adapts with your application. SQL Database has a number of database advisors that provide customized recommendations that enable you to maximize the performance of your SQL databases. These database advisors continuously assess and analyze the usage history of your SQL databases. They provide recommendations that based on database-unique workload patterns that help improve performance.
+Azure SQL Database learns and adapts with your application. SQL Database has a number of database advisors that provide customized recommendations that enable you to maximize the performance of single and pooled databases in Azure SQL databases. These database advisors continuously assess and analyze the usage history and provide recommendations based on workload patterns that help improve performance.
 
 ## Performance overview
 

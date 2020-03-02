@@ -257,14 +257,14 @@
       href: sql-database-monitoring-tuning-index.yml
     - name: Monitoring and performance overview
       href: sql-database-monitor-tune-overview.md
-    - name: Database Advisors and QPI
+    - name: Database Advisors and Query Performance Insight
       items:
       - name: Database advisor performance recommendations
         href: sql-database-advisor.md
-      - name: Automatic tuning
-        href: sql-database-automatic-tuning.md
-      - name: Query Performance Insight
+      - name: Query Performance Insights
         href: sql-database-query-performance.md
+    - name: Automatic tuning
+      href: sql-database-automatic-tuning.md
     - name: Intelligent Insights and SQL Analytics
       items:
       - name: Intelligent insights into performance
