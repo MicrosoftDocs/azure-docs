@@ -1,16 +1,8 @@
 ---
 title: "Tutorial: Batch testing to find issues - LUIS"
-titleSuffix: Azure Cognitive Services
 description: This tutorial demonstrates how to use batch testing to validate the quality of your Language Understanding (LUIS) app.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 03/02/2020
-ms.author: diberry
 ---
 
 # Tutorial: Batch test data sets
