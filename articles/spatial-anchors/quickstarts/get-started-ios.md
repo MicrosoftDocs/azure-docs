@@ -46,7 +46,7 @@ Install the necessary pods using CocoaPods:
 Navigate to `iOS/Swift/`.
 
 ```bash
-cd ./iOS/Swift/
+cd ./azure-spatial-anchors-samples/iOS/Swift
 ```
 
 # [Objective-C](#tab/openproject-objc)
@@ -54,7 +54,7 @@ cd ./iOS/Swift/
 Navigate to `iOS/Objective-C/`.
 
 ```bash
-cd ./iOS/Objective-C/
+cd ./azure-spatial-anchors-samples/iOS/Objective-C/
 ```
 
 ---
