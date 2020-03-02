@@ -29399,6 +29399,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/hdinsight/kafka/apache-kafka-byok.md",
+      "redirect_url": "/azure/hdinsight/disk-encryption",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-apache-kafka-connect-vpn-gateway.md",
       "redirect_url": "/azure/hdinsight/kafka/apache-kafka-connect-vpn-gateway",
       "redirect_document_id": true

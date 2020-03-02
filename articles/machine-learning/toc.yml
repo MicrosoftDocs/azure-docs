@@ -367,18 +367,21 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-    - name: 'Designer: Retrain using published pipelines'
+    - name: 'Designer retrain using published pipelines'
       displayName: retrain, designer, published pipeline
       href: how-to-retrain-designer.md
+    - name: Designer batch predictions
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+      href: how-to-run-batch-predictions-designer.md
+    - name: Designer execute Python code
+      displayName: feature extraction, feature engineering
+      href: how-to-designer-python.md
     - name: Use parallel run step
       displayName: score scoring batch consume pipeline parallelrunstep inference
       href: how-to-use-parallel-run-step.md
     - name: Debug & troubleshoot parallel run step
       displayName: debug_batch consume pipeline parallelrunstep inference
       href: how-to-debug-parallel-run-step.md
-    - name: Designer batch predictions
-      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-      href: how-to-run-batch-predictions-designer.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
