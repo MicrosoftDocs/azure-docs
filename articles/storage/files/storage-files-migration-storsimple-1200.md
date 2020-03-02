@@ -4,7 +4,7 @@ description: Learn how to migrate a StorSimple 1200 series virtual appliance to 
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/14/2020
+ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
 ---
