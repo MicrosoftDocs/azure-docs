@@ -83,7 +83,7 @@ To create a custom password policy, you use the Active Directory Administrative 
 
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown that were installed in the tutorial to [create a management VM][tutorial-create-management-vm].
 1. To create and manage OUs, select **Active Directory Administrative Center** from the list of administrative tools.
-1. In the left pane, choose your Azure AD DS managed domain, such as *aadds.contoso.com*.
+1. In the left pane, choose your Azure AD DS managed domain, such as *aaddscontoso.com*.
 1. Open the **System** container, then the **Password Settings Container**.
 
     A built-in password policy for the Azure AD DS managed domain is shown. You can't modify this built-in policy. Instead, create a custom password policy to override the default policy.
@@ -108,7 +108,7 @@ To create a custom password policy, you use the Active Directory Administrative 
 
     ![Select the users and groups to apply the password policy to](./media/how-to/fgpp-applies-to.png)
 
-1. Password policies can only be applied to groups. In the **Locations** dialog, expand the domain name, such as *aadds.contoso.com*, then select an OU, such as **AADDC Users**. If you have a custom OU that contains a group of users you wish to apply, select that OU.
+1. Password policies can only be applied to groups. In the **Locations** dialog, expand the domain name, such as *aaddscontoso.com*, then select an OU, such as **AADDC Users**. If you have a custom OU that contains a group of users you wish to apply, select that OU.
 
     ![Select the OU that the group belongs to](./media/how-to/fgpp-container.png)
 
