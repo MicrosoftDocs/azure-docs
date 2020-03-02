@@ -42,10 +42,10 @@ Most functions work the same whether deployed to a resource group, subscription,
 
 ## Escape characters
 
-To have a literal string start with a left bracket `[` and end with a right bracket `]`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[`. For example, the variable:
+To have a literal string start with a left bracket `[` and end with a right bracket `]`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[` and end the string with `]]`. For example, the variable:
 
 ```json
-"demoVar1": "[[test value]"
+"demoVar1": "[[test value]]"
 ```
 
 Resolves to `[test value]`.
