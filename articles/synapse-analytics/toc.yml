@@ -62,10 +62,14 @@
     #   href: article-template.md
     # - name: Use Torch for deep learning
     #   href: article-template.md
+  - name: Data Analyst
+    items:
+    - name: Use SQL on-demand to analyze and Synapse studio to visualize
+      href: ./sql-analytics/tutorial-data-analyst.md
   - name: Data Engineer
     items:
-    # - name: Data Preparation
-    #   href: article-template.md
+  # - name: Data Preparation
+  #   href: article-template.md
   # - name: Data Analyst
   #   href: article-template.md
   # - name: IT Administrator
@@ -292,6 +296,8 @@
         href: sql-analytics/best-practices-sql-on-demand.md
       - name: Best practices SQL pools
         href: sql-analytics/best-practices-sql-pool.md
+      # - name: FAQ
+      #   href: sql-analytics/sql-analytics-faq.md
     - name: Data loading
       items:
       - name: Overview
