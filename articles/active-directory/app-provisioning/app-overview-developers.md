@@ -42,7 +42,7 @@ Get your users into your application quickly and securely with single sign-on.Az
 |[SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) based SSO|Integrate any SAML-based application with Azure AD for SSO.|
 |[OIDC](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) based SSO|Integrate any OIDC based application with Azure AD for SSO.|
 
-## Scenario 2: Enrich your application with the data that you need
+## Scenario 2: Enrich your application with data
 
 
 Most applications require a user to be provisioned into the application before accessing the resources that they need. Furthermore, customers need to ensure that accounts are removed when some one shouldn't have access to the account anymore. Leverage the tools provided by the Azure AD provisioning service to automate user provisioning and deprovisioning. 
@@ -53,13 +53,13 @@ Most applications require a user to be provisioned into the application before a
 |[SCIM](https://SCIMOverview) provisioning|The SCIM standard facilitates automatic user provisioning and deprovisioning. Develop a SCIM compliant endpoint and enable any customer to automatically provision users and groups into your application.|
 |[Microsoft Graph](https://docs.microsoft.com/graph/overview)|Microsoft Graph is the gateway to data and intelligence in Microsoft 365. It provides a unified programmability model that you can use to access the tremendous amount of data in Office 365, Windows 10, and Enterprise Mobility + Security. Use the wealth of data in Microsoft Graph to build apps for organizations and consumers that interact with millions of users.|
 
-## Scenario 3: Enrich your application with the data that you need
+## Scenario 3: Securely access APIs
 
 Access secured web APIs (for example, from the Microsoft graph or your own web API) using tokens issued by the Microsoft identity platform. 
 
 |Feature  |Description|
 |---------|---------|
-|Using MSAL, a token can be acquired from a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications.||
+|MSAL|Using MSAL, a token can be acquired from a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications.|
 
 ## Related articles
 
