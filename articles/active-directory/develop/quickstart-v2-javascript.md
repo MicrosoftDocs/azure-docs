@@ -209,6 +209,11 @@ For more information about available configurable options, see [Initialize clien
 The following code snippet shows how to sign in users:
 
 ```javascript
+// Add scopes for the id token to be used at Microsoft identity platform endpoints.
+const loginRequest = {
+    scopes: ["openid", "profile", "User.Read"],
+};
+
 myMSALObj.loginPopup(loginRequest)
     .then((loginResponse) => {
     //Login Success callback code here
@@ -233,6 +238,11 @@ MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireToken
 The `acquireTokenSilent` method handles token acquisitions and renewal without any user interaction. After the `loginRedirect` or `loginPopup` method is executed for the first time, `acquireTokenSilent` is the method commonly used to obtain tokens that are used to access protected resources for subsequent calls. Calls to request or renew tokens are made silently.
 
 ```javascript
+
+const tokenRequest = {
+    scopes: ["Mail.Read"]
+};
+
 myMSALObj.acquireTokenSilent(tokenRequest)
     .then((tokenResponse) => {
         // Callback code here
