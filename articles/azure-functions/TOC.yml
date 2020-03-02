@@ -30,6 +30,8 @@
       href: functions-add-output-binding-storage-queue-vs-code.md
     - name: Visual Studio
       href: functions-add-output-binding-storage-queue-vs.md
+    - name: Command line
+      href: functions-add-output-binding-storage-queue-cli.md
     - name: Maven (Java)
       href: functions-add-output-binding-storage-queue-java.md
 - name: Tutorials
@@ -342,8 +344,20 @@
         href: functions-bindings-cosmosdb.md
         displayName: Azure Cosmos DB
       - name: Functions 2.x
-        href: functions-bindings-cosmosdb-v2.md
         displayName: Azure Cosmos DB
+        items:
+        - name: Overview
+          href: functions-bindings-cosmosdb-v2.md
+          displayName: Azure Cosmos DB
+        - name: Trigger
+          href: functions-bindings-cosmosdb-v2-trigger.md
+          displayName: Azure Cosmos DB
+        - name: Input
+          href: functions-bindings-cosmosdb-v2-input.md
+          displayName: Azure Cosmos DB
+        - name: Output
+          href: functions-bindings-cosmosdb-v2-output.md
+          displayName: Azure Cosmos DB
     - name: Event Grid
       items: 
         - name: Overview
@@ -353,9 +367,27 @@
         - name: Output
           href: functions-bindings-event-grid-output.md
     - name: Event Hubs
-      href: functions-bindings-event-hubs.md
+      items:
+      - name: Overview
+        href: functions-bindings-event-hubs.md
+        displayName: Azure Event Hubs
+      - name: Trigger
+        href: functions-bindings-event-hubs-trigger.md
+        displayName: Azure Event Hubs
+      - name: Output
+        href: functions-bindings-event-hubs-output.md
+        displayName: Azure Event Hubs
     - name: IoT Hub
-      href: functions-bindings-event-iot.md
+      items:
+      - name: Overview
+        href: functions-bindings-event-iot.md
+        displayName: Azure IoT Hubs
+      - name: Trigger
+        href: functions-bindings-event-iot-trigger.md
+        displayName: Azure IoT Hubs
+      - name: Output
+        href: functions-bindings-event-iot-output.md
+        displayName: Azure IoT Hubs
     - name: HTTP and webhooks
       items:
         - name: Overview  
@@ -381,9 +413,24 @@
     - name: SendGrid
       href: functions-bindings-sendgrid.md
     - name: Service Bus
-      href: functions-bindings-service-bus.md
+      items:
+      - name: Overview
+        href: functions-bindings-service-bus.md
+      - name: Trigger
+        href: functions-bindings-service-bus-trigger.md
+      - name: Output
+        href: functions-bindings-service-bus-output.md
     - name: SignalR Service
-      href: functions-bindings-signalr-service.md
+      items:
+      - name: Overview
+        href: functions-bindings-signalr-service.md
+        displayName: SignalR Service
+      - name: Overview
+        href: functions-bindings-signalr-service-input.md
+        displayName: SignalR Service
+      - name: Overview
+        href: functions-bindings-signalr-service-output.md
+        displayName: SignalR Service
     - name: Table storage
       href: functions-bindings-storage-table.md
     - name: Timer

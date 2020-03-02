@@ -91,7 +91,11 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
-Open [values.yaml][values-yaml] and replace all instances of *<REPLACE_ME_WITH_HOST_SUFFIX>* with *nginx.MY_CUSTOM_DOMAIN* using your domain for *MY_CUSTOM_DOMAIN*. Also replace *kubernetes.io/ingress.class: nginx-azds  # Dev Spaces-specific* with *kubernetes.io/ingress.class: nginx  # Custom Ingress*. Below is an example of an updated `values.yaml` file:
+Open [values.yaml][values-yaml] and make the following updates:
+* Replace all instances of *<REPLACE_ME_WITH_HOST_SUFFIX>* with *nginx.MY_CUSTOM_DOMAIN* using your domain for *MY_CUSTOM_DOMAIN*. 
+* Replace *kubernetes.io/ingress.class: traefik-azds  # Dev Spaces-specific* with *kubernetes.io/ingress.class: nginx  # Custom Ingress*. 
+
+Below is an example of an updated `values.yaml` file:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -123,7 +127,7 @@ azds space select -n dev -y
 Deploy the sample application using `helm install`.
 
 ```console
-helm install bikesharing . --dependency-update --namespace dev --atomic
+helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 ```
 
 The above example deploys the sample application to the *dev* namespace.
@@ -144,6 +148,9 @@ http://dev.gateway.nginx.MY_CUSTOM_DOMAIN/         Available
 ```
 
 Navigate to the *bikesharingweb* service by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is `http://dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/`.
+
+> [!NOTE]
+> If you see an error page instead of the *bikesharingweb* service, verify you updated **both** the *kubernetes.io/ingress.class* annotation and the host in the *values.yaml* file.
 
 Use the `azds space select` command to create a child space under *dev* and list the URLs to access the child dev space.
 

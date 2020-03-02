@@ -59,6 +59,7 @@ When streaming via RTMPS, check firewall and/or proxy settings to confirm that o
 - OBS Studio
 - Switcher Studio (iOS)
 - Telestream Wirecast (version 13.0.2 or higher due to the TLS 1.2 requirement)
+- Telestream Wirecast S (only RTMP is supported)
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -109,7 +110,7 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 ### Pass-through Live Event verification
 
 1. In your Media Services account, make sure that the **Streaming Endpoint** is running. 
-2. Create and start the **pass-through** Live Event. <br/> For more information, see [Live Event states and billing](live-event-states-billing.md).
+2. Create and start the **pass-through** live event. <br/> For more information, see [Live Event states and billing](live-event-states-billing.md).
 3. Get the ingest URLs and configure your on-premises encoder to use the URL to send a multi-bitrate live stream to Media Services.
 4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 5. Create a new **Asset** object.

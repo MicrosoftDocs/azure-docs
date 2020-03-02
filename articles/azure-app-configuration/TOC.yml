@@ -75,6 +75,8 @@
           href: howto-integrate-azure-managed-service-identity.md
         - name: Enable access using Azure Active Directory
           href: concept-enable-rbac.md
+        - name: Assign an Azure Managed Identity
+          href: overview-managed-identity.md
     - name: High availability
       items:
         - name: Resiliency and disaster recovery

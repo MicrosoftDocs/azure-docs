@@ -1,21 +1,21 @@
 ---
 title: Data loading best practices
-description: Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse.
+description: Recommendations and performance optimizations for loading data into SQL Analytics
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 08/08/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# Best practices for loading data into Azure SQL Data Warehouse
+# Best practices for loading data for data warehousing
 
-Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse.
+Recommendations and performance optimizations for loading data
 
 ## Preparing data in Azure Storage
 
@@ -31,9 +31,9 @@ Split large compressed files into smaller compressed files.
 
 ## Running loads with enough compute
 
-For fastest loading speed, run only one load job at a time. If that is not feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your data warehouse before the load.
+For fastest loading speed, run only one load job at a time. If that is not feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your SQL pool before the load.
 
-To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
+To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class or workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
 ### Example of creating a loading user
 
@@ -84,7 +84,7 @@ Columnstore indexes require large amounts of memory to compress data into high-q
 - Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
 
 ## Increase batch size when using SQLBulkCopy API or BCP
-As mentioned before, loading with PolyBase will provide the highest throughput with SQL Data Warehouse. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP) you should consider increasing batch size for better throughput. 
+As mentioned before, loading with PolyBase will provide the highest throughput with SQL Data Warehouse. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP) you should consider increasing batch size for better throughput - a good rule of thumb is a batch size between 100K to 1M rows.
 
 ## Handling loading failures
 

@@ -81,6 +81,9 @@
     - name: Register a SAML service provider
       href: connect-with-saml-service-providers.md
       displayName: SP, RP, service provider, connect
+    - name: Register a Graph application
+      href: microsoft-graph-get-started.md
+      displayName: migrate, migration, microsoft graph
     - name: Add a web API application
       href: add-web-application.md
     - name: Add a native client application
@@ -347,10 +350,9 @@
     - name: Azure Monitor
       href: azure-monitor.md
       displayName: log, logs, logging, usage, events
-    - name: Export usage report
-      href: view-usage-reports.md
-    - name: Account management
+    - name: Manage users - Microsoft Graph
       href: manage-user-accounts-graph-api.md
+      displayName: account, accounts
     - name: Deploy with Azure Pipelines
       href: deploy-custom-policies-devops.md
       displayName: azure devops, ci/cd, cicd, custom policy, policies
@@ -377,8 +379,6 @@
     items:
     - name: Migrate users
       href: user-migration.md
-    - name: Migrate users with external identities
-      href: migrate-social-identities.md
 - name: Reference
   items:
   - name: Identity Experience Framework release notes
@@ -392,9 +392,11 @@
     displayName: cookies, SameSite
   - name: Error codes
     href: error-codes.md
+  - name: Microsoft Graph API operations
+    href: microsoft-graph-operations.md
   - name: Region availability & data residency
     href: data-residency.md
-  - name: Enable billing
+  - name: Billing model
     href: billing.md
   - name: Threat management
     href: threat-management.md

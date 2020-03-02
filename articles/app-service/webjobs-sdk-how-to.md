@@ -392,7 +392,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings) article.
+For more details, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) article.
 
 ### Event Hubs trigger configuration (version 3.*x*)
 
@@ -420,7 +420,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) article.
+For more details, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs-output.md#hostjson-settings) article.
 
 ### Queue storage trigger configuration
 
@@ -521,7 +521,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Service Bus binding](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) article.
+For more details, see the [Service Bus binding](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings) article.
 
 ### Configuration for other bindings
 

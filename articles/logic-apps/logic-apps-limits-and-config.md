@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 02/28/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -145,13 +145,15 @@ Some connector operations make asynchronous calls or listen for webhook requests
 | Inbound request | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of inbound requests include calls received by request triggers and webhook triggers. <p><p>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
+<a name="message-size-limits"></a>
+
 #### Message size
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Message size | 100 MB | 200 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. |
-| Message size with chunking | 1 GB | 5 GB | This limit applies to actions that natively support chunking or let you enable chunking in their runtime configuration. <p>For the integration service environment, the Logic Apps engine supports this limit, but connectors have their own chunking limits up to the engine limit, for example, see the [Azure Blob Storage connector's API reference](https://docs.microsoft.com/connectors/azureblob/). For more information chunking, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
-|||||   
+| Message size | 100 MB | 200 MB | ISE-labeled connectors use the ISE limit, not their non-ISE connector limits. <p><p>To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. |
+| Message size with chunking | 1 GB | 5 GB | This limit applies to actions that either natively support chunking or let you enable chunking in their runtime configuration. <p><p>For the integration service environment, the Logic Apps engine supports this limit, but connectors have their own chunking limits up to the engine limit, for example, see the [Azure Blob Storage connector's API reference](https://docs.microsoft.com/connectors/azureblob/). For more information about chunking, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
+|||||
 
 #### Character limits
 
@@ -189,7 +191,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 | Name | Limit |
 |------|-------|
 | Managed identities per logic app | Either the system-assigned identity or 1 user-assigned identity |
-| Number of logic apps that have a managed identity in an Azure subscription per region | 100 |
+| Number of logic apps that have a managed identity in an Azure subscription per region | 250 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -246,12 +248,16 @@ For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/
 | Schema | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
-| Runtime endpoint | Limit | Notes |
-|------------------|-------|-------|
-| Read calls per 5 minutes | 60,000 | You can distribute the workload across more than one account as necessary. |
-| Invoke calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. |
-| Tracking calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. |
-| Blocking concurrent calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
+<a name="integration-account-throughput-limits"></a>
+
+### Throughput limits
+
+| Runtime endpoint | Free | Basic | Standard | Notes |
+|------------------|------|-------|----------|-------|
+| Read calls per 5 minutes | 3,000 | 30,000 | 60,000 | You can distribute the workload across more than one account as necessary. |
+| Invoke calls per 5 minutes | 3,000 | 30,000 | 45,000 | You can distribute the workload across more than one account as necessary. |
+| Tracking calls per 5 minutes | 3,000 | 30,000 | 45,000 | You can distribute the workload across more than one account as necessary. |
+| Blocking concurrent calls | ~1,000 | ~1,000 | ~1,000 | Same for all SKUs. You can reduce the number of concurrent requests or reduce the duration as necessary. |
 ||||
 
 <a name="b2b-protocol-limits"></a>
