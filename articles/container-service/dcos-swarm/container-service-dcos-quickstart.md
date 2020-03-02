@@ -123,19 +123,19 @@ The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon 
 
 Run the following command to schedule the application to run on the DC/OS cluster.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 To see the deployment status for the app, run the following command.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 When the **WAITING** column value switches from *True* to *False*, application deployment has completed.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```

@@ -39,19 +39,19 @@ Use the Anomaly Detector client library for .NET to:
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `anomaly-detector-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*. 
 
-```dotnetcli
+```console
 dotnet new console -n anomaly-detector-quickstart
 ```
 
 Change your directory to the newly created app folder. You can build the application with:
 
-```dotnetcli
+```console
 dotnet build
 ```
 
 The build output should contain no warnings or errors. 
 
-```console
+```output
 ...
 Build succeeded.
  0 Warning(s)
@@ -63,7 +63,7 @@ Build succeeded.
 
 Within the application directory, install the Anomaly Detector client library for .NET with the following command:
 
-```dotnetcli
+```console
 dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
 ```
 
@@ -129,7 +129,7 @@ Create a method to call the client's [LastDetectAsync()](https://docs.microsoft.
 
 Run the application with the `dotnet run` command from your application directory.
 
-```dotnetcli
+```console
 dotnet run
 ```
 
