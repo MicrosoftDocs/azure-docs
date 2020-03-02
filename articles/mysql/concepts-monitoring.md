@@ -47,10 +47,10 @@ You can enable slow query and audit logging on your server. These logs are also 
 The [Performance Recommendations](concepts-performance-recommendations.md) feature identifies opportunities to improve workload performance. Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes.
 
 ## Planned maintenance notification
-The **planned maintenance notification** feature allows you to receive alerts for upcoming planned maintenance to your Azure Database for MySQL. This feature utilizes the Azure portal’s [Service Health](../service-health/overview.md) blade – planned maintenance section to allow you to view all scheduled maintenance for your subscriptions all in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different teams/contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
+**Planned maintenance notifications** allow you to receive alerts for upcoming planned maintenance to your Azure Database for MySQL. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different teams/contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
 
 > [!Note]
-> We will make every attempt to provide **Planned maintenance notification** 72 hours before the event. In event of critical or security patch, we may have to proceed with the urgent deployment and can miss the 72 hours window for notifying you for this event.
+> We will make every attempt to provide **Planned maintenance notification** 72 hours notice for all events. However, in cases of critical or security patches, notifications might be sent closer to the event or be omitted.
 
 ### To receive planned maintenance notification
 
@@ -63,10 +63,10 @@ The **planned maintenance notification** feature allows you to receive alerts fo
 7. Ensure Enable rule upon creation is set to Yes.
 8. Select **Create alert rule** to complete your alert
 
-For detailed steps on how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
+For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> The planned maintenance notifications is in preview.
+> Planned maintenance notifications are currently in preview
 
 ## Next steps
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
