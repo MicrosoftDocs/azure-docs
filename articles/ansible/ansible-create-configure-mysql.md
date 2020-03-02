@@ -19,7 +19,7 @@ ms.date: 04/30/2019
 > * Create a MySql server
 > * Create a MySql database
 > * Configure a filewall rule so that an external app can connect to your server
-> * Connect to your MySql server from the Azure cloud shell
+> * Connect to your MySql server from the Azure Cloud Shell
 > * Query your available MySQL servers
 > * List all databases in your connected servers
 
@@ -150,7 +150,7 @@ ansible-playbook mysql_firewall.yml
 
 ## Connect to the server
 
-In this section, you use the Azure cloud shell to connect to the server you created previously.
+In this section, you use the Azure Cloud Shell to connect to the server you created previously.
 
 1. Open shell.azure.com by selecting below.
 

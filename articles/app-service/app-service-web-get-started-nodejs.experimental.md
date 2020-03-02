@@ -1,5 +1,5 @@
 ---
-title: 'QuickStart: Create a Node.js web app'
+title: 'Quickstart: Create a Node.js web app'
 description: Deploy your first Node.js Hello World to Azure App Service in minutes. You deploy using a ZIP package, which is one of many ways to deploy to App Service.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
