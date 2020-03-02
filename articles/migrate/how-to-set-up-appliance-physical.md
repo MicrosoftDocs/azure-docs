@@ -13,9 +13,6 @@ ms.author: raynew
 
 This article describes how to set up the Azure Migrate appliance if you're assessing physical servers with the Azure Migrate: Server Assessment tool.
 
-> [!NOTE]
-> If features are mentioned here that you don't yet see in the Azure Migrate portal, hang on. They will appear over the next week or so.
-
 The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate Server Assessment to do the following:
 
 - Discover on-premises servers.
@@ -40,7 +37,7 @@ Download the zipped file for the appliance.
 2. In **Discover machines** > **Are your machines virtualized?**, click **Not virtualized/Other**.
 3. Click **Download** to download the zipped file.
 
-    ![Download VM](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
+    ![Download VM](./media/tutorial-assess-physical/download-appliance.png)
 
 
 ### Verify security
@@ -51,17 +48,11 @@ Check that the zipped file is secure, before you deploy it.
 2. Run the following command to generate the hash for the VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  For the latest appliance version, the generated hash should match these settings.
-
-  **Algorithm** | **Hash value**
-  --- | ---
-  MD5 | 96fd99581072c400aa605ab036a0a7c0
-  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+3.  For the latest appliance version, the generated hash should match these [settings](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
 
 
 
 ## Run the Azure Migrate installer script
-=
 The installer script does the following:
 
 - Installs agents and a web application for physical server discovery and assessment.
@@ -77,17 +68,20 @@ Run the script as follows:
 1. Extract the zipped file to a folder on the server that will host the appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
-4. Run the script by running the following command:
+4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
     ```
-    AzureMigrateInstaller.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
 The script will launch the appliance web application when it finishes successfully.
 
+In case of any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
+> [!NOTE]
+> Please do not execute the Azure Migrate installer script on an existing Azure Migrate appliance.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to the required [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Make sure that the appliance VM can connect to the required [Azure URLs](migrate-appliance.md#url-access).
 
 ## Configure the appliance
 

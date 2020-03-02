@@ -3,7 +3,7 @@ title: 'Quickstart: Connect to a Custom Commands app with Speech SDK - Speech se
 titleSuffix: Azure Cognitive Services
 description: In this article, you will create a Speech SDK client application with Custom Commands.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -41,7 +41,7 @@ This quickstart describes, step by step, how to make a client application to con
 
 1. Open your [previously created Custom Commands application](./quickstart-custom-speech-commands-create-new.md) and select **Publish**
 
-   > [!div class="mx-imgBorder"] 
+   > [!div class="mx-imgBorder"]
    > ![Publish application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Copy the App ID from the publish notification for later use

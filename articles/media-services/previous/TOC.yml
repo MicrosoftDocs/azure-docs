@@ -1,5 +1,5 @@
 - name: Media Services Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   href: media-services-overview.md
   items:
@@ -255,8 +255,6 @@
     - name: Configure on-premises encoders for use with cloud encoder
       href: media-services-live-encoders-overview.md
       items:
-      - name: FMLE encoder
-        href: media-services-configure-fmle-live-encoder.md
       - name: Haivision KB encoder
         href: media-services-configure-kb-live-encoder.md
       - name: NewTek TriCaster encoder
@@ -399,8 +397,6 @@
     items:
     - name: Playback media with existing players
       href: media-services-playback-content-with-existing-players.md
-    - name: Playback media with Media Player
-      href: media-services-develop-video-players.md
     - name: Other playback options
       items:
       - name: Smooth streaming Windows Store application

@@ -125,7 +125,7 @@ If you need your own logging provider, register a custom type as an `ILoggerProv
 
 > [!WARNING]
 > - Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
-> - Do not register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality.
+> - Do not register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality. If you need to configure your own `TelemetryClient` instance, create one via the injected `TelemetryConfiguration` as shown in [Monitor Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
 
 ## Function app provided services
 
@@ -148,12 +148,22 @@ Values defined in [app settings](./functions-how-to-use-azure-function-app-setti
 
 You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Settings read into the configuration instance must be simple key/value pairs.
 
-Consider the following class that includes a property named consistent with an app setting.
+Consider the following class that includes a property named consistent with an app setting:
 
 ```csharp
 public class MyOptions
 {
     public string MyCustomSetting { get; set; }
+}
+```
+
+And a `local.settings.json` file that might structure the custom setting as follows:
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "MyOptions:MyCustomSetting": "Foobar"
+  }
 }
 ```
 
@@ -163,7 +173,7 @@ From inside the `Startup.Configure` method, you can extract values from the `ICo
 builder.Services.AddOptions<MyOptions>()
                 .Configure<IConfiguration>((settings, configuration) =>
                                            {
-                                                configuration.Bind(settings);
+                                                configuration.GetSection("MyOptions").Bind(settings);
                                            });
 ```
 

@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 11/04/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
 ---
 
@@ -18,12 +18,149 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-03-02
+
+### Azure Machine Learning SDK for Python v1.1.2rc0
+
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Enabled the Batch mode inference (taking multiple rows once) for automl ONNX models
+    + Improved the detection of frequency on the data sets, lacking data or containing irregular data points
+    + Added the ability to remove data points not complying with the dominant frequrncy.
+  + **azureml-automl-runtime**
+    + Fixed the issue with the error thrown if the grain which was not present in the training set appeared in the test set
+    + Removed the y_query requirement during scoring on forecasting service
+  + **azureml-contrib-mir**
+    + Adds functionality in the MirWebservice class to retrieve the Access Token
+  + **azureml-core**
+    + Deployed AzureML Webservices will now default to `INFO` logging. This can be controlled by setting the `AZUREML_LOG_LEVEL` environment variable in the deployed service.
+    + Fix iterating on `Dataset.get_all` to return all datasets registered with the workspace.
+    + Improve error message when invalid type is passed to `path` argument of dataset creation APIs.
+    + Python sdk uses discovery service to use 'api' endpoint instead of 'pipelines'.
+    + Swap to the new routes in all SDK calls
+    + Changes routing of calls to the ModelManagementService to a new unified structure
+      + Made workspace update method publicly available.
+      + Added image_build_compute parameter in workspace update method to allow user updating the compute for image build
+    +  Added deprecation messages to the old profiling workflow. Fixed profiling cpu and memory limits
+  + **azureml-interpret**
+    + update azureml-interpret to interpret-community 0.6.*
+  + **azureml-mlflow**
+    + Add support for sovereign clouds to azureml.mlflow
+  + **azureml-pipeline-steps**
+    + Moved the `AutoMLStep` to the `azureml-pipeline-steps package`. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
+  + **azureml-train-automl-client**
+    + Fixed an issue where certain packages may be installed at incorrect versions on remote runs.
+  + **azureml-train-automl-runtime**
+    + Fixed the issue with frequency detection in the remote runs
+    + Moved the `AutoMLStep` to the `azureml-pipeline-steps package`. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
+  + **azureml-train-core**
+    + Moved the `AutoMLStep` to the `azureml-pipeline-steps package`. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
+
+## 2020-02-18
+
+### Azure Machine Learning SDK for Python v1.1.1rc0
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
+  + **azureml-automl-core**
+    + The error logging has been improved.
+  + **azureml-automl-runtime**
+    + Fixed the issue with forecasting when the data set contains short grains with long time gaps.
+    + Fixed the issue when the auto max horizon is turned on and the date column contains dates in form of strings. We added proper conversion and sensible error if conversion to date is not possible
+    + Using native NumPy and SciPy for serializing and deserializing intermediate data for FileCacheStore (used for local AutoML runs)
+    + Fixed a bug where failed child runs could get stuck in Running state.
+  + **azureml-cli-common**
+    + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
+  + **azureml-core**
+    + Added `--grant-workspace-msi-access` as an additional parameter for the Datastore CLI for registering Azure Blob Container which will allow you to register Blob Container that is behind a VNet
+    + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
+    + Fixed the issue in aks.py _deploy
+    + Validates the integrity of models being uploaded to avoid silent storage failures.
+  + **azureml-interpret**
+    + added azureml-style exceptions to azureml-interpret
+    + fixed DeepScoringExplainer serialization for keras models
+  + **azureml-pipeline-core**
+    + Pipeline batch scoring notebook now uses ParallelRunStep
+  + **azureml-pipeline-steps**
+    + Moved the `AutoMLStep` in the `azureml-pipeline-steps` package. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
+  + **azureml-contrib-pipeline-steps**
+    + Optional parameter side_inputs added to ParallelRunStep. This parameter can be used to mount folder on the container. Currently supported types are DataReference and PipelineData.
+  + **azureml-tensorboard**
+    + updated azureml-tensorboard to support tensorflow 2.0
+  + **azureml-train-automl-client**
+    + fixed FeaturizationConfig overriding issue that filters custom featurization config.
+  + **azureml-train-automl-runtime**
+    + Moved the `AutoMLStep` in the `azureml-pipeline-steps` package. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
+  + **azureml-train-core**
+    + Supporting PyTorch version 1.4 in the PyTorch Estimator
+  
+## 2020-02-04
+
+### Azure Machine Learning SDK for Python v1.1.0rc0
+
++ **Breaking changes**
+  + **Semantic Versioning 2.0.0**
+    + Starting with version 1.1 Azure ML Python SDK adopts Semantic Versioning 2.0.0. [Read more here](https://semver.org/). All subsequent versions will follow new numbering scheme and semantic versioning contract. 
+  
++ **Bug fixes and improvements**
+  + **azureml-automl-runtime**
+    + Increased speed of featurization.
+    + Fixed the frequency check during scoring, now in the forecasting tasks we do not require strict frequency equivalence between train and test set.
+  + **azureml-core**
+    + User may now specify a value for the auth key when regenerating keys for webservices.
+  + **azureml-interpret**
+    + Updated azureml-interpret to depend on interpret-community 0.5.0
+  + **azureml-pipeline-core**
+    + Fixed a bug where PythonScriptStep results could be incorrectly reused despite changing the arguments list
+  + **azureml-pipeline-steps**
+    + Added documentation example for dataset as PythonScriptStep input
+  + **azureml-contrib-pipeline-steps**
+    + Parameters passed in ParallelRunConfig can be overwritten by passing pipeline parameters now. New pipeline parameters supported aml_mini_batch_size, aml_error_threshold, aml_logging_level, aml_run_invocation_timeout (aml_node_count and aml_process_count_per_node are already part of earlier release).
+  
+## 2020-01-21
+
+### Azure Machine Learning SDK for Python v1.0.85
+
++ **New features**
+  + **azureml-core**
+    + Get the current core usage and quota limitation for AmlCompute resources in a given workspace and subscription
+  
+  + **azureml-contrib-pipeline-steps**
+    + Enable user to pass tabular dataset as intermediate result from previous step to parallelrunstep
+
++ **Bug fixes and improvements**
+  + **azureml-automl-runtime**
+    + Removed the requirement of y_query column in the request to the deployed forecasting service. 
+    + The 'y_query' was removed from the Dominick's Orange Juice notebook service request section.
+    + Fixed the bug preventing forecasting on the deployed models, operating on data sets with date time columns.
+    + Added Matthews Correlation Coefficient as a classification metric, for both binary and multiclass classification.
+  + **azureml-contrib-interpret**
+    + Removed text explainers from azureml-contrib-interpret as text explanation has been moved to the interpret-text repo which will be released soon.
+  + **azureml-core**
+    + Dataset: usages for file dataset no longer depends on numpy and pandas to be installed in the python env.
+    + Changed LocalWebservice.wait_for_deployment() to check the status of the local Docker container before trying to ping its health endpoint, greatly reducing the amount of time it takes to report a failed deployment.
+    + Fixed the initialization of an internal property used in LocalWebservice.reload() when the service object is created from an existing deployment using the LocalWebservice() constructor.
+    + Edited error message for clarification.
+    + Added a new method called get_access_token() to AksWebservice that will return AksServiceAccessToken object, which contains access token, refresh after timestamp, expiry on timestamp and token type. 
+    + Deprecated existing get_token() method in AksWebservice as the new method returns all of the information this method returns.
+    + Modified output of az ml service get-access-token command. Renamed token to accessToken and refreshBy to refreshAfter. Added expiryOn and tokenType properties.
+    + Fixed get_active_runs
+  + **azureml-explain-model**
+    + updated shap to 0.33.0 and interpret-community to 0.4.*
+  + **azureml-interpret**
+    + updated shap to 0.33.0 and interpret-community to 0.4.*
+  + **azureml-train-automl-runtime**
+    + Added Matthews Correlation Coefficient as a classification metric, for both binary and multiclass classification.
+    + Deprecate preprocess flag from code and replaced with featurization -featurization is on by default
+
 ## 2020-01-06
 
 ### Azure Machine Learning SDK for Python v1.0.83
 
 + **New features**
   + Dataset: Add two options `on_error` and `out_of_range_datetime` for `to_pandas_dataframe` to fail when data has error values instead of filling them with `None`.
+  + Workspace: Added the `hbi_workspace` flag for workspaces with sensitive data that enables further encryption and disables advanced diagnostics on workspaces. We also added support for bringing your own keys for the associated Cosmos DB instance, by specifying the `cmk_keyvault` and `resource_cmk_uri` parameters when creating a workspace, which creates a Cosmos DB instance in your subscription while provisioning your workspace. [Read more here.](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#azure-cosmos-db)
 
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
@@ -45,7 +182,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Corrected alignment on console output for automl runs
     + Fixed a bug where incorrect version of pandas may be installed on remote amlcompute.
 
-
 ## 2019-12-23
 
 ### Azure Machine Learning SDK for Python v1.0.81
@@ -58,8 +194,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added CreatedBy information to Model and Service objects. May be accessed through <var>.created_by
     + Fixed ContainerImage.run(), which was not correctly setting up the Docker container's HTTP port.
     + Make `azureml-dataprep` optional for `az ml dataset register` cli command
-  + **azureml-dataprep**
-    + Fixed a bug where TabularDataset.to_pandas_dataframe would incorrectly fall back to an alternate reader and print out a warning.
+    + Fixed a bug where `TabularDataset.to_pandas_dataframe` would incorrectly fall back to an alternate reader and print out a warning.
   + **azureml-explain-model**
     + defer shap dependency to interpret-community from azureml-interpret
   + **azureml-pipeline-core**
@@ -1195,7 +1330,7 @@ The [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
 
 ### Azure Machine Learning Data Prep SDK v1.1.2
 
-Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages. See [updated installation instructions](https://aka.ms/aml-data-prep-installation).
+Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages. See [updated installation instructions](https://github.com/Microsoft/AMLDataPrepDocs).
 
 + **New features**
   + You can now use the Pivot transform.
@@ -1486,7 +1621,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
 + ML Pipelines
   + New and updated notebooks for getting started with pipelines, batch scoping,  and style transfer examples: https://aka.ms/aml-pipeline-notebooks
   + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md)
-  + Learn how to [run batch predictions using pipelines](how-to-run-batch-predictions.md)
+  + Learn how to [run batch predictions using pipelines](how-to-use-parallel-run-step.md)
 + Azure Machine Learning compute target
   + [Sample notebooks](https://aka.ms/aml-notebooks) are now updated to use the new managed compute.
   + [Learn about this compute](how-to-set-up-training-targets.md#amlcompute)

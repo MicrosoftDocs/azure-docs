@@ -3,7 +3,7 @@ title: Turn on high contrast in Azure portal | Microsoft Docs
 description: Change the Azure portal theme to choose the background and font colors shown. Turn on high contrast to make the Azure portal quicker and easier to read.
 services: azure-portal
 keywords: 
-author: mblythe
+author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
 ms.topic: conceptual

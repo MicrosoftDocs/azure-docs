@@ -1,25 +1,25 @@
 ---
 title: Resource classes for workload management 
-description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure SQL Data Warehouse.
+description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 12/04/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# Workload management with resource classes in Azure SQL Data Warehouse
+# Workload management with resource classes in Azure Synapse Analytics
 
-Guidance for using resource classes to manage memory and concurrency for queries in your Azure SQL Data Warehouse.  
+Guidance for using resource classes to manage memory and concurrency for SQL Analytics queries in Azure Synapse.  
 
 ## What are resource classes
 
-The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Azure SQL Data Warehouse that govern compute resources and concurrency for query execution. Resource classes can help you configure resources for your queries by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
+The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in SQL Analytics that govern compute resources and concurrency for query execution. Resource classes can help you configure resources for your queries by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
 
 - Smaller resource classes reduce the maximum memory per query, but increase concurrency.
 - Larger resource classes increase the maximum memory per query, but reduce concurrency.
@@ -77,7 +77,7 @@ The memory allocation for each resource class is as follows.
 
 By default, each user is a member of the dynamic resource class **smallrc**.
 
-The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new SQL Data Warehouse instance with a new server.
+The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new SQL Analytics instance with a new server.
 
 > [!NOTE]
 > Users or groups defined as Active Directory admin are also service administrators.
@@ -138,7 +138,7 @@ Removed as these two are not confirmed / supported under SQL DW
 
 ## Concurrency slots
 
-Concurrency slots are a convenient way to track the resources available for query execution. They are like tickets that you purchase to reserve seats at a concert because seating is limited. The total number of concurrency slots per data warehouse is determined by the service level. Before a query can start executing, it must be able to reserve enough concurrency slots. When a query finishes, it releases its concurrency slots.  
+Concurrency slots are a convenient way to track the resources available for query execution. They are like tickets that you purchase to reserve seats at a concert because seating is limited. The total number of concurrency slots per data warehouse is determined by the service level. Before a query can start executing, it must be able to reserve enough concurrency slots. When a query completes, it releases its concurrency slots.  
 
 - A query running with 10 concurrency slots can access 5 times more compute resources than a query running with 2 concurrency slots.
 - If each query requires 10 concurrency slots and there are 40 concurrency slots, then only 4 queries can run concurrently.
@@ -305,37 +305,37 @@ WITH
 alloc
 AS
 (
-SELECT 'DW100c' AS DWU,4 AS max_queries,4 AS max_slots,1 AS slots_used_smallrc,1 AS slots_used_mediumrc,2 AS slots_used_largerc,4 AS slots_used_xlargerc,1 AS slots_used_staticrc10,2 AS slots_used_staticrc20,4 AS slots_used_staticrc30,4 AS slots_used_staticrc40,4 AS slots_used_staticrc50,4 AS slots_used_staticrc60,4 AS slots_used_staticrc70,4 AS slots_used_staticrc80
-  UNION ALL
-    SELECT 'DW200c', 8, 8, 1, 2, 4, 8, 1, 2, 4, 8, 8, 8, 8, 8
-  UNION ALL
-    SELECT 'DW300c', 12, 12, 1, 2, 4, 8, 1, 2, 4, 8, 8, 8, 8, 8
-  UNION ALL
-    SELECT 'DW400c', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
-  UNION ALL
-    SELECT 'DW500c', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
-  UNION ALL
-    SELECT 'DW1000c', 32, 40, 1, 4, 8, 28, 1, 2, 4, 8, 16, 32, 32, 32
-  UNION ALL
-    SELECT 'DW1500c', 32, 60, 1, 6, 13, 42, 1, 2, 4, 8, 16, 32, 32, 32
-  UNION ALL
-    SELECT 'DW2000c', 48, 80, 2, 8, 17, 56, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW2500c', 48, 100, 3, 10, 22, 70, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW3000c', 64, 120, 3, 12, 26, 84, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW5000c', 64, 200, 6, 20, 44, 140, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW6000c', 128, 240, 7, 24, 52, 168, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW7500c', 128, 300, 9, 30, 66, 210, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW10000c', 128, 400, 12, 40, 88, 280, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW15000c', 128, 600, 18, 60, 132, 420, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW30000c', 128, 1200, 36, 120, 264, 840, 1, 2, 4, 8, 16, 32, 64, 128 
+SELECT 'DW100c' AS DWU,4 AS max_queries,4 AS max_slots,1 AS slots_used_smallrc,1 AS slots_used_mediumrc,2 AS slots_used_largerc,4 AS slots_used_xlargerc,1 AS slots_used_staticrc10,2 AS slots_used_staticrc20,4 AS slots_used_staticrc30,4 AS slots_used_staticrc40,4 AS slots_used_staticrc50,4 AS slots_used_staticrc60,4 AS slots_used_staticrc70,4 AS slots_used_staticrc80
+  UNION ALL
+   SELECT 'DW200c',8,8,1,2,4,8,1,2,4,8,8,8,8,8
+  UNION ALL
+   SELECT 'DW300c',12,12,1,2,4,8,1,2,4,8,8,8,8,8
+  UNION ALL
+   SELECT 'DW400c',16,16,1,4,8,16,1,2,4,8,16,16,16,16
+  UNION ALL
+   SELECT 'DW500c',20,20,1,4,8,16,1,2,4,8,16,16,16,16
+  UNION ALL
+   SELECT 'DW1000c',32,40,1,4,8,28,1,2,4,8,16,32,32,32
+  UNION ALL
+   SELECT 'DW1500c',32,60,1,6,13,42,1,2,4,8,16,32,32,32
+  UNION ALL
+   SELECT 'DW2000c',48,80,2,8,17,56,1,2,4,8,16,32,64,64
+  UNION ALL
+   SELECT 'DW2500c',48,100,3,10,22,70,1,2,4,8,16,32,64,64
+  UNION ALL
+   SELECT 'DW3000c',64,120,3,12,26,84,1,2,4,8,16,32,64,64
+  UNION ALL
+   SELECT 'DW5000c',64,200,6,20,44,140,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW6000c',128,240,7,24,52,168,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW7500c',128,300,9,30,66,210,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW10000c',128,400,12,40,88,280,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW15000c',128,600,18,60,132,420,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW30000c',128,1200,36,120,264,840,1,2,4,8,16,32,64,128
 )
 -- Creating workload mapping to their corresponding slot consumption and default memory grant.
 ,map  
@@ -589,16 +589,5 @@ GO
 
 ## Next steps
 
-For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+For more information about managing database users and security, see [Secure a database in SQL Analytics](./sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[Rebuilding indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-
-<!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
-
-<!--Other Web references-->

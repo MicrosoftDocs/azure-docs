@@ -25,6 +25,7 @@ Establish, implement, and actively manage (track, report on, correct) the securi
 Use Azure Policy or Azure Security Center to maintain security configurations for all Azure Resources.
 
 How to configure and manage Azure Policy:
+
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ## 7.2: Establish secure operating system configurations
@@ -55,7 +56,7 @@ How to configure and manage Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Understanding Azure Policy Effects:
+Understand Azure Policy Effects:
 
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
@@ -83,7 +84,7 @@ https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview
 |--|--|--|
 | 7.5 | 5.3 | Customer |
 
-If using custom Azure policy definitions, use Azure Azure DevOps or Azure Repos to securely store and manage your code.
+If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
 How to store code in Azure DevOps:
 
@@ -157,7 +158,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 Use Azure Security Center to perform baseline scans for OS and Docker Settings for containers.
 
-Understanding Azure Security Center container recommendations:
+Understand Azure Security Center container recommendations:
 
 https://docs.microsoft.com/azure/security-center/security-center-container-recommendations
 
@@ -170,12 +171,15 @@ https://docs.microsoft.com/azure/security-center/security-center-container-recom
 Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.
 
 How to integrate with Azure Managed Identities:
+
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
 How to create a Key Vault:
+
 https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
 How to provide Key Vault authentication with a managed identity:
+
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
 ## 7.12: Manage identities securely and automatically
@@ -187,6 +191,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 Use Managed Identities to provide Azure services with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
 How to configure Managed Identities:
+
 https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
 ## 7.13: Eliminate unintended credential exposure
@@ -198,6 +203,7 @@ https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resou
 Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault. 
 
 How to setup Credential Scanner:
+
 https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## Next steps

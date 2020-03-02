@@ -190,5 +190,5 @@ The valid values for the RunType dimension are:
 
 ## See Also
 
-- See [Monitoring Azure Machine Learning](service/monitor-azure-machine-learning.md) for a description of monitoring Azure Machine Learning.
+- See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for a description of monitoring Azure Machine Learning.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.

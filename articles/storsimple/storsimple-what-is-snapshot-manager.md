@@ -3,7 +3,7 @@ title: What is StorSimple Snapshot Manager? | Microsoft Docs
 description: Describes the StorSimple Snapshot Manager, its architecture, and its features.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
-ms.author: v-sharos
+ms.author: twooley
 ms.custom: H1Hack27Feb2017
 
 ---

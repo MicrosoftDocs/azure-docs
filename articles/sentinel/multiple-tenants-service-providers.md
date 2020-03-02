@@ -3,7 +3,7 @@ title: Work with multiple tenants to Azure Sentinel for MSSP service providers| 
 description:  How to work with multiple tenants to Azure Sentinel for MSSP service providers.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Work with multiple tenants in Azure Sentinel 

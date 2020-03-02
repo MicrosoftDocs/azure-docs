@@ -8,7 +8,7 @@ author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 01/19/2020
+ms.date: 01/10/2020
 ms.author: alzam
 
 ---

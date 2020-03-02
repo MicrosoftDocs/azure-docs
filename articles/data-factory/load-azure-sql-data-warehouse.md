@@ -35,19 +35,19 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Azure SQL Data Warehouse: The data warehouse holds the data that's copied over from the SQL database. If you don't have an Azure SQL Data Warehouse, see the instructions in [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Azure SQL Database: This tutorial copies data from an Azure SQL database with Adventure Works LT sample data. You can create a SQL database by following the instructions in [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md). 
-* Azure storage account: Azure Storage is used as the _staging_ blob in the bulk copy operation. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+* Azure SQL Database: This tutorial copies data from an Azure SQL database with Adventure Works LT sample data. You can create a SQL database by following the instructions in [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md).
+* Azure storage account: Azure Storage is used as the _staging_ blob in the bulk copy operation. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
 
 ## Create a data factory
 
-1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
-   
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
+
    ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
 2. In the **New data factory** page, provide values for the fields that are shown in the following image:
-      
+
    ![New data factory page](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
- 
+
     * **Name**: Enter a globally unique name for your Azure data factory. If you receive the error "Data factory name \"LoadSQLDWDemo\" is not available," enter a different name for the data factory. For example, you could use the name _**yourname**_**ADFTutorialDataFactory**. Try creating the data factory again. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
     * **Subscription**: Select your Azure subscription in which to create the data factory. 
     * **Resource Group**: Select an existing resource group from the drop-down list, or select the **Create new** option and enter the name of a resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
@@ -56,7 +56,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 3. Select **Create**.
 4. After creation is complete, go to your data factory. You see the **Data Factory** home page as shown in the following image:
-   
+
    ![Data factory home page](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
 
    Select the **Author & Monitor** tile to launch the Data Integration Application in a separate tab.
@@ -81,14 +81,14 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
     ![Select Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
     c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Finish**.
-   
+
     ![Configure Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
     d. Select the newly created linked service as source, then click **Next**.
 
     ![Select source linked service](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
 
-1. In the **Select tables from which to copy the data or use a custom query** page, enter **SalesLT** to filter the tables. Choose the **(Select all)** box to use all of the tables for the copy, and then select **Next**: 
+1. In the **Select tables from which to copy the data or use a custom query** page, enter **SalesLT** to filter the tables. Choose the **(Select all)** box to use all of the tables for the copy, and then select **Next**:
 
     ![Select source tables](./media/load-azure-sql-data-warehouse/select-source-tables.png)
 
@@ -103,14 +103,14 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
     ![Select Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
     c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Finish**.
-   
+
     ![Configure Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
     d. Select the newly created linked service as sink, then click **Next**.
 
     ![Select sink linked service](./media/load-azure-sql-data-warehouse/select-sink-linked-service.png)
 
-1. In the **Table mapping** page, review the content, and select **Next**. An intelligent table mapping displays. The source tables are mapped to the destination tables based on the table names. If a source table doesn't exist in the destination, Azure Data Factory creates a destination table with the same name by default. You can also map a source table to an existing destination table. 
+1. In the **Table mapping** page, review the content, and select **Next**. An intelligent table mapping displays. The source tables are mapped to the destination tables based on the table names. If a source table doesn't exist in the destination, Azure Data Factory creates a destination table with the same name by default. You can also map a source table to an existing destination table.
 
    > [!NOTE]
    > Automatic table creation for the SQL Data Warehouse sink applies when SQL Server or Azure SQL Database is the source. If you copy data from another source data store, you need to pre-create the schema in the sink Azure SQL Data Warehouse before executing the data copy.
@@ -123,12 +123,12 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 1. In the **Settings** page, complete the following steps:
 
-    a. In **Staging settings** section, click **+ New** to new a staging storage. The storage is used for staging the data before it loads into SQL Data Warehouse by using PolyBase. After the copy is complete, the interim data in Azure Storage is automatically cleaned up. 
+    a. In **Staging settings** section, click **+ New** to new a staging storage. The storage is used for staging the data before it loads into SQL Data Warehouse by using PolyBase. After the copy is complete, the interim data in Azure Storage is automatically cleaned up.
 
     ![Configure staging](./media/load-azure-sql-data-warehouse/configure-staging.png)
 
     b. In the **New Linked Service** page, select your storage account, and select **Finish**.
-   
+
     ![Configure Azure Storage](./media/load-azure-sql-data-warehouse/configure-blob-storage.png)
 
     c. In the **Advanced settings** section, deselect the **Use type default** option, then select **Next**.
@@ -141,10 +141,10 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 1. In the **Deployment page**, select **Monitor** to monitor the pipeline (task):
 
     ![Deployment page](./media/load-azure-sql-data-warehouse/deployment-page.png)
-1. Notice that the **Monitor** tab on the left is automatically selected. The **Actions** column includes links to view activity run details and to rerun the pipeline: 
+1. Notice that the **Monitor** tab on the left is automatically selected. The **Actions** column includes links to view activity run details and to rerun the pipeline:
 
     ![Monitor pipeline runs](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)
-1. To view activity runs that are associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. To switch back to the pipeline runs view, select the **Pipelines** link at the top. Select **Refresh** to refresh the list. 
+1. To view activity runs that are associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. To switch back to the pipeline runs view, select the **Pipelines** link at the top. Select **Refresh** to refresh the list.
 
     ![Monitor activity runs](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 
@@ -154,7 +154,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 ## Next steps
 
-Advance to the following article to learn about Azure SQL Data Warehouse support: 
+Advance to the following article to learn about Azure SQL Data Warehouse support:
 
 > [!div class="nextstepaction"]
 >[Azure SQL Data Warehouse connector](connector-azure-sql-data-warehouse.md)

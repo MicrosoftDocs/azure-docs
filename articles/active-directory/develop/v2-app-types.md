@@ -18,7 +18,6 @@ ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Application types for Microsoft identity platform
@@ -96,7 +95,7 @@ Accept: application/json
 ...
 ```
 
-The Web API uses the access token to verify the API caller's identity and to extract information about the caller from claims that are encoded in the access token. Further details of different types of tokens used in the Microsoft identity platform endpoint are available in the [access token](access-tokens.md) reference and [id_token reference](id-tokens.md)
+The Web API uses the access token to verify the API caller's identity and to extract information about the caller from claims that are encoded in the access token. Further details of different types of tokens used in the Microsoft identity platform endpoint are available in the [access token](access-tokens.md) reference and [id_token](id-tokens.md) reference.
 
 A Web API can give users the power to opt in or opt out of specific functionality or data by exposing permissions, also known as [scopes](v2-permissions-and-consent.md). For a calling app to acquire permission to a scope, the user must consent to the scope during a flow. The Microsoft identity platform endpoint asks the user for permission, and then records permissions in all access tokens that the Web API receives. The Web API validates the access tokens it receives on each call and performs authorization checks.
 

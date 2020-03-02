@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 02/10/2020
 ms.author: iainfou
 
 #Customer intent: As an server administrator, I want to learn how to enable password hash synchronization with Azure AD Connect to create a hybrid environment using an on-premises AD DS domain.
@@ -66,7 +66,7 @@ With Azure AD Connect installed and configured to synchronize with Azure AD, now
 
     In this example screenshot, the following connectors are used:
 
-    * The Azure AD connector is named *contoso.onmicrosoft.com - AAD*
+    * The Azure AD connector is named *aaddscontoso.onmicrosoft.com - AAD*
     * The on-premises AD DS connector is named *onprem.contoso.com*
 
 1. Copy and paste the following PowerShell script to the computer with Azure AD Connect installed. The script triggers a full password sync that includes legacy password hashes. Update the `$azureadConnector` and `$adConnector` variables with the connector names from the previous step.

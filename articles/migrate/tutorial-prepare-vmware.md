@@ -1,11 +1,8 @@
 ---
 title: Prepare VMware VMs for assessment/migration with Azure Migrate
 description: Learn how to prepare for assessment/migration of VMware VMs with Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
 ---
 
@@ -36,8 +33,12 @@ You need these permissions.
 **Task** | **Permissions**
 --- | ---
 **Create an Azure Migrate project** | Your Azure account needs permissions to create a project.
-**Register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to assess VMware VMs with Azure Migrate Server Assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with Azure Migrate Server Migration. This appliance discovers VMs, and sends VM metadata and performance data to Azure Migrate.<br/><br/>During registration, Azure Migrate creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance, and needs permissions to create these apps.<br/> - The first app communicates with Azure Migrate service endpoints.<br/> - The second app accesses an Azure Key Vault created during registration to store Azure AD app info and appliance configuration settings.
+**Register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to assess VMware VMs with Azure Migrate Server Assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with Azure Migrate Server Migration. This appliance discovers VMs, and sends VM metadata and performance data to Azure Migrate.<br/><br/>During appliance registration, the following Resource Providers are registered with the subscription chosen in the appliance- Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault. Registering a resource provider configures your subscription to work with the resource provider. To register the resource providers, you need a Contributor or Owner role on the subscription.<br/><br/> As part of onboarding, Azure Migrate creates two Azure Active Directory (Azure AD) apps:<br/> -    The first app is used for communication (authentication and authorization) between the agents running on the appliance with their respective services running on Azure. This app does not have privileges to make ARM calls or RBAC access on any resource.<br/> - The second app is used exclusively to access KeyVault created in the user's subscription for agentless migration. It is provided with an RBAC access on the Azure Key Vault (created in customer's tenant) when discovery is initiated from the appliance.
 **Create a Key Vault** | To migrate VMware VMs with Azure Migrate Server Migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you need role assignment permissions on the resource group in which the Azure Migrate project resides.
+
+
+
+
 
 
 ### Assign permissions to create project
@@ -75,9 +76,9 @@ The tenant/global admin can grant permissions as follows
 
 The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
-### Assign role assignment permissions
+### Assign permissions to create a Key Vault
 
-To enable Azure Migrate to create a Key Vault, assign role assignment permissions as follows:
+To enable Azure Migrate to create a Key Vault, assign permissions as follows:
 
 1. In the resource group in the Azure portal, select **Access control (IAM)**.
 2. In **Check access**, find the relevant account, and click it to view permissions.
@@ -99,8 +100,9 @@ To prepare for VMware VM assessment, you need to:
 
 ### Verify VMware settings
 
-1. [Check](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) VMware server requirements for assessment.
-2. [Make sure](migrate-support-matrix-vmware.md#assessment-port-requirements) that the  ports you need are open on vCenter Server.
+1. [Check](migrate-support-matrix-vmware.md#vmware-requirements) VMware server requirements for assessment.
+2. [Make sure](migrate-support-matrix-vmware.md#port-access) that the  ports you need are open on vCenter Server.
+3. On vCenter Server, make sure that your account has permissions to create a VM using an OVA file. You deploy the Azure Migrate appliance as a VMware VM, using an OVA file.
 
 
 ### Set up an account for assessment
@@ -115,15 +117,12 @@ Azure Migrate needs to access the vCenter Server to discover VMs for assessment 
 
 ### Verify appliance settings for assessment
 
-Check appliance requirements before you deploy the appliance.
+Before setting up the Azure Migrate appliance and beginning assessment in the next tutorial, prepare for appliance deployment.
 
-1. [Verify](migrate-support-matrix-vmware.md#assessment-appliance-requirements) appliance requirements and limitations.
-2. If you're using a URL-based firewall proxy, [review](migrate-support-matrix-vmware.md#assessment-url-access-requirements) the Azure URLs that the appliance will need to access. Make sure that the proxy resolves any CNAME records received while looking up the URLs.
-3. Review the [performance data](migrate-appliance.md#collected-performance-data-vmware) and [metadata](migrate-appliance.md#collected-metadata-vmware) that the appliance collects during discovery and assessment.
-4. [Note](migrate-support-matrix-vmware.md#assessment-port-requirements) the ports accessed by the appliance.
-5. On vCenter Server, make sure that your account has permissions to create a VM using an OVA file. You deploy the Azure Migrate appliance as a VMware VM, using an OVA file.
-
-If you're using a URL-based firewall.proxy, allow access to the required [Azure URLs](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+1. [Verify](migrate-appliance.md#appliance---vmware) appliance requirements for VMware VMs.
+2. [Review](migrate-appliance.md#url-access) the Azure URLs that the appliance will need to access. If you're using a URL-based firewall or proxy, ensure it allows access to the required URLs.
+3. [Review](migrate-appliance.md#collected-data---vmware) that that the appliance will collect during discovery and assessment.
+4. [Note](migrate-support-matrix-vmware.md#port-access) port access requirements for the appliance.
 
 
 
@@ -132,23 +131,22 @@ If you're using a URL-based firewall.proxy, allow access to the required [Azure 
 
 Review the requirements for agentless migration of VMware VMs.
 
-1. [Review](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) VMware server requirements.
-2. Set up an account with the [required permissions](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions), so that Azure Migrate can access the vCenter Server for agentless migration using Azure Migrate Server Migration.
-3. [Review](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements) the requirements for VMware VMs that you want to migrate to Azure using agentless migration.
-4. [Review](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) the requirements for using the Azure Migrate appliance for agentless migration.
-5. Note the [URL access](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) and [port access](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) that the Azure Migrate appliance needs for agentless migration.
+1. [Review](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) VMware server requirements, and the [permissions](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) that Azure Migrate needs to access the vCenter Server for agentless migration using Azure Migrate Server Migration.
+2. [Review](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) the requirements for VMware VMs that you want to migrate to Azure using agentless migration.
+4. [Review](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) the requirements for using the Azure Migrate appliance for agentless migration.
+5. Note the [URL access](migrate-appliance.md#url-access) and [port access](migrate-support-matrix-vmware-migration.md#agentless-ports) needed for agentless migration.
 
 
 ## Prepare for agent-based VMware migration
 
 Review the requirements for [agent-based migration](server-migrate-overview.md) of VMware VMs.
 
-1. [Review](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware server requirements.
-2. Set up an account with the [required permissions](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions). so that Azure Migrate can access the vCenter Server for agent-based migration using Azure Migrate Server Migration.
-3. [Review](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) the requirements for VMware VMs that you want to migrate to Azure using agent-based migration, including installation of the Mobility service on each VM you want to migrate.
-4. Note [URL access](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
-5. Review [port access](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements) that Azure Migrate components need for agent-based access.
-
+1. [Review](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) VMware server requirements, and the permissions Azure Migrate needs to access the vCenter Server for agent-based migration using Azure Migrate Server Migration.
+2. [Review](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) the requirements for VMware VMs that you want to migrate to Azure using agent-based migration, including installation of the Mobility service on each VM you want to migrate.
+3. Agent-based migrations uses a replication appliance:
+    - [Review](migrate-replication-appliance.md#appliance-requirements) the deployment requirements for the replication appliance, and the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
+    - Review the [URL](migrate-replication-appliance.md#url-access) and [port](migrate-replication-appliance.md#port-access) access requirements for the replication appliance.
+    
 ## Next steps
 
 In this tutorial, you:

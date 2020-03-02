@@ -42,10 +42,11 @@ The [Azure IoT Hub C device SDK](https://github.com/Azure/azure-iot-sdk-c) is te
 | OS                  | TLS library                  | Additional requirements                                                                     |
 |---------------------|------------------------------|---------------------------------------------------------------------------------------------|
 | Linux               | OpenSSL, WolfSSL, or BearSSL | Berkeley sockets</br></br>Portable Operating System Interface (POSIX)                       |
-| iOS 12.2            | OpenSSL or Native OSX        | XCode emulated in OSX 10.13.4                                                               |
+| iOS 12.2            | OpenSSL                      | XCode emulated in OSX 10.13.4                                                               |
 | Windows 10 family   | SChannel                     |                                                                                             |
 | Mbed OS 5.4         | Mbed TLS 2                   | [MXChip IoT dev kit](https://microsoft.github.io/azure-iot-developer-kit/)                  |
 | Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
+| Arduino             | BearSSL                      | [ESP32 or ESP8266](https://github.com/Azure/azure-iot-arduino#simple-sample-instructions) 
 
 ### Python SDK
 
@@ -53,11 +54,11 @@ The [Azure IoT Hub Python device SDK](https://github.com/Azure/azure-iot-sdk-pyt
 
 | OS                  | Compiler                          |
 |---------------------|-----------------------------------|
-| Linux               | Python 2.7*, 3.4*, 3.5*, 3.6, 3.7 |
-| MacOS High Sierra   | Python 2.7*, 3.4*, 3.5*, 3.6, 3.7 |
-| Windows 10 family   | Python 2.7*, 3.4*, 3.5*, 3.6, 3.7 |
+| Linux               | Python 2.7.*, 3.5 or later |
+| MacOS High Sierra   | Python 2.7.*, 3.5 or later |
+| Windows 10 family   | Python 2.7.*, 3.5 or later |
 
-*Only Python version 3.5.3 or later support the asynchronous APIs, we recommend using 3.7 or later.
+Only Python version 3.5.3 or later support the asynchronous APIs, we recommend using version 3.7 or later.
 
 ### .NET SDK
 
@@ -110,7 +111,7 @@ Microsoft works with a number of partners to continually expand the Azure IoT un
 
 * To browse Azure IoT certified devices, see [Microsoft Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/).
 
-* To learn more about Microsoft trusted partners or to learn how to become a Microsoft trusted partner, see [Microsoft Azure Certified Internet of Things Trusted Partners](https://azure.microsoft.com/marketplace/certified-iot-partners/).
+* To learn more about the Azure Certified for IoT ecosystem, see [Join the Certified for IoT ecosystem](https://catalog.azureiotsolutions.com/register).
 
 ## Connecting to IoT Hub without an SDK
 

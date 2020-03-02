@@ -16,7 +16,6 @@ From NoSQL migration to application development, you can choose from a variety o
 
 |**Partner**  |**Capabilities & experience**  |**Supported countries/regions**  |**Contact**  |
 |---------|---------|---------|---------|
-|![ImanisData][1]   | Data migration from MongoDB to Azure Cosmos DB. <br/> Imanis Data enables global enterprises to quickly and easily migrate their on-premises or cloud MongoDB databases to Azure Cosmos DB. Imanis Data provides an agentless, incremental-forever cloud migration approach for MongoDB data stores that simplifies migration and significantly reduces downtime.|  USA  |   [Website](https://www.cohesity.com/products/imanis-data/)      |
 |![Striim][2]    |  [Move real-time data to Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) from a wide variety of data sources. <br/> Striim simplifies the real-time collection and movement of data from a wide variety of on-premises sources, including enterprise document and relational databases, sensors, and log files into Azure Cosmos DB. |   USA   |  [Website](https://www.striim.com/)       |
 
 ## Systems Integrator partners
@@ -54,7 +53,6 @@ From NoSQL migration to application development, you can choose from a variety o
 To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/en-US/).
 
 <!--Image references-->
-[1]: ./media/partners-migration-cosmosdb/imanisdata_logo.png
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png
 [3]: ./media/partners-migration-cosmosdb/altoros_logo.png
 [4]: ./media/partners-migration-cosmosdb/attunix_logo.png
