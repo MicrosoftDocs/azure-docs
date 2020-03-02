@@ -125,8 +125,8 @@
       href: how-to-install-iot-edge-ubuntuvm.md
     - name: Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
-    - name: Install production certificates
-      href: how-to-install-production-certificates.md
+    - name: Manage device certificates
+      href: how-to-manage-device-certificates.md
     - name: Create test certificates
       href: how-to-create-test-certificates.md
     - name: Update the runtime version
@@ -139,6 +139,8 @@
         href: how-to-auto-provision-simulated-device-linux.md
       - name: Windows
         href: how-to-auto-provision-simulated-device-windows.md
+    - name: X.509 certificate attestation
+      href: how-to-auto-provision-x509-certs.md
     - name: Symmetric key attestation
       href: how-to-auto-provision-symmetric-keys.md
   - name: Develop and debug custom modules
@@ -149,20 +151,26 @@
       href: how-to-vs-code-develop-module.md
   - name: Deploy modules
     items:
-    - name: Azure portal
-      href: how-to-deploy-modules-portal.md
-    - name: Azure CLI
-      href: how-to-deploy-modules-cli.md
-    - name: Visual Studio Code
-      href: how-to-deploy-modules-vscode.md
-  - name: Deploy and monitor at scale
+    - name: Deploy to individual devices
+      items:
+      - name: Azure portal
+        href: how-to-deploy-modules-portal.md
+      - name: Azure CLI
+        href: how-to-deploy-modules-cli.md
+      - name: Visual Studio Code
+        href: how-to-deploy-modules-vscode.md
+    - name: Deploy at scale
+      items:
+      - name: Azure portal
+        href: how-to-deploy-monitor.md
+      - name: Azure CLI
+        href: how-to-deploy-monitor-cli.md
+      - name: Visual Studio Code
+        href: how-to-deploy-monitor-vscode.md
+  - name: Monitor and diagnose deployments
     items:
-    - name: Azure portal
-      href: how-to-deploy-monitor.md
-    - name: Azure CLI
-      href: how-to-deploy-monitor-cli.md
-    - name: Visual Studio Code
-      href: how-to-deploy-monitor-vscode.md
+      - name: EdgeAgent direct methods
+        href: how-to-edgeagent-direct-method.md
   - name: Use IoT Edge devices as gateways
     items:
     - name: Configure a transparent gateway
