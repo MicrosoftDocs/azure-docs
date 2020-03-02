@@ -192,5 +192,5 @@ $fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_Resour
 $fw.ThreatIntelWhitelist.FQDNs = @(“fqdn1”, “fqdn2”, …)
 $fw.ThreatIntelWhitelist.IpAddress = @(“ip1”, “ip2”, …)
 
-Set-AzFirewall -AzureFirewall $f
+Set-AzFirewall -AzureFirewall $fw
 ```
