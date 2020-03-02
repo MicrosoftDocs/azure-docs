@@ -52,7 +52,7 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 
 ## Planned maintenance notification
 
-**Planned maintenance notifications** allow you to receive alerts for upcoming planned maintenance to your Azure Database for MariaDB. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different teams/contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
+**Planned maintenance notifications** allow you to receive alerts for upcoming planned maintenance to your Azure Database for MariaDB. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
 
 > [!Note]
 > We will make every attempt to provide **Planned maintenance notification** 72 hours notice for all events. However, in cases of critical or security patches, notifications might be sent closer to the event or be omitted.
