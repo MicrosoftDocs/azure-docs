@@ -194,7 +194,7 @@ Azure Web Apps can be used in Azure Government supporting Impact Level 5 workloa
 
 ### [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 
-Azure Logic Apps can be used in Azure Government in the following regions:
+Azure Logic Apps can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
