@@ -79,9 +79,6 @@ Select the option that's suitable to your development environment:
 > [!div renderon="docs"]
 > In the *JavaScriptSPA* folder, edit *authConfig.js* file to set the `clientID`, `authority` and `redirectUri` for the `msalConfig` object.
 
-> [!div class="sxs-lookup" renderon="portal"]
-> In the *JavaScriptSPA* folder, edit *authConfig.js* file to set the `clientID`, `authority` and `redirectUri` for the `msalConfig` object.
-
 ```javascript
 
   // Config object to be passed to Msal on creation
@@ -115,9 +112,6 @@ Select the option that's suitable to your development environment:
 >
 
 > [!div renderon="docs"]
-> Then, still in the same folder, edit *graphConfig.js* file to set the `graphMeEndpoint` and `graphMeEndpoint` for the `msalConfig` object.
-
-> [!div class="sxs-lookup" renderon="portal"]
 > Then, still in the same folder, edit *graphConfig.js* file to set the `graphMeEndpoint` and `graphMeEndpoint` for the `msalConfig` object.
 
 ```javascript
