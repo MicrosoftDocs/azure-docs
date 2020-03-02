@@ -3259,6 +3259,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-edge/how-to-install-production-certificates.md",
+      "redirect_url": "/azure/iot-edge/how-to-manage-device-certificates",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
       "redirect_url": "/azure/cognitive-services/recommendations/overview",
       "redirect_document_id": false
@@ -29397,6 +29402,11 @@
       "source_path": "articles/hdinsight/apache-kafka-log-analytics-operations-management.md",
       "redirect_url": "/azure/hdinsight/kafka/apache-kafka-log-analytics-operations-management",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/kafka/apache-kafka-byok.md",
+      "redirect_url": "/azure/hdinsight/disk-encryption",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-apache-kafka-connect-vpn-gateway.md",
