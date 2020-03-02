@@ -47,10 +47,10 @@ You can create a group containing all users within a tenant using a membership r
 
 ## Creating a group of members only
 
-You can secure your "all users" group by using a rule to remove guest users. If you want your group to exclude guest users and include only members of your tenant, create a dynamic group as described above, but in the **Rule syntax** box, enter the following expression:
+If you want your group to exclude guest users and include only members of your tenant, create a dynamic group as described above, but in the **Rule syntax** box, enter the following expression:
 
 ```
-(user.objectId -ne null) -and (user.userType -eq “Member”)
+(user.objectId -ne null) and (user.userType -eq "Member")
 ```
 
 The following image shows the rule syntax for a dynamic group modified to include members only and exclude guests.
@@ -62,7 +62,7 @@ The following image shows the rule syntax for a dynamic group modified to includ
 You might also find it useful to create a new dynamic group that contains only guest users, so that you can apply policies (such as Azure AD Conditional Access policies) to them. Create a dynamic group as described above, but in the **Rule syntax** box, enter the following expression:
 
 ```
-(user.objectId -ne null) -and (user.userType -eq “Member”)
+(user.objectId -ne null) and (user.userType -eq "Guest")
 ```
 
 The following image shows the rule syntax for a dynamic group modified to include guests only and exclude member users.
