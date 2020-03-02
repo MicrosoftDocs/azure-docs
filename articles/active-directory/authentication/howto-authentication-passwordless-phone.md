@@ -91,9 +91,9 @@ End users who are enabled for MFA through an organization’s on-premises Azure 
 
 One of the prerequisites to create this new strong credential, is that the device, where the Microsoft Authenticator app is installed, must also be registered within the Azure AD tenant to an individual user. Due to current device registration restrictions, a device can only be registered in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign-in.
 
-### Intune Mobile Application Management 
+### Intune mobile application management 
 
-End users who are subject to a policy requiring Mobile Application Management (MAM) will not be able to register the passwordless credential in the Microsoft Authenticator app. 
+End users who are subject to a policy that requires mobile application management (MAM) can't register the passwordless credential in the Microsoft Authenticator app. 
 
 > [!NOTE]
 > Device registration is not the same as device management or "MDM." It only associates a device ID and a user ID together in the Azure AD directory.  
