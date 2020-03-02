@@ -157,7 +157,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 ## Create a user for loading data
 
-The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. Memory maximums are defined according to the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) and [resource class](resource-classes-for-workload-management.md) configured . 
+The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. Memory maximums are defined according to the [data warehouse units](../synapse-analytics/sql-analytics/resource-consumption-models.md) and [resource class](resource-classes-for-workload-management.md) configured . 
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 

@@ -140,9 +140,5 @@ DWU size and the user resource class together determine how much memory is avail
 
 ## Next steps
 
-<<<<<<< HEAD:articles/synapse-analytics/sql-analytics/data-load-columnstore-compression.md
-To find more ways to improve performance in SQL Data Warehouse, see the [Performance overview](../../sql-data-warehouse/sql-data-warehouse-overview-manage-user-queries.md).
+To find more ways to improve performance in SQL Analytics, see the [Performance overview](../../sql-data-warehouse/sql-data-warehouse-overview-manage-user-queries.md).
 
-=======
-To find more ways to improve performance for SQL Analytics, see the [Performance overview](sql-data-warehouse-overview-manage-user-queries.md).
->>>>>>> eb5ab5778837f7824422b6d977ddaffa15886945:articles/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md

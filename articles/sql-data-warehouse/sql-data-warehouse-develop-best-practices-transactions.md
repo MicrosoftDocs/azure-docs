@@ -414,5 +414,5 @@ The best scenario is to let in flight data modification transactions complete pr
 * Break the operation into chunks; operating on a subset of the rows
 
 ## Next steps
-See [Transactions in SQL Analytics](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [Azure Synapse Analytics Best Practices](sql-data-warehouse-best-practices.md).
+See [Transactions in SQL Analytics](../synapse-analytics/sql-analytics/development-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [Azure Synapse Analytics Best Practices](../synapse-analytics/sql-analytics/best-practices-sql-pool.md).
 

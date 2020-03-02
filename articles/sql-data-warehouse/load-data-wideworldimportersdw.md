@@ -142,11 +142,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 ## Create a user for loading data
 
-<<<<<<< HEAD
-The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. Memory maximums are defined according to the Generation of SQL Data Warehouse you're using, [data warehouse units](../synapse-analytics/sql-analytics/resource-consumption-models.md), and [resource class](resource-classes-for-workload-management.md). 
-=======
-The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. Memory maximums are defined according to the Generation of SQL pool you're using, [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md), and [resource class](resource-classes-for-workload-management.md). 
->>>>>>> eb5ab5778837f7824422b6d977ddaffa15886945
+The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. Memory maximums are defined according to the Generation of SQL pool you're using, [data warehouse units](../synapse-analytics/sql-analytics/resource-consumption-models.md), and [resource class](resource-classes-for-workload-management.md). 
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
@@ -1106,8 +1102,4 @@ You did these things:
 Advance to the development overview to learn how to migrate an existing database to Azure Synapse SQL pool.
 
 > [!div class="nextstepaction"]
-<<<<<<< HEAD
->[Design decisions to migrate an existing database to SQL Data Warehouse](../synapse-analytics/sql-analytics/development-overview.md)
-=======
->[Design decisions to migrate an existing database to SQL pool](sql-data-warehouse-overview-develop.md)
->>>>>>> eb5ab5778837f7824422b6d977ddaffa15886945
+>[Design decisions to migrate an existing database to SQL pool](../synapse-analytics/sql-analytics/development-overview.md)
