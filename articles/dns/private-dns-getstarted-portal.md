@@ -54,13 +54,21 @@ A DNS zone contains the DNS entries for a domain. To start hosting your domain i
 
 It may take a few minutes to create the zone.
 
-## Create a virtual network
+## Virtual network and parameters
 
-1. On the portal page upper left, select **Create a resource**, then **Networking**, then select **Virtual network**.
-2. For **Name**, type **myAzureVNet**.
-3. For **Resource group**, select **MyAzureResourceGroup**.
-4. For **Location**, select **West Central US**.
-5. Accept the other default values and select **Create**.
+In this section you'll need to replace the following parameters in the steps with the information below:
+
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | MyAzureResourceGroup |
+| **\<virtual-network-name>** | MyAzureVNet          |
+| **\<region-name>**          | West Central US      |
+| **\<IPv4 address space>**   | 10.2.0.0\16          |
+| **\<subnet-name>**          | MyAzureSubnet        |
+| **\<subnet-address-range>** | 10.2.0.0\24          |
+
+
+[!INCLUDE [virtual-networks-create-newui](../../includes/virtual-networks-create-newui.md)]
 
 ## Link the virtual network
 
