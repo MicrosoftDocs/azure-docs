@@ -201,8 +201,8 @@ You can deploy the Azure Resource Manager template by [using the Azure portal](h
 
 |**Setting**  |**Description**  |
 |---------|---------|
-|Follower Cluster Name     |  The name of the follower cluster. This is the cluster which this template will be deployed on.  |
-|Attached Database Configurations Name    |    The name of the attached database configurations object. The name can be any string as long as it's unique at the cluster level.     |
+|Follower Cluster Name     |  The name of the follower cluster; where the template will be deployed.  |
+|Attached Database Configurations Name    |    The name of the attached database configurations object. The name can be any string that is unique at the cluster level.     |
 |Database Name     |      The name of the database to be followed. If you want to follow all the leader's databases, use '*'.   |
 |Leader Cluster Resource ID    |   The resource ID of the leader cluster.      |
 |Default Principals Modification Kind    |   The default principal modification kind. Can be `Union`, `Replace` or `None`. For more information about default principal modification kind, see [principal modification kind control command](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |

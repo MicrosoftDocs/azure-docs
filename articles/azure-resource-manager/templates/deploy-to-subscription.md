@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 03/02/2020
 ---
 
 # Create resource groups and resources at the subscription level
@@ -15,6 +15,7 @@ To deploy templates at the subscription level, use Azure CLI, PowerShell, or RES
 
 You can deploy the following resource types at the subscription level:
 
+* [budgets](/azure/templates/microsoft.consumption/budgets)
 * [deployments](/azure/templates/microsoft.resources/deployments)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
@@ -55,10 +56,10 @@ az deployment create \
 ```
 
 
-For the PowerShell deployment command, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment). The following example deploys a template to create a resource group:
+For the PowerShell deployment command, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) or **New-AzSubscriptionDeployment**. The following example deploys a template to create a resource group:
 
 ```azurepowershell-interactive
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name demoDeployment `
   -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
@@ -81,8 +82,22 @@ For each deployment name, the location is immutable. You can't create a deployme
 For subscription-level deployments, there are some important considerations when using template functions:
 
 * The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
-* The [resourceId()](template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at subscription level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. Or, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the resource ID for a subscription level resource.
 * The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
+* The [resourceId()](template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at subscription level deployments. Don't provide a value for the resource group parameter.
+
+  For example, to get the resource ID for a policy definition, use:
+  
+  ```json
+  resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  ```
+  
+  The returned resource ID has the following format:
+
+  ```json
+  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  ```
+
+  Or, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the resource ID for a subscription level resource.
 
 ## Create resource groups
 
@@ -116,7 +131,7 @@ The following template creates an empty resource group.
 }
 ```
 
-Use the [copy element](create-multiple-instances.md) with resource groups to create more than one resource group.
+Use the [copy element](copy-resources.md) with resource groups to create more than one resource group.
 
 ```json
 {
@@ -151,7 +166,7 @@ Use the [copy element](create-multiple-instances.md) with resource groups to cre
 }
 ```
 
-For information about resource iteration, see [Deploy more than one instance of a resource or property in Azure Resource Manager Templates](./create-multiple-instances.md), and [Tutorial: Create multiple resource instances with Resource Manager templates](./template-tutorial-create-multiple-instances.md).
+For information about resource iteration, see [Deploy more than one instance of a resource  in Azure Resource Manager Templates](./copy-resources.md), and [Tutorial: Create multiple resource instances with Resource Manager templates](./template-tutorial-create-multiple-instances.md).
 
 ## Resource group and resources
 
@@ -281,7 +296,7 @@ $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName 
 $locations = @("westus", "westus2")
 $policyParams =@{listOfAllowedLocations = @{ value = $locations}}
 
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name policyassign `
   -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
@@ -347,7 +362,7 @@ az deployment create \
 To deploy this template with PowerShell, use:
 
 ```azurepowershell
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
@@ -355,8 +370,8 @@ New-AzDeployment `
 
 ## Template samples
 
-* Create a resource group, lock it and give permissions to it. See [here](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
-* Create a resource group, a policy and a policy assignment.  See [here](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json).
+* [Create a resource group, lock it and give permissions to it](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+* [Create a resource group, a policy, and a policy assignment](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json).
 
 ## Next steps
 

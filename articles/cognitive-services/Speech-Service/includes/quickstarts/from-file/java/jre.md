@@ -43,8 +43,10 @@ ms.author: erhopf
            try {
                // Replace below with your own subscription key
                String speechSubscriptionKey = "YourSubscriptionKey";
-               // Replace below with your own service region (e.g., "westus").
+
+               // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
                String serviceRegion = "YourServiceRegion";
+
                // Replace below with your own filename.
                String audioFileName = "whatstheweatherlike.wav";
 

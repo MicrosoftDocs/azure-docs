@@ -1,6 +1,6 @@
 ---
 title: User-defined restore points 
-description: How to create a restore point Azure SQL Data Warehouse.
+description: How to create a restore point for SQL pool.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # User-defined restore points
 
-In this article, you learn to create a new user-defined restore point for Azure SQL Data Warehouse using PowerShell and Azure portal.
+In this article, you'll learn to create a new user-defined restore point for a SQL pool in Azure Synapse Analytics by using PowerShell and the Azure portal.
 
 ## Create user-defined restore points through PowerShell
 
@@ -57,9 +57,9 @@ User-defined restore points can also be created through Azure portal.
 
 1. Sign in to your [Azure portal](https://portal.azure.com/) account.
 
-2. Navigate to the SQL Data Warehouse that you want to create a restore point for.
+2. Navigate to the SQL pool that you want to create a restore point for.
 
-3. Select **Overview** from the left pane, select **+ New Restore Point**. If the New Restore Point button isn't enabled, make sure that the data warehouse isn't paused.
+3. Select **Overview** from the left pane, select **+ New Restore Point**. If the New Restore Point button isn't enabled, make sure that the SQL pool isn't paused.
 
     ![New Restore Point](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
@@ -69,7 +69,7 @@ User-defined restore points can also be created through Azure portal.
 
 ## Next steps
 
-- [Restore an existing data warehouse](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restore a deleted data warehouse](sql-data-warehouse-restore-deleted-dw.md)
-- [Restore from a geo-backup data warehouse](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restore an existing SQL pool](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restore a deleted SQL pool](sql-data-warehouse-restore-deleted-dw.md)
+- [Restore from a geo-backup SQL pool](sql-data-warehouse-restore-from-geo-backup.md)
 

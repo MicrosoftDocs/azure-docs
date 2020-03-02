@@ -3,14 +3,14 @@ title: Track user behavior with Application Insights
 titleSuffix: Azure AD B2C
 description: Learn how to enable event logs in Application Insights from Azure AD B2C user journeys by using custom policies.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/12/2018
-ms.author: marsma
+ms.date: 02/11/2020
+ms.author: mimart
 ms.subservice: B2C
 
 ---
@@ -154,7 +154,7 @@ Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pac
       <InputClaims>
         <!-- Properties of an event are added through the syntax {property:NAME}, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported DefaultClaimResolvers. -->
         <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
-        <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" />
+        <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" DefaultValue="{Context:CorrelationId}" />
         <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
       </InputClaims>
     </TechnicalProfile>

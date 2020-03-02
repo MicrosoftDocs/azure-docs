@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/10/2020
 ms.author: alzam
 
 ---
@@ -166,7 +166,7 @@ You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dns
 
 ### How do I add custom routes to the VPN client?
 
-You can modify the downloaded profile XML file and add the **\<route>\<includeroutes>\<destination>\<mask> \</route>\</includeroutes>\</destionation>\</mask>** tags
+You can modify the downloaded profile XML file and add the **\<route>\<includeroutes>\<destination>\<mask> \</route>\</includeroutes>\</destination>\</mask>** tags
 
 ```
 <azvpnprofile>

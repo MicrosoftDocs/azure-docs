@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/20/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -47,7 +47,7 @@ By following the improvement actions, you can:
 
 ## How do I get my secure score?
 
-The identity secure score is available in all editions of Azure AD. To access your score, go to the [Azure AD Overview dashboard](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore).
+The identity secure score is available in all editions of Azure AD. Organizations can access their identity secure score from the **Azure portal** > **Azure Active Directory** > **Security** > **Identity Secure Score**.
 
 ## How does it work?
 

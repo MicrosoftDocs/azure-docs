@@ -1,36 +1,33 @@
 ---
-title: 'Tutorial: Use Azure Firewall Manager Preview to secure your cloud network using the Azure portal'
-description: In this tutorial, you learn how to secure your cloud network with Azure Firewall Manager using the Azure portal. 
+title: 'Tutorial: Secure your virtual WAN using Azure Firewall Manager preview'
+description: In this tutorial, you learn how to secure your virtual WAN with Azure Firewall Manager using the Azure portal. 
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 02/18/2020
 ms.author: victorh
 ---
 
-# Tutorial: Secure your cloud network with Azure Firewall Manager Preview using the Azure portal
+# Tutorial: Secure your virtual WAN using Azure Firewall Manager preview 
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Using Azure Firewall Manager Preview, you can create secured hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
+Using Azure Firewall Manager Preview, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
 
 ![secure the cloud network](media/secure-cloud-network/secure-cloud-network.png)
 
-## Prerequisites
+Firewall Manager also supports a hub virtual network architecture. For a comparison of the secured virtual hub and hub virtual network architecture types, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md)
 
-> [!IMPORTANT]
-> Azure Firewall Manager Preview must be explicitly enabled using the `Register-AzProviderFeature` PowerShell command.
+In this tutorial, you learn how to:
 
-From a PowerShell command prompt, run the following commands:
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-It takes up to 30 minutes for the feature registration to complete. Run the following command to check your registration status:
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+> [!div class="checklist"]
+> * Create the spoke virtual network
+> * Create a secured virtual hub
+> * Connect the hub and spoke VNets
+> * Create a firewall policy and secure your hub
+> * Route traffic to your hub
+> * Test the firewall
 
 ## Create a hub and spoke architecture
 
@@ -146,7 +143,7 @@ To test your firewall rules, you'll need to deploy a couple servers. You'll depl
    |Virtual machine name     |**Jump-Srv**|
    |Region     |**(US) East US)**|
    |Administrator user name     |**azureuser**|
-   |Password     |**Azure123456!**|
+   |Password     |type your password|
 
 4. Under **Inbound port rules**, for **Public inbound ports**, select **Allow selected ports**.
 5. For **Select inbound ports**, select **RDP (3389)**.
