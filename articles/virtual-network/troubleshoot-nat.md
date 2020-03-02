@@ -51,11 +51,11 @@ Always take advantage of connection reuse and connection pooling whenever possib
 - Graceful [retry patterns](https://docs.microsoft.com/azure/architecture/patterns/retry) should be used to avoid aggressive retries/bursts during transient failure or failure recovery.
 Creating a new TCP connection for every HTTP operation (also known as "atomic connections") is an anti-pattern.  Atomic connections will prevent your application from scaling well and waste resources unneccessarily.  Always pipeline multiple operations into the same connection.  Your application will benefit in transaction speed and resource costs due to reduced overhead of TCP connections being set up and torn down.  When your application uses transport layer encryption (for example TLS), there is also significant cost associated with the processing of new connections.  Review [Azure Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns/) for additional best practice patterns.
 
-### Mitigation
+#### Mitigations
 
-If you are using the appropriate patterns, you can scale outbound connectivity as follows:
+You can scale outbound connectivity as follows:
 
-| Scenario | Action |
+| Scenario | Mitigation |
 |---|---|
 | You are experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | Check if you can add additional public IP address resources or public IP prefix resources for up to 16 IP addresses in total to your NAT gateway. This will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
 | You have already allocated 16 IP addresses and still are experiencing SNAT port exhaustion. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet. |
