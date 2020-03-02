@@ -154,7 +154,7 @@ The following example assigns an existing policy definition to the management gr
 
 ## Template sample
 
-* Create a resource group, a policy and a policy assignment.  See [here](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+* [Create a resource group, a policy and a policy assignment](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
 
 ## Next steps
 
