@@ -34,9 +34,9 @@ To resolve these problems, follow the steps in the following section.
 
 ### SNAT exhaustion
 
-[Virtual Network NAT](nat-overview.md) supports up to 1 million concurrent flows.  The mechanism is described [here](nat-gateway-resource.md#source-network-address-translation) in more detail.
+[Virtual Network NAT](nat-overview.md) supports up to 1 million concurrent flows with 16 IP addresses available for the [NAT gateway resource](nat-gateway-resource.md).  The mechanism is described [here](nat-gateway-resource.md#source-network-address-translation) in more detail.
 
-Investigate whether your application is behaving properly and is using outbound connections in a scalable fashion.  Always use connection reuse and connection pooling whenever possible to avoid resource exhaustion problems outright.  
+Investigate whether your application is behaving properly and is using outbound connections in a scalable fashion.  Always use connection reuse and connection pooling whenever possible to avoid resource exhaustion problems outright.  Use TCP keepalives or application layer keepalives to avoid intermediate systems timing out long-lived flows.
 
 Creating a new TCP connection for every HTTP operation is an anti-pattern and will impact your scale and reliability.  Always pipeline multiple operations into the same connection.
 
