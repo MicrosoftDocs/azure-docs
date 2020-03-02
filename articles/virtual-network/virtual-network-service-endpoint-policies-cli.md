@@ -22,7 +22,7 @@ ms.custom:
 
 # Manage data exfiltration to Azure Storage accounts with virtual network service endpoint policies using the Azure CLI
 
-Virtual network service endpoint policies enable you to apply access control on Azure Storage accounts from within a virtual network over service endpoints. This is a key to securing your workloads, managing what storage accounts are allowed and where data can be exfiltrated.
+Virtual network service endpoint policies enable you to apply access control on Azure Storage accounts from within a virtual network over service endpoints. This is a key to securing your workloads, managing what storage accounts are allowed and where data exfiltration is allowed.
 In this article, you learn how to:
 
 * Create a virtual network and add a subnet
@@ -146,7 +146,7 @@ az network nsg rule create \
 
 ## Restrict network access to Azure Storage resources
 
-This section lists steps to restrict network access for an Azure Storage account from the given subnet in a Virtual network via servie endpoint.
+This section lists steps to restrict network access for an Azure Storage account from the given subnet in a Virtual network via service endpoint.
 
 ### Create a storage account
 
