@@ -16,6 +16,6 @@ You can use the Azure Functions extension to create and test functions and deplo
 
     ![Install the extension for Azure Functions](./media/functions-install-vs-code-extension/vscode-install-extension.png)
 
-1. Restart Visual Studio Code and select the Azure icon on the Activity bar. You should see an Azure Functions area in the Side Bar.
+1. After installation, select the Azure icon on the Activity bar. You should see an Azure Functions area in the Side Bar.
 
     ![Azure Functions area in the Side Bar](./media/functions-install-vs-code-extension/azure-functions-window-vscode.png)

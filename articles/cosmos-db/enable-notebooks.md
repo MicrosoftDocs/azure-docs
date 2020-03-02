@@ -9,7 +9,7 @@ ms.author: dech
 
 ---
 
-# Enable notebooks for Azure Cosmos DB accounts
+# Enable notebooks for Azure Cosmos DB accounts (preview)
 
 > [!IMPORTANT]
 > Built-in notebooks for Azure Cosmos DB are currently available in the following Azure regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe and West US 2. To use notebooks, [create a new account with notebooks](#enable-notebooks-in-a-new-cosmos-account) or [enable notebooks on an existing account](#enable-notebooks-in-an-existing-cosmos-account) in one of these regions.

@@ -1,7 +1,6 @@
 ---
 title: Simple Logs experience in Azure Monitor (Preview) | Microsoft Docs
 description: The Simple Logs experience allows you to create basic queries in Azure Monitor without directly interacting with KQL.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

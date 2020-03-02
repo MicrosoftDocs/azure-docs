@@ -38,9 +38,9 @@ The specifications of all minimum recommended VM types used in this document are
 
 For more details on the specifications of each VM type, see the following documents:
 
-* [General purpose virtual machine sizes: Dv2 series 1-5](../virtual-machines/linux/sizes-general.md#dv2-series)
-* [Memory optimized virtual machine sizes: Dv2 series 11-15](../virtual-machines/linux/sizes-memory.md#dv2-series-11-15)
-* [General purpose virtual machine sizes: Av2 series 1-8](../virtual-machines/linux/sizes-general.md#av2-series)
+* [General purpose virtual machine sizes: Dv2 series 1-5](../virtual-machines/dv2-dsv2-series.md)
+* [Memory optimized virtual machine sizes: Dv2 series 11-15](../virtual-machines/dv2-dsv2-series-memory.md)
+* [General purpose virtual machine sizes: Av2 series 1-8](../virtual-machines/av2-series.md)
 
 ### All supported regions except Brazil south and Japan west
 

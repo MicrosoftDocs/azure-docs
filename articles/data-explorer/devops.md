@@ -39,7 +39,7 @@ Create the following sample folders (*Functions*, *Policies*, *Tables*) in your 
 ![Create folders](media/devops/create-folders.png)
 
 > [!TIP]
-> When creating your own workflow, we recommend making your code idempotent. For example, use [.create-merge table](/azure/kusto/management/tables#create-merge-tables) instead of [.create table](/azure/kusto/management/tables#create-table), and use [.create-or-alter](/azure/kusto/management/functions#create-or-alter-function) function instead of [.create](/azure/kusto/management/functions#create-function) function.
+> When creating your own workflow, we recommend making your code idempotent. For example, use [.create-merge table](/azure/kusto/management/create-table-command#create-merge-table) instead of [.create table](/azure/kusto/management/create-table-command), and use [.create-or-alter](/azure/kusto/management/create-alter-function) function instead of [.create](/azure/kusto/management/create-function) function.
 
 ## Create a release pipeline
 

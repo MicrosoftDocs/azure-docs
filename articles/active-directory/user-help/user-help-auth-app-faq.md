@@ -2,7 +2,7 @@
 title: Questions & answers about Microsoft Authenticator app - Azure AD
 description: Frequently asked questions and answers (FAQs) about the Microsoft Authentication app and two-factor verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/16/2020
-ms.author: lizross
+ms.date: 02/18/2020
+ms.author: curtand
 ms.reviewer: olhaun
 ---
 
@@ -48,6 +48,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and is the
 | Why am I getting notifications about my account activity? | To help keep you more informed about what's going on with your personal Microsoft account, we're sending activity notifications to your Microsoft Authenticator app. These notifications appear immediately after something changes, helping to keep you more secure. We previously sent these notifications through email and SMS, and have now expanded to include the app. For more information about these activity notifications, see [What happens if there's an unusual sign-in to your account](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). To change where you receive your notifications, sign in to the [Where can we contact you with non-critical account alerts](https://account.live.com/SecurityNotifications/Update) page of your account. |
 | While signing in to my work or school account using the default mail app that comes with iOS, I get prompted by the Microsoft Authenticator app for my security verification information. After I enter that information and return to the mail app, I get an error. What can I do? | This most-likely happens because your sign-in and your mail app are occurring across two different apps, causing the initial background sign-in process to stop working and to fail. To try to fix this, we recommend you select the **Safari** icon on the bottom right side of the screen while signing in to your mail app. By moving to Safari, the whole sign-in process happens in a single app, allowing you to sign in to the app successfully. |
 | My one-time password (OTP) codes are not working. What should I do? | Make sure the date and time on your device are correct and are being automatically synced. If the date and time is wrong, or out of sync, the code won’t work. |
+| The Windows 10 Mobile operating system was deprecated December 2019. Will the Microsoft Authenticator on Windows Mobile operating systems be deprecated as well? | The Microsoft Authenticator app on all Windows Mobile operating systems will not be supported after Feb 28, 2020. Users will not be eligible for receiving any new updates to the app post the aforementioned date. After Feb 28, 2020 Microsoft services that currently support authentications using the Microsoft Authenticator on all Windows Mobile operating systems will begin to retire their support. In order to authenticate into Microsoft services, we strongly encourage all our users to switch to an alternate authentication mechanism prior to this date. |
 
 ## Next steps
 

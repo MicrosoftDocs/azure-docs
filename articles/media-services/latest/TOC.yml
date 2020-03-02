@@ -24,7 +24,7 @@
   - name: Encode uploaded file and stream video   
     displayName: encode, encoding, job, transform
     href: stream-files-tutorial-with-api.md
-  - name: Stream live 
+  - name: Stream live
     href: stream-live-tutorial-with-api.md
     displayName: Live Events, Live Outputs, ingest 
   - name: Analyze your video 
@@ -54,11 +54,13 @@
     - name: Storage account
       href: storage-account-concept.md  
       displayName: Storage side encryption
-  - name: Uploading 
-    items:
+  - name: Assets
+    items: 
     - name: Assets
-      href: assets-concept.md    
-      displayName: name, naming, file name
+      href: assets-concept.md   
+    - name: Manage assets
+      href: manage-asset-concept.md  
+      displayName: name, naming, file name, upload, output, download  
   - name: Processing files
     items:
     - name: Transforms and Jobs
@@ -87,45 +89,6 @@
       href: transforms-jobs-concept.md 
     - name: Job error codes
       href: job-error-codes.md     
-  - name: Packaging and delivery
-    items:
-    - name: Dynamic packaging
-      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest      
-      href: dynamic-packaging-overview.md
-    - name: Dynamic manifests
-      href: filters-dynamic-manifest-overview.md 
-    - name: Filters
-      href: filters-concept.md   
-    - name: Streaming Endpoints 
-      displayName: origin, packager, cdn
-      href: streaming-endpoint-concept.md
-    - name: Streaming Locators 
-      displayName: URLs
-      href: streaming-locators-concept.md
-    - name: Streaming Policies 
-      href: streaming-policy-concept.md  
-    - name: Streaming Endpoint error codes  
-      href: streaming-endpoint-error-codes.md    
-  - name: Content protection
-    items:
-    - name: Dynamic encryption and key delivery
-      displayName: content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom  
-      href: content-protection-overview.md  
-    - name: Design of multi-DRM system 
-      displayName: drm, access control
-      href: design-multi-drm-system-with-access-control.md  
-    - name: DRM licenses
-      items:
-      - name: PlayReady license template
-        href: playready-license-template-overview.md
-      - name: Widevine license template
-        href: widevine-license-template-overview.md
-      - name: FairPlay license requirements
-        href: fairplay-license-overview.md  
-    - name: Streaming Policies 
-      href: streaming-policy-concept.md          
-    - name: Content Key Policies 
-      href: content-key-policy-concept.md              
   - name: Live streaming 
     items:
     - name: Overview
@@ -145,7 +108,50 @@
     - name: States and billing
       href: live-event-states-billing.md
     - name: Latency
-      href: live-event-latency.md              
+      href: live-event-latency.md  
+    - name: Live Event error codes
+      href: live-event-error-codes.md
+  - name: Packaging and delivery
+    items:
+    - name: Dynamic packaging
+      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming  
+      href: dynamic-packaging-overview.md
+    - name: Dynamic manifests
+      href: filters-dynamic-manifest-overview.md 
+    - name: Filters
+      href: filters-concept.md   
+    - name: Streaming Endpoints 
+      displayName: origin, packager, cdn
+      href: streaming-endpoint-concept.md
+    - name: Scaling streaming with CDN
+      href: scale-streaming-cdn.md
+    - name: Streaming Locators 
+      displayName: URLs
+      href: streaming-locators-concept.md
+    - name: Streaming Policies 
+      href: streaming-policy-concept.md  
+    - name: Streaming Endpoint error codes  
+      href: streaming-endpoint-error-codes.md          
+  - name: Content protection
+    items:
+    - name: Dynamic encryption and key delivery
+      displayName: content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom  
+      href: content-protection-overview.md  
+    - name: Design of multi-DRM system 
+      displayName: drm, access control
+      href: design-multi-drm-system-with-access-control.md  
+    - name: DRM licenses
+      items:
+      - name: PlayReady license template
+        href: playready-license-template-overview.md
+      - name: Widevine license template
+        href: widevine-license-template-overview.md
+      - name: FairPlay license requirements
+        href: fairplay-license-overview.md  
+    - name: Streaming Policies 
+      href: streaming-policy-concept.md          
+    - name: Content Key Policies 
+      href: content-key-policy-concept.md                    
   - name: Monitoring
     items:
     - name: Events with Event Grid
@@ -173,8 +179,13 @@
       items:
       - name: Streaming Endpoint error codes  
         href: streaming-endpoint-error-codes.md
+      - name: Live Event error codes
+        href: live-event-error-codes.md
       - name: Job error codes
         href: job-error-codes.md
+  - name: High availability guidance
+    displayName: failover, bcdr
+    href: media-services-high-availability-guidance.md
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md 
     displayName: naming
@@ -228,7 +239,9 @@
       href: cli-create-transform.md
     - name: Create jobs - CLI
       href: cli-create-jobs.md
-  - name: Encode content
+    - name: Jobs with multiple transform outputs
+      href: job-multiple-transform-outputs.md
+  - name: Encode content 
     items:
     - name: HTTPS as Job input - .NET
       displayName: encode, encoding
@@ -292,6 +305,8 @@
     items:
     - name: Publish an asset - CLI
       href: cli-publish-asset.md
+    - name: Download results
+      href: download-results-howto.md
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
 - name: Reference
@@ -321,6 +336,8 @@
     items:
     - name: Streaming Endpoint error codes  
       href: streaming-endpoint-error-codes.md
+    - name: Live Event error codes
+      href: live-event-error-codes.md
     - name: Job error codes
       href: job-error-codes.md   
 - name: Resources

@@ -22,13 +22,13 @@ Encryption with customer-managed keys is configured at the index or synonym map 
 Keys don't all need to be in the same Key Vault. A single search service can host multiple encrypted indexes or synonym maps each encrypted with their own customer-managed encryption keys stored in different Key Vaults.  You can also have indexes and synonym maps in the same service that are not encrypted using customer-managed keys. 
 
 > [!IMPORTANT] 
-> This feature is available on the [REST API version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). There is currently no support to configure customer managed encryption keys in the Azure portal.
+> This feature is available on the [REST API version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). There is currently no support to configure customer managed encryption keys in the Azure portal. The search service must be created after January 2019 and cannot be a Free (shared) service.
 
 ## Prerequisites
 
 The following services are used in this example. 
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. The search service must be created after January 2019 and cannot be a Free (shared) service.
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. 
 
 + [Create an Azure Key Vault resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) or find an existing vault under your subscription.
 

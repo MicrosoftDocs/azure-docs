@@ -160,7 +160,7 @@ If a scaling operation fails, the service tries to revert the operation, and the
 
 
 ### How long does scaling take?
-Scaling takes approximately 20 minutes, depending on how much data is in the cache.
+Scaling time depends on how much data is in the cache, with larger amounts of data taking a longer time to complete. Scaling takes approximately 20 minutes. For clustered caches, scaling takes approximately 20 minutes per shard.
 
 ### How can I tell when scaling is complete?
 In the Azure portal, you can see the scaling operation in progress. When scaling is complete, the status of the cache changes to **Running**.
@@ -170,6 +170,3 @@ In the Azure portal, you can see the scaling operation in progress. When scaling
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
-
-
-
