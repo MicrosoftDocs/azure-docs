@@ -27,27 +27,24 @@ This quickstart shows you how to use Azure Virtual Network NAT service. You'll c
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-### Create a virtual network
+## Virtual network and parameters
 
-Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network.  
+Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network.
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**, or search for **Virtual network** in the Marketplace search.
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-2. In **Create virtual network**, enter or select this information:
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | East US 2      |
+| **\<IPv4 address space>**   | 192.168.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 192.168.0.0\24          |
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **myVNet**. |
-    | Address space | Enter **192.168.0.0/16**. |
-    | Subscription | Select your subscription.|
-    | Resource group | Select create new - **myResourceGroupNAT**. |
-    | Location | Select **East US 2**.|
-    | Subnet - Name | Enter **mySubnet**. |
-    | Subnet - Address range | Enter **192.168.0.0/24**. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-3. Leave the rest of the defaults and select **Create**.
-
-### Create a VM to use the NAT gateway
+## Create a VM to use the NAT gateway
 
 We'll now create a VM to use the NAT service. This VM has a public IP to use as an instance-level Public IP to allow you to access the VM. NAT service is flow direction aware and will replace the default Internet destination in your subnet. The VM's public IP address won't be used for outbound connections.
 
