@@ -19,7 +19,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. The resources you want to move must support the move operation. For a list of which resources support move, see [Move operation support for resources](move-support-resources.md).
 
-1. Some services have specific limitations or requirements when moving resources. If you've moving any of the following services, check that guidance before moving.
+1. Some services have specific limitations or requirements when moving resources. If you're moving any of the following services, check that guidance before moving.
 
    * [App Services move guidance](./move-limitations/app-service-move-limitations.md)
    * [Azure DevOps Services move guidance](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
