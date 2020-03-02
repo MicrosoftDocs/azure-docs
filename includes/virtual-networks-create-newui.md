@@ -12,7 +12,7 @@
 
 ## Create the virtual network
 
-In this section you will create a virtual network and subnet.
+In this section, you'll create a virtual network and subnet.
 
 1. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
 
@@ -27,15 +27,15 @@ In this section you will create a virtual network and subnet.
     | Name             | Enter **\<virtual-network-name>**                                    |
     | Region           | Select **\<region-name>** |
 
-3. Select the **IP Addresses** tab or select the **Next:IP Addresses** button at the bottom of the page.
+3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
-4. In the **IP Addresses** tab enter this information:
+4. In the **IP Addresses** tab, enter this information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | IPv4 address space | Enter **\<IPv4 address space>** |
 
-5. Under **Subnet name** select the word **default**.
+5. Under Subnet name,** select the word **default**.
 
 6. In **Edit subnet**, enter this information:
 
