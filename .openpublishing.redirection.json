@@ -25894,6 +25894,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/authorize-active-directory-cli.md",
+      "redirect_url": "/azure/storage/common/authorize-data-operations-cli",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/common/storage-account-manage.md",
       "redirect_url": "/azure/storage/common/storage-account-keys-manage",
       "redirect_document_id": true
@@ -29392,6 +29397,11 @@
       "source_path": "articles/hdinsight/apache-kafka-log-analytics-operations-management.md",
       "redirect_url": "/azure/hdinsight/kafka/apache-kafka-log-analytics-operations-management",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/kafka/apache-kafka-byok.md",
+      "redirect_url": "/azure/hdinsight/disk-encryption",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-apache-kafka-connect-vpn-gateway.md",
@@ -34981,6 +34991,76 @@
     {
       "source_path": "articles/cognitive-services/academic-knowledge/index.md",
       "redirect_url": "/azure/cognitive-services/academic-knowledge/home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/home.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/QueryExpressionSyntax.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-query-expression-syntax",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/EntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/AffiliationEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-affiliation-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/AuthorEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-author-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/ConferenceInstanceEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-conference-instance-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/ConferenceSeriesEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-conference-series-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/FieldsOfStudyEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-field-of-study-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/JournalEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-journal-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/PaperEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-paper-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/CalcHistogramMethod.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-calchistogram-method",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/EvaluateMethod.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-evaluate-method",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/InterpretMethod.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-interpret-method",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/SimilarityMethod.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-similarity-method",
       "redirect_document_id": false
     },
     {
