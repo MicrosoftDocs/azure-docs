@@ -78,10 +78,6 @@ In this example, you use Pandas to combine two columns found in the automobile d
 
 Now, you have a dataset with the new feature **Dollars/HP**, which could be useful in training a car recommender. This is an example of feature extraction and dimensionality reduction. 
 
-## Execute Python using a zip file
-
-If you want to execute more complex logic or import additional libraries, you should use the zip file method.
-
 ## Next steps
 
 Learn how to [import your own data](how-to-designer-import-data.md) in Azure Machine Learning designer.
