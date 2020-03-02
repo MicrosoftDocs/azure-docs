@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Rollbar for automatic user provisioning with Azure A
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Rollbar.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: zchia
+writer: zchia
 manager: beatrizd
 
 ms.assetid: d737aa16-8ab4-4c0c-a68b-2911623b41eb
