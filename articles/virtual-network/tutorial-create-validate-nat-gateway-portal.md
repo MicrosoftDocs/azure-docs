@@ -48,7 +48,7 @@ In this section you'll need to replace the following parameters in the steps wit
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-### Create source virtual machine
+## Create source virtual machine
 
 We'll now create a VM to use the NAT service. This VM has a public IP to use as an instance-level Public IP to allow you to access the VM. NAT service is flow direction aware and will replace the default Internet destination in your subnet. The VM's public IP address won't be used for outbound connections.
 
@@ -153,25 +153,25 @@ All outbound traffic to Internet destinations is now using the NAT service.  It 
 
 We'll now create a destination for the outbound traffic translated by the NAT service to allow you to test it.
 
-### Configure virtual network for destination
+
+## Virtual network and parameters for destination
 
 Before you deploy a VM for the destination, we need to create a virtual network where the destination virtual machine can reside. The following are the same steps as for the source VM with some small changes to expose the destination endpoint.
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-2. In **Create virtual network**, enter or select this information:
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNetdestination          |
+| **\<region-name>**          | East US 2      |
+| **\<IPv4 address space>**   | 192.168.0.0\16          |
+| **\<subnet-name>**          | mySubnetdestination        |
+| **\<subnet-address-range>** | 192.168.0.0\24          |
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **myVNetdestination**. |
-    | Address space | Enter **192.168.0.0/16**. |
-    | Subscription | Select your subscription.|
-    | Resource group | Select create new - **myResourceGroupNAT**. |
-    | Location | Select **East US 2**.|
-    | Subnet - Name | Enter **mySubnetdestination**. |
-    | Subnet - Address range | Enter **192.168.0.0/24**. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-### Create destination virtual machine
+## Create destination virtual machine
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**, or search for **Ubuntu Server 18.04 LTS** in the Marketplace search.
 
