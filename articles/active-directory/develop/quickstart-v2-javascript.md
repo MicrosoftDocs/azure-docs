@@ -112,7 +112,7 @@ Select the option that's suitable to your development environment:
 >
 
 > [!div renderon="docs"]
-> Then, still in the same folder, edit *graphConfig.js* file to set the `graphMeEndpoint` and `graphMeEndpoint` for the `msalConfig` object.
+> Then, still in the same folder, edit *graphConfig.js* file to set the `graphMeEndpoint` and `graphMeEndpoint` for the `apiConfig` object.
 
 ```javascript
 
