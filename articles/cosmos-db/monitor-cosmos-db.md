@@ -61,7 +61,7 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 
 Here is another example to view the server-side latency metrics for a specific database, container, or an operation:
 
-![Server-side latency metric](./media/monitor-cosmos-db/serverside-latency-metric.png)
+![Server-side latency metrics](./media/monitor-cosmos-db/serverside-latency-metric.png)
 
 ## Monitoring data collected from Azure Cosmos DB
 
