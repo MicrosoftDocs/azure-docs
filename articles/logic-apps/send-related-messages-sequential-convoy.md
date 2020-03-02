@@ -135,16 +135,16 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 | Name | Description |
 |------|-------------|
 | `Send initial message to topic` | This Service Bus **Send message** action sends the message to the queue specified by the session ID that's output from the trigger along with other information about the message. |
-| (parallel branch) | This action creates two paths: <p><p>- Path #1: Continue processing the message. <p><p>- Path #2: Abandon the message if anything goes wrong, and release for pickup by another trigger run. <p><p>Both paths join up later in the **Close session in a queue** action. |
+| (parallel branch) | This action creates two paths: <p><p>- Branch #1: Continue processing the message. <p><p>- Branch #2: Abandon the message if anything goes wrong, and release for pickup by another trigger run. <p><p>Both paths join up later in the **Close session in a queue** action. |
 |||
 
-### Path 1: Continue processing message
+### Branch #1: Continue processing message
 
 | Name | Description |
 |------|-------------|
 | `Complete initial message in queue` | This Service Bus **Complete the message in a queue** action marks a successfully retrieved message as complete and removes the message from the queue to prevent reprocessing. |
-| `While there are more messages for the session in the queue` | |
-| `Renew session lock until cancelled` | |
+| `While there are more messages for the session in the queue` | This **Until** loop |
+| `Renew session lock until cancelled` | This **Until** loop |
 |||
 |||
 | `Close a session in a queue and succeed` | |
