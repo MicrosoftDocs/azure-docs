@@ -23,16 +23,19 @@ One of the core features of the Speech service is the ability to recognize and t
 
 ::: zone pivot="programming-language-csharp"
 
-::: zone-end
+[!INCLUDE [C# Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-csharp.md)]
 
+::: zone-end
 ::: zone pivot="programming-language-cpp"
 
-::: zone-end
+[!INCLUDE [C++ Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-cpp.md)]
 
+::: zone-end
 ::: zone pivot="programming-language-java"
 
-::: zone-end
+[!INCLUDE [Java Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-java.md)]
 
+::: zone-end
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python Basics include](./includes/how-to/speech-to-text-basics/speech-to-text-basics-python.md)]
