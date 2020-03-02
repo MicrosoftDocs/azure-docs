@@ -3,4 +3,4 @@
 - name: Set up Remote Rendering for Unity
   href: unity-setup.md
 - name: Unity game objects and components
-  href: unity-objects-and-components.md
+  href: objects-components.md
