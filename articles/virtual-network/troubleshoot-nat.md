@@ -34,18 +34,18 @@ To resolve these problems, follow the steps in the following section.
 
 ### SNAT exhaustion
 
-[Virtual Network NAT](nat-overview.md) supports up to 1 million concurrent flows with 16 IP addresses available for the [NAT gateway resource](nat-gateway-resource.md).  The mechanism is described [here](nat-gateway-resource.md#source-network-address-translation) in more detail.
+A single [NAT gateway resource](nat-gateway-resource.md) supports from 64,000 up to 1 million concurrent flows.  Each IP address provides 64,000 SNAT ports to the available inventory. You can use up to 16 IP addresses per NAT gateway resource.  The SNAT mechanism is described [here](nat-gateway-resource.md#source-network-address-translation) in more detail.
 
 #### Steps:
 
 1. Investigate how your application is creating outbound connectivity (for example, code review or packet capture). 
-2. Understand if what is observed is expected behavior or whether the application is misbehaving.
+2. Understand if what is observed is expected behavior or whether the application is misbehaving.  Use metrics in Azure Monitor to substantiate your findings.
 3. Evaluate if appropriate patterns are followed.
 4. Evaluate if SNAT port exhaustion should be mitigated with additional IP addresses assigned to NAT gateway resource.
 
 #### Design pattern:
 
-Always take advantage of connection reuse and connection pooling whenever possible.  This pattern will avoid resource exhaustion problems outright and result in predictable behavior.  Primitives for these patterns can be found in many development libraries and frameworks.
+Always take advantage of connection reuse and connection pooling whenever possible.  This pattern will avoid resource exhaustion problems outright and result in predictable behavior. Primitives for these patterns can be found in many development libraries and frameworks.
 - Consider [asynchronous polling patterns](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) for long-running operations to free up connection resources for other operations.
 - Long-lived flows (for example TCP connections being reused) should use TCP keepalives or application layer keepalives to avoid intermediate systems timing out.
 - Graceful [retry patterns](https://docs.microsoft.com/azure/architecture/patterns/retry) should be used to avoid aggressive retries/bursts during transient failure or failure recovery.
