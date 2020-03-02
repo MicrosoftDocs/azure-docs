@@ -96,33 +96,35 @@ Now peer the two VNets.
 
 Create a workload virtual machine, and place it in the **SN-Workload** subnet.
 
-1. From the Azure portal home page, select **All services**.
-2. Under **Compute**, select **Virtual machines**.
-3. Select **Add**, and select **Windows Server**,  select **Windows Server 2016 Datacenter**, and then select **Create**.
+1. From the Azure portal menu, select **Create a resource**.
+2. Under **Popular**, select **Windows Server 2016 Datacenter**.
 
 **Basics**
 
-1. For **Name**, type **Srv-Workload**.
-5. Type a username and password.
-6. For **Subscription**, select your subscription.
-7. For **Resource group**, select **Use existing**, and then select **RG-DNAT-Test**.
-8. For **Location**, select the same location that you used previously.
-9. Select **OK**.
+1. For **Subscription**, select your subscription.
+1. For **Resource group**, select **Use existing**, and then select **RG-DNAT-Test**.
+1. For **Virtual machine name**, type **Srv-Workload**.
+1. For **Region**, select the same location that you used previously.
+1. Type a username and password.
+1. Select **Next: Disks**.
 
-**Size**
+**Disks**
+1. Select **Next: Networking**.
 
-1. Choose an appropriate size for a test virtual machine running Windows Server. For example, **B2ms** (8 GB RAM, 16 GB storage).
-2. Select **Select**.
+**Networking**
 
-**Settings**
-
-1. Under **Network**, for **Virtual network**, select **VN-Spoke**.
+1. For **Virtual network**, select **VN-Spoke**.
 2. For **Subnet**, select **SN-Workload**.
-3. Select **Public IP address** and then select **None**.
-4. For **Select public inbound ports**, select **No public inbound ports**. 
-2. Leave the other default settings and select **OK**.
+3. For **Public IP address** select **None**.
+4. For **Public inbound ports**, select **None**. 
+2. Leave the other default settings and select **Next : Management**.
 
-**Summary**
+**Management**
+
+1. For **Boot diagnostics**, select **Off**.
+1. Select **Review + Create**.
+
+**Review + Create**
 
 Review the summary, and then select **Create**. This will take a few minutes to complete.
 
