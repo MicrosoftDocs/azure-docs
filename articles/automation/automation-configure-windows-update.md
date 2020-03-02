@@ -8,7 +8,12 @@ ms.topic: conceptual
 ---
 # Configure Windows Update settings for Update Management
 
-Azure Update Management relies on [Windows Update client](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. Many of these settings can be managed with Local Group Policy Editor, PowerShell, directly editing the Registry, or in Group Policy.
+Azure Update Management relies on [Windows Update client](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. Many of these settings can be managed with:
+
+- Local Group Policy Editor
+- Group Policy
+- PowerShell
+- Directly editing the Registry
 
 Update Management respects many of the settings specified to control the Windows Update client. If you use settings to enable non-Windows updates, Update Management will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
 
@@ -26,7 +31,7 @@ $WUSettings.Save()
 
 ## Configure reboot settings
 
-The registry keys listed in [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause your machines to reboot, even if you specify **Never Reboot** in the **Update Deployment** settings. You should configure these registry keys to best suit your environment.
+The registry keys listed in [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause your machines to reboot, even if you specify **Never Reboot** in the **Update Deployment** settings. Configure these registry keys to best suit your environment.
 
 ## Enable updates for other Microsoft products
 
