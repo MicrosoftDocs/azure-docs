@@ -68,10 +68,10 @@ The typical process for monitoring virtual machines in Azure is as follows:
 
 Enable Azure Monitor for VMs from the **Insights** option in the virtual machine menu of the Azure portal. See [Enable Azure Monitor for VMs (preview) overview](vminsights-enable-overview.md) for details and other configuration methods.
 
-![Enable Azure Monitor for VMs]()
+![Enable Azure Monitor for VMs](media/monitor-vm-azure/enable-vminsights.png)
 
 ### Configure Log Analytics workspace
-The Log Analytics agent used by Azure Monitor for VMs sends data to a [Log Analytics workspace](). In addition to the data it collects, you can enable the collection of additional performance data, events, and other monitoring data from the agent by configuring the Log Analytics workspace. The workspace only needs to be configured once. Any agent connecting to the workspace will automatically download the configuration and immediately start collecting the defined data. 
+The Log Analytics agent used by Azure Monitor for VMs sends data to a [Log Analytics workspace](../platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured). In addition to the data it collects, you can enable the collection of additional performance data, events, and other monitoring data from the agent by configuring the Log Analytics workspace. The workspace only needs to be configured once. Any agent connecting to the workspace will automatically download the configuration and immediately start collecting the defined data. 
 
 You can access the advanced settings for the workspace directly from Azure Monitor for VMs by selecting **Workspace configuration** from the **Get Started** tab in **Azure Monitor for VMs**. See [Agent data sources in Azure Monitor](../platform/agent-data-sources.md) for a list of the data sources available and how you can configure them.
 
@@ -80,16 +80,16 @@ You can access the advanced settings for the workspace directly from Azure Monit
 
 
 ### Enable diagnostics extension
-Azure Monitor for VMs is based on the Log Analytics agent that collects data into a Log Analytics workspace. This supports [multiple features of Azure Monitor]() such as [log queries](), [log alerts](), and [workbooks](). The [diagnostics extension](../platform/diagnostics-extension-overview.md) collects performance data from the guest operating system to Azure Storage and optionally sends performance data to [Azure Monitor Metrics](../platform/data-platform-metrics.md). This enables other features of Azure Monitor such as [metrics explorer](../platform/metrics-getting-started.md) and [metrics alerts](../platform/alerts-metric.md). You can also configure the diagnostics extension to send events and performance data outside of Azure Monitor using Azure Event Hubs.
+Azure Monitor for VMs is based on the Log Analytics agent that collects data into a Log Analytics workspace. This supports [multiple features of Azure Monitor](../platform/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) such as [log queries](../log-query/log-query-overview.md), [log alerts](../platform/alerts-log.md), and [workbooks](../platform/workbooks-overview.md). The [diagnostics extension](../platform/diagnostics-extension-overview.md) collects performance data from the guest operating system to Azure Storage and optionally sends performance data to [Azure Monitor Metrics](../platform/data-platform-metrics.md). This enables other features of Azure Monitor such as [metrics explorer](../platform/metrics-getting-started.md) and [metrics alerts](../platform/alerts-metric.md). You can also configure the diagnostics extension to send events and performance data outside of Azure Monitor using Azure Event Hubs.
 
 Install the diagnostics extension for a single VM in the Azure portal from the **Diagnostics setting** option in the VM menu. Select the option to enable **Azure Monitor** in the **Sinks** tab. To enable the extension from a template or command line for multiple VMs, see [Installation and configuration](../platform/diagnostics-extension-overview.md#installation-and-configuration). Unlike the Log Analytics agent, the data to collect is defined in the configuration for the extension on each VM.
 
 ![Diagnostic setting](media/monitor-vm-azure/diagnostic-setting.png)
 
 ### Collect platform metrics and Activity log
-You can view the platform metrics and Activity log collected for each virtual machine host in the Azure portal. Collect this data into a Log Analytics workspace to analyze it with the other monitoring data collected for the virtual machine. This collection is configured with a [diagnostic setting](../platform/diagnostic-settings.md). Collect the Activity log with a [diagnostic setting for the subscription]()
+You can view the platform metrics and Activity log collected for each virtual machine host in the Azure portal. Collect this data into a Log Analytics workspace to analyze it with the other monitoring data collected for the virtual machine. This collection is configured with a [diagnostic setting](../platform/diagnostic-settings.md). Collect the Activity log with a diagnostic setting for the subscription.
 
-Collect platform metrics with a diagnostic setting for the virtual machine. Unlike other Azure resources, you cannot create a diagnostic setting for a virtual machine in the Azure portal but must use [another method](). The following examples show how to collect metrics for a virtual machine using bother PowerShell and CLI.
+Collect platform metrics with a diagnostic setting for the virtual machine. Unlike other Azure resources, you cannot create a diagnostic setting for a virtual machine in the Azure portal but must use [another method](../platform/diagnostic-settings.md#create-diagnostic-settings-using-powershell). The following examples show how to collect metrics for a virtual machine using bother PowerShell and CLI.
 
 ```powershell
 Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/monitor diagnostic-settings create \
@@ -113,19 +113,20 @@ You have multiple options for accessing monitoring data collected for virtual ma
 - Use Azure Monitor for VMs for monitoring sets of virtual machines at scale.
 - Analyze data for a single virtual machine from its menu in the Azure portal. The following table lists different options for monitoring the virtual machines menu.
 
+![Monitoring in the Azure portal](media/monitor-vm-azure/monitor-menu.png)
+
 | Menu option | Description |
 |:---|:---|
-| Overview | Displays [platform metrics]() for the virtual machine host. Click on a graph to work with this data in [metrics explorer](). |
-| Activity log | [Activity log]() entries filtered for the current virtual machine. |
-| Insights (preview) | Opens [Azure Monitor for VMs]() with the map for the current virtual machine selected. |
-| Alerts | Views [alerts](#alerts) for the current virtual machine.  |
-| Metrics | Open [metrics explorer]() with the scope set to the current virtual machine. |
-| Diagnostic settings | Enable and configure [diagnostics extension]() for the current virtual machine. |
+| Overview | Displays [platform metrics](./platform/data-platform-metrics.md) for the virtual machine host. Click on a graph to work with this data in [metrics explorer](../platform/metrics-getting-started.md). |
+| Activity log | [Activity log](../platform/activity-log-view.md) entries filtered for the current virtual machine. |
+| Insights (preview) | Opens [Azure Monitor for VMs](../insights/vminsights-overview.md) with the map for the current virtual machine selected. |
+| Alerts | Views [alerts](../platform/alerts-overview.md) for the current virtual machine.  |
+| Metrics | Open [metrics explorer](../platform/metrics-getting-started.md) with the scope set to the current virtual machine. |
+| Diagnostic settings | Enable and configure [diagnostics extension](..platform/diagnostics-extension-overview.md) for the current virtual machine. |
 | Advisor recommendations | Recommendations for the currentl virtual machine from [Azure Advisor](/azure/advisor/). |
-| Logs | Open [Log Analytics]() with the [scope]() set to the current virtual machine. |
+| Logs | Open [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics) with the [scope](../log-query/scope.md) set to the current virtual machine. |
 | Connection monitor | Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-preview.md) to monitor connections between the current virtual machine and other virtual machines. |
 
-[Monitoring in the Azure portal]()
 
 ## Analyzing metric data
 You can analyze metrics for virtual machines using metrics explorer by opening **Metrics** from the virtual machine's menu. See [Getting started with Azure Metrics Explorer](../platform/metrics-getting-started.md) for details on using this tool. 
@@ -145,12 +146,11 @@ Azure Monitor for VMs enables the collection of a predetermined set of performan
 
 | Data source | Requirements | Tables |
 |:---|:---|:---|
-| Azure Monitor for VMs | Enable on each virtual machine. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>See [How to query logs from Azure Monitor for VMs](vminsights-log-search.md#sample-log-searches) for details. |
+| Azure Monitor for VMs | Enable on each virtual machine. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>See [How to query logs from Azure Monitor for VMs](vminsights-log-search.md#sample-log-searchesl) for details. |
 | Activity log | Diagnostic setting for the subscription. | AzureActivity |
 | Host metrics | Diagnostic setting for the virtual machine. | AzureMetrics |
 | Data sources from the guest operating system | Enable Log Analytics agent and configure data sources. | See documentation for each data source. |
 
-## Alerts
 
 ## Next steps
 
