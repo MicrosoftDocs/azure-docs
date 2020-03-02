@@ -39,7 +39,7 @@ Import an order that allows a customer to modify a pizza order.
 1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
 
-2. Import the JSON into a new app, name the app `Pizza app`.
+2. Use the [preview LUIS portal](https://preview.luis.ai/), import the JSON into a new app, name the app `Pizza app`.
 
 3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `batchtest`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
