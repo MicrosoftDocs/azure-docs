@@ -40,9 +40,9 @@ You can quickly monitor the following resource metrics in the Azure portal in th
 
   ![Resource metrics](./media/sql-database-monitor-tune-overview/resource-metrics.png)
 
-### SQL Database Advisors
+### SQL Database advisors
 
-Azure SQL Database includes [Database Advisors](sql-database-advisor.md) that provide performance tuning recommendations for single and pooled databases. These recommendations are available in the Azure portal as well as by using PowerShell. You can also enable [automatic tuning](sql-database-automatic-tuning.md) so that SQL Database can automatically implement these tuning recommendations.
+Azure SQL Database includes [database advisors](sql-database-advisor.md) that provide performance tuning recommendations for single and pooled databases. These recommendations are available in the Azure portal as well as by using PowerShell. You can also enable [automatic tuning](sql-database-automatic-tuning.md) so that SQL Database can automatically implement these tuning recommendations.
 
 ### Query Performance Insight
 
@@ -100,8 +100,13 @@ Stream metrics and resource logs to [Azure Storage](../azure-monitor/platform/re
 
 Additionally, you can use [extended events](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) in SQL for additional advanced monitoring and troubleshooting. The extended events architecture enables users to collect as much or as little data as is necessary to troubleshoot or identify a performance problem. For information about using extended events in SQL Database, see [Extended events in SQL Database](sql-database-xevent-db-diff-from-svr.md).
 
-## Use SQL Analytics
+## Use SQL Analytics for advanced analysis
 
 Use [SQL Analytics](../azure-monitor/insights/azure-sql.md) to visualize key performance metrics with built-in intelligence for performance troubleshooting.
 
+> [!TIP]
+> [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method to automatically tune some of the most common database performance issues. [Query Performance Insights](sql-database-query-performance.md) is the recommended method for basic Azure SQL Database performance monitoring needs. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is the recommended method for advanced monitoring of database performance at scale, with built-in intelligence for automated performance troubleshooting.
+
 ## Next steps
+
+- [Database advisor performance recommendations](sql-database-advisor.md)

@@ -14,14 +14,11 @@ ms.date: 02/28/2020
 ---
 # Performance recommendations for SQL Database
 
-Azure SQL Database learns and adapts with your application. It provides customized recommendations that enable you to maximize the performance of your SQL databases. SQL Database continuously assesses and analyzes the usage history of your SQL databases. The recommendations that are provided are based on database-unique workload patterns and help improve performance.
-
-> [!TIP]
-> [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method to automatically tune some of the most common database performance issues. [Query Performance Insights](sql-database-query-performance.md) is the recommended method for basic Azure SQL Database performance monitoring needs. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is the recommended method for advanced monitoring of database performance at scale, with built-in intelligence for automated performance troubleshooting.
+Azure SQL Database learns and adapts with your application. SQL Database has a number of database advisors that provide customized recommendations that enable you to maximize the performance of your SQL databases. These database advisors continuously assess and analyze the usage history of your SQL databases. They provide recommendations that based on database-unique workload patterns that help improve performance.
 
 ## Performance overview
 
-This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting.
+The Performance overview view provides a summary of your database performance, and helps you with performance tuning and troubleshooting.
 
 ![Performance overview for Azure SQL Database](./media/sql-database-performance/performance-overview-annotated.png)
 
@@ -51,7 +48,7 @@ You can also find complete history of tuning actions that were applied in the pa
 
 SQL Database continuously monitors the queries that are running and identifies the indexes that could improve performance. After there's enough confidence that a certain index is missing, a new **Create index** recommendation is created.
 
- Azure SQL Database builds confidence by estimating the performance gain the index would bring through time. Depending on the estimated performance gain, recommendations are categorized as high, medium, or low.
+Azure SQL Database builds confidence by estimating the performance gain the index would bring through time. Depending on the estimated performance gain, recommendations are categorized as high, medium, or low.
 
 Indexes that are created by using recommendations are always flagged as auto-created indexes. You can see which indexes are auto-created by looking at the sys.indexes view. Auto-created indexes don’t block ALTER/RENAME commands.
 
