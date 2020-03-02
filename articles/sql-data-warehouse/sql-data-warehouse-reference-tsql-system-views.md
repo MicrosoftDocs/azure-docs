@@ -11,6 +11,7 @@ ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
 # System views supported in Azure Synapse Analytics

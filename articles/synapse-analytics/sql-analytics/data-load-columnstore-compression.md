@@ -10,6 +10,7 @@ ms.subservice:
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: azure-synapse
 ---
 
 # Maximizing rowgroup quality for columnstore
@@ -29,13 +30,13 @@ For best query performance, the goal is to maximize the number of rows per rowgr
 
 During a bulk load or columnstore index rebuild, sometimes there isn't enough memory available to compress all the rows designated for each rowgroup. When there is memory pressure, columnstore indexes trim the rowgroup sizes so compression into the columnstore can succeed. 
 
-When there is insufficient memory to compress at least 10,000 rows into each rowgroup, SQL Data Warehouse generates an error.
+When there is insufficient memory to compress at least 10,000 rows into each rowgroup, an error will be generated.
 
 For more information on bulk loading, see [Bulk load into a clustered columnstore index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
 
 ## How to monitor rowgroup quality
 
-The DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contains the view definition matching SQL DB to SQL Data Warehouse) that exposes useful information such as number of rows in rowgroups and the reason for trimming if there was trimming. You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
+The DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contains the view definition matching SQL DB) that exposes useful information such as number of rows in rowgroups and the reason for trimming if there was trimming. You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -85,7 +86,7 @@ where short-string-columns use string data types of <= 32 bytes and long-string-
 Long strings are compressed with a compression method designed for compressing text. This compression method uses a *dictionary* to store text patterns. The maximum size of a dictionary is 16 MB. There is only one dictionary for each long string column in the rowgroup.
 
 For an in-depth discussion of columnstore memory requirements, see the
-video [Azure SQL Data Warehouse scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+video [SQL Analytics scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## Ways to reduce memory requirements
 
@@ -107,7 +108,7 @@ Additional memory requirements for string compression:
 
 ### Avoid over-partitioning
 
-Columnstore indexes create one or more rowgroups per partition. In SQL Data Warehouse, the number of partitions grows quickly because the data is distributed and each distribution is partitioned. If the table has too many partitions, there might not be enough rows to fill the rowgroups. The lack of rows does not create memory pressure during compression, but it leads to rowgroups that do not achieve the best columnstore query performance.
+Columnstore indexes create one or more rowgroups per partition. For data warehousing in Azure Synapse Analytics, the number of partitions grows quickly because the data is distributed and each distribution is partitioned. If the table has too many partitions, there might not be enough rows to fill the rowgroups. The lack of rows does not create memory pressure during compression, but it leads to rowgroups that do not achieve the best columnstore query performance.
 
 Another reason to avoid over-partitioning is there is a memory overhead for loading rows into a columnstore index on a partitioned table. During a load, many partitions could receive the incoming rows, which are held in memory until each partition has enough rows to be compressed. Having too many partitions creates additional memory pressure.
 
@@ -139,5 +140,9 @@ DWU size and the user resource class together determine how much memory is avail
 
 ## Next steps
 
+<<<<<<< HEAD:articles/synapse-analytics/sql-analytics/data-load-columnstore-compression.md
 To find more ways to improve performance in SQL Data Warehouse, see the [Performance overview](../../sql-data-warehouse/sql-data-warehouse-overview-manage-user-queries.md).
 
+=======
+To find more ways to improve performance for SQL Analytics, see the [Performance overview](sql-data-warehouse-overview-manage-user-queries.md).
+>>>>>>> eb5ab5778837f7824422b6d977ddaffa15886945:articles/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
