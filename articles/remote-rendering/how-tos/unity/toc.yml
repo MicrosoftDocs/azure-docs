@@ -1,6 +1,6 @@
-- name: SDK overview for Unity
-  href: unity-concepts.md
 - name: Install the Remote Rendering package for Unity
   href: install-remote-rendering-unity-package.md
 - name: Set up Remote Rendering for Unity
   href: unity-setup.md
+- name: Unity game objects and components
+  href: objects-components.md

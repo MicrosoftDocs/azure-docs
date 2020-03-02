@@ -33,7 +33,7 @@ Every session undergoes multiple phases.
 
 ### Session startup
 
-When you ask ARR to [create a new session](../how-tos/session-rest-api.md#create-a-session), the first thing it does is to return a session [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). This UUID allows you to query information about the session. The UUID and some basic information about the session are persisted indefinitely, so you can query that information even after the session has been stopped. At this point, the **session state** will be reported as **Starting**.
+When you ask ARR to [create a new session](../how-tos/session-rest-api.md#create-a-session), the first thing it does is to return a session [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). This UUID allows you to query information about the session. The UUID and some basic information about the session are persisted for 30 days, so you can query that information even after the session has been stopped. At this point, the **session state** will be reported as **Starting**.
 
 Next, Azure Remote Rendering tries to find a server that can host your session. There are two parameters for this search. First, it will only reserve servers in your [region](../reference/regions.md). That's because the network latency across regions may be too high to guarantee a decent experience. The second factor is the desired *size* that you specified. In each region, there is a limited number of servers that can fulfill the *Standard* or *Premium* size request. Consequently, if all servers of the requested size are currently in use in your region, session creation will fail. The reason for failure [can be queried](../how-tos/session-rest-api.md#get-sessions-properties).
 
