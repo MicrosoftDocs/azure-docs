@@ -10,13 +10,23 @@ ms.date: 02/27/2020
 ms.author: aahi
 ---
 
-Use this quickstart to begin requesting search results from your Bing Custom Search instance, using the Python client library. While Bing Custom Search has a REST API compatible with most programming languages, the Bing Custom Search client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) with additional error handling and annotations.
+Get started with the Bing Custom Search client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Bing Custom Search API enables you to create tailored, ad-free search experiences for topics that you care about.The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py).
+
+Use the Bing Custom Search client library for Java to:
+* Find search results on the web, from your Bing Custom Search instance.
+
+[Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-customsearch) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) | [Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
+
 
 ## Prerequisites
 
 - A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](../../quick-start.md) for more information.
 - Python [2.x or 3.x](https://www.python.org/) 
 - The [Bing Custom Search SDK for Python](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) 
+
+## Setting up
+
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](~/includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## Install the Python client library
 
