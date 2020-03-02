@@ -115,7 +115,7 @@ The `SimpleDataLayer` class is used in a similar way as other rendering layers a
 //Create a data source and add it to the map.
 var datasource = new atlas.source.DataSource();
 map.sources.add(datasource);
-                
+
 //Add a simple data layer for rendering data.
 var layer = new atlas.layer.SimpleDataLayer(datasource);
 map.layers.add(layer);
@@ -135,6 +135,7 @@ Add your features to the data source and the simple data layer will figure out h
 	}
 }
 ```
+
 The following is the complete code that renders the above point feature using the simple data layer. 
 
 <br/>

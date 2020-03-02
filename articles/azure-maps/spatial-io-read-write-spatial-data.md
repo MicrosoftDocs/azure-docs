@@ -1,22 +1,32 @@
-
-
+---
+title:  Read and write spatial data | Microsoft Azure Maps
+description: Learn how to read and write data using the Spatial IO module, provided by Azure Maps Web SDK.
+author: farah-alyasari
+ms.author: v-faalya
+ms.date: 03/01/2020
+ms.topic: conceptual
+ms.service: azure-maps
+services: azure-maps
+manager: philmea
+#Customer intent: As an Azure Maps web sdk user, I want to read and write spatial data so that I can use data for map rendering.
+---
 
 # Read and write spatial data
 
 This article outlines all the different tools available in the spatial IO module for reading and writing spatial data.
 
-The following is a list of spatial file formats that are supported for reading and writing with the spatial io module.
+The following is a list of spatial file formats that are supported for reading and writing using the spatial io module.
 
 | Data Format       | Read | Write |
 |-------------------|------|-------|
-| GeoJSON           |  x   |   x   |
-| GeoRSS            |  x   |   x   |
-| GML               |  x   |   x   |
-| GPX               |  x   |   x   |
-| KML               |  x   |   x   |
-| KMZ               |  x   |   x   |
-| Spatial CSV       |  x   |   x   | 
-| Well Known Text   |  x   |   x   |
+| GeoJSON           | ✓  |  ✓  |
+| GeoRSS            | ✓  |  ✓  |
+| GML               | ✓  |  ✓  |
+| GPX               | ✓  |  ✓  |
+| KML               | ✓  |  ✓  |
+| KMZ               | ✓  |  ✓  |
+| Spatial CSV       | ✓  |  ✓  |
+| Well Known Text   | ✓  |  ✓  |
 
 ## Read spatial data 
 
