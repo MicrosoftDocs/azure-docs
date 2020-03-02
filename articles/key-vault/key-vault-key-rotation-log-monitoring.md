@@ -7,6 +7,7 @@ manager: rkarlin
 tags: ''
 
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin

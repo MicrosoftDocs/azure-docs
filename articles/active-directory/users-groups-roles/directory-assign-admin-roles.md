@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 11/12/2019
+ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -25,7 +25,7 @@ Using Azure Active Directory (Azure AD), you can designate limited administrator
 
 Users who are assigned to the Global administrator role can read and modify every administrative setting in your Azure AD organization. By default, the person who signs up for an Azure subscription is assigned the Global administrator role for the Azure AD organization. Only Global administrators and Privileged Role administrators can delegate administrator roles. To reduce the risk to your business, we recommend that you assign this role to the fewest possible people in your organization.
 
-As a best practice, we recommend that you assign this role to fewer than 5 people in your organization. If you have over five users assigned to the Global Administrator role in your organization, here are some ways to reduce its use.
+As a best practice, we recommend that you assign this role to fewer than five people in your organization. If you have more than five admins assigned to the Global Administrator role in your organization, here are some ways to reduce its use.
 
 ### Find the role you need
 
@@ -234,7 +234,7 @@ Users in this role can read settings and administrative information across Micro
 >- [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - Global reader can't read the provisioning mode of an enterprise app.
 >- [M365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global reader can't read customer lockbox requests. You won't find the **Customer lockbox requests** tab under **Support** in the left pane of M365 Admin Center.
 >- [M365 Security center](https://security.microsoft.com/homepage) - Global reader can't read sensitivity and retention labels. You won't find **Sensitivity labels**, **Retention labels**, and **Label analytics** tabs in the left pane of the M365 Security center.
->- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - Global reader can't read SCC audit logs or do content search.
+>- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - Global reader can't read SCC audit logs, do content search, or see Secure Score.
 >- [Teams admin center](https://admin.teams.microsoft.com) - Global reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management** and **App catalog**.
 >- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) doesn't support the Global reader role.
 >- [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) - Global reader is supported [for central reporting](https://docs.microsoft.com/azure/information-protection/reports-aip) only, and when your Azure AD organization isn't on the [unified labeling platform](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
@@ -1008,7 +1008,7 @@ Configure identity providers for use in direct federation.
 | microsoft.aad.b2c/identityProviders/allTasks | Read and configure identity providers in  Azure Active Directory B2C. |
 
 ### Global Reader permissions
-Can read everything that a Global Administrator can, but not edit anything. 
+Can read everything that a Global Administrator can, but not edit anything.
 
 > [!NOTE]
 > This role has additional permissions outside of Azure Active Directory. For more information, see [role description](#global-reader) above.
