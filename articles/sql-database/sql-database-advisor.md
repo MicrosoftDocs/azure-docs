@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik
+ms.reviewer: jrasnik, carlrab
 ms.date: 02/28/2020
 ---
 # Performance recommendations for SQL Database
@@ -18,11 +18,10 @@ Azure SQL Database learns and adapts with your application. It provides customiz
 
 > [!TIP]
 > [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method to automatically tune some of the most common database performance issues. [Query Performance Insights](sql-database-query-performance.md) is the recommended method for basic Azure SQL Database performance monitoring needs. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is the recommended method for advanced monitoring of database performance at scale, with built-in intelligence for automated performance troubleshooting.
->
 
 ## Performance overview
 
-This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting. 
+This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting.
 
 ![Performance overview for Azure SQL Database](./media/sql-database-performance/performance-overview-annotated.png)
 
@@ -37,7 +36,7 @@ Performance recommendation options available Azure SQL Database are:
 
 | Performance recommendation | Single database and pooled database support | Instance database support |
 | :----------------------------- | ----- | ----- |
-| **Create index recommendations** - Recommends creation of indexes that may improve performance of your workload. | Yes | No | 
+| **Create index recommendations** - Recommends creation of indexes that may improve performance of your workload. | Yes | No |
 | **Drop index recommendations** - Recommends removal of redundant and duplicate indexes daily, except for unique indexes, and indexes that were not used for a long time (>90 days). Please note that this option is not compatible with applications using partition switching and index hints. Dropping unused indexes is not supported for Premium and Business Critical service tiers. | Yes | No |
 | **Parameterize queries recommendations (preview)** - Recommends forced parametrization in cases when you have one or more queries that are constantly being recompiled but end up with the same query execution plan. | Yes | No |
 | **Fix schema issues recommendations (preview)** - Recommendations for schema correction appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. Microsoft is currently deprecating "Fix schema issue" recommendations. | Yes | No |
@@ -83,7 +82,7 @@ Every query that's issued against SQL Server initially needs to be compiled to g
 
 Queries with non-parameterized values can lead to performance overhead because the execution plan is recompiled each time the non-parameterized values are different. In many cases, the same queries with different parameter values generate the same execution plans. These plans, however, are still separately added to the plan cache.
 
-The process of recompiling execution plans uses database resources, increases the query duration time, and overflows the plan cache. These events, in turn, cause plans to be evicted from the cache. This SQL Server behavior can be altered by setting the forced parameterization option on the database. 
+The process of recompiling execution plans uses database resources, increases the query duration time, and overflows the plan cache. These events, in turn, cause plans to be evicted from the cache. This SQL Server behavior can be altered by setting the forced parameterization option on the database.
 
 To help you estimate the impact of this recommendation, you are provided with a comparison between the actual CPU usage and the projected CPU usage (as if the recommendation were applied). This recommendation can help you gain CPU savings. It can also help you decrease query duration and overhead for the plan cache, which means that more of the plans can stay in the cache and be reused. You can apply this recommendation quickly by selecting the **Apply** command.
 
@@ -117,5 +116,5 @@ Developers might consider developing custom applications using performance recom
 
 - For more information about automatic tuning of database indexes and query execution plans, see [Azure SQL Database automatic tuning](sql-database-automatic-tuning.md).
 - For more information about automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues, see [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md).
--  For more information about how to use performance recommendations in the Azure portal, see [Performance recommendations in the Azure portal](sql-database-advisor-portal.md).
+- For more information about how to use performance recommendations in the Azure portal, see [Performance recommendations in the Azure portal](sql-database-advisor-portal.md).
 - See [Query Performance Insights](sql-database-query-performance.md) to learn about and view the performance impact of your top queries.

@@ -1,6 +1,6 @@
 ---
-title: Configure streaming export of platform logs and metrics
-description: Learn how to configure streaming export of platform logs and metrics from Azure SQL Database to the destination of your choice to store information about resource utilization and query execution statistics.
+title: Configure streaming export of metrics and resource logs
+description: Learn how to configure streaming export of metrics and resource logs from Azure SQL Database to the destination of your choice to store information about resource utilization and query execution statistics.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -15,13 +15,13 @@ ms.date: 02/24/2020
 
 # Configure streaming export of Azure SQL Database diagnostic telemetry
 
-In this article, you will learn how to configure the streaming export of [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [platform logs](../azure-monitor/platform/platform-logs-overview.md) for Azure SQL databases through the Azure portal, PowerShell, Azure CLI, the REST API, and Azure Resource Manager template. You configure diagnostic settings to stream categories of metrics and platform logs for single databases, pooled databases, elastic pools, managed instances, and instance databases to one of the following Azure resources:
+In this article, you will learn how to configure the streaming export of metrics and resource logs for Azure SQL databases through the Azure portal, PowerShell, Azure CLI, the REST API, and Azure Resource Manager template. You configure diagnostic settings to stream categories ofIntelligent Insights[resource logs](sql-database-intelligent-insights.md) for single databases, pooled databases, elastic pools, managed instances, and instance databases to one of the following Azure resources:
 
 - [Log Analytics workspace in Azure Monitor](../azure-monitor/platform/resource-logs-collect-workspace.md): Data streamed here can be consumed by [SQL Analytics](../azure-monitor/insights/azure-sql.md), which is a cloud only monitoring solution that provides intelligent monitoring of your databases that includes performance reports, alerts, and mitigation recommendations. Data streamed to a Log Analytics workspace can be analyzed with other monitoring data collected and also enables you to leverage other Azure Monitor features such as alerts and visualizations
 - [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md): Streaming diagnostic telemetry to event hubs to provide the following functionality:
 
-  - **Stream logs to 3rd party logging and telemetry systems**: Stream all of your platform logs to a single event hub to pipe log data to a third-party SIEM or log analytics tool.
-  - **Build a custom telemetry and logging platform**: The highly scalable publish-subscribe nature of event hubs allows you to flexibly ingest platform logs into a custom telemetry platform. See [Designing and Sizing a Global Scale Telemetry Platform on Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) for details.
+  - **Stream logs to 3rd party logging and telemetry systems**: Stream all of your metrics and resource logs to a single event hub to pipe log data to a third-party SIEM or log analytics tool.
+  - **Build a custom telemetry and logging platform**: The highly scalable publish-subscribe nature of event hubs allows you to flexibly ingest metrics and resource logs into a custom telemetry platform. See [Designing and Sizing a Global Scale Telemetry Platform on Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) for details.
   - **View service health by streaming data to Power BI**: Use Event Hubs, Stream Analytics, and Power BI to transform your diagnostics data into near real-time insights on your Azure services. See [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-power-bi-dashboard) for details on this solution.
 - [Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md): Use Azure storage to archive vast amounts of diagnostic telemetry for a fraction of the cost of the previous two streaming options.
 
@@ -212,7 +212,7 @@ To enable streaming of diagnostic telemetry for an instance database, follow the
 
 You can enable metrics and diagnostics logging by using PowerShell.
 
-- To enable storage of platform logs in a storage account, use this command:
+- To enable storage of metrics and resource logs in a storage account, use this command:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
@@ -220,7 +220,7 @@ You can enable metrics and diagnostics logging by using PowerShell.
 
    The storage account ID is the resource ID for the destination storage account.
 
-- To enable streaming of platform logs to an event hub, use this command:
+- To enable streaming of metrics and resource logs to an event hub, use this command:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
@@ -232,7 +232,7 @@ You can enable metrics and diagnostics logging by using PowerShell.
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- To enable sending platform logs to a Log Analytics workspace, use this command:
+- To enable sending metrics and resource logs to a Log Analytics workspace, use this command:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
@@ -268,7 +268,7 @@ You can enable metrics and diagnostics logging by using the Azure CLI.
 > [!IMPORTANT]
 > Scripts to enable diagnostics logging are supported for Azure CLI v1.0. Azure CLI v2.0 is unsupported at this time.
 
-- To enable the storage of platform logs in a storage account, use this command:
+- To enable the storage of metrics and resource logs in a storage account, use this command:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
@@ -276,7 +276,7 @@ You can enable metrics and diagnostics logging by using the Azure CLI.
 
    The storage account ID is the resource ID for the destination storage account.
 
-- To enable the streaming of platform logs to an event hub, use this command:
+- To enable the streaming of metrics and resource logs to an event hub, use this command:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
@@ -288,7 +288,7 @@ You can enable metrics and diagnostics logging by using the Azure CLI.
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- To enable the sending of platform logs to a Log Analytics workspace, use this command:
+- To enable the sending of metrics and resource logs to a Log Analytics workspace, use this command:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
@@ -304,7 +304,7 @@ Azure SQL Analytics is a cloud solution that monitors the performance of single 
 
 ![Azure SQL Analytics Overview](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-SQL Database metrics and platform logs that are streamed into a Log Analytics workspace can be consumed by Azure SQL Analytics. You can configure the streaming export of this diagnostic telemetry by using the built-in **Send to Log Analytics** option in the diagnostics settings tab in the Azure portal. You can also enable streaming into a Log Analytics workspace by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
+SQL Database metrics and resource logs that are streamed into a Log Analytics workspace can be consumed by Azure SQL Analytics. You can configure the streaming export of this diagnostic telemetry by using the built-in **Send to Log Analytics** option in the diagnostics settings tab in the Azure portal. You can also enable streaming into a Log Analytics workspace by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
 
 ### Installation overview
 
@@ -330,7 +330,7 @@ If you're using elastic pools or managed instances, you also need to configure d
 
 4. Select **OK** to confirm, and then select **Create**.
 
-### Configure databases to record metrics and platform logs
+### Configure databases to record metrics and resource logs
 
 The easiest way to configure where databases record metrics is by using the Azure portal. Go to your database resource in the Azure portal and select **Diagnostics settings**.
 
@@ -343,9 +343,9 @@ You can use SQL Analytics as a hierarchical dashboard to view your SQL database 
 
 ## Stream diagnostic telemetry into Event Hubs
 
-You can stream SQL Database metrics and platform logs into Event Hubs by using the built-in **Stream to an event hub** option in the Azure portal. You also can enable the Service Bus rule ID by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
+You can stream SQL Database metrics and resource logs into Event Hubs by using the built-in **Stream to an event hub** option in the Azure portal. You also can enable the Service Bus rule ID by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
 
-### What to do with metrics and platform logs in Event Hubs
+### What to do with metrics and resource logs in Event Hubs
 
 After the selected data is streamed into Event Hubs, you're one step closer to enabling advanced monitoring scenarios. Event Hubs acts as the front door for an event pipeline. After data is collected into an event hub, it can be transformed and stored by using a real-time analytics provider or a storage adapter. Event Hubs decouples the production of a stream of events from the consumption of those events. In this way, event consumers can access the events on their own schedule. For more information on Event Hubs, see:
 
@@ -360,19 +360,19 @@ You can use streamed metrics in Event Hubs to:
 
 - **Stream logs to third-party logging and telemetry streams**
 
-   By using Event Hubs streaming, you can get your metrics and platform logs into various third-party monitoring and log analytics solutions.
+   By using Event Hubs streaming, you can get your metrics and resource logs into various third-party monitoring and log analytics solutions.
 
 - **Build a custom telemetry and logging platform**
 
-   Do you already have a custom-built telemetry platform or are considering building one? The highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest platform logs. See [Dan Rosanova's guide to using Event Hubs in a global-scale telemetry platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+   Do you already have a custom-built telemetry platform or are considering building one? The highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest metrics and resource logs. See [Dan Rosanova's guide to using Event Hubs in a global-scale telemetry platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## Stream diagnostic telemetry into Azure Storage
 
-You can store metrics and platform logs in Azure Storage by using the built-in **Archive to a storage account** option in the Azure portal. You can also enable Storage by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
+You can store metrics and resource logs in Azure Storage by using the built-in **Archive to a storage account** option in the Azure portal. You can also enable Storage by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
 
-### Schema of metrics and platform logs in the storage account
+### Schema of metrics and resource logs in the storage account
 
-After you set up metrics and platform logs collection, a storage container is created in the storage account you selected when the first rows of data are available. The structure of the blobs is:
+After you set up metrics and resource logs collection, a storage container is created in the storage account you selected when the first rows of data are available. The structure of the blobs is:
 
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ databases/{database_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json

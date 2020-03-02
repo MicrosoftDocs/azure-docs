@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 01/25/2019
+ms.date: 03/01/2019
 ---
 # Manual tune query performance in Azure SQL Database
 

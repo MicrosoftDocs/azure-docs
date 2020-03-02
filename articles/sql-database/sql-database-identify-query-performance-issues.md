@@ -1,5 +1,5 @@
 ---
-title: Monitoring and performance methodology
+title: Identify Azure SQL Database query performance issues 
 description: 
 services: sql-database
 ms.service: sql-database
@@ -13,57 +13,47 @@ ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
 ---
 
-# An Azure SQL Database performance methodology
+# Identify query performance bottlenecks in Azure SQL Database
 
-This article explains some best practices and some tools you can use to troubleshoot performance problems.
+To identify the source of query performance bottlenecks, begin by finding out the state of each active query and the conditions that cause performance problems relevant to each workload state. Start by determining the current state of each active query request. A query request can either be in a running state or a waiting state. In general, a query performance problem is caused by CPU contention (a *running-related* condition) or waiting on some resource (a *waiting-related* condition).
 
-
-## Monitor database performance
-
-- **Wait statistics**: Use [sys.dm_os_wait_stats (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) to determine how long queries are waiting. Queries can be waiting on resources, queue waits, or external waits. 
-
-
-The Azure SQL Database service includes tools and resources to help you troubleshoot and fix potential performance problems. You can identify opportunities to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). 
-
-Missing indexes and poorly optimized queries are common reasons for poor database performance. You can apply tuning recommendations to improve the performance of the workload. You can also let Azure SQL Database [automatically optimize performance of the queries](sql-database-automatic-tuning.md) by applying all identified recommendations. Then verify that the recommendations improved database performance.
-
-> [!NOTE]
-> Indexing is available in single database and elastic pools only. Indexing isn't available in a managed instance.
-
-Choose from the following options to monitor and troubleshoot database performance:
-
-- In the [Azure portal](https://portal.azure.com), select **SQL databases** and select the database. In the **Monitoring** chart, look for resources approaching their maximum utilization. DTU consumption is shown by default. Select **Edit** to change the time range and values shown.
-- Tools such as SQL Server Management Studio provide many useful reports, like [Performance Dashboard](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard). Use these reports to monitor resource usage and identify top resource-consuming queries. You can use [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed) to identify queries whose performance has regressed.
-- In the [Azure portal](https://portal.azure.com), use [Query Performance Insight](sql-database-query-performance.md) to identify the queries that use the most resources. This feature is available in single database and elastic pools only.
-- Use [SQL Database Advisor](sql-database-advisor-portal.md) to view recommendations to help you create and drop indexes, parameterize queries, and fix schema problems. This feature is available in single database and elastic pools only.
-- Use [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) to automatically monitor database performance. When a performance problem is detected, a diagnostic log is generated. The log provides details and a root cause analysis (RCA) of the problem. A performance-improvement recommendation is provided when possible.
-- [Enable automatic tuning](sql-database-automatic-tuning-enable.md) to let Azure SQL Database automatically fix performance problems.
-- Use [dynamic management views (DMVs)](sql-database-monitoring-with-dmvs.md), [extended events](sql-database-xevent-db-diff-from-svr.md), and [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) for help with more detailed troubleshooting of performance problems.
-
-> [!TIP]
-> After you identify a performance problem, check out our [performance guidance](sql-database-performance-guidance.md) to find techniques to improve the performance of Azure SQL Database.
-
-## Troubleshoot performance problems
-
-To diagnose and resolve performance problems, begin by finding out the state of each active query and the conditions that cause performance problems relevant to each workload state. To improve Azure SQL Database performance, you need to understand that each active query request from the application is in either a running state or a waiting state. As you troubleshoot a performance problem in Azure SQL Database, keep the following diagram in mind.
+Use the following diagram to help understand the factors that can cause either a running-related problem or a waiting-related problem.
 
 ![Workload states](./media/sql-database-monitor-tune-overview/workload-states.png)
 
-A performance problem in a workload can be caused by CPU contention (a *running-related* condition) or individual queries that are waiting on something (a *waiting-related* condition).
+## Overview of a running-related problem
 
-Running-related problems might be caused by:
-- **Compilation problems**: SQL Query Optimizer might produce a suboptimal plan because of stale statistics, an incorrect estimate of the number of rows to be processed, or an inaccurate estimate of required memory. If you know the query was executed faster in the past or on another instance (either a managed instance or a SQL Server instance), compare the actual execution plans to see if they're different. Try to apply query hints or rebuild statistics or indexes to get the better plan. Enable automatic plan correction in Azure SQL Database to automatically mitigate these problems.
-- **Execution problems**: If the query plan is optimal, it's probably hitting the database's resource limits, such as log write throughput. Or it might be using fragmented indexes that should be rebuilt. Execution problems can also happen when a large number of concurrent queries need the same resources. *Waiting-related* problems are usually related to execution problems, because the queries that don't execute efficiently are probably waiting for some resources.
+Slow query performance for a running query is generally caused by either a:
+
+- **Compilation problem**
+
+  The SQL Query Optimizer might produce a suboptimal plan because of a missing index, stale statistics, an incorrect estimate of the number of rows to be processed, or an inaccurate estimate of the required memory. If you know the query was executed faster in the past or on another instance (either a managed instance or a SQL Server instance), compare the actual execution plans to see if they're different. Try to apply [query hints](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query), [update statistics](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql), or [rebuild indexes](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes) to get the better plan. Enable [automatic plan correction](sql-database-automatic-tuning.md) in Azure SQL Database to automatically mitigate these problems.
+- **Execution problem**
+
+  If the query plan is optimal, the query (and the database) might be hitting the database's resource limits, such as log write throughput. An execution problem could be caused by using a fragmented index that should be [rebuilt](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+
+Additionally, an execution problem can happen when a large number of concurrent queries need the same resources. Once you have eliminated a suboptimal plan and *Waiting-related* problems are usually related to execution problems, because the queries that don't execute efficiently are probably waiting for some resources.
+
+## Overview of waiting-related problems
 
 Waiting-related problems might be caused by:
-- **Blocking**: One query might hold the lock on objects in the database while others try to access the same objects. You can identify blocking queries by using DMVs or monitoring tools.
-- **IO problems**: Queries might be waiting for the pages to be written to the data or log files. In this case, check the `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV.
-- **TempDB problems**: If the workload uses temporary tables or there are TempDB spills in the plans, the queries might have a problem with TempDB throughput. 
-- **Memory-related problems**: If the workload doesn't have enough memory, the page life expectancy might drop, or the queries might get less memory than they need. In some cases, built-in intelligence in Query Optimizer will fix memory-related problems.
- 
+
+- **Blocking**:
+
+  One query might hold the lock on objects in the database while others try to access the same objects. You can identify blocking queries by using DMVs or monitoring tools.
+- **IO problems**
+
+  Queries might be waiting for the pages to be written to the data or log files. In this case, check the `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV.
+- **TempDB problems**
+
+  If the workload uses temporary tables or there are TempDB spills in the plans, the queries might have a problem with TempDB throughput.
+- **Memory-related problems**
+
+  If the workload doesn't have enough memory, the page life expectancy might drop, or the queries might get less memory than they need. In some cases, built-in intelligence in Query Optimizer will fix memory-related problems.
+
 The following sections explain how to identify and troubleshoot some types of problems.
 
-## Performance problems related to running
+## Identify performance problems related to running queries
 
 As a general guideline, if CPU usage is consistently at or above 80 percent, your performance problem is running-related. A running-related problem might be caused by insufficient CPU resources. Or it might be related to one of the following conditions:
 
@@ -201,7 +191,7 @@ If you're sure that your performance problem isn't related to high CPU usage or 
 These methods are commonly used to show the top categories of wait types:
 
 - Use [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) to find wait statistics for each query over time. In Query Store, wait types are combined into wait categories. You can find the mapping of wait categories to wait types in [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Use [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) to return information about all the waits encountered by threads that executed during operation. You can use this aggregated view to diagnose performance problems with Azure SQL Database and also with specific queries and batches.
+- Use [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) to return information about all the waits encountered by threads that executed during a query operation. You can use this aggregated view to diagnose performance problems with Azure SQL Database and also with specific queries and batches. Queries can be waiting on resources, queue waits, or external waits.
 - Use [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) to return information about the queue of tasks that are waiting on some resource.
 
 In high-CPU scenarios, Query Store and wait statistics might not reflect CPU usage if:

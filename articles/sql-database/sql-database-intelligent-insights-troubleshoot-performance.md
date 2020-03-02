@@ -14,15 +14,14 @@ ms.date: 01/25/2019
 ---
 # Troubleshoot Azure SQL Database performance issues with Intelligent Insights
 
-This page provides information on Azure SQL Database and Managed Instance performance issues detected through the [Intelligent Insights](sql-database-intelligent-insights.md) database performance diagnostics log. The diagnostic log telemetry can be streamed to [Azure Monitor logs](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
+This page provides information on Azure SQL Database and Managed Instance performance issues detected through the [Intelligent Insights](sql-database-intelligent-insights.md) resource log. Metrics and resource logs can be streamed to [Azure Monitor logs](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
 
 > [!NOTE]
 > For a quick SQL Database performance troubleshooting guide using Intelligent Insights, see the [Recommended troubleshooting flow](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flowchart in this document.
->
 
 ## Detectable database performance patterns
 
-Intelligent Insights automatically detects performance issues with SQL Database and Managed Instance databases based on query execution wait times, errors, or time-outs. It outputs detected performance patterns to the diagnostics log. Detectable performance patterns are summarized in the table below.
+Intelligent Insights automatically detects performance issues with databases in Azure SQL Database based on query execution wait times, errors, or time-outs. Intelligent Insights outputs detected performance patterns to the SQL Database resource log. Detectable performance patterns are summarized in the table below.
 
 | Detectable performance patterns | Description for Azure SQL Database and elastic pools | Description for databases in Managed Instance |
 | :------------------- | ------------------- | ------------------- |
