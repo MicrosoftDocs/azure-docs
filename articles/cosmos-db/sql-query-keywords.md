@@ -37,12 +37,12 @@ In SQL API, unlike ANSI SQL, you can express range queries against properties of
 
 The DISTINCT keyword eliminates duplicates in the query's projection.
 
+In this example, the query projects values for each last name:
+
 ```sql
 SELECT DISTINCT VALUE f.lastName
 FROM Families f
 ```
-
-In this example, the query projects values for each last name.
 
 The results are:
 
@@ -96,6 +96,13 @@ The results are:
     }
 ]
 ```
+
+Queries with an aggregate system function and a subquery with DISTINCT are not supported. For example, the following query is not supported:
+
+```sql
+SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
+```
+
 ## <a name="in"></a> IN
 
 Use the IN keyword to check whether a specified value matches any value in a list. For example, the following query returns all family items where the `id` is `WakefieldFamily` or `AndersenFamily`.
