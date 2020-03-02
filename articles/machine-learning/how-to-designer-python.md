@@ -14,11 +14,11 @@ ms.date: 02/28/2020
 
 # Execute Python code in Azure Machine Learning designer
 
-In this article, you learn how to use the [Execute Python Script](algorith-module-reference/execute-python-script.md) module to add custom logic to  Azure Machine Learning designer. In the following how-to, you use the Pandas library to do simple feature engineering.
+In this article, you learn how to use the [Execute Python Script](algorithm-module-reference/execute-python-script.md) module to add custom logic to  Azure Machine Learning designer. In the following how-to, you use the Pandas library to do simple feature engineering.
 
 You can use the in-built code editor to quickly add simple Python logic. If you want to add more complex code or upload additional Python libraries, you should use the zip file method.
 
-The default execution environment uses the Anacondas distribution of Python. For a complete list of pre-installed packages, see the [Execute Python Script module reference](algorith-module-reference/execute-python-script.md) page.
+The default execution environment uses the Anacondas distribution of Python. For a complete list of pre-installed packages, see the [Execute Python Script module reference](algorithm-module-reference/execute-python-script.md) page.
 
 ![Execute Python input map](media/how-to-designer-python/execute-python-map.png)
 
