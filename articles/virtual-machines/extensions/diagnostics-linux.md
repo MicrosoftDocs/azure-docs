@@ -89,10 +89,10 @@ The URL for the sample configuration, and its contents, are subject to change. D
 #### PowerShell sample
 
 ```Powershell
-$storageAccountName = "johnkemtest"
-$storageAccountResourceGroup = "generalTest"
-$vmName = "johnkemlinuxtest"
-$VMresourceGroup = "generalTest"
+$storageAccountName = "yourStorageAccountName"
+$storageAccountResourceGroup = "yourStorageAccountResourceGroupName"
+$vmName = "yourVMName"
+$VMresourceGroup = "yourVMResourceGroupName"
 
 # Get the VM object
 $vm = Get-AzVM -Name $vmName -ResourceGroupName $VMresourceGroup
