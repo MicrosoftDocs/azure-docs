@@ -54,7 +54,7 @@ In this option, the data is processed with custom Python code wrapped into an ex
 
 ![adf-databricks](media/how-to-data-ingest-adf/adf-databricks.png)
 
-In this technique the data transformation is performed by a [Python notebook](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook), running on an [Azure Databricks](https://azure.microsoft.com/services/databricks/) cluster. This is, probably, the most common approach that leverages the full power of an Azure Databricks service, which is designed for distributed data processing at scale.
+In this technique the data transformation is performed by a [Python notebook](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook), running on an [Azure Databricks](https://azure.microsoft.com/services/databricks/) cluster. This is, probably, the most common approach that leverages the full power of an Azure Databricks service. It is designed for distributed data processing at scale.
 
 * Pros:
     * The data is transformed on the most powerful data processing Azure service, which is backed up by Apache Spark environment
