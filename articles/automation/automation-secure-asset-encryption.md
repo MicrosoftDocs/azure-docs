@@ -1,6 +1,6 @@
 ---
 title: Encryption of secure assets in automation
-description: Azure automation protects secure assets using multiple levels of encryption. By default, the encryption is done using Microsoft-managed keys. Customers can configure their automation accounts to use customer managed keys for encryption. This article describes the details of both modes of encryption and how you can switch between the two.
+description: Azure automation protects secure assets using multiple levels of encryption. By default, the encryption is done using Microsoft-managed keys. Customers can configure their automation accounts to use customer-managed keys for encryption. This article describes the details of both modes of encryption and how you can switch between the two.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -22,13 +22,13 @@ Based on the top-level key used for the encryption, there are two models for enc
 
 By default, your Azure Automation account uses Microsoft-managed keys.
 
-Each secure asset is encrypted and stored in Azure Automation using a unique key (Data Encryption key) that is generated for each automation account. These keys themselves are encrypted and stored in Azure Automation using yet another unique key that is generated for each account called an Account Encryption Key (AEK). These account encryption keys encrypted and stored in Azure Automation using Microsoft Managed Keys. 
+Each secure asset is encrypted and stored in Azure Automation using a unique key (Data Encryption key) that is generated for each automation account. These keys themselves are encrypted and stored in Azure Automation using yet another unique key that is generated for each account called an Account Encryption Key (AEK). These account encryption keys encrypted and stored in Azure Automation using Microsoft-managed Keys. 
 
 ## Customer-managed Keys with Key Vault (preview)
 
-You can manage encryption of secure assets in Azure Automation at the level of an Automation account with your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the Automation account. This in turn is used to encrypt and decrypt all the secure assets. Customer-managed keys offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your secure assets. 
+You can manage encryption of secure assets for your Automation account with your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the Automation account. This in turn is used to encrypt and decrypt all the secure assets. Customer-managed keys offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your secure assets.
 
-You must use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys.  For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
+Use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys.  For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
 
 ## Enable customer-managed keys for an Automation account
 
@@ -48,7 +48,7 @@ The following three sections describe the mechanics of enabling customer-managed
 Before enabling customer-managed keys for an Automation account, you must ensure the following pre-requisites are met:
 
  - The customer-manged key is stored in an Azure Key Vault. 
- - You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault. These features are required to allow for recovery of keys in case of accidental deletion.
+ - Enable both the **Soft Delete** and **Do Not Purge** properties on the key vault. These features are required to allow for recovery of keys in case of accidental deletion.
  - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 - The Automation account and the key vault can be in different subscriptions, but need to be in the same Azure Active Directory tenant.
 
@@ -91,7 +91,7 @@ System assigned identity for the Automation account is returned in a response si
 
 ### Configure the Key Vault access policy
 
-Once a managed identity is assigned to the Automation account, you configure access to the key vault storing customer managed keys. Azure Automation requires **get**, **recover**, **wrapKey**, **UnwrapKey** on the customer managed keys.
+Once a managed identity is assigned to the Automation account, you configure access to the key vault storing customer-managed keys. Azure Automation requires **get**, **recover**, **wrapKey**, **UnwrapKey** on the customer-managed keys.
 
 Such an access policy can be set using the following REST API call:
 
@@ -127,7 +127,7 @@ Request body
 > [!NOTE]
 > The **tenantId** and **objectId** fields must be provided with values of **identity.tenantId** and **identity.principalId** respectively from the response of managed identity for the Automation account.
 
-### Change the configuration of Automation account to use customer managed key
+### Change the configuration of Automation account to use customer-managed key
 
 Finally, you can switch your Automation account from Microsft-managed keys to customer-managed keys, using the following REST API call:
 
