@@ -46,13 +46,13 @@ Create a new .NET Core application in your preferred editor or IDE.
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `face-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*. 
 
-```console
+```dotnetcli
 dotnet new console -n face-quickstart
 ```
 
 Change your directory to the newly created app folder. You can build the application with:
 
-```console
+```dotnetcli
 dotnet build
 ```
 
@@ -78,7 +78,7 @@ In the application's `Main` method, create variables for your resource's Azure e
 
 Within the application directory, install the Face client library for .NET with the following command:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.5.0-preview.1
 ```
 
