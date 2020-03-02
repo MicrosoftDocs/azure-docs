@@ -62,7 +62,7 @@ Configure a system assigned managed identity to the automation account using the
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
 ```
 
-Request body
+Request body:
 
 ```json
 { 
@@ -99,7 +99,7 @@ Such an access policy can be set using the following REST API call:
 PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/accessPolicies/add?api-version=2018-02-14
 ```
 
-Request body
+Request body:
 
 ```json
 {
@@ -135,7 +135,7 @@ Finally, you can switch your Automation account from Microsft-managed keys to cu
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
 ```
 
-Request body
+Request body:
 
 ```json
  {
