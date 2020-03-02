@@ -12,7 +12,7 @@ ms.custom: seodec18
 # Azure App Service Local Cache overview
 
 > [!NOTE]
-> Local cache is not supported in Function apps or containerized App Service apps, such as on [App Service on Linux](containers/app-service-linux-intro.md).
+> Local cache is not supported in Function apps or containerized App Service apps, such as in [Windows Containers](app-service-web-get-started-windows-container.md) or on [App Service on Linux](containers/app-service-linux-intro.md).
 
 
 Azure App Service content is stored on Azure Storage and is surfaced up in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  

@@ -2,7 +2,7 @@
  title: NCv3-series - Azure Virtual Machines
  description: Specifications for the NCv3-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: vikancha
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -16,6 +16,10 @@ NCv3-series VMs are powered by [NVIDIA Tesla V100](https://www.nvidia.com/data-c
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
+
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
 
 > [!IMPORTANT]
 > For this VM series, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../azure-supportability/resource-manager-core-quotas-request.md) for this series in an [available region](https://azure.microsoft.com/regions/services/).
