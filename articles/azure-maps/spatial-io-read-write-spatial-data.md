@@ -30,7 +30,7 @@ The following is a list of spatial file formats that are supported for reading a
 
 ## Read spatial data 
 
-The `atlas.io.read` function is used to read common spatial data formats such as KML, GPX, GeoRSS, GeoJSON, and CSV files with spatial data. This function can also as read compressed versions of these formats, as a zip file or a KMZ file. The KMZ file format is a compressed version of KML that can also include assets such as images. Alternatively, the read function can take in a URL that points to a file in any of these formats. URLs should be hosted on a CORs enabled endpoint, or a proxy service should be provided in the read options. The read function returns a promise and processes in asynchronously to minimize impact to the UI thread.
+The `atlas.io.read` function is used to read common spatial data formats such as KML, GPX, GeoRSS, GeoJSON, and CSV files with spatial data. This function can also as read compressed versions of these formats, as a zip file or a KMZ file. The KMZ file format is a compressed version of KML that can also include assets such as images. Alternatively, the read function can take in a URL that points to a file in any of these formats. URLs should be hosted on a CORs enabled endpoint, or a proxy service should be provided in the read options. The read function returns a promise to add the image icons to the map, and processes in asynchronously to minimize impact to the UI thread.
 
 When reading a compressed file, either as a zip or a KMZ, it will be unzipped and scanned for the first valid file. For example, doc.kml, or a file with other valid extension, such as: .kml, .xml, .geojson, .json, .csv, .tsv, or .txt. Then, images referenced in KML and GeoRSS files are preloaded to ensure they are accessible. Inaccessible image data may load an alternative fallback image or will be removed from the styles. Images extracted from KMZ files will be converted to data URIs.
 
@@ -46,36 +46,66 @@ The result from the read function is a `SpatialDataSet` object. This object exte
 | `stats` | `SpatialDataSetStats` | Statistics about the content and processing time of a spatial data set. |
 | `type` | `'FeatureCollection'` | Read only GeoJSON type value. |
 
+## Examples of reading spatial data
+
 The following code shows how to read a simple spatial data set, and render it on the map using the `SimpleDataLayer` class. The code uses a GPX file pointed it to by a URL.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='LoadSpatialDataSimple' src='/codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>Load Spatial Data Simple</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Load Spatial Data Simple' src='/codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>Load Spatial Data Simple</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-The following code shows how to read and load KML, or KMZ, to the map. KML can contain ground overlays which will be in the form of an `ImageLyaer` or `OgcMapLayer`. These overlays have to be added to the map separately from the features. Additionally, if the data set has custom icons, those icons need to be loaded in to the maps resources before the features are loaded.
+The next code demo shows how to read and load KML, or KMZ, to the map. KML can contain ground overlays which will be in the form of an `ImageLyaer` or `OgcMapLayer`. These overlays have to be added to the map separately from the features. Additionally, if the data set has custom icons, those icons need to be loaded in to the maps resources before the features are loaded.
 
-//TODO: codepen - Load KML onto map
+<br/>
 
-The following code shows how to read a delimited file and render it on the map. In this case, the code uses a CSV file that has spatial data columns.
+<iframe height='500' scrolling='no' title='Load KML Onto Map' src='/codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/XWbgwxX/'>Load KML Onto Map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
-//TODO: codepen - Add a delimited file (CSV) to the map
+You may optionally provide a proxy service for accessing cross domain assets that may not have CORs enabled. This snippet of code shows you how to use the service setting:
+
+```javascript
+
+//Set the location of your proxyServiceUrl file 
+var proxyServiceUrl = window.location.origin + '/CorsEnabledProxyService.ashx?url=';
+
+//Read a KML file from a URL or pass in a raw KML string.
+atlas.io.read(window.location.origin + '/Common/data/KML/2007SanDiegoCountyFires.kml', {
+	//Optionally provide a proxy service for accessing cross domain assets that may not have CORs enabled.
+	proxyService: proxyServiceUrl
+}).then(async r => {
+	if (r) {
+		// Some code goes here . . .
+	}
+});
+
+```
+
+The last code demo in this section shows how to read a delimited file and render it on the map. In this case, the code uses a CSV file that has spatial data columns.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Add a Delimited File' src='/codepen.io/azuremaps/embed/ExjXBEb/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ExjXBEb/'>Add a Delimited File</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## Write spatial data
 
-There are two write main write functions in the spatial IO module. The `atlas.io.write` function generates a string, while the `atlas.io.writeCompressed` function generates a compressed zip file that contains a text-based file with the spatial data in it. Both of these functions returna promise and can take in any of the following data to write; `SpatialDataSet`, `DataSource`, `ImageLayer`, `OgcMapLayer`, feature collection, feature, geometry, or an array of any combination of these. When writing you can specify the desired file format. If this is not specified, the data will be written as KML.
+There are two main write functions in the spatial IO module. The `atlas.io.write` function generates a string, while the `atlas.io.writeCompressed` function generates a compressed zip file, which contains a text-based file with the spatial data in it. Both of these functions return a promise to add the feature to the file. Also, they both can write any of the following data: `SpatialDataSet`, `DataSource`, `ImageLayer`, `OgcMapLayer`, feature collection, feature, geometry, or an array of any combination of these. When writing using either functions, you can specify the desired file format. If the file format is not specified, then the data will be written as KML.
 
-The following tool demonstrates majority of the write options that can be used with the `atlas.io.write` function.
+The following tool demonstrates the majority of the write options that can be used with the `atlas.io.write` function.
 
-//TODO: codepen - Spatial data write options (Only show the result tab like the layer options examples)
+<br/>
 
-The following sample allows you to drag and drop spatial files onto the map to load them, and export GeoJSON data from the map and write it in one of the supported spatial data formats as a string or compressed file.
+<iframe height='500' scrolling='no' title='Spatial data write options' src='/codepen.io/azuremaps/embed/YzXxXPG/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/YzXxXPG/'>Spatial data write options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+The following sample allows you to drag and drop spatial files onto the map to load them. You can export GeoJSON data from the map and write it in one of the supported spatial data formats as a string or as a compressed file.
 
 //TODO: codepen - Drag and drop spatial files onto map (Only show the result tab like the layer options examples)
 
 ## Read and write Well Known Text (WKT)
 
-[Well Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry), often refered to as WKT for short, is an Open Geospatial Consortium (OGC) standard for representing spatial geometries as text. Many geospatial systems support WKT such as SQL Azure and Azure Postgres (with the PostGIS plugin). Like most OGC standards, coordinates are formatted as "longitude latitude" to align with the "x y" convention. As an example, a point at longitude -110 and latitude 45 can be written as `POINT(-110 45)` using WKT format. The following table provides details on the geomtry types supported for reading and writing WKT. 
+[Well Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry), often referred to as WKT for short, is an Open Geospatial Consortium (OGC) standard for representing spatial geometries as text. Many geospatial systems support WKT such as SQL Azure and Azure Postgres (with the PostGIS plugin). Like most OGC standards, coordinates are formatted as "longitude latitude" to align with the "x y" convention. As an example, a point at longitude -110 and latitude 45 can be written as `POINT(-110 45)` using WKT format. The following table provides details on the geomtry types supported for reading and writing WKT. 
 
 Well-known text can be read using the `atlas.io.ogc.WKT.read` function, and written using the `atlas.io.ogc.WKT.write` function. 
 
