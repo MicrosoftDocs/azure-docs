@@ -1,7 +1,7 @@
 ---
 title: Python
 titleSuffix: Azure Machine Learning
-description: Learn how to use Python in Azure Machine Learning designer to build a clasifier.
+description: Learn how to use Python in Azure Machine Learning designer to transform data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,81 +9,83 @@ ms.topic: how-to
 
 author: peterclu
 ms.author: peterlu
-ms.date: 01/23/2020
+ms.date: 02/28/2020
 ---
 
-# Import your data into Azure Machine Learning designer
+# Execute Python code in Azure Machine Learning designer
 
-In this article, you learn how to import your own data in the designer to create custom solutions. There are two ways you can import data into the designer: 
+In this article, you learn how to use the [Execute Python Script](algorith-module-reference/execute-python-script.md) module to add custom logic to  Azure Machine Learning designer. In the following how-to, you use the Pandas library to do simple feature engineering.
 
-* **Azure Machine Learning datasets** - Register [datasets](concept-data.md#datasets) in Azure Machine Learning to enable advanced features that help you manage your data.
-* **Import Data module** - Use the [Import Data](algorithm-module-reference/import-data.md) module to directly access data from online datasources.
+There are two ways you can use the Execute Python Script module:
+- Execute code that is written only in the designer code editor.
+- Execute code uploaded as a zip file to your Azure Machine Learning workspace.
 
-## Use Azure Machine Learning datasets
+You can use the in-built code editor to quickly add simple Python logic. If you want to add more complex code or upload additional Python libraries, you should use the zip file method.
 
-We recommend that you use [datasets](concept-data.md#datasets) to import data into the designer. When you register a dataset, you can take full advantage of advanced data features like [versioning and tracking](how-to-version-track-datasets.md) and [data monitoring](how-to-monitor-datasets.md).
+The default execution environment uses the Anacondas distribution of Python. For a complete list of pre-installed packages, see the [Execute Python Script module reference](algorith-module-reference/execute-python-script.md) page.
 
-### Register a dataset
+![Execute Python input map](media/how-to-designer-python/execute-python-map.png)
 
-You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#use-the-sdk) or [visually in Azure Machine Learning studio](how-to-create-register-datasets.md#use-the-ui).
+## Execute Python written in the designer
 
-You can also register the output for any designer module as a dataset.
+### Add the Execute Python Script module
 
-1. Select the module that outputs the data you want to register.
+1. Find the **Execute Python Script** module in the designer palette. It can be found in the **Python Language** section.
 
-1. In the properties pane, select **Outputs** > **Register dataset**.
+1. Drag and drop the module onto the pipeline canvas.
 
-    ![Screenshot showing how to navigate to the Register Dataset option](media/how-to-designer-import-data/register-dataset-designer.png)
+### Connect input datasets
 
-### Use a dataset
+This article uses the sample dataset, **Automobile price data (Raw)**. 
 
-Your registered datasets can be found in the module palette, under **Datasets** > **My Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the palette.
+1. Drag and drop your dataset to the pipeline canvas.
 
-![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
+1. Connect the output port of the dataset to the top-left input port of the **Execute Python Script** module. The designer exposes the input as a parameter to the entry point script.
+    
+    The right input port is reserved for zipped python libraries, which will be discussed in the next section.
 
-Any [file dataset](how-to-create-register-datasets.md#dataset-types) registered to your machine learning workspace will appear in the module palette. You aren't limited to using datasets created in the designer.
+    ![Connect datasets](media/how-to-designer-python/connect-dataset.png)
+        
 
-> [!NOTE]
-> The designer currently only supports processing [tabular datasets](how-to-create-register-datasets.md#dataset-types). If you want to use [file datasets](how-to-create-register-datasets.md#dataset-types), use the Azure Machine Learning SDK available for Python and R.
+1. Take note of which input port you use. The designer assigns the left input port to the variable `dataset1` and the middle input port to `dataset2`. 
 
-## Import data using the Import Data module
+Input modules are optional since you can generate or import data directly in the **Execute Python Script** module.
 
-While we recommend that you use datasets to import data, you can also use the [Import Data](algorithm-module-reference/import-data.md) module. The Import Data module skips registering your dataset in Azure Machine Learning and imports data directly from a [datastore](concept-data.md#datastores) or HTTP URL.
+### Write your Python code
 
-For detailed information on how to use the Import Data module, see the [Import Data reference page](algorithm-module-reference/import-data.md).
+The designer provides an initial entry point script for you to edit and enter your own Python code. 
 
+In this example, you use Pandas to combine two columns found in the automobile dataset, **Price** and **Horsepower**, to create a new column, **Dollars per horsepower**. This column represents how much you pay for each horsepower, which could be a useful feature to decide if a car is a good deal for the money. 
 
-## Supported sources
+1. Select the **Execute Python Script** module.
 
-This section lists the data sources supported by the designer. Data comes into into the designer from either a datastore or from [tabular dataset](how-to-create-register-datasets.md#dataset-types).
+1. In the pane that appears to the right of the canvas, select the **Python script** text box.
 
-### Datastore sources
-For a list of supported datastore sources, see [Access data in Azure storage services](how-to-access-data.md#supported-data-storage-service-types).
+1. Copy and paste the following code into the text box.
 
-### Tabular dataset sources
+    ```python
+    import pandas as pd
+    
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+        dataframe1['Dollar/HP'] = dataframe1.price / dataframe1.horsepower
+        return dataframe1
+    ```
+    Your pipeline should look the following image:
+    
+    ![Execute Python pipeline](media/how-to-designer-python/execute-python-pipeline.png)
 
-The designer supports tabular datasets created from the following sources:
- * Delimited files
- * JSON files
- * Parquet files
- * SQL queries
+    The entry point script must contain the function `azureml_main`. There are two function parameters that map to the two input ports for the **Execute Python Script** module.
 
-## Data types
+    The return value must be a Pandas Dataframe. You can return up to two dataframes as module outputs.
+    
+1. Run the pipeline.
 
-The designer internally recognizes the following data types:
+Now, you have a dataset with the new feature **Dollars/HP**, which could be useful in training a car recommender. This is an example of feature extraction and dimensionality reduction. 
 
-* String
-* Integer
-* Decimal
-* Boolean
-* Date
+## Execute Python using a zip file
 
-The designer uses an internal data type to pass data between modules. You can explicitly convert your data into data table format using the [Convert to Dataset](algorithm-module-reference/convert-to-dataset.md) module. Any module that accepts formats other than the internal format will convert the data silently before passing it to the next module.
-
-## Data constraints
-
-Modules in the designer are limited by the size of the compute target. For larger datasets, you should use a larger Azure Machine Learning compute resource. For more information on Azure Machine Learning compute, see [What are compute targets in Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
+If you want to execute more complex logic or import additional libraries, you should use the zip file method.
 
 ## Next steps
 
-Learn the basics of the designer with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).
+Learn how to [import your own data](how-to-designer-import-data.md) in Azure Machine Learning designer.
