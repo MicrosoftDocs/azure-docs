@@ -28,11 +28,10 @@ Passwords, both an IT nightmare and a pain for employees across the world. This 
 
 > [!div class="checklist"]
 > * SSO for all your applications
-> * Provision users and groups into your applications
+> * Automate provisioning and deprovisioning 
 > * Secure your applications
-> * Report on your applications
 > * Govern access to your applications
-> * Secure remote access to your applications
+> * Hybrid secure access
 
 
 ## Scenario 1: Set up SSO for all your applications
@@ -80,8 +79,8 @@ Identity can only be your control plane if it can connect everything across clou
 
 |Feature  |Description|
 |---------|---------|
-|Application Proxy|Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs).|Lore ipsum.|
-|F5, Akami, Zscaler|Using your existing networking and delivery controller, you can easily protect legacy applications that are still critical to your business processes but that you couldn't protect before with Azure AD. It's likely you already have everything you need to start protecting these applications.|Lore ipsum.|
+|Application Proxy|Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs).|
+|F5, Akami, Zscaler|Using your existing networking and delivery controller, you can easily protect legacy applications that are still critical to your business processes but that you couldn't protect before with Azure AD. It's likely you already have everything you need to start protecting these applications.|
 
 ## Related articles
 
