@@ -111,7 +111,18 @@ A Load Balancer rule is used to define how traffic is distributed to the VMs. Yo
 
 In this section, you create a virtual network, create three virtual machines for the backend pool of the Load Balancer, and then install IIS on the virtual machines to help test the Load Balancer.
 
-### Create a virtual network
+## Virtual network and parameters
+
+In this section you'll need to replace the following parameters in the steps with the information below:
+
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
 2. In **Create virtual network**, enter or select this information:
