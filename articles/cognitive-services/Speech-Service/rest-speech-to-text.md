@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 03/02/2020
 ms.author: erhopf
 ---
 
@@ -49,6 +49,7 @@ These parameters may be included in the query string of the REST request.
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include multiple results with confidence values and four different representations. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
+| `cid` | When using the [Custom Speech portal](how-to-custom-speech.md) to create custom models, you can reference those models with the custom identifer (`cid`). | Optional |
 
 ## Request headers
 
