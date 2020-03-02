@@ -22,7 +22,7 @@ In this section, you'll create a virtual network and subnet.
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **Create new**, enter **\<resource-group-name>**, then select OK. |
+    | Resource Group   | Select **Create new**, enter **\<resource-group-name>**, then select OK, or select an existing resource group. |
     | **Instance details** |                                                                 |
     | Name             | Enter **\<virtual-network-name>**                                    |
     | Region           | Select **\<region-name>** |
