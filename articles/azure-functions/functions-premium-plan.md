@@ -53,7 +53,7 @@ Azure Functions deployed to a Premium plan takes advantage of [new VNet integrat
 
 When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
 
-Fore more information, see [integrate your function app with a VNet](functions-create-vnet.md).
+For more information, see [integrate your function app with a VNet](functions-create-vnet.md).
 
 ### Rapid elastic scale
 
@@ -90,6 +90,11 @@ When creating or scaling your plan, you can choose between three instance sizes.
 |EP2|2|7GB|250GB|
 |EP3|4|14GB|250GB|
 
+### Memory utilization considerations
+Running on a machine with more memory does not always mean that your function app will use all available memory.
+
+For example, a JavaScript function app is constrained by the default memory limit in Node.js. To increase this fixed memory limit, add the app setting `languageWorkers:node:arguments` with a value of `--max-old-space-size=<max memory in MB>`.
+
 ## Regions
 
 Below are the currently supported regions for each OS.
@@ -98,30 +103,32 @@ Below are the currently supported regions for each OS.
 |--| -- | -- |
 |Australia Central| ✔<sup>1</sup> | |
 |Australia Central 2| ✔<sup>1</sup> | |
-|Australia East| ✔ | |
+|Australia East| ✔ | ✔<sup>1</sup> |
 |Australia Southeast | ✔ | ✔<sup>1</sup> |
-|Brazil South| ✔<sup>2</sup> |  |
-|Canada Central| ✔ |  |
-|Central US| ✔ |  |
-|East Asia| ✔ |  |
+|Brazil South| ✔<sup>2</sup> | ✔<sup>1</sup> |
+|Canada Central| ✔ | ✔<sup>1</sup> |
+|Central US| ✔ | ✔<sup>1</sup> |
+|East Asia| ✔ | ✔<sup>1</sup> |
 |East US | ✔ | ✔<sup>1</sup> |
-|East US 2| ✔ |  |
-|France Central| ✔ |  |
+|East US 2| ✔ | ✔<sup>1</sup> |
+|France Central| ✔ | ✔<sup>1</sup> |
 |Germany West Central| ✔ | |
 |Japan East| ✔ | ✔<sup>1</sup> |
-|Japan West| ✔ | |
-|Korea Central| ✔ |  |
-|North Central US| ✔ |  |
+|Japan West| ✔ | ✔<sup>1</sup> |
+|Korea Central| ✔ | ✔<sup>1</sup> |
+|North Central US| ✔ | ✔<sup>1</sup> |
 |North Europe| ✔ | ✔<sup>1</sup> |
+|Norway East| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |South Central US| ✔ | ✔<sup>1</sup> |
 |South India | ✔ | |
 |Southeast Asia| ✔ | ✔<sup>1</sup> |
-|UK South| ✔ | |
-|UK West| ✔ |  |
+|UK South| ✔ | ✔<sup>1</sup> |
+|UK West| ✔ | ✔<sup>1</sup> |
 |West Europe| ✔ | ✔<sup>1</sup> |
-|West India| ✔ |  |
+|West India| ✔ | ✔<sup>1</sup> |
+|West Central US| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |West US| ✔ | ✔<sup>1</sup> |
-|West US 2| ✔ |  |
+|West US 2| ✔ | ✔<sup>1</sup> |
 
 <sup>1</sup>Maximum scale out limited to 20 instances.  
 <sup>2</sup>Maximum scale out limited to 60 instances.

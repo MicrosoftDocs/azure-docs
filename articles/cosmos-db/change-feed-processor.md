@@ -38,13 +38,13 @@ Each range is being read in parallel and its progress is maintained separately f
 
 The point of entry is always the monitored container, from a `Container` instance you call `GetChangeFeedProcessorBuilder`:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs" id="DefineProcessor":::
 
 Where the first parameter is a distinct name that describes the goal of this processor and the second name is the delegate implementation that will handle changes. 
 
 An example of a delegate would be:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs" id="Delegate":::
 
 Finally you define a name for this processor instance with `WithInstanceName` and which is the container to maintain the lease state with `WithLeaseContainer`.
 

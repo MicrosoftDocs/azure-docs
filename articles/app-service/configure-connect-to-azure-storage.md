@@ -33,6 +33,7 @@ This guide shows how to access Azure Storage in Windows Containers. Only [Azure 
 - Azure Storage in Windows containers is currently **not supported** for bring your own code scenarios on Windows App Service plans.
 - Azure Storage in Windows containers **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
 - Azure Storage in Windows containers lets you specify **up to five** mount points per app.
+- Azure Storage mounted to an app is not accessible through App Service FTP/FTPs endpoints. Use [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/).
 - Azure Storage is billed independently and **not included** with your web app. Learn more about [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
 
 ## Link storage to your web app (preview)

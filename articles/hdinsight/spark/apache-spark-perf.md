@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ---
 
 # Optimize Apache Spark jobs in HDInsight
 
-Learn how to optimize [Apache Spark](https://spark.apache.org/) cluster configuration for your particular workload.  The most common challenge is memory pressure, because of improper configurations (particularly wrong-sized executors), long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For the best performance, monitor and review long-running and resource-consuming Spark job executions.
+Learn how to optimize [Apache Spark](https://spark.apache.org/) cluster configuration for your particular workload.  The most common challenge is memory pressure, because of improper configurations (particularly wrong-sized executors), long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For the best performance, monitor and review long-running and resource-consuming Spark job executions. For information on getting started with Apache Spark on HDInsight, see [Create Apache Spark cluster using Azure portal](apache-spark-jupyter-spark-sql-use-portal.md).
 
 The following sections describe common Spark job optimizations and recommendations.
 
@@ -60,6 +60,8 @@ When you create a new Spark cluster, you can select Azure Blob Storage or Azure 
 | Azure Data Lake Storage Gen 1| **adl:**//url/ | **Faster** | Yes | Transient cluster |
 | Local HDFS | **hdfs:**//url/ | **Fastest** | No | Interactive 24/7 cluster |
 
+For a full description of the storage options available for HDInsight clusters, see [Compare storage options for use with Azure HDInsight clusters](../hdinsight-hadoop-compare-storage-options.md).
+
 ## Use the cache
 
 Spark provides its own native caching mechanisms, which can be used through different methods such as `.persist()`, `.cache()`, and `CACHE TABLE`. This native caching is effective with small data sets as well as in ETL pipelines where you need to cache intermediate results. However, Spark native caching currently doesn't work well with partitioning, since a cached table doesn't keep the partitioning data. A more generic and reliable caching technique is *storage layer caching*.
@@ -69,7 +71,7 @@ Spark provides its own native caching mechanisms, which can be used through diff
     * Doesn't work with partitioning, which may change in future Spark releases.
 
 * Storage level caching (recommended)
-    * Can be implemented using [Alluxio](https://www.alluxio.io/).
+    * Can be implemented on HDInsight using the [IO Cache](apache-spark-improve-performance-iocache.md) feature.
     * Uses in-memory and SSD caching.
 
 * Local HDFS (recommended)
@@ -101,6 +103,8 @@ To address 'out of memory' messages, try:
 * Prefer `TreeReduce`, which does more work on the executors or partitions, to `Reduce`, which does all work on the driver.
 * Leverage DataFrames rather than the lower-level RDD objects.
 * Create ComplexTypes that encapsulate actions, such as "Top N", various aggregations, or windowing operations.
+
+For additional troubleshooting steps, see [OutOfMemoryError exceptions for Apache Spark in Azure HDInsight](apache-spark-troubleshoot-outofmemory.md).
 
 ## Optimize data serialization
 
@@ -188,7 +192,11 @@ When running concurrent queries, consider the following:
 3. Distribute queries across parallel applications.
 4. Modify size based both on trial runs and on the preceding factors such as GC overhead.
 
-Monitor your query performance for outliers or other performance issues, by looking at the timeline view, SQL graph, job statistics, and so forth. Sometimes one or a few of the executors are slower than the others, and tasks take much longer to execute. This frequently happens on larger clusters (> 30 nodes). In this case, divide the work into a larger number of tasks so the scheduler can compensate for slow tasks. For example, have at least twice as many tasks as the number of executor cores in the application. You can also enable speculative execution of tasks with `conf: spark.speculation = true`.
+For more information on using Ambari to configure executors, see [Apache Spark settings - Spark executors](apache-spark-settings.md#configuring-spark-executors).
+
+Monitor your query performance for outliers or other performance issues, by looking at the timeline view, SQL graph, job statistics, and so forth. For information on debugging Spark jobs using YARN and the Spark History server, see [Debug Apache Spark jobs running on Azure HDInsight](apache-spark-job-debugging.md). For tips on using YARN Timeline Server, see [Access Apache Hadoop YARN application logs](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+
+Sometimes one or a few of the executors are slower than the others, and tasks take much longer to execute. This frequently happens on larger clusters (> 30 nodes). In this case, divide the work into a larger number of tasks so the scheduler can compensate for slow tasks. For example, have at least twice as many tasks as the number of executor cores in the application. You can also enable speculative execution of tasks with `conf: spark.speculation = true`.
 
 ## Optimize job execution
 

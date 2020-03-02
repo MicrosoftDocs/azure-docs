@@ -97,6 +97,8 @@ If the previous steps didn't help, try:
 
 * Verify that your devices are **Enabled** in the Azure portal > your IoT hub > IoT devices.
 
+* If your device uses MQTT protocol, verify that port 8883 is open. For more information, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 * Get help from [Azure IoT Hub forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), or [Azure support](https://azure.microsoft.com/support/options/).
 
 To help improve the documentation for everyone, leave a comment in the feedback section below if this guide didn't help you.

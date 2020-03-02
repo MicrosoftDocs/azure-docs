@@ -3,14 +3,14 @@ title: Enable one-time password (OTP) verification
 titleSuffix: Azure AD B2C
 description: Learn how to set up a one-time password (OTP) scenario by using Azure AD B2C custom policies.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
-ms.author: marsma
+ms.date: 02/10/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -164,3 +164,10 @@ The following example `TechnicalProfile` is used for verifying a code:
     </InputClaims>
 </TechnicalProfile>
 ```
+
+## Next steps
+
+See the following article for example of using one-time password technial profile with custom email verification:
+
+- [Custom email verification in Azure Active Directory B2C](custom-email.md)
+

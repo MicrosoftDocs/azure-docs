@@ -167,25 +167,9 @@ def main(warmupContext: func.Context) -> None:
 
 # [Java](#tab/java)
 
-The following example shows a warmup trigger in a *function.json* file and a [Java functions](functions-reference-java.md)  that will run on each new instance when it is added to your app.
+The following example shows a warmup trigger that runs when each new instance is added to your app.
 
-Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
-
-Here's the *function.json* file:
-
-```json
-{
-    "bindings": [
-        {
-            "type": "warmupTrigger",
-            "direction": "in",
-            "name": "warmupContext"
-        }
-    ]
-}
-```
-
-Here's the Java code:
+Your function must be named `warmup` (case-insensitive) and there may only be one warmup function per app.
 
 ```java
 @FunctionName("Warmup")

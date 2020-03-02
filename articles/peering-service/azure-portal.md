@@ -55,7 +55,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
 **Azure CLI**
 
 ```azurecli-interactive
-az feature register --namespace Microsoft.Peering--name AllowPeeringService
+az feature register --namespace Microsoft.Peering --name AllowPeeringService
 ```
 
 ## Sign in to the Azure portal

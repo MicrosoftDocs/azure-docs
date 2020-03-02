@@ -5,7 +5,7 @@ description: Learn how to get a .NET Core app working in Azure App Service, with
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.custom: mvc
+ms.custom: mvc, cli-validate
 ms.custom: seodec18
 
 ---

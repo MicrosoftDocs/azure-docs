@@ -69,6 +69,8 @@ The software update can take several hours. Caches configured with higher throug
 
 When a software upgrade is available, you will have a week or so to apply it manually. The end date is listed in the upgrade message. If you don't upgrade during that time, Azure automatically applies the update to your cache. The timing of the automatic upgrade is not configurable. If you are concerned about the cache performance impact, you should upgrade the software yourself before the time period expires.
 
+If your cache is stopped when the end date passes, the cache will automatically upgrade software the next time it is started. (The update might not start immediately, but it will start in the first hour.)
+
 Click the **Upgrade** button to begin the software update. The cache status changes to **Upgrading** until the operation completes.
 
 ## Delete the cache
