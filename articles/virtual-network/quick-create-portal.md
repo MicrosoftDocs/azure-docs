@@ -125,10 +125,10 @@ Create two VMs in the virtual network:
 
 Repeat the procedure in the previous section to create another virtual machine.
 
-    > [!NOTE]
-    > For the **Virtual machine name**, enter *myVm2*.
-    >
-    > For **Diagnosis storage account**, make sure you select **myvmstorageaccount**, instead of creating one.
+> [!NOTE]
+> For the **Virtual machine name**, enter *myVm2*.
+>
+> For **Diagnosis storage account**, make sure you select **myvmstorageaccount**, instead of creating one.
 
 ## Connect to a VM from the internet
 
@@ -144,7 +144,7 @@ After you've created *myVm1*, connect to the internet.
 
 1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
 
-1. Open the *rdp* file. If prompted, select **Connect**.
+1. Open the RDP file. If prompted, select **Connect**.
 
 1. Enter the username and password you specified when creating the VM.
 
@@ -223,6 +223,6 @@ When you're done using the virtual network and the VMs, delete the resource grou
 
 ## Next steps
 
-In this Quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and securely communicated between the two VMs. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md).
+In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and securely communicated between the two VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
 By default, Azure allows secure communication between VMs. Azure only allows inbound remote desktop connections to Windows VMs from the internet. To learn more about types of VM network communications, see [Filter network traffic](tutorial-filter-network-traffic.md).
