@@ -100,13 +100,13 @@ For more details on how to set permissions on the folders and files, see [Azure 
 
 ## Examples
 
-### Creating a managed table backed by Parquet in Spark and querying it from SQL on-demand
+### Create a managed table backed by Parquet in Spark and query from SQL on-demand
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
-Let's assume we have already created a Spark database named `mytestdb`. See [Create & connect to Spark database - SQL on-demand](metadata-database.md#create--connect-to-spark-database---sql-on-demand).
+In this scenario, you have a Spark database named `mytestdb`. See [Create & connect to Spark database - SQL on-demand](metadata-database.md#create--connect-to-spark-database---sql-on-demand).
 
-Then you can create a managed Spark table for example with SparkSQL with
+Create a managed Spark table with SparkSQL by running the following command:
 
 ```sql
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
@@ -121,9 +121,10 @@ This creates the table `myParquetTable` in the database `mytestdb`. After a shor
 
 Verify that `myParquetTable` is included in the results.
 
-Note that a table that is not using Parquet as its storage format will not be synchronized.
+>[!NOTE]
+>A table that is not using Parquet as its storage format will not be synchronized.
 
-Next let us insert some values into the table from Spark, for example with the following C# Spark statements in a C# notebook:
+Next, insert some values into the table from Spark, for example with the following C# Spark statements in a C# notebook:
 
 ```csharp
     using Microsoft.Spark.Sql.Types;
@@ -162,7 +163,9 @@ You should get the following row as result:
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
-In this example, we create an external Spark table over the Parquet data files that got created in the previous example for the managed table. For example with SparkSQL with
+In this example, create an external Spark table over the Parquet data files that got created in the previous example for the managed table.
+
+For example with SparkSQL run:
 
 ```sql
     CREATE TABLE mytestdb.myExternalParquetTable 
@@ -170,9 +173,9 @@ In this example, we create an external Spark table over the Parquet data files t
            LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
-where you replace the placeholder `<fs>` with the file system name that is the workspace's default file system and the placeholder `<synapse_ws>` with the name of the synapse workspace you are using to run this example.
+Replace the placeholder `<fs>` with the file system name that is the workspace default file system and the placeholder `<synapse_ws>` with the name of the synapse workspace you are using to run this example.
 
-This creates the table `myExtneralParquetTable` in the database `mytestdb`. After a short delay, you can see the table in SQL on-demand. For example, run the following statement from SQL on-demand.
+The previous example creates the table `myExtneralParquetTable` in the database `mytestdb`. After a short delay, you can see the table in SQL on-demand. For example, run the following statement from SQL on-demand.
 
 ```sql
     USE mytestdb;
