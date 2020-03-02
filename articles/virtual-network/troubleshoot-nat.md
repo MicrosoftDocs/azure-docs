@@ -33,7 +33,9 @@ To resolve these problems, follow the steps in the following section.
 
 [Virtual Network NAT](nat-overview.md) supports up to 1 million concurrent flows.  The mechanism is described [here](nat-gateway-resource.md#source-network-address-translation) in more detail.
 
-First, investigate whether your application is behaving properly and is using outbound connections in a scalable fashion.  You should always use connection reuse and connection pooling whenever possible to avoid resource exhaustion problems outright.  If you aren't optimizing outbound connections, e.g. every outbound connection is an atomic operation rather than pipelining multiple operations into the same connection, you're using an anti-pattern that will impact your scale and reliability.
+First, investigate whether your application is behaving properly and is using outbound connections in a scalable fashion.  Always use connection reuse and connection pooling whenever possible to avoid resource exhaustion problems outright.  
+
+If you aren't optimizing outbound connections, for example every outbound connection is an atomic operation rather than pipelining multiple operations into the same connection.  This is an anti-pattern and will impact your scale and reliability.
 
 If you have already optimized your application and are reusing connections and pooling connections, you can scale outbound connectivity as follows:
 
@@ -44,14 +46,14 @@ If you have already allocated 16 IP addresses and still are experiencing SNAT po
 
 ### ICMP ping is failing
 
-[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols. ICMP is not supported and expected to fail.  Instead, use TCP connection tests (e.g. "TCP ping") and UDP specific application layer tests to validate end to end connectivity.
+[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols. ICMP is not supported and expected to fail.  Instead, use TCP connection tests (for example "TCP ping") and UDP specific application layer tests to validate end to end connectivity.
 
-Depending on whether you use Linux or Windows operating systems, the tool of choice may be slightly different.  The following table has a couple of examples:
+The following table can be used a starting point for which tools to use to initiate tests.
 
-| Operating system | Generic TCP connection test | Application layer test |
+| Operating system | Generic TCP connection test | TCP application layer test | UDP |
 |---|---|---|
-| Linux | nc (generic connection test) | curl (TCP application layer test) |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | Invoke-WebRequest |
+| Linux | nc (generic connection test) | curl (TCP application layer test) | application specific |
+| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
 
 ## Next steps
 
