@@ -35,7 +35,7 @@ In this section, you'll create a virtual network and subnet.
     |--------------------|----------------------------|
     | IPv4 address space | Enter **\<IPv4 address space>** |
 
-5. Under Subnet name,** select the word **default**.
+5. Under **Subnet name**, select the word **default**.
 
 6. In **Edit subnet**, enter this information:
 
@@ -44,8 +44,8 @@ In this section, you'll create a virtual network and subnet.
     | Subnet name | Enter **\<subnet-name>** |
     | Subnet address range | Enter **\<subnet-address-range>**
 
-7. Select **Save**
+7. Select **Save**.
 
 8. Select the **Review + create** tab or select the **Review + create** button.
 
-9. Select **Create**
+9. Select **Create**.

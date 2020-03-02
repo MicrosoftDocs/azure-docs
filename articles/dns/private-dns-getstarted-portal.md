@@ -44,7 +44,7 @@ A DNS zone contains the DNS entries for a domain. To start hosting your domain i
 
 1. On the **Create Private DNS zone** page, type or select the following values:
 
-   - **Resource group**: Select **Create new**, enter *MyAzureResourceGroup*, and select **OK**. The resource group name must be unique within the Azure subscription. 
+   - **Resource group**: Select **Create new**, enter *MyAzureResourceGroup*, and select **OK**. The resource group name must be unique within the Azure subscription.
    -  **Name**: Type *private.contoso.com* for this example.
 1. For **Resource group location**, select **West Central US**.
 
@@ -68,7 +68,7 @@ In this section you'll need to replace the following parameters in the steps wit
 | **\<subnet-address-range>** | 10.2.0.0\24          |
 
 
-[!INCLUDE [virtual-networks-create-newui](../../includes/virtual-networks-create-newui.md)]
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## Link the virtual network
 
@@ -93,7 +93,7 @@ Now, create two virtual machines so you can test your private DNS zone:
 1. Type **myVM01** - for the name of the virtual machine.
 1. Select **West Central US** for the **Region**.
 1. Enter a name for the administrator user name.
-2. Enter a password and confirm the password
+2. Enter a password and confirm the password.
 5. For **Public inbound ports**, select **Allow selected ports**, and then select **RDP (3389)** for **Select inbound ports**.
 10. Accept the other defaults for the page and then click **Next: Disks >**.
 11. Accept the defaults on the **Disks** page, then click **Next: Networking >**.
