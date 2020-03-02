@@ -105,21 +105,20 @@ A Load Balancer rule is used to define how traffic is distributed to the VMs. Yo
 
 In this section, you create a virtual network, create three virtual machines for the backend pool of the Load Balancer, and then install IIS on the virtual machines to help test the Load Balancer.
 
-### Create a virtual network
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
+## Virtual network and parameters
 
-1. In **Create virtual network**, enter or select this information:
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter *myVNet*. |
-    | Address space | Enter *10.1.0.0/16*. |
-    | Subscription | Select your subscription.|
-    | Resource group | Select existing resource - *myResourceGroupSLB*. |
-    | Location | Select **West Europe**.|
-    | Subnet - Name | Enter *myBackendSubnet*. |
-    | Subnet - Address range | Enter *10.1.0.0/24*. |
-1. Leave the rest of the defaults and select **Create**.
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### Create virtual machines
 Public IP SKUs and Load Balancer SKUs must match. For Standard Load Balancer , use VMs with Standard IP addresses in the backend pool. In this section, you will create three VMs (*myVM1*, *myVM2* and *myVM3*) with a Standard public IP address in three different zones (*Zone 1*, *Zone 2*, and *Zone 3*) that are later added to the backend pool of the Load Balancer that was created earlier. If you selected Basic, use VMs with Basic IP addresses.
