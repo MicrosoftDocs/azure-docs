@@ -33,7 +33,7 @@ The first step is to sign in to the My Access portal where you can request acces
 
 **Prerequisite role:** Requestor
 
-1. Look for an email or a message from the project or business manager you are working with. The email should include a link to the access package you will need access to. The link starts with `myaccess`, includes a directory hint, and ends with an access package ID.
+1. Look for an email or a message from the project or business manager you are working with. The email should include a link to the access package you will need access to. The link starts with `myaccess`, includes a directory hint, and ends with an access package ID.  (For US Government, the domain may be `https://myaccess.microsoft.us` instead.)
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
