@@ -15,7 +15,7 @@ ms.author: erhopf
 
 This article assumes:
 
-* You have an Azure account and Speech service subscription. If you don't have and account and subscription -- [Try the Speech service for free](get-started.md).
+* You have an Azure account and Speech service subscription. If you don't have and account and subscription -- [Try the Speech service for free](../../get-started.md).
 
 ## Install and import the Speech SDK
 
@@ -71,7 +71,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
 If you want to specify the audio input device, then you'll need to create an [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python) and  provide the `audio_config` parameter when initializing your [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python).
 
 > [!TIP]
-> [Learn how to get the device ID for your audio input device](how-to-select-audio-input-devices.md).
+> [Learn how to get the device ID for your audio input device](../../how-to-select-audio-input-devices.md).
 
 ```Python
 audio_config = AudioConfig(device_name="<device id>");
@@ -96,7 +96,7 @@ The [Recognizer class](https://docs.microsoft.com/python/api/azure-cognitiveserv
 * Continuous recognition (async) - Asynchronously initiates continuous recognition operation. User has to connect to EventSignal to receive recognition results. To stop asynchronous continuous recognition, call [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition-async--).
 
 > [!NOTE]
-> Learn more about how to [choose a speech recognition mode](how-to-choose-recognition-mode.md).
+> Learn more about how to [choose a speech recognition mode](../../how-to-choose-recognition-mode.md).
 
 ### Single-shot recognition
 
@@ -192,7 +192,7 @@ while not done:
 
 When using continuous recognition, you can enable dictation processing by using the corresponding "enable dictation" function. This mode will cause the speech config instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
 
-To enable dictation mode, use the [`enable_dictation()`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--) method on your [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python).
+To enable dictation mode, use the [`enable_dictation()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--) method on your [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python).
 
 ```Python 
 SpeechConfig.enable_dictation()
@@ -206,7 +206,7 @@ A common task for speech recognition is specifying the input (or source) languag
 speech_config.speech_recognition_language="de-DE"
 ```
 
-[`speech_recognition_language`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#speech-recognition-language) is a parameter that takes a string as an argument. You can provide any value in the list of supported [locales/languages](language-support.md).
+[`speech_recognition_language`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#speech-recognition-language) is a parameter that takes a string as an argument. You can provide any value in the list of supported [locales/languages](../../language-support.md).
 
 ## Improve recognition accuracy
 
@@ -234,5 +234,5 @@ phrase_list_grammar.clear()
 
 Phrase lists are only one option to improve recognition accuracy. You can also: 
 
-* [Improve accuracy with Custom Speech](how-to-custom-speech.md)
-* [Improve accuracy with tenant models](tutorial-tenant-model.md)
+* [Improve accuracy with Custom Speech](../../how-to-custom-speech.md)
+* [Improve accuracy with tenant models](../../tutorial-tenant-model.md)
