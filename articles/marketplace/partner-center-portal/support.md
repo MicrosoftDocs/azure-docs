@@ -75,7 +75,7 @@ In the **Contact Information** section, ensure that your primary contact's name,
 
 Review your support request information on the **Review** section. 
 - If all the information is correct, select **Submit**. 
-- If any information needs to be updated, select the **Change** button next to the section in need of updates.
+- If any information needs to be updated, select the **Change** button next to the section in need of updates.  
 
 ## Track your existing support requests 
 
