@@ -1,6 +1,7 @@
 - name: Form Recognizer Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Form Recognizer?
     href: overview.md
@@ -45,6 +46,8 @@
   items:
   - name: Build a training data set
     href: build-training-data-set.md
+  - name: Deploy the sample labeling tool
+    href: deploy-label-tool.md
   - name: Use containers
     items:
     - name: Install and run containers

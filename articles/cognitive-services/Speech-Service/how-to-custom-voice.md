@@ -1,5 +1,5 @@
 ---
-title: "What is Custom Voice? - Speech service"
+title: "Improve synthesis with Custom Voice - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom speech-to-text experience."
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/17/2020
 ms.author: dapine
 ---
 
@@ -60,7 +60,7 @@ Content like data, models, tests, and endpoints are organized into **Projects** 
 To create your first project, select the **Text-to-Speech/Custom Voice** tab, then click **New Project**. Follow the instructions provided by the wizard to create your project. After you've created a project, you will see four tabs: **Data**, **Training**, **Testing**, and **Deployment**. Use the links provided in [Next steps](#next-steps) to learn how to use each tab.
 
 > [!IMPORTANT]
-> The [Custom Speech portal](https://aka.ms/custom-speech) was recently updated! If you created previous projects with data, models, tests, and published endpoints in the CRIS portal or with APIs, you need to create a new project in the new portal to connect to these old entities.
+> The [Custom Voice portal](https://aka.ms/custom-voice) was recently updated! If you created previous data, models, tests, and published endpoints in the CRIS.ai portal or with APIs, you need to create a new project in the new portal to connect to these old entities.
 
 ## Next steps
 

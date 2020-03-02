@@ -79,6 +79,8 @@
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
   - name: End-to-end MLOps examples
     href: https://github.com/microsoft/MLOps
+  - name: Designer sample datasets
+    href: designer-sample-datasets.md
 
 - name: Concepts
   items:
@@ -86,8 +88,10 @@
     href: concept-workspace.md
   - name: Environments
     href: concept-environments.md
-  - name: Data
+  - name: Data access
     href: concept-data.md    
+  - name: Data ingestion
+    href: concept-data-ingestion.md  
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
@@ -333,23 +337,19 @@
       href: how-to-deploy-existing-model.md
     - name: Troubleshoot & debug
       href: how-to-troubleshoot-deployment.md
-  - name: Consume web services
-    items:
-    - name: Consume in real-time
+    - name: Create clients
       displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
-    - name: Designer batch predictions
-      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-      href: how-to-run-batch-predictions-designer.md
-  - name: Monitor models
-    items:
-    - name: Collect & evaluate model data
-      displayName: track production
-      href: how-to-enable-data-collection.md
-    - name: Detect data drift
-      href: how-to-monitor-data-drift.md
-    - name: Monitor with Application Insights
-      href: how-to-enable-app-insights.md
+    - name: Monitor models
+      items:
+      - name: Collect & evaluate model data
+        displayName: track production
+        href: how-to-enable-data-collection.md
+      - name: Detect data drift
+        href: how-to-monitor-data-drift.md
+      - name: Monitor with Application Insights
+        href: how-to-enable-app-insights.md
+
   - name: Build & use ML pipelines
     displayName: pipelines
     items:
@@ -367,9 +367,15 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-    - name: 'Designer: Retrain using published pipelines'
+    - name: 'Designer retrain using published pipelines'
       displayName: retrain, designer, published pipeline
       href: how-to-retrain-designer.md
+    - name: Designer batch predictions
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+      href: how-to-run-batch-predictions-designer.md
+    - name: Designer execute Python code
+      displayName: feature extraction, feature engineering
+      href: how-to-designer-python.md
     - name: Use parallel run step
       displayName: score scoring batch consume pipeline parallelrunstep inference
       href: how-to-use-parallel-run-step.md
