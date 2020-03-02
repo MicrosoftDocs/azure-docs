@@ -67,7 +67,7 @@
     - name: Use SQL on-demand to analyze and Synapse studio to visualize
       href: ./sql-analytics/tutorial-data-analyst.md
   - name: Data Engineer
-  items:
+    items:
   # - name: Data Preparation
   #   href: article-template.md
   # - name: Data Analyst
