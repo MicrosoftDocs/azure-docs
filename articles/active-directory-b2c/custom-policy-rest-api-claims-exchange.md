@@ -2,14 +2,14 @@
 title: REST API claims exchanges - Azure Active Directory B2C
 description: Add REST API claims exchanges to custom policies in Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
