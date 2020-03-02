@@ -111,9 +111,7 @@ Create two VMs in the virtual network:
     | Performance | Default to **Standard**. |
     | Replication | Default to **Locally-redundant storage (LRS)**. |
 
-1. Select **OK**
-
-1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
+1. Select **OK**, then select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
 1. When you see the **Validation passed** message, select **Create**.
 
