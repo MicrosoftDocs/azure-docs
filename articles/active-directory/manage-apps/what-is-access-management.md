@@ -45,9 +45,9 @@ With certain types of applications, you have the option of [requiring users to b
 * Application Proxy applications that use Azure Active Directory Pre-Authentication
 * Applications built on the Azure AD application platform that use OAuth 2.0 / OpenID Connect Authentication after a user or admin has consented to that application.Certain enterprise applications offer additional control over who is allowed to sign in.
 
-When user assignment is *not required*, unassigned users don't see the app on their My Apps access panel, but they can still sign in to the application itself (known as service provider-initiated sign-on) or they can use the **User Access URL** in the application’s **Properties** page (known as identity provider-initiated sign on).
+When user assignment is *not required*, unassigned users don't see the app on their My Apps access panel, but they can still sign in to the application itself (also known as SP-initiated sign-on) or they can use the **User Access URL** in the application’s **Properties** page (also known as IDP-initiated sign on).
 
-For some applications, the option to require user assignment isn't available in the application properties. In these cases, you can use PowerShell to set the appRoleAssignmentRequired property on the service principal.
+For some applications, the option to require user assignment isn't available in the application's properties. In these cases, you can use PowerShell to set the appRoleAssignmentRequired property on the service principal.
 
 ### Determining the user experience for accessing apps
 
