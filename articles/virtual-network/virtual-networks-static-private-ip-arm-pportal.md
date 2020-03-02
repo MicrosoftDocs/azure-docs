@@ -20,20 +20,7 @@ ms.author: kumud
 ---
 # Configure a private IP address for a VM using the Azure portal
 
-> [!div class="op_single_selector"]
-> * [Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
-> * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-> * [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
-> * [Azure portal (Classic)](virtual-networks-static-private-ip-classic-pportal.md)
-> * [PowerShell (Classic)](virtual-networks-static-private-ip-classic-ps.md)
-> * [Azure CLI (Classic)](/previous-versions/azure/virtual-network/virtual-networks-static-private-ip-classic-cli)
-
-
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
-
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the Resource Manager deployment model. You can also [manage the static private IP address in the classic deployment model](virtual-networks-static-private-ip-classic-pportal.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
