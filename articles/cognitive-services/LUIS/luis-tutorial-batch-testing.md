@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Batch testing to find issues - LUIS"
 titleSuffix: Azure Cognitive Services
-description: This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.
+description: This tutorial demonstrates how to use batch testing to validate the quality of your Language Understanding (LUIS) app.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: diberry
 
 # Tutorial: Batch test data sets
 
-This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.
+This tutorial demonstrates how to use batch testing to validate the quality of your Language Understanding (LUIS) app.
 
 Batch testing allows you to validate the active, trained model's state with a known set of labeled utterances and entities. In the JSON-formatted batch file, add the utterances and set the entity labels you need predicted inside the utterance.
 
@@ -23,11 +23,9 @@ Requirements for batch testing:
 
 * Maximum of 1000 utterances per test.
 * No duplicates.
-* Entity types allowed: only machined-learned entities of simple and composite. Batch testing is only useful for machined-learned intents and entities.
+* Entity types allowed: only machined-learned entities.
 
 When using an app other than this tutorial, do *not* use the example utterances already added to an intent.
-
-
 
 **In this tutorial, you learn how to:**
 
@@ -44,26 +42,24 @@ When using an app other than this tutorial, do *not* use the example utterances 
 
 ## Import example app
 
-Continue with the app created in the last tutorial, named **HumanResources**.
+Import an order that allows a customer to modify a pizza order.
 
-Use the following steps:
-
-1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json?raw=true).
+1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
 
-2. Import the JSON into a new app.
+2. Import the JSON into a new app, name the app `Pizza app`.
 
 3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `batchtest`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
-4. Train the app.
+4. Select **Train** in the top-right corner of the navigation to train the app.
 
 ## Batch file
 
-1. Create `HumanResources-jobs-batch.json` in a text editor or [download](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json?raw=true) it.
+1. Create `pizza-with-machine-learned-entity-test.json` in a text editor or [download](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true) it.
 
-2. In the JSON-formatted batch file, add utterances with the **Intent** you want predicted in the test.
+2. In the JSON-formatted batch file, add an utterance with the **Intent** you want predicted in the test.
 
-   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
+   [!code-json[Add the intents to the batch test file](~/samples-cognitive-services-data-files/luis/batch-tests/pizza-with-machine-learned-entity-test.json "Add the intent to the batch test file")]
 
 ## Run the batch
 
