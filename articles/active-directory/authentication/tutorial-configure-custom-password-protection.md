@@ -40,7 +40,7 @@ To complete this tutorial, you need the following resources and privileges:
 
 ## What are banned password lists?
 
-Azure AD includes a global banned password list. The contents of this global banned password list isn't based on any external data source. Instead, the global banned password list is based on the ongoing results of Azure AD security telemetry and analysis. When a user or administrator tries to change or reset their credentials, the desired password is checked against the list of banned passwords. The password change request fails if there's a match in the global banned password list.
+Azure AD includes a global banned password list. The contents of the global banned password list isn't based on any external data source. Instead, the global banned password list is based on the ongoing results of Azure AD security telemetry and analysis. When a user or administrator tries to change or reset their credentials, the desired password is checked against the list of banned passwords. The password change request fails if there's a match in the global banned password list.
 
 To give you flexibility in what passwords are allowed, you can also define a custom banned password list. The custom banned password list works alongside the global banned password list to enforce strong passwords in your organization. Organizational-specific terms can be added to the custom banned password list, such as the following examples:
 
@@ -50,16 +50,16 @@ To give you flexibility in what passwords are allowed, you can also define a cus
 * Company-specific internal terms
 * Abbreviations that have specific company meaning
 
-The custom banned password list is limited to a maximum of 1000 terms. It's not designed for blocking large lists of passwords. To maximize the benefits of the custom banned password list, review the [custom banned password list concepts](concept-password-ban-bad.md#custom-banned-password-list) and [password evaluation algorithm overview](concept-password-ban-bad.md#how-are-passwords-evaluated).
-
 When a user attempts to reset a password to something that's on the global or custom banned password list, they see one of the following error messages:
 
 * *Unfortunately, your password contains a word, phrase, or pattern that makes your password easily guessable. Please try again with a different password.*
 * *Unfortunately, you can't use that password because it contains words or characters that have been blocked by your administrator. Please try again with a different password.*
 
+The custom banned password list is limited to a maximum of 1000 terms. It's not designed for blocking large lists of passwords. To maximize the benefits of the custom banned password list, review the [custom banned password list concepts](concept-password-ban-bad.md#custom-banned-password-list) and [password evaluation algorithm overview](concept-password-ban-bad.md#how-are-passwords-evaluated).
+
 ## Configure custom banned passwords
 
-Now let's enable the custom banned password list and add some entries. You can add additional entries to the custom banned password list at any time. For a hybrid environment, you can also [deploy Azure AD password protection to an on-premises environment](howto-password-ban-bad-on-premises-deploy.md). The same global and custom banned password lists are used for both cloud and on-prem password change requests.
+Let's enable the custom banned password list and add some entries. You can add additional entries to the custom banned password list at any time.
 
 To enable the custom banned password list and add entries to it, complete the following steps:
 
@@ -72,7 +72,7 @@ To enable the custom banned password list and add entries to it, complete the fo
     * The custom banned password list can contain up to 1000 terms.
     * The custom banned password list is case-insensitive.
     * The custom banned password list considers common character substitution, such as "o" and "0", or "a" and "@".
-    * The minimum string length is four characters, and the maximum is 16 characters
+    * The minimum string length is four characters, and the maximum is 16 characters.
 
     Specify your own custom passwords to ban, as shown in the following example
 
@@ -83,6 +83,8 @@ To enable the custom banned password list and add entries to it, complete the fo
 
 It may take several hours for updates to the custom banned password list to be applied.
 
+For a hybrid environment, you can also [deploy Azure AD password protection to an on-premises environment](howto-password-ban-bad-on-premises-deploy.md). The same global and custom banned password lists are used for both cloud and on-prem password change requests.
+
 ## Test custom banned password list
 
 To see the custom banned password list in action, try to change the password to a variation of one that you added in the previous section. When Azure AD tries to process the password change, the password is matched against an entry in the custom banned password list. An error is then displayed to the user.
@@ -90,14 +92,14 @@ To see the custom banned password list in action, try to change the password to 
 > [!NOTE]
 > Before a user can reset their password in the web-based portal, the Azure AD tenant must be [configured for self-service password reset](tutorial-enable-sspr.md).
 
-1. Go to the My Apps page at [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Go to the **My Apps** page at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. In the top-right corner, select your name, then choose **Profile** from the drop-down menu.
 
     ![Select profile](media/tutorial-configure-custom-password-protection/myapps-profile.png)
 
 1. On the **Profile** page, select **Change password**.
 1. On the **Change password** page, enter the existing (old) password. Enter and confirm a new password that's on the custom banned password list you defined in the previous section, then select **Submit**.
-1. An error message is displayed similar to the following example that tells you the password has been blocked by the administrator:
+1. An error message is returned that tells you the password has been blocked by the administrator, as shown in the following example:
 
     ![Error message displayed when you try to use a password that's part of the custom banned password list](media/tutorial-configure-custom-password-protection/password-change-error.png)
 
