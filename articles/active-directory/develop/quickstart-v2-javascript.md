@@ -77,10 +77,10 @@ Select the option that's suitable to your development environment:
 #### Step 3: Configure your JavaScript app
 
 > [!div renderon="docs"]
-> In the *JavaScriptSPA* folder, edit *authConfig.js*, and set the `clientID` and `authority` values under `msalConfig`.
+> In the *JavaScriptSPA* folder, edit *authConfig.js* file to set the `clientID`, `authority` and `redirectUri` for the `msalConfig` object.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> In the *JavaScriptSPA* folder, edit *authConfig.js*, and replace `msalConfig` with the following code:
+> In the *JavaScriptSPA* folder, edit *authConfig.js* file to set the `clientID`, `authority` and `redirectUri` for the `msalConfig` object.
 
 ```javascript
 
@@ -99,9 +99,6 @@ Select the option that's suitable to your development environment:
   };  
 
 ```
-> [!div renderon="portal"]
-> > [!NOTE]
-> > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 >
@@ -115,6 +112,32 @@ Select the option that's suitable to your development environment:
 >
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+>
+
+> [!div renderon="docs"]
+> Then, still in the same folder, edit *graphConfig.js* file to set the `graphMeEndpoint` and `graphMeEndpoint` for the `msalConfig` object.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> Then, still in the same folder, edit *graphConfig.js* file to set the `graphMeEndpoint` and `graphMeEndpoint` for the `msalConfig` object.
+
+```javascript
+
+  // Add here the endpoints for MS Graph API services you would like to use.
+  const graphConfig = {
+    graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
+    graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+  };
+
+  // Add here scopes for access token to be used at MS Graph API endpoints.
+  const tokenRequest = {
+      scopes: ["Mail.Read"]
+  };
+
+```
+> [!div renderon="docs"]
+>
+> Where:
+> - *\<Enter_the_Graph_Endpoint_Here>* is the endpoint that API calls will be made against. For the main or global Microsoft Graph API service, simply enter `https://graph.microsoft.com`. For more information, see [National cloud deployment](https://docs.microsoft.com/en-us/graph/deployments)
 >
 
 #### Step 4: Run the project
@@ -148,7 +171,6 @@ The MSAL library signs in users and requests the tokens that are used to access 
 ```
 > [!TIP]
 > You can replace the preceding version with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
-
 
 Alternatively, if you have Node.js installed, you can download the latest version through Node.js Package Manager (npm):
 
@@ -193,11 +215,6 @@ For more information about available configurable options, see [Initialize clien
 The following code snippet shows how to sign in users:
 
 ```javascript
-// Add scopes for the id token to be used at Microsoft identity platform endpoints.
-const loginRequest = {
-    scopes: ["openid", "profile", "User.Read"],
-};
-
 myMSALObj.loginPopup(loginRequest)
     .then((loginResponse) => {
     //Login Success callback code here
@@ -222,11 +239,6 @@ MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireToken
 The `acquireTokenSilent` method handles token acquisitions and renewal without any user interaction. After the `loginRedirect` or `loginPopup` method is executed for the first time, `acquireTokenSilent` is the method commonly used to obtain tokens that are used to access protected resources for subsequent calls. Calls to request or renew tokens are made silently.
 
 ```javascript
-// Add scopes for the access token to be used at Microsoft Graph API endpoints.
-const tokenRequest = {
-    scopes: ["Mail.Read"]
-};
-
 myMSALObj.acquireTokenSilent(tokenRequest)
     .then((tokenResponse) => {
         // Callback code here
