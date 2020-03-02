@@ -7,13 +7,13 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD Connect cloud provisioning new agent configuration
+# Create a new configuration for Azure AD Connect cloud-based provisioning
 
 After you've installed the agent, you need to sign in to the Azure portal and configure Azure Active Directory (Azure AD) Connect cloud provisioning. Follow these steps to enable the agent.
 
@@ -51,7 +51,8 @@ You can scope the agent to synchronize specific users and groups by using on-pre
 
     ![Selected security groups option](media/how-to-configure/scope3.png)
 
-1.  Or you can change the scope to include only specific organizational units. Select **Done** and **Save**.
+1.  Or you can change the scope to include only specific organizational units. Select **Done** and **Save**.  
+2.  Once you have changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
 
     ![Selected organizational units option](media/how-to-configure/scope4.png)
 

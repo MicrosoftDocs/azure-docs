@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 02/21/2020
 ms.author: kgremban
 ---
 # Install the Azure IoT Edge runtime on Windows
@@ -118,6 +118,7 @@ For more information about these installation options, skip ahead to learn about
 In this second option, you provision the device using the IoT Hub Device Provisioning Service. Provide the **Scope ID** from a Device Provisioning Service instance along with any other information specific to your preferred [attestation mechanism](../iot-dps/concepts-security.md#attestation-mechanism):
 
 * [Create and provision a simulated IoT Edge device with a virtual TPM on Windows](how-to-auto-provision-simulated-device-windows.md)
+* [Create and provision a simulated IoT Edge device using X.509 certificates](how-to-auto-provision-x509-certs.md)
 * [Create and provision an IoT Edge device using symmetric key attestation](how-to-auto-provision-symmetric-keys.md)
 
 When you install and provision a device automatically, you can use additional parameters to modify the installation including:
@@ -128,14 +129,14 @@ When you install and provision a device automatically, you can use additional pa
 
 For more information about these installation options, continue reading this article or skip to learn about [All installation parameters](#all-installation-parameters).
 
-## Offline installation
+## Offline or specific version installation
 
 During installation two files are downloaded:
 
 * Microsoft Azure IoT Edge cab, which contains the IoT Edge security daemon (iotedged), Moby container engine, and Moby CLI.
-* Visual C++ redistributable package (VC runtime) msi
+* Visual C++ redistributable package (VC runtime) MSI
 
-You can download one or both of these files ahead of time to the device, then point the installation script at the directory that contains the files. The installer checks the directory first, and then only downloads components that aren't found. If all the files are available offline, you can install with no internet connection. You can also use this feature to install a specific version of the components.  
+If your device will be offline during installation, or if you want to install a specific version of IoT Edge, you can download one or both of these files ahead of time to the device. When it's time to install, point the installation script at the directory that contains the downloaded files. The installer checks that directory first, and then only downloads components that aren't found. If all the files are available offline, you can install with no internet connection.
 
 For the latest IoT Edge installation files along with previous versions, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
@@ -146,7 +147,17 @@ To install with offline components, use the `-OfflineInstallationPath` parameter
 Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 ```
 
-You can also use the offline installation path parameter with the Update-IoTEdge command, introduced later in this article.
+>[!NOTE]
+>The `-OfflineInstallationPath` parameter looks for a file named **Microsoft-Azure-IoTEdge.cab** in the directory provided. Starting with IoT Edge version 1.0.9-rc4, there are two .cab files available to use, one for AMD64 devices and one for ARM32. Download the correct file for your device, then rename the file to remove the architecture suffix.
+
+The `Deploy-IoTEdge` command installs the IoT Edge components, and then you need to continue to the `Initialize-IoTEdge` command to provision the device with its IoT Hub device ID and connection. Either run the command directly and provide a connection string from IoT Hub, or use one of the links in the previous section to learn how to automatically provision devices with Device Provisioning Service.
+
+```powershell
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+Initialize-IoTEdge
+```
+
+You can also use the offline installation path parameter with the Update-IoTEdge command.
 
 ## Verify successful installation
 
@@ -200,29 +211,6 @@ The engine URI is listed in the output of the installation script, or you can fi
 
 For more information about commands you can use to interact with containers and images running on your device, see [Docker command-line interfaces](https://docs.docker.com/engine/reference/commandline/docker/).
 
-## Update an existing installation
-
-If you've already installed the IoT Edge runtime on a device before and provisioned it with an identity from IoT Hub, then you can update the runtime without having to reenter your device information.
-
-For more information, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
-
-This example shows an installation that points to an existing configuration file, and uses Windows containers:
-
-```powershell
-. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-Update-IoTEdge
-```
-
-When you update IoT Edge, you can use additional parameters to modify the update, including:
-
-* Direct traffic to go through a proxy server, or
-* Point the installer to an offline directory
-* Restarting without a prompt if necessary
-
-You can't declare an IoT Edge agent container image with script parameters because that information is already set in the configuration file from the previous installation. If you want to modify the agent container image, do so in the config.yaml file.
-
-For more information about these update options, use the command `Get-Help Update-IoTEdge -full` or refer to [all installation parameters](#all-installation-parameters).
-
 ## Uninstall IoT Edge
 
 If you want to remove the IoT Edge installation from your Windows device, use the following command from an administrative PowerShell window. This command removes the IoT Edge runtime, along with your existing configuration and the Moby engine data.
@@ -260,10 +248,12 @@ The Initialize-IoTEdge command configures IoT Edge with your device connection s
 | --------- | --------------- | -------- |
 | **Manual** | None | **Switch parameter**. If no provisioning type is specified, manual is the default value.<br><br>Declares that you will provide a device connection string to provision the device manually |
 | **Dps** | None | **Switch parameter**. If no provisioning type is specified, manual is the default value.<br><br>Declares that you will provide a Device Provisioning Service (DPS) scope ID and your device's Registration ID to provision through DPS.  |
-| **DeviceConnectionString** | A connection string from an IoT Edge device registered in an IoT Hub, in single quotes | **Required** for manual installation. If you don't provide a connection string in the script parameters, you will be prompted for one during installation. |
-| **ScopeId** | A scope ID from an instance of Device Provisioning Service associated with your IoT Hub. | **Required** for DPS installation. If you don't provide a scope ID in the script parameters, you will be prompted for one during installation. |
-| **RegistrationId** | A registration ID generated by your device | **Required** for DPS installation if using TPM or symmetric key attestation. |
-| **SymmetricKey** | The symmetric key used to provision the IoT Edge device identity when using DPS | **Required** for DPS installation if using symmetric key attestation. |
+| **DeviceConnectionString** | A connection string from an IoT Edge device registered in an IoT Hub, in single quotes | **Required** for manual provisioning. If you don't provide a connection string in the script parameters, you will be prompted for one. |
+| **ScopeId** | A scope ID from an instance of Device Provisioning Service associated with your IoT Hub. | **Required** for DPS provisioning. If you don't provide a scope ID in the script parameters, you will be prompted for one. |
+| **RegistrationId** | A registration ID generated by your device | **Required** for DPS provisioning if using TPM or symmetric key attestation. **Optional** if using X.509 certificate attestation. |
+| **X509IdentityCertificate** | The URI path to the X.509 device identity certificate on the device. | **Required** for DPS provisioning if using X.509 certificate attestation. |
+| **X509IdentityPrivateKey** | The URI path to the X.509 device identity certificate key on the device. | **Required** for DPS provisioning if using X.509 certificate attestation. |
+| **SymmetricKey** | The symmetric key used to provision the IoT Edge device identity when using DPS | **Required** for DPS provisioning if using symmetric key attestation. |
 | **ContainerOs** | **Windows** or **Linux** | If no container operating system is specified, Windows is the default value.<br><br>For Windows containers, IoT Edge uses the moby container engine included in the installation. For Linux containers, you need to install a container engine before starting the installation. |
 | **InvokeWebRequestParameters** | Hashtable of parameters and values | During installation, several web requests are made. Use this field to set parameters for those web requests. This parameter is useful to configure credentials for proxy servers. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md). |
 | **AgentImage** | IoT Edge agent image URI | By default, a new IoT Edge installation uses the latest rolling tag for the IoT Edge agent image. Use this parameter to set a specific tag for the image version, or to provide your own agent image. For more information, see [Understand IoT Edge tags](how-to-update-iot-edge.md#understand-iot-edge-tags). |

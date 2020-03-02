@@ -65,7 +65,7 @@ A high value for any of the Frames Skipped/Second counters implies that the prob
 
 If the Output Frames/Second counter matches the Input Frames/Second counter, yet you still notice unusual lag or stalling, Average Encoding Time may be the culprit. Encoding is a synchronous process that occurs on the server in the single-session (vGPU) scenario and on the VM in the multi-session scenario. Average Encoding Time should be under 33 ms. If Average Encoding Time is under 33 ms but you still have performance issues, there may be an issue with the app or operating system you are using.
 
-For more information about diagnosing app-related issues, see [User Input Delay performance counters](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters).
+For more information about diagnosing app-related issues, see [User Input Delay performance counters](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
 Because RDP supports an Average Encoding Time of 33 ms, it supports an input frame rate up to 30 frames/second. Note that 33 ms is the maximum supported frame rate. In many cases, the frame rate experienced by the user will be lower, depending on how often a frame is provided to RDP by the source. For example, tasks like watching a video require a full input frame rate of 30 frames/second, but less computationally intensive tasks like infrequently editing a document result in a much lower value for Input Frames/Second with no degradation in the user’s experience quality.
 
@@ -97,6 +97,6 @@ If client resources are causing the bottleneck, try one of the following approac
 
 ## Next steps
 
-- To create a GPU optimized Azure virtual machine, see [Configure graphics processing unit (GPU) acceleration for Windows Virtual Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
-- For an overview of troubleshooting and escalation tracks, see [Troubleshooting overview, feedback, and support](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- To learn more about the service, see [Windows Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- To create a GPU optimized Azure virtual machine, see [Configure graphics processing unit (GPU) acceleration for Windows Virtual Desktop environment](configure-vm-gpu.md).
+- For an overview of troubleshooting and escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- To learn more about the service, see [Windows Desktop environment](environment-setup.md).

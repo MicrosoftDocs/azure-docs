@@ -88,6 +88,14 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+> 1. Edit **ViewController.swift** and replace the line starting with 'let kAuthority' with the following code snippet:
+>    ```swift
+>    let kAuthority = "Enter_the_Authority_Endpoint_Host_HereEnter_the_Tenant_Info_Here"
+>    ```
+> 1. Edit **ViewController.swift** and replace the line starting with 'let kGraphEndpoint' with the following code snippet:
+>    ```swift
+>    let kGraphEndpoint = "Enter_the_MS_Graph_Endpoint_Host_Here"
+>    ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
 > 1. For iOS only, under the dict root node, replace `CFBundleURLSchemes` with the ***Bundle Id*** that you entered in the portal.
@@ -106,7 +114,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 > 1. Build & run the app!
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > This quickstart supports Enter_the_Supported_Account_Info_Here.
+> > Enter_the_Supported_Account_Info_Here
 > [!div renderon="docs"]
 >
 > 1. Extract the zip file and open the project in XCode.
@@ -114,6 +122,16 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+> 1. If you're building an app for [Azure AD national clouds](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints), replace the line starting with 'let kGraphEndpoint' and 'let kAuthority' with correct endpoints. For global access, use default values:
+>     ```objective-c
+>     let kGraphEndpoint = "https://graph.microsoft.com/"
+>     let kAuthority = "https://login.microsoftonline.com/common"
+>     ```
+> 1. Other endpoints are documented [here](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the quickstart with Azure AD Germany, use following:
+>     ```objective-c
+>     let kGraphEndpoint = "https://graph.microsoft.de/"
+>     let kAuthority = "https://login.microsoftonline.de/common"
+>     ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
 > 1. For iOS only, under the dict root node, replace `Enter_the_bundle_Id_Here` with the ***Bundle Id*** that you used in the portal.

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 02/28/2020
 
 ms.author: mimart
 author: msmimart
@@ -23,21 +23,51 @@ Dynamic configuration of security group membership for Azure Active Directory (A
 
 The appropriate [Azure AD Premium P1 or P2 licensing](https://azure.microsoft.com/pricing/details/active-directory/) is required to create and use dynamic groups. Learn more in the article [Create attribute-based rules for dynamic group membership in Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md).
 
-## What are the built-in dynamic groups?
-The **All users** dynamic group enables tenant admins to create a group containing all users in the tenant with a single click. By default, the **All users** group includes all users in the directory, including Members and Guests.
-Within the new Azure Active Directory admin portal, you can choose to enable the **All users** group in the Group Settings view.
+## Creating an "all users" dynamic group
+You can create a group containing all users within a tenant using a membership rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
 
-![Shows enable the All Users group set to Yes](media/use-dynamic-groups/enable-all-users-group.png)
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Global administrator or User administrator role in the tenant.
+1. Select **Azure Active Directory**.
+2. Under **Manage**, select **Groups**, and then select **New group**.
+1. On the **New Group** page, under **Group type**, select **Security**. Enter a **Group name** and **Group description** for the new group. 
+2. Under **Membership type**, select **Dynamic User**, and then select **Add dynamic query**. 
+4. Above the **Rule syntax** text box, select **Edit**. On the **Edit rule syntax** page, type the following expression in the text box:
 
-## Hardening the All users dynamic group
-By default, the **All users** group contains your B2B collaboration (guest) users as well. You can further secure your **All users** group by using a rule to remove guest users. The following illustration shows the **All users** group modified to exclude guests.
+   ```
+   user.objectId -ne null
+   ```
+1. Select **OK**. The rule appears in the Rule syntax box:
 
-![Shows rule where user type not equals guest](media/use-dynamic-groups/exclude-guest-users.png)
+   ![Rule syntax for all users dynamic group](media/use-dynamic-groups/all-user-rule-syntax.png)
 
-You might also find it useful to create a new dynamic group that contains only guest users, so that you can apply policies (such as Azure AD Conditional Access policies) to them.
-What such a group might look like:
+1.  Select **Save**. The new dynamic group will now include B2B guest users as well as member users.
 
-![Shows rule where user type equals guest](media/use-dynamic-groups/only-guest-users.png)
+
+1. Select **Create** on the **New group** page to create the group.
+
+## Creating a group of members only
+
+If you want your group to exclude guest users and include only members of your tenant, create a dynamic group as described above, but in the **Rule syntax** box, enter the following expression:
+
+```
+(user.objectId -ne null) and (user.userType -eq "Member")
+```
+
+The following image shows the rule syntax for a dynamic group modified to include members only and exclude guests.
+
+![Shows rule where user type equals member](media/use-dynamic-groups/all-member-user-rule-syntax.png)
+
+## Creating a group of guests only
+
+You might also find it useful to create a new dynamic group that contains only guest users, so that you can apply policies (such as Azure AD Conditional Access policies) to them. Create a dynamic group as described above, but in the **Rule syntax** box, enter the following expression:
+
+```
+(user.objectId -ne null) and (user.userType -eq "Guest")
+```
+
+The following image shows the rule syntax for a dynamic group modified to include guests only and exclude member users.
+
+![Shows rule where user type equals guest](media/use-dynamic-groups/all-guest-user-rule-syntax.png)
 
 ## Next steps
 
