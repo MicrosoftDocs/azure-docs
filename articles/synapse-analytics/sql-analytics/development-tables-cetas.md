@@ -99,7 +99,6 @@ FROM
 	OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=*/*.parquet',
 	FORMAT='PARQUET') AS [r]
 GROUP BY decennialTime, stateName
-ORDER BY decennialTime, stateName
 GO
 
 -- you can query created external table
@@ -120,12 +119,46 @@ AS
 SELECT decennialTime, stateName, SUM(population) AS population
 FROM census_external_table 
 GROUP BY decennialTime, stateName
-ORDER BY decennialTime, stateName
 GO
 
 -- you can query created external table
 SELECT * FROM population_by_year_state
 ```
+
+
+
+## Supported data types
+CETAS can be used to store result sets with following SQL data types:
+
+- binary
+- varbinary
+- char
+- varchar
+- date
+- time
+- datetime2
+- decimal
+- numeric
+- float
+- real
+- bigint
+- int
+- smallint
+- tinyint
+- bit
+ 
+LOBs cannot be used with CETAS.
+
+Following data types cannot be used in SELECT part of CETAS:
+
+- nchar
+- nvarchar
+- datetime
+- smalldatetime
+- datetimeoffset
+- money
+- smallmoney
+- uniqueidentifier
 
 
 
