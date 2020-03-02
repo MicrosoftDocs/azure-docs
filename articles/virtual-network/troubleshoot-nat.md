@@ -35,14 +35,14 @@ To resolve these problems, follow the steps in the following section.
 
 First, investigate whether your application is behaving properly and is using outbound connections in a scalable fashion.  Always use connection reuse and connection pooling whenever possible to avoid resource exhaustion problems outright.  
 
-If you aren't optimizing outbound connections, for example every outbound connection is an atomic operation rather than pipelining multiple operations into the same connection.  This is an anti-pattern and will impact your scale and reliability.
+Creating a new TCP connection for every HTTP operation is an anti-pattern and will impact your scale and reliability.  Always pipeline multiple operations into the same connection.
 
 If you have already optimized your application and are reusing connections and pooling connections, you can scale outbound connectivity as follows:
 
-If you are experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage, you can add additional public IP address resources or public IP prefix resources for up to 16 IP addresses in total to your NAT gateway.
-
-If you have already allocated 16 IP addresses and still are experiencing SNAT port exhaustion, you need to distribute your deployment across multiple subnets and provide a NAT gateway resource for each subnet.
-
+| Scenario | Action |
+|---|---|
+| You are experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | Check if you can add additional public IP address resources or public IP prefix resources for up to 16 IP addresses in total to your NAT gateway. This will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
+| You have already allocated 16 IP addresses and still are experiencing SNAT port exhaustion. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet. |
 
 ### ICMP ping is failing
 
@@ -51,7 +51,7 @@ If you have already allocated 16 IP addresses and still are experiencing SNAT po
 The following table can be used a starting point for which tools to use to initiate tests.
 
 | Operating system | Generic TCP connection test | TCP application layer test | UDP |
-|---|---|---|
+|---|---|---|---|
 | Linux | nc (generic connection test) | curl (TCP application layer test) | application specific |
 | Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
 
