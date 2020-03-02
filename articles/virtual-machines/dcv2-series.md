@@ -36,7 +36,9 @@ Memory Preserving Updates: Not Supported
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2                                            |
 
 - DCv2-series VMs are [generation 2 VMs](./linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
-
+- Currently available in UK South only.
+- Previous generation of Confidential Compute VMs: [DC Series](sizes-previous-gen.md)
+- Create DCv2 VMs using Azure Portal [Create VM - Portal](./linux/quick-create-portal.md)
 
 
 
