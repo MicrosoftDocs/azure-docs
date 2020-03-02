@@ -20,7 +20,7 @@ ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ---
 
-# Doc 2 - High level overview of apps for developers
+# Develop your applications with Azure AD
 
 Whether you're a line of business developer building critical applications to be used in your organization or you're an independent software vendor building the next big app, Azure Active Directory is the platform for you to take care of identity and get your customers running quickly and securely. 
 
@@ -35,13 +35,12 @@ Whether you're a line of business developer building critical applications to be
 
 ## Scenario 1: Setup SSO for your applications
 
-No more managing password. Securely access all the resources you need with your corporate credentials. Microsoft supports the standards you need to enable SSO for your users. Furthermore, Microosft provides easy to use libraries to get started with authentication. 
+Get your users into your applicaiton quickly and securely with single sign-on.Azure AD supports standards based integration with any application. 
 
-|Feature  | Description | When to use |
-|---------|---------|---------|
-|SAML|Standards based federated SSO using trusted industry standards.|Lore Ipsum|
-|OIDC|||
-|MSAL|||
+|Feature  | Description |
+|---------|---------|
+|[SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) based SSO|Integrate any SAML based application with Azure AD for SSO.|
+|[OIDC](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) based SSO|Integrate any OIDC based application with Azure AD for SSO.|
 
 ## Scenario 2: Enrich your application with the data that you need
 
@@ -49,7 +48,20 @@ No more managing password. Securely access all the resources you need with your 
 Most applications require a user to be provisioned into the application before accessing the resources that they need. Furthermore, customers need to ensure that accounts are removed when somone shouldn't have access to the account anymore. Leverage the tools provided by the Azure AD provisioning service to automate user provisioning and deprovisioning. 
 
 
-|Feature  |Description|When to use |
-|---------|---------|---------|
-|SCIM provisioning|||
-|Microsoft Graph|||
+|Feature  |Description|
+|---------|---------|
+|[SCIM](https://SCIMOverview) provisioning|The SCIM standards facilitates automatic user provisioning and deprovisioning. Develop a SCIM compliand endpoint and enable any customer to autmatically provision users and groups into your application.|
+|[Microsoft Graph](https://docs.microsoft.com/graph/overview)|Microsoft Graph is the gateway to data and intelligence in Microsoft 365. It provides a unified programmability model that you can use to access the tremendous amount of data in Office 365, Windows 10, and Enterprise Mobility + Security. Use the wealth of data in Microsoft Graph to build apps for organizations and consumers that interact with millions of users.|
+
+## Scenario 3: Enrich your application with the data that you need
+
+Access secured web APIs (e.g. from the Microsoft graph or your own web API) using tokens issued by the Microsoft identity platform. 
+
+|Feature  |Description|
+|---------|---------|
+|Using MSAL, a token can be acquired from a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications.||
+
+## Related articles
+
+- [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
+- [Application provisioning with SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)
