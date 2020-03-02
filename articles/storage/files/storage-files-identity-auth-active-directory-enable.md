@@ -93,9 +93,9 @@ The following diagram illustrates the end-to-end workflow for enabling Azure AD 
 To enable AD authentication over SMB for Azure file shares, you need to first register your storage account with AD and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account. Use `join-AzStorageAccountForAuth` to enable the feature. You can find the detailed description of the end-to-end workflow in the section below. 
 
 > [!IMPORTANT]
-> The `join-AzStorageAccountForAuth` cmdlet will make modifications to your AD environment. Read the following explanation to better understand what it is doing to ensure you have the proper permissions to execute the command and that the applied changes align with the compliance and security policies. 
+> The `Join-AzStorageAccountForAuth` cmdlet will make modifications to your AD environment. Read the following explanation to better understand what it is doing to ensure you have the proper permissions to execute the command and that the applied changes align with the compliance and security policies. 
 
-The `join-AzStorageAccountForAuth` cmdlet will perform the equivalent of an offline domain join on behalf of the indicated storage account. It will create an account in your AD domain, either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). The created AD account represents the storage account in the AD domain. If the AD account is created under an AD Organizational Unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update AD account password will result in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD account password](#update-ad-account-password).
+The `Join-AzStorageAccountForAuth` cmdlet will perform the equivalent of an offline domain join on behalf of the indicated storage account. It will create an account in your AD domain, either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). The created AD account represents the storage account in the AD domain. If the AD account is created under an AD Organizational Unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update AD account password will result in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD account password](#update-ad-account-password).
 
 You can use the following script to perform the registration and enable the feature or, alternatively, you can manually perform the operations that the script would. Those operations are described in the section following the script. You do not need to do both.
 
@@ -105,18 +105,18 @@ You can use the following script to perform the registration and enable the feat
 -  Run the script using an AD credential that is synced to your Azure AD. The AD credential must have either the storage account owner or the contributor RBAC role permissions.
 - Make sure your storage account is in a [supported region](#regional-availability).
 
-### 2. Execute AD enablement script
+### 2. Domain join your storage account
 Remember to replace the placeholder values with your own in the parameters below before executing it in PowerShell.
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Currentuser
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 
 # Navigate to where AzFilesHybrid is unzipped and stored and run to copy the files into your path
 .\CopyToPSPath.ps1 
 
 #Import AzFilesHybrid module
-Import-Module -name AzFilesHybrid
+Import-Module -Name AzFilesHybrid
 
 #Login with an Azure AD credential that has either storage account owner or contributer RBAC assignment
 Connect-AzAccount
@@ -125,13 +125,17 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
 
 #Register the target storage account with your active directory environment under the target OU
-join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationalUnitName "<ou-name-here>"
+Join-AzStorageAccountForAuth `
+        -ResourceGroupName "<resource-group-name-here>" `
+        -Name "<storage-account-name-here>" `
+        -DomainAccountType "ComputerAccount" `
+        -OrganizationalUnitName "<ou-name-here>"
 ```
 
-The following description summarizes all actions performed when the `join-AzStorageAccountForAuth` cmdlet gets executed. You may perform these steps manually, if you prefer not to use the command:
+The following description summarizes all actions performed when the `Join-AzStorageAccountForAuth` cmdlet gets executed. You may perform these steps manually, if you prefer not to use the command:
 
 > [!NOTE]
-> If you have already executed the join-AzStorageAccountForAuth script above successfully, go to the next section "3. Confirm that the feature is enabled". You do not need to perform the operations below again.
+> If you have already executed the `Join-AzStorageAccountForAuth` script above successfully, go to the next section "3. Confirm that the feature is enabled". You do not need to perform the operations below again.
 
 #### a. Checking environment
 
@@ -154,9 +158,17 @@ Keep the SID of the newly created account, you'll need it for the next step.
 The script would then enable the feature on your storage account. To perform this setup manually, provide some configuration details for the domain properties in the following command, then run it. The storage account SID required in the following command is the SID of the identity you created in AD (section b above).
 
 ```PowerShell
-#Set the feature flag on the target storage account and provide the required AD domain information
-
-Set-AzStorageAccount -ResourceGroupName "<your-resource-group-name-here>" -Name "<your-storage-account-name-here>" -EnableActiveDirectoryDomainServiesForFile $true -ActiveDirectoryDomainName "<your-domain-name-here>" -ActiveDirectoryNetBiosDomainName "<your-netbios-domain-name-here>" -ActiveDirectoryForestName "<your-forest-name-here>" -ActiveDirectoryDomainGuid "<your-guid-here>" -ActiveDirectoryDomainsid "<your-domain-sid-here>" -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>"
+# Set the feature flag on the target storage account and provide the required AD domain information
+Set-AzStorageAccount `
+        -ResourceGroupName "<your-resource-group-name-here>" `
+        -Name "<your-storage-account-name-here>" `
+        -EnableActiveDirectoryDomainServiesForFile $true `
+        -ActiveDirectoryDomainName "<your-domain-name-here>" `
+        -ActiveDirectoryNetBiosDomainName "<your-netbios-domain-name-here>" `
+        -ActiveDirectoryForestName "<your-forest-name-here>" `
+        -ActiveDirectoryDomainGuid "<your-guid-here>" `
+        -ActiveDirectoryDomainsid "<your-domain-sid-here>" `
+        -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>"
 ```
 
 
@@ -165,13 +177,15 @@ Set-AzStorageAccount -ResourceGroupName "<your-resource-group-name-here>" -Name 
 You can check to confirm whether the feature is enabled on your storage account, you can use the following script:
 
 ```PowerShell
-#Get the target storage account
-$storageaccount = Get-AzStorageAccount -ResourceGroupName "<your-resource-group-name-here>" -Name "<your-storage-account-name-here>"
+# Get the target storage account
+$storageaccount = Get-AzStorageAccount `
+        -ResourceGroupName "<your-resource-group-name-here>" `
+        -Name "<your-storage-account-name-here>"
 
-#List the directory service of the selected service account
+# List the directory service of the selected service account
 $storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions
 
-#List the directory domain information if the storage account has enabled AD authentication for file shares
+# List the directory domain information if the storage account has enabled AD authentication for file shares
 $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 ```
 
@@ -189,7 +203,10 @@ To trigger password rotation, you can run the `Update-AzStorageAccountADObjectPa
 
 ```PowerShell
 #Update the password of the AD account registered for the storage account
-Update-AzStorageAccountADObjectPassword -RotateToKerbKey kerb2 -ResourceGroupName "your-resource-group-name-here" -StorageAccountName "your-storage-account-name-here"
+Update-AzStorageAccountADObjectPassword `
+        -RotateToKerbKey kerb2 `
+        -ResourceGroupName "<your-resource-group-name-here>" `
+        -StorageAccountName "<your-storage-account-name-here>"
 ```
 
 ## Next steps
