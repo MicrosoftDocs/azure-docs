@@ -18,7 +18,7 @@ ms.date: 04/30/2019
 >
 > * Create a MySql server
 > * Create a MySql database
-> * Configure a filewall rule so that an external app can connect to your server
+> * Configure a firewall rule so that an external app can connect to your server
 > * Connect to your MySql server from the Azure Cloud Shell
 > * Query your available MySQL servers
 > * List all databases in your connected servers

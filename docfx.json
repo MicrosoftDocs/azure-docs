@@ -264,7 +264,8 @@
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
         "articles/service-fabric/*.md": "athinanthny",
-        "articles/service-fabric-mesh/*.md": "athinanthny"
+        "articles/service-fabric-mesh/*.md": "athinanthny",
+        "articles/aks/**/*.md": "mlearned"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -533,7 +534,8 @@
         "articles/service-fabric/*.md": "atsenthi",
         "articles/service-fabric-mesh/*md": "atsenthi",
         "articles/notebooks/*.md": "jasonh",
-        "articles/service-health/*.md": "stbaron"
+        "articles/service-health/*.md": "stbaron",
+        "articles/aks/**/*.md": "mlearned"
       },
       "ms.service": {
         "articles/connectors/*.md": "logic-apps",
@@ -571,7 +573,8 @@
         "articles/notebooks/*.md": "azure-notebooks",
         "articles/service-fabric/*.md": "service-fabric",
         "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
-        "articles/service-health/**/*.md": "service-health"
+        "articles/service-health/**/*.md": "service-health",
+        "articles/aks/**/*.md": "container-service"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -656,6 +659,8 @@
         "articles/service-health/*.yml": "Azure Service Health",
         "articles/advisor/**/*.md": "Azure Advisor",
         "articles/advisor/*.yml": "Azure Advisor",
+        "articles/azure-monitor/**/*.yml" : "Azure Monitor",
+        "articles/azure-monitor/**/*.md" : "Azure Monitor",
         "articles/connectors/*.md": "Azure Logic Apps",
         "articles/logic-apps/*.md": "Azure Logic Apps",
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
@@ -709,10 +714,9 @@
         "articles/batch/*.yml": "Azure Batch",
         "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
         "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
-        "articles/azure-monitor/**/*.yml" : "Azure Monitor",
-        "articles/azure-monitor/**/*.md" : "Azure Monitor",
         "articles/service-fabric/*.md": "Azure Service Fabric",
-        "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh"
+        "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh",
+        "articles/aks/**/*.md": "Azure Kubernetes Service"
       },
       "featureFlags": {
         "articles/**/*.md": [

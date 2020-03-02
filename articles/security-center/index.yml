@@ -60,11 +60,11 @@ landingContent:
             url: security-center-onboarding.md
 
   # Card
-  - title: Improve your secure score
+  - title: Improve your Secure Score
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: What is a secure score?
+          - text: What is a Secure Score?
             url: security-center-secure-score.md
           - text: Remediate security recommendations
             url: security-center-remediate-recommendations.md
