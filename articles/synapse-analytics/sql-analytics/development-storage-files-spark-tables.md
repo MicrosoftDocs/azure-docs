@@ -24,8 +24,6 @@ Each Spark table is represented with an external table in a dbo schema that corr
 SELECT * FROM [db].dbo.[spark_table]
 ```
 
-
-
 ## Spark data types to SQL data types mapping
 
 | Spark data type | SQL data type               |

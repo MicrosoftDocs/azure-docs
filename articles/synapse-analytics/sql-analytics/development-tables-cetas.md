@@ -125,8 +125,6 @@ GO
 SELECT * FROM population_by_year_state
 ```
 
-
-
 ## Supported data types
 CETAS can be used to store result sets with following SQL data types:
 
@@ -159,9 +157,6 @@ Following data types cannot be used in SELECT part of CETAS:
 - money
 - smallmoney
 - uniqueidentifier
-
-
-
 
 ## Next steps
 

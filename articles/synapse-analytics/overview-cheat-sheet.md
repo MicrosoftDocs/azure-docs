@@ -1,27 +1,18 @@
 ---
-title: Cheat sheet - Azure Synapse Analytics #Required; update as needed page title displayed in search results. Include the brand.
-description: Reference guide walking user through Azure Synapse Analytics #Required; Add article description that is displayed in search results.
-services: synapse analytics #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: ArnoMicrosoft #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: synapse-analytics #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
+title: Cheat sheet - Azure Synapse Analytics 
+description: Reference guide walking user through Azure Synapse Analytics 
+services: synapse-analytics 
+author: ArnoMicrosoft 
+ms.service: synapse-analytics 
+ms.topic: overview 
 ms.subservice:
-ms.date: 10/09/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: acomet #Required; update with your microsoft alias of author; optional team alias.
+ms.date: 03/02/2020 
+ms.author: acomet 
 ms.reviewer: jrasnick
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
-
-<!---overview articles are for new customers and explain the service from a technical point of view.
-They are not intended to define benefits or value prop; that would be in marketing content.
---->
-
 # Azure Synapse Analytics cheat sheet
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
---->
+
 Azure Synapse Analytics cheat sheet will guide you through the basic concepts of the service and important commands which will be helpful for new learners as well as for those who want to take a quick look at the important topics.
 
 ## Architecture
@@ -54,4 +45,4 @@ Azure Synapse Analytics cheat sheet will guide you through the basic concepts of
 |**Dataset**|  Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service|
 
 
-<!---## Commands
+
