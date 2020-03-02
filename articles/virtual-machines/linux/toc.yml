@@ -169,6 +169,8 @@
       items:
       - name: Prepay for VMs
         href: prepay-reserved-vm-instances.md
+      - name: Prepay for Dedicated Hosts
+        href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: What are Azure reservations?
         href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: VM instance size flexibility
@@ -310,6 +312,8 @@
           href: disk-encryption-key-vault.md
         - name: Disk encryption sample scripts
           href: disk-encryption-sample-scripts.md
+        - name: Disk encryption on an isolated network
+          href: disk-encryption-isolated-network.md
         - name: Disk encryption troubleshooting
           href: disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ

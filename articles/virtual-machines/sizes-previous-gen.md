@@ -165,6 +165,9 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 
 <sup>1</sup>For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.  
 
+> [!NOTE]
+> The A8 – A11 VMs are planned for retirement on 3/2021. For more information, see [HPC Migration Guide](https://azure.microsoft.com/resources/hpc-migration-guide/).
+
 <br>
 
 ### D-series  
