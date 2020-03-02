@@ -33,13 +33,13 @@ Superseded updates are not being correctly indicated as declined so that they ca
 
 When a superseded update becomes 100 percent not applicable, you should change the approval state of that update to **Declined**. To do this for all your updates:
 
-1. In the Automation Account, select **Update Management** to view machine status. See [View update assessments](manage-update-multi.md#view-an-update-assessment).
+1. In the Automation Account, select **Update Management** to view machine status. See [View update assessments](../manage-update-multi.md#view-an-update-assessment).
 
 2. Check the superseded update to make sure that it is 100 percent not applicable. 
 
 3. Mark the update as declined unless you have a question about the update. 
 
-4. Select Computers and, in the Compliance column, force a rescan for compliance. See [Manage updates for multiple machines](manage-update-multi.md).
+4. Select Computers and, in the Compliance column, force a rescan for compliance. See [Manage updates for multiple machines](../manage-update-multi.md).
 
 5. Repeat the steps above for other superseded updates.
 
