@@ -11,9 +11,16 @@ This article provides troubleshooting information for backing up SAP HANA databa
 
 ## Prerequisites and Permissions
 
-Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [setting up permissions](tutorial-backup-sap-hana-db.md#setting-up-permissions) sections before configuring backups.
+Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections before configuring backups.
 
 ## Common user errors
+
+### UserErrorHANAInternalRoleNotPresent
+
+| **Error Message**      | <span style="font-weight:normal">Azure backup does not have required role  privileges to carry out backup</span>    |
+| ---------------------- | ------------------------------------------------------------ |
+| **Possible causes**    | The role may have been overwritten.                          |
+| **Recommended action** | To resolve the issue, run the script from the **Discover DB** pane, or download it [here](https://aka.ms/scriptforpermsonhana). Alternatively, add the 'SAP_INTERNAL_HANA_SUPPORT' role to the Workload Backup User (AZUREWLBACKUPHANAUSER). |
 
 ### UserErrorInOpeningHanaOdbcConnection
 

@@ -105,29 +105,30 @@ Below are the currently supported regions for each OS.
 |Australia Central 2| ✔<sup>1</sup> | |
 |Australia East| ✔ | ✔<sup>1</sup> |
 |Australia Southeast | ✔ | ✔<sup>1</sup> |
-|Brazil South| ✔<sup>2</sup> |  |
+|Brazil South| ✔<sup>2</sup> | ✔<sup>1</sup> |
 |Canada Central| ✔ | ✔<sup>1</sup> |
-|Central US| ✔ |  |
-|East Asia| ✔ |  |
+|Central US| ✔ | ✔<sup>1</sup> |
+|East Asia| ✔ | ✔<sup>1</sup> |
 |East US | ✔ | ✔<sup>1</sup> |
 |East US 2| ✔ | ✔<sup>1</sup> |
-|France Central| ✔ |  |
+|France Central| ✔ | ✔<sup>1</sup> |
 |Germany West Central| ✔ | |
 |Japan East| ✔ | ✔<sup>1</sup> |
 |Japan West| ✔ | ✔<sup>1</sup> |
 |Korea Central| ✔ | ✔<sup>1</sup> |
-|North Central US| ✔ |  |
+|North Central US| ✔ | ✔<sup>1</sup> |
 |North Europe| ✔ | ✔<sup>1</sup> |
+|Norway East| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |South Central US| ✔ | ✔<sup>1</sup> |
 |South India | ✔ | |
 |Southeast Asia| ✔ | ✔<sup>1</sup> |
 |UK South| ✔ | ✔<sup>1</sup> |
-|UK West| ✔ |  |
+|UK West| ✔ | ✔<sup>1</sup> |
 |West Europe| ✔ | ✔<sup>1</sup> |
-|West India| ✔ |  |
-|West Central US| | ✔<sup>1</sup> |
+|West India| ✔ | ✔<sup>1</sup> |
+|West Central US| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |West US| ✔ | ✔<sup>1</sup> |
-|West US 2| ✔ |  |
+|West US 2| ✔ | ✔<sup>1</sup> |
 
 <sup>1</sup>Maximum scale out limited to 20 instances.  
 <sup>2</sup>Maximum scale out limited to 60 instances.
