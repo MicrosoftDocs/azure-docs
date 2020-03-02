@@ -30,8 +30,6 @@ Use the Bing Custom Search client library for C# to:
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
 
-## Setting up
-
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](~/includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 
