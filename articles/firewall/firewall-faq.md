@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/02/2020
 ms.author: victorh
 ---
 
@@ -172,3 +172,25 @@ It takes from five to seven minutes for Azure Firewall to scale out. Contact Sup
 ## Does Azure Firewall allow access to Active Directory by default?
 
 No. Azure Firewall blocks Active Directory access by default. To allow access, configure the AzureActiveDirectory service tag. For more information, see [Azure Firewall service tags](service-tags.md).
+
+## Can I exclude a FQDN or an IP address from Azure Firewall Threat Intelligence based filtering?
+
+Yes, you can use Azure PowerShell to do this:
+
+```azurepowershell
+# Add a Threat Intelligence Whitelist to an Existing Azure Firewall
+
+## Create the Whitelist with both FQDN and IPAddresses
+
+$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
+$fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
+   -FQDN @(“fqdn1”, “fqdn2”, …) -IpAddress @(“ip1”, “ip2”, …)
+
+## Or Update FQDNs and IpAddresses separately
+
+$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
+$fw.ThreatIntelWhitelist.FQDNs = @(“fqdn1”, “fqdn2”, …)
+$fw.ThreatIntelWhitelist.IpAddress = @(“ip1”, “ip2”, …)
+
+Set-AzFirewall -AzureFirewall $f
+```
