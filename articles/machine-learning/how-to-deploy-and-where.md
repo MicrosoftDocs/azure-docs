@@ -542,7 +542,7 @@ input_json = {'data': [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                        [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
 # create a string that can be utf-8 encoded and
 # put in the body of the request
-serialized_input_json = input_json
+serialized_input_json = json.dumps(input_json)
 dataset_content = []
 for i in range(100):
     dataset_content.append(serialized_input_json)
@@ -577,7 +577,7 @@ inference_config = InferenceConfig(entry_script='path-to-score.py',
                                    environment=myenv)
 input_dataset = Dataset.get_by_name(workspace=ws, name='sample_request_data')
 profile = Model.profile(ws,
-            'unique_name_of_profiling_job',
+            'unique_name',
             [model],
             inference_config,
             input_dataset=input_dataset)
@@ -593,8 +593,6 @@ The following command demonstrates how to profile a model by using the CLI:
 ```azurecli-interactive
 az ml model profile -g <resource-group-name> -w <workspace-name> --inference-config-file <path-to-inf-config.json> -m <model-id> --idi <input-dataset-id> -n <unique-name>
 ```
-
-For an end to end example which shows how to use Azure Machine Learning Profiling, please see [this notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-cloud)
 
 ## Deploy to target
 
