@@ -15,7 +15,7 @@ ms.date: 02/27/2020
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. In this C# tutorial, apply Optical Character Recognition (OCR) on images and perform natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
-In this tutorial, use C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
+This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Start with application files and images in Azure Blob storage.
@@ -925,11 +925,11 @@ Repeat for additional fields: content, languageCode, keyPhrases, and organizatio
 
 ## Reset and rerun
 
-In the early experimental stages of development, the most practical approach for design iterations is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
-This tutorial took care of checking for existing indexers and indexes and deleting them if they already existed so that you can rerun your code.
+The sample code for this tutorial checks for existing objects and deletes them so that you can rerun your code.
 
-You can also use the portal to delete indexes, indexers, and skillsets.
+You can also use the portal to delete indexes, indexers, data sources, and skillsets.
 
 ## Takeaways
 
@@ -947,7 +947,7 @@ You can find and manage resources in the portal, using the All resources or Reso
 
 ## Next steps
 
-Customize or extend the pipeline with custom skills. Creating a custom skill and adding it to a skillset allows you to onboard text or image analysis that you write yourself.
+Now that you're familiar with all of the objects in an AI enrichment pipeline, let's take a closer look at skillset definitions and individual skills.
 
 > [!div class="nextstepaction"]
-> [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
+> [How to create a skillset](cognitive-search-defining-skillset.md)

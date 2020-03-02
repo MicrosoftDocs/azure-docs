@@ -86,7 +86,7 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## Test a runbook
 
-When you test a runbook, the [Draft version](#publish-a-runbook) is executed and any actions that it performs are completed. No job history is created, but the [Output](automation-runbook-output-and-messages.md#output-stream) and [Warning and Error](automation-runbook-output-and-messages.md#message-streams) streams are displayed in the Test output pane. Messages to the [Verbose stream](automation-runbook-output-and-messages.md#message-streams) are displayed in the Output pane only if the [$VerbosePreference variable](automation-runbook-output-and-messages.md#preference-variables) is set to **Continue**.
+When you test a runbook, the [Draft version](#publish-a-runbook) is executed and any actions that it performs are completed. No job history is created, but the [Output](automation-runbook-output-and-messages.md#output-stream) and [Warning and Error](automation-runbook-output-and-messages.md#message-streams) streams are displayed in the Test output pane. Messages to the [Verbose stream](automation-runbook-output-and-messages.md#message-streams) are displayed in the Output pane only if the *VerbosePreference* variable](automation-runbook-output-and-messages.md#preference-variables) is set to **Continue**.
 
 Even though the draft version is being run, the runbook still executes normally and performs any actions against resources in the environment. For this reason, you should only test runbooks on non-production resources.
 
