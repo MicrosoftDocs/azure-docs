@@ -13,9 +13,9 @@ manager: philmea
 
 # Read and write spatial data
 
-This article outlines all the different tools available in the spatial IO module for reading and writing spatial data.
+This article outlines all the different tools available in the Spatial IO module for reading and writing spatial data.
 
-The following is a list of spatial file formats that are supported for reading and writing using the spatial io module.
+The following is a list of spatial file formats that are supported for reading and writing using the Spatial IO module.
 
 | Data Format       | Read | Write |
 |-------------------|------|-------|
@@ -30,33 +30,34 @@ The following is a list of spatial file formats that are supported for reading a
 
 ## Read spatial data 
 
-The `atlas.io.read` function is used to read common spatial data formats such as KML, GPX, GeoRSS, GeoJSON, spatial CSV as well as compressed versions of these formats, zipped or KMZ. KMZ is a compressed version of KML that can also include assets such as images. The read function can alternatively take in a URL that points to a file in any of these formats. URLs should be hosted on a CORs enabled endpoint, or a proxy service should be provided in the read options. The read function returns a promise and processes in asynchornously to minimize impact to the UI thread.
+The `atlas.io.read` function is used to read common spatial data formats such as KML, GPX, GeoRSS, GeoJSON, and CSV files with spatial data. This function can also as read compressed versions of these formats, as a zip file or a KMZ file. The KMZ file format is a compressed version of KML that can also include assets such as images. Alternatively, the read function can take in a URL that points to a file in any of these formats. URLs should be hosted on a CORs enabled endpoint, or a proxy service should be provided in the read options. The read function returns a promise and processes in asynchronously to minimize impact to the UI thread.
 
-When reading compressed files (zip or KMZ files), they will be unzipped and scanned for the first valid file (doc.kml) or file extension (.kml, .xml, .geojson, .json, .csv, .tsv, .txt).
+When reading a compressed file, either as a zip or a KMZ, it will be unzipped and scanned for the first valid file. For example, doc.kml, or a file with other valid extension, such as: .kml, .xml, .geojson, .json, .csv, .tsv, or .txt. Then, images referenced in KML and GeoRSS files are preloaded to ensure they are accessible. Inaccessible image data may load an alternative fallback image or will be removed from the styles. Images extracted from KMZ files will be converted to data URIs.
 
-Images referenced in KML and GeoRSS files are preloaded to ensure they are accessible. Inaccessible image data may load an alternative fallback image or will be removed from the styles. Images extracted from KMZ files will be converted to data URIs. 
-
-The result from the read function is a `SpatialDataSet` object. This object extends the GeoJSON FeatureCollection class and can easily be passed into a `DataSource` as-is to render its features on a map. The `SpatialDataSet` not only contains feature information but may also include KML ground overlays, processing metrics and other details as outlined in the following table.
+The result from the read function is a `SpatialDataSet` object. This object extends the GeoJSON FeatureCollection class. It can easily be passed into a `DataSource` as-is to render its features on a map. The `SpatialDataSet` not only contains feature information, but it may also include KML ground overlays, processing metrics, and other details as outlined in the following table.
 
 | Property name | Type | Description | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | Bounding box of all the data in the data set. |
 | `features` | `Feature[]` | GeoJSON features within the data set. |
 | `groundOverlays` | `(atlas.layer.ImageLayer | atlas.layers.OgcMapLayer)[]` | An array of KML GroundOverlays. |
-| `icons` | Record&lt;string, string&gt; | A set of icon URL's. Key = icon name, Value = URL. |
+| `icons` | Record&lt;string, string&gt; | A set of icon URLs. Key = icon name, Value = URL. |
 | properties | any | Property information provided at the document level of a spatial data set. |
 | `stats` | `SpatialDataSetStats` | Statistics about the content and processing time of a spatial data set. |
 | `type` | `'FeatureCollection'` | Read only GeoJSON type value. |
 
-The following code shows how to read a simple spatial data set, in this case a GPX file using a URL, and render it on the map using the `SimpleDataLayer` class.
+The following code shows how to read a simple spatial data set, and render it on the map using the `SimpleDataLayer` class. The code uses a GPX file pointed it to by a URL.
 
-//TODO: codepen - Load spatial data (simple)
+<br/>
 
-The following code shows how to read and load KML (or KMZ) onto the map. KML can contain ground overlays which will be in the form of an `ImageLyaer` or `OgcMapLayer` these have to be added to the map seperately from the features. Additionally, if the data set has custom icons, those need to be loaded into the maps resources before the features are.
+<iframe height='500' scrolling='no' title='LoadSpatialDataSimple' src='/codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>Load Spatial Data Simple</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+The following code shows how to read and load KML, or KMZ, to the map. KML can contain ground overlays which will be in the form of an `ImageLyaer` or `OgcMapLayer`. These overlays have to be added to the map separately from the features. Additionally, if the data set has custom icons, those icons need to be loaded in to the maps resources before the features are loaded.
 
 //TODO: codepen - Load KML onto map
 
-The following code shows how to read a delimited file (CSV) that has spatial data columns and renders it on the map.
+The following code shows how to read a delimited file and render it on the map. In this case, the code uses a CSV file that has spatial data columns.
 
 //TODO: codepen - Add a delimited file (CSV) to the map
 
