@@ -31,25 +31,22 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 We'll guide you through configuration of a full test environment and the execution of the tests itself in the next steps. We'll start with the source, which will use the NAT gateway resource we create in later steps.
 
-### Create a virtual network
+## Virtual network and parameters
 
 Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network.
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**, or search for **Virtual Network** in the Marketplace search.
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-2. In **Create virtual network**, enter or select this information:
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNetsource          |
+| **\<region-name>**          | East US 2      |
+| **\<IPv4 address space>**   | 192.168.0.0\16          |
+| **\<subnet-name>**          | mySubnetsource        |
+| **\<subnet-address-range>** | 192.168.0.0\24          |
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **myVNetsource**. |
-    | Address space | Enter **192.168.0.0/16**. |
-    | Subscription | Select your subscription.|
-    | Resource group | Select create new - **myResourceGroupNAT**. |
-    | Location | Select **East US 2**.|
-    | Subnet - Name | Enter **mySubnetsource**. |
-    | Subnet - Address range | Enter **192.168.0.0/24**. |
-
-3. Leave the rest of the defaults and select **Create**.
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### Create source virtual machine
 
