@@ -168,6 +168,12 @@ By default `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` is used for persisting
 
 The folder prefix `appInsights-node` can be overridden by changing the runtime value of the static variable `Sender.TEMPDIR_PREFIX` found in [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
+### JavaScript (Browser)
+
+[HTML5 Session Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is used for persisting data. Two separate buffers are used, `AI_buffer` and `AI_sent_buffer`. Telemetry which is batched and waiting to be sent is stored in `AI_buffer`. Telemetry which has just been sent is placed in `AI_sent_buffer` until the ingestion server responds that it was received successfully, upon which it is removed from all buffers. On transient failures (e.g. user loses network connectivity), telemetry remains in `AI_buffer` until it is successfully received or when the ingestion server responds that the telemetry is invalid (bad schema, too old, etc).
+
+It can be disabled by setting [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) to `false`. When turned off, a local array will instead be used as the persistence storage. Since the JavaScript SDK runs on a client device, the end-user has access to this storage location via their browser's developer tools.
+
 ### OpenCensus Python
 
 By default OpenCensus Python SDK uses the current user folder `%username%/.opencensus/.azure/`. Permissions to access this folder are restricted to the current user and Administrators. (See [implementation](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) here.) The folder with your persisted data will be named after the Python file that generated the telemetry.
