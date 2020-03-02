@@ -76,6 +76,8 @@
       href: ./how-to/theming.md
     - name: Configure SSL
       href: ./how-to/ssl-configuration.md
+    - name: Run Multiple CycleCloud Installs
+      href: ./how-to/mutiple-installs.md
   - name: Cluster Operations
     items:
     - name: Create a Cluster
