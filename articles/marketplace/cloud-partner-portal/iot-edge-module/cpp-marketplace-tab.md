@@ -124,7 +124,7 @@ Use the following guidelines for a Hero logo:
 *  Avoid using most text when you're designing the logo. The publisher name, plan title, the offer long summary, and a create button are embedded programmatically inside the logo when the offer's listed. 
 * Include an unused rectangular space on the  right-side of your hero logo. This blank space is 415x100 pixels, and offset from the left by 370 pixels.  
 
-<!-- P2: woudl be nice to also have an picture int he context of iot edge of the hero image
+<!-- P2: would be nice to also have an picture int he context of iot edge of the hero image
 As an example, the following hero icon is for the Azure Container Service.
 
 ![Example hero icon for Azure Container Service](./media/publishvm_010.png)

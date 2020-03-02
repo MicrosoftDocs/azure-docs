@@ -1,5 +1,5 @@
 ---
-title: 'Create a route-based Azure VPN gateway: CLI | Microsoft Docs'
+title: 'Create a route-based Azure VPN Gateway: CLI'
 description: Quickly learn how to create a VPN Gateway using CLI
 services: vpn-gateway
 author: cherylmc

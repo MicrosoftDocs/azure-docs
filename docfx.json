@@ -72,6 +72,7 @@
       "searchScope": [
         "Azure"
       ],
+      "recommendations": true,
       "contributors_to_exclude": [
         "PRmerger",
         "PRMerger9",
@@ -241,7 +242,7 @@
         "articles/cognitive-services/personalizer/**/*.md": "diberry",
         "articles/cognitive-services/QnAMaker/**/*.md": "diberry",
         "articles/cognitive-services/Speech/**/*.md": "nitinme",
-        "articles/cognitive-services/Speech-Service/**/*.md": "erhopf",
+        "articles/cognitive-services/Speech-Service/**/*.md": "IEvangelist",
         "articles/cognitive-services/text-analytics/**/*.md": "aahill",
         "articles/container-instances/**/*.md": "dlepow",
         "articles/container-registry/**/*.md": "dlepow",
@@ -263,7 +264,8 @@
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
         "articles/service-fabric/*.md": "athinanthny",
-        "articles/service-fabric-mesh/*.md": "athinanthny"
+        "articles/service-fabric-mesh/*.md": "athinanthny",
+        "articles/aks/**/*.md": "mlearned"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -293,6 +295,7 @@
         "articles/application-insights/**/*.md": "https://feedback.azure.com/forums/357324-application-insights",
         "articles/automation/**/*.md": "https://feedback.azure.com/forums/246290-automation",
         "articles/availability-zones/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/azure-app-configuration/**/*.md": "https://github.com/Azure/AppConfiguration/issues",
         "articles/azure-databricks/**/*.md": "https://feedback.azure.com/forums/909463-azure-databricks",
         "articles/azure-functions/**/*.md": "https://feedback.azure.com/forums/355860-azure-functions",
         "articles/azure-government/**/*.md": "https://feedback.azure.com/forums/558487-azure-government",
@@ -508,7 +511,7 @@
         "articles/cognitive-services/personalizer/**/*.md": "diberry",
         "articles/cognitive-services/QnAMaker/**/*.md": "diberry",
         "articles/cognitive-services/Speech/**/*.md": "nitinme",
-        "articles/cognitive-services/Speech-Service/**/*.md": "erhopf",
+        "articles/cognitive-services/Speech-Service/**/*.md": "dapine",
         "articles/cognitive-services/text-analytics/**/*.md": "aahi",
         "articles/container-instances/**/*.md": "danlep",
         "articles/container-registry/**/*.md": "danlep",
@@ -531,7 +534,8 @@
         "articles/service-fabric/*.md": "atsenthi",
         "articles/service-fabric-mesh/*md": "atsenthi",
         "articles/notebooks/*.md": "jasonh",
-        "articles/service-health/*.md": "stbaron"
+        "articles/service-health/*.md": "stbaron",
+        "articles/aks/**/*.md": "mlearned"
       },
       "ms.service": {
         "articles/connectors/*.md": "logic-apps",
@@ -569,7 +573,8 @@
         "articles/notebooks/*.md": "azure-notebooks",
         "articles/service-fabric/*.md": "service-fabric",
         "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
-        "articles/service-health/**/*.md": "service-health"
+        "articles/service-health/**/*.md": "service-health",
+        "articles/aks/**/*.md": "container-service"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -602,7 +607,7 @@
         "articles/cognitive-services/personalizer/**/*.md": "personalizer",
         "articles/cognitive-services/QnAMaker/**/*.md": "qna-maker",
         "articles/cognitive-services/Speech/**/*.md": "bing-speech",
-        "articles/cognitive-services/Speech-Service/**/*.md": "bing-speech",
+        "articles/cognitive-services/Speech-Service/**/*.md": "speech-service",
         "articles/cognitive-services/text-analytics/**/*.md": "text-analytics",
         "articles/cognitive-services/Translator/**/*.md": "translator-text"
       },
@@ -654,6 +659,8 @@
         "articles/service-health/*.yml": "Azure Service Health",
         "articles/advisor/**/*.md": "Azure Advisor",
         "articles/advisor/*.yml": "Azure Advisor",
+        "articles/azure-monitor/**/*.yml" : "Azure Monitor",
+        "articles/azure-monitor/**/*.md" : "Azure Monitor",
         "articles/connectors/*.md": "Azure Logic Apps",
         "articles/logic-apps/*.md": "Azure Logic Apps",
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
@@ -707,14 +714,16 @@
         "articles/batch/*.yml": "Azure Batch",
         "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
         "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
-        "articles/azure-monitor/**/*.yml" : "Azure Monitor",
-        "articles/azure-monitor/**/*.md" : "Azure Monitor",
         "articles/service-fabric/*.md": "Azure Service Fabric",
-        "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh"
+        "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh",
+        "articles/aks/**/*.md": "Azure Kubernetes Service"
       },
       "featureFlags": {
         "articles/**/*.md": [
           "show_learn_banner"
+        ],
+        "articles/active-directory/**/*.md": [
+          "binaryRatingUpdate"
         ]
       },
       "learn_banner_products": {

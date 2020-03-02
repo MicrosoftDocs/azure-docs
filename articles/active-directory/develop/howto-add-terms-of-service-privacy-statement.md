@@ -13,7 +13,6 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Configure terms of service and privacy statement for an app

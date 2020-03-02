@@ -4,6 +4,8 @@
   items:
   - name: What is Automation?
     href: automation-intro.md
+  - name: FAQ
+    href: automation-faq.md
 - name: Automation Account
   items:
     - name: Create an Automation account
@@ -15,6 +17,8 @@
       displayName: certificate renewal
     - name: Configure authentication with AWS
       href: automation-config-aws-account.md
+    - name: Encryption of secure assets in Azure Automation
+      href: automation-secure-asset-encryption.md
     - name: Manage role-based access control
       href: automation-role-based-access-control.md
       displayName: RBAC
@@ -114,13 +118,7 @@
         href: source-control-integration.md
         displayName: github, vsts, azure devops, personal access token
       - name: Source control integration - legacy
-        href: automation-source-control-integration-legacy.md
-        displayname: github
-      - name: Source control integration with GitHub Enterprise
-        href: automation-scenario-source-control-integration-with-github-ent.md
-        displayName: CI, runbooks
-      - name: Source control integration with Azure DevOps
-        href: automation-scenario-source-control-integration-with-VSTS.md
+        href: source-control-integration-legacy.md
   - name: Troubleshoot
     items:
     - name: Data to collect when you open a case for Microsoft Azure Automation
@@ -140,6 +138,8 @@
     displayName: dynamic groups, pre scripts, post scripts, reboot control, first party, pre download, inclusion
   - name: Onboarding
     items:
+    - name: Using a Resource Manager template
+      href: automation-update-management-deploy-template.md   
     - name: Onboard multiple VMs from the portal
       href: automation-onboard-solutions-from-browse.md
     - name: Onboard from an Azure VM
@@ -242,7 +242,7 @@
   - name: Concepts
     items:
       - name: PowerShell DSC
-        href: /powershell/dsc/overview/overview
+        href: /powershell/scripting/dsc/overview/overview
   - name: Quickstarts
     items:
     - name: Getting Started
@@ -313,7 +313,7 @@
     - name: PowerShell modules
       items: 
       - name: Modules
-        href: automation-integration-modules.md
+        href: shared-resources/modules.md
       - name: Using Az modules in Azure Automation
         href: az-modules.md
       - name: Update Azure PowerShell modules

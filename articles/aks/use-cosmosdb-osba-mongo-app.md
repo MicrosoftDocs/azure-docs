@@ -1,11 +1,9 @@
 ---
 title: Integrate existing MongoDB application with Azure Cosmos DB API for MongoDB and Open Service Broker for Azure (OSBA)
 description: In this article, you learn how to integrate an existing Java and MongoDB application with the Azure Cosmos DB API for MongoDB using Open Service Broker for Azure (OSBA).
-services: azure-dev-spaces
 author: zr-msft
-manager: jeconnoc
 ms.service: azure-dev-spaces
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
@@ -190,7 +188,7 @@ You can use [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) to deploy the 
 
 To enable Azure Dev Spaces in your AKS cluster:
 
-```cmd
+```azurecli
 az aks enable-addons --addons http_application_routing -g MyResourceGroup -n MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS
 ```
@@ -205,7 +203,7 @@ This command generates several artifacts, including a *charts/* folder, which is
 
 Create a file at the root of your project named *Dockerfile* with this content:
 
-```Dockerfile
+```dockerfile
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 WORKDIR /app

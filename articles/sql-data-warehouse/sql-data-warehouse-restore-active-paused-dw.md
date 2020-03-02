@@ -1,6 +1,6 @@
 ---
 title: Restore an existing data warehouse 
-description: How-to guide for restoring an existing Azure SQL Data Warehouse.
+description: How-to guide for restoring an existing SQL pool.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -13,22 +13,22 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Restore an existing Azure SQL Data Warehouse
+# Restore an existing SQL pool
 
-In this article, you learn to restore an existing SQL Data Warehouse through Azure portal and PowerShell:
+In this article, you learn how to restore an existing SQL pool in Azure Synapse Analytics using Azure portal and PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (for example, myserver.database.windows.net) which has a default DTU quota. Verify the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change][Request a DTU quota change].
+**Verify your DTU capacity.** Each pool is hosted by a SQL server (for example, myserver.database.windows.net) which has a default DTU quota. Verify the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Before you begin
 
-1. Make sure to [install Azure PowerShell][Install Azure PowerShell].
-2. Have an existing restore point that you want to restore from. If you want to create a new restore, see [the tutorial to create a new user-defined restore point][the tutorial to create a new user-defined restore point].
+1. Make sure to [install Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+2. Have an existing restore point that you want to restore from. If you want to create a new restore, see [the tutorial to create a new user-defined restore point](sql-data-warehouse-restore-points.md).
 
-## Restore an existing data warehouse through PowerShell
+## Restore an existing SQL pool through PowerShell
 
-To restore an existing data warehouse from a restore point use the [Restore-AzSqlDatabase][Restore-AzSqlDatabase] PowerShell cmdlet.
+To restore an existing SQL pool from a restore point use the [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) PowerShell cmdlet.
 
 1. Open PowerShell.
 
@@ -36,17 +36,17 @@ To restore an existing data warehouse from a restore point use the [Restore-AzSq
 
 3. Select the subscription that contains the database to be restored.
 
-4. List the restore points for the data warehouse.
+4. List the restore points for the SQL pool.
 
 5. Pick the desired restore point using the RestorePointCreationDate.
 
-6. Restore the data warehouse to the desired restore point using [Restore-AzSqlDatabase][Restore-AzSqlDatabase] PowerShell cmdlet.
-        1. To restore the SQL Data Warehouse to a different logical server, make sure to specify the other logical server name.  This logical server can also be in a different resource group and region.
+6. Restore the SQL pool to the desired restore point using [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) PowerShell cmdlet.
+        1. To restore the SQL pool to a different logical server, make sure to specify the other logical server name.  This logical server can also be in a different resource group and region.
         2. To restore to a different subscription, use the  'Move' button to move the logical server to another subscription.
 
-7. Verify that the restored data warehouse is online.
+7. Verify that the restored SQL pool is online.
 
-8. After the restore has completed, you can configure your recovered data warehouse by following [configure your database after recovery][Configure your database after recovery].
+8. After the restore has completed, you can configure your recovered SQL pool by following [configure your database after recovery](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 
 ```Powershell
 
@@ -82,42 +82,20 @@ $RestoredDatabase.status
 
 ```
 
-## Restore an existing data warehouse through the Azure portal
+## Restore an existing SQL pool through the Azure portal
 
-1. Sign in to the [Azure portal][Azure portal].
-2. Navigate to the SQL Data Warehouse that you want to restore from.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Navigate to the SQL pool that you want to restore from.
 3. At the top of the Overview blade, select **Restore**.
 
     ![ Restore Overview](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Select either **Automatic Restore Points** or **User-Defined Restore Points**. If the data warehouse doesn't have any automatic restore points, wait a few hours or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one. For **Server**, you can pick a logical server in a different resource group and region or create a new one. After providing all the parameters, click **Review + Restore**.
+4. Select either **Automatic Restore Points** or **User-Defined Restore Points**. If the SQL pool doesn't have any automatic restore points, wait a few hours or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one. For **Server**, you can pick a logical server in a different resource group and region or create a new one. After providing all the parameters, click **Review + Restore**.
 
     ![Automatic Restore Points](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## Next Steps
-- [Restore a deleted data warehouse][Restore a deleted data warehouse]
-- [Restore from a geo-backup data warehouse][Restore from a geo-backup data warehouse]
+- [Restore a deleted SQL pool](sql-data-warehouse-restore-deleted-dw.md)
+- [Restore from a geo-backup SQL pool](sql-data-warehouse-restore-from-geo-backup.md)
+
  
-<!--Image references-->
-
-<!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[the tutorial to create a new user-defined restore point]:../sql-data-warehouse/sql-data-warehouse-restore-points.md
-[Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
-[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
-[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
-
-<!--MSDN references-->
-[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/

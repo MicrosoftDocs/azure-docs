@@ -64,5 +64,5 @@ The following table is for configuring the backup:
 
 For more information about backing up Azure file shares, see:
 
-- [Back up Azure file shares](backup-azure-files.md)
+- [Back up Azure file shares](backup-afs.md)
 - [Back up Azure file share FAQ](backup-azure-files-faq.md)

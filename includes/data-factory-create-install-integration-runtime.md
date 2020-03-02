@@ -77,7 +77,8 @@ In this section, you create a self-hosted integration runtime and associate it w
 
 5. Copy one of the keys (exclude the double quotation marks) used to register the self-hosted integration runtime that you install on your machine in the following steps.  
 
-## Install the integration runtime
+## Install the integration runtime tool
+
 1. If you already have the integration runtime on your machine, uninstall it by using **Add or Remove Programs**. 
 
 2. [Download](https://www.microsoft.com/download/details.aspx?id=39717) the self-hosted integration runtime on a local Windows machine. Run the installation.
@@ -129,5 +130,4 @@ In this section, you create a self-hosted integration runtime and associate it w
     h. Select **Test** to confirm that the integration runtime can connect to SQL Server. If the connection is successful, you see a green check mark. If the connection is not successful, you see an error message. Fix any issues, and ensure that the integration runtime can connect to SQL Server.    
 
     > [!NOTE]
-    > Make a note of the values for authentication type, server, database, user, and password. You use them later in this tutorial. 
-    
+    > Make a note of the values for authentication type, server, database, user, and password. You use them later in this tutorial.

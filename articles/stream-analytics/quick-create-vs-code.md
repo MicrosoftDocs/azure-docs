@@ -4,7 +4,7 @@ description: This quickstart shows you how to get started by creating a Stream A
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 09/16/2019
+ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
 #Customer intent: "As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio Code."
@@ -176,9 +176,11 @@ Follow the instructions in [Test queries locally with sample data](visual-studio
    |IotHubNamespace|MyASAIoTHub|Choose or enter the name of your IoT hub. IoT hub names are automatically detected if they're created in the same subscription.|
    |SharedAccessPolicyName|iothubowner| |
 
-   You can use the CodeLens feature to help you enter a string, select from a drop-down list, or change the text directly in the file. The following screenshot shows **Select from your Subscriptions** as an example.
+   You can use the CodeLens feature to help you enter a string, select from a drop-down list, or change the text directly in the file. The following screenshot shows **Select from your Subscriptions** as an example. The credentials are auto-listed and saved in local credential manager.
 
    ![Configure input in Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+
+   ![Configure input value in Visual Studio Code](./media/quick-create-vs-code/configure-input-value.png)
 
 ## Preview input
 

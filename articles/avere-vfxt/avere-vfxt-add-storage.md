@@ -4,7 +4,7 @@ description: How to add a back-end storage system to your Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
 ---
 
@@ -27,7 +27,7 @@ These steps use the Avere Control Panel. Read [Access the vFXT cluster](avere-vf
 
 ## Create a core filer
 
-"Core filer" is a vFXT term for a backend storage system. The storage can be a hardware NAS appliance like NetApp or Isilon, or it can be a cloud object store. More information about core filers can be found in the [Avere cluster settings guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
+"Core filer" is a vFXT term for a back-end storage system. The storage can be a hardware NAS appliance like NetApp or Isilon, or it can be a cloud object store. More information about core filers can be found in the [Avere cluster settings guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 To add a core filer, choose one of the two main types of core filers:
 
@@ -64,7 +64,7 @@ Next, proceed to [Create a junction](#create-a-junction).
 
 ### Azure Blob Storage cloud core filer
 
-To use Azure Blob storage as your vFXT cluster's backend storage, you need an empty container to add as a core filer.
+To use Azure Blob storage as your vFXT cluster's back-end storage, you need an empty container to add as a core filer.
 
 Adding Blob storage to your cluster requires these tasks:
 

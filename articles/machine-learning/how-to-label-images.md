@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 
 # Tag images in a labeling project
 
-After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
+After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
 
 > [!div class="checklist"]
 > * How to access your labeling projects
@@ -110,5 +110,5 @@ When you're done labeling, select your name in the upper-right corner of the lab
 
 ## Next steps
 
-* Learn to [train image classification models in Azure](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+* Learn to [train image classification models in Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
 * Read about [object detection using Azure and the "Faster R-CNN" technique](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/)

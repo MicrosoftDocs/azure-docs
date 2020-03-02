@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
 ---
 
@@ -92,7 +92,7 @@ Examples of use include:
 Full log querying is provided through [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md). To set up these powerful features:
 
 1. Search for **Log Analytics** in the Azure portal.
-1. You will see your available **Log Analytics workspace** instances. Choose one and select **Logs** to query:
+1. Your available **Log Analytics workspace** instances will be displayed. Choose one and select **Logs** to query:
 
     [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
@@ -104,7 +104,7 @@ Once your **Log Analytics workspace** instance is provisioned, you may use power
 
    [![Log management](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
-For more information about powerful query operations, see [getting started with queries](../azure-monitor/log-query/get-started-queries.md).
+For more information about powerful query operations, read [getting started with queries](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > You may experience a 5 minute delay when sending events to **Log Analytics workspace** for the first time.
@@ -118,7 +118,7 @@ Azure Monitor logs also provide powerful error and alert notification services, 
 
 ## Other options
 
-Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](../security/fundamentals/log-audit.md) article.
+Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, read the [Azure log audit](../security/fundamentals/log-audit.md) article.
 
 ## Next steps
 

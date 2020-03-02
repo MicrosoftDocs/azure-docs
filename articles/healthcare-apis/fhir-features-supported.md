@@ -36,8 +36,8 @@ Previous versions also currently supported include: `3.0.1`
 | create (conditional)           | Yes       | Yes       | Yes       |                                                     |
 | search                         | Partial   | Partial   | Partial   | See below                                           |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
-| batch                          | No        | No        | No        |                                                     |
-| transaction                    | No        | No        | No        |                                                     |
+| batch                          | Yes       | Yes       | Yes       |                                                     |
+| transaction                    | No        | Yes       | No        |                                                     |
 | history                        | Yes       | Yes       | Yes       |                                                     |
 | paging                         | Partial   | Partial   | Partial   | `self` and `next` are supported                     |
 | intermediaries                 | No        | No        | No        |                                                     |
@@ -53,10 +53,10 @@ All search parameter types are supported. Chained parameters and reverse chainin
 | String                | Yes       | Yes       | Yes       |         |
 | Token                 | Yes       | Yes       | Yes       |         |
 | Reference             | Yes       | Yes       | Yes       |         |
-| Composite             | Yes       | Yes       | Yes       |        |
-| Quantity              | Yes       | Yes       | Yes       |Issue [#103](https://github.com/Microsoft/fhir-server/issues/103) |
+| Composite             | Yes       | Yes       | Yes       |         |
+| Quantity              | Yes       | Yes       | Yes       |         |
 | URI                   | Yes       | Yes       | Yes       |         |
-| Special               | No        | No        | No        |        
+| Special               | No        | No        | No        |         |
 
 
 | Modifiers             | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
@@ -71,6 +71,7 @@ All search parameter types are supported. Chained parameters and reverse chainin
 |`:not-in` (token)      | No        | No        | No        |         |
 |`:[type]` (reference)  | No        | No        | No        |         |
 |`:below` (uri)         | Yes       | Yes       | Yes       |         |
+|`:not`                 | No        | No        | No        |         |
 |`:above` (uri)         | No        | No        | No        | Issue [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Common search parameter | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
@@ -118,4 +119,4 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 In this article, you've read about the supported FHIR features in Azure API for FHIR. Next deploy the Azure API for FHIR.
  
 >[!div class="nextstepaction"]
->[Getting started with Azure API for FHIR](tutorial-2-setup-environment.md)
+>[Deploy Azure API for FHIR](fhir-paas-portal-quickstart.md)
