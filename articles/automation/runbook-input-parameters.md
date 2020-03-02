@@ -86,7 +86,7 @@ Follow these steps to configure the input parameters.
 
    ![Automation graphical runbook](media/automation-runbook-input-parameters/automation-02-graphical-runbok-editor.png)
 
-3. The Input and Output control displays a list of input parameters that are defined for the runbook. Here you can either add a new input parameter or edit the configuration of an existing input parameter. To add a new parameter for the runbook, click **Add input** to open the **Runbook input parameter** blade where you can configure parameters using the properties defined in [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md#runbook-input).
+3. The Input and Output control displays a list of input parameters that are defined for the runbook. Here you can either add a new input parameter or edit the configuration of an existing input parameter. To add a new parameter for the runbook, click **Add input** to open the **Runbook input parameter** blade where you can configure parameters using the properties defined in [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 
     ![Add new input](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
 4. Create two parameters with the following properties to be used by the **Get-AzVM** activity, and then click **OK**.
