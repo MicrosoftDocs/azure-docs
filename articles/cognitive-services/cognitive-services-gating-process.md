@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/02/2020
 ms.author: dapine
 ---
 
@@ -28,7 +28,6 @@ Currently, the services below are offered through the gating process:
 
 | Service                                        | Container(s)                                                                  |
 |------------------------------------------------|-------------------------------------------------------------------------------|
-| [Anomaly Detector][ad-containers]              | Anomaly Detector                                                              |
 | [Computer Vision][cv-containers]               | Read                                                                          |
 | [Face][fa-containers]                          | Face                                                                          |
 | [Form Recognizer][fr-containers]               | Form Recognizer                                                               |
