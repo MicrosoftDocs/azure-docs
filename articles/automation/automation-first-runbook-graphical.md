@@ -7,7 +7,7 @@ ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
 ---
-# My first graphical runbook
+# My first Graphical runbook
 
 > [!div class="op_single_selector"]
 > * [Graphical](automation-first-runbook-graphical.md)
