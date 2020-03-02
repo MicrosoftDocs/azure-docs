@@ -95,12 +95,12 @@ For example, if you used the sample scripts to [Create demo certificates](how-to
 
 IoT Edge automatically generates certificates on the device in several cases, including:
 
-* If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager auto-generates a **device CA certificate**. This auto-generated and self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
+* If you don't provide your own production certificates when you install and provision IoT Edge, the IoT Edge security manager automatically generates a **device CA certificate**. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days.
 * The IoT Edge security manager also generates a **workload CA certificate** signed by the device CA certificate
 
 For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-For these two auto-generated certificates, you have the option of setting the **auto_generated_ca_lifetime_days** flag in config.yaml to configure the number of days for the lifetime of the certificates.
+For these two automatically generated certificates, you have the option of setting the **auto_generated_ca_lifetime_days** flag in config.yaml to configure the number of days for the lifetime of the certificates.
 
 >[!NOTE]
 >There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 90 day, but is automatically renewed before expiring. The **auto_generated_ca_lifetime_days** value doesn't affect this certificate.
@@ -115,11 +115,11 @@ certificates:
   auto_generated_ca_lifetime_days: <value>
 ```
 
-If you provided your own device CA certificates, then this value still applies to the workload CA certificate, as long as the lifetime value you set is shorter than the lifetime of the device CA certificate.
+If you provided your own device CA certificates, then this value still applies to the workload CA certificate, provided the lifetime value you set is shorter than the lifetime of the device CA certificate.
 
-After you specify the flag in the config.yaml file, do the following:
+After you specify the flag in the config.yaml file, take the following steps:
 
-1. Delete the contents of the hsm folder.
+1. Delete the contents of the `hsm` folder.
 
    Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys`
    Linux: `/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
@@ -152,7 +152,7 @@ After you specify the flag in the config.yaml file, do the following:
    sudo iotedge check --verbose
    ```
 
-   Check the output of the **production readiness: certificates** check, which lists the number of days until the auto-generated device CA certificates expire. 
+   Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated device CA certificates expire.
 
 ## Next steps
 

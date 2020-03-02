@@ -174,13 +174,12 @@ sudo nano /etc/iotedge/config.yaml
 
 Find the provisioning configurations of the file and uncomment the **Manual provisioning configuration** section. Update the value of **device_connection_string** with the connection string from your IoT Edge device. Make sure any other provisioning sections are commented out. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
 
-   ```yml
-   # Manual provisioning configuration
-   provisioning:
-     source: "manual"
-     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-     dyname_reprovisioning: false
-   ```
+```yml
+# Manual provisioning configuration
+provisioning:
+  source: "manual"
+  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```
 
 To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
 
@@ -196,7 +195,7 @@ sudo systemctl restart iotedge
 
 ### Option 2: Automatic provisioning
 
-IoT Edge devices can be automatically provisioned using the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml). Currently, IoT Edge supports two attestation mechanisms when using automatic provisioning, but your hardware requirements may impact your choices. For example, Raspberry Pi devices do not come with a Trusted Platform Module (TPM) chip by default. For more information, refer to the following articles:
+IoT Edge devices can be automatically provisioned using the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml). Currently, IoT Edge supports two attestation mechanisms when using automatic provisioning, but your hardware requirements may impact your choices. For example, Raspberry Pi devices do not come with a Trusted Platform Module (TPM) chip by default. For more information, see the following articles:
 
 * [Create and provision an IoT Edge device with a virtual TPM on a Linux VM](how-to-auto-provision-simulated-device-linux.md)
 * [Create and provision an IoT Edge device using X.509 certificates](how-to-auto-provision-x509-certs.md)
@@ -219,10 +218,10 @@ TPM attestation:
 provisioning:
   source: "dps"
   global_endpoint: "https://global.azure-devices-provisioning.net"
-  scope_id: "{scope_id}"
+  scope_id: "<SCOPE_ID>"
   attestation:
     method: "tpm"
-    registration_id: "{registration_id}"
+    registration_id: "<REGISTRATION_ID>"
 ```
 
 X.509 attestation:
@@ -232,10 +231,10 @@ X.509 attestation:
 provisioning:
   source: "dps"
   global_endpoint: "https://global.azure-devices-provisioning.net"
-  scope_id: "{scope_id}"
+  scope_id: "<SCOPE_ID>"
   attestation:
     method: "x509"
-#   registration_id: "<OPTIONAL REGISTRATION ID. IF UNSPECIFIED CAN BE OBTAINED FROM CN OF identity_cert"
+#   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
     identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
     identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
 ```
@@ -247,11 +246,11 @@ Symmetric key attestation:
 provisioning:
   source: "dps"
   global_endpoint: "https://global.azure-devices-provisioning.net"
-  scope_id: "{scope_id}"
+  scope_id: "<SCOPE_ID>"
   attestation:
     method: "symmetric_key"
-    registration_id: "{registration_id}"
-    symmetric_key: "{symmetric_key}"
+    registration_id: "<REGISTRATION_ID>"
+    symmetric_key: "<SYMMETRIC_KEY>"
 ```
 
 To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
@@ -314,7 +313,7 @@ Many embedded device manufacturers ship device images that contain custom Linux 
    ./check-config.sh
    ```
 
-This command provides a detailed output that contains the status of kernel features that are used by the Moby runtime. You will want to ensure that all items under `Generally Necessary` and  `Network Drivers` are enabled to ensure that your kernel is fully compatible with the Moby runtime.  If you have identified any missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config.  Similarly, if you are using a kernel configuration generator like defconfig or menuconfig, find and enable the respective features and rebuild your kernel accordingly.  Once you have deployed your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
+This command provides a detailed output that contains the status of kernel features that are used by the Moby runtime. You will want to ensure that all items under `Generally Necessary` and  `Network Drivers` are enabled to ensure that your kernel is fully compatible with the Moby runtime.  If you have identified any missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config.  Similarly, if you are using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly.  Once you have deployed your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
 
 ## Uninstall IoT Edge
 

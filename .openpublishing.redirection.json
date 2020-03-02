@@ -3261,7 +3261,7 @@
     {
       "source_path": "articles/iot-edge/how-to-install-production-certificates.md",
       "redirect_url": "/azure/iot-edge/how-to-manage-device-certificates",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
