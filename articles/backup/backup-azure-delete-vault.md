@@ -282,7 +282,7 @@ To delete existing Recovery services vault, perform the below:
 
 - To stop protection and delete the backup data
 
-    ```CLI
+    ```azurecli
     az backup protection disable --container-name
                              --item-name
                              [--delete-backup-data {false, true}]
@@ -297,7 +297,7 @@ To delete existing Recovery services vault, perform the below:
 
 - Delete an existing Recovery services vault:
 
-    ```CLI
+    ```azurecli
     az backup vault delete [--force]
                        [--ids]
                        [--name]
