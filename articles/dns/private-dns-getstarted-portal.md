@@ -92,9 +92,8 @@ Now, create two virtual machines so you can test your private DNS zone:
 1. Select **MyAzureResourceGroup** for the resource group.
 1. Type **myVM01** - for the name of the virtual machine.
 1. Select **West Central US** for the **Region**.
-1. Type **azureadmin** for the administrator user name.
-2. Type **Azure12345678** for the password and confirm the password.
-
+1. Enter a name for the administrator user name.
+2. Enter a password and confirm the password
 5. For **Public inbound ports**, select **Allow selected ports**, and then select **RDP (3389)** for **Select inbound ports**.
 10. Accept the other defaults for the page and then click **Next: Disks >**.
 11. Accept the defaults on the **Disks** page, then click **Next: Networking >**.
