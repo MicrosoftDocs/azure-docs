@@ -59,6 +59,10 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 
 ![Add apply splitting filter](./media/monitor-cosmos-db/apply-metrics-splitting.png)
 
+Here is another example to view the server-side latency metrics for a specific database, container, or an operation:
+
+![Server-side latency metric](./media/monitor-cosmos-db/serverside-latency-metric.png)
+
 ## Monitoring data collected from Azure Cosmos DB
 
 Azure Cosmos DB collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a detailed reference of the logs and metrics created by Azure Cosmos DB.
