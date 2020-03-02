@@ -117,12 +117,12 @@ You have multiple options for accessing monitoring data collected for virtual ma
 
 | Menu option | Description |
 |:---|:---|
-| Overview | Displays [platform metrics](./platform/data-platform-metrics.md) for the virtual machine host. Click on a graph to work with this data in [metrics explorer](../platform/metrics-getting-started.md). |
+| Overview | Displays [platform metrics](../platform/data-platform-metrics.md) for the virtual machine host. Click on a graph to work with this data in [metrics explorer](../platform/metrics-getting-started.md). |
 | Activity log | [Activity log](../platform/activity-log-view.md) entries filtered for the current virtual machine. |
 | Insights (preview) | Opens [Azure Monitor for VMs](../insights/vminsights-overview.md) with the map for the current virtual machine selected. |
 | Alerts | Views [alerts](../platform/alerts-overview.md) for the current virtual machine.  |
 | Metrics | Open [metrics explorer](../platform/metrics-getting-started.md) with the scope set to the current virtual machine. |
-| Diagnostic settings | Enable and configure [diagnostics extension](..platform/diagnostics-extension-overview.md) for the current virtual machine. |
+| Diagnostic settings | Enable and configure [diagnostics extension](../platform/diagnostics-extension-overview.md) for the current virtual machine. |
 | Advisor recommendations | Recommendations for the currentl virtual machine from [Azure Advisor](/azure/advisor/). |
 | Logs | Open [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics) with the [scope](../log-query/scope.md) set to the current virtual machine. |
 | Connection monitor | Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-preview.md) to monitor connections between the current virtual machine and other virtual machines. |
@@ -146,7 +146,7 @@ Azure Monitor for VMs enables the collection of a predetermined set of performan
 
 | Data source | Requirements | Tables |
 |:---|:---|:---|
-| Azure Monitor for VMs | Enable on each virtual machine. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>See [How to query logs from Azure Monitor for VMs](vminsights-log-search.md#sample-log-searchesl) for details. |
+| Azure Monitor for VMs | Enable on each virtual machine. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>See [How to query logs from Azure Monitor for VMs](vminsights-log-search.md#sample-log-searches) for details. |
 | Activity log | Diagnostic setting for the subscription. | AzureActivity |
 | Host metrics | Diagnostic setting for the virtual machine. | AzureMetrics |
 | Data sources from the guest operating system | Enable Log Analytics agent and configure data sources. | See documentation for each data source. |
