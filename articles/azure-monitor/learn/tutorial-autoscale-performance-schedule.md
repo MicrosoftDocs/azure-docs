@@ -3,7 +3,7 @@ title: Autoscale Azure resources based on performance data or a schedule
 description: Create an autoscale setting for an app service plan using metric data and a schedule
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
