@@ -109,7 +109,7 @@
         href: connect-virtual-network-vnet-isolated-environment.md
       - name: Set up access for multiple integration service environments
         href: connect-virtual-network-vnet-set-up-single-ip-address.md
-      - name: Add artifacts to integration service environments
+      - name: Add resources to integration service environments
         href: add-artifacts-integration-service-environment-ise.md
       - name: Set up customer-managed encryption keys for integration service environments
         href: customer-managed-keys-integration-service-environment.md

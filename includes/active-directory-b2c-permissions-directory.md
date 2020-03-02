@@ -1,10 +1,10 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
-ms.author: marsma
+ms.author: mimart
 # Used by articles that interact with the Microsoft Graph API for user object manipulation.
 ---
 #### [Applications](#tab/applications/)
