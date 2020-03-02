@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Centralize application management with Azure AD
 
-Passwords, both an IT nightmare and a pain for employees across the world. This is why more and more companies are turning to Azure Active Directory, Microsoft's Identity and Access Management solution for the cloud and all your other resources. Jump from application to applicaiton without having to enter a password for each one. Jump from Outlook, to Workday, to ADP as fast as you can open them up, quickly and securely. Then collaborate with partners and even others outside your organization all without having to call IT. What's more, Azure AD helps manage risk by securing the apps you use with things like multi-factor authentication to verify who you are, using continuously adaptive machine learning and security intelligence to detect suspicious sign-ins giving you secure access to the apps you need, wherever you are. It's not only great for users but for IT as well. With just-in-time access reviews and a full scale governance suite, Azure AD helps you stay in compliance and enforce policies too. And get this, you can even automate provisioning user accounts, making access management a breeze. Checkout some of the common scenarios that customer use Azure Active Directory's application management capabilities for.
+Passwords, both an IT nightmare and a pain for employees across the world. This is why more and more companies are turning to Azure Active Directory, Microsoft's Identity and Access Management solution for the cloud and all your other resources. Jump from application to application without having to enter a password for each one. Jump from Outlook, to Workday, to ADP as fast as you can open them up, quickly and securely. Then collaborate with partners and even others outside your organization all without having to call IT. What's more, Azure AD helps manage risk by securing the apps you use with things like multi-factor authentication to verify who you are, using continuously adaptive machine learning and security intelligence to detect suspicious sign-ins giving you secure access to the apps you need, wherever you are. It's not only great for users but for IT as well. With just-in-time access reviews and a full scale governance suite, Azure AD helps you stay in compliance and enforce policies too. And get this, you can even automate provisioning user accounts, making access management a breeze. check out some of the common scenarios that customer use Azure Active Directory's application management capabilities for.
 
 **Common scenarios**
 
@@ -35,29 +35,29 @@ Passwords, both an IT nightmare and a pain for employees across the world. This 
 > * Secure remote access to your applications
 
 
-## Scenario 1: Setup SSO for all your applications
+## Scenario 1: Set up SSO for all your applications
 
 No more managing password. Securely access all the resources you need with your corporate credentials. 
 
 |Feature  | Description |
 |---------|---------|
-|SSO|Standards based federated SSO using trusted industry standards.|Always use SAML / OIDC to enable SSO when your application supports it.|
+|SSO|Standards-based federated SSO using trusted industry standards.|Always use SAML / OIDC to enable SSO when your application supports it.|
 |Access panel|Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others.|
 
 ## Scenario 2: Automate provisioning and deprovisioning 
 
 
-Most applications require a user to be provisioned into the application before accessing the resources that they need. Using CSV files or complex scripts can be costly and hard to manage. Furthermore, customers need to ensure that accounts are removed when somone shouldn't have access anymore. Leverage the tools below to automate provisioning and deprovisioning. 
+Most applications require a user to be provisioned into the application before accessing the resources that they need. Using CSV files or complex scripts can be costly and hard to manage. Furthermore, customers need to ensure that accounts are removed when someone shouldn't have access anymore. Leverage the tools below to automate provisioning and deprovisioning. 
 
 
 |Feature  |Description|
 |---------|---------|
-|SCIM Provisioning|[SCIM](https://aka.ms/SICMOverview) is an industry best practice for automating user provisioning. Any SCIM compliant application can be integrated with Azure AD. Automatically create, update, and delete user accounts without having to maintain CSV files, custom scripts, or on prem solutions. 
+|SCIM Provisioning|[SCIM](https://aka.ms/SICMOverview) is an industry best practice for automating user provisioning. Any SCIM-compliant application can be integrated with Azure AD. Automatically create, update, and delete user accounts without having to maintain CSV files, custom scripts, or on-prem solutions. 
 |Microsoft Graph|Leverage the breath and depth of data that Azure AD has to enrich your application with the data that it needs.|
 
 
 ## Scenario 3: Secure your applications
-Identity is the linchpin for security. If an identity gets compromised, it's incredibly difficult to stop the domino effect before it's to late. On average over 100 days pass before organizations discover that there was a compromise. Use the tools provided by Azure AD to improve the security posture of your applications. 
+Identity is the linchpin for security. If an identity gets compromised, it's incredibly difficult to stop the domino effect before it's too late. On average over 100 days pass before organizations discover that there was a compromise. Use the tools provided by Azure AD to improve the security posture of your applications. 
 
 |Feature  |Description|
 |---------|---------|
@@ -70,13 +70,13 @@ Identity Governance helps organizations achieve a balance between productivity -
 
 |Feature  |Description|
 |---------|---------|
-|ELM|Azure AD entitlement management can help users both inside and outside your organization more efficiently manage access to their appplications.|
+|ELM|Azure AD entitlement management can help users both inside and outside your organization more efficiently manage access to their applications.|
 |Access Reviews|User's access to apps can be reviewed on a regular basis to make sure only the right people have continued access.|
 |Log Analytics|Generate reports about who is accessing which applications and store them in your SIEM tool of choice to correlate data between data sources and over time.|
 
 
 ## Scenario 5: Hybrid Secure Access
-Identity can only be your control plane if it can connect everything across cloud and on-premises applications. Leverage the tools provided by Azure AD and it's partners to secure access to legacy-auth based applications.
+Identity can only be your control plane if it can connect everything across cloud and on-premises applications. Leverage the tools provided by Azure AD and its partners to secure access to legacy-auth based applications.
 
 |Feature  |Description|
 |---------|---------|
