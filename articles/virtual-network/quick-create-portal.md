@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 07/08/2019
+ms.date: 03/05/2020
 ms.author: kumud
 
 ---
@@ -31,9 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a virtual network
 
-1. From the Azure portal menu, select **Create a resource**.
-
-1. From the Azure Marketplace, select **Networking** > **Virtual network**.
+1. From the Azure portal menu, select **Create a resource**. From the Azure Marketplace, select **Networking** > **Virtual network**.
 
 1. In **Create virtual network**, enter or select this information:
 
@@ -44,9 +42,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Name | Enter *myVirtualNetwork*. |
     | Location | Select **East US**.|
 
-1. Select **Next: IP Addresses**.
-
-1. For IPv4 address space, enter *10.1.0.0/16*.
+1. Select **Next: IP Addresses**, and for **IPv4 address space**, enter *10.1.0.0/16*.
 
 1. Select **Add subnet**, then enter *myVirtualSubnet* for **Subnet name** and *10.1.0.0/24* for **Subnet address range**.
 
@@ -74,33 +70,33 @@ Create two VMs in the virtual network:
     | **Instance details** |  |
     | Virtual machine name | Enter *myVm1*. |
     | Region | Select **East US**. |
-    | Availability options | Leave the default **No infrastructure redundancy required**. |
-    | Image | Leave the default **Windows Server 2019 Datacenter**. |
-    | Size | Leave the default **Standard DS1 v2**. |
+    | Availability options | Default to **No infrastructure redundancy required**. |
+    | Image | Default to **Windows Server 2019 Datacenter**. |
+    | Size | Default to **Standard DS1 v2**. |
     | **Administrator account** |  |
     | Username | Enter a username of your choosing. |
     | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirm Password | Reenter password. |
+    | Confirm Password | Re-enter password. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Enter *HTTP (80)* and *RDP (3389)*. |
     | **Save money** |  |
-    | Already have a Windows license? | Leave the default **No**. |
+    | Already have a Windows license? | Default to **No**. |
 
 1. Select **Next: Disks**.
 
-1. In **Create a virtual machine - Disks**, leave the defaults and select **Next: Networking**.
+1. In **Create a virtual machine - Disks**, keep the defaults and select **Next: Networking**.
 
 1. In **Create a virtual machine - Networking**, select this information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Virtual network | Leave the default **myVirtualNetwork**. |
-    | Subnet | Leave the default **myVirtualSubnet (10.1.0.0/24)**. |
-    | Public IP | Leave the default **(new) myVm-ip**. |
-    | NIC network security group | Leave the default **Basic**. |
-    | Public inbound ports | Leave the default **Allow selected ports**. |
-    | Select inbound ports | Leave the default **HTTP** and **RDP**.
+    | Virtual network | Default to **myVirtualNetwork**. |
+    | Subnet | Default to **myVirtualSubnet (10.1.0.0/24)**. |
+    | Public IP | Default to **(new) myVm-ip**. |
+    | NIC network security group | Default to **Basic**. |
+    | Public inbound ports | Default to **Allow selected ports**. |
+    | Select inbound ports | Default to **HTTP** and **RDP**.
 
 1. Select **Next: Management**.
 
@@ -111,9 +107,9 @@ Create two VMs in the virtual network:
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter *myvmstorageaccount*. If this name is taken, create a unique name.|
-    | Account kind | Leave the default **Storage (general purpose v1)**. |
-    | Performance | Leave the default **Standard**. |
-    | Replication | Leave the default **Locally-redundant storage (LRS)**. |
+    | Account kind | Default to **Storage (general purpose v1)**. |
+    | Performance | Default to **Standard**. |
+    | Replication | Default to **Locally-redundant storage (LRS)**. |
 
 1. Select **OK**
 
@@ -125,7 +121,7 @@ Create two VMs in the virtual network:
 
 Repeat the procedure in the previous section to create another virtual machine.
 
-> [!NOTE]
+> [!IMPORTANT]
 > For the **Virtual machine name**, enter *myVm2*.
 >
 > For **Diagnosis storage account**, make sure you select **myvmstorageaccount**, instead of creating one.
@@ -213,16 +209,18 @@ After you've created *myVm1*, connect to the internet.
 
 ## Clean up resources
 
+In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and securely communicated between the two VMs.
+
 When you're done using the virtual network and the VMs, delete the resource group and all of the resources it contains:
 
 1. Search for and select *myResourceGroup*.
 
-2. Select **Delete resource group**.
+1. Select **Delete resource group**.
 
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
 
-In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and securely communicated between the two VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
+To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
 By default, Azure allows secure communication between VMs. Azure only allows inbound remote desktop connections to Windows VMs from the internet. To learn more about types of VM network communications, see [Filter network traffic](tutorial-filter-network-traffic.md).
