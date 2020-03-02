@@ -15,7 +15,7 @@ ms.author: allensu
 # Quickstart: Create a Private Endpoint using Azure portal
 
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. 
-In this Quickstart, you will learn how to create a VM on an Azure Virtual Network, a  SQL Database Server with an Azure private endpoint using the Azure Portal. Then, you can securely access the SQL Database Server from the VM.
+In this Quickstart, you will learn how to create a VM on an Azure Virtual Network, a SQL Database Server with an Azure private endpoint using the Azure portal. Then, you can securely access the SQL Database Server from the VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
