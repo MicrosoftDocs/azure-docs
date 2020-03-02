@@ -11,7 +11,7 @@ ms.subservice: files
 
 # StorSimple 1200 migration to Azure File Sync
 
-StorSimple 1200 series is a virtual appliance that is run in an on-premises data center. It is possible to migrate this appliance to an Azure File Sync environment. This article provides the necessary background knowledge and migrations steps for a successful migration to Azure File Sync.
+StorSimple 1200 series is a virtual appliance that is run in an on-premises data center. It is possible to migrate the data from this appliance to an Azure File Sync environment. This article provides the necessary background knowledge and migrations steps for a successful migration to Azure File Sync.
 
 ## Azure File Sync
 

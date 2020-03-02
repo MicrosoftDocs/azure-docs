@@ -11,7 +11,7 @@ ms.subservice: files
 
 # StorSimple 8100 and 8600 migration to Azure File Sync
 
-The StorSimple 8000 series has two different physical appliances within it. The only difference between them is the amount of local cache size (disk space). This appliance is run in an on-premises data center and acts as a cache to the data stored in Azure. It is possible to migrate both of these appliances to an Azure File Sync environment. This article covers migrating both appliances to Azure File Sync and provides the necessary background knowledge and migrations steps to make your migration to Azure File Sync a success.
+The StorSimple 8000 series represents two separate SKUs and it is possible to migrate the data from both of these appliances to an Azure File Sync environment. This article covers migrating both appliances to Azure File Sync and provides the necessary background knowledge and migrations steps to make your migration to Azure File Sync a success.
 
 ## Azure File Sync
 
