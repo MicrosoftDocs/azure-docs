@@ -302,7 +302,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-# Deploy a TensorFlow model
+## Deploy a TensorFlow model
 
 The model you just registered can be deployed the exact same way as any other registered model in Azure Machine Learning, regardless of which estimator you used for training. The deployment how-to contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
