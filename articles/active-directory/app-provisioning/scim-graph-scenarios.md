@@ -39,7 +39,7 @@ Automatically create, update, and delete user accounts in your application when 
 
 |Option  |Pros  |Cons |
 |---------|---------|---------|
-|Develop and integrate a [SCIM](https://aka.ms/SCIMOverview) compliance / User endpoint **(recommended for basic user provisioning)**|[Industry best practice](http://www.simplecloud.info/) that is interoperable with various IDPs. <br> No need to build and maintain a sync engine. <br> Out of the box logging for customers. <Br> Customers can manage provisioning to all their apps from one place. <br>|SCIM provisioning gives you access to directory data but not other Microsoft data|For basic user and group provisioning, SCIM is the recommended path forward|
+|Develop and integrate a [SCIM](https://aka.ms/SCIMOverview) compliant / User endpoint **(recommended for basic user provisioning)**|[Industry best practice](http://www.simplecloud.info/) that is interoperable with various IDPs. <br> No need to build and maintain a sync engine. <br> Out of the box logging for customers. <Br> Customers can manage provisioning to all their apps from one place. <br>|SCIM provisioning gives you access to directory data but not other Microsoft data|For basic user and group provisioning, SCIM is the recommended path forward|
 |Develop a graph based sync engine **(recommended for enriching your app with additional data form Teams, Sharepoint, etc.)**|You have access to all the data available in Microsoft <br> Control the end to end-user experience|Heavy cost of maintaining and building a sync engine <br> The permissions you require might not be acceptable by IT <br> B2C <br> ||
 
 ## Scenario 2: Automatically create, update, and delete users and groups in Azure AD
