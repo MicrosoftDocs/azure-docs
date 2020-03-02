@@ -22,23 +22,12 @@ This article helps administrators diagnose and resolve connectivity problems whe
 
 ## Problems
 
-- [Cannot ICMP ping public endpoints](#cannot-icmp-ping-public-endpoints).
 - [SNAT exhaustion](#snat-exhaustion).
+- [ICMP ping is failing](#icmp-ping-is-failing).
 
 To resolve these problems, follow the steps in the following section.
 
 ## Resolution
-
-### Cannot ICMP ping public endpoints
-
-[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols. ICMP is not supported and expected to fail.  Instead, use TCP connection tests (e.g. "TCP ping") and UDP specific application layer tests to validate end to end connectivity.
-
-Depending on whether you use Linux or Windows operating systems, the tool of choice may be slightly different.  The following table has a couple of examples:
-
-| Operating system | Generic TCP connection test | Application layer test |
-|---|---|---|
-| Linux | nc (generic connection test) | curl (TCP application layer test) |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | Invoke-WebRequest |
 
 ### SNAT exhaustion
 
@@ -51,6 +40,18 @@ If you have already optimized your application and are reusing connections and p
 If you are experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage, you can add additional public IP address resources or public IP prefix resources for up to 16 IP addresses in total to your NAT gateway.
 
 If you have already allocated 16 IP addresses and still are experiencing SNAT port exhaustion, you need to distribute your deployment across multiple subnets and provide a NAT gateway resource for each subnet.
+
+
+### ICMP ping is failing
+
+[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols. ICMP is not supported and expected to fail.  Instead, use TCP connection tests (e.g. "TCP ping") and UDP specific application layer tests to validate end to end connectivity.
+
+Depending on whether you use Linux or Windows operating systems, the tool of choice may be slightly different.  The following table has a couple of examples:
+
+| Operating system | Generic TCP connection test | Application layer test |
+|---|---|---|
+| Linux | nc (generic connection test) | curl (TCP application layer test) |
+| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | Invoke-WebRequest |
 
 ## Next steps
 
