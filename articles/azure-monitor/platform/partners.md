@@ -11,6 +11,17 @@ ms.date: 03/14/2019
 
 Listed in alphabetical order. 
 
+
+## AIMS
+
+![AIMS Logo](https://cdn2.hubspot.net/hubfs/169013/Website-2018/Images/Global/aims-logo-grey.png)
+
+AIMS AIOps (Artificial Intelligence for IT Operations) collects Azure performance metrics to identify anomalies that can cause business disruption or costs to run wild.  AIMS also supports on premise technologies for seamless hybrid control.  AIMS is available in the Azure Marketplace.
+
+[Go to the documentation.](https://www.aims.ai/)
+
+<br/>
+
 ## AlertLogic Log Manager
 
 ![AlertLogic Logo](./media/partners/alertlogic.png)
