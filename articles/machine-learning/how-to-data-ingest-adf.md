@@ -27,7 +27,7 @@ There are several common techniques of how that custom data processing may be pe
 
 ![adf-function](media/how-to-data-ingest-adf/adf-function.png)
 
-In this option, the data is processed with custom Python code wrapped into an Azure Function, which is invoked with [ADF Azure Function activity](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity). This approach is a good option for lightweight data transformations. 
+In this option, the data is processed with custom Python code wrapped into an Azure Function. The function is invoked with [ADF Azure Function activity](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity). This approach is a good option for lightweight data transformations. 
 
 * Pros:
     * The data is processed on a serverless compute with a relatively low latency
@@ -41,14 +41,14 @@ In this option, the data is processed with custom Python code wrapped into an Az
 
 ![adf-customcomponent](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
-In this option, the data is processed with custom Python code wrapped into an executable, which is invoked with an [ADF Custom Component activity](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity). This approach is a better fit for large data than the previous technique.
+In this option, the data is processed with custom Python code wrapped into an executable. It is invoked with an [ADF Custom Component activity](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity). This approach is a better fit for large data than the previous technique.
 
 * Pros:
     * The data is processed on [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) pool, which provides large-scale parallel and high-performance computing
     * Can be used to run heavy algorithms and process significant amounts of data
 * Cons:
     * Azure Batch pool should be provisioned
-    * Over engineering related to wrapping Python code into an executable along with the complexity of handling dependencies and input/output parameters
+    * Over engineering related to wrapping Python code into an executable. Complexity of handling dependencies and input/output parameters
 
 ## Data is processed by ADF with Azure Databricks Python notebook
 
@@ -70,7 +70,7 @@ In this technique the data transformation is performed by a [Python notebook](ht
 
 ![aml-dataset](media/how-to-data-ingest-adf/aml-dataset.png)
 
-An Azure Machine Learning (AML) pipeline consumes the prepared data from a data storage via [datastores](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) and [datatsets](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets). A [dataset of specific version](https://docs.microsoft.com/azure/machine-learning/how-to-version-track-datasets) is referring to the exact location in the data storage. On each execution an ADF pipeline saves the processed data to a new location. It invokes an Azure Machine Learning (AML) pipeline passing the location of the data as a parameter along with ADF pipeline run id. The AML pipeline registers a new version of a dataset pointing to the passed location. So each training pipeline execution is linked to a specific dataset version, which makes it possible to track what data was used to train the model and which ADF pipeline execution prepared it.
+An Azure Machine Learning (AML) pipeline consumes the prepared data from a data storage via [datastores](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) and [datatsets](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets). A [dataset of specific version](https://docs.microsoft.com/azure/machine-learning/how-to-version-track-datasets) is referring to the exact location in the data storage. On each execution, an ADF pipeline saves the processed data to a new location. It invokes an Azure Machine Learning (AML) pipeline passing the location of the data as a parameter along with ADF pipeline run id. The AML pipeline registers a new version of a dataset pointing to the passed location. So each training pipeline execution is linked to a specific dataset version. This approach makes it possible to track what data was used to train the model and which ADF pipeline execution prepared it.
 
 ## Next steps
 
