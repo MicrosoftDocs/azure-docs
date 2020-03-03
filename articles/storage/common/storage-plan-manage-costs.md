@@ -38,15 +38,13 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 4. Modify the remaining options to see their affect on your estimate.
 
-<insert specific walkthrough steps for using the calculator here>
-
 ## Use budgets and cost alerts
 
 You can create [budgets](../../cost-management-billing/costs/tutorial-acm-create-budgets.md) to manage costs and create alerts that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. However, they might have limited functionality to manage individual Azure service costs like the cost of Azure Storage because they are designed to track costs at a higher level.
 
 ## Monitor costs
 
-As you use Azure resources with Azure Storage, you incur costs. Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) Costs are incurred as soon as usage of Azure Storage starts. You can see the costs in the [cost analysis](../../cost-management-billing/costs/costs/quick-acm-cost-analysis.md) pane in the Azure portal.
+As you use Azure resources with Azure Storage, you incur costs. Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) Costs are incurred as soon as usage of Azure Storage starts. You can see the costs in the [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md) pane in the Azure portal.
 
 When you use cost analysis, you can view Azure Storage costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You can also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends and see where overspending might have occurred. If you've created budgets, you can also easily see where they exceeded.
 
@@ -68,10 +66,11 @@ To view Azure Storage costs in cost analysis:
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and by resource group also appear.  
 
-## Other ways to manage and reduce costs for Azure Storage
-
-Put something here.
-
 ## Next steps
 
 Learn more about managing costs with [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md).
+
+See the following articles to learn more on how pricing works with Azure Storage:
+
+- [Azure Storage Overview pricing](https://azure.microsoft.com/pricing/details/storage/)
+- [Optimize costs for Blob storage with reserved capacity](storage-blob-reserved-capacity.md)
