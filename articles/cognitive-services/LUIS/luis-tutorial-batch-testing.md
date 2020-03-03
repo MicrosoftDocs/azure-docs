@@ -123,7 +123,7 @@ The ModifyOrder entity, as a machine entity with subentities, displays if the to
 1. The entity prediction displays below the chart. The display includes solid lines for predictions that match the expectation and dotted lines for predictions that don't match the expectation.
 
     > [!div class="mx-imgBorder"]
-    > ![Entity parent successfully predicted in batch file](./media/luis-tutorial-batch-testing/prediction-entity-labeling.png)
+    > ![Entity parent successfully predicted in batch file](./media/luis-tutorial-batch-testing/labeled-entity-prediction.png)
 
     Visually, this result means only the **ToppingList** is the only entity that was correctly predicted in the test.
 
