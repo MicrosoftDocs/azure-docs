@@ -108,7 +108,7 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
 
 If you can see a fired alert in the portal, but its configured action did not trigger, follow these steps: 
 
-1. **Was the action suppressed by an [action rule](alerts-action-rules.md)?** 
+1. **Was the action suppressed by an action rule?** 
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](action-groups.md): 
 
@@ -157,7 +157,7 @@ If you have received the alert, but believe some of its fields are missing or in
 
     Check if the format specified at the action level is what you expect. For example, you may have developed code that responds to alerts (webhook, function, logic app, etc.), expecting one format, but later in the action you or another person specified a different format.  
 
-    Also, check the payload format (JSON) for activity log alerts(activity-log-alerts-webhook.md), for [log search alerts](alerts-log-webhook) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](alerts-common-schema-definitions.md), and for the deprecated [classic metric alerts](alerts-webhooks.md).
+    Also, check the payload format (JSON) for activity log alerts(activity-log-alerts-webhook.md), for [log search alerts](alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](alerts-common-schema-definitions.md), and for the deprecated [classic metric alerts](alerts-webhooks.md).
 
  
 1. **Activity log alerts. Is the information available in the activity log?** 
@@ -212,15 +212,15 @@ To locate it, follow these steps:
 
 ## Problem creating, updating or deleting action groups or action rules in the Azure portal
 
-If you received an error while trying to create, update or delete an [action rule](action-rules.md), follow these steps: 
+If you received an error while trying to create, update or delete an [action rule](alerts-action-rules.md), follow these steps: 
 
 1. **Did you receive a permission error?** 
 
-    You should either have the [Monitoring Contributor built-in role](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#monitoring-contributor), or the specific permissions related to action rules and alerts.
+    You should either have the [Monitoring Contributor built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor), or the specific permissions related to action rules and alerts.
 
 1. **Did you verify the action rule parameters?** 
 
-    Check the [action rule documentation](alerts-action-rule.md), or the [action rule PowerShell Set-AzActionRule](https://docs.microsoft.com/en-us/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0) command. 
+    Check the [action rule documentation](alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0) command. 
 
 
 ## Next steps
