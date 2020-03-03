@@ -27,15 +27,15 @@ The parameters of a child runbook called inline can be of any data type, includi
 
 Which runbook types can call each other?
 
-* A [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) and a [Graphical runbook](automation-runbook-types.md#graphical-runbooks) can call each other inline, as both are PowerShell-based.
-* A [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) and a Graphical PowerShell Workflow runbook can call each other inline, as both are PowerShell Workflow-based.
+* A [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) and a [graphical runbook](automation-runbook-types.md#graphical-runbooks) can call each other inline, as both are PowerShell-based.
+* A [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) and a graphical PowerShell Workflow runbook can call each other inline, as both are PowerShell Workflow-based.
 * The PowerShell types and the PowerShell Workflow types can’t call each other inline, and must use **Start-AzAutomationRunbook**.
 
 When does publish order matter?
 
-The publish order of runbooks only matters for PowerShell Workflow and Graphical PowerShell Workflow runbooks.
+The publish order of runbooks only matters for PowerShell Workflow and graphical PowerShell Workflow runbooks.
 
-When your runbook calls a Graphical or PowerShell Workflow child runbook using inline execution, it uses the name of the runbook. The name must start with **.\\** to specify that the script is located in the local directory.
+When your runbook calls a graphical or PowerShell Workflow child runbook using inline execution, it uses the name of the runbook. The name must start with **.\\** to specify that the script is located in the local directory.
 
 ### Example
 
