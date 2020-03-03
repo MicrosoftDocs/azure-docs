@@ -133,7 +133,7 @@ This tutorial showed you how to run a test and interpret results. It didn't cove
 
 ## Clean up resources
 
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](./includes/cleanup-resources-preview-portal.md)]
 
 ## Next step
 
