@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 01/09/2020
+ms.date: 03/03/2020
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 
@@ -257,7 +257,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|4|6|8|10|12|14|
 |Memory (GB)|20.8|31.1|41.5|51.9|62.3|72.7|
-|Max number DBs per pool|100|100|100|100|100|100|
+|Max number DBs per pool|50|100|100|100|100|100|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|3.14|4.71|6.28|8.65|11.02|13.39|
 |Max data size (GB)|1024|1536|1536|1536|3072|3072|
