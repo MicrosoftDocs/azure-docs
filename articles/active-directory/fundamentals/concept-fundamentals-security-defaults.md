@@ -66,7 +66,7 @@ One common method to improve protection for all users is to require a stronger f
 
 To give your users easy access to your cloud apps, Azure AD supports a variety of authentication protocols, including legacy authentication. *Legacy authentication* is a term that refers to an authentication request made by:
 
-- Older Office clients that don't use modern authentication (for example, an Office 2010 client).
+- Clients that don't use modern authentication (for example, an Office 2010 client).
 - Any client that uses older mail protocols such as IMAP, SMTP, or POP3.
 
 Today, the majority of compromising sign-in attempts come from legacy authentication. Legacy authentication does not support Multi-Factor Authentication. Even if you have a Multi-Factor Authentication policy enabled on your directory, an attacker can authenticate by using an older protocol and bypass Multi-Factor Authentication. 
