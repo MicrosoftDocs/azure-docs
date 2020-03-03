@@ -121,10 +121,6 @@ For Application Gateway, the following metrics are available:
 
    Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 
-- **Web Application Firewall matched rules**
-
-- **Web Application Firewall triggered rules**
-
 ### Backend metrics
 
 For Application Gateway, the following metrics are available:
@@ -176,9 +172,9 @@ For Application Gateway, the following metrics are available:
 
   Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 
-- **Web Application Firewall matched rules**
-
-- **Web Application Firewall triggered rules**
+- **Web Application Firewall Blocked Requests Count**
+- **Web Application Firewall Blocked Requests Distribution**
+- **Web Application Firewall Total Rule Distribution**
 
 ### Backend metrics
 
