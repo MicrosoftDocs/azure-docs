@@ -10,9 +10,9 @@ services: azure-maps
 manager: philmea
 ---
 
-# Add an OGC map layer
+# Add a map layer from the Open Geospatial Consortium (OGC)
 
-The `atlas.layer.OgcMapLayer` class adds support for overlaying imagery from Web Mapping Services (WMS) and Web Mapping Tile Services (WMTS) on top of the map. 
+The `atlas.layer.OgcMapLayer` class adds support for overlaying imagery from Web Mapping Services (WMS) and Web Mapping Tile Services (WMTS) on top of the map. WMS is a standard protocol developed by OGC for serving georeferenced map images. Image georeferencing is the processes of associating an image to a geographical location. Similarly, WMTS is developed by OGC, it's a standard protocol for serving pre-rendered and georeferenced map tiles.
 
 The following outlines the web mapping service features supported by the `OgcMapLayer` class.
 
@@ -25,9 +25,9 @@ The following outlines the web mapping service features supported by the `OgcMap
 
 | | |
 | :-- | :-- |
-| GetCapabilities | Retrieved the capabilities, such as: supported operations, parameters, available layers, and metadata |
-| GetMap | Retrieved a map image for a specified region|
-| GetFeatureInfo | Retrieves `feature_info` |
+| GetCapabilities | Retrieves metadata about the service with the supported capabilities |
+| GetMap | Retrieves a map image for a specified region |
+| GetFeatureInfo | Retrieves `feature_info` including underlying data about the feature |
 
 **Web Mapping Tile Service (WMTS)**
 
@@ -39,8 +39,8 @@ The following outlines the web mapping service features supported by the `OgcMap
 
 | | |
 | :-- | :-- |
-| GetCapabilities | |
-| GetTile | |
+| GetCapabilities | Retrieves the supported operations and features |
+| GetTile | Retrieves imagery for a particular tile |
 
 ## Overlay an OGC map layer
 
