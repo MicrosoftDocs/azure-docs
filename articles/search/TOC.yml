@@ -35,7 +35,7 @@
     href: search-get-started-python.md
 - name: Tutorials
   items:
-  - name: Create your first C# app
+  - name: Create a C# app
     items:
     - name: 1 - Basic search page
       href: tutorial-csharp-create-first-app.md
@@ -47,13 +47,15 @@
       href: tutorial-csharp-facets.md
     - name: 5 - Add results ordering
       href: tutorial-csharp-orders.md
-  - name: Index Azure SQL Database
-    href: search-indexer-tutorial.md
-  - name: Index Azure JSON blobs
-    href: search-semi-structured-data.md
-  - name: Index multiple Azure data sources 
-    href: tutorial-multiple-data-sources.md
-  - name: Enrich with AI (cognitive search)
+  - name: Index Azure data
+    items:
+    - name: Index Azure SQL Database
+      href: search-indexer-tutorial.md
+    - name: Index Azure JSON blobs
+      href: search-semi-structured-data.md
+    - name: Index multiple Azure data sources 
+      href: tutorial-multiple-data-sources.md
+  - name: Use AI to create content
     items:
     - name: C#
       href: cognitive-search-tutorial-blob-dotnet.md
