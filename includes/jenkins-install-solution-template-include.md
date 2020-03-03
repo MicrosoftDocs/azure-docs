@@ -3,18 +3,18 @@
 * An Azure subscription
 * Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](https://www.putty.org/))
 
-[!INCLUDE [quickstarts-free-trial-note](./includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](quickstarts-free-trial-note.md)]
 
 ## Create the Jenkins VM from the solution template
 Jenkins supports a model where the Jenkins server delegates work to one or more agents to allow a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. The steps in this section guide you through installing and configuring a Jenkins server on Azure.
 
-[!INCLUDE [jenkins-install-from-azure-marketplace-image](./includes/jenkins-install-from-azure-marketplace-image.md)]
+[!INCLUDE [jenkins-install-from-azure-marketplace-image](jenkins-install-from-azure-marketplace-image.md)]
 
 ## Connect to Jenkins
 
 Navigate to your virtual machine (for example, `http://jenkins2517454.eastus.cloudapp.azure.com/`) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
 
-![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
+![Unlock jenkins](./media/jenkins-install-solution-template-include/jenkins-ssh-instructions.png)
 
 Set up the tunnel using the `ssh` command on the page from the command line, replacing `username` with the name of the virtual machine admin user chosen earlier when setting up the virtual machine from the solution template.
 
@@ -32,11 +32,11 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 Unlock the Jenkins dashboard for the first time using this initial password.
 
-![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-unlock.png)
+![Unlock jenkins](./media/jenkins-install-solution-template-include/jenkins-unlock.png)
 
 Select **Install suggested plugins** on the next page and then create a Jenkins admin user used to access the Jenkins dashboard.
 
-![Jenkins is ready!](./media/install-jenkins-solution-template/jenkins-welcome.png)
+![Jenkins is ready!](./media/jenkins-install-solution-template-include/jenkins-welcome.png)
 
 The Jenkins server is now ready to build code.
 
@@ -44,25 +44,25 @@ The Jenkins server is now ready to build code.
 
 Select **Create new jobs** from the Jenkins console, then name it **mySampleApp** and select **Freestyle project**, then select **OK**.
 
-![Create a new job](./media/install-jenkins-solution-template/jenkins-new-job.png) 
+![Create a new job](./media/jenkins-install-solution-template-include/jenkins-new-job.png) 
 
 Select the **Source Code Management** tab, enable **Git**, and enter the following URL in **Repository URL**  field: `https://github.com/spring-guides/gs-spring-boot.git`
 
-![Define the Git repo](./media/install-jenkins-solution-template/jenkins-job-git-configuration.png) 
+![Define the Git repo](./media/jenkins-install-solution-template-include/jenkins-job-git-configuration.png) 
 
 Select the **Build** tab, then select **Add build step**, **Invoke Gradle script**. Select **Use Gradle Wrapper**, then enter `complete` in **Wrapper location** and `build` for **Tasks**.
 
-![Use the Gradle wrapper to build](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
+![Use the Gradle wrapper to build](./media/jenkins-install-solution-template-include/jenkins-job-gradle-config.png) 
 
 Select **Advanced** and then enter `complete` in the **Root Build script** field. Select **Save**.
 
-![Set advanced settings in the Gradle wrapper build step](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
+![Set advanced settings in the Gradle wrapper build step](./media/jenkins-install-solution-template-include/jenkins-job-gradle-advances.png) 
 
 ## Build the code
 
 Select **Build Now** to compile the code and package the sample app. When your build completes, select the **Workspace** link for the project.
 
-![Browse to the workspace to get the JAR file from the build](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
+![Browse to the workspace to get the JAR file from the build](./media/jenkins-install-solution-template-include/jenkins-access-workspace.png) 
 
 Navigate to `complete/build/libs` and ensure the `gs-spring-boot-0.1.0.jar` is there to verify that your build was successful. Your Jenkins server is now ready to build your own projects in Azure.
 
