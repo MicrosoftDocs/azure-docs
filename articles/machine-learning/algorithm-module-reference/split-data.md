@@ -79,6 +79,26 @@ This module is particularly useful when you need to separate data into training 
 
     Based on the regular expression you provide, the dataset is divided into two sets of rows: rows with values that match the expression and all remaining rows. 
 
+The following examples demonstrate how to divide a dataset using the **Regular Expression** option. 
+
+### Single whole word 
+
+This example puts into the first dataset all rows that contain the text `Gryphon` in the column `Text`, and puts other rows into the second output of **Split Data**:
+
+```text
+    \"Text" Gryphon  
+```
+
+### Substring
+
+This example looks for the specified string in any position within the second column of the dataset, denoted here by the index value of 1. The match is case-sensitive.
+
+```text
+(\1) ^[a-f]
+```
+
+The first result dataset contains all rows where the index column begins with one of these characters: `a`, `b`, `c`, `d`, `e`, `f`. All other rows are directed to the second output.
+
 ## Relative expression split.
 
 1. Add the [Split Data](./split-data.md) module to your pipeline, and connect it as input to the dataset you want to split.
@@ -107,6 +127,33 @@ This module is particularly useful when you need to separate data into training 
 4. Run the pipeline.
 
     The expression divides the dataset into two sets of rows: rows with values that meet the condition, and all remaining rows.
+
+The following examples demonstrate how to divide a dataset using the **Relative Expression** option in the **Split Data** module:  
+
+### Using calendar year
+
+A common scenario is to divide a dataset by years. The following expression selects all rows where the values in the column `Year` are greater than `2010`.
+
+```text
+\"Year" > 2010
+```
+
+The date expression must account for all date parts that are included in the data column, and the format of dates in the data column must be consistent. 
+
+For example, in a date column using the format `mmddyyyy`, the expression should be something like this:
+
+```text
+\"Date" > 1/1/2010
+```
+
+### Using column indices
+
+The following expression demonstrates how you can use the column index to select all rows in the first column of the dataset that contain values less than or equal to 30, but not equal to 20.
+
+```text
+(\0)<=30 & !=20
+```
+
 
 ## Next steps
 
