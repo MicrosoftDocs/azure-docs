@@ -384,14 +384,14 @@
           href: sql-analytics/development-storage-files-spark-tables.md
     - name: Workload management
       items:
-      - name: Resource classes & workload management
-        href: sql-analytics/workload-management-resource-classes.md
-      - name: Workload classification
-        href: sql-analytics/workload-management-classification.md
-      - name: Workload importance
-        href: sql-analytics/workload-management-importance.md
-      - name: Memory & concurrency limits
-        href: sql-analytics/workload-management-memory-and-concurrency-limits.md
+      # - name: Resource classes & workload management
+      #   href: sql-analytics/workload-management-resource-classes.md
+      # - name: Workload classification
+      #   href: sql-analytics/workload-management-classification.md
+      # - name: Workload importance
+      #   href: sql-analytics/workload-management-importance.md
+      # - name: Memory & concurrency limits
+      #   href: sql-analytics/workload-management-memory-and-concurrency-limits.md
   # - name: Disaster recovery
   #   href: article-template.md 
   # - name: CI/CD
