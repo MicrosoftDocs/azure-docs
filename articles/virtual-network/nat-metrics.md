@@ -44,7 +44,7 @@ NAT gateway resources provide the following multi-dimensional metrics in Azure M
 
 ## Alerts
 
-Alerts for metrics can be configured in Azure Monitor for each of the preceeding [metrics](#metrics).
+Alerts for metrics can be configured in Azure Monitor for each of the preceding [metrics](#metrics).
 
 ## Limitations
 
