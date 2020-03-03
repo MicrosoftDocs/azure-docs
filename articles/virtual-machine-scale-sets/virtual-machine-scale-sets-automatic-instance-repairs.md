@@ -118,7 +118,7 @@ For instances marked as “Unhealthy”, automatic repairs are triggered by the 
 
 **Enable single placement group**
 
-This preview is currently available only for scale sets deployed as single placement group. The property *singlePlacementGroup* should be set to *true* for your scale set to use automatic instance repairs feature. This feature is currently not supported for scale sets with multi placement group. Learn more about [placement groups](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
+This preview is currently available only for scale sets deployed as single placement group. The property *singlePlacementGroup* should be set to *true* for your scale set to use automatic instance repairs feature. Learn more about [placement groups](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
 
 **API version**
 
