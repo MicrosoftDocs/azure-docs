@@ -100,6 +100,8 @@ landingContent:
             url: how-to-add-tile-layer-android-map.md
           - text: Add a shapes to a map
             url: how-to-add-shapes-to-android-map.md
+          - text: Show traffic data
+            url: how-to-show-traffic-android.md
 
   # Card
   - title: Developing with Location-Based Services
