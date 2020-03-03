@@ -54,6 +54,8 @@ All Azure services support role-based access controls (RBAC) for setting levels 
 
 ## Service access and authentication
 
+### Public access
+
 Azure Cognitive Search inherits the security safeguards of the Azure platform and provides its own key-based authentication. An api-key is a string composed of randomly generated numbers and letters. The type of key (admin or query) determines the level of access. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
 There are two levels of access to your search service, enabled by two types of keys:
@@ -67,7 +69,11 @@ There are two levels of access to your search service, enabled by two types of k
 
 Authentication is required on each request, where each request is composed of a mandatory key, an operation, and an object. When chained together, the two permission levels (full or read-only) plus the context (for example, a query operation on an index) are sufficient for providing full-spectrum security on service operations. For more information about keys, see [Create and manage api-keys](search-security-api-keys.md).
 
-### Virtual networks and private endpoints
+### Restricted access
+
+When you have a publicly published service and you want to restrict the use of the service you can use the IP restriction rule in the REST API version: 2019-10-01-Preview, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#iprule-). IpRule allows you to restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service. 
+
+### Private access
 
 > [!Important]
 > Private Endpoint and virtual network support for Azure Cognitive Search is available [upon request](https://aka.ms/SearchPrivateLinkRequestAccess) as a limited-access preview. Preview features are provided without a service level agreement, and are not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
