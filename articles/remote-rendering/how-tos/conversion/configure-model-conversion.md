@@ -37,6 +37,7 @@ The contents of the file should satisfy the following json schema:
         "sceneGraphMode": { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
         "generateCollisionMesh" : { "type" : "boolean", "default" : true },
         "unlitMaterials" : { "type" : "boolean", "default" : false },
+        "fbxAssumeMetallic" : { "type" : "boolean", "default" : true },
         "axis" : {
             "type" : "array",
             "items" : {
@@ -110,6 +111,10 @@ This parameter can be set to false when ray-cast support is not required.
 ### Unlit materials
 
 * `unlitMaterials` - To override all materials in the scene to work as a constantly shaded surface that is independent of lighting. That is, all materials are created as [color materials](../../overview/features/color-materials.md) as opposed to [PBR materials](../../overview/features/pbr-materials.md).
+
+### Converting from older FBX formats, with a Phong material model
+
+* `fbxAssumeMetallic` - Older versions of the FBX format define their materials using a Phong material model. The conversion process has to infer how these materials map to the renderer's [PBR model](../../concepts/materials.md#pbr-material), and usually this works well. However, an ambiguity can arise when a material has no textures, high specular values, and a colorful (i.e. non-grey) albedo color. In this circumstance, the conversion has to choose between prioritizing the high specular values, defining a highly reflective, metallic material where the albedo color dissolves away, or prioritizing the albedo color, defining something like a shiny colorful plastic. By default, the conversion process assumes that highly specular values imply a metallic material in cases where ambiguity applies. This parameter can be set to false to make the opposite assumption.
 
 ### Coordinate system overriding
 
