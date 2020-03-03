@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ---
 
-# Troubleshoot data encryption with customer-managed keys in Azure Database for PostgreSQL - Single server
+# Troubleshoot data encryption with customer-managed keys in Azure Database for PostgreSQL - single server
 
-This article describes how to identify and resolve common issues that can occur on an Azure Database for PostgreSQL - Single server configured with data encryption using customer-managed key.
+This article describes how to identify and resolve common issues that can occur on an Azure Database for PostgreSQL - single server configured with data encryption using customer-managed key.
 
 ## Introduction
 
 When you configure data encryption to use a customer-managed key in Azure Key Vault, servers require continuous access to the key. If the server loses access to the customer-managed key in Azure Key Vault, it will deny all connections, return the appropriate error message, and change its state to ***Inaccessible*** in the Azure portal.
 
-If you no longer need an inaccessible Azure Database for PostgreSQL - Single server, you can delete it to stop incurring costs. No other actions on the server are permitted until access to the Azure Key Vault has been restored and the server is available. It's also not possible to change the data encryption option from `Yes`(customer-managed) to `No` (service-managed) on an inaccessible server when it's encrypted with a customer-managed key. You'll have to revalidate the key manually before the server is accessible again. This action is necessary to protect the data from unauthorized access while permissions to the customer-managed key are revoked.
+If you no longer need an inaccessible Azure Database for PostgreSQL - single server, you can delete it to stop incurring costs. No other actions on the server are permitted until access to the Azure Key Vault has been restored and the server is available. It's also not possible to change the data encryption option from `Yes`(customer-managed) to `No` (service-managed) on an inaccessible server when it's encrypted with a customer-managed key. You'll have to revalidate the key manually before the server is accessible again. This action is necessary to protect the data from unauthorized access while permissions to the customer-managed key are revoked.
 
 ## Common errors causing server to become inaccessible
 
@@ -28,7 +28,7 @@ Most issues that occur when you use data encryption with Azure Key Vault are cau
 
 - You don't have permissions to access the key vault or the key doesn't exist:
   - The key expired or was accidentally deleted or disabled.
-- The Azure Database for PostgreSQL - Single server instance-managed identity was accidentally deleted.
+- The Azure Database for PostgreSQL - single server instance-managed identity was accidentally deleted.
   - Permissions granted to the Azure Database for PostgreSQL managed identity for the keys aren't sufficient. For example, the permissions don't include Get, Wrap, and Unwrap.
   - Permissions for the Azure Database for PostgreSQL - single-server instance-managed identity were revoked or deleted.
 
