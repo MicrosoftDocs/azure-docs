@@ -12,9 +12,9 @@ ms.subservice: common
 
 # Plan and manage costs for Azure Storage
 
-This article describes how you plan for and manage costs for Azure Storage. First, you use the Azure pricing calculator to help plan for storage costs before you add any resources. After you've started using Azure Storage resources, use cost management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act.
+This article describes how you plan and manage costs for Azure Storage. First, you use the Azure pricing calculator to help plan for storage costs before you add any resources. After you begin using Azure Storage resources, use cost management features to set budgets and monitor costs. You can also review forecasted costs and monitor spending trends to identify areas where you might want to act.
 
-Keep in mind that costs for Azure Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for an manage costs for Azure Storage, you’re billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you’re familiar with managing costs for Azure Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
+Keep in mind that costs for Azure Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Storage, you’re billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you’re familiar with managing costs for Azure Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
 ## Prerequisites
 
@@ -42,11 +42,11 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ## Use budgets and cost alerts
 
-You can create [budgets](../../cost-management-billing/tutorial-acm-create-budgets.md) to manage costs and create alerts that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. However, they might have limited functionality to manage individual Azure service costs like the cost of Azure Storage because they are designed to track costs at a higher level.
+You can create [budgets](../../cost-management-billing/costs/tutorial-acm-create-budgets.md) to manage costs and create alerts that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. However, they might have limited functionality to manage individual Azure service costs like the cost of Azure Storage because they are designed to track costs at a higher level.
 
 ## Monitor costs
 
-As you use Azure resources with Azure Storage, you incur costs. Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) As soon as usage of Azure Storage starts, costs are incurred and you can see the costs in the [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md) pane in the Azure portal.
+As you use Azure resources with Azure Storage, you incur costs. Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) Costs are incurred as soon as usage of Azure Storage starts. You can see the costs in the [cost analysis](../../cost-management-billing/costs/costs/quick-acm-cost-analysis.md) pane in the Azure portal.
 
 When you use cost analysis, you can view Azure Storage costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You can also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends and see where overspending might have occurred. If you've created budgets, you can also easily see where they exceeded.
 
@@ -74,4 +74,4 @@ Put something here.
 
 ## Next steps
 
-Learn more about managing costs with [cost analysis](../../cost-management-billing/quick-acm-cost-analysis.md).
+Learn more about managing costs with [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md).
