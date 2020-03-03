@@ -12,7 +12,7 @@ ms.date: 10/09/2019
 ms.author: erhopf
 ---
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Python.
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Python. If you just want the package name to get started on your own, run `pip install azure-cognitiveservices-speech`.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -44,6 +44,26 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 - On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Note that installing this for the first time may require you to restart Windows before continuing with this guide.
 - And finally, you'll need [Python 3.5, 3.6 or 3.7](https://www.python.org/downloads/). To check your installation, open a command prompt and type the command `python --version` and check the result. If it's installed properly, you'll get a response "Python 3.5.1" or similar.
 
+## Install the Speech SDK from PyPI
+
+If you're using your own environment or build tools, run the following command to install the Speech SDK from [PyPI](https://pypi.org/). For users of Visual Studio Code, skip to the next sub-section for guided installation.
+
+```sh
+pip install azure-cognitiveservices-speech
+```
+
+If you are on macOS, you may need to run the following command to get the `pip` command above to work:
+
+```sh
+python3 -m pip install --upgrade pip
+```
+
+Once you've successfully used `pip` to install `azure-cognitiveservices-speech`, you can use the Speech SDK by importing the namespace into your Python projects.
+
+```py
+import azure.cognitiveservices.speech as speechsdk
+```
+
 ## Install the Speech SDK using Visual Studio Code
 
 1. Download and install the latest supported version of [Python](https://www.python.org/downloads/) for your platform, 3.5 or later.
@@ -57,29 +77,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
    1. Open a terminal (from the drop-down menus, **Terminal** > **New Terminal**)
    1. In the terminal that opens, enter the command `python -m pip install azure-cognitiveservices-speech`
 
-That's it, you're ready to start coding to the Speech SDK in Python, and can move on to [Next steps](#next-steps) below. If you are new to Visual Studio Code, refer to the more extensive [Visual Studio Code Documentation](https://code.visualstudio.com/docs). For more information about Visual Studio Code and Python, see [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
-
-## Install the Speech SDK using the command line
-
-If you are not using Visual Studio Code, the following command installs the Python package from [PyPI](https://pypi.org/) for the Speech SDK. For users of Visual Studio Code, skip to the next sub-section.
-
-```sh
-pip install azure-cognitiveservices-speech
-```
-
-If you are on macOS, you may need to run the following command to get the `pip` command above to work:
-
-```sh
-python3 -m pip install --upgrade pip
-```
-
-Once you've successfully used `pip` to install `azure-cognitiveservices-speech`, you can use the Speech SDK by importing the namespace into your Python projects. For example:
-
-```py
-import azure.cognitiveservices.speech as speechsdk
-```
-
-This is shown in more detail within the code examples listed in [Next steps](#next-steps) below.
+If you are new to Visual Studio Code, refer to the more extensive [Visual Studio Code Documentation](https://code.visualstudio.com/docs). For more information about Visual Studio Code and Python, see [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
 
 ## Support and updates
 
