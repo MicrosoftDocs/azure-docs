@@ -18,12 +18,12 @@ This article contains information about how to troubleshoot most frequent proble
 ## SQL On-demand is grayed out in Synapse Studio
 
 If Synapse Studio can't establish connection to SQL On-demand, you'll notice that SQL On-demand is grayed out or shows status "Offline". Usually, this problem occurs when one of the following cases happens:
-1) Your network prevents communication to Synapse backend. Most frequent case is that port 1443 is blocked. To get the SQL On-demand to work unblock this port. Other problems could prevent SQL On-demand to work as well, [for more information read full troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md)
-2) You don't have permissions to log into SQL On-demand. To gain access, one of the Synapse workspace administrators should add you to workspace administrator or SQL administrator role. [For more information read full guide on access control](access-control.md).
+1) Your network prevents communication to Synapse backend. Most frequent case is that port 1443 is blocked. To get the SQL On-demand to work unblock this port. Other problems could prevent SQL On-demand to work as well, [visit full troubleshooting guide for more information](../troubleshoot/troubleshoot-synapse-studio.md).
+2) You don't have permissions to log into SQL On-demand. To gain access, one of the Synapse workspace administrators should add you to workspace administrator or SQL administrator role. [Visit full guide on access control for more information](access-control.md).
 
-## Failed to execute a query: File cannot be opened because it does not exist or it is used by another process.
+## Query fails because file cannot be opened
 
-If your query fails when with the error saying 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means SQL On-demand can't access the file. This problem usually happens because your AAD identity doesn't have rights to access the file. By default, SQL On-demand is trying to access the file using your AAD identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. [Click here to read full guide on AAD access control for storage](../../storage/common/storage-auth-aad-rbac-portal.md)
+If your query fails when with the error saying 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means SQL On-demand can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file. By default, SQL On-demand is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md).
 
 ## Next steps
 
