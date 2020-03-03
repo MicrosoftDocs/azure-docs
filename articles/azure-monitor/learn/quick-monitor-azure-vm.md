@@ -53,12 +53,51 @@ When you create a new Log Analytics workspace, it needs to be configured to coll
 
 2. Select **Advanced settings**
 
+    ![Log Analytics Advance Settings](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
+
+### Data collection from Windows VM
 
 
+2. Select **Data**, and then select **Windows Event Logs**.
+
+3. Add an event log by typing in the name of the log.  Type **System** and then select the plus sign **+**.
+
+4. In the table, check the severities **Error** and **Warning**.
+
+5. Select **Save** at the top of the page to save the configuration.
+
+6. Select **Windows Performance Data** to enable collection of performance counters on a Windows computer.
+
+7. When you first configure Windows Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
+
+    ![Default Windows performance counters selected](media/quick-collect-azurevm/windows-perfcounters-default.png)
+
+    Select **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.
+  
+8. Select **Save** at the top of the page to save the configuration.
+
+### Data collection from Linux VM
+
+1. Select **Syslog**.  
+
+2. Add an event log by typing in the name of the log.  Type **Syslog** and then select the plus sign **+**.  
+
+3. In the table, deselect the severities **Info**, **Notice** and **Debug**. 
+
+4. Select **Save** at the top of the page to save the configuration.
+
+5. Select **Linux Performance Data** to enable collection of performance counters on a Linux computer. 
+
+6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
+
+    ![Default Windows performance counters selected](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
+
+    Select **Apply below configuration to to my machines** and then select **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
+
+7. Select **Save** at the top of the page to save the configuration.
 
 
-
-
+## View data collected
 
 7. Click on your virtual machine and then select the **Performance** tab. This shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles at different times.
 
@@ -68,26 +107,20 @@ When you create a new Log Analytics workspace, it needs to be configured to coll
 
     ![Map](media/quick-monitor-azure-vm/map.png)
 
-10. Click through the different options in the details pane to see the **Log Events**, **Alerts**, and **Connections** for the virtual machine.
-
-    ![Details pane](media/quick-monitor-azure-vm/details-pane.png)
-
 11. Expand the processes for your virtual machine. Select one of the processes to view its details and to highlight its dependencies.
 
     ![Processes](media/quick-monitor-azure-vm/processes.png)
 
 12. Select your virtual machine again and then select **Log Events**. 
 
+    ![Log events](media/quick-monitor-azure-vm/log-events.png)
 
+13. You see a list of tables that are stored in the Log Analytics workspace for the virtual machine. This list will be different depending whether you're using a Windows or Linux virtual machine. Click the **Event** table. This includes all events from the Windows event log. Log Analytics opens with a simple query to retrieve event log entries.
 
-13. You see a list of tables that are stored in the Log Analytics workspace for the virtual machine. This list will be different depending whether you're using a Windows or Linux virtual machine.
-
-
-
-14. 
+    ![Log analytics](media/quick-monitor-azure-vm/log-analytics.png)
 
 ## Next steps
-In this quickstart, you viewed the Activity log and metrics for an Azure resource which are automatically collected by Azure Monitor. Resource logs provide insight into the detailed operation of the resource but must be configured in order to be collected. Continue to the tutorial for collecting resource logs into a Log Analytics workspace where they can be analyzed using log queries.
+In this quickstart, you enabled Azure Monitor for VMs for a virtual machine and configured the Log Analytics workspace to collect events for the guest operating system. To learn how to view and analyze the data, continue to the tutorial.
 
 > [!div class="nextstepaction"]
-> [Collect and analyze resource logs with Azure Monitor](tutorial-resource-logs.md)
+> [View or analyze data in Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
