@@ -22,6 +22,31 @@ Enabling automatic instance repairs for Azure virtual machine scale sets helps a
 
 ## Requirements for using automatic instance repairs
 
+**Opt-in to the preview for automatic instance repairs**
+
+Use either of the following ways to opt-in to the preview for automatic instance repairs. These steps will prepare your subscription for enabling the preview feature. 
+
+REST API [Features - Register](./rest/api/resources/features/register) 
+
+```
+POST on '/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/{resourceProviderNamespace}/features/{featureName}/register?api-version=2015-12-01'
+```
+
+Azure PowerShell cmdlet [Register-AzureRmProviderFeature](./powershell/module/azurerm.resources/register-azurermproviderfeature)
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature `
+ -ProviderNamespace Microsoft.Compute `
+ -FeatureName RepairVMScaleSetInstancesPreview
+```
+
+Wait for a few minutes to ensure that the *RegistrationState* changes to *Registered* and then run the following cmdlet.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider `
+ -ProviderNamespace Microsoft.Compute
+ ```
+
 **Enable application health monitoring for scale set**
 
 The scale set should have application health monitoring for instances enabled. This can be done using either [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md). Only one of these can be enabled at a time. The application health extension or the load balancer probes ping the application endpoint configured on virtual machine instances to determine the application health status. This health status is used by the scale set orchestrator to monitor instance health and perform repairs when required.
@@ -164,7 +189,7 @@ The instance could be in grace period. This is the amount of time to wait after 
 
 **Viewing application health status for scale set instances**
 
-You can use the [Get Instance View API](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) for instances in a virtual machine scale set to view the application health status. This status is provided under the property *"vmHealth"*.
+You can use the [Get Instance View API](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) for instances in a virtual machine scale set to view the application health status. With Azure PowerShell, you can use the cmdlet [Get-AzVmssVM](./powershell/module/az.compute/get-azvmssvm) with the *-InstanceView* flag. The application health status is provided under the property *vmHealth*.
 
 ## Next steps
 
