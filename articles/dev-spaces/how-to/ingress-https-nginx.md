@@ -18,7 +18,7 @@ This article shows you how to configure Azure Dev Spaces to use a custom NGINX i
 * [Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled][qs-cli].
 * [kubectl][kubectl] installed.
 * [Helm 3 installed][helm-installed].
-* [A custom domain][custom-domain] with a [DNS Zone][dns-zone] in the same resource group as your AKS cluster.
+* [A custom domain][custom-domain] with a [DNS Zone][dns-zone].  This article assumes the custom domain and DNS Zone are in the same resource group as your AKS cluster, but it is possible to use a custom domain and DNS Zone in a different resource group.
 
 ## Configure a custom NGINX ingress controller
 
@@ -46,8 +46,15 @@ Create a Kubernetes namespace for the NGINX ingress controller and install it us
 
 ```console
 kubectl create ns nginx
-helm install nginx stable/nginx-ingress --namespace nginx
+helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
+
+> [!NOTE]
+> The above example creates a public endpoint for your ingress controller. If you need to use a private endpoint for your ingress controller instead, add the *--set controller.service.annotations."service\\.beta\\.kubernetes\\.io/azure-load-balancer-internal"=true* parameter to the *helm install* command. For example:
+> ```console
+> helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0
+> ```
+> This private endpoint is exposed within the virtual network where you AKS cluster is deployed.
 
 Get the IP address of the NGINX ingress controller service using [kubectl get][kubectl-get].
 
@@ -84,7 +91,11 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
-Open [values.yaml][values-yaml] and replace all instances of *<REPLACE_ME_WITH_HOST_SUFFIX>* with *nginx.MY_CUSTOM_DOMAIN* using your domain for *MY_CUSTOM_DOMAIN*. Also replace *kubernetes.io/ingress.class: nginx-azds  # Dev Spaces-specific* with *kubernetes.io/ingress.class: nginx  # Custom Ingress*. Below is an example of an updated `values.yaml` file:
+Open [values.yaml][values-yaml] and make the following updates:
+* Replace all instances of *<REPLACE_ME_WITH_HOST_SUFFIX>* with *nginx.MY_CUSTOM_DOMAIN* using your domain for *MY_CUSTOM_DOMAIN*. 
+* Replace *kubernetes.io/ingress.class: traefik-azds  # Dev Spaces-specific* with *kubernetes.io/ingress.class: nginx  # Custom Ingress*. 
+
+Below is an example of an updated `values.yaml` file:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -116,7 +127,7 @@ azds space select -n dev -y
 Deploy the sample application using `helm install`.
 
 ```console
-helm install bikesharing . --dependency-update --namespace dev --atomic
+helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 ```
 
 The above example deploys the sample application to the *dev* namespace.
@@ -137,6 +148,9 @@ http://dev.gateway.nginx.MY_CUSTOM_DOMAIN/         Available
 ```
 
 Navigate to the *bikesharingweb* service by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is `http://dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/`.
+
+> [!NOTE]
+> If you see an error page instead of the *bikesharingweb* service, verify you updated **both** the *kubernetes.io/ingress.class* annotation and the host in the *values.yaml* file.
 
 Use the `azds space select` command to create a child space under *dev* and list the URLs to access the child dev space.
 

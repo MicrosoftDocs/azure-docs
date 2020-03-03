@@ -3,12 +3,12 @@ title: Move Blob storage data with SSIS connectors - Team Data Science Process
 description: Learn how to move Data to or from Azure Blob Storage using SQL Server Integration Services Feature Pack for Azure.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -17,9 +17,9 @@ The [SQL Server Integration Services Feature Pack for Azure](https://msdn.micros
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-Once customers have moved on-premises data into the cloud, they can access it from any Azure service to leverage the full power of the suite of Azure technologies. It may be used, for example, in Azure Machine Learning or on an HDInsight cluster.
+Once customers have moved on-premises data into the cloud, they can access their data from any Azure service to leverage the full power of the suite of Azure technologies. The data may be subsequently used, for example, in Azure Machine Learning or on an HDInsight cluster.
 
-This is typically be the first step for the [SQL](sql-walkthrough.md) and [HDInsight](hive-walkthrough.md) walkthroughs.
+Examples for using these Azure resources are in the [SQL](sql-walkthrough.md) and [HDInsight](hive-walkthrough.md) walkthroughs.
 
 For a discussion of canonical scenarios that use SSIS to accomplish business needs common in hybrid data integration scenarios, see [Doing more with SQL Server Integration Services Feature Pack for Azure](https://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blog.
 
@@ -29,15 +29,15 @@ For a discussion of canonical scenarios that use SSIS to accomplish business nee
 > 
 
 ## Prerequisites
-To perform the tasks described in this article, you must have an Azure subscription and an Azure storage account set up. You must know your Azure storage account name and account key to upload or download data.
+To perform the tasks described in this article, you must have an Azure subscription and an Azure Storage account set up. You need the Azure Storage account name and account key to upload or download data.
 
 * To set up an **Azure subscription**, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-* For instructions on creating a **storage account** and for getting account and key information, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
+* For instructions on creating a **storage account** and for getting account and key information, see [About Azure Storage accounts](../../storage/common/storage-create-storage-account.md).
 
 To use the **SSIS connectors**, you must download:
 
 * **SQL Server 2014 or 2016 Standard (or above)**: Install includes SQL Server Integration Services.
-* **Microsoft SQL Server 2014 or 2016 Integration Services Feature Pack for Azure**: These can be downloaded, respectively, from the [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) and [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) pages.
+* **Microsoft SQL Server 2014 or 2016 Integration Services Feature Pack for Azure**: These connectors can be downloaded, respectively, from the [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) and [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) pages.
 
 > [!NOTE]
 > SSIS is installed with SQL Server, but is not included in the Express version. For information on what applications are included in various editions of SQL Server, see [SQL Server Editions](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
@@ -49,7 +49,7 @@ For training materials on SSIS, see [Hands On Training for SSIS](https://www.mic
 For information on how to get up-and-running using SISS to build simple extraction, transformation, and load (ETL) packages, see [SSIS Tutorial: Creating a Simple ETL Package](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## Download NYC Taxi dataset
-The example described here use a publicly available dataset -- the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset. The dataset consists of about 173 million taxi rides in NYC in the year 2013. There are two types of data: trip details data and fare data. As there is a file for each month, we have 24 files in all, each of which is approximately 2GB uncompressed.
+The example described here use a publicly available dataset -- the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset. The dataset consists of about 173 million taxi rides in NYC in the year 2013. There are two types of data: trip details data and fare data. As there is a file for each month, we have 24 files, each of which is about 2 GB uncompressed.
 
 ## Upload data to Azure blob storage
 To move data using the SSIS feature pack from on-premises to Azure blob storage, we use an instance of the [**Azure Blob Upload Task**](https://msdn.microsoft.com/library/mt146776.aspx), shown here:
@@ -60,8 +60,8 @@ The parameters that the task uses are described here:
 
 | Field | Description |
 | --- | --- |
-| **AzureStorageConnection** |Specifies an existing Azure Storage Connection Manager or creates a new one that refers to an Azure storage account that points to where the blob files are hosted. |
-| **BlobContainer** |Specifies the name of the blob container that hold the uploaded files as blobs. |
+| **AzureStorageConnection** |Specifies an existing Azure Storage Connection Manager or creates a new one that refers to an Azure Storage account that points to where the blob files are hosted. |
+| **BlobContainer** |Specifies the name of the blob container that holds the uploaded files as blobs. |
 | **BlobDirectory** |Specifies the blob directory where the uploaded file is stored as a block blob. The blob directory is a virtual hierarchical structure. If the blob already exists, it ia replaced. |
 | **LocalDirectory** |Specifies the local directory that contains the files to be uploaded. |
 | **FileName** |Specifies a name filter to select files with the specified name pattern. For example, MySheet\*.xls\* includes files such as MySheet001.xls and MySheetABC.xlsx |

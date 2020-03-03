@@ -1,7 +1,7 @@
 ---
 title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
 description: Use the Ethereum Proof-of-Authority consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
-ms.date: 12/11/2019
+ms.date: 12/18/2019
 ms.topic: article
 ms.reviewer: coborn
 ---
@@ -494,7 +494,7 @@ information useful to the existing member (validator addresses). You can use thi
 
 At the heart of proof-of-authority is decentralized governance. Since proof-of-authority relies upon a permitted list of network authorities to keep the network healthy, it's important to provide a fair mechanism to make modifications to this permission list. Each deployment comes with a set of smart-contracts and portal for on-chain governance of this permitted list. Once a proposed change reaches a majority vote by consortium members, the change is enacted. Voting allows new consensus participants to be added or compromised participants to be removed in a transparent way that encourages an honest network.
 
-The governance DApp is a set of pre-deployed [smart contracts](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) and a web application that are used to govern the authorities on the network. Authorities are broken up into admin identities and validator nodes.
+The governance DApp is a set of pre-deployed [smart contracts](https://github.com/Azure-Samples/blockchain/tree/master/ledger/template/ethereum-on-azure/permissioning-contracts) and a web application that are used to govern the authorities on the network. Authorities are broken up into admin identities and validator nodes.
 Admins have the power to delegate consensus participation to a set of validator nodes. Admins also may vote other admins into or out of the network.
 
 ![Governance DApp](./media/ethereum-poa-deployment/governance-dapp.png)

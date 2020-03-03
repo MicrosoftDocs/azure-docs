@@ -15,7 +15,6 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about specific considerations when using Azure AD B2C and MSAL.Android so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Use MSAL for Android with B2C

@@ -7,7 +7,7 @@ author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 08/19/2019
 ms.author: wolfma
 ---
@@ -30,7 +30,7 @@ Before you get started, make sure to:
    ```C++
 
     // Creates an instance of a speech config with specified subscription key and service region.
-    // Replace with your own subscription key and service region (e.g., "westus").
+    // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
     // Creates a speech synthesizer using file as audio output.

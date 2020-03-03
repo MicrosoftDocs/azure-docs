@@ -1,4 +1,4 @@
-- name: Azure App Configuration Preview documentation
+- name: Azure App Configuration documentation
   href: index.yml
 - name: Overview
   items:
@@ -21,6 +21,8 @@
           href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
+        - name: Azure Resource Manager template
+          href: quickstart-resource-manager.md
     - name: Feature management
       items:
         - name: ASP.NET Core
@@ -47,6 +49,8 @@
       href: manage-feature-flags.md
     - name: Use Key Vault references in ASP.NET Core
       href: use-key-vault-references-dotnet-core.md
+    - name: Use Key Vault references in Spring Boot
+      href: use-key-vault-references-spring-boot.md      
     - name: Integrate with a CI/CD pipeline
       href: integrate-ci-cd-pipeline.md
 - name: Samples
@@ -57,20 +61,30 @@
   items:
     - name: Key-value store
       href: concept-key-value.md
+    - name: Encrypt using customer-managed keys
+      href: concept-customer-managed-keys.md
     - name: Point-in-time snapshot
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
+    - name: Sync using GitHub Actions
+      href: concept-github-action.md
     - name: Event handling
       href: concept-app-configuration-event.md
+    - name: Authentication
+      items:
+        - name: Integrate with Azure Managed Identity
+          href: howto-integrate-azure-managed-service-identity.md
+        - name: Enable access using Azure Active Directory
+          href: concept-enable-rbac.md
+        - name: Assign an Azure Managed Identity
+          href: overview-managed-identity.md
     - name: High availability
       items:
         - name: Resiliency and disaster recovery
           href: concept-disaster-recovery.md
 - name: How-to guides
   items:
-    - name: Integrate with Azure Managed Identity
-      href: howto-integrate-azure-managed-service-identity.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
     - name: Route events to a custom endpoint
@@ -82,12 +96,12 @@
     - name: Configuration
       items:
         - name: Azure CLI
-          href: https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest
+          href: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
         - name: .NET Core provider
           href: https://go.microsoft.com/fwlink/?linkid=2074664
         - name: .NET Framework builder
           href: https://go.microsoft.com/fwlink/?linkid=2074663
-        - name: Azure SDK for .Net
+        - name: Azure SDK for .NET
           href: https://go.microsoft.com/fwlink/?linkid=2092056
         - name: Java Spring provider
           href: https://go.microsoft.com/fwlink/?linkid=2074659

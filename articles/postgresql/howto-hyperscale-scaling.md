@@ -5,14 +5,14 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 9/17/2019
+ms.date: 12/17/2019
 ---
 
 # Scale a Hyperscale (Citus) server group
 
 Azure Database for PostgreSQL - Hyperscale (Citus) provides self-service
 scaling to deal with increased load. The Azure portal makes it easy to add new
-worker nodes, and to increase the capacity of existing nodes.
+worker nodes, and to increase the vCores of existing nodes.
 
 ## Add worker nodes
 
@@ -45,12 +45,12 @@ The `rebalance_table_shards` function rebalances all tables in the
 argument. Thus you do not have to call the function for every distributed
 table, just call it on a representative table from each colocation group.
 
-## Increase vCores or storage space
+## Increase vCores
 
 In addition to adding new nodes, you can increase the capabilities of existing
-nodes. Go to the **Configure** tab in your Hyperscale (Citus) server group, and
-drag the slider for **vCores** and **Storage** to change these values for all
-worker nodes. Be sure to click **Save** to apply the changes.
+nodes. This feature is currently in preview — to request increased vCores for
+nodes in your server group, please [contact Azure
+support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Next steps
 

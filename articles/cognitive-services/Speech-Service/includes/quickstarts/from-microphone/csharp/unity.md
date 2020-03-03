@@ -1,14 +1,13 @@
 ---
 title: "Quickstart: Recognize speech from a microphone, C# (Unity)- Speech service"
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
 ---
 
@@ -87,7 +86,7 @@ To add the sample script code for the Unity project, follow these steps:
 
 1. Find and replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
-1. Find and replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
+1. Find and replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
 
 1. Save the changes to the script.
 

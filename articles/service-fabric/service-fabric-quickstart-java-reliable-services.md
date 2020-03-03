@@ -1,51 +1,31 @@
 ---
 title: 'Quickstart: Create a Java app on Azure Service Fabric'
 description: In this quickstart, you create a Java application for Azure using a Service Fabric reliable services sample application.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-
 ---
 # Quickstart:  Deploy a Java app to Azure Service Fabric on Linux
 
-This quickstart shows how to deploy your first Java application to Azure Service Fabric using the Eclipse IDE on a Linux developer machine. When you're finished, you have a voting application with a Java web front end that saves voting results in a stateful back-end service in the cluster.
+In this quickstart, you deploy a Java application to Azure Service Fabric using the Eclipse IDE on a Linux developer machine. When you're finished, you have a voting application with a Java web front end that saves voting results in a stateful back-end service in the cluster.
 
 Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers.
 
-![Azure Service Fabric voting sample](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
-
-In this quickstart, you learn how to:
-
-* Use Eclipse as a tool for your Service Fabric Java applications
-* Deploy the application to your local cluster
-* Scale-out the application across multiple nodes
-
 ## Prerequisites
 
-To complete this quickstart:
-
-1. [Install Service Fabric SDK & Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
-2. [Install Git](https://git-scm.com/)
-3. [Install Eclipse](https://www.eclipse.org/downloads/)
-4. [Set up Java Environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), making sure to follow the optional steps to install the Eclipse plug-in
+- [Java environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) and [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Eclipse Neon (4.6)+](https://www.eclipse.org/downloads/packages/) and [Eclipse plug-in for Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#install-the-eclipse-plug-in-optional)
+- [Service Fabric SDK and Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Git](https://git-scm.com/downloads)
 
 ## Download the sample
 
 In a command window, run the following command to clone the sample app repository to your local machine.
 
-```git
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
@@ -56,13 +36,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    The startup of the local cluster takes some time. To confirm that the cluster is fully up, access the Service Fabric Explorer at **http://localhost:19080**. The five healthy nodes indicate the local cluster is up and running.
+    The startup of the local cluster takes some time. To confirm that the cluster is fully up, access the Service Fabric Explorer at `http://localhost:19080`. The five healthy nodes indicate the local cluster is up and running.
 
     ![Azure Service Fabric Explorer shows healthy nodes](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Open Eclipse.
 3. Select **File** > **Import** > **Gradle** > **Existing Gradle Project** and follow the wizard.
-4. Select **Directory** and choose the `Voting` directory from the `service-fabric-java-quickstart` folder you cloned from GitHub. Select **Finish**.
+4. Select **Directory** and choose the **Voting** directory from the **service-fabric-java-quickstart** folder you cloned from GitHub. Select **Finish**.
 
     ![Import Gradle project into Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
@@ -77,15 +57,17 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 You can now add a set of voting options, and start taking votes. The application runs and stores all data in your Service Fabric cluster, without the need for a separate database.
 
+![Azure Service Fabric voting sample](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
+
 ## Scale applications and services in a cluster
 
-Services can be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. There are many ways of scaling your services; for example, you can use scripts or commands from Service Fabric CLI (sfctl). The following steps use Service Fabric Explorer.
+Services can be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. There are many ways of scaling your services. For example, you can use scripts or commands from Service Fabric CLI (`sfctl`). The following steps use Service Fabric Explorer.
 
-Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser by browsing to the cluster's HTTP management port (19080); for example, `http://localhost:19080`.
+Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser by browsing to the cluster's HTTP management port (19080). For example, `http://localhost:19080`.
 
 To scale the web front-end service, do the following:
 
-1. Open Service Fabric Explorer in your cluster - for example, `https://localhost:19080`.
+1. Open Service Fabric Explorer in your cluster. For example, `https://localhost:19080`.
 2. Select the ellipsis (**...**) next to the **fabric:/Voting/VotingWeb** node in the treeview and select **Scale Service**.
 
     ![Scale a service in Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)

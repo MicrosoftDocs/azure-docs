@@ -70,6 +70,8 @@ Azure Automation manages across the lifecycle of your infrastructure and applica
 * **Protect** - Quarantine VM if security alert is raised. Set in-guest requirements.
 * **Govern** - Set up role-based access control for teams. Recover unused resources.
 
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+
 ## Pricing for Automation
 
 You can review the price for Azure Automation on the [pricing](https://azure.microsoft.com/pricing/details/automation/) page.

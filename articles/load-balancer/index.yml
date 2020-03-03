@@ -26,8 +26,6 @@ landingContent:
         links:
           - text: What is Load Balancer?
             url: load-balancer-overview.md
-          - text: What is Standard Load Balancer?
-            url: load-balancer-standard-overview.md
       
   # Card (optional)
   - title: Get started

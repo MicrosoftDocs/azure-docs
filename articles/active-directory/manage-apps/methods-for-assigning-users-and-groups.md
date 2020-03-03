@@ -30,10 +30,11 @@ This article shows you how to assign users or groups to an application in Azure 
 
 The availability of group-based assignment is determined by your license agreement. Group-based assignment is supported for Security groups only. Nested group memberships and O365 groups are not currently supported.
 
-## Prerequisites
-Before you can assign users and groups to an application, you must require user assignment. To require user assignment:
+## Configure the application to require assignment
 
-1. Log in to the Azure portal with an administrator account.
+An application can be configured to require assignment before it can be accessed. To require assignment:
+
+1. Log in to the Azure portal with an administrator account, or as an owner of the app under **Enterprise apps**.
 2. Click on the **All services** item in the main menu.
 3. Choose the directory you are using for the application.
 4. Click on the **Enterprise applications** tab.

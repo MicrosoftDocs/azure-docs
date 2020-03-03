@@ -6,6 +6,10 @@
   items:
   - name: Create SQL VM - Portal
     href: provision-sql-server-linux-virtual-machine.md
+- name: Tutorials
+  items:
+  - name: Setting up Azure RHEL VM Availability Group with STONITH
+    href: sql-server-linux-rhel-ha-stonith-tutorial.md
 - name: Reference
   items:
   - name: Azure CLI

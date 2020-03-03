@@ -5,6 +5,7 @@
   - name: What is Azure Front Door Service?
     href: front-door-overview.md    
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create a Front Door
     href: quickstart-create-front-door.md

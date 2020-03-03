@@ -88,5 +88,5 @@ For highly available web applications, you should place your VMs behind an Azure
 ## Next steps
 In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
 
-* [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md)
 * [What is a Network Security Group (NSG)?](../../virtual-network/security-overview.md)

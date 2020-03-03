@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 05/21/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.custom: seodec18
 
 ---
@@ -125,7 +125,7 @@ Your choice of `PartitionKey` and `RowKey` is fundamental to good table design. 
 A table is made up of one or more partitions, and many of the design decisions you make will be around choosing a suitable `PartitionKey` and `RowKey` to optimize your solution. A solution can consist of just a single table that contains all your entities organized into partitions, but typically a solution has multiple tables. Tables help you to logically organize your entities, and help you manage access to the data by using access control lists. You can drop an entire table by using a single storage operation.  
 
 ### Table partitions
-The account name, table name, and `PartitionKey` together identify the partition within the storage service where Table storage stores the entity. As well as being part of the addressing scheme for entities, partitions define a scope for transactions (see the section later in this article, [Entity group transactions](#entity-group-transactions)), and form the basis of how Table storage scales. For more information on partitions, see [Azure Storage scalability and performance targets](../storage/common/storage-scalability-targets.md).  
+The account name, table name, and `PartitionKey` together identify the partition within the storage service where Table storage stores the entity. As well as being part of the addressing scheme for entities, partitions define a scope for transactions (see the section later in this article, [Entity group transactions](#entity-group-transactions)), and form the basis of how Table storage scales. For more information on table partitions, see [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md).  
 
 In Table storage, an individual node services one or more complete partitions, and the service scales by dynamically load-balancing partitions across nodes. If a node is under load, Table storage can split the range of partitions serviced by that node onto different nodes. When traffic subsides, Table storage can merge the partition ranges from quiet nodes back onto a single node.  
 
@@ -137,7 +137,7 @@ In Table storage, entity group transactions (EGTs) are the only built-in mechani
 
 EGTs also introduce a potential trade-off for you to evaluate in your design. Using more partitions increases the scalability of your application, because Azure has more opportunities for load-balancing requests across nodes. But this might limit the ability of your application to perform atomic transactions and maintain strong consistency for your data. Furthermore, there are specific scalability targets at the level of a partition that might limit the throughput of transactions you can expect for a single node.
 
-For more information about the scalability targets for Azure storage accounts and Table storage, see [Azure Storage scalability and performance targets](../storage/common/storage-scalability-targets.md). Later sections of this guide discuss various design strategies that help you manage trade-offs such as this one, and discuss how best to choose your partition key based on the specific requirements of your client application.  
+For more information about scalability targets for Azure storage accounts, see [Scalability targets for standard storage accounts](../storage/common/scalability-targets-standard-account.md). For more information about scalability targets for Table storage, see [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md). Later sections of this guide discuss various design strategies that help you manage trade-offs such as this one, and discuss how best to choose your partition key based on the specific requirements of your client application.  
 
 ### Capacity considerations
 The following table includes some of the key values to be aware of when you're designing a Table storage solution:  

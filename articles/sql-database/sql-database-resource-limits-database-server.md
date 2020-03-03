@@ -32,14 +32,14 @@ This article provides an overview of the SQL Database resource limits for a SQL 
 | Max pools per server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
 |||
 
-> [!NOTE]
-> To obtain more DTU/eDTU quota, vCore quota, or more servers than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”. The DTU/eDTU quota and database limit per server constrains the number of elastic pools per server.
-
 > [!IMPORTANT]
 > As the number of databases approaches the limit per SQL Database server, the following can occur:
 >
 > - Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
 > - Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
+
+> [!NOTE]
+> To obtain more DTU/eDTU quota, vCore quota, or more servers than the default amount, submit a new support request in the Azure portal. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md).
 
 ### Storage size
 
@@ -129,6 +129,6 @@ When encountering a log rate limit that is hampering desired scalability, consid
 
 ## Next steps
 
-- For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+- For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-purchase-models.md#dtu-based-purchasing-model).
 - For information about tempdb size limits, see [TempDB in Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

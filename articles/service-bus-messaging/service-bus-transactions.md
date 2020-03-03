@@ -1,10 +1,9 @@
 ---
-title: Overview of transaction processing in Azure Service Bus | Microsoft Docs
-description: Overview of Azure Service Bus atomic transactions and send via
+title: Overview of transaction processing in Azure Service Bus
+description: This article gives you an overview of transaction processing and the send via feature in Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
@@ -13,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2018
+ms.date: 01/27/2020
 ms.author: aschhab
 
 ---

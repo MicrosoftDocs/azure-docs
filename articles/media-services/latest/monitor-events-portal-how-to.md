@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Media Services events with Event Grid using portal | Microsoft Docs
+title: Monitor Azure Media Services events with Event Grid with portal
 description: This article shows how to subscribe to Event Grid in order to monitor Azure Media Services events. 
 services: media-services
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/15/2018
+ms.date: 01/21/2020
 ms.author: juliako
 ---
 

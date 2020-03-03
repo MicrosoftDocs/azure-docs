@@ -67,7 +67,7 @@ You can enable static website hosting by using the [Azure Command-Line Interface
    This example assumes that you're running commands from Azure Cloud Shell session.
 
    ```azurecli-interactive
-   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
    ```
 
    * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
@@ -152,6 +152,7 @@ You can enable static website hosting by using the Azure PowerShell module.
     ```powershell
     # upload a file
     set-AzStorageblobcontent -File "<path-to-file>" `
+    -Properties @{ ContentType = "text/html; charset=utf-8";} `
     -Container `$web `
     -Blob "<blob-name>" `
     -Context $ctx
@@ -216,10 +217,5 @@ Once you've enabled metrics, traffic statistics on files in the **$web** contain
 
 ## Next steps
 
-* [Static website hosting in Azure Storage](storage-blob-static-website.md)
-* [Use the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
-* [Configure a custom domain name for your blob or web endpoint](storage-custom-domain-name.md)
-* [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure App Service](/azure/app-service/overview)
-* [Build your first serverless web app](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+* Learn how to configure a custom domain with your static website. See [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md).
+

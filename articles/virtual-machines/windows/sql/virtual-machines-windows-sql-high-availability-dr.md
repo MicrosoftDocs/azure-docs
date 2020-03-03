@@ -74,13 +74,13 @@ You can have a disaster recovery solution for your SQL Server databases in a hyb
 
 ## Free DR replica in Azure
 
-If you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), you can implement hybrid disaster recovery (DR) plans with SQL Server using Always On availability groups or failover cluster instances without incurring additional licensing costs for the passive DR instance.
+If you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), you can implement hybrid disaster recovery (DR) plans with SQL Server without incurring additional licensing costs for the passive DR instance.
 
 In the image below, the setup uses SQL Server running on an Azure Virtual Machine utilizing 12 cores as a disaster recovery replica for an on-premises SQL Server deployment using 12 cores. In the past, you would need to license 12 cores of SQL Server for the on-premises and the Azure Virtual Machine deployment. The new benefit offers passive replica benefits running on an Azure Virtual Machine. Now you would need to only license 12 cores of SQL Server running on-premises as long as the disaster recovery criteria for the passive replica on Azure Virtual Machine is met.
 
 ![Free DR replica in Azure](media/virtual-machines-windows-sql-high-availability-dr/free-dr-replica-azure.png)
 
-For more information, see the [licensing guide](https://download.microsoft.com/download/6/6/0/66078040-86d8-4f6e-b0c5-e9919bbcb537/SQL%20Server%202019%20Licensing%20guide.pdf). 
+For more information, see the [Product Licensing Terms](https://www.microsoft.com/licensing/product-licensing/products). 
 
 To enable this benefit, navigate to your [SQL Server virtual machine resource](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource), select **Configure** under settings, and then choose the **Disaster Recovery** option under **SQL Server License**. Select the checkbox to confirm that this SQL Server VM will be used as a passive replica, and then select **Apply** to save your settings. 
 
