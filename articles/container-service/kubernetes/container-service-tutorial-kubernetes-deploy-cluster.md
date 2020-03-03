@@ -36,7 +36,7 @@ Create a Kubernetes cluster in Azure Container Service with the [az acs create](
 
 The following example creates a cluster named `myK8sCluster` in a Resource Group named `myResourceGroup`. This Resource Group was created in the [previous tutorial](./container-service-tutorial-kubernetes-prepare-acr.md).
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
@@ -52,7 +52,7 @@ If you're using Azure CloudShell, kubectl is already installed. If you want to i
 
 If running in Linux or macOS, you may need to run with sudo. On Windows, ensure your shell has been run as administrator.
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs kubernetes install-cli 
 ```
 
@@ -62,19 +62,19 @@ On Windows, the default installation is *c:\program files (x86)\kubectl.exe*. Yo
 
 To configure kubectl to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) command.
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster
 ```
 
 To verify the connection to your cluster, run the [kubectl get nodes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 Output:
 
-```bash
+```output
 NAME                    STATUS                     AGE       VERSION
 k8s-agent-98dc3136-0    Ready                      5m        v1.6.2
 k8s-agent-98dc3136-1    Ready                      5m        v1.6.2

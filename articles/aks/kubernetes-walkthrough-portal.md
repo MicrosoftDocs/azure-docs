@@ -72,13 +72,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 The following example output shows the single node created in the previous steps. Make sure that the status of the node is *Ready*:
 
-```
+```output
 NAME                       STATUS    ROLES     AGE       VERSION
 aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 ```
@@ -179,13 +179,13 @@ spec:
 
 Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-vote.yaml
 ```
 
 The following example output shows the Deployments and Services created successfully:
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -198,20 +198,20 @@ When the application runs, a Kubernetes service exposes the application front en
 
 To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service is shown as *pending*.
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
