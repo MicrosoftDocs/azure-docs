@@ -19,10 +19,8 @@ The Face service automatically encrypts your data when persisted it to the cloud
 
 [!INCLUDE [cognitive-services-about-encryption](../../../includes/cognitive-services-about-encryption.md)]
 
-To request the ability to use customer-managed keys, fill out and submit the [Face Service Customer-Managed Key Request Form](http://urltorequest). Once approved for using CMK with the Face service, you will need to create a new Face resource and select E0 as the Pricing Tier.
-
 > [!IMPORTANT]
-> Customer-managed keys are only available on the E0 pricing tier. You must fill out and submit the [Face Service Customer-Managed Key Request Form](http://urltorequest) to get access to the E0 pricing tier for your resource.
+> Customer-managed keys are only available on the E0 pricing tier. To request the ability to use customer-managed keys, fill out and submit the [Face Service Customer-Managed Key Request Form](http://urltorequest). Once approved for using CMK with the Face service, you will need to create a new Face resource and select E0 as the Pricing Tier..
 
 [!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk.md)]
 

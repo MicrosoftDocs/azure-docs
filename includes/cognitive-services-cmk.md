@@ -10,13 +10,6 @@
  ms.custom: include
 ---
 
-## Microsoft-managed keys
-
-By default, your Cognitive Services resource uses Microsoft-managed encryption keys. You can see the encryption settings for your resource in the **Encryption** section of the [Azure portal](https://portal.azure.com), as shown in the following image.
-
-<TODO: Add image>
-
-## Customer-managed keys with Azure Key Vault
 
 You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Cognitive Services resource and the key vault must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
