@@ -283,8 +283,6 @@
         href: sql-database-performance-guidance.md
       - name: Use DMVs to monitor performance
         href: sql-database-monitoring-with-dmvs.md
-      - name: Use Query store to monitor performance
-        href: sql-database-operate-query-store.md   
       - name: Monitor In-memory OLTP space
         href: sql-database-in-memory-oltp-monitoring.md
       - name: Extended events
