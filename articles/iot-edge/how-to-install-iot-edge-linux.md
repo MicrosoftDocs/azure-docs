@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 07/22/2019
 ms.author: kgremban
 ---
 # Install the Azure IoT Edge runtime on Debian-based Linux systems
@@ -174,12 +174,20 @@ sudo nano /etc/iotedge/config.yaml
 
 Find the provisioning configurations of the file and uncomment the **Manual provisioning configuration** section. Update the value of **device_connection_string** with the connection string from your IoT Edge device. Make sure any other provisioning sections are commented out. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
 
-   ```yml
+   ```yaml
    # Manual provisioning configuration
    provisioning:
      source: "manual"
      device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-     dyname_reprovisioning: false
+  
+   # DPS TPM provisioning configuration
+   # provisioning:
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   attestation:
+   #     method: "tpm"
+   #     registration_id: "{registration_id}"
    ```
 
 To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
@@ -196,13 +204,7 @@ sudo systemctl restart iotedge
 
 ### Option 2: Automatic provisioning
 
-IoT Edge devices can be automatically provisioned using the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml). Currently, IoT Edge supports two attestation mechanisms when using automatic provisioning, but your hardware requirements may impact your choices. For example, Raspberry Pi devices do not come with a Trusted Platform Module (TPM) chip by default. For more information, refer to the following articles:
-
-* [Create and provision an IoT Edge device with a virtual TPM on a Linux VM](how-to-auto-provision-simulated-device-linux.md)
-* [Create and provision an IoT Edge device using X.509 certificates](how-to-auto-provision-x509-certs.md)
-* [Create and provision an IoT Edge device using symmetric key attestation](how-to-auto-provision-symmetric-keys.md)
-
-Those articles walk you through setting up enrollments in DPS, and generating the proper certificates or keys for attestation. Regardless of which attestation mechanism you choose, the provisioning information is added to the IoT Edge configuration file on your IoT Edge device.
+To automatically provision a device, [set up Device Provisioning Service and retrieve your device registration ID](how-to-auto-provision-simulated-device-linux.md). There are a number of attestation mechanisms supported by IoT Edge when using automatic provisioning but your hardware requirements also impact your choices. For example, Raspberry Pi devices do not come with a Trusted Platform Module (TPM) chip by default.
 
 Open the configuration file.
 
@@ -210,53 +212,29 @@ Open the configuration file.
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Find the provisioning configurations of the file and uncomment the section appropriate for your attestation mechanism. Make sure any other provisioning sections are commented out. The **provisioning:** line should have no preceding whitespace, and nested items should be indented by two spaces. Update the value of **scope_id** with the value from your IoT Hub Device Provisioning Service instance, and provide the appropriate values for the attestation fields.
+Find the provisioning configurations of the file and uncomment the section appropriate for your attestation mechanism. When using TPM attestation, for example, update the values of **scope_id** and **registration_id** with the values from your IoT Hub Device Provisioning service and your IoT Edge device with TPM, respectively. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
 
-TPM attestation:
-
-```yml
-# DPS TPM provisioning configuration
-provisioning:
-  source: "dps"
-  global_endpoint: "https://global.azure-devices-provisioning.net"
-  scope_id: "{scope_id}"
-  attestation:
-    method: "tpm"
-    registration_id: "{registration_id}"
-```
-
-X.509 attestation:
-
-```yml
-# DPS X.509 provisioning configuration
-provisioning:
-  source: "dps"
-  global_endpoint: "https://global.azure-devices-provisioning.net"
-  scope_id: "{scope_id}"
-  attestation:
-    method: "x509"
-#   registration_id: "<OPTIONAL REGISTRATION ID. IF UNSPECIFIED CAN BE OBTAINED FROM CN OF identity_cert"
-    identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
-    identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
-```
-
-Symmetric key attestation:
-
-```yml
-# DPS symmetric key provisioning configuration
-provisioning:
-  source: "dps"
-  global_endpoint: "https://global.azure-devices-provisioning.net"
-  scope_id: "{scope_id}"
-  attestation:
-    method: "symmetric_key"
-    registration_id: "{registration_id}"
-    symmetric_key: "{symmetric_key}"
-```
+   ```yaml
+   # Manual provisioning configuration
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     attestation:
+       method: "tpm"
+       registration_id: "{registration_id}"
+   ```
 
 To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
 
-Save and close the file. `CTRL + X`, `Y`, `Enter`
+Save and close the file.
+
+   `CTRL + X`, `Y`, `Enter`
 
 After entering the provisioning information in the configuration file, restart the daemon:
 
