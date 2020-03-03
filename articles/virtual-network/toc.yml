@@ -83,8 +83,10 @@
       href: kubernetes-network-policies.md
     - name: Routing
       href: virtual-networks-udr-overview.md
-    - name: Security groups
+    - name: Network security groups
       href: security-overview.md
+    - name : Application security groups
+      href: application-security-groups.md
     - name: Service tags 
       href: service-tags-overview.md
     - name: Service endpoints
