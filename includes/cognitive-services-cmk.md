@@ -30,7 +30,7 @@ To learn how to use customer-managed keys with Azure Key Vault for Cognitive Ser
 - [Configure customer-managed keys with Key Vault for Cognitive Services encryption from PowerShell](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-powershell.md)
 - [Configure customer-managed keys with Key Vault for Cognitive Services encryption from Azure CLI](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-cli.md)
 
-Enabling customer managed keys will also enable a system assigned managed identity, a feature of Azure AD. Once the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory. After being registered, the managed identity will be given access to the Key Vault selected during customer managed key setup. You can learn more about [Managed Identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview).
+Enabling customer managed keys will also enable a system assigned managed identity, a feature of Azure AD. Once the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory. After being registered, the managed identity will be given access to the Key Vault selected during customer managed key setup. You can learn more about [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 > [!IMPORTANT]
 > If you disable system assigned managed identities, access to the key vault will be removed and any data encrypted with the customer keys will no longer be accessible. Any features depended on this data will stop working.
