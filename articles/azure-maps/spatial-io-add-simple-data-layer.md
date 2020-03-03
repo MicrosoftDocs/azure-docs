@@ -13,17 +13,17 @@ manager: philmea
 
 # Add a simple data layer
 
-The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It can even render data sets that have style properties and data sets that contain mixed geometry types. The simple data layer achieves this functionality by wrapping multiple rendering layers and using style expressions. The style expressions search for common style properties of the features inside these wrapped layers. The `atlas.io.read` function and the `atlas.io.write` function use these properties to read and write styles into a supported file format. After adding the properties to a supported file format, the file is used to display the styled features on the map.
+The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It can even render data sets that have style properties and data sets that contain mixed geometry types. The simple data layer achieves this functionality by wrapping multiple rendering layers and using style expressions. The style expressions search for common style properties of the features inside these wrapped layers. The `atlas.io.read` function and the `atlas.io.write` function use these properties to read and write styles into a supported file format. After adding the properties to a supported file format, the file can be used for various purposes. For example, the file can be used to display the styled features on the map.
 
 In addition to styling features, the `SimpleDataLayer` provides a built-in popup feature with a popup template. The popup displays when a feature is clicked. The default popup feature can be disabled, if desired. This layer also supports clustered data. When a cluster is clicked, the map will zoom into the cluster and expand it into individual points and sub-clusters.
 
-The `SimpleDataLayer` class is intended to be used on large data sets with many geometry types and many styles on the features. When used, it adds an overhead of six additional layers containing style expressions. Thus, for rendering a couple of geometry types or a few styles on a feature, it's more efficient to use one of the core rendering layers.
+The `SimpleDataLayer` class is intended to be used on large data sets with many geometry types and many styles applied on the features. When used, this class adds an overhead of six layers containing style expressions. Thus, for rendering a couple of geometry types or a few styles on a feature, it's more efficient to use one of the core rendering layers.
 
 ## Default supported style properties
 
-As mentioned earlier, the simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It uses expressions to search for valid style properties on individual features. Most layer options property names are supported as style properties of features. Expressions have been added to some layer options to support additional common style property names that could be used in platforms other than Azure. For example, GitHub has a set of style properties that it looks for on GeoJSON files, as a way to support styling of GeoJSON files stored and rendered within GitHub. Expressions have been added to the Simple Data layer to support GitHub style property names, defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github). All styling properties are supported, except the `marker-symbol` styling properties.
+As mentioned earlier, the simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It uses expressions to search for valid style properties on individual features. Most property names, for the different layer options, are supported as style properties of features in the simple data layer. Expressions have been added to some layer options to support additional style property names that could are common in platforms other than Azure. For example, GitHub has a set of style properties that it looks for on GeoJSON files, as a way to support styling of GeoJSON files that are stored and rendered within GitHub. Expressions have been added to the Simple Data layer to support GitHub style property names. These property names are defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github). All styling properties are supported, except the `marker-symbol` styling properties.
 
-These default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers. 
+The default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers. 
 
 The next section provides details on the default style properties that the simple data layer supports. The order of the supported property names is also the priority of the property. If two style properties are defined for the same layer option, then the first one in the list has higher precedence.
 
@@ -39,7 +39,7 @@ If a feature is a `Point` or a `MultiPoint` and doesn't have an `image` property
 | `radius` | `size`<sup>1</sup>, `marker-size`<sup>2</sup>, `scale`<sup>1</sup> | `8` |
 | `strokeColor` | `strokeColor`, `stroke` | `FFFFFF` |
 
-1. The `size` and `scale` values are considered scalar values and will be multiplied by `8`. 
+1. The `size` and `scale` values are considered scalar values, and they'll be multiplied by `8`. 
 2. If `marker-size` option, that's used by GitHub, is specified, then the following values will be used for the radius.
 
 | Marker size | Radius |
@@ -48,7 +48,7 @@ If a feature is a `Point` or a `MultiPoint` and doesn't have an `image` property
 | `medium`    | `8`    |
 | `large`     | `12`   |
 
-Clusters are also rendered using the bubble layer. By default the radius of a cluster is set to `16` and the color varies depending on the number of points in the cluster, as defined below:
+Clusters are also rendered using the bubble layer. By default the radius of a cluster is set to `16`. The color of the cluster varies depending on the number of points in the cluster, as defined below:
 
 | # of points | Color    |
 |-------------|----------|
@@ -65,7 +65,7 @@ If a feature is a `Point` or a `MultiPoint` and has an `image` property that wou
 | `image` | `image` | ``none`` |
 | `size` | `size`, `marker-size`<sup>1</sup> | `1` |
 | `rotation` | `rotation` | `0` |
-| `offset` | 'offset' | `[0, 0]` |
+| `offset` | `offset` | `[0, 0]` |
 | `anchor` | `anchor` | `'bottom'` |
 
 1. If `marker-size` option, that's used by GitHub, is specified, then the following values will be used for the icon size option.
@@ -76,7 +76,7 @@ If a feature is a `Point` or a `MultiPoint` and has an `image` property that wou
 | `medium`    | `1`         |
 | `large`     | `2`         |
 
-If the point feature is a cluster, the `point_count_abbreviated` property will be rendered as a text label and no image will be rendered.
+If the point feature is a cluster, the `point_count_abbreviated` property will be rendered as a text label. No image will be rendered.
 
 ### Line style properties
 
@@ -121,7 +121,7 @@ var layer = new atlas.layer.SimpleDataLayer(datasource);
 map.layers.add(layer);
 ```
 
-Add your features to the data source and the simple data layer will figure out how best to render them. Styles for individual features can be set as properties on the feature. The following code shows a GeoJSON point feature with a `color` property set to `red`. 
+Add features to the data source. Then, the simple data layer will figure out how best to render the features. Styles for individual features can be set as properties on the feature. The following code shows a GeoJSON point feature with a `color` property set to `red`. 
 
 ```json
 {
@@ -140,14 +140,20 @@ The following is the complete code that renders the above point feature using th
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Use the Simple data layer" src="/codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Use the simple data layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Use the Simple data layer" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Use the simple data layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-The real power of the simple data layer comes when there are several different types of features in a data source, or when features in the data set have several style properties individually set on them, or when your not sure what the data set exactly contains. For example when parsing XML data feeds, you may not exactly know the styles and geometry types of the features. The following example shows the power of the simple data layer by rendering the features of a KML file. It also demonstrates various options that the simple data layer class provides.
+The real power of the simple data layer comes when:
+
+- There are several different types of features in a data source. Or,
+- Features in the data set have several style properties individually set on them. Or,
+- You're not sure what the data set exactly contains.
+
+For example when parsing XML data feeds, you may not know the exact styles and geometry types of the features. The following sample shows the power of the simple data layer by rendering the features of a KML file. It also demonstrates various options that the simple data layer class provides.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Simple data layer options" src="/codepen.io/azuremaps/embed/gOpRXgy/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Simple data layer options" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
