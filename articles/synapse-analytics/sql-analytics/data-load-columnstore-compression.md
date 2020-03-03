@@ -136,7 +136,7 @@ OPTION (MAXDOP 1);
 DWU size and the user resource class together determine how much memory is available for a user query. To increase the memory grant for a load query, you can either increase the number of DWUs or increase the resource class.
 
 - To increase the DWUs, see [How do I scale performance?](../../sql-data-warehouse/quickstart-scale-compute-portal.md)
-- To change the resource class for a query, see [Change a user resource class example](workload-management-resource-classes.md#change-a-users-resource-class).
+- To change the resource class for a query, see [Change a user resource class example](../../sql-data-warehouse/resource-classes-for-workload-management.md#change-a-users-resource-class).
 
 ## Next steps
 

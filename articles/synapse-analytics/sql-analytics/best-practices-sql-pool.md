@@ -145,12 +145,12 @@ SQL pools use resource groups as a way to allocate memory to queries. Initially,
 
 Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, such as pure scans, will see no benefit. Utilizing larger resource classes impacts concurrency. So, you'll want to keep these facts in mind before moving all of your users to a large resource class.
 
-For additional information on resource classes, refer to the [Resource classes for workload management](workload-management-resource-classes.md) article.
+For additional information on resource classes, refer to the [Resource classes for workload management](../../sql-data-warehouse/sql-data-warehouse-workload-management-resource-classes.md) article.
 
 ## Use smaller resource class to increase concurrency
 If you notice a long delay in user queries, your users might be running in larger resource classes. This scenario promotes the consumption of concurrency slots, which can cause other queries to queue up.  To determine if users queries are queued, run `SELECT * FROM sys.dm_pdw_waits` to see if any rows are returned.
 
-The [Resource classes for workload management](workload-management-resource-classes.md) and [sys.dm_pdw_waits](https://msdn.microsoft.com/library/mt203893.aspx) articles will provide you with more information.
+The [Resource classes for workload management](../../sql-data-warehouse/sql-data-warehouse-workload-management-resource-classes.md) and [sys.dm_pdw_waits](https://msdn.microsoft.com/library/mt203893.aspx) articles will provide you with more information.
 
 ## Use DMVs to monitor and optimize your queries
 SQL pools have several DMVs that can be used to monitor query execution.  The monitoring article below walks you through step-by-step instructions on how to view details of an executing query.  To quickly find queries in these DMVs, using the LABEL option with your queries can help. For additional detailed information, please see the articles included in the list below: 
