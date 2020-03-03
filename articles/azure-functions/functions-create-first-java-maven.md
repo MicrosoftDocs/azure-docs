@@ -115,7 +115,7 @@ gradle azureFunctionsRun
 
 You will see output like the following from Azure Functions Core Tools when you run the project locally:
 
-```Output
+```output
 ...
 
 Now listening on: http://0.0.0.0:7071
@@ -133,7 +133,7 @@ Trigger the function from the command line using cURL in a new terminal window:
 curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 ```
 
-```Output
+```output
 Hello AzureFunctions!
 ```
 The [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) isn't required when running locally. Use `Ctrl+C` in the terminal to stop the function code.
@@ -154,11 +154,13 @@ az login
 
 Use the following command to deploy your project to a new function app. 
 
+
 ::: zone pivot="java-build-tools-maven" 
 ```bash
 mvn azure-functions:deploy
 ```
 ::: zone-end 
+
 ::: zone pivot="java-build-tools-gradle"  
 ```bash
 gradle azureFunctionsDeploy
@@ -199,13 +201,13 @@ You can now use the copied URL to access your function.
 
 To verify the function app running on Azure using `cURL`, replace the URL from the sample below with the URL that you copied from the portal.
 
-```azurecli
+```console
 curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpTrigger-Java?code=zYRohsTwBlZ68YF.... --data AzureFunctions
 ```
 
 This sends a POST request to the function endpoint with `AzureFunctions` in the body of the request. You see the following response.
 
-```Output
+```output
 Hello AzureFunctions!
 ```
 

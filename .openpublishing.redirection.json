@@ -6769,6 +6769,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/connectors/connectors-create-api-googledrive.md",
+      "redirect_url": "https://docs.microsoft.com/connectors/googledrive/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
       "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/create-web-api-connector",
       "redirect_document_id": true
@@ -29399,6 +29404,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/hdinsight/kafka/apache-kafka-byok.md",
+      "redirect_url": "/azure/hdinsight/disk-encryption",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-apache-kafka-connect-vpn-gateway.md",
       "redirect_url": "/azure/hdinsight/kafka/apache-kafka-connect-vpn-gateway",
       "redirect_document_id": true
@@ -46665,6 +46675,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/howto-password-ban-bad-configure.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-configure-custom-password-protection",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
       "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
       "redirect_document_id": false
@@ -49163,6 +49178,6 @@
       "source_path": "articles/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins.md",
       "redirect_url": "/azure/jenkins/service-fabric-cicd-your-linux-applications-with-jenkins",
       "redirect_document_id": true
-    }
+    },
   ]
 }
