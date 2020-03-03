@@ -25,8 +25,7 @@ In the previous picture, *NIC1* and *NIC2* are members of the *AsgWeb* applicati
 
 ## Allow-HTTP-Inbound-Internet
 
-This rule is needed to allow traffic from the internet to the web servers. Because inbound traffic from the internet is denied by the [DenyAllInbound](#denyallinbound)
-default security rule, no additional rule is needed for the *AsgLogic* or *AsgDb* application security groups.
+This rule is needed to allow traffic from the internet to the web servers. Because inbound traffic from the internet is denied by the **DenyAllInbound** default security rule, no additional rule is needed for the *AsgLogic* or *AsgDb* application security groups.
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
@@ -34,7 +33,7 @@ default security rule, no additional rule is needed for the *AsgLogic* or *AsgDb
 
 ## Deny-Database-All
 
-Because the [AllowVNetInBound](#allowvnetinbound) default security rule allows all communication between resources in the same virtual network, this rule is needed to deny traffic from all resources.
+Because the **AllowVNetInBound** default security rule allows all communication between resources in the same virtual network, this rule is needed to deny traffic from all resources.
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
