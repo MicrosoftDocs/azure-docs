@@ -73,7 +73,7 @@ There are three other backup methods or paths that can be considered:
 - Executing the HANA Backup against VM attached disks of Standard SSD or Azure Premium Storage. As next step you can copy those backup files against Azure Blob storage. This strategy might be price wise attractive
 - Executing the HANA Backup against VM attached disks of Standard SSD or Azure Premium Storage. As next step the disk gets snapshotted on a regular basis. After the first snapshot, incremental snapshots can be used to reduce costs
 
-![This figure shows options for taking an SAP HANA file backup inside the VM](media/sap-hana-backup-guide/alternative-HANA-backup-paths.png)
+![This figure shows options for taking an SAP HANA file backup inside the VM](media/sap-hana-backup-guide/other-hana-backup-paths.png)
 
 This figure shows options for taking an SAP HANA file backup inside the VM, and then storing it HANA backup files somewhere else using different tools. However, all solutions not involving a third-party backup service or Azure Backup service have several hurdles in common. Some of them can be listed, like retention administration, automatic restore process and providing automatic point-in-time recovery as Azure Backup service or other specialized third-party backup suites and services provide. Many of those third-party services being able to run on Azure. 
 
