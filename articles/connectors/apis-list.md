@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 03/06/2020
+ms.date: 03/05/2020
 ---
 
 # Connectors for Azure Logic Apps
@@ -84,7 +84,7 @@ Logic Apps provides built-in triggers and actions so that you can create schedul
 | [![API icon][schedule-icon]<br>**Schedule**][schedule-doc] | - Run a logic app on a specified recurrence, ranging from basic to advanced schedules with the [**Recurrence** trigger][schedule-recurrence-doc]. <p>- Run a logic app that needs to handle data in continuous chunks with the [**Sliding Window** trigger][schedule-sliding-window-doc]. <p>- Pause your logic app for a specified duration with the [**Delay** action][schedule-delay-doc]. <p>- Pause your logic app until the specified date and time with the [**Delay until** action][schedule-delay-until-doc]. | [![API icon][batch-icon]<br>**Batch**][batch-doc] | - Process messages in batches with the **Batch messages** trigger. <p>- Call logic apps that have existing batch triggers with the **Send messages to batch** action. |
 | [![API icon][http-icon]<br>**HTTP**][http-doc] | Call HTTP or HTTPS endpoints with triggers and actions for HTTP. Other HTTP built-in triggers and actions include [HTTP + Swagger][http-swagger-doc] and [HTTP + Webhook][http-webhook-doc]. | [![API icon][http-request-icon]<br>**Request**][http-request-doc] | - Make your logic app callable from other apps or services, trigger on Event Grid resource events, or trigger on responses to Azure Security Center alerts with the **Request** trigger. <p>- Send responses to an app or service with the **Response** action. |
 | [![API icon][azure-api-management-icon]<br>**Azure API <br>Management**][azure-api-management-doc] | Call triggers and actions defined by your own APIs that you manage and publish with Azure API Management. | [![API icon][azure-app-services-icon]<br>**Azure App <br>Services**][azure-app-services-doc] | Call Azure API Apps, or Web Apps, hosted on Azure App Service. The triggers and actions defined by these apps appear like any other first-class triggers and actions when Swagger is included.|
-| [![API icon][azure-logic-apps-icon]<br>**Azure<br> Logic Apps**][nested-logic-app-doc] | Call other logic apps that start with the **Request** trigger. |
+| [![API icon][azure-logic-apps-icon]<br>**Azure Logic <br>Apps**][nested-logic-app-doc] | Call other logic apps that start with the **Request** trigger. |
 |||||
 
 ### Run code from logic apps
@@ -127,11 +127,12 @@ Logic Apps provides these popular Standard connectors for automating tasks, proc
 |   |   |   |   |
 |---|---|---|---|
 | [![API icon][azure-service-bus-icon]<br>**Azure Service Bus**][azure-service-bus-doc] | Manage asynchronous messages, sessions, and topic subscriptions with the most commonly used connector in Logic Apps. | [![API icon][sql-server-icon]<br>**SQL Server**][sql-server-doc] | Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries. |
-| [![API icon][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Connect to your Office 365 email account so that you can create and manage emails, tasks, calendar events and meetings, contacts, requests, and more. | [![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | Connect to your storage account so that you can create and manage blob content. |
-| [![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders. | [![API icon][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc] | Connect to SharePoint Online so that you can manage files, attachments, folders, and more. |
-| [![API icon][dynamics-365-icon]<br>**Dynamics 365<br>CRM Online**][dynamics-365-doc] | Connect to your Dynamics 365 account so that you can create and manage records, items, and more. | [![API icon][ftp-icon]<br>**FTP**][ftp-doc] | Connect to FTP servers you can access from the internet so that you can work with your files and folders. |
-| [![API icon][salesforce-icon]<br>**Salesforce**][salesforce-doc] | Connect to your Salesforce account so that you can create and manage items such as records, jobs, objects, and more. | [![API icon][twitter-icon]<br>**Twitter**][twitter-doc] | Connect to your Twitter account so that you can manage tweets, followers, your timeline, and more. Save your tweets to SQL, Excel, or SharePoint. |
+| [![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | Connect to your storage account so that you can create and manage blob content. | [![API icon][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Connect to your Office 365 email account so that you can create and manage emails, tasks, calendar events and meetings, contacts, requests, and more. |
+| [![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders. | [![API icon][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc] | Connect to SharePoint Online so that you can manage files, attachments, folders, and more. | 
+| [![API icon][dynamics-365-icon]<br>**Dynamics 365<br>**][dynamics-365-doc] | Connect to your Dynamics 365 account so that you can create and manage records, items, and more. | [![API icon][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc] | Connect to your Azure Storage account so that you can create and manage queues and messages |
+| [![API icon][ftp-icon]<br>**FTP**][ftp-doc] | Connect to FTP servers you can access from the internet so that you can work with your files and folders. | [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc] | Connect to your on-premises file share so that you can create and manage files. |
 | [![API icon][azure-event-hubs-icon]<br>**Azure Event Hubs**][azure-event-hubs-doc] | Consume and publish events through an Event Hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider. | [![API icon][azure-event-grid-icon]<br>**Azure Event**<br>**Grid**][azure-event-grid-doc] | Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change. |
+| [![API icon][salesforce-icon]<br>**Salesforce**][salesforce-doc] | Connect to your Salesforce account so that you can create and manage items such as records, jobs, objects, and more. | [![API icon][twitter-icon]<br>**Twitter**][twitter-doc] | Connect to your Twitter account so that you can manage tweets, followers, your timeline, and more. Save your tweets to SQL, Excel, or SharePoint. |
 |||||
 
 <a name="on-premises-connectors"></a>
@@ -262,7 +263,7 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [schedule-delay-doc]: ./connectors-native-delay.md "Delay running the next action"
 [schedule-delay-until-doc]: ./connectors-native-delay.md "Delay running the next action"
 [schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Run logic apps on a recurring schedule"
-[schedule-sliding-window-doc]: ./connectors/connectors-native-sliding-window.md "Run logic apps that need to handle data in contiguous chunks"
+[schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Run logic apps that need to handle data in contiguous chunks"
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organize actions into groups, which get their own status after the actions in group finish running"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize actions into cases, which are assigned unique values. Run only the case whose value matches the result from an expression, object, or token. If no matches exist, run the default case"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app"
@@ -299,11 +300,9 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [instagram-doc]: ./connectors-create-api-instagram.md "Connect to Instagram. Trigger or act on events"
 [mailchimp-doc]: ./connectors-create-api-mailchimp.md "Connect to your MailChimp account. Manage and automate mails"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Connect to Mandrill for communication"
-[microsoft-translator-doc]: ./connectors-create-api-microsofttranslator.md "Connect to Microsoft Translator. Translate text, detect languages, and more"
 [mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "Connect to your on-premises MySQL database so that you can read and write data"
 [office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Connect to your Office 365 account so that you can send and receive emails, manage your calendar and contacts, and more"
 [office-365-users-doc]: ./connectors-create-api-office365-users.md
-[office-365-video-doc]: ./connectors-create-api-office365-video.md "Get video info, video lists and channels, and playback URLs for Office 365 videos"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Connect to your personal Microsoft OneDrive so that you can upload, delete, list files, and more"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Connect to your business Microsoft OneDrive so that you can upload, delete, list your files, and more"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database so that you can add, insert, delete rows, and more"
@@ -325,7 +324,6 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [trello-doc]: ./connectors-create-api-trello.md "Connect to Trello. Manage your projects and organize anything with anyone"
 [twilio-doc]: ./connectors-create-api-twilio.md "Connect to Twilio. Send and get messages, get available numbers, manage incoming phone numbers, and more"
 [twitter-doc]: ./connectors-create-api-twitter.md "Connect to Twitter. Get timelines, post tweets, and more"
-[wunderlist-doc]: ./connectors-create-api-wunderlist.md "Connect to Wunderlist. Manage your tasks and to-do lists, keep your life in sync, and more"
 [yammer-doc]: ./connectors-create-api-yammer.md "Connect to Yammer. Post messages, get new messages, and more"
 [youtube-doc]: ./connectors-create-api-youtube.md "Connect to YouTube. Manage your videos and channels"
 
@@ -418,11 +416,9 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [jira-icon]: ./media/apis-list/jira.png
 [mailchimp-icon]: ./media/apis-list/mailchimp.png
 [mandrill-icon]: ./media/apis-list/mandrill.png
-[microsoft-translator-icon]: ./media/apis-list/microsoft-translator.png
 [mysql-icon]: ./media/apis-list/mysql.png
 [office-365-outlook-icon]: ./media/apis-list/office-365.png
 [office-365-users-icon]: ./media/apis-list/office-365-users.png
-[office-365-video-icon]: ./media/apis-list/office-365-video.png
 [onedrive-icon]: ./media/apis-list/onedrive.png
 [onedrive-for-business-icon]: ./media/apis-list/onedrive-business.png
 [oracle-db-icon]: ./media/apis-list/oracle-db.png
@@ -452,7 +448,6 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [vimeo-icon]: ./media/apis-list/vimeo.png
 [visual-studio-team-services-icon]: ./media/apis-list/visual-studio-team-services.png
 [wordpress-icon]: ./media/apis-list/wordpress.png
-[wunderlist-icon]: ./media/apis-list/wunderlist.png
 [yammer-icon]: ./media/apis-list/yammer.png
 [youtube-icon]: ./media/apis-list/youtube.png
 
