@@ -9,7 +9,7 @@ ms.topic: sample
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/19/2020
+ms.date: 03/03/2020
 ---
 
 # Use the sample datasets in Azure Machine Learning designer (preview)
