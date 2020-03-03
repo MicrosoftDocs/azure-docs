@@ -1,10 +1,10 @@
 ---
-title: Resources - SQL On-demand self-help
+title: SQL On-demand self-help
 description: This section contains information that can help you troubleshoot problems with SQL On-demand
 services: synapse analytics
 author: vvasic-msft
 ms.service: synapse-analytics 
-ms.topic: resources
+ms.topic: overview
 ms.subservice:
 ms.date: 2/28/2020
 ms.author: vvasic
