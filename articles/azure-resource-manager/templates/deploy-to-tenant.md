@@ -1,0 +1,167 @@
+---
+title: Deploy resources to tenant
+description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
+ms.topic: conceptual
+ms.date: 03/02/2020
+---
+
+# Create resources at the tenant level
+
+Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the:
+
+* [subscription level](deploy-to-subscription.md)
+* [management group level](deploy-to-management-group.md)
+* tenant level (covered in this article)
+
+You use tenant level deployments to take actions that make sense at that level, such as assigning [role-based access control](../../role-based-access-control/overview.md) or applying [policies](../../governance/policy/overview.md).
+
+## Supported resources
+
+You can deploy the following resource types at the tenant level:
+
+* [deployments](/azure/templates/microsoft.resources/deployments)
+* [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
+* [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
+* [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+* [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+### Schema
+
+The schema you use for tenant deployments is different than the schema for resource group deployments.
+
+For templates, use:
+
+```json
+https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
+```
+
+For parameter files, use:
+
+```json
+https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentParameters.json#
+```
+
+## Deployment commands
+
+The commands for tenant deployments are different than the commands for resource group deployments.
+
+For Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment). 
+
+```azurepowershell-interactive
+New-AzTenantDeployment `
+  -Location "West US" `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json
+```
+
+For REST API, use [Deployments - Create Or Update At Tenant Scope](/rest/api/resources/deployments/createorupdateattenantscope).
+
+## Deployment location and name
+
+For tenant level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data.
+
+You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
+
+For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
+
+## Use template functions
+
+For tenant deployments, there are some important considerations when using template functions:
+
+* The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
+* The [subscription()](template-functions-resource.md#subscription) function is **not** supported.
+* The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
+* The [resourceId()](template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at tenant level deployments. Don't provide a value for the resource group parameter.
+
+  For example, to get the resource ID for a policy definition, use:
+  
+  ```json
+  resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
+  ```
+  
+  The returned resource ID has the following format:
+  
+  ```json
+  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  ```
+
+## Create policies
+
+### Define policy
+
+The following example shows how to [define](../../governance/policy/concepts/definition-structure.md) a policy at the management group level.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyDefinitions",
+      "apiVersion": "2018-05-01",
+      "name": "locationpolicy",
+      "properties": {
+        "policyType": "Custom",
+        "parameters": {},
+        "policyRule": {
+          "if": {
+            "field": "location",
+            "equals": "northeurope"
+          },
+          "then": {
+            "effect": "deny"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+### Assign policy
+
+The following example assigns an existing policy definition to the tenant. If the policy takes parameters, provide them as an object. If the policy doesn't take parameters, use the default empty object.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyDefinitionID": {
+      "type": "string"
+    },
+    "policyName": {
+      "type": "string"
+    },
+    "policyParameters": {
+      "type": "object",
+      "defaultValue": {}
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "apiVersion": "2018-03-01",
+      "name": "[parameters('policyName')]",
+      "properties": {
+        "policyDefinitionId": "[parameters('policyDefinitionID')]",
+        "parameters": "[parameters('policyParameters')]"
+      }
+    }
+  ]
+}
+```
+
+## Template sample
+
+* [Create a resource group, a policy and a policy assignment](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+
+## Next steps
+
+* To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
+* For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md).
+* For a list of the available functions in a template, see [Template functions](template-functions.md).

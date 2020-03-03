@@ -145,10 +145,6 @@
       - name: Outputs
         displayName: iteration,copy
         href: copy-outputs.md
-    - name: Subscription level resources
-      href: deploy-to-subscription.md
-    - name: Management group level resources
-      href: deploy-to-management-group.md
   - name: Use authoring tools
     items:
     - name: VS Code
@@ -182,6 +178,14 @@
       href: rollback-on-error.md
     - name: Secure template with SAS token
       href: secure-template-with-sas-token.md
+  - name: Scoped deployments
+    items:
+    - name: Subscription level
+      href: deploy-to-subscription.md
+    - name: Management group level
+      href: deploy-to-management-group.md
+    - name: Tenant level
+      href: deploy-to-tenant.md
     - name: Deploy to multiple resource groups or subscriptions
       href: cross-resource-group-deployment.md
   - name: Provide parameters
