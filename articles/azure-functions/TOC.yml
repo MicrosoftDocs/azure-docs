@@ -30,6 +30,8 @@
       href: functions-add-output-binding-storage-queue-vs-code.md
     - name: Visual Studio
       href: functions-add-output-binding-storage-queue-vs.md
+    - name: Command line
+      href: functions-add-output-binding-storage-queue-cli.md
     - name: Maven (Java)
       href: functions-add-output-binding-storage-queue-java.md
 - name: Tutorials
@@ -423,10 +425,10 @@
       - name: Overview
         href: functions-bindings-signalr-service.md
         displayName: SignalR Service
-      - name: Overview
+      - name: Input
         href: functions-bindings-signalr-service-input.md
         displayName: SignalR Service
-      - name: Overview
+      - name: Output
         href: functions-bindings-signalr-service-output.md
         displayName: SignalR Service
     - name: Table storage
