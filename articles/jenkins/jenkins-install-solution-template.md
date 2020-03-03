@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 03/03/2020
 ---
 
-# Tutorial: Create a Jenkins server on an Azure Linux VM from the Azure portal
+# Tutorial: Create a Jenkins server on an Azure Linux VM 
 
 This tutorial shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM with the tools and plug-ins configured to work with Azure. When you're finished, you have a Jenkins server running in Azure building a sample Java app from [GitHub](https://github.com).
 
