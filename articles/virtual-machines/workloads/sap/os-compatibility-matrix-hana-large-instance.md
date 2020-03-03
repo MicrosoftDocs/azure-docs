@@ -19,8 +19,20 @@ ms.custom: H1Hack27Feb2017
 ---
 # Operating System Compatibility Matrix for HANA Large Instances
 
-     
-  |  SKU Type     |  Operating System       |
-  |---------------|-------------------------|
-  |   HLI Type I  |  SLES12-SP3-SAP-Azure-LI-BYOS.x86_64-1.1.2-Build1.8.Rel1            |
-  |   HLI Type I  |  SLES12-SP4-SAP-Azure-LI-BYOS.x86_64-1.0.6-Build1.110            |
+## HANA Large Instance Type I     
+  |  Operating System       |
+  |-------------------------|
+  | SLES 12 SP2|
+  | SLES 12 SP3|
+  | SLES 12 SP4|
+  
+## HANA Large Instance Type II     
+  |  Operating System       |
+  |-------------------------|
+  | SLES 12 SP2|
+  | SLES 12 SP3|
+  | SLES 12 SP4|
+  
+
+  
+  
