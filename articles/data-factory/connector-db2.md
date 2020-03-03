@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 02/17/2020
 
 ms.author: jingwang
 
@@ -44,6 +44,9 @@ Specifically, this DB2 connector supports the following IBM DB2 platforms and ve
 * IBM DB2 for LUW 11
 * IBM DB2 for LUW 10.5
 * IBM DB2 for LUW 10.1
+
+>[!TIP]
+>DB2 connector is built on top of Microsoft OLE DB Provider for DB2. To troubleshoot DB2 connector errors, refer to [Data Provider Error Codes](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
 
 ## Prerequisites
 

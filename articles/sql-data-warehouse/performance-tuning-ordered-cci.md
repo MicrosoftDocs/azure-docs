@@ -11,16 +11,17 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
 # Performance tuning with ordered clustered columnstore index  
 
-When users query a columnstore table in Azure SQL Data Warehouse, the optimizer checks the minimum and maximum values stored in each segment.  Segments that are outside the bounds of the query predicate aren't read from disk to memory.  A query can get faster performance if the number of segments to read and their total size are small.   
+When users query a columnstore table in SQL Analytics, the optimizer checks the minimum and maximum values stored in each segment.  Segments that are outside the bounds of the query predicate aren't read from disk to memory.  A query can get faster performance if the number of segments to read and their total size are small.   
 
 ## Ordered vs. non-ordered clustered columnstore index 
-By default, for each Azure Data Warehouse table created without an index option, an internal component (index builder) creates a non-ordered clustered columnstore index (CCI) on it.  Data in each column is compressed into a separate CCI rowgroup segment.  There's metadata on each segment’s value range, so segments that are outside the bounds of the query predicate aren't read from disk during query execution.  CCI offers the highest level of data compression and reduces the size of segments to read so queries can run faster. However, because the index builder doesn't sort data before compressing them into segments, segments with overlapping value ranges could occur, causing queries to read more segments from disk and take longer to finish.  
+By default, for each SQL Analytics table created without an index option, an internal component (index builder) creates a non-ordered clustered columnstore index (CCI) on it.  Data in each column is compressed into a separate CCI rowgroup segment.  There's metadata on each segment’s value range, so segments that are outside the bounds of the query predicate aren't read from disk during query execution.  CCI offers the highest level of data compression and reduces the size of segments to read so queries can run faster. However, because the index builder doesn't sort data before compressing them into segments, segments with overlapping value ranges could occur, causing queries to read more segments from disk and take longer to finish.  
 
-When creating an ordered CCI, the Azure SQL Data Warehouse engine sorts the existing data in memory by the order key(s) before the index builder compresses them into index segments.  With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and thus faster performance because the number of segments to read from disk is smaller.  If all data can be sorted in memory at once, then segment overlapping can be avoided.  Given the large size of data in data warehouse tables, this scenario doesn't happen often.  
+When creating an ordered CCI, the SQL Analytics engine sorts the existing data in memory by the order key(s) before the index builder compresses them into index segments.  With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and thus faster performance because the number of segments to read from disk is smaller.  If all data can be sorted in memory at once, then segment overlapping can be avoided.  Given the large size of data in SQL Analytics tables, this scenario doesn't happen often.  
 
 To check the segment ranges for a column, run this command with your table name and column name:
 
@@ -39,7 +40,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> In an ordered CCI table, the new data resulting from the same batch of DML or data loading operations are sorted within that batch, there is no global sorting across all data in the table.  Users can REBUILD the ordered CCI to sort all data in the table.  In Azure SQL Data Warehouse, the columnstore index REBUILD is an offline operation.  For a partitioned table, the REBUILD is done one partition at a time.  Data in the partition that is being rebuilt is "offline" and unavailable until the REBUILD is complete for that partition. 
+> In an ordered CCI table, the new data resulting from the same batch of DML or data loading operations are sorted within that batch, there is no global sorting across all data in the table.  Users can REBUILD the ordered CCI to sort all data in the table.  In SQL Analytics, the columnstore index REBUILD is an offline operation.  For a partitioned table, the REBUILD is done one partition at a time.  Data in the partition that is being rebuilt is "offline" and unavailable until the REBUILD is complete for that partition. 
 
 ## Query performance
 
@@ -105,7 +106,7 @@ CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX O
 AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
-- Pre-sort the data by the sort key(s) before loading them into Azure SQL Data Warehouse tables.
+- Pre-sort the data by the sort key(s) before loading them into SQL Analytics tables.
 
 
 Here is an example of an ordered CCI table distribution that has zero segment overlapping following above recommendations. The ordered CCI table is created in a DWU1000c database via CTAS from a 20-GB heap table using MAXDOP 1 and xlargerc.  The CCI is ordered on a BIGINT column with no duplicates.  
@@ -140,4 +141,4 @@ WITH (DROP_EXISTING = ON)
 ```
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview](sql-data-warehouse-overview-develop.md).
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).

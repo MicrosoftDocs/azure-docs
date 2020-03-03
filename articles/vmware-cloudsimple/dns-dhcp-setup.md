@@ -1,6 +1,6 @@
 --- 
-title: Azure VMware Solutions (AVS) - Set up workload DNS and DHCP for AVS Private Cloud
-description: Describes how to set up DNS and DHCP for applications and workloads running in your AVS Private Cloud environment
+title: Azure VMware Solution by CloudSimple - Set up workload DNS and DHCP for Private Cloud
+description: Describes how to set up DNS and DHCP for applications and workloads running in your CloudSimple Private Cloud environment
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 08/16/2019 
@@ -10,9 +10,9 @@ ms.reviewer: cynthn
 manager: dikamath 
 ---
 
-# Set up DNS and DHCP applications and workloads in your AVS Private Cloud
+# Set up DNS and DHCP applications and workloads in your CloudSimple Private Cloud
 
-Applications and workloads running in an AVS Private Cloud environment require name resolution and DHCP services for lookup and IP address assignment. A proper DHCP and DNS infrastructure is required to provide these services. You can configure a virtual machine to provide these services in your AVS Private Cloud environment. 
+Applications and workloads running in a Private Cloud environment require name resolution and DHCP services for lookup and IP address assignment.  A proper DHCP and DNS infrastructure is required to provide these services.  You can configure a virtual machine to provide these services in your Private Cloud environment.  
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Applications and workloads running in an AVS Private Cloud environment require n
 
 ## Linux-based DNS server setup
 
-Linux offers various packages for setting up DNS servers. Here is an [example setup from DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04) with instructions for setting up an open-source BIND DNS server.
+Linux offers various packages for setting up DNS servers.  Here is an [example setup from DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04) with instructions for setting up an open-source BIND DNS server.
 
 ## Windows-based setup
 

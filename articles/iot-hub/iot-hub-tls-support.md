@@ -73,13 +73,13 @@ IoT Hubs that are configured to accept only TLS 1.2 will also enforce the use of
 
 Use the links below to configure TLS 1.2 and allowed ciphers in IoT Hub client SDKs.
 
-| Language | TLS 1.2 supported | Documentation |
-|----------|-------------------|---------------|
-| C        | Yes               | [Link](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Yes               | [Link](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Yes               | [Link](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Yes               | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Yes               | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
+| Language | Versions supporting TLS 1.2 | Documentation |
+|----------|------------------------------------|---------------|
+| C        | Tag 2019-12-11 or newer            | [Link](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Version 2.0.0 or newer             | [Link](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Version 1.21.4 or newer            | [Link](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Version 1.19.0 or newer            | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Version 1.12.2 or newer            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
 ### Use TLS 1.2 in your IoT Edge setup
