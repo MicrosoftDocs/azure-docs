@@ -57,7 +57,7 @@ az group deployment create \
 
 The deployment can take a few minutes to complete. When it finishes, you see a message that includes the result:
 
-```azurecli
+```output
 "provisioningState": "Succeeded",
 ```
 
@@ -149,11 +149,11 @@ To deploy a template with multi-line strings or comments, you must use the `--ha
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2018-10-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[
     parameters('location')
     ]", //defaults to resource group location
-  "apiVersion": "2018-10-01",
   /*
     storage account and network interface
     must be deployed first
@@ -177,7 +177,7 @@ az group deployment validate \
 
 If no errors are detected, the command returns information about the test deployment. In particular, notice that the **error** value is null.
 
-```azurecli
+```output
 {
   "error": null,
   "properties": {
@@ -186,7 +186,7 @@ If no errors are detected, the command returns information about the test deploy
 
 If an error is detected, the command returns an error message. For example, passing an incorrect value for the storage account SKU, returns the following error:
 
-```azurecli
+```output
 {
   "error": {
     "code": "InvalidTemplate",
@@ -202,7 +202,7 @@ If an error is detected, the command returns an error message. For example, pass
 
 If your template has a syntax error, the command returns an error indicating it couldn't parse the template. The message indicates the line number and position of the parsing error.
 
-```azurecli
+```output
 {
   "error": {
     "code": "InvalidTemplate",

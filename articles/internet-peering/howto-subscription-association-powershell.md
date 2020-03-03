@@ -24,7 +24,24 @@ If you prefer, you can complete this guide using the [portal](howto-subscription
 ### Sign in to your Azure account and select your subscription
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
+### Register for peering resource provider
+Register for peering resource provider in your subscription using the command below. If you do not execute this, then Azure resources required to set up peering are not accessible.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
+```
+
+You can check the registration status using the commands below:
+```powershell
+Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
+```
+
+> [!IMPORTANT]
+> Wait for *RegistrationState* to turn "Registered" before proceeding. It may take 5 to 30 minutes after you execute the command.
+
 ### Update the peer information associated with this subscription
+
+Below is an example to update peer information.
 
 ```powershell
 New-AzPeerAsn `

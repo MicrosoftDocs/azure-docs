@@ -143,6 +143,9 @@ estimator = SKLearn(source_directory=project_folder,
                    )
 ```
 
+
+For more information on customizing your Python environment, see [Create and manage environments for training and deployment](how-to-use-environments.md). 
+
 ## Submit a run
 
 The [Run object](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) provides the interface to the run history while the job is running and after it has completed.
@@ -181,7 +184,7 @@ from azureml.core import Model
 from azureml.core.resource_configuration import ResourceConfiguration
 
 model = run.register_model(model_name='sklearn-iris', 
-                           model_path='model.joblib',
+                           model_path='outputs/model.joblib',
                            model_framework=Model.Framework.SCIKITLEARN,
                            model_framework_version='0.19.1',
                            resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))

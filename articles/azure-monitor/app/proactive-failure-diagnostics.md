@@ -1,11 +1,7 @@
 ---
 title: Smart Detection - failure anomalies, in Application Insights | Microsoft Docs
 description: Alerts you to unusual changes in the rate of failed requests to your web app, and provides diagnostic analysis. No configuration is needed.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/18/2018
 
 ms.reviewer: yalavi
@@ -44,13 +40,11 @@ When an analysis is triggered, the service performs a cluster analysis on the fa
 
 In the example above, the analysis has discovered that most failures are about a specific result code, request name, Server URL host, and role instance. 
 
-By contrast, the analysis has discovered that the client operating system property is distributed over multiple values, and so it is not listed.
-
 When your service is instrumented with these calls, the analyzer looks for an exception and a dependency failure that are associated with requests in the cluster it has identified, together with an example of any trace logs associated with those requests.
 
 The resulting analysis is sent to you as alert, unless you have configured it not to.
 
-Like the [alerts you set manually](../../azure-monitor/app/alerts.md), you can inspect the state of the alert and configure it in the Alerts page of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Smart Detection. If you want, you can disable it or change its target email addresses.
+Like the [alerts you set manually](../../azure-monitor/app/alerts.md), you can inspect the state of the fired alert, which can be resolved if the issue is fixed. Configure the alert rules in the Alerts page of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Smart Detection. If you want, you can disable it or change its target email addresses.
 
 ### Alert logic details
 
@@ -59,6 +53,7 @@ The alerts are triggered by our proprietary machine learning algorithm so we can
 * Analysis of the failure percentage of requests/dependencies in a rolling time window of 20 minutes.
 * A comparison of the failure percentage of the last 20 minutes to the rate in the last 40 minutes and the past seven days, and looking for significant deviations that exceed X-times that standard deviation.
 * Using an adaptive limit for the minimum failure percentage, which varies based on the app’s volume of requests/dependencies.
+* There is logic that can automatically resolve the fired alert monitor condition, if the issue is no longer detected for 8-24 hours.
 
 ## Configure alerts
 
@@ -79,7 +74,7 @@ Click the alert to configure it.
 
 [![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
 
-Notice that you can disable Smart Detection, but you can't delete it (or create another one).
+Notice that you can disable or delete a Failure Anomalies alert rule, but you can't create another one on the same Application Insights resource.
 
 ## Example of Failure Anomalies alert webhook payload
 

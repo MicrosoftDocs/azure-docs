@@ -1,5 +1,5 @@
 ---
-title: Train a neural network with TensorFlow
+title: Train and deploy a TensorFlow model
 titleSuffix: Azure Machine Learning
 description: Learn how to run TensorFlow training scripts at scale using Azure Machine Learning.
 services: machine-learning
@@ -59,6 +59,7 @@ from azureml.core import Workspace, Run
 
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
+from azureml.train.dnn import TensorFlow
 ```
 
 ### Initialize a workspace
@@ -84,7 +85,7 @@ exp = Experiment(workspace=ws, name='tf-mnist')
 
 ### Create a file dataset
 
-A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets) guide on the `Dataset` package for more information.
+A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) guide on the `Dataset` package for more information.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -154,11 +155,13 @@ est = TensorFlow(source_directory=script_folder,
                  script_params=script_params,
                  compute_target=compute_target,
                  use_gpu=True,
-                 pip_packages=['azureml-dataprep[pandas,fuse]')
+                 pip_packages=['azureml-dataprep[pandas,fuse]'])
 ```
 
 > [!TIP]
 > Support for **Tensorflow 2.0** has been added to the Tensorflow estimator class. See the [blog post](https://azure.microsoft.com/blog/tensorflow-2-0-on-azure-fine-tuning-bert-for-question-tagging/) for more information.
+
+For more information on customizing your Python environment, see [Create and manage environments for training and deployment](how-to-use-environments.md). 
 
 ## Submit a run
 
@@ -236,7 +239,7 @@ estimator= TensorFlow(source_directory=project_folder,
                       distributed_training=MpiConfiguration(),
                       framework_version='1.13',
                       use_gpu=True,
-                      pip_packages=['azureml-dataprep[pandas,fuse]')
+                      pip_packages=['azureml-dataprep[pandas,fuse]'])
 ```
 
 ### Parameter server
@@ -252,7 +255,7 @@ distributed_training = TensorflowConfiguration()
 distributed_training.worker_count = 2
 
 # Tensorflow constructor
-estimator= TensorFlow(source_directory=project_folder,
+tf_est= TensorFlow(source_directory=project_folder,
                       compute_target=compute_target,
                       script_params=script_params,
                       entry_script='script.py',
@@ -260,7 +263,7 @@ estimator= TensorFlow(source_directory=project_folder,
                       process_count_per_node=1,
                       distributed_training=distributed_training,
                       use_gpu=True,
-                      pip_packages=['azureml-dataprep[pandas,fuse]')
+                      pip_packages=['azureml-dataprep[pandas,fuse]'])
 
 # submit the TensorFlow job
 run = exp.submit(tf_est)
@@ -299,13 +302,13 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-## Deployment
+## Deploy a TensorFlow model
 
 The model you just registered can be deployed the exact same way as any other registered model in Azure Machine Learning, regardless of which estimator you used for training. The deployment how-to contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
-### (Preview) No-code model deployment
+## (Preview) No-code model deployment
 
-Instead of the traditional deployment route, you can also use the no-code deployment feature (preview)for Tensorflow. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can simply use the `deploy()` static function to deploy your model.
+Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for Tensorflow. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can simply use the `deploy()` static function to deploy your model.
 
 ```python
 service = Model.deploy(ws, "tensorflow-web-service", [model])

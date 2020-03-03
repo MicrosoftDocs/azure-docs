@@ -1,7 +1,7 @@
 ---
 title: Model training methods
 titleSuffix: Azure Machine Learning
-description: Learn the different methods you can use to train model with Azure Machine Learning. Estimators provide an easy way to work with popular frameworks like Scikit-learn, TensorFlow, Keras, PyTorch, and Chainer. Machine Learning pipelines make it easy to schedule unattended runs, use heterogenous compute environments, and reuse parts of your workflow. And run configurations provide granular control over the compute targets that the training process runs on.
+description: Learn the different methods you can use to train model with Azure Machine Learning. Estimators provide an easy way to work with popular frameworks like Scikit-learn, TensorFlow, Keras, PyTorch, and Chainer. Machine Learning pipelines make it easy to schedule unattended runs, use heterogeneous compute environments, and reuse parts of your workflow. And run configurations provide granular control over the compute targets that the training process runs on.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -54,7 +54,7 @@ You may start with a run configuration for your local computer, and then switch 
 Define the iterations, hyperparameter settings, featurization, and other settings. During training, Azure Machine Learning tries different algorithms and parameters in parallel. Training stops once it hits the exit criteria you defined. You don't have to worry about defining a run configuration when using estimators.
 
 > [!TIP]
-> In addtion to the Python SDK, you can also use Automated ML through [Azure Machine Learning studio](https://ml.azure.com).
+> In addition to the Python SDK, you can also use Automated ML through [Azure Machine Learning studio](https://ml.azure.com).
 
 * [What is automated machine learning?](concept-automated-ml.md)
 * [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md)

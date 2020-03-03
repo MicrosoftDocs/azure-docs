@@ -12,9 +12,9 @@ manager: eliotgra
 
 # Tutorial: Deploy and walkthrough a continuous patient monitoring app template
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial shows you, as a solution builder, how to get started by deploying an IoT Central continuous patient monitoring application template. You will learn how to deploy the template, what's included out of the box, and what you might want to do next.
+
+This tutorial shows you, as a solution builder, how to get started by deploying an IoT Central continuous patient monitoring application template. You will learn how to deploy the template, what's included out of the box, and what you can do next.
 
 In this tutorial, you learn how to:
 
@@ -29,16 +29,17 @@ Navigate to the [Azure IoT Central application manager website](https://apps.azu
 >[!div class="mx-imgBorder"] 
 >![App manager Healthcare](media/app-manager-health.png)
 
-Click the **Create app** button to begin creating your application and then sign in with a Microsoft personal, work, or school account. This takes you to the **New application** page.
+Click the **Create app** button to begin creating your application and then sign in with a Microsoft personal, work, or school account. It will take you to the **New application** page.
 
->[!div class="mx-imgBorder"] 
->![Create application Healthcare](media/app-manager-health-create.png)
+![Create application Healthcare](media/app-manager-health-create.png)
+
+![Create application Healthcare billing info](media/app-manager-health-create-billinginfo.png)
 
 To create your application:
 
 1. Azure IoT Central automatically suggests an application name based on the template you've selected. You can accept this name or enter your own friendly application name, such as **Continuous Patient Monitoring**. Azure IoT Central also generates a unique URL prefix for you based on the application name. You're free to change this URL prefix to something more memorable if you'd like.
 
-2. You can select whether you would like to create a **Trial** application or a **Pay-As-You-Go** application. **Trial** applications are free for seven days before they expire and allow up to five free devices. They can be converted to Pay-As-You-Go at any time before they expire. If you create a Trial application, you need to enter your contact information and choose whether to receive information and tips from Microsoft. **Pay-As-You-Go** applications support up to two free devices and require you to put in your Azure subscription information.
+2. You can select whether you would like to create the application using the *free* pricing plan or one of the *standard* pricing plans. Applications you create using the free plan are free for seven days before they expire and allow up to five free devices. You can move an application from the free plan to a standard pricing plan at any time before it expires. If you choose the free plan, you need to enter your contact information and choose whether to receive information and tips from Microsoft. Applications you create using a standard plan support up to two free devices and require you to enter your Azure subscription information for billing.
 
 3. Select **Create** at the bottom of the page to deploy your application.
 
@@ -46,13 +47,13 @@ To create your application:
 
 ### Dashboards
 
-After deploying the app template, you will first land on the **Lamna in-patient monitoring dashboard**. Lamna Healthcare is a fictitious hospital system that contains two hospitals: Woodgrove Hospital and Burkville Hospital. On this operator dashboard for Woodgrove Hospital, you will see information and telemetry about the devices in this template along with a set of commands, jobs, and actions that you can take. From the dashboard you can:
+After deploying the app template, you'll first land on the **Lamna in-patient monitoring dashboard**. Lamna Healthcare is a fictitious hospital system that contains two hospitals: Woodgrove Hospital and Burkville Hospital. On this operator dashboard for Woodgrove Hospital, you'll see information and telemetry about the devices in this template along with a set of commands, jobs, and actions that you can take. From the dashboard you can:
 
 * See device telemetry and properties such as the **battery level** of your device or its **connectivity** status.
 
 * View the **floor plan** and location of the Smart Vitals Patch device.
 
-* **Re-provision** the Smart Vitals Patch for a new patient.
+* **Reprovision** the Smart Vitals Patch for a new patient.
 
 * See an example of a **provider dashboard** that a hospital care team might see to track their patients.
 
@@ -66,20 +67,20 @@ You can also click on **Go to remote patient dashboard** to see the second opera
 >[!div class="mx-imgBorder"] 
 >![Lamna remote](media/lamna-remote.png)
 
-On both dashboards you can always link back to this documentation.
+On both dashboards, you can always link back to this documentation.
 
 ### Device templates
 
 If you click on the **Device templates** tab, you will see that there are two different device types that are part of the template:
 
-* **Smart Vitals Patch**: This device represents a patch that measures a variety of vitals signs that could be used for monitoring patients in and outside of the hospital. If you click on the template, you'll see that in addition to sending device data such as battery level and device temperature, the patch is also sending patient health data such as respiratory rate and blood pressure.
+* **Smart Vitals Patch**: This device represents a patch that measures different types of vitals signs. It can be used for monitoring patients in and outside of the hospital. If you click on the template, you'll see that in addition to sending device data such as battery level and device temperature, the patch is also sending patient health data such as respiratory rate and blood pressure.
 
 * **Smart Knee Brace**: This device represents a knee brace that patients might use when recovering from a knee replacement surgery. If you click on this template, you'll see capabilities such as range of motion and acceleration, in addition to device data.
 
 >[!div class="mx-imgBorder"] 
 >![Smart Vitals Patch Device Template](media/smart-vitals-device-template.png)
 
-If you click on the **Device groups** tab you will also see that these device templates automatically have device groups created for them.
+If you click on the **Device groups** tab, you will also see that these device templates automatically have device groups created for them.
 
 ### Rules
 
@@ -96,7 +97,7 @@ When jumping to the rules tab, you will see three rules that exist in the applic
 
 ### Devices
 
-Click on the **Devices** tab and then select an instance of the **Smart Knee Brace**. You will see that there are three views to be able to explore information about the particular device that you have selected. These views are created and published when building the device template for your device. This means they will be consistent across all devices that you connect or simulate.
+Click on the **Devices** tab and then select an instance of the **Smart Knee Brace**. You will see that there are three views to explore information about the particular device that you've selected. These views are created and published when building the device template for your device, which means they'll be consistent across all devices that you connect or simulate.
 
 The **Dashboard** view gives an overview of telemetry and properties that are coming from the device that are operator-oriented.
 

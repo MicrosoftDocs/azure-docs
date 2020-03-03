@@ -16,7 +16,6 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer using the Microsoft Authentication Library for Java (MSAL4J), I want to learn how to persist the token cache so that it is available to a new instance of my application.
 
-ms.collection: M365-identity-device-management
 ---
 
 # Custom token cache serialization in MSAL for Java

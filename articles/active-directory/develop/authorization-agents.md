@@ -2,7 +2,7 @@
 title:  Authorization agents and how to enable them | Azure 
 description: Learn about the different authorization agents the Microsoft Authentication Library (MSAL) allows your Android app to use and how to enable them.
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,11 +10,10 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about which options I can use to sign-in users and how to enable them.
-ms.collection: M365-identity-device-management
 ---
 
 # Authorization agents (Android)

@@ -18,6 +18,9 @@ Virtual WAN provides large-scale site-to-site connectivity and is built for thro
 
 A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per region (virtual hub) with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
 
+### What is a Virtual WAN Gateway Scale Unit
+A scale unit is an unit defined to pick an aggregate throughput of a gateway in Virtual hub. 1 scale unit of VPN = 500 Mbps . 1 scale unit of ExpressRoute = 2 Gbps. Example : 10 scale unit of VPN would imply 500 Mbps * 10 = 5 Gbps
+
 ### Which device providers (Virtual WAN partners) are supported?
 
 At this time, many partners support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](../articles/virtual-wan/virtual-wan-locations-partners.md). 
@@ -34,9 +37,6 @@ No. You can use any VPN-capable device that adheres to the Azure requirements fo
 
 Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. The automation includes uploading branch information, downloading the Azure configuration, setting up IPSec tunnels into Azure Virtual hubs, and automatically setting up connectivity form the branch device to Azure Virtual WAN. When you have hundreds of branches, connecting using Virtual WAN CPE Partners is easy because the onboarding experience takes away the need to set up, configure, and manage large-scale IPsec connectivity. For more information, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
-### Am I required to use a preferred partner device?
-
-No. You can use any VPN-capable device that adheres to the Azure requirements for IKEv2/IKEv1 IPsec support.
 
 ### How is Virtual WAN supporting SD-WAN devices?
 

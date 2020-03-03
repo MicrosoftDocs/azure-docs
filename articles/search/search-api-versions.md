@@ -46,6 +46,9 @@ For the REST APIs, including the `api-version` on each call is required. Using `
 
 Generally available (or GA) APIs can be used in production and are subject to Azure service level agreements. Preview versions have experimental features that are not always migrated to a GA version. **You are strongly advised to avoid using preview APIs in production applications.**
 
+## Update to the latest version of the REST API by October 15, 2020
+The following versions of the Azure Cognitive Search REST API will be retired and no longer supported as of October 15, 2020: **2014-07-31-Preview**, **2014-10-20-Preview**, **2015-02-28-Preview**, and **2015-02-28**. In addition, versions of the Azure Cognitive Search .Net SDK older than **3.0.0-rc** will also be retired since they target one of these REST API versions. After this date, applications that use any of the deprecated REST API or SDK versions will no longer work and must be upgraded. As with any change of this type, we are giving 12 months' notice, so you have adequate time to adjust.  To continue using Azure Cognitive Search, please migrate existing code that targets the [REST API](search-api-migration.md) to [REST API version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) or newer or the .Net SDK to [version 3.0](search-dotnet-sdk-migration.md) or newer by October 15, 2020.  If you have any questions about updating to the latest version, please send mail to azuresearch_contact@microsoft.com by May 15, 2020 to ensure you have enough time to update your code.
+
 ## About Preview and Generally Available versions
 Azure Cognitive Search always pre-releases experimental features through the REST API first, then through prerelease versions of the .NET SDK.
 

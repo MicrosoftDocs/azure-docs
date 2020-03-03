@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual 
-ms.date: 12/02/2019
+ms.date: 01/30/2020
 ms.custom: seodec18
 ---
 
@@ -25,7 +25,7 @@ This article describes how to use the Azure portal to add an event source that r
 * Create an [Azure Time Series Insights environment](time-series-insights-update-create-environment.md).
 * Create an [IoT hub by using the Azure portal](../iot-hub/iot-hub-create-through-portal.md).
 * The IoT hub must have active message events being sent in.
-* Create a dedicated consumer group in the IoT hub for the Time Series Insights environment to consume from. Each Time Series Insights event source must have its own dedicated consumer group that isn't shared with any other consumer. If multiple readers consume events from the same consumer group, all readers are likely to see failures. For details, see the [Azure IoT Hub developer guide](../iot-hub/iot-hub-devguide.md).
+* Create a dedicated consumer group in the IoT hub for the Time Series Insights environment to consume from. Each Time Series Insights event source must have its own dedicated consumer group that isn't shared with any other consumer. If multiple readers consume events from the same consumer group, all readers are likely to exhibit failures. For details, read the [Azure IoT Hub developer guide](../iot-hub/iot-hub-devguide.md).
 
 ### Add a consumer group to your IoT hub
 
@@ -49,7 +49,7 @@ To add a new consumer group to your IoT hub:
 
 1. In the left menu, select **All resources**. Select your Time Series Insights environment.
 
-1. Under **Environment Topology**, select **Event Sources**, and then select **Add**.
+1. Under **Settings**, select **Event Sources**, and then select **Add**.
 
    [![Select Event Sources, and then select the Add button](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png#lightbox)
 

@@ -21,7 +21,7 @@ This article provides information about how you can manage the user data in Azur
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can access customer data within the tool. To learn more about the Account Administrator role, see [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md) to learn more about the Reader, Owner, and Contributor roles. See [Azure subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md).
+A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can access customer data within the tool. To learn more about the Account Administrator role, see [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md) to learn more about the Reader, Owner, and Contributor roles. See [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## Searching for and identifying personal data
 A Security Center user can view their personal data through the Azure portal. Security Center only stores security contact details such as email addresses and phone numbers. For more information, see [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md).

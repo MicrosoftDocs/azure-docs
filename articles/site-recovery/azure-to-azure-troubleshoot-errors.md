@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Azure VM replication in Azure Site Recovery 
 description: Troubleshoot errors when replicating Azure virtual machines for disaster recovery.
-author: asgang
+author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgang
+ms.author: rochakm
 
 ---
 # Troubleshoot Azure-to-Azure VM replication errors
@@ -29,7 +29,7 @@ If there's no size that supports the source VM configuration, the following mess
 
 ### Fix the problem
 
-Contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
+Contact [Azure billing support](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
 
 If the target location has a capacity constraint, disable replication to it. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
@@ -61,7 +61,7 @@ For more information, see [Configure trusted roots and disallowed certificates](
 
 Follow the guidance provided by the distributor of your Linux operating system version to get the latest trusted root certificates and the latest certificate-revocation list on the VM.
 
-Because SuSE Linux uses symbolic links (or *symlinks*) to maintain a certificate list, follow these steps:
+Because SUSE Linux uses symbolic links (or *symlinks*) to maintain a certificate list, follow these steps:
 
 1. Sign in as a root user.
 
@@ -75,7 +75,7 @@ Because SuSE Linux uses symbolic links (or *symlinks*) to maintain a certificate
 
 1. If the Symantec root CA certificate is not found, run the following command to download the file. Check for any errors and follow recommended actions for network failures.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem**
+    **# wget https://docs.broadcom.com/docs-and-downloads/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem**
 
 1. Check whether the Baltimore root CA certificate is present:
 

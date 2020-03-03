@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 ## Create an Azure storage account
 
-First, create an Azure storage account. For a step-by-step guide to creating a storage account, see the [Create a storage account](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) quickstart.
+First, create an Azure storage account. For a step-by-step guide to creating a storage account, see the [Create a storage account](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) quickstart.
 
 ## Create the app
 

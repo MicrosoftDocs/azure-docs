@@ -93,8 +93,8 @@ If you aren't using the Event Confirmation feature, and your users aren't using 
 Follow these steps to download the Azure Multi-Factor Authentication Server from the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Search for and select *Azure Active Directory*. Select **MFA Server**.
-3. Select **Server settings**.
+2. Search for and select *Azure Active Directory*. Select **Security** > **MFA**.
+3. Under **Manager MFA Server**, select **Server settings**.
 4. Select **Download** and follow the instructions on the download page to save the installer. 
 
    ![Download MFA Server from the Azure portal](./media/howto-mfaserver-deploy/downloadportal.png)

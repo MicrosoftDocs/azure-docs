@@ -43,7 +43,7 @@ The plugin supports loading and playback of on-demand Smooth Streaming content w
 * This version only supports OSMF 2.0.
 
 ## Supported features and known issues
-For a full list of supported features, unsupported features and known issues, refer to [this document](https://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
+For a full list of supported features, unsupported features and known issues, refer to [this document](https://azure.microsoft.com/blog/microsoft-adaptive-streaming-plugin-for-osmf-update/).
 
 ## Loading the Plugin
 OSMF plugins can be loaded statically (at compile time) or dynamically (at run-time). The Smooth Streaming plugin for OSMF download includes both dynamic and static versions.

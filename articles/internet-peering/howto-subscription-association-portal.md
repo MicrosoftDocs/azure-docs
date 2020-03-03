@@ -21,6 +21,34 @@ If you prefer, you can complete this guide using the [PowerShell](howto-subscrip
 ### Sign in to the portal
 [!INCLUDE [Account](./includes/account-portal.md)]
 
+### Register for peering resource provider
+Register for peering resource provider in your subscription by following the steps below. If you do not execute this, then Azure resources required to set up peering are not accessible.
+
+1. Click on **Subscriptions** on the top left corner of the portal. If you don't see it, click on **More services** and search for it.
+
+    > [!div class="mx-imgBorder"]
+    > ![Open subscriptions](./media/rp-subscriptions-open.png)
+
+1. Click on the subscription you want to use for peering.
+
+    > [!div class="mx-imgBorder"]
+    > ![Launch subscription](./media/rp-subscriptions-launch.png)
+
+1. Once the subscription opens, on the left, click on **Resource providers**. Then, in the right pane, search for *peering* in the search window, or use the scroll bar to find **Microsoft.Peering** and look at the **Status**. If the status is ***Registered***, skip the steps below and proceed to section **Create PeerAsn**. If the status is ***NotRegistered***, select **Microsoft.Peering** and click on **Register**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Registration start](./media/rp-register-start.png)
+
+1. Observe that the status changes to ***Registering***.
+
+    > [!div class="mx-imgBorder"]
+    > ![Registration in-progress](./media/rp-register-progress.png)
+
+1. Wait for a min or so for it to complete registration. Then, click on **Refresh** and verify that the status is ***Registered***.
+
+    > [!div class="mx-imgBorder"]
+    > ![Registration completed](./media/rp-register-completed.png)
+
 ### Create PeerAsn
 You can create a new PeerAsn resource for associating an Autonomous System Number (ASN) with Azure subscription. You can associate multiple ASNs to a subscription by creating a **PeerAsn** for each ASN you need to associate.
 

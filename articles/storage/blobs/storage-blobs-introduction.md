@@ -37,7 +37,7 @@ For example, if your storage account is named *mystorageaccount*, then the defau
 http://mystorageaccount.blob.core.windows.net 
 ```
 
-To create a storage account, see [Create a storage account](../common/storage-quickstart-create-account.md). To learn more about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To create a storage account, see [Create a storage account](../common/storage-account-create.md). To learn more about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### Containers
 
