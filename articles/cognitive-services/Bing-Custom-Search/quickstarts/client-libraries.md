@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Use the Bing Custom Search client library
+title: "Quickstart: Use the Bing Custom Search client library"
 titleSuffix: Azure Cognitive Services
 description: The Custom Search API offers client libraries that makes it easy to integrate search capabilities into your applications. Use this quickstart to start sending search requests, and get back results.
 services: cognitive-services
