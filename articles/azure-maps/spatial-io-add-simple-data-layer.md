@@ -1,5 +1,5 @@
 ---
-title:  Add a simple data layer | Microsoft Azure Maps
+title: Add a simple data layer | Microsoft Azure Maps
 description: Learn how to add a simple data layer using the Spatial IO module, provided by Azure Maps Web SDK.
 author: farah-alyasari
 ms.author: v-faalya
@@ -15,17 +15,17 @@ manager: philmea
 
 The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It can even render data sets that have style properties and data sets that contain mixed geometry types. The simple data layer achieves this functionality by wrapping multiple rendering layers and using style expressions. The style expressions search for common style properties of the features inside these wrapped layers. The `atlas.io.read` function and the `atlas.io.write` function use these properties to read and write styles into a supported file format. After adding the properties to a supported file format, the file can be used for various purposes. For example, the file can be used to display the styled features on the map.
 
-In addition to styling features, the `SimpleDataLayer` provides a built-in popup feature with a popup template. The popup displays when a feature is clicked. The default popup feature can be disabled, if desired. This layer also supports clustered data. When a cluster is clicked, the map will zoom into the cluster and expand it into individual points and sub-clusters.
+In addition to styling features, the `SimpleDataLayer` provides a built-in popup feature with a popup template. The popup displays when a feature is clicked. The default popup feature can be disabled, if desired. This layer also supports clustered data. When a cluster is clicked, the map will zoom into the cluster and expand it into individual points and subclusters.
 
-The `SimpleDataLayer` class is intended to be used on large data sets with many geometry types and many styles applied on the features. When used, this class adds an overhead of six layers containing style expressions. Thus, for rendering a couple of geometry types or a few styles on a feature, it's more efficient to use one of the core rendering layers.
+The `SimpleDataLayer` class is intended to be used on large data sets with many geometry types and many styles applied on the features. When used, this class adds an overhead of six layers containing style expressions. So, there are cases when it's more efficient to use of the core rendering layers. For example, to render a couple of geometry types or render a few styles on a feature, use one of the core layers.
 
 ## Default supported style properties
 
-As mentioned earlier, the simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It uses expressions to search for valid style properties on individual features. Most property names, for the different layer options, are supported as style properties of features in the simple data layer. Expressions have been added to some layer options to support additional style property names that could are common in platforms other than Azure. For example, GitHub has a set of style properties that it looks for on GeoJSON files, as a way to support styling of GeoJSON files that are stored and rendered within GitHub. Expressions have been added to the Simple Data layer to support GitHub style property names. These property names are defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github). All styling properties are supported, except the `marker-symbol` styling properties.
+As mentioned earlier, the simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It uses expressions to search for valid style properties on individual features. Most property names, for the different layer options, are supported as style properties of features in the simple data layer. Expressions have been added to some layer options to support additional style property names that are commonly used in platforms other than Azure. For example, GitHub has a set of style properties that it looks for on GeoJSON files. These properties support styling of GeoJSON files that are stored and rendered within GitHub. Expressions have been added to the Simple Data layer to support GitHub style property names. These property names are defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github). All styling properties are supported, except the `marker-symbol` styling properties.
 
 The default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers. 
 
-The next section provides details on the default style properties that the simple data layer supports. The order of the supported property names is also the priority of the property. If two style properties are defined for the same layer option, then the first one in the list has higher precedence.
+The next section provides details on the default style properties that are supported by the simple data layer. The order of the supported property names is also the priority of the property. If two style properties are defined for the same layer option, then the first one in the list has higher precedence.
 
 ## Simple data layer options
 
@@ -80,7 +80,7 @@ If the point feature is a cluster, the `point_count_abbreviated` property will b
 
 ### Line style properties
 
-If the feature is a `LineString`, `MultiLineString`, `Polygon` or `MultiPolygon`, then the feature will be rendered with a `LineLayer`.
+If the feature is a `LineString`, `MultiLineString`, `Polygon`, or `MultiPolygon`, then the feature will be rendered with a `LineLayer`.
 
 | Layer option | Supported property name(s) | Default value |
 |--------------|----------------------------|---------------|
@@ -136,7 +136,7 @@ Add features to the data source. Then, the simple data layer will figure out how
 }
 ```
 
-The following is the complete code that renders the above point feature using the simple data layer. 
+The following code renders the above point feature using the simple data layer. 
 
 <br/>
 
