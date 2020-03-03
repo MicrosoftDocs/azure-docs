@@ -78,10 +78,10 @@
   - name: Azure Open Datasets
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
   - name: Designer datasets
-    href: designer-sample-datasets.md
+    href: sample-designer-datasets.md
   - name: End-to-end MLOps examples
     href: https://github.com/microsoft/MLOps
-
+  
 
 - name: Concepts
   items:

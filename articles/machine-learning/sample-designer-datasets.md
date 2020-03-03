@@ -1,7 +1,7 @@
 ---
-title: Use the sample datasets
+title: Use sample datasets in Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
-description: Descriptions of the datasets used in sample models included in Machine Learning designer. You can use these sample datasets for your pipelines.
+description: Learn more about the sample datasets included in Azre Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 03/03/2020
 
 # Use the sample datasets in Azure Machine Learning designer (preview)
 
-When you create a new pipeline in Azure Machine Learning designer (preview), a number of sample datasets are included by default. These sample datasets are used by the sample models in the designer homepage. 
+When you create a new pipeline in Azure Machine Learning designer (preview), a number of sample datasets are included by default. These sample datasets are used by the sample pipelines in the designer homepage. 
 
 The sample datasets are available under **Datasets**-**Samples** category. You can find this in the module palette to the left of the canvas in the designer. You can use any of these datasets in your own pipeline by dragging it to the canvas.
 
