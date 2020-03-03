@@ -103,11 +103,11 @@ For descriptions for these attributes, see the [manifest reference](#manifest-re
 
 When you try to upload a previously downloaded manifest, you may see one of the following errors. This error is likely because the manifest editor now supports a newer version of the schema, which doesn't match with the one you're trying to upload.
 
-* "**Failed to update xxxxxx application. Error detail: Invalid object identifier 'undefined'. [].**"
-* "**Failed to update xxxxxx application. Error detail: One or more property values specified are invalid. [].**"
-* "**Failed to update xxxxxx application. Error detail: Not allowed to set availableToOtherTenants in this api version for update. [].**"
-* "**Failed to update xxxxxx application. Error detail: Updates to 'replyUrls' property isn't allowed for this application. Use 'replyUrlsWithType' property instead. [].**"
-* "**Failed to update xxxxxx application. Error detail: A value without a type name was found and no expected type is available. When the model is specified, each value in the payload must have a type that can be either specified in the payload, explicitly by the caller or implicitly inferred from the parent value. []**"
+* "Failed to update xxxxxx application. Error detail: Invalid object identifier 'undefined'. []."
+* "Failed to update xxxxxx application. Error detail: One or more property values specified are invalid. []."
+* "Failed to update xxxxxx application. Error detail: Not allowed to set availableToOtherTenants in this api version for update. []."
+* "Failed to update xxxxxx application. Error detail: Updates to 'replyUrls' property isn't allowed for this application. Use 'replyUrlsWithType' property instead. []."
+* "Failed to update xxxxxx application. Error detail: A value without a type name was found and no expected type is available. When the model is specified, each value in the payload must have a type that can be either specified in the payload, explicitly by the caller or implicitly inferred from the parent value. []"
 
 When you see one of these errors, we recommend the following actions:
 
