@@ -12,18 +12,18 @@ manager: philmea
 
 # Core IO operations
 
-In addition to providing tools for reading spatial data files, the spatial IO module exposes core underlying libraries that make it easy to read and write XML and delimited data fast and efficiently.
+In addition to providing tools to read spatial data files, the spatial IO module exposes core underlying libraries to read and write XML and delimited data fast and efficiently.
 
-The `atlas.io.core` namespace contains two low level classes that can quickly read and write CSV and XML data. These are the base classes that power the spatial data readers and writers in this module. Feel free to use these to add support for additional CSV or XML formats.
+The `atlas.io.core` namespace contains two low-level classes that can quickly read and write CSV and XML data. These base classes power the spatial data readers and writers in the Spatial IO module. Feel free to use these classes to add additional support for reading and writing CSV or XML files.
  
 ## Read delimited files
 
 The `atlas.io.core.CsvReader` class makes it easy to read strings that contain delimited data sets. This class provides two methods for reading data:
 
 - The `read` function will read the full data set and return a 2-dimensional array of strings representing all cells of the delimited data set.
-- The `getNextRow` function reads each line of text in a delimited data set and returns an array of string representing all cells in that line of data set. This method can be much more memory efficient.
+- The `getNextRow` function reads each line of text in a delimited data set and returns an array of string representing all cells in that line of data set. This method can access the memory more efficiently.
 
-By default the reader will use the comma character as the delimiter; however this can be changed to any single character or set to `'auto'`. When set to `'auto'`, the reader will analyze the first line of text in the string. It'll select the most common character from the table below to use as the delimiter.
+By default, the reader will use the comma character as the delimiter. However, the delimiter can be changed to any single character or set to `'auto'`. When set to `'auto'`, the reader will analyze the first line of text in the string. Then, it will select the most common character from the table below to use as the delimiter.
 
 | | |
 | :-- | :-- |
@@ -40,16 +40,16 @@ The `atlas.io.core.CsvWriter` class makes it easy to efficiently write an array 
 To use this class, follow the steps below:
 
 - Create an instance of the class and optionally set a custom delimiter or text qualifier.
-- Write data to the class using the `write` function or the `writeRow` function. For the `write` function, pass a 2-dimensional array of objects representing multiple rows and cells. And, to use the `writeRow` function, pass an array of objects representing a row of data with multiple columns.
+- Write data to the class using the `write` function or the `writeRow` function. For the `write` function, pass a 2-dimensional array of objects representing multiple rows and cells. To use the `writeRow` function, pass an array of objects representing a row of data with multiple columns.
 - Call the `toString` function to retrieve the delimited string. 
-- Optionally call the `clear` method to make the writer reusable and reduce its resource allocation, or delete the writer instance to dispose it.
+- Optionally, call the `clear` method to make the writer reusable and reduce its resource allocation, or delete the writer instance to dispose it.
 
 > [!Note]
 > The number of columns written will be constrained to the number of cells in the first row of the data passed to the writer.
 
 ## Read XML files
 
-The `atlas.io.core.SimpleXmlReader` class is significantly faster at parsing XML files than `DOMParser`; however it requires XML files to be well formatted. XML files that are not well formatted, for example missing closing tags, will likely result in an error.
+The `atlas.io.core.SimpleXmlReader` class is faster at parsing XML files than `DOMParser`. However, the `atlas.io.core.SimpleXmlReader` class requires XML files to be well formatted. XML files that aren't well formatted, for example missing closing tags, will likely result in an error.
 
 The following code demonstrates how to use the `SimpleXmlReader` class to parse an XML string into a JSON object and serialize it into a desired format.
 
@@ -75,9 +75,9 @@ if (xmlDoc && xmlDoc.root && xmlDoc.root.tagName && xmlDoc.root.tagName === '<Yo
 
 ## Write XML files
 
-The `atlas.io.core.SimpleXmlWriter` class makes it easy to write well formatted XML in a memory efficient way. 
+The `atlas.io.core.SimpleXmlWriter` class makes it easy to write well-formatted XML in a memory efficient way. 
 
-The following code demonstrates how to use the `SimpleXmlWriter` class to generate a well formatted XML string easily.
+The following code demonstrates how to use the `SimpleXmlWriter` class to generate a well-formatted XML string.
 
 ```javascript
 //Create an instance of the SimpleXmlWriter class.
