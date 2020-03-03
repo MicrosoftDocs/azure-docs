@@ -35,11 +35,11 @@ NAT gateway resources provide the following multi-dimensional metrics in Azure M
 
 | Metric | Description | Recommended Aggregation | Dimensions |
 |---|---|---|---|
-| Bytes | Bytes processed inbound and outbound | Sum | |
-| Packets | Packets processed inbound and outbound | Sum | |
-| Dropped packets | Packets dropped by the NAT gateway | Sum | |
-| SNAT Connection Count | State transitions per interval | Average | |
-| Total SNAT connection count | Current active SNAT connections (~ SNAT ports in use) | Average | |
+| Bytes | Bytes processed inbound and outbound | Sum | Direction (In|Out), Protocol (6 TCP| 17 UDP) |
+| Packets | Packets processed inbound and outbound | Sum | Direction (In|Out), Protocol (6 TCP| 17 UDP) |
+| Dropped packets | Packets dropped by the NAT gateway | Sum | / |
+| SNAT Connection Count | State transitions per interval | Sum | Connection State, Protocol (6 TCP| 17 UDP) |
+| Total SNAT connection count | Current active SNAT connections (~ SNAT ports in use) | Sum | Protocol (6 TCP| 17 UDP) |
 
 
 ## Alerts
