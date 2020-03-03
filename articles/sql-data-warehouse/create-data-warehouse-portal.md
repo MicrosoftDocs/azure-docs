@@ -1,6 +1,6 @@
 ---
-title: Create and query a data warehouse (Azure portal)
-description: Create and query an Azure Synapse Analytics SQL pool using the Azure portal
+title: Create and query a Synapse SQL pool (Azure portal)
+description: Create and query a Synapse SQL pool using the Azure portal
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse 
 ---
 
-# Quickstart: Create and query an Azure Synapse Analytics SQL pool using the Azure portal
+# Quickstart: Create and query a Synapse SQL pool using the Azure portal
 
-Quickly create and query a data warehouse by provisioning SQL pool in Azure Synapse Analytics (formerly SQL DW) using the Azure portal.
+Quickly create and query a Synapse SQL pool (data warehouse) in Azure Synapse Analytics (formerly SQL DW) using the Azure portal.
 
 ## Prerequisites
 
