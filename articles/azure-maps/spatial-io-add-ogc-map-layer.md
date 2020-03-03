@@ -10,7 +10,6 @@ services: azure-maps
 manager: philmea
 ---
 
-
 ## Add an OGC map layer
 
 The `atlas.layer.OgcMapLayer` class adds support for overlaying imagery from Web Mapping Services (WMS) and Web Mapping Tile Services (WMTS) on top of the map. 
@@ -45,7 +44,7 @@ The following outlines the web mapping service features supported by the `OgcMap
 
 ## Overlay an OGC map layer
 
-The `url` can be the base URL for the service or a full URL with the query for getting the capabilities of the service. Depending on the details provided, the WFS client may try several different standard URL formats to determine how to access the service initially. 
+The `url` can be the base URL for the service or a full URL with the query for getting the capabilities of the service. Depending on the details provided, the WFS client may try several standard URL formats to determine how to initially access the service. 
 
 The following code shows how to overlay an OGC map layer on the map. 
 
@@ -56,13 +55,23 @@ The following code shows how to overlay an OGC map layer on the map.
 
 ## OGC map layer options
 
-//TODO: codepen - OGC map layer options (Have this show the results tab like the layer options examples)
+The below sample demonstrates the different  OGC map layer options. You may click on the code pen button at the top right corner, to edit the code pen.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='OGC map layer options' src='/codepen.io/azuremaps/embed/abOyEVQ/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>OGC map layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## OGC Web Map Service explorer
 
-The following code sample is a tool for viewing Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map, as well as being able to select which layers in the service are rendered and display the associated legends.
+The following code sample is a tool for viewing Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map. You may select which layers in the service are rendered, and you may display the associated legends for these layers.
 
-//TODO: codepen - OGC Web Map Service explorer (Have this show the results tab like the layer options examples)
+<br/>
+
+<iframe height='500' scrolling='no' title='OGC Web Map Service explorer' src='/codepen.io/azuremaps/embed/YzXxYdX/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>OGC Web Map Service explorer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+You may also specify the map settings to use a proxy service. With the proxy service, you can load resources that are hosted on domains that don't have CORs enabled.
 
 ## Next steps
 

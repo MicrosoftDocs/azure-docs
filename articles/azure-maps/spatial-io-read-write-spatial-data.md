@@ -72,11 +72,11 @@ var proxyServiceUrl = window.location.origin + '/CorsEnabledProxyService.ashx?ur
 //Read a KML file from a URL or pass in a raw KML string.
 atlas.io.read('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/2007SanDiegoCountyFires.kml', {
     //Optionally provide a proxy service for accessing cross domain assets that may not have CORs enabled.
-	proxyService: proxyServiceUrl
+    proxyService: proxyServiceUrl
 }).then(async r => {
-	if (r) {
-		// Some code goes here . . .
-	}
+    if (r) {
+        // Some code goes here . . .
+    }
 });
 
 ```
@@ -125,9 +125,9 @@ function readData(data, fileName) {
             }).then(
                 //Success
                 function (r) {
-					//some code goes here ...
-				}
-			);
+                    //some code goes here ...
+                }
+            );
 }
 ```
 
