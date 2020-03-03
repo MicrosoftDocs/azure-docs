@@ -250,7 +250,7 @@
       "redirect_url": "/azure/virtual-machines/",
       "redirect_document_id": false
     },
-    {  
+    {
       "source_path": "articles/virtual-machines/dc-series.md",
       "redirect_url": "/azure/virtual-machines/sizes-previous-gen",
       "redirect_document_id": false
@@ -525,7 +525,7 @@
       "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
       "redirect_document_id": false
     },
- 
+
     {
       "source_path": "articles/machine-learning/service/quickstart-get-started.md",
       "redirect_url": "/azure/machine-learning/service/tutorial-1st-experiment-sdk-setup",
@@ -828,7 +828,7 @@
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/publish-kb-nodejs",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
     },
     {
@@ -846,6 +846,78 @@
       "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-csharp.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-go.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-java.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-python.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-csharp.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-go.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-java.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-python.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-csharp.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-go.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-java.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-python.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
+      "redirect_document_id": false
+    },
+
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-bot-csharp-appinsights.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4",
@@ -6697,6 +6769,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/connectors/connectors-create-api-googledrive.md",
+      "redirect_url": "https://docs.microsoft.com/connectors/googledrive/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
       "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/create-web-api-connector",
       "redirect_document_id": true
@@ -7184,6 +7261,26 @@
     {
       "source_path": "articles/azure-functions/create-cli.md",
       "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-create-first-function-python.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-create-first-function-powershell.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-functions/functions-add-output-binding-storage-queue-python.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python",
       "redirect_document_id": false
     },
     {
@@ -13850,7 +13947,7 @@
       "source_path": "articles/cosmos-db/geospatial.md",
       "redirect_url": "/azure/cosmos-db/sql-query-geospatial-intro",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/documentdb/documentdb-get-started-quickstart.md",
       "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-documentdb-dotnet",
@@ -25802,6 +25899,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/authorize-active-directory-cli.md",
+      "redirect_url": "/azure/storage/common/authorize-data-operations-cli",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/common/storage-account-manage.md",
       "redirect_url": "/azure/storage/common/storage-account-keys-manage",
       "redirect_document_id": true
@@ -29302,6 +29404,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/hdinsight/kafka/apache-kafka-byok.md",
+      "redirect_url": "/azure/hdinsight/disk-encryption",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-apache-kafka-connect-vpn-gateway.md",
       "redirect_url": "/azure/hdinsight/kafka/apache-kafka-connect-vpn-gateway",
       "redirect_document_id": true
@@ -32512,6 +32619,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/sdk-csharp-quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-custom-search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-custom-search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-custom-search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Autosuggest/bing-autosuggest-supported-languages.md",
       "redirect_url": "/azure/cognitive-services/bing-autosuggest/language-support",
       "redirect_document_id": true
@@ -34889,6 +35011,76 @@
     {
       "source_path": "articles/cognitive-services/academic-knowledge/index.md",
       "redirect_url": "/azure/cognitive-services/academic-knowledge/home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/home.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/QueryExpressionSyntax.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-query-expression-syntax",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/EntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/AffiliationEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-affiliation-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/AuthorEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-author-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/ConferenceInstanceEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-conference-instance-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/ConferenceSeriesEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-conference-series-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/FieldsOfStudyEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-field-of-study-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/JournalEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-journal-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/PaperEntityAttributes.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-paper-entity-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/CalcHistogramMethod.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-calchistogram-method",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/EvaluateMethod.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-evaluate-method",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/InterpretMethod.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-interpret-method",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/academic-knowledge/SimilarityMethod.md",
+      "redirect_url": "https://docs.microsoft.com/academic-services/project-academic-knowledge/reference-similarity-method",
       "redirect_document_id": false
     },
     {
@@ -41505,7 +41697,7 @@
       "source_path": "articles/azure-monitor/log-query/log-query-performance.md",
       "redirect_url": "/azure/azure-monitor/log-query/query-optimization",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
@@ -46498,6 +46690,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/howto-password-ban-bad-configure.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-configure-custom-password-protection",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
       "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
       "redirect_document_id": false
@@ -48960,7 +49157,7 @@
     {
       "source_path": "articles/azure-monitor/app/hockeyapp-bridge-app.md",
       "redirect_url": "/azure/azure-monitor/overview",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/tutorial-build-deploy-jenkins.md",
@@ -48970,7 +49167,7 @@
     {
       "source_path": "articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md",
       "redirect_url": "/azure/jenkins/tutorial-jenkins-github-docker-cicd",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/container-instances/container-instances-jenkins.md",
@@ -48996,6 +49193,6 @@
       "source_path": "articles/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins.md",
       "redirect_url": "/azure/jenkins/service-fabric-cicd-your-linux-applications-with-jenkins",
       "redirect_document_id": true
-    }
+    },
   ]
 }
