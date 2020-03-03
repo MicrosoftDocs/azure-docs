@@ -74,7 +74,7 @@ If you find a running-related performance problem, your goal is to identify the 
 
 ### <a name="ParamSniffing"></a> Queries that have PSP problems
 
-A parameter sensitive plan (PSP) problem happens when the query optimizer generates a query execution plan that's optimal only for a specific parameter value (or set of values) and the cached plan is then not optimal for parameter values that are used in consecutive executions. Plans that aren't optimal can then cause query performance problems and degrade overall workload throughput. 
+A parameter sensitive plan (PSP) problem happens when the query optimizer generates a query execution plan that's optimal only for a specific parameter value (or set of values) and the cached plan is then not optimal for parameter values that are used in consecutive executions. Plans that aren't optimal can then cause query performance problems and degrade overall workload throughput.
 
 For more information on parameter sniffing and query processing, see the [Query-processing architecture guide](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
 
@@ -97,12 +97,12 @@ For more information about resolving PSP problems, see these blog posts:
 
 ### Compile activity caused by improper parameterization
 
-When a query has literals, either the database engine automatically parameterizes the statement or a user explicitly parameterizes the statement to reduce the number of compilations. A high number of compilations for a query using the same pattern but different literal values can result in high CPU usage. Similarly, if you only partially parameterize a query that continues to have literals, the database engine doesn't parameterize the query further.  
+When a query has literals, either the database engine automatically parameterizes the statement or a user explicitly parameterizes the statement to reduce the number of compilations. A high number of compilations for a query using the same pattern but different literal values can result in high CPU usage. Similarly, if you only partially parameterize a query that continues to have literals, the database engine doesn't parameterize the query further.
 
 Here's an example of a partially parameterized query:
 
 ```sql
-SELECT * 
+SELECT *
 FROM t1 JOIN t2 ON t1.c1 = t2.c1
 WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
@@ -112,16 +112,16 @@ In this example, `t1.c1` takes `@p1`, but `t2.c2` continues to take GUID as lite
 The following query shows the count of queries by query hash to determine whether a query is properly parameterized:
 
 ```sql
-SELECT  TOP 10  
+SELECT TOP 10
   q.query_hash
   , count (distinct p.query_id ) AS number_of_distinct_query_ids
   , min(qt.query_sql_text) AS sampled_query_text
 FROM sys.query_store_query_text AS qt
   JOIN sys.query_store_query AS q
      ON qt.query_text_id = q.query_text_id
-  JOIN sys.query_store_plan AS p 
+  JOIN sys.query_store_plan AS p
      ON q.query_id = p.query_id
-  JOIN sys.query_store_runtime_stats AS rs 
+  JOIN sys.query_store_runtime_stats AS rs
      ON rs.plan_id = p.plan_id
   JOIN sys.query_store_runtime_stats_interval AS rsi
      ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
@@ -135,32 +135,33 @@ ORDER BY count (distinct p.query_id) DESC
 ### Factors that affect query plan changes
 
 A query execution plan recompilation might result in a generated query plan that differs from the original cached plan. An existing original plan might be automatically recompiled for various reasons:
-- Changes in the schema are referenced by the query.
-- Data changes to the tables are referenced by the query. 
-- Query context options were changed.
+
+- Changes in the schema are referenced by the query
+- Data changes to the tables are referenced by the query
+- Query context options were changed
 
 A compiled plan might be ejected from the cache for various reasons, such as:
 
-- Instance restarts.
-- Database-scoped configuration changes.
-- Memory pressure.
-- Explicit requests to clear the cache.
+- Instance restarts
+- Database-scoped configuration changes
+- Memory pressure
+- Explicit requests to clear the cache
 
 If you use a RECOMPILE hint, a plan won't be cached.
 
 A recompilation (or fresh compilation after cache eviction) can still result in the generation of a query execution plan that's identical to the original. When the plan changes from the prior or original plan, these explanations are likely:
 
-- **Changed physical design**: For example, newly created indexes more effectively cover the requirements of a query. The new indexes might be used on a new compilation if the query optimizer decides that using that new index is more optimal than using the data structure that was originally selected for the first version of the query execution.  Any physical changes to the referenced objects might result in a new plan choice at compile time.
+- **Changed physical design**: For example, newly created indexes more effectively cover the requirements of a query. The new indexes might be used on a new compilation if the query optimizer decides that using that new index is more optimal than using the data structure that was originally selected for the first version of the query execution. Any physical changes to the referenced objects might result in a new plan choice at compile time.
 
-- **Server resource differences**: When a plan in one system differs from the plan in another system, resource availability, such as the number of available processors, can influence which plan gets generated.  For example, if one system has more processors, a parallel plan might be chosen. 
+- **Server resource differences**: When a plan in one system differs from the plan in another system, resource availability, such as the number of available processors, can influence which plan gets generated. For example, if one system has more processors, a parallel plan might be chosen.
 
-- **Different statistics**: The statistics associated with the referenced objects might have changed or might be materially different from the original system's statistics.  If the statistics change and a recompilation happens, the query optimizer uses the statistics starting from when they changed. The revised statistics' data distributions and frequencies might differ from those of the original compilation.  These changes are used to create cardinality estimates. (*Cardinality estimates* are the number of rows that are expected to flow through the logical query tree.) Changes to cardinality estimates might lead you to choose different physical operators and associated orders of operations.  Even minor changes to statistics can result in a changed query execution plan.
+- **Different statistics**: The statistics associated with the referenced objects might have changed or might be materially different from the original system's statistics. If the statistics change and a recompilation happens, the query optimizer uses the statistics starting from when they changed. The revised statistics' data distributions and frequencies might differ from those of the original compilation. These changes are used to create cardinality estimates. (*Cardinality estimates* are the number of rows that are expected to flow through the logical query tree.) Changes to cardinality estimates might lead you to choose different physical operators and associated orders of operations. Even minor changes to statistics can result in a changed query execution plan.
 
-- **Changed database compatibility level or cardinality estimator version**:  Changes to the database compatibility level can enable new strategies and features that might result in a different query execution plan.  Beyond the database compatibility level, a disabled or enabled trace flag 4199 or a changed state of the database-scoped configuration QUERY_OPTIMIZER_HOTFIXES can also influence query execution plan choices at compile time.  Trace flags 9481 (force legacy CE) and 2312 (force default CE) also affect the plan. 
+- **Changed database compatibility level or cardinality estimator version**: Changes to the database compatibility level can enable new strategies and features that might result in a different query execution plan. Beyond the database compatibility level, a disabled or enabled trace flag 4199 or a changed state of the database-scoped configuration QUERY_OPTIMIZER_HOTFIXES can also influence query execution plan choices at compile time. Trace flags 9481 (force legacy CE) and 2312 (force default CE) also affect the plan.
 
 ### Resolve problem queries or provide more resources
 
-After you identify the problem, you can either tune the problem queries or upgrade the compute size or service tier to increase the capacity of your SQL database to absorb the CPU requirements. 
+After you identify the problem, you can either tune the problem queries or upgrade the compute size or service tier to increase the capacity of your SQL database to absorb the CPU requirements.
 
 For more information, see [Scale single database resources in Azure SQL Database](sql-database-single-database-scale.md) and [Scale elastic pool resources in Azure SQL Database](sql-database-elastic-pool-scale.md). For information about scaling a managed instance, see [Service-tier resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
@@ -171,22 +172,22 @@ An increase in application traffic and workload volume can cause increased CPU u
 - Are the queries from the application the cause of the high-CPU problem?
 - For the top CPU-consuming queries that you can identify:
 
-   - Were multiple execution plans associated with the same query? If so, why?
-   - For queries with the same execution plan, were the execution times consistent? Did the execution count increase? If so, the workload increase is likely causing performance problems.
+  - Were multiple execution plans associated with the same query? If so, why?
+  - For queries with the same execution plan, were the execution times consistent? Did the execution count increase? If so, the workload increase is likely causing performance problems.
 
 In summary, if the query execution plan didn't execute differently but CPU usage increased along with execution count, the performance problem is likely related to a workload increase.
 
-It's not always easy to identify a workload volume change that's driving a CPU problem. Consider these factors: 
+It's not always easy to identify a workload volume change that's driving a CPU problem. Consider these factors:
 
-- **Changed resource usage**: For example, consider a scenario where CPU usage increased to 80 percent for an extended period of time.  CPU usage alone doesn't mean the workload volume changed. Regressions in the query execution plan and changes in data distribution can also contribute to more resource usage even though the application executes the same workload.
+- **Changed resource usage**: For example, consider a scenario where CPU usage increased to 80 percent for an extended period of time. CPU usage alone doesn't mean the workload volume changed. Regressions in the query execution plan and changes in data distribution can also contribute to more resource usage even though the application executes the same workload.
 
 - **The appearance of a new query**: An application might drive a new set of queries at different times.
 
 - **An increase or decrease in the number of requests**: This scenario is the most obvious measure of a workload. The number of queries doesn't always correspond to more resource utilization. However, this metric is still a significant signal, assuming other factors are unchanged.
 
-## Waiting-related performance problems 
+## Waiting-related performance problems
 
-If you're sure that your performance problem isn't related to high CPU usage or to running, your problem is related to waiting. Namely, your CPU resources aren't being used efficiently because the CPU is waiting on some other resource. In this case, identify what your CPU resources are waiting on. 
+If you're sure that your performance problem isn't related to high CPU usage or to running, your problem is related to waiting. Namely, your CPU resources aren't being used efficiently because the CPU is waiting on some other resource. In this case, identify what your CPU resources are waiting on.
 
 These methods are commonly used to show the top categories of wait types:
 
