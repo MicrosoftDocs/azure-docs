@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: vijetaj
+author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
@@ -205,11 +205,11 @@ To deploy the decision tree code from the preceding section, sign in to Azure Ma
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
         }
 
-1. Create a setting.json file for this workspace:
+1. Create a settings.json file for this workspace:
 
         vim ~/.azureml/settings.json
 
-1. Make sure the following contents are put inside settings.json
+1. Make sure the following contents are put inside settings.json:
 
          {"workspace":{
            "id": "<workspace-id>",
