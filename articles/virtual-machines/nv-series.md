@@ -2,7 +2,7 @@
  title: NV-series - Azure Virtual Machines
  description: Specifications for the NV-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: vikancha
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -19,6 +19,10 @@ Premium Storage:  Not Supported
 
 Premium Storage caching:  Not Supported
 
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_NV6  | 6  | 56  | 340  | 1 | 8  | 24 | 1 | 1 | 25  |
@@ -33,9 +37,9 @@ Premium Storage caching:  Not Supported
 
 To take advantage of the GPU capabilities of Azure N-series VMs, NVIDIA GPU drivers must be installed.
 
-The [NVIDIA GPU Driver Extension](/extensions/hpccompute-gpu-windows.md) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](/extensions/hpccompute-gpu-windows.md) for supported operating systems and deployment steps. For general information about VM extensions, see [Azure virtual machine extensions and features](/extensions/overview.md).
+The [NVIDIA GPU Driver Extension](./extensions/hpccompute-gpu-windows.md) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](./extensions/hpccompute-gpu-windows.md) for supported operating systems and deployment steps. For general information about VM extensions, see [Azure virtual machine extensions and features](./extensions/overview.md).
 
-If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver setup for Windows](/windows/n-series-driver-setup.md) or [N-series GPU driver setup for Linux](/linux/n-series-driver-setup) for supported operating systems, drivers, installation, and verification steps.
+If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver setup for Windows](./windows/n-series-driver-setup.md) or [N-series GPU driver setup for Linux](./linux/n-series-driver-setup.md) for supported operating systems, drivers, installation, and verification steps.
 
 ## Other sizes
 

@@ -2,7 +2,7 @@
  title: Fsv2-series - Azure Virtual Machines
  description: Specifications for the Fsv2-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: brbell
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -20,6 +20,10 @@ ACU: 195 - 210
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
+
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
 
 | Size | vCPU's | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|

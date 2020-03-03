@@ -2,14 +2,14 @@
 title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: Specify the ClaimsSchema element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -60,7 +60,7 @@ PredicateValidationReference| 0:1 | A reference to a **PredicateValidationsInput
 The **DataType** element supports the following values:
 
 | Type | Description |
-| ------- | ----------- | 
+| ------- | ----------- |
 |boolean|Represents a Boolean (`true` or `false`) value.|
 |date| Represents an instant in time, typically expressed as a date of a day. The value of the date follows ISO 8601 convention.|
 |dateTime|Represents an instant in time, typically expressed as a date and time of day. The value of the date follows ISO 8601 convention.|
@@ -207,7 +207,7 @@ The **Pattern** element can contain the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | RegularExpression | Yes | The regular expression that claims of this type must match in order to be valid. |
-| HelpText | No | The pattern or regular expression for this claim. |
+| HelpText | No | An error message for users if the regular expression check fails. |
 
 The following example configures an **email** claim with regular expression input validation and help text:
 
