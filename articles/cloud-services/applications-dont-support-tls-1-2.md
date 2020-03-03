@@ -228,7 +228,7 @@ Here is an example that shows both the worker role and web role.
 	</WebRole> 
 <WorkerRolename="WorkerRole1"vmsize="Standard_D1_v2"> 
 	<Startup> 
-		<Task executionContext="elevated"taskType="simple"commandLine="RunTLSSettings.cmd"> 
+		<Task executionContext="elevated" taskType="simple" commandLine="RunTLSSettings.cmd"> 
 		</Task> 
 	</Startup> 
 </WorkerRole> 
