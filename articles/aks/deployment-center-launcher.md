@@ -34,7 +34,7 @@ In this tutorial, you will:
 
 1. To create the AKS cluster, run the following commands:
 
-    ```cmd
+    ```azurecli
     # Create a resource group in the South India location:
 
     az group create --name azooaks --location southindia

@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting - Personalizer
 description: This article contains answers to frequently asked troubleshooting questions about Personalizer.
-ms.topic: conceptual
-ms.date: 02/18/2020
+ms.topic: troubleshooting
+ms.date: 02/26/2020
 ms.author: diberry
 ---
 # Personalizer Troubleshooting
@@ -28,6 +28,19 @@ These issues should be transparent. If they continue, contact support by selecti
 </details>
 
 ## Learning loop
+
+<details>
+<summary>
+<b>The learning loop doesn't attain a 100% match to the system without Personalizer. How do I fix this?</b></summary>
+
+**Answer**: The reasons you don't attain your goal with the learning loop:
+* Not enough features sent with Rank API call
+* Bugs in the features sent - such as sending non-aggregated feature data such as timestamps to Rank API
+* Bugs with loop processing - such as not sending reward data to Reward API for events
+
+To fix, you need to change the processing by either changing the features sent to the loop, or make sure the reward is a correct evaluation of the quality of the Rank's response.
+
+</details>
 
 <details>
 <summary>
@@ -88,7 +101,7 @@ When the new update period begins, the updated model is used, and you’ll see t
 <summary><b>How do I import a learning policy?</b></summary>
 
 **Answer**:
-Learn more about [learning policy concepts](concept-active-learning.md#understand-learning-policy-settings) and [how to apply](how-to-learning-policy.md) a new learning policy. If you do not want to select a learning policy, you can use the [offline evaluation](how-to-offline-evaluation.md) to suggest a learning policy, based on your current events.
+Learn more about [learning policy concepts](concept-active-learning.md#understand-learning-policy-settings) and [how to apply](how-to-manage-model.md) a new learning policy. If you do not want to select a learning policy, you can use the [offline evaluation](how-to-offline-evaluation.md) to suggest a learning policy, based on your current events.
 
 </details>
 
