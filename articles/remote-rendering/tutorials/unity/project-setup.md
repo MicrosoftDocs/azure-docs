@@ -573,8 +573,9 @@ Insert the following code into the *RemoteRendering* script and remove the old v
 #endif
 
         // load a model that will be parented to the entity
-        var loadModelParams = new LoadModelParams(ModelName, modelEntity);
-        var async = arrService.CurrentActiveSession.Actions.LoadModelAsync(loadModelParams);
+        // We are using the 'from SAS' flavor because that variant can load the built-in model
+        var loadModelParams = new LoadModelFromSASParams(ModelName, modelEntity);
+        var async = arrService.CurrentActiveSession.Actions.LoadModelFromSASAsync(loadModelParams);
         async.ProgressUpdated += (float progress) =>
         {
             Debug.Log($"Loading: {progress * 100.0f}%");

@@ -27,15 +27,22 @@ Creating models for runtime is achieved by [converting input models](../how-tos/
 
 ## Loading models
 
-Once a model is converted, you should have a SAS URI to the conversion output. This URI can then be used to instantiate the model:
+Once a model is converted, it can be loaded from Azure blob storage into the runtime.
+
+There are two distinct loading functions that differ by the way the asset is addressed in blob storage:
+
+* The model can be addressed by its SAS URI. Relevant loading function is `LoadModelFromSASAsync` with parameter `LoadModelFromSASParams`. Use this variant also when loading [built-in models](../samples/sample-model.md).
+* The model can be addressed by blob storage parameters directly, in case the [blob storage is linked to the account](../create-an-account.md#link-storage-accounts). Relevant loading function in this case is `LoadModelAsync` with parameter `LoadModelParams`.
+
+The following sample code shows how to load a model via its SAS URI - note that only the loading function/parameter differs for the other case:
 
 ```csharp
 async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
 {
     // load a model that will be parented to modelParent
-    var modelParams = new LoadModelParams(modelUri, modelParent);
+    var modelParams = new LoadModelFromSASParams(modelUri, modelParent);
 
-    var loadOp = session.Actions.LoadModelAsync(modelParams);
+    var loadOp = session.Actions.LoadModelFromSASAsync(modelParams);
 
     loadOp.ProgressUpdated += (float progress) =>
     {

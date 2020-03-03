@@ -9,7 +9,7 @@ ms.topic: article
 
 # The session management REST API
 
-To use Azure Remote Rendering functionality, you need to create a *session*. Each session corresponds to a virtual machine (VM) being allocated in Azure and waiting for a client device to connect. When a device connects, the VM renders the requested data and serves the result as a video stream. During session creation you chose which kind of server you want to run on, which determines prizing. Once the session is not needed anymore, it should be stopped. If not stopped manually, it will be shut down automatically when the session's *lease time* expires.
+To use Azure Remote Rendering functionality, you need to create a *session*. Each session corresponds to a virtual machine (VM) being allocated in Azure and waiting for a client device to connect. When a device connects, the VM renders the requested data and serves the result as a video stream. During session creation, you chose which kind of server you want to run on, which determines prizing. Once the session is not needed anymore, it should be stopped. If not stopped manually, it will be shut down automatically when the session's *lease time* expires.
 
 We provide a PowerShell script in the [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient?path=%2FScripts), called *RenderingSession.ps1*, which demonstrates the use of our service. The script and its configuration are described here: [Example PowerShell scripts](../samples/powershell-example-scripts.md)
 
@@ -30,7 +30,7 @@ $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 
 ## Accounts
 
-If you don't have a Remote Rendering account, [create one](create-an-account.md). Each resource is identified by an *accountId* which is used throughout the session APIs.
+If you don't have a Remote Rendering account, [create one](create-an-account.md). Each resource is identified by an *accountId*, which is used throughout the session APIs.
 
 ### Example script: Set accountId and accountKey
 
@@ -106,7 +106,7 @@ RawContentLength  : 52
 
 ### Example script: Store sessionId
 
-The response from the request above includes a **sessionId** which you need for all followup requests.
+The response from the request above includes a **sessionId**, which you need for all followup requests.
 
 ```PowerShell
 $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
