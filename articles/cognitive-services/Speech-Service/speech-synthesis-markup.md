@@ -190,6 +190,7 @@ By default, the text-to-speech service synthesizes text using a neutral speaking
 
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-JessaNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 
 Changes are applied at the sentence level, and style vary by voice. If a style isn't supported, the service will return speech in the default neutral speaking style.
@@ -215,6 +216,7 @@ Use this table to determine which speaking styles are supported for each neural 
 | | `type="chat"` | Speak in a casual, relaxed tone |
 | | `type="newscast"` | Expresses a formal tone, similar to news broadcasts |
 | | `type="customerservice"` | Speak in a friendly and patient way as customer service |
+| `pt-BR-FranciscaNeural` | `type="cheerful"` | Expresses an emotion that is positive and happy |
 | `zh-CN-XiaoxiaoNeural` | `type="newscast"` | Expresses a formal tone, similar to news broadcasts |
 | | `type="sentiment"` | Conveys a touching message or a story |
 
