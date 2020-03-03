@@ -39,7 +39,7 @@ A single [NAT gateway resource](nat-gateway-resource.md) supports from 64,000 up
 #### Steps:
 
 1. Investigate how your application is creating outbound connectivity (for example, code review or packet capture). 
-2. Understand if what is observed is expected behavior or whether the application is misbehaving.  Use metrics in Azure Monitor to substantiate your findings.
+2. Determine if this activity is expected behavior or whether the application is misbehaving.  Use metrics in Azure Monitor to substantiate your findings.
 3. Evaluate if appropriate patterns are followed.
 4. Evaluate if SNAT port exhaustion should be mitigated with additional IP addresses assigned to NAT gateway resource.
 
@@ -47,9 +47,9 @@ A single [NAT gateway resource](nat-gateway-resource.md) supports from 64,000 up
 
 Always take advantage of connection reuse and connection pooling whenever possible.  This pattern will avoid resource exhaustion problems outright and result in predictable behavior. Primitives for these patterns can be found in many development libraries and frameworks.
 - Consider [asynchronous polling patterns](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) for long-running operations to free up connection resources for other operations.
-- Long-lived flows (for example TCP connections being reused) should use TCP keepalives or application layer keepalives to avoid intermediate systems timing out.
+- Long-lived flows (for example reused TCP connections) should use TCP keepalives or application layer keepalives to avoid intermediate systems timing out.
 - Graceful [retry patterns](https://docs.microsoft.com/azure/architecture/patterns/retry) should be used to avoid aggressive retries/bursts during transient failure or failure recovery.
-Creating a new TCP connection for every HTTP operation (also known as "atomic connections") is an anti-pattern.  Atomic connections will prevent your application from scaling well and waste resources.  Always pipeline multiple operations into the same connection.  Your application will benefit in transaction speed and resource costs due to reduced overhead of TCP connections being set up and torn down.  When your application uses transport layer encryption (for example TLS), there is also significant cost associated with the processing of new connections.  Review [Azure Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns/) for additional best practice patterns.
+Creating a new TCP connection for every HTTP operation (also known as "atomic connections") is an anti-pattern.  Atomic connections will prevent your application from scaling well and waste resources.  Always pipeline multiple operations into the same connection.  Your application will benefit in transaction speed and resource costs.  When your application uses transport layer encryption (for example TLS), there's a significant cost associated with the processing of new connections.  Review [Azure Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns/) for additional best practice patterns.
 
 #### Mitigations
 
@@ -57,17 +57,17 @@ You can scale outbound connectivity as follows:
 
 | Scenario | Mitigation |
 |---|---|
-| You are experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | Check if you can add additional public IP address resources or public IP prefix resources for up to 16 IP addresses in total to your NAT gateway. This will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
-| You have already allocated 16 IP addresses and still are experiencing SNAT port exhaustion. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet. |
+| You're experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | Determine if you can add additional public IP address resources or public IP prefix resources. This addition will allow for up to 16 IP addresses in total to your NAT gateway. This addition will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
+| You've already given 16 IP addresses and still are experiencing SNAT port exhaustion. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet. |
 
 >[!NOTE]
 >It is important to understand why SNAT exhaustion occurs. Make sure you are using the right patterns for scalable and reliable scenarios.  Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports to the inventory by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns.
 
 ### ICMP ping is failing
 
-[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols. ICMP is not supported and expected to fail.  Instead, use TCP connection tests (for example "TCP ping") and UDP specific application layer tests to validate end to end connectivity.
+[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols. ICMP isn't supported and expected to fail.  Instead, use TCP connection tests (for example "TCP ping") and UDP-specific application layer tests to validate end to end connectivity.
 
-The following table can be used a starting point for which tools to use to initiate tests.
+The following table can be used a starting point for which tools to use to start tests.
 
 | Operating system | Generic TCP connection test | TCP application layer test | UDP |
 |---|---|---|---|
