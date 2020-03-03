@@ -212,6 +212,9 @@
     - name: Create datasets with labels
       displayName: data, labels, torchvision
       href: how-to-use-labeled-dataset.md
+    - name: Data ingestion with Azure Data Factory
+      displayName: data, ingestion, adf
+      href: how-to-data-ingest-adf.md
     - name: DevOps for data ingestion
       displayName: data, ingestion, devops
       href: how-to-cicd-data-ingestion.md
